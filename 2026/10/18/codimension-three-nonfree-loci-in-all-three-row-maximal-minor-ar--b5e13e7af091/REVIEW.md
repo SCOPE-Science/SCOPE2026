@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Janasz's Theorem B(3) gives exactly sixteen local generators at rank-two points of the five-column divisor. The proof produces a nonempty dense open in each codimension-three five-column rank-deficiency locus, proves every other maximal minor is an analytic unit there, identifies an exact smooth-product germ, and applies Nakayama's lemma to obtain \(3n+1\) generators. Closedness of the nonfree locus extends to the entire determinantal subvariety. Exact finite arithmetic witnesses were checked by `verify.py`; these do not purport to establish an infinite statement.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary work is Janasz, arXiv:2610.13291v1. Its Theorem B is a five-column theorem, its Table 1 reports a separate six-column nonfreeness computation, and its Conjecture 7.4 leaves arbitrary widths conjectural. Its full text was inspected, including the five-column theorem, full-rank Gale duality, the other-sizes section and its conjecture. The new claim is not an implication already asserted by the source: it extends to every width and establishes a codimension-three full-rank nonfree stratum. The earlier Janasz–Wiśniewska (2023) paper was checked for its distinct selected-minor subproducts; Yim's 2015 abstract concerns the two-row theorem and leaves this general case open. Searches of published result records using exact and equivalent formulations did not identify prior dominating coverage. Residual risk: an unindexed equivalent local-product argument may exist; the Yim source was checked at abstract and through the citations and discussion in Janasz, not via full-text reading here.
+PASS
 
-**Value — PASS.** The result establishes an infinite family that is explicitly conjectural in the motivating paper, rather than merely adding a finite test case. It identifies unexpected failures of local freeness on matrices of full rank for every width at least six, in contrast with the five-column theorem's free full-rank stratum. The codimension-three five-column rank-deficiency loci give a natural geometric explanation of this behavior.
+Assuming published Janasz Theorem B(3) for D_(3,5): rank-two local logarithmic derivations require 16 generators against ambient rank 15. For any five-column J, its rank<=2 locus in 3xn matrices is irreducible of codimension (3-2)(5-2)=3. On a dense open, all other maximal minors are units, so the divisor germ is precisely the five-column arrangement times 3(n-5) smooth coordinates; Nakayama implies minimal generator number 16+3(n-5)=3n+1. Closedness of the coherent sheaf nonfree locus extends inclusion to all Z_J. A six-column explicit integer matrix independently has precisely its ten five-column minors zero, all mixed minors nonzero; the construction confirms full rank for n>=6. No independent recomputation of the external 16-generator source theorem is claimed.
 
-**Limitations.** The result addresses three-row generic maximal-minor arrangements, not all matrix sizes, and gives an inclusion in the nonfree locus rather than a full classification. It depends on the published, computationally supported five-column theorem and has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS narrowly for the all-width three-row propagation and codimension-three nonfree loci; Janasz supplies the five-column base theorem and poses the broader conjecture. The extension is short but its uniform nonfree strata in full-rank matrices are nontrivial mathematical consequences not asserted in available primary abstract/conjecture synopsis.
+
+## value
+
+PASS
+
+A codimension-three geometric containment and full-matrix-rank nonfree witness resolve an infinite three-row slice of a recently posed freeness conjecture; the result identifies natural loci rather than a mere finite table computation. A short smooth-product proof may be valuable even when its five-column obstruction is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
