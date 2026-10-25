@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positivity domain, elliptic levels, canonical invariant two-form, and Hamiltonian Lie field follow by direct algebra; symbolic checks cover the latter identities. The published proper parametrization identifies the Hamiltonian flow with the Riccati equation without time rescaling, giving its exact period. A smooth once-per-oval transversal and the flow-box/coarea identity yield a global symplectic chart and exact action. The signed map displacement, checked both from the published rotation formula and an independent Riccati integral, gives the universal unit twist. Four independent logarithmic-area quadratures and six time-shift integrals support numerical normalization, not infinity claims. Scientific risks are limited to reliance on the cited explicit Lie-flow conjugation (verified from its original full exposition) and proper distinction between the elliptic and exterior regions.
+## correctness
 
-## Originality — PASS, best-knowledge with priority risk
-The motivating 2015 paper's full treatment explicitly has per-oval angles, invariant conics, Lie symmetry and density, but not a global normalized action, exact total logarithmic symplectic area, or the universal unit-twist shear. Their Lie field and Möbius rotation formula are acknowledged, and the new nontrivial identification is the exact conversion between the published energy coordinate and canonical area, with all-level global smooth normalization. Standard action–angle theorems guarantee local coordinates but do not calculate this map's twist coefficient or total measure. Comparisons against named nearby research findings and both accessible claim ledgers did not reveal a stronger claim. The full 2004 source was unavailable, though the 2015 paper explicitly describes it as a periodic-structure reference; historical priority remains a genuine residual risk.
+PASS
 
-## Value — PASS
-A full nonlinear area-preserving integrable system becomes the parameter-independent standard shear in *canonical* coordinates, with an exact sharp twist coefficient and complete finite invariant-area distribution. These are structural and quantitative objects relevant to understanding frequency statistics and potential perturbative analyses, beyond an arbitrary algebraic integral or isolated closed orbit; no unproved perturbation theorem is asserted. The global area/frequency law is a natural whole-component invariant, not a chosen narrow slice.
+For a>1/4, F_a(x,y)=(y,(a−y+y²)/x) is positive and smooth on (0,∞)^2; V=(x²+y²−x−y+a)/(xy) is invariant and ω=dx∧dy/(xy) is symplectically preserved. The vector field X=xy(−V_y,V_x) satisfies i_X ω=−dV and is the Lie symmetry whose EXACT time, not a time-rescaling, is conjugate on each elliptic conic h∈(h_c,2) to dz/dt=1−hz+z², period T(h)=2π/sqrt(4−h²). Diagonal high-intersection section z_+(h) is a smooth unique transversal per oval. Using flow time t mod T(h), ω=dh∧dt=(T/2π)dh∧dθ; canonical I(h)=∫_{h_c}^h ds/sqrt(4−s²)=φ_a−arccos(h/2), φ_a=arccos(h_c/2). The actual Möbius-map signed flow time from 0 to −1 yields Δθ=−arccos(h/2)=I−φ_a and ∂Δθ/∂I=1; area=2πφ_a and normalized I,deficit uniform. Independent SymPy verified V◦F=V, ω invariance and Hamiltonian components; analytic flow integration verifies all levels. Excludes central equilibrium and parabolic boundary; positivity requires a>1/4.
 
-## Relationship and limits
-The cited sources already establish the individual conic rotation laws and natural density. The result is restricted to the elliptic open annulus, and no unpublished 2004 content is assumed to have been excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the source already establishes invariant conics, the signed pointwise rotation formula, invariant log density and Lie-flow conjugation. The final global canonical chart, energy-to-area action integral, parameter-independent unit twist, and normalized-area uniform deficit are additional explicit quantitative deductions; novelty is a synthesis rather than independent rediscovery of the recurrence.
+
+## value
+
+PASS
+
+An explicit global CANONICAL annular shear converts a nonlinear map on all elliptic levels into a parameter-independent twist map and determines its full logarithmic area and exact rotation distribution. The unit twist and finite area are dynamical invariants potentially useful for resonance/measure calculations; they are not asserted to persist outside the stated elliptic region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

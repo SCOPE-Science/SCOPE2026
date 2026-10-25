@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:00:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>1/4, F_a(x,y)=(y,(a−y+y²)/x) is positive and smooth on (0,∞)^2; V=(x²+y²−x−y+a)/(xy) is invariant and ω=dx∧dy/(xy) is symplectically preserved. The vector field X=xy(−V_y,V_x) satisfies i_X ω=−dV and is the Lie symmetry whose EXACT time, not a time-rescaling, is conjugate on each elliptic conic h∈(h_c,2) to dz/dt=1−hz+z², period T(h)=2π/sqrt(4−h²). Diagonal high-intersection section z_+(h) is a smooth unique transversal per oval. Using flow time t mod T(h), ω=dh∧dt=(T/2π)dh∧dθ; canonical I(h)=∫_{h_c}^h ds/sqrt(4−s²)=φ_a−arccos(h/2), φ_a=arccos(h_c/2). The actual Möbius-map signed flow time from 0 to −1 yields Δθ=−arccos(h/2)=I−φ_a and ∂Δθ/∂I=1; area=2πφ_a and normalized I,deficit uniform. Independent SymPy verified V◦F=V, ω invariance and Hamiltonian components; analytic flow integration verifies all levels. Excludes central equilibrium and parabolic boundary; positivity requires a>1/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General action–angle theory guarantees canonical coordinates under regularity, but neither the total symplectic area nor the map-specific constant derivative in normalized action follows without this exact period and signed map displacement."
+        ],
+        "reasoning": "Earlier integrable-systems theory provides existence, not an explicit finite area 2πφ_a and parameter-free twist1 for this particular birational map. However a strong earlier formula under different normalization might imply both.",
+        "searches": [
+          "Lyness genus zero recurrence invariant conics action angle symplectic area unit twist rotation",
+          "arXiv:1502.03737",
+          "Arnold Liouville action angle integrable maps general theory"
+        ]
+      },
+      "checked_sources": [
+        "Llorens–Mañosa arXiv:1502.03737 §3.1 Props. 8,10, original PDF",
+        "Bastien–Rogalski DOI:10.1016/j.jmaa.2004.06.035 indexed abstract",
+        "Resultary genus-zero action-angle search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior rotation −arccos(h/2) and Lie/Riccati flow T=2π/sqrt(4−h²) combine to I=φ_a−arccos(h/2) and rotation I−φ_a; the total area is the energy-period integral over the complete elliptic interval."
+        ],
+        "reasoning": "These equalities are deducible by an explicit nontrivial normalization from prior inputs. The NEW claim is the global chart and evaluated area/twist consequences, not the prior formulas in isolation.",
+        "searches": [
+          "Lyness genus zero recurrence invariant conics action angle symplectic area unit twist rotation",
+          "arXiv:1502.03737 §3.1 Proposition 8 and Proposition 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llorens–Mañosa Propositions 8 and 10 provide V, preserved dx dy/(xy), Lie symmetry and rotation −arccos(h/2) on each conic, but do not explicitly construct global symplectic I,θ and prove unit action derivative."
+        ],
+        "reasoning": "A per-conic rotation angle is not itself an action coordinate; the exact period/coarea conversion computes a global normalized twist coefficient across all ovals.",
+        "searches": [
+          "Lyness genus zero recurrence invariant conics action angle symplectic area unit twist rotation",
+          "arXiv:1502.03737",
+          "Bastien Rogalski 2004 Lyness invariant conics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published related rotations are on a trigonometric Nosé–Hoover system, not this logarithmic symplectic genus-zero recurrence."
+        ],
+        "reasoning": "No identical annulus-action invariant in the tested published-results search; different dynamical systems cannot imply this model-specific formula.",
+        "searches": [
+          "Lyness genus zero recurrence invariant conics action angle symplectic area unit twist rotation",
+          "Resultary:SCOPE-exact-rotation-law-trigonometric-nose-hoover-axis--505b9a3beb70"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the source already establishes invariant conics, the signed pointwise rotation formula, invariant log density and Lie-flow conjugation. The final global canonical chart, energy-to-area action integral, parameter-independent unit twist, and normalized-area uniform deficit are additional explicit quantitative deductions; novelty is a synthesis rather than independent rediscovery of the recurrence.",
+      "residual_risks": [
+        "A derivation of the same canonical action chart might appear elsewhere under area-normalized conjugacy terminology.",
+        "2004 original full publication unavailable; primary 2015 treatment gives most raw inputs, so novelty must be restricted to explicit global canonical synthesis and consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ingredients V, vector field, period/rotation already established; no explicit normalized global action, exact total area or parameter-independent canonical unit shear in examined relevant part",
+          "evidence": "Proposition 8 (elliptic rotation/periodicity), Proposition 10 (Lie symmetry and invariant density).",
+          "identifier_or_url": "arXiv:1502.03737",
+          "material_read": "Original full arXiv PDF, §3.1 around pp. 9–12 including Propositions 8 and 10, Lie vector, Möbius transition and rotation",
+          "method": "Read relevant primary full-text pages and inspect page images/argument",
+          "title": "Lie Symmetries of Birational Maps Preserving Genus 0 Fibrations",
+          "trigger": "Same F_a recurrence and potential dominating explicit conjugacy"
+        },
+        {
+          "assessment": "Historical priority cannot be excluded; no assertion that the whole 2004 article lacks action-angle formulas",
+          "evidence": "Identified as recurrence/periodic-structure source by 2015 paper.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2004.06.035",
+          "material_read": "Original bibliographic/abstract information only; full publisher article not retrieved",
+          "method": "Checked indexed description and 2015 primary paper discussion of predecessors",
+          "title": "On some algebraic difference equations related to families of conics or cubics: generalization of the Lyness sequences",
+          "trigger": "Original recurrence might include uniform area/twist result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit global CANONICAL annular shear converts a nonlinear map on all elliptic levels into a parameter-independent twist map and determines its full logarithmic area and exact rotation distribution. The unit twist and finite area are dynamical invariants potentially useful for resonance/measure calculations; they are not asserted to persist outside the stated elliptic region.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real a>1/4, positive quadrant, open regular elliptic annulus h_c<V_a<2; center and parabolic/outside regions excluded; natural logarithmic symplectic area.",
+    "Originality is qualified best-of-knowledge, with named primary source materials, limits and residual risks; search failure not novelty proof.",
+    "Independent experiments cover stated finite test cases only, not unrestricted theorem.",
+    "Pinned Git source tree SHA matches assignment and returned nontruncated tree, but raw Git tree serialization not independently SHA-1 rehashed.",
+    "No publication, independent Lean proof, external expert attestation, or global priority certification was asserted."
+  ],
+  "schema_version": 1
+}
