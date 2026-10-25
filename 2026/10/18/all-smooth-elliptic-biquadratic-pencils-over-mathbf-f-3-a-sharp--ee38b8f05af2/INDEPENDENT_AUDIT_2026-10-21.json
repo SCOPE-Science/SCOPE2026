@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob fbbf15a8d5721e86730f66a2f724db48faacaf54",
+        "groebner_check22.py blob 7f6b26f71481d2778877326d1002434c3bb2d8ff",
+        "pencil22.cpp blob 61b121379c1ad9a5a205073a14d3cc8ec97c63b2",
+        "rref_pencils.cpp blob a13b8ab23abeebfdb9a909676a9e3b57df3c8c11",
+        "pencil22.out blob ddaad3fcd8e8089a2beabb925d0b7380be07414a",
+        "rref_pencils.out blob 123210e8325527cfa50e1aab6eb7c144e62fff86",
+        "witness_check.py blob f696b8e0207cc58336d94dd371e4f1e7367934df",
+        "witness.out blob 989bdbe7b572d40124c042215dad54918e04999b"
+      ],
+      "rationale": "For a bidegree-(2,2) form over F_3, writing it as A(U,V)S^2+B(U,V)ST+C(U,V)T^2 gives discriminant B^2-AC because 4=1 in characteristic three. A smooth connected (2,2) divisor is a genus-one double cover of P^1; squarefreeness of the binary quartic discriminant is equivalent to smoothness, with the endpoint-root multiplicities checked separately. The independent Jacobian-ideal check examines all four standard affine charts; Euler identities in bidegree two ensure vanishing of all homogeneous partials forces F=0. The projective coefficient space has 9841 nonzero forms up to scale; the Groebner check identifies 5184 smooth forms. Pair enumeration yields 3,594,672 bases, divisible by six, hence 599,112 pencils; the independent RREF subspace enumeration reports the same 599,112. Base-point counts are 0,1,2,3 with 115,848, 306,432, 153,792, 23,040 pencils respectively. Hasse gives b<=4; b=4 would force all four genus-one members to have seven rational points, but the complete joint-count output has no (7,7,7,7) tuple and the independent RREF distribution has no b=4. Source code and outputs were inspected, not treated as an infinite-proof substitute.",
+      "residual_risks": [
+        "The large finite enumeration was source-audited but not rerun in this execution; the claim is explicitly a finite exact classification over F_3, and the proof of b<=4 is independent of the computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 of Asgarli-Ghioca concerns a base extension and a common transverse hyperplane for all rational pencil members; the later paper constructs smooth quadric surfaces in P3. Neither counts common rational points of all-smooth (2,2) curves on a fixed P1xP1."
+        ],
+        "reasoning": "These papers do not dominate the exact finite enumeration or its maximum b=3; their geometric objects and target invariants differ.",
+        "searches": [
+          "arXiv:2004.03479v2 full PDF, Theorem 1.2 and §3",
+          "arXiv:2203.07169 full PDF, §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches on smooth biquadratic pencils over F_3",
+        "arXiv:2004.03479v2 full PDF",
+        "arXiv:2203.07169 full PDF",
+        "Actual package enumeration and Groebner/Jacobian check sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior results concern common transverse hyperplanes or existence of pencils with all smooth quadric-surface members; they do not enumerate 2D subspaces of H^0(P1xP1,O(2,2)) whose four F_3 members are smooth, nor their common F_3 base points."
+        ],
+        "reasoning": "Neither statement implies the 599112 total, the exact distribution by base-point count, or the sharp b<=3 conclusion.",
+        "searches": [
+          "arXiv:2004.03479v2, Theorem 1.2 and Proposition 3.3",
+          "arXiv:2203.07169, §3",
+          "Resultary semantic queries above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli-Ghioca study pencils of hypersurfaces and simultaneous transverse hyperplanes; their examples concern quadrics in P3. A (2,2) divisor on P1xP1 is a genus-one curve, not a quadric surface."
+        ],
+        "reasoning": "The Segre embedding relates P1xP1 to a quadric surface, but smoothness of the four curve intersections and the rational common base-locus count are different conditions from smoothness of the ambient pencil members or existence of a common transverse hyperplane.",
+        "searches": [
+          "Resultary query: smooth (2,2) curves pencils over F3 on P1xP1 rational base points exact count 599112",
+          "Resultary query: all-smooth elliptic biquadratic pencils over F3 rational base points",
+          "arXiv:2004.03479v2, §§1-3",
+          "arXiv:2203.07169, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned unrelated characteristic-three Fourier-extension records, not a pencil/base-locus table. The only exact counts found are the current package outputs, which are evidence for the finite claim rather than prior coverage."
+        ],
+        "reasoning": "No matching database/table or exact count was found; finite enumeration alone is not used as evidence of novelty.",
+        "searches": [
+          "Resultary query: smooth (2,2) curves pencils over F3 on P1xP1 rational base points exact count 599112",
+          "Resultary query: all-smooth elliptic biquadratic pencils over F3 rational base points"
+        ]
+      },
+      "rationale": "The result is a finite exact classification of rational base-locus sizes for all-smooth pencils of (2,2) curves on P1xP1 over F_3. Targeted Resultary queries did not return this object or count. The closest primary papers concern smooth hyperplane sections or pencils of quadric surfaces in P3; they motivate smooth pencils but do not imply the exact P1xP1 rational base-locus distribution. No broader table covering these 599,112 pencils was found.",
+      "residual_risks": [
+        "A specialized classification of genus-one curves or pencils over F_3 may exist outside indexed search results; no matching result was found in the inspected primary papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies simultaneous transverse hyperplanes to pencil members; its quadric-surface result is not an exact count of rational base points for (2,2) curves on P1xP1.",
+          "evidence": "Theorem 1.2 and Proposition 3.3 concern a common transverse hyperplane, not the present base-locus distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.03479",
+          "material_read": "Full 11-page PDF; abstract, introduction, Theorem 1.2, plane-curve section and Proposition 3.3 inspected",
+          "method": "Primary full-text object/parameter comparison",
+          "title": "A Bertini Type Theorem for Pencils over Finite Fields",
+          "trigger": "Closest primary finite-field pencil theorem"
+        },
+        {
+          "assessment": "The theorem constructs smooth quadric-surface pencil members in P3; it does not give the present curve-pencil count or base-point distribution.",
+          "evidence": "Section 3 constructs an F_q-pencil of quadric surfaces; the target here is a pencil of sections on a fixed split quadric surface.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "Full 9-page PDF; Section 3 and the construction for pencils of quadric surfaces in P3 inspected",
+          "method": "Primary full-text comparison",
+          "title": "Smoothness in Pencils of Hypersurfaces over Finite Fields",
+          "trigger": "Related explicit construction for all-smooth pencils"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md theorem and Hasse argument",
+        "arXiv:2004.03479v2 and arXiv:2203.07169 for the broader pencil context"
+      ],
+      "rationale": "This is a natural finite-field moduli problem: all four rational members of a pencil are smooth genus-one curves, and the exact number of rational common base points is a geometrically meaningful invariant. The sharp maximum three, an explicit witness and the exact distribution are more than an arbitrary code slice; Hasse provides the natural initial bound four.",
+      "residual_risks": [
+        "The finite field and bidegree are deliberately fixed; no general-q or equivalence-class classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among pencils of (2,2) curves on P1xP1 over F_3 whose four rational members are smooth, the exact number is 599112 and the common F_3 base locus has size at most three, with exact distribution 0:115848, 1:306432, 2:153792, 3:23040.",
+  "limitations": [
+    "Only the split quadric P1xP1, bidegree (2,2), and rational field F_3 are covered.",
+    "No equivalence-class count, other finite fields, or general-q theorem is claimed."
+  ],
+  "residual_risks": [
+    "A specialized classification of genus-one curves or pencils over F_3 may exist outside indexed search results; no matching result was found in the inspected primary papers.",
+    "The large finite enumeration was source-audited but not rerun in this execution; the claim is explicitly a finite exact classification over F_3, and the proof of b<=4 is independent of the computation."
+  ],
+  "schema_version": 1
+}

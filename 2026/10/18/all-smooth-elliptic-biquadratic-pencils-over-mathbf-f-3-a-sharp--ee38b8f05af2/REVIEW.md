@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Both projective-form smoothness tests agree on exactly 5184 smooth sections out of 9841: the discriminant-squarefreeness test and a Jacobian Gröbner-basis calculation on all four affine charts. The unordered smooth-generator-pair calculation finds 3594672 eligible pairs, each pencil represented six times, and returns 599112 pencils. An independently structured RREF enumeration over the entire Grassmannian from the Gröbner-derived smooth identifiers reproduces all four rational-base-point counts. The genus-one incidence identity and Hasse bound give four, and the exhaustive joint count excludes four; a direct four-chart algebraic check of an explicit three-point pencil proves sharpness. Arithmetic enumeration is finite and exhaustive, not a sampled infinity argument.
+## correctness
 
-## Originality
-**PASS subject to residual priority risk.** The motivating full texts Asgarli–Ghioca (arXiv:2203.07169) and their earlier Bertini-type paper (arXiv:2004.03479) consider existence and general smoothness phenomena, not a count of every two-dimensional bidegree-(2,2) subspace and its common rational-point distribution over the stated field. Searches for equivalent terms (elliptic quartic pencils, biquadratic pencils, quadric complete intersections) did not locate a table implying the four strata. General genus-one bounds and a classification of individual smooth members cannot determine pairwise simultaneous smoothness; none imply the new distribution. A non-indexed enumeration remains a realistic priority risk, and the comparison is not a claim of universal uniqueness.
+PASS
 
-## Value
-**PASS.** The naturally arising invariants are rational common base points of linear systems constrained to have every rational member smooth. This is a restrictive incidence problem not resolved by per-curve statistics; the sharp value three excludes the Hasse-allowed value four, and 23040 distinct pencils realize it. The full census provides exact construction densities for genus-one fibrations with a smooth rational parameter line. These facts are mathematically motivated independently of a programming exercise.
+For a bidegree-(2,2) form over F_3, writing it as A(U,V)S^2+B(U,V)ST+C(U,V)T^2 gives discriminant B^2-AC because 4=1 in characteristic three. A smooth connected (2,2) divisor is a genus-one double cover of P^1; squarefreeness of the binary quartic discriminant is equivalent to smoothness, with the endpoint-root multiplicities checked separately. The independent Jacobian-ideal check examines all four standard affine charts; Euler identities in bidegree two ensure vanishing of all homogeneous partials forces F=0. The projective coefficient space has 9841 nonzero forms up to scale; the Groebner check identifies 5184 smooth forms. Pair enumeration yields 3,594,672 bases, divisible by six, hence 599,112 pencils; the independent RREF subspace enumeration reports the same 599,112. Base-point counts are 0,1,2,3 with 115,848, 306,432, 153,792, 23,040 pencils respectively. Hasse gives b<=4; b=4 would force all four genus-one members to have seven rational points, but the complete joint-count output has no (7,7,7,7) tuple and the independent RREF distribution has no b=4. Source code and outputs were inspected, not treated as an infinite-proof substitute.
 
-## Scientific limits and comparison
-No general-field theorem, count of geometric pencil classes, or global novelty certification is asserted. Unindexed or unpublished computations could give the same finite result. All scientific assumptions and executable checks are recorded in RESULT.md and VERIFICATION.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result is a finite exact classification of rational base-locus sizes for all-smooth pencils of (2,2) curves on P1xP1 over F_3. Targeted Resultary queries did not return this object or count. The closest primary papers concern smooth hyperplane sections or pencils of quadric surfaces in P3; they motivate smooth pencils but do not imply the exact P1xP1 rational base-locus distribution. No broader table covering these 599,112 pencils was found.
+
+## value
+
+PASS
+
+This is a natural finite-field moduli problem: all four rational members of a pencil are smooth genus-one curves, and the exact number of rational common base points is a geometrically meaningful invariant. The sharp maximum three, an explicit witness and the exact distribution are more than an arbitrary code slice; Hasse provides the natural initial bound four.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
