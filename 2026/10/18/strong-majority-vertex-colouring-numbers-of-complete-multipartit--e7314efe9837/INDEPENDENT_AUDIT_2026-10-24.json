@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:58:51.024811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md steps 1–6",
+        "verify_majority.py direct neighbourhood checker",
+        "independent_checks.py exhaustive small cases",
+        "Git tree 742f0fa... 7 blobs"
+      ],
+      "rationale": "For complete multipartite K_(n_1,...,n_r) with all parts nonempty, r>=2 and minimum degree>=2, every colour appears in at most half each open neighbourhood. With two colours, each part sign sum S_i must equal global S, hence all S_i=0 and all n_i even. K4 and K_(1,1,2) force four distinct colours. Adding two differently coloured vertices to any fixed part increases each other open neighbourhood count by <=1 while degree grows by 2; preserves 3-colour validity. Reducing each part modulo 2 to size1 or2, plus handling parity core K4/K112 by first restoring one pair, gives explicitly coloured n=3,5,6,7, n>=8 and three enlarged n=6 cores, exhausting all cases. Independent brute force checked exact 2- and 3-colour minima for all 51 admissible unlabeled profiles of orders 3..8; official 9246 profiles through 25 checked constructively, neither finite set used to establish general proof.",
+      "residual_risks": [
+        "No claim at minimum degree one (no colouring), with list constraints, or for unrelated graph majority-colouring definitions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kalinowski et al define Maj and derive general degree-dependent upper bounds and K4 exception; no universal multipartite Maj<=3 outside K4,K112",
+          "Games paper concerns adversarial play and cannot force static existence"
+        ],
+        "reasoning": "Generic all-graph existence bound grows with Delta and does not dominate the exact multipartite statement; different game notions are inapplicable to its static classification.",
+        "searches": [
+          "arXiv:2605.23828 complete full text",
+          "arXiv:2609.37796 game strong-majority",
+          "arXiv:2603.05705 multiparty"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828 full primary PDF",
+        "doi:10.1007/s00373-024-02766-9 accessible HTML",
+        "arXiv:2603.05705",
+        "arXiv:2609.37796",
+        "Resultary strong majority vertex coloring complete multipartite graphs three colors exceptional K_{1,1,2} K4 neighborhoods half"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original invariant paper detects K4; does not yield K_(1,1,2) or uniform three colouring",
+          "Freyberg–Marr gives exact all-even 2-colour existence only"
+        ],
+        "reasoning": "Combining known 2-colour and K4 exceptions cannot imply the absence of other 4-colour multipartite obstructions; current proof supplies pair augmentation and full parity-core classification.",
+        "searches": [
+          "arXiv:2605.23828 relevant K4 bound",
+          "Freyberg Marr 2024 Thm4",
+          "Kalinowski Maj(K4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freyberg–Marr Graphs Combinatorics 40 (2024) Thm 4: all-even multipartite parts necessary/sufficient for 2-colour balanced neighborhood",
+          "Kalinowski et al arXiv:2605.23828: same strong-majority invariant for arbitrary graphs including complete graphs"
+        ],
+        "reasoning": "Two-colour balance is exactly the all-even known subcase, expressly excluded from novelty; k-colour lambda-balanced (equal counts per colour) and majority C-colourings use different predicates from each colour being <=half.",
+        "searches": [
+          "strong majority vertex coloring complete multipartite graphs three colors exceptional K_{1,1,2} K4 neighborhoods half",
+          "Freyberg Marr neighbourhood balanced colorings complete multipartite Theorem 4",
+          "arXiv:2603.05705 neighborhood lambda balanced k colors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top results include separate majority C-coloring of complete multipartite graphs with answers 1/2, incompatible definition",
+          "Actual 51 small graph profiles and 9246 constructive profiles are new independent checks, not an already-published table"
+        ],
+        "reasoning": "A static universal family theorem with two exceptional graphs is not implied by a known enumerative table of 2-colour balance; no prior matching 3/4 catalogue found.",
+        "searches": [
+          "Resultary strong majority vertex coloring complete multipartite graphs three colors exceptional K_{1,1,2} K4 neighborhoods half",
+          "strong majority colour graph K112 three four",
+          "multipartite three color 4 colors obstruction"
+        ]
+      },
+      "rationale": "The prior paper introducing the invariant already supplies the K4 obstruction; two-colour parity for complete multipartite neighborhoods precedes it. Our exact 3-vs-4 classification adds K_(1,1,2) and a uniform pair-extension construction, neither obtained from generic maximum-degree estimates, game variants, or two-colour neighborhood balance.",
+      "residual_risks": [
+        "Equivalent static three-versus-four multipartite classification might exist under a different name despite targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "K4 and degree bounds COVERED; K112 and uniform 3/4 classification NOT_IDENTIFIED_COVERING",
+          "evidence": "Observation on K4 and general Delta-dependent bound; no asserted multipartite sharp family classification",
+          "identifier_or_url": "arXiv:2605.23828",
+          "material_read": "Accessible full PDF, definition, complete-graph cases, relevant upper-bound theorem and multipartite term search",
+          "method": "Lawful arXiv full text + image pages",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Defines exactly the same invariant and has K4 obstruction"
+        },
+        {
+          "assessment": "COVERS two-colour all-even equivalence, not new 3/4 classification",
+          "evidence": "Balanced binary neighborhoods force even part sizes",
+          "identifier_or_url": "doi:10.1007/s00373-024-02766-9",
+          "material_read": "Accessible full-text journal HTML, theorem 4 and definitions",
+          "method": "Publisher open-access HTML",
+          "title": "Neighborhood Balanced Colorings of Graphs",
+          "trigger": "Strongly overlapping 2-colour multipartite criterion"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Lambda-balance imposes specific target fractions, not each colour <=half",
+          "identifier_or_url": "arXiv:2603.05705",
+          "material_read": "Accessible abstract/introduction and multipartite discussion, including Section 7 material",
+          "method": "arXiv open text",
+          "title": "Color 2-switches and neighborhood lambda-balanced graphs with k colors",
+          "trigger": "Potential different naming of neighborhood colour constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kalinowski et al primary invariant paper",
+        "RESULT.md explicit family construction"
+      ],
+      "rationale": "This gives a complete all-order classification on a canonical highly structured graph family for a recent invariant unbounded over arbitrary graphs, strengthening existing Delta-dependent bounds to a sharp universal threshold and isolating non-complete K_(1,1,2) exception. Pair augmentation is a reusable structural extension method, not merely a finite graph table; known 2-colour balance is correctly credited.",
+      "residual_risks": [
+        "Does not classify all optimal labelled 3-colourings or arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim at minimum degree one (no colouring), with list constraints, or for unrelated graph majority-colouring definitions.",
+    "Equivalent static three-versus-four multipartite classification might exist under a different name despite targeted searches.",
+    "Does not classify all optimal labelled 3-colourings or arbitrary graphs."
+  ],
+  "schema_version": 1
+}

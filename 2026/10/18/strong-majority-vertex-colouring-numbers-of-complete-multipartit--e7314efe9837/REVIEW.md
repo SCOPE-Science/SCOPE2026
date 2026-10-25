@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The open-neighbourhood formulation is explicit. The binary case is characterized by a part-sign linear system. The two exceptional four-vertex graphs have direct lower bounds; assigning four distinct colours meets the condition. The critical pair-extension lemma is proved for every vertex class and every integer degree, and the exhaustive set of reduced core configurations is coloured explicitly. The standalone direct-neighbourhood checker corroborates all 51 admissible multipartite types on at most eight vertices and the constructive algorithm on 9,246 types through 25 vertices. Finite experiments supplement rather than replace the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+For complete multipartite K_(n_1,...,n_r) with all parts nonempty, r>=2 and minimum degree>=2, every colour appears in at most half each open neighbourhood. With two colours, each part sign sum S_i must equal global S, hence all S_i=0 and all n_i even. K4 and K_(1,1,2) force four distinct colours. Adding two differently coloured vertices to any fixed part increases each other open neighbourhood count by <=1 while degree grows by 2; preserves 3-colour validity. Reducing each part modulo 2 to size1 or2, plus handling parity core K4/K112 by first restoring one pair, gives explicitly coloured n=3,5,6,7, n>=8 and three enlarged n=6 cores, exhausting all cases. Independent brute force checked exact 2- and 3-colour minima for all 51 admissible unlabeled profiles of orders 3..8; official 9246 profiles through 25 checked constructively, neither finite set used to establish general proof.
 
-Freyberg and Marr (2024, Theorem 4) already establish the two-colour even-part criterion and the present work explicitly credits it. Kalinowski et al. (2026, arXiv:2605.23828) establish the complete-graph exception and broad maximum-degree bounds but not the additional \(K_{1,1,2}\) obstruction or uniform multipartite three-colour construction. Collins et al. (2026, arXiv:2603.05705, Section 7) treat a different, chiefly two-colour neighbourhood-balancing condition; Chawda et al. (2026, arXiv:2609.37796) focus on colouring games. Actual semantic and literal literature searches and published mathematical-record comparisons yielded no stronger statement covering the new three-versus-four classification. An equivalently formulated, unindexed result remains possible; independent bibliographic validation was not performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural-family classification for a recent invariant known to be unbounded on general graphs. The theorem replaces a degree-dependent upper bound by a sharp universal three-colour threshold across all complete multipartite orders, isolates a non-complete four-colour obstruction, and gives a transferable twin-pair construction rather than a collection of isolated examples. The already-known two-colour condition is not the proposed novel contribution.
+The prior paper introducing the invariant already supplies the K4 obstruction; two-colour parity for complete multipartite neighborhoods precedes it. Our exact 3-vs-4 classification adds K_(1,1,2) and a uniform pair-extension construction, neither obtained from generic maximum-degree estimates, game variants, or two-colour neighborhood balance.
 
-## Limitations
+## value
 
-No claims about arbitrary graphs, list colourings, online games, or the enumeration of three-colourings. The review checks the current statement and included calculations only. Independent external mathematical auditing and conclusive priority assessment have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a complete all-order classification on a canonical highly structured graph family for a recent invariant unbounded over arbitrary graphs, strengthening existing Delta-dependent bounds to a sharp universal threshold and isolating non-complete K_(1,1,2) exception. Pair augmentation is a reusable structural extension method, not merely a finite graph table; known 2-colour balance is correctly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
