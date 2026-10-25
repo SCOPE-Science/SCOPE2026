@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive \(s\), the branch polynomial is squarefree, the genus is \(3^s\), and the correct inverse-Frobenius-semilinear Cartier matrix has exactly two allowed row-to-column types. Its nonzero entries lie in \(\mathbb F_3\), so semilinear twisting does not change subsequent powers. The base-three word dynamics is a proof valid for every exponent, with a sharp final surviving word at \(2s\) and disappearance at \(2s+1\). The geometric corollary follows by checking Katsura's polynomial normal form and Assumption (*) and applying his Theorem 4.1, rather than inferring Mordell–Weil vanishing directly from a numerical test. The supplied checker confirms all ranks for \(1\leq s\leq6\) and checks the digit model independently.
+PASS
 
-## Originality — PASS, with stated risk
+The degree-2·3^s+2 polynomial t^(2·3^s+2)-t is squarefree for s>=1; genus q=3^s. Characteristic-3 Cartier coefficient extraction leaves one nonzero entry per relevant row and at most one per column. The row→column map on s ternary digits is 0w→w1 and 2w→w0; leading 1 terminates. Counting survivors gives 2^j·3^(s-j) for 0<=j<=s, 2^(2s-j) for s<=j<=2s and zero thereafter, proving nilpotence at 2s+1 and a-number 3^(s-1), p-rank 0. Independently generated all transitions for s=1..6 and all iterates; this finite check corroborates rather than proves arbitrary s. Read Katsura full primary paper, section 4 theorem 4.1 and hypotheses: f=-t+(t^(2q/3))^3 t², deg f=6(q/3+1)-4, nonzero second derivative at critical roots so Assumption (*) holds; the MW subgroup of the stable Cartier fixed space vanishes.
 
-Achter–Howe (arXiv:1710.10726, Section 3) provide the general coefficient formula, and Katsura (arXiv:2609.23430, Theorem 4.1) provides the general Mordell–Weil/Cartier connection. Neither inspected primary text states the closed all-iterate rank sequence for \(y^2=t^{2\cdot3^s+2}-t\) or applies it to this quasi-elliptic family. The digit-shift lemma and full survivor enumeration bridge those theorems. Published mathematical-record searches for exact polynomial, rank profile, and aliases, plus reviewed published claim summaries, found no equivalent statement. Garton–Thunder–Weir consider distributions of \(a\)-numbers rather than the specific family, based on their inspected abstract. Older full papers (including Ito 1992) were not comprehensively inspected; an implicit previously known specialization remains possible. Lack of a search hit is not presented as historical proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact, non-asymptotic and all-genus computation of a natural Cartier filtration and two geometric invariants, with a uniform vanishing result for the Mordell–Weil groups of a meaningful infinite quasi-elliptic family. It is motivated by the relationship in Katsura's recent work and requires non-obvious ternary dynamics rather than just substituting into the textbook coefficient formula.
+Katsura 2026 gives the structural MW–Cartier relation, Achter–Howe gives the general semilinear hyperelliptic matrix convention; neither evaluated this particular all-s ternary path rank filtration in inspected primary sources. The rank profile is a special computation not a formal statement already implied without its digit lemma. Older related characteristic-three computations remain a priority risk.
 
-## Boundaries and further investigation
+## value
 
-The result does not compute full Jacobian \(3\)-torsion schemes, Newton polygons, or the fibration's full singular-fiber classification. The self-contained combinatorial argument is universal, but the finite code checks are not a proof for unbounded \(s\). Full-text priority risks and independent external validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact infinite-genus Cartier-iterate filtration, exact nilpotence boundary and induced vanishing of Mordell–Weil groups for a natural quasi-elliptic family supply precise invariants typically inaccessible from p-rank alone. Ternary survivor counts are nontrivial uniform combinatorics, beyond merely plugging into the Cartier formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
