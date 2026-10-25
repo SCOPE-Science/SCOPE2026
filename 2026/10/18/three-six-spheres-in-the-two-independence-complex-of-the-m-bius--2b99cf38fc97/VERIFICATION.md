@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact finite certificate
+# Independent mathematical audit
 
-Execute `python3 verify_mk_ind2.py` using Python 3.8 or later. The script constructs the graph from its definition and independently enumerates all nonempty vertex-subsets, all forbidden three-vertex paths, the 3,400 pairs of its deterministic 16-stage vertex-toggle matching, and all 35,104 Hasse relations. Reversing the matched covers gives a directed acyclic graph: its complete topological sort visits every one of the 6,812 faces. Exactly 12 critical cells remain, distributed as one degree-zero, one degree-four, four degree-five and six degree-six cells.
+## correctness
 
-Using exact signed integer chain projection, the script computes the full \(1\times4\) and \(4\times6\) Morse differential matrices recorded in RESULT.md and verifies that their composition is zero. The first five-cell has degree \(-1\) on the unique four-cell, yielding a contractible CW subcomplex. After contracting it, the six-cell attachment matrix has a \(3\times3\) minor of determinant \(+1\); Hurewicz and integral changes of sphere bases identify the homotopy cofiber as the wedge of three six-spheres.
+PASS
 
-A separate original-chain mod-two boundary rank computation yields \((0,15,105,407,917,1147,693,120)\) in dimensions zero through seven, corroborating three reduced degree-six Betti generators. This test by itself does not rule out odd torsion or nontrivial higher attaching maps; the integral Morse and homotopy arguments do.
+Read full RESULT.md and actual standard-library verify_mk_ind2.py at frozen blob. The graph has 16 vertices, 24 edges and exactly 48 forbidden length-two path triples. Independent enumeration from the graph (not imported face list) found 6812 nonempty faces with f-vector (16,120,512,1324,2064,1840,816,120). Independent prescribed ordered matching has 3400 pairs, 35104 oriented Hasse covers, visited all 6812 nodes in a directed topological sort, and leaves one 0-cell, one 4-cell, four 5-cells and six 6-cells. Signed elimination gives D5=(-1,0,-1,-1), D6 rows (-1,0,0,0,1,-1),(-1,0,-1,-1,1,0),(0,1,0,0,0,1),(1,-1,0,0,-1,0). D5*D6=0; degree -1 cancellation and determinant ±1 of 3×3 minor of quotient 3×6 D6 give a 5-connected homotopy equivalent CW wedge of three 6-spheres by Hurewicz and cellular Whitehead theory. Finite computation is exhaustive for this fixed graph; mod2 ranks alone would not certify homotopy.
 
-The exact recorded execution output is supplied as `verify_mk_ind2.out`. The exhaustive finite check does not constitute independent audit or a classification beyond the specified graph.
+## originality
+
+PASS
+
+The 16-vertex graph is not a tree. Sawant proves vertex decomposability of higher independence complexes of trees, not Ind_2(GP(8,3)). Previously published Möbius–Kantor ordinary vertex independence and ordinary edge-matching complex have different face predicates and different homotopy dimensions. A mathematically identical Ind_2(GP(8,3)) result was not found in the actual semantic searches. Knill (2026) full text unavailable, retained as named priority risk.
+
+## value
+
+PASS
+
+The exact integral homotopy classification of the natural three-path-free subset complex of a canonical symmetric cubic graph is a motivated discrete-topology invariant; a complete acyclic matching with verified degree-one cancellations yields information genuinely stronger than Euler characteristic or field ranks. It does not purport to cover all cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is explicitly the cubic generalized Petersen graph on sixteen vertices with edges \(u_iu_{i+1}\), \(u_iv_i\), and \(v_iv_{i+3}\). The exact forbidden-triple condition is equivalent to every induced component having at most two vertices. The included standalone verifier rebuilds 6,812 nonempty faces, checks all 3,400 matching pairs and 35,104 Hasse relations for global acyclicity, derives the integral signed Morse matrices, verifies \(D_5D_6=0\) and the unit three-by-three determinant, and independently computes mod-two chain ranks. The degree-\(-1\) four/five-cell subcomplex is contractible, so its quotient preserves homotopy. Hurewicz and the unimodular attachment make the quotient a wedge of exactly three six-spheres. All finitary claims and topological assumptions are specified in RESULT.md and the program.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Sawant's first-public 2026 tree theorem is about \(\operatorname{Ind}_r\) of trees; its theorem and relevant definitions were read in the full accessible primary PDF. The Möbius–Kantor graph is cubic with cycles and is neither a tree nor chordal. The older chordal-graph results discussed there do not classify it. Specifically targeted searches for \(\operatorname{Ind}_2(\operatorname{GP}(8,3))\), the three-path-free complex, the name Möbius–Kantor, and two-independent vertex subsets did not find equivalent statements. The closest indexed ordinary independence, edge matching, degree-two edge matching, three-cut and Petersen two-independence results concern different complexes or graphs and do not imply this exact homotopy type. Search incompleteness and possible unindexed independent work are residual risks; this is not a guarantee of novelty. Knill’s 2026 same-graph manuscript was identified and its abstract read; the accessible author PDF could not be fetched because of its size, leaving possible coverage in its body as an explicit residual risk.
+PASS
 
-**Mathematical value — PASS.** The Möbius–Kantor graph is a standard highly symmetric sixteen-vertex cubic incidence graph. Its higher-independence complex has dimension seven but its integral homotopy collapses to just three six-spheres, a nontrivial exact classification beyond tree/chordal results. Explicit integral attaching information is stronger than the readily available face enumeration or mod-two Betti computation and gives a reproducible benchmark for proposed graph-class extensions. No general theorem for all generalized Petersen graphs is claimed.
+Read full RESULT.md and actual standard-library verify_mk_ind2.py at frozen blob. The graph has 16 vertices, 24 edges and exactly 48 forbidden length-two path triples. Independent enumeration from the graph (not imported face list) found 6812 nonempty faces with f-vector (16,120,512,1324,2064,1840,816,120). Independent prescribed ordered matching has 3400 pairs, 35104 oriented Hasse covers, visited all 6812 nodes in a directed topological sort, and leaves one 0-cell, one 4-cell, four 5-cells and six 6-cells. Signed elimination gives D5=(-1,0,-1,-1), D6 rows (-1,0,0,0,1,-1),(-1,0,-1,-1,1,0),(0,1,0,0,0,1),(1,-1,0,0,-1,0). D5*D6=0; degree -1 cancellation and determinant ±1 of 3×3 minor of quotient 3×6 D6 give a 5-connected homotopy equivalent CW wedge of three 6-spheres by Hurewicz and cellular Whitehead theory. Finite computation is exhaustive for this fixed graph; mod2 ranks alone would not certify homotopy.
 
-**Closest literature / limits.** Sawant (2026), arXiv:2605.25150, Theorem 1.1 / 3.6; Abdelmalek et al. (2023) chordal cases; published indexed results on other functors of the Möbius–Kantor graph and the Petersen two-independence complex. Risks: inaccessible Knill (2026) same-graph full text, incomplete global bibliographic coverage, and no independent audit. The proof of the exact discrete-Morse reductions is computer assisted, with complete exhaustive enumeration of this finite complex.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 16-vertex graph is not a tree. Sawant proves vertex decomposability of higher independence complexes of trees, not Ind_2(GP(8,3)). Previously published Möbius–Kantor ordinary vertex independence and ordinary edge-matching complex have different face predicates and different homotopy dimensions. A mathematically identical Ind_2(GP(8,3)) result was not found in the actual semantic searches. Knill (2026) full text unavailable, retained as named priority risk.
+
+## value
+
+PASS
+
+The exact integral homotopy classification of the natural three-path-free subset complex of a canonical symmetric cubic graph is a motivated discrete-topology invariant; a complete acyclic matching with verified degree-one cancellations yields information genuinely stronger than Euler characteristic or field ranks. It does not purport to cover all cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
