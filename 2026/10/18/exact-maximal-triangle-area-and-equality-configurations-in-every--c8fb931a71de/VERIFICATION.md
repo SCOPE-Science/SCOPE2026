@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The all-separation theorem is proved in `RESULT.md`. The supporting `verify.py` uses only Python 3 standard-library modules (`math`, `random`) and can be run by invoking `python3 verify.py` from this directory.
+## correctness
 
-The verification routine evaluates twelve distinct strict-overlap parameters, checks the analytic optimizer against an independent determinant calculation and the unsquared stationary equation, and checks positive second variation for the putative smooth candidate. It performs 60,000 seeded trials using boundary and interior points and compares their triangle areas with the asserted formula, and checks the previously published center-separation-equals-radius special case. The checked run returned `VERIFY_OK lens cases=12 numerical_diagnostics=60036 prior_special_case=matched`.
+PASS
 
-All finite trials are **diagnostic**. They neither exhaust the continuum of parameter values nor prove uniqueness or impossibility of other triangles. Those conclusions follow exclusively from the tangent/altitude and strict trigonometric inequalities in `RESULT.md`. The cited 2024 special case is acknowledged as prior coverage. Independent validation has not been performed.
+For closed congruent disks centered ±d with 0<d<R, normalized h=d/R and theta=acos h, the lens horizontal section is |x|<=sqrt(1-y^2)-h on |y|<=sin theta. Every area-maximal triangle has boundary vertices. At smooth vertices the tangent is parallel to opposite side, yielding common orthocenter restrictions: same-arc three-vertex case impossible and mixed smooth stationary case is excluded by positive second variation. Independently differentiated the proposed boundary perturbation symbolically and obtained a/u^3(-1+6u^2-4u^3)>0 for u>max(h,1/2). Conditioning on one arc-tip, area bounded by f(y)(H-z)+f(z)(H-y), angular mean/difference forces equal lower heights; strictly concave F(a)=(sqrt(1-a^2)-h)(H+a) uniquely peaks at a=sin(theta/3). This gives area 2R^2 sin^3(2theta/3) and two centrally opposite equality triangles. Checked independent sample geometry at h=.2,.5,.8. The analytical exclusion, not finite sampling, establishes continuum uniqueness.
+
+## originality
+
+PASS
+
+The exact vesica-piscis center-separation-equals-radius case d/R=1/2 is known in a detailed July 2024 public solution, including the angle 20 degrees. The inspected general maximal-inscribed-triangle results and special-case thread do not give the all-separation area formula or exactly two equality configurations for every h∈(0,1). A 2024 comment only suggests the extension, not its proof.
+
+## value
+
+PASS
+
+The maximum area and rigidity of inscribed triangles is an elementary natural extremal geometry problem; a uniform one-parameter closed formula with complete equality classification and positive-second-variation exclusion is a substantive full classification, not merely checking the old special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
