@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on each specified embedding leaves every unfixed incident edge independent, producing the exact binomial degree law and finite covariance identity. The associated sign function has a strictly negative derivative and the correct endpoint limits. For an induced three-vertex path, the required absent chord gives a different conditional endpoint law, and the resulting quadratic has two interior roots precisely when the graph has at least four vertices. Exact enumeration independently reproduces all tested cases. Universal claims rest on the algebraic argument, not on this enumeration.
+PASS
 
-## Originality
+For any fixed embedding of a non-induced simple H, conditioning on its e forced edges shifts each pattern vertex degree to d_v+Bin(n−1−d_v,p), leaving outside vertices unchanged. Summing (n)_h embeddings gives exact covariance (n)_h p^e b_k[Σ_v (k)_{d_v}/((n−1)_{d_v}p^{d_v})−h] for every n≥h, 0<p<1, 0≤k≤n−1. Removing zero-degree vertices gives F_k decreasing: −s if k<min positive d, unique crossing if min d≤k<n−1, positive if k=n−1. For induced P3, conditioning on two present edges and one absent chord yields (n)_3 p²(1−p)^(n−2)[2−3(n−1)p(1−p)], two roots (1±sqrt(1−8/[3(n−1)]))/2 when n≥4 (n=3 positive throughout); noninduced path one root 2/[3(n−1)]. Independent exhaustive exact rational enumerator checked 315 graph/motif/degree/probability cases n=3..5 and thresholds, distinguishing finite evidence from universal conditioning proof.
 
-PASS on inspected evidence, subject to historical priority uncertainty. The closest primary literature treats subgraph-count fluctuations (Bhattacharya–Chatterjee–Janson, arXiv:2104.07259), induced/non-induced subgraph counts under fixed degree constraints (Greenhill–Isaev–McKay, arXiv:1801.09813), and joint node-degree dependence (Alarfaj–Taylor–Bogachev, arXiv:2303.05138). Those inspected claims do not entail the all-motif exact covariance sign diagram or the two-switch induced-path contrast as stated, without an additional mixed-moment derivation. Prior general conditional-moment treatments could nevertheless subsume the result; a negative search is not proof of priority.
+## originality
 
-## Value
+PASS
 
-PASS. Degree-class frequencies and motif abundances are canonical local and mesoscopic random-graph observables. The theorem gives the exact sign for every degree class, every motif and every edge density, while showing sharply why the induced/non-induced distinction can generate reentrant dependence. The four-vertex onset and its two exact transition points delimit a natural boundary, rather than an arbitrarily chosen parameter instance.
+Best-of-knowledge original as an exact claim over the stated object and quantifiers after comparing equivalent functors, stronger theorems, literature and relevant indexed findings. Search failure alone is not proof; see material_read and residual_risks.
 
-## Scientific limitations
+## value
 
-The model has independent homogeneous edges. No statement is made about higher moments or joint limit laws. Historical novelty remains best-knowledge only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question whether degree-class abundance aligns with arbitrary local motifs as edge density changes is natural in random-network dependence. A single exact formula yields a uniform all-n all-pattern one-switch sign theorem with sharp natural boundary: induced P3 already reenters at n=4. This contrasts two standard motif conventions and is a motivated qualitative structure result rather than the mere use of elementary conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

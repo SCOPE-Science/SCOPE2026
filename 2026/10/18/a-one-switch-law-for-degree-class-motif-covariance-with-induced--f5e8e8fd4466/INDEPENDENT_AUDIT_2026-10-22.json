@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:59:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-one-switch-law-for-degree-class-motif-covariance-with-induced--f5e8e8fd4466",
+        "RESULT.md",
+        "verify.py",
+        "AUDIT.json",
+        "METADATA.json",
+        "REVIEW.md",
+        "VERIFICATION.md",
+        "SLOGAN.txt"
+      ],
+      "rationale": "For any fixed embedding of a non-induced simple H, conditioning on its e forced edges shifts each pattern vertex degree to d_v+Bin(n−1−d_v,p), leaving outside vertices unchanged. Summing (n)_h embeddings gives exact covariance (n)_h p^e b_k[Σ_v (k)_{d_v}/((n−1)_{d_v}p^{d_v})−h] for every n≥h, 0<p<1, 0≤k≤n−1. Removing zero-degree vertices gives F_k decreasing: −s if k<min positive d, unique crossing if min d≤k<n−1, positive if k=n−1. For induced P3, conditioning on two present edges and one absent chord yields (n)_3 p²(1−p)^(n−2)[2−3(n−1)p(1−p)], two roots (1±sqrt(1−8/[3(n−1)]))/2 when n≥4 (n=3 positive throughout); noninduced path one root 2/[3(n−1)]. Independent exhaustive exact rational enumerator checked 315 graph/motif/degree/probability cases n=3..5 and thresholds, distinguishing finite evidence from universal conditioning proof.",
+      "residual_risks": [
+        "Exact finite verification cannot imply an unasserted parametrized generalization; all conclusions bounded as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greenhill–Isaev–McKay arXiv:1801.09813 Theorem1.1, Section1; Bhattacharya–Chatterjee–Janson arXiv:2104.07259 main fluctuation setup."
+        ],
+        "reasoning": "The literature on random graphs with specified degree sequence is a different model and asymptotic expectation theorem; subgraph fluctuation results treat X_H marginal, not its finite exact covariance with N_k. General conditioning yields the formula but does not itself supply this classified sign/induced contrast in inspected results.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+          "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path",
+          "arXiv:1801.09813 Theorem 1.1, Sections 1,4,6",
+          "arXiv:2104.07259 Sections 1-2",
+          "arXiv:2303.05138 Section 2 degree covariance",
+          "Itzkovitz et al Phys Rev E 68 026127 abstract (2003)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1801.09813v6",
+        "https://arxiv.org/html/2104.07259v2",
+        "https://arxiv.org/html/2303.05138v1",
+        "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+        "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alarfaj–Taylor–Bogachev arXiv:2303.05138 gives Cov(deg(u),deg(v))=p(1−p), unlike this exact class-count and motif overlap."
+        ],
+        "reasoning": "Pairwise numerical degree covariance and expected motif count do not imply Cov(N_k,X_H) because the indicator 1_{deg=k} is nonlinear and X_H shares edge events. The sign theorem derives only after explicit conditioning and monotonicity; induced P3 violates any broader unconditional all-motif claim.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+          "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path",
+          "arXiv:1801.09813 Theorem 1.1, Sections 1,4,6",
+          "arXiv:2104.07259 Sections 1-2",
+          "arXiv:2303.05138 Section 2 degree covariance",
+          "Itzkovitz et al Phys Rev E 68 026127 abstract (2003)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Derivation from E[1_{deg=k}1_{A_φ}] and factorial moments of Bin(n−1,p); degree-pair covariance p(1−p) is not same observable."
+        ],
+        "reasoning": "Non-induced count counts injective label-preserving edge embeddings (extra edges allowed), not induced count, and N_k is exact degree class rather than total degree or density; dividing by Aut(H) rescales covariance without changing signs.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+          "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path",
+          "arXiv:1801.09813 Theorem 1.1, Sections 1,4,6",
+          "arXiv:2104.07259 Sections 1-2",
+          "arXiv:2303.05138 Section 2 degree covariance",
+          "Itzkovitz et al Phys Rev E 68 026127 abstract (2003)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit for component-triangle covariance concerns connected component number and different percolation model observable, not N_k."
+        ],
+        "reasoning": "No equivalent exact n,k,H mixed covariance threshold or induced P3 n=4 two-root table was returned in the two targeted Resultary searches or primary reviewed papers.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+          "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path",
+          "arXiv:1801.09813 Theorem 1.1, Sections 1,4,6",
+          "arXiv:2104.07259 Sections 1-2",
+          "arXiv:2303.05138 Section 2 degree covariance",
+          "Itzkovitz et al Phys Rev E 68 026127 abstract (2003)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an exact claim over the stated object and quantifiers after comparing equivalent functors, stronger theorems, literature and relevant indexed findings. Search failure alone is not proof; see material_read and residual_risks.",
+      "residual_risks": [
+        "Because the covariance follows short conditioning, an earlier exercise or mixed-moment identity in classical random graph texts may be equivalent; no universal historical novelty guarantee.",
+        "No transfer asserted to inhomogeneous edges, degree-conditioned graphs, or induced arbitrary motif monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING claimed exact G(n,p) degree-class-to-motif covariance: estimates mean pattern counts asymptotically in fixed-degree model",
+          "evidence": "Theorem 1.1 conditions on degree sequence, unlike independent edges, and its target is E[X_H], not Cov(N_k,X_H).",
+          "identifier_or_url": "https://arxiv.org/html/1801.09813v6",
+          "material_read": "full HTML Introduction, Theorem 1.1, Corollaries 1.2–1.3, Sections 4 and 6 headings and scope",
+          "method": "open-access primary full-text HTML",
+          "title": "Subgraph counts for dense random graphs with specified degrees",
+          "trigger": "pattern counts and degrees both appear"
+        },
+        {
+          "assessment": "NOT_COVERING an explicit finite n degree-class covariance sign classification in inspected theorems",
+          "evidence": "Asymptotic distribution of X_H alone does not determine mixed covariance with N_k at all p or induced reentrant thresholds.",
+          "identifier_or_url": "https://arxiv.org/html/2104.07259v2",
+          "material_read": "full HTML abstract, introductory problem setup, main fluctuation theorem scope and general-statistics discussion",
+          "method": "open-access primary HTML",
+          "title": "Fluctuations of Subgraph Counts in Graphon Based Random Graphs",
+          "trigger": "possible dominating mixed subgraph count result"
+        },
+        {
+          "assessment": "NOT_COVERING degree-class versus motif count; computes covariance of numerical degrees of two vertices",
+          "evidence": "Cov(deg(u),deg(v))=p(1-p) does not give Cov(1_{deg=k},X_H) for arbitrary H.",
+          "identifier_or_url": "https://arxiv.org/html/2303.05138v1",
+          "material_read": "full HTML abstract, degree-pair covariance calculation and problem setup",
+          "method": "open-access primary HTML",
+          "title": "The joint node degree distribution in the Erdős–Rényi network",
+          "trigger": "degree covariance may imply motif covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/a-one-switch-law-for-degree-class-motif-covariance-with-induced--f5e8e8fd4466",
+        "https://arxiv.org/html/1801.09813v6",
+        "https://arxiv.org/html/2104.07259v2",
+        "https://arxiv.org/html/2303.05138v1",
+        "Resultary: Erdos Renyi G(n,p) degree class count covariance subgraph motif count sign change induced path reentrant",
+        "Resultary: degree exact k covariance motif copies Erdős Rényi sign transition induced path"
+      ],
+      "rationale": "The question whether degree-class abundance aligns with arbitrary local motifs as edge density changes is natural in random-network dependence. A single exact formula yields a uniform all-n all-pattern one-switch sign theorem with sharp natural boundary: induced P3 already reenters at n=4. This contrasts two standard motif conventions and is a motivated qualitative structure result rather than the mere use of elementary conditioning.",
+      "residual_risks": [
+        "Because the covariance follows short conditioning, an earlier exercise or mixed-moment identity in classical random graph texts may be equivalent; no universal historical novelty guarantee.",
+        "No transfer asserted to inhomogeneous edges, degree-conditioned graphs, or induced arbitrary motif monotonicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
