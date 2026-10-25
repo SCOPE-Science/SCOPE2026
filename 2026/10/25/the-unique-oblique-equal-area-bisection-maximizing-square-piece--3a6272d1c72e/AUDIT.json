@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "A two-set convex partition admits a separating line; symmetry forces all equal-area lines through the square center. For 0<=t<=1 the exact piece has four explicit vertices and four exact half-plane constraints. The maximal disk radius is forced by left/top/sloped supports and is attained with the right constraint verified. The diameter disk through (-1,-t) and (1,1) contains both other vertices, fixing the circumradius. Logarithmic differentiation has sign H(t)=4(1-t)-(t+sqrt(1+t^2))(1+t)^3, strictly decreasing with opposite endpoint signs, proving exactly one global maximizer and all square-symmetry equality cases. The included checker verifies polynomial identity and decimal approximations; the proof is independent of numerical sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pach and Tardos, arXiv:2609.20702v1, dated abstract: existence of a uniform positive lower bound for each piece’s r/R in 2^i equal-area convex subdivisions; the abstract supplies no square-specific sharp two-piece constant or equality classification.",
+        "Published result Exact max-min inradius divisions of orthotopes, indexed record 2026/10/4/...--f1ec4eeb67b7: maximizes r alone; square optimizer is a diagonal-centered cut.",
+        "Published result Exact maximum relative diameter bisection of every regular even polygon, indexed record 2026/10/4/...--0e84351e89a7: minimizes maximum diameter, not r/R; optimal square cut is side-parallel."
+      ],
+      "reasoning": "A universal positive guarantee, maximizing inradius alone, and minimizing diameter alone are strictly weaker or incomparable to the exact joint ratio optimizer. The proved ratio f(t) has its maximum at 0<t<1, whereas the separate inradius and circumradius extrema occur at the endpoints. The inaccessible 2026 manuscript creates residual overlap risk, recorded explicitly rather than falsely declared absent.",
+      "searches": [
+        "published-finding corpus: Pach Tardos cutting fat convex bodies into 2^i equal-area convex pieces, exact inradius circumradius optimizers and sharp constants for special bodies (square, disk, triangle)",
+        "published-finding corpus: regular square circularity bisection optimal equal area two piece partition roundness radius ratio",
+        "Web: Cutting a convex body into fat parts and approximating Euclidean distance by graph distances 2026 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.20702v1, public dated abstract only",
+      "arXiv:cs/0304023v1 and expanded v2, relevant full-text sections 1, 5, 6",
+      "TOPP Problem 59, text",
+      "Published record Exact max-min inradius divisions of orthotopes, indexed summary",
+      "Published record Exact maximum relative diameter bisection of every regular even polygon, indexed summary",
+      "Published record Sharp two-piece equal-area fatness of an equilateral triangle, indexed summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2003 paper classifies several polygon families for unrestricted partitions, and explicitly poses the optimal-circularity-versus-number-of-pieces tradeoff (Section 6, questions 4–5).",
+        "The 2026 dated abstract proves the existence of sufficiently fat equal-area subdivisions of arbitrary convex bodies but reports no exact square case.",
+        "Direct calculation in the present proof: r(t)=(1+t)/(1+t+sqrt(1+t^2)), R(t)=sqrt(4+(1+t)^2)/2. Their ratio has unique interior critical point, which is not deducible from the individually optimal r or R directions."
+      ],
+      "reasoning": "None of the checked claims implies a sharp lower bound on the maximum individual circularity over all equal-area square bisections, much less uniqueness of the interior direction. In particular, the full square optimum with arbitrarily many pieces only bounds the two-piece optimum from below in circularity; it does not determine it.",
+      "searches": [
+        "Web: Most Circular Partition of a Square OpenTCS Damian O’Rourke 2003",
+        "Web: 2026 Pach Tardos fat convex partition preprint 2609.20702 pdf",
+        "published-finding corpus: An equal-area partition of a square into two convex pieces: sharp maximum of inradius divided by minimum enclosing circumradius, oblique center line cut with slope 0.288678",
+        "published-finding corpus: regular square circularity bisection optimal equal area two piece partition roundness radius ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Damian and O’Rourke, arXiv:cs/0304023v1, Section 1.1 defines the identical Euclidean ratio γ=R/r; the expanded 2003 text discusses unrestricted convex partitions and Section 6 lists piece-count tradeoffs rather than the equal-area two-piece square optimum.",
+        "Closest published analogous result: Sharp two-piece equal-area fatness of an equilateral triangle, indexed record 2026/10/11/...--1f1ff40d961c; it concerns a triangle rather than a square and has a different optimal orientation."
+      ],
+      "reasoning": "Inverting the present fatness objective yields the established circularity/aspect-ratio formulation. Affine equivalence cannot transfer the triangle classification because Euclidean disk radii change under a general affine map. Neither text gives the unique oblique two-piece square optimizer or its algebraic equation.",
+      "searches": [
+        "published-finding corpus: An equal-area partition of a square into two convex pieces: sharp maximum of inradius divided by minimum enclosing circumradius, oblique center line cut with slope 0.288678",
+        "published-finding corpus: Square cut through center into two trapezoids with slope t, exact maximum circularity fatness 0.465023363 and non-axis aligned optimizer",
+        "Web: square two convex pieces ratio inradius circumradius oblique bisector optimum 0.465023",
+        "Web: partition square into two convex regions circularity inradius circumradius optimal straight line angle trapezoid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Damian and O’Rourke expanded version, Table 1.2 and Theorem 12: all-piece-count square optimum bracket [1.28868,1.29950]; neither value concerns the exact-two-piece aspect ratio 2.150429590649...",
+        "The Open Problems Project, Problem 59, records the unrestricted-number square partition challenge, with no two-piece exact numerical entry.",
+        "No square-specific 0.4650233629... value or slope 0.2886783897... appeared in the returned indexed results. The closest direct equal-area 2-piece indexed record treats the equilateral triangle."
+      ],
+      "reasoning": "The global unrestricted partition optimum is a different optimization domain; a sharper value for many pieces does not determine the fixed-count two-piece optimum. The exact algebraic slope and full equality characterization are not found in the inspected tables or query results, without claiming database completeness.",
+      "searches": [
+        "published-finding corpus: two convex equal area pieces unit square maximize min fatness inradius over circumradius oblique line unique sixth degree polynomial",
+        "published-finding corpus: Damian O’Rourke regular polygon circular pieces sharp aspect ratio for exactly two pieces equal area",
+        "Web: Mirela Damian Joseph O’Rourke partitioning regular polygons into circular pieces two pieces square",
+        "Web: square equal area convex partition maximizing inradius circumradius ratio oblique cut two congruent trapezoids"
+      ]
+    },
+    "rationale": "In the accessible primary 2003 full text the square is optimized over arbitrary numbers of pieces, and the fixed-piece-count tradeoff is explicitly left as a direction. The 2026 primary abstract provides an existence result, not an exact two-piece value. Closest published indexed claims separately optimize component inradius or maximal diameter, which do not imply the present ratio or its interior optimizer. The inaccessible 2026 manuscript and unindexed literature are expressly retained as residual risk.",
+    "residual_risks": [
+      "Full manuscript of arXiv:2609.20702v1 not inspected; it may contain an exact fixed-two-piece square instance not visible in the abstract.",
+      "Other unindexed work on square circularity may already contain the precise algebraic optimizer.",
+      "Indexed comparable results were available as summaries rather than full source documents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broader unrestricted square partition problem is not the fixed two-piece equal-area classification; no exact oblique slope is reported in the square section or the stated results.",
+        "evidence": [
+          "arXiv:cs/0304023, Sections 1.1, 5.1–5.5, 6; Table 1.2; especially Section 6, question 4 on fixed piece counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cs/0304023",
+        "material_read": "Expanded 21-page text: definitions and results in Sections 1–2; square constructions and lower-bound comparisons in Section 5; exact open questions in Section 6. PDF page images for pages 1 and 20 also inspected.",
+        "method": "Public full-text article and page-image examination.",
+        "title": "Partitioning Regular Polygons into Circular Pieces I: Convex Partitions",
+        "trigger": "Same polygon, same Euclidean inradius/circumradius objective, and explicit research problem on number of pieces."
+      },
+      {
+        "assessment": "Its abstract proves universal existence rather than a sharp square two-piece result. The uninspected manuscript is a residual scientific-overlap risk, not treated as wholly checked.",
+        "evidence": [
+          "arXiv:2609.20702v1, first public date 2026-09-17, stated geometric existence theorem in abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.20702",
+        "material_read": "Dated abstract, authors, and public submission metadata only; full manuscript could not be obtained.",
+        "method": "Public arXiv abstract and additional publicly indexed descriptions; arXiv and other accessible full-text endpoints did not provide the manuscript.",
+        "title": "Cutting a convex body into fat parts and approximating Euclidean distance by graph distances",
+        "trigger": "Recent source using equal-area convex partitions and precisely the inradius/circumradius fatness measure."
+      },
+      {
+        "assessment": "Maximizes r alone and selects a diagonal cut, which differs from maximizing r/R and selects an interior oblique direction.",
+        "evidence": [
+          "Published indexed ID 2026/10/4/...--f1ec4eeb67b7, reported exact cube inradius and diagonal-cut optimizer."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-max-min-inradius-divisions-of-orthotopes--f1ec4eeb67b7",
+        "material_read": "Published indexed title and summary, not the full source document.",
+        "method": "Semantic mathematical-record search and comparison of the reported statement.",
+        "title": "Exact max-min inradius divisions of orthotopes",
+        "trigger": "An indexed division result specializing to a square and maximizing the component inradius."
+      },
+      {
+        "assessment": "Minimizing maximum diameter is not maximizing the inradius/circumradius ratio; its side-parallel direction differs from the present optimum.",
+        "evidence": [
+          "Published indexed ID 2026/10/4/...--0e84351e89a7; formula and reported side-midpoint optimizer."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7",
+        "material_read": "Published indexed title and summary, not the full source document.",
+        "method": "Semantic mathematical-record search and comparison of the reported statement.",
+        "title": "Exact maximum relative diameter bisection of every regular even polygon",
+        "trigger": "A separately optimized enclosing-diameter objective with a square special case."
+      },
+      {
+        "assessment": "This problem optimizes over arbitrary finite convex partitions, whereas the claim fixes exactly two equal-area pieces.",
+        "evidence": [
+          "TOPP Problem 59 statement and cited Damian–O’Rourke paper."
+        ],
+        "identifier_or_url": "https://topp.openproblem.net/p59",
+        "material_read": "Public problem statement and background references, not an entire research paper.",
+        "method": "Direct reading of online research problem page.",
+        "title": "Most Circular Partition of a Square",
+        "trigger": "Named open problem about the same square circularity invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a6272d1-c72e-46be-8716-5657b1eb471b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact two-piece equal-area fatness of a square is a natural smallest finite benchmark for the 2026 equal-area fat-partition theorem and the fixed-number circularity tradeoff explicitly proposed by Damian and O’Rourke. The unique slope is interior, and neither obvious side-parallel nor diagonal cut is optimal. The complete exact constant and all equality directions are a nonroutine natural classification rather than an arbitrary computational slice.",
+    "status": "PASS"
+  }
+}
