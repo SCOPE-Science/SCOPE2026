@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit integral cellular model has 28 vertices, 72 edges and 42 squares, and an exact determinant-one quotient calculation constructs the full integral first-homology basis. The natural total-motion map is surjective, its kernel is the single exchange generator, and all 48 induced automorphisms have been reconstructed exactly. Fifteen rational equivariance equations for the generator matrices have a unique solution with denominator three. An independent integral determinant checks the three top-homology torus generators. The standalone checker, including 2304 group-law checks and the antipodal index-four computation, executed successfully; finite exhaustive steps do not extrapolate to other graphs.
+## correctness
 
-**Originality — PASS, with literature risk.** The familiar abstract free homology rank and graph braid generators are credited. Primary material inspected includes the Barnett–Farber ordered two-particle results, Maciążek–Sawicki's abstract planar homology result, An–Maciążek graph presentations, and dated Abrams–Ghrist graph-model introduction. Comparisons also include published cuboctahedral rational modules and a different exchange-sign Borel–Moore calculation. Their statements do not imply a natural cube-graph ordinary integral extension of order three. Targeted searches for the specific cube, canonical exact extension, symmetry, alias and denominator found no directly covering result; an unindexed equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** The two-point cube graph is a minimal and canonical three-dimensional, trivalent, non-cactus test of equivariant graph-braid topology. The exact three-primary non-splitting distinguishes natural integral group actions with identical abstract homology and the same rational representation; it pinpoints precisely the coefficient ring needed for equivariant splitting. The supplementary integral degree-two and antipodal lattice structures situate the obstruction inside a complete small natural example.
+For the sufficiently subdivided Q3 unordered two-particle deleted-product model there are 28 vertices,72 edges,42 squares; independently reconstructed signed cellular boundaries satisfy d1*d2=0, rank d1=27 and rank d2=39. The source projection.json gives an exact 45-square determinant -1 from 39 square boundaries plus 6 integral cycles, proving a primitive H1 basis and torsion-freeness. Five stationary-particle cube cycles map surjectively to H1(Q3), the exchange loop spans the kernel. The 48 signed automorphism matrices satisfy their 2304 compositions; the three generator systems uA−delta*u=b have unique solution u=(-1,1,-1,1,-2)/3, obstructing a Z-equivariant section but defining one over Z[1/3]. Order is exactly 3 in the extension group. Three opposite-face product tori are cycles with unit determinant minor and rank-3 kernel, giving full integral H2; antipodal eigenlattice determinant is 4 with primitive minors. I independently reconstructed cell ranks, unimodular quotient, and rational section from transparent verify.py/projection.json, not relying solely on VERIFY_OK.
 
-**Limits.** No general dimension- or particle-uniform result, full cohomology ring, or independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett–Farber studies ordered two-point graph configurations and planar intersection/rank formulas, not this integral Aut(Q3)-module extension. General graph braid presentations and published SCOPE rational symmetry modules for a different graph do not calculate the canonical three-primary integral equivariant obstruction on Q3. Distinction is coefficient-module extension versus mere Betti counts.
+
+## value
+
+PASS
+
+The exact order-three obstruction is an intrinsic integral symmetry invariant not visible to homology ranks or rational irreducible characters. The concrete canonical total-motion extension and index-four gluing are motivated natural topological data for particle exchanges on a familiar graph and could be reused in equivariant graph configuration comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
