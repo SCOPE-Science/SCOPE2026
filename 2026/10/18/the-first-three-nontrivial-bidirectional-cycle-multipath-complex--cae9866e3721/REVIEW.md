@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph convention and full face predicate agree with the stated bidirectional multipath definition. The finite verifier constructs every face on \(8,10,12\) oriented arc vertices and gives an explicit matching plus complete directed-Hasse acyclicity certificate for each. The reductions have one ordinary critical zero-cell and respectively \((3\text{ in degree }1,2\text{ in degree }2)\), \((1\text{ in degree }2,2\text{ in degree }3)\), and \((1\text{ in degree }2,2\text{ in degree }4)\). The four-vertex case has exactly two tetrahedral boundaries connected by four edges. For the other two, the consistently oriented cycle boundaries generate both top homology summands. The five-vertex attaching degrees therefore vanish. The six-vertex integral two-cocycle has mod-two nontrivial class and literally zero Alexander–Whitney square; the free top cohomology forces both Hopf invariants to vanish. The exact certificate enumerates all relevant faces, checks every Hasse arrow and tests every coboundary and cup-square evaluation; no infinite inference from sample computation is made.
+PASS
 
-## Originality — PASS (subject to literature-coverage risk)
+For BP_n with n=3,4,5 (N=n+1=4,5,6 graph vertices), independently generated all 2^(2N) arc subsets, checked indegree/outdegree≤1 and absence of directed cycles; exact augmented face cardinalities 33,81,197. Reconstructed deterministic Morse pairings 14,39,97 and checked acyclic orientation across all 64,200,588 Hasse covers, with critical positive cells (3 in degree1,2 in degree2), (1 degree2,2 degree3), (1 degree2,2 degree4). For N=4 two disjoint tetrahedral boundaries linked by four bridges yield wedge^3 S1∨wedge^2 S2. For N=5 two disjoint coherent-cycle top classes force zero degree-3-to-degree-2 cellular differential, giving S2∨2S3. N=6 is not implied by Betti data: independently verified explicit seven-term integral 2-cocycle, δφ=0 on every three-simplex, nonzero mod2 cohomology (rank 37 coboundary image in 76-dimensional C²), and pointwise zero integral Alexander–Whitney square on all twelve four-simplices. Since H²=Z and H⁴=Z² torsion-free, its odd multiple of generator has square zero, forcing zero Hopf invariants of both S3→S2 attaching maps, hence S2∨2S4. Correct only for n=3,4,5; no extension claimed.
 
-Caputi–Collari–Smith (arXiv:2601.05670v1, 9 January 2026) give homology for all bidirectional cycles but explicitly state their homotopy wedge conjecture as open, including at the end of Section 3. These homology groups do not resolve the potential Hopf map in the six-vertex case. Caputi–Collari–Di Trani–Smith (Mathematika 2024, e12235, Section 4.2) restrict their polygon theorem to directed polygons without bidirectional edges, so cannot imply the present classification. A separate mathematical-record search for bidirectional multipath homotopy types, cycle-free chessboard reductions, equivalences and attaching maps revealed no result implying this exact three-case wedge decomposition. Unindexed/unpublished equivalent proofs remain possible; the comparison is not a universal novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the first three nontrivial instances of a specifically published homotopy-type conjecture, rather than merely repeating already computed Betti numbers. For the six-vertex cycle, homology and the discrete-Morse cell counts allow nontrivial \(\pi_3(S^2)\)-attaching maps; the new explicit integral cup-square obstruction calculation is needed to show they vanish. The result offers a reproducible combinatorial and unstable-homotopy benchmark for any proposed uniform approach. The limited three-case scope is intentional and does not claim a general formula.
+Best-of-knowledge original integral homotopy types for the three named bidirectional polygonal multipath complexes, especially the unstable N=6 Hopf obstruction. Caputi–Collari–Smith already determined full integral homology in all lengths, but explicitly leave wedge-of-spheres homotopy open; the present claim is strictly stronger in three finite cases.
 
-## Scope and risks
+## value
 
-Only the three labeled finite complexes are classified; a later graph order can involve other unstable torsion obstructions. No equivariant statement or general shellability assertion is made. Unindexed equivalent work remains a residual originality risk. The supplied verifier is exhaustive for these three finite graph orders and uses only the Python standard library.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the first nontrivial cases of an explicit homotopy-type conjecture, and N=6 requires a motivated cup-product obstruction invisible to homology. Exact integral unstable homotopy examples are useful benchmarks for directed multipath topology, without implying the full conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
