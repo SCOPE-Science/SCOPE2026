@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Direct algebra reconstructs both equations (2.11a)–(2.11b). The increasing ratio R(u) proves the exact worst boundary, giving an if-and-only-if cubic Q with a strict counterexample when Q<0. The transformed stabilization frontier has a unique critical point by a strictly decreasing cubic derivative numerator. This analytically proves the three-parameter classification including all edges, independently of rational tests. verify.py completed 1200 exact equation/criterion tests, 9999 rational boundary tests and the rational witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hou–Ju–Qiao arXiv:2310.19663v1 Theorem 2.1 proves broader spatially discrete sufficient MBP criteria, with nonnegative-matrix conditions depending on diffusion and grid size; no lower/necessity result covers the improved scalar-only domain.",
+        "Hao–Lee–Xu–Xu arXiv:2406.18393 describes classical BE, CN, convex-splitting modified CN and DIRK, not the source BDF1-half-step doubly stabilized endpoint."
+      ],
+      "reasoning": "Although the primary theorem has a broader spatial class, its premises are substantially stronger and its conclusion only sufficient; it does not imply the exact scalar frontier. Other numerical-method stability theorems concern different numerical maps.",
+      "searches": [
+        "sharp scalar Allen Cahn linear doubly stabilized Crank Nicolson S1 S2 unconditional maximum bound positivity scalar ODE homogeneous S2=0 threshold 4+2sqrt2",
+        "exact unconditional invariant interval threshold stabilizing coefficients double well cubic scalar stabilized Crank Nicolson",
+        "doubly stabilized Crank Nicolson scheme Allen Cahn ODE homogeneous maximum bound sharp stabilization constants"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.19663v1 (full source algorithm, Theorem 2.1, numerical and concluding sections)",
+      "doi:10.4208/aamm.OA-2023-0067 (2024 journal entry and source metadata)",
+      "doi:10.4208/eajam.200113.220213a (full 2013 CN/AB article, Eq. (2.5))",
+      "doi:10.1016/j.aml.2019.106150 (2020 CN/AB abstract/bibliography only)",
+      "arxiv:2406.18393 (2024 scope/abstract only)",
+      "published mathematical finding index searches on source name, exact polynomial aliases, reentrant steps and stabilization thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.19663v1 Theorem 2.1 provides sufficient \\(S_2\\) bounds (or a small-step restriction when \\(S_2=0\\)). It does not force \\(s\\ge4+2\\sqrt2\\) for unconditional scalar MBP, and does not provide reentrant time-step intervals.",
+        "Feng–Tang–Yang 2013 Eq. (2.5) uses the state \\(u^{n-1}\\) and thus cannot imply the new one-state map frontier without an additional nontrivial reduction.",
+        "Hou–Leng 2020 DOI:10.1016/j.aml.2019.106150 explicitly uses CN/AB, with older-state extrapolation instead of the source midpoint BDF1."
+      ],
+      "reasoning": "Neither a sufficient meshwise maximum-bound guarantee nor a theorem for a different two-step discretization implies the exact if-and-only-if scalar sign characterization. The new necessity, disconnected safe window and large-first-stabilization regime are mathematically stronger conclusions on a deliberately narrower class.",
+      "searches": [
+        "\"Hou\" \"Ju\" \"Qiao\" \"doubly stabilized\" \"Crank-Nicolson\" exact scalar maximum bound S1 S2 threshold",
+        "linear doubly stabilized Crank Nicolson BDF1 midpoint scalar necessity positivity threshold",
+        "Tianliang Hou Haitao Leng 2020 Numerical analysis stabilized Crank Nicolson Adams Bashforth finite difference scheme Allen Cahn equations pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hou–Ju–Qiao arXiv:2310.19663v1 §§2.2–2.3, (2.11a)–(2.11b), Theorem 2.1, is the exact primary algorithm; its stated conclusion is sufficient, not an exact scalar boundary.",
+        "Feng–Tang–Yang, DOI:10.4208/eajam.200113.220213a, Algorithm 2.1, Eq. (2.5), is a two-level Adams–Bashforth reaction extrapolation rather than a BDF1 midpoint and does not reduce to the same map."
+      ],
+      "reasoning": "The relevant equivalence is equality of the full one-step map or a theorem implying the sign of its worst-case endpoint multiplier. The source equations match but its sufficient theorem does not imply the three-parameter necessary/sufficient polynomial or two-root safe-step set. Earlier CN/AB recurrence is not algebraically equivalent under a change of parameters.",
+      "searches": [
+        "\"Hou\" \"Ju\" \"Qiao\" \"doubly stabilized\" \"Crank-Nicolson\" exact scalar maximum bound S1 S2 threshold",
+        "Allen Cahn doubly stabilized Crank Nicolson reentrant time step interval parameter scalar invariant [-1,1]",
+        "linear doubly stabilized Crank Nicolson BDF1 midpoint scalar necessity positivity threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published source reports sufficient conditions and numerical MBP tables rather than a tabulation of the exact homogeneous cubic or its unique critical root.",
+        "Available numerical invariant-interval literature investigated in the named queries produced no matching formula, parameter table, or direct generalization."
+      ],
+      "reasoning": "The exact threshold curve is analytically defined by a unique cubic critical point for an existing algorithm. No exact table or recognized scalar numerical invariant with the same conditions was found; search absence is not proof of novelty.",
+      "searches": [
+        "Crank Nicolson Adams Bashforth Allen Cahn scalar stabilization parameter reentrant step size maximum principle",
+        "Allen Cahn homogeneous mode stabilized Crank Nicolson unconditional positivity when first damping exceeds 4+2sqrt(2) second stabilization zero",
+        "\"Allen-Cahn\" \"S_1\" \"S_2\" \"4+2\" \"Crank\""
+      ]
+    },
+    "rationale": "The exact source algorithm and sufficient spatial MBP bound are prior work. An implication-level inspection of its full preprint, earlier CN/AB methods and a 2024 method survey reveals no theorem implying the exact homogeneous necessary/sufficient polynomial, reentrant time-step window or large-first-stabilization zero-second-stabilizer regime. Relevant scientific record search did not surface direct coverage; this remains a qualified best-knowledge comparison, not global uniqueness.",
+    "residual_risks": [
+      "An equivalent algebraic classification may occur in unindexed invariant-region or SSP theory under a different parameterization.",
+      "The complete 2020 Hou–Leng text and the complete 2024 Hao–Lee–Xu–Xu text were not inspected; their distinct scheme descriptions make direct coverage less plausible but do not prove impossibility.",
+      "A scalar necessary bound does not imply a full spatial finite-difference sufficient bound; this remains explicitly outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_AND_SUFFICIENT_ONLY_NOT_COVERING_THE_EXACT_SCALAR_CLASSIFICATION",
+        "evidence": "Theorem 2.1 bounds \\(S_2\\) using \\(S_1/4\\) plus a spatial diffusion term and proves sufficiency; no exact scalar necessity, critical first-stabilizer, or reentrant safe-step interval is stated or implied.",
+        "identifier_or_url": "https://arxiv.org/html/2310.19663v1",
+        "material_read": "Full accessible HTML, especially §§2.2–2.3 equations (2.6), (2.9), (2.11a)/(2.11b), Theorem 2.1 and proof (2.14)–(2.18), and numerical MBP discussion.",
+        "method": "Read source method, convert its actual stage and endpoint to constant spatial states, compare exact hypotheses and conclusions.",
+        "title": "A linear doubly stabilized Crank-Nicolson scheme for the Allen-Cahn equation with a general mobility",
+        "trigger": "Same exact algorithm and variable parameter names; primary potential covering source."
+      },
+      {
+        "assessment": "DISTINCT_TWO_LEVEL_CN_AB_STABILIZATION",
+        "evidence": "Its (2.5) includes \\(u^{n-1}\\) and \\(3f(u^n)/2-f(u^{n-1})/2\\), unlike the source BDF1 intermediate stage.",
+        "identifier_or_url": "https://www.global-sci.com/EAJAM/article/view/9210",
+        "material_read": "Open article full HTML, §§1–2, especially Algorithm 2.1 and Eq. (2.5), comparisons with Algorithms 2.2 and energy bounds.",
+        "method": "Inspect printed two-level update, extrapolation and stabilization term, contrast with single-input midpoint BDF1 construction.",
+        "title": "Stabilized Crank-Nicolson/Adams-Bashforth Schemes for Phase Field Models",
+        "trigger": "Earlier closely titled stabilized Crank–Nicolson Allen–Cahn scheme; potential equivalent formulation."
+      },
+      {
+        "assessment": "PLAUSIBLY_DISTINCT_MULTISTEP_METHOD;_FULL_TEXT_ACCESS_LIMIT",
+        "evidence": "Abstract specifies stabilized CN/AB in time; primary 2023 introduction identifies it as distinct from the new BDF1-midpoint CN method.",
+        "identifier_or_url": "https://doi.org/10.1016/j.aml.2019.106150",
+        "material_read": "Bibliographic abstract and explicit methodological comparison in the motivating primary text; full text not accessible in the checked open search.",
+        "method": "Compare named CN/AB multistep method and abstracted maximum-principle claims, with access limitation.",
+        "title": "Numerical analysis of a stabilized Crank–Nicolson/Adams–Bashforth finite difference scheme for Allen–Cahn equations",
+        "trigger": "Referenced by the source as predecessor to its method."
+      },
+      {
+        "assessment": "DIFFERENT_BE_CN_MODIFIED_CN_DIRK_METHOD_FAMILIES",
+        "evidence": "Explicit method list comprises BE, CN, modified CN convex splitting, and DIRK; it does not identify the BDF1-midpoint doubly stabilized endpoint.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.18393",
+        "material_read": "Paper abstract and listed method scope; complete article not obtained from accessible open rendering.",
+        "method": "Compare list of time discretizations and parameters.",
+        "title": "Stability and Robustness of Time-discretization Schemes for the Allen-Cahn Equation via Bifurcation and Perturbation Analysis",
+        "trigger": "Plausible general scalar Allen–Cahn stability classification from 2024."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0932b796-eedd-47bb-ae7f-76448071de95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivated object is the original method's physical maximum-bound invariant domain. A sharp all-parameter scalar boundary is a necessary obstruction for any full periodic/Neumann spatial implementation, and the two disconnected step-safety regions show a substantive nonmonotone phenomenon not captured by prior sufficient numerical bounds. The critical first stabilization 4+2sqrt2 and exact second-stabilization curve give meaningful test and design benchmarks.",
+    "status": "PASS"
+  }
+}
