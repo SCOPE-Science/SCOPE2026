@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The genus-four smooth domain is characterized by \(b\Delta\ne0\). The Cartier basis, coefficient indexing and sparse matrix shape follow by direct coefficient extraction in characteristic \(17\). Rank decomposes into three disjoint blocks; the coefficient identities and exact resultant with all specialized gcds prove completeness over the algebraic closure. The saved standalone verifier recomputes the crucial identities and the three exceptional ranks. The proof does not equate a finite sample with a geometric classification.
+PASS
 
-## Originality: PASS, subject to bibliographic limits
+For b*Delta(a,b) nonzero over algebraic closure F17, y²=x Q(x³), Q=t³+t²+at+b, has genus4. The Cartier operator has a sparse 4x4 matrix with independent blocks: scalar B=[t^8]Q^8 and two disjoint vector blocks (A,E) and (C,D), so rank=1_{B!=0}+1_{(A,E)!=0}+1_{(C,D)!=0}. Independently expanded Q^8 over F17 and checked A=b^6(8b-6a²), E=-2a²+5ab+8a-2b+5. Substituting b=5a² solves (A,E)=0 at three points (4,12),(10,7),(13,12), which have nonzero discriminant. Exact symbolic resultant Res_b(C,D)=3a³(a-6)^12(a+4)(a+7)(a-4) and specialized gcds at a=0,6,13,10,4 rule out other common zeros even in algebraic closure: (0,0) excludes b=0, (6,12) singular. Evaluating B yields rank0 at (13,12) -> a=4, rank1 at other two -> a=3, rank2 when B=0 elsewhere -> a=2, rank3 otherwise -> a=1. The resultant and gcd computations, not a prime-field census, justify completeness over all algebraic extensions.
 
-Kudo–Nakagawa–Takagi, §3.2, derives the underlying sparse matrix, and its §4 enumerates superspecial matrices of rank zero, but the inspected 2023 full-text sections and published tables do not classify every intermediate Cartier rank in characteristic \(17\). Elkin's general cyclic-cover bounds do not determine the exceptional parameter locus. The additional full rank-stratification and the two rank-one parameter points are not direct statements of the inspected literature. Source/alias/stronger-implication comparisons and historical claim checks identified no equivalent result. Earlier unindexed computations or work with an equivalent normalized family may exist.
+## originality
 
-## Value: PASS
+PASS
 
-A complete rank stratification is a natural geometric invariant of this distinguished two-dimensional low-genus, cyclic-symmetry family, in the smallest characteristic supporting genus-four hyperelliptic superspecial curves. The two isolated smooth \(a\)-number-three parameters are mathematically different from the known superspecial parameter and are not captured by the generic rank bound; the full divisor-versus-isolated-point decomposition is an exact useful boundary for studies of Jacobian degeneration and finer positive-characteristic strata.
+Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.
 
-The proof classifies only the \(a\)-number, not stable \(p\)-rank, Newton polygons, isomorphism classes or global moduli strata beyond the stated family. The original superspecial parameter is acknowledged as prior work. No external independent validation has been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Completing every a-number stratum for a natural two-parameter genus-four family with order-six automorphism is a meaningful geometric classification. The exact two rank-one points, unique rank-zero point and rank-two divisor distinguish the superspecial locus from intermediate nonordinary Jacobians; those precise exceptions could be useful in moduli and arithmetic stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

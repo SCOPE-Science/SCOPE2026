@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:49:26.007890Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md, verify.py (Git blob d52d4e321831c1304cc6ac4b434c22a7090c7ecb), AUDIT.json, METADATA.json, VERIFICATION.md, SLOGAN.txt read at assigned commit.",
+        "Independent SymPy expansion of Q^8 verified exact A,E and 18-degree resultant formula in F17[a], and independently computed gcd at every possible a=0,6,13,10,4.",
+        "Known Kudo–Nakagawa–Takagi Lemma 3.2.1 independently compared for the p≡2(mod3) matrix zero pattern; rank bound3 already known and credited."
+      ],
+      "rationale": "For b*Delta(a,b) nonzero over algebraic closure F17, y²=x Q(x³), Q=t³+t²+at+b, has genus4. The Cartier operator has a sparse 4x4 matrix with independent blocks: scalar B=[t^8]Q^8 and two disjoint vector blocks (A,E) and (C,D), so rank=1_{B!=0}+1_{(A,E)!=0}+1_{(C,D)!=0}. Independently expanded Q^8 over F17 and checked A=b^6(8b-6a²), E=-2a²+5ab+8a-2b+5. Substituting b=5a² solves (A,E)=0 at three points (4,12),(10,7),(13,12), which have nonzero discriminant. Exact symbolic resultant Res_b(C,D)=3a³(a-6)^12(a+4)(a+7)(a-4) and specialized gcds at a=0,6,13,10,4 rule out other common zeros even in algebraic closure: (0,0) excludes b=0, (6,12) singular. Evaluating B yields rank0 at (13,12) -> a=4, rank1 at other two -> a=3, rank2 when B=0 elsewhere -> a=2, rank3 otherwise -> a=1. The resultant and gcd computations, not a prime-field census, justify completeness over all algebraic extensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kudo et al. prove rank(M)<=3 for p≡2 mod3 and enumerate superspecial rank0 cases; Elkin gives general cyclic-cover rank restrictions."
+        ],
+        "reasoning": "Those stronger general tools imply generic nonordinarity (a≥1), but not full rank-one/ rank-two exception coordinates or the divisor B=0. A single known superspecial point is incorporated, not asserted newly discovered.",
+        "searches": [
+          "Kudo Nakagawa Takagi Math Comp Sci 17 (2023) Lemma 3.2.1 and §4",
+          "Resultary semantic search: characteristic 17 genus four hyperelliptic C6 automorphism Cartier Manin rank a-number parameter family stratification",
+          "Elkin rank Cartier cyclic covers J Algebra 327 2011"
+        ]
+      },
+      "checked_sources": [
+        "Kudo–Nakagawa–Takagi 2023 full Springer Nature OA HTML, §§3.2 and 4",
+        "Kudo–Harashita (2018) superspecial finite-field enumeration, bibliography-level",
+        "Elkin (2011) rank bound via discussion in original primary paper",
+        "Resultary semantic search characteristic 17 genus four hyperelliptic C6 automorphism Cartier Manin rank a-number parameter family stratification (top hits unrelated to p17 a-number loci)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General sparse operator forces rank at most3, so a≥1 is not novel."
+        ],
+        "reasoning": "The exact algebraic elimination over the full geometric parameter plane is not implied by the sparse zero pattern; resultant and gcds are needed to rule out higher-degree rank-drop points.",
+        "searches": [
+          "Kudo Nakagawa Takagi 2023 Lemma 3.2.1",
+          "Elkin 2011 cyclic cover rank theorem",
+          "Resultary semantic search: characteristic 17 genus four hyperelliptic C6 automorphism Cartier Manin rank a-number parameter family stratification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family H_ab and sparse Cartier–Manin matrix are exactly those in Kudo–Nakagawa–Takagi Lemma 3.2.1 for p=17; the a-number is g minus matrix rank, with no claim about p-rank."
+        ],
+        "reasoning": "Same parameter family and sparsity are pre-existing; the claim computes exact rank-drop loci of all three blocks across algebraic closure, beyond rephrasing the p≡2 mod3 rank bound.",
+        "searches": [
+          "Resultary semantic search: characteristic 17 genus four hyperelliptic C6 automorphism Cartier Manin rank a-number parameter family stratification",
+          "Kudo Nakagawa Takagi 2023 C6 H_ab Cartier Manin p equiv 2 mod3",
+          "Elkin cyclic cover Cartier rank bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known superspecial locus includes the rank-zero example, while independently established values are exactly two rank-one parameters (4,12),(10,7) and B=0 remaining a-number-two divisor."
+        ],
+        "reasoning": "Published tables enumerate superspecial/isomorphism classes, not the complete two-dimensional parameter-space a-number stratification; any known rank-zero point is treated as covered.",
+        "searches": [
+          "Kudo Nakagawa Takagi §4 superspecial table p=17",
+          "Kudo Harashita 2018 superspecial genus four small finite fields",
+          "Resultary semantic search: characteristic 17 genus four hyperelliptic C6 automorphism Cartier Manin rank a-number parameter family stratification"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.",
+      "residual_risks": [
+        "One previously known superspecial characteristic-17 parameter is included solely as part of the full partition and is not claimed new.",
+        "An independent full publication census of intermediate Cartier ranks is not certified; other normal-form identifications could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact matrix pattern and generic rank<=3 but focuses on rank-zero superspecial classification; does not supply displayed complete intermediate rank-one/two locus",
+          "evidence": "Lemma 3.2.1 case p≡2 (mod3), stated rank<=3; §4 superspecial search and listed examples",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11786-023-00571-w",
+          "material_read": "Full openly accessible publisher HTML article, read §3.1 model, §3.2 Lemma 3.2.1 plus proof and §4 superspecial classification and tables",
+          "method": "Read complete accessible primary full text with focused matrix and example comparisons",
+          "title": "Efficient Search for Superspecial Hyperelliptic Curves of Genus Four with Automorphism Group Containing C6",
+          "trigger": "Exactly same cyclic-symmetry hyperelliptic family and characteristic-seventeen sparse Cartier matrix"
+        },
+        {
+          "assessment": "General rank bounds, not the exact p17 elimination stratification in inspected material",
+          "evidence": "Elkin (2011), cyclic-cover Cartier rank bounds",
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2010.09.046",
+          "material_read": "General theorem described/reviewed in Kudo et al. §2.3; no independent full article read",
+          "method": "Compared prior implication as quoted by primary paper",
+          "title": "The rank of the Cartier operator on cyclic covers of the projective line",
+          "trigger": "General rank upper bounds relevant to the family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completing every a-number stratum for a natural two-parameter genus-four family with order-six automorphism is a meaningful geometric classification. The exact two rank-one points, unique rank-zero point and rank-two divisor distinguish the superspecial locus from intermediate nonordinary Jacobians; those precise exceptions could be useful in moduli and arithmetic stratification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One previously known superspecial characteristic-17 parameter is included solely as part of the full partition and is not claimed new.",
+    "An independent full publication census of intermediate Cartier ranks is not certified; other normal-form identifications could exist.",
+    "Scientific assessment is not independent formal Lean certification or external expert verification.",
+    "No GitHub edit, publisher upload or automatic acceptance was performed."
+  ],
+  "schema_version": 1
+}
