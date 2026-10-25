@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All labels and graph neighborhoods defined. For zero A_i (B_i), the count of adjacent twos is q-[B_i=2] (respectively p-[A_i=2]). Independent selection of remaining 0/1 labels after choosing the two-support sets yields F_n by four disjoint index classes. A perfect Roman labeling has no side with zero positives for n>=3; totality is equivalent to at least two positives per side. Exact enumeration of all one-positive-side exceptions and their overlap gives T_n=F_n-2E_n+n z^4. A separate case split on p and q proves the weight-six minimum and all n^2(n-1) optimizers for n>=4, with 31 exceptions at n=3. Standalone adjacency-based code exhaustively verifies n=3..6 (597780 assignments); finite verification is supplemental, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almulhim 2023 Proposition 2 computes total-perfect-Roman minima for complete multipartite graphs; it includes \\(K_{n,n}\\) but not \\(\\(K_{n,n}\\)-M\\).",
+        "Almulhim 2023 Proposition 4 bounds total-perfect-Roman minima via perfect Roman minima without computing the crown polynomial.",
+        "Public published-finding corpus record of perfect Roman domination of crown graphs reports ordinary perfect Roman minimum 4, not the total variant."
+      ],
+      "reasoning": "The direct complete-bipartite theorem yields minimum 4 prior to matching deletion; it cannot be applied after deletion because the resulting graph is not complete multipartite. From the ordinary-perfect value 4 and Almulhim bound one gets at most 7, which does not determine the proved value 6 or its multiplicity.",
+      "searches": [
+        "Web full-text: Ahlam Almulhim Total Perfect Roman Domination DOI 10.3390/sym15091676 Proposition 2, Proposition 4",
+        "published-finding corpus: total perfect Roman domination functions TPRDF polynomial complete multipartite graphs weight enumerator",
+        "published-finding corpus: total perfect Roman domination of Cartesian rook graphs exact minimum enumeration"
+      ]
+    },
+    "checked_sources": [
+      "Ahlam Almulhim, Total Perfect Roman Domination, Symmetry 15 (2023), 1676, DOI 10.3390/sym15091676 (relevant full-text sections).",
+      "published-finding corpus: Perfect Roman domination of crown graphs, ID e57b781e4a71 (summary only).",
+      "Own current-week crown claim IDs: bdd1dd2e-6811-4993-b868-5c5dc1aafa77 and 03dbcc3c-f483-442e-a4ac-a9fcade70937 (claim-only deduplication)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Almulhim 2023 gives the numerical n=3 case because the three-pair crown is a six-cycle; it gives neither its minimum count nor the entire polynomial.",
+        "The closest ordinary perfect Roman crown result has numerical minimum 4; totality forces positive-neighbor structure and raises the minimum to 6, not derivable from 4 alone.",
+        "Own-ledger crown results classify general position and locating-total domination, not the Roman functions in this claim."
+      ],
+      "reasoning": "The overlapping n=3 numerical value is acknowledged as covered. The claimed novelty is the full polynomial for every n>=3 and the infinite n>=4 minimum and optimizer classification. The prior bounds and weaker property do not logically entail them.",
+      "searches": [
+        "Web full-text: Almulhim 2023 Definition 1 / Proposition 2 / six-cycle observation / Proposition 4",
+        "published-finding corpus: perfect Roman domination of crown graphs minimum 4 n functions",
+        "Own-ledger claim search: total perfect roman; crown; perfect roman; K_{n,n}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown graph is also \\(K_{n,n}\\) with a fixed perfect matching removed; vertices A_i and B_j adjacent iff i != j.",
+        "Closest public semantic ID e57b781e4a71 concerns perfect Roman, not total perfect Roman."
+      ],
+      "reasoning": "Both graph-name and deleted-matching aliases were searched. The ordinary-perfect-Roman form is weaker, since a positive vertex may be isolated there, and a complete-bipartite graph is a different graph. Neither can yield the all-weight total-perfect-Roman enumerator by a renaming.",
+      "searches": [
+        "published-finding corpus: crown graph total perfect Roman domination polynomial K_n n minus perfect matching exact enumerator 6 n squared n-1",
+        "published-finding corpus: total perfect Roman domination crown graph cubic graph complete bipartite all labelings enumeration",
+        "Web: \"total perfect Roman domination\" \"crown graph\"",
+        "Web: \"total perfect Roman domination\" \"K_{n,n}\" minus matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed public entry: e57b781e4a71; summary gives ordinary perfect Roman minimum 4 and n minimizers.",
+        "Own ledger includes different crown invariants at IDs bdd1dd2e-6811-4993-b868-5c5dc1aafa77 and 03dbcc3c-f483-442e-a4ac-a9fcade70937; neither claim enumerates TPRDF.",
+        "No direct indexed table for total-perfect-Roman crown polynomials surfaced in these actual searches."
+      ],
+      "reasoning": "The closest indexed results are different functions or invariants; a missing indexed result is not proof of novelty. Source and theorem implications were checked separately.",
+      "searches": [
+        "published-finding corpus: crown graph total perfect Roman domination polynomial K_n n minus perfect matching exact enumerator 6 n squared n-1",
+        "published-finding corpus: Roman perfect total crown graph minimum six optimal 2023",
+        "Web: \"total perfect Roman domination\" \"crown\" graph",
+        "Web: \"total perfect Roman domination\" \"complete bipartite\" minus perfect matching"
+      ]
+    },
+    "rationale": "Almulhim (Symmetry 15 (2023), 1676, DOI 10.3390/sym15091676) introduces total perfect Roman domination and proves multipartite and cyclic minimum results, but a crown is not complete multipartite and the only cyclic overlap is the scalar n=3 instance. The public published-finding corpus ordinary-perfect-Roman crown statement concerns a strictly weaker property and cannot imply the new full total-perfect-Roman polynomial or its n>=4 optimizer formula. Targeted literature, semantic records, and own-ledger claim comparisons found no covering statement; residual unindexed-source risk acknowledged.",
+    "residual_risks": [
+      "Equivalent but unindexed treatment of total perfect Roman domination on crown graphs may exist.",
+      "Related ordinary-perfect-Roman crown record was compared at summary level because full text was unavailable; its broader appendix coverage was not verified.",
+      "Independent mathematical and bibliographic validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not enumerate TPRDFs of \\(\\(K_{n,n}\\)-M\\). Proposition 2 concerns complete multipartite graphs; the six-cycle observation covers only the numerical minimum when n=3.",
+        "evidence": [
+          "Definition 1 specifies unique label-2 defender for each zero and non-isolated positive subgraph.",
+          "Proposition 2: complete bipartite \\(K_{n,n}\\), n>=2, has total perfect Roman domination number 4.",
+          "The discussion of cycles gives gamma_tRp(C_6)=6; Proposition 4 yields general bounds, not the crown enumerator."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15091676",
+        "material_read": "Available 15-page publisher full text reproduced at https://www.researchgate.net/publication/373577707_Total_Perfect_Roman_Domination; inspected Definition 1, Proposition 2, cycle observation, Proposition 4, principal theorems and conclusions; searched page for crown (no match).",
+        "method": "Full-text section review and theorem-by-theorem implication comparison.",
+        "title": "Total Perfect Roman Domination",
+        "trigger": "Defines precise invariant and gives potentially dominating complete-bipartite and cycle results."
+      },
+      {
+        "assessment": "Summary reports the ordinary perfect Roman minimum 4 and n minimizers; does not assert total-positive support or the claimed all-weight polynomial. Full-text coverage uncertainty remains.",
+        "evidence": [
+          "published-finding corpus short summary explicitly states perfect Roman minimum 4 on \\(\\(K_{n,n}\\)-M\\) with n minimum functions, which omit totality."
+        ],
+        "identifier_or_url": "e57b781e4a71",
+        "material_read": "Public published-finding corpus indexed title and complete short summary; full repository item unavailable through attempted web/GitHub lookup.",
+        "method": "Semantic published-finding corpus search and statement-level comparison, not a full-text exclusion.",
+        "title": "Perfect Roman domination of crown graphs",
+        "trigger": "Same graph family and closely related but weaker Roman domination condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01768fb0-113b-47bb-a98e-6d3763e96211",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact full weight distribution and optimizer classification in the canonical graph perturbation \\(\\(K_{n,n}\\)-M\\) distinguish function support structure from a scalar domination bound. Matched-pair deletion raises the previously established complete-bipartite minimum 4 to 6 for every n>=3, while minimum multiplicity grows as n^2(n-1) for n>=4. These are motivated structural enumeration and edge-deletion sensitivity results, not an arbitrary size slice.",
+    "status": "PASS"
+  }
+}
