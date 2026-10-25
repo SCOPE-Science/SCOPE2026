@@ -1,11 +1,21 @@
-# Research review: three-nonzero-digit reversal products
+# Independent mathematical audit
 
-**Correctness (PASS).** The formal multiplication produces a symmetric seven-term coefficient pattern with central coefficient \(S=a^2+b^2+c^2\). Carry inversion at opposite ends proves that a \(2d+1\)-digit palindromic product is carry free, so the only possible exceptions have \(2d+2\) digits. For most gaps the leading/trailing two-digit obstruction is divisibility by \(11\); the remaining large-gap case has two explicit boundary candidates with unequal central digits; four short-gap patterns reduce to an exhaustive \(2916\)-case exact-integer check. The checker was run successfully. The proof does not infer infinite truth from testing arbitrary finite widths.
+## correctness
 
-**Originality (PASS, with risk).** OEIS A062936 identifies a sufficient low-square-sum family, not an exhaustive three-sparse converse. Ezerman–Meyer–Solé establish the expected-length carry-free case but leave open possible longer palindromic products, and their broader Conjecture 11 includes that obstruction. The new exclusion of the one-digit-overflow case for every triple is not implied by the cited expected-length theorem. Specific exact-object and equivalent-formulation queries across the relevant mathematical search sources and earlier findings yielded no covering statement. Priority risk remains for an unindexed equivalent or later paper.
+PASS
 
-**Value (PASS).** This is a complete classification for a natural first nontrivial sparse-digit family, with arbitrary interior placement, within a separately stated classical reversal-product conjecture. It removes precisely the carry-length obstruction that existing theory does not settle in this subfamily; it is not merely another finite table or renaming of a known sufficient condition.
+For A=a10^d+b10^j+c (a,b,c in 1..9; 1<=j<d), the raw AA^rev coefficient vector is symmetric with center S=a²+b²+c² and every coefficient <=S by Cauchy–Schwarz, so S<=9 implies carry-free palindrome. Conversely, a 2d+1-digit palindrome forces all carries zero by induction from the two symmetric ends, whence S<=9. The only remaining case is a 2d+2-digit palindrome. Let g=min(j,d-j), h=d-2g. The manuscript excludes g>=3 and g=2,h>=1 by first/last two digits from ac and impossibility of a 2-digit palindromic product of digits (11 has no digit divisor); for g=1,h>=3 it reduces to 729 leading-block possibilities with just two edge candidates, each central block not palindromic. Independently enumerated four residual gap pairs (1,0),(1,1),(1,2),(2,0) times 9³=2916 digit triples with no long palindrome. Thus the exact iff covers all d,j; no finite-grid extrapolation.
 
-**Scope and limitations.** The proof uses an exhaustive small certificate and does not resolve the unrestricted conjecture, other bases, or higher digit sparsity. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scientific statement-and-implication comparison: known components properly credited; no inspected accessible stronger result decisively contains the precise final claim. Residual access and priority risks explicitly retained; lack of full access was not treated as independent proof of novelty.
+
+## value
+
+PASS
+
+An exact infinite-parameter three-sparse family of the reversal-product carry-free converse is a motivated boundary of the open general palindrome question. Excluding longer-than-expected palindromic products is the substantive content, not merely reproducing the known carry-free sufficient condition; the classification supplies an exact sharp digit-square threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

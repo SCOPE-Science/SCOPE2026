@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:07:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=a10^d+b10^j+c (a,b,c in 1..9; 1<=j<d), the raw AA^rev coefficient vector is symmetric with center S=a²+b²+c² and every coefficient <=S by Cauchy–Schwarz, so S<=9 implies carry-free palindrome. Conversely, a 2d+1-digit palindrome forces all carries zero by induction from the two symmetric ends, whence S<=9. The only remaining case is a 2d+2-digit palindrome. Let g=min(j,d-j), h=d-2g. The manuscript excludes g>=3 and g=2,h>=1 by first/last two digits from ac and impossibility of a 2-digit palindromic product of digits (11 has no digit divisor); for g=1,h>=3 it reduces to 729 leading-block possibilities with just two edge candidates, each central block not palindromic. Independently enumerated four residual gap pairs (1,0),(1,1),(1,2),(2,0) times 9³=2916 digit triples with no long palindrome. Thus the exact iff covers all d,j; no finite-grid extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary JIS full text treats any reverse-product palindrome with the expected digit length and states a general converse as Conjecture 11, not a theorem."
+        ],
+        "reasoning": "A conjectured universal converse would include the three-sparse case if proved; it is not prior verified coverage. The present proof settles only three nonzero digits and should not be presented as resolving the unrestricted conjecture.",
+        "searches": [
+          "Ezerman–Meyer–Solé 2015 JIS Proposition 14 and Conjecture 11",
+          "OEIS A062936"
+        ]
+      },
+      "checked_sources": [
+        "Git immutable RESULT.md c2c5ab3233a2b6c080c03eadef97b4cad6eafb0b",
+        "Git immutable check.py aa9a2c90d8d582b6b5bc3240e1d22b28f9bdca9e",
+        "Ezerman–Meyer–Solé JIS 2015 full PDF (Prop14; Conj11)",
+        "OEIS A062936"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 14 assumes the expected digit length and then proves no carries; it does not eliminate the 2d+2 case. Long-gap carry bounds and residual exhaustive 2916-case certificate establish this distinct obstruction in three-sparse family."
+        ],
+        "reasoning": "Quantifier comparison resolves scope: the submission builds on the established expected-length result and proves the missing length case only under strong sparse support, rather than disguising prior Prop14 as new.",
+        "searches": [
+          "JIS 18(2015) Proposition14 (actual full PDF)",
+          "JIS 18(2015) Conjecture11 (actual full PDF)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The existing terminology is reversal-product palindrome, product with digit-reversal, symmetric coefficients/carry-free multiplication. Proposition 14 handles already-known expected-length carry-free necessity."
+        ],
+        "reasoning": "The submitted special case addresses the genuinely missing possible extra leading digit (2d+2), not a restatement of the prior carry-free criterion.",
+        "searches": [
+          "Ezerman–Meyer–Solé On Polynomial Pairs of Integers arXiv:1210.7593 / JIS 2015",
+          "OEIS A062936 reversal-product palindromes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known small instances and square-sum carry-free constructions have the same seven digit triple possibilities for a fixed three-sparse form; the prior table is not an all-gaps long-product impossibility proof."
+        ],
+        "reasoning": "Existing sequence examples are prior data, not an independently new count; novelty resides in uniform necessity across arbitrarily many zero gaps.",
+        "searches": [
+          "OEIS A062936 digit reverse product palindrome construction",
+          "Ezerman–Meyer–Solé Table1/examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge scientific statement-and-implication comparison: known components properly credited; no inspected accessible stronger result decisively contains the precise final claim. Residual access and priority risks explicitly retained; lack of full access was not treated as independent proof of novelty.",
+      "residual_risks": [
+        "Unindexed later result may prove the broad reversal-product converse or this three-sparse special case.",
+        "Exact Git tree SHA was returned by server and exact scientific blobs fetched at commit, but full tree-object listing unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE, does NOT provide proved general long-palindrome obstruction",
+          "evidence": "Proposition 14 proves only expected-length palindrome products are carry-free; Conjecture 11 formulates broader unproved converse; source predates submission.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Ezerman/eze3.pdf",
+          "material_read": "Complete accessible primary PDF including Proposition 14, Conjecture 11, preceding examples and table; pages inspected including rendered PDF page",
+          "method": "JIS full PDF via web open/text and rendered screenshot",
+          "title": "On Polynomial Pairs of Integers",
+          "trigger": "Directly treats digit reversal multiplication and all-length carry-free converse"
+        },
+        {
+          "assessment": "KNOWN_EXAMPLES_AND_CONSTRUCTION",
+          "evidence": "Sequence examples or construction are not an all-gap proof excluding longer palindromes with three nonzero digits.",
+          "identifier_or_url": "https://oeis.org/A062936",
+          "material_read": "Sequence description/indexed examples and surrounding bibliographic references; not all linked sources",
+          "method": "Web indexed OEIS search",
+          "title": "OEIS A062936",
+          "trigger": "Known examples of reversal-product palindromes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact infinite-parameter three-sparse family of the reversal-product carry-free converse is a motivated boundary of the open general palindrome question. Excluding longer-than-expected palindromic products is the substantive content, not merely reproducing the known carry-free sufficient condition; the classification supplies an exact sharp digit-square threshold.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git immutable RESULT.md c2c5ab3233a2b6c080c03eadef97b4cad6eafb0b",
+    "Git immutable check.py aa9a2c90d8d582b6b5bc3240e1d22b28f9bdca9e",
+    "Ezerman–Meyer–Solé JIS 2015 full PDF (Prop14; Conj11)",
+    "OEIS A062936"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only base ten and exactly three nonzero digits; unrelated to all bases or four-plus sparse factors.",
+    "Unindexed later result may prove the broad reversal-product converse or this three-sparse special case.",
+    "Exact Git tree SHA was returned by server and exact scientific blobs fetched at commit, but full tree-object listing unavailable."
+  ],
+  "schema_version": 1
+}
