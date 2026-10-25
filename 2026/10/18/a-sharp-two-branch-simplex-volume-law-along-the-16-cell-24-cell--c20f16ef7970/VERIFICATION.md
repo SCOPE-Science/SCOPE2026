@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducing the truncated-16-cell simplex certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` from this folder, with a C++17 compiler available as `g++`. The program itself compiles `enumerate.cpp` to a temporary directory and leaves no generated inputs or compiler dependencies in the research package. Only Python's standard library is required.
+## correctness
 
-The enumerator constructs 48 affine-in-parameter vertices from four coordinate indices and signed pairs, fixes an initial vertex by signed-permutation symmetry, enumerates all 178,365 remaining vertex quadruples, and computes determinants using 24 permutation terms with integer polynomial coefficients. It collapses signs to 258 distinct polynomial profiles and counts their exact multiplicities. The Python stage verifies exact degree-four Bernstein positivity on the two algebraic intervals split at \(\sqrt2-1\), evaluates breakpoint ties exactly in \(\mathbb Q(\sqrt2)\), and performs an independent rational determinant spot-check of every polynomial-profile representative. It then constructs complete signed-permutation orbits and verifies incidence-graph counts and exact same-sign alignment for the 48 movable-apex pairs.
+PASS
 
-Expected terminal output includes `PASS: 178365 vertex-anchored determinants` and the phase counts 192, 288, 96. This establishes the stated finite certificate conditional on execution of the supplied transparent source; the universal implications from the certificate are proved analytically in `RESULT.md`. Sampling alone cannot establish the continuum bound, and no independent audit has been performed. The full equality structure at the isolated breakpoint remains unproved beyond the vertex-supported count.
+The vertex-set description v(i,s;j,u)=(1-t)s e_i+t u e_j (48 for 0<t<1/2) is justified by nonoverlapping cap truncations. Multiaffinity of the 5-point determinant reduces any contained simplex to vertex extremizers. Independently enumerated all C(47,4)=178365 anchored determinants with a separate C++ polynomial enumerator: 258 signed profiles. A fresh rational Q(sqrt(2)) Bernstein check verified all 5160 nonnegative coefficients for A±P on [0,sqrt(2)-1] and B±P on [sqrt(2)-1,1/2]; only A and B attain open-phase equality, multiplicities 20 and 10 at the anchor. Independent signed-coordinate orbit enumeration produced 192 and 96 maximizers and 48 four-vertex-face pairs with same signed determinant, validating the one-apex segment equality analysis. At t=sqrt(2)-1 count 288 follows. Direct cross-polytope tip subtraction yields volume 2/3(1-4t^4), hence fraction 9/154 at t=1/3. Exhaustive finite determinant computation plus exact all-parameter positivity, rather than a parameter grid, proves the continuum bound.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.
+
+## value
+
+PASS
+
+This is an exact, sharp solution on the canonical 16-cell-to-24-cell truncation path, with a genuine determinant-envelope transition and an unusual positive-dimensional equality locus. The full equality families and 4D phase location are independently useful for maximal-simplex problems, not arbitrary table arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
