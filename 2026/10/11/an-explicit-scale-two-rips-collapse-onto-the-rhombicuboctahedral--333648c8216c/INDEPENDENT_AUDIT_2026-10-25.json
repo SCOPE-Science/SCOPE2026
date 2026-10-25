@@ -1,0 +1,219 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T14:16:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/AUDIT.json [Git blob a67c5ad5aebd7e3bb53094200c37b17280edfb77]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/METADATA.json [Git blob 6a2c9cae487541ab51e5a7e933f29806100e45e5]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/RESULT.md [Git blob 26f19f34a680ea4a3d0b20ca951c9991e4f24e71]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/REVIEW.md [Git blob 6bc089ac4135ee322ae15a0ed0a6adc292632a4f]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/SLOGAN.txt [Git blob d12a075e4c913674693c945a15b3d6d654a28c95]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/VERIFICATION.md [Git blob 62e3b6c044cc178e17ff15b7b7dc85c44e30608c]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/collapse_certificate.json [Git blob a9c448657a7eda09468c6d3f7afd19c5444cd4d7]",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/verify_rhombicuboctahedron.py [Git blob 2a7dcb01a4342bd1c44754d446852636c9951c94]",
+        "/mnt/data/scope_worker01_20261025T1402Z/independent_checks.py",
+        "/mnt/data/scope_worker01_20261025T1402Z/independent_checks.json",
+        "/mnt/data/scope_worker01_20261025T1402Z/source_certificate_check.json",
+        "/mnt/data/scope_worker01_20261025T1402Z/geometry_checks.py",
+        "/mnt/data/scope_worker01_20261025T1402Z/geometry_checks.json"
+      ],
+      "rationale": "The assigned RESULT.md fixes 24 signed long-axis vertices, a 48-edge degree-four graph and shortest-path distance, inclusive at scales 1 and 2. Fresh code independently enumerated 8 triangles, 18 induced squares, 638 faces of Cl(G²) with f=(24,132,248,186,48), and a 134-face K with f=(24,66,44). It verified cyclic vertex links, each edge in exactly two triangles, connectivity and Euler characteristic 2; thus K is a closed connected 2-manifold homeomorphic to S². An independent greedy algorithm, not the bundled verifier, found 252 successive free-face collapses outside K ending EXACTLY at K; additionally a separate read-only JavaScript check replayed every one of the 252 actual ordered pairs from pinned collapse_certificate.json and independently confirmed each unique coface, and exact final face-set equality. Sympy exact arithmetic verified all 26 indicated supporting facet planes with the graph-cycle facet sets: eight triangular faces, six coordinate squares, twelve pair squares. At scale 1 the eight disjoint triangle simplices are free-collapsed to a connected 24-vertex, 40-edge graph with cycle rank 17. Consequently H1→H1(S²) is zero and H2 at scale 2 has rank one. Finite enumeration is exhaustive for the precisely finite claim.",
+      "residual_risks": [
+        "Result asserts no minimum collapse count; exactly 252 is this witness, not a lower bound.",
+        "No analysis of thresholds >=3, other Archimedean solids, or Euclidean vertex-metric Rips; complex is graph shortest-path.",
+        "Independent script has only been run on this finite specified graph, not arbitrary graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saleh–Titz Mite–Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023); https://arxiv.org/pdf/2302.14388",
+          "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011/2012); https://arxiv.org/pdf/1104.0433",
+          "Saleh, On Vietoris-Rips Complexes of the 2-Sphere, 2023 thesis, https://jlupub.ub.uni-giessen.de/bitstreams/34b835ec-c58f-4735-8982-4e822628bd74/download",
+          "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md"
+        ],
+        "reasoning": "Saleh–Titz Mite–Witzel prove five Platonic-solid cases and explicitly propose Archimedean ones as a generalization. Adamaszek’s girth>=7 collapse cannot apply to a graph with triangles; his stability theorem would force H_1 persistence contrary to scale-one 17 circles and scale-two sphere; barycentric-subdivision universality constructs some graph rather than this given graph. The 24-vertex truncated-octahedral classification has 36 edges and a different scale-two homotopy type, so does not dominate the 48-edge case.",
+        "searches": [
+          "Web: Vietoris Rips complexes Archimedean solids graph metric rhombicuboctahedron",
+          "Saleh Titz Mite Witzel arXiv:2302.14388, main theorem and Archimedean extension",
+          "Adamaszek arXiv:1104.0433, Prop 2.2, Thm 3.1, Thm 4.1/4.2",
+          "Saleh, On Vietoris-Rips Complexes of the 2-Sphere, 2023 thesis, https://jlupub.ub.uni-giessen.de/bitstreams/34b835ec-c58f-4735-8982-4e822628bd74/download"
+        ]
+      },
+      "checked_sources": [
+        "Saleh–Titz Mite–Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023); https://arxiv.org/pdf/2302.14388",
+        "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011/2012); https://arxiv.org/pdf/1104.0433",
+        "Saleh, On Vietoris-Rips Complexes of the 2-Sphere, 2023 thesis, https://jlupub.ub.uni-giessen.de/bitstreams/34b835ec-c58f-4735-8982-4e822628bd74/download",
+        "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+        "Resultary/2026/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+        "Resultary/2026/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md",
+        "Resultary search results on 2026-10-25 UTC, including exact assigned publication mirror and related Archimedean entries",
+        "Source Git tree and all eight pinned blob identities, commit 6c379935c2e469fc18959fc6c387e31328c64bcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned complex has f=(24,132,248,186,48) and simple-collapses in 252 pairs to triangulated S²; verified from the pinned source certificate and an independent greedy relative collapse.",
+          "Saleh–Titz Mite–Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023); https://arxiv.org/pdf/2302.14388",
+          "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011/2012); https://arxiv.org/pdf/1104.0433",
+          "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md"
+        ],
+        "reasoning": "A general homotopy-realization existence theorem cannot assert a collapse of the named graph-square complex onto a fixed embedded triangulation. The stability results predict unchanged scale-one homotopy where their hypotheses apply, inconsistent here. Graph-specific Archimedean precedents are different graphs; Euclidean cuboctahedron has a different metric and only 12 vertices. Even another S² example does not imply a fixed explicit relative collapse.",
+        "searches": [
+          "Resultary: 24 vertex rhombicuboctahedron graph squared clique complex scale two Vietoris Rips simplicial elementary collapses 2 sphere",
+          "Resultary: Archimedean rhombicuboctahedron metric graph Rips homotopy boundary sphere",
+          "Adamaszek arXiv:1104.0433 Theorem 3.1 and Proposition 2.2",
+          "Saleh–Titz Mite–Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023); https://arxiv.org/pdf/2302.14388",
+          "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011/2012); https://arxiv.org/pdf/1104.0433",
+          "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+          "Target: Cl(G²) for the 24-vertex degree-four rhombicuboctahedral graph and its 134-face boundary triangulation; comparison classes differ by graph or metric."
+        ],
+        "reasoning": "At graph-distance threshold two, Rips equals the clique complex of the square graph G². Searches included the small rhombicuboctahedron, rhombicuboctahedral graph, graph power, Archimedean 24-vertex graph and simplicial boundary collapse. No independent source shown to identify this exact G² or a graph isomorphism yielding it. Similarly named cuboctahedron has 12 Euclidean-metric vertices and is not equivalent.",
+        "searches": [
+          "Resultary: 24 vertex rhombicuboctahedron graph squared clique complex scale two Vietoris Rips simplicial elementary collapses 2 sphere",
+          "Resultary: Archimedean rhombicuboctahedron metric graph Rips homotopy boundary sphere",
+          "Resultary: flag complex of square of rhombicuboctahedron 252 collapses 638 simplices",
+          "Web: rhombicuboctahedron Vietoris Rips graph clique",
+          "Web: rhombicuboctahedral graph square clique complex homotopy",
+          "Adamaszek arXiv:1104.0433, graph-square flag complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top semantic hit: 2026/10/11/SCOPE-an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c is a publication mirror of assigned work, excluded from independent priority comparison.",
+          "Other retrieved Resultary publications concern Euclidean cuboctahedron, truncated tetrahedron, truncated octahedron, or different functors (independence/matching complex).",
+          "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+          "Resultary/2026/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md"
+        ],
+        "reasoning": "No independently authored checked exact homotopy table, certificate, or 638-face/252-pair calculation for this exact object was located. Matching the current record itself does not disprove originality; failed searches do not establish priority.",
+        "searches": [
+          "Resultary: 24 vertex rhombicuboctahedron graph squared clique complex scale two Vietoris Rips simplicial elementary collapses 2 sphere",
+          "Resultary: Archimedean rhombicuboctahedron metric graph Rips homotopy boundary sphere",
+          "Resultary: flag complex of square of rhombicuboctahedron 252 collapses 638 simplices",
+          "Web: rhombicuboctahedron Vietoris Rips graph clique",
+          "Web: rhombicuboctahedral graph square clique complex homotopy",
+          "Resultary published rhombicuboctahedral independence-complex hit 2026/10/11/SCOPE-integral-sphere-wedge-homotopy-of-the-small-rhombicuboctahedral--babf3ae259ef"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact graph-metric, inclusive scale-two, 24-vertex rhombicuboctahedral elementary collapse onto its own triangulated polyhedral boundary. Independent primary literature and the published mathematical-record corpus were compared by objects, metrics, hypotheses and conclusions. Resultary returns an exact MIRROR of the assigned record, not independent prior coverage. No checked independent result implies either its homotopy type for this graph or its stronger 252-step embedded-boundary simple collapse; absence in search is not an absolute novelty proof.",
+      "residual_risks": [
+        "Unindexed/unpublished or differently named graph-square results could imply the fixed case; negative search is not an absolute priority certificate.",
+        "The thesis was materially inspected in relevant sections and searched, but not each of all 115 pages read in depth; unrelated appendices were not classified as NOT_COVERING.",
+        "The exact Resultary hit is the same assigned public record; its relationship to independent preprint circulation beyond available metadata was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Five Platonic solids only. Authors specifically note Archimedean solids as further generalizations; no 24-vertex rhombicuboctahedral graph theorem or 252 elementary-collapse witness is stated.",
+          "evidence": [
+            "Main theorem lists tetrahedron, octahedron, cube, icosahedron and dodecahedron (PDF pp.1–2).",
+            "PDF p.2: Archimedean solids proposed as possible generalizations.",
+            "Graph metric and polytope combinatorial distance convention on pp.3–4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.14388",
+          "material_read": "17-page primary PDF: main theorem on pages 1–2, graph-metric convention and combinatorial-distance table, discrete Morse principles, cube and dodecahedron arguments, closing discussion and references",
+          "method": "Open primary arXiv PDF and inspect theorem/scope/relevant body passages; PDF visually checked",
+          "title": "Vietoris–Rips complexes of Platonic solids",
+          "trigger": "Closest original theorem on graph-metric Rips of polyhedral 1-skeleta; Archimedean generalizations explicitly mentioned"
+        },
+        {
+          "assessment": "Cl(G²) equals scale-two graph-metric Rips. Girth>=7 collapse criterion fails (target girth=3); scale-one and scale-two have different homotopy types, excluding the stability hypotheses; universality gives existence of other graphs, not this fixed graph or boundary collapse.",
+          "evidence": [
+            "Proposition 2.2: for r=2 girth at least 7 implies collapse to Cl(G), incompatible with triangles.",
+            "Theorem 3.1: sufficiently covered G² cliques imply Cl(G)→Cl(G²) homotopy equivalence, impossible here since H_1 changes.",
+            "Theorems 4.1–4.2: specially constructed iterated barycentric-subdivision graph realizes arbitrary homotopy, not identity with the rhombicuboctahedral graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+          "material_read": "16-page primary PDF: introduction, Proposition 2.2, Theorems 3.1/3.2, 4.1/4.2 and relevant proofs and scope of later sections",
+          "method": "Open arXiv full-text PDF, inspect theorem hypotheses/conclusions and reductions; visually checked",
+          "title": "Clique complexes and graph powers",
+          "trigger": "General graph-square clique-complex and simplicial collapse theorems potentially subsuming the claim"
+        },
+        {
+          "assessment": "Examined sections concern Euclidean sampled spherical point clouds and Platonic solids. An Archimedean example is mentioned in a different Euclidean-point-cloud context, but no named graph-square collapse was found in searchable text. This is not a whole-document negative proof.",
+          "evidence": [
+            "Thesis contents allocate Chapter 3 to Platonic solids and Chapter 4 to higher-dimensional polytopes.",
+            "Section 2.2 discusses Euclidean point clouds, not graph shortest-path metric.",
+            "Search for rhombicubocta and cubocta returned no direct matches."
+          ],
+          "identifier_or_url": "https://jlupub.ub.uni-giessen.de/bitstreams/34b835ec-c58f-4735-8982-4e822628bd74/download",
+          "material_read": "115-page primary dissertation: contents, introduction, chapter 2 section 2.2 on 2-sphere point clouds, chapter 3 scope on Platonic solids; searched entire available extracted text for rhombicuboctahedron / cuboctahedron",
+          "method": "Official institutional open-access PDF, contents and targeted passages read, PDF screenshot inspected, page-text find for named objects",
+          "title": "On Vietoris-Rips Complexes of the 2-Sphere",
+          "trigger": "Plausible thesis-length extension containing polyhedral VR computations and remarks on Archimedean solids"
+        },
+        {
+          "assessment": "Truncated octahedral graph has 24 vertices, 36 edges and degree 3; here rhombicuboctahedral graph has 24 vertices, 48 edges and degree 4. Scale two is a wedge of nine 2-spheres for the former, a single sphere for the latter. No implication.",
+          "evidence": [
+            "Truncated-octahedral theorem: VR at scale two ≃ wedge^9 S², scale three ≃ S².",
+            "Coordinates are signed permutations of (0,1,2) and Euclidean-edge-length graph has 36 edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+          "material_read": "Complete published RESULT.md, including coordinate definition, graph size, seven-scale classification, certificate and limitations",
+          "method": "Pinned read-only GitHub connector fetch of published RESULT.md",
+          "title": "Complete graph-metric Vietoris--Rips filtration of the truncated octahedral graph",
+          "trigger": "Nearest published 24-vertex Archimedean graph-metric Rips result"
+        },
+        {
+          "assessment": "Twelve-vertex truncated-tetrahedral graph, 18 edges and scale-two wedge of five S²; not equivalent to or broader than the 24-vertex rhombicuboctahedral boundary collapse.",
+          "evidence": [
+            "Main result identifies VR_2 ≃ wedge^5 S² for a 12-vertex graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+          "material_read": "Complete published RESULT.md: exact 12-vertex graph, scale-two Morse certificate, homotopy and limitations",
+          "method": "Pinned read-only GitHub connector fetch",
+          "title": "The graph-metric Rips filtration of the truncated tetrahedron",
+          "trigger": "Similar explicit Archimedean graph-metric Rips calculation at scale two"
+        },
+        {
+          "assessment": "Twelve-point Euclidean cuboctahedron (permutations of (0,±1,±1)), not the 24-vertex rhombicuboctahedral graph with shortest-path metric. Sphere at Euclidean scale two does not imply the fixed graph-metric collapse.",
+          "evidence": [
+            "Euclidean cuboctahedron has 12 vertices and critical radii sqrt(2),2,sqrt(6),2sqrt(2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md",
+          "material_read": "Complete published RESULT.md: vertex coordinates, Euclidean threshold classification and proof",
+          "method": "Pinned read-only GitHub connector fetch",
+          "title": "Complete Vietoris–Rips filtration of the Euclidean cuboctahedron",
+          "trigger": "Similar polyhedron name and sphere stage, plausible prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Saleh–Titz Mite–Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023); https://arxiv.org/pdf/2302.14388",
+        "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011/2012); https://arxiv.org/pdf/1104.0433",
+        "Resultary/2026/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8/RESULT.md",
+        "Resultary/2026/2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376/RESULT.md",
+        "Resultary/2026/2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c/RESULT.md",
+        "/mnt/data/scope_worker01_20261025T1402Z/independent_checks.json",
+        "/mnt/data/scope_worker01_20261025T1402Z/geometry_checks.json"
+      ],
+      "rationale": "The rhombicuboctahedron is a canonical 24-vertex Archimedean polyhedron in a natural extension of published Platonic Rips computations. The exact combinatorial flag complex is four-dimensional yet has an explicit simple collapse onto the actual embedded polyhedral boundary, a stronger conclusion than computing a Betti table or merely abstract S² type. The threshold-1 wedge of 17 circles and threshold-2 2-sphere isolate a nontrivial graph-metric topological transition with reproducible precise integral information. This is a motivated natural finite invariant and a substantive fixed-complex collapse; no general theorem or paper-sized advance is required.",
+      "residual_risks": [
+        "This is one 24-vertex example, not a classification of Archimedean solids or complete persistent homology.",
+        "The 252-pair count is an explicit witness, not optimized or asserted minimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V acceptance is best-of-knowledge, not a formal attestation or worldwide proof of bibliographic priority.",
+    "The exhaustive finite proof applies only to this specified 24-vertex graph and thresholds 1 and 2.",
+    "Original thesis relevant portions were inspected, but no whole-thesis NOT_COVERING inference is made from the name search.",
+    "Public transport/publication withheld for operational-provenance sanitation and malformed KaTeX in SLOGAN; this is not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}

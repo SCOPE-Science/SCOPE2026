@@ -1,19 +1,21 @@
-# Same-model review: rhombicuboctahedral graph-metric Rips collapse
+# Independent mathematical audit
 
-## Correctness — PASS
-All 24 vertices and 48 graph edges are specified algebraically. The standard-library verifier rebuilds the shortest-path matrix and all 638 graph-square cliques, checks 252 distinct sequential free-face pairs of consecutive dimensions with unique cofaces, and confirms the exact remainder is a 24-vertex triangulation with 66 edges, 44 triangles, connected cyclic vertex links, and Euler characteristic 2. Thus the remainder is a 2-sphere. Scale-one clique triangles are eight vertex-disjoint triangles, removable to a graph with first Betti number 17. The proof is exhaustive for this finite graph, not an extrapolation from samples; no claims for scale three or other graphs.
+## correctness
 
-The collapse certificate is checked pair by pair with the **actual generated files**: `verify_rhombicuboctahedron.py` and `collapse_certificate.json`. Finite exhaustive enumeration is conclusive here because this claim concerns precisely one specified finite graph and its complete finite complex. The supporting sphere identification is independently checked by vertex links and surface Euler characteristic; no unbounded extrapolation is claimed.
+PASS
 
-## Originality — PASS
-Comparisons were by object, metric, threshold, homotopy conclusion and implication. Full primary text covers only Platonic 1-skeletons and explicitly proposes Archimedean generalizations. Closest published Euclidean cuboctahedron has 12 vertices; graph-metric truncated tetrahedron and truncated cube are different 1-skeletons. Targeted published-finding corpus and web queries for the 24-vertex rhombicuboctahedral graph-square Rips collapse found no equivalent theorem. Indexed search is not a guarantee of novelty, and specific residual literature risks are recorded.
+The assigned RESULT.md fixes 24 signed long-axis vertices, a 48-edge degree-four graph and shortest-path distance, inclusive at scales 1 and 2. Fresh code independently enumerated 8 triangles, 18 induced squares, 638 faces of Cl(G²) with f=(24,132,248,186,48), and a 134-face K with f=(24,66,44). It verified cyclic vertex links, each edge in exactly two triangles, connectivity and Euler characteristic 2; thus K is a closed connected 2-manifold homeomorphic to S². An independent greedy algorithm, not the bundled verifier, found 252 successive free-face collapses outside K ending EXACTLY at K; additionally a separate read-only JavaScript check replayed every one of the 252 actual ordered pairs from pinned collapse_certificate.json and independently confirmed each unique coface, and exact final face-set equality. Sympy exact arithmetic verified all 26 indicated supporting facet planes with the graph-cycle facet sets: eight triangular faces, six coordinate squares, twelve pair squares. At scale 1 the eight disjoint triangle simplices are free-collapsed to a connected 24-vertex, 40-edge graph with cycle rank 17. Consequently H1→H1(S²) is zero and H2 at scale 2 has rank one. Finite enumeration is exhaustive for the precisely finite claim.
 
-The closest full published material read is *Vietoris–Rips complexes of Platonic solids* (arXiv:2302.14388), which discusses Archimedean solids as a future generalization. The published Euclidean cuboctahedron record (`2026/10/4/SCOPE-complete-vietoris-rips-filtration-of-the-euclidean-cuboctahedron--c10ad684de7e`) is a different 12-vertex metric object. The truncated tetrahedron and truncated cube records concern different graphs and cannot directly imply this 24-vertex collapse. Adamaszek’s general graph-power stability and universality theorems (arXiv:1104.0433) were examined: the target has girth three and nonstable scale-one/scale-two homotopy, while the universality theorem constructs a different graph. Both closest Archimedean published RESULT.md files were inspected in full; they concern different graphs and scales. Residual risk: alternate terminology, unindexed articles, unpublished arguments, or implicit general graph-square principles may cover the result. Absence in searches is not itself proof of global priority.
+## originality
 
-## Value — PASS
-The rhombicuboctahedron is a natural 24-vertex Archimedean solid specifically within the published question of extending polyhedral Rips calculations beyond Platonic solids. A graph-square flag complex of dimension four collapses to the actual embedded boundary 2-sphere via 252 explicit elementary steps, which is stronger than a Betti computation and makes the simple-homotopy mechanism reproducible. Its scale-one 17-cycle topology and scale-two 2-dimensional fundamental class exhibit a substantive finite metric-space topology transition, not an arbitrary minor slice.
+PASS
 
-## Scope and limitations
-The 252 steps are one explicit collapse witness, not a minimum. The conclusion is graph shortest-path metric only for thresholds one and two, not Euclidean chord distance or any threshold beyond two. Full independent scientific audit has not occurred.
+Best-of-knowledge originality for the exact graph-metric, inclusive scale-two, 24-vertex rhombicuboctahedral elementary collapse onto its own triangulated polyhedral boundary. Independent primary literature and the published mathematical-record corpus were compared by objects, metrics, hypotheses and conclusions. Resultary returns an exact MIRROR of the assigned record, not independent prior coverage. No checked independent result implies either its homotopy type for this graph or its stronger 252-step embedded-boundary simple collapse; absence in search is not an absolute novelty proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The rhombicuboctahedron is a canonical 24-vertex Archimedean polyhedron in a natural extension of published Platonic Rips computations. The exact combinatorial flag complex is four-dimensional yet has an explicit simple collapse onto the actual embedded polyhedral boundary, a stronger conclusion than computing a Betti table or merely abstract S² type. The threshold-1 wedge of 17 circles and threshold-2 2-sphere isolate a nontrivial graph-metric topological transition with reproducible precise integral information. This is a motivated natural finite invariant and a substantive fixed-complex collapse; no general theorem or paper-sized advance is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
