@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** Sectorwise conservation and divergence are explicit. On every negative level the discontinuity is strictly transverse, both exact saltation determinants are one, and the coarea-area contraction has no interface delta term; hence a disk or annulus between cycles would violate the integrated negative divergence. Published existence makes the uniqueness assertion exact. Within-leaf strict hyperbolicity, the two neutral full-space directions and scaling follow analytically. Exact symbolic replay checks the critical crossing identities; it does not replace the global proof.
+
+**Originality — PASS (with priority uncertainty).** The originating 2023 paper explicitly treats the discontinuous \(q=1\) problem but proves existence, not uniqueness or the saltation-corrected transverse spectrum. The closest published uniqueness result concerns only \(q\ge2\) with a \(C^1\) vector field, and the proof cannot simply be applied at the discontinuity. The 2024 all-integer existence study's publisher preview was read but its full text was inaccessible; an unindexed covering theorem remains possible. Originality means no inspected statement implies the result, not that a database proves global uniqueness of priority.
+
+**Value — PASS.** The 2023 existence theorem specifically isolates a genuinely discontinuous prototype. Completing its periodic-orbit multiplicity and bounded-orbit basin while determining how switching affects its stability addresses a natural spectral and geometric gap; the zero saltation defect is a substantive interface check, not a formal parameter substitution. These are exact all-energy conclusions, not a recomputation of the existence certificate. Scope excludes global boundedness and nonnegative levels.
+
+Self-review: passed. Independent audit: not yet performed.
