@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Unique live-edge paths give exact per-vertex probabilities and the displayed expectation; strict balancing maximizes tails at fixed distance, an exact adjacent-gap difference reduces to strictly decreasing R_b, and strict concavity of log R_b yields a unique algebraic crossing at each eligible distance. This proves the full increasing staircase for every n>=2 and p in (0,1), with the four-vertex threshold verified symbolically. The included independent rational/live-edge tests corroborate without extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kempe–Kleinberg–Tardos establish general influence-maximization approximation/submodularity, but those generic guarantees do not determine exact two-seed path positions.",
+        "Khanna–Lucier study undirected approximation and relate random reachability to influence; no theorem in the inspected full text supplies the algebraic thresholds.",
+        "Mouravski thesis abstract announces a path algorithm, but its full technical lemmas could not be inspected."
+      ],
+      "reasoning": "More general algorithmic solvability or approximation does not logically imply the precise probability-ordered sequence and one-by-one seed-distance switches; however a stronger structural result inside the inaccessible thesis remains possible and is disclosed as a risk.",
+      "searches": [
+        "influence maximization in undirected networks Khanna Lucier 2014",
+        "Kempe Kleinberg Tardos maximizing spread 2003",
+        "influence maximization optimal path graph locations multiple seeds"
+      ]
+    },
+    "checked_sources": [
+      "Kempe–Kleinberg–Tardos (2003), DOI 10.1145/956750.956769 (full technical material inspected).",
+      "Khanna–Lucier (2014), DOI 10.1137/1.9781611973402.109 (full technical material inspected).",
+      "Mouravski (2011) university thesis record, https://repository.rit.edu/theses/351/ (abstract only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2003 proof supplies the model and general submodular approximation, not its exact optimal seed separation on paths.",
+        "The 2014 undirected-network analysis does not specify the constant-size path phase diagram.",
+        "The 2011 path thesis abstract supports efficient calculation of an optimal seed set for given input, not the full all-p ordered-distance structural classification."
+      ],
+      "reasoning": "None of the statements available in the inspected primary text directly entails the theorem; unrestricted path optimization algorithm existence is not the same claim. The full 2011 thesis remains inaccessible, so strong hidden coverage is a residual originality risk, not a verified absence.",
+      "searches": [
+        "maximizing the spread of influence through a social network 2003 live edge path",
+        "2011 influence maximization on families of graphs Andrei Mouravski path optimal nodes",
+        "2014 influence maximization in undirected networks Khanna Lucier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kempe–Kleinberg–Tardos (2003) live-edge connection identifies the two-seed objective with reachability of two open-edge components.",
+        "Mouravski (2011) abstract explicitly claims a path seed-placement algorithm without disclosing an all-probability monotone-gap theorem."
+      ],
+      "reasoning": "Equivalent formulations include pairwise influence centrality on a path, two-facility probabilistic coverage, and the union of two percolation components. The claimed global staircase of optimal distances is stronger than merely evaluating or optimizing each fixed probability; the accessible prior texts do not state that staircase.",
+      "searches": [
+        "two seed influence maximization path graph optimal position probability",
+        "independent cascade on path two seeds distance phase transitions",
+        "Mouravski 2011 influence maximization on families of graphs paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary source provided a table of transition values for every path order.",
+        "The standalone verifier reproduces finite small-path cases, but its output is not claimed to certify prior nonexistence."
+      ],
+      "reasoning": "A finite table or software optimizing one transmission probability would not by itself establish the infinite family of ordered algebraic thresholds. A previous exact symbolic table covering the same family would cover this work, but no such table was identified in inspected material.",
+      "searches": [
+        "exact optimal two seed placements path all probabilities thresholds",
+        "independent cascade path gap thresholds polynomial optimal locations",
+        "stochastic influence maximization on path switching threshold four nodes"
+      ]
+    },
+    "rationale": "The precise monotone all-probability, all-size gap phase diagram was not found in inspected full technical papers, and generic IC submodularity/undirected approximation do not imply it. A directly relevant 2011 path-optimization thesis has only its abstract accessible; it introduces a concrete unresolved bibliographic risk, not a fabricated full-text no-coverage assertion.",
+    "residual_risks": [
+      "Mouravski (2011), a directly relevant path optimization thesis, may contain an equivalent threshold or monotonic-separation theorem in inaccessible full text. This has not been ruled out.",
+      "Prior graph-coverage/facility-location terminology might encode the same result; no definitive exhaustive literature census is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes model and generic approximation; no exact two-seed path-gap probability-switching result in material read.",
+        "evidence": [
+          "Kempe, Kleinberg, Tardos, KDD 2003, DOI 10.1145/956750.956769."
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf",
+        "material_read": "Abstract, introduction, model definitions and independent-cascade/live-edge/submodularity proof sections, including the original PDF pages 1 and 4.",
+        "method": "Lawful author-hosted full-text PDF, relevant sections read and page images inspected.",
+        "title": "Maximizing the Spread of Influence through a Social Network",
+        "trigger": "Original independent-cascade model and live-edge representation"
+      },
+      {
+        "assessment": "Undirected influence-approximation results do not specify the all-probability optimum two-seed path separation or transition order.",
+        "evidence": [
+          "Khanna and Lucier, SODA 2014, DOI 10.1137/1.9781611973402.109."
+        ],
+        "identifier_or_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf",
+        "material_read": "Full PDF available; abstract, introductory definitions, approximation theorems, two-seed discussions, and relevant middle proof sections read.",
+        "method": "Lawful institutional-author repository PDF, text search and pertinent page inspection.",
+        "title": "Influence Maximization in Undirected Networks",
+        "trigger": "Undirected edge-reachability effects and possible dominating general theorem"
+      },
+      {
+        "assessment": "Abstract advertises exact path optimization algorithms; whether detailed thesis results already prove the monotone gap theorem remains unresolved.",
+        "evidence": [
+          "Mouravski, MSc thesis, Rochester Institute of Technology, 2011; university repository abstract."
+        ],
+        "identifier_or_url": "https://repository.rit.edu/theses/351/",
+        "material_read": "Bibliographic page and complete available abstract; full technical text unavailable.",
+        "method": "Institutional repository record inspected; full PDF attempts blocked by access; no full-text implication assessment claimed.",
+        "title": "Influence Maximization on Families of Graphs",
+        "trigger": "Direct path influence optimization and possible stronger exact theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f9c3d65-c448-4314-aea4-19e50569dc33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, parameter-uniform structural solution of a motivated two-seed intervention choice. It proves exact ordered algebraic phase transitions at every path size rather than only giving a generic optimization algorithm, and identifies the minimal path order where optimal separation truly changes with transmission. The precise outcome determines how robust optimal placement shifts with adoption probability.",
+    "status": "PASS"
+  }
+}
