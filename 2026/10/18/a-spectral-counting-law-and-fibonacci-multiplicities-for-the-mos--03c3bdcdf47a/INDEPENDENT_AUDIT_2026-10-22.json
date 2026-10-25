@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every nonnegative representation n=a+3b with a,b having base-4 digits 0/1 is counted by a two-state carry automaton; on output digits d=0,1,2,3 its (carry0,carry1) counts update respectively (u,u+v),(u+v,v),(v,0),(u,0), initially (1,0). Final valid carry0 count equals R(n), including leading-zero conventions. The nonempty supports {0} and {0,1} have transition counting matrix [[2,2],[1,2]], hence H0=1,H1=3,H_(k+2)=4H_(k+1)-2H_k and the radical closed form. Component max<=F_(k+1), min<=F_k is invariant under all four digit transformations; explicit least-significant-first words (01)^m for even k and 001(01)^(m-1) for odd k>=3 attain F_(k+1), while k=1 is direct. Comparing X between consecutive fourth powers yields the two Theta growth exponents and density zero. Independent exact enumeration through k=8 gave supports 1,3,10,34,116,396,1352,4616,15760 and maxima 1,1,2,3,5,8,13,21,34, corroborating but not proving the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Bruijn analyzes signed direct decompositions and related quaternary digits; this is distinct from counting a+3b with both inputs in the original Moser set.",
+          "A000695 identifies digit set and a+2b uniqueness, an antecedent not a stronger positive coefficient-three maximum theorem."
+        ],
+        "reasoning": "No prior stronger theorem giving this precise sumset spectrum or maximal coefficient-three representation function was identified, although generalized automatic-series machinery may imply it.",
+        "searches": [
+          "de Bruijn, Some Direct Decompositions of the Set of Integers (1964), original PDF",
+          "OEIS A000695 and A126684",
+          "Resultary digit/carry Fibonacci record"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A000695/a000695.pdf",
+        "https://pure.tue.nl/ws/files/2084140/597531.pdf",
+        "https://oeis.org/A000695",
+        "https://oeis.org/A007052",
+        "https://oeis.org/A126684",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Moser equation f(x)f(x²)=(1-x)^-1 counts unique a+2b, rather than f(x)f(x³) coefficient multiplicities.",
+          "OEIS H recurrence is numerical but has a distinct object and no recorded coefficient-three sumset/Fibonacci extremizer."
+        ],
+        "reasoning": "The whole result is not a direct specialization of cited results without analyzing the new carry automaton; known raw recurrence alone would be covered.",
+        "searches": [
+          "Moser 1962 pp.37-38 read from scan",
+          "de Bruijn 1964 signed direct decompositions initial/main passages",
+          "OEIS A007052 existing formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moser 1962 proves uniqueness for a+2b for the same set, while a+3b has nonunique counts.",
+          "Resultary closest Fibonacci ambiguity is a (3,2) transverse-read channel with different state words and sampling object."
+        ],
+        "reasoning": "The original coefficient-two unique representation theorem and signed decompositions do not state the positive coefficient-three multiplicity extremizer.",
+        "searches": [
+          "Resultary: base-four Moser de Bruijn numbers coefficient 3 sumset R(n)=#(a+3b) Fibonacci maximum and 4-2 recurrence support",
+          "Moser 1962 generating series original scan pp.37-38",
+          "de Bruijn 1964 original direct decompositions PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A007052 already provides the same sequence and recurrence with another combinatorial interpretation; it cannot be claimed as novel numerical data."
+        ],
+        "reasoning": "Exact database check finds the identical H_k values; it does not in itself identify these counts with M+3M or give Fibonacci multiplicity. This materially narrows the originality claim.",
+        "searches": [
+          "OEIS A007052 explicit sequence 1,3,10,34,116,... and recurrence",
+          "OEIS A000695, A126684"
+        ]
+      },
+      "rationale": "PASS, qualified: the numeric recurrence itself is already OEIS A007052, so only the identification with M+3M and the Fibonacci maximum of representation multiplicity are assessed as potentially original.",
+      "residual_risks": [
+        "Equivalent coefficient-three descriptions may occur in older automata/number-system literature under different names.",
+        "Database sequence known exactly; stand-alone spectral count not original absent the sumset identification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves a+2b uniqueness, not a+3b support or Fibonacci maximal multiplicity.",
+          "evidence": [
+            "Moser pp.37–38: f(x)f(x^2)=1/(1-x) and base-four digit product."
+          ],
+          "identifier_or_url": "https://oeis.org/A000695/a000695.pdf",
+          "material_read": "Both pages 37–38 of the original 1962 two-page scan, visually inspected.",
+          "method": "Read the generating-series functional equation and coefficient roles.",
+          "title": "An Application of Generating Series",
+          "trigger": "Original Moser–de Bruijn digit set and coefficient-two uniqueness"
+        },
+        {
+          "assessment": "Related digit set but no covering multiplicity theorem in inspected passages; full remainder cannot be ruled out.",
+          "evidence": [
+            "De Bruijn p.537 identifies S with base-four digits 0/1 and considers x=M s1-2N s2."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/files/2084140/597531.pdf",
+          "material_read": "Original 1964 PDF introduction and beginning of direct-decomposition classification, visually inspected p.537.",
+          "method": "Distinguished signed direct decomposition from nonnegative coefficient-three sumset representations.",
+          "title": "Some Direct Decompositions of the Set of Integers",
+          "trigger": "Potential stronger quaternary-digit decomposition"
+        },
+        {
+          "assessment": "Numerical H sequence is already known, so no originality for numbers alone.",
+          "evidence": [
+            "A007052 begins 1,3,10,34,116."
+          ],
+          "identifier_or_url": "https://oeis.org/A007052",
+          "material_read": "Sequence entries, formulas and recurrence on the database page.",
+          "method": "Compared initial conditions and characteristic polynomial.",
+          "title": "OEIS A007052 — Number of order-consecutive partitions of n",
+          "trigger": "Exact sequence/recurrence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The original Moser–de Bruijn set with a perturbed coefficient 3 has an inherently natural carry-language representation problem. The exact support growth exponent and sharp maximum multiplicity (Fibonacci) distinguish sparsity from unbounded local ambiguity; the contribution is the arithmetic identification and extremal representation law, not the already-known raw integer recurrence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://oeis.org/A000695/a000695.pdf",
+    "https://pure.tue.nl/ws/files/2084140/597531.pdf",
+    "https://oeis.org/A000695",
+    "https://oeis.org/A007052",
+    "https://oeis.org/A126684",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Coefficient fixed at 3, ordered coefficient roles, nonnegative sums and power-of-four cutoffs; no uniform coefficient parameter or pointwise distribution. OEIS already lists the numerical H_k sequence for a different interpretation."
+  ],
+  "residual_risks": [
+    "Equivalent coefficient-three descriptions may occur in older automata/number-system literature under different names.",
+    "Database sequence known exactly; stand-alone spectral count not original absent the sumset identification."
+  ],
+  "schema_version": 1
+}
