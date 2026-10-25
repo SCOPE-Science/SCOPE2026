@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Rooted three-state DP partitions each child-root condition exactly; base heights 1, 2, 3 are reconstructed and three cost/count phases are verified algebraically by induction, with explicit minimizers. The formulas reconstruct every minimum dominating set, not merely a lower bound. A leaf parent with at least two pendant children is forced in every minimum set; this proves invariance under all permitted simultaneous deletions. Reducing one sibling group to one child gives an exact two-to-one swap mapping, with the parent of the affected support vertex still dominated by another forced sibling. A graph-based standalone program checks 25 full trees, 75 stable prunings, 25 threshold cases, and 18 brute-force minimality/count instances, including nine explicit all-minimum-set classifications. Experiments corroborate, and are not relied on as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allagan--Gray--Sawyer--Morgan, arXiv:2601.03485v1, January 7, 2026, Theorems 10, 11 and 14 and Corollary 12; https://arxiv.org/html/2601.03485v1",
+        "Oyewumi--Roux--Wagner, Afrika Matematika 36:142 (2025), DOI:10.1007/s13370-025-01360-3; https://link.springer.com/article/10.1007/s13370-025-01360-3",
+        "Petr--Portier--Versteegen, arXiv:2206.13182, gives extremal bounds over forests, not this perfect-tree census."
+      ],
+      "reasoning": "The arbitrary-tree algorithm of Allagan et al. does compute these values on inputs but does not state an all-branching closed structural formula or the sharp retention threshold. The 2025 d-ary article counts all dominating sets and extremal shapes, not minimum-cardinality configurations. Forest-wide upper bounds are not exact for this family.",
+      "searches": [
+        "complete d ary tree minimum dominating sets count unique min h mod 3 period 3 d+1",
+        "The number of dominating sets in d-ary trees theorem complete tree minimal dominating sets",
+        "The number of minimum dominating sets and total dominating sets in forests Petr Portier Versteegen",
+        "zeta(T_h)=d+1 if height divisible by 3 complete d-ary tree otherwise one minimum dominating set, leaf-pruning stability"
+      ]
+    },
+    "checked_sources": [
+      "Allagan--Gray--Sawyer--Morgan, arXiv:2601.03485v1, January 7, 2026, Theorems 10, 11 and 14 and Corollary 12; https://arxiv.org/html/2601.03485v1",
+      "Oyewumi--Roux--Wagner, Afrika Matematika 36:142 (2025), DOI:10.1007/s13370-025-01360-3; https://link.springer.com/article/10.1007/s13370-025-01360-3",
+      "Petr--Portier--Versteegen, arXiv:2206.13182 (abstract-level forest minimum-dominating-set extremal bound)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Allagan--Gray--Sawyer--Morgan, arXiv:2601.03485v1, January 7, 2026, Theorems 10, 11 and 14 and Corollary 12; https://arxiv.org/html/2601.03485v1",
+        "Oyewumi--Roux--Wagner, Afrika Matematika 36:142 (2025), DOI:10.1007/s13370-025-01360-3; https://link.springer.com/article/10.1007/s13370-025-01360-3",
+        "Allagan et al. Theorem 14 supplies generic bottom-up cost-and-count recursion; the current proof resolves its phase minima and counts by induction across all degrees."
+      ],
+      "reasoning": "Binary \\(d=2\\) results are a strict subcase and already known. The general recursive algorithm can calculate any fixed input and guides the proof, but neither that algorithm nor the all-dominating-set count implies the closed three-phase classification or optimum-preserving exponentially large deletion envelope as a stated consequence. The local leaf-twin exchange is elementary and not presented as new independently; value and originality rest on its sharp quantified combination with the complete census.",
+      "searches": [
+        "Allagan Gray Sawyer Morgan binary tree periodic dominion tree branching higher d",
+        "leaf deletion min dominating set counting perfect d-ary tree",
+        "all minimum dominating sets complete d-ary tree",
+        "number of dominating sets d-ary trees Wagner Roux Oyewumi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allagan--Gray--Sawyer--Morgan, arXiv:2601.03485v1, January 7, 2026, Theorems 10, 11 and 14 and Corollary 12; https://arxiv.org/html/2601.03485v1",
+        "Oyewumi--Roux--Wagner, Afrika Matematika 36:142 (2025), DOI:10.1007/s13370-025-01360-3; https://link.springer.com/article/10.1007/s13370-025-01360-3",
+        "Semantic research-result comparison returned nearest related tree extremal or power-domination claims, not the asserted ordinary minimum-domination enumeration."
+      ],
+      "reasoning": "Perfect/full/complete/rooted regular trees and dominion, minimum dominating set count, and gamma-set census were treated as aliases. The binary case of the present statement is explicitly covered by the 2026 paper and is not claimed new. No higher-branching exact classification was identified.",
+      "searches": [
+        "complete m-ary tree number of minimum dominating sets domination count period 3 rooted complete k-ary trees",
+        "dominion complete m-ary trees height h number minimum dominating configurations",
+        "The number of minimum dominating sets (dominion) of full complete m-ary trees, period three rigidity height and exact classification",
+        "Complete d-ary tree minimum domination sets count unique configurations periodic height full rooted trees",
+        "perfect ternary tree minimum dominating sets count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Allagan--Gray--Sawyer--Morgan, arXiv:2601.03485v1, January 7, 2026, Theorems 10, 11 and 14 and Corollary 12; https://arxiv.org/html/2601.03485v1",
+        "Searches of indexed literature and semantic published mathematical records returned no exact multi-degree table or equal-strength all-minima classification for the stated trees and deletion threshold."
+      ],
+      "reasoning": "The lower height values and the known binary periodic count were compared, not treated as proof of originality. No exact existing data table forcing the full all-degree expression was identified; this remains a bounded negative search, not certification.",
+      "searches": [
+        "number of minimum dominating sets complete ternary tree",
+        "complete rooted d-ary tree minimum domination sets count unique configurations periodic height full rooted trees",
+        "leaf removal robustness minimum dominating configurations complete multiary tree delete d-2 sibling leaves double after d-1",
+        "dominion complete ternary trees minimum"
+      ]
+    },
+    "rationale": "The primary 2026 source states exact binary perfect-tree dominion and binary single-leaf doubling, but does not state the all-branching optimum classification or the sharp multi-group retention threshold. Its general tree dynamic program supplies an algorithm, not the explicit three-phase closed formulas, all-minimum-set classification, or sharp single-group factor-two transition for branching degree at least three. The 2025 all-dominating-set article studies another enumerative quantity and different extremal trees. Focused literature searches and semantic published-record searches found no equivalent higher-branching theorem. Priority risk remains because absence from searched sources is not uniqueness proof.",
+    "residual_risks": [
+      "A general dynamic-programming theorem makes individual numerical values obtainable; the exact higher-branching structural consequences could have been recorded in unindexed classical sources.",
+      "Historical priority under alternative terminology for perfect rooted trees or minimum cardinality dominating families is not fully resolved.",
+      "Independent mathematical and priority review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers binary degree two, including single-leaf doubling, and a general algorithm; does not provide the proposed all-degree classification or the at-least-two-leaf retention statement.",
+        "evidence": "Theorem 10: zeta equals three or one for binary trees by height modulo three; Corollary 12: delete one binary leaf to double; Theorem 14: general three-state DP.",
+        "identifier_or_url": "arxiv:2601.03485v1 / https://arxiv.org/html/2601.03485v1",
+        "material_read": "Accessible full HTML, introduction, detailed Sections 3.1 and 3.2 (Theorems 10, 11, Corollary 12), Section 4.2 (Theorem 14), and conclusion.",
+        "method": "Read source text including theorem claims, proof details, stated hypotheses and follow-up discussion.",
+        "title": "Four Dominion Growth Regimes in Trees: Forcing, Fibonacci Enumeration, Periodicity, and Stability",
+        "trigger": "Same invariant, perfect binary trees, and boundary leaf deletion; strongest directly relevant source."
+      },
+      {
+        "assessment": "Different quantity (all dominating sets) and generally unrooted d-ary shapes; no explicit perfect-rooted minimum-set phase law or pruning threshold located.",
+        "evidence": "Article introduction explicitly defines delta(G) as all dominating sets and studies extremal d-ary caterpillars.",
+        "identifier_or_url": "DOI:10.1007/s13370-025-01360-3 / https://link.springer.com/article/10.1007/s13370-025-01360-3",
+        "material_read": "Accessible open-access HTML: abstract, introduction, Section 2 d-ary extremal enumeration, Section 3 binary extremal analysis and theorem statements, and concluding context.",
+        "method": "Read definitions and formulas for delta counting all dominating sets, compare its extremal-shape question with gamma-size-only census.",
+        "title": "The number of dominating sets in d-ary trees",
+        "trigger": "Title overlaps d-ary trees and counting dominating configurations, potentially dominating existing results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b5f00cf-7d71-4b64-b7cb-3c518a3ee188",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 binary-tree dominion theorem motivates asking whether bounded optimal-solution diversity and boundary perturbation behavior persist with increased branching. The result answers this for every height and branching degree, classifies ALL optimum configurations, and identifies a sharp qualitative branching transition: up to \\((d-2)d^{h-1}\\) leaves can be deleted without changing ANY optimum, whereas making a single bottom sibling group have only one remaining child exactly doubles the count. This is a natural structural stability threshold for a hierarchical graph family, rather than a single arbitrary small enumeration. The known binary subcase and local leaf-exchange rule are not independently claimed as novel.",
+    "status": "PASS"
+  }
+}
