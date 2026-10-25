@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:21:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each k>=1, use Kleiner’s fixed-mean reduction to shifted binomials and established unique zero at sharp threshold μ_k for parameters (ℓ,r)=(0,k+d_k). Every other finite rival at μ_k is negative. For each of finitely many ℓ in [0,k], letting r→∞ gives the Poisson difference with λ=s+Δ_k, s=k−ℓ, Δ_k∈(0,1), and λ²/((s+1)(s+2))<1, hence each limit is strictly negative. Uniform binomial-to-Poisson TV bound O(λ²/r) on compact μ-neighborhood plus continuity of finitely many remaining rivals yields one uniform gap and an open two-sided region with the same global optimum. Differentiation of the two equal binomial masses gives slope 2c/[m q(1−q)]. Independently checked seven k crossing/rival grids to trial cap400, not an exhaustive proof of unbounded trial lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2610.10664v1",
+          "Hoeffding on distribution of number of successes in independent trials (1956)"
+        ],
+        "reasoning": "Classical reduction narrows candidates but does not select one shifted-binomial member uniformly near the special μ_k; Kleiner’s result specifies only the crossover.",
+        "searches": [
+          "Hoeffding 1956 Poisson binomial fixed mean extremal principle",
+          "Kleiner Lemma4 shifted binomial and threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: distance-two Poisson-binomial threshold local envelope maximal signed advantage fixed mean",
+        "Kleiner arxiv 2610.10664 Lemma 4 Proposition 7 and threshold theorem",
+        "Hoeffding 1956 distribution number successes independent trials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2610.10664v1 threshold and unique tie are necessary but not sufficient"
+        ],
+        "reasoning": "The new uniform-in-r negativity and compactness argument is needed to deduce the neighborhood and slope of global A_k, so the added conclusion is not a direct immediate corollary of uniqueness without a uniform gap.",
+        "searches": [
+          "fixed mean binomial extremal signed difference near Kleiner reversal μk",
+          "Poisson uniform negative rival gap shifted binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2610.10664v1 Lemma 4 gives shifted binomial reduction, Proposition 7 threshold equality uniqueness"
+        ],
+        "reasoning": "Boundary equality and strict signs at one mean alone do not imply two-sided local envelope for unbounded trial numbers; the claim adds uniform Poisson tail gap and exact slope.",
+        "searches": [
+          "Kleiner Why Distance Two Is Exceptional for Poisson–Binomial Point Probabilities arxiv 2610.10664",
+          "fixed mean Poisson binomial signed point difference local envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-count envelope under infinite Bernoulli exchangeability 276990ec2acf (different exchangeable model)",
+          "https://arxiv.org/html/2610.10664v1"
+        ],
+        "reasoning": "One-point probability or exchangeable-mixture envelopes do not equal the signed distance-two difference optimized over arbitrary finite independent trials; numerical tests cannot certify an exact local function.",
+        "searches": [
+          "Resultary Poisson binomial exact-count envelope fixed mean signed difference",
+          "Kleiner threshold μk d_k formula"
+        ]
+      },
+      "rationale": "Kleiner establishes the source sharp crossing and uniqueness only AT μ_k, which does not imply a maximizing family throughout any open neighborhood in a noncompact optimization over arbitrarily many Bernoulli trials. The submitted uniform rival-gap argument supplies this missing nontrivial local maximum-value result.",
+      "residual_risks": [
+        "Kleiner source full HTML primary inspected but older Hoeffding-era extremal literature not fully read; possible rediscovery of a quantitative stability lemma.",
+        "No explicit lower bound for ε_k obtained, only positive existence, as claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS threshold and shifted-binomial reduction; inspected theorem does not assert an open-neighborhood global advantage envelope",
+          "evidence": "Unique zero at μ_k among reduced family with source formula d_k; new assertion controls an infinite tail of rivals.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10664v1",
+          "material_read": "Full arXiv HTML inspected, especially Lemma 4, threshold theorem and Proposition 7 with unique equality",
+          "method": "arXiv full HTML search/section reading",
+          "title": "Why Distance Two Is Exceptional for Poisson–Binomial Point Probabilities",
+          "trigger": "Exact source theorem on same Bernoulli difference and parameters"
+        },
+        {
+          "assessment": "Cannot rule out older local-envelope variant in 1956 material",
+          "evidence": "Foundational fixed-mean extremum, not affirmatively a source for local signed envelope.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177728171",
+          "material_read": "Bibliographic identification and use as cited through Kleiner; original full text NOT read",
+          "method": "Secondary theorem via Kleiner",
+          "title": "On the distribution of the number of successes in independent trials",
+          "trigger": "Classical fixed mean extremum reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A globally sharp signed excess—not just the sign threshold—among arbitrary-length Poisson-binomial sums provides meaningful sensitivity and robustness at a sharp reversal boundary. Uniform control over infinitely many allowable trial counts is not routine pointwise continuity, and the first derivative can be used to analyze perturbations of the constrained extremum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic: distance-two Poisson-binomial threshold local envelope maximal signed advantage fixed mean",
+    "Kleiner arxiv 2610.10664 Lemma 4 Proposition 7 and threshold theorem",
+    "Hoeffding 1956 distribution number successes independent trials"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No Lean/expert proof, external human attestation, or exhaustive global bibliographic novelty certification is claimed.",
+    "Finite checks are supportive only; their precise limits are distinguished from analytical proofs.",
+    "Kleiner source full HTML primary inspected but older Hoeffding-era extremal literature not fully read; possible rediscovery of a quantitative stability lemma.",
+    "No explicit lower bound for ε_k obtained, only positive existence, as claimed."
+  ],
+  "residual_risks": [
+    "Kleiner source full HTML primary inspected but older Hoeffding-era extremal literature not fully read; possible rediscovery of a quantitative stability lemma.",
+    "No explicit lower bound for ε_k obtained, only positive existence, as claimed."
+  ],
+  "schema_version": 1
+}
