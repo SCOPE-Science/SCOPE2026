@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof uses a valid equivariant two-point cubical deformation model, establishes that the ordered two-chain boundary is injective through its embedding in the graph-square and an injective edge-coordinate tensor map, transfers degree-two vanishing to the unordered space, and computes all signed fixed-cell traces for arbitrary arm permutations and pole interchange. The character of the exterior square follows algebraically. Explicit standard-library finite checks cover all permutations up to five arms and mod-two homology through six arms. Critical limits: the module conclusion is rational; finite verification is not an infinite proof.
+PASS
 
-## Originality
+For m≥3 the length-three theta subdivision meets the two-point cubical configuration model criterion. Derived C0=binom(2m+2,2), C1=6m² and C2=m+7binom(m,2). In the ordered cover every integral H2 cycle injects into H1(graph)⊗H1(graph), whose coordinates on all left-left squares determine it, yet those squares are excluded because every pair meets at the pole; hence H2=0, Euler gives dim H1=binom(m,2). Signed fixed-cell traces for arm permutations and pole flip yield (−1)^flip[binom(fixed arms,2)−transpositions], exactly ∧² permutation-module with pole sign. Explicit independent cell enumeration and signed action checks for m=3,4 corroborated character and cell counts (28,54,24), (45,96,46). The universal conclusion follows from the cellular proof, not finite checks. The quotient rational acyclicity follows by finite-group transfer; no integral representation or higher particle claim.
 
-**PASS, with bibliographic risk.** The closest published nonequivariant result is Ko–Park, Lemma 3.14, which computes \(\binom m2\) first-homology generators but does not give the \(S_m\times C_2\) character. Barnett–Farber studies the ordered deleted product and intersection form. A stronger integral symmetry result for one fixed four-arm example is already known and is not claimed here; it does not determine the arbitrary-arm family. Results on three-particle theta configurations, theta graph-power complexes, and vertex-sink configurations do not imply this two-particle ordinary equivariant claim. Full searches cannot exclude a differently formulated character formula in uncatalogued sources.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The original structural contribution is a uniform full-group character for an infinite family, not a single numerical Betti computation. It separates fixed-arm transpositions, all cycle types, and pole reversal and determines the rational homology of symmetry quotients, properties invisible in the previously known homology rank. The graph-squared vanishing argument and signed cubical symmetry count provide reusable equivariant methods; no integral equivariant claim is overstated.
+Best-of-knowledge original uniform S_m × C2 rational character including pole sign and quotient corollaries; Ko–Park already proves the nonequivariant first Betti rank. Checked Resultary results for related two-particle graph configuration modules and three-particle theta modules; neither mathematically implies the exact full all-m character.
 
-## Literature limits
+## value
 
-Farley–Sabalka (2004), Barnett–Farber (2009), and Ko–Park (2011) were compared at claim level; the primary Ko–Park article and Barnett–Farber article were inspected in their publicly available full HTML versions. Results involving different particle numbers, collision conventions or graph-power complexes were considered separately. Absolute publication priority remains unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete group-character classification for the all-m family, distinguishing arm relabeling from pole reversal and giving quotient rational homology; character cannot be reconstructed from previously known rank. Applicable in equivariant graph braid topology, beyond a routine finite-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
