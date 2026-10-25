@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Under the explicit uniform independent pollinator-failure model, the actual intervention gain is \(G_j(q)=\sum_{i:j\in N(i)}q^{d_i}\), and the score \(H_j(q)=G_j(q)/q\) is only a ranking-preserving normalization. This distinction has been checked independently from exact probability enumeration. Pairwise score differences involve at most four signed plant monomials when the network has at most four plants. The proof divides into a one-versus-many-sign case, a two-versus-two case governed by Descartes' rule including the inevitable root at \(q=1\), and an alternating-sign case with constant sign. It excludes two sign reversals and hence excludes reentry at most four plants. The explicit five-plant construction has the stated degrees and scores; all auxiliary targets are strictly dominated and the convex polynomial \(1-2q+2q^5\) has exactly two interior zeros because it is positive at both endpoints and negative at \(3/4\). The exact-enumeration program checks the model/gain identities at three rational probabilities. Finite checks support, but do not replace, the analytical proof.
+PASS
 
-## Originality (PASS, subject to literature-access risk)
+PASS — Reconstructed the expectation from independent Bernoulli pollinator failures: protected j removes each adjacent plant extinction event q^{d_i}, hence gain G_j(q)=sum_{i:j in N(i)}q^{d_i} and H_j=G_j/q. Pairwise difference of normalized gains is a signed sum with at most four monomials when there are <=4 plants. Constant-sign cases are trivial; if one sign is a singleton, compare its least exponent and the strictly monotone sum after division; if two terms of each sign, either Descartes plus the forced q=1 root leaves <=1 interior zero, or alternating ordered exponents split into two same-signed differences. Thus no strict +,-,+ between any two options. The constructed five neighborhoods {A}, {B,F1}, {B,F2}, {A,F1,F2,F3,F4,F5} twice yield H_A=1+2q^5, H_B=2q and every other target strictly below A on (0,1). f=1-2q+2q^5 has f(0)=f(1)=1 and f(3/4)=-13/512, with derivative -2+10q^4 increasing through one root, proving exactly two switches. Independent 2^7-state exact rational survival enumeration for q=1/4,3/4,9/10 gave unique winners A,B,A and matching gain formula for all seven targets. The universal <=4 bound comes from the proof, not enumeration.
 
-The closest ecological source, Memmott et al. (2004), studied forced pollinator-removal sequences and plant coextinction and motivates the importance of network connectivity. Kaiser-Bunbury et al. (2010) used empirical sequential removals and possible rewiring; their complete author-hosted article was read, including its methods and discussion. Bane et al. (2018) compared full-text model variants for knockout robustness, not the optimum of one guaranteed pollinator at a variable independent background failure risk. Traveset et al. (2017) addresses stochastic coextinction with dependencies; accessible excerpts do not establish the minimality threshold, though full-text access was incomplete. No equivalent statement or implication was located in the accessible mathematical results or searched research index for the sharp four-versus-five cutoff and reentrant ranking. These searches are not a proof of unique global priority. Broader system-reliability component-importance literature and partially inspected related ecological work remain a residual risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The minimal plant-count threshold is natural: it is the first possible size at which an optimal equal-cost pollinator conservation action can lose priority and later regain it as a single common environmental failure risk changes. The proof identifies the critical combinatorial mechanism (four signed monomials cannot give the necessary two interior reversals) and the five-plant witness makes the mechanism exact and biologically interpretable as specialist versus generalist tradeoffs. This is more than a generic polynomial reformulation or an arbitrary parameter table. The theorem does not assert empirical policy optimality, nor does it determine minimum pollinator count or the classification of larger networks.
+PASS — Best-of-knowledge exact minimal plant threshold for reentrant ordering under ONE protected pollinator and expected plant richness. Foundational network-removal studies compare extinction orders, often deterministic degree-based removals, not guaranteed single-species rescue as q varies. A general reliability-importance-polynomial viewpoint can express the same gain but does not from the inspected statements determine a sharp 4/5 plant threshold. No matching Resultary indexed result among inspected top hits; absence is not a proof of priority.
 
-## Closest sources and remaining limitations
+## value
 
-Memmott, Waser & Price (2004), DOI 10.1098/rspb.2004.2909; Kaiser-Bunbury et al. (2010), DOI 10.1111/j.1461-0248.2009.01437.x; Traveset, Tur & Eguíluz (2017), DOI 10.1038/s41598-017-07037-7; Bane, Pocock & James (2018), DOI 10.1002/ece3.4529. The 2017 complete article could not be material-inspected throughout, so it remains a nonzero originality risk. The model's ecological simplifications and the distinction between mean richness and whole-network survival remain essential restrictions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Species-prioritization sensitivity is an intrinsically motivated property of plant–pollinator robustness; an exact minimum-system-size threshold plus explicit strictly reentrant witness shows when uniform background risk can reverse and then restore an optimal intervention. This provides a sharply bounded mathematical counterexample to a naive single-switch expectation, without asserting empirical validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

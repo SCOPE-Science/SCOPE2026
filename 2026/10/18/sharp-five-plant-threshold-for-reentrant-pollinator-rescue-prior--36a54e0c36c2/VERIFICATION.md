@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-`verify.py` is a self-contained Python 3 program with no external modules, data downloads or random seeds. Run `python3 verify.py`. The program defines precisely the five plant neighborhoods in the theorem, constructs the normalized gain polynomials by counting adjacent plants of each degree, and independently enumerates all joint pollinator-survival states to compute expected persistent plant richness, with and without a selected guaranteed pollinator.
+## correctness
 
-For each of the seven targets and for failure probabilities \(q=1/4\), \(q=3/4\), and \(q=9/10\), the exact state enumeration agrees with \(G_j(q)=qH_j(q)\). The checks also reproduce \(H_A(q)=1+2q^5\), \(H_B(q)=2q\), the five auxiliary score forms, and \(H_A(3/4)-H_B(3/4)=-13/512\). Rational arithmetic is used throughout; no Monte Carlo approximations or numerical comparisons are needed for these checks.
+PASS
 
-The general no-reentry theorem for networks with at most four plant species depends on the signed-monomial classification and Descartes' rule detailed in `RESULT.md`. Finite enumeration of one example is not an exhaustive proof of that universal statement. Likewise, numerical approximations of the two switching probabilities are not certificates of the exact root count; strict monotonicity of \(f'\) together with exact signs proves the count.
+PASS — Reconstructed the expectation from independent Bernoulli pollinator failures: protected j removes each adjacent plant extinction event q^{d_i}, hence gain G_j(q)=sum_{i:j in N(i)}q^{d_i} and H_j=G_j/q. Pairwise difference of normalized gains is a signed sum with at most four monomials when there are <=4 plants. Constant-sign cases are trivial; if one sign is a singleton, compare its least exponent and the strictly monotone sum after division; if two terms of each sign, either Descartes plus the forced q=1 root leaves <=1 interior zero, or alternating ordered exponents split into two same-signed differences. Thus no strict +,-,+ between any two options. The constructed five neighborhoods {A}, {B,F1}, {B,F2}, {A,F1,F2,F3,F4,F5} twice yield H_A=1+2q^5, H_B=2q and every other target strictly below A on (0,1). f=1-2q+2q^5 has f(0)=f(1)=1 and f(3/4)=-13/512, with derivative -2+10q^4 increasing through one root, proving exactly two switches. Independent 2^7-state exact rational survival enumeration for q=1/4,3/4,9/10 gave unique winners A,B,A and matching gain formula for all seven targets. The universal <=4 bound comes from the proof, not enumeration.
 
-The scientific result has undergone an internal self-review only. No external independent validation or audit has been undertaken. Model limitations and literature-access risks are documented separately.
+## originality
+
+PASS
+
+PASS — Best-of-knowledge exact minimal plant threshold for reentrant ordering under ONE protected pollinator and expected plant richness. Foundational network-removal studies compare extinction orders, often deterministic degree-based removals, not guaranteed single-species rescue as q varies. A general reliability-importance-polynomial viewpoint can express the same gain but does not from the inspected statements determine a sharp 4/5 plant threshold. No matching Resultary indexed result among inspected top hits; absence is not a proof of priority.
+
+## value
+
+PASS
+
+PASS — Species-prioritization sensitivity is an intrinsically motivated property of plant–pollinator robustness; an exact minimum-system-size threshold plus explicit strictly reentrant witness shows when uniform background risk can reverse and then restore an optimal intervention. This provides a sharply bounded mathematical counterexample to a naive single-switch expectation, without asserting empirical validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
