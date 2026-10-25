@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T06:14:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, verification code and required certificates at the verified Git snapshot"
+      ],
+      "rationale": "For any d>=6, 2d centers +/-e_i/d cover the l1 unit ball at scale (d-1)/d by choosing a maximal-modulus coordinate t>=||x||_1/d and checking two cases t>=1/d and t<=1/d; this establishes the upper bound for <=2d+3 translates. For any lambda<r, 2d vertices must occupy distinct translates (mutual l1 distance 2), and no translate containing a vertex can contain a sign-facet barycenter (distance >=2r>2lambda). At most three additional translates must cover all 2^d sign barycenters. Incompatibility at Hamming distance >=d-1 makes each covering class an independent set in H_2(d,d-1). Harney–Gluesing-Luerssen Thm3.3 explicitly proves this graph has chromatic number 4 for d>=3, contradiction. An independent exact check recomputed Hamming adjacencies, odd-generator parity relation and 4-color construction for dimensions 3..8; unbounded lower bound rests on the published chromatic theorem, not finite tests.",
+      "residual_risks": [
+        "Computational corroboration is restricted to the stated finite class; it is not a general numerical experiment proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 covering functional concerns 2^d translates, not 2d+3; Joós only has cases d=4,5 at 2d+3."
+        ],
+        "reasoning": "For d>=6 these are substantially different covering budgets; asymptotic 2^d bounds cannot imply sharp 2d+3 lower bound.",
+        "searches": [
+          "Resultary query: crosspolytope gamma 2d+3 chromatic four color Hamming Joos conjecture",
+          "Lian et al 2026 covering functionals 2^d"
+        ]
+      },
+      "checked_sources": [
+        "Antal Joós, Covering the Crosspolytope with Crosspolytopes, arXiv:2305.00569v2, Theorem 4 and Conjecture 2, complete paper.",
+        "Harney and Gluesing-Luerssen, On Robust Colorings of Hamming-Distance Graphs, arXiv:1609.00263 / Electronic J. Combin. 25 (2018), Theorem 3.3, complete full text.",
+        "Lian and Zhang, Covering the crosspolytope with its smaller homothetic copies, arXiv:2103.10004 (dimension three).",
+        "Lian, Xia, Xue and Zhang, On the Covering Functionals of Simplices and Cross-Polytopes, Results Math. 81 (2026), 82 (2^d translates, bibliographic/abstract only)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture + color theorem alone do not formally state needed barycenter-sharing reduction; new proof shows vertices consume 2d slots and remaining facets would give forbidden 3-coloring."
+        ],
+        "reasoning": "This implication is explicitly proved. Known chromaticity is a critical imported theorem, but covering claim is not asserted by either source alone.",
+        "searches": [
+          "Resultary query: crosspolytope gamma 2d+3 chromatic four color Hamming Joos conjecture",
+          "Joós Theorem 4 and Conjecture 2",
+          "Harney and Gluesing-Luerssen Thm 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Joós explicitly states equality gamma_(2d+3)=(d-1)/d as Conjecture 2 for d>=6, rather than theorem. Harney establishes chi=4 of exactly the incompatible-barycenter graph, not the covering functional."
+        ],
+        "reasoning": "Exact intended statement is a conjecture in Joós, an independently known chromatic graph identity in Harney; their mathematical combination supplies the missing bridge.",
+        "searches": [
+          "Resultary query: crosspolytope gamma 2d+3 chromatic four color Hamming Joos conjecture",
+          "Joós Conjecture 2 arXiv:2305.00569v2",
+          "Harney Theorem 3.3 H_2(d,d-1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier dimension-by-dimension d=4,5 is not an all-d table. Published Hamming chi=4 is exact graph data, but not a crosspolytope gamma table."
+        ],
+        "reasoning": "Existing exact colors are acknowledged as imported lemma; no current source with all-d covering gamma_(2d+3) tabulation was found.",
+        "searches": [
+          "Resultary query: crosspolytope gamma 2d+3 chromatic four color Hamming Joos conjecture",
+          "Joós Theorem 4 dimension 4 5 table",
+          "Harney chi graph exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication assessment against published results, primary texts and published mathematical records; negative search is not priority certification.",
+      "residual_risks": [
+        "Publication-priority risk from unindexed contemporaneous resolution remains; searched relevant indexed sources.",
+        "2026 covering-functional article full text not inspected; parameter comparison rests on its accessible description.",
+        "The finite dimension checks do not prove the infinite chromatic theorem; the primary published theorem is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CASE_IDENTIFIED",
+          "evidence": "All-d >=6 conjecture is stated; d=4,5 established.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.00569",
+          "material_read": "Complete v2 primary PDF, Theorem 4 and explicit Conjecture 2, with page visual inspection",
+          "method": "arXiv full PDF",
+          "title": "Covering the Crosspolytope with Crosspolytopes",
+          "trigger": "Precisely same 2d+3 covering functional"
+        },
+        {
+          "assessment": "EXACT_IMPORTED_LEMMA",
+          "evidence": "Four chromatic colors required; no assumption d<=5.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.00263",
+          "material_read": "Complete accessible primary text including precise definition H_2(d,d-1), Theorem 3.3 and its hypotheses",
+          "method": "full-text primary arXiv HTML",
+          "title": "On Robust Colorings of Hamming-Distance Graphs",
+          "trigger": "Crucial same Hamming graph chromatic input"
+        },
+        {
+          "assessment": "UNDETERMINED_FULL_TEXT but compared parameter and target",
+          "evidence": "Uses 2^d copies, not 2d+3; uninspected full details remain risk, not evidence of entire paper exclusion.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-026-02651-2",
+          "material_read": "Published abstract and bibliographic parameter description only",
+          "method": "lawful abstract/bibliographic retrieval",
+          "title": "On the Covering Functionals of Simplices and Cross-Polytopes",
+          "trigger": "Potentially later broader covering report"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Antal Joós, Covering the Crosspolytope with Crosspolytopes, arXiv:2305.00569v2, Theorem 4 and Conjecture 2, complete paper.",
+        "Harney and Gluesing-Luerssen, On Robust Colorings of Hamming-Distance Graphs, arXiv:1609.00263 / Electronic J. Combin. 25 (2018), Theorem 3.3, complete full text.",
+        "Lian and Zhang, Covering the crosspolytope with its smaller homothetic copies, arXiv:2103.10004 (dimension three).",
+        "Lian, Xia, Xue and Zhang, On the Covering Functionals of Simplices and Cross-Polytopes, Results Math. 81 (2026), 82 (2^d translates, bibliographic/abstract only)."
+      ],
+      "rationale": "Resolves Joós explicit all-dimension three-extra-copy conjecture for d>=6 by translating geometry into a chromatic obstruction; a meaningful open infinite-family covering threshold with a short but nonroutine bridge between two primary theories. Not merely a restatement of the 4-color theorem because the 2d+3 covering separation argument is essential.",
+      "residual_risks": [
+        "Publication-priority risk from unindexed contemporaneous resolution remains; searched relevant indexed sources.",
+        "2026 covering-functional article full text not inspected; parameter comparison rests on its accessible description.",
+        "The finite dimension checks do not prove the infinite chromatic theorem; the primary published theorem is essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
