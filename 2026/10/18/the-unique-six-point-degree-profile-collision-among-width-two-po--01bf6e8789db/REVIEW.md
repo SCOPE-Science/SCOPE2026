@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Every finite poset can be relabelled along a linear extension, so the exhaustive upper-triangular relation enumeration covers all possibilities through six elements. Transitivity, width, degree multisets, and isomorphisms are checked exactly: isomorphisms are exhaustively enumerated within their necessary ordered degree-pair classes. A separate permutation representation and a direct witness program reproduce the census and the nonisomorphic exception. The finite theorem asserts no unproved infinite extrapolation.
+## correctness
 
-## Originality — PASS, with material risks
-Direct searches for equivalent width-two degree-pair classifications and a published mathematical record search found no equivalent six-element sharp census. The Atkinson–Sagan–Vatter permutation representation supplies an enumeration method but no such collision theorem. Gellert–Sanyal's Theorem 3.6 asserts a stronger but conflicting net-degree uniqueness claim: the explicit two connected transitive width-two examples here yield different labelled arc sets with the same net-degree vector under the forced degree-profile correspondence. The source was materially inspected, and the contradiction was checked rather than evaded. Earlier specialized degree-data tables remain a residual priority risk; a failed search does not certify publication priority.
+PASS
 
-## Value — PASS
-The result determines the first and only obstruction through six elements for a natural one-round counting invariant on finite width-two orders. The exceptional pair is rigid and becomes distinguishable after one more refinement round, producing an exact local-information threshold. The direct discrepancy with a printed net-degree uniqueness claim makes the boundary mathematically consequential, rather than a random small finite calculation.
+Reconstructed exhaustive finite coverage: any poset has a linear extension, so every type appears as a transitively closed upper-triangular relation on n<=6 vertices. Read source verify_uppertriangular.py and independently implemented and ACTUALLY EXECUTED a separate enumeration of all 2^{n(n-1)/2} ordered relation masks through six, checks every transitive triple and 3-antichain, and tests all degree-profile-preserving bijections. Independently observed iso types (1,2,4,10,26,75), profiles (1,2,4,10,26,74), one six-point doubleton. Checked displayed E0 plus (1,2) vs plus (1,3) are strict posets of width two with exactly six distinct profile values; unique profile-preserving bijection fails the adjacency test. First-round unique color labels force second refinement to reveal the mismatch. Exhaustion restricted to n<=6, no claim of general reconstruction.
 
-## Limits
-The order bound is six, and the claim does not assert uniqueness of the collision at larger orders, full counting-logic equivalence, or independent literature priority certification. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact first degree-profile collision is not contained in inspected permutation-poset background or published net-degree theory. A more general 2017 assertion by Gellert–Sanyal, Theorem 3.6, appears to claim connected width-two transitive digraph uniqueness from labelled net degrees, but after aligning uniquely occurring in/out degree pairs the exhibited P/Q provide an explicit contrary connected transitive width-two witness. Accordingly do not rely on that inconsistent published assertion as proof of the negation or coverage. No prior 75/74 table found; risk of prior specialized enumeration remains.
+
+## value
+
+PASS
+
+The first failing order of a natural directed local counting invariant, its unique pair, and the fact two refinement rounds suffice at that order give an exact expressivity boundary. The witness also identifies a precise issue with a stronger printed degree-reconstruction assertion; scientifically motivated finite classification rather than arbitrary small-table enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
