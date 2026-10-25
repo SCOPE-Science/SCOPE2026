@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integers \(n\ge3\) and \(0<\alpha\le1\), the center evaluation of any real-linear seminorm-bounded extension is a constant-preserving linear functional. Cyclic averaging forces the uniform vertex mean without increasing the operator norm. The triangle inequality and a distance-function extremizer establish its exact norm. The chord product proves positivity of the derivative at the auxiliary exponent zero; positivity of the second derivative and the strict endpoint inequality prove the unique crossing. A Parseval evaluation of squared logarithmic chord lengths and uniform cubic-logarithm bounds justify the scaled threshold limit. The normalizations, including unit circumradius and center distance \(1\), are explicit. A standard-library implementation passed 751 finite corroborative checks. The general conclusion is analytic, not inferred from experiments.
+PASS
 
-## Originality — PASS, subject to residual bibliographic risk
+For every integer n≥3, 0<alpha≤1, unit-circumradius regular polygon vertices and center, a finite-seminorm bounded real-linear extension must preserve constants and is determined by one central linear functional with coefficients summing to one. Average its cyclic conjugates to obtain the mean operator at no larger norm. For that operator, center-to-vertex differences are at most mean chord^alpha, attained by the fixed-vertex distance function (one-Lipschitz in the snowflake metric); vertex pairs force norm ≥1. Thus Lambda_n=max(1,F_n). Chord product Π_j 2sin(pi j/n)=n proves F_prime(0)=log(n)/n>0, and F_doubleprime(alpha)>0 proves strict increase. With F(0)=(n−1)/n<1 and F(1)=(2/n)cot(pi/2n)>1, there is exactly one alpha_n in (0,1). Riemann sums of squared log chords converge to ∫log²(2sin pi t)=pi²/12 by Parseval; discrete cubic-log moments uniformly bounded yield Taylor remainder O(alpha³). Consequently n(F(c/sqrt(n))−1)→−1+pi²c²/24 and root bracketing gives sqrt(n) alpha_n→2sqrt6/pi. Boundary n=3,4 formulas, alpha=1 cotangent formula, and metric alpha>0 domain are consistent. Finite checks corroborate but do not prove universal limits.
 
-Brudnyi–Brudnyi (arXiv:math/0609535v1) supplies general simultaneous linear-extension bounds based on homogeneous-type constructions, but does not state a sharp regular-polygon one-center coefficient. Ambrosio–Puglisi (https://cvgmt.sns.it/media/doc/paper/3155/weak@Lee-Naor.pdf) supplies the broader random-projection framework; the inspected theorems concern existence/equivalence of extensions, rather than the exact cyclic finite-model phase transition or its \(n^{-1/2}\) threshold scale. Azizi–Rejali (arXiv:2112.10265v1) studies extensions with regular polygon constraints on complex target values, not real-linear simultaneous extension from a regular-polygon source. Targeted published-result searches were compared at the level of statements and implications; adjacent polygon and extension-operator results did not establish the combined sharp threshold and asymptotic. An alternative historical finite-orbit formulation or a direct specialization of a more general unlocated sharp result remains a meaningful risk, and no independent bibliographic audit is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Simultaneous linear extension and individual nonlinear extension are qualitatively distinct even for real scalar data: McShane preserves Lipschitz seminorm for one function, while the uniform finite-polygon problem can force an operator norm above one. The exact snowflake threshold determines when a contractive *linear* universal choice becomes possible. The \(2\sqrt6/\pi\) scaling constant identifies a nontrivial crossover governed by the variance of the logarithmic chord distribution, rather than a routine substitution or arbitrary finite-instance computation. The theorem treats an unbounded natural family of symmetric finite models, with exact finite constants and a sharp asymptotic phase boundary.
+Best-of-knowledge PASS for the combined sharp polygon-specific family: general linear extension/random-projection theory gives conceptual tools and the transitive averaging reduction, but inspected primary theorems do not quantitatively determine the polygon chord-power threshold or its exact n^{-1/2} coefficient. A related published hypercube study proves an analogous one-center principle for a different metric family with exponential, not polynomial, threshold. The exact indexed polygon result is a mirror of this same original source, not an independently prior finding. No exhaustive novelty or priority certification is claimed.
 
-## Boundaries and closest literature
+## value
 
-Only real-valued functions, real-linear operators, vertex sets plus one center, and \(0<\alpha\le1\) are covered. No extension to a continuous disk or non-regular configurations is asserted. The numerical script corroborates but cannot certify the all-dimensional asymptotic. The strongest conceptual prior overlap is the general random-projection formulation of Ambrosio–Puglisi; its statements must not be misrepresented as excluding all elementary corollaries.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The object and invariant are motivated by the qualitative distinction between nonlinear individual McShane extensions (always norm-one) and real-linear simultaneous extension across the prescribed central point. Exact sharp norm and contractivity threshold hold for every polygon size and continuous snowflake exponent, with a non-obvious 2sqrt6/pi limit derived from logarithmic chord variance. This gives a meaningful family-level boundary for linear extension feasibility and a natural, independently useful scalar operator invariant, not an arbitrary finite table or merely a general theorem specialization. The group averaging step is elementary but the sharp crossing and asymptotic are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

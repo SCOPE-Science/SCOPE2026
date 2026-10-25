@@ -1,0 +1,220 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:49:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md exact proof Steps 1–3, tree 63b2fef41f90a211e21d2dcce9e1714347128cf6, Git blob 5ae62456f10d029452aca81a822d70455b745322.",
+        "Independently reconstructed cyclic-averaging optimality, triangle-inequality sharpness via distance functions, and Fourier/Parseval log-chord asymptotics.",
+        "Independent Python checker tested 13 n values (3 to 4096), 5 snowflake exponents each, exact n=3,4 closed thresholds, cotangent identity, log chord product and distance-witness ratios.",
+        "Pinned verification code and logs were reviewed but are finite corroboration and cannot establish an all-n theorem."
+      ],
+      "rationale": "For every integer n≥3, 0<alpha≤1, unit-circumradius regular polygon vertices and center, a finite-seminorm bounded real-linear extension must preserve constants and is determined by one central linear functional with coefficients summing to one. Average its cyclic conjugates to obtain the mean operator at no larger norm. For that operator, center-to-vertex differences are at most mean chord^alpha, attained by the fixed-vertex distance function (one-Lipschitz in the snowflake metric); vertex pairs force norm ≥1. Thus Lambda_n=max(1,F_n). Chord product Π_j 2sin(pi j/n)=n proves F_prime(0)=log(n)/n>0, and F_doubleprime(alpha)>0 proves strict increase. With F(0)=(n−1)/n<1 and F(1)=(2/n)cot(pi/2n)>1, there is exactly one alpha_n in (0,1). Riemann sums of squared log chords converge to ∫log²(2sin pi t)=pi²/12 by Parseval; discrete cubic-log moments uniformly bounded yield Taylor remainder O(alpha³). Consequently n(F(c/sqrt(n))−1)→−1+pi²c²/24 and root bracketing gives sqrt(n) alpha_n→2sqrt6/pi. Boundary n=3,4 formulas, alpha=1 cotangent formula, and metric alpha>0 domain are consistent. Finite checks corroborate but do not prove universal limits.",
+      "residual_risks": [
+        "Proof depends on standard logarithmic endpoint Riemann-sum domination and classical Fourier/Parseval identity, both checked for correct normalization, without machine-formal certification.",
+        "Computed values at finite n are approximations, not an effective uniform finite-n error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brudnyi–Brudnyi 2006 Theorem 1.2 supplies an extension with complexity/doubling dependent bounds, not a sharp all-n chord-power coefficient.",
+          "Their earlier general linear extension framework likewise controls broader metric families without evaluating the fixed center-of-polygon optimum.",
+          "A directly sharp domination theorem with explicit relevant parameters would entail the present claim; none of the inspected theorems gives such an evaluated bound."
+        ],
+        "reasoning": "Compared hypotheses, quantifiers and implication, not just names: general existence/upper bounds are not equality for this center geometry and cannot alone determine the norm-one threshold or the 2sqrt6/pi scale. Possible unlocated stronger quantitative corollaries remain a residual bibliographic risk.",
+        "searches": [
+          "Brudnyi–Brudnyi arXiv:math/0609535 Theorem 1.2",
+          "Brudnyi–Brudnyi arXiv:math/0404304 introduction/main theorems",
+          "Ambrosio–Puglisi arXiv:1609.01450 Theorems 2.14–2.15",
+          "finite vertex transitive metric spaces one point Lipschitz linear extension projection constant barycenter mean distance, snowflake threshold regular polygon, Lipschitz free space"
+        ]
+      },
+      "checked_sources": [
+        "Pinned source RESULT.md at source tree 63b2fef41f90a211e21d2dcce9e1714347128cf6",
+        "Brudnyi & Brudnyi, Extension of Lipschitz functions defined on metric subspaces of homogeneous type, arXiv:math/0609535 (Theorem 1.2)",
+        "Brudnyi & Brudnyi, Metric spaces with Linear Extensions Preserving Lipschitz Condition, arXiv:math/0404304 (main existence and estimates)",
+        "Ambrosio & Puglisi, Linear extension operators between spaces of Lipschitz maps and optimal transport, arXiv:1609.01450 (Theorems 2.14–2.15)",
+        "Giuliano Basso, Absolute Lipschitz extendability and linear projection constants, (Theorems 1.2, 1.4, Lemma 4.1; bibliographic URL in inspections)",
+        "Resultary/2026 2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35 (full RESULT.md)",
+        "Resultary/2026 2026/10/11/SCOPE-a-sharp-snowflake-threshold-for-simultaneous-linear-lipschitz-ex--55dc55bc9348 (same-record mirror)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hypercube theorem computes 2^{-d} Σ_k binom(d,k)(2 sqrt(k/d))^alpha and an exponential 2^{-d} threshold, whereas the polygon theorem computes n^{-1} Σ_j(2sin(pi j/n))^alpha and a sqrt(n) threshold. Neither set family reduces to the other by the cited argument.",
+          "Basso equilateral lemma uses absolute extension quantifiers and all placements, not a center at prescribed radius inside a regular polygon; even n=3 requires different metric normalization.",
+          "McShane provides nonlinear individual extensions of seminorm one, not a single simultaneous real-linear operator, so it does not imply norm-one for all alpha."
+        ],
+        "reasoning": "The common transitive averaging reduction is structurally known, but the prior theorems do not have stronger hypotheses/conclusions that mechanically give the polygon critical power or its exact leading asymptotic. Similar hypercube proof technique does not replace the discrete logarithmic chord variance. Scope excludes arbitrary target Banach spaces and full-disk extensions.",
+        "searches": [
+          "Ambrosio–Puglisi Theorems 2.14–2.15",
+          "Basso Lemma 4.1 equilateral metric extension",
+          "Resultary exponential snowflake threshold for linear extension from hypercube vertices full RESULT.md",
+          "exact optimal simultaneous real-linear Lipschitz extension from vertices of regular Euclidean n-gon to its center for snowflake chord distance exponent alpha; uniform mean operator norm max(1, mean chord powers), unique alpha threshold and asymptotic sqrt(n) alpha = 2sqrt6/pi",
+          "finite vertex transitive metric spaces one point Lipschitz linear extension projection constant barycenter mean distance, snowflake threshold regular polygon, Lipschitz free space"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric one-point extension is a linear center functional; conjugation by rotations minimizes the seminorm with the uniform vertex mean. Equivalently a barycentric random projection sends the center to uniform mass on polygon vertices.",
+          "Ambrosio–Puglisi Theorems 2.14–2.15 characterize random projections/weak-star continuous linear extensions, but their general statements contain no evaluated regular-polygon sine-power critical exponent.",
+          "Basso relates absolute Lipschitz extension constants to Lipschitz-free projection norms; these are different extremal quantifiers from a fixed polygon and one point."
+        ],
+        "reasoning": "Identified the equivalent free-space/random-projection and one-point barycenter formulations. They can encompass the averaging lemma, which is not independently new; the family-specific sine-power crossing and asymptotic constant require the polygon chord product, logarithmic second moment and uniform Taylor estimates. No inspected formulation supplies all those parameters. The connection limits novelty of the elementary first lemma.",
+        "searches": [
+          "exact optimal simultaneous real-linear Lipschitz extension from vertices of regular Euclidean n-gon to its center for snowflake chord distance exponent alpha; uniform mean operator norm max(1, mean chord powers), unique alpha threshold and asymptotic sqrt(n) alpha = 2sqrt6/pi",
+          "finite vertex transitive metric spaces one point Lipschitz linear extension projection constant barycenter mean distance, snowflake threshold regular polygon, Lipschitz free space",
+          "Lipschitz one-point linear extension projection constant finite vertex transitive space averaging optimal",
+          "Ambrosio–Puglisi arXiv:1609.01450 Theorems 2.14–2.15",
+          "Basso Absolute Lipschitz extendability and linear projection constants Theorems 1.2, 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the exact formula in the indexed record whose SOURCE.json identifies the same source path and SCOPE record ID 55dc55bc9348; it is a mirror of the target, not independent earlier literature.",
+          "Resultary also returns a distinct cube-vertex snowflake theorem with binomial weighted sum and exponentially small exponent; its full RESULT.md covers cube vertices and not regular polygon chord sums.",
+          "Baesel Random chords and point distances in regular polygons (arXiv:1204.2707), abstract, concerns distributions of continuous chord/point distances, not a table of optimal Lipschitz operator norms."
+        ],
+        "reasoning": "Searched the exact mathematical invariant, trigonometric power sum, phase root and asymptotic coefficient in published mathematical records and related finite-metric tables. Found the same-source mirror and a geometrically different hypercube analog, not an independent dominating exact polygon table. Negative search has indexing and alias limitations.",
+        "searches": [
+          "exact optimal simultaneous real-linear Lipschitz extension from vertices of regular Euclidean n-gon to its center for snowflake chord distance exponent alpha; uniform mean operator norm max(1, mean chord powers), unique alpha threshold and asymptotic sqrt(n) alpha = 2sqrt6/pi",
+          "linear Lipschitz extension operators regular polygon center snowflake metric average threshold",
+          "snowflake regular polygon linear Lipschitz extension threshold barycenter origin mean chord sum sqrt n",
+          "sum 2 sin pi j/n to power alpha n critical exponent sqrt n",
+          "mean distances regular n-gon chord power alpha n alpha critical root",
+          "Resultary semantic search for exact polygon snowflake threshold",
+          "Resultary semantic search for finite transitive barycentric one-point extension"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combined sharp polygon-specific family: general linear extension/random-projection theory gives conceptual tools and the transitive averaging reduction, but inspected primary theorems do not quantitatively determine the polygon chord-power threshold or its exact n^{-1/2} coefficient. A related published hypercube study proves an analogous one-center principle for a different metric family with exponential, not polynomial, threshold. The exact indexed polygon result is a mirror of this same original source, not an independently prior finding. No exhaustive novelty or priority certification is claimed.",
+      "residual_risks": [
+        "An unindexed or historical elementary barycenter-extension calculation might explicitly give the same polygon threshold and n^{-1/2} coefficient; no search establishes absence.",
+        "The vertex-transitive one-point optimality lemma follows quickly from the established random-projection viewpoint, so novelty primarily concerns exact sine-power phase and asymptotic, not group averaging alone.",
+        "The Baesel random-distance and Azizi–Rejali polygon-valued papers were not read fully here and cannot support whole-document novelty exclusion; the former appears to study continuous polygon random-distance distributions, the latter differs in source/codomain role.",
+        "The Resultary mirror is source-identical; provenance/priority beyond the inspected published corpus cannot be independently established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_POLYGON_PHASE",
+          "evidence": [
+            "Theorem 1.2 complexity/doubling dependent operator norm bound; no quantitative sine-power/alpha_n theorem in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0609535",
+          "material_read": "Full available arXiv HTML primary text, main result Theorem 1.2, its extension construction, and relevant hypotheses/bounds.",
+          "method": "Compared its doubling/homogeneous-type complexity coefficient with optimal one-point scalar coefficient for unit-circumradius polygon.",
+          "title": "Extension of Lipschitz functions defined on metric subspaces of homogeneous type",
+          "trigger": "General simultaneous linear extension bound could dominate fixed polygon result."
+        },
+        {
+          "assessment": "BROADER_EXISTENCE_WITH_NO_EVALUATED_SNOWFLAKE_POLYGON_IN_INSPECTED_THEOREMS",
+          "evidence": [
+            "Broad linear-extension estimates concern more general metric spaces and do not give equality with n-gon chord-power mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0404304",
+          "material_read": "Accessible arXiv HTML full primary text; opening main theorems, general existence and quantitative estimates, relevant examples.",
+          "method": "Compared metric quantifiers and constant dependence against exact fixed n-gon center extension.",
+          "title": "Metric spaces with Linear Extensions Preserving Lipschitz Condition",
+          "trigger": "Earlier broad linear-extension and projection constant theory could entail fixed source geometry."
+        },
+        {
+          "assessment": "EQUIVALENCE_APPLIES_BUT_NO_EXPLICIT_POLYGON_POWER_CROSSING_IN_INSPECTED_THEOREMS",
+          "evidence": [
+            "Theorems 2.14–2.15 link K-random projections and linear extension operators, without the exact polygon spectral/trigonometric evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01450",
+          "material_read": "Full 21-page authorized open-access PDF, including introduction, Section 2.4, Theorems 2.14 and 2.15, and visually inspected theorem page.",
+          "method": "Identified random projection from center to uniform polygon vertices; tested theorem’s consequences for sharp family-specific norm and crossing.",
+          "title": "Linear extension operators between spaces of Lipschitz maps and optimal transport",
+          "trigger": "Random projection equivalence might directly yield optimal one-point linear functional."
+        },
+        {
+          "assessment": "NO_DIRECT_POLYGON_FAMILY_PHASE_IN_INSPECTED_RESULTS",
+          "evidence": [
+            "Lemmas about equilateral spaces and general absolute extendability are distinct from exact center radius 1 polygon interpolation."
+          ],
+          "identifier_or_url": "https://arxiv.org/search/?query=Absolute+Lipschitz+extendability+and+linear+projection+constants&searchtype=all",
+          "material_read": "Full accessible arXiv HTML, including introductory Theorems 1.2/1.4 and Lemma 4.1 on equilateral metrics.",
+          "method": "Compared absolute/worst-case extension quantifiers with the fixed prescribed center point; checked equilateral normalization at n=3.",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "Relative/absolute linear extension and free-space projection constant theory could cover all finite one-point metrics."
+        },
+        {
+          "assessment": "ANALOGOUS_METHOD_NOT_IMPLIES_POLYGON_RESULT",
+          "evidence": [
+            "Cube-binomial sum and exponential scale 2^d alpha_d~2/log2 differ from polygon sine sum and sqrt(n) alpha_n~2sqrt6/pi."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35",
+          "material_read": "Complete published RESULT.md theorem, assumptions, proof and references plus SOURCE.json.",
+          "method": "Compared metric object, power-sum coefficients and rate of critical exponent; checked provenance timestamp.",
+          "title": "Exponential snowflake threshold for linear extension from hypercube vertices",
+          "trigger": "Same group averaging scheme and snowflake crossing in a different regular finite geometry."
+        },
+        {
+          "assessment": "SAME_ORIGIN_MIRROR_NOT_INDEPENDENT_PRIOR_WORK",
+          "evidence": [
+            "SOURCE.json source_record_id SCOPE-20261011-55dc55bc9348 matches the assigned package; original Git path matches."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-snowflake-threshold-for-simultaneous-linear-lipschitz-ex--55dc55bc9348",
+          "material_read": "Full matching Resultary index summary and SOURCE.json identifying source record and source commit time. Target source complete RESULT.md inspected separately.",
+          "method": "Matched SOURCE.json source_path, source_record_id and timestamp against pinned record rather than counting same-origin copy as independent coverage.",
+          "title": "A sharp snowflake threshold for simultaneous linear Lipschitz extensions from regular polygons (indexed mirror)",
+          "trigger": "Exact search result matching target title, formula and constant could be prior published coverage."
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_DIFFERENT_DISTANCE_DISTRIBUTION_OBJECT",
+          "evidence": [
+            "Abstract advertises random chord and point-distance distributions, not simultaneous real-linear Lipschitz operator norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Abstract only; full text not inspected and no whole-document exclusion is claimed.",
+          "method": "Compared described random continuous-point distance object with discrete vertex chord-power and linear extension norm.",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Relevant regular-polygon distance distributions might already give chord-power tables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact finite-n operator norm formula, unique contractivity boundary and sharp all-n threshold asymptotic 2sqrt6/pi.",
+        "Simple special n=3,4 formulas and unsnowflaked 4/pi limit anchor the family.",
+        "Nonlinear scalar Lipschitz extension always norm one, emphasizing the genuine simultaneous-linearity obstruction."
+      ],
+      "rationale": "The object and invariant are motivated by the qualitative distinction between nonlinear individual McShane extensions (always norm-one) and real-linear simultaneous extension across the prescribed central point. Exact sharp norm and contractivity threshold hold for every polygon size and continuous snowflake exponent, with a non-obvious 2sqrt6/pi limit derived from logarithmic chord variance. This gives a meaningful family-level boundary for linear extension feasibility and a natural, independently useful scalar operator invariant, not an arbitrary finite table or merely a general theorem specialization. The group averaging step is elementary but the sharp crossing and asymptotic are substantive.",
+      "residual_risks": [
+        "No extension beyond finite regular vertex sets plus center, real scalar functions and 0<alpha≤1; does not give the full disk linear extension constant.",
+        "Asymptotic is first-order only; no rigorous finite-n global rate was claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned source RESULT.md at source tree 63b2fef41f90a211e21d2dcce9e1714347128cf6",
+    "Brudnyi & Brudnyi, Extension of Lipschitz functions defined on metric subspaces of homogeneous type, arXiv:math/0609535 (Theorem 1.2)",
+    "Brudnyi & Brudnyi, Metric spaces with Linear Extensions Preserving Lipschitz Condition, arXiv:math/0404304 (main existence and estimates)",
+    "Ambrosio & Puglisi, Linear extension operators between spaces of Lipschitz maps and optimal transport, arXiv:1609.01450 (Theorems 2.14–2.15)",
+    "Giuliano Basso, Absolute Lipschitz extendability and linear projection constants, (Theorems 1.2, 1.4, Lemma 4.1; bibliographic URL in inspections)",
+    "Resultary/2026 2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35 (full RESULT.md)",
+    "Resultary/2026 2026/10/11/SCOPE-a-sharp-snowflake-threshold-for-simultaneous-linear-lipschitz-ex--55dc55bc9348 (same-record mirror)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all integers n≥3 and powers 0<alpha≤1 on the regular unit-circumradius n-gon plus center with Euclidean distance^alpha, the optimal real-linear simultaneous Lipschitz extension norm equals max{1, n^{-1} Σ_{j=1}^{n−1}(2sin(πj/n))^alpha}, attained by the center mean; the unique norm-one critical alpha_n is the solution F_n(alpha_n)=1 with sqrt(n) alpha_n→2sqrt6/π and Lambda_n(1)=(2/n)cot(π/(2n))→4/π.",
+  "limitations": [
+    "Real scalar functions and real-linear operators; finite regular n-gon plus center; 0<alpha≤1; unit circumradius; no arbitrary planar sets/whole disks/complex target spaces.",
+    "Infinite n results rest on analytic estimates, not finite numerical verification.",
+    "Best-of-knowledge originality is qualified by incomplete indexing and uninspected secondary documents.",
+    "Potentially public metadata must be sanitized before publication; reviewed science preserved."
+  ],
+  "residual_risks": [
+    "An unindexed or historical elementary barycenter-extension calculation might explicitly give the same polygon threshold and n^{-1/2} coefficient; no search establishes absence.",
+    "The vertex-transitive one-point optimality lemma follows quickly from the established random-projection viewpoint, so novelty primarily concerns exact sine-power phase and asymptotic, not group averaging alone.",
+    "The Baesel random-distance and Azizi–Rejali polygon-valued papers were not read fully here and cannot support whole-document novelty exclusion; the former appears to study continuous polygon random-distance distributions, the latter differs in source/codomain role.",
+    "The Resultary mirror is source-identical; provenance/priority beyond the inspected published corpus cannot be independently established.",
+    "Proof depends on standard logarithmic endpoint Riemann-sum domination and classical Fourier/Parseval identity, both checked for correct normalization, without machine-formal certification.",
+    "Computed values at finite n are approximations, not an effective uniform finite-n error bound.",
+    "No extension beyond finite regular vertex sets plus center, real scalar functions and 0<alpha≤1; does not give the full disk linear extension constant.",
+    "Asymptotic is first-order only; no rigorous finite-n global rate was claimed."
+  ],
+  "schema_version": 1
+}
