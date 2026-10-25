@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each 2k+2-window, k+3 selected positions force two full opposite pairs and hence an induced P4. This gives the exact per-window cardinality upper bound. Separated selected runs of at most k+2 induce disjoint copies of cliques or cliques minus an edge, attaining the bound. Saturated final k+2-blocks force k preceding zeros and backwards rigidity. Shift/reverse witnesses prove all nonunique cases. Actual standalone verifier reproduced all 91 direct enumerations, 216 independent finite-state calculations, and 456 explicit witness cases; finite checks supplement the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Markenzon–Waga Theorem 8 gives two cluster-graph subcolor classes, implying existence of a cograph of size at least half the vertices.",
+        "Generic edge-editing results do not give vertex-deletion maxima."
+      ],
+      "reasoning": "A generic two-cluster partition supplies only a weak cardinality lower bound and does not decide the exact two-parameter optimum or uniqueness. The broader interval-graph literature inspected yielded no dominating theorem.",
+      "searches": [
+        "\"cograph deletion\" \"unit interval\" path graph",
+        "\"largest cograph\" \"unit interval\"",
+        "maximum induced cluster graph or cograph of kth power path, path powers P_n^k, extremal periodic vertex selection, minimum induced P4 hitting set"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38084v1 (primary full HTML 2026-09-29)",
+      "Markenzon–Waga, Pesquisa Operacional 34 (2014), DOI:10.1590/S0101-74382014005000004 (primary HTML)",
+      "A Polynomial Kernel for Trivially Perfect Editing, Algorithmica, Section 6.1 (publisher HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 Theorem 8: subchromatic number is two when n>k+1 for k-ribbons (not an exact largest single cograph subset statement).",
+        "2026 Aleksandersson–Leite article focuses on peak-nesting/peak polynomials.",
+        "2017 trivially-perfect-editing paper discusses edge modifications and P4 obstruction."
+      ],
+      "reasoning": "Two-cluster cover does not imply the exact value, since optimal induced cographs may include blocks inducing a clique minus one edge. Peak-nesting statistics and edge editing are distinct invariants. The statement strengthens the available same-object implication.",
+      "searches": [
+        "\"k-ribbon\" \"subchromatic\" \"Corollary\" \"indifference\"",
+        "\"cograph vertex deletion\" \"proper interval graphs\"",
+        "cograph vertex deletion P4 transversal path power k-ribbon threshold exact minimum q k + max(0,r-k-2) unique solutions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cograph induced subgraph equals an induced P4-free vertex set; vertex deletion is complementary.",
+        "Publisher HTML Definition 2.1 identifies a k-ribbon graph exactly with the kth path power.",
+        "No same-formula published database hit among retrieved results."
+      ],
+      "reasoning": "Compared the theorem under path-power/ribbon aliases, cograph/P4-free equivalence, and minimum P4 vertex-transversal wording. No retrieved statement implies the exact cardinality formula or the uniqueness iff condition.",
+      "searches": [
+        "largest induced cograph P4-free subset of power of a path P_n^k, exact maximum size periodic floor formula (k+2) floor(n/(2k+2)) plus remainder, minimum cograph vertex deletion of unit interval graph",
+        "cograph vertex deletion P4 transversal path power k-ribbon threshold exact minimum q k + max(0,r-k-2) unique solutions",
+        "\"k-ribbon\" \"cograph\"",
+        "\"P4-free\" \"powers of paths\" vertex subset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked published research records addressed unrelated path-power or zero-forcing questions.",
+        "Targeted public research-record queries returned no matching all-parameter formula."
+      ],
+      "reasoning": "The queried public database records contained no matching all-parameter table/formula. This is not interpreted as proof of global uniqueness.",
+      "searches": [
+        "largest induced cograph P4-free subset of power of a path P_n^k, exact maximum size periodic floor formula (k+2) floor(n/(2k+2)) plus remainder, minimum cograph vertex deletion of unit interval graph",
+        "cograph vertex deletion number of path powers, largest P4-free induced subgraph of k-th power of path, 2k+2 window",
+        "induced P4 packing disjoint P4 blocker two k+2 modulo 2k+2 maximum P4 free subset powers of path"
+      ]
+    },
+    "rationale": "No discovered scientific literature statement subsumes the exact induced-cograph maximum and optimizer-uniqueness classification for all path powers. The primary same-family 2014 theorem proves only two-subcolorability. The 2026 unit-interval study treats peak-clique statistics rather than vertex deletion. The identification is evidence-limited and does not certify global novelty.",
+    "residual_risks": [
+      "An older vertex-deletion theorem expressed under obscure interval-graph or P4-packing terminology might imply this period; direct searches and inspected sources did not reveal one.",
+      "Similarity-ranked research-record search does not cover all literature; independent historical-priority review remains needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for present statement: new statistic counts peak-clique nesting, not largest induced cograph subsets of powers of paths.",
+        "evidence": [
+          "Introduction discusses peak-nesting and Motzkin bijections, arXiv HTML lines 31–66.",
+          "No occurrence of cograph or P4 in indexed full HTML."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.38084",
+        "material_read": "Accessible HTML introduction and section summaries, plus full-page search for cograph and P4; full section proofs not read line by line",
+        "method": "Authoritative public arXiv HTML primary text, dated 2026-09-29",
+        "title": "Peaks and peak-nestings on unit interval graphs",
+        "trigger": "Recent foundational unit interval graph combinatorics and current graph-statistic methods"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: graph family and existence of two cluster color classes, but no maximum single cograph subset formula or unique optimum classification.",
+        "evidence": [
+          "Definition 2.1 identifies k-ribbon as kth path power, lines 90–96.",
+          "Theorem 8 and proof concern subchromatic number two with alternating clique blocks, lines 151–172.",
+          "Remaining main results concern toughness, lines 193–235."
+        ],
+        "identifier_or_url": "https://www.scielo.br/j/pope/a/6wzkB9yCGyDxDwdq7FgYY9v/?lang=en",
+        "material_read": "Full accessible English HTML article, with special attention to Definition 2.1, Section 3, Theorem 8 and its proof, and Section 4",
+        "method": "Publisher open-access primary HTML",
+        "title": "Generalizating path and fan graphs: subcoloring and toughness",
+        "trigger": "Exact same graph family under alias k-ribbon and potentially stronger induced cluster/cograph statements"
+      },
+      {
+        "assessment": "NOT_COVERING: edge modification (P4-free edge completion/deletion/editing), not induced-cograph vertex subset on path powers.",
+        "evidence": [
+          "Section 6.1 Theorem 9 describes Cograph Completion, Cograph Deletion and Editing under edge modifications."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-017-0401-6",
+        "material_read": "Publisher-search excerpts of Section 6.1, Theorem 9 and Lemma 22; no full text inspection",
+        "method": "Publisher HTML article",
+        "title": "A Polynomial Kernel for Trivially Perfect Editing",
+        "trigger": "Broader graph modification terminology, possible source of dominating P4 deletion results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fd353d5-88ce-4921-8431-84f27bbbc08b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural induced-cograph vertex deletion problem on powers of paths gains a sharp two-parameter exact formula, a periodic rigidity criterion for the unique optimum, and an explicit construction. A local induced-P4 certificate yields both structure and bound; the result strengthens the coarser two-cluster subcoloring guarantee for canonical unit-interval graphs.",
+    "status": "PASS"
+  }
+}
