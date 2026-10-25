@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** For each dyadic length the sixth moment of the Thue–Morse polynomial is the constant term of an explicit product of six-power factors. The three Laurent coefficients at exponents zero, one, and two form a closed recurrence with characteristic polynomial \(X^3-10X^2-96X+512\), whose three real roots are bracketed strictly inside the open interval \((-15,15)\). This proves a sixth-moment upper bound of \(15^h\). Dyadic decomposition and Abel summation transfer it to disk norms; Hölder and Cauchy then bound *every* nonleading binomial-series term in the difference of the sixfold representation counts by \(O(n^{\log_2 15})\), strictly below the positive fourth-degree main term. The proof specifies all six binomial terms, normalization, initial coefficients, and endpoint estimates. `verify.py` checks, but does not replace, the infinite argument.
+## correctness
 
-**Originality (PASS within available evidence).** The inspected full primary preprint arXiv:2112.13627v3, especially pp. 2 and 7–10, explicitly says sixfold eventual growth is open in Conjecture 12(a). Its Theorem 10/Corollary 11 prove only tenfold eventual growth under a pointwise estimate; Theorem 13 addresses fivefold nonmonotonicity. The sixth-moment proof uses a different summability mechanism, and its conclusion does not follow from the stated pointwise theorem. Targeted mathematical searches and semantic mathematical-record comparisons found no equivalent theorem. Closest mathematical-record items concern valuations of powers of the Thue–Morse series, not their positive sixfold representation differences. Unindexed, differently titled, or implicitly stronger earlier results remain a genuine risk; a failed search is not a uniqueness proof.
+PASS
 
-**Mathematical value (PASS).** The result establishes precisely the eventual part of a published additive-number-theory conjecture at six summands, lowering the known tenfold boundary by a structural sixth-moment argument. The exponent \(\log_2 15<4\) is arithmetically significant because it beats the natural fourth-order main term, not because of an arbitrary numerically chosen cutoff. It does not claim the finitely many sharp cases, optimal error exponent, or an unrelated general theorem.
+The sixth moment of Thue-Morse dyadic polynomial T_h is the constant term of product |1-z^(2^i)|^6 and obeys the displayed exact 3x3 Laurent-coefficient recurrence; independent coefficient convolution of (T_h)^3 for h=0..7 equaled the matrix moments. Cubic root brackets put spectral radius <15, giving L6 prefixes O(N^(log2(15)/6)), Abel disk estimate, and Holder/Cauchy coefficient bounds O(n^beta) for j>=1 in (1-z)(A+-T)^6/64; main term binom(n+4,4)/64 dominates because beta=log2(15)<4. No effective final cutoff or fivefold theorem follows.
 
-**Limitations.** This review is same-model only. The origin of an implicit moment bound in unindexed harmonic-analysis literature has not been excluded. The sharp threshold in the source conjecture remains unproved by this package; finite testing through 200 does not close it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level best-of-knowledge check: Ordered evil and odious 6-fold additive functions r6,s6, Thue-Morse representation coefficients and sixth moment, with nonnegative zero-inclusive convention searched. Allouche-Shallit 10-fold theorem and 5-fold obstruction do not imply 6-fold eventual growth; the source lists it as Conjecture 12. Prior Theorem 10 requires pointwise exponent alpha about .792; threshold k>9.63, so k=6 does not follow. New L6 estimate changes bound and resolves conjecture only in the claimed eventual sense.
+
+## value
+
+PASS
+
+Proves the explicit six-summand eventual-monotonicity conjecture using a new sixth-moment control with error below degree-four main term; positive threshold existence is mathematically substantive even without sharp finite cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
