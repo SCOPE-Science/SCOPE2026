@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:50:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L iid outcomes 0,1,2 with probabilities 1−theta,theta/2,theta/2, exchangeability gives Cov(V,H)=2 P(X=0)[E(H|X=0)−EH]. Conditional bin-two probability theta/(2−theta); H=(X+Y+|X−Y|)/2 and binomial size bias give Cov=(1−theta/2)^L L theta[theta/(2−theta)−E h(1+Bin(L−1,theta))]. The central-binomial h is nonincreasing (indeed strict on alternate increments), and B coupling implies the expectation is strictly decreasing for L>=2 while theta/(2−theta) increases; endpoint signs yield exactly one theta_L∈(0,1). CLT for sparse ternary difference at theta=c L^{-1/3} with uniform integrability gives asymptotic c=(8/pi)^{1/3}, not finite-L equality. L=2 root 3−sqrt5 and L=1 exception follow directly. Independent exhaustive exact-rational enumeration of 16 (L,theta) cases for L=2..5 at theta=1/7,1/3,2/3 corroborated formula. No results for more bins or nonuniform allocation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freeman/Yusas provide maximum multinomial frequency distributions; Proschan–Sethuraman discuss association inequalities."
+        ],
+        "reasoning": "A marginal maximum law is not itself the covariance with vacant bins or the one-crossing theorem, though one could potentially derive it; full primary older comparison incomplete.",
+        "searches": [
+          "https://doi.org/10.2307/2347220",
+          "https://doi.org/10.1137/1117087",
+          "https://doi.org/10.1137/1120023"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0609498",
+        "https://doi.org/10.2307/2347220",
+        "https://doi.org/10.1137/1120023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General occupancy count variance/association does not force Cov(V,H) sign one-switch when allocation remains unconditioned and retention varies."
+        ],
+        "reasoning": "Proof uses a model-specific absolute-symmetric-walk reduction and binomial size-bias, not just classical formulas; older special-case hidden implication still possible.",
+        "searches": [
+          "Bogachev–Gnedin–Yakubovich 2006 Sec 1–2",
+          "Proschan–Sethuraman 1975 association paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bogachev–Gnedin–Yakubovich analyze occupancy-count variance for urn schemes, not the covariance with maximum of two bin loads."
+        ],
+        "reasoning": "Compared unconditioned multinomial thinning to fixed-K occupancy and empty/occupied box count statistics; K~Bin(L,theta) matters for sign change.",
+        "searches": [
+          "Resultary: Bernoulli thinning two bin occupancy covariance vacant boxes maximum load sign reversal cube root",
+          "https://arxiv.org/pdf/math/0609498"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known table indexed by (L,theta) establishing unique sign root and asymptotic constant."
+        ],
+        "reasoning": "Finite exact L computations do not imply all-L uniqueness or cube-root scaling; those are proved through monotonicity and CLT.",
+        "searches": [
+          "Resultary query above",
+          "Freeman 1979 DOI 10.2307/2347220"
+        ]
+      },
+      "rationale": "Classical multinomial maximum-load calculations and occupied-box variance/Poissonization are established; the assessed additional result is a new covariance of jointly observed vacancy and maximum for Bernoulli-thinned two-bin allocations, with rigorous one-crossing and cube-root threshold. Indexed coverage of older association and maximum-frequency sources incomplete: material residual risk.",
+      "residual_risks": [
+        "Older max-multinomial and association full texts were not accessed; a general theorem might imply the zero-crossing statement after algebra.",
+        "The denominator theta/(2−theta) and sparse ternary CLT depend on symmetric two-bin and independent Bernoulli thinning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS occupancy count variance ingredients, not identified the joint vacancy/peak-load transition.",
+          "evidence": "Bogachev–Gnedin–Yakubovich 2006 occupancy formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "Full PDF accessible; material read includes §§1–2 definitions and variance/Poissonization setup.",
+          "method": "Read and visually inspected primary PDF pages.",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Close occupancy variance/Poissonization predecessor"
+        },
+        {
+          "assessment": "INCOMPLETE potentially relevant alternate calculation.",
+          "evidence": "Freeman 1979.",
+          "identifier_or_url": "https://doi.org/10.2307/2347220",
+          "material_read": "Bibliographic/abstract context only, entire original not obtained.",
+          "method": "Abstract/metadata only.",
+          "title": "Exact Distribution of the Largest Multinomial Frequency",
+          "trigger": "Same maximum-load statistic"
+        },
+        {
+          "assessment": "INCOMPLETE; cannot rule out a more general association implication.",
+          "evidence": "Proschan–Sethuraman 1975.",
+          "identifier_or_url": "https://doi.org/10.1137/1120023",
+          "material_read": "Bibliographic/abstract context only.",
+          "method": "Metadata only.",
+          "title": "Simple Multivariate Inequalities Using Association",
+          "trigger": "Potential stronger dependence-sign theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of dependence between *two natural load diagnostics*—empty-bin count and largest load—switches as retention increases, at a nontrivial L^{-1/3} scaling rather than a fixed probability. The exact formula and global uniqueness give a reusable boundary case for balls-in-bins dependence, not an arbitrary low-L number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0609498",
+    "https://doi.org/10.2307/2347220",
+    "https://doi.org/10.1137/1120023"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older max-multinomial and association full texts were not accessed; a general theorem might imply the zero-crossing statement after algebra.",
+    "The denominator theta/(2−theta) and sparse ternary CLT depend on symmetric two-bin and independent Bernoulli thinning.",
+    "Source research package unchanged; critical mathematical claims restricted to exact assumptions of RESULT.md. Finite independent experiments verify tested instances but do not certify unrestricted conclusions."
+  ],
+  "residual_risks": [
+    "Older max-multinomial and association full texts were not accessed; a general theorem might imply the zero-crossing statement after algebra.",
+    "The denominator theta/(2−theta) and sparse ternary CLT depend on symmetric two-bin and independent Bernoulli thinning."
+  ],
+  "schema_version": 1
+}

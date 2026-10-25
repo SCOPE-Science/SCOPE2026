@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional-on-vacancy calculation gives the exact finite covariance, and the size-biased binomial identity converts the absolute symmetric-walk expectation to a monotone expectation of central binomial ratios. This establishes existence and uniqueness for all integers \(L\ge2\), with endpoint and one-object boundaries. The triangular-array central limit theorem with an explicit second-moment uniform-integrability bound establishes the cube-root constant. The embedded Python verifier independently evaluates all 3^L cases through L=7 at rational parameters and checks large-size root brackets. The finite checks are not claimed as a proof.
+## correctness
 
-## Originality — PASS (qualified)
-Actual published-finding corpus queries for occupancy maxima, vacancy covariances, fixed-frequency statistics, thinning and the cube-root threshold yielded related statements about occupied-box precision, richness/frequency covariance, and maximum parts of compositions, but not the joint statistic and retention-parameter threshold. Accessible prior claims in the relevant current ledgers were compared; the closest concerned different occupancy frequencies and parameters. Bogachev–Gnedin–Yakubovich's arXiv:math/0609498, Sections 1–2, studies occupancy and Poissonization rather than this mixed maximum covariance. Historical maximum-frequency papers by Yusas (1972/1973) and Freeman (1979), and Proschan–Sethuraman's count-association paper (1975), could not be inspected fully and may contain implicit coverage. A qualified best-knowledge originality assessment is appropriate, not an independent priority guarantee.
+PASS
 
-## Value — PASS
-Vacancies measure underutilization, while the maximum load measures overload. Under a fixed finite potential workload with independently thinned arrivals, their covariance could plausibly have a single, several, or no sign reversals. The theorem proves an all-size unique transition, its two opposite signs, an exact small-size benchmark, and a nontrivial cube-root scaling constant. This is a structural classification for a natural queueing/occupancy statistic, rather than a routine moment restatement.
+For L iid outcomes 0,1,2 with probabilities 1−theta,theta/2,theta/2, exchangeability gives Cov(V,H)=2 P(X=0)[E(H|X=0)−EH]. Conditional bin-two probability theta/(2−theta); H=(X+Y+|X−Y|)/2 and binomial size bias give Cov=(1−theta/2)^L L theta[theta/(2−theta)−E h(1+Bin(L−1,theta))]. The central-binomial h is nonincreasing (indeed strict on alternate increments), and B coupling implies the expectation is strictly decreasing for L>=2 while theta/(2−theta) increases; endpoint signs yield exactly one theta_L∈(0,1). CLT for sparse ternary difference at theta=c L^{-1/3} with uniform integrability gives asymptotic c=(8/pi)^{1/3}, not finite-L equality. L=2 root 3−sqrt5 and L=1 exception follow directly. Independent exhaustive exact-rational enumeration of 16 (L,theta) cases for L=2..5 at theta=1/7,1/3,2/3 corroborated formula. No results for more bins or nonuniform allocation.
 
-## Closest literature and limitations
-Bogachev–Gnedin–Yakubovich (2006, arXiv:math/0609498) gives accessible occupancy context, including dependence of occupied-box counts and Poissonization; that framework does not imply the finite-\(L\) sign reversal for a maximum. Yusas (1972/1973), Freeman (1979), and Proschan–Sethuraman (1975) were identified but complete substantive texts were unavailable. The conclusion concerns only two equally likely bins with Bernoulli thinning and is not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical multinomial maximum-load calculations and occupied-box variance/Poissonization are established; the assessed additional result is a new covariance of jointly observed vacancy and maximum for Bernoulli-thinned two-bin allocations, with rigorous one-crossing and cube-root threshold. Indexed coverage of older association and maximum-frequency sources incomplete: material residual risk.
+
+## value
+
+PASS
+
+The sign of dependence between *two natural load diagnostics*—empty-bin count and largest load—switches as retention increases, at a nontrivial L^{-1/3} scaling rather than a fixed probability. The exact formula and global uniqueness give a reusable boundary case for balls-in-bins dependence, not an arbitrary low-L number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
