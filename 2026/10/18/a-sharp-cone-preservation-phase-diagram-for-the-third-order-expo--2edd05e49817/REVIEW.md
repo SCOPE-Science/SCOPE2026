@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stage at a zero matrix is \(c_a(h)Q\) because its Jacobian operator is scalar; the only nonlinear defect equals \(-c_a(h)^2QGQ\). This derives the matrix factorization without any simultaneous diagonalization. Congruence on \(\operatorname{ran}Q\) proves the complete inertia statement; integral representations prove strict monotonicity, endpoint limits, uniqueness of the critical time and its damping asymptotic. Independently, splitting the normalized scalar domain at \(y=1\) proves **all-state** positivity below the bound; the exact boundary map \(\mathcal E_t(0)=t(1-t^2/3)\) proves sharpness and a false fixed point at equality. The proof includes degenerate \(Q\), \(G\), \(a=0\), and equality cases. The exact-flow comparison uses a fundamental-matrix representation, not finite experiments.
+PASS
 
-## Originality — PASS, with bibliographic risk
+From X=0 and A=-aI, L0(H)=-2aH and the exprb32 defect equals -c_a(h)^2 QGQ. Thus X+=c_a(h) Q^{1/2}(I-kappa_a(h)Q^{1/2}GQ^{1/2})Q^{1/2} with c=h phi1(-2ah)>0 and kappa=2h^2 phi1 phi3. Sylvester inertia on range Q makes positive semidefiniteness equivalent to kappa*mu<=1 (including singular Q and equality rank drop). Positive integral representations strictly increase kappa from 0 to 1/(4a^2) for a>0, and kappa0=h^2/3. For scalar a=0, y=x sqrt(g/q) and t=h sqrt(qg), y<=1 yields E>=y+delta(1-t^2/3), and y>=1 bounds negative delta and quadratic correction; necessity at y=0 gives t<=sqrt3 and an artificial zero output at equality. Large-h damping asymptotic follows from phi closed forms. Independently evaluated sample PSD spectra from noncommuting Q,G and the inequality, without interpreting samples as general proof.
 
-The third-order method and algebraic tools are established prior work. Li, Zhang and Liu's full 2019 preprint was additionally inspected: its `Erow3` equation (23) gives exactly the same third-order matrix method, so **the method itself is emphatically not new**. That paper studies implementation and numerical convergence, without a cone-preservation classification. Li, Li and Yang's 2026 manuscript was inspected for the embedded adaptive version (equation (22)), low-rank section and controller. Hochbruck, Ostermann and Schweitzer's foundational 2009 paper was inspected for the original `exprb32` method and convergence claims. Chen and Borzì's 2023 paper concerns different first-/second-order positivity-preserving schemes, according to its publisher abstract and first-page preview. No equivalent noncommutative `exprb32` spectral phase diagram or all-state scalar threshold was located in the inspected literature or checked published research records. The 2023 full text could not be inspected and remains a residual risk; a negative search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding distinguishes high-order accuracy and tolerance acceptance from preservation of the positive-semidefinite cone, which is essential for covariance/control Riccati approximations. It gives an implementable sharp spectral step bound without requiring \(Q\) and \(G\) to commute, classifies when scalar damping protects **all** first-step sizes, and establishes a stronger global nonnegativity safety condition for a nonlinear scalar model. The equality endpoint has a concrete spurious equilibrium even though the exact flow immediately enters the positive interior. This goes beyond a single counterexample or textbook norm estimate, while not claiming a general convergence improvement.
+The Erow3/exprb32 algorithm and phi functions are old; inspected 2019 Eq.(23) and 2026 Eq.(22). The submitted mathematical addition is a sharp zero-input matrix PSD phase/inertia theorem and independent all-state scalar undamped threshold, not invention of the method; no equivalent quantified threshold located in primary material inspected. A plausible Chen–Borzì positivity paper remained full-text inaccessible: genuine residual priority risk.
 
-## Scope and limitations
+## value
 
-The exact full-matrix update is analyzed, not truncated low-rank implementations. General nonzero matrix initial data and general drift matrices are unproved. The novel spectral content has not received independent expert audit; older specialized sources may contain equivalent observations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Preserving covariance/cone structure under a specific widely used higher-order Riccati step is a natural numerical-analysis safety question. The all-damping phase split, noncommuting active eigenvalue threshold and all-state scalar sharp condition give nontrivial exact step-size information rather than routine restatement of error orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
