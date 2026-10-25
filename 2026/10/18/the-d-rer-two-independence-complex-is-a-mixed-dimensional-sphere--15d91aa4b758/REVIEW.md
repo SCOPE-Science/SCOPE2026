@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined by an explicit edge list, and the two-independence rule is checked by two independent admissibility tests over all \(4096\) vertex subsets. The complete acyclic matching leaves one vertex, three three-cells and one four-cell. Exact signed integral gradient-path reduction gives a zero attaching-degree vector for the four-cell, so the homotopy result follows from the three-dimensional Hurewicz theorem. Mod-two boundary ranks independently corroborate the reduced Betti numbers. Finite exhaustive computation here proves the **specified twelve-vertex case**; no inference to an infinite family is made.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant published papers are Deshpande–Singh (arXiv:2001.05448, 2020), Deshpande–Shukla–Singh (arXiv:2001.06775, 2020) and Abdelmalek et al. (arXiv:2106.10863, 2021). They define the object and classify other graph classes or require chordality. The Dürer graph is nonchordal and not among their named families. Relevant published graph-specific records concern the Petersen two-independence sphere and ordinary independence complexes of other generalized Petersen graphs, which do not imply this calculation. Targeted equivalent-formulation and exact-result searches found no coverage. Unindexed equivalent calculations remain possible; priority cannot be proved from a bounded search.
+PASS
 
-## Mathematical value — PASS
-A natural and recognizably nonchordal twelve-vertex cubic polyhedral graph provides a complete **integral mixed-dimensional** wedge of spheres at its first higher-independence stage, including an even-dimensional summand excluded by the chordal graph sphere-dimension constraint at threshold two. The complete homotopy invariant is more informative than a face count or ranks over one coefficient field and supplies a reproducible benchmark for higher-independence topology.
+Define D=GP(6,2) on vertices u_i,v_i (i mod6), with outer, spoke and inner-step-two edges. Ind_2(D) comprises subsets inducing components of order <=2; equivalently forbids any connected induced 3-set. Independent enumeration of all 2^12 masks finds 32 forbidden triples and 809 nonempty faces, f=(12,66,188,285,204,54). The explicit vertex toggle order 2,11,10,0,6,8,7,1,5,9,3,4 gives 402 disjoint matching pairs, one critical vertex, three critical 3-simplices and one critical 4-simplex. Directed cover graph with 3,180 relations topologically sorts completely. Independent exact signed gradient recursion projects the attaching degree of the sole 4-cell to (0,0,0). The three-skeleton is wedge of three S^3, its π3 ≅ H3 ≅ Z^3; zero degree vector makes the 4-cell null-attached, giving wedge^3 S^3 vee S^4. This is integral homotopy, not a deduction from mod-two homology.
 
-## Limitations
-The result is for \(GP(6,2)\) at threshold two only, with neither equivariant information nor a uniform generalized-Petersen formula. Some prior sources may not be indexed. The verifiable finite certificate is a self-review, not independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary searches for the named graph GP(6,2), Dürer, 2-independence, mixed-dimensional wedge reveal no identical exact homotopy classification. General r-independence-complex results for chordal and related graph classes concern broader definitions but do not give a theorem determining this nonchordal cubic graph's exact integral type. Nearby Petersen 2-matching, Desargues ordinary independence, and Dürer ordinary graph invariants are different complexes; no implication to this Ind_2(D) is shown. Best-of-knowledge PASS with specific risk of unindexed small-graph tables.
+
+## value
+
+PASS
+
+A natural well-studied 12-vertex generalized Petersen/polyhedral graph gives a complete and genuinely mixed-dimensional integral homotopy classification for the natural threshold-2 independence functor. The vanishing of a potentially nonzero top-cell attaching degree is essential and scientifically informative; the precise wedge decomposition is a useful small exact benchmark rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

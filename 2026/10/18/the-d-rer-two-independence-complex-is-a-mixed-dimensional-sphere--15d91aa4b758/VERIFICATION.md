@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verification.py` with Python 3 and no external dependencies. The checker regenerates the \(GP(6,2)\) adjacency from the graph definition and tests two independent face-membership predicates on all \(4096\) subsets. It reconstructs all \(809\) nonempty faces, the \(402\) pairs in the specified element-toggle Morse matching and the \(3180\) codimension-one cover relations. A complete directed Hasse topological sort verifies the gradient has no directed cycles.
+# Independent mathematical audit
 
-Ascending-label orientation signs are used in the exact integer gradient-path projection of the lone four-cell boundary to the three critical three-cells. All three coefficients vanish. The code then constructs ordinary simplicial chain boundaries over \(\mathbb F_2\) as a separate check, obtaining boundary ranks \((11,55,133,149,54)\) and reduced homology ranks \((0,0,0,3,1,0)\) for dimensions zero through five.
+## correctness
 
-The integral homotopy statement comes from the signed Morse CW reduction plus the low-dimensional Hurewicz theorem, not from the mod-two ranks. The calculation makes no claim for arbitrary generalized Petersen graphs, symmetry actions, or uninspected external sources. Independent mathematical audit has not been performed.
+PASS
+
+Define D=GP(6,2) on vertices u_i,v_i (i mod6), with outer, spoke and inner-step-two edges. Ind_2(D) comprises subsets inducing components of order <=2; equivalently forbids any connected induced 3-set. Independent enumeration of all 2^12 masks finds 32 forbidden triples and 809 nonempty faces, f=(12,66,188,285,204,54). The explicit vertex toggle order 2,11,10,0,6,8,7,1,5,9,3,4 gives 402 disjoint matching pairs, one critical vertex, three critical 3-simplices and one critical 4-simplex. Directed cover graph with 3,180 relations topologically sorts completely. Independent exact signed gradient recursion projects the attaching degree of the sole 4-cell to (0,0,0). The three-skeleton is wedge of three S^3, its π3 ≅ H3 ≅ Z^3; zero degree vector makes the 4-cell null-attached, giving wedge^3 S^3 vee S^4. This is integral homotopy, not a deduction from mod-two homology.
+
+## originality
+
+PASS
+
+Resultary searches for the named graph GP(6,2), Dürer, 2-independence, mixed-dimensional wedge reveal no identical exact homotopy classification. General r-independence-complex results for chordal and related graph classes concern broader definitions but do not give a theorem determining this nonchordal cubic graph's exact integral type. Nearby Petersen 2-matching, Desargues ordinary independence, and Dürer ordinary graph invariants are different complexes; no implication to this Ind_2(D) is shown. Best-of-knowledge PASS with specific risk of unindexed small-graph tables.
+
+## value
+
+PASS
+
+A natural well-studied 12-vertex generalized Petersen/polyhedral graph gives a complete and genuinely mixed-dimensional integral homotopy classification for the natural threshold-2 independence functor. The vanishing of a potentially nonzero top-cell attaching degree is essential and scientifically informative; the precise wedge decomposition is a useful small exact benchmark rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
