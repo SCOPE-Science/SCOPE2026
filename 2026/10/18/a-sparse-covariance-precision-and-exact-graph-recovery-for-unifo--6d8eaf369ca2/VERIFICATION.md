@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The accompanying `check.py` is self-contained aside from SymPy. Run `python check.py` in the directory containing this file. It computes cycle constants as exact rational evaluations of finite binomial sums, constructs the claimed weighted Laplacian, and independently reconstructs continuous covariances from leading coefficients of integer lattice counts and coordinate moments of dilated graph Lipschitz polytopes. It verifies all matrix entries, covariance determinants and reconstruction support. The observed output ends with `NONCACTUS_K23_EXACT_BOUNDARY_OK 8 -3/8` and `CHECKS_PASSED 7 NONCACTUS_BOUNDARIES 1`.
+## correctness
 
-Graphs checked: three-cycle, four-cycle, triangle with bridge, square with bridge, two triangles sharing a vertex, four-vertex path, and two triangles joined by a bridge. Seven distinct cactus graphs and a contrasting non-cactus \(K_{2,3}\) were tested exactly. The latter has a missing-edge precision entry \(-3/8\), also obtained by direct conditional integration. The mathematical derivation of independence, cycle isotropy, congruence inversion, exact density constants and determinant is in `RESULT.md`; the checker does not establish any general theorem by enumeration.
+PASS
 
-The public data do not assert peer review, independent verification, or computer certification of the general case. Full-text reading covered the primary 2018 finite-metric graph-space paper, the primary 2019 graph-circle basis paper, the published cactus coordinate-projection theorem, and the distinct discrete random-height-function model. A bibliographic alias may remain undiscovered.
+For finite connected simple unit-edge cactus, the oriented incidence map D restricts H=sum-zero potentials isomorphically to edge-gradient space W, whose cycle-space constraints decompose orthogonally into independent bridge coordinates and edge-disjoint cycle zero-sum blocks. Uniform Lebesgue on centered Lipschitz ball maps by constant Jacobian to product of uniform [-1,1] intervals and central cube slices. Each bridge variance=1/3; permutation invariance makes r-cycle covariance a_r P_r, with a_r from conditioned uniform-sum density and a3=5/12,a4=2/5. Congruence inversion yields Cov(X)^+=D^T (3I_bridge+sum a_r^-1 P_C)D=L_w and hence labeled edge recovery by negative off-diagonals. The weighted matrix-tree theorem gives determinant 3^-b/n prod_C(a_r^(r-1)/r). Laplace expansion around sinc Fourier saddle gives a_r=1/3+1/(5r)+O(r^-2). Independent exact rational check a3=5/12 and noncactus K2,3 precision(0,2)=-3/8, including zero row sums. Inspected checker which computes covariances via leading Ehrhart coefficients for seven cacti; its finite test is supplemental, not the all-cactus argument.
+
+## originality
+
+PASS
+
+Claim is a continuous-interior covariance and inverse-precision theorem, not an already-known finite Lipschitz-free basis norm, facet-normal law or discrete height-function variance. The direct-sum cactus formula combines all cycle lengths with weighted Laplacian graph recovery and exact determinant. Residual possibility of prior general cube-section covariance formula explicitly retained.
+
+## value
+
+PASS
+
+A graph-reconstruction statement from a natural non-Gaussian interior distribution on a broad topological graph class is a structural result. Exact positive edge weights, determinant and a worked noncactus breakdown give a useful sharp domain boundary; distinct from numerical or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

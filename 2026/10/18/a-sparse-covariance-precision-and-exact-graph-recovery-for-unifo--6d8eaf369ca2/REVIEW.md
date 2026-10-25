@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact gradient parametrization sends continuous uniform volume to independent bridge intervals and central cube sections on edge-disjoint cycles. Permutation symmetry fixes every cycle covariance, and a one-dimensional density calculation evaluates its scalar exactly. Congruence inversion then yields the weighted Laplacian on the canonical zero-sum vertex space. The matrix-tree theorem proves the determinant, and a local Fourier saddle calculation establishes the large-cycle expansion. The extracted checker independently used leading Ehrhart moment coefficients for seven cactus graph configurations plus an exact non-cactus \(K_{2,3}\) boundary test, finding exact agreement in every covariance entry, the determinant and the graph support.
+## correctness
 
-**Originality — PASS (self-review, residual risk).** Direct comparisons were made with the known finite-graph cycle-flow quotient, Novotný's graph-circle basis theory, earlier uniformly sampled **facet** covariance on cacti, earlier **single-cycle slab** interior precision, and a public cactus basis-projection theorem. The continuous uniform-interior law, its independent cycle-block covariance and its arbitrary-cactus graph-recovery precision are not statements implied by those results without the new distributional calculation. Searches under covariance, inverse covariance, precision, Green kernel, cycle sections, transportation norms and random Lipschitz potentials did not identify covering all-cactus literature. Search failure is not proof of novelty; an unindexed predecessor remains possible.
+PASS
 
-**Mathematical value — PASS.** The exact missing-edge precision \(-3/8\) for \(K_{2,3}\) proves graph-supported precision is not automatic even for natural non-Gaussian uniform graph-Lipschitz measures, so a local precision theorem for uniform volume in globally constrained Lipschitz balls is a natural inverse-geometric phenomenon. It determines exact edge weights, a complete labeled reconstruction and a closed covariance determinant over arbitrary cactus blocks, and it quantifies the high-girth cycle conductance. The non-cactus boundary shows the theorem is not a generic Laplacian identity. It answers a meaningful question about continuous random Lipschitz functions in a natural broad graph class, not an arbitrary small-parameter instance.
+For finite connected simple unit-edge cactus, the oriented incidence map D restricts H=sum-zero potentials isomorphically to edge-gradient space W, whose cycle-space constraints decompose orthogonally into independent bridge coordinates and edge-disjoint cycle zero-sum blocks. Uniform Lebesgue on centered Lipschitz ball maps by constant Jacobian to product of uniform [-1,1] intervals and central cube slices. Each bridge variance=1/3; permutation invariance makes r-cycle covariance a_r P_r, with a_r from conditioned uniform-sum density and a3=5/12,a4=2/5. Congruence inversion yields Cov(X)^+=D^T (3I_bridge+sum a_r^-1 P_C)D=L_w and hence labeled edge recovery by negative off-diagonals. The weighted matrix-tree theorem gives determinant 3^-b/n prod_C(a_r^(r-1)/r). Laplace expansion around sinc Fourier saddle gives a_r=1/3+1/(5r)+O(r^-2). Independent exact rational check a3=5/12 and noncactus K2,3 precision(0,2)=-3/8, including zero row sums. Inspected checker which computes covariances via leading Ehrhart coefficients for seven cacti; its finite test is supplemental, not the all-cactus argument.
 
-The proof covers all finite connected unit-edge cacti; finite lattice calculations are corroboration only. The population reconstruction assumes exact covariance and a known vertex labeling. Relevant older work concerns different sampling laws and other graph-function invariants. Bibliographic completeness and independent scientific validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Claim is a continuous-interior covariance and inverse-precision theorem, not an already-known finite Lipschitz-free basis norm, facet-normal law or discrete height-function variance. The direct-sum cactus formula combines all cycle lengths with weighted Laplacian graph recovery and exact determinant. Residual possibility of prior general cube-section covariance formula explicitly retained.
+
+## value
+
+PASS
+
+A graph-reconstruction statement from a natural non-Gaussian interior distribution on a broad topological graph class is a structural result. Exact positive edge weights, determinant and a worked noncactus breakdown give a useful sharp domain boundary; distinct from numerical or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

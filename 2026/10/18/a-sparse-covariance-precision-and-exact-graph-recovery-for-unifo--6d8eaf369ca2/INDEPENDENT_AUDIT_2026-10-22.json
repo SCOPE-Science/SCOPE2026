@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:05:08Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md 5d1564c231d9480e8413ff922746770bd2a98dc2; check.py 9636240bd660bfbd6e50c7c86db3080a8d045a79",
+        "Independent cycle r=3 conditional density proportional 2-|s| gives a3=5/12; exact K2,3 nonedge precision witness -3/8 and zero row sums.",
+        "Cactus edge-disjoint cycle-space decomposition, positive covariance on W, and matrix-tree factorization are exact general proofs; sampled Ehrhart tests are not used as an exhaustive family proof."
+      ],
+      "limitations": [
+        "Population exact covariance only for real continuous interior uniform distribution; edge lengths one; this is not Gaussian conditional independence. Fourier O(r^-2) bound is asymptotic without explicit constant."
+      ],
+      "rationale": "For finite connected simple unit-edge cactus, the oriented incidence map D restricts H=sum-zero potentials isomorphically to edge-gradient space W, whose cycle-space constraints decompose orthogonally into independent bridge coordinates and edge-disjoint cycle zero-sum blocks. Uniform Lebesgue on centered Lipschitz ball maps by constant Jacobian to product of uniform [-1,1] intervals and central cube slices. Each bridge variance=1/3; permutation invariance makes r-cycle covariance a_r P_r, with a_r from conditioned uniform-sum density and a3=5/12,a4=2/5. Congruence inversion yields Cov(X)^+=D^T (3I_bridge+sum a_r^-1 P_C)D=L_w and hence labeled edge recovery by negative off-diagonals. The weighted matrix-tree theorem gives determinant 3^-b/n prod_C(a_r^(r-1)/r). Laplace expansion around sinc Fourier saddle gives a_r=1/3+1/(5r)+O(r^-2). Independent exact rational check a3=5/12 and noncactus K2,3 precision(0,2)=-3/8, including zero row sums. Inspected checker which computes covariances via leading Ehrhart coefficients for seven cacti; its finite test is supplemental, not the all-cactus argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lipschitz-free quotient by cycle flows supplies linear context but does not identify uniform interior measure covariance.",
+          "A single weighted cycle precision result does not explicitly cover independent multiple cactus cycles with bridges, distinct lengths, graph-recovery and determinant."
+        ],
+        "reasoning": "A general central-section covariance theorem could imply the cactus result; no inspected primary theorem gave the exact cycle constants and Laplacian graph recovery.",
+        "searches": [
+          "Dilworth et al arXiv:1807.03814 on transportation quotients",
+          "Novotný arXiv:1905.13188 on bases for finite graph metric spaces",
+          "Resultary cactus transportation basis norms"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1807.03814",
+        "https://arxiv.org/pdf/1905.13188",
+        "https://arxiv.org/abs/1005.4636",
+        "Resultary 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Banach quotient/coordinate projection constants do not entail second moments of the uniform interior law.",
+          "One-point cactus cycle-space splitting plus independent cube slices and covariance inversion provide explicit conductances 3 and a_r^-1 and a full recovery theorem."
+        ],
+        "reasoning": "The claim is not just a known cycle-space isomorphism: it adds distribution, exact covariance, pseudoinverse, determinant and noncactus boundary.",
+        "searches": [
+          "arXiv:1807.03814 quotient geometry",
+          "arXiv:1905.13188 graph metric bases",
+          "Resultary cactus projection norms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge gradient uniform cube-section is a cycle-flow quotient description of a Lipschitz unit ball.",
+          "The probability sampled is normalized Lebesgue measure in its interior, not facet normals, lattice points, or extreme points."
+        ],
+        "reasoning": "Compared the same graph metric objects but distinguished uniform interior covariance from graph transportation norm and a Gaussian Laplacian Green function.",
+        "searches": [
+          "Resultary: uniform continuous Lipschitz graph potentials cactus graphs covariance pseudoinverse weighted Laplacian precision matrix sparse exact graph recovery",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:1807.03814",
+          "Novotný arXiv:1905.13188"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published indexed cactus result computes edge-molecule coordinate basis projection norms, not a uniform-volume covariance matrix.",
+          "Seven sample graph tables in checker verify only finitely many, do not establish novelty or arbitrary cactus formula."
+        ],
+        "reasoning": "No matching table covering all connected cactus graphs was identified; check substantive implication rather than matching labels.",
+        "searches": [
+          "Resultary: uniform continuous Lipschitz graph potentials cactus graphs covariance pseudoinverse weighted Laplacian precision matrix sparse exact graph recovery",
+          "Resultary 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+          "Exact cactus covariance searches"
+        ]
+      },
+      "rationale": "Claim is a continuous-interior covariance and inverse-precision theorem, not an already-known finite Lipschitz-free basis norm, facet-normal law or discrete height-function variance. The direct-sum cactus formula combines all cycle lengths with weighted Laplacian graph recovery and exact determinant. Residual possibility of prior general cube-section covariance formula explicitly retained.",
+      "residual_risks": [
+        "A general exact covariance theorem for uniform cube sections of graph incidence spaces could subsume the cactus specialization.",
+        "The cited large-cycle Fourier expansion deserves numerical high-r sanity checks but the local saddle method is mathematically standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives Banach graph-flow quotient, does not compute uniform interior covariance or inverse precision.",
+          "evidence": [
+            "The source treats Lipschitz-free dual norms and cycle-flow quotients, not the Lebesgue-distributed centered Lipschitz ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03814",
+          "material_read": "ArXiv PDF introduction and graph-flow quotient/transportation-space sections",
+          "method": "ArXiv PDF full-text extraction and rendered opening-page screenshot",
+          "title": "Lipschitz Free Spaces on Finite Metric Spaces",
+          "trigger": "Plausible general graph transport quotient theorem"
+        },
+        {
+          "assessment": "Basis/norm theorem, not probability measure covariance or graph recovery.",
+          "evidence": [
+            "Schauder bases of Lipschitz-free spaces are different observables from Cov(uniform interior)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.13188",
+          "material_read": "Primary PDF abstract, introduction, basis construction and main statement",
+          "method": "ArXiv PDF text and page screenshot, targeted main-results reading",
+          "title": "Some Remarks on Schauder Bases in Lipschitz Free Spaces",
+          "trigger": "Cycle/graph-basis results potentially dominating cactus special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Weighted Laplacian support theorem for every cactus with multiple cycles/bridges",
+        "Exact noncactus K2,3 false-positive precision edge"
+      ],
+      "limitations": [
+        "No sample-complexity/statistical estimation result; unit-edge cactus structural scope."
+      ],
+      "rationale": "A graph-reconstruction statement from a natural non-Gaussian interior distribution on a broad topological graph class is a structural result. Exact positive edge weights, determinant and a worked noncactus breakdown give a useful sharp domain boundary; distinct from numerical or known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
