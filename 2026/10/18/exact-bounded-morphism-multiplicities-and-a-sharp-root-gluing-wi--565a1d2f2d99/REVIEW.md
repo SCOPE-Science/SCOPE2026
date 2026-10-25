@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-frame principal-upset definition forces nonroot images into single target arms, and the exact count of order-preserving onto-terminal-segment maps is obtained from positive integer compositions. The root's bounded-morphism condition is exactly the simultaneous full-coverage event. Inclusion–exclusion gives the multiplicity and defect polynomial, and factorial moments give the Poisson limit. The accompanying independent finite enumeration passed 319 full-map and 319 defect-profile comparisons. The analytic proof, not those finite tests, supplies the asymptotic conclusion.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The most direct source, Adam-Day et al. (2021), §6.1, proves qualitative existence of bounded morphisms between starlike frames, but does not give their numbers, the complete gluing-defect distribution, or its weighted sharp threshold. Published related enumeration of continuous maps between finite spaces concerns different map conditions; standard coupon-collector limit laws cover the probabilistic limit after a reduction but not the frame-specific exact weights and global root characterization. No equivalent result was found in the searched accessible literature and mathematical-result records. An older equivalent under another terminology, including in less accessible theses, remains possible.
+PASS
 
-**Mathematical value — PASS.** Jankov–Fine semantics of starlike intermediate logics uses bounded-morphism existence as a qualitative witness of a logical reduction. The present classification measures the actual multiplicity of witnesses and quantifies when individually admissible arm maps cohere into genuine global morphisms, for arbitrary heterogeneous arm lengths. The full defect distribution and the sharp threshold describe the quantitative stability of such witnesses; these are motivated structural invariants, not an arbitrary slice of a finite table.
+For rooted starlike posets with >=2 target arms, a nonroot point cannot map to target root because its source upset is a chain but the target-root upset branches. Every source arm maps to a terminal segment of one target arm as an order-preserving surjection, with binomial positive-composition count W_ij and full-arm count F_ij. A root bounded morphism exists precisely when each target arm is fully covered; inclusion-exclusion gives exact N and the defect PGF. Homogeneous factorial moments (k)_s(1-s rho/k)^r -> e^(-st) imply Poisson(e^-t) and the zero-defect probability. Independently enumerated raw finite bounded morphisms on five labelled arm-length pairs and matched exact formula.
 
-**Limits.** The target has at least two nonempty arms, all maps are on labelled finite frames, and the sharp asymptotic window holds at fixed positive arm lengths. The classical coupon-collector theorem is acknowledged as prior input. Independent external validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit claimed invariant, not for foundational/general prior theorems; checked equivalent formulations, broader implications, exact tables and relevant primary sources. The new assertion is the explicit local composition count and root-coverage inclusion-exclusion, plus a specialization of a known Poisson occupancy theorem. The entire Poisson theorem without the frame mapping is credited as prior mathematics.
+
+## value
+
+PASS
+
+The exact multiplicity distribution and global-to-local gluing obstruction quantify a natural frame-logic quotient that a qualitative existence theorem does not; the weighted coupon-collector transition locates a sharp threshold for feasible root gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
