@@ -1,19 +1,21 @@
-# Scientific review: bipartite spanning-tree covariance geometry
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The edge law is derived from the known determinantal transfer-current theorem, with the transfer kernel evaluated from the three nonconstant vertex-Laplacian eigenspaces. Its four edge-pair types determine the entire covariance operator. Orthogonal two-way ANOVA projectors then give exact eigenvalues, dimensions, and the arbitrary-weight quadratic form. The normalizations, including the constant direction and the \(a=b=2\) spectral degeneracy, were checked. A standalone exact-rational verifier exhausts 4657 small spanning trees, but the proof—not enumeration—covers every \(a,b\ge2\).
+PASS
 
-## Originality
+For uniform spanning tree indicators on K_{a,b}, a,b>=2, the known Burton–Pemantle transfer-current kernel is K=B^T L^+B, explicitly K_{(i,j),(k,l)}=[i=k]/b+[j=l]/a−1/(ab). Determinantal pair inclusion gives offdiagonal Cov(Xe,Xf)=−Kef² and diagonal p(1−p), p=(a+b−1)/(ab). By row/column permutation invariance and direct projector substitution the covariance is exactly ((b−1)/(ab)) P_R + ((a−1)/(ab)) P_C + ((a+b−3)/(ab)) P_H, with constant kernel and dimensions a−1,b−1,(a−1)(b−1). Taking the quadratic form yields the stated variance decomposition, extremal spectral bounds, and best *affine degree-based* prediction residual in interaction component. Independent exact enumeration of 529 trees across sizes 2x2,2x3,3x3,3x4 and rational covariance diagonalization matched all eigenvalues and multiplicities. The infinite parameter theorem rests on kernel/projector identities, not the small graphs.
 
-PASS under the documented accessible comparisons, with residual priority risk. Burton–Pemantle gives all edge-set inclusion probabilities through a transfer-current determinant, so the entrywise law and negative pairwise covariance are established prior facts. The newly assessed claim is the all-size fully evaluated covariance eigenspace decomposition and sharp variance/prediction geometry, which does not appear as such in the inspected Burton–Pemantle text, Eğecioğlu–Remmel multipartite degree enumeration, Klee–Stamps vertex-product weighted enumeration, or the accessible Rapoport material. Those general tools may support an earlier implicit derivation; this risk remains. No uniqueness or independence of this review is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Edge-selection uncertainty is a natural property of randomly chosen spanning trees, and weighted total tree cost is its central linear statistic. The theorem simultaneously answers the variance of every possible deterministic edge-cost matrix, identifies the only deterministic linear combination, and sharply measures the loss in predicting costs from vertex degrees. The exact condition number separates balanced from increasingly unbalanced bipartite graphs and is not merely a single numerical covariance entry.
+Best-of-knowledge PASS for explicitly evaluated arbitrary-size complete-bipartite UST covariance spectrum and the sharp all-weight variance and affine prediction consequences. The transfer-current determinant and inclusion probabilities are classical Burton–Pemantle facts, not new; general complete-multipartite enumeration and joint-degree models do not directly state the evaluated covariance eigenspaces. Equivalence in broader determinantal-process literature remains plausible.
 
-## Closest sources and limitations
+## value
 
-Burton–Pemantle, https://arxiv.org/abs/math/0404048: general finite-graph transfer-current identity; it is used rather than claimed. Eğecioğlu–Remmel, https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf: degree-weight generating functions on multipartite graphs. Klee–Stamps, https://arxiv.org/abs/1903.03575: vertex-factorized edge-weight enumeration. Rapoport, https://pmc.ncbi.nlm.nih.gov/articles/PMC12535553/: general UST edge and degree correlation framework. Exact evaluation of the covariance eigenvalue spectrum could conceivably be implicit elsewhere. The result is unweighted and restricted to \(K_{a,b}\) with \(a,b\ge2\); prediction optimality is only linear/affine.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural edge-inclusion random vector for uniform K_{a,b} trees has a transparent all-size covariance geometry; exact row/column/interaction eigenvalues, sharp nonzero spectral condition number and residual variance after linear degree prediction are useful statistical/graphical invariants beyond restating transfer-current existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
