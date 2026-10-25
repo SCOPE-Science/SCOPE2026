@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` executes with Python 3 standard library only. Command: `python3 verify.py`. The observed terminal marker is `VERIFY_OK`.
+## correctness
 
-Eight exact finite-field tests: \(q\in\{19,37,64,73,109,127,163,199\}\). For each, checks include (1) primality-order properties of a multiplicative generator, (2) subgroup \(K\) and its characters, (3) the norm-\(q\) cubic Jacobi sum in the Eisenstein integer basis, (4) independent classification of the three local counts \(N_j\), (5) the exact global rotation and transposition totals, and (6) the strict Jacobi-norm difference. For the four smallest fields, **every** admissible ordered coefficient triple is tested by constructing both field maps on **all** field elements, independently of the character-class test. The characteristic-two example uses arithmetic modulo the irreducible polynomial \(X^6+X+1\) over \(\mathbb F_2\), and checks the multiplicative generator has order \(63\).
+PASS
 
-Sample exact totals \((q,N_0,N_1,N_2,R_q,T_q)\): \((19,2,1,2,17,12)\), \((37,2,5,4,197,120)\), \((64,8,6,6,944,864)\), and \((73,8,6,9,1457,1296)\).
+For every prime power q≡1 mod9, s=(q-1)/3, cubic-residue subgroup K of size s and mu3⊂K, the coefficient change a_u=u^k c(u) bijects the three copies of K. The map f_c multiplies each multiplicative fiber by a_u and is always a permutation; f_c+X permutes iff 1+a_u nonzero and image fiber indices i+j_i form a permutation. Three rotations require constant shift j, three transpositions shift triples are permutations of 0,1,2, giving R=sum_j N_j³, T=3∏N_j. The character sum S=sum_{a∈K}χ(1+a)=(J(χ,χ)-2)/3 follows from χ(-1)=1 and mixed Jacobi sum -1, yielding N_j=(q-4+ζ^-j(J-2)+ζ^j(conj J-2))/9. Orthogonality and cubic factorization yield strict R−T=(q-4)|J-2|²/27, |J|=sqrt(q)>2. The q→∞ expansions require retaining ∑d_j² and O(q^3/2) cubic terms and dividing by s³, yielding 2/9−5/(3q)+O(q^-3/2). Independently enumerated prime fields q=19,37,73: N=[2,1,2],[2,5,4],[8,6,9], (R,T)=(17,12),(197,120),(1457,1296), respectively, and Jacobi-norm identity; original verifier also treats characteristic two q=64. These finite tests do not replace the cubic character proof.
 
-This code only tests finitely many fields. The proof in `RESULT.md` covers all allowed prime powers and all positive exponents \(k\) via the fiber-bijection and Jacobi arguments. The asymptotic remainder is analytic and not verified by finite sampling. The bibliographically plausible 2013 earlier paper's full contents have not been read.
+## originality
+
+PASS
+
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Bell 2013 is material inaccessible overlap risk explicitly named, not dismissed.
+
+## value
+
+PASS
+
+Complete permutation polynomials and cyclotomic orthomorphisms are natural algebraic objects with applications to permutation structure. The conditional density and strict rotation/transposition imbalance for a concrete scalar family measure more than isolated existence examples: an exact all-field arithmetic preference with a norm-controlled second-order term. The parameter k independence follows from subgroup action, not mere renaming. The restricted nature is intrinsic to the motivating scalar criterion, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

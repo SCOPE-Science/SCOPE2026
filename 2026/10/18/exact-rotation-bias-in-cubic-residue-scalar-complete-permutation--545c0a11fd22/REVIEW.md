@@ -1,24 +1,21 @@
-# Mathematical assessment: exact rotation bias in cubic-residue scalar complete permutations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every prime power \(q\equiv1\pmod9\), the proof uses the multiplicative subgroup \(K\) of size \(s=(q-1)/3\) and counts *all* functions \(c:\mu_3\to K\) once. Since \(\mu_3\subset K\), the transformation \(a_u=u^kc(u)\) is a bijection of three coordinate copies of \(K\). The polynomial \(f_c\) always permutes its own fibers, while \(f_c+X\) is a permutation precisely if the nonzero scalars \(1+a_u\) induce a permutation of the three fibers. A direct index calculation identifies three rotation patterns and three transposition patterns. Cubic-character orthogonality gives the exact integer populations \(N_j\), and the known Jacobi absolute-value identity proves their positivity for all allowed sizes. The cubic identity proves \(R_q-T_q=(q-4)|J-2|^2/27>0\); the normalized second-order coefficients are obtained by explicit expansion, not numerical extrapolation. The standalone verifier separately exhausts all multipliers and all field inputs over four finite fields (including \(\mathbb F_{64}\)) and checks character sums in eight fields. No finite test is used as proof of a universal statement.
+PASS
 
-## Originality — PASS, qualified by inaccessible literature
+For every prime power q≡1 mod9, s=(q-1)/3, cubic-residue subgroup K of size s and mu3⊂K, the coefficient change a_u=u^k c(u) bijects the three copies of K. The map f_c multiplies each multiplicative fiber by a_u and is always a permutation; f_c+X permutes iff 1+a_u nonzero and image fiber indices i+j_i form a permutation. Three rotations require constant shift j, three transpositions shift triples are permutations of 0,1,2, giving R=sum_j N_j³, T=3∏N_j. The character sum S=sum_{a∈K}χ(1+a)=(J(χ,χ)-2)/3 follows from χ(-1)=1 and mixed Jacobi sum -1, yielding N_j=(q-4+ζ^-j(J-2)+ζ^j(conj J-2))/9. Orthogonality and cubic factorization yield strict R−T=(q-4)|J-2|²/27, |J|=sqrt(q)>2. The q→∞ expansions require retaining ∑d_j² and O(q^3/2) cubic terms and dividing by s³, yielding 2/9−5/(3q)+O(q^-3/2). Independently enumerated prime fields q=19,37,73: N=[2,1,2],[2,5,4],[8,6,9], (R,T)=(17,12),(197,120),(1457,1296), respectively, and Jacobi-norm identity; original verifier also treats characteristic two q=64. These finite tests do not replace the cubic character proof.
 
-The recent scalar-fiber theorem of Bouyacoub–El-Baz–Kihel provides the admissible family and a sufficient construction based on constant fiber shifts, but no six-permutation enumerative formula or exact rotation/transposition bias. Fear–Wanless give the general cyclotomic orthomorphism criterion and a count of near-linear orthomorphisms, not the complete coefficient-constrained spectrum. Cubic cyclotomic-number literature explains how the local \(N_j\) can be expressed using Jacobi sums, but does not identify the global three-fiber bias. Searches of accessible mathematical literature and mathematical research records found no statement of the exact identity. **Important unresolved overlap:** Bell (2013) explicitly counts all index-three cyclotomic orthomorphisms for certain prime powers; its abstract was available, but its full text could not be accessed without an unavailable approval step. That broader total-count result does not, from the material accessible, imply the restricted rotation-vs-transposition difference, but an equivalent refinement could be present in the inaccessible paper. This risk should be independently checked before publication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's concrete CPP construction uses only the three constant-shift permutations. The remaining three fiber types are equally natural but receive no numerical or structural comparison there. The result provides a complete finite-field family count and proves a **strict arithmetic symmetry bias** between these types, with an exact nonnegative Eisenstein/Jacobi norm controlling the excess and a universal \(q^2/27\) main scale. This directly answers how numerous genuinely nonconstant fiber actions are within the scalar CPP family; it is not a change of notation or an arbitrary parameter slice. The global normalized \(2/9-5/(3q)\) coefficient is sharper than just a limiting probability.
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Bell 2013 is material inaccessible overlap risk explicitly named, not dismissed.
 
-## Closest sources and limits
+## value
 
-1. Bouyacoub, El-Baz, Kihel, arXiv:2603.03368, sections 4–6, publicly posted 2026-03-02: read complete HTML text, especially Theorem 5.1 and Corollary 5.3.
-2. Fear and Wanless, *Existence results for cyclotomic orthomorphisms*, arXiv:2101.00859, Section 2 and Theorem 1: read HTML; general fiber criterion and near-linear count.
-3. Bell, *Cyclotomic orthomorphisms of finite fields*, Discrete Applied Mathematics 161 (2013), DOI 10.1016/j.dam.2012.08.013: bibliographic metadata and abstract only, relevant full text inaccessible; unresolved possible implicit enumeration overlap.
-4. *Ternary cyclotomic numbers and ternary Jacobi sums*, AIMS Mathematics (2024), DOI 10.3934/math.20241292: bibliographic/abstract information; background local character data.
+PASS
 
-The result does not concern unrestricted index-three cyclotomic coefficients or arbitrary exponents. More comprehensive literature comparison and independent verification remain advisable.
+Complete permutation polynomials and cyclotomic orthomorphisms are natural algebraic objects with applications to permutation structure. The conditional density and strict rotation/transposition imbalance for a concrete scalar family measure more than isolated existence examples: an exact all-field arithmetic preference with a norm-controlled second-order term. The parameter k independence follows from subgroup action, not mere renaming. The restricted nature is intrinsic to the motivating scalar criterion, not an arbitrary numerical slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
