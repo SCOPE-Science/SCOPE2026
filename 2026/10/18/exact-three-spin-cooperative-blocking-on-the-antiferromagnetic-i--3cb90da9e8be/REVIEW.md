@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-size argument derives the one-spin \(AA\)/\(BBB\) exclusion from exact local spin-flip energy changes, then applies the exact internal-edge correction to *every* two- and three-spin subset. It proves that two-spin stability adds no restriction, and that a three-spin energy-lowering move occurs exactly at \(BBABB\). Cyclic gap enumeration gives an energy-graded binomial count and a two-state transfer determinant. A separate finite checker evaluates the original Hamiltonian for all states and all subset flips at rim lengths \(5\) through \(12\), and rational generators through length \(150\). The all-size result is analytical, not an inference from this sample. Risk: the theorem does not describe stochastic kinetic selection, and changing the convention for neutral moves changes the question.
+## correctness
 
-**Originality — PASS, bounded by literature access.** The known one-spin Perrin enumeration (equivalent to a staggered-field Ising ring when the rim has even length) is treated as prior groundwork, not claimed as a discovery. Newman–Stein's multi-spin framework concerns disordered lattice dynamics and general bounds; Wacław–Burda's field-theoretic method treats Gaussian random bonds and one-spin minima. Neither inspected full text provides the equal-coupling wheel \(BBABB\) obstruction, the three-flip energy polynomial, or the fifth-degree entropy. Primary searches for wheel, local minima, cooperative flips, equivalent forbidden-word shifts, stronger general theorems, and sequence/tabulation identities did not disclose coverage. Residual risk: a specialized combinatorial or wheel-graph article may contain equivalent results under a different formulation; a failed search is not evidence of absolute uniqueness.
+PASS
 
-**Mathematical value — PASS.** Equal-coupling antiferromagnetic wheels are a natural frustrated spin family. Precisely identifying which metastable states are destroyed by the first genuinely cooperative move answers a dynamics-relevant local-energy-landscape question, and the complete energy grading plus a strictly smaller positive entropy quantify the surviving landscape. The odd-degree rim and highly connected hub together make the result less immediate than merely enumerating the Perrin words. The entropy difference \(\log(\alpha/\beta)\) is a nonzero thermodynamic-scale effect, not a finite small-gain parameter change.
+For n>=5, J>0, neutral flips admissible, consider all flip subsets of size <=3 including disconnected sets and the hub. The single-spin energy increments imply exactly the cyclic rim constraints no AA and no BBB; the hub flip remains nonnegative since m<=n/2. The exact simultaneous-flip internal-edge correction shows any two-spin flip has nonnegative cost. Exhausting connected rim triples and hub-plus-two triples leaves a negative change of -2J precisely for rim BAB with both B endpoints belonging to distinct BB runs, i.e. BBABB. Writing stable words as m blocks AB/ABB and j=n-2m long BB gaps yields count Z1=Z2=2 sum(n/m) binom(m,j)y^m; excluding adjacent long gaps yields Z3=2 sum (n/(m-j)) binom(m-j,j)y^m for 2j<=m. Transfer determinant 1-yz²-y²z⁵ and aperiodicity give log beta entropy with beta^5=beta^3+1 instead of log alpha with alpha^3=alpha+1. Independent direct evaluation of the raw Ising Hamiltonian for all 4032 spin assignments at n=5..10 and every one-, two-, three-spin flip verified classifications; at n=6 totals (10,10,4). Independently inspected packaged verify.py logic; bounded checks do not imply all n.
 
-**Closest literature and limitations.** Newman–Stein (1999, DOI 10.1103/PhysRevE.60.5244), Wacław–Burda (2008, DOI 10.1103/PhysRevE.77.041114), and Bray–Moore (1981, DOI 10.1088/0022-3719/14/9/016) establish broader metastability frameworks but not the displayed exact wheel result. The underlying Perrin word count is acknowledged as pre-existing. The theorem permits zero-cost flips and is restricted to equal antiferromagnetic wheel bonds; it makes no quench-hitting or large-system relaxation-time claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact BBABB cooperative obstruction, graded count, and distinct entropy, excluding already-known one-spin Perrin cyclic-word baseline. Newman--Stein general M-flip stability in disordered lattice models and Wacław--Burda random-bond one-spin minima do not state the homogeneous wheel three-flip formula. An unindexed special wheel or staggered-field formulation could in principle be equivalent.
+
+## value
+
+PASS
+
+Homogeneous antiferromagnetic wheels are canonical frustrated graphs with a hub coupling all rim spins. Identifying exactly the first cooperative metastability obstruction, all energy-resolved surviving counts and a positive thermodynamic entropy loss is a motivated complete classification rather than routine reuse of a known one-spin word count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
