@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T23:11:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS with a nonessential exposition correction needed: The eight directed trigram counts are nonnegative integer flows on the four-vertex de Bruijn graph, with exactly thirteen divergence sectors (zero plus 12 distinct e_s-e_t). The balanced-flow equation yields A+J+B+2C+3D=m with 0≤B≤C+D and rational generating function (1+z^3)/[(1-z)^2(1-z^2)(1-z^3)(1-z^4)]. Its order-five pole at 1 has coefficient 1/12 and gives H_m=m^4/288+O(m^3). Each open sector is squeezed between H_(m−2) and H_(m+2) by adding length-two paths; connectedness failures lie on coordinate boundary faces of dimension ≤3 and number O(m^3), giving 13 m^4/288+O(m^3). Independently enumerated binary words n=3..12 and recovered Q3(n)=8,15,28,52,92,151,240,363,532,757; symbolic series check produced leading 1/288. Source proof erroneously says all other poles are roots of unity of order ≤2: primitive third and fourth roots also occur, but those poles have lower order and contribute at most O(m^3). Thus the asymptotic conclusion survives; public proof prose must be corrected before import.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+          "https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf",
+          "https://arxiv.org/abs/1804.04548"
+        ],
+        "reasoning": "The earlier first-order complete graph type-count theorem and general multispectrum reconstruction bounds do not mathematically dominate the specialized sparse graph leading coefficient. A differently formulated general lattice-flow enumeration might.",
+        "searches": [
+          "binary string distinct length-three substring count vector Markov type number of linear trigram multispectra asymptotic leading coefficient 13/288"
+        ]
+      },
+      "checked_sources": [
+        "Jacquet–Knessl–Szpankowski 2009 author-hosted manuscript",
+        "Jacquet–Szpankowski 2004 author-hosted manuscript",
+        "Gabrys–Milenkovic arXiv:1804.04548",
+        "Resultary binary read-length-two exact table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski 2009/2010 Sections 1–2 and higher-order remark",
+          "Gabrys–Milenkovic arXiv:1804.04548 reconstruction capacity definitions"
+        ],
+        "reasoning": "General flow and Euler-trail criteria are classical but they do not by simple substitution fix the sparse de Bruijn-flow Ehrhart-volume coefficient and thirteen distinct linear endpoints; the submitted derivation explicitly evaluates this missing quantity.",
+        "searches": [
+          "binary string distinct length-three substring count vector Markov type number of linear trigram multispectra asymptotic leading coefficient 13/288"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacquet–Szpankowski 2004 second-order Markov type framework",
+          "de Bruijn graph edge-frequency profiles and fixed-length-three substring multispectra"
+        ],
+        "reasoning": "The claim is equivalently the count of realizable integer second-order binary Markov types, but prior asymptotics cited in the main published theorems count first-order types or words within one type, not all realizable linear three-mer type vectors with free endpoints.",
+        "searches": [
+          "binary string distinct length-three substring count vector Markov type number of linear trigram multispectra asymptotic leading coefficient 13/288"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query 20 ranked records",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "independent exact word-spectrum enumeration n=3..12"
+        ],
+        "reasoning": "Prior identified exact tables concern 2-mer spectra and quadratic size; our count is 3-mer spectra and quartic. No identical 13/288 table found in checked citations, not a proof of uniqueness.",
+        "searches": [
+          "binary string distinct length-three substring count vector Markov type number of linear trigram multispectra asymptotic leading coefficient 13/288"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Fixed read-length-three, binary, linear multispectrum count has four-dimensional sparse second-order de Bruijn flow polytope and exactly thirteen endpoint-divergence sectors. The earlier counted Markov types are predominantly first-order complete-transition cyclic balanced matrices; simply substitute alphabet size four gives a different (complete) 16-edge graph, not the 8-edge binary second-order graph. General second-order Markov methods are context but inspected references do not supply the 13/288 constant. Published length-two binary multispectrum work counts a different object.",
+      "residual_risks": [
+        "An unindexed exact Ehrhart/Markov-type enumeration may have the same sparse 4-vertex flow constant.",
+        "An incidental false assertion on the orders of nonunit roots of unity must be corrected in a publication-bound RESULT.md; it is not needed for the fourth-degree theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full higher-order sparse binary trigram count is not explicitly evaluated in compared statements",
+          "evidence": [
+            "First-order m^2−m exponent versus current sparse-graph degree 4",
+            "Higher-order remark distinct from 13 open/closed sector analysis"
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+          "material_read": "Abstract, sections defining first-order balanced frequency matrices, leading asymptotics and mention of higher-order extensions",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "Markov Types Again Revisited / Counting Markov Types",
+          "trigger": "Possible exact enumeration of Markov type vectors"
+        },
+        {
+          "assessment": "Definitions are antecedents; no checked derivation of linear 3-mer 13/288 coefficient",
+          "evidence": [
+            "2004 higher-order type framework"
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf",
+          "material_read": "Introduction and higher-order Markov type representation/results",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "Markov Types and Minimax Redundancy for Markov Sources",
+          "trigger": "Higher-order Markov type enumeration"
+        },
+        {
+          "assessment": "Provides channel framework but not this fixed-read-length-three exact leading capacity",
+          "evidence": [
+            "arXiv:1804.04548 notation and framing"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+          "material_read": "Abstract and initial definitions and general reconstruction bound context",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same observation model and code capacity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact leading coefficient 13/288 solves a natural finite-alphabet, fixed-read-length channel capacity question for lossless classification by complete contiguous trigram multiplicities. It quantifies the dimension-four sparsity restriction and linear endpoint freedoms and distinguishes cyclic and linear multispectra and read lengths two versus three. A finite exact formula or constructive efficient coding algorithm is not claimed or needed for value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+    "https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf",
+    "https://arxiv.org/abs/1804.04548"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic coefficient only, error O(n^3); no exact quasipolynomial.",
+    "False claim other poles have order ≤2 (in fact 3rd/4th roots occur) needs editorial correction, but still lower-order asymptotics.",
+    "Only binary linear trigram multispectra, not larger alphabets/cyclic spectra."
+  ],
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Scientific review: binary trigram multispectrum capacity
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact observation is the eight-entry count of length-three contiguous factors of a linear binary word. Its de Bruijn walk has a uniquely determined divergence; four possible equal endpoint pairs collapse to the zero sector, while twelve unequal ordered endpoint pairs are distinguishable by their divergent vertices. The Euler trail sufficiency condition is valid on the support of positive-degree vertices. The balanced-flow parametrization gives the five nonnegative variables \(A,J,B,C,D\) subject to \(0\le B\le C+D\) and \(A+J+B+2C+3D=m\), yielding the displayed rational generating function. The pole at one contributes \(m^4/288\) and other poles contribute only lower orders. Two-edge paths in both directions sandwich each nonzero-flow sector between the balanced counts at totals shifted by two. Positive eight-edge circulations and the four-dimensional affine flow space bound disconnected support vectors by \(O(m^3)\). Hence exactly thirteen sector leading constants add without overlap.
+## correctness
 
-Independent implementations of literal enumeration and de Bruijn dynamic programming agree in every profile for lengths \(3\) through \(15\); direct coefficient summation agrees with the rational generating function through degree \(60\). These finite checks corroborate, but do not replace, the infinite proof. The rank and boundary-face arguments and the root-of-unity pole orders were reviewed explicitly. Scientific risk: the big-O error is not sharpened to an exact quasipolynomial, but that is outside the proved claim.
+PASS
 
-## Originality — PASS against checked sources
-The 2004 Jacquet–Szpankowski full author-hosted paper (notably §3.4) treats the de Bruijn sparsity for higher-order Markov sources, but its specified results enumerate strings *within one fixed type* and evaluate redundancy; they do not enumerate *distinct type vectors* for all length-\(n\) linear words or give this coefficient. The 2009/2010 Jacquet–Knessl–Szpankowski full preprint (§1 and §2) enumerates cyclic first-order complete transition tables and includes an informal higher-order remark without the sparse second-order calculation or open endpoints. The 2018 Gabrys–Milenkovic full open preprint (§I–IV) defines the identical multispectrum observation and optimal-code interpretation but deals in general/combinatorial upper bounds and lengths growing with the word. The closest indexed distinct-spectra result concerns read length two, with different dimension and growth. Search terms explicitly included second-order Markov types, de Bruijn integer flows, binary trigram spectra, and sharp coefficient \(13/288\). No inspected result implies the exact leading term for *linear* three-mer spectra. Residual risk: classical lattice-flow methods or an unindexed higher-order Markov enumeration could have computed the same constant under different terminology. No inference of uniqueness is made from a database partition.
+PASS with a nonessential exposition correction needed: The eight directed trigram counts are nonnegative integer flows on the four-vertex de Bruijn graph, with exactly thirteen divergence sectors (zero plus 12 distinct e_s-e_t). The balanced-flow equation yields A+J+B+2C+3D=m with 0≤B≤C+D and rational generating function (1+z^3)/[(1-z)^2(1-z^2)(1-z^3)(1-z^4)]. Its order-five pole at 1 has coefficient 1/12 and gives H_m=m^4/288+O(m^3). Each open sector is squeezed between H_(m−2) and H_(m+2) by adding length-two paths; connectedness failures lie on coordinate boundary faces of dimension ≤3 and number O(m^3), giving 13 m^4/288+O(m^3). Independently enumerated binary words n=3..12 and recovered Q3(n)=8,15,28,52,92,151,240,363,532,757; symbolic series check produced leading 1/288. Source proof erroneously says all other poles are roots of unity of order ≤2: primitive third and fourth roots also occur, but those poles have lower order and contribute at most O(m^3). Thus the asymptotic conclusion survives; public proof prose must be corrected before import.
 
-## Value — PASS
-The exact exponent and leading constant quantify the size of the **maximum lossless read-length-three reconstruction code** for fixed binary alphabet. The profile dimension is four rather than the naive seven unrestricted count-vector dimensions, and permitting free linear endpoints multiplies the balanced contribution by thirteen rather than four. The sharp constant is useful to distinguish feasible spectrum counts from multinomial upper bounds and from cyclic Markov-type enumerations, and provides a benchmark for short-read coding at fixed length. It is a natural invariant attached to a widely used local observation channel, not an arbitrary finite slice. No efficient encoder, cyclic analogue, or exact lower-order terms are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Fixed read-length-three, binary, linear multispectrum count has four-dimensional sparse second-order de Bruijn flow polytope and exactly thirteen endpoint-divergence sectors. The earlier counted Markov types are predominantly first-order complete-transition cyclic balanced matrices; simply substitute alphabet size four gives a different (complete) 16-edge graph, not the 8-edge binary second-order graph. General second-order Markov methods are context but inspected references do not supply the 13/288 constant. Published length-two binary multispectrum work counts a different object.
+
+## value
+
+PASS
+
+PASS. The exact leading coefficient 13/288 solves a natural finite-alphabet, fixed-read-length channel capacity question for lossless classification by complete contiguous trigram multiplicities. It quantifies the dimension-four sparsity restriction and linear endpoint freedoms and distinguishes cyclic and linear multispectra and read lengths two versus three. A finite exact formula or constructive efficient coding algorithm is not claimed or needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
