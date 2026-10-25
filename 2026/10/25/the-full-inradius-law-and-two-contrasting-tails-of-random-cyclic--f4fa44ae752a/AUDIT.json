@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The Dirichlet(1,1,1) circular spacings imply constant half-angle density 8/pi^2 on a simplex of area pi^2/8. The standard triangle identity gives R=4 prod sin(half-angle). A Jacobian-one change to the half-angle difference yields exactly the stated arccosine survival integral with correctly solved threshold roots. Near each simplex vertex the small-radius sublevel region has area (t/4) log(1/t) to leading order, and the three edges away from vertices are lower order; the resulting constant is 6/pi^2. At the unique equilateral maximum, expansion R=1/2-2(u^2+uv+v^2)+O(norm^3) yields ellipse area pi epsilon/sqrt(3), hence 8/(pi sqrt(3)). Boundary cases, normalization, and known independent first two moments were checked. The embedded checker directly compares Cartesian inradii, CDF quadrature, and asymptotic coefficient trends; it is supplementary, not a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kórus (2020), Average Values of Triangles, DOI:10.33401/fujma.692916, sections 1 and 3, entire four-page publisher-version PDF",
+        "Labelle (2023/2024), Probability distributions arising from isoperimetric random triangles, DOI:10.5206/mt.v3i4.17136, Definition 1.2 and incircle discussion",
+        "Finch (2016), Random Cyclic Quadrilaterals, arXiv:1610.00510, model and retrospective sections",
+        "The area–perimeter signature in the small-circumradius law of a random triangle (2026) concerns the random circumradius of points sampled from a 2D body; here circumradius is identically one.",
+        "Exact inradius law for random planar projections of the regular octahedron (2026) concerns octahedron projection inradius, not triangle incircle radius."
+      ],
+      "reasoning": "Kórus fixes the same model but only evaluates its first two moments, which never determine its distribution. Labelle derives an incircle law for a different probability measure: sides uniformly sampled subject to fixed perimeter and triangle inequalities. That cannot imply a law under fixed circumradius and independent boundary-vertex sampling without an additional transformation of measures. Geometric projection and random-interior-point models are genuinely distinct.",
+      "searches": [
+        "Scientific-abstract query: Distribution and moments of the inradius (incircle radius) of a random triangle formed by three independent uniformly distributed points on a circle, random inscribed triangle",
+        "Scientific-abstract query: Exact distribution of area and minimum altitude of random triangles inscribed in a circle; joint law inradius perimeter",
+        "Web: random triangle vertices uniform circle inradius distribution law probability density",
+        "Primary: DOI:10.5206/mt.v3i4.17136 (Labelle, fixed-perimeter law)",
+        "Primary: DOI:10.33401/fujma.692916 (Kórus, fixed-circumradius model)"
+      ]
+    },
+    "checked_sources": [
+      "Kórus (2020), Average Values of Triangles, DOI:10.33401/fujma.692916, sections 1 and 3, entire four-page publisher-version PDF",
+      "Finch (2016), Random Cyclic Quadrilaterals, arXiv:1610.00510, model and retrospective sections",
+      "Labelle (2023/2024), Probability distributions arising from isoperimetric random triangles, DOI:10.5206/mt.v3i4.17136, Definition 1.2 and incircle discussion",
+      "Madras and KC (2006), Randomly Generated Triangles whose Vertices are Vertices of Regular Polygons, Rose-Hulman Undergraduate Mathematics Journal 7(2), Article 12",
+      "Rao (1976), Some Tests Based on Arc-Lengths for the Circle, Sankhyā B 38, 329–338",
+      "MathWorld Circle Triangle Picking (area-only page)",
+      "Relevant ranked published mathematical records on inradius, circumradius, incenter-distance synonyms and random circular triangle statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kórus derives \\(\\mathbb ER\\) and \\(\\mathbb ER^2\\) but not the survival integral or either sharp tail.",
+        "Finch specifies the uniform cyclic-triangle model and derived sides/angle statistics but not this radius pushforward.",
+        "The previously recorded random cyclic triangle minimum-width distribution is not an inradius distribution; these are not deterministic transforms of one another over triangles with fixed circumradius.",
+        "Labelle's sample space consists of uniformly distributed feasible fixed-perimeter side triples, not independent circular points."
+      ],
+      "reasoning": "The new claim comprises a single exact CDF plus its two boundary laws. Re-derivation of already known moments would be covered; they are explicitly excluded. No inspected statement logically entails a nontrivial full CDF or sharp tail constants under the identical sampling model. A prior broad formula for all shape functionals of the same Dirichlet sample would dominate, but none was found among inspected sources.",
+      "searches": [
+        "Primary: entire four-page Kórus 2020 article, DOI:10.33401/fujma.692916",
+        "Primary: Finch arXiv:1610.00510, cyclic-triangle angle and side discussions",
+        "Primary: Labelle DOI:10.5206/mt.v3i4.17136, definition of uniform fixed-perimeter law",
+        "Prior circular-triangle geometric results: exact random-inscribed-triangle minimum-width law; exact-area of cyclic quadrilateral law; other triangle statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Euler's deterministic triangle identity gives \\(OI^2=1-2R\\) at unit circumradius; consequently the complete inradius law is mathematically equivalent to an exact incenter-to-circumcenter-distance law.",
+        "The closest ranked incenter-distance query results concern unrelated fixed-triangle invariants, random circumradii for interior points, or random octahedron projections; no published mathematical result stated either full cyclic-triangle law."
+      ],
+      "reasoning": "Relabeling inradius as incircle radius or applying Euler's formula does not escape a stronger earlier distribution if one exists. Results returned under those aliases did not imply the present complete pushforward distribution. The absence of a hit by itself is not treated as proof of novelty.",
+      "searches": [
+        "Scientific-abstract query: Probability distribution distance incenter circumcenter Euler random triangle from three uniform circle points",
+        "Scientific-abstract query: Euler incenter to circumcenter distance exact CDF for uniform random cyclic triangle",
+        "Scientific-abstract query: random inscribed triangle incircle radius two endpoint asymptotic distribution arcsine integral",
+        "Web: random inscribed triangle inradius probability density distribution 3 points circle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld's Circle Triangle Picking catalogues the area distribution and area mean, not an incircle-radius density or table.",
+        "Kórus's full four-page paper contains explicit mean \\(12/\\pi^2-1\\) and variance \\(3/2-144/\\pi^4\\), but not a table or exact cumulative probability for \\(R\\).",
+        "Madras and KC (2006), Randomly Generated Triangles whose Vertices are Vertices of Regular Polygons, Rose-Hulman Undergraduate Mathematics Journal 7(2), Article 12"
+      ],
+      "reasoning": "No inspected exact database, table, or primary source tabulates or evaluates the same CDF or endpoint coefficients. A source of area statistics does not determine the law of area divided by semiperimeter; both are jointly variable. The statement does not claim a failed search guarantees novelty.",
+      "searches": [
+        "Scientific-abstract query: inradius density distribution random inscribed cyclic triangle uniform circle circumradius fixed",
+        "Scientific-abstract query: exact probability inradius less than t for triangle from three uniform points on circumference, leading logarithmic thin tail",
+        "Web: Circle Triangle Picking MathWorld inradius distribution area density",
+        "Primary: Finch arXiv:1610.00510 and Madras-KC 2006 polygon-vertex triangle results"
+      ]
+    },
+    "rationale": "The complete inradius survival distribution and its two sharp tails are not implied by Kórus's already-published first two moments, Finch's adjacent angle/side statistics, or Labelle's fixed-perimeter (rather than fixed-circumradius) incircle law. Synonym/equivalence and archival comparisons were made. Historical priority remains provisional; no claim of exhaustive indexing.",
+    "residual_risks": [
+      "Classical random-triangle formulas have scattered literature; uncatalogued incircle-radius distributions or a broader all-shape-density theorem might imply the same CDF.",
+      "Madras–KC publisher PDF was inaccessible; the accessible HTML transcription and publication record may omit material.",
+      "Only the sampling definition and pertinent introductory discussion of the 38-page Labelle paper were inspected; it is a distinct probability model, so no full-document statement is inferred.",
+      "Search-based absence is not a mathematical proof of historical first priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes mean and variance for the identical random inradius; does not state the CDF or endpoint tail rates.",
+        "evidence": [
+          "Section 1 derives inradius mean and variance; Section 3 conclusion confines its unit-circumradius result to those moments."
+        ],
+        "identifier_or_url": "https://publicatio.bibl.u-szeged.hu/37060/1/2020.fujma.AverageValuesofTriangles.pdf",
+        "material_read": "Complete four-page publisher-version PDF (pages 57–60, including formula derivations and references).",
+        "method": "Read extracted full text and inspect page images of key formula and conclusion pages.",
+        "title": "Average Values of Triangles",
+        "trigger": "Exact same uniform unit-circle triangle and inradius, strongest possible historical match."
+      },
+      {
+        "assessment": "Identical circle sampling model, but its triangle comparisons concern sides and angles rather than the inradius CDF.",
+        "evidence": [
+          "Author's introductory definition: three independent uniform points on the unit circle; manuscript posted 2016-10-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00510",
+        "material_read": "Full accessible arXiv HTML text with intro and retrospective triangle discussion.",
+        "method": "Read and search sections for triangle, incircle, inradius, and radius distributions.",
+        "title": "Random Cyclic Quadrilaterals",
+        "trigger": "Explicit unit-radius circular sample model, and discussion of uniform cyclic triangles."
+      },
+      {
+        "assessment": "A complete inradius distribution exists for its fixed-perimeter uniform-side model. Its probability measure differs from the fixed-unit-circumradius independent-vertex measure. No inference of same-law coverage from title is justified.",
+        "evidence": [
+          "Definition 1.2 samples side triples uniformly on \\(a+b+c=\\ell\\) under triangle inequalities; section 2 enumerates inradius as a studied quantity."
+        ],
+        "identifier_or_url": "https://mapletransactions.org/index.php/maple/article/download/17136/13056/44750",
+        "material_read": "Article abstract, introduction, explicit random-variable sampling definition and inradius discussion on pages 1–5 of the 38-page PDF.",
+        "method": "Read definition 1.2 and probability-density setup, comparing source measure and fixed normalization.",
+        "title": "Probability distributions arising from isoperimetric random triangles",
+        "trigger": "Full inradius distribution in article title/abstract may appear to cover the proposed claim."
+      },
+      {
+        "assessment": "Provides perimeter/area background rather than the inradius CDF. Publisher PDF access gap remains a provenance limit.",
+        "evidence": [
+          "2006 journal volume 7 no. 2, article 12; shape statistic studied is not the full incircle-radius law."
+        ],
+        "identifier_or_url": "https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/",
+        "material_read": "Accessible full HTML transcription and publication record; publisher-hosted PDF was not accessible.",
+        "method": "Reviewed probability model, perimeter and area claims and checked for an incircle distribution.",
+        "title": "Randomly Generated Triangles whose Vertices are Vertices of Regular Polygons",
+        "trigger": "Earlier discrete-to-continuum circular random triangle sampling and area/perimeter."
+      },
+      {
+        "assessment": "Supplies the already-known Dirichlet law of spacings, not the inradius transformation or tail evaluation.",
+        "evidence": [
+          "The circular-spacings density formula is an input, not a newly derived fact."
+        ],
+        "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/1976_ArcLengthsCircle-Sankhya.pdf",
+        "material_read": "Relevant circular-spacing definitions and the joint uniform-simplex law in the original PDF.",
+        "method": "Inspected the original arc-spacing formula and its sampling setting.",
+        "title": "Some Tests Based on Arc-Lengths for the Circle",
+        "trigger": "Classical reference for uniform circular arc-spacing density used as an assumption."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4fa44ae-752a-42e8-863a-8734c7b68f46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The inradius is a canonical measure of thickness/quality for a triangle with fixed circumcircle. A complete probability law for the most elementary random inscribed triangle measures an intrinsic size statistic not fixed by area, perimeter, angle marginals, or the previously known two moments. The logarithmic rarity of nearly degenerate incircles and linear rarity of nearly optimal incircles represent two distinct and geometrically explained tail mechanisms; the constants allow exact benchmark probabilities and asymptotic comparisons. The exact one-dimensional integral and endpoint classification are natural finite-dimensional geometric-probability outputs, not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
