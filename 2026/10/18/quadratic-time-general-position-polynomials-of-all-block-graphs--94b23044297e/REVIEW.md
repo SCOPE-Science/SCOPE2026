@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed equivalence between general-position validity and the cut-vertex branching condition is justified by uniqueness of incidence-tree routes and completeness of blocks. The two states are a disjoint classification of nonempty internally valid subsets: internally admissible with, or without, an additional selected vertex on the parent side. The recurrences include both possibilities for whether an original vertex is selected and distinguish original from artificial block nodes. All boundary cases, including the single-vertex graph and two-vertex blocks, are included. The unrestricted theorem rests on induction and an amortized arithmetic-operation bound; reproducible exhaustive checks of 2,068,500 vertex subsets were supportive rather than substitutes for proof.
+## correctness
 
-**Originality — PASS (residual priority risk).** Manuel–Klavžar (2018, Theorem 3.6) obtains the maximum general-position size of block graphs but not their full counting polynomial. Iršič–Klavžar–Rus–Tuite (2024, Proposition 2.2) offers a generic inclusion–exclusion over maximal sets and formulas for particular families, not a quadratic-time complete enumerator for arbitrary block graphs. Known enumerators for particular tree families and clique windmills do not imply a recurrence for unrestricted block-incidence trees. Full relevant sections were inspected and targeted equivalent-formulation and dominating-coverage searches were conducted. Potential unindexed equivalent recurrences remain a risk.
+PASS
 
-**Value — PASS.** Block graphs include all trees and arbitrary trees of cliques, but their unrestricted general-position polynomial had not been covered in the relevant inspected literature. Computing every coefficient at quadratic arithmetic cost provides a practical, uniform counting result that is not a renamed scalar extremal statement or a narrow parameter increment; it also clarifies exactly how selected articulation vertices constrain configurations.
+For a connected block graph, the vertex–clique incidence graph is a tree, and a selected vertex lies internally on a graph geodesic exactly when it separates the two endpoints as an incidence-tree vertex. Thus the GP condition is that each selected original vertex has selected descendants/exterior points in at most one deletion branch. Define A_v nonempty internally admissible selections stable under one selected parent-side point and B_v nonempty admissible selections unstable under it. At an unselected node, either every chosen child is A (P−1) or exactly one child is B (V). For selected original v, v alone contributes z to A, and exactly one nonempty A child contributes zU to B. Hence block A=P−1,B=V and original vertex A=P−1+z,B=V+zU, root ψ=1+A+B. Empty graph/single K1 needs 1+z. The O(n²) coefficient-arithmetic bound follows by charging cross-convolution products to pairs at their unique incidence-tree LCA and linear summands to subtree sizes (≤O(n²)); graph decomposition costs O(n+|E|). Independently reconstructed tree DP and exhaustive all-subset shortest-path GP test on five mixed clique/tree block graphs, reproducing three-triangle polynomial [1,7,21,19,7,1]. This finite test does not establish the all-block-graph induction or complexity by itself.
 
-The shortest-path criterion and all algorithmic statements require the block-graph hypothesis. Software testing does not amount to a formal proof, and bibliographic priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. The scalar result and an unevaluated universal formula are not logically the complexity theorem. The recurrence with two external-attachment states and amortized bound is additional.
+
+## value
+
+PASS
+
+The full GP generating polynomial simultaneously counts every admissible subset size on arbitrary block graphs, strictly beyond the known scalar maximum and special windmill/tree formulas. A uniform two-state, provably quadratic-arithmetic dynamic program is a natural counting algorithm on an established graph class, with nontrivial articulation constraints and no arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

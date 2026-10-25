@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected block graph, the vertex–clique incidence graph is a tree, and a selected vertex lies internally on a graph geodesic exactly when it separates the two endpoints as an incidence-tree vertex. Thus the GP condition is that each selected original vertex has selected descendants/exterior points in at most one deletion branch. Define A_v nonempty internally admissible selections stable under one selected parent-side point and B_v nonempty admissible selections unstable under it. At an unselected node, either every chosen child is A (P−1) or exactly one child is B (V). For selected original v, v alone contributes z to A, and exactly one nonempty A child contributes zU to B. Hence block A=P−1,B=V and original vertex A=P−1+z,B=V+zU, root ψ=1+A+B. Empty graph/single K1 needs 1+z. The O(n²) coefficient-arithmetic bound follows by charging cross-convolution products to pairs at their unique incidence-tree LCA and linear summands to subtree sizes (≤O(n²)); graph decomposition costs O(n+|E|). Independently reconstructed tree DP and exhaustive all-subset shortest-path GP test on five mixed clique/tree block graphs, reproducing three-triangle polynomial [1,7,21,19,7,1]. This finite test does not establish the all-block-graph induction or complexity by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel/Klavžar compute gp(G)=number of simplicial vertices for block graphs but no lower coefficients.",
+          "Iršič et al. state a general inclusion–exclusion over maximal GP sets for any graph, which is an identity not a uniform O(n²) algorithm."
+        ],
+        "reasoning": "The general maximal-set identity contains the answer formally but does not algorithmically dominate a quadratic recurrence; no supplied theorem yields this cost for arbitrary unbounded-size clique blocks.",
+        "searches": [
+          "primary: arxiv:2401.05696 Proposition 2.2",
+          "primary: Manuel/Klavžar 2018 Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2401.05696; https://arxiv.org/html/2401.05696",
+        "DOI:10.1017/S0004972718000473",
+        "Resultary: general position polynomial block graphs linear or quadratic dynamic programming two state clique tree",
+        "primary: arxiv:2401.05696 general position polynomials",
+        "primary: arxiv:2401.05696 Proposition 2.2",
+        "primary: Manuel/Klavžar 2018 Theorem 3.6",
+        "Resultary: 2026/10/4/SCOPE-general-position-polynomials-of-spiders-and-the-smallest-nonunim--86888c8b4991",
+        "Resultary: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+        "primary: Iršič et al. 2024 Propositions 2.1–2.2 and graph-family sections",
+        "primary: Manuel/Klavžar 2018 GP number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can recover degree ψ from Manuel/Klavžar, but not all coefficients.",
+          "The generic inclusion–exclusion requires access to maximal GP sets, whose determination is the nontrivial part in arbitrary graph classes."
+        ],
+        "reasoning": "The scalar result and an unevaluated universal formula are not logically the complexity theorem. The recurrence with two external-attachment states and amortized bound is additional.",
+        "searches": [
+          "primary: Iršič et al. 2024 Propositions 2.1–2.2 and graph-family sections",
+          "primary: Manuel/Klavžar 2018 GP number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GP subsets are precisely selected sets avoiding a third selected vertex on a shortest geodesic.",
+          "Block-vertex incidence trees supply an equivalent cut-vertex obstruction only for block graphs."
+        ],
+        "reasoning": "The proposed DP computes the GP polynomial, not a newly renamed independence polynomial: selecting an articulation vertex constrains child branches. Closest known polynomial treatments use inclusion–exclusion or special graph families.",
+        "searches": [
+          "Resultary: general position polynomial block graphs linear or quadratic dynamic programming two state clique tree",
+          "primary: arxiv:2401.05696 general position polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published spider and generalized-windmill polynomials specialize to subfamilies of block graphs.",
+          "No inspected table gives a general block-tree two-state algorithm and its complexity."
+        ],
+        "reasoning": "Specific tree/windmill exact polynomial rows do not imply the unrestricted block-tree recurrence; database absence is qualified, not proof of priority.",
+        "searches": [
+          "Resultary: general position polynomial block graphs linear or quadratic dynamic programming two state clique tree",
+          "Resultary: 2026/10/4/SCOPE-general-position-polynomials-of-spiders-and-the-smallest-nonunim--86888c8b4991",
+          "Resultary: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level novelty: the final quantitative theorem differs from matched antecedents while known foundations are credited. Residual priority risks documented. The scalar result and an unevaluated universal formula are not logically the complexity theorem. The recurrence with two external-attachment states and amortized bound is additional.",
+      "residual_risks": [
+        "An unindexed block-tree counting DP may exist in a thesis, combinatorial enumeration article, or treewidth-algorithm literature.",
+        "The arithmetic-operation bound is not constant-time bit complexity; for very large integers output bit cost is higher."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General inclusion–exclusion and named families, not claimed O(n²) block-graph DP",
+          "evidence": "Proposition 2.2 inclusion–exclusion over maximal general-position sets.",
+          "identifier_or_url": "arxiv:2401.05696; https://arxiv.org/html/2401.05696",
+          "material_read": "Full accessible article and propositions, checked block-graph keyword and family sections",
+          "method": "Inspected complete HTML article structure and Propositions 2.1–2.2",
+          "title": "General Position Polynomials",
+          "trigger": "Exact same polynomial invariant and possible all-graph formulas"
+        },
+        {
+          "assessment": "Known gp-number = number of simplicial vertices; no coefficient count from that theorem",
+          "evidence": "Theorem 3.6 (2018): maximum GP size of a block graph.",
+          "identifier_or_url": "DOI:10.1017/S0004972718000473",
+          "material_read": "Bibliographic theorem statement of Theorem 3.6; not represented as full-paper reading",
+          "method": "Compared exact cited theorem against present claim",
+          "title": "A General Position Problem in Graph Theory",
+          "trigger": "Same block graphs and general-position quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full GP generating polynomial simultaneously counts every admissible subset size on arbitrary block graphs, strictly beyond the known scalar maximum and special windmill/tree formulas. A uniform two-state, provably quadratic-arithmetic dynamic program is a natural counting algorithm on an established graph class, with nontrivial articulation constraints and no arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
