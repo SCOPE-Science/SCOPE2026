@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "A chosen vertex of T(n) is an edge of K_n. Maximum induced degree at most one is equivalent to vertex-disjoint P3, K2 and unused vertices; the exact integer constraints (3a+2b+c=n and 2a+b=floor(2n/3)) force all three residue patterns. At n=3k no one-edge exchange can change a P3 vertex block, and center changes form Cartesian products of K3. At n=3k+1 an unused vertex can swap into any path position, yielding all block partitions, and each two-pair optimum has a direct adjacent singleton optimum. At n=3k+2 a concrete two-move pair/triple exchange implements arbitrary label transpositions through the unique pair. Enumeration and degree formulas are exact block/local counts. The two included programs independently check all small orders 3..9 from direct definition and block enumeration, respectively; no infinite conclusion depends on those computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orlovich et al. 2011, Theorem 7 and Corollary 5: every line graph of a Hamilton-path graph has dissociation number floor(2|V(G)|/3), covering our scalar bound.",
+        "The same source proves the general P3/K2 correspondence, stronger than our elementary setup but not a reconfiguration result."
+      ],
+      "reasoning": "The primary broader theorem subsumes scalar cardinality and the component-type optimization reduction. No published theorem inspected gave the one-replacement connectivity or the number and type of exchange components; the proof of these statements is provided independently.",
+      "searches": [
+        "\"The complexity of dissociation set problems in graphs\" 2011 Orlovich theorem Hamiltonian path line graph",
+        "\"dissociation set reconfiguration\" \"maximum\"",
+        "\"P3 packing\" \"reconfiguration\" complete graph",
+        "\"maximum 2-packings and dissociation polynomial of triangular Johnson graph J(n,2)\""
+      ]
+    },
+    "checked_sources": [
+      "Orlovich et al., Discrete Applied Mathematics 159 (2011), 1352-1366, DOI:10.1016/j.dam.2011.04.023, primary full HTML inspected in relevant sections",
+      "Orlovich et al., dated 2010 manuscript preprint 05/10, publicly accessible rendering partially inspected",
+      "Relevant published summaries on dissociation polynomials of fans and complete multipartite graphs, which have different underlying families and no covering statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source theorem: maximum size floor(2n/3) from Hamilton path; component-splitting and pair/singleton transpositions are not among its statements.",
+        "The included proof establishes a new invariant: triple-block partitions cannot change under a one-selected-vertex exchange when n=3k. It constructs explicit single-vertex exchanges for n=3k+1 and n=3k+2."
+      ],
+      "reasoning": "Known scalar maximum plus existence of optima implies neither disconnection nor reconnection of its optimum-state graph. At n=3k the stronger classification is an invariant under moves; other residues require constructive paths. Thus the final claim is not an automatic corollary of the cited value theorem.",
+      "searches": [
+        "doi:10.1016/j.dam.2011.04.023, full journal HTML: Section 2 and Theorem 7",
+        "\"dissociation polynomial\" \"line graph of complete graph\"",
+        "\"dissociation reconfiguration\" \"line graph\" \"complete\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary Orlovich et al., 2011, Section 2 describes selected P3 plus K2 blocks in line graphs; this is the correct equivalent formulation, not a separate new extremal value.",
+        "The alternative labels T(n), L(K_n), and J(n,2) denote the same graph."
+      ],
+      "reasoning": "The search targets both the direct graph terminology and the underlying P3-block-switch formulation. The inspected primary correspondence does not state or entail optimum-state adjacency or components merely from optimal size.",
+      "searches": [
+        "\"dissociation number\" \"triangular graph\" T(n)",
+        "\"maximum dissociation sets\" \"reconfiguration graph\"",
+        "\"dissociation\" \"Johnson graph\" \"2\" reconfiguration",
+        "\"1-dependent\" graph exchange line graph complete",
+        "\"P_3-factor\" \"reconfiguration\" edge swap complete graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct searches returned the general 2011 complexity paper and work on other graphs, but no located table of component counts for maximum dissociation reconfiguration of T(n).",
+        "The exact component counts for small orders were independently derived by two included programs rather than read from a pre-existing numerical table."
+      ],
+      "reasoning": "An exact scalar table or all-sets polynomial would not determine optimum exchange connectivity without adjacency information. No matching table was found; failure to find one is not a proof none exists.",
+      "searches": [
+        "\"dissociation polynomial\" \"line graph of complete graph\"",
+        "\"dissociation number\" \"triangular graph\" T(n)",
+        "\"maximum dissociation\" \"triangular graphs\"",
+        "\"dissociation sets\" \"interchange\" \"line graphs\""
+      ]
+    },
+    "rationale": "The novelty claim is confined to connectivity and exact components of the maximum-dissociation one-vertex exchange graph of T(n). The 2011 full-text Orlovich et al. paper supplies the scalar optimum for all line graphs of Hamilton-path graphs and the underlying P3/K2 reduction, and is properly credited; neither theorem implies that fixed triple partitions are invariant at n divisible by three nor constructs reconfiguration paths with singleton/pair buffers. Specific alternate terminology and public mathematical-record searches yielded no identified covering theorem, subject to explicit unindexed-source risk.",
+    "residual_risks": [
+      "A differently indexed, unpublished or inaccessible account of one-exchange P3-packing reconfiguration could cover the claim; searching is not a uniqueness certificate.",
+      "The 2010 manuscript preprint was not read in full; accessible text was compared only in the identified relevant sections.",
+      "Small-order independent scripts validate n<=9, not infinitely many n; the universal proof is the source of correctness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SCALAR_AND_STRUCTURAL_REDUCTION_NOT_EXCHANGE_TOPOLOGY",
+        "evidence": "For a graph G with a Hamiltonian path, diss(L(G))=floor(2|V(G)|/3); line-graph dissociation sets are disjoint P3 and K2 selections. The source does not specify optimum-only one-vertex exchanges or connected components.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+        "material_read": "Publisher-accessible full HTML: introductory definitions, line-graph P3/K2 correspondence and associated proof, Hamiltonian-path line-graph maximum theorem and corollary, conclusions; not every unrelated hardness proof",
+        "method": "Read and compared actual theorem hypotheses, conclusions and proof steps in rendered journal full text",
+        "title": "The complexity of dissociation set problems in graphs",
+        "trigger": "Same parameter on the line graph of the complete graph; plausible broader coverage of the extremal value"
+      },
+      {
+        "assessment": "NO_INSPECTED_EXCHANGE_CLASSIFICATION_BUT_INCOMPLETE_MATERIAL_REVIEW",
+        "evidence": "The displayed February 7, 2010 manuscript and introductory P3 reduction describe extremal/complexity problems, not the optimum replacement graph. The manuscript date is not treated as a verified public online date.",
+        "identifier_or_url": "https://www.researchgate.net/publication/281600154_On_the_Complexity_and_Inapproximability_of_Dissociation_Set_Problems_in_Graphs",
+        "material_read": "Accessible online rendering, dated title page and introductory definitions, first reduction and P3 correspondence; remaining text not fully read",
+        "method": "Compared the inspected original statements and relation to later full HTML paper",
+        "title": "On the Complexity and Inapproximability of Dissociation Set Problems in Graphs",
+        "trigger": "Earlier manuscript version by the same authors, potentially stronger unlisted material"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c0a0495-62c4-4b93-93a0-0eef6b4fe331",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a sharp infinite modular connectivity phenomenon in optimal-solution reconfiguration, not simply the already known dissociation number. At multiples of three, an exact triple-block invariant creates n!/(6^k k!) components K3^square k; in the other two residue classes a singleton or edge acts as a buffer enabling reachability of every optimum. This structural discontinuity and component isomorphism classification are natural information unavailable from the maximum-cardinality scalar; no general downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
