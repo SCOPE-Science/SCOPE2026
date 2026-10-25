@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:55:37.649464Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deterministic real coordinate steps on one row A=(1,...,1), b>=2, y≠0, iid uniform coordinate picks, residual r_k=y∏_{j<k}(1−eta_j) is deterministic. Writing effective weights w_k=eta_k∏_{j<k}(1−eta_j), W=Σw_k, independence gives risk/y²=(1−W)²/b+((b−1)/b)Σw_k² exactly. Cauchy–Schwarz minimizes Σw² at fixed W by equal weights and a strictly convex scalar quadratic fixes W=N/(N+b−1). The uniquely realized schedule eta_k=1/(N+b−1−k) has nonzero residual y(b−1)/(N+b−1) and risk y²(b−1)/(b(N+b−1)); W=1 interpolation instead costs y²(b−1)/(bN), unique equal weights. For constant 0<eta<2 geometric weights give risk floor y²(b−1)eta/(b(2−eta)) and one-step difference −y² eta(2−b eta)(1−eta)^(2N)/b, with eta=1 residual-zero exception. Independent direct rational enumeration of all coordinate index paths for (b,N)=(2,4),(3,4),(4,3), y=2 reproduced optimum risks 2/5,4/9,1/2; the algebra covers all real schedules and horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary published nearby two-row Kaczmarz and fixed spectral-weight BB horizon results concern different dynamics and objectives.",
+          "Jin–Liu report convergence and stability under alternative assumptions rather than this finite-budget all-real-schedule objective."
+        ],
+        "reasoning": "A broad stochastic optimization technique could imply minimization of equal weights, but no inspected source states the specialized optimal η sequence and sharp reconstruction/interpolation gap; prior general phenomenon is credited.",
+        "searches": [
+          "Resultary randomized block descent reconstruction risk finite horizon schedule",
+          "Jin Liu randomized block coordinate linear ill-posed problems 2024",
+          "Ma Needell Ramdas randomized Gauss Seidel least norm underdetermined 2015"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py in pinned Git tree",
+        "Jin–Liu arXiv:2405.13340v1",
+        "Ma–Needell–Ramdas arXiv:1503.08235",
+        "Resultary related finite-horizon Kaczmarz studies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin–Liu full-column-rank theorem cannot directly establish the chosen rank-deficient minimum-norm optimal schedule.",
+          "Ma–Needell–Ramdas nonleast-norm counterphenomenon explains motivation but does not quantify unique finite-step risk optimum."
+        ],
+        "reasoning": "The strict convexity/Cauchy calculation establishes additional quantitative information not implied by a qualitative convergence pathology alone. No general downstream theorem is required for a motivated self-contained exact fact.",
+        "searches": [
+          "arXiv:2405.13340v1 Algorithm 1, Theorems 2.4 and 2.9",
+          "arXiv:1503.08235 Section 3.3",
+          "Resultary 2026/10/4 exact two-row Kaczmarz finite horizon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jin–Liu Algorithm 1 is the parent randomized block descent, their convergence theorem under a full-column-rank assumption is not applicable to rank-one A=(1,...,1) with b>1.",
+          "Ma et al. Sec 3.3 establishes qualitative failure to attain least norm in underdetermined RGS, not a unique all-horizon schedule."
+        ],
+        "reasoning": "The model is an exact special case of a known algorithm, but the risk-optimal schedule requires optimization over deterministic effective weights, not obtained from the general convergence theorem.",
+        "searches": [
+          "randomized block coordinate descent rank one identical row finite iteration reconstruction risk optimal steps minimum norm interpolation",
+          "Jin Liu arxiv:2405.13340v1 Algorithm 1",
+          "Ma Needell Ramdas arxiv:1503.08235 RGS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search found other Kaczmarz horizon, momentum, and randomized pivoting results, not the exact one-row all-ones schedule.",
+          "Independent rational-path mean squared error agreed with sharp expressions for three nontrivial parameter pairs."
+        ],
+        "reasoning": "No matching explicit result was found; this is negative search evidence only, not an exhaustive priority determination.",
+        "searches": [
+          "Resultary rank one randomized block descent finite budget optimal step",
+          "stochastic minimum norm reconstruction risk row all ones eta_k 1/(N+b-1-k)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for unique finite-budget reconstruction-optimal *deterministic* steps in this rank-one underdetermined example; not for the underlying Jin–Liu block-coordinate method or known least-norm failure of ordinary randomized Gauss–Seidel. The exact sharp sample-budget schedule and noninterpolation law were not found in accessible cited primary theorems, although similar optimal-weight arguments might exist elsewhere.",
+      "residual_risks": [
+        "A differently termed optimal finite-horizon stochastic averaging schedule may be present in unindexed optimization literature.",
+        "Optimality is only among deterministic real schedules with IID uniform coordinate sampling, not adaptive selection or an estimator that directly computes x†.",
+        "Eta=1 gives exact zero residual after step 1, making further one-step risk difference zero, so any strict sign statement needs the residual qualification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parent algorithm and asymptotic convergence/stability are prior; strong min-norm theorem has an inapplicable full-column-rank structural condition for b>1 one-row case",
+          "evidence": "Algorithm 1 coordinate descent; Theorem 2.9 includes V full column rank; no inspected unique finite-budget deterministic step schedule.",
+          "identifier_or_url": "https://arxiv.org/html/2405.13340v1",
+          "material_read": "Full accessible primary HTML, introduction, Algorithm 1, Section 2 including Theorems 2.4 and 2.9 and hypotheses on full-column rank",
+          "method": "original arXiv HTML primary math text",
+          "title": "Randomized Block Coordinate Descent Method for Linear Ill-Posed Problems",
+          "trigger": "Direct origin of algorithm and potential covering theorem"
+        },
+        {
+          "assessment": "Qualitative underdetermined minimum-norm failure is covered; no inspected sharp arbitrary-budget risk-optimal schedule",
+          "evidence": "Their analysis motivates selecting the Euclidean reconstruction rather than residual objective.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08235",
+          "material_read": "Original PDF Sections 3.3–4 on RGS and minimum-norm pathology, including counterexample discussion",
+          "method": "primary arXiv PDF with page image and mathematical text",
+          "title": "Convergence Properties of the Randomized Extended Gauss–Seidel and Kaczmarz Methods",
+          "trigger": "Broad underdetermined least-norm failure and possible exact error comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete sharp example exhibits the tension between observation-residual convergence and Euclidean reconstruction to the minimum-norm solution. The finite-budget unique schedule, exact bias-variance frontier and stepwise monotonicity transition provide useful calibration for rank-deficient stochastic block algorithms beyond a routine convergence statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "b>=2, N>=1, y≠0, one all-ones measurement, x0=0, IID uniform blocks, deterministic real step sequences, fixed horizon."
+  ],
+  "schema_version": 1
+}
