@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full integral simplicial chain model was independently reconstructed, with exact ranks and a unimodular projected boundary minor establishing that all lower one-cycles are integral boundaries. The thirteen explicit top cycles are genuine integer cycles and form an integral basis. The Singer action is checked on signed chains, and the seven regular-orbit plus six augmentation-orbit vectors have determinant -1. The norm relation gives the augmentation module without assuming that rational decomposition implies integral splitting. The standard-library verifier was executed successfully. No infinite extrapolation is required.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Merino et al. determine the Fano matroid's Tutte polynomial but not the integral Singer module. Ardila–Castillo–Samper provide general matroid shellability but not an equivariant lattice. Moci–Pezzoli give a broad *complex-coefficient* equivariant relationship with flat lattices; it may imply rational characters, but not this integral direct-sum lattice and its torsion coinvariants. Related Heawood-graph independence and matching complexes are different simplicial objects. Targeted semantic and primary-literature searches located no assertion of the explicit unimodular cyclic decomposition. An equivalent unindexed integral result remains possible.
+PASS
 
-**Mathematical value — PASS.** The Fano plane is the minimal finite projective plane and its Singer symmetry is a distinguished conjugacy class, not a fitted parameter. The complete integral module identifies a regular summand and a cyclotomic lattice, demonstrating order-seven torsion in coinvariants even though the underlying homology is free. This distinguishes integral equivariant topology from ordinary homotopy type and complex-character information. No family theorem or full automorphism-group integral classification is claimed.
+The independent exact-rational Fano chain reconstruction has 7 vertices, 21 edges, 28 independent triangles. Projection onto chords away from vertex 1 gives a 15x28 signed boundary A whose specified lexicographic 15x15 minor has determinant +1. The 13 remaining columns construct an integral 2-cycle basis. Signed action of g=(1 2 4 3 6 7 5) preserves the xor condition and yields Nw=0; the seven g-orbits of z plus six of w form a matrix of determinant -1. This proves Z[C7] direct sum augmentation ideal over Z, and coinvariants Z+Z/7, not merely a Q-character result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Moci–Pezzoli classifies complex-coefficient equivariant matroid homology via flats, not the integer C7 lattice or Z/7 coinvariant torsion. Known Fano Tutte polynomial and wedge rank do not determine Z[C7]-module extension. Searches compared statements and implication directions, not titles; no accessible searched primary result establishes the stronger integer statement. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+Integral equivariant homology for the smallest nontrivial binary projective plane is a natural arithmetic refinement; order-seven torsion in coinvariants is invisible over Q. It is not a renaming, textbook direct substitution, or arbitrary unmotivated slice; known lower-level invariants are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
