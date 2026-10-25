@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-Use `python3 verify.py` with Python 3.11+ (standard library only). The program constructs independent faces by direct row-subset recursion and determines signed reduced Lefschetz numbers using inversion parity on oriented simplex vertices. This is independent of the fixed-orbit and transfer-matrix derivations. It checks every rotation for graph sizes \((3,2),(3,3),(3,4),(6,2),(6,3),(9,2)\). It separately computes cyclic row sums, transfer-matrix powers, and Fourier multiplicities, checking agreement with the all-parameter formulas over the ranges specified in RESULT.md.
+## correctness
 
-An actual replay completed with the following terminal lines:
+PASS
 
-```
-CHAIN_LEFSCHETZ_OK 3 2
-CHAIN_LEFSCHETZ_OK 3 3
-CHAIN_LEFSCHETZ_OK 3 4
-CHAIN_LEFSCHETZ_OK 6 2
-CHAIN_LEFSCHETZ_OK 6 3
-CHAIN_LEFSCHETZ_OK 9 2
-TRANSFER_AND_QUOTIENT_ENUMERATION_OK 9 5
-CHARACTER_MULTIPLICITIES_AND_NECKLACES_OK 7 7
-ALL_TESTS_PASSED
-```
+For K=Ind(C_{3r}×K_n), the oriented fixed-face trace counts rows invariant under a rotation with d=gcd(3r,t), including short quotients d=1,2. The augmented-chain Lefschetz sign is minus the signed row enumerator. The exact transfer matrix splits into q colour-difference eigenvalues -1 and a 3×3 block satisfying B^3=qI; the resulting signed character is q(-1)^d+3*1_{3|d}q^{d/3}. Published Theorem 22 gives concentration of homology in degree 2r-1, enabling character and induced-necklace module reconstruction and quotient rational invariants. Direct independent oriented-simplex finite checks agree; they do not prove all orders.
 
-The finite tests do not establish the general formula: the exact uniform proof is the five-step argument in RESULT.md. The non-equivariant wedge result is a published theorem, not independently certified here. No independent external review was performed.
+## originality
+
+PASS
+
+The published wedge-of-spheres homotopy theorem for exactly C_{3r}×K_n specifies non-equivariant homology only and cannot determine rotation character traces. Published 3-cut and matching-complex cyclic character theorems analyze different simplicial complexes; no valid implication was identified.
+
+## value
+
+PASS
+
+The cyclic representation and rotational quotient Betti number distinguish equivariant topological information that a non-equivariant wedge decomposition cannot determine. The theorem treats every cycle length divisible by three and all complete-clique sizes, with a natural necklace classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
