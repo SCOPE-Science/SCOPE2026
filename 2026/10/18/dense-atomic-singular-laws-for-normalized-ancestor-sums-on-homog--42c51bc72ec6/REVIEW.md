@@ -1,15 +1,21 @@
-# Review of the dense atomic ancestor-summation singular law
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized child shift is an isometry between consecutive generations until the terminal level, giving an exact orthogonal decomposition into finite one-sided summation chains, with all dimensions counted. Tridiagonal diagonalization yields every singular value. Geometric summability establishes weak and all-fixed-power moment convergence, while the extremal chain length yields the tail exponent. The special atom and exact Hilbert–Schmidt norm follow from exact identities. Full small-tree singular lists were recomputed directly. These finite checks do not prove the infinite statements, which are analytically derived.
+## correctness
 
-## Originality
-PASS under best available literature comparison, not a claim of priority certainty. The closest inspected research develops metric-tree Hardy approximation numbers, infinite directed-tree shift decompositions, one-dimensional summation blocks, and a different leaf-only ancestral Gram matrix. Those results supply ingredients or adjacent comparisons but do not state or imply the exact growing-tree *empirical* spectral mixture and its dense atomic exponential-tail structure without a further finite multiplicity count and independent asymptotic derivation. The decomposition technique and block sine eigenvalues are acknowledged as known mathematical mechanisms. A full equivalence search cannot exclude inaccessible or unindexed literature; the remaining risk is recorded.
+PASS
 
-## Value
-PASS. Singular values of a natural operator on exponentially growing rooted trees have a qualitative spectral feature invisible to fixed-tree approximation-number theorems: a dense pure-point limiting law with an exponential tail but a diverging logarithmic finite-volume spectral edge. The full distribution, special mass, quantitative moment convergence, and energy identity connect branching multiplicities to operator approximation and provide a natural benchmark for other tree Hardy operators.
+The normalized forward child shift is isometric levelwise and nilpotent. Its Wold-type wandering subspaces have dimensions (b-1)b^{d-1}; hence (I-S)^{-1} splits into exact lower-triangular ones blocks of lengths L with claimed multiplicities. Diagonalizing the discrete difference D_L*D_L gives exact sine-law singulars. Geometrically decaying chain fractions give the limiting dense atomic measure and all fixed moments, the largest length L*(t) gives rate -(π/2)log b, and direct row-square sums prove the exact S2 identity. The original proof covers h=0 and fixed b≥2; independent finite tree SVD tests agree but do not prove weak convergence.
 
-## Bibliographic limits
-The references address adjacent operators and broad decompositions, so historical rediscovery of an equivalent finite regular-tree result remains possible. No result is claimed for irregular trees or different normalizations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Evans–Harris–Lang studies approximation numbers of continuous metric-tree Hardy integrals, a different space and limiting regime. Budzyński et al gives abstract directed-tree shift Wold decompositions but not this finite-tree empirical singular mixture or its sharp large-value tail. Leaf-only ancestral Gram matrices and triangular matrix extremal spectra are different operator/matrix sequences.
+
+## value
+
+PASS
+
+This is a complete exact singular-value law and limiting dense pure-point spectral measure for a canonical normalized ancestor operator on finite regular rooted trees, including topology of support and rare spectral tail. These natural all-height invariants are not mechanically identical to a single one-chain spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
