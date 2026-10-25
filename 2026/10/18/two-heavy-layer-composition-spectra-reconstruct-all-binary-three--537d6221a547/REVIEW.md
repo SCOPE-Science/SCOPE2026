@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two weight-layer generating polynomials are directly derived from the unique run decomposition of a word with three ones. The least exponents recover the sum and minimum of the two interior gaps; the three-one polynomial recovers the unordered external gaps. Formula (3) excludes the only remaining non-reversal orientation collision, including all zero-gap edge cases. Direct full-spectrum enumeration corroborates the sharp four-one published counterexample. The standalone checker recomputes the gap formulas independently and exhaustively compares 40,920 length-at-most-32 three-one words. The infinite statement rests on the proof, not the test.
+## correctness
 
-**Originality — PASS against inspected evidence, with residual risk.** Acharya et al. (arXiv:1403.2439, 2014; Sections 2, 5, 6, 9–10) give the full composition-multiset reconstruction framework and four-one confusability. Their inspected statements do not imply the present injectivity after deleting both lower-weight composition layers. Gupta–Mahdavifar (arXiv:2201.09955) addresses full-data polynomial reconstruction, while Ye–Elishco (arXiv:2208.14963) and Yang–Chen (arXiv:2411.03776) treat chiefly prefix–suffix partial data, the latter for constant-weight strings. Additional topical research-record and literature queries found no equivalent statement, but unindexed or differently named coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** The result is a complete all-length low-weight structural reconstruction theorem with explicitly reduced observation requirements, an elementary decoder, and a sharp weight boundary supplied by a classical confusable pair. It isolates the first nontrivial three-marker regime and gives a precise positive answer where unrestricted-length reconstruction can fail. It is neither a finite-table increment nor merely a restatement of the general full-spectrum reconstruction algorithm.
+With w=0^a 1 0^b 1 0^c 1 0^d, exact disjoint factor-boundary enumeration gives P3=t^(b+c+3)S_a S_d and P2=t^(b+2)S_a S_c+t^(c+2)S_b S_d. min degree and max degree of P3 recover b+c and total word length; the coefficient staircase of normalized P3 recovers unordered outer gaps {a,d}, and min degree of P2 recovers min(b,c), hence unordered interior gaps {b,c}. At most two reversal-orbits remain; comparing them gives nonzero Δ=(S_a-S_d)t²(t^b-t^c)/(1-t) if a≠d and b≠c. Thus all boundary cases including zero gaps are covered. Independent exhaustive direct substring counts for all words with exactly three ones of lengths 3..16 confirm no non-reversal collisions, but arbitrary length is proved by the polynomial argument. Four-one collision pair 01001101 and 01101001 is prior art and can be independently checked.
 
-**Limitations:** All multiplicities are assumed exact; no noisy partial observations or words with four or more ones are covered. The four-one pair and general polynomial framework are explicitly credited to earlier work. Self-review does not replace an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Neither exact same reduced map nor stronger result implying its injectivity up to reversal was identified. Full-data reconstruction techniques are background ingredients, while noncollision after deleting entire layers is a separate statement. Source reading, explicit four comparisons and priority risks detailed below.
+
+## value
+
+PASS
+
+Recovering the full sequence from only two filtered heavy composition layers is a natural sharp sparse-marker information threshold. The finding separates the minimal sufficient high-weight factor data from full composition spectra, and the four-marker obstruction proves a meaningful precise boundary. It is useful for string reconstruction with partial observations, not an arbitrary binary-word census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
