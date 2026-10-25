@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:11:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-negative-covariance-of-right-spine-length-and-total-path-l--5b00ad67dd05/RESULT.md",
+        "2026/10/18/exact-negative-covariance-of-right-spine-length-and-total-path-l--5b00ad67dd05/verify.py"
+      ],
+      "rationale": "Root-rank splitting gives P_n=P_{k-1}+P'_{n-k}+n-1 and R_n=1+R'_{n-k}, not an independent-path approximation. With a_n=2(n+1)H_n-4n and b_n=H_n, the mixed recurrence e_n=a_n+n^{-1}sum_{r=0}^{n-1}[e_r+(a_{n-1-r}+n-1)b_r] yields E(z)=(1-log(1-z))/(1-z)+(2log(1-z)^2-1)/(1-z)^2. Coefficient extraction produces c_n=3n+H_n-2(n+1)H_n^(2) including c_1=c_2=0. The difference c_(n+1)-c_n=3-2H_n^(2)-(n+3)/(n+1)^2 is negative from n=2 by the monotonicity of the complementary positive term; H_n^(2)->pi^2/6 proves the slope, and the established BST path-variance leading term with Var(R_n)=H_n-H_n^(2) proves the correlation scale. Finite partition-function differentiation with theta^{R_n} proves local record-bias sensitivity, not monotonicity for all theta. Independently constructed all BST permutations n=1..7 matched exact rational covariance. No numerical extrapolation was used for any unbounded quantifier.",
+      "residual_risks": [
+        "Finite exact computations diagnose bounded instances only; analytic derivation controls general quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corsini (2021) derives first-order HEIGHT under record bias. Bouvel–Nicaud–Pivoteau (2024) analyze permuton and record-biased permutation statistics; ordinary BST path-length variance is known."
+        ],
+        "reasoning": "Height bounds, record-count marginal laws and ordinary path-length variance do not mathematically imply Cov(P_n,R_n). A fully general published joint moment formula could dominate the result but none was established by these checked statements.",
+        "searches": [
+          "arxiv:2112.05732",
+          "arxiv:2409.01692",
+          "doi:10.1007/s10959-017-0773-1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2112.05732",
+        "https://arxiv.org/pdf/2409.01692",
+        "Resultary query 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier same model: parameter theta weights upper records; previous BST root-imbalance covariance instead observes (root-left minus right)^2, not all-right spine."
+        ],
+        "reasoning": "The claimed c_n and negative record-bias derivative cannot be inferred from independent marginal means/variance or from covariance with a different root statistic, because joint structure is required. No stronger inspected theorem supplies it.",
+        "searches": [
+          "Corsini 2021 Sections 1–3",
+          "Bouvel–Nicaud–Pivoteau 2024 Introduction/statistics",
+          "Resultary exact BST covariance item"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record count of insertion permutation equals BST all-right spine; first-pivot Quicksort comparisons equal P_n under stated depth convention. Corsini defines theta^records but studies tree height."
+        ],
+        "reasoning": "The covariance can equivalently be written as derivative at theta=1 of record-biased mean comparison cost; no theorem in the inspected record-biased height result supplies the exact derivative or mixed moment.",
+        "searches": [
+          "Resultary: Random binary search tree total internal path length covariance with number of record maxima right spine branch exact mixed moment",
+          "web: \"right spine\" \"internal path length\" covariance binary search tree",
+          "arxiv:2112.05732"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary exact BST result concerns squared root-split imbalance, 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9; different random variable."
+        ],
+        "reasoning": "No exact matching pair of statistics or covariance table was found. Absence of a search hit is not proof of priority; general recurrence tables remain a residual risk.",
+        "searches": [
+          "Resultary query BST path length record spine covariance",
+          "web exact-formula and right-spine/path-length search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.",
+      "residual_risks": [
+        "No exhaustive literature-priority certification; older BST path-cost/record-moment tables or broader Quicksort joint generating functions may imply the identity.",
+        "Record-biased 2024 manuscript was accessible but not independently audited section-by-section for implicit cost consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same theta^{records} family but proves height asymptotics, not this path/spine cross-moment",
+          "evidence": "Introduction and stated main height asymptotic; contents §§2–4; definition of upper records.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.05732",
+          "material_read": "Full-text introduction, model definition, contents and height-theorem focus (pp. 1 onward); bibliographic section scope",
+          "method": "arXiv PDF, extracted text and page image",
+          "title": "The height of record-biased trees",
+          "trigger": "Same record-weighted permutation/BST model"
+        },
+        {
+          "assessment": "Its described permuton/record statistics are not an exact BST cost–record covariance; incomplete section-by-section exclusion remains risk",
+          "evidence": "Introduction and theorems describe permutation marginal/global limits, not this cost mixed moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.01692",
+          "material_read": "PDF introduction, described permutation statistics and permuton theorem; searched path-length terminology",
+          "method": "Open arXiv PDF read and full-text search",
+          "title": "Record-biased permutations and their permuton limit",
+          "trigger": "Exact same record-biased permutation family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-negative-covariance-of-right-spine-length-and-total-path-l--5b00ad67dd05/RESULT.md",
+        "https://arxiv.org/pdf/2112.05732",
+        "https://arxiv.org/pdf/2409.01692"
+      ],
+      "rationale": "Right-spine length is the upper-record count controlling a natural record-biased insertion model, whereas total path length is insertion/comparison cost. Their cross-moment has a nonobvious negative sign despite nonvanishing O(n) covariance and vanishing normalized correlation; the exact coefficient gives a calculable local sensitivity of search cost to record bias. These two natural tree statistics have different fluctuation scales; deriving their interaction, rather than repeating marginal path-length moments, is a useful finite-n structural statistic.",
+      "residual_risks": [
+        "Mathematical interest is bounded to the claimed statistic/model and is not an assertion of broad theory or independent historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive literature-priority certification; older BST path-cost/record-moment tables or broader Quicksort joint generating functions may imply the identity.",
+    "Record-biased 2024 manuscript was accessible but not independently audited section-by-section for implicit cost consequences."
+  ],
+  "schema_version": 1
+}

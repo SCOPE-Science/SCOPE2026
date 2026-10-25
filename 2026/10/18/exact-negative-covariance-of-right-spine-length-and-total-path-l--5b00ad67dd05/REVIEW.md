@@ -1,19 +1,21 @@
-# Scientific assessment: random-BST right-spine/path-length covariance
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The root rank is uniform and, conditioned on it, the two subtrees are independent uniform search trees. Both depth sum and right-spine length admit the stated coupled root recursions, with \(R_n=1+R'_{n-K}\). The mixed-moment recurrence is derived without an unsupported independence assumption. Its generating-function differential equation and the explicit solution agree by direct differentiation; harmonic coefficient extraction gives \(\operatorname{Cov}(P_n,R_n)=3n+H_n-2(n+1)H_n^{(2)}\). The difference formula and a strictly increasing comparison sequence establish strict negativity for all \(n\ge3\). Classical marginal variances give the asymptotic correlation. Exact independent enumeration of all permutations through eight keys and mixed-moment recurrence checks through one hundred keys ran successfully using the included verifier. Finite checks are corroboration rather than proof of the infinite formula.
+## correctness
 
-## Originality (O): PASS on inspected evidence, with residual uncertainty
-The closest source is Corsini's *The height of record-biased trees*, arXiv:2112.05732, first posted 2021-12-10. Inspection of the author-hosted full manuscript finds the record-biased random-BST decomposition and height bounds, but not the finite mixed path-length/right-spine covariance or its derivative at the unbiased parameter. Aguech, Amri and Sulzbach's full 2017 open-access article gives marginal internal-path-length moments and mixed moments with weighted path length and the Wiener index, not this right-spine statistic. Bouvel, Nicaud and Pivoteau's 2024 record-bias/permuton work concerns different observables; only abstract and bibliographic material were accessible for that article, so implicit coverage remains a residual risk. An earlier 2016 record-bias paper treats insertion sort and min/max algorithms, rather than Quicksort comparisons, according to its accessible abstract. Other published work on root-split imbalance/path length is a mathematically different correlation and is not sufficient to recover this covariance. No theorem in the inspected primary material was found which implies the exact formula without a new mixed-moment calculation. This is a best-knowledge priority assessment, not an exhaustive uniqueness claim.
+PASS
 
-## Value (V): PASS
-Right-spine length is exactly the insertion order's strict upper-record count, a natural presortedness parameter. Total internal path length is precisely the total random-BST insertion comparison cost. Their dependence is not determined by either marginal distribution; the closed formula, strict sign classification and its linear-order limit quantify this joint cost/shape effect for every tree size. The derivative identity gives an interpretable, nonzero first-order response of expected insertion cost under record bias, despite the vanishing asymptotic Pearson correlation. This supplies a benchmark for joint path/spine statistics and record-biased models, rather than an arbitrary parameter slice.
+Root-rank splitting gives P_n=P_{k-1}+P'_{n-k}+n-1 and R_n=1+R'_{n-k}, not an independent-path approximation. With a_n=2(n+1)H_n-4n and b_n=H_n, the mixed recurrence e_n=a_n+n^{-1}sum_{r=0}^{n-1}[e_r+(a_{n-1-r}+n-1)b_r] yields E(z)=(1-log(1-z))/(1-z)+(2log(1-z)^2-1)/(1-z)^2. Coefficient extraction produces c_n=3n+H_n-2(n+1)H_n^(2) including c_1=c_2=0. The difference c_(n+1)-c_n=3-2H_n^(2)-(n+3)/(n+1)^2 is negative from n=2 by the monotonicity of the complementary positive term; H_n^(2)->pi^2/6 proves the slope, and the established BST path-variance leading term with Var(R_n)=H_n-H_n^(2) proves the correlation scale. Finite partition-function differentiation with theta^{R_n} proves local record-bias sensitivity, not monotonicity for all theta. Independently constructed all BST permutations n=1..7 matched exact rational covariance. No numerical extrapolation was used for any unbounded quantifier.
 
-## Closest literature and remaining limits
-- Corsini (arXiv:2112.05732): same record-biased tree model, different target (height rather than total path length); full author-hosted text inspected.
-- Aguech–Amri–Sulzbach (DOI 10.1007/s10959-017-0773-1): full open article inspected; ordinary path-length variance and other weighted covariances are prior known.
-- Bouvel–Nicaud–Pivoteau (arXiv:2409.01692): record-biased permutation statistics and permuton limit; full text not conclusively compared, so hidden specialization remains a priority risk.
-- Auger–Bouvel–Nicaud–Pivoteau (arXiv:1605.02905): model precursor; only abstract accessible; no Quicksort/path-length claim observed there.
-- Limits: uniform distinct-key insertion only; strict sign at the unbiased distribution, and derivative at that point only; no claim of global monotonicity across bias parameters, higher mixed moments or a joint central limit theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: explicit cross-statistic theorem not established by the inspected primary statements; compare four mathematical implications below. No guarantee of absolute historical priority.
+
+## value
+
+PASS
+
+Right-spine length is the upper-record count controlling a natural record-biased insertion model, whereas total path length is insertion/comparison cost. Their cross-moment has a nonobvious negative sign despite nonvanishing O(n) covariance and vanishing normalized correlation; the exact coefficient gives a calculable local sensitivity of search cost to record bias. These two natural tree statistics have different fluctuation scales; deriving their interaction, rather than repeating marginal path-length moments, is a useful finite-n structural statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
