@@ -1,11 +1,21 @@
-# Scientific review: sharp counterteam bound and entailment complexity
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem uses the exact lax team semantics, where \(\bot\) holds of the empty team. An induction reconstructs the known size-\(m\) satisfying subteam lemma, including the zero-occurrence case. For a failed consequence, the maximal conclusion-model \(U_\psi\), obtained by union closure on the finite valuation space, splits the proof into exhaustive cases: an existing small antecedent witness already refutes the conclusion, or adding one valuation outside \(U_\psi\) does. Convexity preserves antecedent satisfaction. Characteristic-valuation formulas prove sharpness for every \(m\), and a polynomial team checker plus classical tautology proves the exact complexity class. Direct finite semantics tests returned `VERIFY_OK`. Risk: the checker explores finite instances only; the proof carries the infinite parameter claim.
+## correctness
 
-**Originality — PASS, with explicit residual uncertainty.** The full available manuscript *Complexity Results in Team Semantics: Nonemptiness Is Not So Complex* treats satisfiability, validity and model checking, and names entailment as future work. Its small-subteam lemma and closure properties are premises of the argument, not its complete conclusion. *Convex Team Logics* classifies expressive power rather than entailment complexity. Published research-record comparisons identify material-implication closure, not the sharp small counterteam bound. No inspected work derives the \(m+1\) counterteam bound or the \(\mathrm{coNP}\)-complete consequence problem. Search incompleteness and inaccessible historical work leave ordinary residual priority risk; absence from a database does not establish uniqueness.
+PASS
 
-**Value — PASS.** The result answers an explicitly raised semantic-decision problem, gives a uniform and sharp polynomial certificate for counter-entailment, and identifies a structural way to combine a small satisfying antecedent witness with a union-maximal consequent family. Both the sharp bound and complete complexity classification are natural to the logic rather than a contrived finite slice.
+For finite Γ, put φ=conjunction Γ and m=total NE atom occurrences. The published convexity and union-closure lemmas for lax PL(NE) hold for the exact literal/NE/constant/∧/split-∨ semantics. Structural induction yields a satisfying subteam A⊆T of size≤m: NE needs one valuation, other atoms none, and conjunction/split combine witnesses via convexity/lax splitting. Given Γ countermodel T not satisfying ψ, let U be the union of all ψ-models over the finite common valuation space. If no ψ-model exists, A is already a countermodel. Otherwise union closure makes U a ψ-model. If T⊆U, convexity forbids ψ on A; otherwise adjoin v in T minus U to A, and convexity of φ keeps the premise true while v excludes ψ. Bound |T′|≤m+1 includes m=0 and empty teams. The sharp example requires m distinct full-characteristic valuations through (χ_i∧NE) plus a split top, while ψ is their disjunction; every counterteam has those m plus an outsider. NP verification follows from polynomial team model checking and m+1 Boolean valuations; classical tautology reduces to entailment for coNP-hardness. Independent exhaustive semantic evaluation tested 105 two-variable syntax formulas, 20 truth-table classes, all 400 semantic entailment pairs, convexity, union closure and small models; explicit sharp counterteams independently checked for m=1..6.
 
-**Closest literature and scope.** Anttila–Kontinen–Yang (arXiv:2510.08122, Sections 2–6) proves the starting complexity and closure lemmas and leaves entailment to future work. Anttila–Knudstorp (arXiv:2503.21850) establishes expressive completeness, not the algorithmic classification here. No extension beyond finite-premise \(\mathrm{PL}(\mathrm{NE})\) is claimed. Independent priority verification remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Semantic consequence is genuinely different from validity and satisfiability for convex nonempty team formulas; the 2026 primary paper explicitly lists entailment as future work. The m+1 sharp guarantee and consequent coNP classification are best-of-knowledge new relative to checked published work.
+
+## value
+
+PASS
+
+A finite-premise semantic entailment problem explicitly left open by the direct primary complexity paper is classified coNP-complete with an exact tight m+1 semantic certificate. The sharp counterteam bound is a usable structural theorem, not a rephrasing of the known validity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

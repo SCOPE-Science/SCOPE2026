@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:06:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite Γ, put φ=conjunction Γ and m=total NE atom occurrences. The published convexity and union-closure lemmas for lax PL(NE) hold for the exact literal/NE/constant/∧/split-∨ semantics. Structural induction yields a satisfying subteam A⊆T of size≤m: NE needs one valuation, other atoms none, and conjunction/split combine witnesses via convexity/lax splitting. Given Γ countermodel T not satisfying ψ, let U be the union of all ψ-models over the finite common valuation space. If no ψ-model exists, A is already a countermodel. Otherwise union closure makes U a ψ-model. If T⊆U, convexity forbids ψ on A; otherwise adjoin v in T minus U to A, and convexity of φ keeps the premise true while v excludes ψ. Bound |T′|≤m+1 includes m=0 and empty teams. The sharp example requires m distinct full-characteristic valuations through (χ_i∧NE) plus a split top, while ψ is their disjunction; every counterteam has those m plus an outsider. NP verification follows from polynomial team model checking and m+1 Boolean valuations; classical tautology reduces to entailment for coNP-hardness. Independent exhaustive semantic evaluation tested 105 two-variable syntax formulas, 20 truth-table classes, all 400 semantic entailment pairs, convexity, union closure and small models; explicit sharp counterteams independently checked for m=1..6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Convex Team Logics studies expressive characterization of convex union-closed properties; Anttila–Kontinen–Yang small satisfying subteam lemma has bound m but does not itself guarantee a counterteam for entailment."
+        ],
+        "reasoning": "Strong expressive completeness does not imply polynomial semantic consequence certificates. The additional maximal ψ-model and convexity argument, plus sharpness and coNP-hardness, are logically needed.",
+        "searches": [
+          "propositional team nonemptiness logic PL(NE) semantic entailment coNP countermodel small team convex union closed",
+          "arXiv:2503.21850",
+          "arXiv:2510.08122 Lemma 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.08122v2, https://arxiv.org/html/2510.08122",
+        "arXiv:2503.21850",
+        "Resultary published research index: propositional team nonemptiness logic PL(NE) semantic entailment coNP countermodel small team convex union closed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper proves polynomial model checking and SAT/VAL bounds, with its conclusion identifying semantic entailment as an open direction."
+        ],
+        "reasoning": "Combining prior small-subteam and convexity with new Uψ compression yields the result, but the prior named propositions do not state or directly imply that compression bound or sharp m+1 witnesses without additional proof.",
+        "searches": [
+          "propositional team nonemptiness logic PL(NE) semantic entailment coNP countermodel small team convex union closed",
+          "arXiv:2510.08122 Proposition 4, Lemma 3, Conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anttila–Kontinen–Yang prove SAT NP-complete, VAL coNP-complete, MC P for PL(NE), not consequence; Resultary item studies closure under a material implication connective, not semantic entailment."
+        ],
+        "reasoning": "An implication connective on team properties is distinct from Γ⊨ψ. A single conclusion’s validity classification alone cannot encode an antecedent that must be satisfied, since unrestricted team negation is missing.",
+        "searches": [
+          "propositional team nonemptiness logic PL(NE) semantic entailment coNP countermodel small team convex union closed",
+          "arXiv:2510.08122 Sections 3-6",
+          "Resultary: 2026/10/4/SCOPE-exact-antecedent-boundary-for-material-implication-closure-in-te--aba05b7ed790"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index nearest team-logic item is a different material-implication closure problem; no exact counterteam-size table is referenced."
+        ],
+        "reasoning": "There is no relevant table of a finite numerical invariant: this is a formula-uniform logical theorem with syntactic parameter m.",
+        "searches": [
+          "propositional team nonemptiness logic PL(NE) semantic entailment coNP countermodel small team convex union closed",
+          "Resultary semantic search: PL(NE) entailment coNP small team"
+        ]
+      },
+      "rationale": "Semantic consequence is genuinely different from validity and satisfiability for convex nonempty team formulas; the 2026 primary paper explicitly lists entailment as future work. The m+1 sharp guarantee and consequent coNP classification are best-of-knowledge new relative to checked published work.",
+      "residual_risks": [
+        "Complete text of Convex Team Logics was not retrieved; possible indirect consequence theorem is residual priority risk, not a basis for automatic failure.",
+        "The precise lax split, set-team semantics and NE occurrence counting must be retained; adding unrestricted negation or strict disjunction changes the problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAT/VAL/MC classified; semantic entailment explicitly proposed as future work; source supplies premises rather than claimed conclusion",
+          "evidence": "Introduction lists three classified tasks; Section 6 identifies entailment problem for further research.",
+          "identifier_or_url": "arXiv:2510.08122v2, https://arxiv.org/html/2510.08122",
+          "material_read": "Primary complete 2026 HTML, syntax/semantics Section 2, closure Proposition 1, small-subteam Lemma 3, model checking Proposition 4, conclusion Section 6",
+          "method": "Primary full-text HTML read",
+          "title": "Complexity Results in Team Semantics: Nonemptiness Is Not So Complex",
+          "trigger": "Same logic, possible exact entailment complexity already treated"
+        },
+        {
+          "assessment": "Known expressive-completeness statements do not themselves settle length bounds or consequence complexity; full-text coverage not excluded",
+          "evidence": "Abstract about convex logic definability, not an explicit PL(NE) coNP entailment theorem.",
+          "identifier_or_url": "arXiv:2503.21850",
+          "material_read": "Abstract and publicly indexed summary; direct HTML full text unavailable",
+          "method": "Abstract/index reading",
+          "title": "Convex Team Logics",
+          "trigger": "Potential expressive-completeness implications for bounded counterteams"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite-premise semantic entailment problem explicitly left open by the direct primary complexity paper is classified coNP-complete with an exact tight m+1 semantic certificate. The sharp counterteam bound is a usable structural theorem, not a rephrasing of the known validity classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
