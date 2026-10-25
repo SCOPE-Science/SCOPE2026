@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:49:26.007862Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md complete proof and verify.py (Git blob SHA 6ab6e04488fcc4791d809f79d543bf3823a8edca); independent finite-field calculations and independent orbit enumeration.",
+        "Independent orbit+Groebner program independently recovered 9841 projective, 3504 rational-smooth, 56 pre-orbits, seven smooth orbit sizes [18,18,24,24,36,72,72], four full orbit sizes [36,36,48,144].",
+        "Exact nine-by-nine Hasse-Witt matrices and powers at seven source representatives yielded stable ranks 8 or 9, and independent polynomial coefficient reconstruction used F=P_X A+P_Y B in all four charts."
+      ],
+      "rationale": "The normal form F=P_X A(Y)+P_Y B(X), with one syzygy gauge, has 9 ternary parameters and (3^9-1)/2=9841 projective equations. Direct enumeration found 3504 rationally nonsingular equations. An independently implemented GL2 generator action and four-chart characteristic-three Groebner singularity tests gave 56 factor-preserving rationally smooth orbits and precisely seven geometrically smooth orbits of sizes 18,18,24,24,36,72,72, totaling 264. Factor swap gives four full orbits of sizes 36,36,48,144. Independently computed nine-by-nine Cartier/Hasse-Witt coefficient matrices [x^(3i-k)y^(3j-l)] f^2 for seven representatives (6898,6904,6919,7858,7876,8344,8356); ranks and ninth-power stable ranks respectively (8,8,8,8,9,8,9). Thus exactly 216 cases have p-rank8/a=1, and the 48 ordinary ones form one full orbit; genus nine from adjunction. The independent orbit implementation required correction of an accidental projective normalization of generator columns, then produced the exact results; no failed interim computation was concealed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homma–Kim supplies minimal bidegree and normal form, Ahammed–Campbell–Moon supply full smooth presentation census 1584 in q=3; their statements do not compute nine-dimensional Cartier matrices or rank stratification."
+        ],
+        "reasoning": "The stronger pre-existing curve count covers the raw 264-equation total and existence, but it cannot determine p-ranks or group distribution of the ordinary stratum without new arithmetic computations.",
+        "searches": [
+          "Ahammed Campbell Moon arXiv:2512.02796 full introduction and Section 4.1",
+          "Resultary semantic search: Cartier p-rank a-number genus nine q three smooth space filling (4,4) curves P1 P1 finite field",
+          "Homma Kim space filling smooth curves P1xP1"
+        ]
+      },
+      "checked_sources": [
+        "Ahammed–Campbell–Moon arXiv:2512.02796v1 full HTML plus PDF/§4.1 screenshot",
+        "Homma–Kim arXiv:2203.11595 theorem-level check",
+        "Stöhr–Voloch 1987 standard Cartier extraction formula",
+        "Resultary semantic search Cartier p-rank a-number genus nine q three smooth space filling (4,4) curves P1 P1 finite field (no dominating matching result among retrieved hits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Cartier coefficient extraction determines matrix entries from a given equation, but does not supply a rank distribution over all admissible equations."
+        ],
+        "reasoning": "Known enumerations combined with general Cartier formulas make the problem computable but do not logically imply 216 nonordinary, 48 ordinary or a unique ordinary orbit without exhaustive verification.",
+        "searches": [
+          "Ahammed Campbell Moon §4.1",
+          "Stöhr Voloch 1987 Cartier operator formula",
+          "Resultary semantic search: Cartier p-rank a-number genus nine q three smooth space filling (4,4) curves P1 P1 finite field"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One projective equation is represented by three syzygy gauges and two nonzero common scalars, so the published 1584 pair presentations correspond exactly to 264 equations; p-rank is stable Cartier/Hasse–Witt rank over F3."
+        ],
+        "reasoning": "Aliases by presentation-pair versus projective equation and by Frobenius stable rank were compared; the 264 census is covered and is not presented as the novel arithmetic classification.",
+        "searches": [
+          "Resultary semantic search: Cartier p-rank a-number genus nine q three smooth space filling (4,4) curves P1 P1 finite field",
+          "arXiv:2512.02796 Section 4.1 1584 pairs",
+          "Homma Kim arXiv:2203.11595 space-filling curves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact pair table 1584 and its seven SL2 quartic orbits; source proof shows 264 after 3*2 quotient; newly checked Hasse–Witt census 216/48."
+        ],
+        "reasoning": "The known exact table is explicitly incorporated and credited; it tabulates curve presentations, not the requested Jacobian p-rank or a-number and ordinary full-orbit decomposition.",
+        "searches": [
+          "arXiv:2512.02796 §4.1 quartic-pair orbits, 1584 count",
+          "Resultary semantic search: Cartier p-rank a-number genus nine q three smooth space filling (4,4) curves P1 P1 finite field"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.",
+      "residual_risks": [
+        "Unindexed literature could classify Jacobian invariants of this exact embedded F3 filling family under other terminology.",
+        "The pinned code requires SymPy for four-chart Gröbner tests; independent program was written and executed separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers total smooth presentations and base geometric setup; not the p-rank, a-number or unique ordinary full-group orbit",
+          "evidence": "§4.1 q=3 reports 1584 smooth quartic pairs; inspected full-text Cartier terminology with no such matrix rank classification",
+          "identifier_or_url": "https://arxiv.org/html/2512.02796v1",
+          "material_read": "Full accessible HTML primary paper: §§1–6 with detailed reading of §4.1 q=3 smooth-pair/orbit statistics and equation forms; corresponding PDF also inspected including relevant q=3 page",
+          "method": "Read HTML and PDF and screenshot of original q=3 table",
+          "title": "Minimal algebraic space filling curves on the product of projective lines",
+          "trigger": "Exactly the same minimal (4,4), F3, 1584 pair enumeration"
+        },
+        {
+          "assessment": "Covers initial normal form and minimal bidegree only in checked material",
+          "evidence": "Homma–Kim 2022 minimal degree family",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11595",
+          "material_read": "Read abstract/primary mathematical statements; not a whole-document noncoverage assertion",
+          "method": "Primary statement comparison and algebraic normal form cross-check",
+          "title": "Filling curves for P1 x P1",
+          "trigger": "Minimum filling bidegree and defining ideal"
+        },
+        {
+          "assessment": "General operator algorithm, not census of this genus-nine finite family",
+          "evidence": "Stöhr–Voloch 1987",
+          "identifier_or_url": "https://eudml.org/doc/152926",
+          "material_read": "Formula-level comparison, not claim of inspected full article",
+          "method": "Compared standard formula against extracted coefficient indices",
+          "title": "A formula for the Cartier operator on plane algebraic curves",
+          "trigger": "Coefficient extraction formula for Cartier operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete, naturally delimited embedded genus-nine family over F3 with a sharp two-valued p-rank/a-number stratification and a unique ordinary ambient orbit. These are useful arithmetic moduli data not implied by the known 264-equation count and help distinguish ordinary versus nonordinary minimal space-filling curves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed literature could classify Jacobian invariants of this exact embedded F3 filling family under other terminology.",
+    "The pinned code requires SymPy for four-chart Gröbner tests; independent program was written and executed separately.",
+    "Scientific assessment is not independent formal Lean certification or external expert verification.",
+    "No GitHub edit, publisher upload or automatic acceptance was performed."
+  ],
+  "schema_version": 1
+}
