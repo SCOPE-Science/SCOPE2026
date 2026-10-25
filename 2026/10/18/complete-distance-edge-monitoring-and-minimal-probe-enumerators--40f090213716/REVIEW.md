@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-monitoring condition is derived from unique breadth-first-search predecessors, with each original or subdivision probe's monitored halfedges determined explicitly. The resulting necessary-and-sufficient criterion for arbitrary probe sets supports inclusion-exclusion with all parameters quantified \(n\ge3\). For inclusion-minimal sets, the exceptional all-but-one-original configurations are separated from minimal edge covers; the latter are exactly star forests. The labeled component EGF, all-size spectrum, and parity-dependent counts follow. An independently constructed shortest-path-deletion checker verifies all \(2,131,008\) subsets for \(3\le n\le6\); that finite evidence does not substitute for the proof.
+## correctness
 
-## Originality — PASS with a material unresolved comparison
-The published foundational definition and predecessor lemma are prior work; the displayed scalar minimum is not asserted independently novel. The exact weighted enumerator for **every** monitoring set and the classification and weighted enumerator of **all inclusion-minimal** monitoring sets are stronger claims than an isolated numerical optimum. Actual scholarly and mathematical-record searches did not identify an exact matching bivariate polynomial. The 2025 study by Ji et al., on distance-edge-monitoring in subdivision graphs, is the closest same-object work. Its full text remained inaccessible; it may contain a similar structural reduction or results that affect priority. The assessment of originality is based on available material and is explicitly subject to that material residual risk.
+PASS
 
-## Value — PASS
-Distance-edge-monitoring models determining whether a single link failure can be detected from distances. The two-weight distribution discriminates deployment costs for original versus inserted vertices, while classifying inclusion-minimal sets identifies all irredundant sensor deployments and their size distribution. The parity-dependent minimum-set counts and complete star-forest correspondence reveal substantially more than an optimum cardinality, with a natural infinite graph family and no arbitrary parameter slices.
+In S(K_n), n>=3, checking shortest-path predecessor uniqueness gives each original probe both halfedges at its index, and each subdivision probe the halfedges at its two indices. This yields the exact criterion U∪V(F)=[n] OR |U|>=n-1 (note the alternative is essential). Inclusion-exclusion over uncovered original labels proves every term of D_n(x,y); requiring indispensability yields disjoint unions of stars covering [n]\U plus the n all-but-one-original exceptions. The labeled exponential formula M_n = n![t^n]exp(xt+yt^2/2+t(e^(yt)-1-yt))-x^n+nx^(n-1) follows because two-vertex stars are unoriented. Counts and n=3 exceptional minimum follow by matching/star cases. Independent BFS edge-deletion enumeration agrees for n=3,4: 51 and 841 monitoring sets, 9 and 29 minimal sets, minimum multiplicities 9 and 3. These finite cases corroborate but do not establish universal quantification.
 
-## Limits of assessment
-The fully published 2025 subdivision-graph article could not be read in full under accessible routes; no claim of exhaustive historical uniqueness follows. Source comparisons are statement-level to the extent permitted by accessible text. Independent expert verification is not represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction is an entire two-variable all-set distribution and a separate all-inclusion-minimal-set EGF and multiplicities, not the already investigated scalar optimum. Existing definition/general bounds do not algebraically specify the distribution. Most relevant 2025 full text remains inaccessible and is an explicit high-priority priority risk; no decisive stronger coverage was found from material actually readable.
+
+## value
+
+PASS
+
+The complete bivariate census of arbitrary monitoring sets and of inclusion-minimal probe configurations provides natural reliability/multiplicity data on an analytically important subdivided-clique family. The exact structural eligibility and entire minimum-set distribution have mathematical uses distinct from the previously studied scalar monitoring number. The EGF and full coefficient classification are self-contained and nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
