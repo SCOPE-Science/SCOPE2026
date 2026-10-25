@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The augmented face chain complex is decomposed equivariantly by splitting each fiber permutation module into its invariant line and augmentation kernel. Deletion of an augmentation factor is zero, so each indexed summand is an actual chain subcomplex. The corresponding link is the independence complex of the path remainder after a closed-neighborhood deletion. A three-step suspension recurrence determines every link's single-sphere/contractible dichotomy, including the empty link. Distinct nontrivial standard-module supports yield inequivalent irreducible modules under the full product group. Okura's explicitly stated nonequivariant Betti polynomial is used only to evaluate the already-proved diagonal tensor multiplicities, by polynomial coefficient comparison. Independent small-chain calculations and exact path-link enumeration agree.
+
+## Originality — PASS, with residual risk
+Okura 2021 and 2023 classify ordinary homotopy types and sphere ranks of the same lexicographic path products but do not specify any color-symmetry representations. Carnero Bravo 2023 gives related nonequivariant polyhedral-join theory. Fu–Grbić 2018 concerns the action induced by symmetries of the indexing simplicial complex on polyhedral products, not the independent internal fiber group acting on a polyhedral join, and does not calculate these irreducible constituents. Searches of published mathematical-result records found related augmentation-tensor calculations for other graph constructions, notably generalized Mycielskians, but no covering theorem for these path–clique products. A more general unindexed equivariant polyhedral-join result remains a plausible risk.
+
+## Mathematical value — PASS
+The natural product group has \((n!)^m\) elements; the classification nonetheless gives every rational character and every degree-specific irreducible in a uniform, multiplicity-free form for an infinite two-parameter family. Previously known Betti numbers cannot distinguish the different fiber-supported constituents. The diagonal specialization gives closed representation-ring multiplicities, and the full-group invariant subspaces exhibit a sharp period-three obstruction. The scope is a complete natural symmetry invariant, not a new nonequivariant sphere count or a claim of integral equivariant homotopy.
+
+Self-review: passed. Independent audit: not yet performed.
