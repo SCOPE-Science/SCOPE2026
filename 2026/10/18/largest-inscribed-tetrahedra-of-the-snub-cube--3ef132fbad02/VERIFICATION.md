@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the contained-tetrahedron result
+# Independent mathematical audit
 
-Run `python snub_exact_verifier.py` in a directory containing the included script. The script uses only standard-library `fractions`, `collections`, `itertools`, and `math`. It checks that there are \(24\) distinct vertices, exhausts \(\binom{24}{4}=10626\) distinct four-vertex subsets, checks every absolute determinant against the sharp candidate with exact root-isolating rational intervals, and counts exactly \(24\) maximizers. It determines the \(80\) three-vertex support triples, with multiplicities \(72\) having one maximal apex and \(8\) having three, then checks the unique special triple per maximal vertex tetrahedron, the supporting-plane strictness of all eight variable-apex faces, and one rotation orbit of the eight equality families.
+## correctness
 
-The included source is the complete dependency-free certificate: all assertions must succeed before the final `all_exact_checks_passed` message. The finite computation is combined with the determinant's separate affinity in each argument to establish the **global**, continuously quantified theorem, including movable nonvertex apices. The proof does not substitute random sampling for exhaustive reasoning.
+PASS
 
-The polynomial \(\tau^3-\tau^2-\tau-1\) has one real root; the rational interval endpoints are certified by opposite signs, and a cubic-derivative argument establishes uniqueness. The comparator bounds each coefficient term on this interval, so all reported strict determinant and facet-plane signs are exact.
+PASS. For tau^3=tau^2+tau+1 and xi=tau^{-1}=tau^2-tau-1, parity-selected signed coordinate permutations generate exactly 24 snub-cube vertices. Multiaffinity of the oriented determinant reduces the extremal absolute volume on P^4 to finite vertex quadruples. The source exact certificate enumerates all C(24,4)=10626 quadruples as elements of Z[tau], reduces via the irreducible cubic and certifies every inequality using a rational isolating interval. It gets max determinant 8+4tau+4tau^2, 24 maximizing vertex tetrahedra, and the incidence profile 72 triples with one maximizing apex and eight bases with three maximizers, exactly one such base per maximal vertex tetrahedron; supporting-plane sign checks prove their movable apex triples are actual facets. The one-special-base incidence blocks two independently variable vertices, so separate affinity classifies all continuous equality points as eight 2D families. Direct independent floating-point enumeration reconstructed 24 vertices and all 10626 determinants, reproduced 24 maxima, 8 base triples and volume 4.81484168208; the rigorous sign certificate remains source exact arithmetic. Edge-length conversion and reflection preserve volume. Limits: fixed snub geometry only, finite exact enumeration is exhaustive here but not a synthetic all-solids theorem.
 
-No independent audit has been conducted. Verification is restricted to the stated snub-cube normalization and is not a certified solver for unrelated solids.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact largest contained tetrahedron and all continuous extremal families of this *fixed* Archimedean polyhedron. Inscribed maximum-simplex problems on spheres and maxima in icosahedra, as well as standard snub-cube metric tables, cannot imply this exact determinant and equality locus.
+
+## value
+
+PASS
+
+PASS. Maximum-volume contained tetrahedron is a natural convex-geometric invariant of a canonical Archimedean solid. A complete exact algebraic value plus all eight positive-dimensional equality families, including nonvertex apex motion, resolves the shape of the entire optimizer set rather than merely enumerating candidate vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
