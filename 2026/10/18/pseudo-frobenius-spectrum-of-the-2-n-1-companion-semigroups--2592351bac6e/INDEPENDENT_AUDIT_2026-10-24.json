@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:47:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 244cef7390840065862d37a52afccc452713b904 equations (1)-(6)",
+        "Liu et al. 2023 arXiv:2306.10738v1 Lemmas3.1,3.3, Theorem4.3",
+        "Independent Dijkstra residue graph PF calculation n=3..8"
+      ],
+      "rationale": "For n>=3, a=2^n+1, generators g_i=(a+1)(2^i-1)+a, the cited Liu–Xin–Ye–Yin Apéry formula applies for gcd(a,1)=1 and a>=m-1 with m=n-1: w(r)=(a+1)r+a t_m(r), t_m the greedy coin count using c_i=2^i-1. Direct semigroup-order comparison gives no-upward-jump condition t_m(r+c_i)<=t_m(r) on nonwrap, while wrapped jumps are automatically nonmaximal restrictions because the w difference has positive multiple of a. The induction on h for jump-maximal residues on [0,2(2^h-1)] identifies exactly the final h consecutive positions, with t_h(R_h-q)=q+2; its h=1 boundary and above-largest-coin reduction are explicit. At the actual cutoff a-1=2(2^m-1)+2 the top three coin counts 2,3,4 eliminate all but residue a-1 and tail residues a-1-j for 4<=j<=n; the apparent j=3 candidate fails because jump +3 reaches a-1 with larger count. Translation w(r)-a yields PF={a²+3a-1} ∪ {a²-a-1-j :4<=j<=n} and type n-2, including symmetric n=3. Independently reconstructed all Apéry shortest paths and full PF spectra for n=3..8, separately from greedy formulas.",
+      "residual_risks": [
+        "Uses the cited greedy-coin theorem and generalized Apéry formula as prior inputs; universal proof not machine-formalized.",
+        "The local-maxima induction must retain boundary r+C_h=2C_h exactly, which is handled in proof; finite values alone would not establish it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu Lemma3.3 and Theorem4.3 separate generic Apéry description from PF classification at first generator (b^n-1)/(b-1).",
+          "Branco et al. family also imposes repunit first generator, whereas current a=2^n+1."
+        ],
+        "reasoning": "The general family includes some parametrizations of current generators, but the stronger *stated* PF theorem does not apply to the current nonrepunit multiplicity. Generic algorithm computes examples yet does not already give exact n-2 formula.",
+        "searches": [
+          "Liu Xin Ye Yin A Note on Generalized Repunit Numerical Semigroups Theorem4.3",
+          "Branco Colaço Ojeda Generalized Repunit Frobenius Problem theorem"
+        ]
+      },
+      "checked_sources": [
+        "Liu Xin Ye Yin arXiv:2306.10738v1 full HTML Lemma3.1, Lemma3.3, Thm4.3",
+        "Branco Colaço Ojeda 2023 DOI 10.1007/s00009-022-02233-w family/abstract context",
+        "Resultary exact companion semigroup semantic search",
+        "Web Fermat-shaped 2^n+1 pseudo-Frobenius searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General greedy Apéry formula and known Frobenius-maximal representative are premises.",
+          "New local-maxima lemma classifies all Apéry maximal elements, giving the extra n−3 PF gaps missed by Frobenius alone."
+        ],
+        "reasoning": "A Frobenius formula only yields the largest gap, so cannot imply type n−2. The 2023 theorem’s repunit multiplicity condition fails when a=2^n+1 for this exact binary companion family.",
+        "searches": [
+          "Liu Xin Ye Yin Lemma3.1 Lemma3.3 Theorem4.3",
+          "Branco Colaço Ojeda 2022/23 repunit first generator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent residues for maximal Apéry words are r=a-1 and r=a-1-j, 4<=j<=n; this determines PF and type.",
+          "Liu 2023 generic formula w(r) does not assert these specific local maxima."
+        ],
+        "reasoning": "Originality is evaluated as full residue/PF classification, not just Frobenius number or matching repunit generator words. Exact residue jump-maxima are not an algebraic restatement of existing closed formula for w(r) without proof.",
+        "searches": [
+          "Resultary: 2^n+1 generalized repunit companion numerical semigroup pseudo Frobenius type n-2",
+          "Web Fermat-type 2^n+1 semigroup pseudo Frobenius Apéry maximum residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dijkstra exact small n recovered type n-2; checked primary full result tables concern distinct repunit multiplicities and do not list this PF set."
+        ],
+        "reasoning": "A calculated Frobenius number or maximum Apéry residue is not a complete PF table, and the tail block is an all-parameter classification not supplied by the checked repunit tables.",
+        "searches": [
+          "2^n+1 semigroup pseudo frobenius n-2 exact sequence",
+          "Resultary companion numerical semigroup Fermat type"
+        ]
+      },
+      "rationale": "The 2023 generalized repunit source includes the needed generic greedy/Apéry description but its explicit pseudo-Frobenius theorem assumes a repunit multiplicity (b^n−1)/(b−1); present a=2^n+1 is not that family. Other generalized repunit results likewise use repunit multiplicity. The full isolated-largest-gap plus (n−3)-block PF spectrum and type n−2 for all n>=3 require the new jump-maxima argument; no equivalent same-parameter theorem found in Resultary/primary-source comparisons.",
+      "residual_risks": [
+        "Generalized-repunit companion specializations in unindexed dissertations/appendices could already list this exact PF spectrum.",
+        "Full Branco–Colaço–Ojeda article was not inspected; assessment is restricted to its stated scope and related accessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL APERY COVERED; explicit PF special theorem does not meet this multiplicity",
+          "evidence": "Theorem4.3 classifies first generator a=(b^n−1)/(b−1), whereas current a=2^n+1; Lemma3.3 supplies valid general method.",
+          "identifier_or_url": "arXiv:2306.10738v1 | https://arxiv.org/html/2306.10738v1",
+          "material_read": "Complete publicly accessible arXiv HTML; inspected Lemma3.1 greedy property, Lemma3.3 Apéry formula, Theorem4.3 hypotheses and PF result",
+          "method": "read original full HTML and compare generator parameter definitions/hypotheses",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Same generating framework and specific Apéry and PF theorem"
+        },
+        {
+          "assessment": "INCOMPLETE full-text priority check; different repunit multiplicity in stated scope",
+          "evidence": "Article studies generalized repunit semigroups with first generator an actual base-b repunit; no whole-document noncoverage claimed.",
+          "identifier_or_url": "DOI:10.1007/s00009-022-02233-w",
+          "material_read": "Publisher DOI abstract and bibliographic family statement, not full article",
+          "method": "lawful OA/abstract context and cited source theorem comparison",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "Possible dominating generalized repunit family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu 2023 Apéry and repunit PF families",
+        "new jump-maxima lemma and n-2 result"
+      ],
+      "rationale": "A complete PF spectrum and type of a natural Fermat-shaped companion to the well-studied Mersenne/repunit semigroups gives an infinite-family structural contrast. The isolated Frobenius gap plus consecutive lower gap block and linear type n−2 are useful exact invariants, not inferred from known Frobenius values alone.",
+      "residual_risks": [
+        "No claim of classifications for arbitrary generalized-repunit parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n every integer>=3, a=2^n+1 not assumed prime.",
+    "Depends on cited greedy and generalized Apéry lemmas.",
+    "Independent Dijkstra check n<=8, distinct from universal symbolic induction.",
+    "The frozen PUBLIC AUDIT.json and METADATA.json contain scope_run_id operational identifiers. No complete, semantically sanitized versions with exact source blob guards and content hashes were prepared. Keep scientific evidence, withhold publication; server status-file postprocessing is not a substitute for verified removal from source-public metadata."
+  ],
+  "schema_version": 1
+}
