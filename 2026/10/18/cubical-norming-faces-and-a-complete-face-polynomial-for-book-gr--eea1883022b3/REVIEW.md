@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete five-case optimization of a general support functional over the dual Lipschitz ball, plus the two zero-leaf-coefficient cases, exhausts exposed faces. Counting zero coefficients and the upper/lower sign patterns yields the exact polynomial. The interval-hub faces have an explicit \((k+1)\)-cube combinatorial structure. Polarity gives the extreme-point norming-face and vertex-degree consequences. Independent finite algorithms based on exact facet intersections and tight-edge connectivity agree for all \(2\le m\le6\). The analytic proof, not the computation, establishes the result for every \(m\ge2\).
+## correctness
 
-**Originality — PASS, subject to bibliographic limitations.** D'Alì–Delucchi–Michałek (arXiv:1910.05193) provide the symmetric-edge/Lipschitz-free identification. Chen–Davis–Korchevskaia (arXiv:2107.12315) provide the general face-subgraph criterion. Mori–Mori–Ohsugi (arXiv:2312.11287) establish join-graph facet results. All were examined beyond abstracts; none of the inspected treatments gives the complete book-graph norming-face types or evaluated all-dimensional face polynomial. A separately published book-graph Löwner-ellipsoid theorem treats outer ellipsoids, not faces. The known total facet count is excluded from the novelty claim. Unindexed equivalent work remains a risk; negative searches alone do not prove novelty.
+PASS
 
-**Value — PASS.** Norming-functional sets determine nonsmoothness in real Banach spaces. An infinite, natural, nontrivial family has every such set cubical, with complete counts by dimension; the result also rigidly determines all extreme-point vertex figures and degrees. It refines aggregate facet enumerations into an exact full norming-face description rather than an arbitrary isolated numerical invariant.
+For book graph B_m=K_2 join independent m leaves, f(u)=0 identifies dual Q_m with |b|<=1, |x_i|<=1, |x_i-b|<=1. Exposing functional s b+sum a_i x_i, positive/negative total leaf coefficients P,N and k zero entries yield exact piecewise maximized support sum|a_i|+b(s-N) on 0<=b<=1 and sum|a_i|+b(s+P) on -1<=b<=0. For a!=0 the five mutually exhaustive regimes s>N, s=N, -P<s<N, s=-P, s<-P give three singleton-hub k-cubes and two interval-hub (k+1)-cubes. Case a=0 gives two m-cubical hub facets and for s=0 whole ball only. Distinct zero/sign patterns exhaust all proper exposed faces (every polytope face exposed), counted by 3sum_(k<m)binom(m,k)2^(m-k)t^k+2t sum_(k<m)binom(m,k)2^(m-k)t^k+2t^m+t^(m+1)=(3+2t)(2+t)^m-t^m(1+t). Polarity yields primal vertex figures combinatorial m-crosspolytopes and degree 2m. Independently enumerated closure intersections of 2+4m inequalities and affine dimensions for m=2,3,4, obtaining [12,20,10,1],[24,52,42,14,1],[48,128,136,72,18,1], exactly predicted. Source verify_book_faces.py inspected, not blindly run; finite ranks corroborate only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Symmetric edge/polyhedral Lipschitz identification and general face-subgraph criteria are known; counts of facets alone and exact ellipsoid of same graph are not new. The genuine assertion is cubical type of every nonempty proper dual face and full polynomial for all m, plus complete Banach norming-face interpretation. Inspected relevant graph families and Resultary ellipsoid show no actual stated full f-vector, but methods may make specialization straightforward; priority risk preserved.
+
+## value
+
+PASS
+
+The entire face lattice by dimension of the natural edge-sharing triangle graph family, and norming-functional geometry of its Lipschitz-free space, are canonical exact structural invariants useful to graph polytopes, Banach norming sets and face enumeration. The full cubical classification adds information far beyond previously available facet totals and is not an arbitrary small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
