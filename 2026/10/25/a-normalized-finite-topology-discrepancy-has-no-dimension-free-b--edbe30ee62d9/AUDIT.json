@@ -1,0 +1,106 @@
+{
+  "claim": "For every integer \\(N\\ge4\\), there are two coarsening filtrations of finite topologies on the same \\(N\\)-point set whose uniform normalized minimal-open discrepancy is \\(1/N^2\\), while the degree-one bottleneck distance of the induced persistence diagrams is exactly \\(1\\). Consequently, no constant \\(C\\) independent of \\(N\\) can bound \\(d_B\\le C\\Delta_N\\) for all such filtrations.",
+  "correctness": {
+    "rationale": "The two middle-stage order complexes are explicit: a four-cycle with integral \\(H_1\\) equal to \\(\\mathbb Z\\), and a disk formed by two triangles sharing an edge. The discrete-to-middle-to-indiscrete coarsening filtration gives exactly the interval \\((0,2)\\) in degree one for the first family and no degree-one interval for the second. Only one minimal open changes by one point, so the normalized discrepancy is exactly \\(1/N^2\\); the bottleneck cost to the diagonal is exactly \\(1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The v1 stability theorem assumes two finite metrics on the same set differ by at most epsilon and concludes an epsilon bottleneck bound.",
+        "The v4 stability propositions assume mutual local refinement, full-memory fixed-dictionary control, or Quillen-faithful transfer; the empirical discrepancy is reported separately."
+      ],
+      "reasoning": "The example is broader in the class of inputs (all abstract coarsening finite-topology filtrations) but is not a counterexample to the source paper’s metric-perturbation or conditional structural stability results, whose hypotheses are absent.",
+      "searches": [
+        "finite-topological discrepancy bottleneck distance stability finite topological space filtrations",
+        "finite topological space filtration normalized minimal open symmetric difference persistence diagram instability dimension-free bound",
+        "arXiv:2512.23348v1 §4",
+        "arXiv:2512.23348v4 §§5.1–5.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.23348v1, §§2–4, https://arxiv.org/html/2512.23348v1",
+      "arXiv:2512.23348v4, §§5.1–5.4, https://arxiv.org/html/2512.23348v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior metric-perturbation theorem controls bottleneck distance by a bound on the input metric perturbation, not by the minimal-open discrepancy.",
+        "The later paper explicitly distinguishes its per-level discrepancy from an interleaving distance and reports empirical rather than universal comparisons."
+      ],
+      "reasoning": "The prior results do not imply the new no-go statement. The added comparability fills a four-cycle with two triangles while changing only one point of one minimal open; adjoining isolated points makes the normalized discrepancy tend to zero without changing the degree-one interval length.",
+      "searches": [
+        "finite-topological discrepancy bottleneck distance stability finite topological space filtrations",
+        "minimal opens bottleneck distance persistent homology finite topological spaces stability",
+        "finite poset order complex 4-cycle add one comparability relation fills cycle two triangles changes first homology",
+        "arXiv:2512.23348v1 §4.3",
+        "arXiv:2512.23348v4 §5.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.23348v4 §5.4 defines the per-level normalized sum of symmetric differences of minimal opens and says this quantity is not an interleaving distance.",
+        "The constructed diagrams are exactly one interval \\((0,2)\\) versus the empty diagram, so the bottleneck distance is the exact diagonal cost \\(1\\)."
+      ],
+      "reasoning": "The closest formulation is a comparison of two different quantities, but the new statement is stronger and exact: it gives a family with discrepancy \\(1/N^2\\) and bottleneck distance \\(1\\), proving that no N-independent Lipschitz constant exists.",
+      "searches": [
+        "finite-topological discrepancy bottleneck distance stability finite topological space filtrations",
+        "minimal opens bottleneck distance persistent homology finite topological spaces stability",
+        "arXiv:2512.23348v1 §§2–4",
+        "arXiv:2512.23348v4 §5.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper’s Table 4 reports empirical medians of finite-topological discrepancies and bottleneck distances for selected practical configurations; it is not a universal inequality or exact counterexample table.",
+        "Targeted searches returned related finite-poset homology and persistence results but no exact statement using this normalized minimal-open discrepancy."
+      ],
+      "reasoning": "No exact prior database or table applies to this universal claim. The closest table is empirical and does not establish a dimension-independent Lipschitz bound; the finite example is proved directly.",
+      "searches": [
+        "finite-topological discrepancy bottleneck distance stability finite topological space filtrations",
+        "finite topological space filtration normalized minimal open symmetric difference persistence diagram instability dimension-free bound",
+        "arXiv:2512.23348v4 §5.4 and Table 4"
+      ]
+    },
+    "rationale": "The closest primary source establishes stability for bounded input-metric perturbations and later gives conditional local-refinement/full-memory results plus empirical discrepancy comparisons. The exact no-dimension-free-bound statement is not implied by those hypotheses. Targeted literature and database searches found no statement covering this normalized discrepancy family; search failure alone is not treated as proof of novelty.",
+    "residual_risks": [
+      "The construction is an abstract finite-topology filtration and may not be realizable by the density-based metric-generated subclass or the practical anchor-selection procedures.",
+      "The counterexample is elementary; a broader literature search cannot prove absolute novelty. No exact covering result was found in the inspected primary source or targeted searches.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves an interleaving bound for filtrations induced by bounded perturbations of the input metric; it does not imply a bound in terms of the normalized symmetric-difference discrepancy for arbitrary finite-topology filtrations.",
+        "evidence": [
+          "arXiv:2512.23348v1, §§2.1–2.2 and §§3.2–4.3; lines 145–201 and 262–313 in the HTML version."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.23348v1",
+        "material_read": "Full text, including the finite-topology/poset conventions, filtration construction, and metric-perturbation stability argument in §§2–4.",
+        "method": "Compared the hypotheses and metric in the stated stability theorem with the normalized minimal-open discrepancy used in the present claim.",
+        "title": "Persistent Homology via Finite Topological Spaces",
+        "trigger": "Primary recent source for finite-topology filtrations and their stability theory."
+      },
+      {
+        "assessment": "The paper gives conditional stability results using local-refinement or scheduled-lifetime hypotheses and empirical comparisons of the discrepancy with bottleneck distance; it does not state the no-dimension-free-bound theorem proved here.",
+        "evidence": [
+          "arXiv:2512.23348v4, §5.1, §§5.2–5.4; HTML lines 1179–1197, 1244–1258, and 1299–1303."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.23348v4",
+        "material_read": "Full text of §§5.1–5.4, including local-refinement stability, full-memory fixed-dictionary stability, the per-level discrepancy formula, and the distinction from interleaving distance.",
+        "method": "Compared the new universal counterexample with the stated structural hypotheses and the scope of the empirical table.",
+        "title": "Finite Topological Space Filtrations: A Topological Framework for Data Analysis",
+        "trigger": "Direct source for the normalized minimal-open discrepancy and empirical comparison to bottleneck distance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "edbe30ee-62d9-46a5-a80b-0625a747e033",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact quantitative obstruction to treating normalized minimal-open discrepancy as a dimension-independent stability metric for persistence: one altered comparability destroys a degree-one interval of fixed lifetime while the normalized discrepancy decays quadratically with the number of points. This separates empirical correlations from universal stability claims and identifies the need for additional structural hypotheses.",
+    "status": "PASS"
+  }
+}
