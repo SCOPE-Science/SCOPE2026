@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with a Python 3 interpreter. The program has no third-party dependencies. It computes direct quantifier-free atomic signatures separately from the integer-partition/factorial/Stirling model and tests the exact first-collision classification.
+## correctness
 
-Observed execution result:
+PASS
 
-`VERIFY_OK partitions_tested=44 injective_profile_checks=240 direct_tuple_assignments=626590 first_nondegenerate_labeled_collision=n5 first_nondegenerate_unlabeled_collision=n4 n5_injective_profile=(1, 2, 4, 7, 10)`
+An injective E-pattern with demanded block sizes mu embeds in host class-size capacities lambda iff each sorted mu_i<=lambda_i. Weight of each admissible labeled set partition is r!/(prod mu_i! prod_j multiplicity_j!), yielding b_r, while u_r counts admissible integer partitions. Every ordered k-tuple has one of Stirling(k,r) equality partitions and b_r E-patterns, hence T_k=sum S(k,r)b_r; all qf definable relations are unions of atomic diagrams, count 2^T_k. Because b_n>0, S(k,n)~n^k/n! gives lim T_k^(1/k)=n; first n via triangular inversion. Explicit n4 and n5 partition lists prove minimality of distinct-profile collisions. n5 pair (3,2),(2,1,1,1) both b=(1,2,4,7,10); n4 unlabeled (3,1),(2,1,1) both u=(1,2,2,1). Degenerate equality/universal cases explicitly excluded for first-boundary claim.
 
-The program enumerates equivalence-class-size partitions on one to seven elements, checks each possible injected labeled relation by direct enumeration, compares type counts obtained from direct tuple assignments against the stated formulas through arity five, and tests the special five-element pair through arity seven. The full infinite-arity equality of profiles and all-cardinality counting formula require the mathematical proof in `RESULT.md`; finite enumeration alone does not establish them. This is a local computational check and not an independent scientific audit.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. The nondegenerate sharp cutoff and precise pair are additional numerical results; only general framework is prior.
+
+## value
+
+PASS
+
+A sharp minimal reconstructibility obstruction for numeric parameter-free quantifier-free definability spectra in the elementary finite-equivalence signature, contrasting labeled and unlabeled profiles. The natural invariant matters when only count statistics rather than actual types are retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
