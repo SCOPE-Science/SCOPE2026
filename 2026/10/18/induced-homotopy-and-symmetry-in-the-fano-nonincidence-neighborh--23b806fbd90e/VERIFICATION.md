@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify_fano_nonincidence.py` with Python 3.9 or newer; it has no third-party dependencies. The verifier reconstructs all seven lines and seven cap tetrahedra from binary vector arithmetic, checks the complete seven-vertex face vector, exhausts 127 nonempty induced subcomplexes, computes exact rational boundary ranks, and enumerates all 168 collineations for signed Lefschetz characters.
+# Independent mathematical audit
 
-The accompanying mathematical proof independently establishes simple connectivity of all induced subcomplexes with at least four vertices by coning every missing Fano-line triangle to a fourth vertex. Every tetrahedron has a triangular face appearing in no other tetrahedron; elementary collapses reduce each such complex to dimension two. Integral degree-two inclusion injectivity follows from this same unique-triangle property. These topological and chain-support arguments are not inferred solely from finite-field experiments or recorded rank logs.
+## correctness
 
-The six-dimensional rational representation is identified using the standard character table of the 168-element group. The twenty-one minimal-carrier images span by group transitivity and rational irreducibility. No claim of saturated integral generation, a higher-order projective-plane generalization, or independent validation is made.
+PASS
+
+The point component of the open neighborhood complex is the union of the seven cap tetrahedra (complements of Fano lines). Its 1-skeleton is K7, the triangles are 28 noncollinear triples and each belongs to exactly one tetrahedron. For |W|≥4, each missing collinear-triangle loop cones through a fourth point; then collapse all tetrahedra using private triangle faces to obtain simply connected 2-complex. Euler counts yield reduced H2 rank 1 on all 21 five-subsets, 3 on all seven six-subsets, 6 for full seven, zero otherwise, while collinear triple yields S1. Unique-triangle property proves injection of every H2 inclusion over Z. All 168 GL3(F2) signed Lefschetz traces independently computed: orders 1,2,3,4,7 yield 6,-2,0,2,-1, matching rational irreducible six-dimensional character; transitivity of 21 five-subsets and rational irreducibility gives their span. Independent GF2 chain-rank checks verified all 127 induced subsets; integral injectivity is from proof, not GF2 test.
+
+## originality
+
+PASS
+
+Published Heawood incidence-graph independence complex has same exceptional rational character in H3 but differs in simplicial object, dimension and induced-support data; no implication of integral injection here. Published ternary PG(2,3) nonincidence neighborhood result concerns 13-point geometry and different mixed degree topology, not binary Fano case. Matsushita is broad π1 theory without this complete finite classification. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+A complete natural finite-geometry induced homotopy classification, integral persistence of all H2 classes, minimal supports and equivariant character is useful beyond the known total rank or a single character coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

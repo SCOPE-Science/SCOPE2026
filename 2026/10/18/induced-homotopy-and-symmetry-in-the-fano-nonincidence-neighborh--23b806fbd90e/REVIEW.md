@@ -1,15 +1,21 @@
-# Review: Induced homotopy and symmetry in the Fano nonincidence neighborhood complex
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The seven-point construction is explicit. Complete-graph one-skeleton, cone fillings for all missing line triangles, disjoint free triangular faces of the seven cap tetrahedra and exact Euler counts jointly prove the integral homotopy spectrum. Unique triangular faces prove integral injectivity of every induced degree-two map, independently of numerical elimination. A standard-library verifier exhaustively checks all 127 induced subcomplexes, rational boundary ranks, 168 collineation traces, and the six-dimensional character. Collineation transitivity plus rational irreducibility proves the 21 minimal images span rationally. There is no claim of integral lattice saturation.
+## correctness
 
-## Originality
-**PASS with residual bibliographic risk.** The closest published result concerns the 13-point component of the ternary projective nonincidence graph, which has a distinct mixed-dimensional homotopy type. A published Heawood independence-complex result realizes the same six-dimensional character in degree three on a different complex, and the Fano matroid independence complex has a previously known 13-dimensional second-homology representation. None of these results determines the induced homotopy types and integral injection maps of the binary-plane nonincidence complex. This comparison evaluates implication and natural equivalences, not merely titles. An unindexed equivalent computation is possible.
+PASS
 
-## Mathematical value
-**PASS.** The theorem identifies the sharp support threshold, completely classifies 127 induced topologies of a canonical finite-geometry complex, and shows a nontrivial integral persistence property: every induced inclusion is injective on degree-two homology. The minimal carrier orbit generates a natural irreducible rational representation. The binary case is a meaningful boundary to the known ternary-plane study, not an arbitrary slice.
+The point component of the open neighborhood complex is the union of the seven cap tetrahedra (complements of Fano lines). Its 1-skeleton is K7, the triangles are 28 noncollinear triples and each belongs to exactly one tetrahedron. For |W|≥4, each missing collinear-triangle loop cones through a fourth point; then collapse all tetrahedra using private triangle faces to obtain simply connected 2-complex. Euler counts yield reduced H2 rank 1 on all 21 five-subsets, 3 on all seven six-subsets, 6 for full seven, zero otherwise, while collinear triple yields S1. Unique-triangle property proves injection of every H2 inclusion over Z. All 168 GL3(F2) signed Lefschetz traces independently computed: orders 1,2,3,4,7 yield 6,-2,0,2,-1, matching rational irreducible six-dimensional character; transitivity of 21 five-subsets and rational irreducibility gives their span. Independent GF2 chain-rank checks verified all 127 induced subsets; integral injectivity is from proof, not GF2 test.
 
-## Scope and limitations
-The result is for the Fano projective plane and the incidence-preserving 168-element collineation group. It is not an all-orders projective-plane theorem, an integral saturation result, or a characterization of point-line-duality actions. Bibliographic priority beyond the searched sources is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Heawood incidence-graph independence complex has same exceptional rational character in H3 but differs in simplicial object, dimension and induced-support data; no implication of integral injection here. Published ternary PG(2,3) nonincidence neighborhood result concerns 13-point geometry and different mixed degree topology, not binary Fano case. Matsushita is broad π1 theory without this complete finite classification. This is best-of-knowledge originality, not a proof of historical priority.
+
+## value
+
+PASS
+
+A complete natural finite-geometry induced homotopy classification, integral persistence of all H2 classes, minimal supports and equivariant character is useful beyond the known total rank or a single character coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
