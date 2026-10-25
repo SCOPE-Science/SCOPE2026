@@ -1,0 +1,228 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T04:32:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof and boundary conventions",
+        "Assigned verification.py source inspected (not blindly trusted)",
+        "Independent sympy quartic factor expansion and 56 finite KKT/numerical cases in independent_checks_source.py"
+      ],
+      "rationale": "The claim is mathematically correct for the stated real or complex ell_p^3 smooth range 1<p<infinity. The unique normalized duality map gives the quotient (A u^(p-1)+B v)/(1+u^p+v^p), with interior global maximizer for A,B>0 by epsilon perturbation on boundary and compactness. Stationarity yields p w u=(p-1)A, p w v^(p-1)=B and u^p/(p-1)+(p-1)v^p=1, hence a unique strictly decreasing positive scalar root and the exact mixed-Luxemburg norm. Zero-weight cases are rank-one limits; p=2 gives sqrt(A^2+B^2)/2. Continuous image of connected sphere plus phase rotations supplies full disk over C and interval over R. For p=4 the stated identity H^3-(CH+D^3)^2=CD(C^4+3C^3D+3C^2D^2+3CD^3+D^4)>0 and uniqueness of positive cubic roots rigorously imply v_4(A,B)>v_4(B,A) for all A>B>0. Independent symbolic polynomial expansion verified the quartic factorization; 56 parameter cases with KKT witness and independent optimization gave max numerical violation 0, duality and witness discrepancies below 9e-16. Numerical cases do not establish universal proof; that follows from the analytic chain in RESULT.md.",
+      "residual_risks": [
+        "No p=1 or p=infinity assertion is proved; no longer-shift or general matrix extension.",
+        "Finite numeric optimization and exact symbolic factorization support but do not replace analytic global proof; no Lean/expert certificate is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first published Resultary theorem is at least as general as the central complex-space result: arbitrary complex or zero weights, full p range, exact disk and maximizing-vector magnitudes; it also explicitly states conjugate-exponent reversal.",
+          "The second published Resultary theorem covers every strictly positive real pair in both scalar fields and uniquely determines maximizing phases. That already covers the audited positive-weight and real-field claims.",
+          "Müller--Tomilov focus on 2x2 finite geometry and truncated-shift inequalities, while An--Heo Example 2.4 computes the one-link 2x2 disk. Those narrower external sources are not the decisive obstruction."
+        ],
+        "reasoning": "Two published mathematical statements directly dominate the audited exact-radius classification, so a literature-access exception cannot overcome positive prior coverage. The special real-field, zero-weight, Hilbert and phase subclaims do not supply an unserved original remainder.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272, full RESULT.md",
+          "Resultary: 2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1, full RESULT.md",
+          "arxiv:2606.22693 (Müller and Tomilov 2026), full HTML sections 2 and 4",
+          "DOI:10.1186/s13660-022-02886-x (An and Heo 2022), full HTML section 2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1",
+        "https://link.springer.com/article/10.1186/s13660-022-02886-x",
+        "https://arxiv.org/abs/2606.22693",
+        "Assigned Git tree / RESULT.md; REVIEW.md; SLOGAN.txt; METADATA.json; AUDIT.json; VERIFICATION.md; verification.py at commit 6c379935c2e469fc18959fc6c387e31328c64bcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published formula k_p R_p(A,B), with R_p the unique root of (A/R)^p+(B/R)^q=1, directly implies the assigned boxed v_p=k_p L_{p,q}(A,B) for all A,B and p by setting R=L_{p,q}.",
+          "The same published theorem explicitly gives W_p as a closed disk and v_p(A,B)=v_q(B,A), so neither these statements nor the conjugate duality are new.",
+          "For p=4 the published all-weight formula determines both orientations for every A>B; the audited universal strict inequality is a consequence of comparing those two already-determined functions, even though the published paper gives a concrete strict example rather than writing the full comparison.",
+          "The other published positive-weight classification is an independent expression of the same exact function; restricting it or taking zero-weight limits cannot yield an original complete theorem."
+        ],
+        "reasoning": "Logical implication is decisive: the audited entire scalar law and principal numerical-range/duality consequences are mathematically encoded in the already public exact formula. A proof of an inequality between values supplied by that formula is a corollary, not a new unrestricted classification. There is no surviving correct-original-valuable core supporting repair under the prescribed bar.",
+        "searches": [
+          "Read both published Resultary RESULT.md full proofs and numerical range findings, same exact three-site shift",
+          "Read assigned RESULT.md, SLOGAN.txt and quartic orientation proof",
+          "Read An--Heo (2022) Example 2.4 and Müller--Tomilov (2026) Proposition 2.1/4.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previously published Resultary three-site weighted-shift result states, for every complex two-link shift and all 1<p<infinity, exactly the same equation (|a|/R)^p+(|b|/R)^q=1 and numerical radius h_p R, where h_p=(p-1)^((p-1)/p)/p; its entire spatial numerical range is also the closed disk. This agrees term-for-term with the audited mixed Luxemburg functional L_{p,q} and k_p.",
+          "The second independently indexed published Resultary record gives a monotone scalar equation in u for every positive weight pair on real/complex ell_p^3; its stationary equations imply the identical mixed-exponent radius, and it classifies all maximizing moduli and phases.",
+          "The assigned RESULT.md uses k_p=(p-1)^(1/q)/p=(p-1)^((p-1)/p)/p; its Luxemburg unit equation is precisely the published R equation, not a different norm or normalization."
+        ],
+        "reasoning": "Exact coincidence under the same operator S(z)=(az2,bz3,0), same real/complex smooth ell_p setting, same ordered two weights, same q=p/(p-1), and same normalized duality pairing. The distinct title and gauge terminology do not create a new result; the published complex equality covers the principal theorem and its exact disk range. The real radius is independently covered by the other published positive-weight formula and phase reduction.",
+        "searches": [
+          "Resultary Search: spatial numerical radius three dimensional l_p weighted nilpotent two edge shift exact formula mixed p conjugate q Luxemburg gauge",
+          "Resultary Search: spatial numerical range Banach ellp3 nilpotent shift weighted two links operator numerical index",
+          "Resultary: 2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+          "Resultary: 2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published, parametrically exact Resultary record already supplies the entire function (A,B,p) -> h_p R with unique implicit positive root, not just selected table values or a numerical sample.",
+          "The companion published record supplies another algebraically equivalent exact scalar equation and universal maximizing-vector classification.",
+          "The audited example values near 1.26677874170883 and 1.18733148093846 follow by specializing this published all-weight formula to p=4 and A,B=2,1 or 1,2."
+        ],
+        "reasoning": "The exact formula itself is present in the published corpus. It is stronger evidence of coverage than an approximate table or one-parameter chart; incomplete independent numerical experiments cannot restore originality.",
+        "searches": [
+          "Resultary Search: Orlicz mixed p q gauge weighted shift numerical radius three coordinates",
+          "Resultary exact published record IDs b6805f9f0272 and b3244292cab1",
+          "web: numerical radius two-link shift l_p mixed Luxemburg 3x3 weighted nilpotent"
+        ]
+      },
+      "rationale": "FAIL by decisive exact published mathematical coverage. The published Resultary 2026/10/11 b6805f9f0272 result states and proves exactly the same h_p times the mixed (p,q) gauge as the assigned result for complex arbitrary weights, with full disk and duality. The published b3244292cab1 result independently gives an equivalent universal scalar-root radius on real/complex ell_p^3 with positive weights and maximizing phases. These match objects, parameters, normalization and statements, not just title/keywords. The quartic all-weight order statement is a consequence of comparing the prior universally exact radius functions, and thus cannot rescue an otherwise covered theorem. Both published source texts were actually read; older journal work is only narrower background. Date-order uncertainty between same-day published records is preserved as a historical risk, not used to assert independence or originality.",
+      "residual_risks": [
+        "The two exact-covering Resultary findings and audited record carry the same stated publication date 2026-10-11, so their intra-day chronology or independent authorship is not determined here; as of this 2026-10-25 audit, however, the complete target statement is already published twice, preventing distinct originality under the requested implication standard.",
+        "Older literature beyond the inspected primary sources may provide additional, earlier coverage; finding more coverage would not alter the originality failure.",
+        "A published exact formula may be expressed through alternative monotone stationary variables; the mathematical equivalence has been explicitly compared, not inferred from titles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: same complex two-link operator, exact h_p R_p formula with unique mixed p,q unit equation, full numerical-range disk and conjugate-exponent reversal; directly subsumes the main audited theorem.",
+          "evidence": [
+            "Full published Finding: (|a|/R_p)^p+(|b|/R_p)^q=1 and w_p=h_p R_p on complex ell_p^3, arbitrary complex weights; h_p=(p-1)^((p-1)/p)/p.",
+            "Proof §3 obtains r=(p-1)|a|/(p w), s=(|b|/(p w))^(1/(p-1)) and unique root.",
+            "Proof §4 yields entire disk; §5 gives w_p(T_{a,b})=w_q(T_{b,a}) and a strict p=4 reversal example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+          "material_read": "Complete published RESULT.md including finding, hypotheses, proof steps 1–5, all maximizing moduli, complex disk, duality, p=4 example, prior work, limitations and references; also SLOGAN.txt and scientific metadata.",
+          "method": "Read-only full GitHub blob fetch at published Resultary repository, not a search snippet.",
+          "title": "Exact mixed-exponent numerical ranges of three-site weighted shifts on ell_p",
+          "trigger": "Near-exact semantic match in published Resultary mathematical corpus, with identical operator and p, q parameterization."
+        },
+        {
+          "assessment": "COVERING: equivalent scalar-root formula for all positive weights, both scalar fields; more detailed maximizer classification.",
+          "evidence": [
+            "Equation (1) u^(p-1)+(p-1)^((p-2)/(p-1))(b/a)^q u=p-1 and equation (2) v_p=(p-1)a/(p u^((p-1)/p)).",
+            "Proof displays normalization and stationarity; equivalent to the assigned mixed Luxemburg root after elimination.",
+            "The source is another public theorem with full proof, not a mere title match."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1",
+          "material_read": "Complete published RESULT.md including full monotone root equation (1), stationary proof, all real/complex maximizing phases, p=4 numerical value and limitations; SLOGAN.txt and metadata.",
+          "method": "Read-only full GitHub blob fetch of published primary mathematical finding.",
+          "title": "Exact numerical radius of a two-weight nilpotent shift on ell_p^3",
+          "trigger": "Same finite operator family and numerical radius under positive weights on real and complex spaces."
+        },
+        {
+          "assessment": "NON-COVERING by itself for the two-active-link formula: Example 2.4 proves only 2x2 one-link disk of radius (p-1)^((p-1)/p)/p; infinite backward shift is distinct.",
+          "evidence": [
+            "Example 2.4 gives W_p([0 1;0 0]) as the closed disk of radius k_p for 1<p<infinity.",
+            "Theorem 2.10 treats infinite-dimensional backward shift open unit disk, not the finite weighted three-coordinate invariant."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-022-02886-x",
+          "material_read": "Open-access full HTML, definitions and Section 2 with Lemma 2.3, Example 2.4, propositions and Theorem 2.10.",
+          "method": "Full lawful publisher HTML examination, inspected formulas and proofs.",
+          "title": "Numerical ranges and complex symmetric operators in semi-inner-product spaces",
+          "trigger": "Same Banach spatial numerical-range notion and nilpotent weighted shift, plausible rank-one antecedent."
+        },
+        {
+          "assessment": "NON-COVERING for the exact arbitrary-two-weight ell_p^3 mixed norm: §2 treats 2x2 ranges, §4.6 bounds polynomial-functional-calculus quantities, not the full two-link radius classification.",
+          "evidence": [
+            "Proposition 2.1 parametrizes 2x2 ell_p operators and Example 2.4 gives non-convexity of other operator ranges.",
+            "Proposition 4.16 proves finite shift test inequalities at scale n^|1/p-1/2|, not a two-variable exact gauge."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.22693",
+          "material_read": "Accessible full arXiv HTML source, introduction, §2 2x2 parametrization and finite-dimensional consequences, §4.6 finite-dimensional shift tests including Proposition 4.16 and nearby proofs.",
+          "method": "Public arXiv full-text HTML with theorem locations and proofs; no need for institutional download.",
+          "title": "Numerical and essential numerical ranges on ell_p",
+          "trigger": "2026 primary study of spatial numerical ranges, non-Hilbert ell_p geometry and truncated shifts; broad-coverage risk."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Complete assigned two-weight classification and quartic proof",
+        "Full published exact result b6805f9f0272 (corroborates naturalness and prior coverage)",
+        "Full published positive-weight classification b3244292cab1"
+      ],
+      "rationale": "The underlying exact two-weight numerical-radius invariant remains mathematically substantive: three sites are the smallest nilpotent chain with interacting adjacent coefficients, and the all-parameter gauge, duality, full numerical-range geometry and strict non-Hilbert orientation are natural useful structural facts. This earns intrinsic V=PASS separately from novelty; the work is not an arbitrary numerical table or a trivial one-link substitution. Its established prior publication makes the submitted claim ineligible as an original finding (O=FAIL), regardless of this intrinsic mathematical value.",
+      "residual_risks": [
+        "Intrinsic value of the mathematical theorem does not provide a distinct original contribution to the existing published corpus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1",
+    "https://link.springer.com/article/10.1186/s13660-022-02886-x",
+    "https://arxiv.org/abs/2606.22693",
+    "Assigned Git tree / RESULT.md; REVIEW.md; SLOGAN.txt; METADATA.json; AUDIT.json; VERIFICATION.md; verification.py at commit 6c379935c2e469fc18959fc6c387e31328c64bcf"
+  ],
+  "disposition": "failed",
+  "final_claim": "Every two-edge nilpotent weighted shift S_{a,b} on real/complex ell_p^3 for 1<p<infinity has spatial numerical radius k_p L_{p,q}(|a|,|b|) with q=p/(p-1), unique scalar root, complex full disk and real interval, conjugate-exponent reversal, and p=4 strict A>B orientation ordering.",
+  "limitations": [
+    "Scientific originality rejection is from directly published exact same-claim statements, not missing access or unsuccessful searches.",
+    "The published covering results bear the same UTC publication date as target; exact intra-day precedence or independence is not established.",
+    "No assertions at p=1, p=infinity or for longer weighted shifts.",
+    "Git tree SHA-1 independently reconstructed from all seven GitHub-returned blob identities; not every complete blob was rehashed locally.",
+    "All potentially public original operational-provenance files withheld from publication; no public replacement bytes staged."
+  ],
+  "residual_risks": [
+    "The two exact-covering Resultary findings and audited record carry the same stated publication date 2026-10-11, so their intra-day chronology or independent authorship is not determined here; as of this 2026-10-25 audit, however, the complete target statement is already published twice, preventing distinct originality under the requested implication standard.",
+    "Older literature beyond the inspected primary sources may provide additional, earlier coverage; finding more coverage would not alter the originality failure.",
+    "A published exact formula may be expressed through alternative monotone stationary variables; the mathematical equivalence has been explicitly compared, not inferred from titles."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: same complex two-link operator, exact h_p R_p formula with unique mixed p,q unit equation, full numerical-range disk and conjugate-exponent reversal; directly subsumes the main audited theorem.",
+      "evidence": [
+        "Full published Finding: (|a|/R_p)^p+(|b|/R_p)^q=1 and w_p=h_p R_p on complex ell_p^3, arbitrary complex weights; h_p=(p-1)^((p-1)/p)/p.",
+        "Proof §3 obtains r=(p-1)|a|/(p w), s=(|b|/(p w))^(1/(p-1)) and unique root.",
+        "Proof §4 yields entire disk; §5 gives w_p(T_{a,b})=w_q(T_{b,a}) and a strict p=4 reversal example."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+      "material_read": "Complete published RESULT.md including finding, hypotheses, proof steps 1–5, all maximizing moduli, complex disk, duality, p=4 example, prior work, limitations and references; also SLOGAN.txt and scientific metadata.",
+      "method": "Read-only full GitHub blob fetch at published Resultary repository, not a search snippet.",
+      "title": "Exact mixed-exponent numerical ranges of three-site weighted shifts on ell_p",
+      "trigger": "Near-exact semantic match in published Resultary mathematical corpus, with identical operator and p, q parameterization."
+    },
+    {
+      "assessment": "COVERING: equivalent scalar-root formula for all positive weights, both scalar fields; more detailed maximizer classification.",
+      "evidence": [
+        "Equation (1) u^(p-1)+(p-1)^((p-2)/(p-1))(b/a)^q u=p-1 and equation (2) v_p=(p-1)a/(p u^((p-1)/p)).",
+        "Proof displays normalization and stationarity; equivalent to the assigned mixed Luxemburg root after elimination.",
+        "The source is another public theorem with full proof, not a mere title match."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1",
+      "material_read": "Complete published RESULT.md including full monotone root equation (1), stationary proof, all real/complex maximizing phases, p=4 numerical value and limitations; SLOGAN.txt and metadata.",
+      "method": "Read-only full GitHub blob fetch of published primary mathematical finding.",
+      "title": "Exact numerical radius of a two-weight nilpotent shift on ell_p^3",
+      "trigger": "Same finite operator family and numerical radius under positive weights on real and complex spaces."
+    },
+    {
+      "assessment": "NON-COVERING by itself for the two-active-link formula: Example 2.4 proves only 2x2 one-link disk of radius (p-1)^((p-1)/p)/p; infinite backward shift is distinct.",
+      "evidence": [
+        "Example 2.4 gives W_p([0 1;0 0]) as the closed disk of radius k_p for 1<p<infinity.",
+        "Theorem 2.10 treats infinite-dimensional backward shift open unit disk, not the finite weighted three-coordinate invariant."
+      ],
+      "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-022-02886-x",
+      "material_read": "Open-access full HTML, definitions and Section 2 with Lemma 2.3, Example 2.4, propositions and Theorem 2.10.",
+      "method": "Full lawful publisher HTML examination, inspected formulas and proofs.",
+      "title": "Numerical ranges and complex symmetric operators in semi-inner-product spaces",
+      "trigger": "Same Banach spatial numerical-range notion and nilpotent weighted shift, plausible rank-one antecedent."
+    },
+    {
+      "assessment": "NON-COVERING for the exact arbitrary-two-weight ell_p^3 mixed norm: §2 treats 2x2 ranges, §4.6 bounds polynomial-functional-calculus quantities, not the full two-link radius classification.",
+      "evidence": [
+        "Proposition 2.1 parametrizes 2x2 ell_p operators and Example 2.4 gives non-convexity of other operator ranges.",
+        "Proposition 4.16 proves finite shift test inequalities at scale n^|1/p-1/2|, not a two-variable exact gauge."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2606.22693",
+      "material_read": "Accessible full arXiv HTML source, introduction, §2 2x2 parametrization and finite-dimensional consequences, §4.6 finite-dimensional shift tests including Proposition 4.16 and nearby proofs.",
+      "method": "Public arXiv full-text HTML with theorem locations and proofs; no need for institutional download.",
+      "title": "Numerical and essential numerical ranges on ell_p",
+      "trigger": "2026 primary study of spatial numerical ranges, non-Hilbert ell_p geometry and truncated shifts; broad-coverage risk."
+    }
+  ]
+}
