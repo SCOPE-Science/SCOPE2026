@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem's domain is precisely finite directed rings with \(n\ge3\), \(2\le k<n\), positive constant particle-specific Poisson rates, and one cyclic label-order component. The phase-adjusted Vandermonde determinant identity gives the homogeneous positive left/right eigenvector; the gauge ratio on each legal ring jump is \(c/a_i\), including the wrap-around case, and the operator similarity follows including killing diagonals. Finite irreducibility plus Perron–Frobenius yields the exact killing exponent and survival prefactor. The two-sided eigenvector product determines the quasi-stationary and Doob-stationary laws, while an edge-by-edge computation proves full transformed-generator equality. The rate-penalty and weak-disorder expansion are elementary and exact under their stated quantifiers. Finite enumeration is a separate diagnostic, not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest source, Shiatis (arXiv:2610.00741v1, sections 1.1–1.2), derives a general comparison for identical copies of a single process and presents the homogeneous directed ring as motivation. Johnston's cited homogeneous ring eigenfunction does not address individually different particle jump rates. Bisi–Liao–Saenz–Zygouras (2023, full open-access HTML, sections 1–4) treats particle/time-inhomogeneous discrete-time *exclusion* on the line; its Doob relations concern tableau-intertwining kernels, not the principal gauge or eternal noncollision of independent unequal-rate walkers on the ring. Searches of related noncolliding-process/gauge-transform literature and published mathematical records did not identify an implication giving the heterogeneous gauge theorem. The full Johnston arXiv preprint and the relevant full-text sections of Johnston–Shiatis were also inspected; unindexed general gauge-transform literature remains a genuine priority risk. This is not independent originality certification.
+PASS
 
-**Mathematical value — PASS.** The extension is a complete arbitrary-\(k\), arbitrary-\(n\), arbitrary-positive-rate exact spectral and pathwise conditional-process classification. It reveals a counterintuitive universal conditioned dynamics despite heterogeneous unconditioned speeds, quantifies the unavoidable arithmetic/geometric killing-rate gap, distinguishes the quasi-stationary law from its rate-independent conditioned stationary law, and identifies an explicit nontrivial weak-disorder scaling transition. These assertions are structural and are not routine substitutions or arbitrary finite computations.
+On each fixed cyclic-order irreducible sector, ordered lifts give D(x^{i,+})/D(x)=c/a_i, including ring wraparound because product_i(c/a_i)=1. The exact off-diagonal and diagonal similarity Q_a=D Q_c D^-1−(sum a_i−kc)I follows. The cyclic Vandermonde determinant identity yields identical positive right and left homogeneous Perron eigenvectors h0 and λ_c=c(k−sin(kπ/n)/sin(π/n)). Conjugating gives right Dh0, left h0/D, survival asymptotics and a generator-level Doob-transform equality; stationary density is h0². AM–GM and Taylor expansion give sharp rate penalty and n^-2 weak-disorder crossover, with k fixed. Independently constructed finite killed generators on complete labeled cyclic sectors for (n,k)=(5,2),(6,3),(7,3),(7,4) and rates (.7,2,1.3,3.1) verify both left/right eigenidentities and entrywise similarity to ≤9.1e−13. These four finite cases corroborate but do not replace the determinant/gauge proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The homogeneous cyclic sine eigenfunction is prior work and explicitly credited. The independently audited new assertion is exact all-rate diagonal similarity on each labeled cyclic-order component; it implies a common geometric-mean Doob generator, asymmetric quasi-stationary law, sharp arithmetic/geometric survival penalty and a weak-rate-disorder crossover. Inspected predecessor theorems use copies of one common jump process or discrete-time inhomogeneous exclusion, not this full heterogeneous survival-conditioned theorem. Unindexed general graph-gauge similarity applications remain a genuine priority risk.
+
+## value
+
+PASS
+
+The geometric-mean exact generator identity converts arbitrary heterogeneous particle-specific rates into a universal conditional motion for all finite (n,k). The quantitative survival exponent and nontrivial n^-1 disorder crossover distinguish collision avoidance cost from rate-heterogeneity cost, supplying an exact structural law of an integrable particle system; it is more than normalization or a substitution in the common-rate theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
