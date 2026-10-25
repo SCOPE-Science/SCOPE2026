@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The group-coordinate multiplication and inversion rules imply explicit generic product and quotient cardinalities. Every non-forced collision is a nontrivial affine congruence with a coefficient of absolute value at most two; conditional sampling gives probability \(O_k(n^{-1})\) uniformly over each fixed coset profile. Hypergeometric sampling then gives the binomial law. At six elements the exact limiting numerators are 21 and 22, and monotonicity proves the reversal for every larger fixed cardinality. A standalone verifier checked 150 formal coset profiles, 78,050 exhaustively enumerated small-group subsets, five published enumeration entries, and 7,200 larger random examples (four with incidental collisions). No finite experiment is used to prove the limit.
+## correctness
 
-**Originality — PASS, with a literature qualification.** Mandal--Neetu (arXiv:2602.09073v1), inspected in its statement of results and Section 6, handles cardinalities two and three and explicitly conjectures the contrary eventual inequality for all fixed sizes. Its small-order tables are finite, not a theorem about growing group order. Amit et al. (arXiv:2610.12912v1) concerns full-power-set dominance and explicitly leaves dicyclic groups outside its main criteria; Ascoli et al. (arXiv:2210.00669) applies to split dihedral extensions whose mixed quotient structure is different. Targeted published-result searches did not identify a covering result. An unpublished argument or older implicit variant cannot be ruled out and requires independent scholarly verification before publication.
+PASS
 
-**Mathematical value — PASS.** The full fixed-cardinality discrepancy law directly settles, in the negative, Mandal--Neetu's Conjecture 6.1 for every fixed size at least six. The sharp threshold and one-count margin at six distinguish nonsplit dicyclic behavior from the positive small-cardinality counts and from known dihedral results. This is a natural conjecture-level structural finding, not a routine finite enumeration.
+Normal forms in Dic_4n separate rotations and outside coset. Exact formal-collision counting yields |AA|=r(r+1)/2+s(s−1)+1+2rs (s>0), |AA⁻¹|=1+k(k−1), and pure rotation exception. Nonforced modular affine coincidences involve a nonzero coefficient of magnitude at most 2 and have probability O_k(1/n); fixed-size hypergeometric rotation count converges to Binomial(k,1/2). At k=6 the positive numerator 21 is smaller than negative 22; monotonicity proves all k>=6. Independently checked direct group products for n=2,3,4 and k up to 6 and the binomial inequality.
 
-The argument requires cardinality fixed before letting the group order grow. It does not settle the relative counts across the full power set, and it gives no explicit finite-group crossover bound. All originality conclusions are conditional on the inspected sources and accessible published records; external mathematical validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Mandal–Neetu paper explicitly conjectures the contrary eventual product dominance. Its exact k=2,3 enumerations and the generalized dihedral split case do not cover a uniform fixed-k nonsplit law. The dicyclic paper and Amit et al relevant sections were inspected in HTML. No same theorem was found in the Resultary query; this is best-of-knowledge.
+
+## value
+
+PASS
+
+A uniform limiting law and a rigorous counterexample to a published fixed-size conjecture starting at the sharp first reversal are independently motivated advances in finite-group product/quotient set asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

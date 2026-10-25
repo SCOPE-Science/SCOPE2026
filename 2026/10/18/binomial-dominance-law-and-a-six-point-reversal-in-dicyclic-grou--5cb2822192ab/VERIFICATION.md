@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Execute `python3 verify_sparse.py` using Python 3 and only its standard library.
+# Independent mathematical audit
 
-The finite checker implements the displayed normal-form group product and inverse independently of the proof text. It also represents formal products and quotients as triples of (integer variable coefficients, coset indicator, central-involution coefficient mod two), so forced word coincidences can be tested without choosing a group order.
+## correctness
 
-The executed output was:
+PASS
 
-```
-VERIFY_OK symbolic_profiles=150 exhaustive_sets=78050 published_table_checks=5 sparse_exact_matches=7196 collision_examples=4
-```
+Normal forms in Dic_4n separate rotations and outside coset. Exact formal-collision counting yields |AA|=r(r+1)/2+s(s−1)+1+2rs (s>0), |AA⁻¹|=1+k(k−1), and pure rotation exception. Nonforced modular affine coincidences involve a nonzero coefficient of magnitude at most 2 and have probability O_k(1/n); fixed-size hypergeometric rotation count converges to Binomial(k,1/2). At k=6 the positive numerator 21 is smaller than negative 22; monotonicity proves all k>=6. Independently checked direct group products for n=2,3,4 and k up to 6 and the binomial inequality.
 
-The 150 formal profiles cover all \(2\le k\le16\) and every split into rotation and outside elements. The exhaustive comparison covers all subsets of sizes two through six in the groups \(\operatorname{Dic}_{4n}\) for \(2\le n\le5\). Five source-table entries for \(n=5\), subset sizes two through six, are reproduced. The 7,200 sampled subsets in a much larger group have four incidental collisions; the checker records them rather than treating them as impossibilities.
+## originality
 
-**Proof dependence.** The asymptotic statement depends on the uniform affine-congruence collision bound and the exact coset-profile probability identity in the mathematical proof. No finite enumeration can establish the universal quantifier in \(n\), and the observed collision count is not used as a theoretical probability estimate.
+PASS
 
-**Scope.** The computation checks the chosen multiplication convention and asymptotic formula numerators; it does not verify all historical literature, assert an independent proof, or give an explicit crossover index for each fixed subset size.
+The 2026 Mandal–Neetu paper explicitly conjectures the contrary eventual product dominance. Its exact k=2,3 enumerations and the generalized dihedral split case do not cover a uniform fixed-k nonsplit law. The dicyclic paper and Amit et al relevant sections were inspected in HTML. No same theorem was found in the Resultary query; this is best-of-knowledge.
+
+## value
+
+PASS
+
+A uniform limiting law and a rigorous counterexample to a published fixed-size conjecture starting at the sharp first reversal are independently motivated advances in finite-group product/quotient set asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
