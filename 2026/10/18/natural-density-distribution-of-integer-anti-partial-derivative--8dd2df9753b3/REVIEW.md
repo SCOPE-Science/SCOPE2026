@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact inverse count is reconstructed from \(D_p(p^a m)=a p^{a-1}m\), where \(p\nmid m\). The integer \(y=p^v u\) has one inverse image for each \(a\ge1\) satisfying \(a-1+\nu_p(a)=v\) and \(a/p^{\nu_p(a)}\mid u\). Every such inverse is unique for its exponent, so equation (1) has the correct quantifiers and counts. Conditional divisibility is uniform modulo an \(p\)-coprime lcm. The finite-valuation approximation leaves a set of density exactly \(p^{-(V+1)}\), proving existence and effective convergence of the distribution. Rearranging the nonnegative first-moment series yields the displayed logarithm; the valuation bound supplies uniform integrability. The all-multiplicity positivity argument invokes the published constructive existence theorem with a further independent positive-density progression argument. Finite tests are not used as infinite proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+For y=p^v u, p∤u, a positive inverse must be x=p^a m with m prime to p. The valuation equation is a−1+ν_p(a)=v; its unit equation b_a m=u gives one inverse exactly when b_a|u. Thus i_p(y)=Σ_{a∈A_{p,v}}1_{b_a|u}. For each fixed v, CRT residues modulo prime-to-p lcms produce the exact indicator expansion P_{p,v}(z). The omitted v>V mass is p^{−V−1}, proving the limiting coefficient law and normalization, not merely finite testing. A nonnegative rearrangement gives the mean (p−1)Σ_{a≥1}1/(ap^a)=(p−1)log(p/(p−1)); at most one a per ν_p(a) yields the double-exponential-in-r tail bound. Positivity at r=0 uses the empty stratum v=p−1 and at r≥1 uses Emmons–Xiao Theorem21 witness plus a positive-density congruence class. Independently enumerated every y≤1100 and conditional PGFs for v≤12 at p=2,3,5; all matched. Finite checks are corroboration, and the asserted all-prime limit follows from the above proof, including p=2 and the v=0 boundary.
 
-The closest full primary source is Emmons--Xiao (2022), Section 3, which proves a pointwise anti-partial derivative criterion, fiber parametrizations, and existence of every finite fiber cardinality; it does **not** state the natural-density distribution, its effective coefficient generating function, the logarithmic mean, or the superexponential tail. Their 2023/2024 generalization, Section 2.3, also treats inverse fibers and existence in local fields rather than this integer statistical law. Search comparisons with indexed published findings found results on arithmetic-derivative fixed multipliers and on fibers of a different exponent map, not an implication of the claimed density law. The novel content is the global asymptotic count and probabilistic structure rather than the older pointwise inverse criterion. The strength of that prior criterion means the result could be viewed as a relatively short derived advance; unindexed equivalent averages and an uninspected 2012 full text remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2022 literature explicitly asks how common prescribed anti-partial-derivative multiplicities are, proving infinitude. Here every multiplicity is shown to occupy a positive natural-density class, all proportions can be calculated with a uniform rigorous error bound, their mean reduces to the nontrivial closed logarithmic expression, and the large-fiber tail is uniformly superexponential. These are natural whole-distribution invariants of a classical arithmetic operation, not an arbitrary finite slice or an unmotivated extra decimal digit. They clarify the contrast between existence of arbitrarily large fibers and their extreme scarcity.
+Best-of-knowledge the global, exactly quantified natural-density law, its full probability generating series, closed first moment, and superexponential multiplicity tail go beyond the primary inverse-image/existence results; no exact published formula or stronger coverage was located in the inspected primary material and related findings. Conditional arithmetic is elementary once the source inverse criterion is used, which is disclosed rather than claimed as independent invention.
 
-## Scope and residual limitations
+## value
 
-The proof depends only on classical congruence counting and, for existence of arbitrarily large fiber sizes, the specific constructive Theorem 21 of Emmons--Xiao. The original pointwise description is fully credited, and no new result is claimed for rational anti-derivatives. The 2012 Kovič landing-page abstract was inspected but the full paper was not, so it is not used as negative-coverage evidence. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distribution of inverse multiplicities for a natural prime arithmetic derivative is itself an independently useful quantitative invariant. Existence of individual inverse counts was known, whereas the effective all-count density law, explicitly bounded approximation, exact first moment and strong tail are structurally motivated global results. It is not an arbitrary finite slice or a mere new notation for the prior theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

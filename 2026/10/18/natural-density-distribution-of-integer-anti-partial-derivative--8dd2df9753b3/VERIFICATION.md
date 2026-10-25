@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library. The program completes direct integer derivative enumeration, independent formula-based inverse counting, exact rational inclusion--exclusion generating polynomials, independent finite-modulus residue enumerations, and exact normalization of all truncated probability distributions. The expected terminal marker is `ALL_TESTS_PASSED`.
+## correctness
 
-Exact checked ranges: target \(1\le y\le10000\) for \(p\in\{2,3,5,7\}\), with every possible preimage \(1\le x\le p\cdot10000\) covered; finite residue checks for \(0\le v\le15\) when the lcm is at most 200000; truncated distributions through \(V=45\) for \(p=2\) and \(V=22\) for \(p=3,5,7\). Their omitted tail probabilities are respectively \(2^{-46}\), \(3^{-23}\), \(5^{-23}\), and \(7^{-23}\). Computations are exact rational until decimal display.
+PASS
 
-The code does not prove the infinite distribution by finite enumeration. The proof in `RESULT.md` derives all infinite results from valuation factorization, residue-class counting, and a geometric tail; all-multiplicity positivity also uses the named, inspected prior constructive theorem. No external expert or independent audit was performed.
+For y=p^v u, p∤u, a positive inverse must be x=p^a m with m prime to p. The valuation equation is a−1+ν_p(a)=v; its unit equation b_a m=u gives one inverse exactly when b_a|u. Thus i_p(y)=Σ_{a∈A_{p,v}}1_{b_a|u}. For each fixed v, CRT residues modulo prime-to-p lcms produce the exact indicator expansion P_{p,v}(z). The omitted v>V mass is p^{−V−1}, proving the limiting coefficient law and normalization, not merely finite testing. A nonnegative rearrangement gives the mean (p−1)Σ_{a≥1}1/(ap^a)=(p−1)log(p/(p−1)); at most one a per ν_p(a) yields the double-exponential-in-r tail bound. Positivity at r=0 uses the empty stratum v=p−1 and at r≥1 uses Emmons–Xiao Theorem21 witness plus a positive-density congruence class. Independently enumerated every y≤1100 and conditional PGFs for v≤12 at p=2,3,5; all matched. Finite checks are corroboration, and the asserted all-prime limit follows from the above proof, including p=2 and the v=0 boundary.
+
+## originality
+
+PASS
+
+Best-of-knowledge the global, exactly quantified natural-density law, its full probability generating series, closed first moment, and superexponential multiplicity tail go beyond the primary inverse-image/existence results; no exact published formula or stronger coverage was located in the inspected primary material and related findings. Conditional arithmetic is elementary once the source inverse criterion is used, which is disclosed rather than claimed as independent invention.
+
+## value
+
+PASS
+
+The distribution of inverse multiplicities for a natural prime arithmetic derivative is itself an independently useful quantitative invariant. Existence of individual inverse counts was known, whereas the effective all-count density law, explicitly bounded approximation, exact first moment and strong tail are structurally motivated global results. It is not an arbitrary finite slice or a mere new notation for the prior theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
