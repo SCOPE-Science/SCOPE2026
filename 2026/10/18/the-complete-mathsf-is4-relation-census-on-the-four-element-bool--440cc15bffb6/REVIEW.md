@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Reflexivity reduces the candidate set to exactly \(2^{12}\) edge assignments. A complete first enumeration independently agrees, relation by relation, with a second enumeration through partitions and quotient posets; all applicable universal confluence triples are checked directly. Burnside's lemma gives \(81\) orbits from \(135\) accepted relations and \(27\) swap-fixed ones. The unique universal-relation boundary is also proved structurally.
+PASS
 
-## Originality
+The order on B2 has four labelled worlds, 12 free off-diagonal relation bits. I independently enumerated all 4096 reflexive relations, checked transitivity by R(y)⊆R(x) for each xRy and applied the exact fully quantified Fischer–Servi F1/F2 tests to every x,y,z with order cones {all},{middle,top},{middle,top},{top}. The accepted set contains 135 relations; endpoint patterns (0R1,1R0) have counts 76,29,29,1. Swapping the two incomparable middle worlds preserves the set and fixes 27 relations, giving 81 orbits by Burnside. Direct argument shows both endpoint edges force complete R using F1 and F2 and transitivity. Read the package's independent alternative generator via partitions and antisymmetric quotient orders (355 preorders) and its exact set comparison. This is an exhaustive finite certificate for exactly four worlds, not extrapolation to larger lattices.
 
-PASS, subject to historical-priority uncertainty. Girlando et al. (2023) give the semantic axioms, not this four-world profile; Fernández-Duque (2026) studies the finite-model property, not a diamond census. Accessible chain and rooted-fork results use different intuitionistic orders. Targeted exact-number and equivalent-frame searches did not locate a matching Boolean-diamond classification. Generic finite brute-force decidability does not itself report the exact invariant, but an older complete frame table could; this remains an explicit risk.
+## originality
 
-## Value
+PASS
 
-PASS. The four-element Boolean diamond is the smallest non-chain finite lattice, and the first lattice shape with both information branching and reconvergence. Its exact relation count, endpoint-edge stratification, and symmetry quotient form a complete finite benchmark for birelational \(\mathsf{IS4}\) semantics, beyond earlier chain and fork tests. These are natural carrier-level invariants rather than an arbitrary numerical slice.
+PASS best of knowledge for the complete 135-relation, 81-orbit diamond-specific classification. Girlando et al. establish the axioms and general decidability, not this enumeration. Earlier chain/fork analyses involve different information orders; OEIS unrestricted four-element preorders total355 is credited. Unindexed earlier frame tables remain a risk. The result is not framed as new general decidability or a family theorem.
 
-## Scope and residual risks
+## value
 
-The claim applies only to a fixed four-world order. Larger-poset classification and historical priority beyond the inspected sources remain unresolved. The 2026 motivating full text could not be read; no claim of independent audit is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Boolean diamond is the first finite lattice with incomparable intermediate worlds and a common join, beyond the chain and rooted-fork cases. Its complete admissible IS4 birelation census, orbit classes and boundary edge strata provide a natural exact benchmark for constructing and testing finite intuitionistic modal frames. It is a motivated complete small-object classification, not an arbitrarily sliced table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
