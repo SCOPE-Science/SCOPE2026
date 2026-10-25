@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:07:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every global alphabet renaming orbit has one restricted-growth representative. For each prefix i and candidate border k, the abelian condition is equality of three symbol-count differences; the 4-bit-per-entry encoding is injective up to n=16. Independent C++17 exhaustive enumeration over all 3^15 words with first symbol 0 (different from canonical restricted-growth enumeration), division by two for nonconstant relabeling classes and direct prefix-count checks recovered all 16 rows including 1151825 at n16; its complete 353-level n16 histogram matched the committed CSV byte for byte, including SHA-256 6cd4f6d044008762b8bba80e45ad656d7de02b9eb3d5c2539fe64348157ed3b1. For the infinite extremal claim, b_i=i-1 iff w_i=w_1, so an array fixes exactly which later positions repeat the first letter; any nonzero array fixes at least one such position, leaving at most two choices per other position, giving at most 3*2^(n-2) labeled words, versus 3*2^(n-1) for all zero. Canonical class count follows after fixing first 0 and factoring symbol permutation. Finite exhaustiveness is not extrapolated beyond n16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known ternary upper bound is larger than the actual 1151825 at n16 (upper bound 7174454), and binary border-length counts are different statistics."
+        ],
+        "reasoning": "The prior bound does not dominate exact data; no stronger full-array ternary classification found in inspected sources.",
+        "searches": [
+          "arxiv:2111.00259",
+          "arxiv:1708.06461"
+        ]
+      },
+      "checked_sources": [
+        "Habib, Shamil, Rahman, Counting and Verifying Abelian Border Arrays of Binary Words, arxiv:2111.00259, full ar5iv HTML particularly sections 3-4",
+        "Blanchet-Sadri, Chen and Hawes, Dyck Words, Lattice Paths, and Abelian Borders, arxiv:1708.06461",
+        "Christodoulakis et al, Abelian borders in binary words, DOI:10.1016/j.dam.2014.02.012",
+        "Resultary:ternary abelian border arrays exact enumeration counts sequence ambiguity distribution maximum fiber"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bound counts canonical word types, which can map noninjectively to arrays; 7174454 canonical words collapse to 1151825 arrays at n16."
+        ],
+        "reasoning": "The prior word-orbit count alone does not determine fiber distribution; the infinite all-zero fiber calculation uses an additional first-letter recurrence argument.",
+        "searches": [
+          "Habib Shamil Rahman Section 4 ternary bound",
+          "Blanchet-Sadri Chen Hawes binary Dyck abelian borders"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary paper defines the same array statistic and proves T2(n)=2^(n-1), but for ternary provides only the (3^(n-1)+1)/2 bound."
+        ],
+        "reasoning": "Exact ternary sequence and complete inverse ambiguity histogram do not follow numerically from the upper bound or binary characterization.",
+        "searches": [
+          "ternary abelian border array Parikh border longest every prefix T3(n) inverse multiplicity restricted growth",
+          "arxiv:2111.00259"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary exact ternary coding/word results concern separable codes and DNA profiles, not abelian border arrays."
+        ],
+        "reasoning": "Full n16 source data and two independent exhaustive algorithms substantiate the new exact table, though published table uniqueness cannot be certified from failed search.",
+        "searches": [
+          "Resultary:ternary abelian border arrays exact enumeration counts sequence ambiguity distribution maximum fiber",
+          "T3(n) 1151825 391967 136189"
+        ]
+      },
+      "rationale": "Habib-Shamil-Rahman prove the binary array count and only an upper bound for ternary arrays T3(n)<=(3^(n-1)+1)/2, not the exact n<=16 census or inverse-fiber histogram. Blanchet-Sadri-Chen-Hawes and Christodoulakis et al concern binary words by abelian border features, not the full distinct ternary all-prefix array distribution. No matching Resultary table identified, with finite-enumeration duplication a residual priority risk.",
+      "residual_risks": [
+        "An unindexed exact n<=16 ternary border-array sequence or ambiguity histogram may already exist in specialist tables/code.",
+        "The histogram is a finite exact result, not a recurrence, closed form or all-n distinct-array count.",
+        "The maximal labeled/canonical fiber statement assumes exactly three available alphabet symbols and globally relabeled canonical representatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves binary exact count and ternary upper bound, but inspected primary statement does not supply n<=16 ternary exact counts/fiber histogram.",
+          "evidence": [
+            "Proposition 4.1 ternary T3(n)<=(3^(n-1)+1)/2."
+          ],
+          "identifier_or_url": "arxiv:2111.00259; https://ar5iv.labs.arxiv.org/html/2111.00259",
+          "material_read": "Accessible full ar5iv HTML, including introduction, Sections 3-4 and Proposition 4.1",
+          "method": "Full ar5iv HTML primary-source reading",
+          "title": "Counting and Verifying Abelian Border Arrays of Binary Words",
+          "trigger": "Same array invariant, ternary bound and binary exact enumeration"
+        },
+        {
+          "assessment": "Binary word border-feature counting does not provide all-prefix ternary array distributions.",
+          "evidence": [
+            "Different alphabet and statistic: lengths/borders rather than complete ternary array fibers."
+          ],
+          "identifier_or_url": "arxiv:1708.06461",
+          "material_read": "Abstract and relevant described counting features in accessible material; complete paper exclusion not asserted",
+          "method": "OA bibliographic/abstract inspection",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Closest known abelian-border enumerator family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite census and full ambiguity histogram give motivated natural invariants of ternary abelian border arrays and benchmark the inverse reconstruction ambiguity left unspecified by the known ternary upper bound. The infinite maximal-fiber theorem identifies a qualitatively sharp worst-case reconstruction obstruction independent of any unproved asymptotic census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Habib, Shamil, Rahman, Counting and Verifying Abelian Border Arrays of Binary Words, arxiv:2111.00259, full ar5iv HTML particularly sections 3-4",
+    "Blanchet-Sadri, Chen and Hawes, Dyck Words, Lattice Paths, and Abelian Borders, arxiv:1708.06461",
+    "Christodoulakis et al, Abelian borders in binary words, DOI:10.1016/j.dam.2014.02.012",
+    "Resultary:ternary abelian border arrays exact enumeration counts sequence ambiguity distribution maximum fiber"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed exact n<=16 ternary border-array sequence or ambiguity histogram may already exist in specialist tables/code.",
+    "The histogram is a finite exact result, not a recurrence, closed form or all-n distinct-array count.",
+    "The maximal labeled/canonical fiber statement assumes exactly three available alphabet symbols and globally relabeled canonical representatives.",
+    "Scientific PASS judgments are not publication approval; privacy transport remains not_ready."
+  ],
+  "residual_risks": [
+    "An unindexed exact n<=16 ternary border-array sequence or ambiguity histogram may already exist in specialist tables/code.",
+    "The histogram is a finite exact result, not a recurrence, closed form or all-n distinct-array count.",
+    "The maximal labeled/canonical fiber statement assumes exactly three available alphabet symbols and globally relabeled canonical representatives."
+  ],
+  "schema_version": 1
+}

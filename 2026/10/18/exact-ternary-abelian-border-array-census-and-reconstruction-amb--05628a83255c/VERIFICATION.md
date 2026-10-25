@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The two included complete C++17 programs independently produce the complete census and the length-sixteen inverse-fiber histogram. A reproducible build from this directory is:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_canonical.cpp -o canonical
-c++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_labeled.cpp -o labeled
-./canonical canonical_table.csv canonical_hist.csv
-./labeled labeled_table.csv labeled_hist.csv
-cmp canonical_table.csv labeled_table.csv
-cmp canonical_hist.csv labeled_hist.csv
-cmp canonical_table.csv census_table.csv
-cmp canonical_hist.csv ambiguity_histogram_n16.csv
-```
+PASS
 
-These compilation and comparison steps were executed successfully against the actual included source files. Both programs recompute every possible word type needed for the specified length range, rather than sampling. The canonical program processes exactly \(7{,}174{,}454\) restricted-growth words at length sixteen; the independent labeled program processes \(14{,}348{,}907\) words with first symbol zero. The full CSV files matched byte-for-byte.
+Every global alphabet renaming orbit has one restricted-growth representative. For each prefix i and candidate border k, the abelian condition is equality of three symbol-count differences; the 4-bit-per-entry encoding is injective up to n=16. Independent C++17 exhaustive enumeration over all 3^15 words with first symbol 0 (different from canonical restricted-growth enumeration), division by two for nonconstant relabeling classes and direct prefix-count checks recovered all 16 rows including 1151825 at n16; its complete 353-level n16 histogram matched the committed CSV byte for byte, including SHA-256 6cd4f6d044008762b8bba80e45ad656d7de02b9eb3d5c2539fe64348157ed3b1. For the infinite extremal claim, b_i=i-1 iff w_i=w_1, so an array fixes exactly which later positions repeat the first letter; any nonzero array fixes at least one such position, leaving at most two choices per other position, giving at most 3*2^(n-2) labeled words, versus 3*2^(n-1) for all zero. Canonical class count follows after fixing first 0 and factoring symbol permutation. Finite exhaustiveness is not extrapolated beyond n16.
 
-Checks of `ambiguity_histogram_n16.csv` yielded \(353\) positive frequency levels, total array count \(1{,}151{,}825\), total canonical-generator count \(7{,}174{,}454\), exactly \(468{,}549\) one-generator arrays, and exactly one array with the greatest generator count \(16{,}384\).
+## originality
 
-The finite enumeration is exhaustive only up to length sixteen. No infinite sequence formula follows from it; the separate maximum-fiber theorem has an elementary all-length proof in `RESULT.md`. Independent external mathematical review has not been performed.
+PASS
+
+Habib-Shamil-Rahman prove the binary array count and only an upper bound for ternary arrays T3(n)<=(3^(n-1)+1)/2, not the exact n<=16 census or inverse-fiber histogram. Blanchet-Sadri-Chen-Hawes and Christodoulakis et al concern binary words by abelian border features, not the full distinct ternary all-prefix array distribution. No matching Resultary table identified, with finite-enumeration duplication a residual priority risk.
+
+## value
+
+PASS
+
+The exact finite census and full ambiguity histogram give motivated natural invariants of ternary abelian border arrays and benchmark the inverse reconstruction ambiguity left unspecified by the known ternary upper bound. The infinite maximal-fiber theorem identifies a qualitatively sharp worst-case reconstruction obstruction independent of any unproved asymptotic census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
