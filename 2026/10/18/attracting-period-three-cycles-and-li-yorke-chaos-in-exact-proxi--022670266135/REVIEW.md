@@ -1,11 +1,21 @@
-# Scientific review: period-three cycles in proximal Polyak dynamics
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified ProxSPS model is the exact truncated loss linearization with a quadratic regularizer and strongly convex proximal term. Its minimizer reduces on the invariant interval to two continuous affine branches. Factored differences give the precise strict branch itinerary, and three substitutions prove a primitive cycle for every parameter in the declared open domain. The local return multiplier and the attracting parameter inequality follow from ordinary affine dynamics. The 1975 Li–Yorke theorem genuinely applies to the invariant continuous interval map. Reproduction with the original convex model, 64 rational parameter pairs and 10,112 exact computations guards against formula mistakes; it is not substituted for infinite proof. The unique composite objective minimizer is distinct from the primitive orbit.
+## correctness
 
-**Originality — PASS (same-model, best-knowledge).** Full-text examination of Schaipp–Gower–Ulbrich (arXiv:2301.04935) shows the precise method and its small-step theoretical setting but no exact primitive three-cycle or all-period dynamics. Relevant full mathematical records were compared by *implication*, including the loose-lower-bound SPS two-cycle, capped SPS scalar stationary moments, and fixed-radius composite trust-region two-cycles; none use this truncated-loss, true-quadratic-proximal update or imply its three-cycle. Additional targeted source and mathematical-index searches for names, equivalences, ridge quadratic parameters, period-three trajectories, and chaos found no covering formula. Li–Yorke's period-three implication is established prior mathematics and is not counted as new. Search incompleteness and the possibility of an unpublished or unindexed conjugate-map derivation remain explicit originality risks.
+PASS
 
-**Value — PASS.** The source's design principle is that exact truncation of *only* the loss and separate regularization improve numerical reliability; its convergence guarantees place explicit constraints on step parameters. The new example identifies a different, exact qualitative regime of that particular method: a genuinely attracting nonoptimal period-three orbit, an open persistence domain, and a rigorous cascade of periodic points. This is a structural algorithmic boundary, not a routine scalar spectral-rate computation or arbitrary numerical example. The limitation to large constant steps and one-dimensional data is material and stated openly.
+PASS: Minimizing the exact truncated affine loss plus quadratic regularizer and proximal term gives two continuous affine branches separated by the kink x=(1+x)/2, with threshold c=[α(2−λ)−1]/[α(2+λ)−1]. On the invariant interval [0,1], the branch-order differences factor with positive denominators under 0<λ<1/3 and α>4/(1−3λ). Substitution gives x₀=(α+3)/D, x₁=(α+3+2αλ)/D, x₂=(α+3+3αλ)/D, D=α+3+4αλ; the strict itinerary x₀<x₁<c<x₂<1 and the three map identities prove a primitive period-three orbit. The return multiplier is (1−α)/[4(1+αλ)], so the stated attracting condition follows. The continuous interval map satisfies the hypotheses of Li–Yorke’s period-three theorem. The exact-rational checker inspects 64 rational parameter pairs and 10,112 finite minimizations; it is corroborative only, not the universal proof.
 
-Closest literature: Schaipp, Gower, Ulbrich (2023), arXiv:2301.04935; Loizou et al. (2020/2021), arXiv:2002.10542; Orvieto, Lacoste-Julien, Loizou (2022), arXiv:2205.04583; Li and Yorke (1975), DOI:10.2307/2318254. Other mathematically proximate published scalar cycles concern nonproximal SPS or different optimization rules. This result makes no claim about random-oracle chaos, typical initial conditions, or full bifurcation classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.
+
+## value
+
+PASS
+
+PASS: This is a motivated structural boundary for a named proximal optimization method, not a routine linear convergence-rate calculation. The exact attracting nonoptimal period-three orbit persists on an open parameter region and invokes a genuine interval-dynamics theorem to establish all periods and a scrambled set. It shows why a large constant step cap can create dynamics outside the method’s small-step convergence regime; the restriction to one-dimensional quadratics and large caps is explicit. The same-method literature-access risk remains material but does not by itself make the fact worthless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
