@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:50:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed the exact rational composition g=f∘f and identities f(x)-1=-(x-1)(6x+5)/(8x²+3), g(x)-x=-56(x-1)^3(4x²+3x+4)/Q(x), and g(x)-1=(x-1)(6x+5)(52x²+6x+63)/Q(x), Q=224x⁴+32x³+408x²+128x+539. Every factor Q and each multiplier is positive on x>0; g preserves the side of 1 and moves strictly toward it, ruling out other positive limits. Independent SymPy recomposition gives g(1+u)-1=u-56u³/121+280u⁴/1331+224u⁵/1331-3136u⁶/14641+O(u⁷); inverse-square increment is A+Bu+C₂u²+O(u³), A=112/121, B=-560/1331, C₂=4480/14641. With σ fixed and w_n=(x_{2n}-1)^(-2), Δw=A+σB w^-1/2+C₂w^-1+O(w^-3/2), yielding w=An+O(√n), then w=An+σp√n+O(log n), p=2B/√A=-40√7/121; substitution yields q=C₂/A-B²/A²=15/121. After subtracting An+σp√n+qlog n, increments are O((1+log n)n^-3/2), absolutely summable. Verifies existence of a finite C(x₀) for all x₀>0, x₀≠1 in unmodified 2n physical iterations. Independent 50-digit 5000-pair examples for x₀=0.3 and 2 corroborate the correction but are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leonel et al. Eq. (4) truncates the second iterate at cubic; Eqs. (5)–(7) yield generic n^-1/2 relaxation without the needed quartic through sixth jet.",
+          "Mardešić et al. give a general Fatou-coordinate construction admitting power/log expansions for parabolic germs, but the inspected theorem and construction contain no evaluation at the 2022 rational map.",
+          "The 2025 erratum modifies unrelated derivative identities, expressly leaves other conclusions unaffected."
+        ],
+        "reasoning": "General existence theorems make such asymptotic shapes predictable but do not supply the specific nonzero coefficients or whole-positive-half-line convergence by a straightforward cited formula. The broad theory may permit rederivation after additional substantive exact algebra; this remains priority risk rather than automatic coverage.",
+        "searches": [
+          "arXiv:2602.04091v1 §§2.1–2.4",
+          "arXiv:1710.01268v2 Introduction, §2, Proposition 4.3, §6 overview",
+          "Resultary query: parabolic Fatou coordinate exact higher-order critical slowing near multiplier -1 rational maps universal log",
+          "Web: Mardešić Resman Rolin Županović Fatou coordinate parabolic Dulac germs logarithmic asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Ohmori and Yamazaki, Relation of stability and bifurcation properties..., arXiv:2212.03455v1, Section 2 and Section 3.1 Eq. (19), pp. 8–10; conclusion (https://arxiv.org/pdf/2212.03455).",
+        "Ohmori and Yamazaki, 2025 Erratum to J. Math. Phys. 64 042704, J. Math. Phys. 66 019901 (2025), https://doi.org/10.1063/5.0252061.",
+        "Leonel, Ferreira and Oliveira, A phenomenological description of critical slowing down at period-doubling bifurcations, arXiv:2602.04091v1, §§2.1–2.4 (https://arxiv.org/html/2602.04091v1).",
+        "Mardešić, Resman, Rolin and Županović, The Fatou coordinate for parabolic Dulac germs, arXiv:1710.01268v2, Introduction, §2, Proposition 4.3 and §6 overview (https://arxiv.org/pdf/1710.01268).",
+        "Ohmori and Yamazaki, On dynamical connection between continuous and tropical discretized dynamical systems in one-dimensional, RIMS Kôkyûroku Bessatsu B94 (2023), pp. 55–63; abstract only read, complete OA PDF not accessible via retrieval (https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/286842/1/B94-04.pdf).",
+        "Resultary semantic searches for precise Ohmori–Yamazaki map, τ=2 flip, inverse-square signed/log asymptotics, and parabolic Fatou expansions (three distinct semantic queries); self-match excluded; adjacent Lorenz/log results are different maps.",
+        "Targeted web searches for the rational map (2x²+x+8)/(8x²+3), coefficients 112/121, 40√7/121, 15/121 log n, and relevant 2023 follow-up/2025 erratum."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old map + flip threshold mathematically defines the dynamics, but its published claims do not determine an all-positive additive constant or explicit high-order coefficients.",
+          "The generic cubic normal-form result implies leading w~(112/121)n after calculating a cubic jet; it cannot alone fix σp√n and qlog n without new higher-jet terms.",
+          "The Fatou coordinate formalism may imply existence of a local expansion for this map, not directly the exact numeric constants and global positive basin.",
+          "The 2025 erratum explicitly leaves the relevant flip discussion untouched."
+        ],
+        "reasoning": "Credits all prior implications: existence of the map/flip and standard leading n^-1/2 behavior are covered, as is availability of general power-log machinery. The additional evaluated signed/log coefficients and global finite-residual proof are not direct corollaries of the inspected previously stated formulas without recomputation and global sign analysis; no decisive stronger statement was located.",
+        "searches": [
+          "arXiv:2212.03455v1 Eq. (19), §§2–3.1, conclusion",
+          "arXiv:2602.04091v1 Eqs. (4)–(7)",
+          "arXiv:1710.01268v2 Proposition 4.3/§6",
+          "2025 Erratum DOI 10.1063/5.0252061",
+          "Resultary query: period-doubling bifurcation positive rational map Ohmori Yamazaki tau=2 signed square-root logarithmic correction inverse-square even-iterate convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At τ=2 the 2022 map is exactly f(x)=(2x²+x+8)/(8x²+3); g=f² is tangent to identity at x=1.",
+          "In inverse-square coordinate w=(x_{2n}-1)^(-2), global asymptotic reads An+σp√n+qlog n+C+o(1).",
+          "Semantic Resultary first match is this submitted record, excluded as independent coverage; other top hits describe unrelated maps or generic dynamics."
+        ],
+        "reasoning": "Compared the same rational map as a parabolic second iterate, flip critical slowing, Abel/Fatou-coordinate asymptotics and physical-clock inverse-square relaxation. The original source gives the map, multiplier and flip, but does not state the full signed/log physical-coordinate law in the materially inspected sections.",
+        "searches": [
+          "Resultary query: critical flip bifurcation rational discretization f(x)=(2x^2+x+8)/(8x^2+3) asymptotic logarithmic n correction",
+          "Resultary query: period-doubling bifurcation positive rational map Ohmori Yamazaki tau=2 signed square-root logarithmic correction inverse-square even-iterate convergence",
+          "Web: \"2x^2+x+8\" \"8x^2+3\" logarithm asymptotic",
+          "\"(2x^2+x+8)/(8x^2+3)\" \"112/121\" \"15/121\" logarithmic flip",
+          "arXiv:2212.03455v1 Eq. (19)",
+          "arXiv:2602.04091v1 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact highest ranked item is the same submitted finding, not earlier independent evidence.",
+          "Other ranked logarithmic critical-relaxation findings concern Lorenz/Koper/Sprott or different recurrences.",
+          "Neither the primary 2022 flip section nor the 2026 generic-scaling source tables evaluated inverse-square signed/log coefficients of this map."
+        ],
+        "reasoning": "Searches for distinctive numerical constants, the rational formula, the flip parameter, and equivalent asymptotic terminology did not locate a covering published table. This is absence of located coverage, not proof of priority.",
+        "searches": [
+          "Resultary query: critical flip bifurcation rational discretization f(x)=(2x^2+x+8)/(8x^2+3) asymptotic logarithmic n correction",
+          "Resultary query: period-doubling bifurcation positive rational map Ohmori Yamazaki tau=2 signed square-root logarithmic correction inverse-square even-iterate convergence",
+          "Resultary results: 2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b (self-match)",
+          "\"(2x^2+x+8)/(8x^2+3)\" \"112/121\" \"15/121\" logarithmic flip",
+          "Web: \"15/121\" \"log\" \"period doubling\"",
+          "Web: 2023 Ohmori Yamazaki RIMS B94 55–63"
+        ]
+      },
+      "rationale": "BEST-OF-KNOWLEDGE and qualified: the 2022/2023 original establishes the exact map and τ=2 flip, not the orbit-specific signed √n and log expansion with global finite constant; the 2026 critical-slowing paper truncates at cubic order, giving only the known exponent and leading behavior. General parabolic Fatou-coordinate theory supplies a method/expansion existence but was not found to state or directly evaluate the rational-map coefficients in the original physical coordinate. Resultary exact-match returns this same finding (not independent support); no different source located with an implication that evaluates this exact claim. Priority remains uncertain because routine specialization of general parabolic theory or an unindexed computation may already contain it.",
+      "residual_risks": [
+        "A general Abel/Fatou-coordinate asymptotic theorem, together with this explicitly published map, may admit an overlooked direct coefficient formula or mechanically equivalent expansion; priority is qualified.",
+        "The later 2023 RIMS article is plausible but only its abstract was accessible; complete text was not read, so its possible exact-map discussion is not excluded.",
+        "Search index coverage is incomplete and model-specific high-order constants could appear in non-indexed appendices or theses; a failed search is not novelty proof.",
+        "The signed correction is coordinate- and clock-dependent; not a conjugacy invariant and not uniform in τ near 2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the map f_τ=(x+τ(x²+4))/(1+τ(4x²+1)), τ=2 flip and local cubic nondegeneracy; inspected discussion gives no signed √n, 15/121 log n, or global finite-constant asymptotic.",
+          "evidence": "Eq. (19) on page 9; at τ=2 gives f=(2x²+x+8)/(8x²+3); authors report derivative -1 and third derivative of F² = -432/121, and at τ>2 an attracting two-cycle. The σ-dependent high-order expansion is not in §3.1 or conclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.03455",
+          "material_read": "Primary 19-page PDF: introduction, §2 general bifurcation criteria, §3.1 text and Eq. (19) pp. 8–10, §5 conclusion; page 9 image inspected.",
+          "method": "Read and compared the actual map, fixed point and bifurcation statements with the submitted global inverse-square three-term theorem.",
+          "title": "Relation of stability and bifurcation properties between continuous and ultradiscrete dynamical systems via discretization with positivity: one dimensional cases",
+          "trigger": "Identical positivity-preserving rational map and same critical parameter τ=2; strongest exact-object antecedent."
+        },
+        {
+          "assessment": "Corrections concern derivative identities used for preservation of saddle-node/transcritical/pitchfork; authors explicitly state other discussions/results unaffected. No change to Eq. (19) or the reviewed τ=2 rational map.",
+          "evidence": "Erratum replaces claims about second and mixed derivatives with a conditional identity under ∂Fτ/∂x=0; states “this modification does not affect other discussions or results.”",
+          "identifier_or_url": "https://doi.org/10.1063/5.0252061",
+          "material_read": "Complete accessible short erratum text, J. Math. Phys. 66, 019901 (2025), pp. 1–2 as served in HTML.",
+          "method": "Compared erratum old/replacement derivative identities and author scope statement to Eq. (19) and τ=2 flip.",
+          "title": "Erratum: Relation of stability and bifurcation properties... [J. Math. Phys. 64, 042704 (2023)]",
+          "trigger": "An exact-object source has a later published correction; must determine whether critical-map formulas are changed."
+        },
+        {
+          "assessment": "COVERS generic n^(-1/2) leading exponent and crossover, explicitly not credited; third-order treatment does not imply numerical signed √n or log coefficient at this rational map without higher-jet analysis.",
+          "evidence": "Eq. (4) neglects terms above ε³; Eqs. (5)–(7) yield ε(n)≈ε₀/sqrt(1+2Bε₀²n), while the submitted B u + C₂ u² terms depend on quartic and higher second-iterate jets.",
+          "identifier_or_url": "https://arxiv.org/html/2602.04091v1",
+          "material_read": "Actual arXiv full HTML: abstract, §§1–2.4 in detail (Eqs. (1)–(32)), and conclusions index; compared local third-order truncation with requested high-order terms.",
+          "method": "Read cubic two-iterate equation (4) and its differential approximation (5)–(7), checking what order of jet enters the asserted scaling law.",
+          "title": "A phenomenological description of critical slowing down at period-doubling bifurcations",
+          "trigger": "Broad critical flip scaling theorem potentially implying the proposed asymptotics."
+        },
+        {
+          "assessment": "GENERAL local tool: expansion existence is largely anticipated; the sections inspected do not provide coefficients for Ohmori–Yamazaki’s later map. A general method may be specialized, and priority risk remains. No whole-document NOT_COVERING assertion is made from partial material.",
+          "evidence": "Intro says tangent-to-identity parabolic germs admit Fatou coordinates; Proposition 4.3 constructs the formal coordinate; §6 provides block-by-block construction for Dulac germs, not an evaluated τ=2 rational example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.01268",
+          "material_read": "Actual 33-page arXiv preprint: abstract, Introduction, §2 main definitions/statement, Proposition 4.3 and §6 proof-construction overview, plus relevant Appendix formulas; first PDF page inspected visually.",
+          "method": "Compared general existence/formal construction of Fatou coordinates and power-log expansions with physical-coordinate map-specific coefficients and global positive basin.",
+          "title": "The Fatou coordinate for parabolic Dulac germs",
+          "trigger": "General parabolic iteration theory could dominate orbit power-log asymptotics."
+        },
+        {
+          "assessment": "Abstract emphasizes saddle-node and pitchfork comparisons, not the submitted signed/log coefficients; incomplete full-text comparison remains a bounded bibliographic risk.",
+          "evidence": "RIMS Kôkyûroku Bessatsu B94 (2023), pp. 55–63, abstract on local bifurcations and preservation by tropical discretization.",
+          "identifier_or_url": "https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/286842/1/B94-04.pdf",
+          "material_read": "Bibliographic record and abstract only; full OA PDF fetch returned an access/transport failure.",
+          "method": "Checked stated scope, compared abstract with precise τ=2 asymptotic, recorded limits rather than treating the source as read in full.",
+          "title": "On dynamical connection between continuous and tropical discretized dynamical systems in one-dimensional",
+          "trigger": "Later paper by original authors on neighboring one-dimensional positivity-preserving maps."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The τ=2 flip is a natural threshold of a published positivity-preserving numerical discretization. Critical slowing is a mathematically motivated phenomenon, and exact leading power law alone does not distinguish approaches from above/below or quantify finite-time bias. The signed √n correction, universal 15/121 logarithmic correction, and finite renormalized remainder for every positive initial state give a precise, independently useful model-specific relaxation benchmark. Their exact values require the nontrivial higher jet and summable-error argument; they are not a mere parameter rename, trivial type check or tabulated recomputation. No general multi-parameter theorem or new universal exponent is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ohmori and Yamazaki, Relation of stability and bifurcation properties..., arXiv:2212.03455v1, Section 2 and Section 3.1 Eq. (19), pp. 8–10; conclusion (https://arxiv.org/pdf/2212.03455).",
+    "Ohmori and Yamazaki, 2025 Erratum to J. Math. Phys. 64 042704, J. Math. Phys. 66 019901 (2025), https://doi.org/10.1063/5.0252061.",
+    "Leonel, Ferreira and Oliveira, A phenomenological description of critical slowing down at period-doubling bifurcations, arXiv:2602.04091v1, §§2.1–2.4 (https://arxiv.org/html/2602.04091v1).",
+    "Mardešić, Resman, Rolin and Županović, The Fatou coordinate for parabolic Dulac germs, arXiv:1710.01268v2, Introduction, §2, Proposition 4.3 and §6 overview (https://arxiv.org/pdf/1710.01268).",
+    "Ohmori and Yamazaki, On dynamical connection between continuous and tropical discretized dynamical systems in one-dimensional, RIMS Kôkyûroku Bessatsu B94 (2023), pp. 55–63; abstract only read, complete OA PDF not accessible via retrieval (https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/286842/1/B94-04.pdf).",
+    "Resultary semantic searches for precise Ohmori–Yamazaki map, τ=2 flip, inverse-square signed/log asymptotics, and parabolic Fatou expansions (three distinct semantic queries); self-match excluded; adjacent Lorenz/log results are different maps.",
+    "Targeted web searches for the rational map (2x²+x+8)/(8x²+3), coefficients 112/121, 40√7/121, 15/121 log n, and relevant 2023 follow-up/2025 erratum."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No uniformity in τ near 2, no formula for C(x₀), no coordinate-invariant characterization, no assertion of a supercritical cycle result.",
+    "Mardešić et al. and other parabolic local machinery may admit a specialization yielding these coefficients; strong older equivalent computation not found but novelty cannot be certified.",
+    "2023 RIMS bulletin full PDF was not inspected; bibliographic record and abstract only. No complete-document noncoverage assertion is made.",
+    "Finite numerical orbit tests corroborate but do not certify the infinite theorem; no Lean/expert attestation, no external priority judgment.",
+    "Original public administrative files require complete privacy sanitization before any publication; transport not_ready is not science failure."
+  ],
+  "residual_risks": [
+    "A general Abel/Fatou-coordinate asymptotic theorem, together with this explicitly published map, may admit an overlooked direct coefficient formula or mechanically equivalent expansion; priority is qualified.",
+    "The later 2023 RIMS article is plausible but only its abstract was accessible; complete text was not read, so its possible exact-map discussion is not excluded.",
+    "Search index coverage is incomplete and model-specific high-order constants could appear in non-indexed appendices or theses; a failed search is not novelty proof.",
+    "The signed correction is coordinate- and clock-dependent; not a conjugacy invariant and not uniform in τ near 2."
+  ],
+  "schema_version": 1
+}
