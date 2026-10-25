@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Directly verified exact binomial-square formula; for each dyadic shift, Vandermonde plus Lucas implies a uniform termwise valuation floor. A separate coefficient evaluation mod 2^(s+3) gives a universal sharp witness n=1 for s>=2; explicit residues cover s=0,1. The exact least periods follow by excluding the half-period. The attached independent-of-input verifier checks many finite cases but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lengyel 2021 Theorem 3: v2(d(a2^n)-1)>=2n+2; Theorem 4: pointwise odd-offset valuations; Conjecture 4 explicitly predicts difference valuations at two dyadic levels.",
+        "Noe 2006 Schur and Holt digitwise congruences are modulo a prime, while the present theorem holds modulo arbitrarily high powers of two."
+      ],
+      "reasoning": "A stronger arbitrary-offset theorem would imply the b=1 consequence, but the inspected closest paper labels that difference identity a conjecture. Pointwise limits at zero offset and mod-prime divisibility do not imply uniform exact global periods.",
+      "searches": [
+        "published-finding corpus: Prove Lengyel Conjecture 4 b=1 for Delannoy d(a2^(s+1)+1)-d(a2^s+1), 2-adic valuation s+2",
+        "published-finding corpus: Central Delannoy sequence residues modulo powers of two uniform translation 2-adic Lipschitz stabilizer",
+        "published-finding corpus: Delannoy numbers congruence D_(n+2^k) ≡ D_n mod 2^(k+2)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.2486v1/v4 (Sun 2010/2011)",
+      "JIS 9 (2006), 06.2.7 (Noe)",
+      "INTEGERS 21 (2021) A86 (Lengyel)",
+      "JIS 29 (2026) 26.5.2 (Djadi and Belbachir)",
+      "OEIS A001850 bibliographic notes",
+      "published-finding corpus published semantic search, six targeted queries and inspected ranked IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lengyel 2021 §2 pp.4-5 explicitly leaves Conjecture 4 open in that paper.",
+        "Djadi--Belbachir 2026 Theorems 1 and 4 assume odd primes p>=5 in the principal congruences; later sums also concern odd p.",
+        "Sun 2010 §1, theorems and abstract primarily address odd-prime sums, not all dyadic translations."
+      ],
+      "reasoning": "Neither pointwise d(2^s) information nor odd-prime weighted sums control D_{n+2^s}-D_n uniformly in n, much less its sharp minimum. The new theorem proves a particular conjectured difference as a corollary, a strict strengthening of the inspected pointwise information in that direction.",
+      "searches": [
+        "published-finding corpus: The exact least period of central Delannoy numbers D_n=P_n(3) modulo 2^h equals 2^(h-2) for h>=5, translation valuations v_2(D_(n+m)-D_n)",
+        "published-finding corpus: Prove Lengyel Conjecture 4 b=1 for Delannoy d(a2^(s+1)+1)-d(a2^s+1), 2-adic valuation s+2",
+        "published-finding corpus: Central Delannoy sequence residues modulo powers of two uniform translation 2-adic Lipschitz stabilizer",
+        "web: \"Delannoy\" \"period\" \"powers of 2\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The central Delannoy numbers equal the Legendre specialization P_n(3): Noe 2006 pp. 1,11 and Sun arXiv:1009.2486 pp. 1-2.",
+        "published-finding corpus nearest example 2026/10/4/SCOPE-even-even-period-equality-for-lucas-pairs-with-q-1--c698969a6a49 concerns Lucas periods, not P_n(3)."
+      ],
+      "reasoning": "Rewrote claim as Legendre specialization, uniform 2-adic translation congruence, and exact global modular period. Searched each alias in the literature and published-finding corpus; hits about Lucas recurrence periods do not imply Delannoy periodicity.",
+      "searches": [
+        "published-finding corpus: The exact least period of central Delannoy numbers D_n=P_n(3) modulo 2^h equals 2^(h-2) for h>=5, translation valuations v_2(D_(n+m)-D_n)",
+        "published-finding corpus: central Delannoy numbers minimal periods modulo powers of two; exact period 2^(r-2)",
+        "published-finding corpus: Legendre P_n(3) periodic 2-adic modulus congruences n shift",
+        "web: \"Delannoy numbers\" \"period\" modulo"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001850 and Delannoy references describe the numerical sequence, not a cited table of exact least periods modulo all 2^h.",
+        "published-finding corpus nearest 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 concerns different sums."
+      ],
+      "reasoning": "Compared the claimed parameter family to published sequence resources and semantically indexed findings; no table of exact dyadic global periods was identified. This negative observation is a bounded evidence statement, not proof of novelty.",
+      "searches": [
+        "published-finding corpus: The exact least period of central Delannoy numbers D_n=P_n(3) modulo 2^h equals 2^(h-2) for h>=5, translation valuations v_2(D_(n+m)-D_n)",
+        "published-finding corpus: central Delannoy numbers minimal periods modulo powers of two; exact period 2^(r-2)",
+        "web: \"Delannoy\" \"D(n+2\" congruence",
+        "web: \"central Delannoy numbers\" \"mod 2\" periodic"
+      ]
+    },
+    "rationale": "Sun (arXiv:1009.2486) studies odd-prime Delannoy sums; Noe 2006 gives base-prime divisibility criteria. Lengyel 2021 Theorem 3 gives valuations near pure powers of two but Conjecture 4 explicitly posits, rather than proves, a dyadic difference law for nonzero offsets; the present b=1 case and global exact period law are not consequences of these inspected statements. Djadi--Belbachir 2026 concerns odd-prime triangle congruences. No equivalence identified in multiple actually executed published-finding corpus searches. Literature priority is not guaranteed.",
+    "residual_risks": [
+      "A more general previously published p-adic continuity theorem or an unindexed exact Delannoy period classification could cover the result.",
+      "Conjecture 4 might have later proofs not surfaced by this bounded search.",
+      "Independent mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No same global dyadic-period or offset-1 difference result identified",
+        "evidence": [
+          "arXiv:1009.2486 v1 dated 2010-09-13, primary MSC 11A07; abstract/main theorem presents odd-prime weighted congruences."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.2486",
+        "material_read": "Abstract and full PDF mathematical introduction and main theorem statements, 12-page text; checked for relevant dyadic period statements",
+        "method": "Primary PDF pages and mathematical theorem comparison",
+        "title": "On Delannoy numbers and Schröder numbers",
+        "trigger": "Primary archive source, correct MSC and same central sequence"
+      },
+      {
+        "assessment": "Prime-modulus divisibility and digitwise criteria, not exact full-power-of-two periods",
+        "evidence": [
+          "Published July 5 2006; Noe identifies A001850 as P_n(3) in its table; theorems concern divisibility modulo primes."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+        "material_read": "Introduction, Schur and Holt congruences, divisibility theorem section, appendix statements and references",
+        "method": "Primary PDF text, pages 1-5 and 7-12",
+        "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+        "trigger": "A001850 = P_n(3), possible old general congruence coverage"
+      },
+      {
+        "assessment": "Its pointwise 2-adic result is weaker in a different quantifier, while Conjecture 4 explicitly predicts the particular offset identity established here",
+        "evidence": [
+          "Theorem 3 v2(d(a2^n)-1)>=2n+2; Conjecture 4 v2(d(a2^(n+1)+b)-d(a2^n+b))=n+2v2(b(b+1)) for b!=0,-1."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/v86/v86.pdf",
+        "material_read": "Full Section 2 Theorems 3/4, Corollary 1, Conjectures 1-4 and relevant proof of Theorem 3 in Section 3, including printed page 4-5 screenshots",
+        "method": "Publisher full PDF direct text + inspected page images",
+        "title": "On Some p-Adic Properties and Supercongruences of Delannoy and Schröder Numbers",
+        "trigger": "Closest primary p=2 work and direct Conjecture 4 overlap test"
+      },
+      {
+        "assessment": "Its principal congruences have odd-prime p>=5 hypotheses or different double-sum objects; do not establish claimed dyadic translation period",
+        "evidence": [
+          "2026 Theorem 1 states p>=5; Theorem 9 concerns odd primes and a double sum; Lemma 13 concerns first adjacent difference, not every dyadic shift."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Djadi/djadi6.pdf",
+        "material_read": "Full primary PDF theorem results and proof discussion, pages 3-9, with Delannoy central coefficient references",
+        "method": "Publisher direct PDF theorem and hypotheses comparison",
+        "title": "Congruence Properties for the Delannoy Triangle Coefficients",
+        "trigger": "Recent plausible Delannoy congruence dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10ca8193-94b8-4419-bc53-ab7cc3bfd5ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Every dyadic modulus receives an exact globally minimal period, a natural unbounded arithmetic invariant; all shifts get a sharp valuation threshold with a single explicit witness. The same structural proof establishes the b=1 offset case of a specific published difference conjecture. This is not a finite enumeration or relabeling.",
+    "status": "PASS"
+  }
+}
