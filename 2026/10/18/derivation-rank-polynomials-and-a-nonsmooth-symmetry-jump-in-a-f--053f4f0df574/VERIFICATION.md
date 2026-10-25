@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible finite-field checks
+# Independent mathematical audit
 
-Run `python3 check.py` using only Python's standard library. The checker enumerates all pairs of images of the two algebra generators for \(q=2,3,4\), constructs the corresponding linear maps from the Leibniz rule, verifies each basis-product identity, and counts operator ranks by elimination. It separately counts automorphisms by checking the defining square-zero relations and invertibility of the full four-dimensional substitution matrix. The reported counts are:
+## correctness
 
-| Field size | Derivation ranks \(0,1,2,3\) | Automorphisms |
-|---|---|---:|
-| 2 | \((1,9,94,152)\) | 24 |
-| 3 | \((1,8,54,18)\) | 72 |
-| 4 | \((1,75,5748,59712)\) | 2880 |
+PASS
 
-All comparisons passed. The full theorem for arbitrary prime powers follows from the symbolic rank-and-trace counting and the coordinate-ring proof; no finite test is claimed as an exhaustive verification of infinitely many fields. The coordinate-ring argument, not the program, verifies group-scheme nonsmoothness. Independent audit has not been performed.
+The rank count separates characteristic odd/even via 2Xu=2Yv=0. In odd characteristic the 3x3 lower triangular matrix yields the stated rank counts. In characteristic two the 4x3 matrix splits into nonzero-constant and zero-constant slices; the former normalizes a nonzero covector by GL2, the latter uses rank and trace of a 2x2 block, giving sums q^8. The coordinate ring with a0²=b0²=0 and Δ invertible proves reduced dimension 6 vs tangent dimension 8. Boundary q=2 fits and q=3 agrees with symbolic formulas. Script output was not rerun; all-field correctness rests on the symbolic proof, not finite logs.
+
+## originality
+
+PASS
+
+The materially inspected same-algebra primary paper works over characteristic zero and gives automorphism generators, not the finite-field rank distribution or characteristic-two nonreduced scheme; no exact covering table was located in bounded Resultary search. This is a best-of-knowledge finding with residual literature risk.
+
+## value
+
+PASS
+
+The natural length-four complete intersection is a minimal test case for a characteristic-two jump in infinitesimal algebra symmetries. Exact rank-polynomial distributions for all derivations give meaningful fine structure absent from ordinary automorphism-point counts, and the nonreduced group-scheme coordinate ring explains the tangent excess. This is a motivated exact invariant beyond raw code reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

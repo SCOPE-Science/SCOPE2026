@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining-ideal preservation criterion gives all derivations with no hidden hypotheses. Explicit operator matrices lead to exact disjoint rank counts. In characteristic \(2\), separating nonzero constant terms from the zero-constant slice and classifying \(2\)-by-\(2\) matrices by rank and trace proves the coefficient formulas. Square-zero coordinate relations and a determinant calculation establish the group-scheme presentation. Direct exhaustive basis-product tests and independent elimination in the bundled checker verify \(q=2,3,4\). The infinite-family assertions rest on proofs, not enumeration.
+PASS
 
-## Originality — PASS within the checked sources
+The rank count separates characteristic odd/even via 2Xu=2Yv=0. In odd characteristic the 3x3 lower triangular matrix yields the stated rank counts. In characteristic two the 4x3 matrix splits into nonzero-constant and zero-constant slices; the former normalizes a nonzero covector by GL2, the latter uses rank and trace of a 2x2 block, giving sums q^8. The coordinate ring with a0²=b0²=0 and Δ invertible proves reduced dimension 6 vs tangent dimension 8. Boundary q=2 fits and q=3 agrees with symbolic formulas. Script output was not rerun; all-field correctness rests on the symbolic proof, not finite logs.
 
-The closest primary source is Díaz–Liendo–Manzano-Flores–Regeta, arXiv:2408.02197, especially Theorem 3.7 and Example 4.25. It studies the same monomial algebra but expressly assumes characteristic zero, classifies locally nilpotent homogeneous derivations and describes automorphism generators; it does not give the finite-field full derivation-rank polynomial or the characteristic-two nonreduced automorphism scheme. A mathematical research index contains a related non-smooth automorphism-scheme result for a different nonassociative Leibniz algebra, which does not imply this result. A 1997 work on automorphism groups of truncated polynomial algebras is in characteristic zero, and its available abstract does not establish these finite-field calculations. Residual risk: an equivalent count may exist under a different derivation-module or infinitesimal-symmetry formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The exact rank distribution is a natural complete invariant of all infinitesimal operators on a canonical length-four two-generator complete intersection. This is the same concrete algebra featured in the closest structural literature. The exceptional characteristic distinguishes eight derivation parameters from six reduced symmetry parameters, quantitatively exhibiting two infinitesimal directions invisible on ordinary points. Complete arbitrary-\(q\) strata provide actual data for finite-field deformation/symmetry calculations rather than merely the dimension of a derivation space.
+The materially inspected same-algebra primary paper works over characteristic zero and gives automorphism generators, not the finite-field rank distribution or characteristic-two nonreduced scheme; no exact covering table was located in bounded Resultary search. This is a best-of-knowledge finding with residual literature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural length-four complete intersection is a minimal test case for a characteristic-two jump in infinitesimal algebra symmetries. Exact rank-polynomial distributions for all derivations give meaningful fine structure absent from ordinary automorphism-point counts, and the nonreduced group-scheme coordinate ring explains the tangent excess. This is a motivated exact invariant beyond raw code reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
