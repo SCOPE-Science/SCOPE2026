@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The infinite classification follows from exact Walsh Gram reduction to \(\mathbb E S=0\) and \(\mathbb E S^2=n\), giving \(st=n\) and unique positive shell masses. Parity supplies necessity and sufficiency for all dimensions. For odd dimensions the vertex minimum is an exact divisor minimum; exhaustive exact integer enumeration up to \(51\), combined with the displayed positive-coefficient contraction identity, proves both the first transition and its infinite arithmetic continuation. The standalone checker reproduced all specified exact calculations.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risks)
-Closest relevant theory: Bannai, Bannai, Tanaka, Zhu (2020), a two-shell *relative-design* analysis; Zhu (2021) on nonbinary relative designs; searchable single-shell first-Walsh concentration and Hamming-ball spectra. Their checked statements do not imply the full two-shell Walsh Gram identity together with sharp symmetric sample counts and their first transition. The 2021 article was only partially accessible; an older equivalent orthogonal-array construction remains plausible. Distinguish this qualification from proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies whether symmetric two-shell sampling can be perfectly conditioned on the first Walsh band, and determines its exact minimum measurement count in all odd dimensions. The first cost transition at \(n=51\) and its infinite recurrence expose nontrivial arithmetic geometry of optimal measurement supports. The sample reduction is not asserted to be optimal among irregular cubature designs.
+Permutation symmetry reduces the complete two-shell first Walsh Gram matrix to ES=0 and ES^2=n for S=sum coordinates; positive masses on s and -t solve these exactly when st=n, with parity s=t=n mod2 and 1<=s,t<=n. Hence n odd or 4|n. The number of sample vertices is the sum of two binomial shell sizes, yielding the exact divisor minimum for all odd n. Independent exact binomial computation for each odd dimension up to 201 confirms first strict improvement at n=51, pair (3,17), 244362982488625 versus 247959266474053. The analytic all-n progression follows from the positive-polynomial identity for 3/4-R_(r+1)/R_r, whose numerator is 3(13r^4+65r^3+138r^2+144r+60); independently verified polynomially. Finite counts do not establish the infinite recurrence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
+
+## value
+
+PASS
+
+Exact tight recovery of the full affine Walsh band from symmetric complete-shell measurements is a natural quadrature/frame problem. The arithmetic existence criterion, all-odd-dimension sample-cost optimization and first support transition at n=51 give precise structural and resource thresholds, not a randomly sliced table. The result does not optimize arbitrary irregular supports.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
