@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T02:04:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The one-step expected squared projector is p0I+p1P1+p2P2; its top eigenvalue is p0+(s+sqrt(r^2 s^2+(1-r^2)d^2))/2. The self-adjoint positive covariance operator H -> p0H+sum p_i P_iHP_i acts on span(P1,P2) with Perron eigenvalue p0+(s+sqrt(r^4 s^2+(1-r^4)d^2))/2, with the remaining eigenvalue p0. Positivity and trace comparison justify limit of worst-initial-error k-th roots without interchanging supremum. For s>0, both uniquely optimize at d=0; the remaining objectives are affine in batch mass t, with slope zeros at the two asserted thresholds. Exact rational independent projector calculations at w=4,c=1,r=3/5 gave one-step R_single=4/5, R_batch=3/4 and 2-step singleton maximum 68/125 vs batch 9/16, supporting the asymptotic rates Q_single=17/25 and Q_batch=3/4. Checks do not prove universal real inequalities by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Yang 2025 abstract explicitly emphasizes convergence bounds and learning batch distributions; no exact four-mask phase frontier is stated there.",
+          "Mutny–Dereziński–Krause 2020 publicly describes eigenvalue-dependent rates for determinantal block sampling and optimal block-size, not this general fixed IID four-mask mixture."
+        ],
+        "reasoning": "General block convergence bounds need not attain exact worst-initial-error covariance spectral radius, and fixed determinantal laws need not solve four-mask distribution optimization. The inaccessible 2026 companion remains a plausible stronger source.",
+        "searches": [
+          "arXiv:2511.09872",
+          "arXiv:2610.04685",
+          "PMLR v108 mutny20a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.09872 abstract",
+        "arXiv:2610.04685 abstract",
+        "PMLR: v108 mutny20a abstract",
+        "Resultary queries: randomized block Kaczmarz fixed expected work budget optimal mean-square convergence one step discrepancy",
+        "Resultary queries: two-row Kaczmarz four-mask optimizer batch or skip balanced singletons asymptotic rate",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2025 manuscript publicly states learnable batch probability and bounds, whereas current claim proves all fixed-cost global optima with equality cases.",
+          "The 2026 companion publicly claims sharper block coordinate-descent bounds and learned distributions, not explicitly the same minimax phase theorem in its abstract."
+        ],
+        "reasoning": "Rate upper bounds and training heuristics do not logically imply sharp optimizer switches, but a special case of an uninspected broader theorem would supersede the claim. No decisive such coverage established.",
+        "searches": [
+          "arXiv:2511.09872",
+          "arXiv:2610.04685",
+          "randomized block Kaczmarz fixed expected work budget optimal mean-square convergence one step discrepancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a consistent square two-row system, applying both row constraints is an exact zero error map, and singleton maps are rank-one projectors.",
+          "Convergence is equivalently a two-projector positive second-moment operator problem with cross-trace r^2."
+        ],
+        "reasoning": "Classical spectral analysis supplies the formulas as methods, but the submitted result is the joint global minimizer classification with conflicting short/long objectives under fixed expected work.",
+        "searches": [
+          "randomized block Kaczmarz fixed expected work budget optimal mean-square convergence one step discrepancy",
+          "two-row Kaczmarz four-mask optimizer batch or skip balanced singletons asymptotic rate",
+          "randomized block projection covariance operator spectral radius cost-constrained sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's nearby two-row work concerns deterministic cyclic overrelaxation and a defective-root finite-horizon norm; it does not have IID four-mask cost laws.",
+          "Independent rational calculations reproduce the w=4,c=1,r=3/5 strict reversal."
+        ],
+        "reasoning": "This continuous parametric phase diagram is not a database table problem; numerical witnesses alone do not imply the phase theorem.",
+        "searches": [
+          "two-row Kaczmarz four-mask optimizer batch or skip balanced singletons asymptotic rate",
+          "Resultary exact finite-horizon two-row Kaczmarz overrelaxation"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Earlier batch-sampling Kaczmarz analysis gives general convergence rate bounds and trainable distributions but is not shown to identify the exact four-mask, fixed-expected-cost, two-objective optimizer split. Mutny et al. 2020 use determinantal block sampling for a different method. A particularly plausible 2026 coordinate-descent companion was available in abstract only and could have an equivalent special case; best-knowledge novelty retains this material risk.",
+      "residual_risks": [
+        "Full 2026 companion arXiv:2610.04685 was not accessible and may contain a covering mathematical reduction.",
+        "Empty draws and abstract work charge w>2 are deliberate modeling choices, not physically measured runtime; nonempty-batch models differ.",
+        "Full primary texts of both Xie–Yang papers were not independently inspected in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general rate theory; cannot certify lack of all special-case statements from abstract.",
+          "evidence": "arXiv:2511.09872 public abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2511.09872",
+          "material_read": "Public abstract and date (2025-11-13), describing concentration-based expected linear rate bounds and learnable sampling; full sections not read in this run.",
+          "method": "arXiv abstract search retrieval",
+          "title": "Randomized batch-sampling Kaczmarz methods for general linear systems",
+          "trigger": "closest general batch sampling model"
+        },
+        {
+          "assessment": "Potentially covering newer results; a live residual risk, not a scientific proof of coverage.",
+          "evidence": "arXiv:2610.04685 abstract about arbitrary static sampling and sharper bounds",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+          "material_read": "Dated 2026-10-03 abstract via OA metadata/search result only; complete primary text unavailable.",
+          "method": "OA abstract and unsuccessful authorized full-text retrieval",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "same authors' newer distribution-learning approach"
+        },
+        {
+          "assessment": "Studies determinantal block randomization and spectral rates, not verified to cover arbitrary two-row four-mask work-constrained laws.",
+          "evidence": "PMLR 108:3110-3120 abstract",
+          "identifier_or_url": "https://proceedings.mlr.press/v108/mutny20a.html",
+          "material_read": "Public publisher abstract and citation metadata (AISTATS 2020).",
+          "method": "PMLR publication page search",
+          "title": "Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling",
+          "trigger": "competing block-size and numerical-work optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp interval in which the law optimal for first-step error is strictly inferior for long-run mean-square error establishes a meaningful modeling and algorithmic boundary. The equal expected-work constraint and explicit idle mask are clearly scoped; no hardware-runtime claim or nonempty-batch claim is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2511.09872 abstract",
+    "arXiv:2610.04685 abstract",
+    "PMLR: v108 mutny20a abstract",
+    "Resultary queries: randomized block Kaczmarz fixed expected work budget optimal mean-square convergence one step discrepancy",
+    "Resultary queries: two-row Kaczmarz four-mask optimizer batch or skip balanced singletons asymptotic rate",
+    "Frozen RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite independently reproduced samples support but do not prove unrestricted mathematical quantifiers.",
+    "Originality is best-of-knowledge with the specific source-inspection/access limitations and risks recorded; no absolute priority, formal-verifier or expert certification.",
+    "Full 2026 companion arXiv:2610.04685 was not accessible and may contain a covering mathematical reduction.",
+    "Empty draws and abstract work charge w>2 are deliberate modeling choices, not physically measured runtime; nonempty-batch models differ.",
+    "Full primary texts of both Xie–Yang papers were not independently inspected in this execution."
+  ],
+  "residual_risks": [
+    "Full 2026 companion arXiv:2610.04685 was not accessible and may contain a covering mathematical reduction.",
+    "Empty draws and abstract work charge w>2 are deliberate modeling choices, not physically measured runtime; nonempty-batch models differ.",
+    "Full primary texts of both Xie–Yang papers were not independently inspected in this execution."
+  ],
+  "schema_version": 1
+}
