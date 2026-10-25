@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The family has exactly \\(2n+2\\) distinct members for \\(n\\ge4\\). For two distinct singleton members, common strict upper members are co-singletons and \\([n]\\), which do not form a chain of three strict inclusions. Every other incomparable pair in the family has union \\([n]\\), so its only common strict upper member is \\([n]\\). Every missing \\(S\\) has \\(2\\le|S|\\le n-2\\) and is placed in a copy by choosing two distinct elements of \\(S\\) and one element outside \\(S\\). The cited legs theorem applies to \\(P\\) and gives \\(\\operatorname{sat}^*(n,P)>n+1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2503.12223v4, Theorem 10 applies when no two consecutive layers have size 1; Section 6 says consecutive singleton layers remain an obstacle.",
+        "arXiv:2610.06527v1, Sections 1–2 classify posets of at most four elements; the present poset has five elements."
+      ],
+      "reasoning": "Neither inspected theorem covers the five-element layer pattern \\((2,1,1,1)\\). The general conjecture is broader in scope but is not a proof of this instance.",
+      "searches": [
+        "induced poset saturation gluing posets percolation number unique minimal maximal elements",
+        "2025 2026 extremal combinatorics poset saturation hypergraph matching stability exact parameter boundary",
+        "Ivan Jaffe bounded-linear dichotomy all 4 point posets arXiv:2610.06527"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arXiv:2503.12223v4",
+        "material_read": "Theorem 10 and Section 6 / Conjecture 15",
+        "title": "Gluing Posets and the Dichotomy of Poset Saturation Numbers"
+      },
+      {
+        "identifier": "arXiv:2207.03974v4",
+        "material_read": "Definition of legs and Theorem 1.5",
+        "title": "The Induced Saturation Problem for Posets"
+      },
+      {
+        "identifier": "arXiv:2610.06527v1",
+        "material_read": "Abstract and Sections 1–2",
+        "title": "The Bounded-Linear Dichotomy Holds for all 4 Point Posets"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.5 of arXiv:2207.03974v4 gives \\(\\operatorname{sat}^*(n,P)>n+1\\) for posets with legs and \\(n>3\\).",
+        "Theorem 10 of arXiv:2503.12223v4 gives an \\(O(n)\\) upper bound only when consecutive layer sizes are not both \\(1\\)."
+      ],
+      "reasoning": "Prior work gives the lower bound and identifies a conjectural class, but does not supply an \\(O(n)\\) upper bound for \\((2,1,1,1)\\). The displayed family proves that missing upper bound and therefore establishes \\(\\Theta(n)\\) for this instance.",
+      "searches": [
+        "induced poset saturation five-point layered poset two incomparable minima followed by a three-element chain",
+        "sat*(n,A2*C3) induced poset saturation V with chain of three elements",
+        "arXiv:2503.12223v4 Theorem 10 and Conjecture 15",
+        "arXiv:2207.03974v4 Theorem 1.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ivan and Jaffe, arXiv:2503.12223v4, Section 6 and Conjecture 15",
+        "Freschi et al., arXiv:2207.03974v4, definition of legs and Theorem 1.5"
+      ],
+      "reasoning": "The equivalent layer/linear-sum descriptions identify the same five-element order relation. The inspected sources do not state the same upper-bound construction for layer pattern \\((2,1,1,1)\\).",
+      "searches": [
+        "induced poset saturation five-point layered poset two incomparable minima followed by a three-element chain",
+        "sat*(n,A2*C3) induced poset saturation V with chain of three elements",
+        "Complete layered poset with levels (2,1,1,1); linear sum of a two-element antichain and a three-element chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record searches returned no matching five-element induced-saturation claim; the closest literature sources were the 2025 layered-poset paper and the 2023 legs theorem.",
+        "The 2026 all-four-point classification is explicitly restricted to posets with at most four elements."
+      ],
+      "reasoning": "No inspected exact table contains this five-element case. A failed search is not treated as proof of novelty; the positive comparison is the explicit gap between the stated theorem hypotheses and this layer pattern.",
+      "searches": [
+        "induced poset saturation gluing posets percolation number unique minimal maximal elements",
+        "induced poset saturation five-point layered poset two incomparable minima followed by a three-element chain",
+        "sat*(n,A2*C3) induced poset saturation V with chain of three elements",
+        "poset with legs induced saturation linear upper bound layered complete poset consecutive singleton layers bottom antichain size two"
+      ]
+    },
+    "rationale": "The direct family proves an upper bound for a five-element layered poset with three consecutive singleton levels, a case not covered by the inspected linear-upper-bound theorem. The cited legs theorem supplies only the lower bound; it does not imply this upper bound.",
+    "residual_risks": [
+      "The exact value and optimal leading constant for this five-element poset remain undetermined by the present argument.",
+      "Targeted searches cannot establish absolute bibliographic priority; a differently named or unpublished construction could exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claim: its linear upper-bound theorem excludes adjacent singleton layers, while this poset has three consecutive singleton levels.",
+        "evidence": "arXiv:2503.12223v4, Theorem 10 and Conjecture 15.",
+        "identifier_or_url": "https://arxiv.org/pdf/2503.12223",
+        "material_read": "Relevant full-text portions: Theorem 10 and Section 6, especially Conjecture 15 and the discussion on consecutive singleton layers (PDF pp. 15–18).",
+        "method": "Compared the exact level sequence \\((2,1,1,1)\\) with the theorem hypotheses and the stated conjecture.",
+        "title": "Gluing Posets and the Dichotomy of Poset Saturation Numbers",
+        "trigger": "Recent primary literature states a conjecture on linear saturation of complete layered posets and identifies consecutive singleton layers as an obstacle."
+      },
+      {
+        "assessment": "Covers the lower-bound side only: \\(\\operatorname{sat}^*(n,P)>n+1\\) for \\(n>3\\).",
+        "evidence": "arXiv:2207.03974v4, Theorem 1.5.",
+        "identifier_or_url": "https://arxiv.org/pdf/2207.03974",
+        "material_read": "Relevant full-text portions: definition of legs and Theorem 1.5 (PDF pp. 2–3).",
+        "method": "Verified the poset has incomparable elements \\(a,b\\) below \\(x_1\\) and every other element \\(x_2,x_3\\) above \\(x_1\\), so the legs hypothesis applies.",
+        "title": "The Induced Saturation Problem for Posets",
+        "trigger": "Needed a rigorous lower bound to complement the explicit upper construction."
+      },
+      {
+        "assessment": "Not covering: the target poset has five elements, outside the paper’s classification.",
+        "evidence": "arXiv:2610.06527v1, abstract and Section 1.",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.06527",
+        "material_read": "Relevant full-text portions: enumeration of posets with at most four points and discussion of the remaining four-point case (PDF pp. 1–3).",
+        "method": "Compared the cardinality of the target poset with the paper’s stated scope.",
+        "title": "The Bounded-Linear Dichotomy Holds for all 4 Point Posets",
+        "trigger": "Recent plausible title on induced-saturation classifications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "289646e0-fbf3-43af-a8b5-e43ad6294d62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a concrete five-element case of the conjectured linear induced-saturation growth for layered posets, specifically a level pattern with three consecutive singleton layers that is outside the inspected linear-upper-bound theorem. The construction is an all-n structural family, not a finite census or routine parameter substitution.",
+    "status": "PASS"
+  }
+}
