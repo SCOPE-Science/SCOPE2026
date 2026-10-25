@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The centered Hermite ambiguity identities give exactly the radial multiplier e^{-s}[1+w s(s-2)] at s=pi(x^2+omega^2). Its continuous essential infimum on a closed disk equals the multiplication-operator squared lower bound. The derivative has at most two critical points, with an inner minimum and outer endpoint competing. One is strictly decreasing in w after w=1/2 and the other strictly increasing for R>2; signs at w=1/2,1 give a unique balance. The balance equation has derivative 2u(1-exp(R-2+u))<0 and a root in (0,1). The R=2 endpoint classification, implicit-root monotonicity and asymptotic expansions follow from the displayed identities. The standard-library program corroborated 1698 finite instances, not the universal quantifiers. No independent check is represented as performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alaifari--Yang 2024 §2.2 specifies stable annuli using individual |A h_n|>epsilon, and §3.2 bounds noise by reciprocals of these cutoffs rather than optimizing a weighted quadratic sum.",
+        "Grohs--Liehr--Rathmair 2022 Theorems 1.2--1.4 ensure injectivity for sampled spectrograms with four Gaussian/Hermite-combination windows; they do not give a two-channel disk singular bound."
+      ],
+      "reasoning": "A general multiwindow stability theorem might cover the construction qualitatively, but none of these inspected statements supplies the sharp budget-constrained operator norm, complete optimizer set, threshold, or asymptotics; injectivity does not entail sharp conditioning.",
+      "searches": [
+        "multi window Gaussian Hermite first ambiguity function optimal weights coverage circle worst case sharp 2020 2024",
+        "Multi-window STFT phase retrieval: lattice uniqueness arxiv:2207.10620",
+        "arxiv:2410.05486 Algorithm 2 Stability of Algorithm 2"
+      ]
+    },
+    "checked_sources": [
+      "Alaifari--Yang arXiv:2410.05486 (first public 2024-10-07), §§1,2.2,3.2,5",
+      "Grohs--Liehr--Rathmair arXiv:2207.10620 (first public 2022-07-21), §§1.1,2.1",
+      "Relevant published mathematical record: Exact local conditioning and optimal weighting for two-tap cyclic spectrograms (different discrete finite Jacobian)",
+      "Relevant published mathematical record: Polylogarithmic safety window at the critical Hermite-Gabor exponent (different Gabor lattice frame model)",
+      "Own previously available mathematical claims on quadratic Hermite Fourier polynomial lifting, finite Gabor tomography, Gaussian localization and Hermite frames, checked for object/implication overlaps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Hermite--Laguerre formula in arxiv:2410.05486 is a premise reused transparently, not claimed new. Its multiwindow strategy takes a union of stable annuli and is not a constrained two-channel linear inverse minimax theorem.",
+        "The 2022 four-window lattice injectivity result operates on sampled nonlinear spectrograms; it cannot supply the exact condition number for unrestricted L² ambiguity fields on a continuous disk merely by specialization."
+      ],
+      "reasoning": "The proof solves a new sharp design functional using a crossing between an interior singular-value bottleneck and the disk boundary. It is not obtained from the prior theorems by only relabeling variables or changing normalization, although the analytic input is elementary and explicit.",
+      "searches": [
+        "arxiv:2410.05486 Hermite Laguerre ambiguity §2.2 §3.2 Algorithm 2",
+        "arxiv:2207.10620 four Gaussian first Hermite windows lattice uniqueness §1.1 §2.1",
+        "weighted Gaussian and first Hermite window ambiguity combination min on disk sharp optimal radius phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest analytical equivalent is optimization of the essential infimum of e^{-s}[(1-w)+w(1-s)^2] on [0,R]; the quoted primary paper gives e^{-s/2}L_n(s) but not this envelope optimization.",
+        "The two-tap cyclic-spectrogram optimal weighting result compares a finite signal-intensity Jacobian, not the present infinite-dimensional continuous multiplication operator."
+      ],
+      "reasoning": "Ambiguity-function dual language, the squared multiplier, two-channel singular-value language, and diskwise maximin weighting were searched and compared. The full quantitative equality cases and radius-dependent allocation are not implied by the displayed prior results.",
+      "searches": [
+        "Hermite windows Gaussian short time Fourier transform ambiguity functions optimal multiwindow phase retrieval stability covering disk Laguerre maximin",
+        "For Gaussian h0 and first Hermite h1 STFT windows, optimize weight w min over disk radius R of exp(-s)*[(1-w)+w(1-s)^2]; threshold R=2, unique equioscillation",
+        "arxiv:2410.05486, equations (2), (8), section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical-claim searches returned unrelated sharp weighted local cyclic spectrograms, Hermite Gabor frame bounds and Gaussian localization results but no matching normalized radius 2 minmax table.",
+        "Accessible claims in the four own-ledger weekly parts were compared as objects and parameters; the nearest earlier own entry optimizes derivative-intensity weight for an eight-measurement quadratic polynomial frame, a distinct map."
+      ],
+      "reasoning": "The exact scalar transcendental root, physical disk normalization, optimizer plateau and full all-R classification are not entries located in the searched record set. Lack of an exact record is not, by itself, a proof of priority.",
+      "searches": [
+        "Maximize inf_{0≤s≤R} e^{-s}(1+w s(s-2)) for 0≤w≤1; two Hermite windows optimal ambiguity energy coverage",
+        "sharp power allocation Gaussian first Hermite spectrogram ambiguity stability disk minmax",
+        "2022 2023 discrete Fourier analysis uncertainty cyclic phase retrieval support ambiguity polynomial stability arxiv"
+      ]
+    },
+    "rationale": "The nearest full-text study [Alaifari--Yang, arXiv:2410.05486] supplies the Hermite--Laguerre input and qualitatively constructs unions of stable annuli, but its Algorithm 2 and stability discussion contain neither weighted two-window L2 multiplier minimax optimization nor an exact critical radius and optimizer. Grohs--Liehr--Rathmair [arXiv:2207.10620] address lattice sampled uniqueness using linear combinations of the same Hermite modes, not the diskwise operator lower bound. Mathematically close public results concern different finite cyclic spectrogram Jacobians and Gabor lattice frames. No statement found has hypotheses dominating this quantitative continuous multiplier theorem; unindexed or older optimal-window-design literature remains a historical-priority risk.",
+    "residual_risks": [
+      "Historical specialized multi-taper or window-design references may contain an equivalent scalar maximin computation not recovered by semantic search.",
+      "Because the functional reduces to a one-dimensional calculus problem, its component identities are classical; priority specifically concerns the sharp diskwise optimal design classification, not the Hermite ambiguity identity.",
+      "Full historical novelty and external review are not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies exact ambiguity formula and qualitative annular stability sets, but does not state or imply optimized weighted continuous two-channel conditioning with all radii and allocations.",
+        "evidence": [
+          "Equation (8): A h_n=e^{-s/2}L_n(s)",
+          "Equation (9): separate threshold regions |A h_n|>epsilon",
+          "Algorithm 2 and §3.2: separate regionwise divisions and noise bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.05486",
+        "material_read": "Full publicly accessible parsed paper, focusing on Introduction, §2.2 including equations (8)--(9), Algorithm 2, §3.2, Conclusions",
+        "method": "Read publicly accessible full-text HTML/parsed arXiv contents and inspected mathematical statements in these sections",
+        "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+        "trigger": "Same Hermite ambiguity functions and direct multiwindow recovery"
+      },
+      {
+        "assessment": "Linear combinations of h0,h1 yield discrete-lattice phase uniqueness; no optimized two fixed channel weights or sharp diskwise continuous lower singular value is stated.",
+        "evidence": [
+          "Theorems 1.2--1.4 concern multiwindow lattice injectivity with density conditions",
+          "Section 1.1 explicitly defines g_p=lambda h0+mu h1, distinct from the two separate ambiguity channel multipliers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.10620",
+        "material_read": "Accessible full-text parsed arXiv material, especially Introduction, Theorems 1.2--1.4 and §2.1",
+        "method": "Read full-text sections and mathematical statements about four-window sampled uniqueness",
+        "title": "Multi-window STFT phase retrieval: lattice uniqueness",
+        "trigger": "Uses Gaussian and first Hermite modes together; plausible stronger multiwindow result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bd35b36-39f1-49b9-acf2-1cb0b4cd883a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Alaifari--Yang explicitly motivate choosing Hermite windows to enlarge a stable ambiguity-reconstruction region, without an exact resource-allocation criterion. Under a natural total channel-precision budget, the present result determines the best possible worst-frequency inverse amplification for all disk radii, exhibits a sharp R=2 onset with a nontrivial optimizer plateau, proves unique interior/boundary equioscillation above threshold, and identifies a linear-in-R improvement in inversion conditioning. This is a natural complete design classification rather than an arbitrary numerical slice. Its scope is restricted to linear ambiguity-domain stability and the two fixed Hermite modes; it is not presented as sharp global nonlinear phase-retrieval stability.",
+    "status": "PASS"
+  }
+}
