@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the Gaussian null, the studentized Gram matrix is a Haar projection of rank \(d\) in \(\mathbf1^\perp\). Its diagonal leverage and pair-difference leverage have known beta distributions. The essential extra step is the conditional Haar-trace identity \(\mathbb E[Q\mid Z]=(d-Z)/(n-2)\), yielding the exact weighted cross-product expectation. Substitution into the original paper's finite-sample statistic gives all three terms for every \(n\ge d+1\), \(d\ge2\), and \(a>0\). The deterministic boundary follows because the projection is then unique. The packaged script passed 101 beta-quadrature, exact-simplex, and Gaussian sampling comparisons. These tests are corroboration, not a replacement for the proof. Numerical special-function cancellation is a computational limitation only.
+## correctness
 
-**Originality — PASS on available evidence.** The closest paper, Ebner–Henze–Strieder (arXiv:2007.02596, Sections 2, 3, 5, 7 and Appendix), gives the finite-data statistic and an exact mean for the *limiting* null statistic, but not the expectation at finite \(n\). The related harmonic-oscillator normality test of Dörr–Ebner–Henze (DOI: 10.1111/sjos.12477) has a different integrand and different statistic. Dedicated searches for exact finite-sample Fourier–Stein means, confluent-hypergeometric calibration, Haar projections, and published mathematical records found no equivalent first-moment formula. General results on Haar projections imply the ingredients but were not found to tabulate this exact statistic-specific expectation. Residual risk: a formula in another normality-testing paper, thesis, or unpublished calculation could already provide the same quantity; numerical searches cannot establish uniqueness.
+PASS
 
-**Value — PASS.** Null centering is a natural finite-sample calibration quantity for a goodness-of-fit statistic. The source paper calibrates finite-sample critical values by extensive simulation while providing a closed mean for the limiting-null law; its finite-sample mean was not stated. For \(n=5\), \(d=2\), \(a=1\), the new exact mean is approximately \(1.45826\), whereas the limiting-null mean is approximately \(1.76715\), a meaningful difference for small-sample calibration. The boundary \(n=d+1\) also reveals that the entire statistic is deterministic. This is a motivated exact invariant, not a claimed solution of the harder full-distribution or critical-value problem.
+For every d>=2, n>=d+1, a>0, the Gaussian whitening projection has Gram nP for Haar d-plane in 1-perp. For fixed unit v, Z=v^TPv is Beta(d/2,(n-d-1)/2) (or deterministic one at n=d+1); diagonal and pairwise quadratic expectations collapse to M0,M1 Kummer moments using E[Q|Z]=(d-Z)/(n-2). Substitution into the exact published finite-data Fourier integral yields all three coefficients with divisor n. At n=d+1 the whole Gram is deterministic. Independent scipy Beta quadrature and minimal-simplex exact checks matched.
 
-**Scientific limits and priority risk.** The Gaussian iid null, covariance normalization, and theoretical-CF term are essential. Historical priority remains contingent on independent review; a general Stiefel-projection integration theorem may offer another derivation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite-n Gaussian-null mean is not the published mean of the limiting null law; full finite covariance-Haar beta projection calculations are required. Best-of-knowledge PASS with priority caveat.
+
+## value
+
+PASS
+
+Finite-n Gaussian Fourier–Stein expectation is a natural calibration invariant not given by the limiting null mean. The exact continuous d,n,a formula and smallest-sample degeneracy are independently useful while not claiming quantile calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

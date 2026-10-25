@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T01:57:07.004008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every d>=2, n>=d+1, a>0, the Gaussian whitening projection has Gram nP for Haar d-plane in 1-perp. For fixed unit v, Z=v^TPv is Beta(d/2,(n-d-1)/2) (or deterministic one at n=d+1); diagonal and pairwise quadratic expectations collapse to M0,M1 Kummer moments using E[Q|Z]=(d-Z)/(n-2). Substitution into the exact published finite-data Fourier integral yields all three coefficients with divisor n. At n=d+1 the whole Gram is deterministic. Independent scipy Beta quadrature and minimal-simplex exact checks matched.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ebner–Henze–Strieder published formula for finite-data statistic and limiting-null mean; their limiting theorem does not fix finite-n expectation.",
+          "Dörr et al. define a different harmonic-oscillator discrepancy."
+        ],
+        "reasoning": "Neither inspected result supplies the finite-n three-hypergeometric expectation by implication; published base formula is explicitly credited.",
+        "searches": [
+          "Ebner Henze Strieder Fourier Stein multivariate normality Theorem 3.3 finite sample exact expectation 2022 DOI 10.1002/cjs.11670",
+          "Dörr Ebner Henze harmonic oscillator normality characteristic functions DOI 10.1111/sjos.12477"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py exact Git blobs",
+        "Ebner–Henze–Strieder primary DOI 10.1002/cjs.11670, theorem and limiting mean",
+        "Dörr–Ebner–Henze DOI 10.1111/sjos.12477, abstract",
+        "Resultary semantic query: finite Gaussian Fourier–Stein mean; hits cross-HSIC and distinct tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact finite-data pairwise representation is prior and requires expectation over Haar projector; only the limiting mean was previously evaluated."
+        ],
+        "reasoning": "The source representation logically permits derivation using additional geometric work, but does not itself state the closed finite expectation.",
+        "searches": [
+          "Ebner Henze Strieder finite data theorem 2.1 limiting expectation theorem 3.3",
+          "Haar projection Beta marginal studentized Gaussian residual rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kummer beta integrals and Haar projected row Gram give a three-term expectation for n>=d+1.",
+          "Resultary closest cross-HSIC tail finding 2026/10/4/SCOPE-a-finite-sample-tail-obstruction-for-gaussian-linear-cross-hsic--8abbab3b5ed1 is a different statistic."
+        ],
+        "reasoning": "Whitening via sample covariance divisor n yields invariant Gram geometry; alternate Fourier/Stein and Haar-Stiefel aliases were compared, not merely names.",
+        "searches": [
+          "finite sample Fourier Stein normality statistic Gaussian expectation sample studentized residual beta confluent hypergeometric",
+          "Resultary: exact finite sample Gaussian null mean multivariate Fourier Stein normality test E[T_{n,a}] confluent hypergeometric Haar projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports Monte Carlo finite-sample critical value calibration and limiting-null mean, not an exhaustive exact finite parameter expectation table."
+        ],
+        "reasoning": "A fixed-n Monte Carlo quantile table is not the exact continuous n,d,a mean formula; no absence claim for unindexed supplements.",
+        "searches": [
+          "Fourier Stein normality finite sample mean exact table n d a hypergeometric",
+          "Resultary: exact finite sample Gaussian null mean multivariate Fourier Stein normality test E[T_{n,a}] confluent hypergeometric Haar projection"
+        ]
+      },
+      "rationale": "The exact finite-n Gaussian-null mean is not the published mean of the limiting null law; full finite covariance-Haar beta projection calculations are required. Best-of-knowledge PASS with priority caveat.",
+      "residual_risks": [
+        "The finite mean could be implicit in unindexed studentized-residual special-function literature.",
+        "Independent numerical experiments corroborate but do not prove all inputs; the analytic argument was reconstructed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not identify exact finite-n Gaussian-null three-term mean as a stated theorem; limiting-null mean is a different random variable.",
+          "evidence": [
+            "Published Gaussian kernel representation and limiting-null theorem; explicit Monte Carlo finite calibration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/cjs.11670; arxiv:2007.02596",
+          "material_read": "Accessible primary full HTML: definition, Theorem 2.1 exact finite-data expression, Gaussian asymptotic theorem and limiting mean theorem, calibration discussion",
+          "method": "Mathematically compare exact sample-statistic kernel vs expectation under finite-n null",
+          "title": "Testing normality in any dimension by Fourier methods in a multivariate Stein equation",
+          "trigger": "Identical statistic and same authors"
+        },
+        {
+          "assessment": "Different harmonic-oscillator statistic; noncoverage of complete text not asserted.",
+          "evidence": [
+            "Different displayed test definition and original citation context."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/sjos.12477",
+          "material_read": "Title, abstract/bibliographic context; not claimed complete text read",
+          "method": "Compare definitions and normalization",
+          "title": "Testing multivariate normality by zeros of the harmonic oscillator in characteristic function spaces",
+          "trigger": "Closely related Stein / harmonic-oscillator tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-n Gaussian Fourier–Stein expectation is a natural calibration invariant not given by the limiting null mean. The exact continuous d,n,a formula and smallest-sample degeneracy are independently useful while not claiming quantile calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exact first moment under Gaussian null and divisor n; not finite quantiles or full law.",
+    "Older Haar/Stiefel moment formulas might implicitly contain this specialization."
+  ],
+  "schema_version": 1
+}
