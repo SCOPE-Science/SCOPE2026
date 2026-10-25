@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The starting halfspace system is independently verified from the published vertex description and the cited Proposition 4.4. The reflection-inclusion condition is equivalent to the complete finite linear system \(1\le z_i\le\lambda\), \(z([n])=r(\lambda+1)\), \(z(T)\le\lambda\). Coordinate and tail support extrema all occur because the parameter range admits bases with and without each element and with zero or one tail element. Summing these inequalities supplies three sharp lower bounds, and the constructive block-constant feasible point meets their maximum. The full center-locus and its affine dimension follow from exact equality cases and strict hyperplane slices. Finite exact-arithmetic checks cover 140 triples and 23,440 enumerated bases, and supplement rather than substitute for the general proof.
+## correctness
 
-## Originality — PASS with remaining priority risk
-The 2022 primary paper proves panhandle polytope structure, Ehrhart formulas, and volumes. Material examination of its main results and appendices found no reflection-asymmetry center calculation. The 2023 panhandle Ehrhart-positivity papers study different invariants. The broader Schubert-matroid Ehrhart literature does not furnish an identified implication for these formulas. Published-result search found no directly covering statement. Previously recorded rank-two matroid asymmetry does not imply the present rank-at-least-three theorem, and a recorded general matroid Euclidean inradius concerns a metric rather than affine invariant. The remaining substantive risk is an older or more general theorem expressed as a measure of symmetry for cube slices, affine sections of hypersimplices, or matroid base polytopes without using panhandle terminology. No independent priority certification is claimed.
+PASS
 
-## Value — PASS
-Panhandle polytopes form the natural hypersimplex-cutting building blocks in the paving-matroid construction, so a full exact affine-symmetry invariant for their entire nondegenerate parameter family is mathematically motivated. The formula depends on three competing structural constraints and supplies a complete phase classification of the minimizing-center set, including dimension changes at equality; it is not an arbitrary small-parameter census or a routine renaming of the input halfspaces. The center-stratum classification adds information unavailable from the asymmetry value alone.
+Read the complete assigned RESULT.md and program panhandle_verify.py from actual frozen Git blobs. Hanely et al Proposition 4.4 gives P={x in [0,1]^(p+t): sum x=r, sum_tail x<=1}. For z=(lambda+1)c, the reflected inclusion is exactly 1<=z_i<=lambda, sum z_i=r(lambda+1), sum_tail z_i<=lambda, since each coordinate attains 0,1 and tail sum attains 0,1. Taking sums yields all three lower obstructions; setting tail total v=max(t,r(lambda+1)-p lambda) and constant coordinate blocks realizes them simultaneously. Hyperplane slices are relatively full precisely in the stated strict regimes; ties force point centers. Independent rational reimplementation checked all reflected base vertices for 3<=p<=7, 3<=r<=p, 2<=t<=4 (2,406 vertex-image containment checks) and boundary strata. This finite test corroborates, but the preceding reflected-halfspace argument establishes the infinite family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+Panhandle matroids are a natural family cut from hypersimplices. Their complete intrinsic Minkowski symmetry ratio and every optimizing center, including a nontrivial affine-dimension phase diagram, are natural invariants not mechanically supplied by published Ehrhart enumerations; the exact strata are useful in affine convexity and optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
