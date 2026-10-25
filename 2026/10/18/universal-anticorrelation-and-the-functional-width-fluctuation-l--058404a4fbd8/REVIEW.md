@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-angle width reduction is proved for both parities directly from support vertices. The two-region cosine product integration yields the covariance kernel without hidden regularity hypotheses. The sign of its derivative follows from strict decrease of \(\sin t/t\), while the non-Gaussian functional limit follows from a uniform Taylor expansion and exact variance cancellation through fourth order. Finite direct-vertex quadrature at 45 parameter pairs agrees with the formulas; those experiments are explicitly corroboration, not proof. The exact parity pairing is already covered in the primary literature and is credited as such.
+## correctness
 
-## Originality — PASS with residual risks
-Akiyama–Kamae (2022), *Width deviation of convex polygons*, was examined in its available full preprint: its edge-pair kernel can imply arbitrary **second-moment** lag covariances, so that computational reduction is expressly credited. The uniform functional-process limit, its non-Gaussian random periodic parabola, and the strictly decreasing normalized angular correlation with universal limiting minimum \(-7/8\), were not established in the examined source; Theorems 3--4 already cover the parity pairing. Searches for projection-width angular correlations, stochastic width processes, aliases and process scaling on accessible research records and scholarly literature did not identify an equivalent process-level result. Closest indexed comparator titles concern one-angle width distributions, regular-polygon translation functionals and directional quadrature; bibliographically unindexed equivalents remain possible. Some full text of related indexed comparators was inaccessible, but their visible scopes did not present a decisive unresolved process-limit comparison.
+PASS
 
-## Mathematical value — PASS
-The paper motivating this investigation measures variation of width across directions using only the first two moments. As \(n\) grows the absolute variation vanishes, yet its standardized *entire correlated angular field* retains a sharp, explicit, non-Gaussian profile; at opposite ends of a half-cell its correlation tends to \(-7/8\). The result is a complete joint-process limit and an exact finite relation between polygon families, showing how strongly coupled directional fluctuations persist when a polygon approximates a disk. That answers a natural process-level question inaccessible from a scalar deviation rate alone.
+Support widths reduce to a single cosine arc modulo cell length 2q_n (q_n=pi/n even and pi/(2n) odd; odd amplitude 2R cos q_n). Direct overlap integration gives C_q(r)=((2q-r)cos r+r cos(2q-r)+sin(2q-r)+sin r)/(4q). Its derivative equals r(2q-r)[sinc(2q-r)-sinc r]/(4q)<0 for r in (0,q), sinc decreasing on (0,pi). Centered periodic autocovariance has zero full-period integral and hence negative minimum. Uniform cosine Taylor series and Var(cos qU)=q^4/45-q^6/315+O(q^8) give deterministic uniform O(q^2) coupling. Independent SymPy series returned lag coefficient -(15 z^4-60 z^3+60 z^2-8)/360 (equals 1/45-z^2(2-z)^2/24). This verifies the quartic correlation; marginal endpoints and skewness follow from E[U^{2j}]=1/(2j+1). The whole-process statement uses a common angle, not independent directions.
 
-## Scientific limitations
-The main statement concerns regular Euclidean polygons and a shared random rotational phase. The older projected-edge kernel yields a procedure for finite correlations, and the earlier pre-edge theorem yields the exact odd-to-double-even width identity; neither is claimed as an independent novelty. An unindexed prior functional-limit argument cannot be ruled out. The numerical checks are finite corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Akiyama and Kamae already derive exact width profiles and a two-edge expectation formula; their Theorems 3–4 cover the odd-versus-doubled-even width identity and cannot be renamed as new. New best-of-knowledge content is the uniform process-level normalized scaling limit, its explicit quartic lag law and negative sharp constant; the earlier formula provides enough information to derive them but does not explicitly do so.
+
+## value
+
+PASS
+
+A natural geometric statistic (random width of inscribed regular polygons approaching a disk) obtains a universal non-Gaussian functional fluctuation limit and a sharp negative two-angle dependence law; this captures joint process structure invisible in one-point mean/variance computations and distinguishes strongly dependent angular field from an i.i.d. width law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

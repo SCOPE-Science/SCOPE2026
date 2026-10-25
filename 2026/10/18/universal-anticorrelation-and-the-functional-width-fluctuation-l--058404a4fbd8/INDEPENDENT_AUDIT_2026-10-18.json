@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T22:01:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Support widths reduce to a single cosine arc modulo cell length 2q_n (q_n=pi/n even and pi/(2n) odd; odd amplitude 2R cos q_n). Direct overlap integration gives C_q(r)=((2q-r)cos r+r cos(2q-r)+sin(2q-r)+sin r)/(4q). Its derivative equals r(2q-r)[sinc(2q-r)-sinc r]/(4q)<0 for r in (0,q), sinc decreasing on (0,pi). Centered periodic autocovariance has zero full-period integral and hence negative minimum. Uniform cosine Taylor series and Var(cos qU)=q^4/45-q^6/315+O(q^8) give deterministic uniform O(q^2) coupling. Independent SymPy series returned lag coefficient -(15 z^4-60 z^3+60 z^2-8)/360 (equals 1/45-z^2(2-z)^2/24). This verifies the quartic correlation; marginal endpoints and skewness follow from E[U^{2j}]=1/(2j+1). The whole-process statement uses a common angle, not independent directions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 projected-edge expectation kernel can calculate lag covariance of any polygon from geometry; it does not establish an n→infty uniform-in-angle process limit."
+        ],
+        "reasoning": "Earlier general kernel covers existence/computation of covariance for a fixed polygon. The O(q²) functional coupling and quartic universal limit are new quantitative consequences not explicitly supplied, with corollary risk.",
+        "searches": [
+          "arxiv:2201.06736 Theorem 1",
+          "Akiyama Kamae width deviation convex polygons",
+          "RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae"
+        ]
+      },
+      "checked_sources": [
+        "Akiyama and Kamae, Width deviation of convex polygons, arxiv:2201.06736, full-text inspected",
+        "Resultary search RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae",
+        "Frozen source RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known exact width formula plus Taylor expansion suffices in principle to derive each limiting law."
+        ],
+        "reasoning": "The prior results logically contain sufficient raw ingredients; they neither claim nor prove the uniform normalized coupling and quartic correlation. This is a narrowly qualified original derivation, not independent new geometry of regular widths.",
+        "searches": [
+          "arxiv:2201.06736 Theorems 1,3,4",
+          "RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3–4 exact parity width correspondence is prior known; the full angular process then has same law for matched parities."
+        ],
+        "reasoning": "Do not count parity as novelty. Prior cosine arcs determine finite joint distributions, but the normalized high-n functional uniform limit is an additional evaluated limit, rather than a change of notation.",
+        "searches": [
+          "arxiv:2201.06736 Theorems 3,4",
+          "RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary titles concern one-angle width distributions, convex polygon quadrature, affine geometry, and random polygon area, not the entire fluctuation process."
+        ],
+        "reasoning": "No exact process-level tabulation was identified. Index incompleteness is not novelty proof.",
+        "searches": [
+          "RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae",
+          "Resultary:regular polygon projection width limit covariance"
+        ]
+      },
+      "rationale": "Akiyama and Kamae already derive exact width profiles and a two-edge expectation formula; their Theorems 3–4 cover the odd-versus-doubled-even width identity and cannot be renamed as new. New best-of-knowledge content is the uniform process-level normalized scaling limit, its explicit quartic lag law and negative sharp constant; the earlier formula provides enough information to derive them but does not explicitly do so.",
+      "residual_risks": [
+        "Exact cosine representation is classical and may make the limit a relatively short corollary; an earlier uniform functional formulation could preempt it.",
+        "The result is only regular Euclidean polygons with one shared random angle, not affine images or independent angular sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers edge moment kernels and regular-polygon parity; no explicit asserted normalized uniform stochastic-process limit in inspected material.",
+          "evidence": "Theorem 1 two-edge expectation and Theorems 3–4 equality of corresponding width functions.",
+          "identifier_or_url": "arxiv:2201.06736; https://arxiv.org/pdf/2201.06736",
+          "material_read": "Full accessible PDF, particularly Theorems 1, 3, 4 and regular-polygon profile/moments; relevant pp. 6–11 materially read.",
+          "method": "full-text PDF pages and mathematical comparison",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Same random-direction polygonal width object and canonical angle integrals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural geometric statistic (random width of inscribed regular polygons approaching a disk) obtains a universal non-Gaussian functional fluctuation limit and a sharp negative two-angle dependence law; this captures joint process structure invisible in one-point mean/variance computations and distinguishes strongly dependent angular field from an i.i.d. width law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Akiyama and Kamae, Width deviation of convex polygons, arxiv:2201.06736, full-text inspected",
+    "Resultary search RESULTARY:regular polygon width fluctuation stochastic process functional limit angular covariance anticorrelation width deviation Akiyama Kamae",
+    "Frozen source RESULT.md, VERIFICATION.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact cosine representation is classical and may make the limit a relatively short corollary; an earlier uniform functional formulation could preempt it.",
+    "The result is only regular Euclidean polygons with one shared random angle, not affine images or independent angular sampling.",
+    "The source Git-tree ancestry was not independently traversed; source content and frozen commit SHA were checked via file blob fetches.",
+    "The original metadata contains operational provenance; no publication or Git write occurred. Scientific acceptance and publication readiness are separate."
+  ],
+  "residual_risks": [
+    "Exact cosine representation is classical and may make the limit a relatively short corollary; an earlier uniform functional formulation could preempt it.",
+    "The result is only regular Euclidean polygons with one shared random angle, not affine images or independent angular sampling."
+  ],
+  "schema_version": 1
+}
