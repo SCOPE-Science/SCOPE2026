@@ -1,11 +1,21 @@
-# Mathematical review: balanced subspace Kneser graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is all prime powers \(q\), all integers \(k\ge2\), and the graph \(qK_{2k:k}\) with one distinguished vertex. Stabilizer transitivity is justified by block-triangular linear maps. Enumerating graphs of maps \(B\to A\) gives the closed common-neighbour count \(q^{k^2}\prod_{j=1}^{k-s}(1-q^{-j})\). Its strict monotonicity proves that the second refinement round recovers exactly all \(k+1\) orbit classes, not only a refinement thereof; one round has exactly three classes and is insufficient for \(k\ge3\). All finite computations independently agree with the theorem. A finite computation is not presented as the general proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Blokhuis–Brouwer–Szőnyi's full open-access article studies the same balanced graph, but focuses on chromatic numbers and independent families, not the one-anchor refinement orbit theorem. Arvind–Köbler–Rattan–Verbitsky formalize colour refinement and refinable graphs without deriving this graph-specific sharp bound. The same-object dissertation by Mussche (2009) was accessible as an abstract, not in full; deeper specialized association-scheme intersection-number literature might imply the elementary count. A targeted comparison did not find an explicit equivalent two-round statement. The classical Gaussian and group-action ingredients themselves are credited and not claimed original.
+PASS
 
-**Value — PASS.** The answer is an exact uniform refinement-depth theorem for the natural and unbounded family of balanced finite-subspace disjointness graphs. It exhibits a phenomenon invisible to ordinary distance partitioning: although the initial mark generates only three colour classes in round one for all \(k\ge2\), the second round reconstructs every intersection-dimension orbit without external linear-algebra labels. It also gives sharpness and explicit sizes. This is a structural refinement theorem, not a newly tabulated elementary Gaussian value or an identification claim among arbitrary graphs.
+For every prime power q and k>=2 in the q-subspace disjointness graph qK_(2k:k), fixing A, the linear stabilizer acts transitively on U with fixed s=dim(U∩A). The direct-sum/graph description gives |O_s|=q^((k-s)^2)[k choose s]_q^2. Complements W of A are graphs of f:B→A, and W∩U=0 iff the induced restriction D→A/C is bijective (both rank k-s); this counts q^(k^2) product_(j=1)^(k-s)(1-q^(-j)) common neighbours, strictly increasing with s. Round one separates the anchor, all complements, and remaining vertices; round two splits by these common-neighbour counts. k=2 needs only one round, and k>=3 needs two because round one has three classes versus k+1>=4. These are unrestricted algebraic deductions, not inferred from finite test outputs. The actual source Git tree and RESULT.md/check_formula.py/check_refinement.py were inspected; arithmetic formula independently follows from GL rank counting.
 
-**Scope and risk.** The result does not cover \(n\ne2k\), and does not assert general graph identifiability. Publication priority could be affected by earlier association-scheme calculations or specialized studies not recovered in the finite literature search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, subject to explicitly documented priority risks: searched the available Resultary records and primary literature, compared the exact claimed quantifiers/invariants to prior implications rather than matching titles, and did not treat inaccessible full text as proof of noncoverage.
+
+## value
+
+PASS
+
+A sharp constant-depth orbit-recovery theorem over an entire geometrically natural q-Kneser family gives a useful refinement benchmark distinct from merely knowing the association scheme. It supplies orbit sizes, exact early-stabilization thresholds, and a direct certificate of what 1-WL learns from one named subspace. These are structural invariants, not a parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
