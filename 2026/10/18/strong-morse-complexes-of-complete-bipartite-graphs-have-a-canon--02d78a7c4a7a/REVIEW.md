@@ -1,25 +1,21 @@
-# Scientific review: strong Morse complexes of complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the full vertex-filtration-generated complex on the **one-dimensional** graph \(K_{m,n}\), \(m,n\geq2\). The key combinatorial point is exact: because descending links are discrete, a graph vertex is paired precisely when it has one earlier neighbor. The first and second appearances of the two sides force every gradient into one of the displayed side-centered star subcomplexes. All generating facets are independently shown to arise from explicit orders, proving equality of complexes rather than a one-way containment.
+PASS
 
-Every cover piece is contractible by eliminating its outward wing vertices; every cross-side intersection contains exactly two isolated incidence vertices; same-side and triple intersections are empty. A cofibration-based graph-of-spaces reduction establishes the full wedge-of-circles homotopy type. Its naturality yields the integral equivariant graph-cycle module, and the zero-row/column matrix argument yields the integral splitting and character. No unproved independence assumption or finite-to-infinite extrapolation is used.
+Theorem reconstructed for m,n>=2 on the one-dimensional simplicial graph: strong matchings are the downward closure of gradients of strict vertex orders, with exactly one earlier neighbor at a matched vertex. For every b in B, U_b is built from the full incoming simplex E_b and m outgoing-wing simplices; analogously V_a. Every order belongs to this cover and every generator arises from an explicit order. The wing vertices collapse one-by-one, so each U_b,V_a is contractible. Different same-side stars are disjoint, U_b intersect V_a in exactly the two isolated opposite incidence vertices (no simplex can match one edge twice), and triple intersections have empty realization. The graph-of-spaces homotopy pushout thus yields the doubled-edge K_mn graph with m+n vertices and 2mn edges: a wedge of 2mn-m-n+1 circles, free fundamental group and integral H1 of that rank. Naturality under graph automorphisms identifies H1 with ker(arc-incidence boundary); splitting into backtracks Z[A x B] and zero-row/column matrices aug(A) tensor aug(B) is integral for S_m x S_n. From the equivariant exact graph-chain sequence the character is 2f_A f_B-f_A-f_B+1 and part-exchange trace is 1. Direct independent all-order enumeration agrees with exact cover and reduced H1 ranks for K_2,2 (rank5), K_2,3 (rank8), K_3,3 (rank13); it is only finite corroboration, not the proof.
 
-The standalone verifier exhausts all vertex orders for seven graph sizes through \(K_{4,5}\), checks cover equality, calculates all mod-two boundary ranks, and tests 224 signed automorphism Lefschetz characters (including part exchange). It provides consistency checks; the uniform proof is separate.
+## originality
 
-## Originality — PASS, with residual risk
+PASS
 
-Primary full-text comparisons: Knudson--Owens-White, arXiv:2609.06844v1, Definition 4.2 and Sections 7 and 10; Fernández, arXiv:2504.15729, theoretical framework. Knudson--Owens-White prove contractibility of strong complexes of stars and describe paths, cycles, simplices, complete graphs and disjoint unions; they do not state the two-nontrivial-part classification or its integral automorphism module. The ordinary Chari--Joswig Morse complex is a distinct, generally larger object. Closely indexed ordinary-bipartite Morse findings likewise concern that other object.
+Full strong-Morse complex of complete bipartite graphs is not the ordinary acyclic matching complex. The foundation Knudson--Owens-White introduces full SM and proves star K_1,n contractible but does not state the K_m,n classification with both m,n>=2 or integral equivariant double-arc module. Ordinary bipartite Morse complex and two-matching complex results in Resultary use different face predicates. Best-of-knowledge original for m,n>=3 plus exact natural cycle lattice; unindexed and thin-family overlap remains possible.
 
-The already documented thin family \(K_{2,n}\) is a genuine special case, so originality is specifically the unrestricted two-parameter family, particularly \(m,n\geq3\), and the natural doubled-edge cycle-module description. Searches for strong matchings, bicliques, vertex filtrations, bipartite graph homotopy, and the numerical formula returned no equivalent broader theorem. Search failure alone is not proof of uniqueness; unindexed overlap remains the principal risk.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The complete bipartite graphs form a canonical two-parameter family, with their full strong Morse complexes having unbounded simplicial dimension but always one-dimensional homotopy. The global gluing creates \(mn\) backtracking generators alongside \((m-1)(n-1)\) ordinary bipartite cycle generators. The natural integral symmetry module distinguishes this classification from a Betti-number table and provides exact characters for all graph automorphisms. It is a natural complete classification, not a selected numerical example or a renaming of the star result.
+Complete natural two-parameter family of full strong-matching complexes, unexpectedly one-dimensional homotopy despite high-dimensional simplices. The integral cycle-lattice and full automorphism character distinguish genuinely natural structure beyond the scalar Betti rank; the new global gluing is not a routine star deduction.
 
-## Boundaries
-
-There is no claim about the pure strong complex, arbitrary bipartite graphs, ordinary Morse matchings or higher-dimensional flag complexes. The partition-preserving integral direct-sum decomposition need not respect part-exchanging automorphisms; the full-group kernel presentation does. The report is not independently audited, and bibliographic risk is not zero.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
