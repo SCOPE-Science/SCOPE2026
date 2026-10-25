@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Definition 2.1 forces translocal entropy to be nonincreasing in \(\omega\) by inclusion of the exponentially shrinking initial balls. The post-Theorem-2.2 expression is nondecreasing in \(\omega\). The cat-map calculation is exact and puts the source's proved affine formula and claimed broader formula on the same system, where they give opposite functions of \(\omega\). The proof does not rely on numerical experiments and does not infer an unproved replacement formula.
+## correctness
 
-## Originality
-PASS. The claim assessed here is the explicit contradiction and counterexample to the bounded-distortion Anosov extension, not the affine cat-map law already contained in the source theorem. Searches over the source title and DOI, translocal-entropy terminology, bounded-distortion and Lyapunov aliases, cat-map specializations, and correction/erratum language found no implication-equivalent published correction. Closest retrieved entropy and Lyapunov records concern different invariants.
+PASS
 
-## Value
-PASS. The formula immediately broadens a new local entropy invariant from affine toral maps to bounded-distortion Anosov maps and horseshoes. Showing that it has the wrong monotonicity and fails at both endpoints on the cat map is a substantive boundary result that prevents invalid applications while leaving the valid affine theorem intact.
+Reconstructed the exact source definition of upper/lower translocal entropy, with initial sets closed B(z,exp(-omega*n)), epsilon-separated n-orbit segments and omega>=0. For omega2>omega1 these sets nest for each n; S(n,epsilon,.) is monotone under inclusion, and n^-1 log, limsup/liminf and epsilon->0 preserve the inequality. Thus both entropy versions are nonincreasing in omega. For fixed positive rates chi_i, the printed alternative R(omega)=h_top(f)-sum_i max(chi_i-omega,0) is nondecreasing, with strict increase whenever an active chi_i>omega. A=[[2,1],[1,1]] is unimodular, affine, hyperbolic and bounded-distortion; its roots are (3+-sqrt(5))/2 and h_top=chi=log((3+sqrt(5))/2)>0. Independent standard Bowen-separation argument gives h_omega=(chi-omega)_+: an initial ball radius exp(-omega*n) needs exp((chi-omega)_+*n+O(1)) unstable Bowen strips of width comparable to epsilon exp(-chi*n), while the stable direction contributes no exponential factor; the source Theorem 2.2 confirms the same. The printed upper-entropy formula evaluated with logarithmic expansion rate chi is R(omega)=min(omega,chi), giving R(0)=0!=chi and R(chi)=chi!=0. The affine example belongs to the broader named class; this refutes the extension as printed. Note that printed formula is for upper entropy; affine upper equals lower. No finite experiment supports the universal set-inclusion step.
 
-## Closest literature and limitations
-The closest literature is the motivating Biś–Bruin paper itself. Its Theorem 2.2 gives the affine formula, while the following paragraph states the incompatible broader formula. No corrected general Anosov formula is proposed here, and a later or unindexed author correction remains a residual possibility.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed contribution is an explicit exact contradiction/counterexample to a claimed general bounded-distortion Anosov extension, NOT the already published cat-map entropy value or shrinking-ball monotonicity separately. Directly inspected publisher, author-hosted and arXiv-v3 mathematical statements retain the conflict. Fresh literature searches and Resultary comparisons found no independent published correction/equivalent theorem; the exact matching Resultary hit is the same research record and is not counted as independent priority evidence. The contradiction is an elementary deduction from two printed statements, so originality is appropriately limited to recognizing and documenting the error. Best-of-knowledge, with stated priority and historical-version risks.
+
+## value
+
+PASS
+
+This is a motivated and consequential counterexample to a published extension of a recently defined entropy invariant: the formula asserted for a broad hyperbolic class violates the definition’s forced monotonicity and reverses the exact cat-map endpoints. Even though the algebra is short and source-internal, pinpointing a false non-affine/Anosov claim with an exact elementary witness prevents use of a mathematically invalid generalization; that is substantive error-correction value, not a parameter-renaming exercise. The contribution is appropriately narrow and does not pretend to be a general theorem, an improved entropy bound, or a new invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
