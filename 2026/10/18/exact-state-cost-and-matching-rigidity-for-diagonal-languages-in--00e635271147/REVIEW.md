@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof normalizes every trim NFA for \(D_n\) into three disjoint depth layers, identifies \(n\) distinct middle states, and uses the forbidden cross words to force symbol-private first and last transitions. The \(K_{2,3}\) obstruction bounds each final vertex to two selected middle predecessors. Pairing constructions attain the resulting cactus bound; the tree and planar bounds are attained separately. Equality saturation and the edge-disjointness of cactus cycles force a partition into disjoint pairs and at most one singleton. The finite checker exercises all possible normalized middle-to-final patterns for \(n\le5\), with independent acceptance and cactus tests. Nonstandard steps are justified directly in the proof; no finite search is used to infer an infinite statement.
+## correctness
 
-## Originality — PASS (subject to priority risk)
-The 2026 Grobler–Koziel–Siebertz paper supplies the bipartite-cactus existence theorem and illustrates \(D_3\), but its stated open problem concerns the minimum required state blow-up; it gives neither the all-\(n\) exact optimum nor the matching rigidity. The 1976 Book–Chandra planar existence result does not impose the cactus restriction. The 2021/2022 Kutrib–Malcher–Schneider automata require each edge-labelled transition to have a symmetric reverse, a distinct model from the *undirected underlying graph* used here. Targeted primary-literature, research-record and preceding-claim comparisons did not uncover an implication covering the complete result. The exact pairing optimization might appear under a different finite-language state-minimization or graph-packing formulation; this risk is not eliminated by database nonmatches.
+PASS
 
-## Value — PASS
-The 2026 source explicitly identifies quantitative state blow-up under the new cactus representation as a remaining problem. The theorem supplies a sharp natural infinite test family and, unlike a mere small example, gives three exact graph-class state complexities, a growing additive cactus cost relative to planar NFAs, and a complete optimal-structure classification. The \(K_{2,3}\) obstruction is not just a forbidden picture: its saturation forces an involutive matching on the alphabet. This quantitatively separates topology classes while leaving general arbitrary-language conversion complexity open.
+Trim accepting runs have exactly three disjoint depth layers since different accepting-prefix lengths would generate wrongly sized accepted words. For each letter a_i an accepting path passes through a private distinct depth-one p_i; sharing would accept a_i a_j. In a cactus a final state cannot be adjacent to three distinct selected p_i because K2,3 yields two simple cycles sharing an edge; hence >=ceil(n/2) final states. Tree case forbids any pair sharing final, so >=n finals; planar K2,n and matching-cactus/tree constructions attain all lower bounds. At odd n an extra middle-to-final edge in any equality case makes two four-cycles share the edge from s to that middle vertex, forcing unique singleton and perfect pair matching. Independent NetworkX block-cycle enumeration for n=1..4 checked normalized NFA minima and exact numbers of labeled optimal end-state assignments (1,1,6,6).
 
-## Closest literature and limitations
-Closest source: Grobler–Koziel–Siebertz, *Every Regular Language Has a Bipartite Cactus Automaton*, arXiv:2610.11717v1, especially Fig. 1 and Section 4. Broader planar existence: Book–Chandra (1976). Different symmetric-transition model: Kutrib–Malcher–Schneider (2022). The result concerns one special finite language family with alphabet size increasing; it is not a universal conversion bound. Priority and proof have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Grobler-Koziel-Siebertz establish existence of a bipartite cactus representation for every regular language and give D3/K2,3 graphical examples; this general existence theorem does not provide the exact all-n state minima and rigidity as stated. Other planar NFA and undirected symmetric-transition automata use different topology/model. Most directly relevant Grobler et al complete paper could not be retrieved through open sources or authorized institutional access (VPN disconnected); full-document noncoverage is not asserted.
+
+## value
+
+PASS
+
+The natural language family D_n, already used as the motivating noncactus example in cactus automata, gives a sharp quantitative trichotomy for unrestricted/planar/cactus/tree state costs, plus a complete classification of minimal cactus automata. This advances the explicit state-blowup issue beyond general existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

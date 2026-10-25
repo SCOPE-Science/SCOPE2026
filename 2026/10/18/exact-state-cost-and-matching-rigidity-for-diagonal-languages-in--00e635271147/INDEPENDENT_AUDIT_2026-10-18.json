@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T21:07:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Trim accepting runs have exactly three disjoint depth layers since different accepting-prefix lengths would generate wrongly sized accepted words. For each letter a_i an accepting path passes through a private distinct depth-one p_i; sharing would accept a_i a_j. In a cactus a final state cannot be adjacent to three distinct selected p_i because K2,3 yields two simple cycles sharing an edge; hence >=ceil(n/2) final states. Tree case forbids any pair sharing final, so >=n finals; planar K2,n and matching-cactus/tree constructions attain all lower bounds. At odd n an extra middle-to-final edge in any equality case makes two four-cycles share the edge from s to that middle vertex, forcing unique singleton and perfect pair matching. Independent NetworkX block-cycle enumeration for n=1..4 checked normalized NFA minima and exact numbers of labeled optimal end-state assignments (1,1,6,6).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General representability by a bipartite cactus does not imply a sharp minimum state number. Planar representability likewise is not sharp cactus minimization."
+        ],
+        "reasoning": "Full same-model paper inaccessible, so cannot exclude additional theorems there; no strong coverage demonstrated from accessible results.",
+        "searches": [
+          "arxiv:2610.11717v1",
+          "Book Chandra inherently nonplanar automata"
+        ]
+      },
+      "checked_sources": [
+        "Grobler, Koziel and Siebertz, Every Regular Language Has a Bipartite Cactus Automaton, arxiv:2610.11717v1 / DOI:10.4204/EPTCS.454.9 (full text unavailable)",
+        "Book and Chandra, Inherently Nonplanar Automata, Acta Informatica 6 (1976)",
+        "Kutrib, Malcher and Schneider, Finite automata with undirected state graphs, DOI:10.1007/s00236-021-00402-0",
+        "Resultary:minimum state NFA diagonal language bipartite cactus matching rigidity semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kutrib model requires symmetric labeled reversible transitions, unlike the simple underlying graph after forgetting directions here; cactus representability supplies construction but not the matching lower bound."
+        ],
+        "reasoning": "The analyzed cited results do not logically force the stated three graph-class minima or exact rigidity count without the additional layer/cycle combinatorics.",
+        "searches": [
+          "Kutrib Malcher Schneider Finite automata with undirected state graphs",
+          "arxiv:2610.11717v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same D3 language used to contrast noncactus K2,3 and tree realization, but no accessible inspected theorem yielding all-n exact minima."
+        ],
+        "reasoning": "The present family can be modeled as finite letter-path biclique/matching packing; equivalently phrased representation complexity may be previously known and is a residual risk.",
+        "searches": [
+          "Every Regular Language Has a Bipartite Cactus Automaton D_n K2,n number of states matching partition",
+          "arxiv:2610.11717v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned largely unrelated automaton synchronization/rank-compression records and no matching state-minimum table."
+        ],
+        "reasoning": "No exact count identified; this limited negative search does not prove novelty.",
+        "searches": [
+          "Resultary:minimum state NFA recognizing diagonal length two language aa bb cactus graph matching rigidity state complexity",
+          "D_n diagonal cactus NFA lower bound"
+        ]
+      },
+      "rationale": "Grobler-Koziel-Siebertz establish existence of a bipartite cactus representation for every regular language and give D3/K2,3 graphical examples; this general existence theorem does not provide the exact all-n state minima and rigidity as stated. Other planar NFA and undirected symmetric-transition automata use different topology/model. Most directly relevant Grobler et al complete paper could not be retrieved through open sources or authorized institutional access (VPN disconnected); full-document noncoverage is not asserted.",
+      "residual_risks": [
+        "A highly relevant primary same-model paper arxiv:2610.11717 was not fully readable; authorized Oxford download returned vpn_disconnected job bada8dfdaaf39247dc8176b6f2d477ff. It may contain an implication-equivalent general theorem.",
+        "A hidden biclique-packing or graph-structure classification could imply the matching rigidity.",
+        "Alphabet size grows with n; the claim is not an arbitrary fixed-alphabet worst-case conversion bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No whole-paper NOT_COVERING judgment. Closest plausible source stays a material originality risk.",
+          "evidence": [
+            "The source is an existence theorem with the same graph model; full additional contents not independently read."
+          ],
+          "identifier_or_url": "arxiv:2610.11717v1; DOI:10.4204/EPTCS.454.9",
+          "material_read": "Bibliographic/abstract/available mention of Figure 1 only; full arxiv and lawful open-access failed, authorized Oxford returned vpn_disconnected",
+          "method": "Publisher/arxiv/OA attempts then authorized Oxford job bada8dfdaaf39247dc8176b6f2d477ff",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Exactly same cactus-NFA model and diagonal D3 example"
+        },
+        {
+          "assessment": "Defines symmetric reversible labeled transitions; cannot be applied directly to graphs where direction is simply forgotten.",
+          "evidence": [
+            "Different model assumption is decisive for nonimplication."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00236-021-00402-0",
+          "material_read": "Accessible abstract and model description, not a full mathematical proof reading",
+          "method": "Bibliographic/model comparison",
+          "title": "Finite automata with undirected state graphs",
+          "trigger": "Possible broader automata state-bound theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural language family D_n, already used as the motivating noncactus example in cactus automata, gives a sharp quantitative trichotomy for unrestricted/planar/cactus/tree state costs, plus a complete classification of minimal cactus automata. This advances the explicit state-blowup issue beyond general existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grobler, Koziel and Siebertz, Every Regular Language Has a Bipartite Cactus Automaton, arxiv:2610.11717v1 / DOI:10.4204/EPTCS.454.9 (full text unavailable)",
+    "Book and Chandra, Inherently Nonplanar Automata, Acta Informatica 6 (1976)",
+    "Kutrib, Malcher and Schneider, Finite automata with undirected state graphs, DOI:10.1007/s00236-021-00402-0",
+    "Resultary:minimum state NFA diagonal language bipartite cactus matching rigidity semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A highly relevant primary same-model paper arxiv:2610.11717 was not fully readable; authorized Oxford download returned vpn_disconnected job bada8dfdaaf39247dc8176b6f2d477ff. It may contain an implication-equivalent general theorem.",
+    "A hidden biclique-packing or graph-structure classification could imply the matching rigidity.",
+    "Alphabet size grows with n; the claim is not an arbitrary fixed-alphabet worst-case conversion bound.",
+    "Scientific PASS judgments are not publication approval; privacy transport remains not_ready."
+  ],
+  "residual_risks": [
+    "A highly relevant primary same-model paper arxiv:2610.11717 was not fully readable; authorized Oxford download returned vpn_disconnected job bada8dfdaaf39247dc8176b6f2d477ff. It may contain an implication-equivalent general theorem.",
+    "A hidden biclique-packing or graph-structure classification could imply the matching rigidity.",
+    "Alphabet size grows with n; the claim is not an arbitrary fixed-alphabet worst-case conversion bound."
+  ],
+  "schema_version": 1
+}
