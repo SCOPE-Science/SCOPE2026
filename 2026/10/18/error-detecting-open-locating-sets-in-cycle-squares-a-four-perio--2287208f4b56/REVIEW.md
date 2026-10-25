@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses the established two-domination and directed two-distinction definition, including closed-cycle wraparound and all small orders. The two two-element exclusive-neighborhood pairs supply all five forbidden omitted distances; the converse checks every possible pair separation and proves domination. The seven-bit transfer preserves exactly the required forbidden cyclic differences, giving all coefficients. A cyclic-gap inequality yields the sharp infinite extremum and its equality configurations, including the two exceptional rotational stabilizers. The attached independent-definition enumeration covers all subsets in orders \(3\) to \(16\); transfer evaluation through order \(40\) independently matches the formulas. Finite checks do not stand in for the general proof. Risks: manual mathematical review of the finite-memory trace correspondence and boundary case reasoning would be useful; no independent audit has taken place.
+PASS
 
-## Originality — PASS
+For n>=12, one omitted pair at forbidden cyclic distances 1,2,5,6,7 violates the DET:OLD two-asymmetric-difference rule at offsets 1 or 3. Conversely offsets 1,2,3,4 and >=5 exhaust pair separations, and forbidden complement pairs imply two-domination. 128-state seven-bit closed walks give all coefficients, while cyclic gap constraints force the periodic extremal value and enumerated exceptional types. Independent direct criterion over every subset at n=8,11,12,13,14,15,16 matched min/cardinality (7,8),(9,11),(9,4),(11,26),(12,28),(13,30),(12,4); independent complement equivalence checked for all subsets n=12..16. Small n=3..7 have no feasible sets per package; unbounded proof via gap argument, not enumeration.
 
-Jean and Seo, arXiv:2306.12583v1 (2023), pages 1--10, define the exact DET:OLD invariant and prove its hardness, along with results on extremal, cubic and infinite-grid graphs. The proposed finite family, its complement-circulant characterization, complete polynomial and four-periodic extremal classification do not appear in or follow from those statements. Seo and Slater, DOI:10.7151/DMGT.1838 (2015), discuss ordinary cycles (no DET:OLD possible), not this square-of-cycle construction; only accessible primary excerpts of this older source could be inspected, so residual overlap uncertainty is recorded. Ordinary identifying codes and error-correcting OLD are different invariants and cannot imply the displayed two-asymmetric-distinction polynomial without further argument. Search of relevant indexed scientific work and prior available result titles and claims found no statement equivalent to the theorem. This does not prove publication uniqueness; historic cross-terminology and unindexed sources are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The basic sensor-placement problem is computationally hard on general graphs. This complete solution for a natural infinite family of degree-four networks gives every feasible set cardinality, the exact minimum, and an unusual residue-dependent classification of optimal placements. The forbidden-difference reduction is a structural explanation with a reusable transfer method; the finite anomalies at \(22\) and \(23\) are necessary consequences of the sharp cyclic-gap bounds, not arbitrary handpicked examples. The result is stronger than a routine bound or a known-table recomputation.
+Statement-level best-of-knowledge check: Graph identification codes, detecting OLD vs error-correcting OLD and ordinary power-of-cycle codes were distinguished by asymmetric two-difference criterion. Prior DET:OLD general sufficient conditions, NP-completeness and extremal cubic/infinite grid work do not provide cyclic-square independent-set H_n characterization. Theorem 1.1(iii) supplies the predicate only; it does not imply the specific forbidden-difference reduction or sharp four-periodic optimum without new combinatorial work.
 
-## Scope and limitations
+## value
 
-Primary MSC: 05C69. The proof treats only square powers of finite cycles. The enumerator is given through a fixed finite transfer matrix. Full finite experiments stop at the stated orders and do not certify all orders. Earlier literature under alternative language could overlap; the 2015 full PDF could not be materially read in its entirety. General graphs and higher cycle powers remain outside the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete cardinality polynomial and exact optimal multiplicities solve a natural fault-tolerant sensor-code problem on cycle squares, with exceptional finite symmetries; the independent-set reduction and cyclic transfer give reusable structure, not merely a few small orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

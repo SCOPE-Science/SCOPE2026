@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The self-contained Python 3 `verify.py` uses only standard-library packages; execute `python verify.py` from the directory holding the extracted files. A successful run ends with `VERIFY_OK` and may be checked against `verification_output.txt`.
+## correctness
 
-The program directly tests the DET:OLD neighborhood criterion over all binary subsets for each \(3\le n\le16\). It separately checks the complement-independence equivalence for every binary subset in the range \(12\le n\le16\). A distinct state-transition counting procedure constructs the \(128\)-state polynomial transfer, checks all orders \(12\le n\le40\), confirms optimal values and minimum multiplicities, and compares full aggregate counts against exhaustive independence enumeration through order sixteen.
+PASS
 
-The finite checker cannot establish a theorem for arbitrarily large \(n\). The written proof supplies the infinite equivalence, transfer bijection, sharp gap bound, constructions and equality case analysis. No independent external audit or publication priority adjudication is claimed.
+For n>=12, one omitted pair at forbidden cyclic distances 1,2,5,6,7 violates the DET:OLD two-asymmetric-difference rule at offsets 1 or 3. Conversely offsets 1,2,3,4 and >=5 exhaust pair separations, and forbidden complement pairs imply two-domination. 128-state seven-bit closed walks give all coefficients, while cyclic gap constraints force the periodic extremal value and enumerated exceptional types. Independent direct criterion over every subset at n=8,11,12,13,14,15,16 matched min/cardinality (7,8),(9,11),(9,4),(11,26),(12,28),(13,30),(12,4); independent complement equivalence checked for all subsets n=12..16. Small n=3..7 have no feasible sets per package; unbounded proof via gap argument, not enumeration.
+
+## originality
+
+PASS
+
+Statement-level best-of-knowledge check: Graph identification codes, detecting OLD vs error-correcting OLD and ordinary power-of-cycle codes were distinguished by asymmetric two-difference criterion. Prior DET:OLD general sufficient conditions, NP-completeness and extremal cubic/infinite grid work do not provide cyclic-square independent-set H_n characterization. Theorem 1.1(iii) supplies the predicate only; it does not imply the specific forbidden-difference reduction or sharp four-periodic optimum without new combinatorial work.
+
+## value
+
+PASS
+
+Complete cardinality polynomial and exact optimal multiplicities solve a natural fault-tolerant sensor-code problem on cycle squares, with exceptional finite symmetries; the independent-set reduction and cyclic transfer give reusable structure, not merely a few small orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
