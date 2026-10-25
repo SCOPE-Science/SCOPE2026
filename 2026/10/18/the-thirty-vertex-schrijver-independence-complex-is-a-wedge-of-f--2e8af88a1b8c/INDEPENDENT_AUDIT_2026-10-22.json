@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:19:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclically stable 3-subsets of Z/9 form exactly 30 vertices; edges connect disjoint triples, so independence faces are pairwise-intersecting triple families. Independent reconstruction by branching on the least index and imposing disjoint-neighbor masks gives 15,292 augmented faces, 15,291 nonempty simplices, and f-vector (30,297,1311,3054,4212,3639,1974,648,117,9). Independently reconstructed all 7,644 matching pairs from the stated 30-pivot order; the four unmatched masks are (20768,25559040,134217778,268699664), each with four vertices. The entire oriented augmented Hasse graph has 79,812 cover incidences and a topological ordering of all 15,292 masks, proving acyclicity, not sampled gradient paths. Removing the matched empty-face pair leaves a critical 0-cell and exactly four 3-cells, with no cells in dimensions 1 or 2; Forman gives a CW wedge of 4 S^3 integrally. Euler characteristic -3 agrees. Exact 30-vertex claim only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun Theorem 1.4 treats SG_{2,k}; Theorem 1.5 treats auxiliary E_{2n+2} graphs. Published SG_{4,2} result concerns a 25-vertex graph with S^3∨S^4∨S^4, not SG_{3,3}."
+        ],
+        "reasoning": "Neither parameter family contains the present 30-vertex graph as a proved corollary; equal homotopy dimension at one component does not imply the four-sphere multiplicity.",
+        "searches": [
+          "SG(3,3) Schrijver graph 30 vertices independence complex wedge four three spheres discrete Morse",
+          "Benjamin Braun arXiv:0912.0720 Theorems 1.4-1.5",
+          "Resultary 2026/10/11/SCOPE-simple-homotopy-reduction-of-the-twenty-five-vertex-schrijver-in--4b6155858ecc"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md and verify_sg33.py",
+        "independent exhaustive Python reconstruction: face enumeration, pivot matching, whole Hasse DAG",
+        "Forman discrete Morse theorem",
+        "Braun arXiv:0912.0720",
+        "Resultary SG4,2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic discrete Morse/Forman theory converts a verified matching to a wedge but does not give this 30-pivot matching or number of critical cells; SG_{4,2} is a different graph."
+        ],
+        "reasoning": "After applying possible formal implications of published general theorems, the nontrivial finite matching and exact four-sphere count are not supplied by them.",
+        "searches": [
+          "arXiv:0912.0720 Sections 3-5",
+          "SG(3,3) Schrijver graph 30 vertices independence complex wedge four three spheres discrete Morse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pairwise-intersecting stable triple families are exactly Ind(SG_{3,3}); the published neighborhood-complex papers study a distinct simplicial construction."
+        ],
+        "reasoning": "Checked stable Kneser notation and graph functors. Neighborhood-complex homotopy and full Kneser-complex results do not become an independence-complex answer by renaming.",
+        "searches": [
+          "SG(3,3) Schrijver graph 30 vertices independence complex wedge four three spheres discrete Morse",
+          "arXiv:0912.0720",
+          "arXiv:1102.1984",
+          "arXiv:1807.11732"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned several discrete Morse calculations and the 25-vertex SG_{4,2} case, but no explicit 30-vertex SG_{3,3} table; Braun does not supply this f-vector."
+        ],
+        "reasoning": "A targeted table search and named paper comparison found no exact entry, but missed/unindexed finite computations remain possible, so originality is best-of-knowledge.",
+        "searches": [
+          "SG(3,3) Schrijver graph 30 vertices independence complex wedge four three spheres discrete Morse",
+          "Resultary 25-result stable-Kneser/independence-complex search",
+          "Braun and Zeckner arXiv:1102.1984"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after reconstructed proof and actual published/literature search; an inaccessible or not-fully-inspected primary source is not a proof of noncoverage and remains a recorded risk. The checked earlier statements do not imply the exact final claim.",
+      "residual_risks": [
+        "Independent finite checker corroborates the complete matching, not originality against unpublished computations.",
+        "No family theorem or equivariant homotopy asserted.",
+        "Neighborhood-complex literature is only partially read and is distinguished structurally rather than by a claim about its entire full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The displayed classifications do not include the ordinary SG_{3,3} independence complex",
+          "evidence": "Theorem 1.4 is the two-subset family; Theorem 1.5 is auxiliary E-family.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.0720",
+          "material_read": "17-page accessible PDF; introduction, Theorems 1.4-1.5 and sections describing SG_{2,k} and auxiliary E_{2n+2} results",
+          "method": "lawful arXiv full-text PDF, theorem and graph-parameter comparison",
+          "title": "Independence Complexes of Stable Kneser Graphs",
+          "trigger": "Same graph family, plausible dominating classification"
+        },
+        {
+          "assessment": "Neighborhood functor is not ordinary independence functor, so known title alone does not dominate",
+          "evidence": "Neighborhood complexes of stable Kneser graphs, not Ind(SG_{3,3}).",
+          "identifier_or_url": "https://arxiv.org/abs/1102.1984",
+          "material_read": "Title, abstract and graph-complex definition; no complete paper-level exclusion asserted",
+          "method": "arXiv indexed material, functor comparison",
+          "title": "Deformation Retracts of Neighborhood Complexes of Stable Kneser Graphs",
+          "trigger": "Identical stable Kneser family but different simplicial functor"
+        },
+        {
+          "assessment": "SG_{4,2} has 25 vertices and different homotopy type; no parameter-uniform implication",
+          "evidence": "Ind(SG_{4,2}) ≃ S^3∨S^4∨S^4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-simple-homotopy-reduction-of-the-twenty-five-vertex-schrijver-in--4b6155858ecc",
+          "material_read": "Published indexed result title and mathematical summary, not full source file",
+          "method": "Resultary semantic search",
+          "title": "Simple-homotopy reduction of the twenty-five-vertex Schrijver independence complex",
+          "trigger": "Published exact neighboring case with same method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "SG(3,3) is a canonical 30-vertex stable Kneser graph beyond Braun’s two-subset classification. The full integral homotopy type of its ordinary independence complex is an independently usable exact natural finite case; the finite cutoff is motivated by the open classification, not an arbitrary sampled slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md and verify_sg33.py",
+    "independent exhaustive Python reconstruction: face enumeration, pivot matching, whole Hasse DAG",
+    "Forman discrete Morse theorem",
+    "Braun arXiv:0912.0720",
+    "Resultary SG4,2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite checker corroborates the complete matching, not originality against unpublished computations.",
+    "No family theorem or equivariant homotopy asserted.",
+    "Neighborhood-complex literature is only partially read and is distinguished structurally rather than by a claim about its entire full text.",
+    "No scientific or status metadata were changed; this audit is a private analysis and not proof of publication or external certification."
+  ],
+  "residual_risks": [
+    "Independent finite checker corroborates the complete matching, not originality against unpublished computations.",
+    "No family theorem or equivariant homotopy asserted.",
+    "Neighborhood-complex literature is only partially read and is distinguished structurally rather than by a claim about its entire full text."
+  ],
+  "schema_version": 1
+}
