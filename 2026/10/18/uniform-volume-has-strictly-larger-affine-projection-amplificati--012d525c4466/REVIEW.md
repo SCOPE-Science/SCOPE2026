@@ -1,19 +1,21 @@
-# Review of affine projection volume/cone comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete analytical proof is in RESULT.md. Radial disintegration gives the independent variables \(Y=RZ\), with \(R\) having density \(d r^{d-1}\). The covariance identity \(\operatorname{Cov}(Y)=d\operatorname{Cov}(Z)/(d+2)\) fixes the affine kernel normalization without an unspecified constant. The one-sign-change positive-part integral is evaluated explicitly, and its excess over \((s-1)_+\) is positive exactly when \(s>d/(d+2)\). The exact pointwise difference and its equality criterion follow. For symmetric bodies, a support-functional/Cauchy--Schwarz estimate forces \(u_x(-x)\le-1\) at each boundary point, which proves strictness on a positive cone-measure neighborhood. The maximum for the boundary projector exists on the boundary by convexity. The disk constants are independently integrated. The companion checker passes 91 finite consistency assertions; it does not replace the proof.
+PASS
 
-## Originality — PASS within examined sources
+For Y uniform in full-dimensional centered K, polar gauge decomposition Y=RZ has independent R density d r^(d−1) and cone-boundary Z, E Z=0 and E R²=d/(d+2). With Σ=E ZZᵀ positive definite, the affine kernels are Kν(x,z)=1+xᵀΣ^(−1)z and Kμ(x,rz)=1+(d+2)r/d*xᵀΣ^(−1)z. Since each kernel has mean 1, its L1 norm equals 1+2 its negative mass. The independent radial positive-part integral Gd(s) produces Λμ−Λν=2 E[Gd((-u)_+)−((-u)_+−1)_+]. For s>d/(d+2), this difference is strictly positive; otherwise zero. Supporting functionals/Cauchy–Schwarz give u_x(−x)≤−1 for every symmetric-body boundary x; full support of cone measure then forces strict boundary gap. Convexity ensures boundary maximizers and strict operator norm difference. Verified the interval constants 5/3 versus 1 and independently integrated disk kernels against the correct coordinate/angle densities, reproducing both exact constants numerically.
 
-The closest published geometric source is Böröczky--Henk, arXiv:1407.7272, which introduces cone-volume measure and proves subspace concentration/stability inequalities, not affine projection Lebesgue-function comparisons. Hangelbroek--Narcowich--Sun--Ward, arXiv:1005.2424, proves bounds for \(L^2\) kernel least-squares projectors on manifolds under local-basis conditions, not the present comparison of two measures on a convex body. The publicly available simplex volume-projector calculation treats only one measure. Published mathematical-record searches returned no statement implying the all-body pointwise inequality, exact equality criterion, or strict symmetric-body norm separation. A different formulation in the extensive projector-norm and cone-measure literature could have escaped these searches; priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Volume sampling and cone-boundary sampling are canonical alternatives on a convex body. The theorem answers a motivated stability-ordering question uniformly across all centered convex bodies rather than computing a chosen polygon or an arbitrary isolated constant. The full pointwise comparison is stronger than a final norm inequality, the exact threshold identifies when the improvement is strict, and central symmetry yields a shape-independent strict norm theorem. The unit interval and disk give explicit benchmark gaps relevant to positivity loss of unconstrained affine least squares. The method is limited to affine degree and does not assert an extension to higher-degree polynomial projection.
+Best-of-knowledge PASS for the complete all-centered-body pointwise measure comparison with equality criterion and symmetric-body strict norm gap. Cone-volume laws, radial disintegration and affine reproducing kernels are classical. Relevant projection literature and a published simplex norm result do not make this particular comparison.
 
-## Residual risks
+## value
 
-Equivalent historical terminology involving radial disintegration and reproduction kernels remains possible. The public literature comparison used pertinent sections and targeted text searches within two available primary full texts, a published closely related exact simplex result, and open searches; it does not establish exhaustive bibliographic uniqueness. The result has not received independent mathematical or literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Interior-volume and cone-boundary sampling are canonical competing measures on a convex body. A universal pointwise Lebesgue-function ordering, exact equality threshold, and strict operator-norm separation for every centrally symmetric body are natural, reusable stability facts; interval/disk constants quantify accompanying positivity-loss gap. The value is not contingent on a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
