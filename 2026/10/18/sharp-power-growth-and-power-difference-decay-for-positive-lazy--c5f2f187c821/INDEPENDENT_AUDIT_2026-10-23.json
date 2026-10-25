@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:00:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob 2bebbf9a2d0b596cb1381515855ca5c41afb185e",
+        "Git source verification script 39c2ce77d93f7f88d29f9a5561ca769ef13b2872",
+        "independently executed /mnt/data/audit07_independent_checks.py bounded numeric/rational tests"
+      ],
+      "rationale": "For fixed 1<p<infinity, 0<alpha<1/p and 0<delta<1, the weighted backward shift W has exact W^k e_j=(j/(j-k))^alpha e_{j-k} for k<j and zero otherwise, so norm ||W^k||=(k+1)^alpha. The positive p-absolutely Cesàro estimate follows from summing (j/(j-k))^{alpha p} over k<j and bounding j^{alpha p-1}sum_{i<=j}i^{-alpha p} <= (1-alpha p)^-1; convex-averaging preservation follows from Arnold Lemma 7.3. Weighted eigenvectors j^{-alpha}z^{j-1} for |z|<1 and spectral radius one give sigma(W)=closed disk; the affine spectrum of T contacts unit circle only at 1. Exactly, (T^n)_{ij}=(j/i)^alpha b_n(j-i), and (T^{n+1}-T^n)_{ij}=-delta(j/i)^alpha h_n(j-i), h_n(k)=b_n(k)-b_n(k-1). For Bin(n,delta), ||b_n||_1=1, ||b_n||_{p'}=O(n^{-1/(2p)}), ||h_n||_1=O(n^-1/2), ||h_n||_infty=O(n^-1), hence ||h_n||_{p'}=O(n^{-1+1/(2p')}). For output i>=sqrt(n), j/i=O(sqrt n) on kernel support; Young gives n^{alpha/2} and n^{(alpha-1)/2} upper bounds. On i<sqrt(n), Hölder bounds each row by C n^alpha i^{-alpha}||b/h||_{p'}, summing i^{-alpha p} gives the same upper rates precisely because alpha p<1. For lower bounds, take unit positive input supported on J_n=n delta+[2,3]sqrt n and evaluate on I_n=[1,1.5]sqrt n: b_n(k)>=c n^-1/2, h_n(k)<=-c n^-1 uniformly because the standardized deviations k-n delta are in a compact positive window, and (j/i)^alpha>=c n^{alpha/2}. Their signs are coherent and O(sqrt n) summands yield matching lower operator norm powers. Direct binomial witness computation at n=256 and 1024 (p=2,alpha=.3,delta=.4) gives stable positive normalized lower witnesses, a finite diagnostic only. This does not prove exact leading constants or the arbitrary positive-operator Katznelson–Tzafriri question.",
+      "residual_risks": [
+        "Some general discrete analytic semigroup/kernel bounds may imply the rates by specialization, though none was identified in materially inspected full Arnold and Abbar texts.",
+        "The original 2020 growth paper was not read in its entirety; available theorem statements are broader but weaker.",
+        "The estimates are two-sided polynomial orders, not exact constants and not uniform near alpha p=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Abbar–Arnold–Coine arXiv:2609.24601 §3.1–3.3 and Example 3.10",
+          "Full Arnold arXiv:2610.00271v1 §§3,7–8"
+        ],
+        "reasoning": "The broader Cesàro/weighted-shift theorems give necessary input and sometimes nonmatching power bounds. They do not state matching ℓp lower/upper differences for convexly averaged W on all p>1, nor a universal conclusion for all positive operators.",
+        "searches": [
+          "Abbar Arnold Coine 2609.24601 q absolute Cesaro bounded backward shifts full text",
+          "Arnold 2610.00271 Lemma 7.3 positive lazy shift powers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00271v1",
+        "https://arxiv.org/abs/2609.24601",
+        "https://doi.org/10.1016/j.jmaa.2020.124035",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnold §7.3 lemma gives p-ACB preservation but no difference operator-norm rate for positive reflexive p>1.",
+          "Abbar–Arnold–Coine §3.3 Example 3.10 gives ||W^k||=(k+1)^alpha, not ||((1-delta)I+delta W)^n||."
+        ],
+        "reasoning": "Polynomially growing W alone does not determine the n-step binomially averaged norm or cancellation of consecutive powers. New Gaussian concentration and separated windows are required, so earlier p-ACB bounds are not equivalent to the displayed sharp exponents.",
+        "searches": [
+          "\"On absolutely Cesàro bounded operators\" Example 3.10 weights i^-alpha",
+          "\"Self-improvement for absolutely Cesàro bounded operators\" Section 7 lazy Lemma 7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnold arXiv:2610.00271v1 Example 3.2 and Proposition 7.1",
+          "Abbar–Arnold–Coine arXiv:2609.24601 §3.3 Example 3.10"
+        ],
+        "reasoning": "The invariant is the exact polynomial operator-norm order of a fixed binomial average (and its first discrete time derivative), not merely the growth order of unaveraged W or a generic Cesàro bound. Prior shift examples cover p-ACB and norm (k+1)^alpha for W.",
+        "searches": [
+          "positive lazy weighted backward shift power growth nth powers differences absolute Cesaro bounded quantitative n alpha over 2",
+          "\"Self-improvement for absolutely Cesàro bounded operators\" \"T^{n+1}\" shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary result 2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc: exact universal worst-case finite power norms under fixed ACB K.",
+          "Resultary result 2026/10/11/SCOPE-exact-harmonic-finite-horizon-profile-at-the-extremal-ces-ro-end--f7c514683b0a: unaveraged extremal shift moment bound."
+        ],
+        "reasoning": "These records optimize a different operator class or exact Cesàro averages; neither supplies this concrete lazy shift’s signed first-difference kernel or matching decay exponent. No directly matching table was identified among checked returned records.",
+        "searches": [
+          "Resultary: positive lazy weighted backward shift power growth nth powers differences absolute Cesaro bounded quantitative n alpha over 2",
+          "\"n^{(alpha-1)/2}\" lazy shift backward Cesaro"
+        ]
+      },
+      "rationale": "The full Arnold 2026 paper gives the precise same shift and p-ACB constant (Example 3.2), the convex lazy-averaging p-ACB lemma (7.3), and a different ℓ1 counterexample (Proposition 7.1) to a general successive-power property. The full Abbar–Arnold–Coine 2026 preprint §3.3 Example 3.10 gives unaveraged weighted-shift power growth/ACB, not the binomially averaged reflexive consecutive-difference exponent. The Resultary finite-horizon worst-case result over all p-ACB operators does not imply this fixed shift’s matching upper/lower n^{(alpha-1)/2} law. Known ingredients are credited and only the new sharp two-sided reflexive lazy growth and decay laws assessed original.",
+      "residual_risks": [
+        "Some general discrete analytic semigroup/kernel bounds may imply the rates by specialization, though none was identified in materially inspected full Arnold and Abbar texts.",
+        "The original 2020 growth paper was not read in its entirety; available theorem statements are broader but weaker.",
+        "The estimates are two-sided polynomial orders, not exact constants and not uniform near alpha p=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides weights and p-ACB preservation, not the claimed two-sided lazy-shift growth and successive difference exponents.",
+          "evidence": [
+            "Example 3.2",
+            "Lemma 7.3",
+            "Proposition 7.1",
+            "Question 8.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00271v1",
+          "material_read": "Complete open HTML: Example 3.2; Lemma 7.3 with Abel-binomial argument, Proposition 7.1 and its proof on ℓ1, Question 8.2 and references.",
+          "method": "Read precise hypotheses and theorems, compare reflexive p>1 to ℓ1 counterexample.",
+          "title": "Self-improvement for absolutely Cesàro bounded operators",
+          "trigger": "Exact same W, lazy average and positive KT question"
+        },
+        {
+          "assessment": "Determines unaveraged weighted-shift Cesàro criteria and ||W^k||, not the lazy averaged reflexive difference norm.",
+          "evidence": [
+            "§3.3 Example 3.10",
+            "§3.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24601",
+          "material_read": "Full open arXiv rendered article §§1–3, Theorems 2.1/3.4, Example 3.10 and §3.4.",
+          "method": "Read mathematical content not only abstract, tested whether statements imply claimed binomial first differences.",
+          "title": "On absolutely Cesàro bounded operators",
+          "trigger": "Same weighted shift family and power growth"
+        },
+        {
+          "assessment": "General upper bounds do not yield this exact two-sided exponent or difference rate; entire original PDF not materially read.",
+          "evidence": [
+            "Arnold §§1,8 citation to Proposition 3.1"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2020.124035",
+          "material_read": "Theorem/Proposition 3.1 statements as reproduced with attribution in the full Arnold and Abbar–Arnold–Coine primary papers; publisher abstract material.",
+          "method": "Compared general growth O(n^{1/p-epsilon}) with explicit model rate.",
+          "title": "Resolvent conditions and growth of powers of operators",
+          "trigger": "Potential general stronger operator growth theorem"
+        },
+        {
+          "assessment": "Different extremal problem, cannot establish or exclude all claims in full linked source; residual risk noted.",
+          "evidence": [
+            "Resultary record identifier"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-horizon-power-amplification-under-absolute-ces-ro-b--1b6cb9a310fc",
+          "material_read": "Resultary returned full title, precise theorem summary and identifier, not full mathematical article.",
+          "method": "Compared quantifiers: supremum over all ACB operators versus single lazy shift.",
+          "title": "Sharp finite-horizon power amplification under absolute Cesàro bounds",
+          "trigger": "Closest mathematical research record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00271v1",
+        "https://arxiv.org/abs/2609.24601"
+      ],
+      "rationale": "This natural concrete positive p-absolutely Cesàro bounded model sits next to the positive Katznelson–Tzafriri question. The new sharp exponents show an explicit divergence of ||T^n|| at n^{alpha/2} simultaneous with ||T^{n+1}-T^n|| decay at n^{(alpha-1)/2} for every reflexive exponent p and admissible alpha; both upper/lower orders are nontrivial. It is a motivated exact quantitative model fact, not a claim to solve the open arbitrary-operator question or a renaming of unaveraged shift growth.",
+      "residual_risks": [
+        "Some general discrete analytic semigroup/kernel bounds may imply the rates by specialization, though none was identified in materially inspected full Arnold and Abbar texts.",
+        "The original 2020 growth paper was not read in its entirety; available theorem statements are broader but weaker.",
+        "The estimates are two-sided polynomial orders, not exact constants and not uniform near alpha p=1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Some general discrete analytic semigroup/kernel bounds may imply the rates by specialization, though none was identified in materially inspected full Arnold and Abbar texts.",
+    "The original 2020 growth paper was not read in its entirety; available theorem statements are broader but weaker.",
+    "The estimates are two-sided polynomial orders, not exact constants and not uniform near alpha p=1."
+  ],
+  "schema_version": 1
+}
