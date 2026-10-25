@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:53:09.319957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a finite unit-edge graph, the active incidence vectors at a polar vertex span the zero-sum hyperplane iff its tight-edge subgraph is connected and spanning. For a connected bipartite graph, a tight spanning tree makes every height integral with fixed bipartition parity; all other edges then have odd differences <=1, hence are tight. For the incidence subdivision S(K_n), every original pair shares a subdividing vertex, so original heights differ by 0 or 2 and global range <=2; a constant level yields 2^M midpoint choices, whereas two height classes of sizes k,n-k force cross-midpoints and free within-class choices, proving the exhaustive binomial formula. For n>=4 degrees distinguish originals and subdivisions, hence graph automorphisms are S_n; graph complement under global sign and pair-class interchange give the Burnside orbit formula, including parity at k=n/2. The k=1,n-1 term contributes n2^(2-n), and remaining terms admit the claimed O(n^2 2^(-2n)) tail. Independently enumerated all tight assignments n=2,3,4,5 (4,20,152,1984). These exact finite checks corroborate, but the spanning/height-class proof establishes all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315 maximal bipartite/facet-subgraph framework",
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ Theorem 11 and Lemma 32"
+        ],
+        "reasoning": "These broad theorems cover which incidence patterns are facet normals. Applying them to every subdivided edge and extracting an explicit count, graph-complement orbit types and asymptotic requires model-specific enumeration, not a quoted stronger result. Some unexamined full texts leave a priority risk.",
+        "searches": [
+          "Number of facets of symmetric edge polytope and Lipschitz free ball for one-edge subdivided complete graphs; complements of simple graphs and orbit classification",
+          "arxiv:1807.07678"
+        ]
+      },
+      "checked_sources": [
+        "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+        "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019)",
+        "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315",
+        "Resultary published SCOPE mathematical findings searched under graph metric subdivision, complement orbit and facet terminology",
+        "Exact frozen RESULT.md and verify.py; independent 2<=n<=5 spanning-tree all-tight enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ Lemma 32 establishes fully tight facet potentials",
+          "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315 analyzes general facet subgraphs"
+        ],
+        "reasoning": "All-edge tightness is logically weaker than evaluated enumeration: it leaves a constrained 2^(n+M-1) sign assignment problem. The height split and sign-complement orbit classification supply nontrivial additional computation and proof; no checked theorem was seen giving F_n or O_n by corollary without it.",
+        "searches": [
+          "Number of facets of symmetric edge polytope and Lipschitz free ball for one-edge subdivided complete graphs; complements of simple graphs and orbit classification",
+          "arxiv:1910.05193",
+          "arxiv:1807.07678"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/ Lemma 32 (PDF pp.19–20) all edges tight for connected bipartite graphs",
+          "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019) gives a general combinatorial facet criterion"
+        ],
+        "reasoning": "Identification with symmetric edge polytopes is exact under shortest-path graph metrics, but the prior characterization of potential normals is an algorithmic criterion, not itself the formula counting height classes or sign/complement orbits of S(K_n).",
+        "searches": [
+          "Number of facets of symmetric edge polytope and Lipschitz free ball for one-edge subdivided complete graphs; complements of simple graphs and orbit classification",
+          "arxiv:1910.05193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-11 facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744 concerns an equilateral metric with disjoint shortened pairs, not S(K_n) graph distance",
+          "Unlabeled simple-graph class numbers a_j,b_j are preexisting graph-isomorphism counts, not the claimed facet-orbit dictionary"
+        ],
+        "reasoning": "The cited exact numeric classes and small values could be found in graph catalogs, but the full M-subdivision all-n facet formula and its new connection to graph complement orbits were not located; failed lookup alone is not novelty proof.",
+        "searches": [
+          "Number of facets of symmetric edge polytope and Lipschitz free ball for one-edge subdivided complete graphs; complements of simple graphs and orbit classification",
+          "Resultary:2026/10/11/facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744"
+        ]
+      },
+      "rationale": "The established all-edge-tight theorem and facet-subgraph framework are acknowledged. The evaluated full-subdivision count, asymptotic concentration, and classification by graph-isomorphism/complement types do not follow as an already stated expression from inspected primary mathematical passages. Equivalent unpublished graph enumeration is an explicit priority risk.",
+      "residual_risks": [
+        "An older or unindexed equivalent evaluation in combinatorial graph/facet literature could imply the same F_n or orbit formula; some cited primary full texts were not accessible in full.",
+        "n=2,3 are only facet-count scope, not graph automorphism orbit scope; finite n<=5 enumeration is not the all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all-tight normals, not the displayed S(K_n) count or graph-complement orbit theorem in material inspected",
+          "evidence": "Lemma 32, Corollary 33, Proposition 37 (edge gluing of two existing graphs).",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+          "material_read": "Theorem 11 context and PDF sections around pp.18–23, especially Lemma 32 and Corollary 33, checked visually on two PDF pages",
+          "method": "full published PDF, text retrieval and page screenshots",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Exact bipartite all-edge-tight source and graph joining potential alternative"
+        },
+        {
+          "assessment": "General combinatorial facet description and complete bipartite work are prior; full-text equivalence cannot be excluded by an abstract",
+          "evidence": "Mathematika 65 (2019) pp.763–784, abstract.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579319000147",
+          "material_read": "Publisher abstract and cited exact proposition pointers, not full primary PDF",
+          "method": "published abstract plus source cross-comparison",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Complete graph and general-facet antecedent"
+        },
+        {
+          "assessment": "General technique is relevant, full result not exhaustively excluded; residual priority risk",
+          "evidence": "Theorem 3 facet-subgraph description.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Abstract/targeted indexed theorem description, not full PDF",
+          "method": "public abstract and mathematical source comparison",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General facet-subgraph theorem might dominate special family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical infinite family of graph-metric Lipschitz-free balls receives a complete facet enumeration plus a nontrivial bridge from facet symmetries to unlabeled graphs/complement classes. The exponential concentration and parity-sensitive equal-class orbit term are structural information needed to study symmetric edge polytopes and are not a single toy numeric example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29(3) P3.24 (2022), https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+    "Higashitani–Jochemko–Michałek, Arithmetic aspects of symmetric edge polytopes, arXiv:1807.07678 (2018; Mathematika 2019)",
+    "Chen–Davis–Korchevskaia, Facets and facet subgraphs of symmetric edge polytopes, arXiv:2107.12315",
+    "Resultary published SCOPE mathematical findings searched under graph metric subdivision, complement orbit and facet terminology",
+    "Exact frozen RESULT.md and verify.py; independent 2<=n<=5 spanning-tree all-tight enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": "Real scalars, unit graph-edge metrics, exactly one subdivision vertex on every edge of K_n; orbits only under Aut(S(K_n)) times sign for n>=4.",
+  "residual_risks": [
+    "An older or unindexed equivalent evaluation in combinatorial graph/facet literature could imply the same F_n or orbit formula; some cited primary full texts were not accessible in full.",
+    "n=2,3 are only facet-count scope, not graph automorphism orbit scope; finite n<=5 enumeration is not the all-n proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers all-tight normals, not the displayed S(K_n) count or graph-complement orbit theorem in material inspected",
+      "evidence": "Lemma 32, Corollary 33, Proposition 37 (edge gluing of two existing graphs).",
+      "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p24/pdf/",
+      "material_read": "Theorem 11 context and PDF sections around pp.18–23, especially Lemma 32 and Corollary 33, checked visually on two PDF pages",
+      "method": "full published PDF, text retrieval and page screenshots",
+      "title": "Many Faces of Symmetric Edge Polytopes",
+      "trigger": "Exact bipartite all-edge-tight source and graph joining potential alternative"
+    },
+    {
+      "assessment": "General combinatorial facet description and complete bipartite work are prior; full-text equivalence cannot be excluded by an abstract",
+      "evidence": "Mathematika 65 (2019) pp.763–784, abstract.",
+      "identifier_or_url": "https://doi.org/10.1112/S0025579319000147",
+      "material_read": "Publisher abstract and cited exact proposition pointers, not full primary PDF",
+      "method": "published abstract plus source cross-comparison",
+      "title": "Arithmetic aspects of symmetric edge polytopes",
+      "trigger": "Complete graph and general-facet antecedent"
+    },
+    {
+      "assessment": "General technique is relevant, full result not exhaustively excluded; residual priority risk",
+      "evidence": "Theorem 3 facet-subgraph description.",
+      "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+      "material_read": "Abstract/targeted indexed theorem description, not full PDF",
+      "method": "public abstract and mathematical source comparison",
+      "title": "Facets and facet subgraphs of symmetric edge polytopes",
+      "trigger": "General facet-subgraph theorem might dominate special family"
+    }
+  ]
+}
