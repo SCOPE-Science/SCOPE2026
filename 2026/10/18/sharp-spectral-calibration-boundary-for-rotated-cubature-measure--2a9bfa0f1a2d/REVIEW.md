@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Direct sign-pair evaluation of the standard degree-three cubature rule gives the estimated scalar variance and cross covariance without approximation. The Gaussian fourth-moment identity fixes the exact innovation variance. Cauchy–Schwarz, an inductive equal-diagonal basis construction and the Frobenius diagonal/off-diagonal identity yield both sharp extrema; connectedness gives all intermediate values. The exact affine-update covariance identity determines the sign and equality cases. The standalone checker tests signed sigma-point summation, the constructive extrema and threshold examples, while the stated infinite conclusions have analytic proofs.
+PASS
 
-## Originality — PASS, subject to residual literature uncertainty
+For 2n signed nodes ±sqrt(n) Ue_j, direct sign pairing gives predicted mean tr(B), exact cross covariance ell and innovation s_U=R+||ell||^2+n sum_j (U^T B U)jj^2-(tr B)^2. Independent direct NumPy node evaluation verified this for random symmetric B and orthogonal U in dimensions 2–5. Gaussian fourth moments give s*=R+||ell||^2+2||B||F^2. The equal-diagonal-basis induction constructs the sharp lower endpoint w, and eigenframes attain upper w+nF-t^2; connected SO(n) supplies every value. The exact affine estimator MSE difference is (s*-s_U)ell ell^T/s_U^2, not a conditional Bayesian posterior. Therefore calibration iff n >= 2+t^2/F, with eigenframe rigidity at equality. Rank-one, traceless and scalar B boundaries are consistent.
 
-Classical cubature nodes, their covariance formulas, fourth Gaussian moments, orthogonal rotation sensitivity, and general covariance-compensation observations are prior work. Singh (2017) studies rotated points, and Jiang et al. (2026) already illustrate CKF rotation sensitivity and give general per-frame moment and error-covariance formulas. The assessed additional result is the **complete exact interval optimized over all covariance-square-root frames**, its necessary-and-sufficient trace/Frobenius transition for both confidence signs, equality characterization, and the unbounded fixed-reported-covariance family. The general earlier formulas alone do not state these extrema or their simultaneous attainability; their combination with classical matrix inequalities is acknowledged. Indexed mathematical record searches and accessible previous claims yielded no direct full-claim duplicate. This is not an independent priority certificate, and an unindexed corollary or specialized earlier calculation remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Covariance-square-root choices represent exactly the same Gaussian prior but can lead to incompatible filter confidence reports. The classification identifies which quadratic sensors admit calibrated frames and which necessarily have one-sided bias; the transition depends on a natural, basis-invariant spectral ratio. The unbounded error gap shows substantive consequences beyond a harmless change in a moment estimate. It is a natural complete classification of a filtering benchmark, not an arbitrary numerical slice.
+Earlier CKF work explicitly establishes the signed-node formulas and rotation sensitivity, and Jiang et al. 2026 already present general covariance compensation and a Haar-averaged quadratic bound. Their inspected Sections II–III do not state the optimized all-frame spectral interval or necessary-and-sufficient exact calibration boundary. This boundary is a specialization needing the additional equal-diagonal/eigenframe extremal argument, but Schur–Horn and general per-frame formulas are important prior ingredients.
 
-## Scope and risks
+## value
 
-The comparison uses the actual **unconditional mean-squared error covariance of the cubature updated mean**, not conditional posterior variance. All claims apply to an unmodified one-step rule and exact arithmetic. Related later work explicitly establishes orientation dependence, so only the sharp spectral classification is assessed as additional. Published equivalents not located by the searches remain possible; independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same Gaussian prior and nonlinear scalar measurement can produce opposite covariance miscalibration merely by changing a legitimate orthogonal square root. The exact trace/Frobenius phase criterion, equality frames, complete attainable interval and arbitrarily large MSE underreporting at fixed reported gain are meaningful complete diagnostics for a natural cubature method, beyond a generic covariance positivity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

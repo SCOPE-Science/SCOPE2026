@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:05:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2n signed nodes ±sqrt(n) Ue_j, direct sign pairing gives predicted mean tr(B), exact cross covariance ell and innovation s_U=R+||ell||^2+n sum_j (U^T B U)jj^2-(tr B)^2. Independent direct NumPy node evaluation verified this for random symmetric B and orthogonal U in dimensions 2–5. Gaussian fourth moments give s*=R+||ell||^2+2||B||F^2. The equal-diagonal-basis induction constructs the sharp lower endpoint w, and eigenframes attain upper w+nF-t^2; connected SO(n) supplies every value. The exact affine estimator MSE difference is (s*-s_U)ell ell^T/s_U^2, not a conditional Bayesian posterior. Therefore calibration iff n >= 2+t^2/F, with eigenframe rigidity at equality. Rank-one, traceless and scalar B boundaries are consistent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A broader theorem computing all attainable rotated quadratic innovation variances would dominate this specialized result; no such statement located in full March 2026 CKF HTML.",
+          "https://arxiv.org/html/2603.22992",
+          "https://arxiv.org/abs/2407.05717"
+        ],
+        "reasoning": "Compared stronger/generic formulas rather than labels. A broader theorem computing all attainable rotated quadratic innovation variances would dominate this specialized result; no such statement located in full March 2026 CKF HTML.",
+        "searches": [
+          "rotated cubature Kalman filter quadratic measurement orientation Schur Horn spectral calibration true MSE",
+          "cubature Kalman sigma points orthogonal roots quadratic Gaussian measurement Frobenius trace calibration boundary",
+          "all orientations cubature innovation variance equal diagonal spectral threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.22992",
+        "https://arxiv.org/abs/2407.05717",
+        "https://doi.org/10.1049/iet-spr.2017.0074",
+        "https://doi.org/10.1109/TAC.2009.2019800"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang et al. 2026 Theorem 2 concerns radially symmetric lower bounds and Haar-averaged covariance, which does not imply the actual all-frame sharp interval without additional extremal work.",
+          "https://arxiv.org/html/2603.22992",
+          "https://arxiv.org/abs/2407.05717"
+        ],
+        "reasoning": "The prior-to-claim logical relationship is limited as follows: Jiang et al. 2026 Theorem 2 concerns radially symmetric lower bounds and Haar-averaged covariance, which does not imply the actual all-frame sharp interval without additional extremal work.",
+        "searches": [
+          "rotated cubature Kalman filter quadratic measurement orientation Schur Horn spectral calibration true MSE",
+          "cubature Kalman sigma points orthogonal roots quadratic Gaussian measurement Frobenius trace calibration boundary",
+          "all orientations cubature innovation variance equal diagonal spectral threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schur-Horn diagonal theory and general per-frame CKF formulas cover the ingredients but do not themselves state the exact calibration region for all frames.",
+          "https://arxiv.org/html/2603.22992"
+        ],
+        "reasoning": "Checked aliases, normalization and equivalent mechanisms. Schur-Horn diagonal theory and general per-frame CKF formulas cover the ingredients but do not themselves state the exact calibration region for all frames.",
+        "searches": [
+          "rotated cubature Kalman filter quadratic measurement orientation Schur Horn spectral calibration true MSE",
+          "cubature Kalman sigma points orthogonal roots quadratic Gaussian measurement Frobenius trace calibration boundary",
+          "all orientations cubature innovation variance equal diagonal spectral threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuous optimization, not a finite database. Resultary semantic query retrieved covariance problems without this exact trace/Frobenius classification.",
+          "https://arxiv.org/html/2603.22992"
+        ],
+        "reasoning": "Searched published research summaries for exact continuous parameter results or tabulations. This is a continuous optimization, not a finite database. Resultary semantic query retrieved covariance problems without this exact trace/Frobenius classification.",
+        "searches": [
+          "rotated cubature Kalman filter quadratic measurement orientation Schur Horn spectral calibration true MSE",
+          "cubature Kalman sigma points orthogonal roots quadratic Gaussian measurement Frobenius trace calibration boundary",
+          "all orientations cubature innovation variance equal diagonal spectral threshold"
+        ]
+      },
+      "rationale": "Earlier CKF work explicitly establishes the signed-node formulas and rotation sensitivity, and Jiang et al. 2026 already present general covariance compensation and a Haar-averaged quadratic bound. Their inspected Sections II–III do not state the optimized all-frame spectral interval or necessary-and-sufficient exact calibration boundary. This boundary is a specialization needing the additional equal-diagonal/eigenframe extremal argument, but Schur–Horn and general per-frame formulas are important prior ingredients.",
+      "residual_risks": [
+        "Prior CKF formulas plus standard diagonal majorization make the derivation accessible; an unindexed earlier paper may explicitly optimize it.",
+        "Do not relabel unconditional MSE as conditional Bayesian posterior covariance.",
+        "Only the March 2026 accessible HTML was materially inspected in full; some cited older full PDFs were not retrieved this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CKF per-frame sensitivity, quadratic moment and Haar averaging are prior; no stated global all-frame trace/Frobenius threshold or exact attainable interval in inspected findings",
+          "evidence": [
+            "Theorem 1, equations (9),(12),(24) and Guideline 2 explicitly address rotation and quadratic covariance"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22992",
+          "material_read": "Full accessible HTML, especially Introduction, Section II-E CKF nodes and moments, Section III-A rotation/compensation and Section III-B",
+          "method": "read primary full text including equations (9), (12), (19)–(25) and surrounding theorem/figure discussion",
+          "title": "Design Guidelines for Nonlinear Kalman Filters via Covariance Compensation",
+          "trigger": "most directly competing 2026 quadratic rotated-CKF work"
+        },
+        {
+          "assessment": "Orthogonal transformation predates the current claim; priority of optimized spectrum beyond abstract remains uncertain",
+          "evidence": [
+            "The work directly concerns transformed cubature points and higher-order moment errors"
+          ],
+          "identifier_or_url": "https://doi.org/10.1049/iet-spr.2017.0074",
+          "material_read": "Publisher/bibliographic description and abstract only in this run",
+          "method": "read accessible public summary; no claim to have read whole paper",
+          "title": "Transformed cubature quadrature Kalman filter",
+          "trigger": "earlier orthogonal transformation of cubature points"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same Gaussian prior and nonlinear scalar measurement can produce opposite covariance miscalibration merely by changing a legitimate orthogonal square root. The exact trace/Frobenius phase criterion, equality frames, complete attainable interval and arbitrarily large MSE underreporting at fixed reported gain are meaningful complete diagnostics for a natural cubature method, beyond a generic covariance positivity check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.22992",
+    "https://arxiv.org/abs/2407.05717",
+    "https://doi.org/10.1049/iet-spr.2017.0074",
+    "https://doi.org/10.1109/TAC.2009.2019800"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Mathematical conclusions are constrained exactly to the hypotheses in the assigned RESULT.md; finite tests cannot establish unrestricted claims.",
+    "Best-of-knowledge originality is subject to explicitly identified full-text and bibliographic priority limitations.",
+    "Positive C/O/V is not publication, formal proof certification, or third-party expert attestation."
+  ],
+  "residual_risks": [
+    "Prior CKF formulas plus standard diagonal majorization make the derivation accessible; an unindexed earlier paper may explicitly optimize it.",
+    "Do not relabel unconditional MSE as conditional Bayesian posterior covariance.",
+    "Only the March 2026 accessible HTML was materially inspected in full; some cited older full PDFs were not retrieved this run."
+  ],
+  "schema_version": 1
+}
