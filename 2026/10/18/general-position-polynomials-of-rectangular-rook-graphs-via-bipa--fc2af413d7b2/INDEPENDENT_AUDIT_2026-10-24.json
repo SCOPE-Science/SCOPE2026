@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:54:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md sections 1-5, original verify_rook_general_position.py (direct geodesic, recurrence, closed formula) and VERIFICATION.md",
+        "Private independently written small-board direct enumeration, 2x2,2x3,3x3"
+      ],
+      "rationale": "The line-graph identification R_{m,n}=L(K_{m,n}) turns a three-cell geodesic of length two precisely into a three-edge (not necessarily induced) P4 in the underlying bipartite edge set. A bipartite P4-free graph is a disjoint union of stars and isolates, so the selected cell family is precisely a spanning star forest. Its labeled two-sort component series is x+y+zxy+x(e^{zy}-1-zy)+y(e^{zx}-1-zx), simplifying to x e^{zy}+y e^{zx}-zxy; exponentiation yields the full EGF. Marking q column centers with >=2 selected rows, assigning disjoint neighborhoods and choosing zero/one leaf in other columns proves the finite coefficient sum without overlap. A forest with m,n>=3 must have >=2 components, equality consists of opposite-side star centers (m*n possibilities); the m=1, m=n=2, min=2 boundary multiplicities are checked separately. Independent literal geodesic enumeration gives (2,2):1+4z+6z^2; (2,3):1+6z+15z^2+8z^3; (3,3):1+9z+36z^2+48z^3+9z^4, agreeing with the package. The finite checks do not imply the general EGF.",
+      "residual_risks": [
+        "Independent computations are bounded and not proofs of all-parameter conclusions.",
+        "Structural published hypotheses cited in the package remain part of the proof premises."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 full paper studies graph general-position polynomials, Cartesian products of paths and Kneser-family examples; no complete graph factor K_m square K_n general formula was identified in the inspected full text.",
+          "2021 paper gives general-position extremal results for Cartesian products including the known m+n-2 maximum but not this full two-variate polynomial."
+        ],
+        "reasoning": "Broad general-position theory recognizes the configuration and maximum size, but no inspected theorem determines all coefficients and leading multiplicities for arbitrary m,n.",
+        "searches": [
+          "General Position Polynomials, Results in Mathematics 79 (2024) DOI:10.1007/s00025-024-02133-3",
+          "On General Position Sets in Cartesian Products (2021) DOI:10.1007/s00025-021-01438-x"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00025-024-02133-3",
+        "https://doi.org/10.1007/s00025-021-01438-x",
+        "https://combinatorialpress.com/ars-articles/volume-097-ars-articles/enumeration-for-no-trivial-spanning-forests-of-complete-bipartite-graphs/",
+        "Resultary query: general position polynomial of K_m square K_n rook graph bipartite star forest exponential generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Structural criterion supplies necessary general framework; max gp(R_m,n)=m+n-2 is already known for m,n>=3.",
+          "Submitted P_m,n(z) counts ALL feasible sizes and leading counts mn or 2^n, information lost by maximizing."
+        ],
+        "reasoning": "Known abstract characterization plus EGF exponential formula could motivate a derivation but is not the literal complete all-parameter expression in inspected sources; no priority claimed for known degree.",
+        "searches": [
+          "Anand et al arxiv:1812.08460 structural general position criterion",
+          "Klavzar Patkos Rus Yero 2021 Cartesian products",
+          "General Position Polynomials 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graph is L(K_m,n); equivalently the result enumerates P4-free edge subsets, i.e. bipartite star forests, which is a natural alternate name.",
+          "Old enumerations of ALL spanning forests K_m,n (2004, 2010) do not automatically specialize to this P4-free subset class."
+        ],
+        "reasoning": "This bijection is arguably an elementary specialization of general-position structure, but the all-size two-sort generating function and maximum counts are not implied by generic spanning forest enumeration without additional restrictions.",
+        "searches": [
+          "Resultary query: general position polynomial of K_m square K_n rook graph bipartite star forest exponential generating function",
+          "Search: labelled bipartite star forests exponential exp(x exp(zy)+ y exp(zx)-zxy)",
+          "MathWorld Rook Graph (line graph L(K_m,n))"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top same-object rook hit concerned three-cut homology, not the general-position polynomial.",
+          "Rather studies complete multipartite graphs, distinct from Cartesian product of complete graphs; isolated small-board examples are not all-parameter coverage."
+        ],
+        "reasoning": "Precomputed rook graph invariants or standard nonattacking rook matching numbers count different subsets: matchings have at most one edge per row/column and exclude stars.",
+        "searches": [
+          "Resultary rook graph general-position polynomial query",
+          "Rather arxiv:2603.06930, Explicit Formulas and Unimodality Phenomena for General Position Polynomials"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary-source and Resultary comparison; no searched statement/table/general theorem shown to imply the exact submitted additional invariant. Crucial established premises and special cases are credited. Full-text versus abstract material is explicitly distinguished; inaccessible literature is retained as risk, not assumed noncovering.",
+      "residual_risks": [
+        "Alternate literature may enumerate labeled bipartite star forests by component species independently of graph-general-position terminology; no exhaustive priority claim.",
+        "2010 complete-bipartite spanning-forest paper was only abstract-level and is not declared noncovering from its abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OTHER_PRODUCTS: Cartesian products of paths, not rectangular rook K_m square K_n polynomial",
+          "evidence": "Full 2024 mathematical text, Cartesian path-product section.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Complete 16-page accessible primary PDF, polynomial definitions and the sections on Cartesian products and Kneser examples",
+          "method": "Opened full primary PDF, searched/read applicable sections",
+          "title": "General Position Polynomials",
+          "trigger": "Same invariant could cover rook graph"
+        },
+        {
+          "assessment": "KNOWN_EXTREMAL: maximum size not complete star-forest enumerator",
+          "evidence": "Graph family max gp(K_m square K_n)=m+n-2 in the package prior citations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01438-x",
+          "material_read": "Original full-text-accessible article relevant theorem and product examples",
+          "method": "Read primary article sections on Cartesian products",
+          "title": "On General Position Sets in Cartesian Products",
+          "trigger": "Known max gp in Cartesian complete factors"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: counts rooted nontrivial K_m,n forests, not demonstrated to specialize to P4-free star forests; retain risk",
+          "evidence": "2010 publication describes labeled spanning forests and Abel-type polynomials; no full-text NOT_COVERING conclusion.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-097-ars-articles/enumeration-for-no-trivial-spanning-forests-of-complete-bipartite-graphs/",
+          "material_read": "Abstract and article landing page, complete paper not obtained",
+          "method": "Read accessible abstract/metadata only",
+          "title": "Enumeration For No-Trivial Spanning Forests of Complete Bipartite Graphs",
+          "trigger": "Plausible old equivalent forest enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof, Relationship to prior work",
+        "Primary literature comparisons in axes.originality; complete exact invariant distinguished from prior maxima or general algorithms"
+      ],
+      "rationale": "A complete two-parameter polynomial refines a previously known extremal size in a highly symmetric graph family; the natural bipartite star-forest model gives every coefficient, including maximum-set multiplicities and boundary anomalies. This exact enumeration is independently useful for metric set selection and labeled forest species.",
+      "residual_risks": [
+        "Future priority discovery may revise originality; this does not make the motivated natural invariant intrinsically uninteresting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Vertex general position in rook graphs only, not all Cartesian products; degree formula when m,n>=3 is previously known, and the count is not the traditional nonattacking-rook matching polynomial.",
+    "Alternate literature may enumerate labeled bipartite star forests by component species independently of graph-general-position terminology; no exhaustive priority claim.",
+    "2010 complete-bipartite spanning-forest paper was only abstract-level and is not declared noncovering from its abstract."
+  ],
+  "schema_version": 1
+}
