@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal argument is reconstructible from the displayed derivative cubic and Lucas-parity conditions. For three coordinate values, affine-cone translation reduces to \(0,u,v\); the cubic root identities force two nonzero multiplicities \(1\pmod4\), and the quartic equation strengthens them to \(1\pmod8\). The remaining block has the same congruence. The two-value case is exhaustively treated by three binomial coefficients, and the all-equal point is included. Converse ideal containments follow from generating functions. Irreducibility is proved separately, while Serre's criterion follows from the complete singular support. Generic Hessian-rank computations are independently checked on two field instances. No finite census is treated as a universal proof.
+PASS
 
-## Originality
+Over algebraically closed characteristic 2 with n>=11, n≡3 (mod 8), all gradient coordinates vanish only when each coordinate solves the same monic cubic x_i^3+e_1 x_i^2+e_2 x_i+e_3=0. The binomial translation coefficients for e4 vanish under n≡3 mod8, legitimate on affine cone representatives. Three distinct values force the three multiplicities ≡1 mod8 by successive e1/e2/e4 comparison; with exactly two, the binomial conditions yield multiplicity a≡1 or 2 mod8, always refinable to three 1-mod8 blocks. The all-equal point lies on all planes; conversely generating series makes e4 and gradient vanish on each plane. Generic Hessian is alternating block diagonal with rank sum(m_i−1)=n−3, and the full singular support has dimension 2, giving normality by R1+S2. Exact independent GF(4) enumeration evaluated every four-value multiplicity pattern at n=11 (364) and n=19 (1540), corroborating the characterization. Multinomial arithmetic verified 55 and 462061, and pair incidences follow two-index intersection. Enumeration is not substituted for the algebraically closed all-n proof.
 
-**PASS, with residual risk.** Cafure–Matera–Privitelli supply symmetric partition techniques; Orzel supplies positive-characteristic dimension bounds. Xie's Theorems 1.1 and 1.3 already determine the extremal partition components and Section 4.2 their generic Hessian rank, so these are explicitly not new. The inspected full-text Section 7 says smaller-dimensional components remain unclassified in general. The present all-points reduction proves that, throughout the complete congruence family \(n\equiv3\pmod8\), the extremal list already exhausts the **entire reduced singular support**, not only top-dimensional components. Targeted published-record and literature searches did not identify equivalent complete coverage. An unstated implication or an unindexed source remains a genuine originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Establishing that the known extremal planes leave **no** lower-dimensional singular components closes a concrete structural gap for a natural infinite family of positive-characteristic quartic hypersurfaces. It gives a full reduced decomposition with \(55\) components already in the eleven-variable case, sharply restricts possible singular-supported cycles, and yields the complete eleven-variable component-incidence geometry. This is a natural classification, not an arbitrary numerical slice. The work does not solve global Jacobian-scheme primary decomposition or extend to other congruence classes.
+The maximal-dimensional partition planes and generic Hessian rank were established by Xie 2026 and are not new. The distinct contribution is a complete reduction of every singular point in this n mod8=3 degree-four subfamily to one of those planes, ruling out hidden reduced components and giving an exact first incidence arrangement. Xie’s discussion does not classify all lower-dimensional components in general. Best-of-knowledge PASS for the missing full-support theorem; uncertainty remains over implicit consequences of broader statements.
 
-## Closest literature and boundaries
+## value
 
-Cafure–Matera–Privitelli, arXiv:1109.2265v1, Theorem 3.1 and Section 3; Orzel, arXiv:2509.05009v3, Section 2; Xie, arXiv:2610.00259v1, Theorems 1.1 and 1.3, Sections 2, 4, 7. Xie provides the plane list and generic Hessian ranks, but does not state absence of smaller reduced components for the specified family. Claims are restricted to characteristic two, \(n\ge11\), \(n\equiv3\pmod8\), reduced support, and generic transverse quadratic structure.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exhaustive reduced singular-support classification is a natural geometric structural problem, beyond the already known top-dimensional component list. The argument rules out every possible lower-dimensional reduced component on an infinite arithmetic subfamily and specifies the first plane incidence configuration. It does not pretend to classify embedded nonreduced structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
