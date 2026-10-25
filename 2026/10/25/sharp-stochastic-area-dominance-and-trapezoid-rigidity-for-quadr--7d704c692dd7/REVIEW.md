@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The argument reduces the known exact inellipse squared-area profile to \(f_q(x)=(1-x^2)(1+qx)\), proves by exact expansion that every nontrivial superlevel interval is shorter than its symmetric \(q=0\) counterpart, and separately derives the trapezoid profile using all four tangent-support equations. Uniformity of the center parameter under affine transformations is justified by constant arclength scaling along a straight segment. The domain excludes parallelograms and degenerate ellipses. Supplementary finite diagnostics cannot replace the algebraic proof.
+
+**Originality — PASS, with a significant source-implication risk.** Horwitz (2003, 2009) establishes the center theorem and individual cubic area profile; Hayes (2016) treats inellipse optimization. The new scientific assertion is a universal stochastic ordering across all quadrilateral shapes, strict at every threshold away from trapezoids, not the prior cubic expression. It uses a separate, proved midpoint-level-set inequality and a global comparison over affine moduli. The cubic area formula is powerful enough that this theorem is a deduction from prior inputs; the residual risk is that it already appears as an implicit or explicit comparison in other sources, especially a 2024 inellipse monograph. The literature search cannot certify uniqueness.
+
+**Value — PASS.** The random-center experiment is canonically determined by the Newton segment and affine invariant. A sharp full-distribution inequality is substantially stronger than comparing one averaged area; the equality class recognizes precisely when a quadrilateral has parallel opposite sides. It yields every positive-moment extremum with the same rigidity, a natural geometric classification rather than an arbitrary numerical slice.
+
+**Limitations.** Only strictly convex nonparallelogram quadrilaterals, four-side tangent inellipses, uniform center sampling, and normalized areas are covered; no statement concerns all inscribed ellipses without four tangencies or a random selection under some other measure. Horwitz's cubic identity is a published premise, not independently reproved. A plausible later monograph could contain an equivalent theorem.
+
+Self-review: passed. Independent audit: not yet performed.
