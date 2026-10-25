@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Execute `python verify_b_parking_inball.py` with Python 3 and its standard library. The script evaluates exact integer support extrema by enumerating vertex permutations (small dimensions), computes candidate inball slacks with 60-digit decimal arithmetic, and constructs strict interior contact phases for every cardinality in dimensions \(2\) through \(12\).
+## correctness
 
-Observed output:
-```
-PASS containment_parameter_sets= 360
-PASS vertex_support_cases= 120 vertices_total= 5892 subset_support_evaluations= 98616
-PASS realized_unique_contact_sizes= 77 dimensions=2..12
-PASS n=3 interior_contact_example= [2]
-```
+PASS
 
-This does not exhaust all positive parameters or all dimensions. Decimal calculations are not a symbolic certificate at arbitrary contact boundaries. The infinite theorem is established by the universal halfspace argument and the exact transition-number monotonicity proof in `RESULT.md`. Independent external audit has not been performed.
+The complete facet description gives x_i>=1 and sum_I x_i<=U_k; the ball radius adds sqrt(k) slack. Averaging subset constraints proves r<=R_k; the center (1+r)1 attains every constraint, and equality forces its uniqueness. Monotone consecutive crossover thresholds T_j construct each unique k; checked n=3 b=(100,3,50) gives R2< R1,R3. Redundant n-1 inequalities when b1=1 have R_n<R_(n-1). This is an all-n proof, not extrapolation from finite tests.
+
+## originality
+
+PASS
+
+Bayer et al. prove the precise complete generalized-parking facet system; a prior two-parameter Euclidean inball result treats b=(a,b,...,b) and only endpoint contact phases. Those are prerequisites/specializations, not the full arbitrary-b contact cardinality theorem.
+
+## value
+
+PASS
+
+The inradius and simultaneous facet tangencies are natural metric invariants; the all-cardinality realization exhibits genuinely new inner-ball phase behavior beyond the endpoint-only two-parameter subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
