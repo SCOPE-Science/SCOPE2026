@@ -1,19 +1,21 @@
-# Scientific review: a sharp normal-return fold threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normal geometry gives a globally valid analytic lift because \(|R'|<1\). Direct differentiation gives the stated derivative with a positive residual term. The crucial inequality is proved for **all** \(\theta\) and \(0<\varepsilon<2/5\) using a rational minorant for the square-root quantity, not by sampling. Equality is identified exactly at radial maxima, proving both necessity and sufficiency of the sharp threshold. At the endpoint the derivative has two isolated zeros, so strict monotonicity is preserved without an inverse derivative; immediately above it, orientation reversal at maxima proves noninjectivity. The interval-sign argument proves basin convergence without invoking any external global theorem. The 18,228 numerical and exact-rational checks are supplementary only.
+PASS
 
-## Originality — PASS under examined evidence
+The pinned result specifies an inner unit circle and outer radius R=3+ε cos(2θ), 0<ε<2/5. The normal chord is transverse because |p|<4/5, R>13/5, and |Rp/sqrt(R²+p²)|<1. The degree-one angular lift f=θ−atan(p/R)+asin(Rp/sqrt(R²+p²)) yields f′=1+R′′R(R²−1)/[W(R²+W)]+p²(W+p²)/[W(R²+p²)], W²=R²−(R²−1)p². For u=cos2θ≥0, v=p², the rational minorant W≥Ru+[R/(R+2)](1−u) and the exact square (R−R/(R+2))²(1−u)² prove f′≥1−4ε(2+ε)/(3+ε), equality only at u=1. For u≤0 direct termwise positivity holds. Hence ε_c=(√97−7)/8 is exact injectivity boundary: derivative >0 below, two isolated zeros at equality with strictly monotone lift, negative at extrema and positive at minima above; extrema multipliers still in (−1,0) above threshold. sign(f−θ)=sign(p), giving the four fixed points and monotone convergence on invariant semicircles through the endpoint. Independently checked the exact rational factorization and 84 rational sharp-bound inequalities, plus the critical algebraic root; script finite diagnostics were read but not accepted as an infinite proof.
 
-The main relevant prior works are arXiv:2603.30010v2 Section 9.1 (cosine fixed-point counts and multipliers), arXiv:2603.28453v4 Sections 9.1–9.4 (exact return formulas and numerical monotonicity), and arXiv:2603.28445 Sections 6–7 (general normal correspondence and linearization). Neither the inspected source material nor the compared mathematical records gives the exact all-angle derivative lower bound, sharp global injectivity boundary, or complete semicircle basin partition for this specified family. The already-known local multiplier formula is not asserted as the principal novelty. Residual risk: an equivalent specialized computation might exist under other terminology or in older normal-projection literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Global invertibility is a genuinely additional hypothesis in the motivating Morse–Smale framework, and its failure need not coincide with the familiar local loss-of-attraction condition. This proof locates the **first** fold on an explicit strictly convex family, identifies a nontrivial interval where the map is noninvertible but its thickness maxima remain hyperbolic attractors, and supplies a complete global basin classification on the invertible side. The exact boundary is an interpretable geometric/dynamical invariant, not a routine restatement of the cited multiplier formula.
+Best-of-knowledge PASS for the precise global injectivity threshold, critical homeomorphism and basin partition. The literature already supplies the exact normal-return formula, degree-one index, cosine critical points and local multipliers; it does not state or imply this sharp GLOBAL f′ nonnegativity threshold for the explicit ε interval. The source’s global ascent hypotheses are sufficient, not equivalent to the exact injectivity criterion.
 
-## Scientific limitations
+## value
 
-No dynamics beyond noninjectivity and local stability are classified in the folding regime; no extension to all frequency or thickness parameters is claimed. The result has not received independent mathematical or bibliographic validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The map is a natural exactly specified normal-return model with convex geometry; the first failure of global univalence while local maxima remain stable separates local multiplier criteria from true global dynamics. The sharp real-parameter threshold, endpoint and exact basin geometry are mathematically useful and not a trivial renaming of the source local derivative identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
