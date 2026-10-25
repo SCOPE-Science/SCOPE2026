@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:00:39.520371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md ab1f8567e787972516b5fe8c89da149b67247ac6",
+        "verify_pappus.py 5b898a5b4fa9ee562516b72dd4609c786af22c2a",
+        "/mnt/data/independent_pappus_20261022.py independent graph, modular rank, 216 automorphisms, classes and character"
+      ],
+      "rationale": "For Pappus Levi graph with 9 points, 9 lines, 27 incidence edges, unordered configuration of two distinct geometric points admits the 153/432/297 cubical chain model under the graph subdivision criterion (girth six and essential vertices separated). Boundary signs are explicitly written in RESULT and verify_pappus.py. A separately written NetworkX/Sage-free sparse integer-mod-3 calculation rebuilt the 153 vertices, 432 edges and 297 squares and found boundary ranks (152,270), giving H1 dimension 10, H2 rank 27. Augmented transfer map rank 162 checked in source certificate implies rational H1 is naturally H1(graph), not simply inferred from Euler characteristic. A separate full 216-element graph automorphism enumeration and signed cellular Lefschetz computation returned 13 conjugacy classes with sizes (1,9,18,18,2,12,12,18,18,36,36,18,18) and H2 values (27,3,-3,-3,0,0,0,3,0,0,0,0,0). The source verifier explicitly tests full central multiplication identities and exact Q(sqrt3) orthogonality for six complex irreducibles, yielding rational degrees 1,4,4,6,12. Since H2 is kernel of an integer map from C2 and there are no C3, it is free Z^27. No claim on torsion of H1(Z) or integral equivariant extensions.",
+      "residual_risks": [
+        "Rational irreducible decomposition relies on finite exact central algebra identities in pinned verifier, not an independent reimplementation of the entire 216x216 class algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph formulas alone give no fixed-cell trace values on each of 13 conjugacy classes."
+        ],
+        "reasoning": "General graph configuration intersection-form theorems can constrain Betti numbers, but published primary Farber–Hanbury Section 2 and graph-maturity discussion do not evaluate the 216 Pappus automorphism representations; three-particle Pappus top-homology result changes configuration space.",
+        "searches": [
+          "Farber–Hanbury 2010 ",
+          "Resultary Pappus three-particle top homology"
+        ]
+      },
+      "checked_sources": [
+        "Farber–Hanbury 2010 full primary ()",
+        "Ko–Park arXiv:1101.2648 indexed structural work",
+        "Resultary Pappus and other graph configuration modules",
+        "Pappus source RESULT and verifier blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farber–Hanbury focuses ordered F(Γ,2) and maturity, unlike character of UConf2 under full Aut(P)."
+        ],
+        "reasoning": "Farber–Hanbury ordered, nonequivariant homology or Ko–Park general abelianization do not force unordered H2 class values and six complex irreducibles; finite action trace and central-algebra certificate are additional.",
+        "searches": [
+          "Farber–Hanbury full primary text Sections 1–2 and 7 ()",
+          "Resultary published Pappus three-particle finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source chain model uses orbits of unordered cubical pairs, whereas ordered configurations retain both particle orderings."
+        ],
+        "reasoning": "Pappus graph equals Levi incidence graph of 9-point 9-line order-three net; UConf2 equals B2(P) / unordered graph braid configuration. The unordered quotient is not the ordered deleted product F(P,2).",
+        "searches": [
+          "Farber–Hanbury original 2010 full text ",
+          "Resultary query: Pappus graph two particle unordered configuration space automorphism character H2 27 representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known graph-automorphism order 216 is background; the listed 27-dimensional character and rational decomposition require separate chain action."
+        ],
+        "reasoning": "Resultary two-particle character modules exist for other graphs including Petersen, cuboctahedron and dodecahedron; Pappus entry located treats 3 particles. No equal 13-class Pappus H2 table located by searches, not proof it cannot exist.",
+        "searches": [
+          "Resultary query: Pappus graph two particle unordered configuration space automorphism character H2 27 representation",
+          "web Pappus graph unordered two particle configuration H2 representation automorphism 216"
+        ]
+      },
+      "rationale": "Farber–Hanbury study ordered F(P,2) homology via graph intersection forms, not the evaluated complete unordered Pappus 216-element action; Ko–Park supplies structural graph-braid results, not this class character. Resultary Pappus 3-particle homology and graph Rips/Čech invariants have different functors or particle numbers. These established frameworks do not mathematically imply the precise 13-class table without evaluating the cubical action.",
+      "residual_risks": [
+        "No exhaustive archival search for the complete 216-class character and potential alternate group-theoretic constructions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General ordered-particle homology, no Pappus unordered 13-class character supplied by examined statements",
+          "evidence": "Text writes F(Γ,2) as ordered deleted product and studies intersection form and maturity; Pappus absent.",
+          "identifier_or_url": "https://www.researchgate.net/publication/45917420_Topology_of_configuration_space_of_two_particles_on_a_graph_II",
+          "material_read": "Author-uploaded full primary text, Introduction, Section 2 intersection form, Section 7 mature graphs and listed scope",
+          "method": "Read author full text through web  and ",
+          "title": "Topology of configuration space of two particles on a graph, II",
+          "trigger": "Strongest general two-particle graph homology framework might contain Pappus table"
+        },
+        {
+          "assessment": "Its H3 rank seven for 3 particles is neither H2 rank 27 nor the 2-particle G-character",
+          "evidence": "Different number of particles and homological degree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c",
+          "material_read": "Published Resultary summary only; full manuscript not read",
+          "method": "Resultary search",
+          "title": "Top homology of the three-particle Pappus configuration space",
+          "trigger": "Exact same graph and configuration-space family but particle count differs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Farber–Hanbury homology framework",
+        "Computed 216-element exact equivariant chain character"
+      ],
+      "rationale": "A full rational representation under the canonical Pappus automorphism group is a natural refinement of graph configuration homology, not a table of arbitrary class values. It distinguishes absence of invariant cycles for both the full and bipartition-preserving groups and resolves exact irreducible constituents beyond nonequivariant Betti ranks.",
+      "residual_risks": [
+        "Applies only to two particles on Pappus, not general affine-plane incidence graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C/O/V are independent mathematical assessments within the stated source and search scope, not a formal proof assistant certificate or historical priority guarantee.",
+    "Finite exhaustive checks establish finite assertions only; universal mathematical statements supported by stated algebraic/topological proof."
+  ],
+  "schema_version": 1
+}
