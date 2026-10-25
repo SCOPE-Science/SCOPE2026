@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "On the uniformly sampled circle, rotating one sampled vertex makes the three cyclic semicircle gaps uniformly distributed on the simplex. Ordering six chambers leads to width exactly 2 sin(beta) sin(gamma). Monotone integration proves the CDF, symbolic integration gives E W=5/pi^2 and E W^2=1-47/(8*pi^2), and rigorous small- and large-width rescalings yield the two stated tail constants. Cartesian geometry, SymPy antiderivatives, independent quadrature and 450000 Monte Carlo configurations corroborate the analytic derivations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koroleva--Nikitin 2013 introduction and Section 2 specify perimeter/area extremal statistics of inscribed polygons, not directional minima.",
+        "Silverman--Brown 1978 abstract specifies Poisson limit theorems for clustering and collinearities in planar data.",
+        "Daley--Ebert--Swift 2016 abstract specifies independently uniform side directions with one side length normalized, not independent sites on a fixed circle."
+      ],
+      "reasoning": "The broad U-max formula is a probabilistic limit theorem conditional on an unknown kernel tail: it does not imply the explicit three-point width CDF, moments or tail constants. The other sampling models cannot be substituted without changing the law.",
+      "searches": [
+        "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons arXiv 1301.1360",
+        "Short distances flat triangles Poisson limits Silverman Brown 1978",
+        "Size distributions in random triangles Daley Ebert Swift 2016"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1301.1360 (same three-point circle sampling; full text HTML)",
+      "doi:10.2307/3213436 (abstract)",
+      "Cambridge Core: Size distributions in random triangles (abstract, different sampling)",
+      "MathWorld: Circle Triangle Picking (area-related summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing local inscribed/circumscribed-triangle work uses random supporting tangents, not three points on a common circle and minimum altitude.",
+        "The exact ordered-gap calculation and two singular asymptotic rescalings are required to extract this random functional; perimeter and area extrema do not yield them."
+      ],
+      "reasoning": "Equal objects alone do not imply equal laws for distinct statistics; the closest geometric values (perimeter, area, roundness) do not determine the joint ratio that gives width.",
+      "searches": [
+        "inscribed random triangle thinness min altitude t log 1/t small thickness tail",
+        "flatness of a triangle minimum height under independent uniform boundary points on a circle",
+        "arXiv:1301.1360 (inscribed polygons Section 2.1 and area sections)",
+        "own same-slot claims: triangle, width, inscribed, minimum altitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For any triangle, minimum width equals its smallest altitude = twice area divided by largest side; the searched primary inscribed-circle paper concerns perimeter/area, neither of which individually determines this ratio law.",
+        "The directly comparable published width concept in the nearest retrieved quadrilateral result concerns optimal deterministic minimum width, not random triangle width."
+      ],
+      "reasoning": "Aliases thickness, minimum altitude, least caliper height and minimum width were accounted for. No examined exact statement about their distribution under three independent circle sites was found.",
+      "searches": [
+        "uniform circle inscribed triangle least altitude minimum width exact CDF mean 5/pi^2",
+        "random inscribed triangle minimum altitude width law arcs 3 points on circle",
+        "arXiv:1301.1360 (searched width and altitude in HTML full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Circle Triangle Picking calculates area statistics, not the minimum-width table.",
+        "Nearest published searchable records included triangle roundness, minimum width for inscribed quadrilaterals, and random circumradius tails, each involving different objects or functionals."
+      ],
+      "reasoning": "No matching distribution table or precomputed pair of width moments was located; the negative search is treated only as bounded evidence.",
+      "searches": [
+        "\"5/pi^2\" \"random triangle\" width",
+        "random triangle on circle smallest altitude probability obtuse width",
+        "random inscribed triangle width distribution first and second moment",
+        "random circle triangle width distribution first and second moment"
+      ]
+    },
+    "rationale": "The full-text readable 2013 primary paper covers extremal perimeter and area statistics for uniformly sampled circle points; its model matches but the stated functionals and conclusions do not determine the minimum-width distribution or its two nontrivial endpoint asymptotics. Other inspected literature treats distinct sampling laws or other observables. Exact novelty is relative to these comparisons and accessible search results, not a claim of exhaustive historical priority.",
+    "residual_risks": [
+      "The older 1978 collinearity/Poisson paper and the 2016 different-model size-distribution paper were not read in full; no whole-document noncoverage claim is made for them.",
+      "Unindexed or non-English earlier calculations of a three-point circular minimum-altitude law could exist; database absence cannot establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers maximal inscribed perimeter and area; does not state a minimum-altitude CDF or moments",
+        "evidence": "Theorem A/B and Theorem 1 specify perimeter/area extrema; searching full rendered text found no occurrences of width or altitude.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+        "material_read": "HTML-rendered complete article, especially introduction Sections 1.1–1.2 and Section 2.1 on inscribed polygons; searched complete rendered text for width and altitude",
+        "method": "Read accessible primary HTML text and searched within article",
+        "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+        "trigger": "Same uniform-circle sampling model and three-point inscribed-triangle theorems"
+      },
+      {
+        "assessment": "Poisson limits for collinearity statistics in planar data; not enough material for whole-document exclusion, retained as priority risk",
+        "evidence": "The publisher abstract focuses on U-statistic Poisson limits, clustering, nearest neighbors and planar collinearities.",
+        "identifier_or_url": "https://doi.org/10.2307/3213436",
+        "material_read": "Publisher abstract and reference metadata; not full article",
+        "method": "Publisher HTML abstract and bibliographic comparison",
+        "title": "Short distances, flat triangles and Poisson limits",
+        "trigger": "Potentially dominating flat-triangle asymptotics"
+      },
+      {
+        "assessment": "Sampling law is based on independent side directions and a normalized chosen side, not three sites on one fixed circle; the stated distributions are side ratios, extremes and area",
+        "evidence": "Publisher abstract explicitly defines the independent-side-direction model and selected observables.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/size-distributions-in-random-triangles/117ED3787DE9B79B1AC3862B0B6C3EAB",
+        "material_read": "Publisher abstract and article metadata; not full paper",
+        "method": "Direct sampling-model comparison from publisher abstract",
+        "title": "Size distributions in random triangles",
+        "trigger": "Title suggests complete random-triangle size distributions"
+      },
+      {
+        "assessment": "Area distribution and moment calculations, not the minimum altitude",
+        "evidence": "The page sets up a double integral for triangle area and its average.",
+        "identifier_or_url": "https://mathworld.wolfram.com/CircleTrianglePicking.html",
+        "material_read": "Accessible page discussing sampled triangle area and mean",
+        "method": "HTML page examination",
+        "title": "Circle Triangle Picking",
+        "trigger": "Existing tables of geometric laws for three circle points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afb0212f-53fa-4665-b7ca-423c34fd9613",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum caliper width is a natural geometric shape statistic for circle-inscribed random triangles, different from area or perimeter. This result gives the entire probability law, exact mean and variance, and two sharp endpoint mechanisms, including an unusual t log(1/t) flattening probability. The precise fact is useful for intrinsic triangle flatness distributions and extreme-thickness calibration without imposing arbitrary subdivisions.",
+    "status": "PASS"
+  }
+}
