@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two positive circular densities integrate to one. A configuration-wise pair-kernel identity reduces number variance to sums over unordered observation pairs. The shared-vertex variance combinatorics has exactly \(N(N-1)(N-2)\) ordered adjacent pair pairs; disjoint terms are independent. The half-circle convolution suppresses even Fourier harmonics and yields the common conditional kernel \(\varepsilon\cos(2\pi x)/\pi^2\). Integration against the two densities gives the exact covariance difference \(\varepsilon^3/(4\pi^4)\), hence the stated all-sample variance gap. Fourier power-spectrum equality gives equality in law of the entire curve when there are at most two points. The supplied exact arithmetic checker and direct geometric integration tests reproduce the critical steps. No finite computation is used to infer the theorem for all sample sizes.
+## correctness
 
-## Originality — PASS, with literature risks
-The closest primary source, Aistleitner–Hörmann–Manskova (arXiv:2610.11687v1), treats uniform independent points and computes the null variance, not two inhomogeneous homometric densities. Rajala–Olhede–Grainger–Murrell (2023), Sections I and V, develops fourth-order spectral moments under spatial homogeneity; the paper explicitly defers inhomogeneous point-process extensions. Rosenblatt–Seymour (1982) supplies classical background on equal autocorrelations but does not, in the abstract available for inspection, supply this finite-sample number-variance separation. General triple-correlation/bispectrum formulas are conceptually related, but the exact half-circle phase-sensitivity cutoff and all-\(N\) cubic gap were not found in targeted literature and mathematical-finding searches. Residual risks: an unindexed equivalent derivation, a more general inhomogeneous Fourier-moment theorem with the same result as an immediate corollary, and inaccessible relevant source material.
+PASS
 
-## Mathematical value — PASS
-Circular number variance is a standard multiscale randomness statistic. This result isolates precisely which level of sampling first reveals information beyond the complete two-point difference law, in an explicit pair of physically admissible smooth densities with the same spectrum. The exact, nonzero, all-sample variance gap supplies the strength and sign of that information loss; the half-circle window is a canonical symmetric window that kills even Fourier harmonics, making the third-order phase contribution unambiguous. This is a motivated sharp sampling threshold, not an arbitrary numerical slice or recomputation of the uniform-null variance.
+Use V_N(s)=Ns(1−s)+2Σ_{i<j}K_s(X_i,X_j) where K_s is the autocorrelation of centered arc indicators. At s=1/2, K=1/4−min(|x−y|,1−|x−y|), Fourier Khat(k)=sin²(πk/2)/(π²k²); the second harmonic vanishes. The two f have identical Fourier power (coefficients ±1 and ±2 of modulus ε/2) but ratio fhat(2)/fhat(1)² is respectively real versus pure imaginary, so they are not rotations/reflections. Thus pair difference law and full V2(·) curve law agree; EV_N(s) for any N agrees. For N≥3 shared-vertex edge-pair covariance gives Var V_N=4[C(N,2)A+N(N−1)(N−2)B]. Conditional potential for either density is Φ(x)=ε cos(2πx)/π², identical mean μ=ε²/(2π²), and B+−B_perp=ε³/(4π⁴) by cos² identity. Independently evaluated the 1D conditional overlap integral with adaptive quadrature at ε=0.1,0.31,0.49; ratios of measured vs claimed exact gap were 1.000000000000001,1.0000000000000004,1.0000000000000004. This is a finite numerical corroboration of the exact all-N analytic derivation. Positive densities for ε<1/2, N1 deterministic, no claim of general density identifiability.
 
-## Scientific limitations
-The result is restricted to the stated two-harmonic family, with no assertion that the half-circle variance identifies general densities. Numerical checks illustrate a proved identity, not a certification of uniqueness or statistical power. An independent assessment of originality and correctness has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical phase retrieval and bispectral lore already establishes that identical Fourier power loses phase and triple correlations can detect it; this general phenomenon is NOT claimed new. The exact finite-N circular number-variance covariance difference for these explicit positive two-harmonic densities, and sharp distinction between full N≤2 curves and N≥3 half-window fluctuations, was not present in the checked uniform-null number-variance result or general stationary spatial-process fourth-moment references. Best-of-knowledge O PASS with full-text access limitation explicitly recorded.
+
+## value
+
+PASS
+
+Circular number variance is a natural point-pattern statistic; a sharp three-sample threshold proves a motivated boundary on its second-moment phase identifiability despite every pairwise displacement agreeing. The exact positive ε³ coefficient and all-N finite combinatorial factor provide an explicit, reusable counterexample to phase-blind variance assumptions, beyond a generic textbook Fourier observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
