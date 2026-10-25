@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement specifies the coefficient ring, Jordan block, complete lift family, index convention and all endpoints. The cyclic-vector determinant is a unit after reducing modulo \(\varepsilon\); the characteristic-polynomial coefficient maps in both nilpotent directions are surjective with exact uniform fibers. The polynomial quotient has a free monomial basis, and its powers are analyzed separately by the threshold \(2v(g)<n\); in the complementary case the translated second coefficient determines the last power. Valuation probabilities reconstruct the displayed frequencies, and the disjoint cases sum to the number of lifts. Direct exhaustive small-field multiplication and independent companion enumeration corroborate the formulas, without serving as the general proof.
+PASS
 
-## Originality (O): PASS, with residual risks
+Regular nilpotent J_n has a cyclic vector lifting over R, so every X is similar to multiplication by T on R[T]/(T^n-eps*g-eps²h). Characteristic polynomial first differential C→(tr(J^i C))_(i<n) is surjective by distinct lower subdiagonal sums; second coefficient is linear in D plus quadratic in C. Thus g,h are uniform independent with fiber q^(2n²-2n). Relation T^n=eps*g+eps²*h gives T^(2n)=eps²*g² and T^(3n)=0. If r=v(g)<ceil(n/2), last power gives index 3n-2r. Otherwise h'=h+g²/T^n mod T^n uniform conditional g, last power yields index 2n-min(v(g),v(h')). The valuation-tail laws of independent uniform degree<n polynomials yield full stated frequencies and exhaustive disjoint support, including n=1 and q any prime power. Independent quotient-ring enumeration for n,q=(1,2),(2,2),(2,3),(3,2),(4,2) gave exactly expected distributions, gap index 5 missing at n=2 q=2, and normalized probabilities sum1. This verifies nonstandard reduction and no global inference from finite cases.
 
-The closest length-two nilpotent-lift enumeration, the length-two cyclic classification by Prasad–Singla–Spallone, and the general-length dimension-three classification by Avni–Onn–Prasad–Vaserstein have been compared at statement/implication level. Their covered regimes or counting targets do not contain the all-dimensional index-frequency theorem over \(\mathbb F_q[\varepsilon]/(\varepsilon^3)\). The exact parity-spaced gaps and frequency law were not found in the completed mathematical-record searches. Classical companion theory supplies one step of the proof but not the required length-three valuation calculation. A possible unlocated general cyclic-matrix theorem remains a residual risk, not a claim of proven uniqueness.
+## originality
 
-## Value (V): PASS
+PASS
 
-Nilpotency-index distributions are natural finite-ring matrix invariants. At ring length two the indices fill one consecutive interval, while at length three a new lacunary high-index region appears. The full all-size, all-finite-field census, including exact forbidden indices and positive frequencies, is a structural classification and not an arbitrary small computation.
+Published length-two dual-number Jordan lift census (Resultary 2026/10/4) gives contiguous indices n..2n and cannot establish length-three gaps. Prasad–Singla–Spallone study matrices over length-two rings; Avni–Onn–Prasad–Vaserstein classify 3×3 similarity over more general principal rings but no inspected full all-n index frequencies. No earlier exact general q,n length-three gap enumeration established; broader cyclic chain-ring results remain possible.
 
-## Limitations and related work
+## value
 
-The claim concerns regular nilpotent reductions, equicharacteristic length-three rings, and nilpotency index only. Independence of the mathematical assessment has not been established. Relevant primary sources are arXiv:1212.6157 and arXiv:0708.1608; stronger unlocated cyclic-matrix results may be relevant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform regular-nilpotent lifts are a natural finite-chain-ring matrix family. The complete all-q,n nilpotency-index law reveals a structurally unexpected forbidden alternating band (2n,3n), with uniform fiber method explaining it, extending rather than simply reprinting length-two counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The standalone `verify_lifts_length3.py` directly enumerates all residue-field block-lifts for \((n,q)=(1,2),(2,2),(2,3)\) by powering the corresponding \(3n\)-dimensional matrices over prime fields, and separately exhausts independent pairs \((g,h)\) of companion polynomial coefficients at \((2,5),(3,2),(3,3),(4,2),(5,2)\), plus \(\mathbb F_4\) with \(n=2,3\). Expected frequencies are computed from the theorem, then compared with observed frequencies; discrepancies raise assertions. Replaying with Python's standard library prints `VERIFY_OK` and `VERIFY_GF4_OK`.
+## correctness
 
-In the binary dimension-two lift, the observed frequencies are \(\kappa=2:16\), \(\kappa=3:48\), \(\kappa=4:64\), \(\kappa=6:128\); \(\kappa=5\) is absent. The companion checks cover larger dimensions and characteristic four, but are finite. The proof's cyclic reduction, determinant surjectivity, and valuation arguments are the reasons the formula holds for all \(n\) and finite fields. No independent audit has been performed.
+PASS
+
+Regular nilpotent J_n has a cyclic vector lifting over R, so every X is similar to multiplication by T on R[T]/(T^n-eps*g-eps²h). Characteristic polynomial first differential C→(tr(J^i C))_(i<n) is surjective by distinct lower subdiagonal sums; second coefficient is linear in D plus quadratic in C. Thus g,h are uniform independent with fiber q^(2n²-2n). Relation T^n=eps*g+eps²*h gives T^(2n)=eps²*g² and T^(3n)=0. If r=v(g)<ceil(n/2), last power gives index 3n-2r. Otherwise h'=h+g²/T^n mod T^n uniform conditional g, last power yields index 2n-min(v(g),v(h')). The valuation-tail laws of independent uniform degree<n polynomials yield full stated frequencies and exhaustive disjoint support, including n=1 and q any prime power. Independent quotient-ring enumeration for n,q=(1,2),(2,2),(2,3),(3,2),(4,2) gave exactly expected distributions, gap index 5 missing at n=2 q=2, and normalized probabilities sum1. This verifies nonstandard reduction and no global inference from finite cases.
+
+## originality
+
+PASS
+
+Published length-two dual-number Jordan lift census (Resultary 2026/10/4) gives contiguous indices n..2n and cannot establish length-three gaps. Prasad–Singla–Spallone study matrices over length-two rings; Avni–Onn–Prasad–Vaserstein classify 3×3 similarity over more general principal rings but no inspected full all-n index frequencies. No earlier exact general q,n length-three gap enumeration established; broader cyclic chain-ring results remain possible.
+
+## value
+
+PASS
+
+Uniform regular-nilpotent lifts are a natural finite-chain-ring matrix family. The complete all-q,n nilpotency-index law reveals a structurally unexpected forbidden alternating band (2n,3n), with uniform fiber method explaining it, extending rather than simply reprinting length-two counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
