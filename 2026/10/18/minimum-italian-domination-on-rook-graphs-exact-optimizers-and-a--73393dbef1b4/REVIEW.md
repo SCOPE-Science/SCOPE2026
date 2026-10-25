@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every zero cell has open-neighborhood sum equal to its row weight plus its column weight. Partitioning feasible labelings according to whether a row is empty, has weight one, or all rows have weight at least two yields a sharp lower bound. Its equality cases exhaust the two claimed families. Surjection counting and the precise overlap at the transition give the closed labelled-optimum count, including singleton boundaries. The standalone independent exhaustive tests passed on fourteen entire labelling spaces (1,152,264 labelings) and four larger at-or-below-optimum spaces (696,634 labelings). These finite checks supplement the universal proof rather than certify it.
+PASS
 
-## Originality — PASS, subject to residual bibliography risks
+For 1<=m<=n, at a zero entry f_ij the Italian defense inequality is precisely row_sum_i+column_sum_j>=2. If a row has weight zero, all columns have >=2; if a row has weight one, all columns are positive; if every row has weight >=2, total >=2m. This proves weight >=min(n,2m); a surjection assigning one 1 to each column with each row occupied attains n, and arbitrary weight-two rows attain 2m. Equality excludes zero rows and yields either the one-1-per-column onto family or independent weight-two rows. Counts are m!S(n,m), [n+binom(n,2)]^m, and at n=2m inclusion–exclusion subtracts n!/(2!)^m. Degenerate R_1,1 is correctly a single 1. Independent literal-rook-neighborhood enumeration of all 3^(mn) labelings at sizes (1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3) reproduced gamma and counts including (2,4)=(4,108).
 
-Shao and Zhao, arXiv:2610.00108, discuss counting Italian functions on paths, trees and cycles; they do not treat rook graphs. Varghese and Lakshmanan, arXiv:1910.12260, Theorem 2.4 concerns **perfect** Italian functions on complete-graph Cartesian products, where at a zero the neighbour sum must equal two. Its minimum formula differs on \(m<n<2m\), and it does not enumerate ordinary minimizers. Kazemi, Pahlavsay and Stones, arXiv:1509.08208, treat binary \(k\)-tuple total domination, a different constraint. Mathematical-record searches tested aliases, stronger coverage and exact tables, and found no directly covering formula, but absence from searches is not a priority certificate. Other indexed or unindexed publications remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The classification solves a complete family of natural equality cases and gives a sharp structural phase transition from surjection-controlled placements to rowwise independent weights, including an exact intersection correction. The resulting Stirling and polynomial counts distinguish minimum functions at a recently studied enumerative invariant and quantify the gap from the previously published perfect variant. The result does not cover the full weight polynomial or general product graphs.
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (Italian domination rook graph Cartesian product complete graphs minimum function count). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Rook graphs are a canonical product family; the sharp change of optimizer geometry at n=2m, a complete equality-case classification and exact multiplicities refine the natural minimum Italian domination value. The two visibly different configuration families and their boundary overlap make a motivated enumerative result, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

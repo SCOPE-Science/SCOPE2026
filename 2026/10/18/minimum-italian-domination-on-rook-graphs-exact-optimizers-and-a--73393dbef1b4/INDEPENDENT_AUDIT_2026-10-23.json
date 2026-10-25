@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:45:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1<=m<=n, at a zero entry f_ij the Italian defense inequality is precisely row_sum_i+column_sum_j>=2. If a row has weight zero, all columns have >=2; if a row has weight one, all columns are positive; if every row has weight >=2, total >=2m. This proves weight >=min(n,2m); a surjection assigning one 1 to each column with each row occupied attains n, and arbitrary weight-two rows attain 2m. Equality excludes zero rows and yields either the one-1-per-column onto family or independent weight-two rows. Counts are m!S(n,m), [n+binom(n,2)]^m, and at n=2m inclusion–exclusion subtracts n!/(2!)^m. Degenerate R_1,1 is correctly a single 1. Independent literal-rook-neighborhood enumeration of all 3^(mn) labelings at sizes (1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3) reproduced gamma and counts including (2,4)=(4,108).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Varghese–Lakshmanan Theorem 2.4 gives the perfect-Italian minimum on a Cartesian product of cliques; Kazemi et al. analyze binary 2-tuple total domination, another constraint."
+        ],
+        "reasoning": "Neither stronger demand, without a necessary-and-sufficient transfer theorem, determines all functions satisfying weaker ordinary Italian inequalities. No such transfer or exact minimum-function enumeration was located.",
+        "searches": [
+          "Italian domination rook graph Cartesian product complete graphs minimum function count",
+          "arXiv:1910.12260",
+          "arXiv:1509.08208"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.12260",
+        "https://arxiv.org/abs/1509.08208",
+        "https://arxiv.org/html/2610.00108v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On m<n<2m the perfect minimum 2m is strictly greater than ordinary n; both minimum-number and structural conditions differ."
+        ],
+        "reasoning": "The new ordinary gamma and full equality-case counts are not corollaries of the cited perfect/tuple total results.",
+        "searches": [
+          "arXiv:1910.12260",
+          "arXiv:1509.08208"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perfect Italian demands equality at each zero; ordinary Italian only >=2. At K_2 square K_3 ordinary gamma=3 and perfect gamma=4."
+        ],
+        "reasoning": "Roman {2} domination and Italian are equivalent names for the same invariant, unlike perfect Italian; the package uses the ordinary definition consistently.",
+        "searches": [
+          "Italian domination rook graph Cartesian product complete graphs minimum function count",
+          "arXiv:1910.12260 perfect Italian domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shao–Zhao give polynomial coefficients for paths, trees and cycles; complete multipartite graphs are not the Cartesian-product rook graph for general m,n."
+        ],
+        "reasoning": "The relevant search returned neighboring function-count problems, not a complete labeled rook optimizer table for all rectangle shapes.",
+        "searches": [
+          "Italian domination rook graph Cartesian product complete graphs minimum function count",
+          "arXiv:2610.00108",
+          "Resultary:Roman {2} weight enumerator of complete multipartite graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (Italian domination rook graph Cartesian product complete graphs minimum function count). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.",
+      "residual_risks": [
+        "A difficult-to-index ordinary Italian domination formula for rook graphs could coincide with this result.",
+        "Search comparisons do not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DIFFERENT_PERFECT_VARIANT",
+          "evidence": "Theorem 2.4 gives perfect Italian minimum, with equality rather than >= at zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.12260",
+          "material_read": "Primary PDF, definitions, and rendered Theorem 2.4 page on K_m square K_n.",
+          "method": "Lawful primary PDF and page screenshot",
+          "title": "Perfect Italian Domination Number of Graphs",
+          "trigger": "same Cartesian clique product, close invariant"
+        },
+        {
+          "assessment": "DIFFERENT_BINARY_VERTEX_REQUIREMENT",
+          "evidence": "Chosen vertices also need two selected neighbors; not weighted Italian zero-only rule.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.08208",
+          "material_read": "Primary sections defining k-tuple domination and product-graph parameter; inspected reported proposition context.",
+          "method": "Lawful arXiv paper",
+          "title": "Cartesian product graphs and k-tuple total domination",
+          "trigger": "same rook graph, competing dominating notion"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILIES",
+          "evidence": "Theorem scope paths, trees and cycles, not general K_m square K_n.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+          "material_read": "Full HTML accessible; read abstract, introduction, polynomial definition and listed family/algorithms.",
+          "method": "Primary full-text arXiv HTML",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "2026 same-function counting methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rook graphs are a canonical product family; the sharp change of optimizer geometry at n=2m, a complete equality-case classification and exact multiplicities refine the natural minimum Italian domination value. The two visibly different configuration families and their boundary overlap make a motivated enumerative result, not a parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1910.12260",
+    "https://arxiv.org/abs/1509.08208",
+    "https://arxiv.org/html/2610.00108v1",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/minimum-italian-domination-on-rook-graphs-exact-optimizers-and-a--73393dbef1b4/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only actual finite cases listed under correctness were re-enumerated; infinite claims rely on the independently reconstructed package proof, not the finite checks.",
+    "No publication changes have been made; operational fields must be removed before publication.",
+    "Originality assessment is best-of-knowledge, with genuine prior-literature risks separately retained."
+  ],
+  "residual_risks": [
+    "A difficult-to-index ordinary Italian domination formula for rook graphs could coincide with this result.",
+    "Search comparisons do not certify global priority."
+  ],
+  "schema_version": 1
+}
