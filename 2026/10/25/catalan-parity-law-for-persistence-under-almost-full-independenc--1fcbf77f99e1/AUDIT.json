@@ -1,0 +1,81 @@
+{
+  "correctness": {
+    "rationale": "The Walsh expansion is exact: all nonempty proper moments vanish, leaving only \\(\\theta=\\mathbb E\\prod_i\\varepsilon_i\\). Thus the event probability is \\(2^{-n}(N_n+\\theta A_n)\\). Reflection/ballot counting gives \\(N_n=\\binom{n-1}{\\lfloor(n-1)/2\\rfloor}\\). The signed ballot sum \\(A_n=\\sum_d(-1)^d[\\binom{n-1}{d}-\\binom{n-1}{d-1}]\\) is zero for odd \\(n\\ge3\\) and \\((-1)^{n/2-1}C_{n/2-1}\\) for even \\(n\\), by the alternating partial-binomial identity. Substitution yields the stated formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berger–Béthencourt prove \\(P(S_k>0)\\le g(n)\\le P(S_k\\ge0)\\) for exchangeable and sign-invariant variables, with equality in the atomless case.",
+        "The fair sign-vector law has atoms and, when n is odd and theta is nonzero, is not globally sign-invariant."
+      ],
+      "reasoning": "The source theorem does not determine the discrete strict-persistence probability for this law; the exact Walsh/ballot calculation supplies that missing case.",
+      "searches": [
+        "arXiv:2304.09031, Theorem 2.1",
+        "arXiv:2304.09031, Section 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.09031 (full text; first public version 2023-04-18)",
+      "The source query listed in the originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper's exact equality requires atomlessness, whereas the sign law has positive mass on paths with zero partial sums.",
+        "The related four-step result is a single-horizon interaction calculation; the current formula evaluates the signed ballot sum for every n."
+      ],
+      "reasoning": "The all-n parity/Catalan coefficient is not implied by the atomless equality theorem or by the one-horizon related result.",
+      "searches": [
+        "arXiv:2304.09031, Theorem 2.1",
+        "The source query listed above"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the sign-vector law, \\(\\mathbb P(\\varepsilon=e)=2^{-n}(1+\\theta\\prod_i e_i)\\).",
+        "The persistence probability is the Walsh coefficient of the persistence event paired with the unique unconstrained full-order moment."
+      ],
+      "reasoning": "This is an exact finite-horizon formula for a discrete, almost-fully-independent sign law; it is not the atomless Sparre-Andersen equality.",
+      "searches": [
+        "Search query: persistence probability (n-1)-wise independent fair Rademacher signs full product moment Catalan coefficient odd even Sparre Andersen",
+        "arXiv:2304.09031, Theorem 2.1 and discussion of atomless equality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned record concerns only the four-step interaction case; another concerns Khintchine norms, not persistence."
+      ],
+      "reasoning": "The bounded semantic search did not return the all-horizon formula; this is evidence of limited overlap, not a proof of global novelty.",
+      "searches": [
+        "Search query: persistence probability (n-1)-wise independent fair Rademacher signs full product moment Catalan coefficient odd even Sparre Andersen"
+      ]
+    },
+    "rationale": "The bounded search found a four-step related result, but not the all-horizon Catalan parity formula for discrete fair signs with every proper subset independent. The 2023 primary paper concerns exchangeable/sign-invariant variables and atomless equality; the discrete tied-sign law is outside that exact-equality case.",
+    "residual_risks": [
+      "The semantic search is not exhaustive; the all-horizon formula was not found in the bounded search.",
+      "The formula assumes fair signs and independence of every proper subset; it does not cover nonuniform or more general dependent increments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant background and boundary theorem; its atomless equality does not imply the proposed discrete formula.",
+        "evidence": "First submitted 2023-04-18; MSC2020 listing begins with 60G50; Theorem 2.1.",
+        "identifier_or_url": "arXiv:2304.09031",
+        "material_read": "Full arXiv HTML, including Theorem 2.1, its atomless equality condition, and the discussion of discrete persistence.",
+        "method": "Compared the exact assumptions and equality cases with the discrete fair-sign law.",
+        "title": "An application of Sparre Andersen’s fluctuation theorem for exchangeable and sign-invariant random variables",
+        "trigger": "Primary literature on persistence and exact finite-horizon laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fcbf77f-99e1-4541-8c31-6aa4494925a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full-order correlation is the only dependence invisible to all proper marginals. The theorem gives its exact effect on a natural persistence event at every horizon, including a parity cancellation at odd horizons and a Catalan coefficient at even horizons; this is a structural all-n law rather than a numerical example.",
+    "status": "PASS"
+  }
+}
