@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof directly derives the exact integral identity, changes variable \(y=s^k\), proves the strict reflected-kernel comparison by a logarithmic derivative, and checks the integrability and parameter boundaries \(k\ge2\) and \(0\le l\le k-2\). In particular, the calculation uses the exact sum \(\sum_{j=0}^{k-1}(y^{j/k}-(1-y)^{j/k})\) and does not rely on numerical estimates for large \(k\).
+# Independent mathematical audit
 
-To reproduce the finite consistency tests, run `python3 check_gap.py` using Python 3. The recorded run completed with `PASS: 1554 exact/algebraic/numerical assertions`. The exact rational portion checks identities on finite grids, and the numerical portion compares finite integral approximations. Neither is represented as a machine proof for all natural parameters. No external proof certification or independent audit has been performed.
+## correctness
+
+PASS
+
+Starting from Pinsky Theorem 2 integral, differentiate s^(l+1)(1-s)^2 W_k(s) and integrate over [0,1] (zero endpoints) to obtain Delta=2 integral_0^1 s^l(1-s)W_k(s)(1-2s^k)ds. Substitute y=s^k and define reflected kernel h_k(y) and r(y)=y^((l-k+2)/k). For y<1/2, exact derivative k y(1-y)(log h_k(y)-log h_k(1-y)) prime = -2+(1-2y) sum_{j=0}^{k-1}(y^(j/k)-(1-y)^(j/k))<-2. Thus h(y)>h(1-y); r nonincreasing for l<=k-2; paired reflected integrand is positive and integrable at endpoints. Independent quadrature and reflected signs for k=2,3,7,21,50 corroborated; all k follow from analytic proof, not finite scans.
+
+## originality
+
+PASS
+
+The exact integral, integration-by-parts moment identity, and certified k<=20 strict inequalities are in Pinsky and the bonded-density follow-up. The latter explicitly labels k>=21 open, whereas the new reflected-kernel derivative proves uniform all k. It is distinct from the already proved monotonic decrease of bonded-molecule density m_k. Resultary semantic search found no all-k equivalent.
+
+## value
+
+PASS
+
+Settles a natural explicit open parameter-uniform monotonicity question for a classical stochastic packing model, replacing finite enumeration with a short structural positivity kernel argument; precise l-range is physically motivated by terminal gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
