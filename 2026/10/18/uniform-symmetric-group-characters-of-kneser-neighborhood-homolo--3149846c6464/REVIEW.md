@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The face condition is checked directly against the graph definition; every \(S_n\)-fixed simplex is a union of pair-orbits and contributes the correct orientation sign to the augmented Lefschetz trace. Boolean-cycle inversion yields \((-1)^{c(\sigma)}(f_1(\sigma)^2-3f_1(\sigma)+1)\), and the published homotopy concentration converts this to the homology trace. Young's rule and rational semisimplicity give precisely the two irreducible Specht constituents. An independent finite-orbit enumerator covers all cycle types for sizes 4 through 7 and returns `VERIFY_OK`; these tests corroborate, but do not establish, the all-size proof.
+## correctness
 
-**Originality — PASS, subject to explicit bibliographic risk.** The directly overlapping published six-point representation is credited, and the new claim begins at \(n\ge7\). The closest same-family primary paper establishes only nonequivariant homotopy, while the earliest archival equivariant Kneser source studies stable graphs and dihedral actions. Their statements do not imply full ordinary \(S_n\)-characters. The distinguishing proof is a uniform cycle-wise weighted orbit count. A differently indexed general theorem and an inaccessible related bounded-cover paper remain possible sources of overlap.
+PASS
 
-**Mathematical value — PASS.** A canonical graph-topological family has a full growing symmetry group, and ordinary Betti ranks do not determine how its top classes transform. The two-part Specht classification at every size, together with the vanishing of \(S_n\)- and \(A_n\)-invariants, answers that motivated equivariant question uniformly rather than recomputing a finite table. It does not purport to give integral lattices or equivariant homotopy equivalences.
+Fixed simplices are unions of pair-orbits of sigma with >=2 isolated ground points. The signed augmented Lefschetz sum is -sum_F(-1)^(number of selected pair-orbits). Invert g(U)=(1-1)^(number of permitted pair orbits) over the Boolean lattice of ground cycles to obtain L~=(-1)^c(f_1^2-3f_1+1). Nilakantan-Singh Theorem 1.3 gives concentration in degree n-4; Hopf trace then gives the claimed sign-twisted character. Ordered-pair permutation module decomposes as 1+2 S^(n-1,1)+S^(n-2,2)+S^(n-2,1,1), yielding exactly two sign-conjugate Specht constituents; neither trivial nor sign. Independently enumerated signed fixed faces for every 5,7,11,15 conjugacy cycle type at n=4,5,6,7. Finite n corroborates, not proves the quantified all-n statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge original all-parameter S_n character. Earlier all-n non-equivariant homotopy ranks and the published n=6 two-Specht representation are acknowledged and excluded as innovations. A single n=6 character does not force n>=7; the symbolic orbit inversion supplies the actual generalization. Stable Kneser dihedral work concerns different graph/action.
+
+## value
+
+PASS
+
+A complete natural S_n homology module for every n>=7, including exact constituents and absence of A_n invariants, is substantive representation-theoretic information not derivable from wedge rank alone. Infinite-family cycle-count mechanism and module decomposition can inform equivariant graph-topology comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
