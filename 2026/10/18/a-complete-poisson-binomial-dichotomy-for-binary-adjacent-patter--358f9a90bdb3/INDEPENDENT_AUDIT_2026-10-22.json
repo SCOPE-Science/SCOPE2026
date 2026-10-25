@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:51:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md, REVIEW.md, VERIFICATION.md and program source inspected at frozen assigned commit; Gaussian/Chebyshev claims are analytic, not inferred from logs.",
+        "Fresh exact independent enumeration at n=3,...,8, p=2/5 matched the cosine factorization; stored in science_checks.json.",
+        "Top three masses obtained by counting endpoint zeros, single internal zero, and the three admissible zero pairs."
+      ],
+      "limitations": [
+        "Finite verification is not proof for all n; proof uses transfer recurrence and strict Newton obstruction."
+      ],
+      "rationale": "For iid Bernoulli(p), 0<p<1, the transfer matrix for occurrences of 10 has trace 1 and determinant p(1-p)(1-z). Its n-step generating polynomial is R_n(u)=sum_{k=0}^{floor(n/2)}(-u)^k binom(n-k,k). The Chebyshev recurrence factors R_n(pq(1-z)) as a product of 1-4pq cos^2(jπ/(n+1))(1-z), showing a genuine independent-Bernoulli law with parameters in (0,1). Reversal gives 01. For 11 the leading masses are p^n, 2p^(n-1)q, and (n-2)p^(n-1)q+3p^(n-2)q² for n>=4, violating Newton a_(d-1)^2 >= (2d/(d-1))a_d a_(d-2). At n=3 the generating quadratic has discriminant -4p³q<0. Swapping 0 and 1 gives 00. At n=1 each count is zero and at n=2 each count Bernoulli; p=0,1 excluded from dichotomy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary fixed-composition dependence result conditions on counts of zeros/ones; it is not the iid fixed-p word count law.",
+          "Kumar–Upadhye concerns approximation of delimited runs, unlike undelimited adjacent word counts."
+        ],
+        "reasoning": "Different combinatorial sampling and approximate-run quantities do not imply the universal exact iid four-word law. General enumerators are acknowledged; no stronger real-root theorem was established in checked statements.",
+        "searches": [
+          "Resultary related fixed-composition run transitions 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "Kumar–Upadhye arXiv:1701.03294",
+          "Kong arXiv:2405.01748"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1908.10024",
+        "https://arxiv.org/abs/2405.01748",
+        "https://arxiv.org/abs/1701.03294",
+        "https://doi.org/10.1002/wics.1477",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang–Tang gives the conditional implication all roots real/nonpositive ⇒ PB, but neither verifies this hypothesis for 01/10 nor disproves it for 00/11.",
+          "The Resultary cumulant hierarchy assumes a PB law and studies downstream cumulant bounds, not motif classification."
+        ],
+        "reasoning": "The cited necessary/sufficient general criteria are proof tools. Their premises for the exact motif statistics require the new transfer-matrix and top-tail calculations.",
+        "searches": [
+          "Tang–Tang arXiv:1908.10024 Theorem 4.1",
+          "Kong arXiv:2405.01748",
+          "Resultary Poisson-binomial trial hierarchy 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang and Tang characterize Poisson-binomial laws by nonpositive real generating-polynomial zeros generally; their statement does not give zeros for these four word count polynomials.",
+          "Kong gives distributional enumerators of rises/falls; the accessible abstract and theorem descriptions do not establish the exact Bernoulli cosine product or Newton failure for equal letters."
+        ],
+        "reasoning": "Searched PB factors, run transitions, real-rooted count PGFs and the inverse root parameterization. An enumerator permits extracting coefficients, but not a covering theorem on their zeros without additional mathematical analysis; a hidden equivalent identity is a named risk.",
+        "searches": [
+          "Resultary query: Poisson binomial independent Bernoulli factorization number of adjacent binary 01 10 rises runs generating polynomial cosine Chebyshev transition count",
+          "Tang–Tang arXiv:1908.10024 Theorem 4.1, full ar5iv HTML",
+          "Kong arXiv:2405.01748 rise/fall joint enumerators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martin studies computation of probabilities of overlapping patterns; full text not inspected and cannot be declared not covering.",
+          "The mathematical object varies with arbitrary integer n and continuous p; a finite table of small n cannot settle the statement."
+        ],
+        "reasoning": "Checked for an exact named family/formula and available pattern tables; bounded negative search is not proof of novelty. Martin remains a specific source risk.",
+        "searches": [
+          "Resultary exact motifs and cosine factorization semantic search",
+          "Martin DOI:10.1002/wics.1477 publisher abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: published general rise/fall enumerators and real-root tests are related but their inspected statements do not provide the sharp cosine PB vs repeated-letter non-PB four-pattern classification. Chebyshev factorization as such is classical, not credited as novel; historical motif/run factorization remains a residual risk.",
+      "residual_risks": [
+        "Kong, Kumar–Upadhye and Martin full text were not all available in this fresh run.",
+        "An older exact run count or matching-polynomial factorization under different terminology may cover this specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background criteria cover the proof mechanism, not the motif-specific factorization and obstruction",
+          "evidence": [
+            "Theorem 4.1 general PGF real zeros, Newton inequalities"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1908.10024",
+          "material_read": "Accessible full HTML with distributions, Section 4 and Theorem 4.1",
+          "method": "Compared real-root hypothesis and theorem output with explicit 01/11 count PGFs",
+          "title": "The Poisson binomial distribution—Old & New",
+          "trigger": "Exact generic Poisson–binomial real-root equivalence and Newton inequalities"
+        },
+        {
+          "assessment": "General joint enumerator coverage acknowledged; whole-text noncoverage not asserted",
+          "evidence": [
+            "Accessible abstract indicates joint rise/fall/run enumerators"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.01748",
+          "material_read": "Bibliographic record, abstract and available theorem descriptions; full text retrieval failed in this run",
+          "method": "Checked statistical observable and whether accessible statement asserts PB parameters",
+          "title": "Joint distribution of rises, falls, and number of runs in random sequences",
+          "trigger": "Same rise/fall word statistics"
+        },
+        {
+          "assessment": "Does not visibly imply the explicit count decomposition; full-text comparison residual",
+          "evidence": [
+            "Abstract describes Stein approximation for run counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.03294",
+          "material_read": "Abstract/bibliographic description only in this run",
+          "method": "Compared delimited run object and approximation vs exact undelimited adjacent word statistic",
+          "title": "On Discrete Gibbs Measure Approximation to Runs",
+          "trigger": "Bernoulli pattern counts"
+        },
+        {
+          "assessment": "Plausible coverage risk, neither confirmed nor ruled out",
+          "evidence": [
+            "DOI 10.1002/wics.1477"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/wics.1477",
+          "material_read": "Publisher abstract/description; no complete paper text",
+          "method": "Compared motif type and level of result; did not infer whole-document absence",
+          "title": "Computation of exact probabilities associated with overlapping pattern occurrences",
+          "trigger": "Potential exact old motif-count computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All p and n classified, including sharp n=1,2 exceptions and both repeated-letter obstructions."
+      ],
+      "rationale": "This is a natural complete classification of four adjacent binary motifs for all iid interior biases and all lengths, sharply separating dependent indicator sums whose laws nevertheless are PB from those that cannot be PB. Explicit cosine parameters allow probability calculations without numerical root solving; this is more than a random small enumeration.",
+      "residual_risks": [
+        "The Chebyshev mechanism is standard and the claim should not be represented as a new general polynomial identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ar5iv.labs.arxiv.org/html/1908.10024",
+    "https://arxiv.org/abs/2405.01748",
+    "https://arxiv.org/abs/1701.03294",
+    "https://doi.org/10.1002/wics.1477",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite verification is not proof for all n; proof uses transfer recurrence and strict Newton obstruction."
+  ],
+  "residual_risks": [
+    "Kong, Kumar–Upadhye and Martin full text were not all available in this fresh run.",
+    "An older exact run count or matching-polynomial factorization under different terminology may cover this specialization."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Background criteria cover the proof mechanism, not the motif-specific factorization and obstruction",
+      "evidence": [
+        "Theorem 4.1 general PGF real zeros, Newton inequalities"
+      ],
+      "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1908.10024",
+      "material_read": "Accessible full HTML with distributions, Section 4 and Theorem 4.1",
+      "method": "Compared real-root hypothesis and theorem output with explicit 01/11 count PGFs",
+      "title": "The Poisson binomial distribution—Old & New",
+      "trigger": "Exact generic Poisson–binomial real-root equivalence and Newton inequalities"
+    },
+    {
+      "assessment": "General joint enumerator coverage acknowledged; whole-text noncoverage not asserted",
+      "evidence": [
+        "Accessible abstract indicates joint rise/fall/run enumerators"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2405.01748",
+      "material_read": "Bibliographic record, abstract and available theorem descriptions; full text retrieval failed in this run",
+      "method": "Checked statistical observable and whether accessible statement asserts PB parameters",
+      "title": "Joint distribution of rises, falls, and number of runs in random sequences",
+      "trigger": "Same rise/fall word statistics"
+    },
+    {
+      "assessment": "Does not visibly imply the explicit count decomposition; full-text comparison residual",
+      "evidence": [
+        "Abstract describes Stein approximation for run counts"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1701.03294",
+      "material_read": "Abstract/bibliographic description only in this run",
+      "method": "Compared delimited run object and approximation vs exact undelimited adjacent word statistic",
+      "title": "On Discrete Gibbs Measure Approximation to Runs",
+      "trigger": "Bernoulli pattern counts"
+    },
+    {
+      "assessment": "Plausible coverage risk, neither confirmed nor ruled out",
+      "evidence": [
+        "DOI 10.1002/wics.1477"
+      ],
+      "identifier_or_url": "https://doi.org/10.1002/wics.1477",
+      "material_read": "Publisher abstract/description; no complete paper text",
+      "method": "Compared motif type and level of result; did not infer whole-document absence",
+      "title": "Computation of exact probabilities associated with overlapping pattern occurrences",
+      "trigger": "Potential exact old motif-count computation"
+    }
+  ]
+}
