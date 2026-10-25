@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact integer prime sieve enumerates all odd primes up to floor(2^(3m/4)); every unordered prime pair, including repeats, is visited; a bitmap indexed by all 2^(m-1) odd classes is exhaustive. All 21 exponents were checked with verified exact missing counts; the previously uncovered 745135 is proved impossible below 50923 by inverse testing and attained by 50923*7757. No infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banks--Shparlinski 2026: all-but-small-fraction two-prime coverage with factors at most q for sufficiently large fixed-prime powers, not all-class coverage for finite q at q^(3/4).",
+        "Banks 2026: asymptotic almost-sure full coverage using Granville random-model elements for any fixed Θ>3/4, not actual primes at Θ=3/4."
+      ],
+      "reasoning": "Neither published theorem implies completeness for genuine prime products at the critical endpoint, and neither yields the first finite dyadic exponent or the sharp least prime cutoff.",
+      "searches": [
+        "published-finding corpus: Granville 3/4 exponent exact residue coverage by products of two genuine primes modulo 2^n finite computation",
+        "Web: \"products of two primes\" \"2^21\" \"residue\"",
+        "arXiv:2610.19597v1, Theorems 1.1 and 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19597v1",
+      "arXiv:2609.37434v1",
+      "arXiv:2301.07679",
+      "available ledger item 06bf704e-7a31-4379-b016-a84f6479a3a9",
+      "published-finding corpus semantic searches about EOS prime-power residues and 3/4 cutoff",
+      "targeted public EOS computation and exact 2^21 cutoff searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For q=256 the historical least successful prime cutoff is 127, whereas the new 3/4 cutoff is 64, so that historical prime-power success does not solve this threshold.",
+        "For q=2^21, q/2=1048576 but q^(3/4)<55109, hence a q/2-bound would not certify the new stronger prime restriction.",
+        "The random model uses random elements and Θ>3/4 rather than genuine primes at the endpoint."
+      ],
+      "reasoning": "Old and new thresholds are mathematically incomparable as assertions about first successes; this exact finite endpoint statement and its 50923 sharpness are not stated or entailed by the located results.",
+      "searches": [
+        "Own ledger claim 06bf704e-7a31-4379-b016-a84f6479a3a9 (historical overlap only)",
+        "arXiv:2609.37434v1 Theorem 1.1 and remarks on exponent 3/4",
+        "arXiv:2610.19597v1 Theorems 1.1 and 1.2",
+        "published-finding corpus: first modulus 96 prime power modulus 256 every residue product of two primes at most q/2 Erdős Odlyzko Sárközy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both primary papers define multiplicative prime-product residue coverage; arXiv:2609.37434v1 studies a random-model variant, not genuine primes.",
+        "The new statement fixes genuine primes and a finite exact dyadic 3/4-cutoff threshold."
+      ],
+      "reasoning": "The equivalent formulation as a multiplicative covering P(X)^2=(Z/2^m Z)^× is the one computed. Random models and asymptotic almost-all coverage are not this finite all-class assertion.",
+      "searches": [
+        "published-finding corpus: dyadic moduli 2^m first exponent at prime-product cutoff q to exponent three quarters 3/4 threshold 2097152",
+        "Web: \"Erdos Odlyzko Sarkozy\" \"3/4\" \"2^\"",
+        "Full texts arXiv:2610.19597v1 and arXiv:2609.37434v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Current accessible own history contains exact first modulus q=96 and first prime-power modulus q=256 achieving coverage with prime bound q/2, with sharp cutoffs 47 and 127; it does not claim the 3/4-cutoff dyadic threshold.",
+        "Targeted public numerical searches and semantic database searches disclosed no table giving the value m=21 or cutoff 50923."
+      ],
+      "reasoning": "The previous q/2 statement cannot imply q^(3/4) completeness at 2^21, since the bound q/2 is far larger there; it also cannot imply failure for all earlier dyadic powers at q^(3/4). Negative search is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Erdos Odlyzko Sarkozy EOS2 prime products every residue modulo powers of two exact finite computation threshold least prime maximum limit",
+        "Web: \"Erdos Odlyzko Sarkozy\" \"numerical\" \"power of two\" \"primes\"",
+        "Web: \"primes\" \"55108\" \"2097152\" \"residue\"",
+        "Known ledger item 06bf704e-7a31-4379-b016-a84f6479a3a9"
+      ]
+    },
+    "rationale": "Reviewed published primary text arXiv:2610.19597v1 and arXiv:2609.37434v1; asymptotic almost-all coverage for prime powers and random-model Θ>3/4 do not imply the exact true-prime finite endpoint. Own prior q/2 first successes (q=96 and q=256) differ in restriction and cannot imply new threshold. published-finding corpus searches and public web searches showed no dominating computation. Unindexed tables remain a named residual risk.",
+    "residual_risks": [
+      "An unindexed numerical table could already give the same dyadic endpoint.",
+      "The Matomäki--Teräväinen older paper was compared from its primary abstract rather than reviewed in complete full text; no plausible indication of this finite endpoint appeared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only asymptotic incomplete two-prime coverage at X=q and three-prime coverage; no direct result at X=q^(3/4) with q=2^21.",
+        "evidence": [
+          "arXiv:2610.19597v1 section 1, Theorems 1.1--1.4; document search for 50923 and computation produced no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19597v1",
+        "material_read": "Full-text HTML introduction, definitions, Theorems 1.1--1.4, character-sum setup and related results through Proposition 2.4; searched for numerical threshold and computation.",
+        "method": "Full primary HTML text, direct comparison of object, factor bound and quantifiers",
+        "title": "On the Erdős–Odlyzko–Sárközy conjecture for prime-power moduli",
+        "trigger": "Same products of two primes modulo prime powers"
+      },
+      {
+        "assessment": "Relevant motivational threshold; different random objects, theorem only Θ>3/4 for sufficiently large q, no finite assertion for actual primes.",
+        "evidence": [
+          "arXiv:2609.37434v1, pp. 1--3, Theorem 1.1 and accompanying comments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.37434",
+        "material_read": "PDF pages 1--3 with definition of S_(q,k)(N), Table 1, Theorem 1.1 and analysis of why 3/4 is sharp for lattice-counting method; checked full text for 2097152.",
+        "method": "PDF text and actual page screenshots for opening and theorem pages",
+        "title": "Products of two elements of Granville’s random model in residue classes",
+        "trigger": "The exponent 3/4 is a sharp arithmetic threshold for the paper’s random-model method"
+      },
+      {
+        "assessment": "No evidence of an exact dyadic critical-exponent cutoff; residual possibility of an uninspected appendix is recorded.",
+        "evidence": [
+          "arXiv:2301.07679 abstract: binary coverage ≥(2/3−ε) of classes for large q and ternary complete for large cube-free q."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.07679",
+        "material_read": "Original paper abstract and its description of three-prime result and two-prime density lower bound",
+        "method": "Primary abstract-level comparison only, no whole-text non-coverage claim",
+        "title": "Products of primes in arithmetic progressions",
+        "trigger": "Classical two-prime product conjecture and unconditional partial bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "000d4543-d519-48af-8e3c-82718018cb85",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three quarters is a sharp, explicitly motivated limit of the Granville-model hyperbola estimate, not an arbitrary parameter. The first true-prime dyadic all-unit-class coverage at this exponent, exact sharp prime bound 50923, and three excluded classes for 2^20 are a natural finite calibration for the open EOS prime-product problem; no broader theorem is claimed.",
+    "status": "PASS"
+  }
+}
