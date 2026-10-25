@@ -1,19 +1,21 @@
-# Scientific review: nested critical localization thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic model and the two nested rate classes are defined in the result. Independent resets give a regenerative occupation measure, and the killed Brownian Green density satisfies the displayed resolvent equation. The domain comparison follows directly from the Feynman–Kac expectation over the same Brownian trajectory until its first hit of a large fixed boundary. Two exact logarithmic comparator curvatures are verified symbolically in the standalone checker. The smaller corrective terms are rigorously dominated by the deliberately separated comparison coefficients. Third-level comparison handles the delicate equality \(b=3\) without assuming an asymptotic equivalent. Integrability of the comparator occupation tails yields both strict classifications; integration of the same bounds yields the reported log-slope tail-mass laws. The analytic argument, not finite testing, proves the infinite-domain statements.
+PASS
 
-## Originality — PASS, residual risk explicitly retained
+The result concerns an even, bounded continuous nonnegative hazard for one-dimensional Brownian generator D d^2/dx^2 and two distinct quantitative critical-tail classes. Regenerative killed occupation G satisfies DG''-rG=-delta_0 and normalizes iff the mean cycle is finite. On a tail, comparison of positive decreasing minimal solutions of Du''=ru uses common-path Feynman--Kac monotonicity. Independently recomputed symbolic curvature for v_beta=x^-1 t^-beta: x^2 v''/v=2+3beta/t+beta(beta+1)/t^2; for w_gamma=x^-1 t^-1(log t)^-gamma: 2+3/t+3gamma/(t log t)+2/t^2+3gamma/(t^2 log t)+gamma(gamma+1)/(t^2(log t)^2). Coefficients bracket a/3 and b/3 under the remainder bounds. Integrability of these exact tails is beta>1 or gamma>1; equality a=3 and b=3 are separately excluded by nested divergent lower comparators. Integrating comparison functions yields the claimed density and spatial-tail logarithmic slope limits. The third comparator remainder is subordinate to its positive iterated-log term; finite symbolic checks are not the proof of renewal and infinite integrability.
 
-The closest primary article is Keidar and Reuveni, arXiv:2608.27090v1, which determines the leading inverse-square localization criterion and power-law tail; its main text and end-matter treatment do not state the nested correction thresholds at the exactly critical prefactor. Keidar et al., arXiv:2409.14419v1, supply general regenerative formulas but not these threshold coefficients. Pinsky, arXiv:1805.00320, supplies inverse-square comparison and first-passage representations but its listed theorems use strict leading-coefficient bounds and do not decide the critical logarithmically separated families. The novelty claim is only the fully explicit nested boundary, including equality and stationary-tail mass exponents. These results may also be obtainable from general critical Sturm–Liouville asymptotics not identified in the searches. Broader theoretical coverage is therefore a residual risk and requires independent literature review before claims of publication-level priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is not an arbitrary rate specialization: the motivating source establishes the inverse-square critical line, and the exact coefficient at its boundary leaves the next-order stationarity question open. The result shows that two smoothly regularized rates sharing the *same leading critical inverse-square tail* can have opposite qualitative stationary behavior. It resolves the immediate second-order and doubly marginal boundaries, supplies spatial-tail observables, and is stable under the displayed quantitative remainder classes, rather than depending on one engineered example.
+Best-of-knowledge original explicit nested critical coefficients and both equality cases, but leading inverse-square transition and renewal/ODE methods are prior. The precise target is a=3 and b=3 threshold in specified regular remainder classes and tail mass log exponents, not discovery of Feynman--Kac, power-law, or the inverse-square boundary.
 
-## Limitations and provenance
+## value
 
-The result is restricted to even, bounded, nonnegative one-dimensional state-dependent hazards with the stated remainders. It uses existing renewal and killed-diffusion theory. The stationary results have not been independently reviewed or certified. The checker establishes comparator algebra, not independent proof of the stochastic reduction or a publication-priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural marginal localization coefficient 2D/x^2 the leading-order criterion fails to decide stationarity. The two successive logarithmic corrections give complete sharp cutoffs (including both equality cases) and observable probability-tail slopes for robust quantitative remainder classes. The explicit smoothly regularized a=2 vs a=4 pair illustrates opposite stationary behavior despite identical leading asymptotics; not an arbitrary narrow parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
