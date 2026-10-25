@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Johnson star/top maximal-clique description is independently reconstructed from common neighbors. Every simplex of size at least three belongs to one such clique. A non-equivariant elementary collapse to dimension two, and the hypersimplex two-skeleton's simple connectivity, establish homology concentration in degree two. The natural action on augmentation, vertices and signed edges is explicit. The alternating character contribution from the higher simplices of each maximal clique is exactly the exterior square of its augmentation representation. Frobenius characteristics and three stated Pieri identities cancel all Schur terms except the distinct four-row constituents. Finite signed traces and irreducible-character calculations cross-check the derivation; they do not replace the general proof.
+
+**Originality — PASS (qualified).** The earlier Johnson-Rips classification proves only the nonequivariant two-sphere wedge and Betti number; its complete publicly readable theorem expressly disclaims a representation classification. Shuldiner–Oldford supply only clique geometry. Line-graph and Johnson-spectrum results concern either excluded instances or modules on graph vertices, without the signed edges and higher-face Euler correction. Targeted searches for the exact four-row Specht sum, hypersimplex flag-complex characters, and Johnson-graph Rips representations found no prior equivalent; unindexed equivalent work remains possible.
+
+**Mathematical value — PASS.** The result determines a complete, multiplicity-free rational symmetry module uniformly over an infinite two-parameter family. The distinct four-row constituents and vanishing invariant subspace are not consequences of known Betti ranks, and the proof exposes the nontrivial cancellation between the two maximal-clique families. The result makes no claim about integral representation splitting, higher scales or equivariant homotopy.
+
+The closest source is *Sphere-wedge collapse of scale-one Johnson-graph Rips complexes*; its known nonequivariant statement is preserved and not presented as new. The general proof is mathematical rather than a finite extrapolation. The conclusion remains potentially vulnerable to less-indexed equivalent literature.
+
+Self-review: passed. Independent audit: not yet performed.
