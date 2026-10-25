@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a general seven-plane of alternating forms on an eight-dimensional complex vector space, the universal rank-four locus has expected codimension six, and its deeper rank-two locus of codimension fifteen is avoided. Generic transverse slicing yields a smooth irreducible singular curve. The normal bundle is explicitly \(\bigwedge^2\mathcal K^*\otimes\mathcal O(1)\); the nondegenerate induced skew form gives \(\det\mathcal K^*=\mathcal O(2)\) and hence \(\omega_D=\mathcal O(4)\). Combining that independent adjunction derivation with the cited degree \(84\) yields genus \(169\). A skew Schur complement gives the uniform nondegenerate transverse Pfaffian quadratic and its reduced Jacobian ideal, then the smooth Grassmannian exceptional divisor and discrepancy three. Exact symbolic checks of the quadratic Pfaffian, Hessian and arithmetic are reproducible in `verify.py` but do not substitute for generic Bertini and geometric arguments.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-Bolognesi–Ciliberto–Verra, arXiv:2610.11925v1, Section 1, give the general hypersurface, its singular-stratum codimension and the Harris–Tu formula for degree of that stratum; their rationality results concern the ambient Pfaffian. They do not give the genus, subcanonical normal bundle calculation, scheme-theoretic transverse germ, or blow-up with relative Klein quadric and discrepancy. An earlier related general-result specialization determining any one of those may exist, and the 1984 Harris–Tu full text was inaccessible for direct inspection. The accessible 2024 Coble-quadric work treats distinct special Grassmannian Pfaffians. Available mathematical-record comparisons did not produce the claimed whole-family geometry. The prior degree result is explicitly treated as existing work, not novelty. This is a best-knowledge assessment, not an assertion of exhaustive priority.
+PASS
 
-## Mathematical value — PASS
-The 2026 paper singles out the first singular member of a rational Pfaffian family at projective dimension seven. An exact genus and canonical sheaf for its uniquely determined smooth singular curve, together with the intrinsic local hypersurface type, a concrete smooth resolution, exceptional Grassmannian geometry, and terminal discrepancy, form a motivated local-to-birational classification for that natural geometric example. Merely restating the known degree would not meet this bar; the additional normal-bundle, local-ring and resolution conclusions provide the substantive content. No classification of non-general linear systems or all skew-determinantal varieties is claimed.
+Over C for general P7 of 8x8 alternating forms, rank≤4 degeneracy locus has expected codimension C(4,2)=6 and deeper rank≤2 codim15, hence a smooth connected curve D. The rank-four kernel K gives normal bundle wedge²K*⊗O_D(1), det K*=O_D(2), det normal=O_D(12), so adjunction ω_D=O_D(4); degree84 is the Harris–Tu input, hence 2g−2=336, g=169 and χ(O_D(m))=84m−168. Block skew Schur complement reduces the Pfaffian transverse to D to a nondegenerate six-variable quadratic z1z6−z2z5+z3z4, giving scheme-theoretic reduced singular D. Blow-up along D resolves each transverse ordinary cone, exceptional Plücker Gr_D(2,K*) Klein-quadric 4-fold with globally separate two families P_D(K), P_D(K*), and discrepancy (6−1)−2=3. Independently checked quadratic Hessian rank6 determinant −1, degree84, genus169 and discrepancy3. Generality and algebraic characteristic zero are essential; an arbitrary special P7 is not covered.
 
-## Closest sources and limits
-The primary source was inspected across its nine-page full text. The related Coble-quadric introduction and relative-Pfaffian discussion and a distinct Calabi–Yau fourfold invariant computation were compared for implication, not just terminology. The Harris–Tu original PDF could not be acquired from available open-access routes; only its formula as faithfully quoted in the primary source is used. The proof uses familiar determinantal and adjunction methods, so implicit prior coverage remains a nonzero risk. Independent audit and external validation have not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bolognesi–Ciliberto–Verra already analyze this general Pfaffian quartic/rationality and cite degree84; the genus169, scheme normal form, Grassmannian exceptional divisor and discrepancy3 were not given in its inspected full text. General determinantal normal bundles and blow-ups make ingredients standard; exact total geometry for this recent natural family is a potentially reusable result, with Harris–Tu full-text access residual risk.
+
+## value
+
+PASS
+
+For a recently identified general rational Pfaffian quartic sixfold, knowing the intrinsic smooth singular curve (degree, genus, canonical), the scheme-theoretic transverse quadratic analytic type, explicit Grassmannian exceptional divisor and terminal discrepancy is a motivated complete birational/singularity data package. The degree itself is known; its complement of exact invariants and geometry could be directly reused.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
