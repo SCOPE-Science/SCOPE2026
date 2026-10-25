@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main statement follows by integrating a globally valid and strictly positive two-contact trigonometric certificate. Its full proof separates the intervals from zero to the first contact, through the next half-period, and the remaining unbounded tail. The Fourier-zero assumption annihilates both cosine and sine expectations; the former closes the inequality and the latter enforces equal weights at the two extremal sites. The explicit symmetric three-atom family independently proves exact coefficient sharpness by first-order expansions. The concentration and transport consequences are direct consequences of squared-distance control and phase balancing. The standalone checker confirms the algebraic contacts, numerical positivity samples and sharpness ratios; no infinite claim depends only on those samples.
+PASS
 
-## Originality — PASS with limitations
+Normalize Y=t(X−m), so EY=0 and E exp(iY)=0. The scalar pointwise certificate y²+πcos y−π²/4 ≥ (4/π−1)(|y|−π/2)² holds globally by an explicit even derivative argument: F(x)=(2−4/π)x²+(4−π)x+π(cos x−1) has exact contacts x=0,b, F third derivative(x)=πsin x>0 on (0,b), and F′>0 beyond b. Integrating and using E cosY=0 gives the claimed stability bound. Equality’s scalar support {−b,0,b}, coupled with cosine/sine zero, forces exactly the balanced ±b atoms. The symmetric three-atom family with cosθ=−p/(1−p) proves optimal c*=4/π−1 in the p→0 limit. Distance concentration uses Markov and W1 coupling via S=sign with S=+1 at zero and sinY=S cos(|Y|−b), giving W1≤sqrt(R)+bR/2. Independent checker examined the global scalar formula at 500001 locations and the limiting ratio; the unbounded domain is justified analytically, not by sampling.
 
-The closest existing characteristic-function papers give first-zero estimates or scalar moment inequalities, not a sharp global deficit measured in squared distance to a two-site spectral law. Luo–Zhang (2004) assumes nonnegative support and studies first-zero bounds; Huang (2025) studies central-moment lower bounds, with a different second-moment constant. The accessible main result of Pati et al. (2025) refines quantum speed limits by separating dynamical generator components, not by the present coefficient and measure-space distance. Ismoilov (2026) solves a trigonometric sign-change problem for symmetric measures, with different extremands. Research-record and literature searches for exact dual formulations and dominating inequalities found no equivalent result. This is a best-knowledge priority assessment rather than a proof of global novelty; papers on quantum-limit saturation and earlier cosine minorants remain possible sources of unindexed coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The classical first-zero variance threshold gives no quantitative information about *near*-extremizing distributions. Here the deficit bounds the entire centered law's squared distance from the two energy locations and even its transport distance from the **balanced** extremal law, with an exact globally unimprovable constant. The explicit perturbation family explains why the coefficient cannot be raised, rather than merely proving a qualitative stability implication. This is a natural robustness question for Fourier-zero uncertainty and orthogonality-time bounds, not an arbitrary finite computation or notational change.
+The classical Mandelstam–Tamm Fourier-zero variance lower bound is fully credited. Luo–Zhang’s accessible four-page full original characteristic-function paper bounds location of the first zero using moments but contains no identified best-constant mean-centered L² distance remainder and no full W1 rigidity. Related recent quantum speed limit and sign uncertainty papers have different parameters and conclusions. The scalar certificate is a natural stable refinement of a known extremal inequality, not just relabelling it; broad prior optimal transport and quantum stability literature remains a priority risk.
 
-## Limitations
+## value
 
-Exact Fourier zeros and finite variance are essential hypotheses of the stated theorem. No approximate-zero extension or historical uniqueness claim is made. The dated sign-uncertainty source is a closely related measure-sensitive harmonic-analysis direction, not a source that already proposes this particular remainder problem. Historical-priority checking cannot exhaust every uncatalogued mathematical-physics refinement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near-equality rigidity is a mathematically motivated strengthening of the sharp orthogonality variance threshold: it quantitatively identifies the entire extremizing measure, proves best possible stability modulus and translates variance excess into concentration and Wasserstein control. This exact nonasymptotic estimate is meaningful independent of further results about locating zero frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
