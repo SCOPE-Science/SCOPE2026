@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification of the finite symmetry classification
+# Independent mathematical audit
 
-Both Python programs are standalone and use only the standard library. From their directory, run:
+## correctness
 
-```sh
-python3 check_orbits.py
-python3 check_antichains.py
-```
+PASS
 
-`check_orbits.py` independently enumerates all 65,536 Boolean masks of candidate families over the 16 teams, checks convexity using the full inclusion-interval predicate, applies the signed-coordinate group of eight and the full symmetric group of 24 to the resulting families, and checks their fixed and orbit counts. Its expected last line is:
+On the actual RESULT.md at frozen Git tree 0f280232..., the universe is B4 of 16 teams over four valuations. Convex families are exactly interval-closed subsets; the empty family is included. For any finite order-automorphism group, fixed convex families pull back from the orbit-poset quotient; the proof aligns representatives to lift each quotient interval and grading/finite action gives antisymmetry. Burnside on the eight signed-coordinate permutations yields fixed counts 3938 (identity), 526 (two coordinate/valuation transpositions), 186 (three double transpositions), and 26 (two 4-cycles): (3938+2*526+3*186+2*26)/8=700. Orbit size profile (26,54,289,331), weighted sum 3938, and S4 count 349 follow exhaustive enumeration of exactly all 65536 potential sixteen-bit families. An independently written finite iterator recomputed 3938 convex families, D8 orbit count and profile, and S4 orbit count. The standalone check_orbits.py and check_antichains.py files were traced at frozen tree; finite exhaustion is the entire n=2 theorem, not evidence for arbitrary numbers of atoms.
 
-```text
-ORBIT_CERT_OK convex=3938 D8_orbits=700 orbit_sizes={1:26,2:54,4:289,8:331} fixed_types={1^4:3938,1^2_2:526,2^2:186,4:26} S4_orbits=349
-```
+## originality
 
-`check_antichains.py` enumerates the 168 antichains of the team-inclusion lattice, exhaustively pairs compatible minimum and maximum antichains, includes the empty meaning, and independently computes the signed action on those pairs. Its expected last line is:
+PASS
 
-```text
-ANTICHAIN_CERT_OK antichains=168 valid_pairs=3938 fixed_sorted=[26,26,186,186,186,526,526,3938] orbits=700 sizes={1:26,2:54,4:289,8:331}
-```
+Anttila–Knudstorp supplies expressive completeness, and OEIS A369313 supplies the labeled count 3938; neither is claimed novel. The candidate new facts are the 700 signed-coordinate orbits, exact orbit profile, and the strict comparison with 349 S4 orbits. A targeted Resultary semantic query found no directly matching published result, but search failure is not priority proof. Prior rowmotion work concerns a distinct dynamic action. Retain risk of an unindexed Burnside/square-symmetry table.
 
-The finite quotient-poset lemma and minimum/maximum-antichain characterization supply the mathematical reduction. Both programs are exhaustive **for exactly two propositional atoms**; they do not establish counts for three or more atoms. Sources that motivate the class do not by themselves prove historical novelty. No independent audit has been performed.
+## value
+
+PASS
+
+The first nontrivial team vocabulary is naturally B4, whose convex meanings are already a semantically distinguished, expressively complete class. Literal substitution is the natural syntactic symmetry, strictly smaller than all semantic valuation permutations; its complete finite orbit-profile is an independently useful exact invariant, not a random slice or re-count of 3938 labeled objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
