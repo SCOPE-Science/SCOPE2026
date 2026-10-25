@@ -1,19 +1,21 @@
-# Scientific review: Sharp quasi-total Roman domination and exact optimizers of rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the forced-label bound \(\omega(f)\ge 2k+(m-a)(n-b)\), checks all integer defender counts and classifies every possible equality case. The mandatory label-\(1\) cells lie outside every occupied row and column and therefore cannot support any defender. That observation rules out false equality cases. Exact counts follow from a block-partition bijection, with explicit separate counts on the \(2\times2\) and \(3\times3\) boards. The included graph-based exhaustive checker corroborates eleven finite instances, while an independent defender-map checker covers five additional instances. Finite tests are not treated as a proof of the universal theorem.
+PASS
 
-## Originality — PASS, with bibliographic limitations
+Let T be the k 2-labeled rook cells, a covered rows and b covered columns. Every cell outside these rows/columns is forced 1, so weight>=2k+(m-a)(n-b); forced ones cannot neighbor any 2 and thus do not support them. For k<=m-3 weight>2m; k=m-2 equality forces isolated 2s and fails support. For k=m-1, inspect n>=m+2 and n=m,m+1, with support forcing weight>2m except small squares 2x2 and 3x3. For k=m all-zero remaining configuration requires covering all rows (or all columns in square boards) and every occupied column/row having >=2 defender 2s. Row maps with no singleton fibers count F_m(n)=m![u^m](e^u-u)^n. The exceptional boards contribute +9 at 2x2 and +54 at 3x3; totals 13 and 60. Brute independently checked all weight<=2m labelings for boards (2,2),(2,3),(2,5),(3,3),(3,4),(4,4): minima 2m and optimum counts 13,3,5,60,4,80. Source bundled verifier separately checks larger complete defender-map classes. This is a symbolic all m<=n >=2 classification supported, not proved solely by samples.
 
-The foundational definition in Cabrera-García, Cabrera-Martínez and Yero (arxiv:1903.09789, March 2019) and the bounds developed in Cabrera Martínez et al. (*Mathematics* 9 (2021) 2823) do not furnish the exact optimal rook classification or count. The closest same-object result, Mertens (*Domination Polynomial of the Rook Graph*, arxiv:2401.00716), counts ordinary dominating sets; it does not test whether a defender has a positive-labeled neighbor or count the label-\(1\) exceptions. A related equivalence with minimum total edge-dominating sets of complete bipartite graphs was searched explicitly. Potential unindexed matching enumeration remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, motivated, all-size classification of optimum quasi-total Roman functions, not an isolated numerical improvement. The associated-Stirling formula explains the exact multiplicities, and the square boards of orders \(2\) and \(3\) exhibit additional configurations that disappear at order \(4\). This specifies a natural extremal coefficient in an established graph-defense invariant.
+Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Gives full equality structure and labeled optimizer count for quasi-total Roman domination on a standard Cartesian product family, refining coarse general bounds and ordinary rook domination polynomial. Handles genuine exceptional square cases and captures occupancy-fiber combinatorics, a natural exact extremal classification.
 
-## Scope and limitations
+## value
 
-The count covers every optimum function but not functions of nonoptimal weight. No literature search proves absolute uniqueness. The published texts were independently compared for mathematical implication, and no independent external mathematical validation of this theorem is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives full equality structure and labeled optimizer count for quasi-total Roman domination on a standard Cartesian product family, refining coarse general bounds and ordinary rook domination polynomial. Handles genuine exceptional square cases and captures occupancy-fiber combinatorics, a natural exact extremal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

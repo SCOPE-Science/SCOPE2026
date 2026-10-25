@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T06:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let T be the k 2-labeled rook cells, a covered rows and b covered columns. Every cell outside these rows/columns is forced 1, so weight>=2k+(m-a)(n-b); forced ones cannot neighbor any 2 and thus do not support them. For k<=m-3 weight>2m; k=m-2 equality forces isolated 2s and fails support. For k=m-1, inspect n>=m+2 and n=m,m+1, with support forcing weight>2m except small squares 2x2 and 3x3. For k=m all-zero remaining configuration requires covering all rows (or all columns in square boards) and every occupied column/row having >=2 defender 2s. Row maps with no singleton fibers count F_m(n)=m![u^m](e^u-u)^n. The exceptional boards contribute +9 at 2x2 and +54 at 3x3; totals 13 and 60. Brute independently checked all weight<=2m labelings for boards (2,2),(2,3),(2,5),(3,3),(3,4),(4,4): minima 2m and optimum counts 13,3,5,60,4,80. Source bundled verifier separately checks larger complete defender-map classes. This is a symbolic all m<=n >=2 classification supported, not proved solely by samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foundational papers establish definition and broad graph bounds. A published Resultary weight enumerator concerns complete multipartite graphs, not K_m square K_n; rook graph is generally not complete multipartite."
+        ],
+        "reasoning": "The natural general theorems supply no exact optimizer fibers or exceptional small square counts; similar named graph/parameter results do not logically dominate.",
+        "searches": [
+          "quasi total Roman domination rook graph Cartesian product complete graphs exact optimizers",
+          "arXiv:1903.09789 general quasi total Roman bounds",
+          "Mathematics 9 (2021) 2823",
+          "Resultary complete multipartite quasi total Roman weight enumerator"
+        ]
+      },
+      "checked_sources": [
+        "Cabrera-García et al., arXiv:1903.09789v1",
+        "Cabrera Martínez et al., Mathematics 9 (2021), 2823",
+        "Mertens, arXiv:2401.00716",
+        "Resultary complete-multipartite quasi-total Roman weight enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed m<=n gamma=2m and exact count (1+delta)F_m(n)+exception terms require forced-ones support inequalities and associated Stirling occupancy counting."
+        ],
+        "reasoning": "Neither the standard QTRDF definition/bounds nor the ordinary domination polynomial establishes these equality cases. No primary exact rook QTRDF enumeration located.",
+        "searches": [
+          "quasi total Roman domination rook graph Cartesian product complete graphs exact optimizers",
+          "arXiv:1903.09789 main properties",
+          "arXiv:2401.00716 ordinary rook domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graph is the line graph of K_{m,n}; a QTRDF requires every zero to touch a 2 and every 2 to touch a positive cell, which is weaker than total Roman labeling."
+        ],
+        "reasoning": "Equivalent line-graph constrained edge domination terminology was considered; other total/Roman variants are not interchangeable with the original 2-support condition.",
+        "searches": [
+          "quasi total Roman domination rook graph Cartesian product complete graphs exact optimizers",
+          "line graph K_mn quasi total Roman domination",
+          "Cabrera-Garcia Cabrera-Martinez Yero 1903.09789"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mertens enumerates ordinary dominating sets of rook graphs; present object assigns labels 0,1,2 and imposes support on every 2."
+        ],
+        "reasoning": "Ordinary domination polynomial table alone cannot recover minimal QTRDF support-label multiplicities. Independent direct counts corroborate, not known-table recomputation.",
+        "searches": [
+          "quasi total Roman domination rook graph Cartesian product complete graphs exact optimizers",
+          "Mertens 2024 Domination Polynomial of the Rook Graph",
+          "Resultary quasi-total Roman weight enumerator complete multipartite"
+        ]
+      },
+      "rationale": "Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Gives full equality structure and labeled optimizer count for quasi-total Roman domination on a standard Cartesian product family, refining coarse general bounds and ordinary rook domination polynomial. Handles genuine exceptional square cases and captures occupancy-fiber combinatorics, a natural exact extremal classification.",
+      "residual_risks": [
+        "An exact line-graph total-edge domination enumeration might imply the same optimizer count under different terminology.",
+        "Small exceptional cases rely on exact board support counting; independent finite checks and source proof agree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives QTRDF definition and general bounds, not rectangular rook optimizer classification/counts",
+          "evidence": "Definition: each zero adjacent 2, and an isolated positive vertex must be 1, equivalently all 2s positively supported.",
+          "identifier_or_url": "arXiv:1903.09789v1 https://arxiv.org/pdf/1903.09789",
+          "material_read": "Primary 15-page paper: definition and introductory propositions/bounds, graph family results and conditions inspected; PDF page 3 screenshot",
+          "method": "Direct definition and theorem comparison",
+          "title": "Quasi-total Roman domination in graphs",
+          "trigger": "Original definition exact same domination invariant"
+        },
+        {
+          "assessment": "Ordinary domination of rook graph does not encode Roman labels/support",
+          "evidence": "Counts vertex dominating sets rather than QTRDF labelings.",
+          "identifier_or_url": "arXiv:2401.00716 https://arxiv.org/pdf/2401.00716",
+          "material_read": "Primary PDF abstract, definition of ordinary domination polynomial and relevant rook graph enumeration theorem inspected",
+          "method": "Different weighting/constraint implication check and PDF screenshot",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Potential existing exact rook enumeration"
+        },
+        {
+          "assessment": "Complete multipartite graph structure differs from Cartesian product of complete graphs; cannot simply specialize its formula",
+          "evidence": "Its min formula min(N,min_i n_i+2,4) for multipartite does not give rook gamma=2m.",
+          "identifier_or_url": "Resultary/2026 2026/10/4/SCOPE-quasi-total-roman-weight-enumerator-of-complete-multipartite-gra--2e8d2c287e6f",
+          "material_read": "Ranked published finding title and scientific summary, not full primary article",
+          "method": "Scope/object graph-class comparison; no full-document noncoverage claim",
+          "title": "Quasi-total Roman weight enumerator of complete multipartite graphs",
+          "trigger": "Close semantic prior result from Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives full equality structure and labeled optimizer count for quasi-total Roman domination on a standard Cartesian product family, refining coarse general bounds and ordinary rook domination polynomial. Handles genuine exceptional square cases and captures occupancy-fiber combinatorics, a natural exact extremal classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
