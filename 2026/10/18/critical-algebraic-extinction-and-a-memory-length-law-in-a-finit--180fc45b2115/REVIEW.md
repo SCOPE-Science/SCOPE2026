@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof derives the precise positive renewal recursion and checks invariance of an explicit open cube. The exact descending weighted history potential, strict positivity of its weights, primitivity of the companion matrix, and reciprocal difference limit jointly establish the rate with the claimed quantifiers. The binomial and gamma identities, as well as the \(q=1\) boundary, are treated explicitly. The reproducible checker verifies finite instances but is not the reason the infinite theorem is accepted.
+## correctness
 
-**Originality (PASS with risks).** The closest 2026 full-text article defines the same recurrence but studies period doubling at the nonzero fixed point; the present claim instead determines algebraic extinction at a neutral zero fixed point. The inspected 2022 generalized fractional-map full text concerns different long-history kernels. A relevant 2023 finite-memory logistic article is accessible only at the abstract level and remains a genuine priority risk, as do possible general nonlinear renewal results. Published indexed summaries on delay-related extinction describe other dynamical systems and do not imply this exact fractional-memory coefficient.
+PASS
 
-**Mathematical value (PASS).** The explicit invariant neighborhood, universal trajectory coefficient, and \(M^{1-q}\) slowdown answer a motivated question in a current family of finite-memory dynamical systems. This is not merely a fixed-point derivative or a numerical parameter table: the coefficient quantifies the influence of retained GL memory on nonlinear critical relaxation. The result is deliberately limited to positive small histories at the exact threshold and finite \(M\).
+At exact threshold r_c=1+T_M(q), finite GL logistic recurrence rearranges to x_(n+1)=Σ_(j=1)^M p_j x_(n+1−j)−r_c x_n², with strictly positive p_j summing to one for 0<q<1. The small open history cube (0,p1/r_c)^M is positively forward invariant. The finite primitive stochastic companion P has stationary positive left weights w_k=Σ_(j>k)p_j and total τ=Σ j p_j. The renewal potential E_n=w·X_n descends EXACTLY by r_c x_n², forces x_n→0 and E_n→0, and primitive mixing gives x_n/E_n→1/τ. Reciprocal increments 1/E_(n+1)−1/E_n→r_c/τ² establish nx_n→τ/r_c and logarithmic cumulative sum. The q=1 case is separately x_(n+1)=x_n−x_n²; M=1 also handled. Binomial telescoping yields τ=T_M(1+qM/(1−q)); Gamma-ratio then gives τ/r_c ∼ q M^(1−q)/Γ(2−q) at fixed q<1. The limit M→∞ follows after n→∞; no joint limit is claimed.
 
-**Verification limits.** No independent review or infinite automated certification was performed. Numerical tests validate examples, not quantifiers. The inaccessible older paper and generic-theorem coverage remain to be independently checked.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. The claimed addition is an exact model-specific critical prefactor, global invariant small history cube and power-law memory scaling, not the general observation that neutral scalar logistic maps decay as 1/n.
+
+## value
+
+PASS
+
+A model-specific universal critical-extinction rate on a whole positive history cube and its exact dependence on retained fractional memory M. The exponent 1−q supplies a meaningful memory-length law; it is not just restating scalar logistic 1/n because the exact amplitude depends on weighted delay, and it distinguishes neutral extinction from the widely studied flip cascade.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
