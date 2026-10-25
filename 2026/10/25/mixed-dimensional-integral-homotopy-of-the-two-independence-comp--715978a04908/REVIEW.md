@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** Every one of the \(2^{16}\) vertex masks is classified by the induced-degree test. The resulting complex has exactly \(3054\) nonempty faces. The complete reconstructed matching has \(1517\) pairs; a topological sort of all \(13{,}568\) directed face incidences proves acyclicity, and the exact signed integral Morse differential has columns \((1,-1,1)\) and \((-1,1,-1)\) on three critical three-cells. One primitive unit-pivot cancellation, followed by the null attachment of the remaining four-cell, gives the claimed integral homotopy type, not just Betti numbers. Direct mod-two simplicial homology agrees.
+
+**Originality — PASS with residual bibliographic uncertainty.** The closest general literature determines higher-independence homotopy types for specific families and vertex decomposability for trees, not this cyclic four-cube [1,2]. The published \(Q_4\) independence computation [3] concerns \(\operatorname{Ind}_1\), not \(\operatorname{Ind}_2\), and has a different face predicate and face count. Searches for the higher-independence graph, its induced degree-one formulation and its toroidal-grid alias found no statement covering this exact mixed-dimensional wedge. A failed indexed search cannot exclude unindexed work, and that priority uncertainty remains.
+
+**Mathematical value — PASS.** The four-dimensional hypercube, equivalently the fully periodic four-by-four grid, is an exceptionally natural test case at the first genuinely higher-independence parameter. Its mixed-dimensional integral sphere wedge is sharply different from the classical independence complex's equidimensional spheres and from equidimensional wedge families in the foundational article. The exact attaching-map computation supplies a reusable benchmark for higher-independence homotopy methods, without asserting a family-wide theorem.
+
+**Limits.** The statement is finite and non-equivariant; no larger-cube classification is supplied. Integral homotopy relies on the explicit verified acyclic Morse matching and signed boundary computation. Bibliographic completeness is not guaranteed. Independent scientific assessment has not been performed.
+
+**Sources.** [1] Deshpande and Singh, arXiv:2001.05448; [2] Sawant, arXiv:2605.25150; [3] published four-cube ordinary-independence record, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-four-cube-independence-complex-is-a-wedge-of-seven-three-sph--9947aaad144c; [4] Forman, *Morse theory for cell complexes*, 1998.
+
+Self-review: passed. Independent audit: not yet performed.
