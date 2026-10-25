@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The exact result is a consequence of the rank-two profile lemma and a complete finite-state reachability computation, not of a guessed maximum path length. `enumerate_profiles.py` explores all reachable states under both possible symbol appends, verifies that the queue is exhausted and computes the set of realized rank-two signatures. Its recorded output is `finite_state_output.txt`. The 70 canonical witnesses are in `certificate_70_types.json`.
+# Independent mathematical audit
 
-The independent implementation `verify_direct.py` computes rank-one pointed types directly from the set of all quantifier-free two-point atomic diagrams and lists every word of lengths one through fourteen. It does not reuse transition states or the truncated multiplicity representation. Its recorded output is `direct_output.txt`. This independent *implementation* is not an independent scientific audit.
+## correctness
 
-Commands (Python standard library only):
+PASS
 
-```bash
-python3 enumerate_profiles.py --write-certificate certificate_70_types.json
-python3 verify_direct.py
-```
+For ordinary first-order quantifier rank <=2 over undirected adjacency and TWO NAMED unary colours, a pointed rank-one type is determined exactly by its vertex colour, set of neighbour colours and set of distinct non-neighbour colours. Consequently a structure’s rank-two theory is exactly its set of pointed types. In word notation each local type is recoverable from 3-symbol windows and total count of each colour capped at FOUR, as local window uses at most three positions. Deterministic append transitions are closed under both colours; independent BFS reconstructs exactly 760 reachable finite states, 70 distinct theory signatures, 62 mixed-colour signatures, shortest lengths distribution (2,3,6,10,14,18,10,5,0,2), and precisely two length-10 witness words 0011001100 and 1100110011. Direct word enumeration independently corroborates signatures for all binary words through n=11; all-n result follows only from complete 760-state transition closure. Structural run proof forces at least two 1-runs and three 0-runs of size >=2 for the first 10-word signature.
 
-The closure computation reports 760 reachable states and 70 rank-two theories. The shortest-representative counts at lengths one through ten are 2, 3, 6, 10, 14, 18, 10, 5, 0, 2. The direct enumeration independently reproduces those counts through length fourteen. The proof covers all nonempty finite vertex-coloured paths, not arbitrary graphs or logical ranks above two.
+## originality
+
+PASS
+
+Brown–Hoshino handle UNCOLOURED undirected paths and cycles; Weis–Immerman 2009 treat FO² in ordered words with an available directed successor, not arbitrary-variable quantifier-rank two in simple undirected vertex-labelled adjacency; Mwesigye–Truss 2011 classify TWO-COLOURED LINEAR ORDERS and their two-depth g(2,2)=8 model bound, which does not translate to 70 adjacency-only path types and sharp 10. Resultary one-red linear orders and directed-path bounds likewise different signatures. General two-round pointed-profile logic is known; exact 70/10 classification and finite automaton are the contribution.
+
+## value
+
+PASS
+
+The classification gives a complete small-model theorem for a canonical graph class with named unary colours and ordinary bounded quantifier depth, plus a concrete sharp expression/model-size boundary ten. It distinguishes undirected adjacency reducts from linearly ordered or directed-successor words and gives all 70 attainable logical equivalence classes. This exact natural quotient is independently useful in finite-model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
