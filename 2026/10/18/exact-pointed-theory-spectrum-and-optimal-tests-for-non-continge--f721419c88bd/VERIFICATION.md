@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The explicit finite program `verify.py` uses only Python 3 standard-library functionality. Run `python3 verify.py` from the directory containing that file. It enumerates the successor supports for \(n=0,1,2,3\), checks signatures induced by \(\Delta\chi_a\), confirms support equivalence and sharp information-count lower bounds, and independently evaluates nested formulas on every small pointed star to check terminal flattening and root evaluation.
+## correctness
 
-Expected final line: `ROOTED_STAR_NONCONTINGENCY_ENUMERATION_OK`. The printed counts are \(1,4,48,1984\) pointed theories at \(n=0,1,2,3\), with \(5952\) root/formula truth tables independently compared at \(n=2\). The all-\(n\) theorem is supported by the structural-induction and counting proof in `RESULT.md`; the finite script is neither claimed as an infinite proof nor as independent peer review. The sources were compared for overlap, but no historical uniqueness certification is claimed.
+PASS
+
+PASS: At a terminal successor every Delta-subformula is vacuously true; replacing modal subformulas by truth and using structural induction makes root Delta(phi) depend only on whether a Boolean function is constant on the finite successor support S. For |S|>=2, not Delta(chi_a) holds iff a occurs, while all supports of size 0 or 1 have the identical modal signature. With N=2^n root assignments, successor quotient size 2^N-N gives T_n=N(2^N-N) pointed types. Explicit root minterms and Delta-chi_a clauses isolate every type at depth one. The counting information bound 2^N-N>2^(N-1) for n>=2 proves N yes/no tests minimal even adaptively, with sharp exceptions n=0,1.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Fan–Wang–van Ditmarsch prove Delta-bisimulation and invariance, which predicts qualitative collapse, but Sections 3–4 do not enumerate pointed theories for n-valued nonreflexive stars, obtain the 2^{T_n} formula meaning algebra, or prove the N-question optimum. The newer sequent-calculus work is about frame proof systems. These finite-variable exact quantities are not consequences given numerically by existing cited theorems.
+
+## value
+
+PASS
+
+PASS: Nonreflexive stars give the canonical height-one setting in which non-contingency expressivity degenerates. The full n-variable quotient, sharp depth-one collapse and optimal number of Delta tests form a natural exact classification relevant to finite logical semantics, distinguishability and query complexity; the counting answer is useful beyond merely restating bisimulation invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
