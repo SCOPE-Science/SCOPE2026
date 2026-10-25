@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Balance of the four-state binary de Bruijn graph yields a unique nonnegative parameterization (a,h,t,u,j). Exactly five nonoverlapping connected-support cases are exhaustive; directed Euler-circuit sufficiency and summing their positive integer generators prove the GF for every \\(n\\geq1\\), including periodic and \\(n<3\\) cases. Explicit singularity analysis gives leading \\(n^4/288\\). The standard-library checker directly compares full histogram vector sets for n=1..16 and parameter sums at n=20,24,30. Limits: no fiber-size theorem; finite checks are not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2013 proves growth order for linear k-Abelian classes, rather than an exact cyclic length-three generating function.",
+        "2017 rationality abstract asserts N-rationality of counts of linear k-Abelian classes, without a cyclic formula or constant."
+      ],
+      "reasoning": "The earlier polynomial growth and later rationality results concern a different linear-boundary sequence; even rationality does not imply a particular cyclic rational function. A broader all-alphabet result that explicitly treats cyclic count vectors would dominate this claim, but none was established in the inspected material.",
+      "searches": [
+        "published-index search: For binary circular words length n the number of distinct cyclic length-three factor multiplicity vectors is coefficient of a rational generating function",
+        "2013 arXiv:1301.5104v1 Theorem 2.14",
+        "DOI:10.3233/FI-2017-1553 published abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.5104v1 (2013-01-22)",
+      "arxiv:1605.03319v1 (2016-05-11)",
+      "doi:10.3233/FI-2017-1553 (2017-08-09 abstract)",
+      "OEIS:A289657 (linear 3-Abelian sequence)",
+      "2026 published research record: Exact binary two-multispectrum code size and singleton classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 class-size formulas condition on a given linear word and its boundary and do not count all realizable cyclic flow vectors.",
+        "The 2013 growth exponent is compatible with \\(n^4\\) yet does not identify the coefficient \\(1/288\\) or the exact GF.",
+        "The 2017 abstract addresses linear classes and rationality, a weaker/different target."
+      ],
+      "reasoning": "Reinterpreting the 2016 Eulerian representation motivates the new derivation but does not automatically yield connectivity case splitting and the exact five-term flow-support census. The candidate is not a renamed instance or special numerical evaluation of any compared exact claim.",
+      "searches": [
+        "arXiv:1605.03319v1 §§4–5, weighted de Bruijn graph and singleton counts",
+        "arXiv:1301.5104v1 §2.3 linear complexity estimates",
+        "DOI:10.3233/FI-2017-1553 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 paper defines linear k-Abelian equivalence by counts of all subwords up to length k and gives polynomial-order bounds for finite words.",
+        "2016 paper defines both necklaces and de Bruijn flows, but the analyzed class equivalence retains finite-word boundary constraints."
+      ],
+      "reasoning": "Cyclic trigram-profile equivalence agrees with equality of length-three cyclic counts (lower cyclic counts are their marginals), but it is not ordinary finite-word 3-Abelian equivalence and not necklace equality: cyclic closure removes the boundary constraint. None of the inspected linear statements enumerates cyclic histogram vectors.",
+      "searches": [
+        "published-index search: circular k-abelian equivalence classes 3 binary words up to conjugacy de Bruijn graph",
+        "arXiv:1301.5104v1, §§2.1–2.3",
+        "arXiv:1605.03319v1, §§2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest located published record, “Exact binary two-multispectrum code size and singleton classification” (2026), counts linear length-two spectra.",
+        "OEIS A289657 tabulates linear 3-Abelian classes, whose initial terms differ from cyclic f(n).",
+        "Direct exhaustive cyclic enumeration gives 2,3,4,6,8,13,18,27,38,53 for n=1..10."
+      ],
+      "reasoning": "No exact matching table was identified, but negative search cannot prove uniqueness. Linear 2-spectrum and linear 3-Abelian tables count different quotient spaces; the first cyclic collision at length six also demonstrates the distinction from necklace totals.",
+      "searches": [
+        "published-index search: exact number of binary length-three substring multispectrum classes length n read length three reconstruction code distinct trigrams",
+        "published-index search: multiset of 3-grams cyclic binary words euler trails count unique spectra",
+        "OEIS search: 2,3,4,6,8,13,18,27,38,53",
+        "OEIS A289657 linear 3-Abelian classes"
+      ]
+    },
+    "rationale": "Full relevant portions of arXiv:1301.5104v1 and arXiv:1605.03319v1 give polynomial-order linear class counts and linear class cardinalities respectively, rather than exact cyclic trigram-vector counts. Their shared Eulerian technique does not itself imply the new five-case enumeration. Published searches returned nearby different objects, including linear binary two-multispectra. Related 2017 rationality abstract was compared; full text remains a genuine priority risk.",
+    "residual_risks": [
+      "Unindexed or differently named cyclic k-Abelian profile formulas may already give the exact rational series.",
+      "Full text of the 2017 general rationality paper was not materially inspected; its abstract alone cannot justify global not-covered conclusions.",
+      "Finite OEIS and published-index queries do not certify priority or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinct linear-word class counting; gives relevant growth exponent, no formula for cyclic triple-frequency vectors in inspected sections",
+        "evidence": [
+          "arXiv v1 stamped 2013-01-22, MSC 68R15; abstract and §2.3 discuss linear classes and polynomial growth"
+        ],
+        "identifier_or_url": "arxiv:1301.5104v1 | https://arxiv.org/pdf/1301.5104",
+        "material_read": "PDF first sections, definition/equivalence and §2.3 growth theorem; title page and scope",
+        "method": "Direct inspection of source PDF text and page image",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "Foundational 2013 k-Abelian class enumeration with the same alphabet and k=3"
+      },
+      {
+        "assessment": "Uses the same graph technology but counts words per linear class and linear singleton phenomena rather than connected integer circulations at fixed total length",
+        "evidence": [
+          "arXiv v1 stamped 2016-05-11; preliminaries distinguish linear factor count and necklace notation; §§4–5 treat class cardinalities and singletons"
+        ],
+        "identifier_or_url": "arxiv:1605.03319v1 | https://arxiv.org/pdf/1605.03319",
+        "material_read": "Abstract, introduction, preliminary necklace/graph definitions, §4 graph-class counting, §5 singleton structure and concluding problem statement",
+        "method": "Direct inspection of full-text PDF sections and page image",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "Relevant de Bruijn weighted Eulerian graph methods could subsume proposed counting"
+      },
+      {
+        "assessment": "Abstract establishes N-rational linear class-count sequence, not the candidate cyclic vector-count formula; uninspected main text is a residual risk",
+        "evidence": [
+          "2017 abstract expressly defines k-Abelian equivalence for linear factors, derives regular minimal representatives and rational linear class-count sequence"
+        ],
+        "identifier_or_url": "DOI:10.3233/FI-2017-1553 | https://journals.sagepub.com/doi/10.3233/FI-2017-1553",
+        "material_read": "Published abstract and bibliographic scope only; full article unavailable for detailed comparison",
+        "method": "Publisher-indexed abstract and secondary publication records; open-full-text attempt unsuccessful",
+        "title": "k-Abelian Equivalence and Rationality",
+        "trigger": "General N-rationality theorem is plausible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1516a959-f63f-44f5-9148-c6dccfcb320e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counts exactly the attainable outputs of a natural cyclic substring-histogram channel, hence determines the maximum size of a zero-error reconstruction code from its output for every blocklength. First collision at n=6 separates this statistic from ordinary necklace enumeration; sharp order and leading constant quantify observation resolution. This is an intrinsic natural exact capacity fact rather than an arbitrary small numerical slice.",
+    "status": "PASS"
+  }
+}
