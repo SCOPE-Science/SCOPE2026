@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed odd-majority polynomial h_r and its exact two-new-voter step: h_(r+1)-h_r=binom(2r+1,r)p^(r+1)(1-p)^(r+1)(2p-1). Integrating against Beta(alpha,beta) and evaluating at mu=alpha/(alpha+beta) gives the stated successive-gain ratio R_r. Its initial value s^2/((s+1)(s+2))<1; the sign of R_(r+1)/R_r-1 is controlled by F(t)=(alpha-beta)^2*t^2+[s^3-alpha*beta*(4s+6)]*t-alpha*beta*(3s+2), t=r+1. For alpha!=beta, positive leading coefficient and negative constant imply exactly one positive root and a single valley in R; asymptotic quotient s^2/(4alpha beta)>1 forces a unique crossing of 1, with a possible equality step/two adjacent maxima. The signed accuracy gap begins zero, rises then falls toward a strictly positive de Finetti/LLN limit, hence its absolute value has the same peak and remains positive. alpha=beta gives symmetry and identically zero gap. Independently recomputed 168 exact-rational majority-step comparisons including alpha,beta fractional values and the (10,1) five-juror maximizer; this is only a finite cross-check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaniovski models second-order Bahadur correlated voting, not fixed Beta mixture with all high-order correlations; exchangeability tail envelopes optimize over unrestricted mixing laws, unlike fixed two-parameter Beta mixing.",
+          "The theorem concerns the difference against an equal-marginal iid comparator and its unique maximum as jury size varies."
+        ],
+        "reasoning": "General dependency or infinite-exchangeability accuracy bounds do not entail this fixed-Beta exact minimizing/maximum-index law without additional specialized analysis. Cannot assert comprehensive exclusion from unavailable older full texts.",
+        "searches": [
+          "Kaniovski and Zaigraev 2011 doi:10.1007/s11238-009-9170-2",
+          "Kaniovski 2010 doi:10.1007/s11238-008-9120-4",
+          "Ladha 1993 correlated-votes de Finetti",
+          "Resultary: Sharp exact-count envelope under infinite Bernoulli exchangeability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 9e3ec5d05840e765caf9559aaf9ecaec278f5643; verify_jury_beta.py SHA a289113d02e6b051027197d41185ff666db9b8d4 both read in full",
+        "Berg (1993) doi:10.1007/BF00187435, indexed Beta-binomial overlap",
+        "Ladha (1993) de Finetti jury working-paper record",
+        "Kaniovski (2010,2011) Bahadur dependence analyses",
+        "Resultary two searches for beta-binomial jury gap, returned relevant but nonidentical tail-envelope records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-Beta moments yield the ratio R and its positive-root quadratic after an additional derivation. Even a prior proof of positive correlation reducing majority accuracy would not show a unique peak of the *difference* as n varies.",
+          "Berg full text unavailable; earlier general majority formulas might implicitly permit this calculation."
+        ],
+        "reasoning": "No accessed earlier statement mathematically implies the single-crossing ratio threshold merely by establishing general Condorcet inequalities; possible implicit special-case coverage remains an explicit risk.",
+        "searches": [
+          "Berg 1993 beta-binomial jury",
+          "Ladha 1993 de Finetti",
+          "Kaniovski 2010 Aggregation of correlated votes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berg 1993 indexed material explicitly treats dependency among jurors including the beta-binomial family; Ladha treats de Finetti-style correlated majority voting.",
+          "The claimed finite optimum is for |P_binomial_majority(mu)-E[P_binomial_majority(P)]| across all odd n, not for majority accuracy alone."
+        ],
+        "reasoning": "A rephrasing as a beta-binomial versus binomial tail-error sequence is considered explicitly; the older indexed references may calculate both tails but no accessed text establishes the exact one-valley ratio, finite maximum and adjacent-tie characterization. Inaccessible full Berg is recorded as risk.",
+        "searches": [
+          "Resultary: exchangeable beta binomial majority jury independence approximation worst case jury size correlation peak",
+          "Resultary: Beta mixing correlated juror majority beta-binomial five jurors largest independence optimism G_r",
+          "Berg 1993 doi:10.1007/BF00187435",
+          "Ladha 1993 DOI and de Finetti correlated-votes searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source RESULT constructs a symbolic all-positive-real-parameters formula and rational (10,1) witness, not a finite list of empirical jury outcomes.",
+          "Resultary yielded no indexed exact Beta-mixture worst-jury-size table among consulted hits; those envelopes concern a different extremization."
+        ],
+        "reasoning": "No exact finite table could dominate a quantified real-parameter unimodality theorem. Negative catalogue search alone is not evidence that an equivalent analytical theorem has never appeared.",
+        "searches": [
+          "Resultary: sharp extendible Bernoulli tail bounds",
+          "Resultary: exact count envelope under infinite Bernoulli exchangeability",
+          "Berg 1993 indexed metadata",
+          "Kaniovski 2010 bibliographic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact finite-jury-size optimization of the error caused by replacing a *fixed Beta latent mixture* with equal-marginal unconditional independence. Earlier jury theorems, including explicit Beta-binomial treatments, establish dependence and asymptotics but consulted material did not exhibit the one-valley consecutive-gain ratio or global index/tie classification. Berg 1993 is a serious potentially overlapping source: only a citation/indexed description was accessible, not its full theorem proofs; this is a genuine residual priority risk rather than proof of noncoverage.",
+      "residual_risks": [
+        "Berg (1993) complete mathematical statement/proof inaccessible, could include an equivalent Beta-mixture finite-jury optimization",
+        "Unreviewed older full voting literature may contain an implicit exact special case",
+        "No claim for arbitrary exchangeable mixing measures; rational spot-checks are not the infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially overlapping; whole-paper noncoverage cannot be asserted",
+          "evidence": [
+            "The full original theorem list and appendices were not read; strongest originality residual risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00187435",
+          "material_read": "Indexed/bibliographic descriptions referencing Beta-binomial distribution; full article unavailable",
+          "method": "JSTOR/publisher indexed text; arXiv/OA searches unsuccessful; authorized Oxford retrieval reported VPN disconnected",
+          "title": "Condorcet’s jury theorem, dependency among jurors",
+          "trigger": "The same Beta-binomial correlated jury family appears in indexed 1993 material"
+        },
+        {
+          "assessment": "Broader correlated-vote framework; no confirmed exact beta-gap peak theorem",
+          "evidence": [
+            "The comparison is limited to available metadata, no categorical noncoverage of full paper."
+          ],
+          "identifier_or_url": "https://econpapers.repec.org/paper/fthwaslbp/157.htm",
+          "material_read": "Bibliographic and working-paper record/abstract, not complete article",
+          "method": "Open bibliographic metadata / indexed snippets",
+          "title": "Condorcet’s jury theorem in light of de Finetti’s theorem: Majority-rule voting with correlated votes",
+          "trigger": "Exchangeable de Finetti correlated voting provides a direct alias framework"
+        },
+        {
+          "assessment": "Not same high-order fixed Beta law as full mixture",
+          "evidence": [
+            "This reference concerns a second-order joint-law truncation."
+          ],
+          "identifier_or_url": "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf",
+          "material_read": "Identified model and stated second-order Bahadur expansion from available study descriptions and supplied reference; not treated as full prior-proof inspection",
+          "method": "Author-hosted primary reference descriptions / indexed material",
+          "title": "Aggregation of correlated votes and Condorcet’s Jury Theorem",
+          "trigger": "Published correlated-vote baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-marginal correlated-vote independence approximation is a natural and consequential calibration question; the exact unique worst finite panel size and a constructive five-voter counterexample to monotone-in-size error are not a routine bound or arbitrary slice. The result supplies a sharp global structure and exact tie criterion in the canonical exchangeable Beta mixture, while clearly excluding arbitrary voting dependence and strategic behavior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 9e3ec5d05840e765caf9559aaf9ecaec278f5643; verify_jury_beta.py SHA a289113d02e6b051027197d41185ff666db9b8d4 both read in full",
+    "Berg (1993) doi:10.1007/BF00187435, indexed Beta-binomial overlap",
+    "Ladha (1993) de Finetti jury working-paper record",
+    "Kaniovski (2010,2011) Bahadur dependence analyses",
+    "Resultary two searches for beta-binomial jury gap, returned relevant but nonidentical tail-envelope records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite and symbolic checks are distinguished from all-parameter or infinite-state proofs; see the mathematical proof reconstruction.",
+    "Frozen METADATA.json contains scope_run_id and research AUDIT.json contains operational provenance; full sanitized source package and status replacements not independently prepared, hence cannot safely hand an import-ready publication plan."
+  ],
+  "residual_risks": [
+    "Berg (1993) complete mathematical statement/proof inaccessible, could include an equivalent Beta-mixture finite-jury optimization",
+    "Unreviewed older full voting literature may contain an implicit exact special case",
+    "No claim for arbitrary exchangeable mixing measures; rational spot-checks are not the infinite proof."
+  ],
+  "schema_version": 1
+}
