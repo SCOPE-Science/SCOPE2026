@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The count generator and distinguished-founder equation each follow from the explicit motion and uniform-copying rules. Their stationary and harmonic systems are uniquely solvable after normalization. A rational Taylor recursion, independently checked by exact matrix residuals, gives zero coefficients below fifth order and the nonzero coefficient \(89/56010528\). Site reflection and analyticity supply the odd remainder, rather than extrapolation from finite tests. A distinct absorbing two-color Markov-chain calculation reproduces the source's benchmark and confirms the exact finite-perturbation currents; the four-particle cubic coefficient reproduces the known formula. The standalone verifier contains every needed rational computation.
+## correctness
 
-## Originality
-PASS, with residual indexing risk. The strongest competing source is Lin and Lu, arXiv:2610.12589v1. Its three-particle appendix evaluates an isolated killing vector, and its perturbative appendix stops at cubic order and is directed to populations of at least four. Generic three-particle nonzero circulation does not imply the fifth-order coefficient, its sign, or the sign reversal along the specified symmetric line. Actual semantic database searches for this source, its aliases, the exact fraction, and fifth-order near-neutral circulation returned no matching covering theorem. An unrelated finite correspondence with a directed triangular flow, among the nearest hits, has different objects and implications. Further literature may contain an uncatalogued equivalent derivation.
+PASS
 
-## Mathematical value
-PASS. The motivating proof has an explicit exceptional factor \(N-3\) in the cubic coefficient, leaving its smallest circulating population's actual onset open. The exact fifth-order answer is a natural finite-size boundary invariant: it establishes the first nonzero order and a reversed direction, not merely a narrower parameter substitution or a numerical observation. This distinguishes the biologically minimal circulatory system from each larger fixed population near homogeneous mortality.
+The 10-state population-count process has transitions c->c-e_i+e_j at c_i+c_ic_j k_i/(N-1), while a distinguished founder has an 18-state linear harmonic generator incorporating movement, killed founder loss, and uniform-parent copying. Fixing total stationary mass 1 and the same-site identical-founder anchor h(0,(2,0,0))=1/3 makes both augmented matrices invertible near epsilon=0. Expanding these finite matrices as L0+epsilon L1,T0+epsilon T1 gives the exact rational recurrence L0^T pi_r=-L1^T pi_(r-1), T0 h_r=-T1 h_(r-1) and a convolution for F_02-F_20. Independently reconstructed all event entries, rational matrix inverses and residual equations using SymPy; obtained coefficients r=0..7 exactly [0,0,0,0,0,89/56010528,0,-410017/1524382530048]. The N=3 fifth term is positive, while site reflection sends epsilon to -epsilon and current to its negative, giving odd analyticity and the O(epsilon^7) remainder. The N>=4 negative cubic is explicitly attributed to Lin–Lu, not re-proved by the N=3 computation; its N=4 numerical coefficient is stated in the source. No finite-epsilon uniform sign interval or large-N interchange claimed.
 
-## Scope and limitations
-The proof is local in \(\varepsilon\), assumes exactly three sites with unit symmetric jump rates, and only establishes the three-particle coefficient; larger-population signs are prior results. External independent review is pending, and exhaustive novelty cannot be certified by semantic search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying three-site Fleming–Viot model, generic N>=3 circulation and negative cubic behavior at N>=4 are Lin–Lu prior results. The exact exceptional N=3 cancellation through cubic and nonzero quintic coefficient are a different finite-size invariant; exact coefficient keyword and semantic source searches found no stated duplicate, but Lin–Lu entire updated preprint was inaccessible in this run and its Appendix A/B coverage is an explicit significant risk.
+
+## value
+
+PASS
+
+The minimal possible circulating population is a natural boundary where a known factor N-3 cancels the leading general cubic. Resolving whether current vanishes identically or first appears later, and determining its opposite direction, is motivated finite-dimensional exact mathematics independent of any new large-population theorem. Rational 89/56010528 has concrete dynamical sign content, not an arbitrary small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
