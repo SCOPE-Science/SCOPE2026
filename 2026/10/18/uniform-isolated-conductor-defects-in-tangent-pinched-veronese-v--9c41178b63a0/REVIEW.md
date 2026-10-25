@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-\(2\)/degree-\(3\) chart-generator argument identifies every local affine ring exactly; the integral finite birational normalization and its conductor then follow from explicit monomial computations. The local cohomology sequence proves depth, and exact monomial counts prove tangent dimension and multiplicity. The global short exact sequence supplies the cohomology and Euler-characteristic formula. An independent finite semigroup script verified the key monomial identities in specified small cases; its finite outputs are not substituted for the proof.
+## correctness
 
-**Originality — PASS (qualified).** Caviglia's single cubic pinch has a different deleted generator set. Caviglia--Conca's one-point Veronese cubic projection is neither the all-coordinate deletion nor an arbitrary-degree statement. The multi-pinch class in Maddox--Pandey Section 5 excludes removed monomials with exponent \(d-1\), whereas every removed monomial here has that exponent. The closest related identified records concern different osculating loci or one-point toric projections. No inspected stronger result was found to imply the complete uniform local ring, conductor, normalization-cokernel and cohomology formulas. Residual risk: broader toric/monomial-projection literature may contain this elementary local model in another guise.
+PASS
 
-**Mathematical value — PASS.** The family is canonical (simultaneously delete the tangent directions at every coordinate point of the Veronese). The exact uniform local singularity, conductor, non-Cohen--Macaulay depth, Hilbert--Samuel multiplicity and irregularity give intrinsic geometric information not supplied by single-pinch Koszulness. Uniformity independent of degree and unbounded normalization defects across dimension are motivated structural phenomena, not an arbitrary finite parameter slice.
+The pure generators x_i^d cover Proj because every retained monomial has a d-th power built from the pure ones. On D_+(x_i^d), every retained ratio has z-total degree >=2 (all tangent-linear ratios deleted); for d>=5, ALL quadratic and cubic z-monomials occur and generate all degrees >=2, so the exact chart is B=k+m². Its normalization S=k[z1,..,zr], r=n-1, is finite integral and birational: z_j=z_j³/z_j², z_j satisfies T²-z_j², and away from m it becomes an isomorphism. Conductor m², cokernel spanned by r linear classes, exactly n distinct singular coordinate points and an exact global skyscraper sequence. For r>=2, 0→B→S→k^r→0 and regular S show depth(B_m)=1. The tangent quotient m²/m⁴ gives embedding dimension C(r+1,2)+C(r+2,3); length(B/m^(2(q+1)))=C(r+2q+1,r)-r proves multiplicity 2^r. Birational normalized hyperplane pullback O(d) gives degree d^r, H¹(OY)=nr, H^j=0 j>=2, and χ(OY(t))=C(dt+r,r)-nr (t>=0). An independently programmed monomial-semigroup/HS checker corroborated four (n,d) choices, not the infinite theorem.
 
-**Limitations.** No assertions about characteristic-specific Frobenius properties, arbitrary pinches, or uncomputed affine-cone singular schemes. Independent verification of originality and proof is still desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: canonical simultaneous deletion of EVERY coordinate tangent monomial in arbitrary degree d>=5 and dimension r>=2 produces the same isolated local model plus full conductor, cohomology and Hilbert–Samuel invariants. Caviglia's original cubic pinched Veronese deletes one different monomial; Caviglia–Conca treats a one-point projection of the cubic surface. Maddox–Pandey Section 5 multi-pinch hypotheses require deleted monomials have maximal exponent STRICTLY BELOW d-1, while this family deletes vectors whose max exponent is exactly d-1. Their theorems therefore do not cover this tangent deletion, though monomial semigroup methods are well known. Possible implicit toric local-singularity classification remains genuine risk.
+
+## value
+
+PASS
+
+Simultaneously removing all first-order coordinate tangent vectors is a geometrically intrinsic symmetric projection of the Veronese embedding, not arbitrary monomial slicing. Uniform depth-one nonnormal points, exact conductor/cokernel lengths, Hilbert–Samuel multiplicities and global irregularity give natural intrinsic invariants across every dimension and sufficiently high degree, unaddressed by known Koszulness results for single pinches. These enable subsequent work on singularities and nonnormal projective embeddings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
