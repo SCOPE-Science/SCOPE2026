@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Direct independent stage-equation inversion yields the exact 2x2 B and d(s)>0. Three factorized Jury polynomials give strict spectral stability, ordering T(s)<P(s)<U(s) eliminates any reentrant stability, and the two weak-edge eigenvalues are semisimple on the unit circle. The limit B(s,cs)->c(-I+N), N^2=0 and ||N||_2=3, proves the 3/e constant and arbitrarily large finite transients. Pure-stdlib independent test script passes 4947 checks (not a proof of universality).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2109.03317 sections 4.3 and 5.3",
+        "https://arxiv.org/abs/1304.2276 sections 2–5",
+        "published-finding corpus: 2026/9/9/SCOPE008"
+      ],
+      "reasoning": "The generic IMEX GLM literature provides machinery for stability regions, not a stronger quantitative bound governing this FIMEX(3,0) matrix. Generic Jordan norm examples are not broader results proving this numerical propagator has defective stiff limits.",
+      "searches": [
+        "IMEX Runge Kutta additive polynomial time integrator collocation scalar split stability regions exact poles Buvoli Southworth",
+        "arxiv:1304.2276 extrapolation IMEX GLM stability",
+        "FIMEX-Radau 3 block amplification as stiff damping implicit and explicit ratio approaches one defective Jordan transient unbounded 3/e"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2109.03317",
+      "https://arxiv.org/abs/1304.2276",
+      "published-finding corpus Search: IMEX Runge Kutta additive polynomial time integrator collocation scalar split stability regions exact poles Buvoli Southworth",
+      "published-finding corpus Search: Buvoli Southworth FIMEX-Radau(3) q=3 real negative split Dahlquist exact Schur stability t_max(s) square root 24s+37",
+      "published-finding corpus Search: FIMEX Radau polynomial block method two active stage amplification nonnormal defective stiff limit Jordan block 3/e",
+      "published-finding corpus Search: exact FIMEX-Radau q=3 uniterated real dissipative split scalar Dahlquist stability 1/2(sqrt(24s+37)) critical threshold",
+      "published-finding corpus Search: FIMEX-Radau 3 block amplification as stiff damping implicit and explicit ratio approaches one defective Jordan transient unbounded 3/e",
+      "published-finding corpus Search: fully-implicit-explicit collocation Buvoli Southworth no iteration 3 nodes exact Schur polynomial root",
+      "Accessible current and prior-week JSONL claims listed in private prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus: 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "published-finding corpus: 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "published-finding corpus: 2026/9/9/SCOPE008",
+        "Own ledger previous-week claim 1e55df73-1ea7-4834-bc9e-a69fea9a043a (Radau logistic estimator)",
+        "Own ledger previous-week claim 5d92fe3a-0e2f-4801-9d6c-c8917b6a1e45 (Jordan-Arnoldi)"
+      ],
+      "reasoning": "The prior Radau logistic result concerns local error estimation of a different method; the other eigenvalue/Jordan work concerns distinct iteration matrices. None implies the exact FIMEX stability frontier and limit. Buvoli–Southworth makes the q3 frontier in-principle calculable from a general criterion; the evaluated novelty is its explicit sharp parameter classification and independent stage-norm instability not supplied by that spectral test.",
+      "searches": [
+        "IMEX Runge Kutta additive polynomial time integrator collocation scalar split stability regions exact poles Buvoli Southworth",
+        "Buvoli Southworth FIMEX-Radau(3) q=3 real negative split Dahlquist exact Schur stability t_max(s) square root 24s+37",
+        "FIMEX Radau polynomial block method two active stage amplification nonnormal defective stiff limit Jordan block 3/e",
+        "exact FIMEX-Radau q=3 uniterated real dissipative split scalar Dahlquist stability 1/2(sqrt(24s+37)) critical threshold",
+        "FIMEX-Radau 3 block amplification as stiff damping implicit and explicit ratio approaches one defective Jordan transient unbounded 3/e",
+        "fully-implicit-explicit collocation Buvoli Southworth no iteration 3 nodes exact Schur polynomial root"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2109.03317 equation (45); trace/determinant reduction in proof"
+      ],
+      "reasoning": "Rewrote the published full 3x3 step in its two active dimensions, then compared Schur/Jury, quadratic-factor and square-root boundary equivalents; the inspected paper describes a general spectral-radius condition but not the exact rational 2x2 threshold or stiff transient law.",
+      "searches": [
+        "Buvoli Southworth FIMEX-Radau(3) q=3 real negative split Dahlquist exact Schur stability t_max(s) square root 24s+37",
+        "exact FIMEX-Radau q=3 uniterated real dissipative split scalar Dahlquist stability 1/2(sqrt(24s+37)) critical threshold",
+        "fully-implicit-explicit collocation Buvoli Southworth no iteration 3 nodes exact Schur polynomial root",
+        "arxiv:2109.03317 eq(45) FIMEX-Radau(3,0)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ID: 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "published-finding corpus closest ID: 2026/9/9/SCOPE008",
+        "https://arxiv.org/abs/2109.03317 eq (45), section 5.3 and discussed supplementary q4 contour plots"
+      ],
+      "reasoning": "Targeted semantic searches for exact radical and Jordan law returned nearby unrelated numerical analysis or generic block transients; no identifiable table specifying this q3 real-damping boundary or limit. Failed discovery alone does not establish novelty; the actual methods/implications were compared.",
+      "searches": [
+        "Buvoli Southworth FIMEX-Radau(3) q=3 real negative split Dahlquist exact Schur stability t_max(s) square root 24s+37",
+        "exact FIMEX-Radau q=3 uniterated real dissipative split scalar Dahlquist stability 1/2(sqrt(24s+37)) critical threshold",
+        "FIMEX-Radau 3 block amplification as stiff damping implicit and explicit ratio approaches one defective Jordan transient unbounded 3/e",
+        "published-finding corpus published FIMEX Radau q3 square root 24s+37"
+      ]
+    },
+    "rationale": "Method coefficients and generic spectral-radius stability belong to Buvoli–Southworth; the assessed exact q=3 real-split boundary with its square-root stiff deficit and strictly stable, unbounded stage transient are additional specific implications. The other inspected GLM paper uses different coefficients. Actual published-finding corpus searches and accessible own ledger comparisons found generic IMEX and Jordan transient results but no same-propagator coverage; priority uncertainty persists.",
+    "residual_risks": [
+      "Unindexed exact calculations or supporting supplementary mathematics could contain equivalent FIMEX(3,0) special cases. The paper references supplemental figures that were not separately examined in full; source statements available in the main arXiv full text were read.",
+      "A general matrix spectral-radius criterion already implies the present real-split frontier after nontrivial symbolic specialization; priority is limited to the explicit classification and additional nonnormal transient, not the generic criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers method, generic spectral-radius definition, q4 contour examples; does not state the exact q3 real-axis threshold or defective stiff-stage transient law in inspected material.",
+        "evidence": "arXiv:2109.03317 equation (45), equations (53)–(56), Figure 4 and section 5.3",
+        "identifier_or_url": "https://arxiv.org/abs/2109.03317",
+        "material_read": "Full browser-readable arXiv text: sections 3.1, 4.3, 5, explicit equation (45), section 5.3, stability formulas and discussion of supplemental contour plots",
+        "method": "Read scholarly open-access HTML full text including defining equations and stability passage; reconstructed eq(45) coefficients.",
+        "title": "Additive Polynomial Time Integrators, Part I: Framework and Fully-Implicit-Explicit (FIMEX) Collocation Methods",
+        "trigger": "Exact same three-node method and numerical stability topic"
+      },
+      {
+        "assessment": "Different extrapolation GLM family and generic stability toolkit. No theorem implying the FIMEX(3,0) exact threshold or stage-norm transient.",
+        "evidence": "arXiv:1304.2276 equations (2.6), (3.2) and section 4",
+        "identifier_or_url": "https://arxiv.org/abs/1304.2276",
+        "material_read": "Open-access arXiv HTML abstract, sections 2–4 including stability polynomial/general-linear-method matrices, and construction sections overview",
+        "method": "Read primary full-text mathematical definitions and stability-analysis section; compared method coefficients/class.",
+        "title": "Extrapolation-based implicit-explicit general linear methods",
+        "trigger": "Potential stronger generic IMEX GLM stability analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e10494e-138f-4b6c-a3f5-a084c327083a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete necessary-and-sufficient explicit damping ceiling for a named nontrivial FIMEX scheme; shows O(sqrt(s)) stiff safety loss and a distinct unbounded amplification of stage perturbations even with strict scalar spectral stability, relevant to error/roundoff/implicit-solve propagation. Does not infer general PDE/solution instability or make an arbitrary finite-table recomputation.",
+    "status": "PASS"
+  }
+}
