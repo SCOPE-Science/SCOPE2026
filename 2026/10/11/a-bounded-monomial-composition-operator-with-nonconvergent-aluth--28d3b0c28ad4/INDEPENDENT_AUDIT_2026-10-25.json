@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With s_j=(-1)^floor(log2(j+1)) and F(0)=0 of slopes s_j, F is 1-Lipschitz, |F(t)|<=t. Thus beta(0)=1, n^-1<=beta(n)=2^[F(log2 n)]<=n, beta(n)^(1/n)->1, and n/(n+1)<=beta(n+1)/beta(n)<=(n+1)/n. Polynomial coefficient weights make H2(beta) analytic; C_z2 maps orthonormal e_n to d_n e_(2n) with d_n=beta(2n)/beta(n) in [1/2,2]; d_1=2 gives ||C_z2||=2. The span of e_(2^j), j>=0, is reducing for T and T*, supporting a unilateral positive shift with w_j=2^s_j; no off-orbit monomial maps onto it. For any positive shift, polar decomposition yields Delta weights sqrt(w_j w_(j+1)), and induction gives first coefficient b_N=2^[2^-N sum_{j=0}^N binom(N,j)s_j]. At N=3*2^ell, the Bin(N,1/2) mean is 3*2^(ell-1); the event |B-N/2|<2^(ell-2) lies wholly in j in [2^ell-1,2^(ell+1)-2], where s_j=(-1)^ell. Hoeffding bounds the complement by 2 exp(-2^ell/24), hence |E s_B-(-1)^ell|<=4exp(-2^ell/24), so b_N tends to 2 on even ell and 1/2 on odd ell. A fixed WOT coefficient diverges, disproving SOT convergence without finite-to-infinite extrapolation. Independent exact-rational binomial computations for ell=4..10 corroborated the formula and estimate; the infinite conclusion uses the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lahiri–Ojha–Birbonshi (2026), p.19 Question 5.2 explicitly asks about *every* bounded composition operator on some weighted Hardy space; Section 4 and Theorem 4.1 concern the specified linear-fractional sigma, not C_z^2.",
+          "Jung–Kim–Ko (2015) publisher/ResearchGate abstract identifies only C_phi and C_sigma for particular linear-fractional maps and claims positive strong convergence for them.",
+          "Benhida–Budzyński–Trepkowski (2018) abstract and Introduction pp.1–2 concern general L2 weighted-composition Aluthge transformation, domains, p-hyponormality, and fixed points, not this explicit analytic example in those inspected statements.",
+          "Chalendar–Partington (2020) pp.1–3 explicitly study powers T^n of weighted composition operators, not the nonlinear Aluthge iteration Delta^n(T)."
+        ],
+        "reasoning": "Positive convergence on special linear-fractional symbols cannot cover a counterexample for the different nonlinear symbol z^2 on a different coefficient space. General formulas for one-step Aluthge on L2 weighted composition operators do not in the read portions imply this specific oscillatory Hardy result. The 2015 complete article could not be verified because authorized full-text access was blocked, so its noncoverage is limited to its title, public abstract and corroborating detailed 2026 primary discussion.",
+        "searches": [
+          "Lahiri Ojha Birbonshi weighted Hardy question 5.2 counterexample nonconvergent iterates",
+          "Iterated Aluthge transforms of composition operators on H2 2015 Jung Kim Ko",
+          "https://arxiv.org/pdf/2604.27762",
+          "https://doi.org/10.1142/S0129167X15500792",
+          "https://arxiv.org/pdf/1809.01205",
+          "https://arxiv.org/pdf/1910.01475"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2604.27762",
+        "https://www.math.snu.ac.kr/~wylee/03CJL.pdf",
+        "https://doi.org/10.1142/S0129167X15500792",
+        "https://arxiv.org/pdf/1809.01205",
+        "https://arxiv.org/pdf/1910.01475",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-bounded-monomial-composition-operator-with-nonconvergent-aluth--28d3b0c28ad4",
+        "https://www.researchgate.net/publication/281801418_Iterated_Aluthge_transforms_of_composition_operators_on_H",
+        "https://www.alphaxiv.org/hi/abs/2604.27762"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact 2026 Question 5.2 quantifies universally over bounded composition operators on some weighted Hardy space, whereas this proof produces one analytic C_z^2 violating WOT convergence, which implies SOT failure.",
+          "Chō–Jung–Lee 2005 Proposition 3.2 proves there exists an abstract positive weighted shift with two limiting first-weight subsequences, but does not provide beta(n)=2^[F(log2(n))], neighbor-ratio bounds, a regular weighted Hardy space or C_z^2 realization.",
+          "Jung–Kim–Ko 2015 covers C_phi and C_sigma for 0<a<1; neither equals C_z^2. Chalendar–Partington addresses powers T^n, which are not Delta^n(T)."
+        ],
+        "reasoning": "The 2026 open question is directly negated by this counterexample. The 2005 theorem supplies a known obstruction and averaging mechanism but does not by itself imply that obstruction occurs for an analytic unweighted composition operator under the stated regularity constraints; constructing F and proving C_z^2 bounded are additional premises. Claims of novelty are confined to that explicit analytic realization, not the binomial convolution or abstract shift divergence.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.27762",
+          "https://www.math.snu.ac.kr/~wylee/03CJL.pdf",
+          "https://doi.org/10.1142/S0129167X15500792",
+          "https://arxiv.org/pdf/1809.01205",
+          "https://arxiv.org/pdf/1910.01475",
+          "Lahiri Ojha Birbonshi weighted Hardy question 5.2 counterexample nonconvergent iterates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2005 Chō–Jung–Lee Proposition 3.2 produces a unilateral weighted shift with divergent Aluthge first-coordinate weights, using binomial averaging; it does not identify an analytic composition operator on a weighted Hardy space.",
+          "The assigned operator acts on analytic monomials as e_n -> [beta(2n)/beta(n)]e_{2n}, and the reducing dyadic orbit is a concrete positive shift, with beta arising from a globally Lipschitz interpolation.",
+          "The highest Resultary semantic match was the Resultary publication of THIS SAME finding (record identifier 28d3b0c28ad4), not a distinct antecedent; other top hits described unrelated shift/weighted-composition invariants."
+        ],
+        "reasoning": "The known abstract shift WOT counterexample and binomial-transform formula are antecedents. Their existence does not directly assert a bounded analytic unweighted composition C_(z^2) on coefficient-weight Hardy spaces with specified beta, unless one supplies the extra shift-realization construction. Conversely this theorem implies an abstract WOT-divergent shift exists; that converse does not erase the concrete analytic realization.",
+        "searches": [
+          "Aluthge transforms composition operators weighted Hardy divergent nonconvergence fixed monomial z^2",
+          "weighted shift Aluthge iteration binomial averaging analytic composition operator on Hardy H2 beta",
+          "Resultary semantic search: bounded monomial composition C_z^2 weak Aluthge nonconvergence weighted Hardy",
+          "https://www.math.snu.ac.kr/~wylee/03CJL.pdf",
+          "https://doi.org/10.1142/S0129167X15500792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary produced an exact match for the same already-published record ID 28d3b0c28ad4; this is the assessed item itself and is not falsely treated as independent prior coverage.",
+          "No separately identified exact example/table was returned by the inspected Resultary search results or public searches for C_z^2 plus WOT-divergent Aluthge iterates.",
+          "This theorem is not an exact integer-table claim, so the dominant comparisons are statements and reductions rather than parameter coincidence."
+        ],
+        "reasoning": "The exact formula for the fixed matrix coefficient and its two subsequential limits is not established by a known exact table found here. Search failure alone is not a novelty proof; the distinction from the full 2005 abstract-shift theorem and 2026 Question 5.2 is substantive.",
+        "searches": [
+          "\"Aluthge\" \"composition operator\" \"z^2\" \"weighted Hardy\" \"converge\"",
+          "Aluthge transforms composition operators weighted Hardy divergent nonconvergence fixed monomial z^2",
+          "weighted shift Aluthge iteration binomial averaging analytic composition operator on Hardy H2 beta",
+          "Resultary semantic search top-45: fixed monomial composition weak Aluthge divergence"
+        ]
+      },
+      "rationale": "Compared the exact analytic composition statement and its quantifiers, not just its title, to Chō–Jung–Lee 2005 abstract weighted shifts, Lahiri–Ojha–Birbonshi 2026 Questions 5.1/5.2, Jung–Kim–Ko 2015 two fractional symbols, Benhida–Budzyński–Trepkowski 2018 L2 theory and Chalendar–Partington 2020 power iterates. The shift divergence and binomial formula are known, but the exact regular weighted-Hardy analytic realization by unweighted C_(z^2) is an additional demonstrated fact not implied without embedding. Resultary exact same-ID hit is this finding itself, not a distinct earlier publication. This is best-of-knowledge priority, with the inaccessible 2015 full text and possible unindexed realization explicitly retained as risks.",
+      "residual_risks": [
+        "The complete Jung–Kim–Ko (2015) article was not accessed after lawful arXiv/OA searches; authorized Oxford reported vpn_disconnected, so no assertion of whole-document noncoverage is made.",
+        "An unindexed general representation theorem might already embed arbitrary two-valued weighted shifts in unweighted analytic monomial composition operators on regular weighted Hardy coefficient spaces.",
+        "Resultary semantic search is not exhaustive mathematical priority proof; its exact same-ID match is not independent prior evidence.",
+        "The already-known 2005 binomial averaging and abstract nonconvergence mechanisms must not be represented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question 5.2 explicitly asks universal convergence of iterated Aluthge transforms of bounded composition operators on some weighted Hardy space. The paper establishes special linear-fractional examples and does not supply the asserted z^2 counterexample in those read sections.",
+          "evidence": "PDF p.13: beta(0)=1 and lim beta(n)^(1/n)=1; p.19: Question 5.2 asks strong-operator convergence to quasinormal; Q5.1 separately names two fractional maps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.27762",
+          "material_read": "Original 20-page arXiv PDF, abstract/introduction pp.1–3, weighted Hardy definition p.13, Section 4 discussion and Question 5.1/5.2 p.19 with original page screenshot.",
+          "method": "Opened original arXiv PDF, inspected extracted mathematics and screenshots of the material pages.",
+          "title": "Iterated Aluthge transforms of some composition operators on weighted Bergman spaces",
+          "trigger": "Originating universal question; exact weighted Hardy norm convention and admissibility."
+        },
+        {
+          "assessment": "Proves the nonconvergent unilateral weighted-shift mechanism but not its analytic monomial composition realization.",
+          "evidence": "Proposition 3.2: two limiting first-weight subsequences a and b for abstract W_alpha; formula (3.2) is 2^(-n) binomial logarithmic averaging; Corollary 3.3 WOT nonconvergence.",
+          "identifier_or_url": "https://www.math.snu.ac.kr/~wylee/03CJL.pdf",
+          "material_read": "Original seven-page author-hosted manuscript, Section 3 pp.3–5 including binomial formula (3.2), Lemma 3.1, Proposition 3.2 and Corollary 3.3; examined p.4 screenshot.",
+          "method": "Read original full relevant mathematical section from PDF and compared formulas to audited proof.",
+          "title": "On Aluthge transforms of p-hyponormal operators",
+          "trigger": "Closest known abstract WOT-divergent shift; exact binomial-weight identity."
+        },
+        {
+          "assessment": "Accessible statements cover the two linear-fractional symbols phi(z)=az+(1-a), sigma(z)=az/(1-(1-a)z) and SOT convergence; unread full text remains a residual priority risk.",
+          "evidence": "2015 published abstract names the two symbols and their positive SOT convergence; DOI 10.1142/S0129167X15500792.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129167X15500792",
+          "material_read": "World Scientific citation and accessible ResearchGate/publisher abstract and preview opening, together with its exact scope as described in Lahiri–Ojha–Birbonshi (2026); complete article unavailable.",
+          "method": "Searched arXiv and lawful OA for the same paper without an accessible full text; authorized Oxford retrieval returned vpn_disconnected. No bypass or unsupported whole-document noncoverage inference.",
+          "title": "Iterated Aluthge transforms of composition operators on H2",
+          "trigger": "Earlier paper explicitly about Aluthge iterates for Hardy composition operators."
+        },
+        {
+          "assessment": "Studied one-step transform formula, domains, p-hyponormality, quasinormal fixed points; no claimed analytic C_z^2 iterated nonconvergence result in the read summaries. Unread portions not certified non-covering.",
+          "evidence": "Introduction lists Theorem 4, Proposition 6, Proposition 13, Theorems 21,25,27 and final fixed-point result; no iterated analytic Hardy WOT counterexample mentioned in that summary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.01205",
+          "material_read": "Original 21-page arXiv manuscript abstract and Introduction pp.1–2 with section-by-section results, and beginning of Section 3 formulas.",
+          "method": "Original arXiv PDF extracted text and p.2 screenshot.",
+          "title": "Aluthge transforms of unbounded weighted composition operators in L2-spaces",
+          "trigger": "Potential broader general weighted-composition theorem including discrete monomial shifts."
+        },
+        {
+          "assessment": "Its iterates are ordinary powers T^n, not nonlinear Aluthge transforms Delta^n(T), making its convergence theorems inapplicable to the target claim.",
+          "evidence": "Equation (1) defines T^n_{w,phi}(f)(z)=prod_{j=0}^{n-1}w(phi^j(z)) f(phi^n(z)); this is distinct from Delta iteration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.01475",
+          "material_read": "Original 15-page arXiv manuscript abstract and pp.1–3 on definitions and power convergence; checked term Aluthge does not occur in extracted text.",
+          "method": "Original arXiv PDF screenshot first page and read pp.1–3 of the mathematical development.",
+          "title": "Weighted composition operators: isometries and asymptotic behaviour",
+          "trigger": "Potential broader convergence theorem on analytic weighted composition operators."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This explicit counterexample settles the published universal composition-operator Aluthge convergence question (Lahiri–Ojha–Birbonshi 2026, Q5.2) negatively, while preserving important analytic structure: fixed elementary z^2 symbol, bounded multiplication by z, coefficient weights between n^-1 and n with neighbor ratios tending to one. Such a boundary distinguishes restricted linear-fractional positive results from arbitrary weighted Hardy spaces. The exact realization matters to researchers delimiting hypotheses for future positive convergence theorems; this is not merely relabeling abstract shift nonconvergence or claiming the 2005 mechanism itself as new. It does not address classical Hardy, weighted Bergman, nor Question 5.1.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2604.27762",
+    "https://www.math.snu.ac.kr/~wylee/03CJL.pdf",
+    "https://doi.org/10.1142/S0129167X15500792",
+    "https://arxiv.org/pdf/1809.01205",
+    "https://arxiv.org/pdf/1910.01475",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-bounded-monomial-composition-operator-with-nonconvergent-aluth--28d3b0c28ad4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Oxford authorized 2015 publisher retrieval responded vpn_disconnected; whole-document priority comparison remains incomplete; accessible abstract and detailed 2026 discussion are limited evidence.",
+    "Bounded exact computations of binomial averages (ell<=10) are corroboration only; formal quantification rests on Hoeffding and the shift identity.",
+    "No complete source-tree Git directory listing available through read-only Git file retrieval; package-level guards were not independently reconstructed.",
+    "Public-facing legacy operational provenance and false first_public_date require confidential sanitation before any publication; scientific pass does not imply import readiness.",
+    "Historical recovery gaps and earlier immutable ledger rows left as found."
+  ],
+  "schema_version": 1
+}
