@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python standard-library modules only. Run `python verify.py` from a folder containing the embedded script. It enumerates every RREF subspace, tests all edgewise brackets, computes the Lie centralizer rank, and requires maximal-abelian agreement with a separately enumerated domination formula.
+## correctness
 
-Exact field arithmetic is implemented for orders \(2,3,4,5\), with \(\mathbb F_4\) represented by \(\mathbb F_2[z]/(z^2+z+1)\). For each order the program tests all \(75\) graphs on at most four labeled vertices, totaling \(300\) graph-field checks. The observed summary is `ALL_GRAPH_LIE_MAXIMAL_ABELIAN_CHECKS_PASSED 300`.
+PASS
 
-Further counts at \(q=3\) are `STAR_K_1_3 {1: 27, 3: 1}` and `COMPLETE_K_4 {1: 40}`; keys are dimensions above the central edge space. The formula for arbitrary graph sizes and fields is established by the coordinate-proportionality and self-centralizer proof in RESULT.md, not by finite enumeration. No independent mathematical audit has been performed.
+Every inclusion-maximal abelian subalgebra contains the central edge space Z=F_q^E, so it corresponds to a maximal commuting linear vertex subspace U. The alternating bracket coefficient at each graph edge {i,j} is λ_i∧λ_j, requiring nonzero restricted coordinate functionals to be proportional along each connected component C of active support S. U therefore lies in W_S spanned by one all-nonzero-supported generator for each induced component, and maximality forces equality. An outside vertex with no S neighbor extends W_S, while domination forces the full centralizer in vertex space to equal W_S, proving maximality iff S dominates. The projective-line choices per component give (q-1)^{|S|-c(G[S])}; dimensions |E|+c, and max degree α(G) follows because representatives of components form independent sets and every maximum independent set dominates. Works for char 2, isolates and disconnected graphs. Independently enumerated all RREF vertex subspaces and literal centralizers for every graph on 1..3 labeled vertices over F_2,F_3 (22 graph-field cases), comparing against a separately coded dominating-set/component census. The asserted unrestricted formula rests on functional proportionality, not finite enumeration.
+
+## originality
+
+PASS
+
+The completed statement classifies and counts every embedded inclusion-maximal abelian subalgebra over any F_q in the independent-central-edge graph construction. Projective noncommuting-graph maximal independent sets are an equivalent abstract formulation (Sriwongsa Prop. 2.8), but they do not evaluate the graph-induced weighted domination polynomial. Aldi et al. define a Lie independence polynomial and prove upper dimension bounds, which are not this polynomial or its coefficients. DeCoste et al. analyze an abelian central direct-summand factor, not all embedded maximal commuting subspaces. The finite-field enumeration was compared with those mathematical objects rather than only shared graph/Lie vocabulary.
+
+## value
+
+PASS
+
+A complete natural classification and coefficient-wise enumerator of maximal (not merely maximum-size) commuting subalgebras is a substantive missing invariant for graph two-step Lie algebras; it both refines the independence number and can distinguish graphs sharing an independence polynomial (the paw versus C4 example). The graph-domination weights and q parameter encode embedded multiplicity rather than rebranding existing independent-set counts; the result includes all finite graphs, characteristics and component structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

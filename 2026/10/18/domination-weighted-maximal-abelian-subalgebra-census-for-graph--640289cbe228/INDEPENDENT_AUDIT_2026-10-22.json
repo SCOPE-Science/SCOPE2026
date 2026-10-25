@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:04:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every inclusion-maximal abelian subalgebra contains the central edge space Z=F_q^E, so it corresponds to a maximal commuting linear vertex subspace U. The alternating bracket coefficient at each graph edge {i,j} is λ_i∧λ_j, requiring nonzero restricted coordinate functionals to be proportional along each connected component C of active support S. U therefore lies in W_S spanned by one all-nonzero-supported generator for each induced component, and maximality forces equality. An outside vertex with no S neighbor extends W_S, while domination forces the full centralizer in vertex space to equal W_S, proving maximality iff S dominates. The projective-line choices per component give (q-1)^{|S|-c(G[S])}; dimensions |E|+c, and max degree α(G) follows because representatives of components form independent sets and every maximum independent set dominates. Works for char 2, isolates and disconnected graphs. Independently enumerated all RREF vertex subspaces and literal centralizers for every graph on 1..3 labeled vertices over F_2,F_3 (22 graph-field cases), comparing against a separately coded dominating-set/component census. The asserted unrestricted formula rests on functional proportionality, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldi et al., arxiv:2504.19836, Definition 22 and Proposition 24: cohomological independence polynomial and dimension upper bound",
+          "DeCoste et al., arxiv:2208.09541, opening §1 and abelian-factor definitions: central direct-summand, potentially repeated labels"
+        ],
+        "reasoning": "The strongest plausible algebra prior results address maximum abelian dimensions or central factorization, not a distribution of all maximal embedded abelian subalgebras over finite fields. The projective graph formulation is general but not a dominating-support census formula.",
+        "searches": [
+          "Aldi Gabrielsen Grandini Harris Kelley 2025 independence polynomials of 2-step nilpotent Lie algebras",
+          "DeCoste DeMeyer Mainkar Ray 2022 Abelian Factor Graph Lie Algebras",
+          "graph Lie algebra maximal abelian subalgebra counting dominating sets support connected components finite fields independent central edges"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2504.19836",
+        "https://arxiv.org/pdf/2505.00726",
+        "https://arxiv.org/pdf/2208.09541",
+        "Resultary query: graph Lie algebra maximal abelian subalgebra counting dominating sets support connected components finite fields independent central edges",
+        "Web query: count maximal abelian subalgebras graph Lie algebra finite field domination polynomial connected components"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aldi proves dim h≤α(g)+d−b but does not count classes",
+          "Sriwongsa correspondence counts abstract independent vertex sets in a much larger Γ_L; no specific original-G domination weights given"
+        ],
+        "reasoning": "Dimension α(G)+|E| is a consequence already accessible through known bounds and is not claimed independently new; the complete weighted embedded-subalgebra distribution is not implied by prior maximum-size statements. A hypothetical explicit Γ_L enumeration could dominate this result, but was not present in the inspected primary theorems.",
+        "searches": [
+          "Sriwongsa arxiv:2505.00726 maximal independent set Lie algebras",
+          "Aldi arxiv:2504.19836 Proposition 24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sriwongsa full PDF §2: maximal independent sets of Γ_L=P(L/Z(L)) correspond to maximal abelian subalgebras",
+          "For the graph construction λ_i∧λ_j=0 along edges gives one projective coefficient-line per active induced component"
+        ],
+        "reasoning": "The abstract maximal-independent-set correspondence is indeed equivalent as a classification principle, but no explicit support domination weighted coefficient law follows without classifying Γ_L for the graph-edge algebra. Its vertices are projective noncentral lines, not vertices of the original graph G.",
+        "searches": [
+          "graph Lie algebra maximal abelian subalgebra counting dominating sets support connected components finite fields independent central edges",
+          "count maximal abelian subalgebras graph Lie algebra finite field domination polynomial connected components",
+          "Sriwongsa 2025 arxiv:2505.00726 Proposition 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent 22 graph-field enumerations for n≤3 and q=2,3; no name or coefficient table covering all graph orders",
+          "Source example: paw and C4 have same ordinary graph independence polynomial but distinct M_G(q,t)"
+        ],
+        "reasoning": "No exact table discovered that dominates an all-graphs, all-prime-powers coefficient enumerator. Reproducing small graphs does not establish global originality by itself; the claimed contribution is the structural formula.",
+        "searches": [
+          "maximal abelian subalgebra count graph Lie finite field q weighted domination",
+          "graph Lie algebra maximal abelian subalgebra counting dominating sets support connected components finite fields independent central edges"
+        ]
+      },
+      "rationale": "The completed statement classifies and counts every embedded inclusion-maximal abelian subalgebra over any F_q in the independent-central-edge graph construction. Projective noncommuting-graph maximal independent sets are an equivalent abstract formulation (Sriwongsa Prop. 2.8), but they do not evaluate the graph-induced weighted domination polynomial. Aldi et al. define a Lie independence polynomial and prove upper dimension bounds, which are not this polynomial or its coefficients. DeCoste et al. analyze an abelian central direct-summand factor, not all embedded maximal commuting subspaces. The finite-field enumeration was compared with those mathematical objects rather than only shared graph/Lie vocabulary.",
+      "residual_risks": [
+        "Projective noncommuting-graph independence enumerations might encode the same numbers in a different graph-polynomial formalism; an unindexed explicit specialization cannot be ruled out.",
+        "Independent small-field computation verifies examples but not the all-q result without the proved component-functional lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CENSUS",
+          "evidence": "The Lie-theoretic independence polynomial counts cohomological independent objects; subalgebra result is dimension upper bound, not a maximal-ab-subalgebra weighted census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.19836",
+          "material_read": "Full 13-page OA PDF; Definition 22, Proposition 24 p6 and following examples examined",
+          "method": "web PDF text plus screenshot of p5",
+          "title": "Independence Polynomials of 2-step Nilpotent Lie Algebras",
+          "trigger": "Same graph-Lie construction and abelian subalgebra dimensions"
+        },
+        {
+          "assessment": "EQUIVALENT_ABSTRACT_CORRESPONDENCE_NOT_EXPLICIT_FORMULA",
+          "evidence": "Projective noncommuting graph records maximal abelian subalgebras as independent sets but lacks all-graph q-weighted domination coefficient theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.00726",
+          "material_read": "Full 18-page OA PDF; graph construction §1 and Proposition 2.8 §2 examined",
+          "method": "web PDF parsed text, first page screenshot; Proposition 2.8 located and compared",
+          "title": "Non-commuting graphs of projective spaces over central quotients of Lie algebras",
+          "trigger": "Maximal independent sets alias of maximal abelian subalgebras"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Central direct-summand factor and repeated-label graph metrics are not all inclusion-maximal embedded abelian subalgebras.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.09541",
+          "material_read": "Full OA PDF, abstract and §1 definitions of center vs derived abelian factor examined",
+          "method": "web PDF text and p0 screenshot",
+          "title": "Abelian Factors in 2-step Nilpotent Lie Algebras Constructed From Graphs",
+          "trigger": "Similar graph-built 2-step Lie algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural classification and coefficient-wise enumerator of maximal (not merely maximum-size) commuting subalgebras is a substantive missing invariant for graph two-step Lie algebras; it both refines the independence number and can distinguish graphs sharing an independence polynomial (the paw versus C4 example). The graph-domination weights and q parameter encode embedded multiplicity rather than rebranding existing independent-set counts; the result includes all finite graphs, characteristics and component structures.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2504.19836",
+    "https://arxiv.org/pdf/2505.00726",
+    "https://arxiv.org/pdf/2208.09541",
+    "Resultary query: graph Lie algebra maximal abelian subalgebra counting dominating sets support connected components finite fields independent central edges",
+    "Web query: count maximal abelian subalgebras graph Lie algebra finite field domination polynomial connected components"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality comparison; no guarantee of exhaustive historical priority.",
+    "No authorized scientific Git write, expert certification, or independent proof-assistant proof asserted."
+  ],
+  "residual_risks": [
+    "Projective noncommuting-graph independence enumerations might encode the same numbers in a different graph-polynomial formalism; an unindexed explicit specialization cannot be ruled out.",
+    "Independent small-field computation verifies examples but not the all-q result without the proved component-functional lemma."
+  ],
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each inclusion-maximal abelian subalgebra must contain the central edge space. The vanishing of every edgewise wedge of restricted coordinate functionals gives proportionality on induced active components. These proportionality lines exhaust each maximal abelian subspace precisely when its support dominates the graph; centralizer calculation proves both implications. Counting full-support projective lines establishes every coefficient. An independent finite-field checker exhaustively confirmed all \(75\) graphs on at most four vertices for each field size \(2,3,4,5\), including characteristic two and isolates. The proof, rather than these finite checks, establishes the arbitrary-graph arbitrary-prime-power result.
+## correctness
 
-**Originality — PASS within examined sources.** DeCoste–DeMeyer–Mainkar–Ray (arXiv:2208.09541, Section 2 and Theorem 2.11, and the sections on stars and cycles) study the central abelian direct factor, not inclusion-maximal commuting subalgebra counts. Aldi and collaborators (arXiv:2504.19836, abelian-dimension discussion and graph independence polynomial) provide a dimension connection but not the full finite-field maximal-subalgebra distribution. Sriwongsa (arXiv:2505.00726, Proposition 2.8) relates maximal independent sets in a projective noncommuting graph to maximal abelian subalgebras abstractly but does not enumerate those via the original graph's dominating induced supports. The published-record comparisons found no ranked identical claim, including queries for aliases and reduction to maximal isotropic linear subspaces. Residual risk: an older, differently named enumeration or an unindexed equivalence may exist, so external historical uniqueness remains unresolved.
+PASS
 
-**Value — PASS.** The result provides a natural complete classification of maximal abelian embedded subalgebras throughout an infinite graph-indexed Lie-algebra family over every finite field. The polynomial records the entire dimension distribution and connects algebra to weighted domination and induced-component statistics. Its leading dimension recovers the independence number, whereas the paw-versus-four-cycle example proves that the full census strictly refines that parameter and even the ordinary independence polynomial. Characteristic two and isolated vertices are included.
+Every inclusion-maximal abelian subalgebra contains the central edge space Z=F_q^E, so it corresponds to a maximal commuting linear vertex subspace U. The alternating bracket coefficient at each graph edge {i,j} is λ_i∧λ_j, requiring nonzero restricted coordinate functionals to be proportional along each connected component C of active support S. U therefore lies in W_S spanned by one all-nonzero-supported generator for each induced component, and maximality forces equality. An outside vertex with no S neighbor extends W_S, while domination forces the full centralizer in vertex space to equal W_S, proving maximality iff S dominates. The projective-line choices per component give (q-1)^{|S|-c(G[S])}; dimensions |E|+c, and max degree α(G) follows because representatives of components form independent sets and every maximum independent set dominates. Works for char 2, isolates and disconnected graphs. Independently enumerated all RREF vertex subspaces and literal centralizers for every graph on 1..3 labeled vertices over F_2,F_3 (22 graph-field cases), comparing against a separately coded dominating-set/component census. The asserted unrestricted formula rests on functional proportionality, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The completed statement classifies and counts every embedded inclusion-maximal abelian subalgebra over any F_q in the independent-central-edge graph construction. Projective noncommuting-graph maximal independent sets are an equivalent abstract formulation (Sriwongsa Prop. 2.8), but they do not evaluate the graph-induced weighted domination polynomial. Aldi et al. define a Lie independence polynomial and prove upper dimension bounds, which are not this polynomial or its coefficients. DeCoste et al. analyze an abelian central direct-summand factor, not all embedded maximal commuting subspaces. The finite-field enumeration was compared with those mathematical objects rather than only shared graph/Lie vocabulary.
+
+## value
+
+PASS
+
+A complete natural classification and coefficient-wise enumerator of maximal (not merely maximum-size) commuting subalgebras is a substantive missing invariant for graph two-step Lie algebras; it both refines the independence number and can distinguish graphs sharing an independence polynomial (the paw versus C4 example). The graph-domination weights and q parameter encode embedded multiplicity rather than rebranding existing independent-set counts; the result includes all finite graphs, characteristics and component structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
