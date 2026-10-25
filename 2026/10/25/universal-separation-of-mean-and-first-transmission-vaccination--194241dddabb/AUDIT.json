@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For each vaccinated path vertex, unique-path connectivity yields M=1+2[F(a)+F(b)]/(n-1), with strictly increasing discrete increments of F. A first secondary infection occurs iff an incident residual edge is open, so R=[L(a)+L(b)]/(n-1), where L counts endpoints and internal vertices. Exact positive differences p², 2p-p² force distinct risk minimizers, while discrete convexity forces central mean minimizers. All trees of size at most four are paths or a star, and the star center minimizes both. An independently written rational bond-configuration enumerator reproduces both identities and all optimizer sets at 162 test cases; this finite test does not prove the all-n statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. (2015) use a distinct model of two noninteracting populations, with vaccine-allocation objectives over expected size and outbreak-size thresholds.",
+        "Holme (2017) studies node vaccination rankings in continuous-time SIR with expected final size but not probability of any onward infection as a second vaccination objective."
+      ],
+      "reasoning": "A general exact path theorem for either objective in the stated independent-bond model would dominate the corresponding part of this claim. Inspected primary sources motivate the contrast without providing both path optimizer classifications or the sharp first-disagreement size.",
+      "searches": [
+        "optimal vaccination target minimize probability of any secondary transmission versus expected outbreak size tree path five nodes",
+        "doi:10.1371/journal.pone.0115826 Alternate Cost Functions",
+        "arxiv:1708.06456 vaccination and results"
+      ]
+    },
+    "checked_sources": [
+      "Yuan et al., PLOS ONE 10 (2015), e0115826, doi:10.1371/journal.pone.0115826",
+      "Holme, Physical Review E 96 (2017) 062305, arXiv:1708.06456"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yuan et al. show conceptually that epidemic-size thresholds and mean criteria can prescribe different vaccine allocations, but do not infer the percolation-path center-versus-penultimate theorem.",
+        "Holme proves results under constant infection and recovery rates and evaluates vaccination by expected outbreak only, so its results do not imply the probability-of-a-secondary-infection optimizer."
+      ],
+      "reasoning": "The prior result that alternative loss functions may disagree is stronger as broad qualitative motivation but weaker as an exact all-transmissibility path classification; the stated structural formulas are not a corollary of the inspected statements. The theorem does not claim that disagreement of vaccine objectives itself is new.",
+      "searches": [
+        "doi:10.1371/journal.pone.0115826 fig 10 Alternate Cost Functions",
+        "arxiv:1708.06456 §§II–III and figs 3–7",
+        "2015 stochastic vaccination alternate cost functions versus 2017 exact small graph node importance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At fixed vaccination the final-size epidemic is the independent-bond seed-cluster on the residual path, so any equivalent result would determine both seed-cluster mean and the probability of a non-singleton cluster.",
+        "Holme (2017), arXiv:1708.06456, compares expected outbreak, influence maximization and sentinel timing rather than the non-singleton-cluster risk."
+      ],
+      "reasoning": "Checked the seed-cluster, any-secondary-transmission, immunization-location and random-source equivalents. The inspected comparisons do not give simultaneous mean and first-transmission optimizers on all paths, but equivalent unlocated results may exist.",
+      "searches": [
+        "five vertex path vaccination expected outbreak size probability any onward secondary infection different optimal vertices middle next to middle",
+        "path graph immunization minimize chance at least one secondary infection versus average epidemic size",
+        "arxiv:1708.06456 §§II–III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holme exhaustively studies connected graphs through seven vertices but its tables compare three different objectives under continuous-time SIR and do not list this pair of independent-bond optimization criteria.",
+        "Yuan et al. present population allocation diagrams rather than an exhaustive table of optimal path vertices."
+      ],
+      "reasoning": "No exact table of paired path optimizer sets was located in inspected literature. This absence is a search limit and not proof of novelty.",
+      "searches": [
+        "single vaccinated vertex path average component size probability outbreak larger than one position optimal",
+        "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "Optimal Vaccination in a Stochastic Epidemic Model of Two Non-Interacting Populations"
+      ]
+    },
+    "rationale": "The 2015 original article already motivates the difference between mean-based and tail-based vaccination goals; that broad qualitative distinction is not claimed as new. The narrower complete universal-in-p optimizer theorem for independent-bond transmission on paths, together with its sharp five-vertex tree boundary, is not implied by the inspected sources. Searches of published mathematical records and previously available claims returned no equivalent finite-path theorem; this remains best-knowledge originality rather than a global uniqueness guarantee.",
+    "residual_risks": [
+      "A preexisting theorem on path node deletion optimizing the non-singleton component probability could imply the result under alternative terminology.",
+      "The primary literature on targeted immunization is large, and only especially close works were read in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes policy relevance and objective divergence in a different large-population SIR allocation model; does not cover exact vertex optimization on paths",
+        "evidence": [
+          "Published 17 February 2015; Alternate Cost Functions discusses expected size versus no further infection and threshold risk; Figure 10 treats populations of 500 and 1000."
+        ],
+        "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115826",
+        "material_read": "Online full article: abstract, introduction/model, optimization discussion, Alternate Cost Functions, Figure 10 captions and discussion",
+        "method": "Read text of primary lawful open-access article",
+        "title": "Optimal Vaccination in a Stochastic Epidemic Model of Two Non-Interacting Populations",
+        "trigger": "Direct alternative vaccination objectives including probability of no additional infections"
+      },
+      {
+        "assessment": "Defines node vaccination by mean outbreak under continuous-time SIR; its additional node-importance criteria are different; not the present independent-bond two-loss comparison",
+        "evidence": [
+          "Section II.A defines vaccination by expected outbreak; II.B defines continuous-time infection and recovery; Sections III.A–C compare vaccination against influence and sentinel surveillance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06456",
+        "material_read": "Open-access preprint text pp. 1–7: introduction, definitions and SIR model, calculation method, results and structural predictors",
+        "method": "Read and inspect primary preprint full text and page layout",
+        "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "trigger": "Highly relevant complete small-graph node-vaccination analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "194241dd-dabb-494b-b409-190a24a7f4e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A practitioner choosing one vaccine on a chain faces two natural objectives: expected infected count and risk of any onward infection. The theorem characterizes both exactly for all path lengths and transmissibilities, identifies a sharp smallest tree where they disagree, and quantifies the five-node cost-risk tradeoff. This is a structural separation across whole parameter ranges, not a small numeric gain or an arbitrary example. Scope excludes realistic heterogeneity and correlation.",
+    "status": "PASS"
+  }
+}
