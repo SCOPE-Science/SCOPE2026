@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact facet projections, bivariate Gaussian absolute-product integration and sign-overlap binomial counting establish the mean and second-moment identities. Exact even sign moments, a fourth-order uniform Taylor remainder, a Hoeffding tail bound and a Stirling gamma-ratio expansion rigorously yield \\(d^3\\operatorname{Var}(B_d)\\to1/(3\\pi)\\). 132 standalone finite diagnostics include vertex-hull comparisons; they supplement but do not prove the uniform theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kabluchko–Litvak–Zaporozhets (2015), arXiv:1511.08479, §3.2–3.3 computes moments of *line-projection length* and Gumbel width limits.",
+        "Ivanov, arXiv:1808.09165, §§1–7 analyzes fixed-subspace extremizers, not the spherical second moment."
+      ],
+      "reasoning": "Line projection width, high-codimension extremal projection, and the Haar hyperplane-volume statistic are different functionals; their claims give no direct implication of the stated variance asymptotic.",
+      "searches": [
+        "moment variance random crosspolytope hyperplane projection",
+        "orthogonal projection hyperarea regular cross-polytope distribution moments variance Gaussian random orientation",
+        "On the volume of projections of the cross-polytope Ivanov arxiv:1808.09165"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1302.6164",
+      "https://arxiv.org/abs/1511.08479",
+      "https://arxiv.org/html/1808.09165v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth–Lángi, arXiv:1302.6164, equation (1) gives a directional translative hull-volume increment, which motivates the measured geometric functional but no second-moment evaluation.",
+        "Kabluchko–Litvak–Zaporozhets, arXiv:1511.08479, eqs. (21)–(27) discuss random line widths; the input random variable is \\(2\\max_i|U_i|\\), not the hyperplane brightness \\(\\mathbb E_\\varepsilon|\\varepsilon\\cdot U|\\).",
+        "Ivanov, arXiv:1808.09165, §1 distinguishes hyperplane projection extrema; its theorem concerns optimizing directions, not Haar variance."
+      ],
+      "reasoning": "The closest results supply projection formulas, moment techniques, and extremal context but do not assert stronger variance or all-dimensional moment coverage implying this claim. Some spherical covariance identity could specialize to the finite moment, so the novelty emphasis is the sharp evaluated third-order cancellation.",
+      "searches": [
+        "Horváth Lángi On the volume of the convex hull of two convex bodies arxiv:1302.6164",
+        "Kabluchko Litvak Zaporozhets 2015 mean width higher moments regular cross polytope",
+        "Grigory Ivanov 2018 volume projections crosspolytope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cauchy projection formula identifies normalized brightness with the spherical Rademacher absolute mean; the exact claim includes the evaluated third-order cancellation.",
+        "No investigated source gave this exact all-dimensional binomial sum together with the \\(1/(3\\pi)\\) coefficient."
+      ],
+      "reasoning": "The Rademacher representation is an exact equivalence, searched under both geometric and probabilistic terminology. Classical Khintchine inequalities bound the functional but do not fix its spherical variance to third order.",
+      "searches": [
+        "crosspolytope hyperplane projection brightness full spherical variance all dimensional moment",
+        "Khintchine functional uniform sphere variance asymptotic dimension expected absolute sum",
+        "mean square brightness crosspolytope random projection hyperplane variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite dimensional \\(d=2\\) normalization matches \\(\\mathbb EB_2^2=1/2+1/\\pi\\); computations for higher dimensions were separately generated from the stated formula.",
+        "No indexed table with all-dimensional \\(d^{-3}\\) hyperplane-brightness variance emerged from these searches."
+      ],
+      "reasoning": "Numerical tables and elementary planar cases would not alone imply an exact all-dimensional identity or its strictly positive sharp asymptotic constant. Absence from search is not proof of priority.",
+      "searches": [
+        "cross-polytope hyperplane projection area variance binomial arcsin",
+        "spherical Rademacher first absolute moment variance exact formula table",
+        "regular cross-polytope brightness second moment exact"
+      ]
+    },
+    "rationale": "The derived object is the \\((d-1)\\)-volume of a cross-polytope projected onto a Haar-random hyperplane, rather than its line width or an extremal projection volume. The analytic binomial second moment and the sharp \\(d^{-3}\\) variance coefficient were not implied by the investigated source statements. Priority uncertainty remains for earlier general brightness-covariance literature.",
+    "residual_risks": [
+      "A previously published general covariance identity for brightness of polytopes might contain the finite formula as a specialization without naming the cross-polytope.",
+      "Independent historical-priority verification, including older integral-geometric literature not indexed in the searches, remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Volume increment is classical; no all-dimensional random-direction variance or sharp asymptotic is established there.",
+        "evidence": [
+          "arXiv version dated 2013-02-25; eq. (1) expresses convex-hull volume using orthogonal projection volume."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.6164",
+        "material_read": "Full article as accessible in arXiv rendered HTML, especially §1, Theorems 1–4, eq. (1), §4.",
+        "method": "Read complete rendered article text and compare its deterministic and extremal claims to a spherical second-moment statement.",
+        "title": "On the volume of the convex hull of two convex bodies",
+        "trigger": "A direct structural link from random brightness to random translative convex-hull volume."
+      },
+      {
+        "assessment": "The projection is onto a line; the source width statistic is not hyperplane-projection volume. No implication of the claimed variance coefficient was located.",
+        "evidence": [
+          "§3.1 defines \\(W_K\\) as random line-projection length.",
+          "Example 3.4 and Theorem 3.7 concern the maximum of absolute Gaussian coordinates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+        "material_read": "Rendered full article, particularly §§1, 3.1–3.3, 6 and formulas (21)–(27),(53).",
+        "method": "Inspected geometric definitions and compared random projected dimension; searched moment and hyperplane terminology.",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "The title and §3 explicitly describe higher moments for random projected regular cross-polytopes."
+      },
+      {
+        "assessment": "Fixed-direction extrema and tight-frame optimization do not imply uniform spherical brightness second moments.",
+        "evidence": [
+          "§1 states extrema of lower-dimensional projection volumes; hyperplane case is a known extremal case.",
+          "No use of variance or expected spherical brightness occurs in the accessible rendered text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.09165v3",
+        "material_read": "HTML full text material: Introduction, §§2–4,6–7 and theorem statements; searchable document text for expectation/variance/average/brightness.",
+        "method": "Examined body, projection codimensions and stated extremal results.",
+        "title": "On the volume of projections of the cross-polytope",
+        "trigger": "Same cross-polytope and projection-volume function in a relevant later primary paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7302b14c-66b8-4be1-a13a-c94d2840a270",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hyperplane brightness governs the geometric growth of the hull of a translated convex body. The all-dimensional moment law and strictly positive sharp cubic variance-decay coefficient reveal cancellation of constant, first and second order terms under random orientation; this is a structurally motivated asymptotic distinction not captured by extremal projection-volume inequalities.",
+    "status": "PASS"
+  }
+}
