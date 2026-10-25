@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T01:53:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the oriented top-boundary Gram matrix B^T B=mI-ss^T, rank m-1 and unique relation sum s_i v_i=0. Even m=2k yields the orthogonal free sum of two centered regular (k-1)-simplices, dimension m-2; facets indexed by A x B, each normal has squared norm (m-2)/(2m), giving unique inradius sqrt(2m/(m-2)) and circumradius sqrt(m(m-2)). Symmetry and irreducibility yield spherical John and Loewner shapes. Odd m=2k+1: s-sum epsilon is nonzero, so simplex dimension m-1; barycentric normal g_i=(e_i-epsilon*s_i*1)/m has lengths sqrt(m-1)/m (majority) and sqrt(m+3)/m (minority). Summed facet inequalities give unique inradius 2m/[(m+1)sqrt(m-1)+(m-1)sqrt(m+3)]. Averaging the majority vertices proves the unique enclosing sphere radius m*sqrt((m-1)/(m+1)), with strict minority squared clearance 4m/(m+1). Restricted linear map L on 1-perp has singular values 1 and m (multiplicities 1,m-2), giving displayed anisotropic John/Loewner semiaxes and common center c_J. Independently reconstructed L, affine ranks, SVD singular axes, odd screen clearance, and even circumradius numerically m=3..15 in local standalone check; not an infinite proof. Source tree, RESULT.md, METADATA.json, AUDIT.json inspected by exact Git blobs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Juhnke-Kubitzke and Köhne treat Laplacian polytopes of arbitrary simplicial complexes but develop combinatorial facets, triangulations and Ehrhart structure, not the canonical-metric John/Loewner ellipsoids.",
+          "Braun–Meyer graph Laplacian simplices and Resultary vertex-transitive graph formula concern different objects/invariants."
+        ],
+        "reasoning": "A broader class-of-complexes title does not entail metric formulas; examined theorem statements and proofs for implications. General John theorem guarantees existence/uniqueness but not these dimensions, radii and complete contact sets.",
+        "searches": [
+          "Laplacian polytopes boundary simplex top Laplacian Euclidean inradius John Löwner ellipsoid odd even parity minimum enclosing sphere",
+          "top Laplacian polytope of simplex boundary Euclidean John Loewner inradius circumradius",
+          "arXiv:2301.11602",
+          "Resultary/2026:2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76"
+        ]
+      },
+      "checked_sources": [
+        "Juhnke-Kubitzke–Köhne arXiv:2301.11602 primary full PDF",
+        "Braun–Meyer Laplacian simplices (relevant graph setting, citation in source)",
+        "Resultary 2026-10-11 vertex-transitive graph Laplacian simplex RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior simplex-boundary facets and matrices supply useful inputs to the audited calculations; they do not by themselves assert the Euclidean incenter, screening, or m:1 ellipsoid anisotropy.",
+          "Odd case singular values 1,m on the original Euclidean spaces are required, absent from combinatorial affine identifications."
+        ],
+        "reasoning": "Claim is a metric refinement, not a renaming of the published parity combinatorial classification; background linear map is explicitly credited.",
+        "searches": [
+          "Laplacian polytopes boundary simplex top Laplacian Euclidean inradius John Löwner ellipsoid odd even parity minimum enclosing sphere",
+          "top Laplacian polytope of simplex boundary Euclidean John Loewner inradius circumradius",
+          "arXiv:2301.11602",
+          "Resultary/2026:2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Juhnke-Kubitzke and Köhne, arXiv:2301.11602 Sections 4-5 identify the simplex-boundary Laplacian and combinatorial parity; affine/lattice equivalence alone does not preserve original Euclidean norm.",
+          "Resultary graph Laplacian simplices result assumes a connected vertex-transitive graph and L1=0, unlike top-boundary Ls=0 with odd affine simplex and even free sum."
+        ],
+        "reasoning": "Checked full top-boundary Gram and intrinsic metric against prior affine type, graph Laplacian simplex pseudoinverse formulas, and the distinction between John/Löwner ellipsoids versus circum/inballs; neither cited result states or immediately implies the odd/even Euclidean contact/axes classification.",
+        "searches": [
+          "Laplacian polytopes boundary simplex top Laplacian Euclidean inradius John Löwner ellipsoid odd even parity minimum enclosing sphere",
+          "top Laplacian polytope of simplex boundary Euclidean John Loewner inradius circumradius",
+          "arXiv:2301.11602",
+          "Resultary/2026:2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2301.11602 full article includes parity structural diagrams and facet descriptions, but not a metric table of enclosing radii or ellipsoid semiaxes.",
+          "Resultary semantic searches returned cographic/Kneser/Boolean-polytopal John-Loewner metrics on different families."
+        ],
+        "reasoning": "An exact polytope table or generic database would not substitute the infinite m-parity parametric metric theorem; found no indexed exact table covering this original embedding.",
+        "searches": [
+          "Laplacian polytopes boundary simplex top Laplacian Euclidean inradius John Löwner ellipsoid odd even parity minimum enclosing sphere",
+          "top Laplacian polytope of simplex boundary Euclidean John Loewner inradius circumradius",
+          "arXiv:2301.11602",
+          "Resultary/2026:2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76"
+        ]
+      },
+      "rationale": "Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Claim is a metric refinement, not a renaming of the published parity combinatorial classification; background linear map is explicitly credited.",
+      "residual_risks": [
+        "A differently worded canonical Euclidean simplex-boundary metric result in an inaccessible author thesis or unindexed publication could predate this classification.",
+        "Numerical m=3..15 checks corroborate but do not replace proof for all m; identity and symmetry arguments supply infinite statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Gram matrix, parity and combinatorial/Ehrhart structure; no original-Euclidean inball/minimum sphere/full ellipsoid classification found in inspected material",
+          "evidence": [
+            "Theorem 5.3 simplex-boundary family; Lemma 4.10 parity combinatorial structure"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11602",
+          "material_read": "Primary full 23-page PDF; introduction and structural simplex-boundary discussions in Sections 4-5 including Lemma 4.10 and Theorem 5.3; visually checked relevant PDF page",
+          "method": "arXiv lawful full-text PDF reading and displayed page",
+          "title": "Laplacian polytopes of simplicial complexes",
+          "trigger": "Same top Laplacian matrix and simplex boundary in title and proof"
+        },
+        {
+          "assessment": "Different graph L with kernel 1 and (n-1)-simplex; does not classify simplex-boundary top Laplacian free sum and odd screening",
+          "evidence": [
+            "Graph formula R=sqrt(k(k+1)), r=(n sum nonzero lambda^-2)^-1/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "material_read": "Full RESULT.md read from Git blob, including theorem, graph Laplacian hypotheses, spectral inradius proof",
+          "method": "GitHub primary mathematical file",
+          "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+          "trigger": "Related published graph Laplacian radii may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural top-dimensional Laplacian polytope of the simplex boundary has a parity-dependent affine dimension and contact geometry. Complete Euclidean extremal ball and canonical ellipsoid data in the unaltered ambient metric give useful sharp baseline invariants invisible under combinatorial/unimodular equivalence. Particularly odd minority vertex screening and distinct insphere/circumsphere/John centers are nonroutine geometric facts, beyond mere finite recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently worded canonical Euclidean simplex-boundary metric result in an inaccessible author thesis or unindexed publication could predate this classification.",
+    "Numerical m=3..15 checks corroborate but do not replace proof for all m; identity and symmetry arguments supply infinite statement.",
+    "No repository writes, dispatcher closeout or publication undertaken; not_ready is a confidentiality/transport status, not a negative scientific verdict."
+  ],
+  "schema_version": 1
+}
