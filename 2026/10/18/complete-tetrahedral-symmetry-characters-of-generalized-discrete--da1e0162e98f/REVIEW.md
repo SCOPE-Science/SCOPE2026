@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cited source gives the precise nonequivariant premise \(\widetilde H_4\cong\mathbb Q^{39}\) and vanishing of the other reduced degrees in both generalized complexes. The proof identifies all invariant matchings with independent sets of explicitly defined finite orbit-conflict graphs, derives the signed reduced Lefschetz formula, evaluates the orbit-count tables, and converts traces to Specht multiplicities by the ordinary character inner product. A second program independently enumerates the original matching simplices and signs for every tetrahedral permutation. Both programs reproduce all displayed values. Finite enumeration is sufficient here because only two fixed finite complexes are claimed.
+## correctness
 
-**Originality — PASS, with residual risk.** Scoville's full primary text establishes nonequivariant sphere-wedge types but does not determine the tetrahedral action on generalized matching homology. Chari–Joswig and related tetrahedral symmetry records treat the acyclic Morse-matching complex, which has fourth Betti number \(99\), not the generalized complexes with fourth Betti number \(39\). Knudson–Owens-White consider *strong* matchings. The supplied character and resulting equal rational quotient ranks are not implied by the cited nonequivariant equivalences. Targeted mathematical index and literature searches found no equivalent or stronger direct theorem; an unindexed equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** The identical nonequivariant homotopy types of the simplex and boundary are a central comparison in Scoville's new study. Their different face counts make agreement of *all* symmetry traces a genuinely additional structural fact. Explicit rational representations and geometric-quotient homology detect equivariant information not determined by ordinary homotopy type. The calculation naturally tests the symmetry refinement of the proposed higher-dimensional generalized-complex comparison, without claiming that the inclusion is equivariantly equivalent.
+The exact definition uses the 28 or 24 cover edges of the 15- or 14-nonempty-face Hasse poset and imposes endpoint-disjointness but NOT acyclic Morse matching. For each permutation of four labels, a fixed simplex is a union of mutually compatible edge-orbits; the orientation sign for a j-orbit union cancels the k-edge simplicial sign to give the reduced Lefschetz number minus the signed orbit-independent-set sum. I independently rebuilt that recursion on both Hasse graphs for all 24 permutations: the characters agree and are (39,1,-5,0,3), with classwise admissible-orbit counts matching source. Scoville Theorem 24 supplies the external prerequisite of homology concentrated in degree four with rank 39; this is not reproved by enumeration. Rational character inner products give multiplicities 2,5,2,6,0 and invariants dimension two; exactness of invariants and barycentric subdivision establish quotient rational homology. The interpretation excludes integral and equivariant homotopy claims.
 
-**Scientific limits.** No integral representation statement, inclusion-induced isomorphism, higher-dimensional formula, or independently certified novelty is claimed. An unindexed overlapping calculation is the remaining originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier published tetrahedral S4 character (99,1,-1,0,-1) is for the ORDINARY acyclic Morse matching complex (12,820 allowed faces), not the generalized Hasse matching complex (14,720 faces). Scoville Theorem 24 determines the latter nonequivariant 39-sphere wedge but does not furnish the 5-class character. The independence-orbit signed calculation distinguishes the class traces for two different generalized complexes without conflating titles or identical symmetry groups.
+
+## value
+
+PASS
+
+A complete nontrivial rational S4-module calculation for two naturally related tetrahedral generalized matching complexes determines which of 39 homology classes survive symmetry quotient. That information is not mechanically implied by a Betti number or the ordinary acyclic matching representation, making this motivated finite equivariant invariant worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

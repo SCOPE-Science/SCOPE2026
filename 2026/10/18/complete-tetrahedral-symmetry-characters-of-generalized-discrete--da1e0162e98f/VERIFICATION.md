@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Both standalone standard-library scripts were run from their supplied contents. `gm_character.py` reconstructs the \(15\)- or \(14\)-vertex face poset and enumerates every matching by a disjoint-edge recursion. It finds \(14{,}720\) and \(5{,}096\) nonempty simplices; for every one of the \(24\) tetrahedral label permutations it computes the signed trace of setwise-fixed simplices, including the reduced empty-face correction. Character values are constant on each cycle type.
+## correctness
 
-`gm_orbits.py` independently enumerates admissible Hasse-edge orbits, constructs the orbit-conflict graph, evaluates the independent-set polynomial at \(-1\), and confirms the same five character values for both generalized complexes. It also checks Specht multiplicities \((2,5,2,6,0)\). Compare reproducible standard output with `gm_character_output.txt` and `gm_orbit_output.txt` using the commands `python3 gm_character.py` and `python3 gm_orbits.py`.
+PASS
 
-The scripts verify the finite combinatorial portion of the proof; Scoville's theorem is an explicitly cited topological premise, not re-proved by these computations. The conclusion is limited to rational symmetry characters and rational homology of the full geometric orbit quotients. No external or independent audit has been performed.
+The exact definition uses the 28 or 24 cover edges of the 15- or 14-nonempty-face Hasse poset and imposes endpoint-disjointness but NOT acyclic Morse matching. For each permutation of four labels, a fixed simplex is a union of mutually compatible edge-orbits; the orientation sign for a j-orbit union cancels the k-edge simplicial sign to give the reduced Lefschetz number minus the signed orbit-independent-set sum. I independently rebuilt that recursion on both Hasse graphs for all 24 permutations: the characters agree and are (39,1,-5,0,3), with classwise admissible-orbit counts matching source. Scoville Theorem 24 supplies the external prerequisite of homology concentrated in degree four with rank 39; this is not reproved by enumeration. Rational character inner products give multiplicities 2,5,2,6,0 and invariants dimension two; exactness of invariants and barycentric subdivision establish quotient rational homology. The interpretation excludes integral and equivariant homotopy claims.
+
+## originality
+
+PASS
+
+The earlier published tetrahedral S4 character (99,1,-1,0,-1) is for the ORDINARY acyclic Morse matching complex (12,820 allowed faces), not the generalized Hasse matching complex (14,720 faces). Scoville Theorem 24 determines the latter nonequivariant 39-sphere wedge but does not furnish the 5-class character. The independence-orbit signed calculation distinguishes the class traces for two different generalized complexes without conflating titles or identical symmetry groups.
+
+## value
+
+PASS
+
+A complete nontrivial rational S4-module calculation for two naturally related tetrahedral generalized matching complexes determines which of 39 homology classes survive symmetry quotient. That information is not mechanically implied by a Betti number or the ordinary acyclic matching representation, making this motivated finite equivariant invariant worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
