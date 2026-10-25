@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and ordinary three-cut face criterion are explicit. The independent face enumeration gives 143 disconnected induced triples, 143 facets, 7,878 nonempty simplices and 50,076 Hasse incidences. `verify_paley13.py` reconstructs the fixed-order 3,936-pair matching, proves acyclicity by a complete topological sort of the reversed matched incidence graph, and computes the **signed integral** Morse differential with both columns \((-1,-1,1)\). A primitive rank-one matrix on a CW complex consisting of one vertex, three seven-cells and two eight-cells implies exactly \(S^7\vee S^7\vee S^8\), since attaching maps \(S^7\to\bigvee^3S^7\) are classified by their degree vectors. A separate Alexander-dual verifier checks the predicted rational/modular ranks. It alone would not rule out integral torsion; the exact integral matching calculation does. Correctness risk: the computational proof is independently reproducible but has not received external mathematical review.
+## correctness
 
-## Originality — PASS (qualified)
-The foundational ordinary cut paper `arXiv:2304.13675` gives definitions, graph-family results and a complete-codimension-one-skeleton criterion. That criterion does not apply: there are only 637 of 715 possible eight-dimensional faces. The sequel `arXiv:2407.08158` addresses disjoint unions, squared paths and grids. The cycle-power studies `arXiv:2406.01979` and `arXiv:2603.23155` address different graph families. The indexed thirteen-vertex Paley open-neighborhood result is for a different complex; the published ordinary three-cut results for the cuboctahedral and icosahedral graphs concern different graphs and have different wedge multiplicities. Searches also covered connected-triple Alexander duals, quadratic-residue circulants and strongly regular parameters. No previously published implication was identified that yields this exact Paley homotopy type. Novelty risk: an unindexed or differently named equivalent computation cannot be ruled out by search alone.
+PASS
 
-## Mathematical value — PASS
-The Paley graph \(P_{13}\) is the canonical thirteen-vertex quadratic-residue strongly regular graph, not an ad hoc sliced graph. Its ordinary three-cut complex is a natural invariant in a currently developed family of graph complexes. The determination of an **integral mixed-dimensional** homotopy type, and the resulting failure of shellability in a pure nine-dimensional complex, is stronger than a face count, a field Betti calculation or a slight numerical improvement. It contrasts with shellable cut complexes of cycle powers and with the different already classified Paley open-neighborhood invariant. Scope risk: the theorem is confined to this natural finite instance and does not claim a general Paley family or automorphism-character formula.
+Independently rebuilt P13 Cayley adjacency residues {1,3,4,9,10,12}, verified 143 disconnected triples/facets and 7878 nonempty faces. Independently reproduced the prescribed 3936-pair sequential-vertex matching with 6 critical cells and full global Hasse acyclicity; integer Morse boundary C8→C7 has identical primitive columns (-1,-1,1), giving one unimodular cancellation, two 7-spheres and an unattached 8-sphere. All attaching maps S7→∨3S7 classified by degree vectors in this range. Homology in degrees7 and8 below pure top degree9 obstructs pure shellability. Package Alexander-dual mod2/multiple prime ranks are only corroboration, not proof of integrality; the exact signed integer matrix proves absence of torsion.
 
-## Related literature and remaining limits
-Primary materials inspected were the freely accessible full-text HTML presentations of `arXiv:2209.13503`, `arXiv:2304.13675`, `arXiv:2407.08158`, `arXiv:2406.01979` and `arXiv:2603.23155`, including definitions, main theorems and applicable graph-family hypotheses. Historical material was used only to exclude claim overlap, not to reassess previous conclusions. The exact current finite computations are available as standalone scripts with deterministic expected output.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer et al arXiv:2304.13675 full paper inspected; it defines ordinary k-cut complexes and treats complete multipartite graphs, chordal/cycle graphs, general face-lattice and low-dimensional bounds. Theorem 6.1 requires complete codimension-one skeleton; in Paley13 the 8-dimensional face count 637 is less than all 715 possibilities, so this specific inference is unavailable. Resultary searches for ordinary P13 Δ3 and mixed S7/S8 returned other graphs or P13 neighborhood complex, not identical objects. Other Paley13 open-neighborhood/cut-type variants use different simplex predicates.
+
+## value
+
+PASS
+
+This exact finite strongly regular graph has a nontrivial mixed-dimensional integral sphere wedge and sharp non-shellability obstruction. P13 is canonical and the ordinary-vs-total cut distinction is meaningful; computing a primitive 3x2 attaching matrix settles homotopy rather than mere characteristic. A natural exact topology invariant of a graph not covered by general shellability families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
