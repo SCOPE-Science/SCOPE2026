@@ -1,15 +1,21 @@
-# Scientific assessment: Pappus two-independence topology
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite claim uses a fully explicit 18-vertex cubic graph, a precise induced-degree-at-most-one face definition, and an exhaustive face check. The standalone `verify_morse.py` verifies 20,651 faces, 10,319 pairs, 120,222 cover relations, and a complete directed topological sort establishing acyclicity. Its signed integer Morse differential has two opposite rows with entries including \(1\); the single elementary divisor is exactly \(1\), so there is no integral torsion. Since the Morse CW model has cells only in dimensions zero, five, and six and the attaching group in degree five is identified with homology by Hurewicz, the elementary unit cancellation establishes \(\bigvee^{9}S^5\vee S^6\). A separate direct mod-two boundary-rank computation agrees, but mod-two evidence by itself would not establish the integral result.
+## correctness
 
-## Originality — PASS, subject to residual search risk
-Actual semantic mathematical-record searches included the exact phrases “Pappus graph 2-independence complex Ind_2(Pappus) homotopy S5 9 wedge S6”, “Pappus configuration Levi graph induced components size at most two 2-matching vertex complex integral homology”, and “Pappus 2-independent sets forbidden induced P3 homology”. The closest indexed claims determine the *ordinary* Pappus independence or matching complexes or the two-independence complex of the *Petersen* graph. Their implications do not establish the present value-two Pappus result. Deshpande and Singh's 2020 primary work classifies multipartite, whiskered, path, cycle and perfect rooted tree families, not Pappus. Sawant's 2026 primary work treats trees, and Ghosh–Selvaraja's 2025 primary work has been inspected at its introduction and main theorem summaries, which address chordal and graph-attachment families rather than the cubic nonchordal Pappus instance. These substantive scope differences support non-coverage, but unindexed earlier work remains possible. This is a bounded bibliographic finding, not a claim that database search proves uniqueness.
+PASS
 
-## Mathematical value — PASS
-The Pappus graph is a canonical Levi graph of a finite incidence configuration. The first higher-independence extension is a natural motivated invariant, especially because known classifications for trees and chordal graphs do not describe this graph. The exact two-degree mixed wedge \(\bigvee^9S^5\vee S^6\) is a structural homotopy computation, not a small arbitrary numeric improvement. It reveals the collapse of a nonpure nine-dimensional complex to a highly connected six-dimensional CW model and supplies a reproducible nonchordal comparison case. Its scope is finite but its object and invariant have independent mathematical motivation.
+The graph is the explicitly listed 18-vertex, 27-edge, cubic Pappus graph, and Ind2(P) consists of vertex sets whose induced components each have ≤2 vertices, equivalently max induced degree ≤1. My independent 2^18-subset face enumeration yields exactly 20651 nonempty faces and the listed ten-coordinate f-vector (18,153,762,2394,4806,6027,4428,1728,308,27), with high-dimensional nonpurity. The fixed pivot sequence gives 10319 nonempty-face matching pairs and precisely one critical vertex, ten critical 5-cells and two 6-cells. Orienting all 120222 nonempty face-poset cover edges and exhausting a topological order checks the matching has no gradient cycle. Integer unit-incidence elimination yields Morse ∂6 with rows [-1,0,0,-1,-1,0,0,0,0,0] and the exact negative, rank1 and unit invariant factor. Therefore integral reduced H5=Z^9,H6=Z, other reduced homology zero. With no Morse cells of degrees1–4, its 5-skeleton is wedge10 S5; pi5 equals H5 by Hurewicz, so the one primitive attaching degree cancels a 5/6-cell pair and the remaining 6-cell attaches trivially. Hence integral homotopy ≃ wedge9 S5 ∨ S6 for precisely this graph.
 
-## Closest literature and limits
-The cited 2020, 2025 and 2026 primary studies define and develop higher-independence complexes but provide no equivalent Pappus-specific homotopy statement in the material inspected. The closest published Pappus graph calculation uses the ordinary independence complex, which is a different face condition. The computation is finite, the potential bibliographic gap remains, and no independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph and parameter Ind2 must both match. Known Pappus ordinary independence is wedge10 S4, not Ind2. The literature on higher independence complexes gives major graph-family classifications (trees, multipartite, paths etc), but the canonical cyclic cubic incidence graph does not fall into them. Targeted Resultary search found no same object/parameter mixed wedge; this remains a best-of-knowledge verdict with an unindexed-census risk.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical 18-vertex cubic Levi/incidence graph; the natural induced-degree-one/higher independence complex is a standard invariant. Its exact mixed-dimensional integral homotopy with a nonzero critical 6-cell, verified nonpurity and torsion-free result is neither mechanically inferred from its ordinary independence calculation nor a textbook exercise. The explicit finite natural invariant is a useful benchmark for higher independence and Morse topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
