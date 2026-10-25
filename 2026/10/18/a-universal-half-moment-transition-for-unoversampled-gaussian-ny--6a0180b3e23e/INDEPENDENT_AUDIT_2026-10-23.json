@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T04:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because Y=D^(1/2)G has codimension one, its missing normal is proportional to D^(-1/2)g for Haar-spherical g in kernel(G^T); the PSD residual is D^(1/2)hh^T D^(1/2) of rank one with unique eigenvalue L=(sum g_i^2/lambda_i +g_r^2/epsilon)^-1. With t=g_r and q(u)=sum_(i<r)u_i^2/lambda_i, t has density c_r(1-t^2)^((r-3)/2) and L=[(1-t^2)q+t^2/epsilon]^-1. Dominated convergence yields subcritical s<1/2 moment epsilon^s E|t|^-2s; at s=1/2 integration over |t|~sqrt(epsilon) gives c_r sqrt(epsilon) log(1/epsilon); for s>1/2 the substitution t=sqrt(epsilon)v gives c_r B(1/2,s-1/2) sqrt(epsilon) E q^(1/2-s). Fixing y<min lambda_i makes tail event a shrinking band |t|<sqrt(epsilon) sqrt(1/y-q), giving the claimed tail coefficient. The uniform circle integral at r=2 evaluates exactly to sqrt(lambda epsilon). Independent 250,000-sample sphere tests for r=3, lambda_1=lambda_2=1 gave E[L]=.1480005 vs leading .1570796 at epsilon=.01 and E[L]=.0487985 vs .0496729 at epsilon=.001; ratios approach one. Analytic proof, not samples, establishes the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reviewed nearby broad theoretical results and their stated hypotheses/conclusions.",
+          "Deterministic structural and worst-case approximation bounds, not the exact rank-one Haar residual moment trichotomy"
+        ],
+        "reasoning": "The broad method or limit does not prove this exact conclusion under the record hypotheses without additional nontrivial steps. Any full-text-access exception and possible implicit stronger theorem are retained as risks.",
+        "searches": [
+          "Gaussian Nyström rank r matrix r-1 sketch columns spectral residual one weak eigenvalue moment half critical sqrt epsilon",
+          "Persson Boullé Kressner Randomized Nyström approximation non-negative self-adjoint operators theorem 2.1 2.4 oversampling"
+        ]
+      },
+      "checked_sources": [
+        "Revisiting the Nyström Method for Improved Large-Scale Machine Learning | https://www.jmlr.org/papers/volume17/gittens16a/gittens16a.pdf",
+        "Randomized Nyström Approximation of Non-negative Self-Adjoint Operators | https://doi.org/10.1137/24M165082X",
+        "Assigned frozen RESULT.md blob ade5291598a2d55a95cd9a5a6a73ec3e3669e902"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard Nyström decomposition does not itself provide the explicit half-moment phase transition. General positive-oversampling estimates do not automatically specialize to the singular zero-oversampling regime, but the unavailable full Persson paper prevents definitive exclusion of implicit coverage.",
+          "Section 1 identifies determinant structural and worst-case error guarantees as main technical output",
+          "SIAM abstract promises expected error and tail bounds in three norms"
+        ],
+        "reasoning": "Explicit premise/conclusion comparison: Standard Nyström decomposition does not itself provide the explicit half-moment phase transition. General positive-oversampling estimates do not automatically specialize to the singular zero-oversampling regime, but the unavailable full Persson paper prevents definitive exclusion of implicit coverage.",
+        "searches": [
+          "Gaussian Nyström rank r matrix r-1 sketch columns spectral residual one weak eigenvalue moment half critical sqrt epsilon",
+          "Persson Boullé Kressner Randomized Nyström approximation non-negative self-adjoint operators theorem 2.1 2.4 oversampling",
+          "\"Randomized Nyström approximation of non-negative self-adjoint operators\" pdf arxiv pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source(s) compare an alternate but mathematically related formulation.",
+          "Standard Nyström decomposition does not itself provide the explicit half-moment phase transition. General positive-oversampling estimates do not automatically specialize to the singular zero-oversampling regime, but the unavailable full Persson paper prevents definitive exclusion of implicit coverage."
+        ],
+        "reasoning": "Standard Nyström decomposition does not itself provide the explicit half-moment phase transition. General positive-oversampling estimates do not automatically specialize to the singular zero-oversampling regime, but the unavailable full Persson paper prevents definitive exclusion of implicit coverage.",
+        "searches": [
+          "Gaussian Nyström rank r matrix r-1 sketch columns spectral residual one weak eigenvalue moment half critical sqrt epsilon",
+          "Persson Boullé Kressner Randomized Nyström approximation non-negative self-adjoint operators theorem 2.1 2.4 oversampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned nearby but not exact statement; primary searches identified analysis and methodological literature rather than an exact indexed database/table."
+        ],
+        "reasoning": "This task gives exact analytic formulas and classifications, not a lookup in a standard enumerated database; an unindexed equivalent formula remains possible.",
+        "searches": [
+          "Gaussian Nyström rank r matrix r-1 sketch columns spectral residual one weak eigenvalue moment half critical sqrt epsilon",
+          "\"Randomized Nyström approximation of non-negative self-adjoint operators\" pdf arxiv pdf"
+        ]
+      },
+      "rationale": "Standard Nyström projector identity and Haar normal are not novel. Persson-Boullé-Kressner (2025) derive Gaussian Nyström norm guarantees with positive oversampling in the quoted principal theorems; their publisher page was accessible only through abstract/metadata, and arXiv full-text retrieval failed. Gittens-Mahoney (2016) provide deterministic and oversampled Gaussian bounds but no matching fixed rank-(r-1), one-small-eigenvalue exact spherical residual distribution and half-moment asymptotic in the inspected portions. Moment transition constants may be mechanically extractable from older angular-statistics integrals; no directly dominating exact theorem found, and this priority risk is retained.",
+      "residual_risks": [
+        "Full Persson-Boullé-Kressner theorem statements and appendices were inaccessible at this run; a stronger overlapping bound could change priority assessment.",
+        "The inverse spherical quadratic form is a classical transformation; old directional-statistics literature could cover an equivalent moment law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic structural and worst-case approximation bounds, not the exact rank-one Haar residual moment trichotomy",
+          "evidence": [
+            "Section 1 identifies determinant structural and worst-case error guarantees as main technical output",
+            "Section 2 defines SPSD eigenpartition and projected sketch blocks"
+          ],
+          "identifier_or_url": "https://www.jmlr.org/papers/volume17/gittens16a/gittens16a.pdf",
+          "material_read": "Primary 65-page PDF, overview and preliminary sections on pp.1-4 including SPSD spectral partition and sketch notation; main bounds located by paper outline, not exhaustively read",
+          "method": "Publisher OA full PDF parsed text and p.4 screenshot",
+          "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+          "trigger": "same SPSD Nyström approximation and Gaussian projection errors"
+        },
+        {
+          "assessment": "Cannot claim whole-document noncoverage; abstract discusses norm bounds and tail guarantees, not named exact half-moment theorem; material risk",
+          "evidence": [
+            "SIAM abstract promises expected error and tail bounds in three norms",
+            "Oxford reported vpn_disconnected; no full paper content obtained"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/24M165082X",
+          "material_read": "Publisher abstract, bibliography and summary only; arXiv/OA full text not returned; institutional retrieval blocked",
+          "method": "SIAM landing page; attempted arXiv HTML and Oxford authorized tool, which returned vpn_disconnected",
+          "title": "Randomized Nyström Approximation of Non-negative Self-Adjoint Operators",
+          "trigger": "very close Gaussian Nyström same approximate operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unoversampled Nyström is a genuinely important difficult regime where leading expected-error bounds can be misleading: typical error is O(epsilon), but E[L] is O(sqrt(epsilon)), causing an epsilon^-1/2 expected approximation factor. The complete moment trichotomy identifies the rare-event mechanism and exactly delineates which error summaries can be extrapolated, supplying a nontrivial testing benchmark beyond a routine projector restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Revisiting the Nyström Method for Improved Large-Scale Machine Learning | https://www.jmlr.org/papers/volume17/gittens16a/gittens16a.pdf",
+    "Randomized Nyström Approximation of Non-negative Self-Adjoint Operators | https://doi.org/10.1137/24M165082X",
+    "Assigned frozen RESULT.md blob ade5291598a2d55a95cd9a5a6a73ec3e3669e902"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "access": "Literature-access limitations and inspected page/section ranges are stated exactly in axes.originality.source_inspections.",
+    "scientific": [
+      "Full Persson-Boullé-Kressner theorem statements and appendices were inaccessible at this run; a stronger overlapping bound could change priority assessment.",
+      "The inverse spherical quadratic form is a classical transformation; old directional-statistics literature could cover an equivalent moment law."
+    ],
+    "scope": "Claims hold only under final RESULT.md hypotheses; no extrapolation past the stated limits."
+  },
+  "residual_risks": [
+    "Full Persson-Boullé-Kressner theorem statements and appendices were inaccessible at this run; a stronger overlapping bound could change priority assessment.",
+    "The inverse spherical quadratic form is a classical transformation; old directional-statistics literature could cover an equivalent moment law."
+  ],
+  "schema_version": 1
+}

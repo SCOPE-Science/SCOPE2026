@@ -1,11 +1,21 @@
-# Scientific review: Gaussian Nyström near-rank-deficiency moments
+# Independent mathematical audit
 
-**Correctness — PASS.** In the positive-rank support, the Gaussian matrix has an almost-surely one-dimensional left kernel with a Haar-uniform normal. Conjugating the orthogonal residual projector by the positive square root of the spectrum gives the exact rank-one error and the inverse spherical quadratic-form law. Spherical disintegration fixes the last-coordinate density; dominated convergence applies below moment order \(1/2\), rescaling at \(|t|\asymp\sqrt\varepsilon\) applies above it, and the marginal order gives a logarithmic transition exactly at \(1/2\). The positivity and uniform boundedness of the remaining inverse eigenvalues justify averaging over anisotropic directions. The rare-event formula follows by solving the conditional one-coordinate inequality. The exact planar mean follows from an elementary angular integral. The standalone checker tests matrix reconstruction identities and representative formulas but is not the infinite-dimensional-quantifier proof.
+## correctness
 
-**Originality — PASS, with residual risks.** The closest fully read technical sources are Persson–Boullé–Kressner's Gaussian Nyström paper (arXiv:2404.00960, §2.2) and Tropp–Yurtsever–Udell–Cevher's streaming Nyström supplement (2017, Appendix A). Their expectation guarantees compare to eigenvalue tails under positive oversampling or optimize over smaller effective comparison ranks, respectively; neither implies the sharp unoversampled near-rank defect moment profile and its full anisotropic coefficients. Gittens–Mahoney's Gaussian projection estimates and Carson–Daužickaitė's mixed-precision analysis supply related error inequalities, not this equality. The exact spherical reduction is not, by itself, asserted original: distribution theory for uniform-sphere quadratic forms is older. Relevant older spherical-density work and possibly unindexed equivalent formulations remain risks; targeted searches cannot establish absolute absence.
+PASS
 
-**Value — PASS.** The zero-oversampling case is a natural algorithmic boundary not covered by the principal oversampled expectation theorems. This theorem exhibits a sharp mismatch between fixed-quantile performance, which is order \(\varepsilon\), and expected error, which is order \(\sqrt\varepsilon\), with explicit universal half-order moment transition and constants for arbitrary fixed leading spectra. The precise \(\sqrt\varepsilon\) large-error event probability explains the degradation rather than simply supplying a finite numerical counterexample. No claim is made about alternate algorithms or multiple small eigenvalues.
+Because Y=D^(1/2)G has codimension one, its missing normal is proportional to D^(-1/2)g for Haar-spherical g in kernel(G^T); the PSD residual is D^(1/2)hh^T D^(1/2) of rank one with unique eigenvalue L=(sum g_i^2/lambda_i +g_r^2/epsilon)^-1. With t=g_r and q(u)=sum_(i<r)u_i^2/lambda_i, t has density c_r(1-t^2)^((r-3)/2) and L=[(1-t^2)q+t^2/epsilon]^-1. Dominated convergence yields subcritical s<1/2 moment epsilon^s E|t|^-2s; at s=1/2 integration over |t|~sqrt(epsilon) gives c_r sqrt(epsilon) log(1/epsilon); for s>1/2 the substitution t=sqrt(epsilon)v gives c_r B(1/2,s-1/2) sqrt(epsilon) E q^(1/2-s). Fixing y<min lambda_i makes tail event a shrinking band |t|<sqrt(epsilon) sqrt(1/y-q), giving the claimed tail coefficient. The uniform circle integral at r=2 evaluates exactly to sqrt(lambda epsilon). Independent 250,000-sample sphere tests for r=3, lambda_1=lambda_2=1 gave E[L]=.1480005 vs leading .1570796 at epsilon=.01 and E[L]=.0487985 vs .0496729 at epsilon=.001; ratios approach one. Analytic proof, not samples, establishes the claim.
 
-Independent verification has not been performed. Scope: real Gaussian, exact arithmetic, one weak positive eigenvalue, one-dimensional Nyström residual.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard Nyström projector identity and Haar normal are not novel. Persson-Boullé-Kressner (2025) derive Gaussian Nyström norm guarantees with positive oversampling in the quoted principal theorems; their publisher page was accessible only through abstract/metadata, and arXiv full-text retrieval failed. Gittens-Mahoney (2016) provide deterministic and oversampled Gaussian bounds but no matching fixed rank-(r-1), one-small-eigenvalue exact spherical residual distribution and half-moment asymptotic in the inspected portions. Moment transition constants may be mechanically extractable from older angular-statistics integrals; no directly dominating exact theorem found, and this priority risk is retained.
+
+## value
+
+PASS
+
+Unoversampled Nyström is a genuinely important difficult regime where leading expected-error bounds can be misleading: typical error is O(epsilon), but E[L] is O(sqrt(epsilon)), causing an epsilon^-1/2 expected approximation factor. The complete moment trichotomy identifies the rare-event mechanism and exactly delineates which error summaries can be extrapolated, supplying a nontrivial testing benchmark beyond a routine projector restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
