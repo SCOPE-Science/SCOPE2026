@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the eight-net incidence theorem
 
-The claim is proved geometrically in `RESULT.md`; the following checks are independent finite reproductions, not independent external validation.
+# Independent mathematical audit
 
-Run from this directory:
+## correctness
 
-```sh
-python3 verify_coefficients.py > coefficient_output.replay.txt
-python3 verify_geometry.py > geometry_output.replay.txt
-cmp coefficient_output.txt coefficient_output.replay.txt
-cmp geometry_output.txt geometry_output.replay.txt
-```
+PASS
 
-The first script enumerates 63 nonzero binary ternary conics; checks the exact characteristic-two smoothness discriminant and all 2D and 3D all-smooth subspaces; and enumerates all 168 projective automorphisms to confirm net transitivity. It obtains 28 smooth conics, 56 smooth pencils, eight nets, the 28 pairwise one-conic intersections and stabilizer order 21.
+I reconstructed the geometry in the fixed 6-dimensional binary quadratic-form space. Among the 63 nonzero forms exactly 28 have nonzero characteristic-2 discriminant. There are 22 nonrational degree-3 Frobenius point orbits in P2(F8); 14 lie on F2-lines and 8 are noncollinear. Vanishing on each of those 8 triangles gives a 3-dimensional all-smooth net; any smooth conic has exactly two noncollinear Frobenius triangles among its 9 F8 points. Bezout prohibits two distinct conics containing the same two triangles, forcing a K8 edge bijection. Rational base-point incidence 9=3b+(7-b) gives b=1 for an all-smooth pencil, the remaining degree-3 base orbit gives a unique containing net, hence exactly 56 pencils. Seven pairwise-intersecting edges form a star, exhausting the nets and excluding dimensions >=4. The PGL3(F2) group of order 168 acts transitively (stabilizer 21). Independent full finite coefficient enumeration of 63 forms found 28 smooth conics, all 56 pencils, all 8 nets, 28 pairwise 1-dimensional net intersections and unique containment, corroborating the finite theorem. The F8 singular-line argument, not an F8-only point search, underlies geometric smoothness.
 
-The second script implements \(\mathbf F_8=\mathbf F_2[t]/(t^3+t+1)\) independently; constructs its 73 projective points; confirms 22 degree-three Frobenius orbits, with 14 collinear and eight noncollinear; independently checks all 28 smooth conics for absence of singular points; and establishes the two-net incidence and unique-pencil correspondence with the rational base point. Absence of geometric singularities is established by the proof, not inferred solely from points over \(\mathbf F_8\).
+## originality
 
-No complete independent audit was performed. Comparison with inaccessible archival literature has a residual priority risk, described in `AUDIT.json`.
+PASS
+
+PASS best of knowledge for the complete eight-net K8 incidence, all 56 pencil extensions and complete classification only. Asgarli–Ghioca already furnish one net, 28 conics and the dimension bound; a Frobenius-triple construction appears in Zanella. Those known components are expressly excluded from novelty. An inaccessible Zanella full text and uninspected historic classifications leave material priority risk, but no located statement implies the full incidence refinement.
+
+## value
+
+PASS
+
+The maximal all-smooth subspaces of the smallest characteristic-two conic coefficient space form a canonical complete K8 incidence geometry. The exact membership of each conic in two nets, uniqueness of extension for each pencil, and group orbit sharpen an established existence/maximality problem into an intrinsic complete finite classification. These are motivated structural relationships, not an arbitrary isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
