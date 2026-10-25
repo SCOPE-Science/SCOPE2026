@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:58:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Gamma/inverse parity equivalence with both integer solution formulas and exclusivity. For m=p^e odd and E the even reduced residues, the exact sum S=(p-1)(p^(2e-1)+1)/4 satisfies 4S congruent p-1 modulo p^e and is a unit. An output period t induces a multiplicative E-stabilizer b^{-t}; summing forces b^{-t}=1, so N=phi(m) divides t; N itself is a period. The unique order-two unit -1 swaps parity, proving half-period anti-symmetry and balance. Independent exact checks covered 240 primitive-root cases for prime powers <=500 plus spotchecks of both Diophantine alternatives. Finite computations corroborate but are not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Qi 2008 proves recovery of maximal length p^e sequences from reduction modulo any M with a prime factor different from p, covering M=2 for odd p.",
+          "Theorem 8 in Wang–Hu 2015 reproves Zhu–Qi modular-compression injectivity for primitive recurrences.",
+          "Xu–Qi 2006 treats l-sequences when base 2 is primitive; this independently covers only that subfamily, not p^e=49 with primitive base 3."
+        ],
+        "reasoning": "The strongest comparison is the published general injectivity of the modulo-two observation of maximal-length sequences, not the more obvious base-2 reciprocal period literature. That implication would subsume arbitrary primitive generators and all prime-power moduli. The old Gamma paper itself only gives the period divisor and is not a covering source; the prime-modulus/primitive-base-2 literature only partly covers.",
+        "searches": [
+          "Zhu and Qi, On the distinctness of modular reductions of maximal length sequences modulo odd prime powers (2008), DOI:10.1090/S0025-5718-08-02075-9",
+          "Wang and Hu, arXiv:1303.0926v4, Section 3.5, Theorem 8",
+          "Xu and Qi, arXiv:cs/0601024, Theorem 1",
+          "Bourgain, Cochrane, Paulhus, Pinner (2009), Decimations of l-Sequences and Permutations of Even Residues mod p"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned source Git tree 239eb42fb812d8e9ae2adf3f685c290999d6c0b6, eight exact Git blobs and contents",
+        "Chu et al. arXiv:2609.08728v1, Theorems 1.2,4.1",
+        "Zhu and Qi, Mathematics of Computation 77 (2008) published abstract and DOI",
+        "Wang and Hu, arXiv:1303.0926v4 complete 42-page PDF (relevant p.1–4,36,42 material read)",
+        "Xu and Qi, arXiv:cs/0601024, Theorem 1",
+        "Bourgain et al., 2009, even residue multiplier rigidity",
+        "Thippireddy and Chalasani, arXiv:0712.0411 abstract only",
+        "Three direct Resultary searches for inverse parity, least significant bit, and primitive odd prime powers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chu et al. Theorem 4.1 bounds Gamma word period by ord_m(b), and Theorem 1.2 characterizes Gamma by inverse parity. Those statements alone do not force equality.",
+          "Zhu–Qi compression injectivity implies: if parity(s(i+t))=parity(s(i)) for all i then s(i+t)=s(i) for all i, whence b^t=1 mod p^e and N divides t. This is precisely the claimed exact-period conclusion.",
+          "The half-period complement follows from primitive b^{N/2}=-1, an elementary residual symmetry, not a separately original full-period theorem."
+        ],
+        "reasoning": "The submitted least-period theorem is logically a special case of published modular-reduction injectivity when the degree-one primitive power sequence is admitted; the prior 2008 theorem is described universally for maximal-length sequences. The degree-one domain needs explicit acknowledgement because the accessible 2015 reproof fixes n>1; the 2008 complete source could not be retrieved. On the available best-of-knowledge evidence, the broad earlier 2008 result dominates the asserted new period fact, making a positive originality judgment unjustified.",
+        "searches": [
+          "arXiv:2609.08728v1, Theorems 1.2 and 4.1",
+          "Zhu–Qi 2008 DOI:10.1090/S0025-5718-08-02075-9 abstract; Wang–Hu arXiv:1303.0926v4 Theorem 8",
+          "Xu–Qi arXiv:cs/0601024, full accessible paper",
+          "Thippireddy–Chalasani arXiv:0712.0411 abstract only"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted Gamma(m,c)=1 exactly when the least positive inverse c^{-1} mod m is even; hence the word is the mod-2 compression of the multiplicative sequence b^{-i} mod p^e.",
+          "Zhu-Qi 2008 establishes injectivity of modulo-M reductions of maximal-length sequences over odd prime-power rings for every M with a prime factor distinct from p; published abstract contains no degree-one exception.",
+          "Wang–Hu arXiv:1303.0926v4, Theorem 8 (Zhu-Qi), explicitly states entropy preservation of x mod M for primitive polynomials when M is not a p-power."
+        ],
+        "reasoning": "The correct alias is parity compression of a maximal-length modular multiplicative recurrence, not the Diophantine equation title. For primitive b, s(i)=b^{-i} mod p^e has exact period N, generated by the degree-one primitive polynomial X-b^{-1}; a shorter parity period would identify distinct cyclic shifts after reducing mod 2. The Zhu–Qi entropy-preserving statement is a substantially more general injectivity principle. The later Wang–Hu exposition assumes recurrence degree n>1 globally, so the original 2008 article is essential to degree-one application; its unrestricted published abstract is strong evidence for coverage, but its inaccessible full text is specifically logged as a residual risk.",
+        "searches": [
+          "Resultary: least significant bit binary sequence primitive root modulo odd prime powers full period Euler phi and half period complement",
+          "Resultary: Diophantine equations Gamma(a,b^i) primitive root p^e exact least output period parity modular inverses",
+          "Resultary: multiplicative congruential generators odd prime power parity sequences full period primitive element d-sequence generalized m sequence",
+          "Wang and Hu, arXiv:1303.0926v4, Introduction and Theorem 8 (Zhu-Qi)",
+          "Zhu and Qi, Math. Comp. 77 (2008), 1623–1637, DOI:10.1090/S0025-5718-08-02075-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A167791 lists moduli with base 2 primitive; it is not an all-primitive-generator equality table.",
+          "The submitted example m=49,b=3 has period 42 while ord_49(2)=21; it is outside primitive-base-2 tables.",
+          "Exact finite checks of chosen primitive bases in the assigned verify.py are examples, not exhaustive evidence of theorem originality."
+        ],
+        "reasoning": "No exact external table for arbitrary primitive b was identified. The decisive prior comparison instead comes from the general recurrence/compression theorem, which implies the infinite family without numerical tabulation; an absent database row cannot restore novelty.",
+        "searches": [
+          "OEIS:A167791 maximal binary reciprocal periods and primitive base two",
+          "Resultary three targeted semantic searches above",
+          "2008 modular-compression distinctness theorem and 2015 complete arXiv reproof"
+        ]
+      },
+      "rationale": "Strong prior coverage was found under the equivalent terminology of modular reductions of maximal-length primitive sequences: Zhu and Qi (Math. Comp. 2008) establish injectivity of reduction modulo M for odd prime-power recurrences and M not a p-power. For M=2, the period of the reduced degree-one primitive sequence cannot be shorter than the original period, giving this exact-period claim once the conventional degree-one instance is admitted. Wang–Hu 2015, Theorem 8, fully restates and reproves the dominating modular compression principle. A degree-one scope caveat remains because that exposition globally assumes n>1, and complete 2008 text could not be accessed; this is not represented as a claim of having read the original article. Even independently, classical base-2 and prime cases are established prior art. The submitted full-period assertion does not survive as an independently new theorem on the available published-coverage evidence.",
+      "residual_risks": [
+        "Zhu–Qi 2008 complete original could not be materially inspected; full theorem may specify a recurrence-degree restriction not visible in the abstract. Wang–Hu 2015 Theorem 8 is stated in a paper that globally assumes n>1, while the submitted word is degree one.",
+        "The 2007 recursive d-sequence paper was abstract accessible only and a protected full-text attempt returned a safety block; no bypass or retries occurred.",
+        "Classic base-2 reciprocal periods and prime-modulus parity word results cover large proper subfamilies independently of the 2008 general injectivity comparison.",
+        "A self-contained new proof of a known consequence does not establish novelty of the period claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 1.2 establishes inverse parity; Theorem 4.1 only establishes a period dividing multiplicative order.",
+          "identifier_or_url": "arXiv:2609.08728v1; https://arxiv.org/abs/2609.08728",
+          "material_read": "Complete public preprint text available; checked definitions, Theorems 1.2 and 4.1, and Section 4 proof",
+          "method": "Public arXiv HTML/PDF text and page inspection",
+          "title": "Generalizing a Pair of Diophantine Equations",
+          "trigger": "Original Gamma(a,b^i) solvability predicate and upper-bound period theorem"
+        },
+        {
+          "assessment": "STRONG_PRIOR_COVERAGE_WITH_DEGREE_ONE_DOMAIN_RISK",
+          "evidence": "Published abstract asserts injectivity of modulo-M reductions for any two maximal-length sequences generated by the same polynomial, with M having a prime factor distinct from p; choosing M=2 gives the needed compression principle unless original theorem imposes an unobserved n≥2 restriction.",
+          "identifier_or_url": "Zhu and Qi, Mathematics of Computation 77 (2008), 1623–1637; DOI:10.1090/S0025-5718-08-02075-9",
+          "material_read": "Published abstract via indexed legitimate scholarly sources; complete article was not obtained (AMS/CiteSeerX PDF returned access denial)",
+          "method": "Bibliographic and indexed abstract inspection; comparison to full accessible 2015 exposition of Theorem 8",
+          "title": "On the distinctness of modular reductions of maximal length sequences modulo odd prime powers",
+          "trigger": "Potential dominating theorem for parity compression of primitive modular recurrences"
+        },
+        {
+          "assessment": "BROAD_MODULAR_COMPRESSION_COVERAGE_WITH_SCOPE_QUALIFICATION",
+          "evidence": "Theorem 8 states that x mod M is entropy-preserving when M is not a p-power; it credits Zhu–Qi 2008. Section 2 globally fixes n>1, so the degree-one multiplicative recurrence implication is inferred from the 2008 general abstract, not proved solely by Theorem 8 as printed.",
+          "identifier_or_url": "Wang and Hu, arXiv:1303.0926v4 (2015); https://arxiv.org/pdf/1303.0926",
+          "material_read": "Full 42-page PDF located; introduction pp.1–3, conventions p.4, Theorem 8 and its proof on p.36, and cited bibliography on p.42 materially read; other sections not exhaustively read",
+          "method": "Direct accessible preprint PDF text and rendered page 2 and page 36 inspection",
+          "title": "Injectivity w.r.t. Distribution of Elements in the Compressed Sequences Derived from Primitive Sequences over Z/p^e Z",
+          "trigger": "Lawful full-text independent exposition and proof of Zhu–Qi theorem"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "The published result requires 2 to be primitive modulo p^e; not enough to infer arbitrary primitive base at modulus 49.",
+          "identifier_or_url": "Xu and Qi, arXiv:cs/0601024 (2006)",
+          "material_read": "Accessible 10-page preprint; examined abstract, scope, Theorem 1 and underlying base-2 primitivity condition",
+          "method": "Public arXiv PDF text with rendered page screenshots",
+          "title": "Further Results on the Distinctness of Decimations of l-Sequences",
+          "trigger": "Possible earlier all-prime-power parity-decimation theorem"
+        },
+        {
+          "assessment": "RELEVANT_PRIME_MODULUS_BACKGROUND",
+          "evidence": "Analyzes even-residue permutations for prime moduli, including d=1 multiplier rigidity; does not by itself establish all odd prime powers.",
+          "identifier_or_url": "Bourgain, Cochrane, Paulhus and Pinner, SIAM J. Discrete Math. 23 (2009), DOI:10.1137/080737678",
+          "material_read": "Public manuscript inspected at introduction and the even-residue classification relevant to d=1",
+          "method": "Read scholarly PDF text and rendered pages",
+          "title": "Decimations of l-Sequences and Permutations of Even Residues mod p",
+          "trigger": "Even-residue multiplier stabilizers and cyclic sequence periods"
+        },
+        {
+          "assessment": "UNRESOLVED_SOURCE_RISK",
+          "evidence": "Abstract concerns exact periods of a recursive d-sequence-based generator; does not by itself establish or exclude equivalence.",
+          "identifier_or_url": "Thippireddy and Chalasani, arXiv:0712.0411 (2007)",
+          "material_read": "Public abstract only; full text not obtained",
+          "method": "Public abstract search; attempted authorized institutional route was blocked by safety checks; no bypass/retry",
+          "title": "Period of the d-Sequence Based Random Number Generator",
+          "trigger": "Potential all-generator d-sequence period coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original binary word is a natural exact-period invariant, and the even-unit moment offers a clean elementary certificate. But the asserted full-period conclusion is subsumed by the broad pre-existing modular-compression injectivity result, while the half-period complement and zero-one balance follow immediately from the unique involution -1 in the cyclic unit group. Under the final submitted claim there is no separately motivated unknown invariant, new classification, or boundary established beyond the prior theorem. Independent correctness and reproducibility do not alone make a covered specialization a valuable new mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned source Git tree 239eb42fb812d8e9ae2adf3f685c290999d6c0b6, eight exact Git blobs and contents",
+    "Chu et al. arXiv:2609.08728v1, Theorems 1.2,4.1",
+    "Zhu and Qi, Mathematics of Computation 77 (2008) published abstract and DOI",
+    "Wang and Hu, arXiv:1303.0926v4 complete 42-page PDF (relevant p.1–4,36,42 material read)",
+    "Xu and Qi, arXiv:cs/0601024, Theorem 1",
+    "Bourgain et al., 2009, even residue multiplier rigidity",
+    "Thippireddy and Chalasani, arXiv:0712.0411 abstract only",
+    "Three direct Resultary searches for inverse parity, least significant bit, and primitive odd prime powers"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The theorem concerns primitive b and odd prime-power p^e, e>=2. It does not classify nonprimitive generators or general odd composite moduli.",
+    "The 2008 original could not be read in complete text; scope interpretation of degree one relies on its unrestricted abstract and the later fully inspected exposition, whose convention assumes n>1.",
+    "Finite tests do not prove unbounded universality, while the source symbolic proof independently establishes correctness."
+  ],
+  "residual_risks": [
+    "Zhu–Qi 2008 complete original could not be materially inspected; full theorem may specify a recurrence-degree restriction not visible in the abstract. Wang–Hu 2015 Theorem 8 is stated in a paper that globally assumes n>1, while the submitted word is degree one.",
+    "The 2007 recursive d-sequence paper was abstract accessible only and a protected full-text attempt returned a safety block; no bypass or retries occurred.",
+    "Classic base-2 reciprocal periods and prime-modulus parity word results cover large proper subfamilies independently of the 2008 general injectivity comparison.",
+    "A self-contained new proof of a known consequence does not establish novelty of the period claim."
+  ],
+  "schema_version": 1
+}
