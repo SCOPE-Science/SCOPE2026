@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian KL formula reduces the claim to the eigenvalue functional \(F=ah-1-\log h-\ell\). Its second derivative in any single eigenvalue is strictly positive for every \(k\ge2\), using \(a\ge1/h\); this forces all endpoint spectra and proves all equality cases. The endpoint objective is a specified scalar function \(\Phi_K\), its unique stationary maximum follows from a strictly convex derivative with opposite endpoint signs, and exact matrix block inversion realizes every candidate with a nonzero Lanczos residual. Taylor expansions and a uniform large-condition-number bound establish the asymptotics; computer experiments are not used as proofs.
+## correctness
 
-## Originality — PASS with bibliographic risk
-Fifen, Karambal and Hennig, arXiv:2609.10080v1, Theorem 13, provide a nonsharp sufficient condition-number KL bound and introduce the trace-matched isotropic inverse-covariance bulk. Their inspected theorem does not optimize the finite-dimensional KL functional or identify the extremal multiplicities. Zhang et al., arXiv:2102.05485, investigate other KL-constrained Gaussian extremal questions, while Maze and Wagner, arXiv:0910.0948, give mean inequalities under two fixed means; neither inspected main theorem directly yields the present fixed-condition-number result. The Gaussian KL formula and arithmetic/harmonic mean inequalities are classical. An equivalent formulation in unindexed spectral mean inequalities remains possible.
+PASS
 
-## Value — PASS
-A trace-matched isotropic covariance is a precisely defined approximation used in numerical uncertainty quantification. Its condition-number penalty is a natural loss invariant. The exact dimension-sensitive envelope, equality spectra and coupling-compatible realization replace a sufficient quadratic condition-number estimate with a sharp asymptotically linear one. This can distinguish worst-case covariance fidelity from the behavior of typical spectra without implying end-to-end algorithm speed or calibration.
+PASS. The directed Gaussian KL from hI to B^(−1) reduces exactly to (k/2)(ah−1−ln h−ell), where a is arithmetic precision mean, h harmonic inverse mean, ell mean log precision. Scale eigenvalues into [1,K]; differentiating in one eigenvalue gives positive second derivative (1/k)[(1−2/k)/x²+1/(k h² x⁴)+2(a−h^(−1))/x³] for k≥2, so each maximizing eigenvalue is 1 or K. Interior constant spectra have zero divergence and are excluded for fixed K>1. For multiplicity t=m/k this yields precisely Phi_K(t), with unique interior continuous maximum by endpoint derivative signs and strict convexity of Phi′. The grid extremum, k→∞ envelope and K→1 and K→∞ limits follow. The explicit positive definite 2×2 Lanczos block with nonzero residual 1/2 and direct-sum B yields Schur complement diag(1,B), so its matched bulk achieves the same KL bound without artificial zero coupling. Independent floating-point arithmetic confirmed K=4,k=10,m=4 value D/k≈0.171078599745388 and sampled 300 random precision spectra for K=5, k=3,5,10 stayed below sharp limit. These tests supplement exact calculus.
 
-## Scope and evidence
-The theorem covers every integer \(k\ge2\), all real SPD precision matrices with prescribed condition number \(K>1\), and directed KL from isotropic approximate covariance to exact inverse covariance. Independently computed finite examples and explicit positive-definite constructions support but do not replace the analytic proof. No independent external validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after reading the motivating Fifen–Karambal–Hennig 2026 primary article, Section 4.3 Theorem 13 and its proof: it bounds KL by quadratic (K−1)^2/2 per coordinate, whereas the assessed theorem optimizes exactly over all finite spectra and classifies every extremizer, with O(K) large-K sharp growth. Related Gaussian KL comparison and classical harmonic/arithmetic mean literature do not directly state this fixed-condition-number joint mean/log objective. A prior unindexed spectral-mean extremal inequality remains a genuine risk.
+
+## value
+
+PASS
+
+PASS. The sharp KL loss of trace-matched isotropization is a natural information-geometric invariant in numerical covariance approximation. Replacing a loose quadratic-in-condition-number upper bound by a dimension-sensitive exactly attainable envelope, complete optimizer multiplicities and a genuine nonzero-residual Lanczos witness is useful to worst-case uncertainty analyses; it adds more than a routine numerical benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

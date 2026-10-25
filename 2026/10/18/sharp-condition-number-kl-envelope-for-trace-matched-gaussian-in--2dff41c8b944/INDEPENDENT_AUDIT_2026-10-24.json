@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T23:11:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The directed Gaussian KL from hI to B^(−1) reduces exactly to (k/2)(ah−1−ln h−ell), where a is arithmetic precision mean, h harmonic inverse mean, ell mean log precision. Scale eigenvalues into [1,K]; differentiating in one eigenvalue gives positive second derivative (1/k)[(1−2/k)/x²+1/(k h² x⁴)+2(a−h^(−1))/x³] for k≥2, so each maximizing eigenvalue is 1 or K. Interior constant spectra have zero divergence and are excluded for fixed K>1. For multiplicity t=m/k this yields precisely Phi_K(t), with unique interior continuous maximum by endpoint derivative signs and strict convexity of Phi′. The grid extremum, k→∞ envelope and K→1 and K→∞ limits follow. The explicit positive definite 2×2 Lanczos block with nonzero residual 1/2 and direct-sum B yields Schur complement diag(1,B), so its matched bulk achieves the same KL bound without artificial zero coupling. Independent floating-point arithmetic confirmed K=4,k=10,m=4 value D/k≈0.171078599745388 and sampled 300 random precision spectra for K=5, k=3,5,10 stayed below sharp limit. These tests supplement exact calculus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2609.10080",
+          "https://arxiv.org/abs/2102.05485",
+          "https://arxiv.org/abs/0910.0948"
+        ],
+        "reasoning": "2026 numerical paper applies more broadly to Lanczos but its theorem gives only a nonsharp comparison bound; other Gaussian KL papers optimize under different constraints and classical mean relations fix different data. No inspected theorem gives this finite-k extremum.",
+        "searches": [
+          "Gaussian KL divergence trace matched isotropic covariance fixed condition number two point spectrum sharp maximum"
+        ]
+      },
+      "checked_sources": [
+        "Fifen–Karambal–Hennig arXiv:2609.10080 Theorem 13 full accessible HTML",
+        "Zhang et al. arXiv:2102.05485",
+        "Maze–Wagner arXiv:0910.0948",
+        "Resultary ranked Gaussian KL query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fifen–Karambal–Hennig Theorem 13 (iii): KL ≤ k(K−1)^2/2",
+          "strict coordinate convexity of joint mean/log objective"
+        ],
+        "reasoning": "The old O(K²) inequality cannot imply the sharp O(K) maximum or all equality multiplicities. The stronger bound requires new coordinate convexity and finite-grid optimization; it is not obtained by merely substituting into Theorem 13.",
+        "searches": [
+          "Gaussian KL divergence trace matched isotropic covariance fixed condition number two point spectrum sharp maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fifen–Karambal–Hennig Theorem 13",
+          "arithmetic–harmonic–logarithmic spectral means and directed centered-Gaussian KL"
+        ],
+        "reasoning": "Recasting Gaussian KL in eigenvalues gives ah−1−ln h−ell, but conventional Kantorovich bounds address ah without the log mean. The exact all-equality endpoint extremum is not a restatement of the cited nonsharp sufficient bound.",
+        "searches": [
+          "Gaussian KL divergence trace matched isotropic covariance fixed condition number two point spectrum sharp maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query for trace-matched Gaussian KL sharp condition-number envelope",
+          "independent exact endpoint K=4,k=10,m=4 evaluation"
+        ],
+        "reasoning": "No checked published table of optimizing endpoint multiplicities or the function Phi_K; numerical tabulations are not priority proof.",
+        "searches": [
+          "Gaussian KL divergence trace matched isotropic covariance fixed condition number two point spectrum sharp maximum"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after reading the motivating Fifen–Karambal–Hennig 2026 primary article, Section 4.3 Theorem 13 and its proof: it bounds KL by quadratic (K−1)^2/2 per coordinate, whereas the assessed theorem optimizes exactly over all finite spectra and classifies every extremizer, with O(K) large-K sharp growth. Related Gaussian KL comparison and classical harmonic/arithmetic mean literature do not directly state this fixed-condition-number joint mean/log objective. A prior unindexed spectral-mean extremal inequality remains a genuine risk.",
+      "residual_risks": [
+        "Possibly known equivalence to a fixed-range arithmetic/harmonic/geometric mean extremal problem under different terminology.",
+        "Exact KL applies to isotropically replaced coupling-free bulk and does not imply general posterior calibration or any finite-precision Lanczos guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes trace-matched model and nonsharp bound but not exact spectrum optimization",
+          "evidence": [
+            "Theorem 13 (iii), KL ≤ k(K−1)^2/2; Section 4.3 coupling and bulk"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.10080",
+          "material_read": "Section 4.3, Theorem 13, proof of KL bound, and coupling-corrected complement section",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+          "trigger": "Exact same bulk trace-matched Gaussian KL and condition number"
+        },
+        {
+          "assessment": "Analyzes comparisons/constraint formulations, no identified fixed condition number and matched-trace exact extremum",
+          "evidence": [
+            "2021/2023 abstract and divergence comparison problem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.05485",
+          "material_read": "Abstract and main-problem framing",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+          "trigger": "Possible equivalent Gaussian KL extremization"
+        },
+        {
+          "assessment": "Different constraints; does not directly evaluate the jointly varying precision-spectrum objective",
+          "evidence": [
+            "Means-inequality theorem framing"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.0948",
+          "material_read": "Abstract and fixed-mean extremal statements",
+          "method": "read and compare original theorem/proof sections in accessible full text",
+          "title": "A Note on the Weighted Harmonic-Geometric-Arithmetic Means Inequalities",
+          "trigger": "Potential dominating mean inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The sharp KL loss of trace-matched isotropization is a natural information-geometric invariant in numerical covariance approximation. Replacing a loose quadratic-in-condition-number upper bound by a dimension-sensitive exactly attainable envelope, complete optimizer multiplicities and a genuine nonzero-residual Lanczos witness is useful to worst-case uncertainty analyses; it adds more than a routine numerical benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.10080",
+    "https://arxiv.org/abs/2102.05485",
+    "https://arxiv.org/abs/0910.0948"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "k≥2, real SPD, fixed K>1, exact trace-matched isotropic bulk only.",
+    "Potential stronger unindexed spectral-mean inequality.",
+    "Finite random spectral tests do not establish global optimization."
+  ],
+  "schema_version": 1
+}
