@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every k>=1, the explicit orthogonal Rayleigh vector bounds lambda2(I-P) by 2/[1+k(3+2sqrt(2))] for all feasible P, including non-orbit-uniform ones. The proposed positive edge probabilities saturate hub row budgets and make that vector a Laplacian eigenvector. The exact eigenvalue decomposition gives the negative-eigenvalue comparison. Equality in the min-Rayleigh quotient and hub constraints forces all individual edge weights and the unique P. Exact symbolic checks were executed for k=1..12 and 2000 nonuniform feasible matrices were tested, as supplementary checks only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd-Diaconis-Xiao 2004: FMMC as a general convex SDP with examples and heuristics; existence of a numerical SDP solution for each graph is not an explicit exact family formula.",
+        "Boyd-Diaconis-Parrilo-Xiao 2007: special solved classes include edge- and distance-transitive graphs, two joined complete graphs and complete binary trees, none equal to the balanced double-star family."
+      ],
+      "reasoning": "Arbitrary-graph optimization frameworks supply existence and numerical methods but no closed-form double-star optimum or global uniqueness statement. The best plausible adjacent case, two joined cliques, uses edges the present problem forbids. Inference of the tree optimum needs separate constrained minimization and proof.",
+      "searches": [
+        "Mathematical research-index query: fastest mixing Markov chains symmetric graph bridge barbell star friendship optimal transition probabilities",
+        "Mathematical research-index query: fastest mixing Markov chain balanced double star D_{k,k} two hubs degree k+1 leaf edges stochastic transition probabilities unique solution",
+        "web: fastest mixing double star graph reversible markov chain optimal edge weights",
+        "Stanford Boyd-Diaconis-Xiao-2004 pp 667-689",
+        "arXiv:0709.0955 full text including examples 4.3 and 5.3"
+      ]
+    },
+    "checked_sources": [
+      "Boyd-Diaconis-Xiao (2004) doi:10.1137/S0036144503423264",
+      "Boyd-Diaconis-Parrilo-Xiao (2007) arXiv:0709.0955v1",
+      "Sun-Boyd-Xiao-Diaconis (2006) doi:10.1137/S0036144504443821",
+      "Boyd-Diaconis-Sun-Xiao (2006) fastest mixing on a path",
+      "Jafarizadeh (2010) arXiv:1003.3543",
+      "Published mathematical finding 2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc (unrelated)",
+      "Accessible own archived FMMC clique-corona and 2004-2010 literature claim comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known n-path FMMC covers precisely k=1 (D_1=P_4).",
+        "ArXiv:0709.0955 optimizer for joined cliques has positive p2 internal weights, whereas those edges are absent on D_k.",
+        "Previous local finding concerns K_m corona one leaf at each clique vertex, m>=3; D_k has two hubs and k leaves at each, so neither graph family contains the other outside a boundary four-path.",
+        "Sun et al 2006 optimize continuous-time total edge rate, not discrete-time transition row sums and SLEM."
+      ],
+      "reasoning": "The present formula and uniqueness for every k>=2 are not corollaries of the known k=1 path, the previous clique-corona solution, the two-clique unconstrained formula, or continuous-time global-budget optimization. The 2007 block decomposition is methodologically close, and remains the primary plausible implicit-coverage risk.",
+      "searches": [
+        "Boyd-Diaconis-Sun-Xiao 2006 fastest mixing on path",
+        "arXiv:0709.0955 eqs (29) and section 5.3.4",
+        "Boyd-Diaconis-Xiao 2004 section 1 and general SDP",
+        "Sun-Boyd-Xiao-Diaconis 2006 continuous-time Markov rate budget",
+        "local accessible g000041 latest FMMC clique-corona finding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1003.3543 p1 explicitly defines fused stars as two stars sharing the same central node; the present D_k has two distinct hubs linked by a bridge.",
+        "arXiv:0709.0955 section 5.3.4 specifies an internal clique-edge probability p2 not permitted on D_k; setting p2=0 produces a spectral block but not their displayed optimal solution."
+      ],
+      "reasoning": "Sharing a central vertex, joining two cliques, and joining two stars by a bridge are inequivalent graphs; a general spectral block is not an optimized weight classification when the feasible edge set is restricted. The k=1 case is separately acknowledged as a known path.",
+      "searches": [
+        "Mathematical research-index query: fastest distributed consensus diameter 3 tree double star two stars connected by an edge optimal weights",
+        "Mathematical research-index query: FMMC dumbbell tree optimal SLEM two joined stars exact 1-2/(1+(3+2sqrt2)k)",
+        "arXiv:1003.3543 sections I-III",
+        "arXiv:0709.0955 sections 4.3.1 and 5.3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest retrieved published double-star record (2026/10/4/SCOPE-fort-hypergraph-and-fractional-zero-forcing-of-double-stars--6179dfc83bcc) concerns fractional zero forcing, not stochastic spectral mixing.",
+        "The closest explicit FMMC comparison is Boyd-Diaconis-Parrilo-Xiao arXiv:0709.0955, section 5.3.4, with a different feasible graph and an extra positive internal-edge class."
+      ],
+      "reasoning": "No retrieved table or mathematical record asserted the exact 2k+2-vertex stochastic optimizer. Missing search hits are not novelty proof; this is a bounded best-knowledge check only.",
+      "searches": [
+        "Mathematical research-index query: maximize algebraic connectivity budget weighted double star D_k two hubs k pendant leaves exact optimum 2B/(9k+1) spoke bridge",
+        "Mathematical research-index query: fastest mixing double star graph core bridge leaf spoke weights spectral gap Perron",
+        "Mathematical research-index query: FMMC dumbbell tree optimal SLEM two joined stars exact 1-2/(1+(3+2sqrt2)k)",
+        "web: fastest mixing Markov chain symmetric double star tree two stars joined edge optimal weights fastest convergence stochastic bridge"
+      ]
+    },
+    "rationale": "Compared exact objective, graph, feasible cone and values, not merely titles. The 2004 FMMC paper states general SDP and treats no closed-form balanced double stars; the 2007 symmetry paper treats two *cliques* joined by a bridge (an ambient supergraph) with positive optimal internal clique edges, not the zero-internal-edge-constrained optimum on a tree. Its spectral block formula at zero internal weight is relevant but does not by itself give the globally minimized constrained solution nor uniqueness without orbit restrictions. The 2006 path theorem covers k=1 only; the continuous-time rate-budget and common-center fused stars are different. Targeted Research-record searches and accessible same-family literature found no dominating explicit result; specialist unindexed work is a residual risk.",
+    "residual_risks": [
+      "An unindexed specialized study may have derived the same exact fastest-mixing formula for symmetric double stars.",
+      "The 2007 bridged-clique spectral block specializes to this graph at p2=0, so an implicit optimized restricted-case derivation not printed in the inspected source is a nonzero overlap risk.",
+      "The foundational study had a 2003 month-dated technical-report version with no exact verified public day; the earliest exact public source date used is 2004-10-29."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_DOUBLE_STAR",
+        "evidence": [
+          "p667 SLEM and nonnegative symmetric stochastic formulation; section 3 discusses numerical examples and maximum-degree/Metropolis methods; no double-star exact formula displayed.",
+          "p667 footnote electronically published 2004-10-29."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "23-page full-text PDF accessed; introduction, graph setup, method and examples inspected; first page visually inspected",
+        "method": "Publisher-author lawful open PDF",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Primary seminal exact objective and SDP; MSC90C22"
+      },
+      {
+        "assessment": "ADJACENT_SPECTRAL_DECOMPOSITION_NOT_OPTIMALITY_COVERAGE",
+        "evidence": [
+          "Section 4.3.1 p18 defines K_n-K_n with three edge types (including edges between same-side leaves).",
+          "Section 5.3.4 pp29-31 shows explicit positive p2 for clique edges and optimal full-clique SLEM; restricting to p2=0 changes the feasible graph and invalidates using this full-clique optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "39-page lawful full text accessed; introduction and sections 4.3.1, 5.3.4, equations (29)-(30) and explicit positive internal clique weights read",
+        "method": "Lawful arXiv OA PDF",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Two bridged clique networks and complete binary trees plausibly dominate double stars"
+      },
+      {
+        "assessment": "DIFFERENT_CONTINUOUS_TIME_BUDGET",
+        "evidence": [
+          "The objective is maximizing the weighted Laplacian spectral gap subject to an aggregate rate constraint, rather than discrete-time SLEM under per-row stochastic probability caps."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "19-page lawful PDF accessed; introduction, rate-budget model and relevant tree discussion inspected; first page visually inspected",
+        "method": "Author OA PDF",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Known algebraic-connectivity maximization on tree weighted edges"
+      },
+      {
+        "assessment": "COVERS_ONLY_K_EQUAL_ONE",
+        "evidence": [
+          "Optimal symmetric path transitions are 1/2 on each path edge with endpoints holding 1/2, hence D_1 is already known."
+        ],
+        "identifier_or_url": "https://www.web.stanford.edu/~boyd/papers/fmmc_path.html",
+        "material_read": "Official author publication landing abstract and result read",
+        "method": "Author scholarly site",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Boundary case k=1 is four-vertex path"
+      },
+      {
+        "assessment": "DIFFERENT_COMMON_CENTER_GRAPH_AND_CONSENSUS_SCOPE",
+        "evidence": [
+          "Abstract explicitly says two star networks share the same central node, in contrast to the present bridge between two hubs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.3543",
+        "material_read": "24-page lawful arXiv PDF accessed; abstract, defining introduction, and graph model read",
+        "method": "Lawful arXiv OA PDF",
+        "title": "Fastest Distributed Consensus Problem on Fusion of Two Star Networks",
+        "trigger": "Title plausibly covers double star graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12785a46-9e7f-414f-8964-937c728cc6e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a globally unique exact stochastic transition design for a natural diameter-three tree family, not merely a symmetric subproblem. The graph-wide Rayleigh certificate is sharp and forces all individual edge weights. The optimal gap decays as 1/k rather than the 1/k^2 of standard maximum-degree or Metropolis weights, an unbounded relative advantage with mathematical significance for bridge-mediated mixing. The k=1 boundary is known and explicitly separated from k>=2.",
+    "status": "PASS"
+  }
+}
