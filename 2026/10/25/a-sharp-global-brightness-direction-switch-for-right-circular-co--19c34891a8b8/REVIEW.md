@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** Cauchy’s projection formula gives a pointwise area expression. The substitution by an angular parameter reduces the nontrivial branch to a one-variable function; its derivative has a single saddle-node due to strict monotonicity of the tangent equation. The competing oblique maximum is strictly increasing with cone aspect, crosses the fixed axial value exactly once, and its crossing equation isolates the critical parameter and every equality direction. Numerical checks reproduce the root and 1,200 projected hulls. The all-parameter assertion relies on the analytic proof.
+
+**Originality — PASS relative to inspected and recoverable evidence.** The 1989 Pennell–Deignan abstract documents computation of cone projected areas, so the area formula is prior work, not the new theorem. Finch's complete 2012 preprint studies cone mean width/surface area, not the global brightness-direction switch. An accessible published cone-shadow analysis already locates a saddle-node at aspect 2.14553929..., but its stated claim stops at local stationary points and density singularities. Our distinct aspect 2.64140255... compares the axial and oblique global values and precisely classifies all global maximizing directions. published-finding corpus semantic searches for axial/oblique maximal cone brightness and the new critical ratio found no equivalent published mathematical claim. Risk: the Pennell–Deignan full paper was not accessible, so historical originality is provisional.
+
+**Value — PASS.** Determining the brightest viewing direction is a natural sharp extremal problem for a classical solid. The coexistence of axial and oblique global maxima at one critical cone aspect and the strict gap between local-bifurcation and global-switch aspects is a qualitative phase transition not obtained merely from the local stationary-point census. The theorem supplies exact equations and all equality directions for every nondegenerate cone.
+
+**Limitations.** Round right cones, orthographic 2D shadow area; arbitrary cone deformations, other projection statistics, and independent historical priority lie outside the result. The source projected-area formula and local stationary threshold are not claimed as contributions.
+
+Self-review: passed. Independent audit: not yet performed.
