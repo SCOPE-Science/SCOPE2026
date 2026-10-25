@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact finite lower bounds n=5..9 follow from published gp(P2 square C_n)=4 and diameter <=5; n=3,4 require at least two by existence of a three-vertex geodesic. The n>=10 lower bound is supplied by an explicit complete 88-node canonical-label search for a three-coloring of the isometric P5 square K2 strip. No timeouts/pruning assertions are used. Complete witnesses for 15 base orders are checked against reconstructed BFS geodesics. Six-column locality holds because n>=10 makes every six-column strip isometric and every at-most-five-edge geodesic project into it. Ten-column periodic prefixes of base orders 12,14,15,21 supply an admissible length-four closed state walk, whose repetition yields every larger circumference modulo four. All residue gaps 10,11,13,17 are covered by explicit seeds. Code, data and logs accompany proof; no unsupported infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2408.13494v2 Theorem 7.7 gives gp-number of P2 square C_n, not chromatic number at fixed d=5 for large n",
+        "arXiv:2601.04351v1 Question 6.2 identifies product-graph chromatic formulas as unknown direction",
+        "arXiv:2409.05644v1 Sections 6-7 determine maximum bounded-geodesic sets on straight ladders, not cyclic coloring partitions"
+      ],
+      "reasoning": "The prior gp cardinality bound dominates n<=9 but does not produce any bounded-five-edge upper coloring on n>=10; maxima of a color class do not construct a partition of all classes. The known linear-ladder four-color result does not imply a cyclic closure.",
+      "searches": [
+        "published-finding corpus: chi_{5}^3 prism graph Cartesian product cycle K2 geodesic proper coloring 2026",
+        "published-finding corpus: general position geodesic coloring circular ladder prism graph 4 colors 2025",
+        "published-finding corpus: 2026 (k,d)-chromatic number cylindrical ladders prisms C_n square K_2",
+        "Web: general position chromatic number prism graphs circular ladders exact coloring"
+      ]
+    },
+    "checked_sources": [
+      "arXiv 2601.04351v1, full HTML including Definitions 1.1, path/cycle sections and Question 6.2",
+      "arXiv 2408.13494v2, full PDF including Section 7, Theorems 7.7 and 7.9",
+      "arXiv 2409.05644v1, full PDF including definitions, treatment of thin grid maximum admissible sets and Sections 6-7",
+      "Published mathematical claims matching six precise parameter/alias query variants",
+      "Mathematical claim-level comparisons against nearby product-graph coloring and prism-graph invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.04351v1 Sections 3-6: solved objects paths, cycles and powers of paths; Cartesian products remain posed",
+        "arXiv:2408.13494v2 Section 7: general-position (all geodesics) chromatic bounds for products and explicit gp-number of narrow cylinders",
+        "An existing exact straight-ladder theorem treats P_n square P2, whereas cyclic seam constraints require a distinct argument for C_n square K2"
+      ],
+      "reasoning": "Published gp number implies the lower bounds at n=5 through 9, including the five-color nine-rung obstruction. It does not imply four-colorability at all n>=10: the bounded-distance condition becomes strictly weaker, and proof requires finite cyclic seeds and the closed-walk pumping lemma. A straight ladder lacks cyclic seam constraints; hence its four-coloring theorem does not settle the new claim.",
+      "searches": [
+        "published-finding corpus: chi_{5}^3 prism graph Cartesian product cycle K2 geodesic proper coloring 2026",
+        "published-finding corpus: general position geodesic coloring circular ladder prism graph 4 colors 2025",
+        "published-finding corpus: 2026 (k,d)-chromatic number cylindrical ladders prisms C_n square K_2",
+        "published-finding corpus: \\chi^3_5(C_n\\square K_2) five color nine prism geodesic coloring",
+        "published-finding corpus: prism C9 square K2 3 5 proper coloring exceptional five colors",
+        "published-finding corpus: bounded geodesic coloring circular ladder prism 3,5 color"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cody–Detore Definition 1.1: chromatic hypergraph of triples lying on shortest paths of length <=5",
+        "Chandran et al. Section 7: gp-chromatic number is d=diameter version; only equals chi^3_5 for prism n<=9"
+      ],
+      "reasoning": "Checked under k,d-proper, geodesic triple-hypergraph, general-position coloring, circular ladder and prism nomenclature. Equivalence with ordinary gp coloring holds only through circumference 9, not for the new four-color infinite tail.",
+      "searches": [
+        "published-finding corpus: chi_{5}^3 prism graph Cartesian product cycle K2 geodesic proper coloring 2026",
+        "published-finding corpus: general position geodesic coloring circular ladder prism graph 4 colors 2025",
+        "published-finding corpus: 2026 (k,d)-chromatic number cylindrical ladders prisms C_n square K_2",
+        "published-finding corpus: \\chi^3_5(C_n\\square K_2) five color nine prism geodesic coloring",
+        "published-finding corpus: prism C9 square K2 3 5 proper coloring exceptional five colors",
+        "published-finding corpus: bounded geodesic coloring circular ladder prism 3,5 color"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact square-coloring results for three-path theta graphs impose a pairwise distance restriction, unlike the triple-geodesic condition here",
+        "Published circular-ladder three-cut-complex computations concern simplicial homotopy, not metric-geodesic coloring",
+        "Chandran et al. Theorem 7.7 table gives general-position number four for n=5..9, which matches our small-case lower bounds only"
+      ],
+      "reasoning": "No exact fixed-(3,5) chromatic-value table for all C_n square K2 found; existing small-order gp-number entries were incorporated as prior evidence rather than counted as novel.",
+      "searches": [
+        "published-finding corpus: \\chi^3_5(C_n\\square K_2) five color nine prism geodesic coloring",
+        "published-finding corpus: prism C9 square K2 3 5 proper coloring exceptional five colors",
+        "published-finding corpus: bounded geodesic coloring circular ladder prism 3,5 color",
+        "Web: 2025 2026 geodesic coloring prism graph C_n square K2 (3,5) chromatic number"
+      ]
+    },
+    "rationale": "The object and fixed-parameter coloring invariant are defined in arXiv:2601.04351; its statements do not classify circular prisms. The earlier gp-coloring paper implies small-order lower bounds but cannot imply a four-color bounded-distance tail because gp and chi^3_5 differ once diameter exceeds five. Other inspected maximal-set and local-coloring results concern different optimization objectives. Prior same-topic straight-ladder result concerns P_n square P2, not cyclic closure and exceptional n=9. No covering exact formula identified after statement- and parameter-level checks.",
+    "residual_risks": [
+      "Unindexed equivalent theorem in geodesic hypergraph coloring literature could have been missed.",
+      "Small-order lower bounds, including the nine-rung one, are already implied by prior general-position results.",
+      "The finite exhaustive obstruction is reproducible code but has not undergone independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant and asks for product cases; no matching exact circular-ladder classification",
+        "evidence": [
+          "arXiv:2601.04351v1, Definition 1.1",
+          "arXiv:2601.04351v1, Question 6.2; discusses P_n square P2 and asks for products"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.04351v1",
+        "material_read": "Full HTML structure and text: definitions, k,d hypergraph, main path/cycle/power results, Question 6.2 and bibliography",
+        "method": "Primary preprint HTML, inspected section-by-section and searched for prism and Cartesian products",
+        "title": "Metric general position extensions of classical graph invariants",
+        "trigger": "Original definition of the exact k,d chromatic objective and potential published graph families"
+      },
+      {
+        "assessment": "Covers general-position cardinality on two-row cylinders and thus the small n=5..9 lower bounds, not fixed five-edge chromatic tail",
+        "evidence": [
+          "Theorem 7.7: gp(P2 square C_n)=4 for n=5..9",
+          "Corollary 7.8 and Theorem 7.9 concern asymptotic ordinary gp-coloring bounds for wider cylinders"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.13494",
+        "material_read": "Full primary PDF text including preliminaries, Section 7, Theorems 7.7-7.9, and references",
+        "method": "Original arXiv PDF parsed; relevant Section 7 and page image inspected",
+        "title": "Colouring a graph with position sets",
+        "trigger": "Highly relevant ordinary general-position chromatic literature, especially Cartesian products"
+      },
+      {
+        "assessment": "Maximal permitted color-class size, not chromatic partition and not circular-ladder classification",
+        "evidence": [
+          "Abstract: k-general d-position maximum for paths/cycles, two-dimensional and thin finite grids",
+          "Introduction: Section 6 treats gpk_d(P_n square P2), not chi(C_n square P2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.05644",
+        "material_read": "Original full PDF including definitions, Section 6 stated objective and relevant theorems",
+        "method": "Primary arXiv PDF parsed, relevant page visually inspected",
+        "title": "The k-general d-position problem for graphs",
+        "trigger": "Earlier fixed-geodesic set problem and narrow Cartesian product objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fa7b35a-48c5-43d5-90c0-3997e55f28db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete infinite natural graph-family classification for a recently defined metric-coloring invariant, identifying constant four-color bounded-geodesic behavior after circumference ten even though the ordinary general-position chromatic number grows. The nontrivial finite cyclic seam/pumping mechanism and exact exceptional order are relevant to the published Cartesian-product program. Small known lower bounds are explicitly attributed, not claimed as independently valuable. The theorem is not an arbitrary finite slice or routine renaming.",
+    "status": "PASS"
+  }
+}
