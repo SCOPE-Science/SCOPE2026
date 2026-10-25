@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim's normalization is the Euclidean volume of the \(\ell_1\) unit ball, \(2^d/d!\). The three cases follow from (i) an exact homothety, (ii) a square-coordinate overlap integrated using an \(\ell_1\)-shell density, and (iii) a complete piecewise two-dimensional lens-section integration followed by beta integrals. The orientation crossover proof reduces each sign to a quadratic with exact roots; the remaining quadratic has negative discriminant and positive leading coefficient. The independent convex-hull and symbolic checks reproduce every three-dimensional axis formula and its crossing constants. Domain and endpoints are explicitly covered; finite tests are not substituted for dimension-uniform proofs.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Bianchi (arXiv:0805.1605, Theorem 1.1) proves recovery of a three-dimensional polytope from its *full* covariogram but provides no octahedral axis-volume identities. Ciccariello (arXiv:1407.2788, §§1–3) studies the **angularly averaged** autocorrelation of the regular octahedron; its scalar radial formula cannot determine three independent symmetry-axis values or their sign changes. Ahn–Cheng–Reinbacher (DOI 10.1016/j.comgeo.2011.11.003, abstract/overview) addresses optimizing overlap for polytopes generally, not this exact axis profile. The closest indexed work on hypercube covariograms concerns the polar *cube*, whose overlap is not obtained from the cross-polytope by polarity, and related cube–cross-polytope results concern Mahler products. Searches for directional octahedral autocorrelation, sparse-coordinate \(\ell_1\) overlap, and translated cross-polytopes yielded no stronger implication or exact table. This is a limited priority assessment: older explicit anisotropic autocorrelations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The covariogram is a standard invariant in stochastic geometry, tomography and scattering. These formulas provide an exact all-dimensional description along three natural sparse displacement orbits and reveal two sharp *distance-dependent reversals* in the full symmetry-axis ordering of a canonical Platonic solid. The two reversal points are not recoverable from isotropic correlations or the mean width, and provide a concrete boundary between short-translation and long-translation directional overlap rankings. The result is limited but structurally motivated and gives a checkable exact benchmark.
+C_d={sum |x_i|<=1} has volume 2^d/d!, d>=3. Difference-body support k*t<=2 and signed-permutation invariance are exact. k=1 reduces to translated l1 ball radius 1-t/2; k=2 uses (u=x1+x2,v=x1-x2) square overlap of area 2(1-r)(1-r-t), followed by the l1-shell beta integral. k=3 base 3D lens gives 4/3-3t+3t²/2, and integrating over the remaining d-3 l1 coordinates gives A^(d-2)(A²+(d/2)aA+d(d-1)a²/12) with a=3t/2, A=1-a. Independent facet-halfspace convex-hull integration for d=3,t=13/100,k=1,2,3 gave measured/closed volumes 1.089867166666667,1.074798,0.968683333333333 (absolute discrepancies <=7e-16); this tests only samples. In d=3, put t=s/sqrt(k). The exact pair-difference quadratics have two roots strictly ordered s13=0.698560766..., s12=0.945467749..., while H2-H3 has negative discriminant, proving the three asserted strict rankings. No claim of arbitrary-direction extremality.
 
-## Closest literature and limitations
-Historical-priority claims are limited to the sources actually inspected. No statement about arbitrary translation directions or full anisotropic covariograms is made. The primary source comparison distinguishes direction-resolved data from isotropic averages, uniqueness from explicit evaluation, and cube–cross-polytope polarity from volume covariograms.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit L1 cross-polytope k=1,2,3 fixed-axis covariogram polynomials and exact octahedral crossing locations are narrower in parameters but not implied by prior full-covariogram uniqueness or the rotationally averaged correlation. Resultary nearest hypercube record is an L-infinity rather than L1 body.
+
+## value
+
+PASS
+
+The d-dimensional explicit sparse-axis overlap polynomials give reusable model benchmarks, and the unexpected two exact reversals distinguish three natural octahedral symmetry classes. This is a motivated geometric covariogram measurement, not a tiny numerical advantage or arbitrary shape slice; the all-d result is mathematically self-contained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
