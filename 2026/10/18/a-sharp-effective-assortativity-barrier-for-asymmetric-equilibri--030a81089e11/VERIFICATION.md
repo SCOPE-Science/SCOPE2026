@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of verification
+# Independent mathematical audit
 
-Execute `python3 checks/verify_fold.py` from the package root. The Python standard-library `fractions.Fraction` tests 324 exact rational identities for the source vector field and the reduced common-pressure equations, verifies both zero residuals of the asymmetric stationary witness, tests the signed derivative, and samples elementary monotone-parameter cases. All stated exact identities and finite checks passed when packaged. The analytical cubic-boundary and whole-domain quantifiers depend on the proof in `RESULT.md`; the finite tests alone do not establish them.
+## correctness
 
-The independently unperformed audit channel has no evidence. No numerical experiment or computer-assisted finite grid is represented as a proof of absence of additional fixed points. The literature comparison remains subject to an unindexed-equivalence risk.
+PASS
+
+The shared-pressure reduction is exact: at an interior equilibrium h_{u,v}(x1)=h_{u,v}(x2)=L(S), with h(z)=z/(1-z)-uz-vz^2 and L(S)>=0. For u<1, h prime has a unique interior minimum when v>1; its value 3v^(2/3)-2v-u changes sign exactly at t^2(3-2t)=u. At equality h remains strictly increasing. For u>=1, Q(z)=1/(1-z)-u-vz is strictly convex and each positive level of h=zQ is attained at most once; the zero-pressure e=f=1 case and physical-square boundaries are handled separately. The two-preimage construction supplies admissible parameters for every strict supercritical pair. The exact rational witness and 324 Fraction identities support the reduction but are not used as the all-parameter proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison finds the exact source model and its numerical phase diagrams, but no prior statement of the universal effective-strength monotonicity barrier plus existential sharpness. Related higher-order decision models have different dynamics. The result is not claimed as a universal bifurcation-priority certification.
+
+## value
+
+PASS
+
+The motivating question is which physically meaningful pair/triangle reinforcement strengths can support different stationary opinions in otherwise symmetric communities. The theorem gives a sharp universal obstruction over a natural continuous parameter family and a constructive converse, explaining why triangle assortativity changes the published phase diagrams. It is a structural all-parameter result, not a numerical slice or a stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
