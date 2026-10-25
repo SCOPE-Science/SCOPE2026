@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The attached `verify.py` exhaustively enumerates the row sequences of 1–3 attributes and 0–4 objects, integrates the full symmetric Dirichlet law by exact rational rising factorials, and checks all formal closures directly. The result is `VERIFY_OK exact_cases=45 contexts=15159`. This verifies the finite exact identity and coatom reduction for the tested cases, not the infinite-dimensional limits, which follow from beta asymptotics and elementary concentration in the proof.
+# Independent mathematical audit
 
-Critical analytic checks: the Dirichlet marginal of the size-\(m-1\) category is \(\mathrm{Beta}(\beta_m/(m+1),m\beta_m/(m+1))\); conditional on that category mass the coatom types each have probability \(R_m/m\); the beta negative first moment is finite exactly when its first shape exceeds one; when \(\beta_m=m+1\), \(mR_m\) converges to a unit-rate exponential; when \(\beta_m=\beta\) is fixed, \(-\log R_m/m\) has an exponential limit. Uniform conditional coupon bounds transfer these facts to the stopping time.
+## correctness
 
-The prior coin-toss coupon-collector criterion and the Dirichlet model itself are not newly asserted. Model precision differs in the two asymptotic regimes. Full-text comparison with one later paper about random concept counting remains unresolved; no claim of external independent validation is made.
+PASS
+
+Reconstructed necessary-and-sufficient Boolean completion: all m distinct (m-1)-attribute coatom rows must occur, because each missing coatom forbids closure separation, and all coatoms make every subset closed. Under one Dirichlet draw frozen across objects, required row-category mass R=pi_{m-1}~Beta(a_m=beta_m/(m+1),b_m=m beta_m/(m+1)); conditional each of m coupon types has probability R/m. Coupon-collector identity yields E[T|R]=mH_m/R and exact inclusion–exclusion. Beta inverse first moment gives E[T]=infinity if a<=1 and mH_m(beta_m-1)/(a-1) if a>1. For beta_m=m+1, mR=>Exp(1) and coupon concentration conditional on mR yields CDF exp(-1/x) for T/(m² log m). For fixed beta, -log R/m=>Exp(beta) and elementary coupon delay bounds vanish after /m log scaling. Independently inspected standard-library exact-rational verifier of closure equivalence and Dirichlet-multinomial moments for m<=3; finite checks only corroborate, not establish the weak limits. All results concern one frozen vector and unlimited sequential rows, not resampled vectors or fixed finite contexts.
+
+## originality
+
+PASS
+
+Felde–Hanika (2018) introduces exactly the Dirichlet formal-context generator and coatom conditional coupon observation; Felde–Hanika–Stumme (2020) studies null models and precision. These premises are expressly credited. Inspected source material does not establish the unconditional inverse-beta mean threshold or the two different precision-scaling weak limits. Sakurai (2021) studies independent Bernoulli incidences, not frozen Dirichlet row-size mixture. Yang et al (ICMLC 2024), Counting Formal Concepts of A Random Formal Context, is a plausible source by title but no lawful OA/arXiv full text was found and authorized publisher access reported VPN disconnected; material read is only abstract/bibliography, so no whole-document noncoverage claim.
+
+## value
+
+PASS
+
+Distinguishes typical polynomial completion time from infinite mean in the natural simplex-uniform model and shows an exponential time scale at fixed total prior precision. The sharp integrability threshold and two limiting laws answer natural stopping-time questions for a published random-context generator, beyond mere coupon collector conditional expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
