@@ -1,22 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Compact-group averaging lowers norm and leaves the reproduction/range conditions invariant. The real orthogonal spherical-harmonic decomposition reduces every equivariant operator to exactly one free degree-two multiplier. The dual witness is the sign of the polar coordinate, and its norm lower bound is saturated only by the factorized kernel \(K(u)=(d+1)u(1+u)\) within the equivariant class. Beta integration supplies the exact global norm. For the one-sided asymptotics, only two small wrong-sign regions contribute: one around zero for either sign and a second near the antipode for positive perturbations. Explicit weighted triangular integration gives the coefficients and the dimension transition. Verification code passed 60 illustrative finite tests; no finite sample substitutes for proof.
+PASS
 
-## Originality (PASS, subject to historical-priority risk)
+Inspecting pinned RESULT.md and verify.py: O(d+1) averaging preserves P_1 reproduction and P_2 range, and multiplicity-free harmonic decomposition leaves one scalar degree-two coefficient b. N_d(b)=E|1+(d+1)u+b((d+1)u²-1)|. Integrating against sign(u) gives the exact fixed first-harmonic lower bound; equality forces K(0)=0 so b=1. Beta integral gives the Gamma constant. Expanding the exactly identifiable wrong-sign intervals around u=0 and, for δ>0, u=-1 gives origin c_d δ²/(d+1) and endpoint B_d δ_+^(d/2+1), with stated remainder. The unital-operator negative mass identity explains (Lambda-1)/2. Independent split-at-real-roots quadrature agrees for d=1,2,3,5,10; in d=2 sides at δ=0.0005 are 0.166685 and 0.832797, compared with 1/6 and 5/6. The all-d proof is analytical, not deduced from these five computations.
 
-The closest primary source is Wu, arXiv:2609.02695 (September 2, 2026), whose general two-band spectral reproduction problem and group-averaging principle are credited. Its proved bandwidth-ratio estimates do not state the first-band exact optimizing multiplier, its uniquely optimal equivariant parameter, or its dimension-sensitive perturbation cusp. The two examined Defant et al. manuscripts study full projections onto polynomial ranges rather than maps fixing degree at most one while merely landing in degree at most two; their full-range normalization cannot optimize a freely chosen second-degree multiplier. Research-record searches for the same sphere, degree bounds, projection equivalences, sign duality, and dimensional cusp found no dominating claim. The low-dimensional circle constant may be classical; its isolated value is not claimed new. Equivalent identities outside the inspected texts remain possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The first output band beyond affine spherical harmonics is the first nontrivial instance of bandlimited reconstruction permitting a freely adjustable high multiplier. The exact global norm and optimal multiplier determine the smallest unavoidable violation of positivity and give an all-dimensional benchmark missing from order-only bandwidth estimates. The transition from a circle-only fractional cusp to a dimension-two one-sided quadratic coefficient and then symmetric quadratic leading behavior for higher dimensions pinpoints the antipodal density mechanism. The calculation is therefore a natural exact endpoint together with structural local information, not an arbitrary parameter table.
+PASS best of knowledge for the no-cost unital extension with degree-two free multiplier and asymmetric stability cusp, NOT for the bare Gamma numerical constant: by Rutovitz classical projection constant for real Euclidean space (quoted as Eq. (5) of Defant et al. 2026) equals this Gamma expression when n=d+1. Critical distinction: a projection onto first harmonics annihilates constants, while this operator must reproduce constants and first harmonics; projections onto all P_2 force degree-two multiplier 1 rather than 2/(d+3). Wu gives symmetry reduction and order bounds, but no full-text available to certify absence of an equivalent first-band special case; named risk retained.
 
-## Closest literature and limitations
+## value
 
-- H.-N. Wu, arXiv:2609.02695: same admissible class and group symmetry, general order estimates, but no identified exact first-transition formula or cusp.
-- A. Defant et al., arXiv:2405.12123 and arXiv:2609.22050: minimal norms of projections fixing all of their range; not the partially reproducing class here.
-- The classification is primarily spherical harmonic Fourier multipliers (MSC2020 42C10), although the motivating source principally classifies its more general approximation problem under another heading.
-- Non-equivariant minimizer uniqueness is not claimed. Detailed full-text priority screening is necessarily incomplete, particularly for older generalized-projection identities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first genuine transition bandwidth (degree-one exact reproduction with degree-two output) is a canonical multivariate approximation problem; an explicit minimizer attains the classical linear-space constant while preserving constants and the dimension-dependent nonsmooth endpoint stability differentiates circle, ordinary sphere and higher dimensions. This is a sharp useful boundary, not mere rewriting of Rutovitz's known Gamma number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

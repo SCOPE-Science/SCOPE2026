@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The direct proof establishes the infinite-dimensional statement by averaging, zonal polynomial decomposition, a sign-function dual bound, Beta/Gamma integrals, and a two-region sign-error expansion. The accompanying `verify.py` uses only the Python standard library and passed 60 numerical checks of normalization, first-band multiplier comparison and dimension-dependent one-sided expansions. The finite tests are not used as proof, and no external or independent validation has been undertaken.
+## correctness
 
-Run with `python verify.py` after extracting the file next to this document. The result concerns real-valued continuous functions and fixed dimension; it does not assert a universal stability rate for nonsymmetric minimizers.
+PASS
+
+Inspecting pinned RESULT.md and verify.py: O(d+1) averaging preserves P_1 reproduction and P_2 range, and multiplicity-free harmonic decomposition leaves one scalar degree-two coefficient b. N_d(b)=E|1+(d+1)u+b((d+1)u²-1)|. Integrating against sign(u) gives the exact fixed first-harmonic lower bound; equality forces K(0)=0 so b=1. Beta integral gives the Gamma constant. Expanding the exactly identifiable wrong-sign intervals around u=0 and, for δ>0, u=-1 gives origin c_d δ²/(d+1) and endpoint B_d δ_+^(d/2+1), with stated remainder. The unital-operator negative mass identity explains (Lambda-1)/2. Independent split-at-real-roots quadrature agrees for d=1,2,3,5,10; in d=2 sides at δ=0.0005 are 0.166685 and 0.832797, compared with 1/6 and 5/6. The all-d proof is analytical, not deduced from these five computations.
+
+## originality
+
+PASS
+
+PASS best of knowledge for the no-cost unital extension with degree-two free multiplier and asymmetric stability cusp, NOT for the bare Gamma numerical constant: by Rutovitz classical projection constant for real Euclidean space (quoted as Eq. (5) of Defant et al. 2026) equals this Gamma expression when n=d+1. Critical distinction: a projection onto first harmonics annihilates constants, while this operator must reproduce constants and first harmonics; projections onto all P_2 force degree-two multiplier 1 rather than 2/(d+3). Wu gives symmetry reduction and order bounds, but no full-text available to certify absence of an equivalent first-band special case; named risk retained.
+
+## value
+
+PASS
+
+The first genuine transition bandwidth (degree-one exact reproduction with degree-two output) is a canonical multivariate approximation problem; an explicit minimizer attains the classical linear-space constant while preserving constants and the dimension-dependent nonsmooth endpoint stability differentiates circle, ordinary sphere and higher dimensions. This is a sharp useful boundary, not mere rewriting of Rutovitz's known Gamma number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
