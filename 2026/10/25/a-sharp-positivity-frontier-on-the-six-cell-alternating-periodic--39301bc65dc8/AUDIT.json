@@ -1,0 +1,84 @@
+{
+  "correctness": {
+    "rationale": "Explicit assembly gives invertible D=M+τK and two rational entries with denominators H>0; their signed factors force τ>=a²/6 and >=b²/6. Above their maximum, D is symmetric strictly diagonally dominant with nonpositive offdiagonals, so D^{-1}M≥0. At τ=0 identity. The embedded exact-rational code cross-checks algebra but is not the infinite-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Huang 2012 Theorem 3.1 states a sufficient criterion for general simplicial meshes rather than a necessary-and-sufficient periodic six-cell criterion."
+      ],
+      "reasoning": "A general sufficient DMP theorem does not imply necessity, since matrix inverse positivity need not require a Stieltjes coefficient matrix. The exact sign formulas resolve necessity specifically on this model; the equal-length alternating-diffusivity variant uses a distinct consistent-mass matrix.",
+      "searches": [
+        "two periodic unequal element lengths a b P1 finite elements implicit Euler positivity if and only if step greater than max(a²,b²)/6",
+        "diffusion discrete maximum principle cyclic alternating mesh lengths exact resolvent negativity second neighbor entry",
+        "arxiv:1209.5657"
+      ]
+    },
+    "checked_sources": [
+      "Li and Huang, arxiv:1209.5657, full-text Sections 1–3 and selected Section 4 passages",
+      "published-finding corpus semantic searches on alternating variable-length FEM, exact step barriers and related formulations",
+      "Accessible own prior result statements, including four-cell variable-length and equal-cell alternating-diffusivity variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1209.5657, pp. 1, 7–8, describes sufficient conditions and notes that they may fail necessity on other meshes."
+      ],
+      "reasoning": "The candidate's exact necessity is not implied by general matrix monotonicity sufficiency. Prior exact four-element variable-length and six-or-more equal-length variable-diffusivity studies are distinct boundary-value matrices and do not algebraically imply the six-cell variable-length claim without an additional equivalence, which was not found.",
+      "searches": [
+        "arxiv:1209.5657",
+        "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1209.5657 Theorem 3.1 supplies a sufficient nodal DMP lower step bound."
+      ],
+      "reasoning": "The present if-and-only-if update-matrix statement is stronger for this specific periodic six-cell model; finite-element nodal positivity and entrywise stochasticity are equivalent here because the update fixes the constant vector.",
+      "searches": [
+        "periodic alternating nonuniform finite-element heat equation consistent mass backward Euler exact nonnegative timestep threshold mesh squared max 6",
+        "two periodic unequal element lengths a b P1 finite elements implicit Euler positivity if and only if step greater than max(a²,b²)/6",
+        "arxiv:1209.5657"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching table or closed six-cell alternating-length formula was found in the queried public research index; available nearby result concerns a different filtered Crank–Nicolson map on a uniform lattice."
+      ],
+      "reasoning": "A negative database search is not proof of novelty. It leaves an explicit risk of earlier specialized matrix positivity calculations.",
+      "searches": [
+        "periodic alternating nonuniform finite-element heat equation consistent mass backward Euler exact nonnegative timestep threshold mesh squared max 6",
+        "diffusion discrete maximum principle cyclic alternating mesh lengths exact resolvent negativity second neighbor entry",
+        "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "rationale": "Full published primary work on finite-element maximum principles establishes sufficient lower bounds, whereas explicit rational sign witnesses prove exact necessity for the six-periodic-element alternating-length model. Similar older local models use different mass/stiffness pairs. Residual unpublished or specialized prior coverage remains possible.",
+    "residual_risks": [
+      "No complete systematic survey of pre-2012 specialized one-dimensional discrete-Green-function literature was feasible; an equivalent finite-six-cell sharp calculation may exist.",
+      "No theorem covering more than six elements is asserted.",
+      "Results in the existing private collection with different matrices do not independently establish novelty in the world literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficient DMP lower-step bounds; no exact if-and-only-if six-node periodic alternating-length claim in inspected sections.",
+        "evidence": "Theorem 3.1, formula (36); discussion of nonnecessity on p.14; arXiv first posting 2012-09-25.",
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Title/abstract; introductory prior literature; formulation; Theorem 3.1 and its mesh and time-step conditions; numerical results discussing lack of necessity.",
+        "method": "Read extracted full-paper pages and inspected page-one PDF image.",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Closest archived primary account of consistent-mass finite-element time-step maximum principles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39301bc6-5dc8-4c1d-9c99-5ed06821ddfe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six-cell grid is the first three-repeat alternation after the degenerate two-repeat four-cell case; a sharp, arbitrary-contrast boundary proves necessity of a classical sufficient mesh restriction where it is not guaranteed generally. Two structural negative off-diagonal witnesses furnish a complete finite-model classification relevant to graded periodic finite-element testing. It is not a generic determinant exercise with arbitrary parameters; its parameters are physical element lengths and timestep.",
+    "status": "PASS"
+  }
+}
