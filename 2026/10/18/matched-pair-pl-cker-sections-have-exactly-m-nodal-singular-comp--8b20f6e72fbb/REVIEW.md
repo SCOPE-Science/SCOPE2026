@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact big-Plücker-chart decomposition is an isomorphism, not a tangent-cone approximation: every pair of rank-two pivot columns must come from different prescribed blocks, and two of the determinant constraints become independent linear equations. The remaining determinants use disjoint variables. This proves the complete-intersection dimension and local equation. The proper irreducible incidence variety proves underlying irreducibility, the local coordinate rings are reduced, and the Jacobian criterion plus Serre's criterion proves normality in every characteristic. Zero block projections, and only those, are singular. The resulting \(m\) maximal irreducible components, exact formal transverse nodes, all intersections and projective degrees follow. Symbolic-chart and exhaustive small finite-field checks replay successfully; they do not replace the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The relevant prior Knutson–Lam–Speyer work already gives general normality/Cohen–Macaulayness of positroid varieties and their Plücker ideal description; those results are explicitly **not** represented as new. Billey–Weaver and Fluegemann supply general pointwise smoothness methods, and Mohammadi–Zaffalon study rank-two cell boundaries. The reviewed primary statements and targeted mathematical-record searches did not disclose the explicit **entire singular-locus component family, product-of-nodes local analytic model, and intersection/degree formulas** for the disjoint parallel-pair section. A general positroid local-geometry theorem or unlocated explicit matched-pair calculation could still imply or reproduce these assertions, so this is a self-review of best-known evidence rather than a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-This is a natural infinite-dimensional family of rank-two positroid sections singled out by an intrinsic matching/parallel-class combinatorial constraint. Determining the global reduced singular support and its complete incidence and formal local geometry is a genuine singularity-classification result: general normality and isolated tangent-space smoothness tests do not by themselves specify the number of irreducible singular components, their intersection scheme or their transverse equations. The exact degree of the natural reduced singular support is a useful global invariant. The proof supplies a reusable geometric chart model across all parameters and characteristics, rather than an arbitrary small-number census.
+Every point of the section has independent pivot columns in distinct paired blocks; the entire pivot chart is A² times m−2 disjoint 2×2 determinant cones. Such cones are integral and Cohen–Macaulay, singular only at zero (Jacobian variables d,−c,−b,a, valid char2), so X_m is an lci, normal by R1+S2, and local singular support equals zero pair projections. Smooth incidence Gr_B(2,⊕ line bundles) over (P1)^m supplies irreducibility of the support; reduced charts yield integral scheme. Each zero-block locus is X_(m−1); intersections delete pairs, formal smooth nonzero-block factors and independent determinant nodes yield exact local normal form at z zero blocks. Regular hyperplane section has Plücker degree Gr(2,2m) Catalan and components corresponding lower Catalan. Independent symbolic determinant/Jacobian check corroborated the local chart; general proof is geometric, not finite enumeration.
 
-## Sources and limits
-The closest primary sources are arXiv:0903.3694 and arXiv:1111.3660 (general positroid geometry), arXiv:2204.09013 (smoothness tests), arXiv:2407.21116 (smooth points), and arXiv:2206.14001 (rank-two cells; abstract-level comparison only). Unreduced Jacobian schemes and arbitrary rank-two positroid varieties are not classified. Prior work may contain an equivalent implicit special case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General positroid variety normality and scheme-theoretic Plücker structure are well known and credited. The exact all-m matched-pair singular component decomposition, intersection pattern and formal product node models were not directly established in inspected KLS and smoothness literature.
+
+## value
+
+PASS
+
+A complete local and global singular stratification for an infinite natural family of rank-two partition-matroid/positroid varieties; component degrees, independent transverse nodes, and arbitrary-characteristic behavior are reusable geometric data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

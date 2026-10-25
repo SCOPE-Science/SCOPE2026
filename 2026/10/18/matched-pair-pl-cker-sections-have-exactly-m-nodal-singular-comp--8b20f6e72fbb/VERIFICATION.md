@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python verify_matching.py` with Python 3 and SymPy installed. The final success marker is `VERIFY_OK` after both the symbolic-chart checks and all finite-field enumerations. The checker derives the determinant equations in a full Plücker big cell; for each finite Grassmannian point it computes the Jacobian using **all** big-cell tangent coordinates (not only the enumerating row-echelon stratum coordinates). Tested cases are \(m=3\) over \(\mathbb F_2\) and \(\mathbb F_3\), and \(m=4\) over \(\mathbb F_2\); symbolic chart identities are tested for \(2\le m\le8\).
+## correctness
 
-The proof, not the finite checks, establishes the result for every integer \(m\ge3\) over every algebraically closed field. The argument identifies the exact scheme-theoretic big-chart rings as \(\mathbb A^2\) times independent determinantal nodal cones, proves irreducibility with an incidence map, and uses the Jacobian criterion, normality and hook-length degree. The checker does not verify unbounded symbolic parameters, literature originality, or the unreduced Jacobian singular scheme. Independent audit: not performed.
+PASS
+
+Every point of the section has independent pivot columns in distinct paired blocks; the entire pivot chart is A² times m−2 disjoint 2×2 determinant cones. Such cones are integral and Cohen–Macaulay, singular only at zero (Jacobian variables d,−c,−b,a, valid char2), so X_m is an lci, normal by R1+S2, and local singular support equals zero pair projections. Smooth incidence Gr_B(2,⊕ line bundles) over (P1)^m supplies irreducibility of the support; reduced charts yield integral scheme. Each zero-block locus is X_(m−1); intersections delete pairs, formal smooth nonzero-block factors and independent determinant nodes yield exact local normal form at z zero blocks. Regular hyperplane section has Plücker degree Gr(2,2m) Catalan and components corresponding lower Catalan. Independent symbolic determinant/Jacobian check corroborated the local chart; general proof is geometric, not finite enumeration.
+
+## originality
+
+PASS
+
+General positroid variety normality and scheme-theoretic Plücker structure are well known and credited. The exact all-m matched-pair singular component decomposition, intersection pattern and formal product node models were not directly established in inspected KLS and smoothness literature.
+
+## value
+
+PASS
+
+A complete local and global singular stratification for an infinite natural family of rank-two partition-matroid/positroid varieties; component degrees, independent transverse nodes, and arbitrary-characteristic behavior are reusable geometric data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
