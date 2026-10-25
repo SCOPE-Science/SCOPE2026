@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is symbolic for every dimension and all factor sizes at least two. In particular, the induction uses a uniform regular-degree frontier and the injective predecessor-profile identity \(\sum_q k_q(\mathbf{k}-\mathbf e_q)=(k-1)\mathbf{k}\); neither assertion is inferred from experiment.
+# Independent mathematical audit
 
-`verify_graph.py` independently enumerates graph vertices and edges and tests every intermediate stable partition on eighteen chosen products (2,859 vertices total). `verify_quotient.py` builds a compressed weighted quotient instead, and tests all tuples of 1 to 8 factor sizes chosen nondecreasingly from 2 through 7, plus twelve longer examples (3,014 tuples and 126,596 quotient states). Both use exact integer arithmetic and Python's standard library; no third-party dependencies are necessary. The actual captured outputs are supplied alongside both scripts.
+## correctness
 
-The tests do not exhaust all dimensions or all factor sizes and are not a replacement for the proof. All claims concern one initially marked vertex and within-graph orbits only. The possible existence of an unlocated earlier specialized theorem remains an originality risk. Independent audit was not performed.
+PASS
+
+PASS. Reconstructed the root automorphism action on the mixed Cartesian product of complete graphs: a rooted automorphism permutes coordinate cliques only among equal q and permutes their nonzero symbols, so orbits are the (k_q) profiles. With root initial singleton color and all others common, round t leaves one entire shell weight t and one farther region, while all weights <t are already split into profiles. The key nonstandard induction counts k_q predecessors of profile k-e_q and recovers (k-1)k from the signed count-weighted sum for k>=2; at weight one, the within-shell neighbor count q-2 distinguishes factor sizes. The terminal shell contains one orbit, giving least stable round d-1 when all q equal, else d. Derive class counts by generating polynomial product_q(1+...+z^d_q), sizes by binomial multinomial. Independent full-graph 1-WL partition reconstruction passed six mixed/equal products; examined both provided exact verifier implementations at source blob paths.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. General color refinement/orbit-refinement work and static equitable 2-colorings of equal-alphabet Hamming graphs do not assert full per-round one-root partitions of arbitrary heterogeneous Cartesian products or the sharp d-1/d dichotomy. No Resultary or targeted web source located such a theorem.
+
+## value
+
+PASS
+
+PASS. The exact root-colour-refinement iteration profile in a natural vertex-transitive graph product family quantitatively describes when coordinate factor heterogeneity becomes visible, and distinguishes stabilization from graph identification. It is a structural all-parameter refinement rather than routine small-graph simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
