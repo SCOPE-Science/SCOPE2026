@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For any d dividing m, reduction of the gcd stratum to primitive states modulo d is a bijection preserving zero times. U=(v,u+v) is invertible; z(d) is the projective return time for (0,1), with U^z(d)=cI for a unit c by Fibonacci matrix/Cassini identities. Every primitive zero hit lies in exactly one U^-j(0,c) with j=0..z(d)-1 and c a unit, producing exactly phi(d) distinct states at every possible first time; summing gcd strata proves all assertions including m=1 and t=0. The finite verifier independently checked 90 full moduli, 247065 pairs and 5741 strata/time cells.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Renault 2013 develops the rank and companion-matrix facts employed in the proof",
+        "Avila–Khovanova 2014 Section 11 discusses a different post-division stochastic waiting model"
+      ],
+      "reasoning": "Rank-divisibility and projective-scalar recurrence facts are broad background; they do not themselves state the claimed count of arbitrary initial states at each time. Their use as proof inputs is distinguished from priority for the resulting theorem.",
+      "searches": [
+        "\"Fibonacci\" \"first zero\" distribution modular initial pairs rank apparition",
+        "Fibonacci modular pairs stratified gcd first passage law counts phi(d) per time up to rank Z(d)",
+        "The Period, Rank, and Order of the (a,b)-Fibonacci Sequence Mod m"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A064414 (2001 object and 2017 formula reference)",
+      "OEIS A232656 (2013 object, 2017 conjecture, 2021 equality)",
+      "OEIS A001177 (Fibonacci entry points)",
+      "Avila–Khovanova 2014 arXiv:1403.4614 full accessible relevant sections",
+      "Renault Mathematics Magazine 86 (2013) pp. 372–380 full PDF",
+      "OEIS A389401 (2025 composite all-hit classification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017/2021 OEIS entries explicitly give the full aggregate formula",
+        "2014 prime-case heuristic (Z(n)-1)/2 concerns waiting after division with a different sampling measure"
+      ],
+      "reasoning": "The aggregated identity is a corollary and is NOT original. Neither its statement nor prime-case post-division heuristics imply a time-resolved law for composite moduli and every initial pair. The new uniform conditional gcd-stratum result supplies the missing structural implication.",
+      "searches": [
+        "A232656 Conjecture Sum d divides n phi(d) A001177(d) 2017",
+        "A232656 Ollerton May 09 2021 equality",
+        "Avila Khovanova Lemma 32 f(r) constant prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A232656 contains an all-time count, not individual first-hit multiplicities",
+        "Avila–Khovanova sections 10–11 count zero-containing pairs and discuss waiting heuristics"
+      ],
+      "reasoning": "The theorem fixes every time and every gcd stratum. The known total sum cannot logically imply these individual counts without further recurrence-specific arguments; neither inspected source states these counts.",
+      "searches": [
+        "\"A232656\" \"first zero\" distribution",
+        "\"Fibonacci-like\" \"first zero\" \"totient\" rank pairs",
+        "Fibonacci-like sequences modulo m exact first zero hitting time distribution phi divisors rank of apparition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A232656 initial terms and formula from 2017/2021 cover the aggregated zero-hitter counts",
+        "A064414 and A389401 classify all-hit moduli, and A001177 tabulates Fibonacci ranks"
+      ],
+      "reasoning": "No inspected table lists the histogram by first-hit time; A232656 values are one scalar per modulus. Our example m=8 splits the previously known total 40 into six timed counts.",
+      "searches": [
+        "OEIS A232656",
+        "OEIS A064414",
+        "OEIS A389401",
+        "OEIS A001177"
+      ]
+    },
+    "rationale": "The exact finite-first-hit histogram and its gcd-stratified uniformity provide precise waiting-time information absent from the inspected sources. The aggregate sum is explicitly attributed to the 2017/2021 OEIS record and not claimed novel. The full primary texts and direct indexed equivalents checked below show no covering time-resolved result, with a stated residual risk of an implicit general dynamical-system version.",
+    "residual_risks": [
+      "An implicit equivalent first-hit classification could occur in earlier general invertible-linear-recurrence or finite-permutation dynamics literature not fully indexed by these searches.",
+      "The total count is already recorded by 2017/2021 and must never be represented as the novel result.",
+      "No independent expert literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COUNTS_AND_PRIME_HEURISTIC_ONLY: defines A232656, treats zero-avoiding pairs, and gives waiting-time estimates for normalized dynamics; not the complete first-zero time histogram for all initial pairs at every composite modulus",
+        "evidence": [
+          "Section 10 defines A232656/A232357 as totals over all pairs",
+          "Section 11 discusses average steps to division and prime-modulus heuristic, not exact universal histogram"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.4614v1",
+        "material_read": "Sections 7, 9, 10, and 11, including lemma 32 and growth Table 3",
+        "method": "Full accessible original arXiv HTML, mathematically compared definitions, statements and table assumptions",
+        "title": "Free Fibonacci Sequences",
+        "trigger": "First primary study of modular zero-containing initial pairs and waiting time after division"
+      },
+      {
+        "assessment": "RANK_THEORY_NOT_HISTOGRAM: rank and period of standard zero-one seeded generalized recurrence; does not classify the first-zero indices over every free pair of initial residues",
+        "evidence": [
+          "Pages 372–374 derive companion matrices and rank-of-apparition arithmetic",
+          "Pages 375–380 study prime-power ranks and periods, not all-seed waiting-time distributions"
+        ],
+        "identifier_or_url": "https://webspace.ship.edu/msrenault/fibonacci/RenaultPeriodRankOrderMathMag.pdf",
+        "material_read": "Nine-page author-hosted PDF, introductory definitions, matrix identities, CRT/prime-power rank theorems and concluding order section",
+        "method": "Full PDF text with inspected PDF page screenshots, cross-check of notation and theorem scopes",
+        "title": "The Period, Rank, and Order of the (a,b)-Fibonacci Sequence Mod m",
+        "trigger": "Potential stronger coverage by modular companion-matrix rank theory"
+      },
+      {
+        "assessment": "AGGREGATE_ALREADY_COVERED: 2017 conjecture and 2021 asserted equality ∑ phi(d) z(d) count total hitters; no first-hit histogram or gcd-stratum timed law",
+        "evidence": [
+          "2017 Kleinwaks formula conjecture",
+          "2021 Ollerton equality claim",
+          "2013-11-27 original entry date"
+        ],
+        "identifier_or_url": "https://oeis.org/A232656",
+        "material_read": "Whole accessible OEIS entry, description, formula, example, references and dated author/comments",
+        "method": "Full entry read and statement-level coverage comparison",
+        "title": "OEIS A232656",
+        "trigger": "Exact source count, direct prior-implication risk"
+      },
+      {
+        "assessment": "CLASSIFICATION_ONLY: set of moduli forcing every sequence to have a zero; no time distribution",
+        "evidence": [
+          "Author Naohiro Nomoto, 2001-10-15",
+          "Earlier title defines all-initial-pair universal zero problem"
+        ],
+        "identifier_or_url": "https://oeis.org/A064414",
+        "material_read": "Full OEIS entry, earlier title, dated author and 2017 count-related comments",
+        "method": "Full entry inspected and logically compared universal all-hit property with a complete time distribution",
+        "title": "OEIS A064414",
+        "trigger": "Earliest dated formulation of the universal modular zero-divisibility question"
+      },
+      {
+        "assessment": "NOT_COVERING: only composite moduli with universal eventual zeros, not first-zero waiting-time histogram",
+        "evidence": [
+          "Definition composite all-hit moduli, dated 2025-10-02"
+        ],
+        "identifier_or_url": "https://oeis.org/A389401",
+        "material_read": "Full OEIS entry with composite all-hit modulus classification and comments",
+        "method": "Full entry read and compared with pair-by-pair timing statement",
+        "title": "OEIS A389401",
+        "trigger": "Later crossreference potentially covering refined zero divisibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33aa1b09-8cfc-477d-84da-76c0b027487e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The long-standing Fibonacci universal-zero and zero-containing-pairs problems naturally ask not only whether the next zero exists but when it first occurs. The new all-modulus histogram resolves that precise first-passage statistic, gives exact gcd-conditional uniformity, jump sizes determined by divisor ranks, and a closed mean waiting time; known A232656 totals do not answer any of these time-resolved questions. This is a natural complete distribution problem with a motivated explicit family.",
+    "status": "PASS"
+  }
+}
