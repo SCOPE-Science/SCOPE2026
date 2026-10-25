@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on any finite set of distinct root-attachment decisions yields a deterministic affine mean-path-length recursion; its full mixed discrete derivative is computed exactly. The standard independent-Bernoulli centered-product identity converts that derivative into the proposed harmonic-product formula, including all boundary cases and all interaction orders. A separate exact-rational exhaustive enumeration independently verifies the result through size \(8\). Finite evidence is supplementary to the all-order proof.
+## correctness
 
-**Originality — PASS with residual risk.** Dobrow and Fill analyze total path length without marked root-attachment indicators. Drmota and Hwang analyze final-level profiles rather than marked insertion histories. The much closer 2026 innovation theorem of Gałązka and Wdowicka already explains the first-order decomposition of path length by arrival time, so the first-order case is not advanced as the standalone novelty. Its linear martingale-innovation expansion does not state the exact all-order centered products with root-edge choices. The new claim is the complete alternating factorization for all distinct finite subsets. An unknown equivalent higher-order expansion in the recursive-tree literature remains a genuine risk.
+PASS
 
-**Value — PASS.** Total depth measures classical tree-search cost; a hierarchy over distinct root-attachment decisions resolves whether multiple root shortcuts reinforce or attenuate their association with that cost. The all-order sign alternation and exact product formula are a natural complete classification of the interaction structure, stronger than one marginal covariance or a finite table. The pairwise positive interaction in particular contrasts with every negative first-order association.
+The frozen proof conditions on marked Bernoulli root attachments and derives the correct affine mean recursion u_j=[1+(1-x_j)/(j-2)]u_{j-1}+1 at marked j and [1+1/(j-1)]u_{j-1}+1 elsewhere. The independent Bernoulli mixed-difference identity E[f(A) product(A_i-p_i)]=product p_i(1-p_i) Delta_{t1}...Delta_{tk}f is exact for multiaffine conditional means. The earliest marked time produces -(t1-1)(H_{t1-1}-1)/(t1-2); each later marked time inserts a factor -1/(tj-2) and growth intervals telescope to n/tk. Multiplying Bernoulli variances yields the boxed all-order product. Positivity of H_{t1-1}-1 fixes (-1)^k for all distinct times and k. Independent exhaustive enumerations of every legal parent sequence and all marked subsets for n=3,...,7 reproduce the exact rational mixed moments; these finite checks are corroborative, while the recurrence proof covers all n.
 
-The scope is the standard uniform recursive-tree model. No causal effect under arbitrary growth interventions, higher-order distributional ordering, or nonuniform-weight generalization is asserted. No independent audit or validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published Resultary 2026-10-04 states the exact k=1 covariance -n(H_{j-1}-1)/(j(j-1)) and stronger single-root forced-attachment stochastic order. That first-order subcase is expressly not a novel finding here. The new final claim is a strict, factorized all-order mixed product for every k>=2 and all marked time tuples, including odd/even sign reversal. Gałązka/Wdowicka arXiv:2610.00614 Theorem 5.2 supplies a linear martingale-innovation decomposition for path length, not the all-order products against independent root-edge Bernoulli indicators; their theorem alone does not supply the stated higher mixed moments. Earlier joint tree-profile theory was also checked at the statement level.
+
+## value
+
+PASS
+
+Root attachment times and total path length are canonical observable statistics of uniform recursive trees. Complete higher-order interaction signs clarify genuinely non-additive dependence: all negative first-order contributions coexist with positive second-order, negative third-order and so on, with exact factorization for arbitrarily large marked sets. A natural full hierarchy is useful beyond a one-time covariance and is not a renaming of the prior k=1 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
