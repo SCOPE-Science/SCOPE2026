@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `python3 verify_integral.py` in the directory containing `certificates/unit_pivots.csv`. The program enumerates every admissible arc subset, constructs exact signed integer boundaries, recomputes and compares the entire 341-pivot sequence, checks the remaining integer matrices, and eliminates the 91 non-tree edge generators using triangular relations. Its output must match `checks/integral.txt`.
+# Independent mathematical audit
 
-Run `python3 verify_independent.py`. Its alternate arc ordering and direct enumeration of all 262144 arc masks reproduce the face-vector and finite-field ranks for four primes. Its output must match `checks/independent.txt`. The field results are corroboration; the integral certificate and the fundamental-group computation support the full homotopy claim.
+## correctness
 
-The pivot certificate's `degree` refers to the boundary between arc-cardinality groups, so a degree-five entry operates on four-dimensional simplices. A pivot is admissible only if its current signed integer boundary coefficient equals the recorded unit. Every Schur complement is integral, and no modular arithmetic is used in the primary integral reduction. The rank vector and all surviving zero maps are checked after all pivots. The vanishing of \(\pi_1\) follows from triangle relations rather than assuming it from homology. The finite four-dimensional CW argument then upgrades the integral result to a homotopy equivalence.
+PASS
 
-This does not constitute a proof for other complete bipartite orders or an equivariant decomposition.
+The complete eighteen oriented-arc subsets of bidirected K3,3 were exhaustively enumerated (by arc cardinality <=5); independent face counts including empty [1,18,108,264,252,72] agree. Independently constructed exact integral simplicial matrices; 341 signed unit-pivot chain cancellations split off contractible free pairs in boundary sizes 2..5 in counts 17,91,173,60, leaving free chain modules sizes C1=1,C4=19,C5=12 and all zero boundaries. A spanning-tree triangle-relator propagation killed all 91 non-tree edges in rounds [46,7,12,19,7], proving pi1 trivial; H2=0 then pi2=0. Two-connected 3-skeleton is wedge S3; degree-one Smith-normal-form attachments cancel 3/4 cell pairs, leaving wedge19 S3 plus12 S4. Independent F2 boundary ranks [1,17,91,173,60] corroborate integral ranks, not torsion by themselves. All polynomial-time claims refer to finite 18-arc complex, so enumeration is exhaustive.
+
+## originality
+
+PASS
+
+On a best-of-knowledge statement/implication comparison, the inspected primary and published records do not establish the exact final theorem under its actual objects and parameters; the named accessible-source and stronger-theorem risks remain documented.
+
+## value
+
+PASS
+
+Exact integral homotopy classification of the natural fully bidirected utility graph supplies a mixed-dimensional wedge and detects a genuine boundary between one-way chessboard complexes, double stars and complete directed complexes. The full homotopy type is stronger and mathematically motivated beyond a face-number table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
