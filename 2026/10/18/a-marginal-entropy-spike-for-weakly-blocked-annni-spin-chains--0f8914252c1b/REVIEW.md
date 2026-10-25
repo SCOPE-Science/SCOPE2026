@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each site's exact spin-flip energy increment gives the five-site admissibility rule; the cyclic de Bruijn matrix therefore counts all labelled blocked configurations exactly. Exact integer matrix characteristic polynomials provide finite-volume algebraic counts. A unique primitive cyclic SCC controls each asymptotic entropy. Positive integer Perron vectors provide strict rational bounds, proving the peak without dependence on floating-point approximations. Independent full-Hamiltonian checks cover 24,480 small labelled configurations. The proof is analytical for all lengths at least five.
+## correctness
 
-**Originality — PASS within accessible evidence.** Redner–Krapivsky (1998) and Sen–Dasgupta (2004) directly study the same competing-coupling chain, emphasizing kinetic coarsening, persistence and neutral moves at the marginal coupling. Their full-text analyses do not provide the exact marginal quintic or strong-frustration septic weak-local-minimum entropy laws. Dhar–Shastry–Dasgupta (2000) study a different equilibrium degeneracy at half coupling. Previously established weak-coupling domain counts are explicitly excluded from the new contribution. Literature that indexes these same local minima under alternate terminology remains a residual originality risk.
+PASS
 
-**Mathematical value — PASS.** The natural observable counts every configuration locally protected against a strictly energy-decreasing individual flip, a measure of the model's energy-landscape complexity distinct from typical quench outcomes. The exact entropy has a strict isolated maximum at a physically distinguished neutral-move threshold and its two new branches have explicit nontrivial minimal algebraic polynomial descriptions. The effect persists exponentially with chain length and is not a finite-size curiosity.
+The energy difference on flipping site i is 2J sigma_i(sigma_{i-1}+sigma_{i+1}-kappa(sigma_{i-2}+sigma_{i+2})). This five-spin condition gives an exact 16-state quadruple de Bruijn transfer-matrix trace for all n>=5; only threshold kappa=1 can change allowed transitions. Independently constructed all 3 integer 16x16 matrices and used exact SymPy determinants to reproduce source characteristic factorization in each phase. Brute full spin enumeration for each n=5..9 matched trace(T^n) in all 15 cases. Verified exact Collatz–Wielandt component inequalities for both 14-state Perron vectors: the critical lambda lies in (1.665,1.668) and high lambda in (1.554,1.557), separated from phi in (1.618,1.619). The source checks strongly connected primitive components; Perron–Frobenius then yields the exponential limit, not just finite trace data. At kappa=1 neutral flips satisfy >=0, and the statement does not equate weak minima with dynamically absorbing states.
 
-**Limitations.** Weak blocking is not absorbing for dynamics that permit energy-neutral flips. No assertion concerns equilibrium phase boundaries, typical coarsening trajectories, or cooperative flips. Equivalent enumerations in uninspected literature cannot be ruled out. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Redner–Krapivsky and Sen–Dasgupta papers analyze dynamical coarsening/persistence in ANNNI chains; Dhar–Shastry–Dasgupta study equilibrium degeneracy at distinct kappa=1/2. The exact all-weakly-one-spin-blocked configuration characteristic polynomials and the marginal-vs-strong entropy comparison were not identified in read source portions. The golden-ratio weak branch is explicitly credited as pre-existing, as are physical transition locations.
+
+## value
+
+PASS
+
+Exact entropy of all non-strict local-energy minima is a motivated, distinct combinatorial invariant of the competing-interaction chain. The sharp marginal spike and three algebraic rates classify how neutral-energy motifs affect the entire locally stable configuration space, rather than just typical Glauber trajectories or equilibrium ground states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
