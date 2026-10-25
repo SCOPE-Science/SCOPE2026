@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:54:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md complete proof, all fixed support cases, SLOGAN.txt and VERIFICATION.md; Git tree 88a848811c0577763b6871360038d82ae2b1fe47",
+        "verify.py and verification-output.txt inspected, independent private BFS n=5..7"
+      ],
+      "rationale": "For KG(n,2), n>=5, vertex-to-edge distance is 0 for either edge endpoint doubleton, 2 for the other four doubletons lying in its four-point support, and 1 outside. Thus for two graph edges with supports meeting in h points, the resolving neighborhood has size 12-2*C(h,2)+q, where q is the number of intersection doubletons in exactly one endpoint matching. Independent examination of the finite matching choices on prescribed union supports t=4,5,6,7,8 gives respectively (size,count): (4,3),(6,30),(8,60),(10,225),(11,180),(12,630),(12,315); unique union support yields the six-term claimed polynomial. Uniform weights 1/4 are feasible and three distinct-matching-pair inequalities on each 4-support yield the matching LP dual lower bound C(n,2)/4. Directly independently written BFS reproduces complete histograms n=5,6,7, not a proof for all n. Empty binomial terms make all formulas valid at n=5.",
+      "residual_risks": [
+        "Independent computations are bounded and not proofs of all-parameter conclusions.",
+        "Structural published hypotheses cited in the package remain part of the proof premises."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published vertex-and-edge-transitivity argument gives fractional edge dimension once minimum resolving-neighborhood size is supplied; it does not by itself count all neighborhood sizes.",
+          "Resultary top hits on complete multipartite graphs and friendship graphs are different graph families."
+        ],
+        "reasoning": "Generic symmetry reduction is correctly credited; no retrieved broader theorem supplies q-matching overlap multiplicities 3,30,60,225,180,630,315.",
+        "searches": [
+          "Goshi et al, Mathematics 9(19) 2364, DOI:10.3390/math9192364",
+          "Resultary query: fractional edge dimension KG(n,2) two subset Kneser graph complete resolving neighborhoods distribution polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2103.07375",
+        "https://doi.org/10.3390/math9192364",
+        "Resultary query: fractional edge dimension KG(n,2) two subset Kneser graph complete resolving neighborhoods distribution polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yi Proposition 3.5 fixes n=5 value; Goshi transitive reduction can derive the scalar from an independently supplied minimum size 4, but neither yields the all-n support-overlap polynomial."
+        ],
+        "reasoning": "The submitted result strictly refines known scalar statements, and uses the known transitive reduction as contextual prior art; no broader prior implies the full polynomial in reviewed material.",
+        "searches": [
+          "Yi 2021 full mathematical paper",
+          "Goshi et al 2021 transitive graph theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(n,2) is the complement of the triangular graph, but the invariant here concerns unordered pairs of GRAPH EDGES; Yi 2021 defines edge-resolving distances and proves Petersen case."
+        ],
+        "reasoning": "Graph complement or line-graph naming does not convert known Petersen scalar into a complete six-coefficient all-n pair census. Full pair distribution is stronger than a scalar fractional LP value.",
+        "searches": [
+          "Resultary query: fractional edge dimension KG(n,2) two subset Kneser graph complete resolving neighborhoods distribution polynomial",
+          "search: KG(n,2) resolving neighborhood polynomial, complement triangular graph edge metric spectrum",
+          "Yi arXiv:2103.07375"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Petersen n=5 scalar edim_f=5/2 appears in Yi; our n=5 spectrum additionally lists 15,30,60 graph-edge pairs of sizes 4,6,8."
+        ],
+        "reasoning": "The known scalar and finite instance are not mistaken for novel results. No matching all-n histogram in the actually searched sources; search absence alone proves nothing.",
+        "searches": [
+          "Yi arXiv:2103.07375 Proposition 3.5",
+          "Resultary search edge-resolving spectrum KG(n,2)"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary-source and Resultary comparison; no searched statement/table/general theorem shown to imply the exact submitted additional invariant. Crucial established premises and special cases are credited. Full-text versus abstract material is explicitly distinguished; inaccessible literature is retained as risk, not assumed noncovering.",
+      "residual_risks": [
+        "Unindexed work may explicitly count complete resolving-neighborhood sizes on Kneser or triangular-complement graphs.",
+        "Known transitivity theorem covers the scalar if separate min neighborhood size supplied; no novelty is claimed for transitivity itself or Petersen scalar."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SPECIAL_CASE: 5/2 for Petersen, not full all-n spectrum",
+          "evidence": "Proposition 3.5; abstract and definition of R(e,f).",
+          "identifier_or_url": "https://arxiv.org/abs/2103.07375",
+          "material_read": "Original 14-page arXiv PDF, definitions and the class computations around Proposition 3.5",
+          "method": "Opened original primary PDF and checked the relevant proposition",
+          "title": "On the edge dimension and fractional edge dimension of graphs",
+          "trigger": "Same invariant; Petersen KG(5,2) could be prior coverage"
+        },
+        {
+          "assessment": "APPLICABLE_GENERAL_REDUCTION, but size distribution not presented",
+          "evidence": "Abstract; vertex-edge transitivity criterion; friendship, circulant, hypercube applications.",
+          "identifier_or_url": "https://doi.org/10.3390/math9192364",
+          "material_read": "Open-access original article text on transitive reduction and graph families",
+          "method": "Read article HTML relevant theorem and example sections",
+          "title": "A Combinatorial Approach to the Computation of the Fractional Edge Dimension of Graphs",
+          "trigger": "Possible stronger transitive-graph coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof, Relationship to prior work",
+        "Primary literature comparisons in axes.originality; complete exact invariant distinguished from prior maxima or general algorithms"
+      ],
+      "rationale": "Exact six-term pairwise resolving-neighborhood polynomial is a natural complete ambiguity invariant for an infinite canonical edge-location graph family; beyond the previously known scalar the seven overlap types expose how four-point supports lose distance information. Tight matching LP witness makes the exact fractional optimum reproducible and intrinsic, not an arbitrary computational slice.",
+      "residual_risks": [
+        "Future priority discovery may revise originality; this does not make the motivated natural invariant intrinsically uninteresting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two-element Kneser graphs and fractional edge resolving, n>=5; no higher-rank Kneser, integral dimension, optimizer uniqueness or universal literature certification.",
+    "Unindexed work may explicitly count complete resolving-neighborhood sizes on Kneser or triangular-complement graphs.",
+    "Known transitivity theorem covers the scalar if separate min neighborhood size supplied; no novelty is claimed for transitivity itself or Petersen scalar."
+  ],
+  "schema_version": 1
+}
