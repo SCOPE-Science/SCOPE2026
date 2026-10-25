@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T09:08:18.564374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact k>=2, R>0 claim from the frozen seven-file Git record and verified its tree hash independently using the seven actual blob IDs (0a861942a66fcd342985df796b9d62efa1d3d9bb). The convex hull equals K={(x,y):x^2+g_Q(y)^2<=R^2}: the gauge set is convex and contains all disks; conversely every fixed-x section sqrt(R^2-x^2)Q is a convex combination of the original disks at that SAME x. Fubini gives V=(4R^3/3) Area(Q); the 2k cyclic vertices +/-u_j imply Area(Q)=sum_j sin(delta_j). For each polygon edge subtending gamma in (0,pi), the ruled patch F(x,t)=(x,sqrt(1-x^2)[(1-t)u+tv]) has |F_x cross F_t|=2sin(gamma/2)sqrt(1-x^2sin^2(gamma/2)), independent of t. Integrating in x produces gamma+sin(gamma); summing the 2k edges (total gamma=2pi) gives S=2pi R^2+2R^2 sum sin(delta_j), hence S=2pi R^2+(3/(2R))V. Seams and endpoint tips have zero 2D area; no planar facets occur for positive gaps. Strict concavity of sin on (0,pi) gives the all-k equal-gap equality case, and the boundary vector (epsilon,...,epsilon,pi-(k-1)epsilon) gives strict unattained infima. Regular 2k-gon inradius tends R as k grows, giving Hausdorff ball convergence; both metric limits follow. Independent Python/SciPy calculations reconstructed the actual hull from 512 sampled points per source circle for random k=2,3,5, radius R=1.3, with relative volume errors <4e-5 and surface errors <2.4e-5; separate cross-product quadrature at gamma=0.02,0.3,pi/3,pi/2,2.99 agreed with gamma+sin gamma (worst abs <1.4e-12). The entire proof is analytic; finite samples merely corroborate it. The known k=2 perpendicular case exactly reproduces Finch V=8/3 and S=2(2+pi).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch 2012 §1 and §§2–3 analyzes three individual configurations of two orthogonal disks, not any finite number or arbitrary inter-plane angle.",
+          "Bäsel 2016 §1, §§2 and 5 defines an oloid by two perpendicular circles with offset centers, and studies width and parallel-body intrinsic volumes; the assumptions do not include a common center.",
+          "Nash–Pir–Sottile–Ying 2017, abstract, §§2–4 and Table 5, classifies two-circle hull face lattices, edge curves/spectrahedra; no theorem over arbitrary finite common-axis disks or their exact surface/volume is stated.",
+          "Wu–Gupta–Kurzeja–Rossignac 2020 CHoCC abstract/2019 poster: requires disjoint spherical caps and features triangular/corridor boundary; great-circle caps here all overlap, so its hypotheses do not apply.",
+          "Resultary published orthogonal three-disk record 14663bdfc53a: 3 pairwise perpendicular coordinate planes, with no line common to all 3. Different geometric object."
+        ],
+        "reasoning": "The most plausible geometric superclasses concern cospherical circles, general pairs of circles, or coordinate-plane triples. Their actual result scopes are either k=2 and structural/algebraic rather than volumetric or require separated caps, or have different triple-plane incidence. None directly dominates the theorem. The inaccessible full CHoCC text remains a bounded risk.",
+        "searches": [
+          "Resultary: exact surface area and volume of convex hull of two orthogonal concentric circular disks arbitrary angle common center with extremal equispaced planes",
+          "Resultary: sharp volume maximizer of convex hull of k unit great circles lying in planes through common fixed axis equal angular gaps",
+          "web: convex hull coplanar coaxial disks in planes common diameter hull exact surface area volume arcs angles",
+          "web: Finch convex hull two orthogonal disks surface volume 2012 arxiv 1211.4514",
+          "web: \"convex hull\" \"three disks\" \"common diameter\" volume",
+          "web: \"convex hull\" \"great circles\" polygonal cross-sections volume surface",
+          "web: CHoCC convex hull cospherical circles applications lattices Wu Gupta Kurzeja Rossignac 2020 pdf",
+          "web: \"CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices\" pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1211.4514",
+        "https://arxiv.org/pdf/1604.07245",
+        "https://arxiv.org/pdf/1612.09382",
+        "https://doi.org/10.1016/j.cad.2020.102903",
+        "https://igs2019.org/IGS2019-POSTER-PROCEEDINGS-LR.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md",
+        "Resultary same-record finding id 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11 (excluded as independent priority support)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k=2 orthogonal Finch formula follows from the submitted result as one specialization, not conversely: infinitely many angular gaps and all k remain undetermined from Finch constants.",
+          "Nash et al. classify faces of hulls of 2 circles; face classification alone does not numerically imply the exact area of an arbitrary finite cyclic collection.",
+          "Resultary three-disk coordinate-plane object has no common diameter, so neither its volume 8-10sqrt(2)/3 nor its surface 12-4sqrt(3)+2pi is a specialization of the theorem.",
+          "Resultary displaced two-disk mean-width law varies center separation and controls another intrinsic volume, and does not determine simultaneous area and volume for concurrent disks.",
+          "The proof uses a cyclic-section polygon, integrates ruled-edge patches as gamma+sin gamma, and applies strict concavity to classify maxima; these steps are not given by the closest checked prior assertions."
+        ],
+        "reasoning": "The submitted conclusion logically contains a known Finch special case; no checked theorem implies the all-k identity or sharp Jensen maximizer. The natural elementary methods do not automatically turn unrelated existing shape-specific measurements into an exact general statement. Algebraic geometric statements on pairs also lack the necessary metric integrations.",
+        "searches": [
+          "Resultary: The convex hull of k equal circular disks through one common diameter is determined by a cyclic polygon and has universal affine surface-volume identity S=2pi R^2+3V/(2R)",
+          "Resultary: exact surface area and volume of convex hull of two orthogonal concentric circular disks arbitrary angle common center with extremal equispaced planes",
+          "Resultary: surface area of generalized barrel or elliptical polygonal cross-section x^2+g_Q(y)^2 <= R^2 with Q regular inscribed polygon",
+          "Resultary: sharp volume maximizer of convex hull of k unit great circles lying in planes through common fixed axis equal angular gaps",
+          "web: convex hull coplanar coaxial disks in planes common diameter hull exact surface area volume arcs angles",
+          "web: convex hull polygons of revolution elliptical ruled sectors surface volume generalized S = 2 pi R squared plus 3/(2R) volume",
+          "web: \"convex hull\" \"three disks\" \"common diameter\" volume",
+          "web: \"surface area\" \"volume\" \"hull\" \"disks\" \"equal angles\" orthogonal",
+          "web: CHoCC convex hull cospherical circles applications lattices Wu Gupta Kurzeja Rossignac 2020 pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch arXiv:1211.4514 §1, PDF page 2, gives precisely V=8/3 and S=2(2+pi) for two perpendicular concentric unit disks; this equals the specialization k=2, delta_1=delta_2=pi/2, R=1.",
+          "Resultary hit 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11 is the same record, not independent prior art.",
+          "The other close Resultary hit is exact orthogonal three-disk coordinate-plane hull, whose 3 planes intersect jointly only at the center (no common diameter line).",
+          "No independent source inspected provides a formula equivalent to S=2pi R^2+(3/(2R))V for all finite k>=2 and arbitrary positive angular gaps."
+        ],
+        "reasoning": "Equivalent formulations searched include convex hulls of great circles, polygonal-section spherical suspensions, common-axis circular-disk hulls and affine coupling of area and volume. The known k=2 right-angle constant is a true covered special case, but cannot determine unrestricted angular data, k>=3, or Jensen equality rigidity. Failure to locate an alias is a priority limitation, not proof of novelty.",
+        "searches": [
+          "Resultary: The convex hull of k equal circular disks through one common diameter is determined by a cyclic polygon and has universal affine surface-volume identity S=2pi R^2+3V/(2R)",
+          "Resultary: surface area of generalized barrel or elliptical polygonal cross-section x^2+g_Q(y)^2 <= R^2 with Q regular inscribed polygon",
+          "Resultary: sharp volume maximizer of convex hull of k unit great circles lying in planes through common fixed axis equal angular gaps",
+          "web: \"convex hull\" \"disks\" \"common diameter\" \"surface area\" volume",
+          "web: convex hull of k disks same center different planes common axis area formula",
+          "web: \"convex hull of circles\" \"common diameter\" formula volume surface area",
+          "web: \"convex hull\" \"great circles\" polygonal cross-sections volume surface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch arXiv:1211.4514, §1, explicitly supplies two exact special-case constants 8/3 and 2(2+pi), including their integrals.",
+          "Four Resultary semantic searches identified the submitted all-k finding itself and geometrically distinct related records, not an independent table of its arbitrary-gap functions.",
+          "Targeted OEIS/MathWorld and exact-expression searches returned no directly covering variable-k surface/volume table."
+        ],
+        "reasoning": "The exact known special-case constants receive prior credit. No verified database/table evaluation was found for arbitrary k and continuous gap vectors or all equality cases; index nonappearance is not treated as proof that none exists.",
+        "searches": [
+          "web: Finch convex hull two orthogonal disks surface volume 2012 arxiv 1211.4514",
+          "web: site:oeis.org \"convex hull of two orthogonal disks\" \"surface area\"",
+          "web: site:mathworld.wolfram.com \"Two Orthogonal Disks\" volume surface area",
+          "web: \"2 pi\" \"3 volume\" \"2 radius\" \"circular disks\" convex hull",
+          "Resultary: The convex hull of k equal circular disks through one common diameter is determined by a cyclic polygon and has universal affine surface-volume identity S=2pi R^2+3V/(2R)",
+          "Resultary: exact surface area and volume of convex hull of two orthogonal concentric circular disks arbitrary angle common center with extremal equispaced planes"
+        ]
+      },
+      "rationale": "The exact Finch 2012 orthogonal two-disk metrics are previously known and excluded from novelty. Fresh Resultary searches (four independent semantic queries) retrieved the identical submitted record, a separate orthogonal three-disk result (coordinate planes have no common diameter line), and a displaced-disk mean-width result; none yields the all-k common-diameter volume/surface relation. Read the mathematical statements in both relevant Resultary papers. Finch arXiv:1211.4514 treats three two-disk arrangements, of which only the concentric right-angle case belongs to this family; Bäsel arXiv:1604.07245 treats the displaced-center oloid; Nash–Pir–Sottile–Ying arXiv:1612.09382 classify face lattices and algebraic edge surfaces of pairs, not the metric all-k identity. CHoCC 2020 treats cospherical circles bounding disjoint spherical caps, whereas the present input consists of great circles meeting in the same two antipodal axis points; its published abstract and poster are therefore not directly covering. Its full paper remained inaccessible after legal OA/arXiv searches and an authorized institutional attempt, recorded as a residual risk, not automatic failure. No stronger covering or exact tabulated all-k expression was found; search silence is not proof of priority. The audited parameterized identity and rigid equal-gap maximizers are not logical consequences of the checked special-case formulas.",
+      "residual_risks": [
+        "CHoCC (2020) full paper was not accessible after arXiv/OA searches and authorized Oxford attempt (vpn_disconnected); accessible abstract has incompatible disjoint spherical-cap hypothesis, but hidden generalization cannot be excluded from full text.",
+        "A classical formula for convex hulls of many great circles or an equivalent spherical suspension/ruled-surface construction may appear under different terminology in unindexed geometry texts.",
+        "Finch 2012 two-disk right-angle V=8/3 and S=2(2+pi) are unambiguously previously known; the new contribution must not count that special case as independent novelty.",
+        "No search result alone proves historical uniqueness or excludes unpublished work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SPECIAL_CASE_ONLY: k=2 with right angle has V=8/3 and S=2(2+pi); no general k or variable-plane-angle identity.",
+          "evidence": [
+            "arXiv:1211.4514, §1 PDF p.2: displayed volume 8/3 and surface 2(2+pi); PDF pp.5–8 shifted-circle constructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4514",
+          "material_read": "Full arXiv PDF made available (20 pages); inspected introduction, §1 surface and volume integrals and direct support-function computation (PDF pp.1–5), and §§2–3 opening and displaced configurations (pp.5–8); checked formulas and parameter domains.",
+          "method": "Opened primary PDF, inspected actual page image of §1 formulas and relevant extracted mathematical sections.",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Same concentric-perpendicular two-disk specialization and closest primary metric calculation."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: circles have offset centers, and results concern oloid mean width/parallel bodies, not arbitrary concurrent k-disk identities.",
+          "evidence": [
+            "arXiv:1604.07245 Eq.(1) has circles centered at y=+/-1/2 in perpendicular planes; §5 formulas for offset oloid parallel body."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07245",
+          "material_read": "Introduction and exact defining coordinates on PDF pp.1–2; geometric ruled-surface calculation on p.2; §5 parallel body and Steiner volume/surface formulas on pp.7–8.",
+          "method": "Read arXiv primary PDF and inspected page image with displaced circle equations.",
+          "title": "The mean width of the oloid and integral geometric applications of it",
+          "trigger": "A circle-hull intrinsic-volume paper, possibly covering a broader two-circle geometry."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING: exact subject is pairs of circles and their combinatorial/algebraic boundary; no all-k surface–volume metric formula.",
+          "evidence": [
+            "arXiv:1612.09382 abstract and Introduction, §3 algebraic bidegree of edge curves, §4 Table 5 of pair-hull face lattices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.09382",
+          "material_read": "Primary PDF abstract and §1, §§2–3 theorem statements and algebraic boundary construction, §4 classification/face-lattice table, later projective duality section sampled (PDF pp.1–7 and 14–19).",
+          "method": "Read arXiv PDF extracts and inspected title/abstract page image, explicit theorem/classification text and Table 5.",
+          "title": "Convex Hull of Two Circles in R3",
+          "trigger": "A broad classification of convex hulls of circle pairs, potentially implying the geometry of the two-disk case."
+        },
+        {
+          "assessment": "ABSTRACT-SCOPE_NOT_DIRECTLY_APPLICABLE: requires oriented cospherical circles bounding disjoint spherical caps, while any two great circles in the current family meet in two antipodal points and their hemispherical caps overlap; full paper may contain additional generalizations and remains a residual risk.",
+          "evidence": [
+            "2019 poster IGS2019-POSTER-PROCEEDINGS-LR.pdf abstract: n oriented circles bounding disjoint caps, t=2n-4 triangles, 3t/2 developable corridors.",
+            "2020 CAD article abstract: same disjoint-cap hypothesis; full text inaccessible via attempted sources."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cad.2020.102903",
+          "material_read": "Publisher/ResearchGate abstract, 2019 freely available authors poster abstract, authors public overview. Full paper text NOT obtained.",
+          "method": "Searched arXiv and lawful OA copies, inspected public abstract/poster, then attempted authorized Oxford institutional retrieval; access returned vpn_disconnected. No bypass or fabricated full-text reading.",
+          "title": "CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices",
+          "trigger": "Cospherical-circle hulls might include the present great-circle input or imply a more general metric theorem."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: all three coordinate planes meet at a point, not a common diameter line; triple result is not a specialization or implication.",
+          "evidence": [
+            "Finding states D_xy,D_xz,D_yz, explicitly notes the planes do not share a common line; V=(8-10sqrt(2)/3)R^3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "material_read": "Entire RESULT.md, including input disk coordinate planes, supporting-faces classification and eight triangles /24 ruled-patch integration.",
+          "method": "Fetched public published scientific record and compared source geometry, formulas and quantifiers.",
+          "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+          "trigger": "High-scoring Resultary comparison concerning multiple centered orthogonal disks with explicit area and volume."
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER_AND_INVARIANT: pair of perpendicular disks with variable center displacement and mean width rather than concurrent disks with area-volume relation.",
+          "evidence": [
+            "Finding uses centered offsets +/-delta/2 and evaluates W_prime(delta) and W_second(delta), not V or S for arbitrary common-axis arrangements."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf/RESULT.md",
+          "material_read": "Entire RESULT.md, including support-function derivation, mean-width profile, displacement hypothesis and limitations.",
+          "method": "Fetched published scientific record and compared exact object/valuation/parameters.",
+          "title": "A one-dimensional derivative law for orthogonal-disk mean width",
+          "trigger": "High-scoring prior published finding on convex hulls of two orthogonal disks, with a different geometric intrinsic volume."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the natural finite k common-diameter generalization of the classical two-perpendicular-disk convex hull. The result identifies a configuration-independent affine relation between two intrinsic Euclidean measures even as the individual measures vary continuously with the angular data, and gives a complete sharp equal-spacing maximizer with equality characterization and controlled degenerate/large-k endpoints. Exact simultaneous surface and volume evaluation is not a routine restatement of the two-disk numerical constants; the central structural step is the global homothetic-section description and uniform patch integral, followed by an all-k strict optimization. A future researcher studying metric geometry of multi-circle hulls can reuse the closed formulas and extremal construction as an exact benchmark. Scope is deliberately restricted to R>0, k>=2 distinct planes, common center and line; no displaced/unequal-radius or arbitrary convex-body result is asserted. The proof is elementary in tools but the complete natural-family invariant and rigid extremizers are mathematically motivated, not arbitrary parameter slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem assumes equal radii, common center, a common diameter line, k>=2 distinct supporting planes; it does not cover one degenerate disk, skew/off-center circles or arbitrary convex bodies.",
+    "The all-k identity is proven analytically; finite convex-hull sampling/quadrature is not proof of universal geometric claims.",
+    "CHoCC 2020 full text was inaccessible: authorized Oxford attempt returned vpn_disconnected after no arXiv/OA full text was found; abstract suggests nonapplicable disjoint-cap hypothesis but unread theorems remain a bounded originality risk.",
+    "The public-facing SLOGAN wording could mislead about the k=1 degenerate case and requires precision review before publication.",
+    "Public metadata/review material retains internal operational provenance; publication cannot be attested confidentiality-safe without complete guarded sanitization."
+  ],
+  "schema_version": 1
+}
