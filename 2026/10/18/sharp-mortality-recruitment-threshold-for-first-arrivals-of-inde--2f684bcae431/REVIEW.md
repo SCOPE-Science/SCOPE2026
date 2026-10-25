@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete proof is based on the exact Poisson survival formula, the killed first-passage Laplace transform, a uniform endpoint Laplace expansion accounting for its vanishing linear weight, and an explicit success-flight delay bound. The normalization and all critical values are stated with quantifiers and fixed-parameter scopes. The standalone 92-check program verifies elementary integral and saddle identities; it is not evidence by itself for the limit theorem.
+PASS
 
-## Originality
+RESULT.md begins with exact marked-Poisson identity S(z)=(1-F_b(z))exp(-R A_b(z)), where F_b(z)=∫0^z e^{-bu}g(u)du, A_b(z)=∫0^z(z-u)e^{-bu}g(u)du and g(u)=exp(-1/(4u))/(2sqrtπu^(3/2)). The Laplace transform q_b=exp(-sqrt b) and mean successful transit delay 1/(2sqrt b) follow from the one-dimensional Brownian hitting law. For c<1, z=x/L yields a strictly decreasing endpoint phase φ_c(y)=1/(4y)+c²y near h_c, and the vanishing (x-y) factor gives the L^(-5/2) normalization with coefficient x^(-3/2)/(2sqrtπ[-φ_c'(x)]²). The correct expansion at x=h_c+[(5/2)logL-logC+w]/(a_c L) gives R A_b→exp w and F_b→0. For c>=1 the inequality 0<=z-A_b/q_b<=1/(2sqrt b) supplies the exponential limits on their stated scales, including η. Independent numerical integration verified exact Laplace-transform normalization and the hazard near the proposed window at finite L; convergence is visibly slow, especially c close to one, and this was not used to infer the limit.
 
-**PASS under best-knowledge comparison, with material residual risk.** Prior studies establish the Poisson survival representation and related stationary arrival statistics. None of those known ingredients is asserted as novel. The result assessed here is the coupled mortality and immigration boundary and its refined reflected-Gumbel/exponential crossover. Primary materials and search comparisons did not identify a prior theorem with the exact joint scaling. Full text of several highly relevant 2026 papers remained inaccessible and may implicitly subsume some statements; the scientific originality assessment is not an independent certification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The phase boundary determines when stochastic recruitment stops offsetting searcher mortality and which stochastic time scale governs initial detection. The logarithmic centering correction and finite critical window supply quantitative information beyond the classical fixed-mortality limit. These address a motivated model-design issue in nonconservative stochastic search.
+The motivating Gutiérrez et al. paper proves the same marked-Poisson survival formula and asymptotic exponential tail for fixed mortality/recruitment; the subject of this audit is the noncommuting coupled fast-recruitment/fast-mortality transition. Tung and Lawley prove a general fast-immigration Gumbel theorem for a fixed successful-arrival law with fixed short-time asymptotics; that hypothesis does not directly cover mortality b growing like log²R, nor the switch to Exp at c>=1. The two papers were read in relevant complete sections, not merely matched by title. Related DRM 2026 primary has only its abstract accessible; material priority risk remains.
 
-## Closest literature and limitations
+## value
 
-Gutiérrez et al. (arXiv:2610.08022) provide a closely matching model. Linn and Kumar (arXiv:2601.07096) and Giral-Barajas et al. (arXiv:2606.16025) treat nonconservative search processes; Tung and Lawley (arXiv:2508.14202) treat fast immigration. The claim requires independent Brownian searchers, Poisson immigration and exponential mortality; no mean convergence or universal nonexponential extension is asserted. Some full-text comparisons remain unavailable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp competition boundary answers when particle injection ceases to overcome exponential mortality, distinguishes logarithmically quick first arrival from growing waits, and provides the full critical-window law. The unusual 5/2 loglog centering arises from an endpoint integral with a vanishing linear factor, supplying quantitative distributional information absent from fixed-mortality mean estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

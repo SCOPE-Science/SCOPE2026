@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:02:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md begins with exact marked-Poisson identity S(z)=(1-F_b(z))exp(-R A_b(z)), where F_b(z)=∫0^z e^{-bu}g(u)du, A_b(z)=∫0^z(z-u)e^{-bu}g(u)du and g(u)=exp(-1/(4u))/(2sqrtπu^(3/2)). The Laplace transform q_b=exp(-sqrt b) and mean successful transit delay 1/(2sqrt b) follow from the one-dimensional Brownian hitting law. For c<1, z=x/L yields a strictly decreasing endpoint phase φ_c(y)=1/(4y)+c²y near h_c, and the vanishing (x-y) factor gives the L^(-5/2) normalization with coefficient x^(-3/2)/(2sqrtπ[-φ_c'(x)]²). The correct expansion at x=h_c+[(5/2)logL-logC+w]/(a_c L) gives R A_b→exp w and F_b→0. For c>=1 the inequality 0<=z-A_b/q_b<=1/(2sqrt b) supplies the exponential limits on their stated scales, including η. Independent numerical integration verified exact Laplace-transform normalization and the hazard near the proposed window at finite L; convergence is visibly slow, especially c close to one, and this was not used to infer the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tung–Lawley Theorem 1 assumes I(t)~A0 t^p exp(-C0/t) for a fixed searcher law in λ→∞ and proves standard fast-immigration Gumbel/Weibull laws.",
+          "Gutiérrez et al. obtain the fixed-parameter long-time tail rate λ exp(-sqrt b), Eqs.(23)-(26)."
+        ],
+        "reasoning": "A fixed-law large-λ theorem cannot directly substitute its uniform asymptotic when the individual defective law depends on λ through b=c²(logR)²; indeed the limit is no longer Gumbel at or above c=1. The rate λexp(-sqrt b) supplies a building block but alone does not identify the sharp moving centering.",
+        "searches": [
+          "arxiv:2508.14202 Theorem 1, Eq.(3.2), §3",
+          "arxiv:2610.08022 Eqs.(18),(23)-(26)",
+          "independent Brownian mortal searchers immigration Poisson recruitment mortality simultaneous large rate log squared crossover Gumbel exponential arrival"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and analytic verification notes",
+        "arxiv:2610.08022 §4 and Appendix B full text",
+        "arxiv:2508.14202 Theorem 1 and Eq.(3.2) full text",
+        "arxiv:2601.07096 abstract",
+        "Resultary targeted query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-mortality long-time effective hazard is λeff=λexp(-sqrt b); plugging b=c²log²R suggests R^(1-c), but yields neither finite-delay uniformity nor subcritical Gumbel window.",
+          "Theorem 1 of the immigration paper assumes a λ-independent short-time intensity expansion with constants A0,C0, whereas here cL modifies the exponential action on the same scale."
+        ],
+        "reasoning": "Neither result as stated implies the double-scale phase transition as a corollary; it needs uniform endpoint asymptotics and the exact successful-flight delay bound. A more general uniform theorem in uninspected related 2026 DRM work remains a meaningful residual risk.",
+        "searches": [
+          "arxiv:2610.08022 Eq.(18), §4",
+          "arxiv:2508.14202 Theorem 1",
+          "independent Brownian mortal searchers immigration Poisson recruitment mortality simultaneous large rate log squared crossover Gumbel exponential arrival"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gutiérrez et al. Eq. (18) is exactly the known S=S_μ exp[-λ∫(1-S_μ)], equivalent to Poisson marking used here.",
+          "Linn–Kumar present dynamic redundancy and mortality and first-passage statistics for Brownian searchers (abstract)."
+        ],
+        "reasoning": "These general survival formulas are mathematically equivalent to the first step and not new, but neither inspected fixed-parameter analysis nor the accessible abstract gives the coupled b=c²log²R threshold, corrected Gumbel centering and η-dependent law.",
+        "searches": [
+          "independent Brownian mortal searchers immigration Poisson recruitment mortality simultaneous large rate log squared crossover Gumbel exponential arrival",
+          "arxiv:2610.08022 §§4,Appendix B",
+          "arxiv:2601.07096 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned general extreme-value, recruitment and mortality-adjacent results but no explicit tabulation of c-threshold and 5/2 centering.",
+          "Gutiérrez Figure 1 numerical curves concern finite parameter settings rather than the full large-R phase diagram."
+        ],
+        "reasoning": "The first-arrival survival formula is an exact known identity, not an exact database or table of its double-limit universality classes. Lack of a matching indexed table is only suggestive.",
+        "searches": [
+          "independent Brownian mortal searchers immigration Poisson recruitment mortality simultaneous large rate log squared crossover Gumbel exponential arrival",
+          "Resultary semantic fast Brownian mortal searchers Poisson immigration crossover Gumbel"
+        ]
+      },
+      "rationale": "The motivating Gutiérrez et al. paper proves the same marked-Poisson survival formula and asymptotic exponential tail for fixed mortality/recruitment; the subject of this audit is the noncommuting coupled fast-recruitment/fast-mortality transition. Tung and Lawley prove a general fast-immigration Gumbel theorem for a fixed successful-arrival law with fixed short-time asymptotics; that hypothesis does not directly cover mortality b growing like log²R, nor the switch to Exp at c>=1. The two papers were read in relevant complete sections, not merely matched by title. Related DRM 2026 primary has only its abstract accessible; material priority risk remains.",
+      "residual_risks": [
+        "Linn–Kumar arxiv:2601.07096 full text inaccessible in this run; its same mathematical model asymptotic analysis could contain an equivalent double limit.",
+        "Related Giral-Barajas–Linn–Bressloff arxiv:2606.16025 not available in full; a broader triangular-array arrival theorem could supersede this classification.",
+        "Finite numerical endpoint hazards converge slowly for c close to 1; only analytical uniform endpoint proof supports the limiting claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS survival identity and fixed-rate effective hazard, not the moving double limit or its 5/2 centering.",
+          "evidence": "Equation (18) exact marked-Poisson survival; Eqs. (23)–(26) long-time effective λ exp(-sqrt b) at fixed rates; Figure 1 fixed-parameter computations.",
+          "identifier_or_url": "arxiv:2610.08022",
+          "material_read": "Full accessible HTML Sections 1–5 and Appendix B, especially §4 Eqs. (13)–(26), numerical figures and parameter analysis.",
+          "method": "Public full arXiv text inspected for claim implication.",
+          "title": "Heterogeneous diffusion with recruitment and mortality",
+          "trigger": "Self-review, overlapping Poisson survival and Brownian mortality mechanisms."
+        },
+        {
+          "assessment": "COVERS fixed-law fast immigration Gumbel; no automatic triangular-law mortality crossover.",
+          "evidence": "Theorem 1 fixes I(t)~A0 t^p exp(-C0/t) and uses λ→∞, whereas A0 and phase here vary with λ.",
+          "identifier_or_url": "arxiv:2508.14202",
+          "material_read": "Public full HTML sections 2–5 and theorem hypotheses, especially Theorem 1 and Eq.(3.2); Appendix B overview.",
+          "method": "Public full arXiv text inspected.",
+          "title": "Passage times of fast inhomogeneous immigration processes",
+          "trigger": "General rigorous fast-immigration Gumbel law might imply all of the subcritical regime."
+        },
+        {
+          "assessment": "Plausible undiscovered double-limit coverage; residual risk explicit.",
+          "evidence": "Abstract states exact first-passage statistics and Brownian DRM but no explicit c-threshold or moving Gumbel/Exp boundary.",
+          "identifier_or_url": "arxiv:2601.07096v3",
+          "material_read": "Title, abstract and model summary only; complete article not read.",
+          "method": "Public arXiv abstract.",
+          "title": "Dynamic redundancy and mortality in stochastic search",
+          "trigger": "Same Brownian mortality+new-searcher physical model; potential decisive source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp competition boundary answers when particle injection ceases to overcome exponential mortality, distinguishes logarithmically quick first arrival from growing waits, and provides the full critical-window law. The unusual 5/2 loglog centering arises from an endpoint integral with a vanishing linear factor, supplying quantitative distributional information absent from fixed-mortality mean estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md and analytic verification notes",
+    "arxiv:2610.08022 §4 and Appendix B full text",
+    "arxiv:2508.14202 Theorem 1 and Eq.(3.2) full text",
+    "arxiv:2601.07096 abstract",
+    "Resultary targeted query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Linn–Kumar arxiv:2601.07096 full text inaccessible in this run; its same mathematical model asymptotic analysis could contain an equivalent double limit.",
+    "Related Giral-Barajas–Linn–Bressloff arxiv:2606.16025 not available in full; a broader triangular-array arrival theorem could supersede this classification.",
+    "Finite numerical endpoint hazards converge slowly for c close to 1; only analytical uniform endpoint proof supports the limiting claim."
+  ],
+  "residual_risks": [
+    "Linn–Kumar arxiv:2601.07096 full text inaccessible in this run; its same mathematical model asymptotic analysis could contain an equivalent double limit.",
+    "Related Giral-Barajas–Linn–Bressloff arxiv:2606.16025 not available in full; a broader triangular-array arrival theorem could supersede this classification.",
+    "Finite numerical endpoint hazards converge slowly for c close to 1; only analytical uniform endpoint proof supports the limiting claim."
+  ],
+  "schema_version": 1
+}
