@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:57:57.601720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual pinned Git RESULT.md blob b461dd2558ab72d51a312d162612535b7acdc538",
+        "pinned artifacts/verify.py dc1c95174f95faedf5fc1b4a4bf988fc8dbc8a8a inspected but not executed",
+        "Kresch–Tamvakis, arXiv:math/0306338 classical one-box Pieri formula",
+        "Fischer, arXiv:math/0112261 shifted hook-length formula",
+        "Manivel, arXiv:0904.0565 half-spin vs quadratic Pluecker polarization",
+        "Independent exact factorial and strict-chain replay n=1..15; Git tree 9e15cf798c8df23650518339667b337bff2e3d8f"
+      ],
+      "rationale": "For S_n=OG(n+1,2n+2) over C in the MINIMAL half-spin embedding, the hyperplane Schubert generator is the one-box strict-partition class. Kresch–Tamvakis classical Pieri (k=1,N'=0) makes its top self-intersection the count of saturated chains from empty partition to strict staircase rho_n; the shifted hook-length formula gives D_n=M!*prod(a!,a=2..n-1)/prod((2a-1)!,a=2..n), M=n(n+1)/2. Apply Legendre v_2(t!)=t-s_2(t): the linear terms cancel since M+sum_{a=2}^{n-1}a=sum_{a=2}^n(2a-1)=n^2-1; s_2(2a-1)=s_2(a-1)+1 makes the digit sums telescope to v_2(D_n)=n-s_2(M). n=1..6 give valuations 0,0,1,2,1,3; for n>=7, M<2^{n-2}, so s_2(M)<=n-2 and no further odd or 2 (mod 4) degrees occur. I independently computed arbitrary-precision factorial degrees, binary valuations, and exhaustive strict-partition chain recurrences for all n=1..15, and reconstructed BOTH original JSON Git blobs and the native Git root tree SHA-1.",
+      "residual_risks": [
+        "The finite replay is not an unrestricted proof; unrestricted n is handled by classical identities and the explicit inequality.",
+        "The statement is ONLY the complex maximal isotropic Grassmannian under minimal half-spin polarization.",
+        "No Lean proof or independent external expert attestation; the original verification status remains not performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kresch–Tamvakis gives broader strict-partition orthogonal Grassmannian calculus; the one-box specialization counts staircase chains.",
+          "Fischer proves the hook-length formula for arbitrary strict shifted shapes, including the exact staircase shape.",
+          "OEIS A003121 lists the degree of the whole spinor family, not just finitely many cases."
+        ],
+        "reasoning": "The prior general geometric and enumerative results compute the exact degree for ALL n; the subsequent binary valuation is an elementary operation on this known entire sequence. This is stronger coverage than a sparse table or matching small n.",
+        "searches": [
+          "https://oeis.org/A003121",
+          "arXiv:math/0306338 one-box Schubert Pieri orthogonal Grassmannian",
+          "arXiv:math/0112261 shifted hook-length formula",
+          "arXiv:0904.0565 half-spin embedding spinor variety",
+          "Resultary query 2-adic valuation degree spinor variety shifted staircase"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0306338",
+        "arXiv:math/0112261",
+        "arXiv:0904.0565",
+        "https://oeis.org/A003121",
+        "https://doi.org/10.5169/seals-43873",
+        "Resultary semantic published index: same title self-hit excluded",
+        "Resultary published 2026/10/4 SCOPE-a-sharp-log-concavity-cutoff-for-pl-cker-degrees-of-grassmannian--c053ae15c30e (not covering)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With M=n(n+1)/2, OEIS gives D_n=M!*∏_{a=1}^{n-1}a!/∏_{a=1}^n(2a-1)!.",
+          "Legendre plus s_2(2a-1)=s_2(a-1)+1 yields n-s_2(M) by a direct two-line telescoping computation.",
+          "The n=1..6 values and bound s2(M)<=n-2 for n>=7 immediately imply the exact odd/2 mod 4 exceptions."
+        ],
+        "reasoning": "The proposed valuation and all residue corollaries are MATHEMATICAL CONSEQUENCES of an earlier explicit ALL-n degree formula using a standard textbook valuation identity. Under the corollary-coverage originality rule, an unstated arithmetic restatement does not remain an original theorem.",
+        "searches": [
+          "OEIS A003121 factorial formula and geometric identification",
+          "Legendre v2(m!)=m-s2(m) elementary factorial valuation theorem",
+          "arXiv:math/0112261 shifted SYT hook formula",
+          "Hiller 1982 Combinatorics and intersection of Schubert varieties DOI:10.5169/seals-43873"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A003121 identifies a(n) with BOTH the projective spinor-variety degree and number of shifted staircase SYT (OEIS comments, lines 29-31).",
+          "OEIS lines 116-118 provide a factorial product for every n, exactly the proposed formula before 2-adic valuation.",
+          "Published Resultary exact-title hit is this same record, not an independent antecedent."
+        ],
+        "reasoning": "The shift between OG(n+1,2n+2) and SO(2n+1)/U(n) is the standard type-B/type-D spinor-variety identification with the same small degrees. Arithmetic valuation of the IDENTICAL enumerative sequence is the target invariant, not a new geometric object. Exact phrase search is neither novelty proof nor needed for the decisive OEIS implication.",
+        "searches": [
+          "Resultary semantic query: 2-adic valuation degree spinor variety half-spin orthogonal Grassmannian shifted staircase number of standard shifted tableaux",
+          "Resultary query: shifted staircase standard tableaux degree projective spin representation 2-adic valuation odd degree",
+          "web search: spinor variety degree 2-adic valuation shifted staircase tableaux",
+          "https://oeis.org/A003121"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A003121 includes full degree sequence 1,1,2,12,286,33592,... and an all-n factorial formula, explicitly labeled spinor variety degree.",
+          "OEIS 2002 comment credits Hiller; the formula is documented on the page, correction noted in 2010.",
+          "The closest other Resultary Grassmannian finding concerns ordinary Pluecker degree log-concavity, not spinor 2-adic valuation."
+        ],
+        "reasoning": "This is an EXACT all-dimensional database formula for the claimed invariant before valuation; unlike a finite table, it logically entails every reported n by applying Legendre. The identical Resultary record is self-overlap and was excluded from independent novelty evidence.",
+        "searches": [
+          "https://oeis.org/A003121 (sequence, comments, formula, references)",
+          "Resultary published index: Exact two-adic valuation of spinor-variety degrees",
+          "Resultary index: A sharp log-concavity cutoff for Plucker degrees of Grassmannians"
+        ]
+      },
+      "rationale": "The entire geometrically indexed degree sequence and EXACT all-n factorial product already appear in OEIS A003121, which explicitly identifies the numbers as degrees of spinor varieties and shifted staircase tableaux (Burt Totaro comment dated 2002; OEIS all-n factorial formula predates the audited claim). The claimed two-adic valuation is obtained by applying the elementary Legendre factorial valuation to that already published product and using s_2(2a-1)=s_2(a-1)+1. This one standard valuation/telescoping operation implies the COMPLETE claimed formula, hence also both small-residue classifications. Thus lack of an identical printed digit-sum identity is NOT evidence of an original mathematical theorem. Established geometric Pieri/hook results also cover the degree as a prior theorem; there is no unaccounted nonstandard insight beyond this routine specialization.",
+      "residual_risks": [
+        "Hiller (1982) primary paper full text inaccessible via authorized OA/arXiv/Oxford access; OEIS exact all-n formula is independently directly readable and remains decisive.",
+        "An even earlier document may explicitly give the binary valuation; this would reinforce rather than change O failure.",
+        "The RESULT may use a slightly different isotropic-component presentation from the OEIS SO(2n+1)/U(n) notation; matching half-spin polarization and identical factorial formula settle the claimed numerical invariant.",
+        "No new literary novelty can be inferred from the absence of a separately printed n-s2(n(n+1)/2) expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_EXACT_PRIOR_FORMULA_IMPLIES_CLAIM",
+          "evidence": "OEIS identifies same degree object and supplies D_n=M!*∏a! /∏(2a-1)!, not just isolated entries. Standard Legendre valuation immediately gives proposed formula.",
+          "identifier_or_url": "https://oeis.org/A003121",
+          "material_read": "OEIS entries n=0..14, COMMENTS linking degree of spinor variety and shifted staircase tableaux, references Hiller 1982, FORMULA and Maple/PARI expressions; inspected page lines 12-31, 68-118, 160-170 and correction note at line 196.",
+          "method": "Full rendered HTML page examination and mathematical comparison of exact factorial products.",
+          "title": "OEIS A003121 (Strict sense ballot numbers)",
+          "trigger": "Exact sequence and all-n formula for degrees of spinor variety identified independently of title."
+        },
+        {
+          "assessment": "COVERS_GEOMETRIC_DEGREE_DERIVATION_NOT_PRINTED_DIGIT_SUM",
+          "evidence": "One-box specialization has a single box component and coefficient 1; top power counts maximal strict-partition chains.",
+          "identifier_or_url": "arXiv:math/0306338",
+          "material_read": "Introduction/definition of OG, strict-partition Schubert indexing, classical one-box Pieri formula (42) and adjoining discussion.",
+          "method": "Primary full-text PDF inspection with rendered page 16 around formula (42).",
+          "title": "Quantum cohomology of orthogonal Grassmannians",
+          "trigger": "Schubert basis, codimension-one generator and one-box Pieri coefficient on maximal OG."
+        },
+        {
+          "assessment": "STRONGER_GENERAL_TABLAUX_FORMULA",
+          "evidence": "General strict-shape shifted hook formula directly specializes to the staircase all-n degree, with no new hook combinatorics.",
+          "identifier_or_url": "arXiv:math/0112261",
+          "material_read": "Definition and Theorem 1 giving shifted hook-length product, proof setup for general strict shape.",
+          "method": "Primary full-text PDF read with rendered theorem page 1.",
+          "title": "A bijective proof of the hook-length formula for shifted standard tableaux",
+          "trigger": "Exact strict staircase shifted SYT enumeration underlying the degree."
+        },
+        {
+          "assessment": "MATCHES_REQUIRED_MINIMAL_POLARIZATION",
+          "evidence": "Minimal embedding is the projectivized half-spin representation; Pluecker embedding composes a quadratic Veronese map.",
+          "identifier_or_url": "arXiv:0904.0565",
+          "material_read": "Section 2.2 on pure spinors and embeddings, including the quadratic Veronese relation.",
+          "method": "Primary full-text PDF inspection with rendered page 2.",
+          "title": "On Spinor Varieties and Their Secants",
+          "trigger": "Normalization of half-spin hyperplane class versus Pluecker embedding."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_INSPECTED_ACCESS_RISK_BUT_OEIS_COVERAGE_DECISIVE",
+          "evidence": "OEIS refers to Hiller as origin of spinor-degree identification, independently prints exact degree formula.",
+          "identifier_or_url": "https://doi.org/10.5169/seals-43873",
+          "material_read": "OEIS bibliographic reference and mathematical attribution only, plus publisher-index metadata; original paper full text NOT obtained.",
+          "method": "Searched arXiv/preprints and authorized OA then requested Oxford access; protected retrieval returned vpn_disconnected; no bypass/retry.",
+          "title": "Combinatorics and intersection of Schubert varieties",
+          "trigger": "Hiller 1982 cited by OEIS for the spinor-degree interpretation; plausible original all-n antecedent."
+        },
+        {
+          "assessment": "CONTEXTUAL_CORROBORATION_ONLY",
+          "evidence": "Indexed Hilbert polynomial/degree table associates the same spinor family with OEIS A003121, but no whole-document exclusion is inferred.",
+          "identifier_or_url": "Vincenzo Galgano thesis (2023), institutional university repository",
+          "material_read": "Accessible search index snippets referencing degree table and spinor Weyl formula; full thesis not fetched.",
+          "method": "Scholarly result/index snippets only, explicitly not a full-text inspection.",
+          "title": "Secant varieties of Spinor varieties and of other generalized Grassmannians",
+          "trigger": "Independent geometric treatment likely to include dimension, degrees, Weyl Hilbert polynomial."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A003121 geometry+degree family; exact enumeration n<=15",
+        "Kresch–Tamvakis classical Schubert degree interpretation",
+        "Manivel pure spinor polarization distinction"
+      ],
+      "rationale": "The degree of each minimally embedded spinor variety is a canonical enumerative invariant, and exact 2-power divisibility of complementary linear-section counts has useful arithmetic content throughout the natural family, including complete odd-degree and 2 mod 4 cutoffs. The invariant and family are motivated independently of the computation and the formula covers all dimensions. This is a small, readily reusable closed invariant—not a new geometric structural theorem or a major contribution. Its usefulness is separate from originality, which fails because the exact result is a routine implication of the already published degree product.",
+      "residual_risks": [
+        "The arithmetic simplification is short and does not provide a new general method, theorem for other varieties, or odd-prime divisibility classification.",
+        "Known exact degree formulas make the new valuation non-original despite the standalone relevance of dyadic divisibility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The proposed closed v2 law is correct but directly follows from OEIS A003121 all-n degree product via standard Legendre identity and thus fails originality.",
+    "The valued exact invariant is limited to minimal half-spin polarization and does not concern Pluecker or nonmaximal OG.",
+    "Hiller (1982) full text access blocked by VPN; the printed earlier OEIS formula still decisively covers the entire claim.",
+    "Resultary top match was this SAME research record; excluded as independent priority evidence.",
+    "No original scholarly result or independent formal certificate was claimed; no GitHub writes, publication or dispatcher closeout."
+  ],
+  "schema_version": 1
+}
