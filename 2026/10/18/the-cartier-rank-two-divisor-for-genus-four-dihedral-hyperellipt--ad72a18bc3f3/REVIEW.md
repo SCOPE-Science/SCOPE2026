@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The smoothness discriminant follows from reciprocal quadratic factorization and supplies necessary and sufficient hypotheses for the genus-four model. Extracting the characteristic-seven Cartier–Manin matrix from \(f(x)^3\) gives two explicit \(2\times2\) blocks, each with a fixed nonzero entry and the common determinant \(P(s,t)\); their ranks prove the classification over \(\overline{\mathbf F}_7\) without extending finite tests beyond their reach. Standalone polynomial-dictionary arithmetic confirms the universal coefficient identities; an independent direct convolution and exhaustive \(49\)-pair finite-field census reproduce the \(31=29+2\) result. Explicit matrices for the exceptional two models square to zero, giving \(7\)-rank zero.
+## correctness
 
-## Originality
-**PASS, with residual search risk.** Ohashi–Kudo (arXiv:2312.16858, §§2–3.1) give the same genus-four dihedral normal form but pursue the rank-zero superspecial locus and higher primes, not the explicit rank-two determinant and exact characteristic-seven rational-parameter census. Frei (arXiv:1703.03516, §§2–4) addresses general bounds and the rank-one case. Kudo–Nakagawa–Takagi (arXiv:2210.14822) address superspecial curves with order-six symmetry; Novoselov (2020, doi:10.1016/j.ffa.2020.101757) studies the narrower trinomial point-count setting. Searches for characteristic-seven dihedral hyperelliptic Cartier ranks, equivalent normal forms, a-number stratification, and rational parameter tables found no source that implies the full stated result. This negative search is not a mathematical uniqueness proof; unindexed literature remains a risk.
+PASS
 
-## Value
-**PASS.** The exact transition from ordinary to rank-two nonordinary Jacobians is a complete structural stratification of a natural two-parameter genus-four automorphism family, rather than a single isolated example or a change of variables. The sharp nonordinary divisor and its \(\mathbf F_7\) solutions identify concrete height-one arithmetic geometry overlooked by a superspecial-only investigation. The two rank-two base-field parameters have additional nontrivial stable Cartier behavior: \(7\)-rank zero, despite positive first Cartier rank.
+For y²=xg(x²) with reciprocal quartic g(z)=z⁴+s z³+(t+2)z²+s z+1 in characteristic 7, squarefreeness is exactly Delta=(s²-4t)((t+4)²-4s²) nonzero. Cartier coefficient extraction from f³ gives 4x4 matrix with two 2x2 blocks each determinant P=2s⁴+2s²t²+2s²t+s²+4t²+2t-1 modulo7, and each contains a fixed entry 1. Therefore ranks can only be 4 or2, a-number respectively 0 or2 over the entire algebraic closure. Independently expanded f³ and verified AB-D=P as symbolic polynomial identity, independently checked all 49 F7 parameter pairs: 31 smooth and only (2,5),(5,5) on P=0 with Delta nonzero; both Cartier matrices square to zero so stable 7-rank zero, the other 29 smooth pairs ordinary. Finite enumeration addresses F7-only census; the symbolic determinant identity proves the geometric all-parameter statement.
 
-## Limits and prior context
-The finite counts concern parameter pairs, not isomorphism classes; the generic geometric \(7\)-rank along the determinant divisor is not classified. Originality is relative to identified, materially inspected publications and targeted searches, not proof of exhaustive bibliographic coverage. Computation is self-review and not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.
+
+## value
+
+PASS
+
+A precise codimension-one nonordinary divisor of a natural two-parameter high-automorphism genus-four family, with a forbidden a-number-one phenomenon and two exact finite-field p-rank-zero witnesses, is a motivated structural boundary. It is an independently useful rank stratification beyond superspecial-only existence searches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

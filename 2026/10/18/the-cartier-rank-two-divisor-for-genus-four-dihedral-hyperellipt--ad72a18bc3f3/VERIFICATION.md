@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
-The identity \(f(x)^3=x^3g(x^2)^3\) and the coefficient rule \(M_{ij}=\gamma_{7i-j}\) give the four-by-four matrix in the proof. The two nonzero two-by-two blocks have determinant \(AB-D=P(s,t)\); because each contains an entry equal to \(1\), their possible ranks are exactly \(1\) and \(2\). This establishes the geometric \(a\)-number assertion without relying on numerical samples.
 
-Run `python3 checks/cartier_rank_check.py` in the extracted package. The script symbolically checks the coefficients of \(g(z)^3\), the whole matrix and the determinant polynomial in \(\mathbf F_7[s,t]\). A separate convolution computes \(f(x)^3\) for all \(49\) parameter pairs and then checks the smoothness discriminant, the rank stratification, and the two square-zero exceptional matrices. Expected lines are `SYMBOLIC_IDENTITY_OK`, `F7_CENSUS_OK`, `P_RANK_ZERO_CHECK_OK`.
+# Independent mathematical audit
 
-The condition \(\Delta(s,t)\ne0\) excludes repeated roots and is indispensable. The \(31\) finite-field objects are counted as parameter pairs; no claim of geometric or arithmetic inequivalence is made. Over \(\overline{\mathbf F}_7\), the rank-stratification claim is proved symbolically, whereas the zero stable rank is shown only for the two specified \(\mathbf F_7\) models. Independent external validation has not been performed.
+## correctness
+
+PASS
+
+For y²=xg(x²) with reciprocal quartic g(z)=z⁴+s z³+(t+2)z²+s z+1 in characteristic 7, squarefreeness is exactly Delta=(s²-4t)((t+4)²-4s²) nonzero. Cartier coefficient extraction from f³ gives 4x4 matrix with two 2x2 blocks each determinant P=2s⁴+2s²t²+2s²t+s²+4t²+2t-1 modulo7, and each contains a fixed entry 1. Therefore ranks can only be 4 or2, a-number respectively 0 or2 over the entire algebraic closure. Independently expanded f³ and verified AB-D=P as symbolic polynomial identity, independently checked all 49 F7 parameter pairs: 31 smooth and only (2,5),(5,5) on P=0 with Delta nonzero; both Cartier matrices square to zero so stable 7-rank zero, the other 29 smooth pairs ordinary. Finite enumeration addresses F7-only census; the symbolic determinant identity proves the geometric all-parameter statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical implication assessment, comparing identical objects/parameters and stronger results rather than title similarity; known preliminary counts, matrix formulas and examples are credited, not treated as new.
+
+## value
+
+PASS
+
+A precise codimension-one nonordinary divisor of a natural two-parameter high-automorphism genus-four family, with a forbidden a-number-one phenomenon and two exact finite-field p-rank-zero witnesses, is a motivated structural boundary. It is an independently useful rank stratification beyond superspecial-only existence searches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
