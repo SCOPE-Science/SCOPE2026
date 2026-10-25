@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The conditional-Poisson PGF is exact, with the first generation included and index case excluded. For 0<a<b a strictly decreasing positive exponential difference proves the strict generating-function order. For any c,d>0 an explicit large-z Chernoff bound yields log tail at most -n log log n+n log d+o(n); the event K=floor(n/log n), Y=n-K with independent conditional Poisson probabilities and Stirling estimates yields the matching lower bound. Subtraction proves the tail-ratio root limit b/a>1 and the eventual reverse ordering for every sufficiently high threshold. Normalization, parameter positivity, and branching reservoir scope were checked; 646 finite numerical checks corroborate coefficients but are not used for infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boudreau et al. (2023), Sections 2–5, equations (6)–(9), discuss generation-varying branching PGFs and different intervention-ranking metrics in general; their analyzed examples differ from the exact two-generation swapped-mean intensity comparison.",
+        "Bening and Korolev (2022), DOI 10.3390/math10244712, compare compound-Poisson laws via normal quantile deficiency, a different risk order."
+      ],
+      "reasoning": "The motivating general branching framework subsumes the MODEL and its PGF by specialization but not the new universal conjunction of strict PGF ordering, eventual reversed upper-tail ordering, and the logarithmic exponent b/a. The result is not claimed to supersede general compound-Poisson results; a stronger uninspected theorem about light-tail compound-Poisson sums might imply the asymptotic part.",
+      "searches": [
+        "two-step Poisson Galton Watson cumulative outbreak early vs late intervention gives opposing mean and extreme tail rankings",
+        "branching process generation-dependent offspring means permutation distribution tail inequality pgf",
+        "two generation epidemic Poisson branching compound Poisson temporal ordering high tails asymptotic poisson cluster variable cluster sizes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.03210",
+      "doi:10.1007/s11538-023-01220-w",
+      "doi:10.3390/math10244712",
+      "doi:10.1080/03610919508813282"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boudreau et al. (2023), Sections 3–5, already warn that intervention rankings vary with chosen epidemic-risk metrics.",
+        "The present proof yields for all fixed 0<a<b the exact root-of-survival-tail-ratio limit b/a and simultaneously the opposite strict PGF order."
+      ],
+      "reasoning": "Prior qualitative intervention-risk metric disagreements do not entail a universal all-parameter swap inequality or a precise exponential tail ratio for two-epoch Poisson offspring. The new asymptotic is a concrete special-case mathematical consequence that cannot be inferred from the source’s displayed qualitative figures alone. Existing Chernoff and Stirling tools underlie the proof but do not by themselves state the policy-order reversal.",
+      "searches": [
+        "two-generation Poisson branching outbreak intervention order mean reduced but upper tail larger early suppression late high reproduction",
+        "compound Poisson total two generation outbreak size stochastic dominance nonmonotone temporal order of offspring rates",
+        "Boudreau Allen Roberts Allard Hebert Dufresne 2023 stochastic epidemic intervention probability thresholds comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boudreau et al., Bulletin of Mathematical Biology 85 (2023) 118, DOI 10.1007/s11538-023-01220-w, define time-dependent epidemic branching PGFs and different risk metrics; no identical two-epoch swap theorem identified in inspected Sections 2–5.",
+        "Zheng, Communications in Statistics 24 (1995), DOI 10.1080/03610919508813282, abstract describes Neyman type-A approximation, potentially applicable to related compound-Poisson counts."
+      ],
+      "reasoning": "A primary first-generation Poisson case plus its second-generation descendants is one compound-Poisson jump of size one plus a Poisson variable. The classical Neyman type-A law usually omits the leading one per cluster. The proof compares both chronologically swapped parameters and establishes contrasting generating-function and extreme upper-tail orders with a precise root-of-ratio limit. None of the inspected source statements implies this combined all-parameter ordering as presented, but inaccessible general asymptotic results remain a risk.",
+      "searches": [
+        "interchanging Poisson reproductive means two generations crossover in cumulative infection upper-tail and pgf ordering",
+        "Neyman type A Poisson cluster offspring 1 plus Poisson tail asymptotic log logarithm coefficient and ratio",
+        "arxiv:2302.03210; doi:10.1007/s11538-023-01220-w"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "For 0<a<b the class has positive jumps 1+Poisson(d) and a generating function exp(c(z exp(d(z-1))-1)); this exact parametrized law is in the classical compound-Poisson class.",
+        "Finite coefficients at (a,b)=(1/2,2) independently computed by two formulas, with first survival-tail reversal at threshold 12 among thresholds 1 through 32 checked."
+      ],
+      "reasoning": "No literature table of exact two-generation intensity-swapped upper-tail crossing thresholds or a published exact threshold catalogue was identified in targeted searches. Finite computer checks are used only as numerical demonstrations; the theorem is proved for all positive parameter pairs, so it is neither a database recomputation nor an inference from a table.",
+      "searches": [
+        "generation dependent Poisson branching process cumulative cases intervention frontloading reverses high quantile stochastic order",
+        "compound Poisson total two generation outbreak size stochastic dominance nonmonotone temporal order of offspring rates",
+        "Neyman type A distribution tail approximation Zheng 1995"
+      ]
+    },
+    "rationale": "This is a novel combination at the examined-source level, rather than a claim to invent PGFs, compound Poisson distributions or intervention metric disagreements. The available motivating primary manuscript and relevant statistical papers were compared by mathematical implications, not titles. No inspected result was found that subsumes the two-parameter, two-generation swap theorem including the sharp asymptotic upper-tail ratio. A potentially relevant older Neyman type-A paper is incompletely accessible, creating a disclosed priority risk.",
+    "residual_risks": [
+      "Complete text of Zheng (1995), a potentially relevant Neyman type-A asymptotic paper, was not accessible; priority over more general light-tail compound-Poisson asymptotics is not established.",
+      "Generality of the theorem is limited to two generations and Poisson branching, and does not by itself give a finite-population epidemic claim.",
+      "Failure to identify a directly covering theorem in accessible searches is not a mathematical proof of first publication or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines a more general generation-dependent PGF framework but does not establish the all-parameter two-generation swapped-mean upper-tail asymptotic in inspected material.",
+        "evidence": [
+          "doi:10.1007/s11538-023-01220-w",
+          "arxiv:2302.03210"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.03210",
+        "material_read": "Full accessible manuscript PDF, including Sections 2–5, equations (6)–(9) and relevant intervention comparisons and figures.",
+        "method": "Read the primary scientific text and inspect the displayed mathematical figures and formulas.",
+        "title": "Temporal and probabilistic comparisons of epidemic interventions",
+        "trigger": "Exact model class and qualitative risk-metric comparisons; earliest motivating public posting 2023-02-07."
+      },
+      {
+        "assessment": "Its asymptotic statistical-deficiency order is different from a sharp two-epoch epidemic upper-tail ratio.",
+        "evidence": [
+          "doi:10.3390/math10244712"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10244712",
+        "material_read": "Accessible journal HTML sections covering problem setting, comparison criterion and conclusions.",
+        "method": "Inspected open-access primary article text.",
+        "title": "Comparing Compound Poisson Distributions by Deficiency: Continuous-Time Case",
+        "trigger": "Potential general comparison of compound-Poisson laws and risk metrics."
+      },
+      {
+        "assessment": "Unresolved partial-priority risk. No whole-paper exclusion or novelty claim is based on an abstract.",
+        "evidence": [
+          "doi:10.1080/03610919508813282"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610919508813282",
+        "material_read": "Bibliographic entry and abstract only; complete primary text not accessible.",
+        "method": "Inspected accessible abstract and bibliographic information; full text could not be obtained.",
+        "title": "A note on an approximation to Neyman type A distributions",
+        "trigger": "Potential stronger coverage of compound-Poisson right-tail asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "360fb665-98bd-4827-9b33-d65a773123a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generation-sensitive epidemic interventions pose a natural decision conflict between expected outbreak burden and low-probability extreme outcomes. Under exactly the same two reproduction intensities in opposite epochs, the sharp root tail ratio b/a and opposite strict generating-function ranking quantify a precise structural risk inversion across ALL ordered positive parameter pairs. This is substantially more informative than a numerical crossing, trivial expectation comparison, or an arbitrary finite-tail value. It provides a testable analytical benchmark, while explicitly not asserting finite-network risk or real-world policy optimality.",
+    "status": "PASS"
+  }
+}
