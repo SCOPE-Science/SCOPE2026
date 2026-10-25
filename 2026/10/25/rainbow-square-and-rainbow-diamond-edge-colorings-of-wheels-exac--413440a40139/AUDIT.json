@@ -1,0 +1,180 @@
+{
+  "correctness": {
+    "rationale": "For n>=5 all four-cycles are hub plus consecutive rim triple and lie in the corresponding five-edge diamond; the spoke-edge properness completes diamond rainbow iff four-cycle rainbow. Each rim edge excludes four distinct spoke colors; the remaining adjacent-rim constraint exactly yields cyclic offset words. A constant offset constructs n-colorings meeting the hub lower bound. The trace counts cyclic offset states bijectively and color-name permutation acts freely. At n=3 the graph K4 has a complete six-edge pair-conflict system; at n=4 the diamond conflict graph is four mutually distinct spokes joined to a rim C4, while adding the rim four-cycle constraint gives eight mutually conflicting edges. Complete direct graph-based checks independently tested small instances. Finite checks are corroboration only; the structural proof is infinite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vuolo, arXiv:2608.09787, Theorem 2: q_B(G) <= Delta+max{Delta2,38} for planar G; no exact wheels.",
+        "Gyárfás et al. 2024, arXiv:2408.09059, Theorems 1.4–1.6: general planar/outerplanar upper bounds; wheels Wn for n>=5 are not outerplanar.",
+        "Published published-finding corpus mathematical record Exact D-chromatic index of complete multipartite graphs (2026-10-04): D index of K_n1,...,nr is sum_{i<j} max{n_i,n_j}, so D(W4)=D(K1,2,2)=6 is covered.",
+        "Wang, arXiv:2606.06831, Theorem 1.4: quadratic upper bound on D-index for arbitrary Delta."
+      ],
+      "reasoning": "The planar bounds do not give Delta equality and none contain complete optimal-coloring counts. The complete-multipartite result covers the isolated W4 D-index and W3 K4, correctly credited in the result, but wheels Wn for n>=5 are not complete multipartite: the induced rim Cn is not a complete multipartite graph. General strong-edge-coloring results concern strictly more restrictive conflicts and do not imply these enumerators.",
+      "searches": [
+        "proper edge coloring wheel graph diamond subgraphs pairwise distinct colours wheel",
+        "B-coloring of planar graphs Kong Wang Zheng 2026 wheel",
+        "On B-Colorings in Planar Graphs arxiv:2608.09787",
+        "Exact D-chromatic index of complete multipartite graphs",
+        "D chromatic index complete multipartite graphs exact formula K_{1,2,2} six wheel n 4"
+      ]
+    },
+    "checked_sources": [
+      "Runze Wang (2026), arXiv:2606.06831",
+      "Gyárfás, Martin, Ruszinkó, Sárközy (2024), arXiv:2408.09059",
+      "Vuolo (2026), arXiv:2608.09787",
+      "Lu, Ying, Song (2026), arXiv:2609.39716",
+      "Gyárfás and Sárközy (2023), Graphs Combin. 39 article 98",
+      "Kong, Wang, Zheng (2026), doi:10.1002/jgt.70067, abstract-only",
+      "Published published-finding corpus mathematical record Exact D-chromatic index of complete multipartite graphs (2026-10-04)",
+      "Published published-finding corpus mathematical record Exact B-coloring number of cactus graphs (2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang 2026: D-coloring definition and Delta-dependent upper bound; no wheel formula or optimal count stated.",
+        "Gyárfás et al. 2024: planar upper bounds and L^+(G) reduction; no bound sharp enough to entail the wheel formula.",
+        "Vuolo 2026: planar bound Delta+max{Delta2,38}, does not imply equality Delta for wheels.",
+        "Published complete-multipartite D-index gives 6 for W4; directly included as acknowledged special case."
+      ],
+      "reasoning": "Generic lower bound q>=Delta is attained by an explicit coloring only after computing all wheel four-cycle/diamond conflicts; neither generic upper bounds nor known join/graph-product reductions provide the exact n>=5 cyclic-word characterization or trace census. In contrast the small D(W4) index is already implied by complete multipartite coverage and is not presented as separately new.",
+      "searches": [
+        "B-coloring and D-coloring wheel graphs K1 join C_n 4-cycle rainbow diamond coloring number",
+        "proper edge coloring every diamond rainbow on wheel graphs exact D-chromatic index W_n universal hub cycle",
+        "B-coloring wheel graph all four cycles rainbow proper edge coloring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gyárfás et al. 2024, arXiv:2408.09059, §1.1: q_B(G) equals the chromatic number of an extended line graph; exact wheel case absent from stated graph-family theorems.",
+        "Wang 2026, arXiv:2606.06831, Definition 1.2 and §2: D coloring equivalently forbids equal colors on edges seeing one another through diamond subgraphs.",
+        "The complete wheel conflict systems here reduce to a trace count of locally constrained spoke-offset words, not provided by these general equivalences."
+      ],
+      "reasoning": "B-coloring of Wn translates to vertex coloring of the extended line graph, and D-coloring to vertex coloring of the diamond conflict graph. The present construction explicitly computes these conflict graphs for a wheel and classifies their minimum colorings; published generic translations alone do not imply the n-color realization or transfer-matrix count. A strong edge coloring is stricter: in a wheel every hub spoke is within line-graph distance two of every rim edge, so strong-index results do not determine the weaker B/D optima.",
+      "searches": [
+        "exact B-coloring wheel graph K1 join cycle C_n minimum edge colours n exception n=3 4",
+        "proper edge coloring every diamond rainbow on wheel graphs exact D-chromatic index W_n universal hub cycle",
+        "B-coloring wheel graphs q_B(W_n) every 4-cycle rainbow edge coloring",
+        "proper edge colouring wheel rainbow quadrilaterals four cycles minimum palette graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search: closest Exact B-coloring number of cactus graphs (2026-10-04) concerns a different class; wheels Wn with n>=5 are not cactus graphs.",
+        "published-finding corpus search: closest Exact D-chromatic index of complete multipartite graphs (2026-10-04) covers W3 and W4 D-index only.",
+        "published-finding corpus search: A six-cycle construction for weak rainbow saturation of C4 (2026-09-17) uses a different saturation invariant.",
+        "Searches of accessible current historical mathematical claims found other wheel invariants, but no B/D wheel edge-coloring classification."
+      ],
+      "reasoning": "Actual semantic searches considered wheel, fan/join, rainbow C4, diamonds, line-graph formulations, and transfer counting. The relevant returned records either study another graph class/invariant or subsume only credited small cases. This is a bounded positive novelty assessment, not a proof of uniqueness by database partition.",
+      "searches": [
+        "exact B-coloring wheel graph K1 join cycle C_n minimum edge colours n exception n=3 4",
+        "proper edge coloring every diamond rainbow on wheel graphs exact D-chromatic index W_n universal hub cycle",
+        "B-coloring and D-coloring wheel graphs K1 join C_n 4-cycle rainbow diamond coloring number",
+        "rainbow diamond D-coloring four cycle B-coloring all proper edge coloring wheel wheels transfer matrix counting",
+        "proper edge colouring wheel rainbow quadrilaterals four cycles minimum palette graph",
+        "all rainbow fourcycles wheel graph edge colouring spoke colors",
+        "D chromatic index complete multipartite graphs exact formula K_{1,2,2} six wheel n 4"
+      ]
+    },
+    "rationale": "The novel component is the simultaneous exact B/D classification and optimal-coloring count for the infinite wheel family n>=5. The 2026 Wang full text defines D-colorings and gives general degree bounds but no wheel classification; the 2024 planar B paper and 2026 Vuolo full text give broad bounds, not this exact family or trace. Published record for complete multipartite graphs DOES imply D(W4)=6 because W4=K1,2,2; that overlap is explicitly credited and excluded from novelty. Semantic comparisons against B=extended-line-graph coloring, D=diamond-conflict coloring, stronger strong-edge-coloring, and aliases join/fan wheel found no dominating theorem for n>=5. Accessible own historical claims had no B/D-wheel overlap. Nonexhaustive literature coverage and limited publisher access remain risks.",
+    "residual_risks": [
+      "The publisher-only full text of Kong–Wang–Zheng (2026) could not be inspected; the available abstract supplies no wheel-specific claim. The attempt to obtain institutional text was blocked by a safety control and not repeated.",
+      "Unknown earlier specialized wheel/fan colorings under alternative terminology could preempt part of the result.",
+      "The small case D(W4)=6 is already known as a consequence of a complete-multipartite formula; the novel claim resides in the infinite n>=5 rigidity and census.",
+      "Published database abstracts and searched text are not independent certifications of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact wheel-family index or all-optima enumeration in the examined results.",
+        "evidence": [
+          "Definition 1.2: rainbow all diamonds.",
+          "Theorem 1.4: general quadratic bound.",
+          "Section 4: planar bounds and open conjecture."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.06831",
+        "material_read": "Full searchable arXiv text: Definitions 1.1–1.2, the general degree bounds in Theorems 1.3–1.4, remarks on planar graphs in section 4, and references.",
+        "method": "Read indexed arXiv full text and inspect wheel and planar terminology.",
+        "title": "Proper edge coloring with rainbow diamonds",
+        "trigger": "Introduces precisely the D invariant used in the theorem."
+      },
+      {
+        "assessment": "Only broad planar/outerplanar bounds; no sharp wheel family or optimum census.",
+        "evidence": [
+          "Theorem 1.4: q_B <=2Delta+8 for planar G.",
+          "Proposition 1.1: extended line-graph equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.09059",
+        "material_read": "ArXiv full-text introduction, extended line-graph definition, and Theorems 1.4–1.6.",
+        "method": "Read mathematically material theorem statements and implications, searched wheel family.",
+        "title": "Proper edge colorings of planar graphs with rainbow C4-s",
+        "trigger": "Closest general planar B-coloring literature."
+      },
+      {
+        "assessment": "Its upper bound Delta+max{Delta2,38} cannot force equality Delta or count optimal wheel colorings.",
+        "evidence": [
+          "Theorem 2: q_B(G) <= Delta+max{Delta2,38} for planar G."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.09787",
+        "material_read": "Full arXiv-indexed text, including §1 background, Theorem 2 and §3 proof.",
+        "method": "Read theorem and test whether specialization at wheel yields Delta equality.",
+        "title": "On B-Colorings in Planar Graphs",
+        "trigger": "Strong recent planar B-coloring result with explicit co-degree term."
+      },
+      {
+        "assessment": "General forbidden-bipartite-subgraph bounds do not determine fixed wheel optima or their counts.",
+        "evidence": [
+          "General F-free B upper bounds depend on Delta, forbidden graph, and constants; not exact wheel values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.39716",
+        "material_read": "Abstract, introduction and search of complete arXiv indexed text for wheel; no wheel match.",
+        "method": "Read principal F-free bounds and compare to exact wheel assertions.",
+        "title": "(2,F)-Avoiding Coloring and B-Coloring under Bipartite Exclusions",
+        "trigger": "Recent primary B-coloring study and definition."
+      },
+      {
+        "assessment": "Studies Cartesian products of paths/cycles, not wheel joins.",
+        "evidence": [
+          "Abstract states exact B-coloring results for grids and products."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-023-02697-x",
+        "material_read": "Open-access paper abstract, enumerated graph-family results and introduction.",
+        "method": "Compared Cartesian products with hub-cycle joins.",
+        "title": "Proper Edge Colorings of Cartesian Products with Rainbow C4-s",
+        "trigger": "Prior exact B-coloring calculations for cycles and products."
+      },
+      {
+        "assessment": "Exposed exact planar inequalities (Delta>=38 gives <=2Delta) do not entail wheel n-color identity, but uninspected body leaves residual historical-priority risk.",
+        "evidence": [
+          "Journal of Graph Theory 113 (2026) pp 274-285, abstract: q_B planar upper bounds."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/jgt.70067",
+        "material_read": "Publisher page with complete abstract and references; full theorem proofs were not accessible in available view.",
+        "method": "Attempted publisher full-text link; arXiv/preprint and open-access search yielded no freely accessible full text. Further institutional-download attempt was blocked by a platform safety control and was not bypassed.",
+        "title": "B-Coloring of Planar Graphs",
+        "trigger": "Recent main planar upper bound; potentially relevant wheel subclass."
+      },
+      {
+        "assessment": "Decisively covers D(W4)=6 and D(W3)=6; does not cover Wn for n>=5 or its optimum-count theorem.",
+        "evidence": [
+          "D-index of K_n1,...,nr equals sum_{i<j} max(n_i,n_j); for parts 2,2,1 sum is 2+2+2=6."
+        ],
+        "identifier_or_url": "published-finding corpus: published mathematical record, 2026-10-04",
+        "material_read": "published-finding corpus ranked summary with complete all-parameter index formula; no public document body independently read.",
+        "method": "Substituted W4=K1,2,2 in stated complete-multipartite D-index formula.",
+        "title": "Published result: Exact D-chromatic index of complete multipartite graphs",
+        "trigger": "Stronger coverage of special wheel W4."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "413440a4-0139-44fb-8e3c-54814c3c17be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact threshold cases and their strict B/D separation in a natural planar hub-cycle family are structurally informative. Beyond a scalar index, the proof classifies every optimal coloring for infinitely many n and gives an explicit finite-matrix exact count growing nontrivially (e.g., normalized counts 1,2,367,11966 for n=5..8). Exact exceptional and label-quotient counts make the result useful for testing rainbow-conflict coloring methods. This is not a mere restatement of the generic degree lower bound: the nontrivial content is the matching sharp construction, D/B equivalence proof and complete enumeration.",
+    "status": "PASS"
+  }
+}
