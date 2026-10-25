@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:55:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rho=2+cos(theta), z=sin(theta), rho_prime=-sin(theta), z_prime=cos(theta), source (3.7) gives C=2 kappa_prime sin(theta)/rho^4 [[0,-1],[1,0]]. The initially-flat identity (2.8) yields Kperp_t=-4 kappa_prime sin(theta)/rho^4; frame time derivatives vanish since Rperp(0)=0. Nonconstant smooth geodesic curvature has integral of (kappa_prime)^2 strictly positive; conditional for kappa_prime!=0 the only profile zeros are theta=0,pi. h=sin(theta)/rho^4 is positive on (0,pi), h_prime=(4+2cos(theta)-3cos(theta)^2)/rho^5, with the unique admissible cosine (1-sqrt(13))/3 and corresponding reflected pair of absolute maxima. Elementary substitutions yield maximum coefficient 108 sqrt(2sqrt(13)-5)/(7-sqrt(13))^4, numerically 1.2096262067386667. From compact smooth MCF, Kperp=t Kperp_t(0)+o(t) uniformly and dmu_t=rho ds dtheta+o(1); therefore E(t)=16t^2 integral(kappa_prime^2 ds) times I+o(t^2), I=int_0^{2pi}sin^2(theta)/(2+cos(theta))^7 dtheta. Independently derived J_1=2pi/sqrt(a^2-1), J_{n+1}=-(1/n) dJ_n/da: J5=227sqrt3pi/972, J6=101sqrt3pi/486, J7=1103sqrt3pi/5832; I=-J5+4J6-3J7=59sqrt3pi/1944, giving 16I=118sqrt3pi/243 and E double-prime=236sqrt3pi/243 integral(kappa_prime)^2. These symbolic identities were independently recomputed with SymPy from the explicit mathematics and the seven-file source package and verify.py inspected. The checks are exact symbolic corroboration; the universal conclusion follows from the analytic proof and published geometric identities. Orientation reversal changes scalar sign but not its squared energy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kunikawa proves general initially-flat normal-bundle source relation before specializing the compact torus, which is the very object and frames of the submission.",
+          "Baker--Nguyen equation (16) gives the earlier codimension-two normal-curvature evolution with gradient terms, but not this 2026 torus."
+        ],
+        "reasoning": "Kunikawa has stronger coverage of the pointwise curvature production: it explicitly calculates the entire gradient-commutator source, not only its value at the witness latitude. The resulting full derivative mechanically determines any elementary norm, zero set, maximum or leading quadratic integral of that derivative for the explicitly fixed metric.",
+        "searches": [
+          "Kunikawa 2026 full Section 2.4 (Theorem 2.2 and proof), Sections 3.1-3.2 (general and special torus source)",
+          "Baker Nguyen 2016 arXiv:1605.06200 Section 3 evolution of Kperp"
+        ]
+      },
+      "checked_sources": [
+        "Kunikawa, Counterexamples to preservation of flat normal bundles under mean curvature flow, arXiv:2609.34291v1 (2026-09-28), https://arxiv.org/abs/2609.34291; equations (2.8), (3.7), Section 3.2.",
+        "Baker and Nguyen, Surfaces of Co-dimension Two Pinched by Normal Curvature, arXiv:1605.06200v1 (2016); Section 3 equation (16), https://arxiv.org/abs/1605.06200; final journal DOI:10.1016/j.anihpc.2016.10.010.",
+        "Resultary published-record query 2026-10-24: exact normal curvature production Kunikawa compact torus mean curvature flow sin theta kappa derivative squared L2 energy; top exact hit is the SAME submitted SCOPE record 2026/10/11/SCOPE-exact-first-order-normal-curvature-production-in-kunikawa-s-comp--6643dc54e1a0, not independent prior coverage."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From published source, rho_prime=-sin theta and rho-z_prime=2, so <C e1,e2>=2 kappa_prime sin(theta)/rho^4. Published (2.8) gives exactly the first boxed formula.",
+          "For any smooth initially flat compact flow, E(t)=t^2 integral [K_t(0)]^2 dmu_0+o(t^2); published initial metric gives dmu_0=rho ds dtheta; a standard integral recurrence gives the claimed 118 sqrt(3) pi/243 coefficient.",
+          "Differentiating h=sin(theta)/rho^4 gives numerator 4+2cos(theta)-3cos(theta)^2; the only allowed root is (1-sqrt(13))/3, yielding the other displayed exact constant."
+        ],
+        "reasoning": "This is a full implication chain, not mere overlap of keywords or matching a parameter. The source formulas and elementary calculus entail all final assertions without an independent structural argument. Baker--Nguyen only provides historical evolution context, not the decisive same-object coverage.",
+        "searches": [
+          "arXiv:2609.34291v1 source equations (2.8), (3.7), profile rho,z and Section 3.2",
+          "arXiv:1605.06200v1 normal-curvature evolution Section 3 equation (16)",
+          "Resultary published-record query exact normal curvature production Kunikawa compact torus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kunikawa (2.8): <nabla_t Rperp(e1,e2)nu,xi>=-2<C(nu,xi)e1,e2> at initially flat points.",
+          "Kunikawa (3.7): C=kappa_prime rho_prime(rho-z_prime)/rho^4 [[0,1],[-1,0]], with rho=2+cos(theta), z=sin(theta). Thus C=2 kappa_prime sin(theta)/rho^4 [[0,-1],[1,0]] and K_t(0)=-4 kappa_prime sin(theta)/rho^4, exactly the submitted full-field formula."
+        ],
+        "reasoning": "The given complete tensor identity on the same torus is equivalent to knowing the scalar initial normal-curvature production field after selecting the published orthonormal frames; the submission performs only a one-line specialization of that identity. A zero-set restatement is also immediate. The Resultary top hit is this same record and not another original discovery.",
+        "searches": [
+          "Primary arXiv:2609.34291v1 equation (2.8) flat normal bundle and equation (3.7) C(nu,xi) for rho,z",
+          "Resultary query: exact normal curvature production Kunikawa compact torus mean curvature flow sin theta kappa derivative squared L2 energy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary match with the exact constants is the submitted finding itself, not an independent earlier database result.",
+          "No independently inspected table is needed: J_1(a)=2pi/sqrt(a^2-1), J_{n+1}=-(1/n)dJ_n/da give -J5(2)+4J6(2)-3J7(2)=59 sqrt(3) pi/1944 mechanically."
+        ],
+        "reasoning": "The coefficient is not an independently classified invariant or database item; it comes from a routine explicit integral of a previously published entire production field. Failure of exact-constant search cannot establish originality.",
+        "searches": [
+          "Web: Kunikawa normal curvature energy torus; Kunikawa sin theta sqrt 13 mean curvature; Kunikawa first-order normal curvature production",
+          "Resultary queries: normal curvature quadratic energy onset theta maximum compact torus mean curvature flow; mean curvature flow flat normal bundles Kunikawa compact torus strongest first order profile energy"
+        ]
+      },
+      "rationale": "Kunikawa arXiv:2609.34291v1 already gives the exact initial flat-bundle normal-curvature evolution identity (2.8), the entire compact-torus source matrix (3.7) at every (s,theta), the chosen profile rho=2+cos(theta), z=sin(theta), and the initial induced metric. Combining these published identities by direct substitution yields the whole claimed pointwise derivative, not just a single witness. The zero set and unique profile extremum require only differentiating sin(theta)/(2+cos(theta))^4; the quadratic L2 energy is the standard fact that K(t)=tK_t(0)+o(t) and dmu_t=dmu_0+o(1), followed by an elementary trigonometric integral. Thus every substantive conclusion is a direct, mechanically computable corollary of the known complete source tensor and initial geometry. Exact numerical constants not printed in the primary paper do not rescue a mechanically implied claim. This is a mathematical implication comparison, not an attribution of copying or authorship. The same Resultary entry is excluded as self-evidence.",
+      "residual_risks": [
+        "The algebraic coefficient and maximum may not be explicitly printed in Kunikawa, so this is an implication-level rejection, not a literal duplicate-text finding.",
+        "Only the primary v1 version was compared; later variants could contain further discussion without changing decisive implication.",
+        "The exact scalar sign depends on the stated orientations; orientation-insensitive maxima and energy do not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY IMPLIES all claimed quantitative results after routine calculus. The source does not literally print the maximizer or integral constant, but gives all full-field data from which they mechanically follow.",
+          "evidence": "Theorem 2.2 proof equation (2.8); formula (3.7) and rho=2+cos(theta), z=sin(theta); e1,e2 orthonormal, g=rho^2 ds^2+dtheta^2; cf. source Section 3.2.",
+          "identifier_or_url": "arXiv:2609.34291v1; https://arxiv.org/abs/2609.34291",
+          "material_read": "Rendered arXiv full-text at introduction and statements; Sections 2.3-2.4 including equations (2.4), (2.5), Theorem 2.2 and proof of (2.8); Sections 3.1-3.3 including metric, frame, equation (3.7) and chosen profile, and original witness computation.",
+          "method": "Direct full-text equation/quantifier comparison, specializing the paper formula to the same coordinates and rebuilding its implication chain; not abstract-only.",
+          "title": "Counterexamples to preservation of flat normal bundles under mean curvature flow",
+          "trigger": "Exact same compact torus, initial-flat normal curvature production and generating curve."
+        },
+        {
+          "assessment": "EARLIER GENERAL BACKGROUND; not the same compact torus. Kunikawa is the decisive same-object source for coverage.",
+          "evidence": "Section 3 equation (16) contains the normal-curvature evolution gradient term; paper studies pinching and convergence, not Kunikawa 2026 explicit torus.",
+          "identifier_or_url": "arXiv:1605.06200v1; https://arxiv.org/abs/1605.06200; final DOI:10.1016/j.anihpc.2016.10.010",
+          "material_read": "Rendered original full-text introduction, Section 2 preliminary equations, and Section 3 including equations (6), (15), (16) and gradient source remarks.",
+          "method": "Primary full-text comparison of evolution PDE, object, and scope; not based on title/abstract alone.",
+          "title": "Surfaces of Co-dimension Two Pinched by Normal Curvature",
+          "trigger": "Important earlier codimension-two normal-curvature evolution equation and gradient obstruction."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "It is natural to measure how normal flatness fails on Kunikawa's compact torus, and the scalar squared L2 energy is a legitimate geometric quantity. Nevertheless, the prior paper already supplies the full pointwise curvature-production field and the entire metric; the proposed zero set, two maximizing latitudes, and global leading energy are routine one-variable differentiation and integration of that known function. The work has no new structural lemma, nontrivial geometric bound, classification, mechanism, or independently unknown/non-implied invariant; its proposed exact constants are mechanical postprocessing of the published source, with only speculative value as a future numerical benchmark. This is mathematically a correct worked quantitative illustration, but not an independent contribution satisfying the uniform V bar. The calculation is not rejected just for being finite or narrow: it fails because the exact facts are automatically recoverable from existing complete same-object formulas without a substantive new step.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Kunikawa, Counterexamples to preservation of flat normal bundles under mean curvature flow, arXiv:2609.34291v1 (2026-09-28), https://arxiv.org/abs/2609.34291; equations (2.8), (3.7), Section 3.2.",
+    "Baker and Nguyen, Surfaces of Co-dimension Two Pinched by Normal Curvature, arXiv:1605.06200v1 (2016); Section 3 equation (16), https://arxiv.org/abs/1605.06200; final journal DOI:10.1016/j.anihpc.2016.10.010.",
+    "Resultary published-record query 2026-10-24: exact normal curvature production Kunikawa compact torus mean curvature flow sin theta kappa derivative squared L2 energy; top exact hit is the SAME submitted SCOPE record 2026/10/11/SCOPE-exact-first-order-normal-curvature-production-in-kunikawa-s-comp--6643dc54e1a0, not independent prior coverage."
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The source geodesic curvature is nonconstant, and the profile-maximizer claim is conditional on nonzero kappa_prime; at zeros the entire profile rate is zero.",
+    "The scalar normal curvature sign changes with orientation; squared integrated energy and absolute rate are invariant.",
+    "The result concerns time-zero production, not future nonlinear curvature-maximizer paths.",
+    "No independent meaning beyond routine postprocessing of the source tensor is claimed; evaluation does not imply authorship misconduct.",
+    "Public transport blocked by provenance confidentiality, distinct from the completed scientific rejection."
+  ],
+  "residual_risks": [
+    "The algebraic coefficient and maximum may not be explicitly printed in Kunikawa, so this is an implication-level rejection, not a literal duplicate-text finding.",
+    "Only the primary v1 version was compared; later variants could contain further discussion without changing decisive implication.",
+    "The exact scalar sign depends on the stated orientations; orientation-insensitive maxima and energy do not."
+  ],
+  "schema_version": 1
+}
