@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Disjoint boundary stencils give an exact sum-of-absolute-weights formula; Lagrange products prove the exact binomial coefficients and strict q-monotonicity. Center-row lower bounds, symmetric beta-polynomial concentration, and finite positive gaps establish minimax and parity. A leading-coefficient computation proves asymptotics; the included exact-rational standard-library checker matches 1482 local identities and further parity tests. Tests supplement, not replace, general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1137/130932533, §3.11 and §4.2",
+        "arxiv:2605.04765"
+      ],
+      "reasoning": "The 2014 approximate-window Fourier extension is algorithmically close, but its §3 estimates use smooth-derivative data and selected window parameters, not an unrestricted sample-noise operator minimax over strictly monotone flat steps. FC-Gram uses different extrapolation/construction. Neither supplies a stronger theorem dominating this claim.",
+      "searches": [
+        "Fourier continuation extension stencil extrapolation sharp l infinity Lebesgue constant blend 2^d",
+        "Discrete periodic Fourier extension two boundary polynomial extrapolants smooth step noise amplification optimal conditioning Lebesgue constant",
+        "doi:10.1137/130932533, §§2–4",
+        "arxiv:2605.04765, FC-Gram norm analysis"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.19797 (full publicly accessible HTML, sections 2–7 including Eq. 14 and Algorithm 1)",
+      "doi:10.1137/130932533 (full lawful author-hosted PDF, sections 2–4 and conclusion)",
+      "arxiv:1409.2808 (full publicly accessible HTML, sections 1–6)",
+      "arxiv:2605.04765 (full publicly accessible HTML, relevant FC-Gram analysis and norms)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.19797, paper operator and experiments",
+        "doi:10.1137/130932533, related extrapolation and smooth-data bound",
+        "arxiv:1409.2808, different interpolation noise instability"
+      ],
+      "reasoning": "The source EB paper implies the formula for the operator, but does not identify its exact ℓ∞ norm, its sharp minimax over legal smooth transitions, or the even/odd attainment boundary. The 2014 predecessor shows large extrapolation factors for chosen windows but no minimizing characterization; the Floater-Hormann stability paper addresses a separate rational interpolant. No inspected stronger statement entails all three parts without the new row geometry argument.",
+      "searches": [
+        "arxiv:2610.19797, §5 Eq. (14), Algorithm 1, Remark 2",
+        "doi:10.1137/130932533, §3–§4.2",
+        "arxiv:1409.2808, §1 and §4",
+        "Sharp infinity-to-infinity norm for smooth symmetric extrapolation blending extension using equispaced Lagrange stencils; minimax Lebesgue function at central continuation grid point, parity-dependent attainment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1409.2808, pp. introduction and Lebesgue function",
+        "arxiv:2610.19797, Eq. (14)"
+      ],
+      "reasoning": "The new bound is equivalently a discrete worst-case Lebesgue/row-absolute-sum norm and a minimax symmetric smooth-window statement. Classical Lebesgue norm concepts explain the interpretation but do not by themselves imply the center-row optimum and parity of attainment.",
+      "searches": [
+        "extrapolation blending Fourier continuation matrix-free Hermite Lagrange periodic extension noise amplification stability operator norm",
+        "Sharp infinity-to-infinity norm for smooth symmetric extrapolation blending extension using equispaced Lagrange stencils; minimax Lebesgue function at central continuation grid point, parity-dependent attainment",
+        "arxiv:1409.2808, §1 operator Lebesgue-constant formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus near hit 2026/10/11/SCOPE-exact-endpoint-norms-and-residue-law-for-consecutive-cyclic-four--8f1466cba7af",
+        "Local published own-claim comparison: 50 accessible earlier finding claims, no EB-continuation minimax match"
+      ],
+      "reasoning": "The identified nearest mathematical database item computes a cyclic Fourier projection norm, a different operator, not an exact coefficient or table for EB. The local claims searched for extrapolation, extension, window, interpolation, Fourier, step and sharp noise bound did not contain a matching statement. Search absence is not proof of uniqueness.",
+      "searches": [
+        "numerical analysis optimization control finite-step sharp stability threshold positivity of numerical algorithms",
+        "extrapolation blending Fourier continuation matrix-free Hermite Lagrange periodic extension noise amplification stability operator norm",
+        "smooth periodic extensions by extrapolation and blending FFT differentiation Mendez-Cruz Amlani 2610.19797",
+        "Sharp infinity-to-infinity norm for smooth symmetric extrapolation blending extension using equispaced Lagrange stencils; minimax Lebesgue function at central continuation grid point, parity-dependent attainment",
+        "Discrete periodic Fourier extension two boundary polynomial extrapolants smooth step noise amplification optimal conditioning Lebesgue constant"
+      ]
+    },
+    "rationale": "A sharp minimax identity, an even/odd attainment classification and an explicit smoothing family for the precise 2026 EB operator were proved, with published operator definitions and older extrapolation-instability work carefully separated from the new implication. Full primary sources were read. Published and semantic database comparisons produced no direct covering result; no claim of exhaustive priority is made.",
+    "residual_risks": [
+      "An older generic minimax window lemma or equivalent Lebesgue norm statement not indexed under Fourier continuation could imply the result.",
+      "The older 2014 window construction is structurally close, so careful attribution of its preexisting algorithm is essential.",
+      "The theorem optimizes only input perturbation norms, not actual differentiator accuracy or error amplification from recurrence roundoff."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the operator but lacks the exact data-noise minimax and parity of attainment.",
+        "evidence": [
+          "equation (14)",
+          "Algorithm 1",
+          "Remark 2",
+          "section 6 parameters"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.19797",
+        "material_read": "Full text sections 2–7, especially Lagrange recurrence Theorem 5, Eqs. 8 and 13–14, Algorithm 1, Remark 2, numerical example d=9 C=64.",
+        "method": "Read public arXiv HTML and inspected rendered PDF pages for interpolation/blending equations.",
+        "title": "Smooth periodic extensions by extrapolation and blending for FFT-based differentiation",
+        "trigger": "Original defining paper of the precise extrapolation/blending map; closest ownership and priority risk."
+      },
+      {
+        "assessment": "Describes operator and accuracy/step tuning and smooth-data interpolation bounds, not optimal worst-case coefficient norm over the stipulated transition class.",
+        "evidence": [
+          "equations (3.1)–(3.4)",
+          "bound (3.11)",
+          "§4.2 discussion of extrapolation magnitude"
+        ],
+        "identifier_or_url": "https://www.math.k-state.edu/~albin/pubs/albin_pathmanathan_2014_dpe.pdf",
+        "material_read": "Sections 2.1–2.2.1, 3.1–3.4, 4.2, 5 and conclusion, including pages A680 and A686.",
+        "method": "Read author-hosted lawful full PDF text and inspected PDF page images of interpolation/blending formulas and extrapolation-conditioning discussion.",
+        "title": "Discrete Periodic Extension Using an Approximate Step Function",
+        "trigger": "Older same structural polynomial-extrapolation and step-blend technique acknowledged by 2026 source."
+      },
+      {
+        "assessment": "Establishes exponential Lebesgue instability for extended Floater-Hormann rational interpolation, not the EB smooth-step two-stencil minimax.",
+        "evidence": [
+          "Introduction Lebesgue-function definition",
+          "§4 lower bounds",
+          "§6 extrapolation error discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1409.2808",
+        "material_read": "Full arXiv HTML sections 1–6 and relevant appendix discussion of extrapolation.",
+        "method": "Read accessible author-uploaded arXiv HTML full text.",
+        "title": "The stability of extended Floater-Hormann interpolants",
+        "trigger": "Relevant prior operator norm / data perturbation amplification theory for polynomially extended interpolants."
+      },
+      {
+        "assessment": "Studies FC-Gram operators and their estimates rather than the new EB exact minimax or parity effect.",
+        "evidence": [
+          "introductory operator comparisons",
+          "FC-Gram analytical/numerical bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.04765",
+        "material_read": "Accessible arXiv HTML introduction and analysis of extrapolation and norm estimates.",
+        "method": "Read relevant sections of the complete online article.",
+        "title": "Computational and Analytical Study of Variations and Generalizations of the FC-Gram Approximation Algorithm",
+        "trigger": "Contemporary related Fourier continuation analysis that might cover data-to-extension norms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "057551e2-2287-44eb-a097-93d431d6b426",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 EB method is used for FFT derivatives and explicitly varies continuation parameters. The theorem gives its sharp unavoidable arbitrary-sample noise gain for all legal smooth symmetric blends, separates attainability by continuation parity, and proves d=9,C=64 requires 17,527,209,985-fold worst-case amplification. This guides choosing extrapolation degree/width and interpreting smooth-data numerical success without falsely equating it with stability for perturbed samples.",
+    "status": "PASS"
+  }
+}
