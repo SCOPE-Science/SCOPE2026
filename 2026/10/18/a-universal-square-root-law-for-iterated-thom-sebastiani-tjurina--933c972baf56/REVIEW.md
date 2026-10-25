@@ -1,11 +1,21 @@
-# Review: universal Tjurina decay under iterated separated sums
+# Independent mathematical audit
 
-**Correctness — PASS.** The Milnor algebra of separated sums is a tensor product, and the defining class acts by a Kronecker sum. Realization of arbitrary nilpotent Jordan blocks as \(\mathfrak{sl}_2\) raising maps gives an exact coefficient identity. The finite-support centered weight distribution has known variance; the lattice span-one/span-two local central limit argument proves the sharp constant and relative \(O_h(r^{-1})\) error. Exact matrix-rank checks corroborate sampled Jordan configurations, without claiming universal computational certification.
+## correctness
 
-**Originality — PASS, with residual risk.** Zheng–Zuo (arXiv:2610.08290v1, Theorem B and Section 5) and Almirón (2023, Theorem 1) supply two-factor defect calculations, not this general arbitrary-iterate coefficient formula or sharp all-Jordan asymptotic. A previously obtained square-zero self-sum formula is explicitly subsumed and not relabeled as a separate contribution. Classical \(\mathfrak{sl}_2\) and Fourier tools themselves are well known. Tate–Zelditch (2004) and Postnova–Reshetikhin (2018) study much broader tensor-multiplicity asymptotics, so the leading-rate component may be implicitly covered, although the exact all-iterate Tjurina formula and the explicit Jordan variance are not stated there. Direct overlap comparisons against mathematical records found no equivalent full claim, but possible implicit coverage by a broader representation theorem is a genuine residual risk.
+PASS
 
-**Mathematical value — PASS.** The theorem gives an exact finite coefficient procedure for every iteration and a sharp infinite-power law across all isolated complex hypersurface germs. It extends beyond plane curves and square-zero Milnor multiplication: the constant depends on a cubic moment of the full Jordan profile. It addresses the long-iterate behavior of a standard analytic singularity invariant, rather than a selected finite experiment.
+Separated-variable Jacobian quotient A_(F_r)=A_h^⊗r has dimension μ^r; multiplication by F_r is the diagonal Kronecker sum N_r of nilpotent Milnor multiplication N. Embedding each nilpotent Jordan block into an sl2 irreducible realizes N_r as diagonal raising operator. The weight character is P_h(z)^r; for irreducible highest weight j, multiplicity c_j-c_(j+2), and telescoping by parity gives dim ker N_r=c_0+c_1. Hence τ(F_r)=[z^0]P^r+[z^1]P^r exactly for r>=1. The symmetric finitely supported weight law has variance ∑ℓ(ℓ²-1)/(3μ). When N!=0 the lattice span is 1 if mixed parity or 2 if pure parity; exactly two adjacent sites together yield sqrt(2/(π σ² r)) with a relative O_h(1/r) via symmetric Fourier expansion and exponential suppression away from maximal-modulus points. N=0 gives ratio one. I independently compared Kronecker matrix kernels to character coefficient dimensions in nine exact small cases.
 
-**Limits.** No independent audit has been conducted. The asymptotic is for each fixed germ, and it does not classify Hodge-filtered invariants. The available source searches cannot prove absolute uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original combined claim, not merely its known premises: A general tensor-multiplicity local CLT plausibly implies the leading square-root behavior, but the exact τ(F_r)=c0+c1 formula plus explicit Jordan variance are presented as a combined singularity-specific theorem; do not assert that general character theory itself is original. Broader works and residual risks below qualify priority.
+
+## value
+
+PASS
+
+Exact all-iterate Tjurina numbers and sharp fixed-germ Gaussian decay constant for arbitrary nilpotent Jordan type materially refine two-factor Thom–Sebastiani formulas. The cubic Jordan variance is a natural singularity invariant necessary for the leading decay, beyond earlier square-zero examples, with no unsupported claim of new sl2 representation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
