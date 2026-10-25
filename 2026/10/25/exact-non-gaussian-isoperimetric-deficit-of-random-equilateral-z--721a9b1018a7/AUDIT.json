@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The zonotope determinant area formula and the absolutely convergent |sin| Fourier series give an exact nonnegative sum of squares for every n. The fixed-angle conditional mean \\(2/\\pi\\) makes overlapping pair terms uncorrelated, giving exact moments. Orthogonality plus the multivariate CLT gives independent complex-Gaussian Fourier modes, squared to independent rate-one exponentials; a uniform L1 tail bound gives the full weak limit. The sine Euler product gives the exact Laplace transform. Exponential convolution and a telescoping infinite product give the sharp upper-tail prefactor \\(16/(3\\pi)\\). Finite checker reproduces area/Fourier relations, Laplace values, and variance normalization; no finite experiment is used to prove an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schneider 2022 Theorem 1 covers valuation expectations; §4 Lemma 1/Theorem 3 needs support containing the origin to ensure nonzero first projection.",
+        "Buffière–Marchal 2023 arXiv:2303.18045 §§1–3 uses integer generators and a fixed endpoint, and proves tangent-point Gaussian fluctuations.",
+        "Joós–Lángi 2022 Theorems 3, 9, 10 optimize deterministic intrinsic volumes over finitely generated zonotopes."
+      ],
+      "reasoning": "Neither nondegenerate-Gaussian i.i.d. zonotope theorems, lattice model tangent-point limits, nor deterministic isoperimetric inequalities imply the exact degenerate unit-direction area-deficit distribution. The present model lacks the radial variation that makes the first Hoeffding projection nonzero.",
+      "searches": [
+        "random planar zonotopes iid uniform directions area variance intrinsic volumes exact formula",
+        "iid equidistributed segment directions zonotope area sharp non-Gaussian fluctuations degenerate second chaos",
+        "Schneider random zonotopes degenerate U statistics uniform sphere vanishing first Hoeffding projection weighted chi square limit",
+        "random zonotope area variance U-statistic uniform directions planar finite sample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.03204v1/v2 (geometry, first public 2022-06-07)",
+      "arXiv:2202.06774v1 (iid random zonotopes)",
+      "arXiv:2303.18045v1 (lattice zonotopes)",
+      "DOI:10.15559/16-VMSTA70 (Feret random zonotopes)",
+      "classical Fourier, Euler sine product, and degenerate U-statistics principles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Joós–Lángi 2022 gives the area formula needed for proof but does not sample iid angular generators.",
+        "Schneider 2022 Theorem 3 assumes a nondegenerate first Hoeffding projection, whereas E|sin(theta-Theta)|=2/pi for all theta.",
+        "Buffière–Marchal 2023 uses a uniform fixed-endpoint lattice ensemble, not iid continuous unit generators.",
+        "General degenerate U-statistic limit theory is a method used here; its generic conclusions do not evaluate this particular Fourier spectrum and exact tail."
+      ],
+      "reasoning": "The claim is not a special case of the closest published CLT because that theorem excludes the first-projection-degenerate model. The deterministic zonotope extrema do not imply distributional assertions. The natural alternative degenerate-U-statistic formulation predicts the qualitative second chaos but not the complete quantitative law without the independent proof.",
+      "searches": [
+        "random equilateral planar zonotope area isoperimetric deficit exact sum of Fourier squares uniform i.i.d. angles non Gaussian exponential limit",
+        "Schneider random zonotopes degenerate U statistics uniform sphere vanishing first Hoeffding projection weighted chi square limit",
+        "arXiv:2206.03204 Theorems 3 9 10",
+        "arXiv:2202.06774 Lemma 1 Theorem 3",
+        "arXiv:2303.18045 Theorems 1 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Joós–Lángi 2022 arXiv:2206.03204 §2, §3, §4: area/intrinsic-volume and extremal inequalities, no circular iid fluctuation theorem.",
+        "Schneider 2022 arXiv:2202.06774 §4: positive first-projection variance is required for his Gaussian conclusion.",
+        "Rahmani–Pinoli–Debayle 2017, §1–§3: random convex-set zonotope representation, with directions predetermined rather than independent Haar angles."
+      ],
+      "reasoning": "The area statistic is equivalently a degenerate U-statistic with kernel |sin(theta-phi)|, or a quadratic functional of the empirical uniform-angle Fourier coefficients. The checked primary theorems do not identify its complete series law, analytic Laplace transform and tail; classical general U-statistic theory alone does not supply the exact spectral constants.",
+      "searches": [
+        "uniform unit-direction random planar zonogon area limiting law weighted independent exponentials nonGaussian",
+        "area of uniform random planar zonogon limit weighted exponential series c_k = 2/(pi(4k^2-1))",
+        "random equilateral planar zonotope area isoperimetric deficit exact sum of Fourier squares uniform i.i.d. angles non Gaussian exponential limit",
+        "random zonotope area variance U-statistic uniform directions planar finite sample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Area expressed by pair determinants in Joós–Lángi 2022; the specific spectrum 2/[pi(4k^2−1)] and sharp tail 16/(3pi) are evaluated here analytically.",
+        "Available indexed mathematical result summaries on planar zonotopes predominantly concern projection areas of orthotopes, widths of graphical zonotopes, deterministic Cauchy quadrature, or Minkowski symmetrization rather than this random equilateral area deficit."
+      ],
+      "reasoning": "The exact constants, full Laplace transform, and distribution cannot be read from the inspected zonotope formulas or existing tables found in searches; no database nonmatch is treated as conclusive uniqueness evidence.",
+      "searches": [
+        "random zonotope area variance U-statistic uniform directions planar finite sample",
+        "unit independent uniform circular directions zonogon area deficit Laplace transform sine sinh product sharp tail",
+        "zonotope area from iid uniformly oriented unit segments limiting isoperimetric deficit exponential spectrum",
+        "random zonotope area variance U-statistic uniform directions planar finite sample"
+      ]
+    },
+    "rationale": "The explicit fluctuation law, with unit-radius degenerate angular kernel, nonnegative geometric Fourier deficit, elementary closed Laplace transform and sharp leading tail coefficient, is not stated or implied by the closest inspected source. Schneider's positive first-projection Gaussian theorem excludes exactly the rotation-invariant fixed-length case; general degenerate U-statistics indicate the type of limit but do not automatically evaluate this kernel spectrum or geometric law. Search results are corroborative only, not a proof of novelty.",
+    "residual_risks": [
+      "An earlier less-indexed treatment of the |sin|-kernel degenerate circular U-statistic may contain an equivalent explicit Laplace law.",
+      "General second-chaos limit is classical; only this geometrically specified exact evaluated spectrum, Laplace and sharp tail are distinguished.",
+      "The search corpus is finite; priority is qualified, and independent specialist mathematical review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found deterministic volume and extremal results, not iid-angle area deficit law.",
+        "evidence": [
+          "§2 determinant and intrinsic-volume formulas; §3 fixed-generator extremal statements; §4 asymptotic deterministic approximation bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.03204v2",
+        "material_read": "Full-text introduction; §2 intrinsic-volume decomposition and definitions; §3 Theorem 3 and its scope; §4 Theorems 9–10 and extremal large-generator formulation.",
+        "method": "Read accessible arXiv full-text HTML and compared objects, theorem hypotheses, and outcomes.",
+        "title": "Isoperimetric problems for zonotopes",
+        "trigger": "Primary geometry paper on equilateral zonotopes and their isoperimetric behavior, first public 2022-06-07."
+      },
+      {
+        "assessment": "Expectation formula applies; stated Gaussian CLT relies on positive first projection and does not cover constant unit radius with Haar angles.",
+        "evidence": [
+          "§4 lines around Lemma 1 impose support containing origin to obtain positive first projection; for unit angles the first projection is identically 2/pi."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.06774",
+        "material_read": "Full accessible article text, §§1–4, especially Theorem 1, Vitale determinant identity, Lemma 1 and Theorem 3.",
+        "method": "Checked exact probabilistic assumptions and variance condition in the central limit theorem.",
+        "title": "Random zonotopes and valuations",
+        "trigger": "Same class of i.i.d. random segment Minkowski sums and valuation fluctuations."
+      },
+      {
+        "assessment": "A fixed-endpoint integral-lattice zonotope ensemble with Gaussian boundary-point limits, not random uniform unit-segment area-deficit fluctuations.",
+        "evidence": [
+          "Theorem 1 fixes integral endpoint, §2.1 requires integer-coordinate generators, and §3.1 concerns exposed boundary locations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.18045v1",
+        "material_read": "Full-text Introduction Theorems 1–2, §2.1 lattice generator model and §3.1 tangent-point Gaussian limit statement.",
+        "method": "Read accessible arXiv HTML and contrasted probability ensembles and observables.",
+        "title": "Fluctuations of lattice zonotopes and polygons",
+        "trigger": "Probabilistic fluctuation theorem for random zonogons potentially comparable by distributional limits."
+      },
+      {
+        "assessment": "Its random convex-set approximation selects fixed angular directions and random face-length information; it does not assert the iid uniform-direction isoperimetric deficit law.",
+        "evidence": [
+          "§1.2 explicitly describes face lengths as random and generating directions as known/prescribed."
+        ],
+        "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/78/text",
+        "material_read": "Full-text abstract, Introduction §§1.1–1.3, §2 support/Feret/mixed-area identities and the paper model description.",
+        "method": "Read accessible journal article HTML and compared construction of random objects.",
+        "title": "Description of the symmetric convex random closed sets as zonotopes from their Feret diameters",
+        "trigger": "Random zonogons and geometric area/Feret representations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "721a9b10-18a7-4576-911d-3ef6d4928258",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The studied area deficit is the canonical Euclidean isoperimetric shortfall of an equilateral zonogon from the disk at fixed deterministic perimeter. Its order-n geometric fluctuation scale, positive Fourier certificate, explicit non-Gaussian limit and exact sharp tail determine a natural infinite-family invariant not entailed by known moment formulas alone. The full distribution resolves a motivated gap between deterministic zonotope isoperimetry and generic nondegenerate Gaussian random-zonotope limit theory.",
+    "status": "PASS"
+  }
+}
