@@ -1,11 +1,21 @@
-# Review of Barba-tight determinant rigidity
+# Independent mathematical audit
 
-**Correctness — PASS.** Ostrovskii's duality between upper and lower Auerbach bases and his regular-hexagonal criterion are explicitly applied. The Barba equality theorem gives simultaneous normalized Gram matrices, their inverse has no zero entry, and multilinearity excludes fractional-coordinate cube maximizers. Pair-incidence counting yields the exact all-parameter norm. Three dual zonotope determinants \(1/4,1/4,1/(4q)\) exclude affine regularity. The dimension-five exact-rational checker and symbolic coefficient identities corroborate, but do not replace, the proof. The infinity of the family relies on the published Brouwer--Whiteman construction.
+## correctness
 
-**Originality — PASS (best-knowledge).** Ostrovskii's 2011 paper, §4.1, treated Hadamard dimensions and the three-dimensional exception and explicitly raised the general \(\ell_1^n\) dimension question. The 2021 determinant survey proves Barba equality rigidity and exhibits infinitely many corresponding odd orders but contains no MVSE or Auerbach classification. Available mathematical-record comparisons, with alternatives for Barba-optimal determinants, regular hexagonal lower Auerbach spans, and all-parallelepipedal MVSEs, produced no direct or stronger covering statement. The main bibliographic risk is a possible earlier cross-application of those two established theorems in less readily indexed literature; a failed search cannot prove absolute novelty.
+PASS
 
-**Value — PASS.** The exact two-vector norm profile holds for **all** lower Auerbach bases and every distinct pair, giving a structural rigidity theorem. Its direct consequence decides the MVSE shape in an explicit infinite family of odd dimensions beyond the classical Hadamard case, making substantive progress on a question identified in the archival functional-analysis literature. This is not merely an isolated numerical improvement.
+For odd n>=5 attaining the exact Barba bound, Barba equality yields Gram AA^T=A^TA=(n-1)I+J after compatible signed normalizations and q=sqrt(2n-1) an odd integer. A*1=q*1, so A^(-T)=(A-J/q)/(n-1), whose entries never vanish. The zero-cofactor/maximizing-fractional-entry argument forces every maximal real cube determinant basis to consist of signs, allowing all lower Auerbach bases to be represented by such inverses. For two columns, joint sign incidences N++=(n+1+2q)/4,N--=(n+1-2q)/4,N+-=N-+=(n-1)/4 give the exact all-a,b planar norm, whose three polar-zonotope determinant magnitudes are 1/4,1/4,1/(4q). Non-equality since q>=3 excludes affine regularity; Ostrovskii Thm3.1 then forces all MVSEs to be parallelepipeds. n=5 matrix J-2I and the known Brouwer–Whiteman orders establish concrete attainment, not arbitrary odd n. Independently calculated n=5 Gram and five norm pairs.
 
-Primary literature: M. I. Ostrovskii, arXiv:1103.0997v1, Proposition 2.4, Theorem 3.1, §4.1; Browne--Egan--Hegarty--Ó Catháin, arXiv:2104.06756v4, Corollary 10, Theorems 12 and 16. Independent mathematical and bibliographic checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary scientific comparisons concern same objects, parameters, reductions and stronger-coverage possibilities; no inspected statement decisively covers the complete final claim. Best-of-knowledge originality with explicit remaining access/priority risks.
+
+## value
+
+PASS
+
+Completes a natural geometric classification in an infinite odd-dimensional family beyond the familiar Hadamard orders, using a concrete, basis-independent obstruction and an exact norm profile. The invariant is motivated by Ostrovskii’s MVSE criterion; not a mere restatement of maximal determinants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

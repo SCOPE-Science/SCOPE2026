@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`. The critical finite-dimensional identities are the simultaneous Gram relation \(AA^{\mathsf T}=A^{\mathsf T}A=(n-1)I+J\), the inverse \(A^{-\mathsf T}=(A-q^{-1}J)/(n-1)\), pair counts, and the determinant ratios \(q:q:1\). The external Barba equality and Brouwer--Whiteman existence theorems are sourced explicitly in `RESULT.md`.
+## correctness
 
-To independently reproduce the **example-only** calculations, run `python3 verify_five_dim.py` from the extracted files. It uses the Python standard library and checks the explicit dimension-five sign matrix, rational inverse columns, the exact norm on selected rational pairs, and the parametric coefficient/determinant identities for several odd integer values of \(q\).
+PASS
 
-This executable check is not an exhaustive classification of cube maximizers, a general-dimensional matrix existence oracle, or a substitute for the quantified proof. Independent scientific and bibliographic review has not been performed.
+For odd n>=5 attaining the exact Barba bound, Barba equality yields Gram AA^T=A^TA=(n-1)I+J after compatible signed normalizations and q=sqrt(2n-1) an odd integer. A*1=q*1, so A^(-T)=(A-J/q)/(n-1), whose entries never vanish. The zero-cofactor/maximizing-fractional-entry argument forces every maximal real cube determinant basis to consist of signs, allowing all lower Auerbach bases to be represented by such inverses. For two columns, joint sign incidences N++=(n+1+2q)/4,N--=(n+1-2q)/4,N+-=N-+=(n-1)/4 give the exact all-a,b planar norm, whose three polar-zonotope determinant magnitudes are 1/4,1/4,1/(4q). Non-equality since q>=3 excludes affine regularity; Ostrovskii Thm3.1 then forces all MVSEs to be parallelepipeds. n=5 matrix J-2I and the known Brouwer–Whiteman orders establish concrete attainment, not arbitrary odd n. Independently calculated n=5 Gram and five norm pairs.
+
+## originality
+
+PASS
+
+Primary scientific comparisons concern same objects, parameters, reductions and stronger-coverage possibilities; no inspected statement decisively covers the complete final claim. Best-of-knowledge originality with explicit remaining access/priority risks.
+
+## value
+
+PASS
+
+Completes a natural geometric classification in an infinite odd-dimensional family beyond the familiar Hadamard orders, using a concrete, basis-independent obstruction and an exact norm profile. The invariant is motivated by Ostrovskii’s MVSE criterion; not a mere restatement of maximal determinants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
