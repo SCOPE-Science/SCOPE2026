@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T16:55:42.167104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e/verify_two_tap_band.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e/VERIFIER_OUTPUT.txt"
+      ],
+      "rationale": "For step of order L>=3, the three modulation characters 0,+a,-a are distinct; Parseval splits the 3N-dimensional band into diagonal cyclic (I+xT_a) and two off-diagonal scalar sectors. Direct expansion gives singulars sqrt(N)*|1+x exp(2pi i ka/N)|/(1+x) (N times) and sqrt(Nx)/(1+x) (2N times). The least diagonal numerator squared is D_L(x)=(x-1)^2+4x s_L^2, where s_L^2=0 for even L and sin^2(pi/(2L)) for odd. Minimizing (1+x)/min(sqrt(x),sqrt(D_L(x))) is a strict-decreasing then strict-increasing balance at x satisfying x+1/x=3−4s_L^2, unique up to inversion (balanced x=1 iff L=3). The best squared condition number is 5−4s_L^2; smallest odd prime divisor yields all-step best unless N power of two. At balanced even L the diagonal nullity is N/L. Independent construction of ORIGINAL projector rows and dense complex SVD for (N,a)=(4,1),(5,1),(6,2),(9,3) at x=2.3 matched all 3N singulars (<1e−11); submitted output claims 200 further numerical comparisons. Finite SVD is corroboration only.",
+      "residual_risks": [
+        "Observable Hermitian band changes with step a; optimizes each natural band separately, not stability on all N-by-N Hermitian matrices.",
+        "Antipodal step L=2 excluded; codomain norm is unaveraged isotropic Euclidean."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of Goldberger et al. covers all finite cyclic Gabor POVMs; Proposition 3 covers two-sparse rank.",
+          "Alaifari–Wellershoff and Bartusel treat nonlinear phase retrieval uniqueness or stability, not the present restricted linear operator inverse norm."
+        ],
+        "reasoning": "A general singular-spectrum theorem makes the pointwise band spectrum a deduction but does not supply a minimum over all tap powers and separations or identify smallest odd prime optimizers. The optimization is additional algebraic work with a distinct practically motivated objective.",
+        "searches": [
+          "arxiv:2106.01509 Theorem 2 Proposition 3",
+          "arxiv:1901.05296 finite Gabor stability",
+          "arxiv:2206.06729 STFT injectivity"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2106.01509v1",
+        "arxiv:1901.05296v4",
+        "arxiv:2206.06729v1",
+        "Resultary:2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa",
+        "Resultary semantic query: two tap cyclic Gabor POVM linear measurement operator band singular values optimum amplitudes separation golden ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goldberger et al. Theorem 2 implies formula for the N+2N singular channels, and this part is explicitly nonnovel.",
+          "Local Jacobian theorem minimizes a different 2N signal-perturbation gain, yielding dimension-dependent decay, versus bounded sqrt5 for optimal 3N linear band.",
+          "Rank capacity across several windows differs from one-window worst-case condition number."
+        ],
+        "reasoning": "The sharp x+1/x optimizer, golden-ratio even-order law and least-odd-prime step ordering do not follow as statements of those sources without a separate constrained optimization and correct band normalization.",
+        "searches": [
+          "arxiv:2106.01509v1 theorem 2 projector Gram spectrum",
+          "Resultary:2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa",
+          "Resultary sharp operator-span capacity two sparse multi-window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou (arxiv:2106.01509v1) Theorem 2 gives full Gabor-projector Gram spectrum, which implies fixed-window singulars.",
+          "Published local two-tap result has amplitude Fourier eigenvalues 4−4t+12t cos and phase eigenvalues 4t(1−cos), a 2N-real Jacobian at the flat signal, NOT the 3N-real operator-band lifting."
+        ],
+        "reasoning": "Although both optimize a two-tap window, their input spaces, singular spectra and objective differ. The exact fixed-window spectrum is covered and not claimed new; the joint linear-band minimax optimization remains distinct.",
+        "searches": [
+          "two tap cyclic Gabor POVM linear measurement operator band singular values optimum amplitudes separation golden ratio",
+          "arxiv:2106.01509 theorem 2 rank Gram eigenvalues",
+          "Resultary:2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary prime cyclic full-information rank-one tomography has a different constant-plus-complex impulse window and full-space condition number scaling, not 3N band.",
+          "No published finite-design table giving all cyclic N, tap power and step optimum was located in targeted comparisons."
+        ],
+        "reasoning": "Because this is an all-N theorem involving divisibility by the smallest odd prime, exact finite tabulation is insufficient; absence from the search index is not definitive priority.",
+        "searches": [
+          "two tap cyclic Gabor POVM linear measurement operator band singular values optimum amplitudes separation golden ratio",
+          "golden ratio condition number two tap gabor POVM 3N band",
+          "Resultary optimal complex impulse prime cyclic Gabor tomography sharp condition barrier"
+        ]
+      },
+      "rationale": "Prior pointwise Gabor-projector Gram spectrum is explicitly credited. The potentially original theorem is the complete jointly optimal power and step-order arithmetic design for the full observable linear band; distinguish from local nonlinear spectrogram Jacobian and full-space tomography.",
+      "residual_risks": [
+        "Unindexed sparse POVM and optimal experiment design literature may contain the same minimax over tap weights/steps as a specialization.",
+        "Comparison across cyclic steps varies the operator band, so cannot interpret as fixed arbitrary Hermitian matrix stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise spectrum is prior; no global min–max over two tap power and cyclic order in relevant theorem",
+          "evidence": "Theorem 2 gives Gram values; Proposition 3 handles rank and support of size two.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "Accessible primary PDF relevant Theorem 2 and Proposition 3, proof spectral/rank setup; PDF page examined visually",
+          "method": "Compared exact fixed-window Gram eigenvalues and two-sparse rank with new objective",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Most dangerous broader result: exactly the Gabor operator spectrum"
+        },
+        {
+          "assessment": "Not covering: 2N real flat-signal Jacobian, different from 3N real operator-band linear lifting",
+          "evidence": "Jacobian branches have phase zero mode and smallest gain O(N^-2); band lifted optimum κ bounded by sqrt5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa",
+          "material_read": "Full publicly published RESULT.md, theorem, precise Jacobian spectrum and optimizer proof",
+          "method": "Read exact statement, normalization and eigenvalue branches for mathematical implication comparison",
+          "title": "Exact local conditioning and optimal weighting for two-tap cyclic spectrograms",
+          "trigger": "Same two taps and optimal weighting"
+        },
+        {
+          "assessment": "Different domain and inverse problem; does not assert same sharp arithmetic one-window band design",
+          "evidence": "Signal phase quotient is not the 3N-dimensional Hermitian operator band and its Gram singulars.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.05296",
+          "material_read": "Accessible public primary arXiv text, relevant theorem descriptions on Gabor phase retrieval stability",
+          "method": "Compared nonlinear signal recovery setup to full linear operator-band inverse",
+          "title": "Stability estimates for phase retrieval from discrete Gabor measurements",
+          "trigger": "Potential more general recovery stability bound"
+        },
+        {
+          "assessment": "No assertion of full-text noncoverage; injectivity scope is distinct",
+          "evidence": "Injectivity of nonlinear phase retrieval does not quantify linear restricted POVM condition numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.06729",
+          "material_read": "Public arXiv bibliographic material and abstract; full details not reverified",
+          "method": "Compared claimed injectivity criterion to exact inverse singular condition",
+          "title": "Injectivity conditions for STFT phase retrieval on Z, Z_d and R^d",
+          "trigger": "Possible injectivity dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2106.01509v1",
+        "arxiv:1901.05296v4",
+        "arxiv:2206.06729v1",
+        "Resultary:2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa"
+      ],
+      "rationale": "The entire linearly observable band of a two-site cyclic Gabor window is a natural identifiability class, and its smallest singular value relative to largest governs worst-case isotropic measurement error. Exact balancing of diagonal and off-diagonal channels identifies when equal tap powers are singular, determines unique weighted optimizers, and yields a clean arithmetic least-odd-prime rule over all cyclic steps. It separates linear operator-band design from unrelated nonlinear phase retrieval conditioning.",
+      "residual_risks": [
+        "No guarantee of phase-retrieval stability for arbitrary signals, incomplete Gabor shifts or heteroscedastic noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Observable Hermitian band changes with step a; optimizes each natural band separately, not stability on all N-by-N Hermitian matrices.",
+    "Antipodal step L=2 excluded; codomain norm is unaveraged isotropic Euclidean.",
+    "Unindexed sparse POVM and optimal experiment design literature may contain the same minimax over tap weights/steps as a specialization.",
+    "Comparison across cyclic steps varies the operator band, so cannot interpret as fixed arbitrary Hermitian matrix stability.",
+    "No guarantee of phase-retrieval stability for arbitrary signals, incomplete Gabor shifts or heteroscedastic noise."
+  ],
+  "schema_version": 1
+}

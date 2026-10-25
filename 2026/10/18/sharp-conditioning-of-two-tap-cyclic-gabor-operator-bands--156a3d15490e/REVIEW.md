@@ -1,15 +1,21 @@
-# Scientific assessment: sharp two-tap cyclic Gabor operator-band conditioning
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns the fixed Hilbert–Schmidt-to-Euclidean linear lifting restricted to the observable \(3N\)-dimensional Hermitian operator band, not nonlinear phase retrieval. Expanding its two-tap projector produces three distinct characters because the step has order \(L\ge3\). Parseval isolates diagonal and two off-diagonal bands exactly. The diagonal block is a cyclic shift polynomial, and its complete singular values are \(\sqrt N|1+x\omega^{ka}|/(1+x)\); the two off-diagonal blocks each have singular value \(\sqrt{Nx}/(1+x)\). This yields every rank boundary, including the even-order equal-power defect of \(N/L\) dimensions. The largest singular value is \(\sqrt N\); minimization of the exact condition-number formula on reciprocal half-lines has a unique junction optimizer. Monotonicity over odd step orders proves the least-odd-prime separation law. The checked code independently constructs the projector matrix and reproduces all predicted finite spectra; finite tests are not the unrestricted proof.
+## correctness
 
-## Originality — PASS, best knowledge
-Goldberger–Kang–Okoudjou, arXiv:2106.01509, Theorem 2, already provide the unrestricted Gabor-POVM Gram spectrum, which implies the individual-window eigenvalues. The specialization to two taps, by itself, is not asserted novel. Their inspected Theorem 2 and Proposition 3 do not optimize the spectral condition number over the amplitude ratio and support-step order. Alaifari–Wellershoff, arXiv:1901.05296, treat STFT intensity uniqueness and stability; Bartusel, arXiv:2206.06729, treats phase retrieval injectivity. The closest public two-tap conditioning result concerns the Jacobian at a flat signal, not this Hilbert–Schmidt lifting on the full observable band. The closest two-sparse operator-span result gives sharp rank capacity over many windows, not sharp inverse-operator stability for one window. No result with the same min–max formula or least-odd-prime optimizer classification was found in the stated comparisons. This is a best-knowledge priority judgment, not a uniqueness guarantee; an older equivalent Gabor-POVM parameter-design result remains possible.
+PASS
 
-## Mathematical value — PASS
-The observable band is the maximal operator class whose linear measurements can be reconstructed using a two-site window. Its spectral condition number governs worst-case amplification of **additive isotropic measurement errors** on precisely that class. The sharp design rule balances independently measured diagonal and off-diagonal sectors; equal tap powers become singular on every even-order cycle, while golden-ratio weighting attains a condition number \(\sqrt5\) independent of cycle length. Selecting the measurement separation introduces a genuine arithmetic improvement: an odd-order step gives a smaller optimum, determined by the least odd prime divisor of the ambient cycle. This provides an exact all-dimensions design and a separation between linear operator-band stability and nonlinear signal-phase stability. It is not a claim about unrestricted quantum tomography or arbitrary-signal phase retrieval.
+For step of order L>=3, the three modulation characters 0,+a,-a are distinct; Parseval splits the 3N-dimensional band into diagonal cyclic (I+xT_a) and two off-diagonal scalar sectors. Direct expansion gives singulars sqrt(N)*|1+x exp(2pi i ka/N)|/(1+x) (N times) and sqrt(Nx)/(1+x) (2N times). The least diagonal numerator squared is D_L(x)=(x-1)^2+4x s_L^2, where s_L^2=0 for even L and sin^2(pi/(2L)) for odd. Minimizing (1+x)/min(sqrt(x),sqrt(D_L(x))) is a strict-decreasing then strict-increasing balance at x satisfying x+1/x=3−4s_L^2, unique up to inversion (balanced x=1 iff L=3). The best squared condition number is 5−4s_L^2; smallest odd prime divisor yields all-step best unless N power of two. At balanced even L the diagonal nullity is N/L. Independent construction of ORIGINAL projector rows and dense complex SVD for (N,a)=(4,1),(5,1),(6,2),(9,3) at x=2.3 matched all 3N singulars (<1e−11); submitted output claims 200 further numerical comparisons. Finite SVD is corroboration only.
 
-## Principal limitations
-The condition number measures an unaveraged Euclidean data norm and the Hilbert–Schmidt operator norm; rescaling or noise covariance changes the design question. The recoverable band depends on the tap spacing, so comparisons across spacings compare *naturally associated* operator bands, not the same fixed unknown operator space. Antipodal two-tap windows and missing Gabor shifts are excluded. The prior spectral theorem provides important proof machinery, and the remaining bibliographic risk is a previously published but differently named constrained design optimization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior pointwise Gabor-projector Gram spectrum is explicitly credited. The potentially original theorem is the complete jointly optimal power and step-order arithmetic design for the full observable linear band; distinguish from local nonlinear spectrogram Jacobian and full-space tomography.
+
+## value
+
+PASS
+
+The entire linearly observable band of a two-site cyclic Gabor window is a natural identifiability class, and its smallest singular value relative to largest governs worst-case isotropic measurement error. Exact balancing of diagonal and off-diagonal channels identifies when equal tap powers are singular, determines unique weighted optimizers, and yields a clean arithmetic least-odd-prime rule over all cyclic steps. It separates linear operator-band design from unrelated nonlinear phase retrieval conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
