@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T03:00:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Archer–Graves arXiv:2604.25912v1 Theorem 1.2, Section 4, Proposition 4.3",
+        "Bóna–Smith arXiv:1901.00026",
+        "OEIS A322779",
+        "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity",
+        "source RESULT.md blob 64384b37bd1b28f04d0596b376c0f1563908fe32",
+        "source verify_turan.py blob bb9158e747c6c33783d70aacd359db738bd80052",
+        "own exact series through n=90"
+      ],
+      "rationale": "Use Archer–Graves Theorem 1.2 exact A(z)=P(z)(F(z)+G(z)). Strict Catalan coefficient estimates keep P analytic beyond |z|=1/2 and G analytic there; F=2(1−z)/(1−2z+sqrt(1−4z²)) has sole boundary singularities ±1/2. At +1/2 its leading nonanalytic term is P_+/sqrt2 (1−2z)^−1/2; at −1/2 it is −3sqrt2 P_-/4 (1+2z)^1/2. Singularity transfer yields a_n=K2^n n^−1/2(1+(α+β(−1)^n)/n+O(n^−2)), K=P_+/sqrt(2π), β=3P_-/(4P_+)>0. Adjacent multiplication gives T_n=(−1)^n(3P_+P_-/(2π))4^n/n²+O(4^n/n³), not a claimed finite threshold. Independently generated 90 coefficients; first 16 matched primary table, parity held n=8..89, constant independently evaluated 1.9514080909277811.",
+      "residual_risks": [
+        "Exact published generating function may make the shape statement accessible as an unrecorded corollary or in unindexed follow-up work.",
+        "Singularity transfer requires analytic continuation to suitable slit domains; explicit algebraic form supports it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact algebraic GF is a complete input for extracting any desired coefficient statistic but the paper analyzes positive singularity leading term only.",
+          "Bóna–Smith poses enumeration/growth issues and gives finite values, not a stronger Turán-sign theorem."
+        ],
+        "reasoning": "Though mathematically derivable from a published generating function, the claimed parity alternation is not an immediate parameter specialization of an already stated asymptotic; new two-singularity subtraction supplies substantive analysis. Priority risk noted.",
+        "searches": [
+          "Archer–Graves arXiv:2604.25912v1 Section 4",
+          "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity"
+        ]
+      },
+      "checked_sources": [
+        "Archer–Graves arXiv:2604.25912v1 Theorem 1.2, Section 4, Proposition 4.3",
+        "Bóna–Smith arXiv:1901.00026",
+        "OEIS A322779",
+        "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity",
+        "source RESULT.md blob 64384b37bd1b28f04d0596b376c0f1563908fe32",
+        "source verify_turan.py blob bb9158e747c6c33783d70aacd359db738bd80052",
+        "own exact series through n=90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published A(z) supplies all needed data, including hidden z=−1/2 singularity. Its proposition only supplies K2^n/sqrt(n)."
+        ],
+        "reasoning": "The exact GF plus new singularity analysis implies T_n; the proof dependency is credited. The original published first-order theorem, without second-order parity terms, does not imply the sign classification.",
+        "searches": [
+          "Archer–Graves GF formula and Proposition 4.3",
+          "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published result concerns a_n and growth rate; assessed one concerns T_n=a_n²−a_{n−1}a_{n+1}, equivalently parity sign of adjacent coefficient ratio curvature."
+        ],
+        "reasoning": "Different formal statements on same sequence; a_n∼K2^n/sqrt(n) alone admits either local log curvature sign after oscillatory perturbation.",
+        "searches": [
+          "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity",
+          "Archer–Graves Theorem 1.2 and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS and original article table list a_n, not the asymptotic of T_n.",
+          "Resultary Plücker degrees log-concavity is another coefficient sequence and does not apply."
+        ],
+        "reasoning": "An entire numerical coefficient table would permit finite T_n computations but no eventual alternating sign proof.",
+        "searches": [
+          "OEIS A322779",
+          "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity",
+          "Resultary 2026/10/4/SCOPE-a-sharp-log-concavity-cutoff-for-pl-cker-degrees-of-grassmannian--c053ae15c30e"
+        ]
+      },
+      "rationale": "The exact published generating function determines the coefficients, but the eventual alternating second multiplicative difference is not among the published results and requires retaining and comparing a previously unanalysed weaker negative singularity with the positive one. The source’s first-order asymptotic alone cannot decide adjacent Turán signs. Novelty is a nontrivial analytic refinement, not enumeration or an all-n sign claim.",
+      "residual_risks": [
+        "Exact published generating function may make the shape statement accessible as an unrecorded corollary or in unindexed follow-up work.",
+        "Singularity transfer requires analytic continuation to suitable slit domains; explicit algebraic form supports it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published paper proves full generating function and first-order 2^n/sqrt(n) growth but does not state a second-order parity-sensitive Turán asymptotic or a two-sign shape law.",
+          "evidence": [
+            "Complete arXiv HTML Sections 1-4 including Theorem 1.2 lines 50-56 and proof lines 596-603, Lemmas 4.1-4.2, Proposition 4.3 lines 614-697"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.25912v1",
+          "material_read": "Complete arXiv HTML Sections 1-4 including Theorem 1.2 lines 50-56 and proof lines 596-603, Lemmas 4.1-4.2, Proposition 4.3 lines 614-697",
+          "method": "Direct reading of accessible published primary full text",
+          "title": "Permutations that strongly avoid 132 (Archer and Graves)",
+          "trigger": "Identical sequence and exact Catalan-composition generating function"
+        },
+        {
+          "assessment": "Provides initial strong avoidance framework and computational questions, not an inspected parity-resolved Turán law; full-document noncoverage not claimed.",
+          "evidence": [
+            "Abstract and bibliographic description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.00026",
+          "material_read": "Abstract and bibliographic description",
+          "method": "Abstract/available description only",
+          "title": "Pattern Avoidance in Permutations and Their Squares (Bóna and Smith)",
+          "trigger": "Original questions and strong pattern avoidance definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Archer–Graves arXiv:2604.25912v1 Theorem 1.2, Section 4, Proposition 4.3",
+        "Bóna–Smith arXiv:1901.00026",
+        "OEIS A322779",
+        "Resultary search: strongly 132 avoiding permutations Turan determinant eventual alternating log convexity",
+        "source RESULT.md blob 64384b37bd1b28f04d0596b376c0f1563908fe32",
+        "source verify_turan.py blob bb9158e747c6c33783d70aacd359db738bd80052",
+        "own exact series through n=90"
+      ],
+      "rationale": "An eventually alternating strict log-concavity/log-convexity law and its explicit leading curvature defect give qualitative asymptotic shape information not supplied by the growth rate, motivated by the recently enumerated strong pattern-avoidance sequence. The negative singularity dominates a delicate second difference.",
+      "residual_risks": [
+        "Exact published generating function may make the shape statement accessible as an unrecorded corollary or in unindexed follow-up work.",
+        "Singularity transfer requires analytic continuation to suitable slit domains; explicit algebraic form supports it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

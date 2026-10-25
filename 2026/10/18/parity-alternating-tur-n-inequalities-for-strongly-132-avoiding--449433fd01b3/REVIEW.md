@@ -1,13 +1,21 @@
-# Scientific review: parity-alternating Turán inequalities
+# Independent mathematical audit
 
-**Correctness — PASS.** The published exact generating function [1] is the stated input, not a theorem being reproved. The analyticity bound on the Catalan composition and the expansions at both \(1/2\) and \(-1/2\) are explicit. The negative-square-root term has nonzero coefficient, and coefficient transfer produces a positive signed leading constant for the Turán determinant. Finite checks compare exact Catalan-series coefficients to an independent permutation enumeration and are used only as corroboration. The proof specifies the sign for sufficiently large indices, not for every index.
+## correctness
 
-**Originality — PASS, with bibliographic limitations.** The closest primary manuscript, Archer–Graves [1], determines \(A(z)\) and first-order asymptotics but does not address the adjacent Turán determinant, its parity, or the weak negative singularity. Bóna–Smith [2] and OEIS A322779 [3] provide earlier context and finite data. Searches against equivalent names and nearby stronger coefficient-curvature results, including mathematical research records, found no covering result. Older original articles were available at abstract level only, and unindexed equivalent work is a residual risk. The result is not claimed as a new generating function.
+PASS
 
-**Value — PASS.** Alternation between eventual strict log-concavity (even indices) and strict log-convexity (odd indices) is a qualitative shape classification with an exact asymptotic defect. It is motivated by the previously unresolved shape of the newly enumerated strong-pattern-avoidance sequence: the leading \(2^n/\sqrt n\) growth does not predict this effect. The nontrivial feature is that the weaker singularity at the negative radius dominates the adjacent Turán difference.
+Use Archer–Graves Theorem 1.2 exact A(z)=P(z)(F(z)+G(z)). Strict Catalan coefficient estimates keep P analytic beyond |z|=1/2 and G analytic there; F=2(1−z)/(1−2z+sqrt(1−4z²)) has sole boundary singularities ±1/2. At +1/2 its leading nonanalytic term is P_+/sqrt2 (1−2z)^−1/2; at −1/2 it is −3sqrt2 P_-/4 (1+2z)^1/2. Singularity transfer yields a_n=K2^n n^−1/2(1+(α+β(−1)^n)/n+O(n^−2)), K=P_+/sqrt(2π), β=3P_-/(4P_+)>0. Adjacent multiplication gives T_n=(−1)^n(3P_+P_-/(2π))4^n/n²+O(4^n/n³), not a claimed finite threshold. Independently generated 90 coefficients; first 16 matched primary table, parity held n=8..89, constant independently evaluated 1.9514080909277811.
 
-**Limitations.** No optimal starting index is established; the checked finite range does not promote a conjectural cutoff to a theorem. The derivation relies on [1] for exact enumeration; independent external audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-References: [1] Archer–Graves, arXiv:2604.25912v1; [2] Bóna–Smith, arXiv:1901.00026; [3] OEIS A322779; [4] Flajolet–Sedgewick, *Analytic Combinatorics* (2009).
+The exact published generating function determines the coefficients, but the eventual alternating second multiplicative difference is not among the published results and requires retaining and comparing a previously unanalysed weaker negative singularity with the positive one. The source’s first-order asymptotic alone cannot decide adjacent Turán signs. Novelty is a nontrivial analytic refinement, not enumeration or an all-n sign claim.
+
+## value
+
+PASS
+
+An eventually alternating strict log-concavity/log-convexity law and its explicit leading curvature defect give qualitative asymptotic shape information not supplied by the growth rate, motivated by the recently enumerated strong pattern-avoidance sequence. The negative singularity dominates a delicate second difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
