@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized basis and finite-support density imply that every non-\(\ell_1\) norm admits a finite positive unit vector whose coefficient sum exceeds one. A positive norming functional must have a deficient coefficient at an occupied index. The sign-isometry and the added scalar dual coordinate force a norm-attaining pair whose positive dual part has norm one but evaluates the positive primal part strictly below its norm. Conversely, for \(\ell_1\), equality in coordinatewise dual Hölder implies norm attainment separately on positive and negative supports, so both HNAp conditions hold. The proof treats finite/countable bases, dual norms, zero parts and all normalized pairs.
+## correctness
 
-## Originality
-PASS. The primary 2021 article introduces HNAp, proves it for any 2D absolute norm, and constructs one 3D scalar-sum counterexample. Its inspected sections do not state the universal iff classification. Mathematical-index and literature searches covered scalar \(\ell_1\)-sum aliases, norm-additivity/AL terminology and the exact HNAp property. The nearest absolute-sum literature concerns different Daugavet or Bishop--Phelps--Bollobás operator properties. No covering independently indexed mathematical statement was found. Database incompleteness and alternate AL-space terminology remain possible risks.
+PASS
 
-## Value
-PASS. The theorem completes a natural permanence problem: a single scalar \(\ell_1\) summand preserves hereditary norm attainment precisely in the atomic additive-norm class. It upgrades one 3D example to an infinite family-wide criterion and identifies the geometric obstruction rather than a numerical test.
+Universal proof reconstructed: for normalized unconditional Schauder E not equal to coordinate ell1, finite-support density yields positive a with ||a||=1<sum a_i. Hahn--Banach gives f0 norming a; lattice modulus f=|f0| is positive with ||f||=f(a)=1, and some a_i>0 has f(e_i)<1. The sign isometry fixing i and negating all other basis coordinates gives x=(Sa,0), F=(S*f,1), ||x||=||F||=F(x)=1. The positive parts satisfy x+=(a_i e_i,0), F+=(f_i e_i*,1), ||F+||=1 and F+(x+)=a_i f_i<a_i=||F+||||x+||. Coordinate functionals determine the E* lattice parts because finite spans are dense. Conversely, if every finite-support norm is ell1 additive, completion E=ell1, X=ell1 on the enlarged index set; equality in Holder forces each F_j=sign x_j on occupied coordinates, so HNAp holds for both Jordan parts, including zero parts and all normalized/scaled pairs.
 
-## Closest literature and limitations
-Acosta and Soleimani-Mourchehkhorti, arXiv:2106.05935v1, Proposition 3.4 and Example 3.5, provide the source concept and the isolated example. Acosta, Mastyło and Soleimani-Mourchehkhorti, arXiv:1708.08679v1, address distinct Bishop--Phelps--Bollobás operator/AHSP phenomena. The present theorem assumes normalized \(1\)-unconditional Schauder coordinates; no classification of arbitrary atomless or non-Schauder lattices is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest sound original source, arXiv:2106.05935v1, proves two-dimensional HNAp and exhibits one three-dimensional failure, not an iff classification over all normalized 1-unconditional Schauder Banach sequence lattices. Its L1 sufficiency is known and explicitly credited. Independent result-index searches return the assigned published record as a self-match but no separate valid universal extension result. An apparently encompassing 2026 Proposition 4.1 is mathematically false: its asserted universal Jordan upper bound is contradicted by the original 2021 octagonal example (sum 5/4>1), so it cannot supply a valid prior proof of this classification. AHSp and operator BPBp sums treat a distinct property. Best-of-knowledge originality PASS, not proof of historical priority.
+
+## value
+
+PASS
+
+The exact one-scalar-summand HNAp permanence question is natural because the introducing paper proves every 2D absolute norm has HNAp but constructs one failing 3D scalar-l1 extension. The new iff identifies the precise geometric obstruction: norm nonadditivity on disjoint positive coordinates. It classifies every finite/countable normalized unconditional Schauder sequence lattice, including Euclidean and supremum planes, and explains failure by a uniform norming pair. A structural all-space boundary is a meaningful independent mathematical fact; it is neither an arbitrary slice nor a table recomputation. Significance is restricted to HNAp and this normed/direct-sum class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
