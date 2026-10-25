@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The quotient profile is proved symbolically for every integer d>=2. Distinctness at even ranks follows from (00)^r and (01)^r; at odd internal ranks it follows from first-bit separation and strict inequality A^r != B^r. Myhill-Nerode then gives the exact state count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source gives sc(L1 union L2) <= sum_i(m_i n_i + m_i + n_i)+3 and a tight witness for alphabet size at least three.",
+        "The thesis comparison with general finite-language bounds is state-count based and does not state the present binary quotient profile."
+      ],
+      "reasoning": "The general upper bound does not imply the exact binary lower-bound family. The current result is restricted to one explicit infinite family and its operand rank profile, rather than claiming a stronger global bound.",
+      "searches": [
+        "published-finding corpus query: state complexity union block languages over binary alphabet rank-width upper bound asymptotically tight",
+        "arXiv:2409.06970v1, rank-width upper bound for unions of block languages",
+        "Duarte thesis, sections on union of block languages and Table 6.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2409.06970",
+      "https://www.dcc.fc.up.pt/~nam/resources/thesisGD.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem establishes the rank-width upper bound and tightness over alphabets of size at least three.",
+        "The source proof notes that the top internal rank cannot realize the full product-bound term for a binary alphabet.",
+        "The explicit quotient counts in RESULT.md prove a binary family with sc=8d-5 and an upper bound of 8d."
+      ],
+      "reasoning": "The source upper bound and ternary witness motivate the problem but do not by themselves state the binary profile or exact five-state extremal gap. The result is a narrow, rank-profile-specific extension; it does not claim the global binary optimum.",
+      "searches": [
+        "arXiv:2409.06970v1, theorem on state complexity of union for block languages",
+        "Duarte thesis, Theorem 5.29 and conclusion/future research section",
+        "published-finding corpus query: state complexity union block languages over binary alphabet rank-width upper bound asymptotically tight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no matching block-language union record; closest hits were unrelated rank-profile and binary-code records.",
+        "The primary source's witness is over a three-symbol alphabet; the binary construction is its two-bit encoding with an explicit new quotient analysis."
+      ],
+      "reasoning": "The code encoding is a related construction, but the exact binary rank profile (1,2,3,5,...,3,1), the state count 8d-5, and the exact five-state gap are not stated in the inspected source. The proof in this package supplies those claims directly.",
+      "searches": [
+        "published-finding corpus query: binary block languages union exact rank profile 1 and 2 operand widths 5 states additive six upper bound",
+        "published-finding corpus query: block language union alphabet binary two-bit code sets {00,10} and {01,10} minimal DFA states",
+        "arXiv:2409.06970v1, theorem and proof on union of block languages"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned closest published-finding corpus records concerned unrelated automata rank-compression, prefix-free graph hardness, and coding results; no exact match was returned."
+      ],
+      "reasoning": "No exact database or finite table is applicable to this symbolic all-d theorem. The finite verifier checks d=2..8 only and is not used to infer the universal statement. Search absence is not treated as proof of novelty.",
+      "searches": [
+        "published-finding corpus query: binary block languages union exact rank profile 1 and 2 operand widths 5 states additive six upper bound",
+        "published-finding corpus query: block language union alphabet binary two-bit code sets {00,10} and {01,10} minimal DFA states",
+        "published-finding corpus query: state complexity union block languages over binary alphabet rank-width upper bound asymptotically tight"
+      ]
+    },
+    "rationale": "The inspected primary source gives the rank-width upper bound and a ternary tightness witness, and identifies a binary endpoint obstruction. The present binary family has an explicitly proved quotient profile and exact state count 8d-5, making the gap exactly five for the stated operand profile. This is a bounded extension, not a global binary union theorem.",
+    "residual_risks": [
+      "The construction is motivated by a published ternary witness via a fixed-length binary encoding; a prior equivalent binary rank-profile calculation could exist outside the inspected sources.",
+      "A general finite-language union state-complexity paper may contain a related binary encoding; its full text was not obtained in this run, and no noncoverage claim is made about that source.",
+      "published-finding corpus and literature search absence does not prove novelty.",
+      "The theorem is not a global extremal formula for all binary block-language unions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves tightness for alphabets of size at least three and notes the binary endpoint obstruction. It does not state the exact binary family profile or the count 8d-5.",
+        "evidence": [
+          "arXiv:2409.06970v1, theorem on union of block languages and its proof.",
+          "arXiv:2409.06970v1, conclusion on rank-width/state-count bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.06970",
+        "material_read": "Relevant full-text sections: union construction and rank-width upper bound, proof of the ternary witness, discussion of the binary obstruction, and conclusion.",
+        "method": "Compared the exact statement and proof of the rank-width bound with the proposed binary family; independently reconstructed all nonempty right quotients by prefix length.",
+        "title": "Operational State Complexity of Block Languages",
+        "trigger": "The primary literature source for the rank-width union bound and the alphabet-size restriction."
+      },
+      {
+        "assessment": "The thesis contains the same upper bound and ternary witness, but the inspected sections do not state the exact binary quotient profile or five-state gap. This is a version of the same work, not independent corroboration.",
+        "evidence": [
+          "Thesis, Theorem 5.29 and its proof, pp. 55-56.",
+          "Thesis, future research directions, pp. 62-63."
+        ],
+        "identifier_or_url": "https://www.dcc.fc.up.pt/~nam/resources/thesisGD.pdf",
+        "material_read": "Relevant full-text sections on the union bound, ternary witness, binary rank obstruction, and future research directions.",
+        "method": "Compared the theorem and witness with the binary code construction and its rank-by-rank quotient proof.",
+        "title": "Minimal Automata and Operational State Complexity of Block Languages",
+        "trigger": "Earlier author-thesis version of the same research; checked to reduce version-based overlap risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1100f6b8-9c1d-4c1b-bf90-153804b7abea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact infinite family and exact quotient profile at the binary-alphabet boundary of a published rank-width bound. It isolates the unavoidable five-state endpoint loss for a natural pair of operand profiles and provides a reproducible benchmark for further work on binary block-language unions.",
+    "status": "PASS"
+  }
+}
