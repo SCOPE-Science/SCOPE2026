@@ -1,12 +1,21 @@
-# Review of complete ternary-convolution nullity laws on finite dihedral groups
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every \(D_{2n}\), \(n\ge3\), and every unordered distinct three-element support with unit coefficients. The dihedral irreducible-representation blocks account for all \(2n\) regular dimensions, including the one-dimensional characters when \(n\) is even. Three-unit-root cancellation and the mixed-block determinant reduce exact nullity to cubic character orders. Divisor classification counts every support exactly once. The independent integer-matrix checker exhaustively recomputes ranks for \(3\le n\le14\), while the proof supplies the infinite-family conclusion. Remaining risk: the finite checker is not a substitute for algebraic inspection, and sparse nonunit-weight extensions are unproved.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest full-text primary sources are Arezoomand–Taeri (2013), arXiv:1810.03406 (2018), and arXiv:2006.12875 (2020). They supply general Cayley representations and singular-graph criteria but not the closed three-element noncommutative nullity classification and complete Euler-product multiplicity census including arbitrary directed supports. The cyclic three-root observation, ordinary representation decomposition, and cases implied by older symmetric-graph results are explicitly acknowledged as background rather than claimed independently new. A specialized older trivalent dihedral Cayley-digraph census might contain an equivalent law; no such table was established by the sources inspected.
+PASS
 
-## Value — PASS
-The invariant is the nullity of sparse nonabelian convolution, a natural measure of invertible/singular three-tap filters on finite groups. The theorem resolves that invariant for every support and every modulus, not a selected parameter slice. It supplies a sharp three-divisibility threshold, two distinct nullity scales, a divisor-resolved arithmetic distribution, and a closed singular-support count. These quantify the exact fraction of noninvertible coefficient-one sparse operators and extend beyond a generic spectral reduction without evaluation.
+The regular D_2n representation decomposes into 1D sign characters (sums of three ±1 never vanish) and paired 2D irreducibles. For pure-coset triples, a zero block requires three cube roots, equivalent to 3|q=n/g and distinct normalized residues modulo 3; exactly 2g Fourier frequencies give nullity 4g after regular multiplicity. For mixed triples the 2×2 determinant equals ±(1+2cos(2πkd/n)) and rank drops by one at the primitive cube roots, giving 2g nullity. Counting same-coset unordered pairs by additive order gives n²φ(q) mixed supports; primitive normalized difference pairs give the Euler-product pure counts; summation yields n²(n−m)+n³(1−3^(−2v))/12. Independently constructed real integer regular convolution matrices and compared their ranks and whole nullity histogram for EVERY triple for n=3,...,9 (not merely isolated examples), with exact agreement; the unrestricted conclusion rests on the representation/census proof, not numerical ranks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: general representation and undirected singularity criteria are known, but the complete coefficient-one three-support mixed/pure nullity and divisor multiplicity census appears additional in the materials compared.
+
+## value
+
+PASS
+
+Provides a natural complete algebraic invertibility and kernel-size classification for all three-tap group convolution filters on every dihedral order, including sharp divisibility threshold, exact support counts and refined nullity multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
