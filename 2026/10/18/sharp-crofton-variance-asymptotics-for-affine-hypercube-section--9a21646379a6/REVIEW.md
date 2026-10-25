@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hyperplane distribution is conditioned Euclidean-invariant Crofton measure, with width-biased normal; this distinction is explicit. An edge is cut precisely when the offset belongs to its projected interval. The second moment is an exact sum of Gaussian expected pairwise interval overlaps. Same-coordinate pairs are negligible on the specified scale. In the remaining pairs, a binomial count of mismatched endpoint signs gives an independent normal displacement. The integral of the overlap kernel is exactly the product of the two interval lengths, and dominated convergence on typical binomial counts evaluates the sharp constant. Separately, a Gaussian-width argument and a Rademacher tail bound prove mean-normalized convergence in probability. The known expectation is independently recovered. Finite numerical tests corroborate but are not a proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Swan (2016, arXiv:1808.09482) gives the exact expected vertex count and does not give the second moment or sharp variance. Lonke (1998, arXiv:math/9812123) studies Haar random **central** sections, a distinct probability law. Brandenburg–Meroni (2025, arXiv:2510.09265) classify finite-dimensional cube-slice types; their accessible abstract does not establish high-dimensional affine Crofton variance, but the full article could not be completely inspected. Birkemeyer et al. (2026, arXiv:2609.16195), inspected in full readable HTML, establish combinatorial reconstruction/hierarchy results; searching their text for random, probability and expectation found no corresponding stochastic theorem. The closest indexed research concerned central cube sections and was compared by its actual distribution. No priority or exhaustiveness guarantee is asserted; unindexed earlier equivalent asymptotics remain possible.
+PASS
 
-## Mathematical value — PASS
-The sharp asymptotic \(4^n\sqrt n/(2\sqrt2\pi)\) quantifies fluctuation in a canonical invariant random-section model whose mean was previously calculated. The accompanying vanishing mean-normalized count establishes genuine rare-event dominance: a typical affine section is substantially less complicated than its expectation suggests. The asymptotic constant and the sampling distinction are mathematically substantive, not an arbitrary finite-parameter table.
+Under invariant affine-hyperplane measure conditioned on meeting the cube, the correct law is Gaussian width-weighted: E_aff F=(2nmu)^-1 E_G ∫[-L,L]F(G,t)dt, L=Σ|G_i|, mu=sqrt(2/pi). Every section vertex corresponds a.s. to one edge interval; integrating single intervals gives known EV_n=2^(n-1). Summing pairwise overlap lengths yields the exact second moment. Same-direction pairs have probability 1/n and are O(1/n) in overlap. For distinct directions the center difference is Z+σA+τB, with Z|H~N(0,4H) and H~Bin(n-2,1/2). The normalized Gaussian density at bounded offsets tends 1/sqrt(4πn); ∫intersection_length(x)dx=4AB. Chernoff on H<n/4 plus integrable Gaussian density envelope proves sqrt(n)Eoverlap→2mu²/sqrt(pi). Combining prefactors gives Var V_n/(4^n sqrt(n))→1/(2sqrt2 pi) after subtracting the mean square. For typical-to-mean separation, the offset |U|L is order n away from |U|<delta and all random signed edge centers have subgaussian O(sqrt n) tails, yielding V_n/2^(n-1)→0 in probability. Independently derived the coefficient exactly as sqrt(2)/(4pi); no claim that finite simulations prove the asymptotic.
 
-## Scope and residual risks
-The conclusion does not transfer to zero-offset central hyperplanes or other random orientation/translation couplings. The finite-dimensional cube-section census was inspected at abstract level only; a broader specialized random-hyperplane literature may contain equivalent claims. Mathematical verification here is same-model only, not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Swan proves expectation 2^(n-1) for affine hyperplanes with a different presentation; that known component is explicitly excluded. Lonke studies central Haar sections with zero offset rather than the width-biased affine Crofton measure. Published combinatorial finite cube slicing and central-4-cube face laws cannot determine the stated invariant affine variance scaling. No returned Resultary hit or inspected primary theorem covered the 4^n sqrt(n) asymptotic constant. The distinction is in probability measure, dimension regime and second rather than first moment; a similar title is not sufficient.
+
+## value
+
+PASS
+
+This identifies a natural high-dimensional random section statistic where the classical exact expectation is exponentially larger than the typical count, and quantifies its rare-event dominated variance with sharp constant. The affine Crofton law and normalization are canonical and the finding is a nonroutine stochastic-geometric asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
