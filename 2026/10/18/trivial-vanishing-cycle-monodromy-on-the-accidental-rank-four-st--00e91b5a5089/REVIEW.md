@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact determinant identity in RESULT.md is independently reconstructed from Hikami's explicitly printed \(5\times5\) symmetric matrix. It yields a three-dimensional normal Hessian of determinant \(-16(s^2-4)^2(t^2-4)^2\), nonzero at every parameter in the stated open surface; the parameter-dependent holomorphic Morse lemma therefore gives precisely transverse \(A_1\). In three normal complex variables the Milnor fiber retracts onto \(S^2\). The global square root \(4i(s^2-4)(t^2-4)\) trivializes the orthogonal orientation double cover, which is the rank-one vanishing-cohomology sign local system. The rational-smoothness assertion follows from the \(\mathbb RP^3\) rational homology-sphere link. The symbolic checker establishes the exact algebra but is not substituted for any of these analytic or topological arguments. One key distinction is that monodromy *along the singular stratum* is trivial whereas monodromy *around the smoothing value* need not be.
+## correctness
 
-**Originality — PASS, with bounded historical risk.** Hikami's arXiv:2610.12092v1 §2.2.2 explicitly defines the rank-four stratum, while the inspected original section neither gives its normal Hessian nor identifies the global integral vanishing-cycle local system. General Morse–Bott theory yields the conceptual relationship between the Hessian determinant and orientation, but not the particular global square-class calculation. Earlier five-puncture literature by Simpson is relevant; the accessible abstract and table of contents emphasize Betti Hitchin fibres and compactification. Its full chapter remained unavailable and may implicitly include local singular calculations. The asserted contribution is the combined explicit **transverse normal form and globally untwisted vanishing-cycle system**, not the prior discovery of the stratum or the general Morse lemma.
+PASS
 
-**Value — PASS.** The specified surface is a natural entire accidental singular stratum arising at a distinguished boundary-trace degeneration of a moduli-related determinantal quintic. Its local analytic type controls the local singular topology; the global integral orientation computation distinguishes a constant vanishing-cycle system from the otherwise possible nontrivial order-two sign system across non-simply-connected parameter space. Rational smoothness is a further structural consequence. This supplies a geometric/topological invariant of the locus rather than a mere pointwise numerical test. The result is limited to the open rank-four stratum and asserts neither global smoothing cohomology nor conclusions for the other singular strata.
+Read source matrix and exact symbolic verifier from actual Git blobs. Independently expanded det M under polynomial coordinates a=x,b=v,d=y-w,s=w,t=z and verified F/2=(s²-4)(a²+b²-tab)+(t²-4)d²+a²b²+a²d²+2sa²d-stabd. Computed normal 3x3 Hessian with determinant -16(s²-4)²(t²-4)², nonzero throughout S, and verified tangential Hessian zero. Parametrized holomorphic Morse lemma yields smooth 2D factor times transverse complex A1 surface node. A1 Milnor fiber retracts to S²; the integral rank-one vanishing cohomology is twisted by orientation of the quadratic normal bundle. Global normal trivialization and algebraic square root 4i(s²-4)(t²-4) split the determinant double cover on the whole twice-punctured parameter base, establishing trivial monodromy along the stratum (NOT smoothing-parameter Picard–Lefschetz sign). A1 link RP³ is a rational homology sphere so product is rationally smooth. No claim about excluded rank-drop or full character variety.
 
-**Closest sources.** K. Hikami, arXiv:2610.12092v1, equation (2.14), §2.2.2 (full text inspected); C. T. Simpson, 2018, DOI 10.1093/oso/9780198802020.003.0029 (abstract and contents only); Milnor's standard theory of nondegenerate quadratic Milnor fibers. The uninspected Simpson chapter and possible equivalent singularity-theoretic reinterpretations are residual originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hikami locates the accidental rank-four locus in a determinantal quintic, but does not compute its normal Hessian, A1 analytic type, integral orientation/vanishing local system or rational smoothness in the inspected same-object primary sections. Generic Morse theory supplies technique, not the explicit global discriminant square. Related SCOPE transverse A1 result concerns a different six-point conic determinant. Simpson five-puncture Betti-fibration chapter is plausible broader overlap, but complete text could not be obtained from OA HAL (blocked) or authorized institutional access (VPN disconnected); no whole-chapter noncoverage claim.
+
+## value
+
+PASS
+
+The global monodromy of the integral vanishing lattice on a non-simply-connected singular stratum is a natural refinement beyond a local A1 classification. The unexpected global square class and rational smoothness are exact geometric invariants of a specified interesting determinantal character-variety model. Their distinction from smoothing-parameter monodromy is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
