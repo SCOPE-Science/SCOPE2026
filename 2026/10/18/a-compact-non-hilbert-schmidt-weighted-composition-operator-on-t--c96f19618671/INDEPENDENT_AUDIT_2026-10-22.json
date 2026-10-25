@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:57:23.016906Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 36332a2f171e928b3185b1a1dbae3686610dc179",
+        "checker.py blob 399754615f9b76b817b1325f8f542fbe4211f2e4",
+        "Ueki 2007 original HS integral theorem compared with Step 3",
+        "Independent Simpson/quad numerical normalization check lambda=.6 gamma=1"
+      ],
+      "rationale": "For 0<lambda<1, a=1-lambda^2, and gamma>0, the entire symbol g_gamma(z)=int_0^1 t^(gamma-1)exp(i t z)dt is locally uniform by its convergent power series. Fock basis sum and Tonelli reduce the squared Hilbert–Schmidt norm to (1/pi)∫|g_gamma(x+iy)|²exp(-2ay²)dxdy. Fourier Plancherel for t^(gamma-1)1_(0,1)exp(-yt) is valid in L2 exactly gamma>1/2, including the distributional converse for gamma<=1/2; Gaussian y-integration yields sqrt(2pi/a)∫_0^1 t^(2gamma-2)exp(t²/(2a))dt. Each positive Fourier cutoff epsilon has finite HS norm; norm-change-of-variables inequality gives ||W_gamma-W_gamma,epsilon||<=epsilon^gamma exp(epsilon²/(4a))/(lambda gamma), proving ALL gamma>0 compact as norm limits. The Abelian elementary limit at gamma↓1/2 gives residue sqrt(2pi/a); cutoff integral gives logarithmic/power divergence. Independently evaluated gamma1, lambda=.6 finite HS integral ~4.182237539 as numerical normalization check; the infinite-dimensional result relies on the analytical proof, not that finite number.",
+      "residual_risks": [
+        "No result for other Schatten exponents or generalized Gaussian weights.",
+        "Cutoff quadrature and numerical residue tests are supplementary; L2 Fourier converse and compactness are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barik–Sen–Paul arXiv:2607.17170 Section 7 Question 7.1 (verified from publicly available bibliographic abstract/record and cited source material) asks compactness versus Hilbert–Schmidt; full direct text unavailable this run.",
+          "Ueki 2007 Hilbert–Schmidt integral criterion and Mengestie broader compact/Schatten criteria are PRIOR; the claimed novelty is the constructive separating family and exact parameter law."
+        ],
+        "reasoning": "A general necessary/sufficient criterion may test these symbols but does not itself necessarily state this construction. We avoid implying that an unread broad theorem cannot contain an equivalent worked example; this uncertainty is explicit.",
+        "searches": [
+          "arXiv:2607.17170",
+          "arXiv:1210.4038",
+          "doi:10.1007/s00013-015-0827-5",
+          "compact non-Hilbert Schmidt weighted composition operators Gaussian Fock space negative answer Barik Sen Paul compact Schatten Question 7.1"
+        ]
+      },
+      "checked_sources": [
+        "Ueki (2007) official PDF, HS criterion",
+        "Barik–Sen–Paul arXiv:2607.17170, abstract and problem statement (full text not retrieved in run)",
+        "Mengestie arXiv:1210.4038, primary accessible criteria",
+        "Mengestie 2013 DOI 10.1007/s00013-013-0568-2 abstract",
+        "Mengestie 2015 DOI 10.1007/s00013-015-0827-5 abstract",
+        "Resultary targeted Fock-weighted-composition semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ueki states a general HS test; it is used, not claimed novel.",
+          "The target problem of Barik–Sen–Paul asks whether all compact weighted composition maps are HS. The constructed family would answer no at gamma≤1/2 with an explicit compact approximation."
+        ],
+        "reasoning": "Neither an unweighted affine composition criterion nor the abstract existence of general characterizations logically supplies a negative instance with gamma threshold, cutoff norm rate, residue; no inspected prior explicit equivalent instance was found.",
+        "searches": [
+          "Ueki Hilbert-Schmidt Weighted Composition Operator on the Fock space (2007)",
+          "Barik–Sen–Paul arXiv:2607.17170",
+          "compact non-Hilbert Schmidt weighted composition operators Gaussian Fock space negative answer Barik Sen Paul compact Schatten Question 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalently a compact Gaussian Fock weighted affine composition with a Fourier symbol outside the L2 time-density class at gamma≤1/2.",
+          "Ueki gives the general Hilbert–Schmidt symbol integral test, which matches a proof input but not necessarily the explicit compact/HS separation."
+        ],
+        "reasoning": "Compared Berezin-transform, Fock Gaussian Carleson embedding, Schatten integrability, Fourier L2 endpoint, and normal-form exponential-weight symbols. The explicit sharp gamma transition and norm convergence were not located in inspected primary statements.",
+        "searches": [
+          "compact non-Hilbert Schmidt weighted composition operators Gaussian Fock space negative answer Barik Sen Paul compact Schatten Question 7.1",
+          "weighted composition operator compact non Hilbert Schmidt Bergman Fock space spectrum singular values",
+          "doi:10.1007/s00013-013-0568-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary comparable Fock result concerns Toeplitz zero-divisors, not weighted composition; sequence-space weighted-composition s-numbers use different Banach spaces.",
+          "No exact gamma-indexed Fock compact-vs-HS example or critical residue identified in semantically targeted hits."
+        ],
+        "reasoning": "A general Schatten table or an example in a different operator category cannot determine the stated Fourier cutoff and operator-norm compact approximants. Search nonhits are not priority proof.",
+        "searches": [
+          "compact non-Hilbert Schmidt weighted composition operators Gaussian Fock space negative answer Barik Sen Paul compact Schatten Question 7.1",
+          "Resultary weighted composition exact s-number profile",
+          "Resultary nonvanishing bounded symbols all-Schatten zero divisors on Fock"
+        ]
+      },
+      "rationale": "Best-of-knowledge the initiating 2026 article explicitly asks compact implies HS, and prior general membership tests are not an explicit Fourier-endpoint separating family. Published Ueki and Mengestie characterizations are prior mathematical inputs. Inaccessible recent full text is a serious named priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Full direct text of motivating Barik–Sen–Paul 2026 manuscript and Mengestie 2013/2015 not available in this audit; Oxford authorization returned vpn_disconnected, job 27ed9d49493ae3af898910f370170dec for 2026 manuscript.",
+        "Prior broad characterizations might contain explicit example under another transform or parameter, even if their abstracts do not; priority is best-of-knowledge, not certified unique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact general HS membership criterion, used as PRIOR; no verified identical Fourier gamma family",
+          "evidence": "Ueki Theorem 1 provides positive integral criterion; compact non-HS explicit family not identified in inspected statements.",
+          "identifier_or_url": "https://www.m-hikari.com/ijma/ijma-password-2007/ijma-password13-16-2007/uekiIJMA13-16-2007.pdf",
+          "material_read": "Official six-page primary PDF, Hilbert–Schmidt integral theorem and its stated consequences; page image requested for verification",
+          "method": "Direct original PDF text inspection and partial rendered-page review",
+          "title": "Hilbert-Schmidt Weighted Composition Operator on the Fock space",
+          "trigger": "Original classical Gaussian HS criterion potentially covers operator"
+        },
+        {
+          "assessment": "Direct title/abstract/Question comparison supports the motivation but cannot establish whole-text noncoverage",
+          "evidence": "ArXiv 2607.17170v1 cites Question 7.1; no assertion about uninspected full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.17170",
+          "material_read": "Bibliographic record, available abstract and specific Question 7.1 as identified in cited source; complete manuscript not readable in THIS audit",
+          "method": "ArXiv and lawful OA attempts did not deliver complete primary text; authorized Oxford reported VPN disconnected",
+          "title": "Weighted composition operators on weighted Fock spaces",
+          "trigger": "Directly posed motivating compact-versus-HS question"
+        },
+        {
+          "assessment": "General criteria are prior; no claimed new characterization, but explicit gamma family not identified",
+          "evidence": "2012 general compactness/Schatten-type criteria can test the symbol and are not presented as discoveries.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.4038",
+          "material_read": "Public primary abstract and sections describing Berezin-transform and weighted composition analogues",
+          "method": "Primary arXiv available text and theorem comparison",
+          "title": "Product of Volterra type integral and composition operators on weighted Fock spaces",
+          "trigger": "Known Gaussian compactness/Schatten characterizations"
+        },
+        {
+          "assessment": "Priority uncertain; cannot assert paper lacks an equivalent explicit counterexample",
+          "evidence": "Mengestie 2013 is directly relevant to weighted composition Schatten characterization.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-013-0568-2",
+          "material_read": "Bibliographic abstract and theorem description only; full 2013 article not accessed",
+          "method": "Lawful abstract/metadata only",
+          "title": "Schatten class weighted composition operators on weighted Fock spaces",
+          "trigger": "Potential older dominant general Schatten theorem"
+        },
+        {
+          "assessment": "Same caveat: material uninspected, retain risk",
+          "evidence": "Mengestie 2015 on trace-ideal weighted Fock operators.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-015-0827-5",
+          "material_read": "Bibliographic abstract and metadata; full 2015 article unavailable",
+          "method": "Lawful abstract/metadata only",
+          "title": "On trace ideal weighted composition operators on weighted Fock spaces",
+          "trigger": "Follow-up general ideal criteria could preempt example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Barik–Sen–Paul 2026 motivating research question",
+        "Ueki 2007 classical criterion and actual RESULT.md construction"
+      ],
+      "rationale": "An explicit compact yet non-Hilbert–Schmidt weighted composition operator directly addresses a posed compactness versus quadratic summability question in the classical Gaussian Fock model. Its sharp Fourier endpoint gamma=1/2, exact Hilbert–Schmidt integral, divergent cutoff energy, and quantitative compact approximations identify the mathematically meaningful ideal-theoretic boundary; this is not just a substitute for a known general criterion.",
+      "residual_risks": [
+        "The claim does not classify all Schatten exponents or weighted Fock variants; that narrower scope does not erase the explicit counterexample value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical Gaussian 1D Fock space; real 0<lambda<1, gamma>0, only Schatten 2; motivating and earlier criterion full texts partially inaccessible."
+  ],
+  "schema_version": 1
+}
