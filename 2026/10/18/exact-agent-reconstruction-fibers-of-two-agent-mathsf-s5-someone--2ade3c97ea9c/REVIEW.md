@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-At each world, incomparability makes both equivalence classes exactly the minimal generating neighborhoods of the given powerset operator. The recovered block-incidence multigraph is bipartite, and its proper two-colourings are in bijection with **all** ordered equivalence-pair representations. Its connected components are precisely the join components, each providing two choices. Degree-at-least-two arguments give the four-world lower bound per component, attained by disjoint \(2\times2\) grids. The argument addresses all quantifiers, including alternative nontransverse representations. Full Boolean-operation exhaustive checks through six worlds and separate sharpness constructions through twelve worlds passed.
+## correctness
 
-## Originality — PASS, qualified
-The closest prior work already knows local minimal neighborhoods: Ågotnes–Wáng (2021), Section 4, and Ding–Yang (2026), Section 5.1, discuss neighborhood semantics and representation of somebody-knows. These do **not** imply a global two-\(\mathsf{S5}\)-agent reconstruction fiber classification, as their constructions do not impose uniqueness of the hidden agent assignment across worlds or count its labeled realizations. The chromatic-simplicial equivalence retains agent colours as part of its input. Published-result searches for agent-identifiability, bipartite incidence, swaps, and exact \(2^c\) fibers returned no dominating result; nonetheless no search proves priority. The 2023 Ding–Liu–Wang paper addresses hypergraph coloring of somebody-knows structures, but only a publisher preview was accessible: an equivalent full-text result is an explicit residual risk.
+PASS
 
-## Value — PASS
-An observer of a bundled epistemic operation may wish to recover the underlying two indistinguishability partitions. The theorem determines the **entire inverse fiber**, identifies the only source of ambiguity as disconnected incidence components, and gives the sharp first failure of global identifiability at eight worlds. It is an inverse-semantics classification, not a renaming of the existence of neighborhood representations or an arbitrary small finite census.
+The full powerset map U↦B_E,F(U) determines at each labeled world w the two inclusion-minimal true neighborhoods {E[w],F[w]}; incomparability ensures both occur, and rules out nontransverse alternative pairs. Form a loopless bipartite multigraph with each distinct recovered block as vertex and each world as labeled edge. Proper two-colorings correspond bijectively to all ordered E,F reconstructions; two blocks of the same color are disjoint, and each color partitions W. Components of this graph exactly encode E∨F components. A connected bipartite component has exactly two colorings, so fiber size is 2^c, and global agent swap quotient 2^(c-1). Every block must meet >=2 blocks of other color, so each component contains >=4 worlds, achieved by K2,2 grids with repeated cells; max 2^floor(n/4) and sharp first nonglobal at 8. Source partition checker covers all pairs through six worlds and explicit grids through 12 as corroboration; universal proof is graph reconstruction.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS as a best-of-knowledge fixed-labeled-fiber theorem, not novelty of local minimal neighborhoods. Ågotnes–Wáng 2021 already gives neighborhood-core semantics and representation, later modal/hypergraph frameworks also cover existence. The new inverse problem counts ALL ordered two-S5 reconstructions of the full Boolean operator and shows componentwise coloring is the only freedom. A highly relevant 2023 hypergraph paper remains unavailable in full, so the priority conclusion is expressly qualified.
+
+## value
+
+PASS
+
+It gives a complete inverse-identifiability invariant for two hidden S5 agents under full powerset observation: an exact fiber and its nonglobal ambiguity onset at eight labeled worlds. This is a mathematically motivated reconstruction/classification problem, not a restatement of representability and not merely a small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
