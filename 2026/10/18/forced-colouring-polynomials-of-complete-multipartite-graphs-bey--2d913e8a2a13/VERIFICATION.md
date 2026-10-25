@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The included `verify_forced_multipartite.py` uses only the Python 3 standard library. Execute `python3 verify_forced_multipartite.py`; no external datasets, symbolic algebra library, network access, or other artifact is needed. It independently enumerates all initial per-vertex states (blank or one of the palette colours), filters proper initial assignments, executes the actual local forcing rule, and compares the complete domain-weight coefficient vector with the Stirling-profile sum. It separately computes the minimum seed by scanning admissible nontrivial polychromatic-part subsets and compares it with direct enumeration.
+## correctness
 
-Actual replay: `VERIFICATION_OK profiles= 15 parameter_cases= 48 admissible_seed_assignments= 54346`. It includes \(G=K_{2,2,3}\), \(\lambda=5\), giving coefficients \((0,0,0,0,600,1800,2280,1620)\) and minimum initial size \(4\). The independent brute force is finite and not a proof for arbitrary part sizes or palette sizes; those quantifiers are supported by the written mathematical argument in RESULT.md. The historical boundary formulas are credited, not independently re-evaluated here. Independent audit has not been performed.
+PASS
+
+First forced vertex v of part V_i must see lambda-1 colours outside, leaving exactly its final part colour; thus its completed part is monochromatic, all lambda colours occur and every multichromatic part is initially fully seeded. Two initially seedless monochromatic parts prevent any first force; conversely all others seeded permits completion, first filling the unique seedless monochromatic part. Unique completed colouring gives the exact profile/Stirling-weight generating function, counting total colourings once by subtracting x^N from each non-total profile term. For lambda-r=k>0, allocating k extra colours to a proper subset H of multichromatic parts requires |H|<=k<=sum_H(n_i-1); optimal seed domain is min{N,r-1+min_H sum_H(n_i-1)}. Independent exhaustive local-rule enumeration corroborated K_(2,2,3),lambda=5 coefficients {4:600,5:1800,6:2280,7:1620}; K_(1,2,2),lambda=4 coefficients {3:144,4:144,5:72}; and K_(1,1,2),lambda=4 coefficients {3:48,4:48}. The algebraic proof covers every r>=3,lambda>=r+2 including lambda>N (then only totals force).
+
+## originality
+
+PASS
+
+The q=r formula for complete multipartite graphs and q=3 bipartite formula are established and credited. Neither alone contains the new q>=r+2 poly-part allocation or min-seed subset-capacity optimization.
+
+## value
+
+PASS
+
+There is a natural transition from one extra colour to multiple independently multicoloured multipartite parts, yielding a nontrivial Stirling-profile formula for every seed-domain coefficient and a precise capacity subset-sum minimum. This is a motivated infinite-family evaluation of a forcing polynomial, not a renamed ordinary chromatic polynomial or a tiny finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

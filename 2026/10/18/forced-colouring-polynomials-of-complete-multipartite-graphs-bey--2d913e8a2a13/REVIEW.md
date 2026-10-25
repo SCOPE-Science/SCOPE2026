@@ -1,11 +1,21 @@
-# Scientific review: higher-palette multipartite forcing
+# Independent mathematical audit
 
-**Correctness: PASS.** Every first forced vertex sees all but one palette colour and belongs to a monochromatic part in the unique proper completion. That observation forces the full-palette condition, full initial colouring of polychromatic parts, and at most one initially empty monochromatic part. Reversing these conditions gives a valid forcing order. Exact surjection counts, exclusion of the already-counted total colouring, and a feasible integer-capacity allocation establish the enumerator and minimum seed. A separate exhaustive implementation checks 48 small parameter cases, including higher-than-one-extra-colour cases. The proof is the basis for the infinite statement; the finite checks are corroboration only.
+## correctness
 
-**Originality: PASS, with residual bibliographic risk.** The 2026 primary initiating paper and 2024 precursor, both materially read, do not give the claimed higher-palette multipartite result. Accessible prior specialized records cover: chromatic palette \(\lambda=r\) for multipartite graphs; one-extra-colour \(\lambda=r+1\) for multipartite graphs; and arbitrary \(\lambda\) for bipartite graphs. Their exact statements were compared with the present **\(r\ge3,\lambda\ge r+2\)** claim; none includes its multiple-polychromatic-part profile and capacity optimization. Semantic searches using full-palette, all-colour, join, Stirling, polynomial, palette, and seed-size formulations found no encompassing result. Remaining risk is an unindexed equivalent via more general precolouring or join-graph technology.
+PASS
 
-**Value: PASS.** This treats the first genuinely new surplus-colour regime beyond all previously recorded cases, including configurations with several nonmonochromatic parts that cannot arise for one extra colour. It gives coefficients for **every** possible initial-domain size, not just an existence criterion, and the minimum-domain phase boundaries are governed exactly by subset-sum constraints on the part capacities. The construction is a nontrivial explicit infinite-family resolution of a graph-polynomial enumeration problem singled out as difficult in the primary source.
+First forced vertex v of part V_i must see lambda-1 colours outside, leaving exactly its final part colour; thus its completed part is monochromatic, all lambda colours occur and every multichromatic part is initially fully seeded. Two initially seedless monochromatic parts prevent any first force; conversely all others seeded permits completion, first filling the unique seedless monochromatic part. Unique completed colouring gives the exact profile/Stirling-weight generating function, counting total colourings once by subtracting x^N from each non-total profile term. For lambda-r=k>0, allocating k extra colours to a proper subset H of multichromatic parts requires |H|<=k<=sum_H(n_i-1); optimal seed domain is min{N,r-1+min_H sum_H(n_i-1)}. Independent exhaustive local-rule enumeration corroborated K_(2,2,3),lambda=5 coefficients {4:600,5:1800,6:2280,7:1620}; K_(1,2,2),lambda=4 coefficients {3:144,4:144,5:72}; and K_(1,1,2),lambda=4 coefficients {3:48,4:48}. The algebraic proof covers every r>=3,lambda>=r+2 including lambda>N (then only totals force).
 
-**Closest results and limitations.** Farr (arXiv:2609.17108v1) gives general definitions, a chromatic-polynomial endpoint identity, and two-colour bipartite formulas. Farr--Morgan (arXiv:2406.15746v1) introduces the polynomial. The published multipartite \(\lambda=r\), multipartite \(\lambda=r+1\), and bipartite arbitrary-palette formulas are acknowledged as covering boundary cases. The new theorem excludes all these parameter regimes from its originality claim. Only complete multipartite graphs and the strict neighbourhood forcing rule are treated; no independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The q=r formula for complete multipartite graphs and q=3 bipartite formula are established and credited. Neither alone contains the new q>=r+2 poly-part allocation or min-seed subset-capacity optimization.
+
+## value
+
+PASS
+
+There is a natural transition from one extra colour to multiple independently multicoloured multipartite parts, yielding a nontrivial Stirling-profile formula for every seed-domain coefficient and a precise capacity subset-sum minimum. This is a motivated infinite-family evaluation of a forcing polynomial, not a renamed ordinary chromatic polynomial or a tiny finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

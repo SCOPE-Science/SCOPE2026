@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:46:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "First forced vertex v of part V_i must see lambda-1 colours outside, leaving exactly its final part colour; thus its completed part is monochromatic, all lambda colours occur and every multichromatic part is initially fully seeded. Two initially seedless monochromatic parts prevent any first force; conversely all others seeded permits completion, first filling the unique seedless monochromatic part. Unique completed colouring gives the exact profile/Stirling-weight generating function, counting total colourings once by subtracting x^N from each non-total profile term. For lambda-r=k>0, allocating k extra colours to a proper subset H of multichromatic parts requires |H|<=k<=sum_H(n_i-1); optimal seed domain is min{N,r-1+min_H sum_H(n_i-1)}. Independent exhaustive local-rule enumeration corroborated K_(2,2,3),lambda=5 coefficients {4:600,5:1800,6:2280,7:1620}; K_(1,2,2),lambda=4 coefficients {3:144,4:144,5:72}; and K_(1,1,2),lambda=4 coefficients {3:48,4:48}. The algebraic proof covers every r>=3,lambda>=r+2 including lambda>N (then only totals force).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published q=r multipartite forcing polynomial requires each part monochromatic; published lambda=3 bipartite concerns only two parts.",
+          "Farr general complexity and lambda=2 connected bipartite formula do not evaluate r>=3,lambda>=r+2."
+        ],
+        "reasoning": "Known statements do not imply the more-colour poly-part classification or capacity minimum.",
+        "searches": [
+          "forced colouring polynomial complete multipartite arbitrary number palette colours excess chromatic minimum forcing seed size",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "https://arxiv.org/pdf/2609.17108"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.17108",
+        "https://arxiv.org/pdf/2406.15746",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "frozen RESULT.md blob 7cd5c715f8d65db164bfbe00c82192ddad57904f",
+        "frozen verify_forced_multipartite.py blob f72669bd6ba9aca928a5eec7d77daf9978426b6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=r all parts are monochromatic, so the present t_i>=2 state and H capacity optimization are absent.",
+          "For K_m,n with q=3 at most one part can be multicoloured, unlike r>=3,q>=r+2."
+        ],
+        "reasoning": "The earlier family theorems are strict boundary cases, not dominating results; the displayed profile enumeration needs the new forced-part restriction and counting proof.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "https://arxiv.org/pdf/2609.17108"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All proper total lambda-colourings have Stirling-partition class profiles, but a forcing restriction imposes full seeding of each multicoloured part."
+        ],
+        "reasoning": "The result may be expressed through marked chromatic partitions, yet no inspected general polynomial identity includes this dynamical restriction across excess-colour parts.",
+        "searches": [
+          "forced colouring polynomial complete multipartite arbitrary number palette colours excess chromatic minimum forcing seed size",
+          "forced colouring complete multipartite r+1 one extra colour multipartite poly chromatic palette beyond one extra",
+          "https://arxiv.org/pdf/2609.17108",
+          "https://arxiv.org/pdf/2406.15746"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned precise chromatic-palette r result and lambda=3 biclique result, neither a table for lambda>=r+2."
+        ],
+        "reasoning": "Current indexed nearby exact tables do not give the target q>=r+2 domain coefficients; no universal novelty conclusion follows from this search.",
+        "searches": [
+          "forced colouring polynomial complete multipartite arbitrary number palette colours excess chromatic minimum forcing seed size",
+          "forced colouring complete multipartite r+1 one extra colour multipartite poly chromatic palette beyond one extra",
+          "forced colouring polynomial complete multipartite arbitrary number palette colours excess chromatic minimum forcing seed size"
+        ]
+      },
+      "rationale": "The q=r formula for complete multipartite graphs and q=3 bipartite formula are established and credited. Neither alone contains the new q>=r+2 poly-part allocation or min-seed subset-capacity optimization.",
+      "residual_risks": [
+        "Unindexed q=r+1 multipartite extension or stronger all-palette theorem could imply special cases, though the actual indexed q=r and bipartite theorems do not.",
+        "Finite exhaustive checks are corroboration for the finite inspected parameter sets, not an infinite parameter proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_COVERING_STATEMENT_INSPECTED",
+          "evidence": "The examined text discusses difficulty beyond chromatic palette; no q>=r+2 multipartite formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108",
+          "material_read": "Definition, forcing examples, graph-family formulas, palette discussion",
+          "method": "Primary PDF full text opened; targeted theorems, sections and relevant pages examined",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Foundational local rule and palette larger than chromatic number"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "No targeted surplus-palette multipartite classification in inspected mathematical material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.15746",
+          "material_read": "Sections discussing forced graph colourings and general polynomials",
+          "method": "Primary PDF full text opened; targeted theorems, sections and relevant pages examined",
+          "title": "Graph polynomials: some questions on the edge",
+          "trigger": "Precursor all-coefficient formalism"
+        },
+        {
+          "assessment": "STRICT_BOUNDARY_ONLY",
+          "evidence": "Uses exactly q=r and gives no parts with multiple completed colours.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "material_read": "Entire RESULT.md, theorem/proof and limitations",
+          "method": "Published GitHub RESULT.md downloaded and read in full with proof/limitations",
+          "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+          "trigger": "Closest same graph-family result"
+        },
+        {
+          "assessment": "STRICT_BOUNDARY_ONLY",
+          "evidence": "Bipartite lambda=3 result does not imply r>=3 with lambda>=r+2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "material_read": "Entire RESULT.md, theorem and counting proof",
+          "method": "Published GitHub RESULT.md downloaded and read in full with proof/limitations",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Closest positive palette-excess family result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural transition from one extra colour to multiple independently multicoloured multipartite parts, yielding a nontrivial Stirling-profile formula for every seed-domain coefficient and a precise capacity subset-sum minimum. This is a motivated infinite-family evaluation of a forcing polynomial, not a renamed ordinary chromatic polynomial or a tiny finite census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2609.17108",
+    "https://arxiv.org/pdf/2406.15746",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+    "frozen RESULT.md blob 7cd5c715f8d65db164bfbe00c82192ddad57904f",
+    "frozen verify_forced_multipartite.py blob f72669bd6ba9aca928a5eec7d77daf9978426b6a"
+  ],
+  "disposition": "passed",
+  "limitations": "Statement excludes r=2 and lambda=r or r+1 as originality claims, though algebraic specializations may agree; independent only initial forcing rule, not arbitrary graph colour dynamics.",
+  "residual_risks": [
+    "Unindexed q=r+1 multipartite extension or stronger all-palette theorem could imply special cases, though the actual indexed q=r and bipartite theorems do not.",
+    "Finite exhaustive checks are corroboration for the finite inspected parameter sets, not an infinite parameter proof."
+  ],
+  "schema_version": 1
+}
