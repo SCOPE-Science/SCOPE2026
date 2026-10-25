@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:03:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "Angel et al arXiv:1603.07172 definitions",
+        "Janson arXiv:1307.6344"
+      ],
+      "rationale": "For uniform pairings of N even labeled half-edges, L=Σ of S=ΣC(d_i,2) loop indicators and P=Σ of B=2Σ a_i a_j double-edge pair indicators. Fixed indicators have expectations 1/(N-1) and 1/((N-1)(N-3)). Per parallel-pair event, exactly 2(d_i+d_j-3) loop events overlap its four stubs, giving total incompatibilities T=4Σa_i a_j(d_i+d_j-3). Compatible six-stub indicator pairs yield E(LP)=(SB-T)/[(N-1)(N-3)(N-5)]. Subtracting means yields [4SB-(N-1)T]/[(N-1)^2(N-3)(N-5)]. Regular substitution gives sign factor vd(2-d)+2d-3, positive for d=2,v>=3 and negative for d>=3,v>=2, and asymptotic +1/(8v²) vs -(d-1)^2(d-2)/(2dv). The N=4 exceptional (v,d)=(2,2) gives -4/9 separately. Independently enumerated all 15 pairings for (2,2,2) and (3,3) and 105 for (2,2,2,2), obtaining respectively 4/25, -36/25, 8/245.",
+      "residual_risks": [
+        "Finite independent checks are corroborative; unrestricted theorem rests on mathematical reductions and exact certificates, not samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson 2013 approximate moments of total simplicity-defect statistic Z",
+          "Angel et al 2016 Poisson TV limit for loop and multiple edge counts"
+        ],
+        "reasoning": "Asymptotic estimates are too coarse to imply d=2 order v^-2 with positive sign versus d>=3 order v^-1 negative; local pairing probabilities give the components but require nontrivial cancellation.",
+        "searches": [
+          "arXiv:1603.07172 loop parallel pair joint probability",
+          "arXiv:1307.6344 configuration model moment defects",
+          "arXiv:math/0609802 multigraph simplicity"
+        ]
+      },
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "Angel et al arXiv:1603.07172 definitions",
+        "Janson arXiv:1307.6344",
+        "Resultary: random configuration model covariance self loops parallel pairs degree two sign reversal finite exact",
+        "Resultary: SCOPE exact loop parallel covariance regular configuration sign degree 2",
+        "arXiv:1603.07172 loop parallel pair joint probability",
+        "arXiv:1307.6344 configuration model moment defects",
+        "arXiv:math/0609802 multigraph simplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angel et al exact means and pairing event method but no recorded signed mixed covariance closed expression",
+          "Janson combined moments and simplicity asymptotics"
+        ],
+        "reasoning": "Generic pairing probabilities permit independent derivation; the evaluated covariance cancellation and regular transition are not established by limiting independence or mean formulas alone.",
+        "searches": [
+          "Resultary: random configuration model covariance self loops parallel pairs degree two sign reversal finite exact",
+          "Resultary: SCOPE exact loop parallel covariance regular configuration sign degree 2",
+          "arXiv:1603.07172 loop parallel pair joint probability",
+          "arXiv:1307.6344 configuration model moment defects",
+          "arXiv:math/0609802 multigraph simplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angel et al 2016 use L and P under explicit indicator definitions identical to claim",
+          "The finite covariance is a mixed second moment E(LP)-EL EP"
+        ],
+        "reasoning": "Exact observable equivalence is acknowledged, not conflated with same law. A Poisson limit with independent limiting components cannot determine a finite signed covariance.",
+        "searches": [
+          "Resultary: random configuration model covariance self loops parallel pairs degree two sign reversal finite exact",
+          "Resultary: SCOPE exact loop parallel covariance regular configuration sign degree 2",
+          "arXiv:1603.07172 loop parallel pair joint probability",
+          "arXiv:1307.6344 configuration model moment defects"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite-n table of signed loop/parallel-pair covariances or d=2 reversal was surfaced in Resultary searches"
+        ],
+        "reasoning": "The claim is a rational formula for all degree sequences, not table recomputation; possible unindexed finite moment table remains risk.",
+        "searches": [
+          "Resultary: random configuration model covariance self loops parallel pairs degree two sign reversal finite exact",
+          "Resultary: SCOPE exact loop parallel covariance regular configuration sign degree 2"
+        ]
+      },
+      "rationale": "Angel–van der Hofstad–Holmgren arXiv:1603.07172 defines exactly these L/P statistics and demonstrates asymptotic independent Poisson behavior, and Janson supplies general simplicity moments. Neither inspected text states exact signed finite-n covariance with the degree-two sign reversal. General indicator-probability ingredients are old and could implicitly yield the computation; evaluated signed correction and different rates remain distinct, with explicit priority caveat.",
+      "residual_risks": [
+        "An unindexed exact mixed factorial-moment expression may algebraically imply the finite covariance and its regular sign.",
+        "The local overlap count is an elementary combinatorial method, so novelty/value reside in evaluated surprising finite-size sign and order transition, not a new pairing theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines L/P and Poisson approximate independence, no explicit exact covariance degree sign theorem found in inspected sections",
+          "evidence": "Definitions (1.2),(1.6), main limit theorem, Section 3",
+          "identifier_or_url": "arXiv:1603.07172",
+          "material_read": "Open PDF full text; definitions (1.2)/(1.6), Theorem 1.4 and indicator coupling sections",
+          "method": "PDF text and screenshot inspection",
+          "title": "Limit laws for self-loops and multiple edges in the configuration model",
+          "trigger": "exact same two random variables"
+        },
+        {
+          "assessment": "Asymptotic combined-moment approximations do not resolve exact signed covariance rates at fixed d",
+          "evidence": "Janson 2013 Lemma 1.3 and moments",
+          "identifier_or_url": "arXiv:1307.6344",
+          "material_read": "Open full preprint, sections 1–3, moment methods",
+          "method": "PDF read",
+          "title": "The probability that a random multigraph is simple, II",
+          "trigger": "combined simplicity defect moments might imply finite covariance"
+        },
+        {
+          "assessment": "Simplicity asymptotics rather than an inspected explicit signed covariance identity",
+          "evidence": "Janson 2006 simplicity setting",
+          "identifier_or_url": "arXiv:math/0609802",
+          "material_read": "Open abstract and relevant source descriptions in supporting literature",
+          "method": "primary abstract plus cited context",
+          "title": "The probability that a random multigraph is simple",
+          "trigger": "earlier multigraph pairing asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "Angel et al arXiv:1603.07172 definitions",
+        "Janson arXiv:1307.6344"
+      ],
+      "rationale": "A natural finite-size correction to asymptotically independent configuration defects reveals an unexpected d=2 vs d>=3 change of sign AND asymptotic order, which researchers studying simplicity approximation and dependency need. This is more than generic inclusion-exclusion or a trivial small-n sample.",
+      "residual_risks": [
+        "Mathematical value limited to precise natural object/parameter family; no blanket generalization or publication-scale guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed exact mixed factorial-moment expression may algebraically imply the finite covariance and its regular sign.",
+    "The local overlap count is an elementary combinatorial method, so novelty/value reside in evaluated surprising finite-size sign and order transition, not a new pairing theorem.",
+    "No generalization beyond exact RESULT.md domains. Publication withheld due confidential operational fields in public-facing JSON."
+  ],
+  "schema_version": 1
+}

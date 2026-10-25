@@ -1,19 +1,21 @@
-# Review of loop–parallel-pair finite-size dependence
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every event in the two defect counts is an indicator of one or two specified matched stub-pairs. Its probability is exact under the uniform perfect-matching law. Six-distinct-stub pairs contribute to the mixed moment; conflicting stub sets contribute zero. For a fixed parallel pair at degree endpoints \(d_i,d_j\), exactly \(2(d_i+d_j-3)\) potential loops conflict. This reconstructs \(\mathbb E(LP)\), the covariance identity, and the sharp regular sign test. The rational factorization and the \(d=2\) order correction follow algebraically. Exhaustive small perfect matchings and an standalone exact checker corroborate the critical counts, without being used as infinite proofs.
+PASS
 
-## Originality
+For uniform pairings of N even labeled half-edges, L=Σ of S=ΣC(d_i,2) loop indicators and P=Σ of B=2Σ a_i a_j double-edge pair indicators. Fixed indicators have expectations 1/(N-1) and 1/((N-1)(N-3)). Per parallel-pair event, exactly 2(d_i+d_j-3) loop events overlap its four stubs, giving total incompatibilities T=4Σa_i a_j(d_i+d_j-3). Compatible six-stub indicator pairs yield E(LP)=(SB-T)/[(N-1)(N-3)(N-5)]. Subtracting means yields [4SB-(N-1)T]/[(N-1)^2(N-3)(N-5)]. Regular substitution gives sign factor vd(2-d)+2d-3, positive for d=2,v>=3 and negative for d>=3,v>=2, and asymptotic +1/(8v²) vs -(d-1)^2(d-2)/(2dv). The N=4 exceptional (v,d)=(2,2) gives -4/9 separately. Independently enumerated all 15 pairings for (2,2,2) and (3,3) and 105 for (2,2,2,2), obtaining respectively 4/25, -36/25, 8/245.
 
-**PASS, subject to historical-priority limitations.** The exact observables match the ones defined in Angel–van der Hofstad–Holmgren (arXiv:1603.07172, equations (1.2) and (1.6)); that paper provides means, Poisson approximation and limiting independence, not an evaluated finite covariance or regular-degree sign classification. Janson (arXiv:math/0609802) proves simplicity asymptotics, while Janson (arXiv:1307.6344) approximates moments of their sum. Basic uniform-matching indicator identities overlap with all three sources, but their stated conclusions do not determine a signed correction of order \(v^{-2}\) in degree two and \(v^{-1}\) in degree three and above. Relevant older enumeration literature may contain implicit formulas: final historical priority remains provisional.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Loop and multiple-edge defects control how a configuration-model sample departs from simplicity, and asymptotic Poisson independence leaves finite-size dependence unresolved. The theorem provides an exact formula without bounded-degree hypotheses and identifies opposite dependence signs and even different powers of the sample size across the smallest natural regular degrees. This is a qualitative change in the joint defect law, not a reformulation of its marginal means.
+Angel–van der Hofstad–Holmgren arXiv:1603.07172 defines exactly these L/P statistics and demonstrates asymptotic independent Poisson behavior, and Janson supplies general simplicity moments. Neither inspected text states exact signed finite-n covariance with the degree-two sign reversal. General indicator-probability ingredients are old and could implicitly yield the computation; evaluated signed correction and different rates remain distinct, with explicit priority caveat.
 
-## Limitations and closest literature
+## value
 
-The result concerns the uniform pairing of distinguishable half-edges. It says nothing about generic irregular-degree sign or the distribution conditioned on simplicity. Angel–van der Hofstad–Holmgren's joint law is the closest direct prior work; the two Janson articles provide a broader asymptotic and moment framework. A historical-priority risk persists because older configuration-model calculations could encode the covariance indirectly. The self-review does not claim outside audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural finite-size correction to asymptotically independent configuration defects reveals an unexpected d=2 vs d>=3 change of sign AND asymptotic order, which researchers studying simplicity approximation and dependency need. This is more than generic inclusion-exclusion or a trivial small-n sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
