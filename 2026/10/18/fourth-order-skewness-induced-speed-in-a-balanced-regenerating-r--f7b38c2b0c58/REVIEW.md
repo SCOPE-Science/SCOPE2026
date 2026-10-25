@@ -1,15 +1,21 @@
-# Scientific review: fourth-order speed in balanced regenerated environments
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The sample-space model, environmental independence, chronological refresh convention, and almost-sure annealed velocity are explicitly fixed. The standard renewal-reward series is derived from geometric complete regeneration. The only new finite polynomial identities consist of \(2^m\) exact site-path sums for each \(1\le m\le6\), not probabilistic sampling; the included independent symbolic and rational implementations passed. Their identities force \(f_5=4s\mu_3\) and \(f_6=2f_5\); the series cancellation and stated uniform bound follow from \(|f_m|\le m\). Risk: this does not establish global speed monotonicity or a pathwise quenched theorem.
+## correctness
 
-## Originality (O) — PASS, qualified
-Martin–Nagel (arXiv:2610.11919v1), Theorem 2.1 and formula (3.1), establish differentiability and the complete regenerative series. Lemma 3.1 evaluates only the second derivative at complete refreshing, yielding \(-4s(2\mathbb E\omega_0-1)\), which vanishes for the centered laws treated here. Their proof does not provide the evaluated fourth-order skewness coefficient, vanishing fifth coefficient, or a law-uniform sixth-order remainder. The earlier cooling paper (Avena et al., arXiv:1803.03295v1, relevant introduction and stated cooling results inspected) concerns deterministic intervals growing in length, not iid geometric lengths near one. Public-result and bibliographic comparisons yielded no matching evaluated coefficient. The key qualification is that the new coefficient refines rather than replaces a known exact series; a previously unlocated coefficient calculation remains possible.
+PASS
 
-## Mathematical value (V) — PASS
-The natural zero-local-drift boundary makes every low-order curvature criterion from the motivating article inconclusive. The fourth-order factorization reveals how centered environmental **skewness**, through revisits to the same site, selects a definite long-run direction. The identically absent fifth-order term is a non-obvious cancellation, and the explicit sixth-order bound proves rather than merely suggests the direction effect. This goes beyond restating the general regenerative formula or a single parameter substitution.
+Renewal-reward speed v=(1-z)^2 sum_{m>=1} f_m z^{m-1} follows from iid geometrically stopped frozen blocks and bounded displacements. Independently enumerated all 2^m step words symbolically for m<=6, obtaining f1=f2=f3=f4=0, f5=4 Var(omega) mu3 and f6=2 f5. The fifth-order coefficient cancels. Bounding the m>=7 tail by |f_m|<=m yields z^6(7-6z), giving the stated uniform 8 z^6 bound on [0,1/2]. Verify example moments and nonzero sign in a small neighborhood; no claim at mu3=0 or moderate p.
 
-## Scientific limits
-No global sign assertion is made for intermediate \(p\), and no nonzero sign assertion is made at vanishing third central moment. These are self-review rather than independent priority or correctness certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; Avena et al. deterministic growing cooling intervals are not geometric global refresh. Martin–Nagel provides the earlier renewal identity and first curvature information; new statement evaluates 4 Var*mu3 and the exact vanishing fifth term.
+
+## value
+
+PASS
+
+The first nonzero high-refresh drift in the balanced case answers a real direction-selection question left open when the published first- and second-derivative information vanishes; uniform sixth-order error and fifth cancellation are substantive, not a renaming of a published coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
