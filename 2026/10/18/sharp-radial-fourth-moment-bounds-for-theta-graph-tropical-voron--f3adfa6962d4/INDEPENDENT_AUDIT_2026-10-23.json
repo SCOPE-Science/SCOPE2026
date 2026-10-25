@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:10:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md/verify.py",
+        "de Jong–Shokrieh Prop7.3 Example8.3 normalization",
+        "independent_checks.py R5 symbolic Dirichlet moments and positivity certificate"
+      ],
+      "rationale": "Project the centered edge cube orthogonally onto the cycle space of a three-path theta graph, with f_i path indicators and intrinsic Euclidean metric. With h=P/S, projected generators p_i=f_i-hg have lengths squared i-h and pairwise dot products -h; the zonotope is a six-vertex equal-radius hexagon with R²=(T-h)/4, Euclidean area sqrt S, and two central-triangle area fractions w_i=i(T-i)/(2S). Dirichlet barycentric triangle moments give I=R²/6 Σw_i(2+c_i) and J=R⁴/45 Σw_i(7+6c_i+2c_i²), reducing to the stated rational formula for J and the previously known I=(ST+P)/(12S). The upper deficit 9/5-J/I²=4(3P²+2S³)/(5(ST+P)²)>0. For a=x,b=x+y,c=x+y+z with x>0,y,z>=0, explicit polynomial certificate for J/I²-168/125 has only nonnegative terms, positive except y=z=0; the a=b=2,c→∞ limit reaches upper 9/5. Independent SymPy expansion/triangle integrations verifies all symbolic identities; the all-positive polynomial and geometry, not 1331 integer samples, establish the theorem on all positive real lengths.",
+      "residual_risks": [
+        "Uniform area on the Voronoi hexagon is not pushforward of uniform ambient cube; wrong measure would invalidate moment formula.",
+        "No higher-genus or non-theta extension claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior general tropical Jacobian result covers the Voronoi construction/second moment, while lattice Gale/Ehrhart methods address face and lattice-point combinatorics rather than continuous area fourth moments."
+        ],
+        "reasoning": "Neither broader construction supplies the particular quartic moment or sharp universal 168/125≤J/I²<9/5 bound without new integration and inequalities.",
+        "searches": [
+          "arXiv:1810.02639 Sections7–8",
+          "arXiv:2409.15227 sections on cographic zonotopes",
+          "Resultary published-finding semantic search: tropical Jacobian theta graph Voronoi hexagon radial fourth moment normalized inequality"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.02639 Prop7.3 Example8.3 (full publisher HTML)",
+        "arXiv:2409.15227 cographic zonotopes",
+        "Resultary tropical fourth moment and general hexagon searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A quadratic moment E||X||² alone leaves fourth moment undetermined. A cographic combinatorial description alone leaves Euclidean area moments undetermined."
+        ],
+        "reasoning": "No implication from cited known results to the exact fourth moment and extremal ratio is established; the source proof has the new Dirichlet triangle computation and polynomial positivity step.",
+        "searches": [
+          "arXiv:1810.02639 Proposition7.3 Example8.3",
+          "arXiv:2409.15227 Gale/cographic duality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-edge banana graph is metrically equivalent to subdivided theta; de Jong–Shokrieh Example8.3 gives identical I=(T+P/S)/12, not fourth J."
+        ],
+        "reasoning": "Object aliases and metric realization checked; the claimed new invariant concerns E||X||^4 and its normalized ratio, not a renamed second moment.",
+        "searches": [
+          "arXiv:1810.02639 Proposition7.3 Example8.3",
+          "arXiv:2409.15227 cographic/Gale zonotope",
+          "Resultary published-finding semantic search: tropical theta graph Voronoi hexagon fourth radial moment quantizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published example tabulates second moments only and establishes a common metric; no checked primary source has the fourth moment rational formula or sharp ratio table."
+        ],
+        "reasoning": "Existing exact I must be credited, not counted as new. Absence of an online table is only one piece of the comparison.",
+        "searches": [
+          "Resultary published-finding semantic search: tropical theta graph Voronoi hexagon fourth radial moment normalized inequality",
+          "arXiv:1810.02639 Example8.3"
+        ]
+      },
+      "rationale": "The same projected-cube/Voronoi representation and second radial moment are already published by de Jong–Shokrieh, and zonotope combinatorics by Bach–Beck–Rehberg; only the fourth moment and sharp normalized upper/lower extremal classification are assessed as original. Inspected sources do not contain those higher-moment results.",
+      "residual_risks": [
+        "Unindexed classical planar quantization/covariance calculations might contain the same normalized hexagon fourth-moment inequality.",
+        "The metric must be inherited orthogonal edge-space geometry; changing basis to unweighted lattice Euclidean metric alters moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact projected cube/Voronoi identification and second radial moment predate claim; no fourth/radial normalized sharp inequality there.",
+          "evidence": "Proposition7.3 projected cube; Example8.3 I=(ST+P)/(12S).",
+          "identifier_or_url": "https://arxiv.org/abs/1810.02639",
+          "material_read": "Full lawful publisher HTML article mathematical material, Sections 7 and 8 including Proposition7.3 and Example8.3; text and equations materially inspected",
+          "method": "Complete available primary HTML, including referenced formulas (not just search snippets)",
+          "title": "Tropical moments of tropical Jacobians",
+          "trigger": "Same genus-two tropical Jacobian hexagon, existing radial moments"
+        },
+        {
+          "assessment": "Describes combinatorial/Ehrhart data and zonotope duality, not this Euclidean fourth moment or sharp two-bound ratio.",
+          "evidence": "Acyclotope/tocyclotope zonotope constructions and Ehrhart goals.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.15227",
+          "material_read": "Full-text abstract, opening construction and relevant cographic/Gale duality and Ehrhart sections; page1 screenshot inspected",
+          "method": "Lawful open arXiv PDF full text",
+          "title": "Acyclotopes and Tocyclotopes",
+          "trigger": "Possible general cographic zonotope higher-moment classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "de Jong–Shokrieh Example8.3 baseline second moment",
+        "Bach–Beck–Rehberg combinatorial zonotopes",
+        "new exact normalized sharp ratio"
+      ],
+      "rationale": "An exact higher moment and sharp normalized shape inequality for a canonical genus-two tropical Jacobian completes meaningful geometric statistical information not present in the known second-moment literature. The bounds have natural equality at equilateral branches and a degeneration supremum, and can benchmark tropical quantization/torsion-distance estimates. Not an arbitrary table recomputation: the ratio is invariant under overall metric scaling.",
+      "residual_risks": [
+        "Narrow genus-two family but naturally defined and sharp; results do not classify all planar hexagons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
