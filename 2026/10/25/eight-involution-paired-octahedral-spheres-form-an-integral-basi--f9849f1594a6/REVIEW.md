@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The complete face enumeration is finite (1,051 simplices), and a fully enumerated 517-pair acyclic Morse matching proves the integral wedge of sixteen three-spheres. The flag-support lemma proves a genuine eight-vertex lower bound, not merely an experimental minimum. All 63 octahedral carriers are checked as cycles, integral Morse homology coordinates are verified against all boundaries, and an explicit determinant \(-1\) for eight involution-exchanged pairs proves the integral basis. Exact signed Lefschetz and independent graph-presentation calculations provide corroboration.
+
+**Originality — PASS with bibliographic limitations.** Specific searches of Tietze/J3/flower graph, line-graph independence, group-action, octahedral-carrier and complete-matching terminology, as well as comparisons with accessible prior claims, found no dominating result. Relevant full mathematical material was examined: Engström's independence-complex paper, Barmak's claw-free/matching methods, Jonsson's complete-graph matching homology, the outerplanar matching-complex theorem, and the published Petersen matching-complex computation. None gives the Tietze-specific 63-carrier census or the integral eight-pair regular involution basis. The Petersen result treats a different, smaller graph; the outerplanar theorem has inapplicable hypotheses. Unindexed equivalence remains possible, so priority is not certified.
+
+**Mathematical value — PASS.** This establishes the complete minimum-support geometric realization of third homology in a distinguished cubic graph, together with an integral module structure invisible to rational characters or ordinary homotopy rank. The precise \((\mathbb Z/2)^8\) obstruction follows from natural central graph symmetry and a directly exhibited unit determinant, not from arbitrary normalization.
+
+**Limitations.** This is a finite, computationally assisted, reproducible proof for one graph. It does not classify flower snarks generally, prove absence of unindexed prior work, or provide an external independent scientific audit. The qualifying 2005-08-08 manuscript date is not the historical creation date of the Tietze graph.
+
+Self-review: passed. Independent audit: not yet performed.
