@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The candidate makes one sharply delimited claim: the two-term small-aperture asymptotic of the three-mode orthogonal projection endpoint norm, together with eventual uniqueness of the two endpoint evaluation maximizers. The exact Gram-kernel formula is independently reconstructible by centering \(\cos t\). The Cauchy--Schwarz diagonal bound excludes the central evaluation region; an exact factored derivative proves strict increase on the remaining end region in the Legendre limit. Uniform kernel and derivative convergence transfers this extremizer structure to sufficiently small nonzero apertures. Exact integration of the negative quadratic-kernel interval gives \(1+12\sqrt6/25\), and exact integration of the next trigonometric-kernel coefficient gives \(-387\sqrt6/21875\). The packaged checker reproduces those steps symbolically and corroborates the finite-aperture residual numerically. Limitations: the theorem does not specify the largest allowable aperture, and finite numerical checks alone do not establish the uniform claims.
+## correctness
 
-## Originality — PASS within inspected evidence
-Relevant prior work already establishes Fourier-extension least squares, its polynomial transformations, Gram matrices, general reproducing kernels, and large-bandwidth Lebesgue bounds. The inspected Huybrechs 2010, Adcock--Huybrechs--Martín-Vaquero 2012, and Webb--Coppé--Huybrechs 2018 material does not state an optimized three-mode small-aperture endpoint norm or its nonzero second-order coefficient. In particular, the 2018 large-bandwidth theorem works with fixed extension parameter and increasing polynomial degree, not fixed degree and shrinking physical aperture. The general kernel identity provides ingredients but not the sharp optimizing-point proof or the explicit correction without additional analysis. Recorded mathematical-database searches returned related frequency-projection and quadratic projector problems but no covering claim; that absence is not a uniqueness certificate. Historical priority may still be affected by older degree-one special-case computations or unpublished formulas.
+PASS
 
-## Value — PASS
-Small-aperture Fourier-extension least squares is a canonical degeneration of a curved three-mode approximation space. Its coefficient Gram matrix becomes ill-conditioned as the interval shrinks, but the projection's true function-space amplification has a finite sharp limit. The new negative, exact quadratic coefficient quantitatively distinguishes coefficient-conditioning degeneration from stable projected values and identifies the first-order curvature effect beyond the Legendre model. An exact extremizer localization is needed to turn the local kernel expansion into a sharp global operator norm. The claim is limited to this natural lowest nontrivial Fourier extension and does not pretend to solve arbitrary bandwidths.
+PASS: The normalized reproducing kernel is exactly 1+(cos(hx)-a_h)(cos(hy)-a_h)/(b_h-a_h^2)+sin(hx)sin(hy)/c_h, where a_h=sin(h)/h, b_h=1/2+sin(2h)/(4h), c_h=1/2-sin(2h)/(4h). Its uniform smooth limit is the quadratic Legendre kernel 1+3xy+5(3x²-1)(3y²-1)/4. At x=1 its simple roots (-1±sqrt(6))/5 bound the negative interval, whose exact integral gives L*=1+12sqrt(6)/25. The diagonal Cauchy–Schwarz norm bound is strictly below L* for |x|<=21/25 and the explicitly factored derivative of the Lebesgue function is strictly positive for 21/25<=x<=1; reflection and uniform smooth perturbation preserve exactly the two endpoint maxima at small h. Expanding the true kernel at x=1 gives -(h²/280)(175y⁴+140y³-90y²-28y-5), whose integral over the moving negative interval contributes -387sqrt(6)/21875 h²; moving roots are O(h²) with zero boundary integrand, hence remainder O(h⁴). Symmetry of K and duality give equal L1 and L∞ norms. Independent symbolic integration checked the radical coefficient, separate from claimed packaged 25 assertions.
 
-## Closest literature and residual risks
-Huybrechs, *On the Fourier Extension of Nonperiodic Functions* (2010), DOI:10.1137/090752456; Adcock--Huybrechs--Martín-Vaquero, *On the numerical stability of Fourier extensions* (first arXiv submission 2012-06-19, arXiv:1206.4111); Webb--Coppé--Huybrechs, *Pointwise and uniform convergence of Fourier extensions* (arXiv:1811.09527). The latter work is especially close in object and uses a general reproducing-kernel identity. No historical-priority claim beyond the inspected evidence is made, and independent verification has not been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge PASS for the evaluated sharp small-aperture endpoint norm and nonzero second-order correction, not for the known limiting Legendre kernel or Fourier-extension construction.
+
+## value
+
+PASS
+
+PASS: For a natural three-frequency continuous least-squares/Fourier-extension projector, determining the precise leading curvature correction and proving localization of the actual global maximizing evaluation point is a motivated sharp approximation-stability theorem, rather than a table lookup or a numerical limit. The negative second-order term is not already contained in the classical degree-two Legendre limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The normalized reproducing kernel is exactly 1+(cos(hx)-a_h)(cos(hy)-a_h)/(b_h-a_h^2)+sin(hx)sin(hy)/c_h, where a_h=sin(h)/h, b_h=1/2+sin(2h)/(4h), c_h=1/2-sin(2h)/(4h). Its uniform smooth limit is the quadratic Legendre kernel 1+3xy+5(3x²-1)(3y²-1)/4. At x=1 its simple roots (-1±sqrt(6))/5 bound the negative interval, whose exact integral gives L*=1+12sqrt(6)/25. The diagonal Cauchy–Schwarz norm bound is strictly below L* for |x|<=21/25 and the explicitly factored derivative of the Lebesgue function is strictly positive for 21/25<=x<=1; reflection and uniform smooth perturbation preserve exactly the two endpoint maxima at small h. Expanding the true kernel at x=1 gives -(h²/280)(175y⁴+140y³-90y²-28y-5), whose integral over the moving negative interval contributes -387sqrt(6)/21875 h²; moving roots are O(h²) with zero boundary integrand, hence remainder O(h⁴). Symmetry of K and duality give equal L1 and L∞ norms. Independent symbolic integration checked the radical coefficient, separate from claimed packaged 25 assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 paper analyzes prolate reproducing kernels and Lebesgue bounds as Fourier bandwidth grows for fixed extension length, rather than fixed 3 modes as interval shrinks.",
+          "A general Gram/kernel representation is an ingredient but does not optimize the absolute-kernel integral or supply the computed h² coefficient."
+        ],
+        "reasoning": "No compared broader theorem directly implies endpoint localization plus its evaluated curvature correction; regimes and quantifiers differ.",
+        "searches": [
+          "Huybrechs DOI 10.1137/090752456; Adcock–Huybrechs–Martín-Vaquero arXiv:1206.4111",
+          "Webb–Coppé–Huybrechs arXiv:1811.09527, Section 4 Theorem 4.1 and Lemma 4.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1811.09527",
+        "https://arxiv.org/abs/1206.4111",
+        "https://people.cs.kuleuven.be/~daan.huybrechs/research/sinum_fourierextension.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Webb et al. prove O(log N) interior/O(sqrt N) global Lebesgue bounds for N→∞, not coefficient -387sqrt6/21875 for h→0.",
+          "Cyclic group and continuous short-arc projectors have different orthogonality, measure and kernel geometry."
+        ],
+        "reasoning": "Older results supply an FE representation and the polynomial limit but not the complete new optimizer persistence and next asymptotic order.",
+        "searches": [
+          "Webb et al. arXiv:1811.09527 Theorem 4.1, Lemma 4.3",
+          "Huybrechs 2010 Fourier extensions",
+          "Resultary published SCOPE exact three-frequency cyclic projection norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published three-frequency cyclic-group projector is on Z_N with translation-invariant Dirichlet kernel, not continuous restricted arcs.",
+          "Huybrechs, On the Fourier Extension of Nonperiodic Functions, SIAM JNA 2010, defines continuous FE; the N=3 shrinking interval is a particular asymptotic regime."
+        ],
+        "reasoning": "The Fourier-extension parameter T=pi/h gives an equivalent formulation, but no inspected mathematical published record states the endpoint maximizer or evaluated quadratic coefficient for fixed mode count.",
+        "searches": [
+          "Resultary query: norm of three Fourier modes projection on shrinking interval sharp second-order Lebesgue constant endpoint degree two Legendre",
+          "Resultary query: three mode Fourier extension shrinking arc exact Lebesgue norm h^2 coefficient",
+          "Fourier-extension rescaling h=pi/T and normalized continuous arc projector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-two Legendre limiting Lebesgue constant is classical and may be tabulated, but the h² term concerns the non-polynomial space."
+        ],
+        "reasoning": "An exact table of the leading Legendre constant does not imply the first trigonometric perturbation; no covering tabulation found in inspected sources.",
+        "searches": [
+          "Exact formula search for 1+12 sqrt(6)/25 and 387 sqrt(6)/21875; Resultary three-mode Fourier norm queries"
+        ]
+      },
+      "rationale": "Best of knowledge PASS for the evaluated sharp small-aperture endpoint norm and nonzero second-order correction, not for the known limiting Legendre kernel or Fourier-extension construction.",
+      "residual_risks": [
+        "Potential older exact three-mode formula under another arc/Legendre nomenclature; failed search is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering exact fixed-three-mode short-arc perturbation.",
+          "evidence": [
+            "Section 4 studies growing bandwidth and prolate reproducing kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.09527",
+          "material_read": "Full relevant Section 4 including Theorem 4.1 and Lemma 4.3, inspected primary PDF and rendered front page.",
+          "method": "Matched bandwidth and extension-length asymptotic quantifiers.",
+          "title": "Pointwise and uniform convergence of Fourier extensions",
+          "trigger": "Closest prior Lebesgue-function bounds for FE"
+        },
+        {
+          "assessment": "Background with residual risk of a hidden degree-one norm identity.",
+          "evidence": [
+            "DOI:10.1137/090752456"
+          ],
+          "identifier_or_url": "https://people.cs.kuleuven.be/~daan.huybrechs/research/sinum_fourierextension.pdf",
+          "material_read": "Research description and cited projection/conditioning results; older article full relevant comparison reported in source but not newly claimed full read here.",
+          "method": "Compared FE formulation and fixed vs growing bandwidth.",
+          "title": "On the Fourier Extension of Nonperiodic Functions",
+          "trigger": "Foundational continuous Fourier extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: For a natural three-frequency continuous least-squares/Fourier-extension projector, determining the precise leading curvature correction and proving localization of the actual global maximizing evaluation point is a motivated sharp approximation-stability theorem, rather than a table lookup or a numerical limit. The negative second-order term is not already contained in the classical degree-two Legendre limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1811.09527",
+    "https://arxiv.org/abs/1206.4111",
+    "https://people.cs.kuleuven.be/~daan.huybrechs/research/sinum_fourierextension.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only sufficiently small h>0, 0<h<pi; h0 not explicit; no claim for asymmetric arcs, larger bandwidth or monotonicity for all h. Uniform smooth root continuation is a key analytic step; finite-aperture calculations cannot prove it."
+  ],
+  "residual_risks": [
+    "Potential older exact three-mode formula under another arc/Legendre nomenclature; failed search is not a proof of priority."
+  ],
+  "schema_version": 1
+}
