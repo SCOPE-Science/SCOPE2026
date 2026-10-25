@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T21:53:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional-on-clock survival probability is the product of reflection-principle survival factors Q_d(gap). Conditioning makes the two Brownian survival indicators independent, so differentiating the covariance at r=0 gives the integral of the two one-reset increments Delta. Histories with at least two resets have probability O((rt)^2), which controls the remainder because all conditional probabilities lie in [0,1]. For d1=d2 the covariance is Var(q_d(C)); the no-reset history and one-reset histories near an endpoint have different conditional survival values, so the variance is strictly positive. For d2^2>=6Dt, F_d2(s)=erfc(d2/sqrt(4Ds)) is convex on (0,t], implying Delta_d2(u)>0 and integral I2 >= t*c(d2)^2/3. The elementary erf bound gives integral Q_d1(u)Q_d1(t-u)du <= d1^2/D and Q_d1(t)>=d1/(e sqrt(pi D t)) when d1<2sqrt(Dt). The stated strict small-distance condition therefore makes J<0. Since J<0, the expansion forces negative covariance for sufficiently small positive r. CHECK.py is only a finite numerical illustration and is not used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2026 abstract describes rank-dependent optimal reset rates and heterogeneous initial positions, but does not state this covariance sign theorem. The 2023 paper concerns simultaneous resetting and mean first-passage optimization."
+        ],
+        "reasoning": "No inspected accessible result supplies the strict sufficient inequality or the positive-versus-negative sign contrast for this observable. Full-text coverage remains a risk, not a proven exclusion.",
+        "searches": [
+          "same Resultary query and arXiv/journal sources above",
+          "web search for arXiv:2609.23542 and arXiv:2303.18012"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, CHECK.py, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt and VERIFICATION.md fetched at the assigned pinned commit; all blob SHAs matched the complete tree.",
+        "arXiv:2609.23542 public abstract; arXiv:2303.18012 and Phys. Rev. E 107, 064141 public abstracts.",
+        "Resultary query on common-reset heterogeneous survival covariance."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof distinguishes survival-indicator covariance from covariance of T_i and from rank/MFPT quantities. The 2023 common-reset protocol assumes a common initial distance."
+        ],
+        "reasoning": "Those statements do not imply the negative coefficient for unequal distances or the exact sufficient regime; the generic conditioning identity is acknowledged as known.",
+        "searches": [
+          "turn3academia34",
+          "turn3academia35",
+          "",
+          "Resultary record 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md defines S_i(t)=1_{T_i>t} and proves a negative weak-rate coefficient only under an explicit heterogeneous distance regime; the equal-distance statement is strict positivity for all r>0.",
+          "The 2026 rank-dependent-resetting abstract treats ordered first-passage times and optimal rates; the 2023 global-reset abstract treats the mean first-passage time for walkers with identical starting distance. The Resultary species-discovery covariance record concerns a different iid occupancy process."
+        ],
+        "reasoning": "Neither equal-distance full hitting-time covariance nor mean/order-statistic optimization is an equivalent statement to the heterogeneous fixed-horizon cross-survival covariance. A generic shared-environment mixture identity is not claimed as novel.",
+        "searches": [
+          "Resultary query: common Poisson reset clock heterogeneous Brownian first passage fixed-time survival indicator covariance sign reversal",
+          "web sources turn3academia34 (arXiv:2609.23542 abstract), turn3academia35 /  (arXiv:2303.18012 and journal abstract)",
+          "Resultary record 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved record or table reports the displayed coefficient or the exact distance condition. The closest SCOPE species-discovery record has a different model."
+        ],
+        "reasoning": "This is a continuum theorem, not a finite table claim; nonappearance in a semantic search is weak negative evidence only.",
+        "searches": [
+          "Resultary semantic search above",
+          "web search for common reset clock heterogeneous survival covariance",
+          "recorded package references arXiv:2609.23542, arXiv:2303.18012, DOI 10.1103/PhysRevLett.130.207101"
+        ]
+      },
+      "rationale": "The closest sources address common-clock correlations or first-arrival optimization, not the sign of the fixed-horizon cross-survival covariance for unequal starting distances. The observable is a bounded survival indicator at a fixed time, not covariance of full hitting times or an optimized order statistic. The Resultary search returned related but non-covering records; no stronger implication was found in the accessible evidence. Best-of-knowledge only: the two most relevant primary full texts were not retrievable in full in this run, so their noncoverage is not asserted on the basis of snippets.",
+      "residual_risks": [
+        "The full 2026 rank-dependent resetting paper and 2023 simultaneous-reset paper were not read in full during this run; an implicit result in their technical sections remains possible.",
+        "A general conditional common-environment association theorem may imply some sign statements in a different formulation.",
+        "The sufficient distance condition is conservative and does not determine the sharp sign boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially relevant; abstract addresses ordered first-passage means and optimal rates, not directly the fixed-time heterogeneous survival covariance. Full-text noncoverage is not asserted.",
+          "evidence": [
+            "turn3academia34; residual full-text priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.23542",
+          "material_read": "Public arXiv abstract and metadata only in this run; arXiv full HTML/PDF could not be retrieved through available access.",
+          "method": "Compared the stated observables and parameters in the abstract against the package claim.",
+          "title": "Rank-dependent optimal resetting in multiparticle search",
+          "trigger": "Same shared-reset search model with heterogeneous starting positions"
+        },
+        {
+          "assessment": "Related background but not direct coverage in accessible text; full-text priority remains a risk.",
+          "evidence": [
+            "turn3academia35; ; ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012; https://doi.org/10.1103/PhysRevE.107.064141",
+          "material_read": "Public arXiv and journal abstracts; the lawful OA PDF attempt was inaccessible in this run.",
+          "method": "Compared common-reset protocol and stated mean first-passage optimization with the claim’s fixed-horizon covariance.",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Common Poisson reset protocol and first-passage observable"
+        },
+        {
+          "assessment": "Not covering: finite iid species occupancy and successive discoveries are not Brownian first-passage indicators under a shared reset clock.",
+          "evidence": [
+            "Resultary semantic-search result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+          "material_read": "Published finding summary.",
+          "method": "Compared model, random variables and conditioning structure.",
+          "title": "Exact missing-mass covariance identity and sign reversal for successive species discoveries",
+          "trigger": "Resultary returned a sign-reversal covariance finding as a semantically nearby item"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a mathematically motivated counterboundary to the intuition that a common external clock always creates positive survival association. It identifies a rigorous sign reversal caused solely by heterogeneous distances, relevant to joint nonarrival probabilities and variance models. The explicit all-parameter sufficient region and exact first-order mechanism are more than a numerical example; the proof states that the bound is sufficient rather than sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The audit is a mathematical assessment, not Lean proof, external certification or expert attestation.",
+    "Public publication is withheld because of the internal scope_run_id fields; no GitHub writes were made."
+  ],
+  "schema_version": 1
+}
