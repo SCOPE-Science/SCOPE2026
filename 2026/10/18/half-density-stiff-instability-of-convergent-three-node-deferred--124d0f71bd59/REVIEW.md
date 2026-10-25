@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated scalar SDC map is fully specified by two three-by-three rational matrices and constant-stage initialization. Direct interpolation verifies the quadrature weights; linear error reduction gives the dynamic trace, determinant and strict contraction radius for each finite negative real step. Taking the rational stiff limit gives a two-dimensional affine map, whose characteristic polynomial yields an exact endpoint recurrence and its trigonometric solution. Irrationality of \(\arccos(11/12)/\pi\), by the algebraic-integer argument, and circle equidistribution prove the infinite density statement. The finite witness at \(z=-5000\) is checked in exact rational arithmetic. The standalone verifier checks 114 exact algebraic and recurrence assertions; finite checking is not substituted for infinite proof.
+PASS
 
-## Originality — PASS, with specified residual risk
+For the stated Q and implicit Euler D, direct SymPy reconstruction gives tr B(z)=z(11z-24)/(12(z-2)^2), det B=z^2/(4(z-2)^2), negative discriminant for z<0 and spectral radius |z|/(2(2+|z|))<1/2. At z->-infinity the affine stage block is [[1/3,1/12],[-2/3,7/12]] with fixed point (-1/2,1). The endpoint error recurrence e_(K+2)=(11/12)e_(K+1)-(1/4)e_K, e0=0,e1=-1 gives eK=-2^(1-K) sin(K theta)/sin(theta). Since 2 cos(theta)=11/6 is nonintegral rational, theta/pi is irrational, implying density exactly 1/2 by equidistribution. Independent exact recurrence gives R8=35934757/35831808, and direct 8 rational sweeps yield R8(-5000)-1=756246564724929917066932564741749988412224800808855000/1708230988498214163982099587351742945781521223046779160729>0. This distinguishes fixed-negative-z convergence from separate stiff-limit K.
 
-The closest source, arXiv:2403.13454, defines the SDC sweep and its implicit-Euler preconditioners but does not present the exact half-density law in the inspected methods, adaptivity, and stability discussion. DOI:10.1137/24M1649800 develops general stiff-limit SDC matrices and empirical stability regions for other preconditioners; that framework is acknowledged, not claimed. The abstract of Minion's earlier stability analysis, DOI:10.4310/CMS.2003.v1.n3.a6, is relevant but its entire source was not materially compared here, so it remains a residual priority risk rather than being labeled non-covering. Targeted searches found no equivalent theorem. This is a reasoned self-review, not a certificate of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The result isolates a numerically meaningful paradox: a uniform strict spectral contraction for the inner correction iteration does not prevent finite-sweep time-stepping instability, even for negative real scalar decay and stable collocation. Its exact first failing stiff sweep and natural density \(1/2\) show the issue is recurrent across sweep counts, not an isolated anomaly. This matters for selecting fixed sweep counts in stiff time integration without assuming that more correction iterations monotonically improve absolute stability.
+The generic SDC iteration/preconditioning and stiff matrix formalism are established, but the exact nonadaptive 3-Lobatto IE endpoint recurrence and sweep-count equidistribution appear unreported in the primary articles compared; broader diagonal sweeper work uses different node and preconditioner families. Priority remains best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-The numerical method and generic SDC machinery are established prior art. The theorem applies only to a three-node Lobatto rule, backward-Euler preconditioning, exact stages, constant initialization, and scalar negative real tests. It does not assert nonlinear instability, failure for every timestep, or nonconvergence of the correction solver. Older SDC stability calculations remain a residual possible equivalence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An unstable finite-sweep update on a negative real scalar decay mode despite converging correction iteration is a direct, nontrivial numerical-analysis stability gap; locating its first K=8 witness and proving half-density gives a precise and potentially actionable pathology, not a trivial reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:07:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated Q and implicit Euler D, direct SymPy reconstruction gives tr B(z)=z(11z-24)/(12(z-2)^2), det B=z^2/(4(z-2)^2), negative discriminant for z<0 and spectral radius |z|/(2(2+|z|))<1/2. At z->-infinity the affine stage block is [[1/3,1/12],[-2/3,7/12]] with fixed point (-1/2,1). The endpoint error recurrence e_(K+2)=(11/12)e_(K+1)-(1/4)e_K, e0=0,e1=-1 gives eK=-2^(1-K) sin(K theta)/sin(theta). Since 2 cos(theta)=11/6 is nonintegral rational, theta/pi is irrational, implying density exactly 1/2 by equidistribution. Independent exact recurrence gives R8=35934757/35831808, and direct 8 rational sweeps yield R8(-5000)-1=756246564724929917066932564741749988412224800808855000/1708230988498214163982099587351742945781521223046779160729>0. This distinguishes fixed-negative-z convergence from separate stiff-limit K.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad SDC stability regions and optimized diagonal stiff preconditioners are treated, not this fixed Lobatto implicit-Euler endpoint sequence."
+        ],
+        "reasoning": "A-stability/non-A-stability results for other fixed configurations do not mathematically imply the exact K-density; this is narrower yet a substantive precise case.",
+        "searches": [
+          "SIAM SISC 10.1137/24M1649800 stability sections",
+          "arXiv:2403.13454 adaptive SDC"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.13454",
+        "https://epubs.siam.org/doi/full/10.1137/24M1649800",
+        "https://arxiv.org/abs/2310.08352"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic one-sweep G(z) known; all-K closed form requires eigenangle analysis and equidistribution."
+        ],
+        "reasoning": "An existing general matrix formula enables but does not itself assert the specialized infinite-count classification; no stronger theorem in read sections covers it.",
+        "searches": [
+          "Saupe et al. Section 2",
+          "Čaklović et al. Sections 2-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SDC as preconditioned Picard and stiff iteration matrix are known."
+        ],
+        "reasoning": "The three-node recurrence is equivalent to specializing the known iteration form, but explicit half-density in sweep count and first instability are not stated therein.",
+        "searches": [
+          "arXiv:2403.13454 equation (12)",
+          "SIAM 10.1137/24M1649800 (2.8),(2.11)-(2.13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned exact K=8 recurrence or half-density table."
+        ],
+        "reasoning": "Numerical stability diagrams with finitely many sweep counts cannot settle the irrational-rotation natural-density theorem.",
+        "searches": [
+          "Resultary: half density stiff instability convergent three node deferred",
+          "web: Gauss Lobatto three node spectral deferred corrections stiff sweep stability"
+        ]
+      },
+      "rationale": "The generic SDC iteration/preconditioning and stiff matrix formalism are established, but the exact nonadaptive 3-Lobatto IE endpoint recurrence and sweep-count equidistribution appear unreported in the primary articles compared; broader diagonal sweeper work uses different node and preconditioner families. Priority remains best-of-knowledge.",
+      "residual_risks": [
+        "A mathematically equivalent fixed-configuration recurrence may occur in older iterated-Runge–Kutta/SDC stability tables not fully indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives standard SDC sweeper; studied adaptation, not the particular three-node IE/Lobatto exact stiff-limit sweep-count density.",
+          "evidence": [
+            "https://arxiv.org/pdf/2403.13454"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.13454",
+          "material_read": "Sections 1-2, collocation and preconditioned SDC sweep equation (12), error/adaptivity discussion, numerical stability summaries.",
+          "method": "primary full-text PDF or open HTML read",
+          "title": "Adaptive time step selection for Spectral Deferred Correction",
+          "trigger": "Same canonical preconditioned SDC scheme"
+        },
+        {
+          "assessment": "Establishes generic stiff-limit iteration matrices and stability-function analysis, uses four Radau-right nodes and diagonal preconditioners rather than exact 3-Lobatto IE half-density.",
+          "evidence": [
+            "https://epubs.siam.org/doi/full/10.1137/24M1649800"
+          ],
+          "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/24M1649800",
+          "material_read": "Open-access HTML: Sections 1-3; formulas (2.8), (2.11)-(2.13), stiff iteration matrices, stability regions; appendix A.",
+          "method": "primary full-text PDF or open HTML read",
+          "title": "Improving Efficiency of Parallel Across the Method Spectral Deferred Corrections",
+          "trigger": "Exact stiff-limit SDC iteration matrices and stability domains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An unstable finite-sweep update on a negative real scalar decay mode despite converging correction iteration is a direct, nontrivial numerical-analysis stability gap; locating its first K=8 witness and proving half-density gives a precise and potentially actionable pathology, not a trivial reformulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2403.13454",
+    "https://epubs.siam.org/doi/full/10.1137/24M1649800",
+    "https://arxiv.org/abs/2310.08352"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed 3-node Lobatto, exact backward-Euler preconditioner and constant-stage initialization; only negative real z.",
+    "Density concerns sign at separate z->-infinity limits for each K; fixed z eventually converges."
+  ],
+  "residual_risks": [
+    "A mathematically equivalent fixed-configuration recurrence may occur in older iterated-Runge–Kutta/SDC stability tables not fully indexed."
+  ],
+  "schema_version": 1
+}
