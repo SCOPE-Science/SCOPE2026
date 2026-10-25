@@ -1,19 +1,21 @@
-# Scientific review: exact four-step odd greedy threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd denominator at least three the first selected reciprocal gives numerator one or three. In the numerator-three branch, the second selected reciprocal leaves numerator four whenever it fails to finish. The third leaves numerator five. The divisibility of the last fraction reduces, for all starting denominators, to an exhaustive calculation modulo 12 and modulo 5, including the exclusion of the nonsquare discriminant 2 modulo 5. The parity of sums of odd-denominator reciprocals forbids finite odd lengths. The least period follows from three explicit nonperiod witnesses. Exact direct computation for all 10,000 odd q from 3 through 20,001 reproduced the classification; the unrestricted proof does not rely on those samples.
+PASS
 
-## Originality — PASS relative to inspected sources
+The parity lemma forces every finite length even. For q=1(mod4) the first remainder is 1/(qx). Otherwise x=(q+3)/2 and remainder 3/A (A=qx); the 3|A branch gives q=3(mod12) and two steps. For q=7,11(mod12), A=5(mod6), y=(A+4)/3 gives 4/D with D=Ay=7(mod8); z=(D+5)/4 gives 5/(Dz). The remaining unit fraction is attained iff 5|D, equivalently A=0 or 1(mod5); A=1 is impossible since q^2+3q-2 has discriminant 17=2(mod5), a nonsquare. CRT yields precisely four exactly-four-term classes, twenty two-term classes, and six remaining classes; compare shifts 12,20,30 from class7 to prove least even period. Independent fractions.Fraction recalculation checked all odd 3<=q<=2001 (667 length-two, 133 length-four, 200 still nonzero). These finite tests corroborate the all-q CRT proof, not substitute for it.
 
-Louwsma and Martino (arXiv:2309.07280v1) classify length two with fixed numerator and all length-four fractions conditional on fixing their first three denominators. Their latter parameterization is broader as an *implicit recognition of an individual expansion*, but it does not calculate the modulus-60 global four-step decision, minimal modulus, or natural-density proportions over all odd starting denominators with numerator two. These are the subject of the present result, derived by eliminating the changing first three denominations and proving a quadratic nonresidue obstruction modulo five. Pihko's prescribed-numerator-sequence families and Brown's long-expansion construction do not compute these global counts. The indexed published-results search showed nearby Egyptian fraction problems but no equivalent residue-density claim. Unindexed equivalent work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The termination of odd greedy expansions remains open in general, so a complete and exact early-stopping classification for all odd starting denominators in a fixed natural family is a motivated finite-horizon invariant. The exact 4/5 density and sharp period 60 give substantially more information than examples of either short or long expansions. The contribution is a sharp, self-contained arithmetic statistic, not a general resolution of termination or a new generic parameterization.
+Prior exact two-term results are credited, and the generic fixed-prefix parametrization can implicitly describe individual four-term representations. The uniform mod-60 decision procedure, sharp least period, and natural odd-denominator densities are not given by inspected primary theorem statements. Originality is narrow and best-of-knowledge, not a claim that all four-term expansions were previously unknown.
 
-## Limits and closest work
+## value
 
-The computation does not decide whether fractions in six remaining residue classes ever terminate. Generic length-four parameterizations are related prior results, and an undiscovered direct version of the residue criterion is a residual risk. The proof is independent of numerical checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Odd-reciprocal greedy termination is a natural arithmetic dynamical problem with unbounded and uncertain trajectories. The complete nontrivial fixed-numerator first-four-step classification, least even period, and density partition provide a mathematically motivated exact finite-horizon boundary, not an arbitrary modulus slice or merely a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
