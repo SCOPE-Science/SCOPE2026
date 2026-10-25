@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:52:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coordinate map interval indicator v_ij=sum_{k=i}^j e_k is a unimodular map onto type A positive roots e_i-e_{j+1}. The h=x_1+x_m value is 2 at the apex u=v_1m, 1 on proper prefix/suffix contact vertices, 0 on strict interior intervals. The identity u+v_ij=v_1j+v_i,m replaces all paired apex/interior masses on both sides of h=1, proving exact dissection P_m^- and conv(u,F_m). Since proper complementary prefix/suffix pairs sum to u, F_m is a centrally symmetric crosspolytope; the lattice chart (x_1,...,x_(m-1),h) is unimodular and F_m has chart generator determinant ±1/2. The height in h is exactly one, giving m! volume loss=2^(m-2), including m=2 with a lower-dimensional P_m^-. An independent SciPy hull calculation for m=2,...,7 returned normalized losses 1,2,4,8,16,32 exactly; the symbolic dissection, not finite hulls, proves all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Numata et al classify faces of general directed-edge polytopes; Setiabrata studies origin-adjoined positive root configurations; Hille treats un-deleted global root volumes."
+        ],
+        "reasoning": "General face criteria do not state the equality P cap={h>=1} nor a formula for the change after deleting u. An implicit triangulation corollary is a documented residual risk, not automatically novelty.",
+        "searches": [
+          "Numata–Takahashi–Tamaki Faces of Directed Edge Polytopes Theorems 1.1–1.3",
+          "Setiabrata Faces of Root Polytopes 2020",
+          "Hille type A Catalan volumes 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.14521",
+        "https://arxiv.org/abs/2001.05191",
+        "https://arxiv.org/abs/1505.06011",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior facets/root basics and one-skeleton imply some adjacency facts only; current statement includes an exact crosspolytope facet and primitive lattice height producing 2^(m-2)."
+        ],
+        "reasoning": "The extra geometric and determinant computation is not a literal corollary of the reported prior edge-count or face-classification conclusions, though earlier uninspected triangulations may contain it.",
+        "searches": [
+          "arXiv:2203.14521",
+          "arXiv:2001.05191",
+          "arXiv:1505.06011",
+          "Resultary 2026/10/11 SCOPE one-skeleton theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The interval indicator model is unimodularly equivalent to convex hull of positive roots e_i-e_j, and this identification is explicitly standard; the claimed new part is the removed cap and its volume."
+        ],
+        "reasoning": "Geometric combinatorial one-skeleton and facet data could describe deletion edges; do not equate edge adjacency with crosspolytopal volume loss without a volume computation.",
+        "searches": [
+          "positive type A root polytope delete highest root vertex volume loss crosspolytope interval vectors",
+          "arXiv:2203.14521",
+          "arXiv:2001.05191",
+          "Resultary SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full polytope lattice volume can be related to Catalan triangulation data in existing literature, whereas the exact difference after highest-root deletion is a separate invariant."
+        ],
+        "reasoning": "Subtracting published full-volume counts cannot recover the deletion loss unless the deleted polytope volume or cap combinatorics is also known.",
+        "searches": [
+          "positive type A root polytope delete highest root vertex volume loss crosspolytope interval vectors",
+          "positive root polytope Catalan normalized volume"
+        ]
+      },
+      "rationale": "Known positive-root polytopes, general directed-edge face theory, and full-object Catalan volume are acknowledged, while the isolated highest-root deletion dissection and sharp 2^(m-2) loss are not supplied by the examined result statements. A related published SCOPE one-skeleton theorem does not determine the pyramid volume.",
+      "residual_risks": [
+        "Potential same volume truncation formula under a different root-geometry or subdivision description, not exhaustively excluded.",
+        "The deletion is only the longest root, not arbitrary single root vertices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports root polytope framework and facet criteria; examined results do not state an exact deleted-highest-root volume formula.",
+          "evidence": [
+            "Theorems 1.1–1.3 face conditions compared to the hyperplane h=x_1+x_m and crosspolytope cap"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.14521",
+          "material_read": "Full-text primary HTML rendering, including the face classification statements in Theorems 1.1–1.3",
+          "method": "Close primary theorem/definition inspection",
+          "title": "Faces of Directed Edge Polytopes",
+          "trigger": "Same directed positive-root polytope and face theory"
+        },
+        {
+          "assessment": "Origin-adjoined configuration differs from convex hull of nonzero positive roots; no assertion of whole-document noncoverage.",
+          "evidence": [
+            "Root polytope conv(0, positive roots) versus P_m without origin"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.05191",
+          "material_read": "Primary abstract and core setting on origin-adjoined root polytopes; not entire full article",
+          "method": "Open primary bibliographic/theorem comparison",
+          "title": "Faces of Root Polytopes",
+          "trigger": "Equivalent type A root-polytope terminology"
+        },
+        {
+          "assessment": "Global type A volume not equivalent to single-vertex deletion volume; full paper not exhaustively inspected.",
+          "evidence": [
+            "Catalan volumes for full type A root objects"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.06011",
+          "material_read": "Primary abstract and reported full-object volume connection",
+          "method": "Bibliographic and statement-level comparison",
+          "title": "Tilting Modules over Path Algebra of Type A, Polytopes and Catalan Numbers",
+          "trigger": "Catalan normalized volume may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single highest-root deletion is a distinguished natural combinatorial operation; its crosspolytopal vertex cap and exact lattice volume loss illuminate type-A root-polytope geometry rather than a renamed routine determinant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2203.14521",
+    "https://arxiv.org/abs/2001.05191",
+    "https://arxiv.org/abs/1505.06011",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "m>=2 only, normalized volume m! times lattice-coordinate volume; m=2 deleted hull has zero m-volume.",
+    "The exact symbolic chart determinant supplies general proof; finite SciPy hull tests are not infinite confirmation."
+  ],
+  "residual_risks": [
+    "Potential same volume truncation formula under a different root-geometry or subdivision description, not exhaustively excluded.",
+    "The deletion is only the longest root, not arbitrary single root vertices."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Supports root polytope framework and facet criteria; examined results do not state an exact deleted-highest-root volume formula.",
+      "evidence": [
+        "Theorems 1.1–1.3 face conditions compared to the hyperplane h=x_1+x_m and crosspolytope cap"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2203.14521",
+      "material_read": "Full-text primary HTML rendering, including the face classification statements in Theorems 1.1–1.3",
+      "method": "Close primary theorem/definition inspection",
+      "title": "Faces of Directed Edge Polytopes",
+      "trigger": "Same directed positive-root polytope and face theory"
+    },
+    {
+      "assessment": "Origin-adjoined configuration differs from convex hull of nonzero positive roots; no assertion of whole-document noncoverage.",
+      "evidence": [
+        "Root polytope conv(0, positive roots) versus P_m without origin"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2001.05191",
+      "material_read": "Primary abstract and core setting on origin-adjoined root polytopes; not entire full article",
+      "method": "Open primary bibliographic/theorem comparison",
+      "title": "Faces of Root Polytopes",
+      "trigger": "Equivalent type A root-polytope terminology"
+    },
+    {
+      "assessment": "Global type A volume not equivalent to single-vertex deletion volume; full paper not exhaustively inspected.",
+      "evidence": [
+        "Catalan volumes for full type A root objects"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1505.06011",
+      "material_read": "Primary abstract and reported full-object volume connection",
+      "method": "Bibliographic and statement-level comparison",
+      "title": "Tilting Modules over Path Algebra of Type A, Polytopes and Catalan Numbers",
+      "trigger": "Catalan normalized volume may dominate"
+    }
+  ]
+}
