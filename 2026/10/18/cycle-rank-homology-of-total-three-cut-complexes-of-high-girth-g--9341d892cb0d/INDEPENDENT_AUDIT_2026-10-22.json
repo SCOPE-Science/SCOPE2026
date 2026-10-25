@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:59:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected finite simple girth>=6 graphs N>=6, the bounded-independence dual Γ of the total 3-cut complex consists of all 0,1,2-sets; each 3-set with a graph edge; and each 4-set containing a 2-edge matching. Triangle-freeness and absence of 4-cycles ensure uniqueness of a matching; absence of 5-cycles plus R(3,3)=6 forbid faces of 5+ vertices. The dual for a spanning tree contracts by leaf deletion: the leaf link cones on its neighbor. When a chord ab is added, new 2-faces are abw outside B=N(a)∪N(b), new 3-faces are abxy for xy an edge of the remaining induced graph. Pair each new abw with abw p(w), where p(w) decreases distance to B, giving a relative acyclic matching. Unmatched 3-cells count |E(L)|−|V(L)\\B|=old cycle rank+1. Attach b sequentially, no degree-2 attaching obstruction because previous wedge S³ is 2-connected; obtain Γ homotopy wedge binom(b+1,2) S³. Integral Alexander duality gives total cut reduced H only degree N−6, torsion-free rank binom(b+1,2), and purity dimension N−4 implies non-shellability for b>0. Direct independent GF2 boundary ranks: tree 0, C6 1, theta(3,3,3) 3; package code checks 1356 labelled n6 and nine cases including Heawood b8 rank36. Finite GF2 tests are not the integral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo Theorem22/Cor23 give girth-based connectivity and homology vanishing ranges; Bayer et al Theorems4.13,4.15 handle trees and cycles."
+        ],
+        "reasoning": "None of the examined theorem statements implies the exact binom(b+1,2) rank for arbitrary connected girth>=6 graphs; upper/lower vanishings do not set a nonzero dimension.",
+        "searches": [
+          "arxiv:2602.21427",
+          "arxiv:2209.13503",
+          "total 3-cut complex graphs girth at least six cycle rank binomial b+1 2 homology Alexander dual"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py; pinned commit f30f943587282d59c837419db4b41647621abfdb",
+        "Bayer et al arxiv:2209.13503 primary PDF",
+        "Carnero Bravo arxiv:2602.21427 primary PDF",
+        "Published Resultary Heawood total3cut rank36",
+        "Resultary query: total 3-cut complex graphs girth at least six cycle rank binomial b+1 2 homology Alexander dual"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Relative matching on newly added edge ab counts b(H)+1 unmatched 3-cells and proves the all-b induction."
+        ],
+        "reasoning": "Known b=0,1 and b=8 isolated results do not logically imply arbitrary b; a generic connectivity bound cannot prove precise rank and torsion-freeness.",
+        "searches": [
+          "arxiv:2209.13503",
+          "arxiv:2602.21427",
+          "Resultary total Heawood record",
+          "total 3-cut complex graphs girth at least six cycle rank binomial b+1 2 homology Alexander dual"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Γ={S:α(G[S])≤2} is the combinatorial Alexander dual of total 3-cut, not the ordinary 3-cut; Bayer et al tree/cycle cases identified."
+        ],
+        "reasoning": "Duality translates the exact statement into equivalent bounded-independence homotopy; reviewed known dual-connectivity bounds do not equal the complete homotopy classification.",
+        "searches": [
+          "total 3-cut complex graphs girth at least six cycle rank binomial b+1 2 homology Alexander dual",
+          "arxiv:2209.13503",
+          "arxiv:2602.21427"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heawood has N=14, E=21 and b=8, so rank 36 is a known finite case, stronger homotopy on that one graph."
+        ],
+        "reasoning": "Numerically matching finite cases are expressly prior art; the claim is the all-graphs law, not novelty of a known table entry.",
+        "searches": [
+          "total 3-cut complex graphs girth at least six cycle rank binomial b+1 2 homology Alexander dual",
+          "Resultary total Heawood 3cut 36 eight-spheres",
+          "Resultary total Möbius–Kantor 3cut 45 ten-spheres"
+        ]
+      },
+      "rationale": "Bayer et al established tree and single-cycle total-cut cases, corresponding to b=0 and b=1; a published Heawood calculation gives rank36 at b=8 for a single graph. Carnero Bravo's full primary paper proves connectivity/vanishing bounds for Alexander duals at high girth, not the exact homotopy and quadratic cycle-rank multiplicity according to compared theorems. Ordinary (non-total) cut results have a different face condition. The new all-connected-high-girth edge-addition mechanism is not seen in compared prior claims, with residual chance of an unindexed generalization.",
+      "residual_risks": [
+        "Unindexed structural theorem or unnoticed implication from other total-cut literature could preempt priority.",
+        "No assertion about total-cut homotopy in arbitrary high-girth case, only integral homology; connectedness and girth>=6 essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves prior trees and cycles; comparison found no arbitrary-cycle-rank formula in read theorem material",
+          "evidence": "Tree contractibility and cycle b=1 are acknowledged special cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+          "material_read": "Complete primary 25-page PDF accessed and theorem sections 4.13 and 4.15 inspected with page images",
+          "method": "ArXiv PDF full-text, section text and screenshot",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Foundational definition and closest tree/cycle total-cut homotopy cases"
+        },
+        {
+          "assessment": "Girth-based connectivity and vanishing, not the computed all-b homotopy type in compared theorems",
+          "evidence": "Theorem22/Cor23 bound homotopy/connectivity without binomial cycle-rank multiplicity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21427",
+          "material_read": "Full 33-page primary PDF accessed; Proposition21, Theorem22 and Corollary23 and surrounding sections inspected with screenshot",
+          "method": "ArXiv PDF full text",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Closest broad high-girth bounded-independence dual theorem"
+        },
+        {
+          "assessment": "Published stronger homotopy at fixed Heawood graph is prior art; not general arbitrary high girth",
+          "evidence": "b=8 gives 36, degree N−6=8, agreeing with present special case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-total-3-cut-complex-of-the-heawood-graph-is-a-wedge-of-36-ei--0c003a069433",
+          "material_read": "Resultary research result title, synopsis and b=8 numerical implication; full result package not read",
+          "method": "Resultary search result",
+          "title": "The total 3-cut complex of the Heawood graph is a wedge of 36 eight-spheres",
+          "trigger": "Strongly related exact total 3-cut special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a complete all-cycle-ranks integral homology formula for a natural graph complex using just the graph's first Betti number, spanning all connected high-girth graphs including overlapping long cycles. The explicit relative Morse filtration yields a reusable structural mechanism and sharp torsion-free/non-shellable conclusions; this goes significantly beyond a single known Heawood or cycle tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed structural theorem or unnoticed implication from other total-cut literature could preempt priority.",
+    "No assertion about total-cut homotopy in arbitrary high-girth case, only integral homology; connectedness and girth>=6 essential."
+  ],
+  "schema_version": 1
+}

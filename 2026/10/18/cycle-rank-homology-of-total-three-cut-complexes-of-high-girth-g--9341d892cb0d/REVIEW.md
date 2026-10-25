@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The general argument is an explicit induction over non-tree edges. The bounded-independence dual is three-dimensional because a triangle-free four-vertex induced subgraph has independence number at most two exactly when it has a perfect matching, and five or more vertices would contain an independent triple unless a forbidden five-cycle were present. For a new edge the proof exhaustively classifies new two- and three-faces, pairs each new two-face with a three-face along a neighbor closer to the existing attachment boundary, and establishes strict distance decrease in every alternating path. Exactly the old cycle rank plus one unpaired three-cells remain. Starting with the contractible tree case yields an integral wedge decomposition; integral Alexander duality gives the stated homology. The six-vertex and named-graph exact tests corroborate, but do not replace, this proof.
+PASS
 
-## Originality: PASS with bounded residual risk
+For connected finite simple girth>=6 graphs N>=6, the bounded-independence dual Γ of the total 3-cut complex consists of all 0,1,2-sets; each 3-set with a graph edge; and each 4-set containing a 2-edge matching. Triangle-freeness and absence of 4-cycles ensure uniqueness of a matching; absence of 5-cycles plus R(3,3)=6 forbid faces of 5+ vertices. The dual for a spanning tree contracts by leaf deletion: the leaf link cones on its neighbor. When a chord ab is added, new 2-faces are abw outside B=N(a)∪N(b), new 3-faces are abxy for xy an edge of the remaining induced graph. Pair each new abw with abw p(w), where p(w) decreases distance to B, giving a relative acyclic matching. Unmatched 3-cells count |E(L)|−|V(L)\B|=old cycle rank+1. Attach b sequentially, no degree-2 attaching obstruction because previous wedge S³ is 2-connected; obtain Γ homotopy wedge binom(b+1,2) S³. Integral Alexander duality gives total cut reduced H only degree N−6, torsion-free rank binom(b+1,2), and purity dimension N−4 implies non-shellability for b>0. Direct independent GF2 boundary ranks: tree 0, C6 1, theta(3,3,3) 3; package code checks 1356 labelled n6 and nine cases including Heawood b8 rank36. Finite GF2 tests are not the integral proof.
 
-The foundational paper arXiv:2209.13503 already proves the tree and single-cycle cases. The previously published exact Heawood result proves a stronger homotopy conclusion for that one graph; it is explicitly excluded from the novelty claim. The later arXiv:2602.21427 establishes girth-based connectivity for general bounded-independence complexes, but does not prove the uniform cycle-rank classification or the explicit edge-addition attachment. Searches for the bounded-independence aliases, high-girth hypotheses, and quadratic cycle-rank multiplicities did not identify an equivalent theorem. An unindexed source could still cover it.
+## originality
 
-## Value: PASS
+PASS
 
-The graph's first Betti number is a natural invariant, while the exact integral topology of a complex of independent-three-set complements is not generally fixed by easy combinatorial invariants. The result classifies an infinite family including high-girth graphs with arbitrary cycle rank and intersecting long cycles. It gives a transparent three-cell-attachment mechanism, torsion-free homology, and a uniform nonshellability obstruction, extending beyond isolated previously known cases.
+Bayer et al established tree and single-cycle total-cut cases, corresponding to b=0 and b=1; a published Heawood calculation gives rank36 at b=8 for a single graph. Carnero Bravo's full primary paper proves connectivity/vanishing bounds for Alexander duals at high girth, not the exact homotopy and quadratic cycle-rank multiplicity according to compared theorems. Ordinary (non-total) cut results have a different face condition. The new all-connected-high-girth edge-addition mechanism is not seen in compared prior claims, with residual chance of an unindexed generalization.
 
-## Scope and limitations
+## value
 
-The original total-cut complex's homotopy type is not classified; only the Alexander dual's homotopy type and the original's integral homology are proved. Girth six is used to exclude five-cycles; no smaller-girth extension is claimed. Finite checks alone would be insufficient, and absolute absence of an unindexed equivalent theorem is not certified. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a complete all-cycle-ranks integral homology formula for a natural graph complex using just the graph's first Betti number, spanning all connected high-girth graphs including overlapping long cycles. The explicit relative Morse filtration yields a reusable structural mechanism and sharp torsion-free/non-shellable conclusions; this goes significantly beyond a single known Heawood or cycle tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
