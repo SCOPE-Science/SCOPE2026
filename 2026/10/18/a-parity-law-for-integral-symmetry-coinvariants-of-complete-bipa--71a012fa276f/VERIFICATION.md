@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The artifact `verify.py` requires only Python 3 and the standard library. From a directory containing the script, run `python3 verify.py`. The expected output is in `verify-output.txt`.
+# Independent mathematical audit
 
-The verifier independently builds the original oriented-simplex presentation reduced modulo two, including pure-subset relations, all higher-simplex boundaries, and all within-part adjacent transposition relations. It then computes its binary quotient dimension using exact bitset elimination. Separately it builds the much smaller color-count boundary presentation and evaluates the closed parity formula. All three agree for 70 triples with part sizes two through five, and the latter two agree for all \(2\le m,n\le35\), \(2\le r<m+n\).
+## correctness
 
-The verifier alone does **not** prove integrality, exponent two, or any all-parameter claim. These follow from the signed orbit-module argument and the exact chain presentation proved in `RESULT.md`. No integral torsion in the underlying higher-independence homology, full integral group module, or quotient-space homology is claimed.
+PASS
+
+Use equivariant quotient of oriented r-simplex chains by boundaries of (r+1)-simplices and pure-part r-chains to present H_{r-1}. Each simplex orbit has an orientation-reversing stabilizer transposition, so its integral coinvariants are exactly Z/2. All remaining relations are (a mod 2)e_{a-1}+(b mod 2)e_a for feasible color counts. Odd/even parity cases yield the stated d formula including m+n=r+1 and boundary corrections. Independent parity-orbit rank reconstruction matched 392 parameter triples. The quotient is explicitly homology coinvariants, never geometric quotient homology.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.
+
+## value
+
+PASS
+
+Natural integral equivariant refinement of the already-known multipartite homotopy ranks: produces explicit torsion after taking part-symmetry coinvariants even though original homology is free, and fully classifies all m,n,r in range with striking parity dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
