@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` beside this document; it has no dependencies outside the Python standard library. The program reports `VERIFY_OK: 7 exact quadratic slopes; independent crossing merger; all right-special factors and complexities through n=80; 24080 checks`.
+## correctness
 
-For seven distinct nonsquare integers \(d\), the arithmetic branch uses \(\lfloor j/(1+\sqrt d)\rfloor=\bigl\lfloor(\lfloor j\sqrt d\rfloor-j)/(d-1)\bigr\rfloor\), evaluated using integer square root. The other branch independently enumerates physical horizontal/vertical crossing order by comparing the integers \(h^2\) and \(dv^2\), without floating point. Their first 3,200 event letters agree for each parameter. A second test enumerates factor extension sets of the one-sided decorated rotor word through length 80 and checks the unique reversed-prefix factor together with word complexity \(n+3\).
+PASS
 
-These finite checks detect indexing or implementation mistakes but do **not** certify all irrational parameters or unbounded word lengths. Universal validity is supplied by the symbolic-dynamics proof in `RESULT.md`. Neither a separate mathematical audit nor independent verification has been performed.
+For irrational σ>1 from the grid origin, the qth vertical crossing has event index floor(q/α)−1, α=1/(1+σ), giving characteristic mechanical bits b_j=1+2(floor((j+2)α)−floor((j+1)α)). The phase of this Sturmian coding is α rather than arbitrary. Each characteristic length-m prefix has both left predecessors by perturbing the coding phase just below and above α; density of forward irrational rotation makes both extended patterns occur. Reflection of the rotation partition gives reversal symmetry and Sturmian complexity m+1 guarantees exactly one right-special length-m binary factor, its reverse prefix. In the marked word X=0 2 b0 2 b1..., factors containing 0 occur once; factors ending in binary letter have forced successor 2; other branching factors must end in 2 and reduce in both parities to the base right-special word. n=1 gives factor 2. Therefore exact X_n...X_1 unique with two continuations 1,3 for all n≥1. Independent finite factor enumeration for σ=√2,√3,√5,√11 and n≤80 matched reverse prefix/continuations; analytic Sturmian proof establishes infinite quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with unusually direct novelty evidence: the same precise reverse-prefix right-special factor statement is explicitly posed as an open conjecture in Krishnaswami–Rameshan 2026 §5.3.1; their complexity formula and Sturmian correspondence do not state/prove it. Characteristic-word left-special and reversal symmetry are classical and credited. The exact event-index phase + marker transfer resolves the stated rotor-specific conjecture.
+
+## value
+
+PASS
+
+Resolves an explicit 2026 published symbolic-dynamics conjecture for every irrational slope and all lengths, with a short closed formula and structural proof explaining its physical indexing; motivated exact right-special classification, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

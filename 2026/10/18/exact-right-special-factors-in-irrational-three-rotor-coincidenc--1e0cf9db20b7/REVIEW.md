@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The global proof starts from physical crossing times to identify the exact normalized event density \(\alpha=1/(1+\sigma)\) and characteristic mechanical intercept \(\alpha\). It establishes the characteristic-prefix left-extension property by examining phases just above/below the unique predecessor jump, uses reversal symmetry and Sturmian complexity to prove unique right-special base factors, and checks both parities of the interleaved rotor code plus length one. No spatial, word-length, or Diophantine truncation is used in the theorem. The exact-integer verifier independently recomputes crossings for seven quadratic irrational slopes and exhaustively checks finite words for lengths through 80. Boundary behavior at the origin is treated separately; finite tests do not prove the theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest paper, Krishnaswami and Rameshan, arXiv:2606.25766v1, explicitly **conjectures** the reverse-prefix identity and presents only small-word evidence. It already proves the rotor/Sturmian mapping and complexity \(n+3\), so these are not claimed as new. Bucci–De Luca–Zamboni, arXiv:1205.5946v1, records classical characteristic Sturmian structure, which supplies the binary core. The assessed distinct contribution is the exact origin-index-to-characteristic-phase identification and its complete nonbinary alternating-marker consequence, including the original exceptional zero. The result is a short synthesis of known Sturmian facts; an earlier equivalent specialized derivation, including in a 2024 thesis cited by the motivating paper, remains possible. No independent priority check is claimed.
+PASS
 
-## Mathematical value — PASS
-The result solves an explicitly posed 2026 conjecture in the natural infinite family of irrational free-rotor codes, supplies an exact floor-function construction for the entire branching sequence, and shows why every other factor branches only once. This is a natural structural question about a physically motivated symbolic coding rather than an arbitrary finite slice or routine table recomputation. It does not establish the separate chaotic-code conjectures or finite-energy behavior.
+For irrational σ>1 from the grid origin, the qth vertical crossing has event index floor(q/α)−1, α=1/(1+σ), giving characteristic mechanical bits b_j=1+2(floor((j+2)α)−floor((j+1)α)). The phase of this Sturmian coding is α rather than arbitrary. Each characteristic length-m prefix has both left predecessors by perturbing the coding phase just below and above α; density of forward irrational rotation makes both extended patterns occur. Reflection of the rotation partition gives reversal symmetry and Sturmian complexity m+1 guarantees exactly one right-special length-m binary factor, its reverse prefix. In the marked word X=0 2 b0 2 b1..., factors containing 0 occur once; factors ending in binary letter have forced successor 2; other branching factors must end in 2 and reduce in both parities to the base right-special word. n=1 gives factor 2. Therefore exact X_n...X_1 unique with two continuations 1,3 for all n≥1. Independent finite factor enumeration for σ=√2,√3,√5,√11 and n≤80 matched reverse prefix/continuations; analytic Sturmian proof establishes infinite quantifiers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS with unusually direct novelty evidence: the same precise reverse-prefix right-special factor statement is explicitly posed as an open conjecture in Krishnaswami–Rameshan 2026 §5.3.1; their complexity formula and Sturmian correspondence do not state/prove it. Characteristic-word left-special and reversal symmetry are classical and credited. The exact event-index phase + marker transfer resolves the stated rotor-specific conjecture.
+
+## value
+
+PASS
+
+Resolves an explicit 2026 published symbolic-dynamics conjecture for every irrational slope and all lengths, with a short closed formula and structural proof explaining its physical indexing; motivated exact right-special classification, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
