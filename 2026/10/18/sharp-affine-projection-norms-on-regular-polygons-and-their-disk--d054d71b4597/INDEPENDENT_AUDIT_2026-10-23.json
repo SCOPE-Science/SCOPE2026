@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T07:01:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source tree: https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/sharp-affine-projection-norms-on-regular-polygons-and-their-disk--d054d71b4597",
+        "RESULT.md SHA 51a78ea0bb157a38939f4b5b0478de6db8533cf4",
+        "Independent bounded calculation recorded in this private audit; finite only"
+      ],
+      "rationale": "The area-normalized covariance of regular P_n is (1+2 cos²(pi/n))/12 times I, yielding kernel 1+kappa x·y. Convexity of the Lebesgue function reduces the endpoint norm to a vertex, and splitting the negative cap gives the signed shoelace integral. The angular-cell radius R=cos(pi/n)/cos(delta), effective disk scale 1-pi²/(3n²), and zero-mean/first-moment cell cancellation control the O(n^-4) remainder even across two absolute-value corners. Differentiating the disk Lebesgue constant gives 5 sqrt(15)/(4 pi), hence 5 pi sqrt(15)/(12 n²). Recomputed n=3,4,6 exact values and n=80,160,320,640 scaled excess tending to 5.06972334; these finite checks do not prove the asymptotic.",
+      "residual_risks": [
+        "No global monotonicity in n proved; finite quadrature confirms only sampled n; angular-cell cancellation needs uniform Lipschitz bound at two moving corners, supplied in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hangelbroek-Narcowich-Sun-Ward gives uniform L∞ bounds for manifold kernel L² projectors, not exact area-affine polygon constants.",
+          "Dai-Xu sphere/ball approximation changes degree and domain."
+        ],
+        "reasoning": "General projector boundedness does not specify the exact norm or second-order signed polygon–disk excess.",
+        "searches": [
+          "Resultary: sharp L infinity Lebesgue constant L2 affine polynomial area orthogonal projection regular n-gon disk asymptotic",
+          "arXiv:1005.2424",
+          "arXiv:1011.2819"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 51a78ea0bb157a38939f4b5b0478de6db8533cf4",
+        "arXiv:0712.3093",
+        "arXiv:1005.2424",
+        "DOI:10.1137/0147022",
+        "Resultary: sharp L infinity Lebesgue constant L2 affine polynomial area orthogonal projection regular n-gon disk asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior disk norm gives only leading term. Fixing one hexagon cannot determine coefficient of n^-2 along all regular n-gons."
+        ],
+        "reasoning": "New analytical angular cancellation and derivative determine 5 pi sqrt15/12 from geometry, not from cited hexagon/degree-varying claims.",
+        "searches": [
+          "Resultary: sharp L infinity Lebesgue constant L2 affine polynomial area orthogonal projection regular n-gon disk asymptotic",
+          "arXiv:0712.3093",
+          "DOI:10.1137/0147022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li-Sun-Xu 2007 trigonometric interpolation uses discrete Fourier/cubature nodes and degree as asymptotic parameter, whereas claim is L² area-affine fixed degree with number of polygon vertices varying."
+        ],
+        "reasoning": "Different measures, projector subspaces and limiting parameters prevent implication; all-n explicit cap method is separate.",
+        "searches": [
+          "Resultary: sharp L infinity Lebesgue constant L2 affine polynomial area orthogonal projection regular n-gon disk asymptotic",
+          "DOI:10.1137/0147022",
+          "arXiv:0712.3093"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Triangle, square and hexagon norm evaluations agree with known low-dimensional examples and do not supply n→∞ coefficient.",
+          "Dunkl 1987 treats orthogonal polynomials on a single hexagon."
+        ],
+        "reasoning": "No exact covering all-n coefficient located in available descriptions; absence of a match is not novelty proof.",
+        "searches": [
+          "Resultary: sharp L infinity Lebesgue constant L2 affine polynomial area orthogonal projection regular n-gon disk asymptotic",
+          "DOI:10.1137/0147022"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp n^-2 disk-limit excess of the area-affine projector and all-n clipped-cap formula. Existing disk, simplex, hexagon and interpolation norms neither directly imply the second-order regular-polygon asymptotic nor its angular cancellation. Highly relevant Dunkl 1987 full text remains inaccessible, a genuine priority risk; abstract-only comparison does not establish noncoverage.",
+      "residual_risks": [
+        "Dunkl 1987 full text could contain earlier hexagon special-case calculations; authorized VPN disconnected, no full-text noncoverage assertion.",
+        "Older area-orthogonal projection literature under Christoffel/Lebesgue-function terminology may contain equivalent all-n asymptotic; semantic result mismatch is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible earlier partial overlap; cannot conclude whole-document noncoverage",
+          "evidence": [
+            "Abstract concerns orthogonal polynomials on hexagon; insufficient to rule out finite degree-one cap evaluation; does not demonstrate n→infinity."
+          ],
+          "identifier_or_url": "DOI:10.1137/0147022",
+          "material_read": "Published abstract and citation record; full paper unavailable (authorized retrieval VPN disconnected)",
+          "method": "Abstract/metadata, OA/arXiv checks, authorized institutional attempt",
+          "title": "Orthogonal Polynomials on the Hexagon",
+          "trigger": "Area-orthogonal projection directly on regular hexagon"
+        },
+        {
+          "assessment": "Not statement-equivalent by operator, measure or varying parameter",
+          "evidence": [
+            "Trigonometric interpolation on hexagonal/triangular lattices and degree grows; not the same fixed-degree area-affine projection."
+          ],
+          "identifier_or_url": "arXiv:0712.3093",
+          "material_read": "Public preprint description and technical scope of trigonometric interpolation and cubature; degree-varying Lebesgue estimates",
+          "method": "Accessible primary abstract/sections",
+          "title": "Discrete Fourier Analysis, Cubature and Interpolation on a Hexagon and a Triangle",
+          "trigger": "Regular polygon harmonic approximation"
+        },
+        {
+          "assessment": "Boundedness applies to manifold kernel projector families, not exact planar polygon Lebesgue function",
+          "evidence": [
+            "Bounds do not produce n^-2 polygon-to-disk excess."
+          ],
+          "identifier_or_url": "arXiv:1005.2424",
+          "material_read": "Accessible primary full abstract and core theorem scope",
+          "method": "Public preprint reading",
+          "title": "Kernel Approximation on Manifolds II: The L_infty-norm of the L_2-projector",
+          "trigger": "L∞ stability of orthogonal projectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md at assigned snapshot",
+        "RESULT.md 51a78ea0bb157a38939f4b5b0478de6db8533cf4",
+        "arXiv:0712.3093",
+        "arXiv:1005.2424"
+      ],
+      "rationale": "The endpoint norm is the natural uniform-stability invariant for degree-one least-squares area approximation. Determining the all-n exact clipped-cap norm and the sharp positive second-order polygon-versus-disk loss gives precise control of discretizing the domain and requires a nontrivial fourth-order angular cancellation; not merely repeating triangle/hexagon constants.",
+      "residual_risks": [
+        "Sign and size of second-order defect pertains only to sufficiently large side counts; higher polynomial degree unaddressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No global monotonicity in n proved; finite quadrature confirms only sampled n; angular-cell cancellation needs uniform Lipschitz bound at two moving corners, supplied in RESULT.md.",
+    "Dunkl 1987 full text could contain earlier hexagon special-case calculations; authorized VPN disconnected, no full-text noncoverage assertion.",
+    "Older area-orthogonal projection literature under Christoffel/Lebesgue-function terminology may contain equivalent all-n asymptotic; semantic result mismatch is not novelty proof.",
+    "Sign and size of second-order defect pertains only to sufficiently large side counts; higher polynomial degree unaddressed."
+  ],
+  "schema_version": 1
+}
