@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:58:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each source leaf, off-diagonal target shells at first divergence j yield coefficient b^{j-1-d}(y_{j-1}-e_j) and diagonal y_d, y_0=1, y_j=(y_{j-1}+(b-1)e_j)/b. Counting (b-1)b^{d-j} targets yields exact L1 column sum (b-1)/b sum_j(1-e_j y_{j-1})+|y_d|. For b>=3, each y_j has sign e_j strictly; eliminate signs to rewrite as (b-1)d-(b-1)sum_{j<d}|y_j|-(b-2)|y_d|. The future optimal absolute-state cost is even with Lipschitz bound (b-1)sum_{k=1}^{m-1}b^{-k}+(b-2)b^{-m}=1-2b^{-m}<1. Thus minimizing next-state magnitude strictly forces the opposite sign, including final weight b-2>0. Since y0=1, unique maximizing path signs are (-1)^j, and all off-path signs never affect that column. Solving y recurrence gives the claimed exact depth-dependent norm and equality iff some root-leaf path alternates. Independently enumerated all sign paths for b=3,4,5 and depths 1..6 with exact fractions; matches closed form; source checker independently constructs conditional expectation matrices. Analytical Bellman argument supports arbitrary finite b>=3,d>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lp inequalities for p>1 are not bounded strong L1 endpoint formulas; general constants diverge as p→1.",
+          "Dyadic optimal range/distributional bounds do not specify higher-arity finite-depth sharp coefficient or sign-family equality."
+        ],
+        "reasoning": "No inspected general result implies the full exact b,d and unique alternating path classification; historical finite-filtration results remain a residual risk.",
+        "searches": [
+          "arXiv:math/0606006",
+          "arXiv:2202.07154",
+          "doi:10.1155/2013/646012"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob cc1ca4ee20f3c4ab9b49b7f304fb8cd8b0a10d6a",
+        "Resultary query: finite b-ary predictable sign martingale transform strong L1 operator norm alternating signs endpoint depth d",
+        "arXiv:math/0606006",
+        "arXiv:2202.07154",
+        "doi:10.7146/math.scand.a-18006",
+        "doi:10.1155/2013/646012",
+        "Resultary finite b-ary martingale endpoint query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Lp and weak endpoint estimates cover different functionals and dimensions.",
+          "The strict Lipschitz Bellman comparison establishes exact global optimization with complete maximizing predictable families."
+        ],
+        "reasoning": "The submitted theorem is not a direct specialization of the inspected dyadic weak-type and interior-Lp results; older finite-martingale norm identities may be stronger and still require priority checking.",
+        "searches": [
+          "arXiv:math/0606006 Lp theorem",
+          "arXiv:2202.07154 abstract/main theorem",
+          "Osękowski Math. Scand. 115 (2014)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higher b-ary finite tree is not an arbitrary dyadic rearrangement; predictable signs indexed by internal nodes are essential.",
+          "Sharp L1 operator matrix norm reduces to maximum columns, not weak-type distribution function."
+        ],
+        "reasoning": "Compared finite stochastic matrix, cancellative b-ary Haar transform and tree filtration; the exact alternating path extremal representation appears distinct from dyadic weak estimates.",
+        "searches": [
+          "finite b-ary predictable sign martingale transform strong L1 operator norm alternating signs endpoint depth d",
+          "arXiv:2202.07154 Haar dyadic endpoint transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest weighted conditional expectation endpoint profile concerns Mw E Mu single-step maps, not summed martingale differences across depths."
+        ],
+        "reasoning": "Finite rational enumerations are corroborative but not known historical tables; universal two-parameter expression needs independent proof.",
+        "searches": [
+          "finite b-ary predictable sign martingale transform strong L1 operator norm alternating signs endpoint depth d",
+          "Resultary weighted conditional L1 endpoint profile",
+          "Resultary finite tree martingale signs"
+        ]
+      },
+      "rationale": "Dragičević–Petermichl–Volberg arXiv:math/0606006 sharp nonendpoint Lp (p>1) transforms; Osękowski dyadic weak-type/distributional estimates; Astashkin–Huang–Pliev–Sukochev–Zanin arXiv:2202.07154 studies a specified DYADIC Haar martingale transform and optimal symmetric ranges, not optimization over all predictable signs for uniform b>=3 at finite depth. Compared finite stochastic matrix, cancellative b-ary Haar transform and tree filtration; the exact alternating path extremal representation appears distinct from dyadic weak estimates. No inspected general result implies the full exact b,d and unique alternating path classification; historical finite-filtration results remain a residual risk.",
+      "residual_risks": [
+        "Historical finite-horizon b-ary martingale-transform norm or equality formula may be buried in older literature not completely inspected.",
+        "No infinite-tree bounded strong L1 assertion; the theorem is finite depth."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT INTERIOR LP NORM, NOT TARGET STRONG L1 FINITE TREE",
+          "evidence": [
+            "Sharp interior-p estimate does not identify strong L1 norm of a given finite tree."
+          ],
+          "identifier_or_url": "arXiv:math/0606006",
+          "material_read": "Primary PDF opening, abstract and theorem region concerning p>1",
+          "method": "Read matching primary PDF text and inspected opening page image",
+          "title": "Sharp estimates of martingale transforms in higher dimensions and applications to the Ahlfors–Beurling operator",
+          "trigger": "Closest sharp high-dimensional martingale inequalities"
+        },
+        {
+          "assessment": "DYADIC DISTRIBUTIONAL/REARRANGEMENT TARGET NOT THE B>=3 FULL SIGN MAXIMUM",
+          "evidence": [
+            "Defines a dyadic martingale transform with prescribed difference levels; does not directly assert arbitrary predictable b-ary sign optimization."
+          ],
+          "identifier_or_url": "arXiv:2202.07154",
+          "material_read": "Primary PDF opening abstract, definition of a selected dyadic transform and optimal symmetric range",
+          "method": "Read the matching abstract/theorem and inspected page image",
+          "title": "Optimal range of Haar martingale transforms and its applications",
+          "trigger": "Potential stronger endpoint Haar result"
+        },
+        {
+          "assessment": "PRIORITY RISK, NOT NEGATIVE WHOLE-DOCUMENT COVERAGE",
+          "evidence": [
+            "Potential buried finite-tree strong endpoint formulas require deeper examination."
+          ],
+          "identifier_or_url": "doi:10.7146/math.scand.a-18006",
+          "material_read": "Citation, title and context; complete primary article not established read",
+          "method": "Bibliographic comparison",
+          "title": "Some sharp estimates for the Haar system and other bases in L1(0,1)",
+          "trigger": "Nearby historical finite L1 Haar results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-filtration strong L1 martingale-transform optimization is determined exactly for all branching arities >=3 and depths, including the nontrivial equality geometry of predictable sign families; the sharp linear slope and oscillatory bounded correction quantify amplification, not a routine endpoint norm bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real scalar L1, uniform b>=3, predictable ±1 signs and initial E0 coefficient +1 only.",
+    "Exactly enumerated small paths, but infinite all-depth claim rests on strict analytic Bellman argument."
+  ],
+  "schema_version": 1
+}

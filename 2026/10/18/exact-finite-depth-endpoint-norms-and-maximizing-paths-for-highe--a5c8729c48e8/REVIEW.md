@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem reduces to exact column sums on the uniform branching filtration. Each off-diagonal shell has an independently calculated multiplicity; after an absolute-state substitution, the dynamic program has an even future cost with Lipschitz constant strictly below one. This forces unique alternating signs on any maximizing column. The recurrence supplies the displayed closed form. A standalone exact-rational checker passed 237 path and full-matrix cases, including optimizer necessity and sufficiency in fully enumerated small trees. Those finite computations supplement rather than establish the arbitrary-depth proof.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Dragičević–Petermichl–Volberg give sharp non-endpoint martingale bounds, Osękowski gives dyadic distributional estimates, and Astashkin et al. give optimal rearrangement bounds for a particular dyadic transform. These statements do not imply an exact unrestricted predictable-sign strong \(L^1\) norm in every higher arity, nor a full equality characterization. The existing binary whole-scale Haar projection theorem is excluded from the present claim; its known statement does not imply the higher-arity formula. A buried historical formula remains possible despite the primary-text and semantic-index searches.
+PASS
 
-## Value
-**PASS.** Exact finite-horizon endpoint amplification for all \(b\ge3\) and its complete extremal path characterization provide a structurally natural classification. The sharp arity-dependent depth slope and rigorously strict optimizer control are useful benchmarks for finite martingale transforms.
+For each source leaf, off-diagonal target shells at first divergence j yield coefficient b^{j-1-d}(y_{j-1}-e_j) and diagonal y_d, y_0=1, y_j=(y_{j-1}+(b-1)e_j)/b. Counting (b-1)b^{d-j} targets yields exact L1 column sum (b-1)/b sum_j(1-e_j y_{j-1})+|y_d|. For b>=3, each y_j has sign e_j strictly; eliminate signs to rewrite as (b-1)d-(b-1)sum_{j<d}|y_j|-(b-2)|y_d|. The future optimal absolute-state cost is even with Lipschitz bound (b-1)sum_{k=1}^{m-1}b^{-k}+(b-2)b^{-m}=1-2b^{-m}<1. Thus minimizing next-state magnitude strictly forces the opposite sign, including final weight b-2>0. Since y0=1, unique maximizing path signs are (-1)^j, and all off-path signs never affect that column. Solving y recurrence gives the claimed exact depth-dependent norm and equality iff some root-leaf path alternates. Independently enumerated all sign paths for b=3,4,5 and depths 1..6 with exact fractions; matches closed form; source checker independently constructs conditional expectation matrices. Analytical Bellman argument supports arbitrary finite b>=3,d>=1.
 
-## Scope and limitations
-Only uniform branching, real \(L^1\), predictable \(\pm1\) multipliers, and fixed initial expectation are proved. No infinite-depth assertion or claim of independently certified bibliographic priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dragičević–Petermichl–Volberg arXiv:math/0606006 sharp nonendpoint Lp (p>1) transforms; Osękowski dyadic weak-type/distributional estimates; Astashkin–Huang–Pliev–Sukochev–Zanin arXiv:2202.07154 studies a specified DYADIC Haar martingale transform and optimal symmetric ranges, not optimization over all predictable signs for uniform b>=3 at finite depth. Compared finite stochastic matrix, cancellative b-ary Haar transform and tree filtration; the exact alternating path extremal representation appears distinct from dyadic weak estimates. No inspected general result implies the full exact b,d and unique alternating path classification; historical finite-filtration results remain a residual risk.
+
+## value
+
+PASS
+
+A natural finite-filtration strong L1 martingale-transform optimization is determined exactly for all branching arities >=3 and depths, including the nontrivial equality geometry of predictable sign families; the sharp linear slope and oscillatory bounded correction quantify amplification, not a routine endpoint norm bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
