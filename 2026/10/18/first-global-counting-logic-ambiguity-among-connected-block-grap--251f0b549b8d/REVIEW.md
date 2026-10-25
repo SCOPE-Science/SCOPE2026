@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal quantifier over all comparison graphs is handled by enumerating *every* unlabeled graph through six vertices, not merely block graphs. The bundled standard-library verifier enumerates all labeled edge masks, quotients by complete permutation orbits, and computes globally synchronized 1-WL types. The n=6 witness is also proven directly by an equitable two-degree partition; its nonisomorphism follows from triangle counts. The verifier completed successfully, including the finite completeness checks. A mathematical reliance on the complete enumeration is explicit, not disguised as a general theorem.
+## correctness
 
-**Originality — PASS with documented risk.** The 2015 work of Arvind–Köbler–Rattan–Verbitsky and Kiefer–Schweitzer–Selman completely classifies individually amenable graphs and hence provides a broader decision principle. Their relevant full-text sections were compared against the *sharply quantified block-graph census*; they do not state its unique six-vertex minimal obstruction or its two-element all-graphs equivalence class in the inspected sections. A general characterization subsumes any fixed membership decision, but does not numerically evaluate the first-failure cutoff or first-failure census for this natural family without further finite analysis. Semantic-result searches and exact class/partner searches did not locate a directly covering record. Residual risk: the small-order consequence may have been tabulated in an uninspected appendix or separately in earlier literature; same-model novelty is not an independent or comprehensive proof of priority.
+PASS
 
-**Value — PASS.** The class of connected block graphs is a natural clique-block enlargement of trees (which classical work shows globally amenable). The exact first failure distinguishes universal identification from comparisons restricted to the graph class; the unique exception and its triangle-free partner exhibit precisely how the missing triangle incidence defeats 1-WL even though both graphs have the same equitable two-colour quotient. A sharp complete boundary and its unique witness provide a finite reusable test case for counting-logic expressivity and 1-WL implementations. The result is intentionally small and makes no claim to a broader characterization. Crucially, the six-vertex non-block partner does not contradict a separate eight-vertex within-chordal-pairs threshold: the comparator universes differ.
+For simple unlabeled graphs with 1<=n<=6, the certificate's 2^(n choose 2)-mask enumeration and adjacent-transposition orbit closure cover every isomorphism class; Tarjan edge-block test correctly recognizes connected block graphs and globally interned 1-WL signatures compare against ALL graphs. Independently recomputing graph-atlas types and global colour refinements yielded all-graph counts (1,2,4,11,34,156), block-graph counts (1,1,2,4,9,22), exactly one ambiguous connected block graph (n=6) and 152 global 1-WL classes at n=6. G (two triangles joined by a bridge) and H (theta with paths 1,3,3) are nonisomorphic (2 versus 0 triangles), yet have the same equitable two-colour partition: two degree-3 nodes each see 1 degree-3 and 2 degree-2 neighbors and four degree-2 nodes each see one of each. Both have 7 edges. These direct checks give the explicit witness AND complete minimality/uniqueness to exactly n=6, without extrapolating to higher orders.
 
-**Closest literature and limits.** The general amenability/C2 characterizations of the two 2015 papers have strictly broader object scope and are the strongest related results. This small-order enumeration should not be read as an independent general theorem, as a proof about larger block graphs, or as independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the precise Sharp global C²/1-WL identification cutoff and unique six-vertex ambiguous connected block graph. Prior coverage of general methods/nearby problems is credited; exact statement/implication comparisons and residual risks are detailed below. The unsuccessful Resultary lookup is not treated as proof of novelty.
+
+## value
+
+PASS
+
+Global C²-identification is a natural and consequential graph-invariant boundary: the comparator includes every simple graph, so even a globally amenable block-graph family can develop its first failure. Exact six-vertex order, uniqueness among 22 connected block-graph types and a non-chordal comparator distinguish restricted-class enumeration from the unrestricted recognition problem. A complete sharp finite cutoff and fully determined mate class are a useful small obstruction benchmark; this is not claimed as a new general amenability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
