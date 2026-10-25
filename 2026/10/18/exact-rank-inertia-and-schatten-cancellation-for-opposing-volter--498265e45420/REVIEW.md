@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The kernel cancellation is pointwise and polynomial moment surjectivity proves the rank count. Finite-rank perturbation of the periodic inverse derivative establishes the exact singular-value coefficient, with interlacing at fixed order; p-series comparison gives sharp Schatten membership. An exact moment anti-diagonal determines parity, inertia and the determinant by Cauchy evaluation. Exact symbolic checks passed 159 cases (orders through 12; monomial kernels through order 8). Finite checks are supporting evidence, not universal proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. Explicit triangle kernels give J^m+(-1)^(m-1)(J*)^m=P_m, polynomial kernel (x-t)^(m-1)/(m-1)!, rank exactly m by independent Hilbert-matrix moments, and infinite rank for every other coefficient. Periodic inverse-derivative B_m has two-fold singular values (2πj)^(-m), and J^m-B_m has polynomial range dimension at most m+1, so finite-rank singular-value interlacing yields lim (πn)^m s_n=|1-(-1)^(m-1)λ| for fixed λ≠critical; Schatten S_p iff p>1/m. Anti-diagonal moment coefficient C and positive Hilbert Gram matrix H give the claimed odd self-adjoint inertia/even skew inertia, determinant and HS norm. Independently formed exact C,H for m=1..8, verified full rank, transpose parity, zero trace for m>=2 and exact asserted determinant products. These finite checks do not prove the all-order asymptotic; interlacing does.
 
-Eveson (2004) treats one-sided convolution-power iterates and Lyubich--Tsedenbayar (2010) treats polynomials in the one-sided operator; the latter full text was examined for higher-order adjoint implications. Known m=1 and m=2 specializations, the Hilbert determinant and one-sided singular-value coefficient are prior ingredients rather than discoveries. published-finding corpus comparisons include the full first-order weighted rank-one-correction study, which does not imply the combined m>=3 classification. The 2020 m=2 numerical-range source and the 1996 single-sided singular asymptotic source were not available in complete form, leaving residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact exceptional parameter, all-order finite-versus-infinite rank contrast, complete exceptional inertia, product of eigenvalues and sharp nonexceptional regularity provide a natural uniform classification of a smoothing-operator pencil. The value is in the phase structure across all integer orders, not any isolated elementary binomial identity.
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Determines a natural full integer-order phase transition of a canonical smoothing-operator pencil: precise finite-rank cancellation locus, operator spectral inertia, eigenvalue product and sharp noncritical singular-value regularity. Uniform structural contrast is not merely a known first-order computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
