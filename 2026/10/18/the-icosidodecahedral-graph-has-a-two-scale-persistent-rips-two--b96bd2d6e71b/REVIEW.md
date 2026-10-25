@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit, independently replayable simplicial collapse lists contain twenty, \(471\), and \(7964\) genuine free-face pairs. They leave a connected graph of cycle rank eleven, a connected sphere triangulation with \((15,39,26)\) faces, and a connected sphere triangulation with \((8,18,12)\) faces. All simplex enumeration, free-face conditions, surface-link conditions, and signed orientation equations are checked by `verify.py` against `collapse_certificate.json`. The inclusion of the two-dimensional homology generators has exact integral degree \(+1\) in the stated orientation conventions; antipodal action has degree \(-1\) at radii two and three. The radius-four identification with a join of fifteen copies of \(S^0\) follows from the fully checked distance-five perfect matching. Each step is finite and exhaustive.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary publication, Saleh–Mite–Witzel (arXiv:2302.14388), proves Rips homotopy types for Platonic solids and explicitly names Archimedean solids as a prospective extension. It studies the twenty-vertex dodecahedral graph, not its thirty-vertex line graph. Goyal–Shukla–Singh (arXiv:2009.12130) and Adamaszek's theorem on line graphs imply the ordinary radius-one term, not the scale-two/three spheres or the surviving integral class. Indexed comparisons with rectified four-dimensional hypercubes, rhombicuboctahedral scale-two complexes, and dodecahedral scale-three complexes concern different metric graphs and do not imply the current complete filtration. Specific title, alias, equivalent-formulation, graph-power, and barcode searches identified no containing theorem. Residual risk: an unpublished, unindexed, or differently named calculation may already cover this case.
+PASS
 
-## Mathematical value — PASS
-The classification resolves a specific extension explicitly motivated by the closest primary paper: a canonical thirty-vertex Archimedean rectification under its intrinsic graph distance. The two consecutive sphere stages alone do not reveal whether a persistent generator survives; the explicit integer degree-one map supplies that missing invariant, giving the complete all-field barcode and an antipodal orientation distinction. This is a natural finite benchmark for graph-metric persistence, not an arbitrary parameter slice.
+Independently regenerated 30 dodecahedron edges, their line graph and exact 30×30 BFS metric. Distance histogram (0:30,1:120,2:240,3:240,4:240,5:30) implies 15 distance-five opposite pairs. Enumerated all 110, 1022 and 15966 nonempty simplices at radii 1,2,3. Independently replayed the entire supplied Git blob efc420204de79f2d7c98fc894b41108d47c408e0: all 20+471+7964 elementary free-face pairs pass alive face, unique coface and maximality checks. Remainders are 30 vertices/40 edges, connected 2-sphere triangulations (15,39,26) and (8,18,12) after vertex-link/edge-incidence/Euler/orientation checks. Independent integral chain retraction maps the radius-2 fundamental cycle to +1 times the radius-3 generator in 62 substitutions; antipodal degrees -1 at both scales. The radius-4 clique complex omits exactly a perfect matching and is the join of fifteen S0, homeomorphic S14; radius 5 is full simplex. Thus barcode is integral/all-field, not only observed over one field.
 
-## Limitations
-This is not a Euclidean-metric computation. It does not classify every rectified regular solid or the whole automorphism-group representation in degree one. All scientific conclusions are finite calculations backed by the supplied checker and certificate. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Saleh–Titz Mite–Witzel compute Platonic-solid vertex-set Rips filtrations and propose Archimedean extension; the present graph is the 30-vertex rectification, not the 20-vertex dodecahedron. Goyal–Shukla–Singh and Adamaszek address radius-one clique complexes of line graphs, which cover the 11-circle stage but neither the integral inclusion scale2→3 nor scale4 sphere. Published Resultary Dürer, Desargues and Nauru intrinsic Rips results are on different graphs.
+
+## value
+
+PASS
+
+The icosidodecahedron is a canonical Archimedean rectification explicitly motivated by the primary paper’s future direction. Identical S² stages do not imply persistence; the exact integral inclusion degree yields a nontrivial full-field barcode and symmetry sign beyond a homotopy-type census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

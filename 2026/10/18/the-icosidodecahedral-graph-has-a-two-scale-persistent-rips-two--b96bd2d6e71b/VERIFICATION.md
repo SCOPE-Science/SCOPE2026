@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the icosidodecahedral graph-metric filtration
+# Independent mathematical audit
 
-Place `verify.py`, `collapse_certificate.json`, and `expected_output.txt` in one directory; run `python3 verify.py`. The program requires only Python 3.10 or newer and its standard library. The exact console transcript should equal the supplied `expected_output.txt` (including both success sentinels).
+## correctness
 
-The program constructs the dodecahedral graph as \(GP(10,2)\), forms its line graph on thirty edge-vertices, checks the complete shortest-path distance spectrum, enumerates **all** simplices of the radius-one, radius-two, and radius-three clique complexes, and replays each of the \(20\), \(471\), and \(7964\) recorded elementary collapse pairs. At every pair the lower simplex has exactly one present immediate coface and that coface is maximal. It independently regenerates an acyclic greedy collapse sequence and verifies the remaining two-dimensional complexes have connected cyclic links, edge multiplicity two, a connected triangle dual graph, and Euler characteristic two.
+PASS
 
-The supplied oriented cycles are checked as integral cycles. The program computes their integer relationship under the simplicial inclusion followed by the certified radius-three collapse map, obtaining an invertible coefficient \(+1\). It also calculates signed antipodal degrees \(-1\) in both two-sphere stages and verifies that the radius-four forbidden-pair graph is a perfect matching of fifteen pairs. This certifies the integral homotopy classifications and all-field barcode.
+Independently regenerated 30 dodecahedron edges, their line graph and exact 30×30 BFS metric. Distance histogram (0:30,1:120,2:240,3:240,4:240,5:30) implies 15 distance-five opposite pairs. Enumerated all 110, 1022 and 15966 nonempty simplices at radii 1,2,3. Independently replayed the entire supplied Git blob efc420204de79f2d7c98fc894b41108d47c408e0: all 20+471+7964 elementary free-face pairs pass alive face, unique coface and maximality checks. Remainders are 30 vertices/40 edges, connected 2-sphere triangulations (15,39,26) and (8,18,12) after vertex-link/edge-incidence/Euler/orientation checks. Independent integral chain retraction maps the radius-2 fundamental cycle to +1 times the radius-3 generator in 62 substitutions; antipodal degrees -1 at both scales. The radius-4 clique complex omits exactly a perfect matching and is the join of fifteen S0, homeomorphic S14; radius 5 is full simplex. Thus barcode is integral/all-field, not only observed over one field.
 
-Limitations: this is a complete computation for the specified thirty-vertex graph, not a general theorem about all Archimedean solids, arbitrary geometrically embedded polyhedra, or arbitrary metric perturbations. The computation has not undergone independent external mathematical audit.
+## originality
+
+PASS
+
+Saleh–Titz Mite–Witzel compute Platonic-solid vertex-set Rips filtrations and propose Archimedean extension; the present graph is the 30-vertex rectification, not the 20-vertex dodecahedron. Goyal–Shukla–Singh and Adamaszek address radius-one clique complexes of line graphs, which cover the 11-circle stage but neither the integral inclusion scale2→3 nor scale4 sphere. Published Resultary Dürer, Desargues and Nauru intrinsic Rips results are on different graphs.
+
+## value
+
+PASS
+
+The icosidodecahedron is a canonical Archimedean rectification explicitly motivated by the primary paper’s future direction. Identical S² stages do not imply persistence; the exact integral inclusion degree yields a nontrivial full-field barcode and symmetry sign beyond a homotopy-type census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
