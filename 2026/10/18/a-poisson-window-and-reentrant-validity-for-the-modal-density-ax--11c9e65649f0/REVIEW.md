@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The argument checks the classical modal correspondence and derives the exact first moment. The factorial-moment proof bounds every tuple of distinct unsupported arcs; configurations sharing endpoints are negligible, and disjoint-endpoint configurations have the correct independent external-witness factor. The finite verifier exhaustively compared semantic frame validity with relational density for all directed loop-free graphs with up to four worlds, and checked the mean count. These finite checks corroborate, but do not replace, the asymptotic proof.
+## correctness
 
-## Originality
+PASS
 
-**PASS, qualified by accessible comparisons.** The motivating 2026 paper concerns finite-frame validity and elementarity; the earlier random-frame papers study almost-sure modal validity and their published available material does not state the precise sparse Poisson window. The closest identified random-graph analogues address undirected triangle factors or strong-component reachability. The current-week accessible finding claims on Poisson laws concern colored equivalence relations, not directed arcs. A general rooted-extension theorem could still imply this result, and unavailable historical full text prevents absolute priority assertions.
+The modal validity equivalence R⊆R² is proven by a countervaluation at any unsupported arc. Exact mean EX=n(n−1)p(1−p²)^(n−2), yielding √(3/2)e^-t under the precise centering. Fixed factorial moments classify disjoint-endpoint r-tuples with independently absent external witnesses and show repeated-endpoint tuples negligible by O_r(n^{2r−1}) counting and Bonferroni factor exp(−rnp²+O_r(np³+p²)). Consequently X→Poisson and Pr(X=0) has the claimed limit. First moment controls high-density regime; trivial small edge count at p=n^-3 and O(1) supported arcs at p=n^-1 demonstrate reentrant validity. Independently enumerated all 4,64,4096 loop-free frames n=2,3,4; valid counts 1,2,88 and exact means 1,2.25,3.375.
 
-## Value
+## originality
 
-**PASS.** The result determines the precise transition window and distribution for a classical modal frame principle, including the correction term and limiting constant. The low/intermediate/high-density examples expose genuine nonmonotonicity, separating this property from ordinary monotone random graph thresholds.
+PASS
 
-## Closest literature and limits
+The precise sparse random-frame Poisson window and reentrant validity are not implied by the accessible published modal almost-sure/graph-reachability statements; the originality assessment is qualified by possible more general random-rooted-extension theory.
 
-Takahashi (2026), Goranko (2020), Goranko and Kapron (2003), Karp (1990), and the Stanford Encyclopedia discussion of density are compared in the accompanying originality record. The theorem is for independently sampled loop-free directed arcs, and not an unrestricted random-frame universality assertion. Several historical full texts were unavailable, and no independent audit is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical modal density has a concrete universal frame condition; locating an explicit sparse Poisson window including a half-log-log shift supplies quantitative finite-model semantics missing from constant-p almost-sure validity. The demonstrated low/intermediate/high-density reentrance is structurally nonmonotone and nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
