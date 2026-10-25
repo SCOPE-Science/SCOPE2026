@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Unit support widths follow from explicit integral feasible witnesses for every defining inequality. The exact reflected-containment criterion yields the optimizer inequalities. A longest-chain budget gives a sharp lower bound, while longest-path potentials attain it. The center-dimension proof identifies equality constraints used by longest chains and constructs a simultaneously strict point for all remaining constraints. The standalone integer verifier checks 33,866 finite naturally labeled poset/partition instances and 175,583 compressed arcs. Finite enumeration does not replace the analytic proof.
+## correctness
 
-**Originality — PASS, with risk.** Fang–Fourier introduced the polytopes; Fang–Fourier–Pegel address Minkowski sums and reflexivity; Ahmad–Fourier–Joswig address facet structure and face-number monotonicity. The general order-polytope and perfect-graph stable-set-polytope center formulas cover the two endpoint polytopes, not arbitrary interpolating partitions. None of the materially inspected primary works states the claimed all-partition asymmetry and dimension invariances. An existing theorem for all two-level or marked-poset polytopes might imply them under different terminology and remains the principal residual risk.
+PASS
 
-**Value — PASS.** This is a full affine-invariant classification for an entire naturally motivated interpolation, not a selected small instance. It remains true when endpoints are not affinely equivalent and face vectors change, and it classifies exactly when and in how many dimensions optimal centers are nonunique for nonpure posets. The result connects longest-chain combinatorics with the geometry of an infinite family without assuming rankedness or admissibility.
+For each standard unmarked chain–order defining inequality, explicit 0/1 feasible witnesses give exact unit width, even for redundant inequalities; then reflected containment with ratio λ is equivalent to all support slacks≥1/(λ+1). Contract saturated runs of C variables into arcs among O and marked endpoints. Any bottom–top path through h poset elements forces q≤1/(h+1); longest-chain rank potential d and x_c=q achieve equality. Every longest path saturates all its inequalities, fixing coordinates in U; for every noncritical coordinate/arc, increasing its required slack by small ε<q leaves all top-path budgets feasible, and averaging produces a point strict on all other inequalities, leaving |P minus U| independent perturbable coordinates. Checked actual finite-integer verifier and its 33,866 cases n≤5 scope; all-poset inference rests on DAG proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Previously published Resultary h/dim theorem already fully covers the order-polytope endpoint, which is not counted novel. Fang–Fourier–Pegel investigate Minkowski sums, not Minkowski asymmetry, while other primary work concerns facets. The all-partition extension and exact center locus survive best-of-knowledge comparison, with a two-level polytope equivalence risk.
+
+## value
+
+PASS
+
+A full structural classification of affine Minkowski center geometry for every finite poset and arbitrary partition, including nonadmissible ones; sharp unique-center criterion in nonpure cases and entire optimal-center linear constraints. It goes substantially beyond the known order-polytope endpoint and is a useful invariant of a natural interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
