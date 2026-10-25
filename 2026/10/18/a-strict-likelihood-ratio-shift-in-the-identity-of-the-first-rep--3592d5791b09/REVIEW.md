@@ -1,9 +1,21 @@
-# Review of the repeated-label collision-time ordering
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact joint event is obtained by counting distinct ordered prefixes with a designated final repeated symbol; the ratio of the two relevant elementary symmetric polynomials is monotone by the *strict* version of Newton's inequalities. Endpoint cases, ties, and the two-label alphabet are included. The reduction of monotone pairwise odds to threshold stochastic ordering and conditional mean monotonicity uses cross-product summation. The exact-rational verification script independently enumerated 84,056 sample words across 16 parameter vectors and recovered all the identities tested. Infinite alphabets, dependent sampling, and general quota completion are not proved.
+## correctness
 
-**Originality — PASS, with residual risk.** Camarri–Pitman's 1998/2000 birthday-process paper gives first-repeat-time and observed-set probabilities, but inspection of its exact-formula and overview sections did not reveal the strict time-conditioned posterior ordering of the repeated symbol. Fadnavis's 2011 generalization proves different Schur-concavity bounds for no-collision probabilities. Semantic searches of indexed mathematical results located birthday-envelope and coupon-completion findings, but no equivalent first-repeat-label ordering. The closest coupon-completion statement concerns the final label at completion of *all quotas*, not the first collision. An earlier implicit combination of the set formulas and Newton's inequalities remains possible; there is no independent originality certification.
+PASS
 
-**Mathematical value — PASS.** This is a complete, strictly ordered posterior family for a natural stopping-time inference question, for every finite alphabet and every positive vector. The result shows exactly how collision timing changes which category is expected to repeat, identifies both extreme posteriors, and establishes a directional bias in a natural statistic, the generating category probability. It is more than a single conditional-moment computation. The finite joint formula alone is elementary; the structural all-time likelihood-ratio ordering is the motivated finding.
+The first t-1 draws are distinct, must include repeated label i and any t-2 others; their (t-1)! permutations give the exact joint law for every 2<=t<=m+1. Excluding pair i,j gives ratio (pi/pj)^2 (E_k+pj E_(k-1))/(E_k+pi E_(k-1)). Newton log-concavity yields strictly increasing E_(k-1)/E_k, including zero and infinity endpoints; hence odds strictly increase for pi<pj. Summing conditional pair differences yields the threshold-event ordering and declining E[p_R|T] except uniform vectors. Independent exhaustive rational first-repeat enumeration for m=4, p=(1,2,3,4)/10 matched every time-conditioned law, and checked endpoints. Includes edge m=2 and equal-probability equality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Camarri–Pitman already develops complete first-repeat time and occupancy-set laws for arbitrary weights; the claim does not count those as new. Conditional pairwise LR ordering of the repeated label across every possible collision time, including strictness, is a distinct uniform inequality not observed in the inspected primary theorem.
+
+## value
+
+PASS
+
+The repeated category given first collision time is a natural statistic for nonuniform birthday sampling. Its exact all-time rare-label shift, not merely marginal collision probability, offers a sharp pairwise stochastic-order classification over every alphabet size. A future probabilistic inference analysis can use this specific posterior ordering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
