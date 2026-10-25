@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The all-parameter spectrum follows by characterizing maximum feasible white complements, splitting the exchange graph into full transversals and one-missing-part configurations, and decomposing its Laplacian by coordinatewise constant and zero-sum tensor modes. The resulting blocks yield the displayed quadratic factors, nontrivial multiplicities, spectral gap, and matrix-tree product. Exact independent integer determinant/cofactor checks at five parameter pairs and forcing-process enumeration support the proof; they are not substituted for the infinite proof.
+
+**Originality — PASS, with residual risks.** The 2018 zero-forcing-polynomial work and 2020 zero-forcing-reconfiguration paper supply the motivation but not the spectral calculation. The 2026 common-clique-union paper already supplies the underlying forcing-set and polynomial classification, which is therefore explicitly excluded from the claimed novelty. The closest located published spectral matroid result treats rank-two matroids with a single parallel class; it does not imply the stated rank-at-least-three uniform truncation spectrum. Exact phrase, alias, matroid reduction, and semantic literature-index searches produced no matching full factorization. This is a best-knowledge priority determination, not a uniqueness certificate. Unindexed truncated-partition-matroid spectral results remain a genuine risk.
+
+**Mathematical value — PASS.** The statement gives the complete eigenvalue distribution for an infinite, nonregular family of reconfiguration graphs rather than a routine parameter increment. The block decomposition establishes a closed algebraic-connectivity formula and an exact, rapidly growing spanning-tree count. These data measure quantitative robustness and potential convergence behavior of a natural zero-forcing solution space; neither is implied by simply counting zero-forcing sets.
+
+The scope is restricted to uniform clique bouquets with at least three petals of peripheral size at least two. Finite verification cannot establish the unbounded quantifiers. Independent validation is not represented as completed.
+
+Self-review: passed. Independent audit: not yet performed.
