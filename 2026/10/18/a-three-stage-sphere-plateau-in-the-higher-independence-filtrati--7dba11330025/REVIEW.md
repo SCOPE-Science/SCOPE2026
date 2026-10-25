@@ -1,15 +1,21 @@
-# Scientific review: Grötzsch higher-independence filtration
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph is defined explicitly by twenty edges, and every one of the 2,048 vertex masks is checked against the exact induced-component definition by both flood fill and union-find. Two standalone certificates list 195 successive elementary collapses from the third to the first higher-independence complex; each certificate is replayed against the live face poset, checking that every proposed lower face has exactly one remaining immediate coface. The first stage and all stages four through ten admit fully specified sequential-element acyclic matchings, tested against every covering incidence of each entire augmented face poset. The only unmatched faces lie in one positive dimension. Standard discrete-Morse homotopy theory yields integral wedges of spheres, and the literal collapses yield the asserted inclusion-level persistence. An independent mod-two chain-rank computation agrees at all eleven thresholds, but is not itself the integral proof.
+## correctness
 
-## Originality
-**PASS, with stated residual bibliographic uncertainty.** The May 2019 original-independence suspension theorem already gives the first-stage sphere and is excluded from the novelty claim. The January 2020 higher-independence classification covers complete multipartite, fully whiskered, path, cycle and perfect-ary tree families, not the Grötzsch Mycielskian or its inclusion diagram. The 2021 chordal higher-independence theorems exclude this nonchordal graph, and recent generalized-Mycielski results concern ordinary independence, not its higher thresholds. Available published same-graph matching and graph Čech results are different complexes. The closest separately found two-stage collapse for the Chvátal graph does not imply the three-stage collapse or the full filtration on this graph. Exact statement and alias searches found no equivalently strong existing result; negative retrieval is not proof of uniqueness. A previously unindexed paper remains a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** This finite graph is the canonical Mycielski witness that triangle-freeness does not force three-colorability. The comparison with the known ordinary independence suspension makes its higher-threshold inclusion behavior a natural question, rather than an arbitrary parameter slice. The exact two successive simplicial collapses give a rare inclusion-level topological plateau, rather than independent ranks. Their sharp termination at the next stage and the complete subsequent integral sphere-wedge sequence determine the entire persistence module over the integers. The high-threshold skeleton-like terms are less surprising and are not claimed as standalone breakthroughs; the plateau and its full filtration context carry the value. A general Mycielskian theorem and equivariant information are not established.
+The Grötzsch Mycielski graph is reconstructed with exactly 11 vertices and 20 edges. Independent exhaustive BFS/union-find comparison over all 2048 subsets verifies induced-component maximum, total stage face counts (103,313,493,763,1135,1521,1821,1981,2036,2047,2048). Verified 90 codimension-one free-face pairs collapse I3 exactly to I2 and 105 pairs collapse I2 exactly to I1. Independently reconstructed sequential-element Morse matchings on all face-poset incidences at r=1,4,..,10, acyclic under directed Hasse topological ordering: only 1 critical 2-face at r=1 and (59,151,175,115,45,10,1) critical faces at dimensions 3..9 for r4..10, respectively, with empty-face matching producing one 0-cell. Discrete Morse CW models hence wedges of spheres integrally; r>=11 full simplex. Homology degree mismatch forces only the S² generator to persist through stages 1–3, later bars supported at a single stage. This complete 2048-subset computation is a proof for the finite graph, not an extrapolation.
 
-## Closest literature and limitations
-Deshpande–Singh (arXiv:2001.05448) develops higher-independence complexes and finite acyclic matchings; Goyal–Shukla–Singh (arXiv:1905.06926) handles the already-known ordinary-independence Mycielski suspension; Abdelmalek et al. (arXiv:2106.10863) treat chordal graph families; Carnero Bravo (arXiv:2601.13432) studies ordinary independence of generalized Mycielskians. Searches also considered the same-graph matching and graph Čech complexes and other-graph inclusion-collapse results. No source among the materially inspected primary works states the present full higher-independence filtration. This is an eleven-vertex computation-assisted homotopy classification, without independently established priority or mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goyal–Shukla–Singh Mycielskian suspension theorem already proves the I1≃S² baseline. Deshpande–Singh framework and existing computations for paths, cycles, complete multipartite, whiskered and perfect trees do not classify the higher induced-component filtration of this triangle-free nonchordal graph. The new result is exhaustive higher thresholds and inclusion-level persistence, not ordinary graph independence homotopy alone.
+
+## value
+
+PASS
+
+A canonical small triangle-free 4-chromatic graph provides a natural test of higher-independence topology. Exact integral wedge classifications for every threshold, plus the unexpected I1→I2→I3 simple-homotopy plateau and complete persistent homology, give a reusable finite benchmark well beyond the already known I1 sphere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
