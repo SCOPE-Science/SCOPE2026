@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:53:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inspected proof fixes the inner product linear in its first variable and correctly transforms conjugate-linear coefficient matrices by unitary congruence. Splitting unitary M into symmetric S and skew K gives K* K=b²I, and a Cayley–Hamilton SU(2) identity yields S* S=a²I. Takagi congruence gives canonical real M=[[a,b],[-b,a]], including a=0. For a unit x the self-overlap modulus fills m∈[0,a]. Each allowed y=qbar x+s exp(i phi)v, and ||Ax||=c, so the possible |<Ax,y>| at fixed x are exactly [|tm−s sqrt(c²−m²)|,tm+s sqrt(c²−m²)]. Connectedness and simultaneous phase rotation fill every annular radius/argument; maximizing and minimizing over m give the claimed piecewise sharp formulas. Check pure symmetric a=c/b=0, pure skew a=0/b=c, q=0 and |q|=1 explicitly. Inspected check.py Gram constraints and extremizers, but these finite examples are supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 paper general real-linear operators, topology only for dimension 2",
+          "2025 paper focuses ordinary real-linear/antilinear numerical ranges"
+        ],
+        "reasoning": "A broader *domain* does not dominate a sharper *explicit formula* unless it calculates these radii. Known broad q-annulus theorem does not give these two transition thresholds in its stated results.",
+        "searches": [
+          "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+          "arXiv:2508.04347v1",
+          "arXiv:2610.16823v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.16823v1",
+        "https://arxiv.org/html/2508.04347v1",
+        "https://doi.org/10.1007/s00020-024-02768-5",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-constrained-numerical-annuli-for-planar-antiunitaries--6b0114c92bf7",
+        "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+        "arXiv:2610.16823v1 Remark 6.7",
+        "Kołaczek Müller antilinear numerical range",
+        "arXiv:2508.04347v1",
+        "arXiv:2610.16823v1",
+        "Resultary ID 2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e",
+        "Majumdar Müller Example 6.3 and Remark 6.7",
+        "Kołaczek Müller 2024 ordinary disk"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Majumdar–Müller explicit pure-skew example corresponds to a=0",
+          "Ordinary q=1 disk has radius a"
+        ],
+        "reasoning": "Special cases agree as they must, but their assertions do not determine the two-piece outer radius and hole-closing threshold for general 0<a,b<c.",
+        "searches": [
+          "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+          "Majumdar Müller Example 6.3 and Remark 6.7",
+          "Kołaczek Müller 2024 ordinary disk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Majumdar–Müller §6 proves rotational annulus with implicit endpoints",
+          "RESULT.md expresses exact endpoints via a,b,c invariant under unitary congruence"
+        ],
+        "reasoning": "The qualitative annulus is not novel; checking equivalence requires deriving both closed invariants from their general infimum/supremum. Such exact result was not stated in the source material inspected. Pure-skew and q=1 cases are explicitly covered.",
+        "searches": [
+          "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+          "arXiv:2610.16823v1 Remark 6.7",
+          "Kołaczek Müller antilinear numerical range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rank-one q and rho numerical radii concern complex-linear operators, not scalar antiunitaries"
+        ],
+        "reasoning": "The claim is an operator-family exact annulus classification rather than a database lookup. The Resultary rank-one and Jordan-shift q-radius families lack the conjugate-linear invariants b,a.",
+        "searches": [
+          "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+          "Resultary ID 2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e"
+        ]
+      },
+      "rationale": "The closest Majumdar–Müller 2026 paper already defines the same q-generalized range, derives circular symmetry and planar annulus topology with implicit infimum/supremum radii (Remark 6.7), and treats the pure-skew boundary (Example 6.3). Those are COVERED subclaims; no novelty is claimed for them. Relevant full §6 does not supply the two congruence-invariant closed formulas or independent sharp thresholds. Kołaczek–Müller 2024/2025 cover ordinary numerical range q=1 rather than complete constrained family; Resultary rank-one q papers are complex-linear operators and do not dominate this antiunitary result. Older equivalent parametrizations remain a literature risk.",
+      "residual_risks": [
+        "Older equivalent formulas for unitary congruence classes may exist; full Hur–Lee and Chien–Nakazato texts were not reviewed.",
+        "Majumdar–Müller 2026 establishes annulus existence, hence only precise formulas and sharp thresholds, not qualitative geometry, are original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general circular geometry and implicit annulus; no inspected explicit two-invariant antiunitary endpoint theorem",
+          "evidence": "2026 arXiv §6, pure-skew example and Remark 6.7",
+          "identifier_or_url": "https://arxiv.org/html/2610.16823v1",
+          "material_read": "Full available §6, including Definition 6.1, Example 6.3, Remark 6.7 and their formulas",
+          "method": "Read full relevant primary section",
+          "title": "Some Generalized Numerical Ranges of Real-linear Operators on Hilbert Spaces",
+          "trigger": "Same generalized q-range definition and planar annuli"
+        },
+        {
+          "assessment": "Ordinary range is a distinct one-vector case, no full constrained two-vector radii",
+          "evidence": "2025 arXiv primary work",
+          "identifier_or_url": "https://arxiv.org/html/2508.04347v1",
+          "material_read": "Full accessible main theorems on ordinary numerical range",
+          "method": "Read accessible full text",
+          "title": "Real linear operators and numerical ranges",
+          "trigger": "Antilinear numerical-range foundational work"
+        },
+        {
+          "assessment": "Covers q=1 disk; complete full article not established as read",
+          "evidence": "Kołaczek–Müller 2024",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-024-02768-5",
+          "material_read": "Bibliographic summary and stated main disk result",
+          "method": "Read accessible abstract and cited theorem description",
+          "title": "Numerical Ranges of Antilinear Operators",
+          "trigger": "Earlier ordinary numerical-range disk theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-parameter classification with two independently ordered transitions is a motivated refinement of the known annulus-existence theorem, revealing where the central hole vanishes and the operator norm stops being attained; the pure symmetric/skew limits are intrinsic geometry, not an arbitrary small numeric instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.16823v1",
+    "https://arxiv.org/html/2508.04347v1",
+    "https://doi.org/10.1007/s00020-024-02768-5",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-constrained-numerical-annuli-for-planar-antiunitaries--6b0114c92bf7",
+    "antilinear antiunitary q numerical range dimension 2 explicit annulus radii constrained two vector",
+    "arXiv:2610.16823v1 Remark 6.7",
+    "Kołaczek Müller antilinear numerical range",
+    "arXiv:2508.04347v1",
+    "arXiv:2610.16823v1",
+    "Resultary ID 2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e",
+    "Majumdar Müller Example 6.3 and Remark 6.7",
+    "Kołaczek Müller 2024 ordinary disk"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complex dimension exactly 2; c>0 scalar multiple of an antiunitary; does not claim general contractions or higher dimension.",
+    "Finite numerical checker is not infinite proof or external attestation."
+  ],
+  "residual_risks": [
+    "Older equivalent formulas for unitary congruence classes may exist; full Hur–Lee and Chien–Nakazato texts were not reviewed.",
+    "Majumdar–Müller 2026 establishes annulus existence, hence only precise formulas and sharp thresholds, not qualitative geometry, are original."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers general circular geometry and implicit annulus; no inspected explicit two-invariant antiunitary endpoint theorem",
+      "evidence": "2026 arXiv §6, pure-skew example and Remark 6.7",
+      "identifier_or_url": "https://arxiv.org/html/2610.16823v1",
+      "material_read": "Full available §6, including Definition 6.1, Example 6.3, Remark 6.7 and their formulas",
+      "method": "Read full relevant primary section",
+      "title": "Some Generalized Numerical Ranges of Real-linear Operators on Hilbert Spaces",
+      "trigger": "Same generalized q-range definition and planar annuli"
+    },
+    {
+      "assessment": "Ordinary range is a distinct one-vector case, no full constrained two-vector radii",
+      "evidence": "2025 arXiv primary work",
+      "identifier_or_url": "https://arxiv.org/html/2508.04347v1",
+      "material_read": "Full accessible main theorems on ordinary numerical range",
+      "method": "Read accessible full text",
+      "title": "Real linear operators and numerical ranges",
+      "trigger": "Antilinear numerical-range foundational work"
+    },
+    {
+      "assessment": "Covers q=1 disk; complete full article not established as read",
+      "evidence": "Kołaczek–Müller 2024",
+      "identifier_or_url": "https://doi.org/10.1007/s00020-024-02768-5",
+      "material_read": "Bibliographic summary and stated main disk result",
+      "method": "Read accessible abstract and cited theorem description",
+      "title": "Numerical Ranges of Antilinear Operators",
+      "trigger": "Earlier ordinary numerical-range disk theorem"
+    }
+  ]
+}

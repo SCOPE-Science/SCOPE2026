@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every scaled antiunitary on complex dimension two and every complex \(q\) of modulus at most one. The congruence-invariant skew magnitude \(b\) and the complementary symmetric magnitude \(a\) are established by a direct \(SU(2)\) trace identity. Takagi factorization gives the explicit real canonical matrix. The exact one-vector overlap interval and two-vector phase decomposition reduce both radii to scalar optimization over a closed interval. Endpoints and the pure symmetric/skew exceptions are checked in the proof; the numerical checker is supplementary, not a substitute for those arguments.
+PASS
 
-## Originality — PASS with residual priority risk
+The inspected proof fixes the inner product linear in its first variable and correctly transforms conjugate-linear coefficient matrices by unitary congruence. Splitting unitary M into symmetric S and skew K gives K* K=b²I, and a Cayley–Hamilton SU(2) identity yields S* S=a²I. Takagi congruence gives canonical real M=[[a,b],[-b,a]], including a=0. For a unit x the self-overlap modulus fills m∈[0,a]. Each allowed y=qbar x+s exp(i phi)v, and ||Ax||=c, so the possible |<Ax,y>| at fixed x are exactly [|tm−s sqrt(c²−m²)|,tm+s sqrt(c²−m²)]. Connectedness and simultaneous phase rotation fill every annular radius/argument; maximizing and minimizing over m give the claimed piecewise sharp formulas. Check pure symmetric a=c/b=0, pure skew a=0/b=c, q=0 and |q|=1 explicitly. Inspected check.py Gram constraints and extremizers, but these finite examples are supplemental.
 
-Kołaczek–Müller (2024, 2025) establishes the **ordinary** \(q=1\) disk geometry and real-linear numerical-range fundamentals, which are credited. Majumdar–Müller (2026-10-12) establishes the **qualitative** planar \(q\)-annulus and a pure-skew example, and states only implicit extremal radii in Remark 6.7. The claimed new contribution is the explicit simultaneous formulas for the complete scaled planar antiunitary class, with the two independent sharp thresholds and complete endpoint treatment. Database comparison found near results for *complex-linear* rank-one \(q\)-numerical radii but no dominating antiunitary theorem. Risks include older equivalent formulations and inaccessible full text of Hur–Lee and Chien–Nakazato.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact annulus radii distinguish conjugations, symplectic antiunitaries, and intermediate congruence classes using only two operator invariants. The central-hole and outer-norm transitions need not coincide, giving a nontrivial phase diagram for the basic two-vector extension of antilinear numerical ranges. The full parameter classification and all boundaries go beyond the known existence/topology result.
+The closest Majumdar–Müller 2026 paper already defines the same q-generalized range, derives circular symmetry and planar annulus topology with implicit infimum/supremum radii (Remark 6.7), and treats the pure-skew boundary (Example 6.3). Those are COVERED subclaims; no novelty is claimed for them. Relevant full §6 does not supply the two congruence-invariant closed formulas or independent sharp thresholds. Kołaczek–Müller 2024/2025 cover ordinary numerical range q=1 rather than complete constrained family; Resultary rank-one q papers are complex-linear operators and do not dominate this antiunitary result. Older equivalent parametrizations remain a literature risk.
 
-## Limitations
+## value
 
-The formulas apply only in dimension two and only to nonzero scalar multiples of antiunitaries. Mathematical originality is a reasoned best-knowledge assessment, not independent peer verification. A priori stronger earlier results under different names may exist. Finite numerical diagnostics do not prove universal validity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-parameter classification with two independently ordered transitions is a motivated refinement of the known annulus-existence theorem, revealing where the central hole vanishes and the operator norm stops being attained; the pure symmetric/skew limits are intrinsic geometry, not an arbitrary small numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
