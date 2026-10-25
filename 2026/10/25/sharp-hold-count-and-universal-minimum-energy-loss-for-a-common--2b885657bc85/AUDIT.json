@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Exact partition-independent sum of Fourier segment response columns is zero, so rank≤N−1. On the uniform grid with N≥2m+1, ±1,...,±m are pairwise distinct mod N, yielding discrete orthogonality and exactly W_N=π diag(sinc²(jπ/N)I₂). Weighted least squares and sinc monotonicity give the exact energy and sharp π²/4 limit. Direct numeric integral/Gramian tests supplement, not replace, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourdin–Trélat 2020 Theorem 1 guarantees existence for fine partitions under regularity, without sharp N.",
+        "Bourdin–Trélat 2016/2017 describe Riccati and convergence for general LQ problems."
+      ],
+      "reasoning": "A general eventual-reachability theorem cannot imply the exact necessary N≥2m+1 or the sharp finite N energy ratio absent additional exact Fourier computation. General LQ Riccati methods offer a derivation framework, not documented domination of this explicit discrete resource theorem.",
+      "searches": [
+        "sampled data controllability multiple harmonic oscillators discrete Fourier time samples minimum control degrees of freedom full period",
+        "Berlin Galyaev Lysenko Time-Optimal Control Problem of Two Non-Synchronous Oscillators 2022 sampled controls minimum energy Fourier rank",
+        "https://arxiv.org/abs/2006.10983",
+        "https://arxiv.org/abs/2302.02965",
+        "https://arxiv.org/abs/1604.06350"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/math10193552",
+      "https://arxiv.org/abs/2006.10983",
+      "https://arxiv.org/abs/2302.02965",
+      "https://arxiv.org/abs/1604.06350",
+      "https://doi.org/10.25728/ubs.2023.101.2",
+      "https://doi.org/10.1016/j.automatica.2017.02.013"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Berlin et al. 2022: fixed target, bounded control, minimum time.",
+        "Bourdin–Trélat 2020: eventual small-mesh reachability.",
+        "Bourdin–Trélat 2023: limit convergence of sampled optimal trajectories."
+      ],
+      "reasoning": "None of the inspected statements has both a sharp all-partition lower bound and an explicit matched uniform construction with worst-target L2 overhead. Generic Fourier orthogonality is a known mathematical ingredient but does not itself constitute an existing recorded sampled control theorem; undiscovered classical coverage remains possible.",
+      "searches": [
+        "https://doi.org/10.3390/math10193552",
+        "https://arxiv.org/abs/2006.10983",
+        "https://arxiv.org/abs/2302.02965",
+        "https://arxiv.org/abs/1604.06350",
+        "https://doi.org/10.25728/ubs.2023.101.2",
+        "Berlin Galyaev Lysenko Time-Optimal Control Problem of Two Non-Synchronous Oscillators 2022 sampled controls minimum energy Fourier rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Related single-oscillator two-step sampling resonance concerns local rank loss as the step varies; it does not entail the all-mode full-period interval threshold.",
+        "Primary control papers give general eventual reachability or bounded time-optimal switching rather than the present exact sampled-energy law."
+      ],
+      "reasoning": "Searched sine/cosine Fourier sampling, zero-order-hold, rank-one shared actuator, interval-count and weighted Gramian equivalents; the distinct two-step single-mode resonance result does not imply the simultaneous multi-mode resource and energy theorem.",
+      "searches": [
+        "An ensemble of m commensurate harmonic oscillators driven by one piecewise constant common scalar force over a full period needs exactly 2m+1 control intervals for arbitrary terminal reachability",
+        "Exact zero-order hold controllability Gramian of multiple integer-frequency oscillators: Fourier sinc eigenvalues minimum-energy overhead pi squared over four",
+        "sampled data controllability multiple harmonic oscillators discrete Fourier time samples minimum control degrees of freedom full period",
+        "https://doi.org/10.3390/math10193552",
+        "https://arxiv.org/abs/2006.10983",
+        "https://arxiv.org/abs/2302.02965"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest inspected published mathematical results concern cyclic Fourier-projection norms, trigonometric extremal sampling, and discrete fourth-moment quadrature.",
+        "Related single-oscillator sampled-control results differ in object and implication."
+      ],
+      "reasoning": "This is a continuous-time control reachability and energy result, not a table entry; no retrieved database gave exact 2m+1 uniform Fourier energy law.",
+      "searches": [
+        "An ensemble of m commensurate harmonic oscillators driven by one piecewise constant common scalar force over a full period needs exactly 2m+1 control intervals for arbitrary terminal reachability",
+        "Exact zero-order hold controllability Gramian of multiple integer-frequency oscillators: Fourier sinc eigenvalues minimum-energy overhead pi squared over four",
+        "sampled data controllability multiple harmonic oscillators discrete Fourier time samples minimum control degrees of freedom full period",
+        "Berlin Galyaev Lysenko Time-Optimal Control Problem of Two Non-Synchronous Oscillators 2022 sampled controls minimum energy Fourier rank",
+        "harmonic oscillators shared input full period uniform grid reachable Gramian diagonal sinc 2m+1 switch count"
+      ]
+    },
+    "rationale": "Best-knowledge statement-level comparison: bounded bang-bang minimum-time switching conditions (Berlin et al. 2022) do not imply unconstrained fixed-horizon sampled minimum-energy reachability. General robust small-mesh reachability/convergence theorems (Bourdin–Trélat) do not fix the exact minimal number 2m+1 or furnish explicit sinc energy spectrum. Other known sampled-oscillator resonance and Fourier projection results address different questions and do not imply the stated all-mode resource-and-energy theorem. Residual risks explicitly stated.",
+    "residual_risks": [
+      "Classical Fourier controllability/periodic signal reconstruction might have a synonymous exact formula not located by semantic search.",
+      "The full publisher text of the 2022 shared-oscillator article could not be reviewed in its entirety; the scientific comparison therefore preserves residual coverage uncertainty.",
+      "Complete primary text of 2016 general LQ work and 2023 Russian-language switching paper was not fully read, though available statements do not decisively cover the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The authors optimize terminal time with a bounded common relay input and examine switching classes; no indexed statement implies the fixed-full-period unconstrained minimum L2 energy and multi-harmonic DFT spectrum. Access gap retained as originality risk.",
+        "evidence": [
+          "https://www.mdpi.com/2227-7390/10/19/3552",
+          "publisher article dated 2022-09-29; Section 2 state equations and |u|<=epsilon, Section 7 describes time-optimal bounded-relay objective"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10193552",
+        "material_read": "Publisher indexed full-section material including abstract, introduction, explicit system and control constraints in Section 2, conclusions and appendix excerpts; the entire article was not accessible for uninterrupted full-text review, so the uninspected portions were not treated as proof of absence.",
+        "method": "Search-indexed public OA text and section-by-section comparison of equation and objective",
+        "title": "Time-Optimal Control Problem of Two Non-Synchronous Oscillators",
+        "trigger": "Same shared scalar actuator and oscillator dynamics; 2022 anchor, primary MSC49N05"
+      },
+      {
+        "assessment": "Proves eventual reachability under sufficiently small mesh, without determining smallest N for the exact full-period harmonic family, and does not give energy ratios. It is consistent with, but does not imply the exact formula.",
+        "evidence": [
+          "https://arxiv.org/abs/2006.10983",
+          "Theorem 1 explicitly has an existential delta small-mesh threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.10983",
+        "material_read": "Accessible original arXiv HTML introduction and model, the definitions of sampled partitions, Theorem 1, and the stated regularity/reachability implications.",
+        "method": "Read original source statement, hypotheses, and implications to linear controllability",
+        "title": "Robustness under control sampling of reachability in fixed time for nonlinear control systems",
+        "trigger": "Direct stronger general sampled-data reachability theorem"
+      },
+      {
+        "assessment": "Shows convergence of sampled optimal state/control extremals in fine-partition limit, not exact finite switch budget or dimension-uniform overhead.",
+        "evidence": [
+          "https://arxiv.org/html/2302.02965v1",
+          "Section 3 describes small-mesh state/costate convergence; Appendix A gives averaged piecewise-constant approximations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.02965",
+        "material_read": "Accessible original arXiv HTML, including the introduction, sampled-control framework, Section 3 main theorem and remarks, and Appendix A on piecewise constant controls.",
+        "method": "Inspect theorem scope and quantitative claims",
+        "title": "Convergence in nonlinear optimal sampled-data control problems",
+        "trigger": "Potentially stronger published convergence theorem subsuming exact energy loss"
+      },
+      {
+        "assessment": "General Riccati, feedback and convergence theory does not state the exact Fourier-sinc Gramian or necessary and sufficient 2m+1 full-period sample count in the material reviewed. Remaining full-text risk disclosed.",
+        "evidence": [
+          "https://arxiv.org/abs/1604.06350",
+          "https://doi.org/10.1016/j.automatica.2017.02.013"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.06350",
+        "material_read": "Public original arXiv abstract plus publisher detailed introduction and Theorem 1/Theorem 2 descriptions; complete PDF not reviewed.",
+        "method": "Compare theorem goals and stated formulas by mathematical implication",
+        "title": "Linear-quadratic optimal sampled-data control problems: convergence result and Riccati theory",
+        "trigger": "Exact general LQ sample-and-hold theory potentially dominating special-case energy formula"
+      },
+      {
+        "assessment": "Study describes two-switch bang-bang time-optimal controls, not fixed-time sampled controllability for all targets.",
+        "evidence": [
+          "https://journals.rcsi.science/1819-2440/article/view/360588"
+        ],
+        "identifier_or_url": "https://doi.org/10.25728/ubs.2023.101.2",
+        "material_read": "Journal HTML title, abstract, references and supplementary links; Russian full article not read.",
+        "method": "Compare time-optimal bounded-relay switching objective against sampled unconstrained L2 energy",
+        "title": "About two-switching control class in the time-optimal control problem of two non-synchronous oscillators",
+        "trigger": "Same oscillator setting, alternative switching-count claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b885657-bc85-490f-911c-90b89c3a6456",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim solves a natural minimal sample-hold resource problem in a multi-mode single-input control family exactly, including a lower bound valid for arbitrary partition knots and a matching uniform design. Its sharp universal π²/4 bound controls worst-target extra minimum energy at the precise minimal hold budget, providing a nontrivial quantitative finite-design benchmark. The scope is physically motivated by common-actuator oscillators and is not a gratuitous numerical instance.",
+    "status": "PASS"
+  }
+}
