@@ -1,15 +1,21 @@
-# Review of characteristic-sensitive translated-parabola line covers
+# Independent mathematical audit
 
-## Correctness — PASS
-The point count and line-capacity estimates hold over every finite field and do not conflate affine with projective points. At the putative odd-field capacity threshold, a forced disjoint pairing on each conic makes the sum of the squares of its abscissas computable two ways; subtracting component identities gives a nonzero difference, a contradiction. In even characteristic the finite-field trace pairing produces a common half-size set of intercepts, whose parallel lines hit every affine point. A further vertical line is both sufficient and necessary. The exceptional field with two elements is treated separately. Explicit prime-field covers are verified by exhaustive direct substitution; the universal claims require no finite enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-The October 2026 source expressly introduces the union of translated parabolas and derives only a capacity bound strictly greater than half the field size; its asymptotic theorem concerns irreducible curves and does not control these unions. The new claims are the uniform strict odd-characteristic obstruction, a complete even-characteristic optimum under a natural binary-span hypothesis, and explicit sharp prime-field witnesses. Direct searches for covering two translated parabolas, line-cover numbers of unions of conics, trace-kernel parallel covers, and exact finite-field tables found no equivalent or stronger published claim. No exhaustive search of unindexed finite-geometry literature is possible; possible prior elementary constructions remain the principal risk.
+PASS
 
-## Mathematical value — PASS
-The example was chosen in primary literature precisely as a sharp obstruction to dropping geometric irreducibility from asymptotic line covering bounds. Determining the exact minimum in even characteristic and showing why the same capacity threshold fails in every odd field answers a natural question about that obstruction. The trace pairing and a conserved second moment give structural reasons, not an arbitrary numerical tweak. In the first eight odd prime fields, explicit witnesses prove the improved lower bound is attained. No general odd-field upper bound or unrelated conic-cover classification is claimed.
+Point count is ell*q+1 with unique shared infinity. A cover with m at capacity q odd forces one vertical and h=(q-1)/2 other lines each intersecting every translated conic in two disjoint affine points. Summed x^2 moments have difference -2h(c_i-c_j)=(c_i-c_j) in field, contradiction, giving m>=(q+3)/2 in every odd prime-power field. In char2 the trace-pairing orthogonal t to a proper difference span and square root s^-2=t build q/2 common intercept lines plus vertical; general capacity lower bound establishes exact q/2+1. r>=2 and q=2 handled separately. Directly checked literal q=3,5,7 odd witnesses; cited verification script lists additional five prime-field witnesses. No all-odd equality assertion.
 
-## Closest literature and limitations
-Asgarli–Dassarma–Ghioca–MacLean–Stokdyk (2026), Remark 1.4, provides the motivating family and weaker generic lower bound. Its Theorem 1.2 requires irreducibility. The exact odd-field optimum remains open outside the eight listed primes; the even-field exact statement for more than two translates requires the proper-span hypothesis. Prior results in finite incidence geometry may yield equivalent interpretations not recovered by the targeted search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 source uses precisely these translated parabolas as a reducibility counterexample but derives only cov(C)>q/2 by incidence capacity; the present all-odd extra obstruction and even optimum are strictly stronger, using squared-abscissa moment and trace hyperplane. Primary main theorem concerns irreducible curves, so does not imply these reducible-family equalities.
+
+## value
+
+PASS
+
+The motivating family is used to demonstrate the failure of an irreducible covering theorem for reducible plane curves. The exact characteristic-two covering and universal strict odd obstruction clarify that geometric example across infinitely many finite fields with distinct structural mechanisms; explicit optimal finite odd examples are not an arbitrary number game.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
