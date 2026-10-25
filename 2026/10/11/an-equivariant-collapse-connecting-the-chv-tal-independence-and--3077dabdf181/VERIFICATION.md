@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_morse.py`, `python verify_independent.py` and `python verify_equivariant.py` in a directory containing all three programs and `MORSE_CERTIFICATE.json`. All use only the Python standard library.
+## correctness
 
-A third checker, `verify_equivariant.py`, enumerates all 126 faces of the independence complex and the 110 faces of the neighborhood complex, certifies that precisely eight free triangles each have a unique tetrahedral coface, verifies all sixteen deleted simplices, and checks that the eight dihedral automorphisms act transitively with equal trivial stabilizers on both simplices of each pair. Thus the inclusion is an equivariant simplicial collapse, not merely a homology isomorphism.
+PASS
 
-The first checker independently reconstructs all nonempty faces and confirms the exact stored face masks and 54 matched cover pairs, with two critical masks `1` and `672`. Directed Hasse edges number 264 and a topological sort exhausts all 110 faces. Forman's acyclic-matching theorem then provides the claimed integral sphere homotopy type.
+For the explicit 12-vertex, 24-edge triangle-free graph, independent finite enumeration gives K=N(G) with face vector (12,42,44,12) and L=Ind(G) with (12,42,52,20). Exactly eight surplus triangles are uniquely free in L, each paired to a distinct surplus tetrahedron, with no other extra faces, and all eight pairs form one free orbit of the exhaustively enumerated 8-element D4 automorphism group. Independently reconstructed greedy face-poset matching on K has 54 disjoint matched incidences, critical masks {1,672}, all 264 cover edges acyclic in a 110-vertex topological sort. Forman gives one 0-cell and one 2-cell, hence S² integrally. Exhaustive graph coloring gives χ=4; signed fixed-face alternating traces on r,s,rs equal (-1,-1,+1), hence orientation degree (-1)^{a+b} over integral H2. Code and source tree verified; finite enumeration is exhaustive for this single graph, not a statement about all graphs.
 
-The second checker reconstructs the complex from a separate neighbor list and verifies all four face counts and the modular simplicial boundary ranks `11,31,12` for primes `2,3,5,101`. It uses an exhaustive graph-coloring search, not a numerical estimate, to certify non-three-colorability and the explicit four-coloring. It independently enumerates all adjacency-preserving graph permutations, finds exactly eight, and calculates signed traces for every automorphism; the generating degrees are `-1,-1`.
+## originality
 
-The finite calculations exhaust this particular twelve-vertex graph. The modular homology ranks alone would not prove its integral homotopy type or the equivariant character; the separate acyclic Morse certificate and the integer signed fixed-simplex calculation establish those stronger claims. No independent external audit is asserted.
+PASS
+
+No earlier independently published calculation of the actual inclusion N(G) into Ind(G), its single free D4 orbit of eight elementary collapses, or the signed dihedral orientation character was found. The published same-graph Ind(G) sphere/vertex-deletion classification partially covers the shared homotopy type but does not imply the relative equivariant collapse; Barmak's triangle-free suspension theorem and Shukla's degree-3/circulant neighborhood classification do not cover the finite relative statement. Best-of-knowledge, with unindexed same-graph computations and inaccessible 1970 construction article recorded as residual risks.
+
+## value
+
+PASS
+
+The Chvátal graph is a canonical extremal triangle-free four-chromatic graph. The exact graph-automorphism-equivariant *relative* inclusion between two fundamental graph complexes is a natural structural question not answered by an abstract Ind(G) sphere calculation. A single free dihedral orbit of elementary collapses explains why the Lovász neighborhood-complex connectivity obstruction is sharp, while the D4 homology orientation character is a natural, symmetry-sensitive exact invariant. The scope is one important fixed finite graph, not a family classification. Its known χ=4 and Ind sphere are not independent gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

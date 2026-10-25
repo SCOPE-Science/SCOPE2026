@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has finite, independently specified data. An independent-set enumerator verifies all 126 nonempty faces of the independence complex and proves that its sixteen faces absent from the 110-face open-neighborhood complex form precisely eight free triangle/tetrahedron pairs. The eight verified dihedral automorphisms act freely and transitively on these pairs, so one orbit of admissible equivariant elementary collapses gives a simplicial strong deformation retraction onto the neighborhood complex. All 110 nonempty open-neighborhood simplices and the 54 Morse cover pairs are reconstructed in `verify_morse.py` and recorded in `MORSE_CERTIFICATE.json`. The checker orients all 264 non-augmented Hasse incidences and confirms an acyclic 110-vertex directed graph, leaving a single vertex and a single two-simplex critical. Forman's theorem produces a CW model with one zero-cell and one two-cell, therefore a genuine integral \(S^2\), not merely a homology sphere. A separate verifier reproduces boundary ranks over four prime fields, proves the absence of a proper three-coloring and exhibits a four-coloring, enumerates exactly eight automorphisms, verifies the specified dihedral generators, and determines signed fixed-face traces of \(-1,-1,1\) on \(r,s,rs\). The Hopf trace formula supplies the integral top-homology orientation character. These facts determine every clause of the final claim.
+PASS
 
-## Originality — PASS, subject to bibliographic limits
+For the explicit 12-vertex, 24-edge triangle-free graph, independent finite enumeration gives K=N(G) with face vector (12,42,44,12) and L=Ind(G) with (12,42,52,20). Exactly eight surplus triangles are uniquely free in L, each paired to a distinct surplus tetrahedron, with no other extra faces, and all eight pairs form one free orbit of the exhaustively enumerated 8-element D4 automorphism group. Independently reconstructed greedy face-poset matching on K has 54 disjoint matched incidences, critical masks {1,672}, all 264 cover edges acyclic in a 110-vertex topological sort. Forman gives one 0-cell and one 2-cell, hence S² integrally. Exhaustive graph coloring gives χ=4; signed fixed-face alternating traces on r,s,rs equal (-1,-1,+1), hence orientation degree (-1)^{a+b} over integral H2. Code and source tree verified; finite enumeration is exhaustive for this single graph, not a statement about all graphs.
 
-The existing same-graph result establishes the nonequivariant \(\operatorname{Ind}(G)\simeq S^2\) and a vertex-deletion dichotomy. It is **acknowledged as partial covering prior work**, not an independent new sphere claim. The new theorem is the graph-automorphism-equivariant inclusion and its one-orbit elementary-collapse certificate. Without this relative free-face statement, an independence-complex sphere calculation does not determine the particular open-neighborhood inclusion, its relative simple-homotopy structure or the group action. The previously known graph chromatic number is background; the new topological interpretation makes the Lovász lower bound sharp for the actual neighborhood space.
+## originality
 
-Barmak's star-cluster methods and chromatic inequality concern general independence-complex connectivity; Kahle's random-graph neighborhood results and Shukla's degree-at-most-three/four-regular-circulant classification do not cover this particular non-circulant graph's equivariant relative collapse. A graph-Hom model is equivalent to the neighborhood complex, but does not yield the asserted calculation. Search nonretrieval cannot establish absolute priority. The original 1970 two-page construction is not fully accessible and remains a documented limited bibliographic risk.
+PASS
 
-## Value — PASS
+No earlier independently published calculation of the actual inclusion N(G) into Ind(G), its single free D4 orbit of eight elementary collapses, or the signed dihedral orientation character was found. The published same-graph Ind(G) sphere/vertex-deletion classification partially covers the shared homotopy type but does not imply the relative equivariant collapse; Barmak's triangle-free suspension theorem and Shukla's degree-3/circulant neighborhood classification do not cover the finite relative statement. Best-of-knowledge, with unindexed same-graph computations and inaccessible 1970 construction article recorded as residual risks.
 
-The Chvátal graph is the standard smallest triangle-free graph simultaneously four-regular and four-chromatic. The single free orbit of elementary collapses provides a motivated equivariant bridge between two canonical graph complexes; it is structural information beyond the known nonequivariant independence-complex sphere. Computing the exact neighborhood homotopy type produces a direct topological explanation of the sharp chromatic lower bound for this extremal graph. The nontrivial character of its full dihedral automorphism group strengthens the result beyond connectivity, Betti numbers or an unequivariant sphere description, and gives a canonical symmetry-sensitive invariant. The claim is a motivated complete exact calculation, not an arbitrary perturbation or normalization check.
+## value
 
-## Limitations
+PASS
 
-The result is confined to the specified graph. It does not establish an equivariant homotopy equivalence to a geometric linear sphere or a classification of other graphs. The unavailable full original graph-construction paper leaves a limited bibliographic risk; its role is graph identification rather than a plausible exact neighborhood theorem.
+The Chvátal graph is a canonical extremal triangle-free four-chromatic graph. The exact graph-automorphism-equivariant *relative* inclusion between two fundamental graph complexes is a natural structural question not answered by an abstract Ind(G) sphere calculation. A single free dihedral orbit of elementary collapses explains why the Lovász neighborhood-complex connectivity obstruction is sharp, while the D4 homology orientation character is a natural, symmetry-sensitive exact invariant. The scope is one important fixed finite graph, not a family classification. Its known χ=4 and Ind sphere are not independent gains.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
