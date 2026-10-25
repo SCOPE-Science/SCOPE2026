@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A greedy embedding is coordinatewise optimal, giving c(u)=|u|+start-bit offset+equal-adjacency count. Unique palindromic halves, exact central correction, formal geometric sums and coefficient extraction prove both generating functions and all-N Fibonacci formulas; Binet supplies the parity-sensitive asymptotics. Independent checker compares distinct actual subsequence sets and length spectra for N=0..22.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam-Pandoh Theorem 5.4 assumes alphabet size at least half host length",
+        "Müllner-Ryzhikov length bound for longest palindromic subsequences",
+        "Random-source palindrome results give expectations over source words, not individual alternating-host counts"
+      ],
+      "reasoning": "A general upper bound is not an equality or even a length spectrum for the fixed alternating word. The q-large exact theorem does not apply for fixed q=2 and N>=5, and a stochastic expected count does not imply a deterministic individual-host identity.",
+      "searches": [
+        "Counting scattered palindromes in a finite word arXiv:2108.02729 Section 4 upper bounds and Section 5 q>=n/2",
+        "Palindromic Subsequences in Finite Words arXiv:1901.07502 Theorem 13",
+        "maximum binary scattered palindromic subwords alternating words Mahalingam Pandoh Fibonacci sqrt golden ratio"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.02729 PDF full text and page 18 figure",
+      "arXiv:1901.07502v1 full HTML",
+      "Scientific literature searches with scattered-palindrome, alternating-prefix and Fibonacci terminology",
+      "Compared related mathematical claims on palindromes under fixed run bounds and independent random input"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 Conjecture 5.6 proposes global maxima at alphabet size roughly half the word length, not a fixed q=2 formula",
+        "The 2019 theorem addresses longest-subsequence length",
+        "Bounded-run results fix a finite number of runs; alternating prefixes have one run per symbol"
+      ],
+      "reasoning": "Neither published general-bound result implies the exact all-N alternating-family bivariate identity; no identified self-recorded stronger claim subsumes it. The separate short-table values are deliberately acknowledged as prior work; remaining risks are ordinary incomplete-literature risks rather than a known covering theorem.",
+      "searches": [
+        "arXiv:2108.02729 full paper Section 5 and Conjecture 5.6",
+        "arXiv:1901.07502 complete HTML",
+        "comparison with bounded-run palindrome enumeration, random-source palindrome expectations, and alternating word complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2021 Table 4 uses scattered palindromes, exactly the same counted objects for N<=10",
+        "2019 longest palindrome studies a different invariant",
+        "A bounded-run deterministic-palindrome enumeration result fixes the run count; alternating prefixes have unbounded run counts"
+      ],
+      "reasoning": "Searches included synonyms scattered palindromes, distinct palindromic subsequences, Fibonacci counts, and alternating periodic binary prefixes. No equal all-N length-spectrum identity was found; the numerical first terms agree with the known table, but the infinite proof and bivariate refinement are not a restatement of a finite table.",
+      "searches": [
+        "alternating binary word (01)^m exact number distinct palindromic scattered subsequences rational generating function 1-z^2-z^4",
+        "maximum binary scattered palindromic subwords alternating words Mahalingam Pandoh Fibonacci sqrt golden ratio",
+        "palindrome subsequence complexity of alternating periodic infinite words exact growth square root golden ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known first ten binary maximum values coincide with the alternating-prefix count",
+        "OEIS exact-sequence endpoint was not reliably accessible; search yielded no decisive earlier full formula"
+      ],
+      "reasoning": "The first ten total counts are known in a published table and therefore excluded from novelty; they do not determine infinitely many counts or the palindromic length distribution. A matching database recurrence beyond those terms has not been ruled out conclusively.",
+      "searches": [
+        "arXiv:2108.02729 Table 4 q=2 n=1..10",
+        "\"1 2 4 6 9 12 17 22 30 38\" \"palindromes\"",
+        "OEIS exact sequence matching alternating distinct palindromic subsequences"
+      ]
+    },
+    "rationale": "The exact all-N bivariate generating function, two parity-resolved Fibonacci formulas, and their growth rate are not provided by the 2021 paper listing only short binary maxima or by the 2019 paper on maximum length; published stronger covering implications and recovered own claim IDs were compared, while a 2009 source and unindexed equivalences remain explicit risks.",
+    "residual_risks": [
+      "2009 Holub–Saari full text not inspected; its cited reconstruction theorem seems distinct, but exact enumeration could also occur in it",
+      "OEIS query endpoint inaccessible, and unindexed sequence catalogues may contain the same Fibonacci identity",
+      "Weighted transfer-matrix treatments of alternating words might imply the rational identity without naming palindromes"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports n<=10 binary maxima and general/large-alphabet bounds, but not exact all-length alternating-family length spectrum or Fibonacci formula",
+        "evidence": [
+          "2021 arXiv submission 2021-08-05, page 18 Table 4, q=2 column is 2,4,6,9,12,17,22,30,38 for n=2..10",
+          "page 18 Conjecture 5.6 concerns unrestricted alphabet-size maxima achieved with q close to half the host length; page 18 conclusion leaves q<N/2 unresolved"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "19-page arXiv text: definitions, Sections 3–5, Table 4 and Conjecture 5.6 on page 18; page 18 image visually checked",
+        "method": "Inspected published full text, compared quantified statements, tables and unresolved small-alphabet regime",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Same statistic and binary maxima; strongest directly comparable literature"
+      },
+      {
+        "assessment": "Statements concern how long a palindromic or antipalindromic subsequence must be, not cardinality of distinct palindromic subsequences or its bivariate generating series",
+        "evidence": [
+          "The Introduction states a focus on longest palindromic subsequences",
+          "Theorem 13 and subsequent results bound longest-palindrome lengths in circular words"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1901.07502v1",
+        "material_read": "Complete accessible HTML, Introduction and Sections 2–5; abstract and theorems",
+        "method": "Compared the dependent variables and quantifiers; examined statements about longest subsequence lengths",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Plausibly synonymous title and binary palindromic subsequences"
+      },
+      {
+        "assessment": "No identified implication to the exact alternating generating function, but full-text inaccessibility leaves residual overlap risk",
+        "evidence": [
+          "2021 paper Introduction summarizes set reconstruction by reversal for binary words; no alternating-palindrome enumeration asserted in that summary"
+        ],
+        "identifier_or_url": "Holub and Saari, Discrete Applied Mathematics 157 (2009), 953–959",
+        "material_read": "Bibliographic citation and specific result summarized in the 2021 paper, not full text",
+        "method": "Compared cited reconstruction-up-to-reversal theorem to required exact alternating-profile enumeration",
+        "title": "On highly palindromic words",
+        "trigger": "Earlier binary scattered-palindrome set reconstruction paper cited as primary background in 2021"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42120300-c87a-407c-9120-e83e96dcaf72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The naturally distinguished alternating binary words are a benchmark for the fixed small-alphabet scattered-palindrome enumeration problem left open in Mahalingam–Pandoh 2021. The result gives the full length distribution and infinitely many exact totals rather than extending a short finite table, with a derived logarithmic growth law contrasting palindromes and all subsequences. It does not assert binary extremality.",
+    "status": "PASS"
+  }
+}
