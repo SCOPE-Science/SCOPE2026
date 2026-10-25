@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Running `python checker.py` with Python 3.10 or newer and no external libraries prints the exact-test result and four finite-truncation diagnostics. The exact part enumerates 8, 64, and 1,024 graphs (1,096 total) over rational score vectors in dimensions three through five and verifies the conditional Bernoulli-tail identity by analytic interval integration using fractions. For every enumerated graph, it directly checks the maximum edge-root support loss; the weighted distribution gives the exact probability that the deleted-support loss is zero, \(p=2/5\). The independent limiting-model diagnostic generates the inhomogeneous Poisson extreme points by exponentiating the arrival times of a homogeneous Poisson process, then independently marks potential edges. It compares the observed zero mass with the exact \(p\) value and checks a conservative mean upper envelope. The numerical diagnostics are seeded and reproducible; neither their sample sizes nor a finite truncation certifies the infinite result.
+## correctness
 
-Actual successful run:
+PASS
 
-```
-EXACT_PASS: 3 score sets, 1096 edge-labeled graphs; conditional tail, zero atom, and rational conditional means
-PPP_DIAGNOSTIC: p=0.2, trials=6000, truncation=45, mean_gap=0.95360, mass_at_zero=0.20383 (target=0.2)
-PPP_DIAGNOSTIC: p=0.5, trials=6000, truncation=45, mean_gap=0.36386, mass_at_zero=0.50833 (target=0.5)
-PPP_DIAGNOSTIC: p=0.8, trials=6000, truncation=45, mean_gap=0.12017, mass_at_zero=0.79600 (target=0.8)
-PPP_DIAGNOSTIC: p=0.95, trials=6000, truncation=45, mean_gap=0.02239, mass_at_zero=0.95500 (target=0.95)
-```
+For fixed p and deterministic distinct Gaussian scores, edge independence gives P(L_n>s|Z)=(1-p)^{N_n(s;Z)} for 0<=s<R. Upper and reflected lower Gaussian rare extremes converge jointly to independent PPPs intensity e^-x dx, so near-maximal spanning pairs and independent Bernoulli marks converge to finite candidate count N_t with EN_t=(t+1)e^t. Thus sqrt(2log n)L_n converges to D_p. The first edge from the maximum to ordered minima is geometric(p), and uniform Gaussian top-order-statistic second moment bounds imply uniform integrability, permitting convergence of means. Gaussian radial-direction separation in H_n gives factor sqrt(2) in intrinsic mean-width deficit. Monotone coupling and first-gap analysis show c(p) strictly decreasing, c(p)~log(1/p) near zero, c(p)~(1-p)/2 near one. Exact n=4 graph subset tail check supports the Bernoulli identity; no finite simulation proves Poisson or mean convergence.
 
-The analytic proof independently supplies the joint Gaussian extreme-value Poisson limit, the locally finite extreme-pair count, the exact expectation \((1+t)e^t\), and a uniform square-integrability bound for the scaled finite support losses. Radial Gaussian normalization yields intrinsic Euclidean mean width. The endpoint asymptotics follow by dominated convergence near full density and a first-moment lower bound at sparse density. No externally performed independent mathematical audit is claimed.
+## originality
+
+PASS
+
+Checked primary literature on symmetric edge polytopes focuses on facets, arithmetic and graph substructures. The Gaussian support deficit, marked extreme-pair law and sharp n^(-1/2)(log n)^(-1/2) mean-width asymptotic do not follow from those results; standard Gaussian PPP asymptotics are recognized as proof ingredients, not originality.
+
+## value
+
+PASS
+
+A sharp intrinsic Euclidean mean-width deficit and a full marked Poisson extreme-pair law are motivated geometric/probabilistic measurements of the extensively studied random symmetric-edge-polytope model. The explicit nontrivial c(p), its point-process construction and both endpoint regimes provide useful quantitative behavior not obtainable from facet counts alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
