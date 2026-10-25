@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rational ancestor has six nodal fibers and one \(I_0^*\) fiber, hence rational-surface Mordell--Weil rank four. Its height lattice is \(D_4^*\) by standard classification, and the ramified double base change multiplies the height pairing by two while eliminating the reducible fiber. The 24-element minimum shell and intersection multiplicities are checked by finite exact arithmetic. General geometric conclusions rely on established Kodaira and Shioda theorems, not the finite script.
+## correctness
 
-**Originality — PASS, with residual risk.** Li--Liu show the existence of a non-torsion section but do not give this subgroup or its 24-curve incidence configuration. Classical rational elliptic surface classification already includes the \(D_4^*\) lattice, so its appearance here is an explicit application, not a new abstract lattice classification. Targeted mathematical search, publication comparison, and accessible previous-claim checks found no complete equivalent for this new family; a sufficiently broad earlier theorem may imply this as a consequence.
+PASS
 
-**Value — PASS.** An explicit 24-curve configuration, its 8/6/8/1 intersection profile, and the inherited rank-four lattice yield organized geometric data for the arbitrary-genus negative-curve examples, rather than simply another isolated non-torsion section.
+PASS: Discriminant −16(4(t²+1)^3+27) has six simple finite roots, and local minimal form at infinity has c4,Δ orders (2,6), giving I0* and D4 root lattice. Rational ancestor χ=1, ρ=10, and Shioda–Tate rank=10−2−4=4; torsion precluded by positive minimal height. Its Mordell–Weil lattice is D4* from standard rational elliptic-surface classification. Degree-two base change, ramified at infinity and away from six nodes, removes I0*, leaves twelve I1 and χ(X)=1, scaling inherited height by 2. Hence 24 unit minimum vectors in D4*, with intersection P·Q=1−2〈v,w〉. Independent exact rational vector enumeration verified all 24 and every 8/6/8/1 incidence multiset; exact discriminant derivatives also checked. No assertion of full base-changed MW rank.
 
-**Limitations.** The full Mordell--Weil rank and all other genus-g negative curves are not classified. Parts of the result depend on earlier lattice theory; unindexed coverage remains possible. The 1991 Oguiso--Shioda paper's table was accessible in indexed reproduction, but its original full PDF was not fully inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge, qualified: Li–Liu explicitly construct the genus-g surfaces and one infinite-order section, so that construction is NOT claimed. Classical Kodaira/Shioda height theory covers the method and the D4* lattice abstractly. The result supplies the concrete inherited subgroup on this new genus-g example and a complete 24-section intersection configuration not stated in the inspected primary material. Priority risk: it is an approachable specialization of powerful old classification machinery.
+
+## value
+
+PASS
+
+PASS: The 24-cell lattice realizes a structured finite configuration of genus-g negative curves simultaneously for every g≥2 on the same newly introduced geometric surface class. Intersection multiplicities are intrinsic curve-geometric invariants, motivated independently of the routine abstract D4 lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
