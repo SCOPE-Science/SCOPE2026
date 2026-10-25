@@ -1,33 +1,17 @@
 # Review
 
 ## Correctness
-PASS. For a right-composed family, synthesis transforms as
-\[
-T_{\Lambda O}=O^*T_\Lambda.
-\]
-Hence a transported dual pair has mixed operator
-\[
-O_2^*O_1.
-\]
-Taking both operators to be the backward unilateral shift satisfies the published hypothesis
-\[
-S^*S=I,
-\]
-but the transformed coordinate family has coefficient energy
-\[
-\|x\|^2-|x_1|^2
-\]
-and is not a frame. The corrected exact and approximate criteria follow directly from the mixed-operator identity.
+PASS. The synthesis operator of a right-composed family is
+\[T_{\Lambda O}=O^*T_\Lambda.\]
+The mixed operator of a transported dual pair is therefore
+\[O_2^*O_1.\]
+With both operators equal to the backward unilateral shift, the published condition \(S^*S=I\) holds, yet the transformed coordinate family has energy \(\|x\|^2-|x_1|^2\) and is not a frame. The corrected exact and strict-norm approximate criteria follow from the mixed-operator identity.
 
 ## Originality
-PASS. The exact theorem, adjoint-order aliases, unilateral-shift formulation, foundational approximate-duality literature, later operator-theoretic literature, and correction terms were compared.
-
-No checked indexed source supplies this theorem-specific correction.
+PASS, best of knowledge. The exact source theorem, its adjoint-order aliases, unilateral-shift obstruction, standard approximate-duality background, related published frame counterexamples, and correction terms were checked. No independently published source-specific correction was located. Complete text of two plausible comparison papers remained inaccessible; this is a residual risk rather than proof of absence.
 
 ## Value
-PASS. The theorem is a general operator construction for dual and approximately dual \(g\)-frames. The published condition can satisfy its exact hypothesis while producing a family with zero lower frame bound. The correction is a necessary-and-sufficient operator identity, and it also explains why the source's unitary corollary remains valid.
+PASS. The published construction may output a non-frame even when its exact hypothesis holds. The corrected condition is necessary and sufficient for the associated reconstruction test and identifies the infinite-dimensional one-sided-inverse boundary.
 
 ## Limitations
-The finding concerns Theorem 3.1 only. The exact-branch counterexample is infinite-dimensional. Some comparison papers were accessible only through abstract and bibliographic records, leaving a residual risk of an unindexed or inaccessible prior correction.
-
-Same-model review: passed. Independent audit: not yet performed.
+Only Theorem 3.1 is assessed. The explicit obstruction is infinite-dimensional; it does not contradict the finite-dimensional exact specialization. An unindexed or inaccessible prior correction remains possible. No formal or expert verification is claimed.

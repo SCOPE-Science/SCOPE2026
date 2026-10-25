@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(S\) be the unilateral shift on \(\ell^2(\mathbb N)\):
-\[
-S(x_1,x_2,\ldots)=(0,x_1,x_2,\ldots).
-\]
-Then
-\[
-S^*S=I,
-\qquad
-SS^*=I-P_{\operatorname{span}\{e_1\}}.
-\]
+# Independent mathematical audit
 
-For the standard coordinate \(g\)-frame
-\[
-\Lambda_jx=\Gamma_jx=x_j,
-\]
-choose
-\[
-O_1=O_2=S^*.
-\]
-The published exact hypothesis is satisfied:
-\[
-O_2O_1^*=S^*S=I.
-\]
-The transformed coefficients are
-\[
-\Lambda_jO_1x=\Gamma_jO_2x=x_{j+1},
-\]
-so
-\[
-\sum_j|\Lambda_jO_1x|^2
-=
-\|x\|^2-|x_1|^2.
-\]
-At \(e_1\) this is zero, proving failure of the lower frame bound.
+## correctness
 
-Independently, the synthesis identity is
-\[
-T_{\Lambda O_1}=O_1^*T_\Lambda,
-\qquad
-T_{\Gamma O_2}=O_2^*T_\Gamma.
-\]
-For an original dual pair,
-\[
-T_\Gamma T_\Lambda^*=I,
-\]
-and therefore
-\[
-T_{\Gamma O_2}T_{\Lambda O_1}^*=O_2^*O_1.
-\]
-This proves the corrected exact criterion and, by taking operator-norm distance from the identity, the corrected approximate criterion.
+PASS
 
-The complete source theorem and proof were inspected in the open-access version of record. No numerical approximation, finite truncation, or experimental extrapolation is used.
+Directly from the synthesis definition T_{Lambda O}=O^*T_Lambda and original duality, the transformed mixed operator is O_2^*O_1. Setting O_1=O_2=S^* on ell^2(N) satisfies the printed O_2O_1^*=I but yields zero coefficient energy at e_1, refuting both exact and approximate conclusions. The correct exact and strict-norm approximate criteria follow. The finite-dimensional branch cannot distinguish one-sided inverses, but the source permits ell^2(N).
+
+## originality
+
+PASS
+
+Source-specific theorem correction: the published operator product is reversed under right composition, and the exact unilateral-shift counterexample refutes the theorem in its allowed infinite-dimensional setting. Source and correction searches found no independent indexed correction; originality is best of knowledge, not a universal absence claim.
+
+## value
+
+PASS
+
+The exact counterexample invalidates a general published construction theorem even when its hypothesis holds with equality, and the necessary-and-sufficient operator criterion repairs a substantive reconstruction error; this is more than an arbitrary normalization test. The infinite-dimensional one-sided-inverse boundary is identified exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
