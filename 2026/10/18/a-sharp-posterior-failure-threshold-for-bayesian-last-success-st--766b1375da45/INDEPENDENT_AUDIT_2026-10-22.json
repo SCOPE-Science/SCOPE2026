@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:12:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree 8c61032583a29a08c5acb62c1f0875eb2a6615c8 at pinned f30f943587282d59c837419db4b41647621abfdb; RESULT.md, checker, AUDIT.json, METADATA.json and all tree entries read/inspected",
+        "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+        "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+        "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+        "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+      ],
+      "rationale": "For posterior Beta(A,B) and k future observations, Qk=(B)_k/(A+B)_k. For each deterministic adapted rule pi, the ratio Hpi/Qk is a finite nonnegative sum over successful future words of (A)_r/(B+k-r)_r; hence the optimal ratio is continuous strictly increasing A, strictly decreasing B, with endpoint range 0 to infinity, giving unique A_c(B,k) increasing B. First-future-success policy has ratio kA/(B+k-1) so A_c lies below this line. An induction on k proves optimality of first-future-success when B>=k(k-1)+1 and kA<=B+k-1; below that shape boundary, a legal one-step adaptation after an immediate success strictly improves on nominal line, establishing sharp necessity. At k=2, comparing two distinct legal policies gives the exact square-root-versus-linear minimum.",
+      "residual_risks": [
+        "One right, deterministic finite horizon k>=1, Beta(A,B)>0 posterior at currently observed success, Bernoulli exchangeability conditional on fixed p. No universal fixed calendar cutoff or general non-Beta posterior result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+          "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+          "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+          "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+        ],
+        "reasoning": "Ano treats the same Bayesian model via a recursive Bellman algorithm, which calculates particular states but does not supply the sharp closed all-k condition on B and simple first-future-success policy. Generic optimal stopping cannot itself give quadratic sharp boundary.",
+        "searches": [
+          "Resultary: Bayesian last success stopping beta posterior acceptance sharp threshold k(k-1)+1 first future success policy",
+          "Web: Ano 2610.10237 Bayesian last-success Section 3.4 Beta posterior Bellman",
+          "Web: Bayesian odds theorem unknown parameter last success prior Bruss Paindaveine"
+        ]
+      },
+      "checked_sources": [
+        "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+        "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+        "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+        "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+          "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+          "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+          "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+        ],
+        "reasoning": "Bruss known-p odds theorem motivates immediate versus first future success but does not apply unchanged after future posterior updates; the strict below-boundary adaptive counterstrategy proves the nontrivial limitation of that heuristic.",
+        "searches": [
+          "Resultary: Bayesian last success stopping beta posterior acceptance sharp threshold k(k-1)+1 first future success policy",
+          "Web: Ano 2610.10237 Bayesian last-success Section 3.4 Beta posterior Bellman",
+          "Web: Bayesian odds theorem unknown parameter last success prior Bruss Paindaveine"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+          "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+          "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+          "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+        ],
+        "reasoning": "The conditional posterior-state rule is a mixture of Bernoulli last-success/odds stopping, characterized by a unique threshold in Beta success shape A at fixed failure shape B and future horizon k. Statewise versus time-indexed thresholds explicitly distinguished.",
+        "searches": [
+          "Resultary: Bayesian last success stopping beta posterior acceptance sharp threshold k(k-1)+1 first future success policy",
+          "Web: Ano 2610.10237 Bayesian last-success Section 3.4 Beta posterior Bellman",
+          "Web: Bayesian odds theorem unknown parameter last success prior Bruss Paindaveine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+          "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+          "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+          "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+        ],
+        "reasoning": "The k=2 exact square-root branch and B=3 join are not mere simulation; follow comparing both future strategies. Indexed Resultary results on known-p Bernoulli phase boundaries concern different payoff and no Beta learning; no complete threshold table found.",
+        "searches": [
+          "Resultary: Bayesian last success stopping beta posterior acceptance sharp threshold k(k-1)+1 first future success policy",
+          "Web: Ano 2610.10237 Bayesian last-success Section 3.4 Beta posterior Bellman",
+          "Web: Bayesian odds theorem unknown parameter last success prior Bruss Paindaveine"
+        ]
+      },
+      "rationale": "Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.",
+      "residual_risks": [
+        "A Bayesian last-success special-case optimality theorem in nonindexed older secretary literature may exist",
+        "The theorem is conditional at a posterior state, not a universally optimal calendar threshold across paths"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derives statewise posterior recursion and adaptation, not the exact all-k shape boundary B=k(k-1)+1 and strict uniqueness of A_c",
+          "evidence": "Section 3.4 posterior Beta update, dynamic program and absence of a generic simple pathwise odds condition",
+          "identifier_or_url": "https://arxiv.org/html/2610.10237v1",
+          "material_read": "Full accessible primary HTML Section 3.4 around Bayesian posterior setup, recurrence, and explanation that pathwise monotonicity fails; adjacent sections considered",
+          "method": "Targeted primary full-text section inspection",
+          "title": "Monotone Multiple Stopping and Last-Success Problems",
+          "trigger": "Bayesian Beta last-success posterior recurrence directly overlaps model"
+        },
+        {
+          "assessment": "Known success probabilities are fixed; conditioning on unknown constant Beta-p complicates decisions, so odds theorem does not entail posterior shape threshold",
+          "evidence": "Independent known-p threshold contrasts with posterior learning",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1019160340",
+          "material_read": "Original theorem scope and known independent Bernoulli setting, as cited by primary source",
+          "method": "Literature/theorem comparison",
+          "title": "Sum the odds to one and stop",
+          "trigger": "Famous general fixed-probability stopping baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Katsunori Ano, Monotone Multiple Stopping and Last-Success Problems, arXiv:2610.10237v1 Section 3.4",
+        "Bruss, Sum the odds to one and stop, Annals of Probability 28 (2000)",
+        "Davy Paindaveine, Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds, arXiv:2604.07183v1",
+        "Gnedin and Derbazi, The Last-Success Stopping Problem with Random Observation Times, arXiv:2207.05156"
+      ],
+      "rationale": "A closed, uniform-in-horizon posterior-state phase theorem and optimality/failure boundary for an adaptive Bayesian odds stopping rule, resolving exactly where the simple odds heuristic remains valid despite posterior learning.",
+      "residual_risks": [
+        "A Bayesian last-success special-case optimality theorem in nonindexed older secretary literature may exist"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

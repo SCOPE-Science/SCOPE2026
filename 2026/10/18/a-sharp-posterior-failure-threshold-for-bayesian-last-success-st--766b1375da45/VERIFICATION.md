@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the Bayesian last-success posterior phase theorem
+# Independent mathematical audit
 
-The proof is a finite-horizon proof with explicit real-shape quantifiers. Its critical steps are: (1) predictive Beta-binomial probabilities for every binary path; (2) normalization by the no-future-success probability to establish unique strict monotone crossings; (3) two assertions propagated jointly by induction over remaining horizon; (4) a strict first-success-branch improvement below the quadratic boundary; (5) solving two exact inequalities when two trials remain. No asymptotic, external certificate, or simulation is used to close these steps.
+## correctness
 
-## Reproducible finite checks
+PASS
 
-Run `python verify_bayes_last_success.py` in the folder containing this document and the program. The program uses only the Python standard library, computes all probabilities as rational numbers, and prints:
+For posterior Beta(A,B) and k future observations, Qk=(B)_k/(A+B)_k. For each deterministic adapted rule pi, the ratio Hpi/Qk is a finite nonnegative sum over successful future words of (A)_r/(B+k-r)_r; hence the optimal ratio is continuous strictly increasing A, strictly decreasing B, with endpoint range 0 to infinity, giving unique A_c(B,k) increasing B. First-future-success policy has ratio kA/(B+k-1) so A_c lies below this line. An induction on k proves optimality of first-future-success when B>=k(k-1)+1 and kA<=B+k-1; below that shape boundary, a legal one-step adaptation after an immediate success strictly improves on nominal line, establishing sharp necessity. At k=2, comparing two distinct legal policies gives the exact square-root-versus-linear minimum.
 
-`PASS: 1181 exact finite assertions, including exhaustive stopping-policy checks`
+## originality
 
-The suite independently evaluates every deterministic success-only policy for remaining horizons 1–4 in selected posterior states, compares with Bellman dynamic programming, checks the quadratic boundary and strict gap for horizons 1–7 on integer grids, tests several rational values, and tests the two-trial algebraic inequalities. Exhaustive enumeration at small horizons is not exhaustive over all horizons or positive real posterior shapes. The universal conclusions rely on the displayed mathematical argument.
+PASS
 
-## Limitations
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
 
-No verification outside the stated Beta mixture, fixed finite horizon, or single selection right is claimed. Independent audit has not been performed.
+## value
+
+PASS
+
+A closed, uniform-in-horizon posterior-state phase theorem and optimality/failure boundary for an adaptive Bayesian odds stopping rule, resolving exactly where the simple odds heuristic remains valid despite posterior learning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
