@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each of the \(1024\) vertex subsets the claimed forest predicate was checked against the explicit 15-edge graph. The exhaustive count gives precisely \(75,260,620,785\) nonempty simplices at successive thresholds. Complete reversed-matching Hasse digraph topological sorts verify the three Forman matchings (augmented critical positive-dimensional cells: four of dimension two, one of dimension three, six of dimension five). The 180 consecutive elementary collapse pairs are each checked for a unique cofacet at the moment of removal, leaving precisely the degree-one subcomplex. Consequently the homotopy types and inclusion map follow integrally. Independently constructed oriented simplicial matrices agree over four finite fields. These matrix checks corroborate and do not independently establish the integral result.
+## correctness
 
-## Originality
-**PASS, with residual indexing risk.** The 2023 forest-filtration paper classifies other families and does not cover the specified Petersen graph. A publicly available Petersen two-independence result already proves the degree-one \(S^3\) homotopy type and is expressly excluded from the novelty claim. An earlier computation of ordinary Petersen independence homology concerns degree zero. published-finding corpus searches for the induced-forest, degree-two, simple-collapse, unrestricted and persistence formulations did not return the newly claimed degree-two collapse or unrestricted six-sphere type; closest reports about two-matching complexes use selected **edges**, not induced vertex sets. The original content is a specific inclusion-induced simple collapse, terminal homotopy equivalence, and full integral persistent homology; these do not follow from the covered endpoint computations alone. Unindexed work remains possible.
+PASS
 
-## Value
-**PASS.** The Petersen graph is a canonical 3-regular girth-five graph outside the cactus and path/cycle families. The natural integer maximum-degree filtration exhibits a genuine persistence plateau through a simple homotopy equivalence, followed by a change in homological degree and rank. Determining the entire integral homotopy and persistence profile is a motivated benchmark for the published forest-filtration framework, not merely a re-tabulation of its ordinary independence complex.
+Use the cubic Petersen graph with outer pentagon, inner pentagram and five spokes. Exhaustively recounted every 1024 subset and confirmed exact nonempty face totals (75,260,620,785) and mod-two reduced Betti vectors at d=0,1,2,3: respectively 4 in H2, 1 in H3, 1 in H3, 6 in H5. Reconstructed all three fixed-order augmented toggle Morse matchings at d0,d2,d3, giving 36,310,390 pairs, precisely critical masks four 2-cells; one 3-cell; six 5-cells, and directed topological sorts visiting every nonempty face. Independent F2-to-F1 collapse algorithm checks an immediate unique coface and maximality on every step and removed exactly 180 free-face pairs, reaching the 260-face F1 unchanged. Therefore the d1-to-d2 inclusion is a genuine simplicial simple-homotopy equivalence (not merely rank agreement), and integral wedge homotopy types and persistence follow. Saturation d>=3 is exact because graph maximum degree 3. The result concerns vertex-induced forests, not edge matching complexes.
 
-## Limitations and closest sources
-This is a complete calculation for one canonical graph, not a theorem for all cubic graphs. Independently known degree-zero and degree-one results are acknowledged. No independent mathematical audit is claimed. Closest sources: Carnero Bravo (arXiv:2307.13271), Deshpande–Singh (arXiv:2001.05448), Berghoff (arXiv:2008.06267), and the public note *The Petersen two-independence complex is a three-sphere*.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carnero Bravo supplies the graph-forest filtration framework but not Petersen graph, whose overlapping 5-cycles exclude treated cactus and graph-product specializations. Published Petersen Ind2(P) S3 is explicitly prior and not counted new. The d2→d1 180-simple-collapse, endpoint d3 wedge six S5 and precise integral persistence are additional facts; ordinary Petersen independence Betti numbers alone cannot imply them.
+
+## value
+
+PASS
+
+The Petersen graph is canonical noncactus cubic girth-five test object for the entire induced-forest degree filtration; complete integral homotopy and persistence are natural exact invariants. Explicit 180 collapses give map-level simple-homotopy information stronger than an already known F1 homotopy type, and the terminal six-five-sphere stage is a nontrivial distinct classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:00:39.520421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 73516779341ce89e2f6212f3595d0c3d1b1077b0",
+        "verify_petersen_forest.py 68bce1301f6aafc0df21c9ce1e4e4a7a63458c01",
+        "verify_petersen_homology.py 7fe0eba447464d2551db4ff9de2c5dad27538ae9",
+        "Independent finite ranks /mnt/data/independent_audit_checks_20261022.py and elementary collapses /mnt/data/independent_morse_20261022.py"
+      ],
+      "rationale": "Use the cubic Petersen graph with outer pentagon, inner pentagram and five spokes. Exhaustively recounted every 1024 subset and confirmed exact nonempty face totals (75,260,620,785) and mod-two reduced Betti vectors at d=0,1,2,3: respectively 4 in H2, 1 in H3, 1 in H3, 6 in H5. Reconstructed all three fixed-order augmented toggle Morse matchings at d0,d2,d3, giving 36,310,390 pairs, precisely critical masks four 2-cells; one 3-cell; six 5-cells, and directed topological sorts visiting every nonempty face. Independent F2-to-F1 collapse algorithm checks an immediate unique coface and maximality on every step and removed exactly 180 free-face pairs, reaching the 260-face F1 unchanged. Therefore the d1-to-d2 inclusion is a genuine simplicial simple-homotopy equivalence (not merely rank agreement), and integral wedge homotopy types and persistence follow. Saturation d>=3 is exact because graph maximum degree 3. The result concerns vertex-induced forests, not edge matching complexes.",
+      "residual_risks": [
+        "Explicit discrete Morse/reduction certifies this 10-vertex graph only; not natural equivariant splitting of individual spheres."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General filtration definition supplies inclusions but neither simple-collapse proof nor maps on persistent homology."
+        ],
+        "reasoning": "Carnero’s paths/cycles/double-stars/cacti/graph-operation formulas do not specialize to Petersen because it has intertwined pentagons and girth five, unlike cactus; no published broader forest theorem read yields its F2 collapse or terminal F3 count.",
+        "searches": [
+          "Carnero Bravo §4 full text ",
+          "Deshpande–Singh r-independence full "
+        ]
+      },
+      "checked_sources": [
+        "Carnero Bravo forest filtration full primary",
+        "Deshpande–Singh higher independence full primary",
+        "Resultary known Petersen Ind2 S3 and other graph complexes",
+        "Pinned RESULT/verify.py sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent full elementary-collapse calculation supplies map-level result absent from cited prior endpoint results."
+        ],
+        "reasoning": "The known Ind2(P) S3 gives a homotopy type for F1 but not that F2 collapses to it; even if F2 had same Betti ranks, simple homotopy equivalence requires explicit free pairs. Carnero structural statements do not imply the exact 180 collapses and six S5 endpoint.",
+        "searches": [
+          "Resultary prior Ind2(P) S3",
+          "Carnero full §3–§4",
+          "source verify_petersen_forest.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new claim does not present the F1 S3 endpoint as original; simple inclusion collapse is stronger than equal homotopy types."
+        ],
+        "reasoning": "F0 is ordinary Petersen independence; F1 equals Ind2(P), a previously known S3; F2 and F3 are induced-forest vertex-subset complexes. These are different from graph-edge Morse/matching/cut complexes.",
+        "searches": [
+          "Carnero Bravo full primary ",
+          "Resultary The Petersen two-independence complex is a three-sphere",
+          "Resultary query: Petersen graph forest filtration collapse degree 2 into degree 1 wedge six five spheres"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Coincidence of graph and sphere dimension at d1 does not cover d2 collapse or d3 six S5."
+        ],
+        "reasoning": "Resultary has Petersen two-independence S3 and several graph Čech/cut/matching/Morse invariants, but not the four-stage vertex-forest exact collapse and barcode; negative search only weak originality support.",
+        "searches": [
+          "Resultary query: Petersen graph forest filtration collapse degree 2 into degree 1 wedge six five spheres",
+          "web Carnero Bravo forest filtration Petersen icosahedron homotopy"
+        ]
+      },
+      "rationale": "Carnero Bravo supplies the graph-forest filtration framework but not Petersen graph, whose overlapping 5-cycles exclude treated cactus and graph-product specializations. Published Petersen Ind2(P) S3 is explicitly prior and not counted new. The d2→d1 180-simple-collapse, endpoint d3 wedge six S5 and precise integral persistence are additional facts; ordinary Petersen independence Betti numbers alone cannot imply them.",
+      "residual_risks": [
+        "Equivalent older d2-to-d1 simple-collapse or terminal Petersen forest filtration may exist unindexed; historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework covers other graph families; Petersen with intertwined cycles not included",
+          "evidence": "No Petersen named computation or universal cubic-girth-five reduction in examined §§3–4.",
+          "identifier_or_url": "https://www.researchgate.net/publication/372625756_The_Forest_Filtration_of_a_Graph",
+          "material_read": "Author-uploaded complete primary text, Introduction, §3 definitions, §4 paths/cycles, cacti and graph operations",
+          "method": "Read whole relevant portions through web , ",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "Same filtration and plausible broader exact graph formula"
+        },
+        {
+          "assessment": "General family results not the Petersen d2 collapse or terminal forest stage",
+          "evidence": "Treats multipartite, whiskered, cycles and rooted trees, distinct from Petersen.",
+          "identifier_or_url": "https://www.researchgate.net/publication/351247805_Higher_independence_complexes_of_graphs_and_their_homotopy_types",
+          "material_read": "Author-uploaded primary full text definitions and graph-family theorems",
+          "method": "Read introduction, Theorem 3.5 and listed families , ",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "F1=Ind2 could be a known theorem"
+        },
+        {
+          "assessment": "F1 S3 is acknowledged prior and excluded from novelty; d1→d2 collapse and F3 results remain separate",
+          "evidence": "Explicit previous statement Ind2(P)≈S3, no claim of 180-step inclusion collapse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-petersen-two-independence-complex-is-a-three-sphere--0d53a7f4e76a",
+          "material_read": "Published Resultary theorem summary; full proof not read this execution",
+          "method": "Resultary semantic search",
+          "title": "The Petersen two-independence complex is a three-sphere",
+          "trigger": "Precisely coincident d1 endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Carnero Bravo introduced vertex forest filtration",
+        "Existing published Petersen Ind2 S3 distinguishes old endpoint",
+        "Independent 180 exact elementary collapses"
+      ],
+      "rationale": "The Petersen graph is canonical noncactus cubic girth-five test object for the entire induced-forest degree filtration; complete integral homotopy and persistence are natural exact invariants. Explicit 180 collapses give map-level simple-homotopy information stronger than an already known F1 homotopy type, and the terminal six-five-sphere stage is a nontrivial distinct classification.",
+      "residual_risks": [
+        "Finite special case; not an all-cubic-graph generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C/O/V are independent mathematical assessments within the stated source and search scope, not a formal proof assistant certificate or historical priority guarantee.",
+    "Finite exhaustive checks establish finite assertions only; universal mathematical statements supported by stated algebraic/topological proof."
+  ],
+  "schema_version": 1
+}
