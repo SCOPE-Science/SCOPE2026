@@ -1,0 +1,11 @@
+# Scientific review: characteristic-three Schur model
+
+**Correctness (PASS).** The characteristic-three coordinate change is an identity, not a numerical approximation. Geometric irreducibility follows from primitivity of the degree-one polynomial in two variables. The Jacobian scheme is the thickened singular line of transverse length \(9\); the incidence projective bundle is smooth of type \(\mathbb F_2\), maps finitely and birationally to the surface, and has the explicit cubic inseparable map on the singular line. All geometric lines are classified by the rank of restrictions of \(a,b\), and the point/zeta formulas follow from the normalization being universally bijective on finite-field points. Exact finite checks reproduced \(16,100,784\) points and \(6,12\) rational lines in small fields; the universal assertions do not depend on enumeration.
+
+**Originality (PASS; residual risk stated).** Veniani's 2017 work deals with complex smooth quartics. Rams–Schütt identify a characteristic-three *good model* isomorphic to the Fermat quartic, not the coefficientwise reduction of the displayed Schur equation, which has entirely different singular and ruled geometry. González-Alonso–Rams discuss complex ruled quartics. Searches for direct characteristic-three reduction, inseparable \(\mathbb F_2\) normalization, Frobenius line classification and exact zeta did not identify the same claim, and known smooth-line enumeration cannot imply it. Unindexed historical ruled-surface calculations remain possible.
+
+**Mathematical value (PASS).** The exceptional residue characteristic is forced by the cubic cross-terms in Schur's equation and is not an arbitrary slice. The complete incidence normalization and all-line theorem give structural geometric information at the singular degeneration, while the exact finite-field line and point arithmetic sharply contrasts it with a known smooth good-reduction model. This is more than a direct substitution or a small finite-table recomputation.
+
+**Limitations.** The theorem concerns the literal equation, not any smooth good reduction or all quartic reductions; its Fano-line scheme structure is not classified. It has not undergone independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
