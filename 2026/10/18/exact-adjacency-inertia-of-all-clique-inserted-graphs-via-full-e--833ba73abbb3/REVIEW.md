@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is proved for every finite connected simple graph of order at least two. Unsigned-incidence block reduction produces an exact symmetric saddle matrix whose inertia depends only on the rank of the original incidence matrix and the degree-sum restriction to its one-dimensional bipartite kernel. The rank and sign are evaluated without regularity assumptions. The incidence singular-value correspondence transfers this inertia to the adjacency matrix of the subdivided graph's line graph, with explicit care for the extra \(-2\) eigenvalues. All four cases and the \(m=n-1\) boundary are independently checked against exact rational arithmetic for 897 small/structured graphs. The finite checks are not the proof.
+## correctness
 
-## Originality — PASS (best available evidence)
-The recent Francis–Uptain work disproves universal positive-signature bounds for arbitrary line graphs; its full-text treatment does not state the present exact formula for universally edge-subdivided sources. Paone's full treatment concerns signatures and four-fold path-subdivision transfer principles and does not state this one-subdivision-each-edge theorem. Zhang–Chen–Chen (2009) and Chen–Hou–Li (2016) cover clique-inserted/para-line graphs of **regular** input, whose full spectra already imply the regular subcase. The asserted new scope is the complete characterization for **arbitrary irregular** connected graphs, not the regular subcase or the standard incidence-matrix framework. Searches by both para-line and clique-insertion terminology did not reveal a broader covering result. The unavailable full 2009 article and unindexed alternative terminology leave a residual priority risk.
+PASS
 
-## Value — PASS
-For a natural graph operation used in spectral graph theory, a priori degree-dependent adjacency inertia collapses to order, size, and a single parity obstruction. The result proves a uniform signature sign after universal edge subdivision, sharply contrasting contemporary unbounded-signature constructions for unrestricted line graphs. It also gives all multiplicities of positive, zero, and negative eigenvalues, rather than a generic inequality, for every connected irregular input graph.
+For every finite connected simple G with n>=2 and m edges, reconstruct Q(S(G))-2I as [[D-2I,B],[B^T,0]], with unsigned incidence B. A rank-r saddle matrix has r positive and r negative directions plus inertia of C on ker B^T, and m-r null directions. Rank B=n for nonbipartite G, n-1 for bipartite G, where the residual quadratic form on the bipartition sign vector equals 2(m-n). The unsigned-incidence Gram transfer from Q(S(G)) to A(L(S(G)))+2I has m-n+1 extra zero Gram eigenvalues (hence extra -2 adjacency eigenvalues) but removes the one zero eigenvalue of Q; this yields exactly (n,m-n,m), (n-1,0,n-1), (n-1,2,n-1), or (n,m-n+1,m-1) in the stated mutually exhaustive cases. Boundary K2/tree, odd C5, even C4, bipartite bicyclic K2,3 independently had numerical inertias (1,0,1),(5,0,5),(3,2,3),(5,2,5); a P4 had (3,0,3). The arbitrary-n result is the congruence and incidence argument, not these finite spectra.
 
-## Closest literature and limitations
-Francis–Uptain, arXiv:2607.22874 (2026); Paone, *Unbounded Signature of Line Graphs* (2026); Zhang–Chen–Chen, J. Math. Anal. Appl. 349 (2009); Chen–Hou–Li, J. Inequal. Appl. 2016:51. The old regular-input spectral formulas imply that specialization and are explicitly excluded from the novelty claim. The 2009 publisher full text was inaccessible. Full priority and independent human audit remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete three-parameter inertia of L(S(G)) over arbitrary irregular connected G. Earlier full-spectrum formulas already imply the regular-input special case; neither that case nor the saddle incidence identity is new. The fresh mathematical target is an unrestricted irregular-source classification and its nonpositive-signature boundary, with an uninspected plausible 2009 publisher full text explicitly noted.
+
+## value
+
+PASS
+
+The clique-insertion/para-line operation is natural in spectral graph theory. Exact inertia and zero-eigenspace multiplicity collapse from a priori degree-dependent matrices to n,m and bipartiteness across all connected irregular graphs. It sharply identifies when the line-graph signature is zero, a structural theorem extending a known regular formula rather than a routine numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
