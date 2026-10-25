@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For an arbitrary forest, subsets of j edges impose j independent equalities in Stam's K-box allocation, giving exactly Bin(e,1/K) conditional law; graph cycles violate the exponent. The ratio k^n/k! has decreasing log-successive ratio with derivative -(n/x+1)/(x+1). Its mode lies O(1) from n/W(n), and summing ratios yields an explicit O(n exp(-c sqrt n)) tail outside n^(3/4)/W(n). This tail is o(W(n)/n), so good-event Taylor expansion proves uniform relative zero-violation probability even at e=n-1. Le Cam coupling proves uniform moving Poisson total variation and independence provides the fixed-r product. Pure-standard-library checker passed 75 exhaustive forest histograms and one cycle boundary; finite checks do not substitute for analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galvin--Thanh Theorem 1.2 is a CLT for the number of classes in a uniformly selected *proper* partition, with components c(n)=o(sqrt(n/log n)) in its displayed statement.",
+        "Chern et al. Theorem 2.1 concerns fluctuations of Stam's K; their Theorem 1.1 concerns a Gaussian scale for levels."
+      ],
+      "reasoning": "Neither Gaussian class-count theorem supplies small-probability asymptotics for zero violations. The rare event can have probability of order W(n)/n, invisible to central-limit-scale error bounds. The new moderate-deviation control is what permits a *relative* estimate uniform from edgeless forests to spanning trees. A more general graphical-Bell uniform asymptotic, if located, could subsume the result.",
+      "searches": [
+        "'uniform asymptotic graphical Bell numbers for forests with linear number of components n/2 matching'",
+        "literature: 'Stirling numbers of forests and cycles' theorem 1.2",
+        "literature: 'Central limit theorems for some set partition statistics' theorem 2.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.16163v1, full HTML",
+      "arxiv:1502.00938 and journal open-archive HTML",
+      "arxiv:1206.3591, full arxiv HTML",
+      "published mathematical records: search results for forest uniform Stirling/Bell asymptotics, matching avoidance, equivalence relation collision Poisson, and finite random expansions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chern et al. provide the exact sampler and its central moments; the new argument analyzes a moderate-deviation tail rather than invoking their CLT as relative rare-event evidence.",
+        "Galvin--Thanh give exact forest Stirling polynomials and class-count Gaussian results; no displayed uniform collision-count Poisson/relative avoidance theorem was identified in their inspected full text.",
+        "Koponen concerns broad transfer of model-theoretic properties to finite random expansions, rather than this particular quantitative first-order event."
+      ],
+      "reasoning": "Prior statements supply important premises and the exact finite enumeration, but not (as stated) the final uniform-in-forest relative vanishing probability and moving-target total-variation law. The distinction is mathematical, not just a changed name or parameter. Older occupancy theory could still imply this consequence and remains a priority risk.",
+      "searches": [
+        "arxiv:1502.00938 §§2--3 level statistic/Stam K box count",
+        "arxiv:1206.3591 §§1--2 graph Stirling theorem and all forests",
+        "arxiv:2610.16163 §§1--2 random expansions",
+        "'random expansions of finite matchings by independent equivalence relations FO probability of no matched pair equivalent'"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Galvin--Thanh, arXiv:1206.3591, §2: graphical Stirling count for forests depends on order and components and is known.",
+        "Chern et al., arXiv:1502.00938, §§2--3: conditional binomial law for adjacent equalities and box-count asymptotics."
+      ],
+      "reasoning": "A forest's edge-collision histogram is equivalent to a Stam mixture of binomials, so conditional factorization and finite counting are not claimed as novel. Neither inspected work states the uniform n-dependent Poisson total-variation bound and *relative* vanishing avoidance law, including all spanning trees.",
+      "searches": [
+        "'uniform random set partition forbids a fixed perfect matching equivalence classes paired elements asymptotic probability no forbidden pairs Bell numbers'",
+        "'Stam urn algorithm Poisson approximation number of matching edges that lie in the same equivalence class uniform partitions total variation'",
+        "literature: 'graphical Bell numbers matching asymptotic'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known forest graphical Stirling counts yield exact Bell-transform avoidance counts; these are expressly excluded from the new-contribution assertion.",
+        "Finite checker recomputes known formulas on 75 graph instances without making database uniqueness claims."
+      ],
+      "reasoning": "There is no exact natural-number invariant being offered as new; a pre-existing count table would not settle the uniform *relative* asymptotic or moving Poisson approximation. No matching database is asserted to have been exhaustively searched.",
+      "searches": [
+        "'random equivalence relation independent fixed-point-free involution no related pair probability asymptotic'",
+        "'matching graph partition Stirling Bell chromatic polynomial random set partitions no pairs same block'",
+        "literature: 'Bell and Stirling Numbers for Graphs' / 'Stirling numbers of forests and cycles'"
+      ]
+    },
+    "rationale": "Known graphical Stirling enumeration and Stam conditional sampling are explicitly attributed and NOT novelty claims. The independently inspected primary sources establish normal limit results for a different statistic, or general expansion context, without the uniform rare-event-sensitive forest law. Targeted alias/method/implication searches of published mathematical records yielded no identified dominating assertion. Priority risks from older unindexed occupancy/graphical-Bell literature remain.",
+    "residual_risks": [
+      "The same uniform relative asymptotic may already follow as a published corollary in older graphical-Bell or occupancy literature without those phrases.",
+      "Conditional forest factorization is elementary and strongly anticipated by the path-level statistic in Chern et al.; it is not presented as independent priority.",
+      "Not all older monographs or paywalled articles on graph proper partitions were accessible and compared cover to cover."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATION_ONLY_NOT_COVERING",
+        "evidence": "First submitted 2026-10-12; describes transfer of stability/finite model properties and necessary conditions for random-expansion convergence, without a forest-edge zero-collision asymptotic.",
+        "identifier_or_url": "https://arxiv.org/html/2610.16163v1",
+        "material_read": "Abstract, introduction, and §§1–2 on random expansions and convergence properties, including finite-base examples.",
+        "method": "Read public full HTML text, not snippets.",
+        "title": "A characterization of the finite model property for ω-categorical theories",
+        "trigger": "Recent primary foundations source with verified first-public date and primary MSC 03C13; motivation for random finite-structure expansions."
+      },
+      {
+        "assessment": "FOUNDATIONAL_METHOD_AND_NEARBY_COUNT; NOT_IDENTIFIED_UNIFORM_RARE_EVENT_CLAIM",
+        "evidence": "Theorem 2.1 gives mean/variance for K; §3 uses conditional Bin(n−1,1/K) level counts for a CLT. Neither is a relative small-probability forest-edge avoidance theorem across all forest shapes.",
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2015.06.008 ; arxiv:1502.00938",
+        "material_read": "Journal open-archive full HTML §§1–4, especially §§2–3 with Stam's law, Hwang moments and binomial levels proof.",
+        "method": "Read publicly accessible open-archive HTML body and its mathematical statements.",
+        "title": "Central limit theorems for some set partition statistics",
+        "trigger": "Strongest methodological overlap: Stam urn sampler, box-count concentration, Gaussian levels."
+      },
+      {
+        "assessment": "EXACT_ENUMERATION_KNOWN; UNIFORM_RELATIVE_AVOIDANCE_NOT_IDENTIFIED",
+        "evidence": "S(F_n^c,k) depends only on n,c, and Gaussian class-count theorem is for c(n) below a specified sqrt(n/log n) scale; the exact finite graph-Bell count is not claimed new.",
+        "identifier_or_url": "https://arxiv.org/abs/1206.3591",
+        "material_read": "Public full arxiv HTML: introduction Theorem 1.2, §2 exact forest polynomial formula and discussion of prior graphical Stirling results.",
+        "method": "Read primary full-text HTML including theorem statements, proof recurrences and scope.",
+        "title": "Stirling numbers of forests and cycles",
+        "trigger": "Known exact graphical Stirling enumeration for arbitrary forests, possible dominating formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e091d51-a0d6-44b6-9fa4-94b0afa063ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating finite-model expansion problem has a natural FO compatibility sentence between a fixed forest predicate and independent equivalence relations. Its probability can vanish as W(n)/n, so a CLT or absolute-probability o(1) estimate is scientifically uninformative. The theorem determines the correct relative first-order probability, uniformly for every labelled forest including maximal spanning trees, plus a complete moving-Poisson collision profile and a sharp acyclicity boundary for conditional independence. This is a motivated structural and quantitative classification, not an arbitrary small-instance census.",
+    "status": "PASS"
+  }
+}
