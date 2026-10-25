@@ -1,19 +1,21 @@
-# Scientific review of the eighteen Weil spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard-form reduction and affine-isomorphism argument establish that the 32 models exhaust the complete 2-rank-zero hyperelliptic genus-three stratum over \(\mathbf F_4\), without assuming a numerical count is a complete classification. The primary program checks all 128 reduced equations and their four-element translation orbits. It calculates exact trace counts on \(\mathbf F_4\), \(\mathbf F_{16}\) and \(\mathbf F_{64}\), from which the genus-three functional equation determines each Weil polynomial. An independent polynomial-field implementation checks every curve's first four extension point counts, including \(\mathbf F_{256}\). The Cartier operator and 2-adic coefficient inequalities establish the common \(a\)-number and Newton slopes.
+PASS
 
-## Originality — PASS, with priority risk
+PASS: In characteristic two, p-rank zero entails one geometric branch point; Artin–Schreier normal form gives y^2+y=x^7+a x^5+b x^3+c x+d with a,b,c in F4 and d in a two-element trace-class section. Affine translations act freely on the 128 reduced presentations because a changes by t^2, giving exactly 32 classes with a=0. Exact N_1,N_2,N_3 counts determine all six Weil coefficients by Newton identities and functional equation. An independently written F_{4^n} implementation (with different field models and direct enumeration of y^2+y=f(x), rather than the source trace test) recovered precisely 18 triples among 32 classes: six singletons, ten doubletons, two triples; it also recovered the N_1 profile. Cartier rank one and square zero give a=2 and p-rank zero; e3 valuation 2 and divisibilities of e1,e2 prove Newton slopes 1/3 and 2/3, each threefold. This is exhaustive only for the stipulated hyperelliptic F4 stratum.
 
-Nart–Sadornil's earlier complete isomorphism classification (2004) gives the known 32-class baseline; that foundational result is not claimed. Nart's reviewed lecture explicitly formulates the genus-three Weil-polynomial realizability problem, rather than furnishing the present finite-field multiplicity table. The inspected 2024 Duque-Rosero et al. article treats \(p>2\), not characteristic two; Blache–Pierre's additive-polynomial family does not contain generic degree-seven equations. Targeted published-record searches returned non-covering nearby results. The exact 18 Weil triples, class multiplicities, and universal common Newton polygon are not implied by the previously documented isomorphism counts alone. The full Nart–Sadornil 2004 article could not be lawfully inspected during this review; possible earlier zeta tables remain a disclosed priority risk, so this is not a universal uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-The distribution of Weil polynomials is a canonical arithmetic invariant, answering which Jacobian isogeny types occur and how often within a complete natural moduli stratum. The contrast between 18 distinct isogeny types and one Newton polygon is structurally informative; the exact multiplicities and extremal point counts serve as a finite-field benchmark for arithmetic geometry, not an arbitrary coefficient slice.
+PASS best of knowledge: Nart–Sadornil (2004), whose original full text was obtained and materially inspected through a lawful OA transcription, already gives the characteristic-two isomorphism classification and the 32-class baseline; this is not novel. A later general Weil feasibility study by Borodin–May examines admissible polynomials and exclusion conditions but does not state the exact 18/32 zeta distribution in its inspected main text. No direct covering table was found; a downloadable algorithm/database associated with broad studies might reproduce the class-specific distribution and is a residual priority risk.
 
-## Scope and literature caveat
+## value
 
-The result concerns only the 2-rank-zero hyperelliptic genus-three stratum over \(\mathbf F_4\). The numerical baseline and the general genus-three characteristic-two isomorphism classification are acknowledged as known. Residual priority risk concerns possible pre-existing complete Weil tables in Nart–Sadornil 2004 or elsewhere; neither was established from the accessible materials.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A complete small-field isogeny-type spectrum within a geometrically natural 2-rank-zero genus-three stratum is an exact arithmetic invariant. Its divergence—18 Weil types versus 32 arithmetic classes, all sharing one Newton polygon—demonstrates a substantive distinction among arithmetic isomorphism, isogeny and Newton strata; the calculation is not merely recounting the known 32 classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
