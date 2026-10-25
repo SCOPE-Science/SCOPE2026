@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite-field verification
 
-The package contains all normalized-orbit representatives, their orbit sizes and all invariants in `data/orbits.json`.
+# Independent mathematical audit
 
-From the package directory run:
+## correctness
 
-```
-python verify/census.py > /tmp/ternary_biquadratic_census.json
-python verify/symbolic_crosscheck.py
-```
+PASS
 
-The first script (Python standard library only) exhaustively builds 9,841 projective equations, partitions their ambient action into 41 orbits, verifies discriminant squarefreeness and computes the arithmetic/QRT data. It internally asserts that the generated JSON is identical to `data/orbits.json`, and reports the JSON to standard output. The second (requiring SymPy) independently constructs all 24 projective matrices in each factor, verifies all 41 orbits, checks the Jacobian unit ideal on four affine charts for every representative, and independently computes ramification and deck-product orders. Its success output is:
+Independently generated every one of the 9,841 normalized nonzero F3 bidegree-(2,2) forms, the complete PGL2(F3)^2 semidirect-swap group (1,152 elements), and its 41 disjoint projective orbits. An independent polynomial discriminant-squarefreeness algorithm yields exactly 14 smooth orbits/5,184 equations and the complete 12-stratum N/branch-pair/deck-period table matching data/orbits.json. Exactly representative 1020 has order 7, with orbit size 576. The original package also supplies independent four-chart Groebner tests. The genus-one involutions compose to rational translation by the nonzero difference of the degree-two ruling line bundles: since every listed curve has an F3 point, permutation period equals geometric translation order. Hasse bounds #E(F3)<=7. Enumeration is genuinely exhaustive for F3, not a sampling argument for a larger field.
 
-```
-PASS: 24 projective matrices; 1152 ambient maps; 41 disjoint exhaustive orbits
-PASS: exact Groebner smoothness in four charts for all 41 representatives
-PASS: independently recomputed rational points, branch counts, deck orders
-```
+## originality
 
-These checks have been executed on the delivered source and table. All derived results follow from exhaustive finite algebra and standard double-cover/elliptic geometry. SymPy is required only for the independent symbolic crosscheck. No external peer review or independent audit has been performed.
+PASS
+
+Earlier QRT constructions identify the elliptic translation mechanism and quartic-discriminant smoothness condition, but not the F3 complete 14-orbit joint branch/order atlas or the 576-equation unique maximal orbit. 2022 Li–Takenawa full primary text and the published topical searches did not imply the enumeration. Priority is best-of-knowledge, with risk of an unindexed finite-geometry orbit table.
+
+## value
+
+PASS
+
+The two degree-two rulings canonically determine a pair of branch divisors and a QRT translation. Their *joint* exact F3 distribution under actual ambient equivalence and unique sharp seven-period orbit are natural geometric-arithmetic invariants and reusable finite-field test cases, not the elementary Hasse bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

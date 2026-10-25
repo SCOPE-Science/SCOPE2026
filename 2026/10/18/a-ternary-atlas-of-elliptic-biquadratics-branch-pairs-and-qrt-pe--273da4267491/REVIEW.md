@@ -1,15 +1,21 @@
-# Review of the complete ternary biquadratic atlas
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is exactly the projectivization of the nine-dimensional space of bidegree-\((2,2)\) binary forms over \(\mathbf F_3\). The coefficient quotient has \(9,841\) elements. The proof tests every orbit under the full order-\(1,152\) ambient automorphism group, not a sample. The binary-quartic discriminant squarefreeness criterion is necessary and sufficient for geometric smoothness in odd characteristic; independently, Gröbner-basis unit ideals are verified on all four charts for every one of the 41 representatives. The 14 smooth orbits account for exactly 5,184 equations. Rational points and both projection ramification counts are determined directly, and independently via fibrewise derivatives. The product of the deck involutions is translation by the difference of the two distinct rational degree-two line-bundle classes, so its permutation order on nonempty rational points equals its geometric automorphism order. The equations, branch-pair/order distribution and the unique period-seven orbit have replayed successfully. There is no inference from bounded finite-field point search to geometric smoothness.
+## correctness
 
-## Originality — PASS, with priority risk
-Li–Takenawa (arXiv:2203.12319, 2022) establishes the general two-involution QRT translation description and the biquadratic discriminant; the present result does not claim those facts. Alonso–Suris–Wei (2023) extends QRT maps to three dimensions and states the classical two-involution construction. Bastien–Rogalski (2020) treats periods of a particular real birational family, not an all-equation \(\mathbf F_3\) atlas. The complete 14-orbit classification jointly distinguishing \(N\), the unordered rational branch pair and the exact QRT order, including the unique orbit of 576 period-seven equations, was not found in their inspected materials or targeted mathematical research records. Existing projective genus-one classifications or unpublished code could imply the finite table; this remains a substantive priority uncertainty, not a proof of global uniqueness. The Bastien–Rogalski core text was not accessible; its accessible abstract and appendix concern a special real family rather than the complete binary finite-field space.
+PASS
 
-## Value — PASS
-The two natural double covers on a smooth biquadratic are canonical in QRT dynamics. Their rational ramification pattern and difference of ruling line-bundle classes are meaningful geometric and arithmetic invariants; the exact joint distribution is not supplied by Hasse's bound or the existence of a group law. The sharply realized global order-seven cutoff and its unique ambient orbit identify a distinct extremal geometric configuration. The complete 14-type atlas is a small-field benchmark for QRT translation behavior and marked elliptic curve models, not an arbitrary isolated slice of a table.
+Independently generated every one of the 9,841 normalized nonzero F3 bidegree-(2,2) forms, the complete PGL2(F3)^2 semidirect-swap group (1,152 elements), and its 41 disjoint projective orbits. An independent polynomial discriminant-squarefreeness algorithm yields exactly 14 smooth orbits/5,184 equations and the complete 12-stratum N/branch-pair/deck-period table matching data/orbits.json. Exactly representative 1020 has order 7, with orbit size 576. The original package also supplies independent four-chart Groebner tests. The genus-one involutions compose to rational translation by the nonzero difference of the degree-two ruling line bundles: since every listed curve has an F3 point, permutation period equals geometric translation order. Hasse bounds #E(F3)<=7. Enumeration is genuinely exhaustive for F3, not a sampling argument for a larger field.
 
-## Limitations
-The field, split embedding, smoothness condition and ambient equivalence are essential. The result is not a classification of all elliptic curves or all QRT maps, and does not settle previous-publication priority beyond the searches and accessible sources described in `AUDIT.json`. The independent review and independent validation channels are unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier QRT constructions identify the elliptic translation mechanism and quartic-discriminant smoothness condition, but not the F3 complete 14-orbit joint branch/order atlas or the 576-equation unique maximal orbit. 2022 Li–Takenawa full primary text and the published topical searches did not imply the enumeration. Priority is best-of-knowledge, with risk of an unindexed finite-geometry orbit table.
+
+## value
+
+PASS
+
+The two degree-two rulings canonically determine a pair of branch divisors and a QRT translation. Their *joint* exact F3 distribution under actual ambient equivalence and unique sharp seven-period orbit are natural geometric-arithmetic invariants and reusable finite-field test cases, not the elementary Hasse bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
