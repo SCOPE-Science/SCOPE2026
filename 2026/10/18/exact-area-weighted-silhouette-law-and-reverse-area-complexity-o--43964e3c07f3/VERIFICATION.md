@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact icosahedral mixed-shadow law
 
-The theorem has an analytic spherical-flux proof with a finite exact algebraic chamber certificate. The standard-library checker `ico_weighted_check.py` constructs all twenty facets from the twelve edge-two icosahedral vertices in \(\mathbb Q(\sqrt5)\). It verifies thirty facet adjacencies, forty-five great-circle pairs without triple intersection, ninety signed arrangement vertices, all ninety-two open chambers, all chamber types and exact angular and boundary-flux coefficient lists. Its terminal line is `EXACT_ICO_SHADOW_FLUX_CERTIFICATE_OK cells=92 plane_intersections=90`.
+# Independent mathematical audit
 
-The independent rational-angle checker `ico_shadow_signs.py` proves the strict descending conditional projected-area means and negative covariance with a finite Taylor bound for cosine, alternating-series bounds for arctangent, and Machin's identity for \(\pi\). It reports the covariance strictly within the rational interval represented approximately as \((-0.119267326469,-0.119267284635)\). No floating-point values are used in its inequality proofs.
+## correctness
 
-The optional numerical checker `ico_shadow_numeric.py` uses NumPy and SciPy to reconstruct 1,800 actual projected convex hulls from the twelve geometric vertices, compare area with the independent facet-normal Cauchy sum and silhouette count with thirty facet-edge horizon tests, then compare the three mixed moments against 300,000 Haar-sphere samples. The deterministic fixed-seed run passed. These simulated directions are diagnostics, not an exhaustive geometric proof.
+PASS
 
-Limitations: the historical-priority search and source-comparison are not an independent verification, and the complete area distribution conditioned on each vertex count is not established. All relevant independent-audit channels remain not performed.
+Read exact face-normal chamber proof and source certificate logic. Independent double-precision sign-chamber reconstruction from ten geometric normals found precisely 92 spherical sign regions, with silhouette-vertex multiplicities (6:20,8:60,10:12), using the independent 30 face adjacency pairs. Independently evaluated exact angle formulas at 40-digit precision; probabilities sum to 1, weighted first moments to 5, and conditional means are 5.06657404965>4.89384776229>4.86026139705. The rational-arithmetic package checker encodes Q(sqrt5) sign chambers and exact flux coefficients; that code was inspected, not executed. High precision is numeric corroboration of the strict signs, not substitute for the source rational interval certificate.
+
+## originality
+
+PASS
+
+The published unweighted silhouette-class probability and classical global Cauchy brightness mean do not identify class-weighted first moments. Glisse–Lazard and Black–Criado concern size expectations and bounds rather than this joint exact three-class distribution. The available source comparisons do not document these mixed moments for the icosahedron.
+
+## value
+
+PASS
+
+Joint geometric brightness and combinatorial silhouette complexity are naturally paired view statistics. Closed conditional first moments and their strict reverse ordering answer a substantive shape-specific correlation question beyond the separate marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

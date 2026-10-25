@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain and normalization are explicit (edge-two regular icosahedron, facet-area normalization, Haar direction). The facet/edge graph and all 92 viewing sign chambers are certified with exact \(\mathbb Q(\sqrt5)\) arithmetic; all edge lengths and spherical boundary-flux coefficients are checked from those chambers. The analytic spherical divergence identity converts those finite coefficients into exact mixed moments. Independent projected convex hulls and a large Haar simulation agree. A separate rational-Taylor interval certificate proves both strict mean inequalities and the negative covariance. The finite enumeration is exhaustive because every intersection of two of the ten circles is simple and all four incident sign sectors are generated. The numerical test is not used as a continuum proof.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Prior exact polygon-type probabilities for the polar dodecahedron's central sections give the same unweighted \(6/8/10\) law, so these marginals are acknowledged rather than claimed. Prior Platonic orientation-variance results give total first/second moments without the three conditional first moments. A published tetrahedron formula covers only four-vertex solids, not the regular icosahedron. The broad fixed-polytope random-shadow and silhouette-complexity papers establish estimates/bounds, not this joint area/complexity law. No inspected result implies the present mixed moments by specialization, polarity, or combination of stated marginals. This is a limited best-evidence originality assessment: archived literature and inaccessible versions remain a residual risk.
+PASS
 
-**Value — PASS.** Random-shadow complexity and projected area are distinct natural observables in stereology and polyhedral geometry. Determining their complete first mixed moment across the three nontrivial icosahedral silhouette types gives geometric information not recoverable from the classical surface-area mean or the known marginal vertex counts. The strict reverse ordering and negative covariance distinguish silhouette complexity from projected area on a canonical Platonic solid; no downstream general theorem is asserted.
+Read exact face-normal chamber proof and source certificate logic. Independent double-precision sign-chamber reconstruction from ten geometric normals found precisely 92 spherical sign regions, with silhouette-vertex multiplicities (6:20,8:60,10:12), using the independent 30 face adjacency pairs. Independently evaluated exact angle formulas at 40-digit precision; probabilities sum to 1, weighted first moments to 5, and conditional means are 5.06657404965>4.89384776229>4.86026139705. The rational-arithmetic package checker encodes Q(sqrt5) sign chambers and exact flux coefficients; that code was inspected, not executed. High precision is numeric corroboration of the strict signs, not substitute for the source rational interval certificate.
 
-**Scope and priority risks.** Historical priority is not independently certified. The exact certificate is executable mathematics, not an independent audit. The distribution of area within each type and nonorthographic views remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published unweighted silhouette-class probability and classical global Cauchy brightness mean do not identify class-weighted first moments. Glisse–Lazard and Black–Criado concern size expectations and bounds rather than this joint exact three-class distribution. The available source comparisons do not document these mixed moments for the icosahedron.
+
+## value
+
+PASS
+
+Joint geometric brightness and combinatorial silhouette complexity are naturally paired view statistics. Closed conditional first moments and their strict reverse ordering answer a substantive shape-specific correlation question beyond the separate marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
