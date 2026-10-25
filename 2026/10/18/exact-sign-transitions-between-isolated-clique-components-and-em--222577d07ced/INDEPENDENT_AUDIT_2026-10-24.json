@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:19:10.339488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let J_U indicate r-subset U is exactly an isolated K_r component, and T_s sum all s-clique indicators. With q=E J_U=p^{r(r−1)/2}(1−p)^{r(n−r)}, conditioned on J_U all edges inside U are present, cross-edges absent and complement edges remain iid Bernoulli; therefore E[T_s|J_U]=C(r,s)+C(n−r,s)p^{s(s−1)/2}. Subtract E T_s=C(n,s)p^{s(s−1)/2}, multiply by q, sum over C(n,r) U gives exact covariance. For s≤r, A=C(r,s)>0, B=C(n,s)−C(n−r,s)>A when n>r, so unique crossing (A/B)^{1/C(s,2)} in (0,1); s>r has A=0 and always negative. B=Σ_{j=0}^{r−1}C(n−j−1,s−1)~r n^{s−1}/(s−1)! yields n^{−2/s} and eventual threshold ordering for fixed r. n=7,r=6,s5 vs s6 yields 30th powers 8/343 and 7/343, finite reversal. Independent rational enumeration of graph edge masks n=5 for r=3,s=2 at p=1/3,2/3 matched formula; inspected source check.py full n≤6 enumeration logic (not rerun in entirety).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/math/9310236",
+          "https://doi.org/10.1002/rsa.3240010403",
+          "https://arxiv.org/abs/1212.5480"
+        ],
+        "reasoning": "Prior general component enumeration or clique count limit theorems can supply techniques, but none of the materially inspected statements gives this exact mixed isolated K_r/all K_s covariance and its finite sign transitions. Broader general theorem implication remains a residual risk because not all primary technical sections were read.",
+        "searches": [
+          "Janson Knuth Luczak Pittel Birth Giant Component joint component subgraph generating function",
+          "Barbour Janson Karonski Rucinski Small cliques random graphs covariance",
+          "Bhamidi Budhiraja Wang bounded size rules"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/9310236",
+        "https://arxiv.org/abs/1212.5480",
+        "https://doi.org/10.1002/rsa.3240010403",
+        "https://arxiv.org/abs/2405.13454",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1002/rsa.3240010403",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ],
+        "reasoning": "Maximal-clique indicators permit external incident edges, unlike isolated clique *components*. Total component-count triangle covariance has different summation over all components. Known generic conditional expectation identity implies the formula once J_U chosen, but an abstract general technique is not evidence that the explicit natural mixed sign threshold was previously published.",
+        "searches": [
+          "Small cliques in random graphs 1990 maximal cliques",
+          "three point connectivity controls component triangle covariance Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "https://arxiv.org/abs/math/9310236"
+        ],
+        "reasoning": "Total number of connected components vs triangles covariance is a sum over connectivity deletion events; conditioning on J_U that a specific r-vertex component is complete is different. Exact crossing only for isolated-clique vs all-clique pair.",
+        "searches": [
+          "Resultary: Erdos Renyi graph covariance count isolated clique components count clique subgraphs sign change threshold",
+          "isolated K_r component vs K_s count covariance binomial explicit formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2405.13454",
+          "https://arxiv.org/abs/math/9310236"
+        ],
+        "reasoning": "The conditioned-on-all-components-are-cliques graph enumeration applies to a different probability law, not to unconditioned mixed covariance. Inspected abstracts provide no exact threshold table; cannot claim full-text noncoverage.",
+        "searches": [
+          "table covariance isolated clique component total clique count G(n,p) p threshold",
+          "Erdos Renyi conditional graph disjoint union cliques tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, with meaningful reservation that this is an elementary conditioning calculation. The exact covariance relates *isolated clique connected components* to *all embedded cliques*, not total components or maximal cliques; named prior texts focus on different joint observables or graph laws. No inspected explicit all-(n,r,s) crossing hierarchy, but general joint generating-function literature might imply the formula directly and should be checked before priority certification.",
+      "residual_risks": [
+        "The proof is a short standard conditioning deduction; a prior general joint generating-function theorem could directly entail it.",
+        "Some primary sources were inspected only at abstract level; no whole-document claim of noncoverage.",
+        "Not an asymptotic covariance CLT or result for nonhomogeneous edges."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_INSPECTED_PRIORITY_RISK",
+          "evidence": "General component counts around criticality, not proof of noncoverage of exact cross covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9310236",
+          "material_read": "Accessible abstract and identification of generating-function approach; full technical paper not inspected",
+          "method": "ArXiv abstract and bibliographic comparison",
+          "title": "The Birth of the Giant Component",
+          "trigger": "Potential stronger component generating function"
+        },
+        {
+          "assessment": "PARTIALLY_INSPECTED_PRIORITY_RISK",
+          "evidence": "Focus on maximal cliques, structurally distinct from isolated clique connected components.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010403",
+          "material_read": "Publisher abstract/bibliographic theorem context only, not entire article",
+          "method": "Publisher record",
+          "title": "Small cliques in random graphs",
+          "trigger": "Exact clique enumeration and potential covariance"
+        },
+        {
+          "assessment": "DIFFERENT_CONDITIONING_WITH_PARTIAL_INSPECTION",
+          "evidence": "Conditioning the entire graph to clique components changes probability law and is not unconditioned covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.13454",
+          "material_read": "ArXiv abstract and main model definition, not fully reviewed appendices",
+          "method": "ArXiv metadata/abstract",
+          "title": "The Erdős–Rényi Random Graph Conditioned on Every Component Being a Clique",
+          "trigger": "Closest complete-clique-component model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A naturally motivated exact covariance between two standard but competing combinatorial counts establishes sharp negative/positive sign domains, multiple n^{−2/s} sparse thresholds and a finite reversal in their ordering. The simplicity of the conditional-expectation proof does not eliminate the utility of this exact natural graph-statistic invariant; originality against broad joint-moment literature is the principal risk.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/9310236",
+    "https://arxiv.org/abs/1212.5480",
+    "https://doi.org/10.1002/rsa.3240010403",
+    "https://arxiv.org/abs/2405.13454",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The proof is a short standard conditioning deduction; a prior general joint generating-function theorem could directly entail it.",
+    "Some primary sources were inspected only at abstract level; no whole-document claim of noncoverage.",
+    "Not an asymptotic covariance CLT or result for nonhomogeneous edges."
+  ],
+  "schema_version": 1
+}
