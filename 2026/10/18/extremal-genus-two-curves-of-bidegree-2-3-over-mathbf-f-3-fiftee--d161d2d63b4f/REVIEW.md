@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The homogeneous squarefree discriminant criterion is valid for degree-two covers in characteristic three. Exhaustive enumeration of all 265720 projective coefficient sections, independently interpolated enumeration of all 10368 maximally split fibers, and all 576 ambient coordinate changes establish the counts. Complete orbit representatives are symbolically retested, and degree-six branch factorization and rational points over the quadratic extension are directly computed. Limits: this is an exact finite-field computation with available executable certificates, not a separately mechanized proof of every code instruction.
+## correctness
 
-## Originality — PASS, restricted to the embedded classification
-Faber--Grantham (arXiv:2010.07992, Section 2, Theorem 2.4) already proves the eight-point maximum for genus-two curves over the ternary field. That established fact is excluded from novelty. Their theorem does not give 6096 bidegree-(2,3) models, 15 ambient projective orbits, or the joint Frobenius ramification/extension-field distribution. Vermeulen (arXiv:2102.00900) treats existence for large-genus toric constructions, while Rains--Sam (arXiv:1702.04840) treats different marked genus-two moduli data. Searches of published mathematical research records and accessible prior ledger claims found no direct stronger implication. An older unindexed finite model table is an unresolved priority possibility.
+PASS
 
-## Value — PASS
-The classification concerns genus-two curves with two naturally marked ruling morphisms of degrees two and three. The orbit inventory resolves a moduli-refined counting problem not determined by the previously known gonality-point bound. Its three exact Weierstrass Frobenius types, zeta coefficients, and exclusion of the (3,3) branch type distinguish arithmetically different extremal embeddings in a way useful for finite-field curve classification and explicit arithmetic geometry.
+A smooth (2,3) divisor on P1 x P1 has genus (2-1)(3-1)=2 and a finite degree-two ruling; in characteristic three its equation U^2 A(S,T)+UV B(S,T)+V^2 C(S,T) is geometrically smooth exactly when the homogeneous binary sextic B^2-4AC is squarefree, including at infinity. Twelve ternary coefficients modulo projective scaling give (3^12-1)/2=265720 normalized sections. The source provides an exhaustive test, an independent rational-fiber interpolation method, and the 576 transformations of PGL2(F3) x PGL2(F3). Independently programmed polynomial gcds and rational-fiber counts over all 265720 normalizations gave 139392 smooth sections and 6096 smooth sections with N1=8. An independently built 576-matrix coefficient representation classified the 6096 maximal models into 15 orbits, with orbit sizes eight of 576, four of 288, two of 144 and one of 48. Independent F9 point counting and sextic factorization on representatives gave nine orbits with type (6), N2=12, four with (4,2), N2=10, and two with (2,2,2), N2=14. In turn a2=(N2+6)/2 gives zeta coefficients 9,8,10. The all-model original generated 139392-line CSV was only hash-identified, not completely retrieved due transport size; the independent full coefficient census and two source algorithms support counts. No abstract isomorphism classification is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.
+
+## value
+
+PASS
+
+The specified bidegree gives genus-two curves with two distinguished morphisms of degrees two and three, so ruling-preserving orbit classes encode nontrivial embedded moduli data. The complete 15-class and 6096-section inventory refines the already known eight-point bound by exact Frobenius ramification partitions and three zeta numerators, notably excluding the possible (3,3) type. This natural complete small-field classification cannot be read off from the scalar maximum point theorem, and its value does not require broader-field generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

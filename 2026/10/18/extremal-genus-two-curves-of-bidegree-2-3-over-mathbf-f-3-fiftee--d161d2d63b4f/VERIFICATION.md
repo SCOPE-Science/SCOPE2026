@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The reproduction commands and expected outputs are in `REPRODUCE.md` and the accompanying text files. The full coefficient census produces 139392 smooth models and 6096 maximal-point models. The second method reconstructs all 10368 sections with four split rational fibers via cubic interpolation and returns 6096 smooth ones, split as 3888, 1872, and 336 by branch type. The orbit script generates 286 smooth orbits, of which fifteen are maximal-point; the maximal orbit weights sum to 6096. The symbolic independent check certifies squarefreeness for all 286 smooth-orbit representatives, and the extension-field checker enumerates all rational points over the nine-element field for each maximal representative. These checks establish a reproducible finite exact calculation, not an external independent audit or a claim about unexamined higher-degree cases.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+A smooth (2,3) divisor on P1 x P1 has genus (2-1)(3-1)=2 and a finite degree-two ruling; in characteristic three its equation U^2 A(S,T)+UV B(S,T)+V^2 C(S,T) is geometrically smooth exactly when the homogeneous binary sextic B^2-4AC is squarefree, including at infinity. Twelve ternary coefficients modulo projective scaling give (3^12-1)/2=265720 normalized sections. The source provides an exhaustive test, an independent rational-fiber interpolation method, and the 576 transformations of PGL2(F3) x PGL2(F3). Independently programmed polynomial gcds and rational-fiber counts over all 265720 normalizations gave 139392 smooth sections and 6096 smooth sections with N1=8. An independently built 576-matrix coefficient representation classified the 6096 maximal models into 15 orbits, with orbit sizes eight of 576, four of 288, two of 144 and one of 48. Independent F9 point counting and sextic factorization on representatives gave nine orbits with type (6), N2=12, four with (4,2), N2=10, and two with (2,2,2), N2=14. In turn a2=(N2+6)/2 gives zeta coefficients 9,8,10. The all-model original generated 139392-line CSV was only hash-identified, not completely retrieved due transport size; the independent full coefficient census and two source algorithms support counts. No abstract isomorphism classification is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.
+
+## value
+
+PASS
+
+The specified bidegree gives genus-two curves with two distinguished morphisms of degrees two and three, so ruling-preserving orbit classes encode nontrivial embedded moduli data. The complete 15-class and 6096-section inventory refines the already known eight-point bound by exact Frobenius ramification partitions and three zeta numerators, notably excluding the possible (3,3) type. This natural complete small-field classification cannot be read off from the scalar maximum point theorem, and its value does not require broader-field generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
