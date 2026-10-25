@@ -1,11 +1,21 @@
-# Scientific review: Gaussian cone moment condensation
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact factorial generating function follows from a bijection between complete-bipartite acyclic orientations and alternating monochromatic blocks of permutations, coupled with the established linear-extension probability law. All coefficients are formal and weight invariance follows from unchanged edge-sign hyperplanes. The asymptotic bound is proved by the explicit composition estimate \(R_b(q)\le4^{b-1}(q-b+1)!\), which controls every multi-large-side-block term. The finite checker independently enumerates actual orientation preimages and agrees with the block formula in 57 tests; another 15 checks verify the leading term. The conditioned distribution and entropy law follow from the same exact contributions. The proof applies only to fixed \(p,t\) and integer \(t\ge2\).
+## correctness
 
-**Originality — PASS, qualified.** The acyclic orientation–linear extension correspondence is established (Iriarte); the graphical zonotope and complete-bipartite shuffle constructions are established (Padrol–Pilaud–Poullot; Chapoton–Pilaud). Published oriented-graph counting results do not, on the inspected material, derive the \(t\)-power Gaussian cone-mass moments or their condensation asymptotics. The closest published geometric findings concern a Löwner ellipsoid and a circumsphere, not cone-mass spectra; their full scientific result texts were compared. Searches also considered 'solid angles', 'collision probabilities', 'linear extensions', 'Rényi entropy' and 'ordered partitions'. No statement with stronger implication was located. Residual risk: a disguised equivalent identity in earlier weighted ordered-partition or random linear-extension literature may exist. Not a proof of global uniqueness.
+PASS
 
-**Mathematical value — PASS.** This characterizes an intrinsic Euclidean probability invariant of an entire natural family, not an arbitrary numerical slice. The surprising contrast is structural: exponentially many vertices coexist with polynomial collision probabilities, and the only \(2^p\) orientations controlling every fixed higher moment have vanishing total angular measure. The explicit conditional bias among these extremal orientations adds genuine geometric information not implied by the known face count or extremal radius.
+Reconstructed Gaussian edge-sign fan: positive generators do not alter hyperplane comparisons; iid Gaussian ranks induce uniform permutations. Acyclic orientations of K_{p,q} correspond bijectively to alternating maximal monochrome labeled blocks; each orientation has linear extensions equal to product of block factorials. Summing t-th powers after allocating labeled elements gives the formal generating function. For one large-side B-block, the complete weighted contribution is p!(q!)^t sum_{r=0}^p[r!(p-r)!]^{t-1}. For any b>=2 B blocks, the reciprocal binomial bound sum_{s=1}^{m-1} C(m,s)^-1<=4/m proves R_b(q)<=4^{b-1}(q-b+1)!; since b<=p+1 at fixed p, their total moment mass is a relative O(q^{-(t-1)}). It follows that collision-conditional condensation tends to one, and r-bias, entropy and vanishing unconditional condensation follow by exact normalization. Endpoints r=0,p and integer t>=2 handled; the finite checks are corroborative only.
 
-**Limitations and validation.** The proof does not treat growing first-side size, noninteger moment orders, or uniformly random acyclic orientations. The small-dimension checker tests algebraic identities but is not an infinite proof; infinite limits use explicit factorial inequalities. Earlier equivalences are a live bibliographic uncertainty. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison: Iriarte identifies a single orientation’s cone probability with its number of linear extensions over (p+q)!, and graphical-zonotope orientation correspondence is established. Neither his extremal-linear-extension results nor the inspected complete-bipartite ellipsoid/circumsphere results supply the all-order weighted alternating-composition moment identity or the fixed-p condensation and Renyi entropy law. Formal factorial generating functions and higher moments must not be inferred from vertex counts alone; priority in differently indexed combinatorial identities remains a risk.
+
+## value
+
+PASS
+
+Same-vertex exposure collisions are a canonical Euclidean normal-cone statistic of a complete-bipartite graphical zonotope. The exact joint p,q,t identity and the structurally unexpected concentration of high-order mass on 2^p rare orientations explain a genuine entropy–vertex-count separation, not a routine corollary of orientation counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
