@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T09:57:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every outage leaves a path, so an edge at path distance d contributes d(2m−d)/w. At any distinct budget-feasible pair at least two conductances vary, hence every outage objective is strictly convex; compactness and divergence at boundary give unique positive minimizer. Two-step rotations and price-preserving reflections force the even and odd conductance orbits. Odd/even path sums U=m(2m²+1)/3, V=2m(m²−1)/3 produce the exact two-branch max. Differentiating the branches under m(a+tb)=B yields t_−=V/U, t_+=U/V and all three formulas, including equality at endpoints. A uniform nominal no-outage design has equal edge derivatives so stationarity forces t=1. Fresh independent path-loss calculations checked all edge deletions across m=2..9 and nine price cases, not a substitute for strict-convexity argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Chertkov Section V uses numerical majorization/minimization under outages; Ghosh–Boyd–Saberi minimize nominal total effective resistance."
+        ],
+        "reasoning": "Neither inspected prior statement is an exact universal formula covering this deterministic worst-edge-failure alternating-cost cycle, although the class belongs to a general design framework.",
+        "searches": [
+          "Resultary semantic search: alternating edge prices even cycle worst single edge outage effective resistance Kirchhoff minimax plateau",
+          "https://arxiv.org/pdf/1004.2285",
+          "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1004.2285",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The phase split follows from explicit odd/even coefficients U,V and nonsmooth max under price budget."
+        ],
+        "reasoning": "General convexity and line-failure optimization imply existence of an optimizer but not these explicit thresholds; the proof adds path structure, symmetry, uniqueness and minimax algebra.",
+        "searches": [
+          "Resultary semantic search: alternating edge prices even cycle worst single edge outage effective resistance Kirchhoff minimax plateau",
+          "https://arxiv.org/pdf/1004.2285"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson–Chertkov consider worst-case line failures as a general convex network design task."
+        ],
+        "reasoning": "Equivalent robust-design terminology and Laplacian trace formulations checked; generic optimization principle does not identify minimizers/thresholds for this alternating family.",
+        "searches": [
+          "Resultary semantic search: alternating edge prices even cycle worst single edge outage effective resistance Kirchhoff minimax plateau",
+          "https://arxiv.org/pdf/1004.2285"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical robust network examples are not a tabulation of the full 2m-cycle alternating-price phase portrait."
+        ],
+        "reasoning": "No exact table giving these two sharp thresholds or asymptotic plateau width found; sampled computed tables could not by themselves prove every m,t.",
+        "searches": [
+          "Resultary semantic search: alternating edge prices even cycle worst single edge outage effective resistance Kirchhoff minimax plateau",
+          "https://arxiv.org/pdf/1004.2285"
+        ]
+      },
+      "rationale": "General worst-outage optimal network design already appears in Johnson–Chertkov and cannot be claimed new. Their general optimization method and Ghosh–Boyd–Saberi no-failure design do not derive the exact unrestricted alternating-cycle three-regime phase transition and plateau.",
+      "residual_risks": [
+        "A more specialized network-resilience paper may have solved the same alternating cycle already, despite non-matching top semantic searches.",
+        "No claim of a novel general convex optimization framework; graph-structured exact phase portrait only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_PHASE",
+          "evidence": [
+            "Published robust line failure formulation and approximation/numerical design are prior; no alternating-cost cycle plateau theorem there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2285",
+          "material_read": "Eight-page source, failure-related Section V (around pp. 6–7) inspected in PDF text and page image",
+          "method": "Primary full text (HTML/PDF), inspected relevant original statements and computations",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Most relevant existing worst-line-outage design framework"
+        },
+        {
+          "assessment": "NOMINAL_OBJECTIVE_ONLY",
+          "evidence": [
+            "Nominal graph resistance minimization does not include worst single-edge removal."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Abstract and relevant nominal conductance allocation statements inspected; full article not exhaustively read",
+          "method": "OA PDF introductory and theorem-scope reading",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Potential global effective resistance optimization coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact, globally unique solution to a natural graph resilience minimax problem exhibits a price-inequality interval with equal optimal conductances, a sharp phase boundary absent from ordinary Kirchhoff design. Structural rather than simply numeric improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1004.2285",
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No public metadata was changed; both METADATA.json and AUDIT.json retain sensitive internal provenance and cannot be published as-is.",
+    "No repository write or server-side scientific completion call was performed.",
+    "A more specialized network-resilience paper may have solved the same alternating cycle already, despite non-matching top semantic searches.",
+    "No claim of a novel general convex optimization framework; graph-structured exact phase portrait only."
+  ],
+  "residual_risks": [
+    "A more specialized network-resilience paper may have solved the same alternating cycle already, despite non-matching top semantic searches.",
+    "No claim of a novel general convex optimization framework; graph-structured exact phase portrait only."
+  ],
+  "schema_version": 1
+}

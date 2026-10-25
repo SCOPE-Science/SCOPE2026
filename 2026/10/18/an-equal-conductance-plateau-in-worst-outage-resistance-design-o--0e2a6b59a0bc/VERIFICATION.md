@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the alternating-price cycle outage theorem
 
-Run the included `verify_robust_cycle.py` with Python 3 and installed NumPy, SciPy, and SymPy:
+# Independent mathematical audit
 
-```sh
-python verify_robust_cycle.py
-```
+## correctness
 
-Expected output from the checked package: `PASS 2478 independent symbolic/numeric checks`.
+PASS
 
-The script checks the parity coefficient sums exactly for sizes \(m=2,\ldots,19\), the three closed-form regimes across rational prices, exact budget balance, and the full list of adversarial outage objectives. It separately evaluates Kirchhoff indices through weighted Laplacian eigenvalues on randomly chosen positive conductances, checks many asymmetric feasible competitors, and runs unrestricted numerical optimizers on selected sizes. The reported 2,478 assertions were obtained from the actual program included with this finding.
+Every outage leaves a path, so an edge at path distance d contributes d(2m−d)/w. At any distinct budget-feasible pair at least two conductances vary, hence every outage objective is strictly convex; compactness and divergence at boundary give unique positive minimizer. Two-step rotations and price-preserving reflections force the even and odd conductance orbits. Odd/even path sums U=m(2m²+1)/3, V=2m(m²−1)/3 produce the exact two-branch max. Differentiating the branches under m(a+tb)=B yields t_−=V/U, t_+=U/V and all three formulas, including equality at endpoints. A uniform nominal no-outage design has equal edge derivatives so stationarity forces t=1. Fresh independent path-loss calculations checked all edge deletions across m=2..9 and nine price cases, not a substitute for strict-convexity argument.
 
-A separate symbolic check verified the identities \(U_m-V_m=m\), the derivative signs of both branches, the closed forms of both thresholds, and \(\lim_{m\to\infty}m^2(t_+-t_-)=3\).
+## originality
 
-These finite numerical and symbolic samples do not constitute an exhaustive certification of all sizes, all positive budgets, and all prices. The written analytic proof establishes those quantified statements. Independent external examination has not been performed.
+PASS
+
+General worst-outage optimal network design already appears in Johnson–Chertkov and cannot be claimed new. Their general optimization method and Ghosh–Boyd–Saberi no-failure design do not derive the exact unrestricted alternating-cycle three-regime phase transition and plateau.
+
+## value
+
+PASS
+
+The exact, globally unique solution to a natural graph resilience minimax problem exhibits a price-inequality interval with equal optimal conductances, a sharp phase boundary absent from ordinary Kirchhoff design. Structural rather than simply numeric improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

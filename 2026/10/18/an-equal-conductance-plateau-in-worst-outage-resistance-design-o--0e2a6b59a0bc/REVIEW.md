@@ -1,23 +1,21 @@
-# Scientific review — worst-outage resistance on alternating-price cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is self-contained for integers \(m\ge2\), all positive prices and budgets, independent nonnegative conductances, and all possible single-edge outages. Equation (1) follows by counting the \(d(2m-d)\) pairs whose path traverses each surviving edge. All feasible finite-risk designs necessarily have strictly positive weights; the budget simplex and reciprocal blow-up give existence. Strict convexity is proved on the unrestricted budget hyperplane because any two different budget-feasible designs differ in at least two edge variables, and each post-outage resistance includes all but one variable. Thus each failure objective, and hence their finite maximum, is strictly convex on the feasible affine set. Price-preserving automorphisms reduce the unique optimum to two edge classes without imposing symmetry as an assumption. The two parity sums are exact, their difference is \(m\), and elementary one-dimensional differentiation proves the three regimes and both boundary cases. The nominal-design contrast follows from differentiable edge-transitive marginal derivatives and unequal cost multipliers.
+PASS
 
-The standalone verification code was executed and passed 2,478 symbolic and numerical checks, including direct post-failure eigenvalue constructions and random asymmetric competitors. The proof, not the experiments, establishes the all-size result. The separate derivative and asymptotic simplifications were checked symbolically.
+Every outage leaves a path, so an edge at path distance d contributes d(2m−d)/w. At any distinct budget-feasible pair at least two conductances vary, hence every outage objective is strictly convex; compactness and divergence at boundary give unique positive minimizer. Two-step rotations and price-preserving reflections force the even and odd conductance orbits. Odd/even path sums U=m(2m²+1)/3, V=2m(m²−1)/3 produce the exact two-branch max. Differentiating the branches under m(a+tb)=B yields t_−=V/U, t_+=U/V and all three formulas, including equality at endpoints. A uniform nominal no-outage design has equal edge derivatives so stationarity forces t=1. Fresh independent path-loss calculations checked all edge deletions across m=2..9 and nine price cases, not a substitute for strict-convexity argument.
 
-## Originality — PASS, with explicit residual uncertainty
+## originality
 
-The closest inspected source is Johnson–Chertkov, arXiv:1004.2285, Section V, which already formulates optimization under worst-case line failures and explains its convexity, giving an important broader problem class. That contribution is **not** claimed here. Its full text does not present the exact solution for the alternating-price cycle, the reciprocal sharp thresholds, unrestricted optimizer uniqueness, or the positive-width equal-conductance plateau. Ghosh–Boyd–Saberi (SIAM Review 2008, sections 5 and 8) establish nominal total-resistance optimization and symmetry methods; their cycle discussion concerns the equal-price nominal problem. Boyd–Vandenberghe–El Gamal–Yun (ISPD 2001) address varying currents rather than a worst-post-edge-deletion objective.
+PASS
 
-Targeted searches of published mathematical records, together with the accessible prior conductance-allocation claims, found no equivalent statement. A prior paper or independent exact derivation outside the inspected and indexed literature remains possible; absence of a matching search hit is not a proof of uniqueness or absolute priority. The mathematical claim is original relative to the concrete results inspected, rather than merely a rename of the cited general convex program.
+General worst-outage optimal network design already appears in Johnson–Chertkov and cannot be claimed new. Their general optimization method and Ghosh–Boyd–Saberi no-failure design do not derive the exact unrestricted alternating-cycle three-regime phase transition and plateau.
 
-## Value — PASS
+## value
 
-Protecting a network against **any** one link outage is a natural and established design objective. It changes the optimizer qualitatively: an entire interval of unequal construction prices admits equal conductances, while nominal effective-resistance minimization has no such interval. This is a structural three-regime phase diagram valid for all even cycle sizes, with both sharp thresholds and a precise large-size width law. It gives a concrete closed-form benchmark for nonsmooth robust network optimization and isolates when outage equalization outweighs price bias. The formula is elementary to evaluate after the proof but is not an arbitrary finite table, isolated numerical example, or mere restatement of the generic convexity framework.
+PASS
 
-## Remaining scientific risks and scope
+The exact, globally unique solution to a natural graph resilience minimax problem exhibits a price-inequality interval with equal optimal conductances, a sharp phase boundary absent from ordinary Kirchhoff design. Structural rather than simply numeric improvement.
 
-An equivalent specialized result may appear in literature not indexed by the searches. The 2010 paper contains the general post-failure convex optimization model; the present result is a solved special family, not a general method. The model is restricted to alternating prices, independent conductance design, deterministic single outages, and the Kirchhoff-index objective. No inference about multi-edge outages or arbitrary graphs is made.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
