@@ -1,15 +1,21 @@
-# Review of the sharp zero-centered Drury–Arveson Bohr ball
+# Independent mathematical audit
 
-## Correctness (PASS)
-The coefficient weights of the normalized Drury–Arveson kernel give the exact degreewise multinomial identity. For a contractive multiplier vanishing at the origin, applying Cauchy–Schwarz to its Hilbert-space coefficients yields \(\mathcal B(f,z)\le\|z\|_2/\sqrt{1-\|z\|_2^2}\). For every nonzero direction, composing its linear coordinate functional with the explicit scalar degree-two Blaschke product \(\psi(\xi)=\xi(a-\xi)/(1-a\xi)\), where \(a=1/\sqrt2\), gives a contractive multiplier with majorant \(ar/(1-ar)\). Both expressions equal one at \(r=a\), their derivatives agree at \(2\sqrt2\), and exterior points violate the Bohr bound. Equality in the upper Cauchy–Schwarz step forces the stated exact coefficient magnitudes. This proves all quantifiers, including countably many coordinates. The checker confirms finitely many necessary identities, not universality.
+## correctness
 
-## Originality (PASS under stated source-access uncertainty)
-The motivating work of Brevig, Seip and Zlotnikov, *Bohr sets for multiplier algebras of complete Pick spaces*, first made public September 22, 2026, announces an unrestricted Drury–Arveson multiplier Bohr ball of radius \(1/3\). Its publicly accessible abstract does not assert the normalized zero-at-origin ball, boundary coefficient rigidity or radial crossing coefficient. Paulsen, Popescu and Singh, *On Bohr's Inequality* (2002), treats broader operator-theoretic and multivariable Bohr inequalities; its accessible abstract does not resolve this normalized exact-set problem. Related results on scalar fixed-value majorants and pluriharmonic Bohr radii concern different classes. The older classical scalar zero-at-origin result is not claimed new. The scientific comparison is at the level of the asserted implications and not mere title mismatch. The two closest full papers were not readable here; undiscovered coverage in their theorems remains an explicit priority risk.
+PASS
 
-## Mathematical value (PASS)
-The zero-at-origin multiplier ideal is the natural first normalization adjacent to the unrestricted complete-Pick Bohr-set problem. The result completely identifies its multivariate absolute-monomial Bohr set with an all-direction sharpness construction. Equality forces an exact infinite Taylor coefficient magnitude profile, while a uniform first-order exit law quantifies the boundary. The scalar single-variable constant is classical, but it alone cannot upper-bound the multivariate absolute monomial sum where coefficient cancellations can occur in restrictions. This is a natural full-dimensional sharp-set classification rather than an arbitrary finite calculation. The contribution is limited to this ideal and local radial behavior; no broader complete-Pick or full profile theorem is asserted.
+For f(0)=0 and contractive multiplier M_f on normalized Drury–Arveson H2_d, the vector f=M_f1 has squared monomial coefficient norm sum |c_α|² α!/|α|!≤1. Cauchy–Schwarz and the multinomial identity in finite/countably infinite dimensions give absolute monomial majorant at r=||z||₂ ≤r/sqrt(1−r²), ≤1 exactly through r*=1/sqrt2. For each direction u=z/||z||, scalar Blaschke ψ(ξ)=ξ(a−ξ)/(1−aξ), a=1/sqrt2, composed with the row-contraction linear multiplier ℓ_u, is contractive and has scalar absolute Taylor coefficients a^n. Multinomial expansion yields exact majorant ar/(1−ar), equal 1 at r=a and >1 outside. Equality in Cauchy–Schwarz at boundary forces |c_α|=(|α|!/α!)|z^α|, including zero coordinates. The two explicit radial envelopes touch at 1 with common exact derivative 2sqrt2; independent SymPy differentiation checked both contact identities and first-order coefficient, with uniform O((r−a)²) from dimension-free Taylor bounds. No formula for full radial profile is asserted. Standard finite CHECK.py only tests sample multinomial identities, not general theorem.
 
-## Closest literature and residual risks
-Brevig–Seip–Zlotnikov (arXiv:2609.26395, abstract read) is closest in objects; Paulsen–Popescu–Singh (DOI:10.1112/S0024611502013692, abstract read) is closest in classical operator-Bohr methods. Both full texts would require further priority inspection. A larger theorem in either manuscript could subsume the normalized special case; absence from the abstracts does not prove originality. The finite tests do not rule out proof omissions in generality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS with material risk from inaccessible close sources. Classical one-variable zero-at-origin scalar Bohr and unrestricted complete-Pick Drury–Arveson radius 1/3 are recognized. The exact universally quantified absolute MULTIVARIATE monomial majorant for the zero-constant multiplier ideal, all-direction boundary rigidity and radial first-order crossing do not follow from unrestricted radius 1/3 alone. The 2026 Brevig–Seip–Zlotnikov arXiv abstract and 2002 Paulsen–Popescu–Singh abstract are insufficient to prove full-paper noncoverage: specifically named possibility of an implicit normalized theorem remains, but no decisive covering statement was accessible. Resultary queries surfaced no matching exact normalized classification.
+
+## value
+
+PASS
+
+The multiplier ideal vanishing at the origin is a canonical normalization adjacent to the natural unrestricted Drury–Arveson Bohr problem. Exact Euclidean ball for the multivariate monomial majorant in ALL finite/countable dimensions, explicit extremizers, rigid coefficient magnitudes and dimension-uniform sharp local crossing yield independently useful operator-function theory, not a random radius substitution or unsupported paper-scale extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

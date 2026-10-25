@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The argument is a proof by explicit kernel coefficient identities, Cauchy–Schwarz, the row-contraction property of Drury–Arveson coordinate multipliers, and the scalar Schur functional calculus. In the sharp construction, the scalar coefficients are exactly \(a,-a^2,-a^3,\ldots\) for \(a=1/\sqrt2\). The degreewise absolute multinomial sum is therefore \((ar)^n\), including countable dimension by monotone convergence. Equality at \(r=a\) forces the stated absolute coefficient profile, and the lower and upper scalar radial envelopes both differentiate to \(2\sqrt2\).
+# Independent mathematical audit
 
-Run the included standalone diagnostic using `python CHECK.py`. It tests forty finite binomial identities and forty related rational mass identities, plus sampled radial bounds and a central-difference derivative: **102 assertions** in total. The diagnostic does not check all dimensions or certify universal quantifiers; those follow only from the written proof. Two highly relevant publications were accessible only through bibliographic and abstract material, so priority comparisons remain conditional on further full-text inspection.
+## correctness
+
+PASS
+
+For f(0)=0 and contractive multiplier M_f on normalized Drury–Arveson H2_d, the vector f=M_f1 has squared monomial coefficient norm sum |c_α|² α!/|α|!≤1. Cauchy–Schwarz and the multinomial identity in finite/countably infinite dimensions give absolute monomial majorant at r=||z||₂ ≤r/sqrt(1−r²), ≤1 exactly through r*=1/sqrt2. For each direction u=z/||z||, scalar Blaschke ψ(ξ)=ξ(a−ξ)/(1−aξ), a=1/sqrt2, composed with the row-contraction linear multiplier ℓ_u, is contractive and has scalar absolute Taylor coefficients a^n. Multinomial expansion yields exact majorant ar/(1−ar), equal 1 at r=a and >1 outside. Equality in Cauchy–Schwarz at boundary forces |c_α|=(|α|!/α!)|z^α|, including zero coordinates. The two explicit radial envelopes touch at 1 with common exact derivative 2sqrt2; independent SymPy differentiation checked both contact identities and first-order coefficient, with uniform O((r−a)²) from dimension-free Taylor bounds. No formula for full radial profile is asserted. Standard finite CHECK.py only tests sample multinomial identities, not general theorem.
+
+## originality
+
+PASS
+
+Best-knowledge PASS with material risk from inaccessible close sources. Classical one-variable zero-at-origin scalar Bohr and unrestricted complete-Pick Drury–Arveson radius 1/3 are recognized. The exact universally quantified absolute MULTIVARIATE monomial majorant for the zero-constant multiplier ideal, all-direction boundary rigidity and radial first-order crossing do not follow from unrestricted radius 1/3 alone. The 2026 Brevig–Seip–Zlotnikov arXiv abstract and 2002 Paulsen–Popescu–Singh abstract are insufficient to prove full-paper noncoverage: specifically named possibility of an implicit normalized theorem remains, but no decisive covering statement was accessible. Resultary queries surfaced no matching exact normalized classification.
+
+## value
+
+PASS
+
+The multiplier ideal vanishing at the origin is a canonical normalization adjacent to the natural unrestricted Drury–Arveson Bohr problem. Exact Euclidean ball for the multivariate monomial majorant in ALL finite/countable dimensions, explicit extremizers, rigid coefficient magnitudes and dimension-uniform sharp local crossing yield independently useful operator-function theory, not a random radius substitution or unsupported paper-scale extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
