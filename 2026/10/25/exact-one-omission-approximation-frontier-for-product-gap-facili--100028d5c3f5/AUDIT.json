@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each k>=2 and positive real gaps, enumerating the omitted report gives weights P/g_1, P/g_k, and P(1/g_j+1/g_{j+1}); the sum is 2P sum 1/g_i. The corresponding cost numerator is P[k+1+sum min(g_i,g_{i+1})/max(g_i,g_{i+1})]. Pigeonhole and the triangle inequality prove OPT=min g. Choosing a shortest gap and an adjacent one yields R<=((2k-1)+u)/(2(1+u))<k-1/2, while gaps (1,T,...,T) tend to that supremum. Every omission has positive probability, yielding the exact equality-at-one criterion. 21,844 standalone exact-rational finite checks from VERIFY.py matched the proof but are not treated as proof by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jia arXiv:2608.19633 abstract: global unrestricted sharp cost ratio 2k.",
+        "Chan–Lin–Wang arXiv:2608.22484, Section 5 Lemma 5 equations (5.1)-(5.2): C_k <= 2k Z_{k+1}/Z_k <= 2k OPT.",
+        "For exactly n=k+1 distinct sites, substitution in this lemma gives C_k/OPT <= k/(m sum_i 1/g_i) <= k, which is weaker than k-1/2."
+      ],
+      "reasoning": "A general 2k statement covers the same instances but does not imply the sharp finite-population supremum or equality pattern. The intermediate stronger cited bound still stops at k. No known stronger parameterized prior theorem was located; Jia full text is an explicit residual risk.",
+      "searches": [
+        "Web: \"Product-Gap\" \"k+1\" \"facility\"",
+        "Web: \"Gap-Product mechanism\" \"k - 1/2\" approximation",
+        "Web: \"Gap-Product mechanism\" \"k+1\" approximation",
+        "published-finding corpus: sharp ratio k−1/2 for product-gap facility location with n=k+1 reports"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.19633 (Jia), original abstract and available extended technical accounts; primary full text inaccessible.",
+      "arXiv:2608.22484 (Chan–Lin–Wang), public preprint full-text main Section 5 and proof.",
+      "arXiv:2608.16550 (Aziz–Mackenzie–Suzuki), abstract and public technical account.",
+      "AMS MSC2020 classification entry 91B03, mechanism design theory.",
+      "Chan–Lin–Wang Section 4, different inverse-nearest-neighbor-power facility omission mechanism."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chan–Lin–Wang Section 5 gives a mechanism and global 2k guarantee, without exact n=k+1 identity and equality conditions in the inspected theorem and proof.",
+        "Jia arXiv:2608.19633 accessible abstract and technical summary give the 2k unrestricted bound, while original full PDF was unavailable.",
+        "Aziz–Mackenzie–Suzuki arXiv:2608.16550 describe random-anchor volume sampling, a distinct two-stage law.",
+        "The present proof independently enumerates all k+1 omitted-index outcomes, retaining the adjacent-short-gap correction absent from the broad 2k bound."
+      ],
+      "reasoning": "The target exact ratio has distinct quantified content. A general upper bound of 2k or even k neither supplies the smaller sharp k-1/2 constant nor classifies equality at one. Different random-anchor probabilities do not imply the product-gap law. The unresolved full Jia text is stated as a concrete source-access risk.",
+      "searches": [
+        "Web: \"Randomized Strategyproof Facility Location: Two Facilities and Beyond\" pdf full text",
+        "Web: \"Product-Gap Mechanisms for Multi-Facility Location\" pdf Jia",
+        "Web: \"Random-Anchor Volume\" \"n=4\" approximation",
+        "published-finding corpus: randomized facility location gap product mechanism one unserved agent n=k+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jia arXiv:2608.19633 calls the same sampling rule Product-Gap.",
+        "Chan–Lin–Wang arXiv:2608.22484, Section 5 (definition, lines 2221–2248 in lawful author-displayed text), calls it Gap-Product.",
+        "The pairwise-distance or Global-Pair rule is the k=2 instance, not a different mechanism."
+      ],
+      "reasoning": "Mechanism equivalence was explicitly recognized, so mere renaming is not counted as novelty. The new theorem is the universal n=k+1 specialization with exact expected-cost and optimality geometry; accessible abstracts and the inspected relevant full section did not give an equal or stronger specialized theorem.",
+      "searches": [
+        "published-finding corpus: Gap-Product mechanism n=k+1 agents k facilities exact approximation ratio k minus one half",
+        "published-finding corpus: product gap sample k of k+1 reports exact expectation harmonic gaps min adjacent [concept variants queried as: Gap-Product mechanism exact omission probability adjacent gaps reciprocal and optimality isolation]",
+        "Web: \"Gap-Product\" \"k+1\" \"facility\"",
+        "Web: \"Product-Gap Mechanisms for Multi-Facility Location\" \"n=k+1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit inspected stated a product-gap one-omission ratio or the isolated-long-gap exact-optimality criterion.",
+        "The distinct inverse-nearest-neighbor omission mechanism in Chan–Lin–Wang Section 4 selects with reciprocal-distance-squared weights, not product-gap weights.",
+        "The indexed search returns no exact one-omission product-gap ratio or equality pattern; this is negative search evidence, not a uniqueness certificate."
+      ],
+      "reasoning": "Database nonmatches and disjoint historical subjects constrain known overlap but do not establish uniqueness or priority. No exact database or table matching the target natural invariant was found.",
+      "searches": [
+        "published-finding corpus: Gap-Product mechanism n=k+1 agents k facilities exact approximation ratio k minus one half",
+        "published-finding corpus: sharp ratio k−1/2 for product-gap facility location with n=k+1 reports",
+        "published-finding corpus: Global Pair three agents n=3 exact approximation 3/2 finite population",
+        "Web: \"Product-Gap\" \"k+1\" \"facility\""
+      ]
+    },
+    "rationale": "The investigated contribution is the exact finite-population n=k+1 expected-cost identity, sharp supremum k-1/2 for all k>=2, and the complete welfare-optimality characterization, not the known gap-product mechanism. Inspected primary Section 5 of Chan–Lin–Wang gives a global 2k theorem and a specialization only implying k; accessible Jia sources state a global 2k theorem but primary full text remained unavailable, explicitly retained as priority risk. No equivalent mathematical statement appeared in the targeted public mathematical-results or literature searches. Absence from databases is not considered uniqueness proof.",
+    "residual_risks": [
+      "The full Jia arXiv:2608.19633 PDF was inaccessible, so a concealed finite-population specialization cannot be excluded by the currently inspected material.",
+      "Literature/published-finding corpus nonmatches do not prove worldwide novelty, and expert independent priority review has not occurred.",
+      "Approximation statement for k>=4 is not a strategyproofness assertion; it does not extend to larger n or general metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General sharp 2k bound and a finite-population specialization no stronger than k. The inspected main section did not state the k-1/2 exact frontier or equality characterization.",
+        "evidence": [
+          "Section 5 mechanism definition and Theorem 4 (arXiv:2608.22484).",
+          "Section 5 Lemma 5 equations (5.1)-(5.2), global ratio 2k and n=k+1 implied bound k."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond",
+        "material_read": "Accessible displayed preprint introduction, Section 5 definition, Theorem 4, Lemma 5 and its complete main-text proof, tightness construction, and concluding scope; source is arXiv:2608.22484.",
+        "method": "Read displayed full-text portions with named theorem/section checks, comparing equations (5.1)-(5.2) against exact n=k+1 formula.",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Identical gap-product mechanism and strongest relevant generalized upper-bound proof."
+      },
+      {
+        "assessment": "Accessible text establishes global sharp 2k theorem, but cannot support whole-document NOT_COVERING; a finite-population lemma in its uninspected portions is a residual priority risk.",
+        "evidence": [
+          "arXiv:2608.19633, first submitted 2026-08-20: defines Product-Gap and states unrestricted sharp ratio 2k."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+        "material_read": "Original abstract and accessible detailed technical secondary accounts. Original full paper could not be inspected after lawful full-text access attempts.",
+        "method": "Checked arXiv identifier/date/abstract, accessible OA index and technical summaries, and attempted full primary access.",
+        "title": "Product Gap Mechanisms for Multi-Facility Location",
+        "trigger": "Earlier public source independently defining exactly the same Product-Gap mechanism."
+      },
+      {
+        "assessment": "Different anchor-conditioned mechanism with general k=3 approximation factor eight; cannot imply exact Product-Gap sampling probabilities without an identity not present in accessible material.",
+        "evidence": [
+          "arXiv:2608.16550 defines an independently sampled anchor before selecting remaining reports, unlike the product-gap distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.16550",
+        "material_read": "Accessible original abstract and detailed public scientific account of random-anchor selection and k=3 bound.",
+        "method": "Compared the defining sampling law and scope rather than title similarity.",
+        "title": "Anchoring for Truthfulness: The Random-Anchor Volume Mechanism for Multi-Facility Location",
+        "trigger": "Nearby earlier multi-facility volume-sampling rule and potential reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "100028d5-c3f5-4bca-8508-f4ff56ddcf26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The n=k+1 case is the smallest population with a nonzero possibility of unserved demand and a natural parameter endpoint of facility-location mechanisms. Its exact welfare ratio k-1/2 is strictly smaller than the cited unrestricted 2k, for every k, with 3-facility ratio 5/2 at the first nontrivial n=4. The characterization of all welfare-optimal nonuniform profiles by isolated long gaps exposes a structural dependence on gap adjacency, not merely an isolated numerical instance. The result supports precise small-market benchmarking; it does not purport to solve larger-population incentive or welfare questions.",
+    "status": "PASS"
+  }
+}
