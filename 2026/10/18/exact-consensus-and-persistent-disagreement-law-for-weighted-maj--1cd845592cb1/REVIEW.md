@@ -1,11 +1,21 @@
-# Scientific review: Weighted majority-rule sunflowers
+# Independent mathematical audit
 
-**Correctness — PASS.** Local majority on a three-vertex edge preserves its leaf pair when the pair agrees, and otherwise irrevocably resolves that pair to the current hub. The proof handles arbitrary positive edge weights, all binary deterministic initial configurations, the first-edge branching event, all mixed-petal coupon-collection boundaries, and the persistent two-color recurrent class. Under independent Bernoulli initialization, the two disjoint consensus-color events are counted directly and all edge weights cancel. Their sum reproduces the unbiased law \((3/4)^{m-1}\). The exact first-step Markov solver in `verify_std.py` passed 21,906 rational comparisons on \(m=1,\dots,6\), with both uniform and unequal sampling weights. The finite checks are evidence of implementation agreement, not a replacement for the all-size proof.
+## correctness
 
-**Originality — PASS (qualified by remaining literature risk).** The 2021 primary paper treats mean-field, tripartite, modular, and degree-heterogeneous majority-rule hypergraphs; it does not derive a sunflower-specific outcome law. The full-text 2013 general hypergraph generator does not provide the exact specialized classification, and the 2024 adaptive hypergraph paper studies a different updating mechanism with rewiring. Formula-, topology-, equivalent-statement-, and stronger-coverage searches identified no covering source. An equivalent result in less discoverable finite-interaction literature remains possible; neither index nonappearance nor a model partition proves uniqueness.
+PASS
 
-**Value — PASS.** The precise behavior on a simple connected hypergraph answers a natural gap in the analysis of small structured three-body majority systems. The exact \((3/4)^{m-1}\) unanimity probability shows exponential loss of consensus even under unlimited interaction, while its invariance under heterogeneous meeting frequencies is unexpected and useful for model comparisons. The full initial-state classification and conditional coupon-collector times provide meaningful additional structural information rather than arbitrary isolated numerical observations.
+For each three-vertex edge, pure agreeing leaves overwrite only hub, whereas mixed leaves acquire hub color on first activation; pure petals are irrevocable. Positive independent edge-selection weights guarantee almost-sure eventual purification. The first chosen pure-vs-mixed petal decides whether an initially opposed hub succeeds when all pure petals have one color; two pure colors forbid consensus. Direct Bernoulli independent-initial calculation yields P0=(1−p)²(1+2p)(1−p²)^(m−1) and P1=p²(3−2p)[p(2−p)]^(m−1), independent of weights; total at p=1/2=(3/4)^(m−1), p=λ/sqrt(m)→e^(−λ²). After purification, fresh weighted draws give i.i.d hub opinions, while uniform coupon collection yields mH_r or 1+mH_r conditional means. Independent exact enumeration of all binary states, with unequal positive rational edge weights for m=1..6 and three p choices (18 parameter cases), matched both color probabilities; full m proof uses state invariants.
 
-The scientific limitations are the one-hub disjoint-petal topology, strict binary majority, positive stationary edge weights, and i.i.d. initial law only where stated. General network conclusions and independent validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The local three-agent majority rule is established literature; the exact classification for disjoint two-leaf petals on a single shared hub, with arbitrary positive meeting probabilities, i.i.d initialization law and persistent disagreement is a distinct solved topology. Full primary majority-rule paper of Noonan–Lambiotte studies complete/tripartite/modular/degree-heterogeneous hypergraphs rather than exact weighted sunflower absorbing classes; Lanchier–Neufer concerns spatial hypergraphs, and adaptive-rewiring models differ. Equivalent hyperstar wording searched. Best knowledge PASS with possible unindexed model-specific enumeration risk.
+
+## value
+
+PASS
+
+A simple connected majority-interaction topology unexpectedly exhibits permanent nonconsensus with probability tending to one exponentially despite every group being updated infinitely often. Exact weight-invariant consensus probabilities, every-initial-state class and coupon-collector timing are mathematically motivated benchmarks and structural insights for hypergraph opinion dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

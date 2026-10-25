@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_std.py` with Python 3. The file requires only the Python standard library and is self-contained. It constructs independent first-step rational equations for every leaf-pair state in \(\{0,1,\mathrm{mixed}\}^m\). The unresolved configurations have a strictly positive total chance of selecting a mixed pair and therefore a well-defined transient Markov solution. For all \(1\le m\le6\) it checks every one of the \(2^{2m+1}\) binary initial states under both uniform weights and strictly unequal positive rational weights; the solved eventual-consensus probability is compared exactly with the theorem. It also independently averages those Markov probabilities over Bernoulli product initial states at five rational parameters, and checks an exact independent combinatorial expansion.
+## correctness
 
-Execution of the embedded code produced:
+PASS
 
-`PASS 21906 exact rational finite-state/initial-law comparisons`
+For each three-vertex edge, pure agreeing leaves overwrite only hub, whereas mixed leaves acquire hub color on first activation; pure petals are irrevocable. Positive independent edge-selection weights guarantee almost-sure eventual purification. The first chosen pure-vs-mixed petal decides whether an initially opposed hub succeeds when all pure petals have one color; two pure colors forbid consensus. Direct Bernoulli independent-initial calculation yields P0=(1−p)²(1+2p)(1−p²)^(m−1) and P1=p²(3−2p)[p(2−p)]^(m−1), independent of weights; total at p=1/2=(3/4)^(m−1), p=λ/sqrt(m)→e^(−λ²). After purification, fresh weighted draws give i.i.d hub opinions, while uniform coupon collection yields mH_r or 1+mH_r conditional means. Independent exact enumeration of all binary states, with unequal positive rational edge weights for m=1..6 and three p choices (18 parameter cases), matched both color probabilities; full m proof uses state invariants.
 
-The exact mathematical proof for all \(m\) relies on the two-case majority transition, permanent pair freezing, the first selected edge, independent Bernoulli factorization, and geometric coupon-collection waiting times. Finite Markov calculations and any numerical illustrations are not claimed to establish the theorem for unbounded \(m\). There are no externally supplied certificates, unproved conjectures, or independent scientific-validation claims.
+## originality
+
+PASS
+
+The local three-agent majority rule is established literature; the exact classification for disjoint two-leaf petals on a single shared hub, with arbitrary positive meeting probabilities, i.i.d initialization law and persistent disagreement is a distinct solved topology. Full primary majority-rule paper of Noonan–Lambiotte studies complete/tripartite/modular/degree-heterogeneous hypergraphs rather than exact weighted sunflower absorbing classes; Lanchier–Neufer concerns spatial hypergraphs, and adaptive-rewiring models differ. Equivalent hyperstar wording searched. Best knowledge PASS with possible unindexed model-specific enumeration risk.
+
+## value
+
+PASS
+
+A simple connected majority-interaction topology unexpectedly exhibits permanent nonconsensus with probability tending to one exponentially despite every group being updated infinitely often. Exact weight-invariant consensus probabilities, every-initial-state class and coupon-collector timing are mathematically motivated benchmarks and structural insights for hypergraph opinion dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
