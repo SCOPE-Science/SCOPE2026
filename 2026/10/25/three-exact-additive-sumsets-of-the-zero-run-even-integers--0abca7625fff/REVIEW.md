@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit binary decomposition \(A=4A\sqcup(8A+1)\sqcup(4A+3)\) is checked by binary trailing-run cases. The simultaneous strong induction supplies all representation witnesses at each nonnegative integer, and the modulo-four reverse inclusion is constructive. The standard Fibonacci count is independently rederived here by tiling ordinary binary words; its numerical values are not claimed as novel. The packaged standalone program independently checks the digit criterion, witnesses and finite dyadic counts, but no infinite claim relies on extrapolation.
+
+**Originality — PASS within inspected evidence.** The closest directly relevant source is Dekking, *Sumsets and fixed points of substitutions*, arXiv:2105.04959 (2021), which studies exact sumsets for other automatic/morphic supports. OEIS A060142 exactly names the zero-run-even integer set, and OEIS A086747 differs at zero. Inspection of Dekking’s open-access text, including its object list and targeted Baum–Sweet searches, found no identical additive basis or dilation formula. Searches for the additive basis, sumset, and alias/zero-run formulations located the sequence's definition but no equivalent theorem. Other published work on binary parity and sumsets concerns different objects or weaker/global profiles. Risk: an equivalent implicit consequence of the existing substitution sumset formalism or an unindexed prior theorem may exist; independent priority assessment remains outstanding.
+
+**Mathematical value — PASS.** An exact sparse additive basis of optimal order two with cardinality \(F_{k+2}\) below \(2^k\) is a motivated nontrivial additive phenomenon, and the sharp contrast between complete coverage by \(A+2A\) and the precise residue obstruction for \(A+4A\) is a structural boundary, not a finite numerical observation. No general claim about arbitrary dilations is made.
+
+Self-review: passed. Independent audit: not yet performed.
