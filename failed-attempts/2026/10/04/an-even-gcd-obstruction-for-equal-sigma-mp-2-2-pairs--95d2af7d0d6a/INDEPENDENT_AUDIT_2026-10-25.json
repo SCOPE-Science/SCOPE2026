@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T00:54:51.284409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md at blob b302fa751760f02882e79fc3ad2f50f257c86186: parity lemma and two-case Fermat reduction.",
+        "Git verify.py at blob bf129b3c406244acde3ea0c9f2f75d058fded32a: examined but did not execute uploaded code.",
+        "Git VERIFICATION.md at blob 83b9ed3a098dc4f9c601152668c6b9b0ef098c07; VERIFY_OUTPUT.txt at 5ac87b24a3de9302009ccc747418341ab56fc7a1 treated as logs only.",
+        "Direct independent arithmetic: σ-sieve 1≤r≤200000; 200000 parity checks, complete equal-σ fibers up to 200000, five MP pairs.",
+        "https://www.mathpages.com/home/kmath288.htm — proof of the two classical Fermat constraints.",
+        "https://en.wikipedia.org/wiki/Proof_by_infinite_descent — stronger umbrella nonexistence theorem."
+      ],
+      "rationale": "For positive m,n let c=σ(m)=σ(n); the stated two squared equalities mean m²+n²=c². For every integer r=2^e∏p_j^{a_j}, σ(2^e) is odd and σ(p_j^{a_j}) has parity a_j+1, so σ(r) odd iff all odd-prime exponents are even, i.e. r is a square or twice a square. If c is odd, m²+n²≡1 (mod 4) implies exactly one leg is odd, so write the odd one x². The even one is y² or 2y². The former gives x⁴+y⁴=c², forbidden by Fermat descent; the latter yields a right triangle with square area (x²)(2y²)/2=(xy)², also impossible. Hence c is even and m²+n²=c²≡0 (mod 4) forces m,n even. Positive m,n exclude zero-area and trivial zero-fourth-power exceptions. Equal m=n gives 2m²=c², already impossible over positive integers, but does not require a separate case. An independent divisor-sum sieve through 200000 found zero parity discrepancies and zero equal-σ Pythagorean pairs and reproduced all five named MP(2,2) examples. The entire assigned eight-blob native Git tree was independently SHA-1 reconstructed and matched.",
+      "residual_risks": [
+        "No general all-integer experimental search was attempted; the universal conclusion relies on classical infinite-descent nonexistence theorems.",
+        "The theorem is necessary only and does not prove the existence or nonexistence of even-even solutions.",
+        "No Lean, Coq, Isabelle or external expert verification was performed or inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MathPages, Fermat’s Infinite Descent: positive x,y admit no x^4+y^4=z² and no integer right triangle of nonzero square area; proof is given, not only cited.",
+          "Proof by infinite descent §Non-solvability states the stronger theorem excluding a Pythagorean triangle with any two sides square or twice square.",
+          "The ordinary σ odd iff square-or-twice-square parity criterion follows immediately by multiplicativity and is proved in RESULT.md."
+        ],
+        "reasoning": "The two standard results together already cover the proposed impossibility of odd c. For even c, m²+n²≡0 (mod 4) mechanically forces both legs even. Thus the full stated obstruction is a direct corollary of prior general results, even though the antecedents do not use the newer MP terminology.",
+        "searches": [
+          "https://www.mathpages.com/home/kmath288.htm",
+          "https://en.wikipedia.org/wiki/Proof_by_infinite_descent",
+          "https://arxiv.org/html/2408.07387v1",
+          "https://arxiv.org/html/2408.07387v2",
+          "Resultary search: Pythagorean integer legs with both divisor sums equal to hypotenuse sum-of-divisors odd square twice square"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2408.07387v1",
+        "https://arxiv.org/html/2408.07387v2",
+        "https://oeis.org/A384255",
+        "https://www.mathpages.com/home/kmath288.htm",
+        "https://en.wikipedia.org/wiki/Proof_by_infinite_descent",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-even-gcd-obstruction-for-equal-sigma-mp-2-2-pairs--95d2af7d0d6a",
+        "RESULT.md and REVIEW.md at assigned Git tree cf7105fa16a0e7bf57ddada18d0082f9bca52c97",
+        "Ireland–Rosen, A Classical Introduction to Modern Number Theory, Ch.2 Prob.17 (bibliographic context, original book not accessed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical known implication: c odd and σ(m)=σ(n)=c imply m,n∈{square, twice square}.",
+          "Classical Fermat theorem forbids a right triangle with the two legs of those forms. This already implies c cannot be odd.",
+          "Standard mod-4 Pythagorean residue then implies m and n are even; no fresh Diophantine lemma is needed."
+        ],
+        "reasoning": "The prior-theorem conjunction logically implies every asserted part of the final claim under the given hypotheses. Not explicitly appearing in the original open-problem paper does not make the derived corollary original under the instructed coverage-of-corollaries standard.",
+        "searches": [
+          "https://www.mathpages.com/home/kmath288.htm",
+          "https://en.wikipedia.org/wiki/Proof_by_infinite_descent",
+          "https://arxiv.org/html/2408.07387v1",
+          "https://arxiv.org/html/2408.07387v2",
+          "web: \"Dimitrov\" \"MP(2,2)\" amicable equal sigma parity gcd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2408.07387v1 §12 Question 1 states σ(m)^2=σ(n)^2=m²+n² as equal-σ MP(2,2) existence question.",
+          "arXiv:2408.07387v2 §14 Question 1 repeats the exact equation and §15 defines related sigma-quadratic triples, which do not settle it.",
+          "Fermat-descent theorem: no positive-integer Pythagorean triangle has two sides each a square or twice a square (Proof by infinite descent, §Non-solvability; MathPages Fermat descent).",
+          "The published Resultary search finds the identical audited record, not a separate antecedent."
+        ],
+        "reasoning": "Writing c=σ(m)=σ(n) gives the Pythagorean formulation. The alternative alias “primitive equal-σ MP pair” means gcd(m,n)=1. The claimed even-even conclusion is reached by the established parity characterization and the historical stronger Pythagorean prohibition. Unlike a search-only novelty inference, this is explicit logical coverage by prior results.",
+        "searches": [
+          "Dimitrov MP(2,2)-amicable numbers equal divisor sums sigma(m)=sigma(n) m^2+n^2 Pythagorean coprime parity obstruction",
+          "Pythagorean integer legs with both divisor sums equal to hypotenuse sum-of-divisors odd square twice square",
+          "equal sigma MP(2,2) numbers primitive imprimitive even gcd Fermat right triangle square area",
+          "web: \"MP(2,2)\" \"sigma(m)=sigma(n)\" amicable",
+          "web: \"sigma(m)=sigma(n)\" \"m^2+n^2\" divisor sum",
+          "web: \"square or twice a square\" Pythagorean sum divisors Fermat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A384255 lists larger components of MP(2,2) solutions, and the comment reports no equal-σ pair for m<k≤10^8.",
+          "Dimitrov v1 Table 8 lists (1,2),(13,21),(13,27),(17,175),(45,123); independent divisor sums show none has equal σ.",
+          "Resultary published exact same record under its own mirrored ID; that indexed listing has no independent historical priority."
+        ],
+        "reasoning": "The finite OEIS search/table neither establishes nonexistence nor supplies the mathematical conclusion; it gives the exact target problem. The decisive coverage instead comes from the separate classical parity/Pythagorean implications.",
+        "searches": [
+          "https://oeis.org/A384255",
+          "arXiv:2408.07387v1 Table 8 and Question 1",
+          "arXiv:2408.07387v2 Table 10 and Question 1",
+          "Resultary query: Dimitrov MP(2,2)-amicable numbers equal divisor sums sigma(m)=sigma(n) m^2+n^2 Pythagorean coprime parity obstruction"
+        ]
+      },
+      "rationale": "The equal-divisor-sum hypothesis with odd common value implies, by the classical multiplicative divisor-sum parity criterion, that each leg is a square or twice a square. The pre-existing general Fermat-descent result that no integer Pythagorean triangle can have two such sides rules out that case outright. The Pythagorean identity then forces even common value and both legs even modulo 4. This is an immediate corollary of two standard antecedent statements plus a routine mod-4 step, not a mathematically new obstruction under the required implication-based originality bar. Dimitrov 2024/2025 and OEIS still pose the equal-sigma question and do not explicitly articulate this corollary; that absence does not defeat the decisive prior mathematical implication. The published Resultary hit is a posting of the very same assigned record, not an independent earlier theorem.",
+      "residual_risks": [
+        "There may be an unindexed explicit equal-σ MP pair observation, but rejection here rests on positive published classical implication rather than a failed search.",
+        "The Resultary exact match is the same manuscript; it is not independent originality evidence.",
+        "The classical antecedents are used only with the exact nonzero/positive conditions required for Fermat descent.",
+        "The existence or nonexistence of even-even equal-σ MP pairs remains open in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the target existence question and examples; no stated even-gcd theorem or general Pythagorean two-square prohibition.",
+          "evidence": "§12 Question 1: σ²(m)=σ²(n)=m²+n²; Table 8 contains the five cited pairs.",
+          "identifier_or_url": "arXiv:2408.07387v1, https://arxiv.org/html/2408.07387v1",
+          "material_read": "The HTML definitions, relevant introduction, Section 12, full MP equation, Table 8, Question 1, and nearby references.",
+          "method": "Direct lawful open-access HTML examination.",
+          "title": "Generalizations of amicable numbers (v1)",
+          "trigger": "Original introduction of MP(p,q)-amicable tuples and the precise equal-σ question."
+        },
+        {
+          "assessment": "Still poses identical equal-σ question and does not supply the parity obstruction.",
+          "evidence": "§14 Question 1 repeats σ²(m)=σ²(n)=m²+n²; §15 triples instead involve a third positive term.",
+          "identifier_or_url": "arXiv:2408.07387v2, https://arxiv.org/html/2408.07387v2",
+          "material_read": "Definitions, updated Section 14 MP table and Question 1, and adjacent Section 15 sigma-quadratic triples.",
+          "method": "Direct lawful open-access HTML examination.",
+          "title": "Generalizations of amicable numbers (v2)",
+          "trigger": "Revised primary source could have answered or subsumed the question."
+        },
+        {
+          "assessment": "Reports a finite absence and repeats the question, not an all-integer mathematical proof.",
+          "evidence": "Comment: no equal-σ pair found for m<k≤10^8; exact MP identity σ(m)²+σ(k)²=2(m²+k²).",
+          "identifier_or_url": "https://oeis.org/A384255",
+          "material_read": "Definition, full visible integer sequence, comments including equal-σ conjectural case and search bound, example, links and programs.",
+          "method": "Direct OEIS webpage inspection.",
+          "title": "A384255",
+          "trigger": "Exact database attached to the MP(2,2) existence question."
+        },
+        {
+          "assessment": "Before the audited claim, this source establishes nonexistence of x⁴+y⁴=z², and explains Fermat’s prohibition of square-area triangles.",
+          "evidence": "First proposition and steps producing smaller v²=g⁴+h⁴; opening and concluding square-area discussion.",
+          "identifier_or_url": "https://www.mathpages.com/home/kmath288.htm",
+          "material_read": "Full webpage including the first proposition and its descending-hypotenuse argument, second proposition, and square-area historical explanation.",
+          "method": "Direct HTML proof inspection.",
+          "title": "Fermat’s Infinite Descent",
+          "trigger": "The exact nonstandard classical input needed for the square-square and square-twice-square Pythagorean branches."
+        },
+        {
+          "assessment": "A prior umbrella theorem already prohibits the exact Pythagorean leg configuration arising if the common divisor sum is odd.",
+          "evidence": "Section states no Pythagorean triangle can have any two sides each square or twice square; describes primitive parametrization and descent.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Proof_by_infinite_descent",
+          "material_read": "Specific section on Pythagorean triangles with two sides each square or twice square, including the three cases and descent construction.",
+          "method": "Direct HTML section reading and comparison with current claim hypotheses.",
+          "title": "Proof by infinite descent — non-solvability of r²+s⁴=t⁴ and its permutations",
+          "trigger": "Check for a single prior umbrella theorem directly covering legs that are square or twice square."
+        },
+        {
+          "assessment": "This is the same assigned research record cross-indexed, not independent precedent; it is not counted as external priority evidence.",
+          "evidence": "Exact claim title and abstract, same record suffix 95d2af7d0d6a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-even-gcd-obstruction-for-equal-sigma-mp-2-2-pairs--95d2af7d0d6a",
+          "material_read": "Only search-returned title, summary and matching record identifier, not full repository proof.",
+          "method": "Resultary semantic search, not a source-full-text inspection.",
+          "title": "An even-gcd obstruction for equal-sigma MP(2,2) pairs (published index entry)",
+          "trigger": "Resultary exact-match returned by all three independent semantic searches."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2408.07387v1 §12 Question 1; arXiv:2408.07387v2 §14 Question 1",
+        "OEIS A384255 current comments and 10^8 finite search",
+        "Fermat-descent and standard divisor-sum parity theorem"
+      ],
+      "rationale": "Irrespective of originality, excluding every primitive/coprime candidate in the exact named Dimitrov equal-σ MP(2,2) existence problem is a motivated all-integer structural boundary; it changes the admissible search/construction regime from arbitrary pairs to even-even ones, rather than merely expanding a finite search. A future researcher investigating that problem could need this precise restriction. However the argument is very short and entirely assembled from standard classical tools, limiting its standalone contribution; that simplicity is independently decisive for the originality assessment, not falsely converted into a correctness defect.",
+      "residual_risks": [
+        "This is a narrow necessary condition, not an answer to the existence question.",
+        "Its derivation is direct from textbooks, limiting independent research significance even though the exact motivated boundary is useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The obstruction is correct but is a direct combination of prior classical results, so scientific originality fails under corollary coverage rules.",
+    "Value is limited to a useful named-problem necessary restriction; existence of even-even equal-σ pairs remains open.",
+    "Resultary exact-title hit is this very record; not independent older priority.",
+    "Original source contains private operational identifiers; publication only on successful importer application of both guarded sanitation operations.",
+    "No GitHub write, external certification, automation control, or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}
