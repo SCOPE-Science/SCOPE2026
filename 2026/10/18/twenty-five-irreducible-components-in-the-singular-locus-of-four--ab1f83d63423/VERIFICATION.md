@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.10 or later; no external modules or datasets are used. The program builds the six pairwise Gram equations and their Jacobian over an explicit split quadratic form of each ambient dimension \(M=5,6,7,8\). It constructs all \(6+4+12+3=25\) indexed representative configurations, checks their equations, column ranks and differential ranks, and checks two smooth comparison configurations for each dimension. It also exhausts all symmetric hollow four-by-four matrices over \(\mathbb F_3\) having rank exactly two and checks their bipartite support property. The successful result is `VERIFY_OK witness_cases=108 hollow_rank_two_mod3=116`.
+## correctness
 
-The defining proof step that every rank-two hollow symmetric matrix in characteristic zero is a cross-term of two disjointly supported vectors is proved directly in `RESULT.md` by factoring the matrix through a two-dimensional quadratic space. The finite program is a regression test, not an infinite certificate. The general results about irreducible isotropic Grassmannians, closed incidence images, primeness and dimension are mathematical arguments in `RESULT.md`; the program neither enumerates arbitrary points nor computes scheme-theoretic singular multiplicities.
+PASS
+
+For M>=5 over C, Casabella–Sammartano prove that the six pairwise-orthogonality quadrics define a prime complete intersection of codimension 6. The Jacobian dependence matrix is a nonzero symmetric hollow 4x4 C with BC=0. Rank B >=3 would force impossible hollow rank-one C; rank B=2 forces rank C=2. Factoring a rank-two symmetric C through a two-dimensional nondegenerate quadratic space yields two disjoint supports, hence either zero column plus dependent triple or two proportional column pairs. Pairwise orthogonality separates the four classes A,T,R,P. Irreducible proper-incidence parameterizations have dimensions 2M-1 respectively (A quadric, T OGr(2,M) of dimension 2M-7 plus six, R isotropic-line dimension M-2 plus two scalars and M-1 orthogonal vector, P perpendicular pair line base 2M-5 plus four scalars). Generic zero/anisotropic/isotropic patterns are mutually distinct; no containment between equal-dimensional families. Independently enumerated every hollow symmetric 4x4 matrix over F3 (729 assignments), finding exactly 116 rank-two cases and zero counterexamples to its bipartite cross-support property. This finite field check corroborates, not proves, the characteristic-zero theorem.
+
+## originality
+
+PASS
+
+The Gram zero fiber and its irreducible/normal thresholds are prior theorems. The new assertion is the complete count and indexed irreducible decomposition of the reduced singular locus for h=4; this is not a restatement of Xie's FRS threshold or Casabella–Sammartano's components of the variety itself. The exact four-type stratification was not found in relevant inspected primary statements. Residual implicit classification remains possible.
+
+## value
+
+PASS
+
+The full reduced singular-support irreducible decomposition is a natural geometric invariant of a fundamental orthogonal frame variety. It identifies 25 geometrically different degenerations, all of pure codimension 2M-5, with structural implications for Jacobian schemes and resolutions; these exact strata are not the elementary rank test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

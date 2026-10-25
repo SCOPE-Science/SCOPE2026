@@ -1,11 +1,21 @@
-# Scientific assessment: twenty-five singular components of four orthogonal vectors
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(M\ge5\), established prime complete-intersection results ensure that the rank of the six defining differentials determines singularity. An explicit rank-two classification of nonzero hollow symmetric \(4\times4\) matrices reduces singularity to either one zero vector with a dependent remaining triple or two dependent disjoint pairs. The isotropic/radical rank cases and proper incidence parameterizations exhaust these alternatives. All twenty-five images are closed, irreducible, have dimension \(2M-1\), and possess distinguishing generic points. The proof works for every integer \(M\ge5\); the finite checker does not replace it.
+## correctness
 
-**Originality — PASS, with literature risk.** The primary Gram-map source arXiv:2610.02585v1 investigates rational-singularity thresholds, log canonical thresholds, and coefficient fibers. The closely related full-length orthogonal-frame paper arXiv:2512.25058v1 gives rank/isotropic strata, primary decomposition of the varieties themselves, and a Jacobian formula. The inspected relevant sections do not enumerate twenty-five indexed irreducible components of the singular locus for four vectors. Targeted literature and mathematical-record searches did not locate an equivalent statement. Those prior results are logically compatible and provide context rather than an explicit implication of the new complete indexed classification. A general unpublished or unindexed singular-stratification theorem could contain the result implicitly; searches are not proof of absolute priority.
+PASS
 
-**Value — PASS.** The reduced singular locus is a basic invariant of the zero fiber in the four-column orthogonal-frame family. Its complete irreducible decomposition is not a generic smoothness or prime-ideal test: the twenty-five distinct strata involve four geometrically different degeneracies, including the new perpendicular-isotropic-pair behavior. Their common dimension gives the exact codimension \(2M-5\) for every \(M\ge5\), a structural constraint relevant to deeper resolution and Jacobian-scheme studies.
+For M>=5 over C, Casabella–Sammartano prove that the six pairwise-orthogonality quadrics define a prime complete intersection of codimension 6. The Jacobian dependence matrix is a nonzero symmetric hollow 4x4 C with BC=0. Rank B >=3 would force impossible hollow rank-one C; rank B=2 forces rank C=2. Factoring a rank-two symmetric C through a two-dimensional nondegenerate quadratic space yields two disjoint supports, hence either zero column plus dependent triple or two proportional column pairs. Pairwise orthogonality separates the four classes A,T,R,P. Irreducible proper-incidence parameterizations have dimensions 2M-1 respectively (A quadric, T OGr(2,M) of dimension 2M-7 plus six, R isotropic-line dimension M-2 plus two scalars and M-1 orthogonal vector, P perpendicular pair line base 2M-5 plus four scalars). Generic zero/anisotropic/isotropic patterns are mutually distinct; no containment between equal-dimensional families. Independently enumerated every hollow symmetric 4x4 matrix over F3 (729 assignments), finding exactly 116 rank-two cases and zero counterexamples to its bipartite cross-support property. This finite field check corroborates, not proves, the characteristic-zero theorem.
 
-**Limits.** No claim is made about nonreduced Jacobian structure, component degrees, higher intersection strata, characteristic two or other positive characteristic, or the ambient-dimension-four boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Gram zero fiber and its irreducible/normal thresholds are prior theorems. The new assertion is the complete count and indexed irreducible decomposition of the reduced singular locus for h=4; this is not a restatement of Xie's FRS threshold or Casabella–Sammartano's components of the variety itself. The exact four-type stratification was not found in relevant inspected primary statements. Residual implicit classification remains possible.
+
+## value
+
+PASS
+
+The full reduced singular-support irreducible decomposition is a natural geometric invariant of a fundamental orthogonal frame variety. It identifies 25 geometrically different degenerations, all of pure codimension 2M-5, with structural implications for Jacobian schemes and resolutions; these exact strata are not the elementary rank test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
