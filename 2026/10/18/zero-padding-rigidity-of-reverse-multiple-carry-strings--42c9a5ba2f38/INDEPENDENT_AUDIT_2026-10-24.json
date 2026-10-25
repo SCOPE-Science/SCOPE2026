@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:58:04.801445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a genuine (n,b) reverse multiple, b≥3, 2≤n<b, nonzero endpoint digits, the grade-school recurrence b c_(j+1)=n d_(k−j)+c_j−d_j with c_0=c_(k+1)=0 ensures 0≤c_j≤n−1. Eliminating paired reversed digits gives (n²−1)d_j=nb c_(k−j+1)−n c_(k−j)+b c_(j+1)−c_j. At j=k this yields (n²−1)d_k=nb c_1−c_k>0, forcing c_1>0. If c_k=c_(k−1)=0, the j=0,1 identities force D=n²−1 to divide b c_1 and b c_2−c_1. Multiplying the first by c_2 and second by c_1 and subtracting yields D|c_1²; but 0<c_1²≤(n−1)²<D, contradiction. In an outer-zero padded contiguous carry string, c_0=0 and c_1>0 force exactly one lower zero; two-highest-zero exclusion allows at most one upper zero. Only necessary shapes (d_m..d_0,0) and (0,d_m..d_0,0) survive, not asserted realizable. Independently checked modular obstruction for n=2..39, n<b≤59; this supplements exact universal inequality, not a surrogate for proof. Scope excludes internal digit insertions and other derived constructions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holt derived-family construction describes singly (source,0) and doubly (0,source,0) cases, with further possibilities discussed as unresolved.",
+          "Kendrick Young graphs concern carry automata and reachability for families, a plausible broader source but no directly identical universal exclusion confirmed."
+        ],
+        "reasoning": "The statement is a necessary restriction on outer padding only; it cannot be equated to a full impossibility theorem for all third/fourth derived constructions.",
+        "searches": [
+          "Resultary semantic: reverse multiple palintiple carries two leading zeros derived families Holt modular obstruction",
+          "https://arxiv.org/abs/1412.0231",
+          "https://arxiv.org/abs/1410.0106"
+        ]
+      },
+      "checked_sources": [
+        "https://math.colgate.edu/~integers/o42/o42.pdf",
+        "https://arxiv.org/abs/1412.0231",
+        "https://arxiv.org/abs/1410.0106",
+        "Resultary semantic palintiple / reverse multiple carry search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Carry bound and identity are prior (Holt 2014); the new D|c1² contradiction is an extra logical consequence not explicitly found in inspected cited papers.",
+          "Holt 2016 singles/doubles are existence constructions with arithmetic conditions, whereas this theorem supplies necessary exhaustive outer-padding shapes."
+        ],
+        "reasoning": "A construction of two types does not exclude a third outer-zero type; the modular argument adds this missing direction, while intentionally leaving other derived constructions open.",
+        "searches": [
+          "Resultary semantic: reverse multiple palintiple carries two leading zeros derived families Holt modular obstruction",
+          "https://math.colgate.edu/~integers/o42/o42.pdf",
+          "https://arxiv.org/abs/1412.0231",
+          "https://arxiv.org/abs/1410.0106"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known carry identities and first-interior positivity are identical mathematical premises and expressly credited.",
+          "New claim concerns two consecutive *highest* zero carries, equivalent to forbidding two leading zero digits in the reversed carry word."
+        ],
+        "reasoning": "Previously stated first carry positivity controls the opposite end; it does not logically prohibit two upper zeros without the modular-square argument.",
+        "searches": [
+          "Resultary semantic: reverse multiple palintiple carries two leading zeros derived families Holt modular obstruction",
+          "Holt Some General Results 2014 Corollary2 Theorem3",
+          "Holt Derived Palintiple Families 2016 Sections2 and7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original examples concern families/graph patterns rather than a complete numerical table; no known table of all outer-zero-padded carry extensions identified."
+        ],
+        "reasoning": "The claim is an all-base all-length structural impossibility, not merely recomputation of finite carry cases, so table recomputation is inapplicable to the core theorem.",
+        "searches": [
+          "Resultary semantic: reverse multiple palintiple carries two leading zeros derived families Holt modular obstruction",
+          "Holt published carry-pattern examples",
+          "Resultary palintiple reverse-multiple exact carry query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS specifically for the two-top-zero modular-square obstruction and its *outer-zero contiguous* corollary. Holt 2014 already gives carry bounds, paired-digit identity and c1 positivity. Holt 2016 introduces singly/doubly derived carry encodings and discusses broader open types; the narrow obstruction does not claim those open problems all solved. No source inspected states D|c1² as a universal two-highest-carry exclusion.",
+      "residual_risks": [
+        "Prior Young-graph graph-theoretic restrictions in Kendrick or elsewhere could imply this same endpoint obstruction even if stated differently; whole Kendrick primary full text was not inspected.",
+        "This result does not settle every third or fourth derived family and must be presented only as a narrow necessary boundary.",
+        "Much of the algebra (carry bound, elimination identity and first carry positivity) is prior and independently has no novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING carry premises/c1 positivity but NO identified modular-square endpoint theorem",
+          "evidence": "Paired carry identity and carry bounds are earlier; submitted extra divisibility contradiction concerns opposite carry end.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/o42/o42.pdf",
+          "material_read": "Author-posted full text accessible via ResearchGate, definitions, digit–carry identity Corollary2 and carry bound Theorem3",
+          "method": "Author-uploaded full-text reading (relevant sections)",
+          "title": "Some General Results and Open Questions on Palintiple Numbers",
+          "trigger": "Exact carry recurrence and potential prior two-top-zero lemma"
+        },
+        {
+          "assessment": "COVERING named padding patterns; NOT_COVERING explicit uniform exclusion of all longer outer-zero padding",
+          "evidence": "Construction sections describe both known types; open questions invite further derived configurations beyond this strictly restricted outer-padding subclass.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.0231",
+          "material_read": "Author-uploaded full text, Section2 (singly and doubly), Section7 (third/fourth questions) read",
+          "method": "Full-text lawful author upload, relevant sections",
+          "title": "Derived Palintiple Families and Their Palinomials",
+          "trigger": "Original singly/doubly derived carry types and proposed higher extensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source and literature motivate a concrete open-ended classification of derived palintiple carry encodings. The new D|c_1² boundary obstruction is a universal structural lemma, ruling out all longer exterior zero-padding of an intact source carry word. Though elementary and deliberately narrow, it gives a principled impossibility boundary for the precisely defined family without claiming to resolve arbitrary third/fourth derivations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality best-of-knowledge and requires ongoing bibliographic care, not a priority certification.",
+    "Independent small finite checks corroborate general symbolic/structural proofs; cannot prove infinite domains alone.",
+    "No GitHub edits or dispatcher closeout, and no Lean/expert certification claimed."
+  ],
+  "schema_version": 1
+}
