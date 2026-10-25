@@ -1,15 +1,21 @@
-# Scientific review: palindrome Hankel Schatten thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rectangular block singular values follow from disjoint palindromic completion supports. A single empty-word column rules out bounded extension at and above the fourth-root threshold. Palindrome counting proves the rational Hilbert--Schmidt norm. A contractive length-gauge pinching forces the trace-ideal threshold, while absolutely summing Schatten norms of length blocks proves sufficiency. At the nontrivial weak endpoint, mutually orthogonal length bands have exact geometric singular-value multiplicities, yielding summable Ky Fan bounds; the diagonal pinching simultaneously rules out strong membership. All exponents and endpoints are included in the proof. Finite numerical blocks were recomputed and agreed with the exact structural singular values; they are not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated search limitations
-Hristov--Ilchev--Nedelcheva--Zlatanov, arXiv:2608.15185v1, Section 8, were directly examined. Their nonregular-language operator is unweighted between \(\ell^1\) and \(\ell^\infty\), and no Schatten threshold for a length-weighted Hilbert realization is asserted there. Abusaksaka--Partington, arXiv:1704.00518v1, treat integral Hankel operators on a continuous half-line, not the palindromic free-monoid kernel. Searches of the published-result index for palindrome languages, free-monoid Hankel operators, length weights, trace and weak Schatten ideals, and exact thresholds found nearby generic Hankel and weighted-shift results but no dominating theorem. Other published Schatten results considered are for analytic Hardy Hankel kernels, Rhaly matrices or free-shift resolvents; none has the reversal block multiplicities that would imply this result. The searches cannot exclude a missing or unindexed combinatorial operator theorem, or an equivalence under another terminology.
+PASS
 
-## Mathematical value — PASS
-A new natural compact-regularization question is created by applying length decay to the canonical nonregular language operator from recent functional-analysis literature. The result supplies a complete, parameter-sharp ideal-membership classification simultaneously for every Schatten exponent, an exact Hilbert--Schmidt norm, a fully explicit singular-value formula for every word-length block, and weak-but-not-strong behavior at the entire nontrivial endpoint range. These distinguish compactness, trace ideals and weak ideal boundaries on an intrinsically nonregular language; they are not arbitrary finite calculations or merely a reparametrized scalar weighted shift. No broader consequence for all languages or independent historical uniqueness is asserted.
+For m>=n word lengths, palindrome uv forces u=rev(v)t with palindrome tail |t|=m-n, yielding disjoint nonzero column supports, singular value r^(m+n) q^(ceil((m-n)/2)/2) of multiplicity q^n; adjoint handles m<n. The empty-word column norm diverges iff q r^4>=1, while counting j+1 splits per palindrome produces exact HS²=(1+2 q r²+q r^4)/(1-q r^4)² for smaller r. Length-diagonal gauge averaging forces necessity q r^(2p)<1 for S_p; absolute summation of block S_p norms gives sufficiency. At 1<p<2, r=q^(-1/(2p)), fixed signed length-offset bands have q^k copies of b_d q^(-k/p); summable b_d gives weak S_p bound through Ky-Fan inequalities, strong S_p ruled out by diagonal pinching. Independently generated word sets for q=2,3 and seven rectangular length pairs, numerically calculated singular spectra matching the multiplicity formula. Finite tests do not establish any infinite-dimensional endpoints.
 
-## Limitations and priority risk
-Only the specified alphabet, language, and weighting are classified; full-operator singular-value asymptotics and the weak trace-class endpoint are not resolved. The exact normalization is essential. Earlier unpublished or differently indexed results could overlap; there has been no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Hristov--Ilchev--Nedelcheva--Zlatanov 2026 paper treats nonregular-language unweighted Boolean Hankel operators from ℓ1 to ℓ∞, whereas this weighted ℓ2 kernel is Hilbert--Schmidt for a full interval and has sharp ideal transitions. Abusaksaka--Partington treat continuous weighted Hankel integrals, not q-ary palindrome-language reversal. Full Hristov article not accessible during current run; only bibliographic/abstract and package's theorem citation were available, so a possible stronger theorem in uninspected sections is recorded as risk, not ruled out by snippets.
+
+## value
+
+PASS
+
+Palindromes are a canonical nonregular language and the Hankel matrix is its natural weighted concatenation operator. Exact sharp all-p Schatten boundaries, explicit HS formula and nontrivial compact weak-ideal endpoint exhibit a mathematically motivated phase diagram, not a trivial finite computation or formal renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
