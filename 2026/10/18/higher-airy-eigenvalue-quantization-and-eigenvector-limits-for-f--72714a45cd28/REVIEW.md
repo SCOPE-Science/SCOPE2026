@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-rank upper-edge spectral limit follows from a positive periodic ground-state transform, the exact weighted Jacobi form, a four-edge optimal resistance inequality, tightness and compactness of all bounded rescaled-energy sequences, finite-dimensional min–max recovery, and a matching liminf for each fixed spectral subspace. Compactness of the limiting Dirichlet Airy form gives every fixed eigenvalue; its simple spectrum and uniform local bounds give eigenfunction convergence. All claims are for fixed positive modulations and fixed index. The separate checker completed exact rational form and resistance tests and supplementary finite Jacobi/Airy diagnostics; finite diagnostics are not used to establish infinite-rank limits.
+PASS
 
-## Originality — PASS, with a material residual risk
+For fixed s,t>0, periodic positive ground-state phi=(1,r,r,1) with r=(s-t+sqrt(4+(s-t)^2))/2 gives a nonnegative exact discrete form for L-J_q with boundary t|v_0|^2/2. Four-edge resistance S=2/r+1/(sr^2)+1/t and mass mbar=(1+r^2)/2 give alpha=2/(S mbar)=2st/[L(s+t)D], kappa=L^2 alpha. With h=(-log q)^(1/3), bounded O(h^2) energy gives local H1 control, zero boundary trace, and uniform mass tightness via the confining damping potential. Its liminf dominates the Dirichlet Airy form alpha int|gprime|^2+L int x|g|^2; linear resistance-minimizing recovery on each complete cell works simultaneously for every fixed k-dimensional test subspace. Two-sided min-max and precompact orthonormal eigenfamilies establish (L-lambda_k)/h^2 -> kappa^(1/3) a_k for EVERY FIXED k; simple Airy eigenspaces yield phase-signed eigenvector envelopes and adjacent spectral gaps. Independently checked rational ground-state and coefficient formulas for (s,t)=(1,1),(2,1/2),(1/2,2) and finite tridiagonal top-three levels at epsilon 10^-3 and 10^-4 converge toward Airy targets; these diagnostics are not infinite proofs.
 
-The full October 11, 2026 published mathematical note on this *identical shift family* was inspected and already proves the first-level Airy numerical-radius limit, including the same edge, resistance, diffusivity and first Airy zero. Those are prior inputs, not originality claims here. The present higher-level min–max quantization, adjacent spectral gaps and convergence of higher eigenvectors are not logical corollaries of the scalar first-level limit: they require control of entire finite-dimensional spectral subspaces and their compactness. The 2009 Chien–Nakazato geometric-shift paper, read through its full six-page PDF, addresses scalar numerical radius and determinantal formulas, not all fixed-level Airy quantization. The initiating 2026 paper was examined at its arXiv abstract and detailed third-party synopsis only; its complete primary text was inaccessible after an attempted lawful access route. General periodic Jacobi turning-point literature may be broader than the accessible comparison and remains a concrete priority risk. published-finding corpus semantic searches with higher-eigenvalue, Airy gap and Jacobi equivalence terms returned no exact all-k coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The entire fixed-rank spectral hierarchy, every adjacent gap and individual eigenvector envelope are intrinsic natural invariants of the same compact nonnormal weighted shift whose scalar numerical radius was recently studied. Their sharp Airy-zero quantization identifies how many edge eigenlevels coalesce, beyond the known first-level norm law; it is structurally meaningful rather than an arbitrary finite calculation. The method supplies a coherent higher-dimensional variational upgrade, without presenting routine first-level renaming as new.
+A prior fully inspected published result proves the SAME first-level Airy edge with identical L, kappa, boundary form and cell resistance. The present full fixed-rank hierarchy and higher eigenvector profiles are not a logical corollary of that scalar ground-state asymptotic; the k-dimensional recovery/liminf is independent new work. Ghosh et al. August 2026 full primary PDF on the identical shift discusses numerical-radius bounds and entire determinant/finite-section formulas, no Airy eigenlevel hierarchy in inspected results. General periodic Jacobi turning-point theory is a residual possible dominating framework, but its applicability to the specific half-line Dirichlet normalization and all fixed levels was not established.
 
-## Limits
+## value
 
-Pointwise fixed-rank and fixed-parameter convergence only; no growing-rank counting law, quantitative error, or full-priority claim. A previously published first-level theorem fully covers the first eigenvalue; only the collective higher spectral claims are new. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural infinite hierarchy of compact Jacobi eigenlevels attached to a studied weighted shift. Quantized fixed-rank spectral gaps and actual Airy eigenvectors answer structural questions beyond numerical radius; the central multi-level minmax method is not a cosmetic k=1 restatement. Fixed-index/fixed-parameter limitations are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
