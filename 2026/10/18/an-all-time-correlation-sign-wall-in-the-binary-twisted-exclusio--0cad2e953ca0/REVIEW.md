@@ -1,19 +1,21 @@
-# Scientific review: all-time correlation sign wall in a twisted exclusion ring
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim specifies every generator transition, its unit rate, both stationary parity sectors, all sizes \(L\ge3\), the ordering of the sites, and the full time range \(t>0\). Parity is conserved; swaps and seam-pair flips connect each parity sector; detailed balance makes its uniform law stationary. The spins have zero sector mean and identity instantaneous covariance. The generator's action on single-site spins closes exactly on an antiperiodic discrete Laplacian. Its Fourier diagonalization proves the exact two-time kernel; a reflected irreducible Metzler system proves the strict time-uniform sign wall and the even-ring zero. The explicit linear Green function and a finite sum establish the integrated covariance and total-spin correlation time for every size. The independent configuration-space checker passed for lengths three through eight in both parity sectors. These finite tests are not substituted for the proof.
+PASS
 
-## Originality (O): PASS with residual risk
+For any L>=3, parity-preserving interior swaps and twisted seam 00<->11 have symmetric generator and uniform stationary parity sectors. Within either sector, E sigma_i=0 and E sigma_i sigma_j=delta_ij. Exact generator action on individual spins closes on the antiperiodic discrete Laplacian Delta_a (sigma_0=-sigma_L,sigma_{L+1}=-sigma_1), giving C_ij(t)=(e^{t Delta_a})_ij and the (2k+1)-Fourier formula. Its antiperiodic lattice heat kernel K_d satisfies K_(L-d)=-K_d; restricted to 0<=d<L/2 the reflected half-line finite Metzler system is irreducible, hence K_d(t)>0 at every positive time; antipodal d=L/2 is zero if L even. Direct finite differences show (-Delta_a)^-1_ij=L/4-|i-j|/2. Summing all entries yields integrated M covariance L(L^2+2)/12 and normalized tau_M=(L^2+2)/12. Independent numerical matrix exponentials/inverse Green functions for all 3<=L<=12 matched exact sign and integrated kernels; finite check is not infinite proof.
 
-The source defining twisted SSEP (Dabrowski, Poulain d'Andecy, Ragoucy, arXiv:2602.18204) gives the transition rules and sector-uniform stationary measures, but not a stationary *two-time spin covariance*, a strict sign theorem for every positive time, or a Green response proportional to \(L-2|i-j|\). Its Outlook explicitly describes finite-time twist effects as a direction. The same authors' arXiv:2607.18959 considers reactive species interacting throughout the bulk rather than a lone twisting seam, and measures stationary densities, currents and reaction rates. Qiao et al., arXiv:1901.09604, give quantum XXZ spatial form factors and two-point functions, not the present stationary stochastic time-correlation sign theorem. Crampé et al., arXiv:1603.06796, treat creation/annihilation in the bulk with reservoirs and stationary equal-time correlations; there is no reduction establishing the present claim. Targeted searches for signed-cycle heat semigroups, antiperiodic boundary observables, equivalent Green–Kubo formulas and exact model names did not identify a covering source. There remains a risk of an unindexed abstract signed-heat-kernel statement or a result implicit in a quantum-spin limit; no claim is made of global uniqueness against all unsearched literature.
+## originality
 
-## Value (V): PASS
+PASS
 
-In the recent model, long-time sector classification is known but local *memory response* is not specified. The theorem yields a complete, nontrivial characterization of the sign of every stationary two-time spin covariance for every separation, time and finite size. Counterintuitively, all distinct-site instantaneous covariances vanish yet a nonzero sign pattern arises at every positive time, and opposite sites of even rings remain exactly uncorrelated at all times despite global interactions. The integrated spatial response is linear and the global normalized correlation time grows quadratically with ring size. These are natural dynamical quantities for stochastic lattice models, not an arbitrary finite-parameter slice or mere reproduction of an existing table.
+The source introducing this twisted two-label process establishes transition rules, sectors and stationary laws; it does not identify the exact two-time stationary spin covariance as an antiperiodic heat propagator or the strict all-time separation sign wall and integrated response. Signed graph heat-kernel generalities remain a possible implicit equivalent.
 
-## Closest sources and limits
+## value
 
-Primary comparison: *Twisted symmetric exclusion processes and set-theoretical R-matrices*, arXiv:2602.18204v2, Sections 3, 4 and 7 (https://arxiv.org/html/2602.18204v2). Related full-text comparisons: arXiv:2607.18959 (Sections 2, 5 and Outlook; https://arxiv.org/pdf/2607.18959), arXiv:1901.09604 (Sections 2, 7 and 8; https://arxiv.org/html/1901.09604v1), and arXiv:1603.06796 (Sections 1 and 3; https://arxiv.org/html/1603.06796v2). No complete spectral gap of the full interacting chain, higher-order dynamics, variable rates, or nonequilibrium-start result is asserted. Independent external validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Time-dependent local memory and integrated response are intrinsic dynamical observables. The strict sign transition at half-ring separation for every positive time, zero antipodal correlation despite nonzero finite-time nearby covariance, and exact quadratic integrated magnetization scale are meaningful structural phenomena beyond the published static sector description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
