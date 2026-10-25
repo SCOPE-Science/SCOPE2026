@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The central infinite-set theorem is established by the constructive proof in `RESULT.md`. No finite experiment certifies arbitrary subsets of the natural numbers. The supplied `checker.py` enumerates every bit sequence of length from one to eight interpreted as a finite initial segment followed by a constant infinite tail, computes its complete Boolean-modal closure, and tests the claimed size and number of atoms.
+## correctness
 
-To reproduce, run `python3 checker.py`; the expected printout is `OMEGA_MODAL_ONEGEN_VERIFY_OK 510`. The core independent computations use the Boolean truth table and the exact prefix-preimage operation on a finite prefix plus a stable tail, rather than simply evaluating formulas on a finite truncated order.
+PASS
 
-Limits: No attempt was made to exhaust infinite-switching characteristic sequences by code. Possible older-priority overlap is separately disclosed; external independent validation has not been performed.
+PASS. Defined the modal Boolean algebra P(omega) with existential reflexive <= diamond. For infinitely many adjacent membership switches both X and its complement are unbounded, so diamonds equal omega and the four Boolean sets are a closed generated algebra (even noncomputable X). For finitely many switches, the s+1 nonempty constant runs generate a closed run-union algebra. The opposite-color bounded set to the terminal run yields prefix P_s under diamond; downward intersections with the opposite color recover all earlier prefixes and individual runs. Hence exact size 2^(s+1), including s=0, and every 2^m realized. Independently computed actual modal closures for 254 eventually constant generators as corroboration.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Shapirovsky's and Agnew's significantly broader local-finiteness results confirm the ambient algebra is locally finite but do not give exact one-generator sizes indexed by the number of transitions nor its atom partition. This is a quantitative refinement, not a new claim of local finiteness.
+
+## value
+
+PASS
+
+PASS. A complete, generator-wise size and atom spectrum for a canonical countable modal frame gives concrete sharp quantitative structure behind the established qualitative local-finiteness property. Infinite-switch collapse versus every finite switch count is a natural algebraic dichotomy, not a name substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

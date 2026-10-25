@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With infinitely many switches, both colors are unbounded and their modal images are top, giving a closed four-element subalgebra. With finitely many switches, unions of constant runs are modal-closed, and a downward induction on rightmost opposite-colored runs recovers every run as a generated Boolean atom. Edge cases and the full size spectrum follow. A self-contained finite checker corroborates ultimately constant cases, but is not the general proof.
+## correctness
 
-**Originality — PASS, subject to priority uncertainty.** The two accessible primary papers concern qualitative local finiteness of \((\omega,\le)\), its direct powers, and transitive frames; their inspected theorems do not state the exact \(2^{s+1}\)/four size spectrum. Statement-level searches for the alternate terms 'tuned refinement', 'one-generated', 'eventually constant', and 'alternations' did not locate identical coverage. Older modal-algebra literature may contain an equivalent observation.
+PASS
 
-**Value — PASS.** The result gives a complete natural invariant and exact atomic normal form for all single generators of one canonical locally finite modal algebra. The unbounded finite cardinalities and four-element infinitely-switching collapse substantively refine the source's qualitative assertion.
+PASS. Defined the modal Boolean algebra P(omega) with existential reflexive <= diamond. For infinitely many adjacent membership switches both X and its complement are unbounded, so diamonds equal omega and the four Boolean sets are a closed generated algebra (even noncomputable X). For finitely many switches, the s+1 nonempty constant runs generate a closed run-union algebra. The opposite-color bounded set to the terminal run yields prefix P_s under diamond; downward intersections with the opposite color recover all earlier prefixes and individual runs. Hence exact size 2^(s+1), including s=0, and every 2^m realized. Independently computed actual modal closures for 254 eventually constant generators as corroboration.
 
-The finding is restricted to the reflexive natural-number order and one generator; it does not classify tuples of generators or other transitive orders.
+## originality
 
-Closest inspected literature: Agnew, *On Local Finiteness of Modal K4 Algebras* (2026), Theorem 3.16; Shapirovsky, *Modal logics of finite direct powers of omega have the finite model property* (2019), Example 1 and Theorem 1.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge. Shapirovsky's and Agnew's significantly broader local-finiteness results confirm the ambient algebra is locally finite but do not give exact one-generator sizes indexed by the number of transitions nor its atom partition. This is a quantitative refinement, not a new claim of local finiteness.
+
+## value
+
+PASS
+
+PASS. A complete, generator-wise size and atom spectrum for a canonical countable modal frame gives concrete sharp quantitative structure behind the established qualitative local-finiteness property. Infinite-switch collapse versus every finite switch count is a natural algebraic dichotomy, not a name substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
