@@ -1,21 +1,21 @@
-# Review of the complete unipotent Alexander subquandle census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses an explicit closure equivalence: for each occupied second coordinate, the vertical fiber is invariant under the additive span of all differences of occupied second coordinates. Necessity and sufficiency are both established, so no subclass is omitted. Möbius inversion over affine flats gives the exact number of bases of any affine span; independent fiber-coset selection gives the entire cardinality polynomial. The finite-check script directly enumerates all subsets in three small cases and independently tests the operation table; no finite test is presented as an infinite proof.
+PASS
 
-## Originality — PASS (within investigated coverage)
+The actual binary operation (a,b)▷(c,d)=(a+b−d,b) changes only the first coordinate; for every base support B the nonempty fibers are invariant under each b−d and therefore under their prime-field additive span W. Conversely arbitrary nonempty W-coset unions in each fiber are closed. Uniqueness follows from support/fibers. Each B has a unique affine span, with p^(f−t)[f choose t]_p affine t-flats; Möbius inversion in the linear-subspace interval gives a_{t,j}, and independently chosen fiber unions contribute ((1+z^(p^t))^(p^(f−t))−1)^j. Exhaustive independent closure enumeration of actual 4-, 9-, and 16-point operation tables yields coefficients {1:4,2:2,4:1}, {1:9,2:9,3:3,6:3,9:1} and {1:16,2:24,3:16,4:28,6:24,8:6,12:4,16:1} respectively, exactly matching the all-field formula. Finite enumeration only corroborates the general bijection/inversion proof.
 
-Iijima–Murao (2017, arXiv:1704.07689) treat Alexander-quandle connected-component decompositions; these do not count unrestricted unions of vertical cosets. Amsberry et al. (2023, arXiv:2304.09747) treat complementation of subquandles, not the full cardinality census. Higashitani–Kurihara (2022, arXiv:2210.16763) treat generalized Alexander structural characterizations, not this complete polynomial. Published related records and recoverable earlier claims were also compared; the nearest records address different invariants. This is not a claim that general affine-span counting techniques are new.
+## originality
 
-Historical priority risk remains: older subrack or module-extension literature could contain an equivalent formula; the full Jedlička–Stanovský (2021) paper was not inspected beyond the available summary material. Missing a database match does not prove novelty.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge: a uniform all-p,f size polynomial with independent affine-support/fiber choices is not established by the structurally related prior sources or the published-finding search; the common affine-lattice Möbius machinery itself is not claimed new.
 
-The invariant counts **every embedded nonempty subquandle at every size** in a nonsemisimple finite Alexander family, uniformly in all finite fields. Its exact fiber classification is substantially finer than component counting; the formula detects additive-extension-degree effects in a natural substructure lattice. It is neither an arbitrary isolated instance nor a recomputation of a known table.
+## value
 
-## Scope and limitations
+PASS
 
-This result does not classify subquandles for higher Jordan blocks or enumerate isomorphism classes or automorphism orbits. Independent mathematical validation has not been performed; the small-field exhaustive program supports but does not replace the proof.
+A complete cardinality-generating polynomial is a natural invariant of the subquandle lattice. The rank-one unipotent operator is the first genuinely nonsemisimple Alexander example, and the formula exposes nontrivial dependence on field extension degree; it is not an isolated small test or known component count.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
