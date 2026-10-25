@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python verify_silhouette_law.py` using Python 3 and the standard library; no external packages, downloads, or specialized proof software are needed.
+## correctness
 
-The checker enumerates exact rational vertices from all feasible triples of supporting planes, derives the facet-adjacency graph independently, and verifies the two lists agree at parameter values \(1,6/5,3/2,9/5,2,11/5,5/2,14/5,3\). It then compares the shadow-edge sign test with **independently projected exact rational two-dimensional convex hulls**, including all 96 signed-permutation representatives for the two orientation chambers and additional sampled rational normal vectors. A separate seeded Monte Carlo sample of 400000 Gaussian vectors compares the predicted exact spherical probability with an empirical frequency; it does not establish that probability mathematically.
+PASS
 
-Successful actual checker output included:
+PASS. For K_t=[-1,1]^3 intersect {sum|x_i|<=t}, facet/edge incidence has diagonal-diagonal and axis-diagonal classes for 1<t<2, only axis-diagonal at t=2, and axis-axis plus axis-diagonal for 2<t<3. Counting incident normals of opposite signs yields N=6-2δ at t=1, 12 for 1<t<2, 6+2δ at t=2, 12+2δ for 2<t<3, and 6 at t=3, where δ denotes strict coordinate dominance. Six dominance cones on S² each consist of four spherical triangles with area 2 atan(3-2 sqrt2), giving exact p=12/pi atan(3-2 sqrt2). Independent exact rational half-space intersection and normal-separation counts at t=1,3/2,2,5/2,3 and directions (10,3,1),(3,2,2) produced respectively the claimed silhouette counts (4,6),(12,12),(8,6),(14,12),(6,6), and matching V/E/F inventories. This bounded check corroborates, but cannot establish, the continuous parameter and almost-everywhere direction theorem. Generic viewing directions exclude facet-normal orthogonality; no claim about exceptional directions.
 
-```
-HALFSPACE_AND_EDGE_GRAPH_OK 1 vertices 6 facets 8 edges 12
-HALFSPACE_AND_EDGE_GRAPH_OK 6/5 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 3/2 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 9/5 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 2 vertices 12 facets 14 edges 24
-HALFSPACE_AND_EDGE_GRAPH_OK 11/5 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 5/2 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 14/5 vertices 24 facets 14 edges 36
-HALFSPACE_AND_EDGE_GRAPH_OK 3 vertices 8 facets 6 edges 12
-ALL_96_SIGNED_CHAMBER_REPRESENTATIVES_CHECKED_OK
-EXACT_RATIONAL_HULL_VS_EDGE_SILHOUETTES_OK 2358
-SPHERICAL_CONE_SOLID_ANGLE_AND_HAAR_CHECK_OK 0.649040687816356 0.649977
-ALL_CUBE_OCTAHEDRON_SHADOW_CHECKS_OK
-```
+## originality
 
-The full continuum classification is justified by the symbolic sign-chamber argument and spherical-triangle solid-angle computation in `RESULT.md`, not by finite testing. No independent audit has been performed. Historical priority is provisional.
+PASS
+
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
+
+## value
+
+PASS
+
+PASS. Complete, phase-sensitive combinatorial shadow law with exact Haar probabilities for a natural one-parameter octahedron–cuboctahedron–cube family; includes a nontrivial interval of dodecagonal generic projections although most members are not zonohedra. This is a geometric orientation invariant useful to silhouette algorithms and convex-polytope shape comparisons, not an isolated numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

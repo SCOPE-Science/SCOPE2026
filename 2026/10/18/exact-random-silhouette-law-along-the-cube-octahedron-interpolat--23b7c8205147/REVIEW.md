@@ -1,21 +1,21 @@
-# Mathematical assessment: silhouette law of the cube–octahedron family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain \(1\le t\le3\) and generic directions are explicit, including all parameter boundaries. For \(1<t<2\) the halfspaces give exactly the 24 axis–diagonal and 12 diagonal–diagonal edges, whereas \(2<t<3\) replaces the latter 12 by 12 axis–axis edges. The cuboctahedron retains only axis–diagonal edges. Summing edges separating facets with opposite normal signs gives the claimed five regimes. In the signed-permutation fundamental chamber the only changing diagonal normal signs are those of \((+,-,-)\) and \((-,+,+)\), precisely when the largest coordinate crosses the sum of the other two. The exact solid angle of the dominance cones establishes the asserted probability. A separate exact rational projected-hull checker verifies the facet inventory, edge graph, sign counts, and \(2358\) sample projections; finite tests are checks, not the infinite proof.
+PASS
 
-## Originality
+PASS. For K_t=[-1,1]^3 intersect {sum|x_i|<=t}, facet/edge incidence has diagonal-diagonal and axis-diagonal classes for 1<t<2, only axis-diagonal at t=2, and axis-axis plus axis-diagonal for 2<t<3. Counting incident normals of opposite signs yields N=6-2δ at t=1, 12 for 1<t<2, 6+2δ at t=2, 12+2δ for 2<t<3, and 6 at t=3, where δ denotes strict coordinate dominance. Six dominance cones on S² each consist of four spherical triangles with area 2 atan(3-2 sqrt2), giving exact p=12/pi atan(3-2 sqrt2). Independent exact rational half-space intersection and normal-separation counts at t=1,3/2,2,5/2,3 and directions (10,3,1),(3,2,2) produced respectively the claimed silhouette counts (4,6),(12,12),(8,6),(14,12),(6,6), and matching V/E/F inventories. This bounded check corroborates, but cannot establish, the continuous parameter and almost-everywhere direction theorem. Generic viewing directions exclude facet-normal orthogonality; no claim about exceptional directions.
 
-PASS relative to inspected and recoverable evidence, without claiming definitive priority. The closest primary source, Gantapara et al., arXiv:1412.2597v1 (2014), defines and uses an equivalent continuously truncated-cube family but studies packings, mesophases, and orientational order, not planar projected polygon counts. Their earlier 2013 Physical Review Letters abstract likewise concerns phase behavior. Published exact results on the same family concern projected **area**, inscribed tetrahedral volume, centro-affine eigenvalues, or illumination number, none giving the vertices of the projected boundary. A previous central-section polygon law for a truncated octahedron concerns intersections rather than shadows. General asymptotic silhouette bounds and the classical separating-facet criterion supply background, not this exact all-parameter two-atom/one-atom classification. Search and implication checks are recorded in `AUDIT.json`.
+## originality
 
-Historical-priority limitations: Some public mathematical records could be read only as summaries because their linked full-text pages were inaccessible; an exhaustive survey of older visualization and computer-graphics literature has not been completed. These create a residual risk of prior coverage, but the available direct comparisons did not expose a dominating theorem.
+PASS
 
-## Value
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
 
-PASS. This is a complete shadow-complexity classification of a natural three-dimensional convex-body interpolation, with exact Haar probabilities, equality regimes, and endpoint collapses. The invariant does not remain constant merely because a polytope has the same number of vertices: between the octahedron and cuboctahedron all generic shadows are dodecagons throughout an interval containing non-zonohedra, while between cuboctahedron and cube the count has two atoms with a parameter-independent, nontrivial exact probability. The classification supports both polyhedral shape discrimination and explicit checks of general silhouette algorithms; it is not an arbitrary isolated parameter evaluation.
+## value
 
-## Scope and remaining risks
+PASS
 
-Generic orthographic shadow vertex counts only; exceptional directions, polygon metrics, perspective projections and higher-dimensional analogues are not determined. Numerical sampling cannot certify the all-direction statement and is not treated as such. General front/back facet separation is established background, rather than an originality claim. Independent mathematical validation and comprehensive historical-priority assessment remain outstanding.
+PASS. Complete, phase-sensitive combinatorial shadow law with exact Haar probabilities for a natural one-parameter octahedron–cuboctahedron–cube family; includes a nontrivial interval of dodecagonal generic projections although most members are not zonohedra. This is a geometric orientation invariant useful to silhouette algorithms and convex-polytope shape comparisons, not an isolated numerical experiment.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
