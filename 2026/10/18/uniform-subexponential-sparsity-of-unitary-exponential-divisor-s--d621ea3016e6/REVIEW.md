@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every step of the all-level estimate has been reconstructed: prime-power formulas, unique recovery of a large prime from its cofactor and the prescribed ratio, the repeated-prime exceptional bound, and Rankin’s inequality followed by the reciprocal-prime estimate. The optimizing choice of \(y\) and \(\delta\) is justified as \(X\to\infty\) and produces the coefficient \(1/\sqrt2\). The exact-arithmetic regression checks the finite inversion step but is not used as a proof of the asymptotic.
+## correctness
 
-## Originality — PASS, with risk
-The motivating original paper asks whether equal divisor sums occur infinitely often but does not give a uniform quantitative fiber upper bound. The equality-sequence database gives examples only. Two inspected published results give, respectively, a bounded-exponent classification and a lower bound for the strict-inequality density, neither implying this theorem. The new estimate gives a subexponential relative saving, stronger than a qualitative zero-density conclusion. There remains a risk of unindexed equivalent treatment or a general level-set theorem with the same conclusion.
+PASS
 
-## Mathematical value — PASS
-The all-level theorem applies to the equality question with a subexponential relative saving, more than every fixed power of \(\log X\). The mathematical mechanism is the interaction between a unique-large-prime reconstruction and the smooth-number tail. The existence of infinitely many equalities is unresolved.
+For n=pm with p=P(n)>y and p||n, positivity of sigma*(m) makes p(c sigma^(e)(m)-sigma*(m))=sigma*(m) uniquely solvable at most once for each m. Integers lacking such p are y-smooth or divisible by a square p² with p>y, giving N_c(X)<=Psi(X,y)+O(X/y) independently of c. Rankin Euler-product bound at y=exp(sqrt(L log L)/sqrt2), u=L/log y and delta=(log u-2loglog u)/log y implies log Psi <=L-(1/sqrt2+o(1))sqrt(L log L); the prime square and higher Euler contributions are summable, and Mertens sum reciprocal primes handles the first-order term. The o(1) is uniform in c. Independent exact arithmetic tested divisor ratios up to 10000 and 9597 recoverable primes; not an asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Trudgian compares sigma* and sigma^(e), provides example equalities and a qualitative distribution question but not a uniform c-level subexponential fiber bound. Published Resultary exponent-layer tables and strict-comparison density bounds do not dominate an upper bound for every fiber. General large-prime/smooth-number arguments are prior methods, and possible prior generic theorem is a residual risk.
+
+## value
+
+PASS
+
+A quantitative uniform sparsity theorem constrains a natural open equality problem and **every** other positive divisor-sum ratio level, vastly stronger than a bare density-zero result. The elementary injectivity vs smooth-number dichotomy is transferable and the saving exceeds all fixed powers of log X, although the constant is not claimed sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
