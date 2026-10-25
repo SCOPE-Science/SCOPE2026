@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The ordinary truncated-ring coordinate identities are proved algebraically in `RESULT.md`; the standalone `check_idempotents.py` constructs the finite group algebra and evaluates every quandle basis multiplication directly. This is a check of the claimed identity, not merely a rerun of the coefficient-resonance formula.
+## correctness
 
-The checker exhausts \\(3^3\\) vectors in \\(\\mathbb F_3[R_3]\\), \\(5^5\\) vectors in \\(\\mathbb F_5[R_5]\\), and \\(9^3\\) vectors in \\(\\mathbb F_9[R_3]\\); it confirms the complete counts \\(4,6,10\\), respectively. It tests the multiplication law on independently sampled parameters at primes \\(3,5,7,11,13,17,19,23,31,41\\); explicitly checks the \\(p=17\\) witness \\(\\exp(X^9)\\) with direct multiplication, and produces `ALL_EXACT_CHECKS_PASSED`.
+PASS
 
-A hand-checkable independent witness of a length-three idempotent takes \\(\\mathbb F_9=\\mathbb F_3[\\alpha]/(\\alpha^2+1)\\) and \\(h=2e_0+(1+\\alpha)e_1+(1+2\\alpha)e_2\\). In the commutative dihedral quandle \\(R_3\\), the coordinates of the square of \\(ae_0+be_1+ce_2\\) are \\((a^2+2bc,b^2+2ac,c^2+2ab)\\). They reproduce the coefficients of \\(h\\), all nonzero. This provides a direct check that the general length-three assertion in arxiv:2608.01550 Theorem 3.6, as literally formulated, is too broad.
+Via vector identification e_i↔T^i in A=K[T]/(T^p−1)=K[u]/u^p, quandle product is f(T^-1)g(T²). Any nonzero augmentation-zero f has u-order r>=1 while f⋆f has order 2r or vanishes; hence only zero augmentation-zero idempotent. Finite exp/log is a bijection J↔1+J in characteristic p; X=log T has leading term u and the substitutions map X to −X and 2X. Thus augmentation-one idempotents are exp H with independent coefficient equations [(-1)^m+2^m−1]a_m=0, whose solution degrees m=1+j lcm(2,ord_p2)<p yield κ exactly. Star product on solutions becomes H_a⋆H_b=−H_a+2H_b, giving the Takasaki quandle and q^κ+1 count. Direct field arithmetic independently verified the F9[R3] full-support three-coordinate idempotent and degree sets at small primes including 17 and 31. Finite tests corroborate, never replace the coefficientwise proof.
 
-The checker uses no external libraries, hardcoded classification tables, external services, or private data. Finite computations corroborate but do not replace the proof for all primes and fields. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The precise R3 characteristic-three affine line is already published and is NOT claimed new here. The current result is the all odd primes / arbitrary characteristic-p fields classification, resonance exponent set and Takasaki quandle structure; no inspected antecedent covers those in full. Two highly relevant 2026 preprints remain abstract-only overlap risks.
+
+## value
+
+PASS
+
+A natural complete all-prime field classification of quandle-algebra idempotents with an arithmetic resonance law and exceptional prime-field jumps, not a mere retabulation of R3, is a useful structural algebra result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
