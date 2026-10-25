@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses a bijection between core matchings and maximal matchings of the one-leaf corona; a nonempty alternating symmetric difference yields either a forbidden even cycle or a path with two omitted pendant endpoints. This establishes the necessity and sufficiency statements without exhaustive computation.
+# Independent mathematical audit
 
-The standalone `verify.py` constructs all actual matching signatures and independently tests the graph obstruction characterization for all labeled graphs of order at most four, paths through order seven, cycles through order seven, and six additional named examples. It checks minimum cardinalities by direct comparison of every candidate observed-edge subset, then checks the graph-optimization formula. In finite path and cycle cases it also verifies the enumerative consequences. The script ends in `VERIFY_OK` when all assertions hold.
+## correctness
 
-To reproduce: run `python3 verify.py` (Python standard library only). All arithmetic is exact integer arithmetic. Tests are finite and do not establish the universal theorem on their own; the argument in `RESULT.md` does. No formal independent audit has been performed.
+PASS
+
+Core matchings A of any finite simple G are in bijection with maximal matchings of G◦K1, adjoining exactly the leaf edges of unmatched core vertices. If two such matchings have the same observed trace, their symmetric difference uses unobserved core edges and splits into alternating even cycles and paths; each path's endpoints both have omitted leaf observations in the same R-component. Conversely an even cycle gives two alternating matchings with same saturation pattern, while a path between two omitted leaf endpoints gives an indistinguishable pair (parity of path edge count determines endpoint saturation, both hidden). Thus forcing iff H=(V,R) is even-cycle-free and each H-component contains at most one omitted-leaf vertex. For fixed R, maximum omitted edge count is |R|+c(H)=n+β(H), yielding φ_gm=m−max β(H). A graph without even cycles has odd simple cyclic blocks forming an odd cactus: intersecting odd cycles along more than one vertex would make an even cycle. Bipartite G has no odd cycle so b=0, and any odd cycle yields b≥1. For P_n, weighted compositions of component interval lengths give generating function (1−z)²/(1−3z+z²) with coefficient F_{2n}; C_n and K_n boundaries are handled explicitly. Independent source-definition enumeration of every labelled G on ≤4 vertices checked 11,894 observation masks against the stated structural criterion and optimum; this corroborates but does not replace the universal alternating-path proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge enhancement over 2021/22 corona-product upper bound: gives necessary-and-sufficient forcing criterion for EVERY edge set S, exact optimum via odd-cactus cycle rank, all minimizers, and complete characterization of sharp bases. Distinguished global maximal-matching forcing from perfect-matching forcing (unique perfect matching on these coronas). The 2018 foundational paper was only abstract-accessible; residual risk of a stronger hidden theorem is explicitly retained.
+
+## value
+
+PASS
+
+Global forcing for maximal matchings is a classical natural edge-identification problem. The earlier literature specifically raised whether the standard corona bound is sharp for other graphs; the exact all-base criterion answers that mathematical question in structural terms, explains deviations through an odd-cactus cycle-rank invariant, and enumerates complete optimum witnesses. This is a uniform nontrivial structural result beyond recomputing known isolated values, even though b_odd is not given in closed form for arbitrary G.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The complete equivalence is proved by the exact bijection from core matchings to maximal matchings of the one-leaf corona. An observation collision is equivalent to an alternating symmetric difference wholly inside omitted core edges with all exceptional endpoint pendants omitted. Its connected components are alternating paths and even cycles, giving exactly the two stated obstructions. Optimizing omitted observations proves the cycle-rank identity. All small-boundary and disconnected cases are encompassed; the attached checker independently enumerates maximal-matching signatures for all graphs of order at most four and additional structured families.
+## correctness
 
-**Originality: PASS, with explicit residual risk.** The 2021 open preprint underlying the 2022 corona-product paper proves only general bounds for this case, illustrates sharpness only for a single two-vertex base, and asks for further sharpness examples. The 2019 graph-operations article proves product bounds and a line-graph equivalence, not this exact characterization. The 2022 perfect-matching forcing paper concerns a distinct invariant, which vanishes on the present coronas. Searches for one-leaf coronas, whiskered graphs, even-cycle-free odd cacti, and Fibonacci enumeration found no theorem subsuming the claim. The full text of the foundational 2018 paper could not be obtained in this review; its abstract and documented general inequalities were compared, but a surviving literature risk remains.
+PASS
 
-**Value: PASS.** The finding answers a natural sharpness question from the corona-product literature for **every** possible base graph, not merely one constructed family. It supplies a complete description of all forcing sets, an exact structural optimization for the optimum, the sharpness characterization for all bipartite bases, and concrete enumerations on labeled paths. The odd-cactus obstruction explains the otherwise opaque gap between the standard upper bound and the exact value.
+Core matchings A of any finite simple G are in bijection with maximal matchings of G◦K1, adjoining exactly the leaf edges of unmatched core vertices. If two such matchings have the same observed trace, their symmetric difference uses unobserved core edges and splits into alternating even cycles and paths; each path's endpoints both have omitted leaf observations in the same R-component. Conversely an even cycle gives two alternating matchings with same saturation pattern, while a path between two omitted leaf endpoints gives an indistinguishable pair (parity of path edge count determines endpoint saturation, both hidden). Thus forcing iff H=(V,R) is even-cycle-free and each H-component contains at most one omitted-leaf vertex. For fixed R, maximum omitted edge count is |R|+c(H)=n+β(H), yielding φ_gm=m−max β(H). A graph without even cycles has odd simple cyclic blocks forming an odd cactus: intersecting odd cycles along more than one vertex would make an even cycle. Bipartite G has no odd cycle so b=0, and any odd cycle yields b≥1. For P_n, weighted compositions of component interval lengths give generating function (1−z)²/(1−3z+z²) with coefficient F_{2n}; C_n and K_n boundaries are handled explicitly. Independent source-definition enumeration of every labelled G on ≤4 vertices checked 11,894 observation masks against the stated structural criterion and optimum; this corroborates but does not replace the universal alternating-path proof.
 
-**Scope and limitations.** The arbitrary-base answer is expressed through an odd-cactus maximization, not a polynomial-time formula for this auxiliary invariant. The finite checker corroborates but does not replace the proof. Full-text access to the 2018 foundational article remains a documented coverage risk; no independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge enhancement over 2021/22 corona-product upper bound: gives necessary-and-sufficient forcing criterion for EVERY edge set S, exact optimum via odd-cactus cycle rank, all minimizers, and complete characterization of sharp bases. Distinguished global maximal-matching forcing from perfect-matching forcing (unique perfect matching on these coronas). The 2018 foundational paper was only abstract-accessible; residual risk of a stronger hidden theorem is explicitly retained.
+
+## value
+
+PASS
+
+Global forcing for maximal matchings is a classical natural edge-identification problem. The earlier literature specifically raised whether the standard corona bound is sharp for other graphs; the exact all-base criterion answers that mathematical question in structural terms, explains deviations through an odd-cactus cycle-rank invariant, and enumerates complete optimum witnesses. This is a uniform nontrivial structural result beyond recomputing known isolated values, even though b_odd is not given in closed form for arbitrary G.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
