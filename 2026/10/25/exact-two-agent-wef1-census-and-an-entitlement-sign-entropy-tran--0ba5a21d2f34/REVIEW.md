@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The central classification is reconstructed directly from the two-agent definition of mixed-item WEF1 by an exact normalization of the only possible envious agent's inequality. Availability of corrective goods and chores is explicitly included, and all endpoint equalities in the piecewise count are covered. A signed-to-binary bijection gives the binomial layers; the closed form follows by subtracting endpoint configurations. Stirling's formula and a uniform boundary-event estimate prove the entropy law and lattice-aware Gaussian crossover. A standalone direct-definition checker passed 315,392 exact-rational allocation comparisons. There is no extrapolation from enumeration to the universal theorem.
+
+## Originality — PASS, subject to residual priority risk
+The inspected 2026 mixed-manna papers establish WEF1 existence, algorithms, welfare and related lottery guarantees, but do not count uniformly selected WEF1 allocations under common signed-unit valuations. The 2024 two-agent mixed-manna paper similarly addresses constructive existence, not this census. The 2025 asymptotic weighted-fair-division paper randomizes valuations and studies whether fair allocations exist, rather than conditioning on a fixed valuation profile and measuring the fair subset of all allocations. Search comparisons of WEF1 enumeration, binomial cancellation, and entropy rates produced no encompassing mathematical record. The general binomial probability and entropy tools are explicitly recognized as known; unindexed equivalent enumerations remain possible.
+
+## Value — PASS
+The count measures robustness of fair allocations to uninformed implementation, an issue different from their guaranteed algorithmic existence. The exact signs-to-binomial cancellation shows when unequal entitlements *do not* make random fair allocation exponentially rare, despite a generic entitlement-induced entropy penalty. The result identifies an entire zero-net-value family in which the one-item relaxation gives no extra assignments over exact weighted envy-freeness, together with a precise critical crossover and an arithmetic lattice effect. These are structurally motivated quantitative facts, not a parameter-free toy census. It does not assert typical behavior under heterogeneous valuations or algorithmic hardness.
+
+## Closest sources and limitations
+Nicholas Teh, arXiv:2609.01580 (definition and algorithm; unit-magnitude results); Lin–Liu–Tao–Zhou, arXiv:2609.02724 (weighted mixed-manna existence and lottery theorems); Garg–Sharma, arXiv:2410.12966 (two-agent constructive existence); Manurangsi–Suksompong–Yokoyama, arXiv:2504.21728 (different random-valuation asymptotic regime). The originality comparison is best-knowledge only. The fixed identical \(\pm1\) model may admit an unindexed alternate formulation. The model does not address nonidentical agents, nonunit values, or randomized mechanisms designed specifically for fairness.
+
+Self-review: passed. Independent audit: not yet performed.
