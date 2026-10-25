@@ -1,19 +1,21 @@
-# Scientific review: zeta function of the one-point Hermitian-relative class
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over all primes \(p\), integers \(r\geq1\), coefficients \(\eta\in\mathbb F_{p^{2r}}\setminus\mathbb F_{p^r}\), and extension degrees \(n\geq1\). Smoothness and genus follow directly from the displayed derivatives and degree. The coordinate shift is checked symbolically by substitution; its \(q\)-Frobenius cocycle is the nonzero trace-zero element \(\eta-\eta^s\). The translation quotient has genus zero, and the norm-scaling automorphisms act transitively on all nontrivial characters; therefore their common cohomological multiplicity is \(s\). The Hermitian curve's maximal rational-point count forces eigenvalue \(-s\) on each first-cohomology eigenline. The twisted eigenvalue product and additive-character orthogonality then prove the displayed polynomial and every extension count. Exact small-field counts in `verify.py` agree, including characteristic two and non-prime \(s\). Their finite scope is not confused with an infinite proof.
+PASS
 
-## Originality — PASS (subject to literature risk)
+PASS: The plane gradient (X^s,eta Y^s+Z^s,Y^s) excludes a projective singularity. Choose δ^s+δ=−η to identify the curve geometrically with the Hermitian H; δ^{s²}−δ=η−η^s=b≠0 in the trace-zero translation group U of order s. The Hermitian point count s³+1 forces all q-Frobenius eigenvalues −s. The quotient H/U=P1 kills trivial-character cohomology; scaling x by norm-c elements forces each of s−1 nontrivial character multiplicities to be s. Twisted Frobenius eigenvalues are −sχ(b), giving the claimed cyclotomic product and all-n trace formula. Independently counted 1,9,49 over F4,F16,F64 for p=2,s=2; finite checks are only corroboration.
 
-Homma--Kim (2026, Theorem 7 / WCC Theorem 1.1) determine the one-point class, its explicit equation and the base-field count, but not the complete all-extension zeta polynomial. Their May 2026 projective-equivalence chapter classifies equivalence classes, according to its accessible abstract, not Frobenius spectra; the full chapter was not accessed. The earlier *Relatives of the Hermitian curve* does not establish the newly treated type's extension-count formula. The closest full-text zeta paper, Bouw--Ho--Malmskog--Scheidler--Srinivasan--Vincent (arXiv:1410.7031), computes related Artin--Schreier zeta functions over splitting fields but does not apply its displayed theorem to the nontrivial additive Hermitian twist. The general cohomological twist formalism itself is classical and is not claimed as new. Published-record semantic queries for the exact family, spectrum, twist, equivalent Artin--Schreier form, and characteristic-dependent extension counts returned unrelated records; those searches are overlap evidence only and are not regarded as a proof of novelty. No accessible preceding claim implies the full parameter-uniform polynomial. An inaccessible related chapter and unindexed general twist tables are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The recent classification singles out the natural extreme \(N_q=1\) equivalence class without determining its arithmetic over extensions. The exact polynomial answers the natural next question completely for all square finite fields, all coefficients in the class, and all extension degrees. The trace-periodicity dichotomy and the order-\(p\) Hermitian descent are structural, not a random small-field computation or routine parameter renaming. No separate supersingularity or geometric-isomorphism discovery is claimed.
+PASS best of knowledge: Homma–Kim Theorem 1.1 explicitly gives the one-point curve model and base-field uniqueness; these are not original. Their full open WCC article treats point/inflexion classification, not all-extension zeta numerator. Classical Hermitian Frobenius and Artin–Schreier twisting are tools; a preexisting general twist-character table covering this exact special case remains a risk.
 
-## Verification boundaries
+## value
 
-The finite checker enumerates specified finite fields and tests independent point counts but does not enumerate all prime powers or prove the character-decomposition lemma. The proof supplies that missing infinite step. The Springer WAIFI chapter's full text was not available for a definitive whole-document negative-coverage conclusion. Independent validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Hasse–Weil zeta function and extension-field point counts are canonical invariants of a newly classified geometric one-point class, and the all-prime/all-extension formula provides a natural arithmetic classification that base-field point counts cannot imply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
