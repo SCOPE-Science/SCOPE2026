@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:00:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md blob 0e43ad1be78af43fe7fe130f666d301344ae4471",
+        "Git source verification script 7fbf6811238fd59a06ca2f198af545fb4fbbce21",
+        "independently executed /mnt/data/audit07_independent_checks.py bounded numeric/rational tests"
+      ],
+      "rationale": "The claimed domain is integer n>=1, a,b>0, bounded Borel real observables and fixed-parameter n->infinity; the operator is a beta-binomial Markov transition, not the ordinary Bernstein point-evaluation polynomial. For x<z, binomial weights are TP2 in (x,k) and beta densities q_{a+k,b+n-k} are TP2 in (k,y), so composing them gives a monotone-likelihood-ratio family with one density crossing. Stochastic monotonicity of every conditional beta CDF and Bin(n,x) then bounds F_x-F_z by F_0-F_1 pointwise, proving both the Dobrushin oscillation supremum and endpoint optimizer. The two beta endpoint densities have likelihood ratio proportional to (y/(1-y))^n, with unique crossing c_n=R_n^{1/n}/(1+R_n^{1/n}), R_n=B(n+a,b)/B(a,n+b). Integration gives the two incomplete-beta differences. Gamma ratios yield c_n=1/2+((a-b)log n+logGamma(b)-logGamma(a))/(4n)+o(1/n); one-sided Laplace bounds near this moving endpoint yield each overlap tail asymptotic to 2^{1-a-b}n^{(a+b)/2-1}2^{-n}/sqrt(Gamma(a)Gamma(b)), so their sum gives the announced prefactor. Reversibility and conditional beta factorial moments give lambda_1=n/(n+a+b), already a known spectral eigenvalue, not an originality claim. Independent SciPy beta-function checks at four parameter choices, including n=1,2,8,100, satisfy endpoint total-variation and overlap identities to numerical tolerance. Script reads confirm that 527 reported tests are finite; they cannot prove all n,a,b or historical novelty. No assertion of uniform asymptotics as a or b tend to zero, or of multistep mixing.",
+      "residual_risks": [
+        "The complete 1995 Adell–de la Cal article could not be read; exact Dobrushin/TV consequences remain a bibliographic risk.",
+        "Asymptotic calculation applies to fixed a,b>0, not parameters approaching zero.",
+        "Numerical endpoint checks cannot prove TP2 or all parameter limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berdysheva–Jetter full accessible §1,§2,§3.2.2",
+          "Abel–Ivan–Păltănea arXiv:1304.5721"
+        ],
+        "reasoning": "General arbitrary-weight simplex kernels and geometric-series inverse approximation cover the operator class but not the needed sharp univariate beta endpoint TV statement or asymptotic prefactor. A general TP2 theorem gives an ingredient, not the claimed value.",
+        "searches": [
+          "Jacobi weighted Bernstein Durrmeyer Markov kernel exact Dobrushin total variation oscillation contraction beta endpoint asymptotic",
+          "Bernstein Durrmeyer Markov kernel spectral gap mixing TV"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.jat.2009.11.005",
+        "https://doi.org/10.1016/0898-1221(95)00081-X",
+        "https://arxiv.org/abs/1304.5721"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adell–de la Cal abstract explicitly states total-variation bounds for approximation of Szász–Durrmeyer by Bernstein/Baskakov operators.",
+          "Berdysheva–Jetter §3.2.2 calls Jacobi spectral eigenvalues well known."
+        ],
+        "reasoning": "Their stated cross-operator approximation bounds and L2 eigenvalue formulas do not directly imply sharp TV between P_0 and P_1 nor the moving-threshold large-n coefficient. Full 1995 paper was not retrieved and could contain a hidden stronger corollary; retain that risk.",
+        "searches": [
+          "\"Adell\" \"de la Cal\" \"Bernstein-Durrmeyer operators\" \"total variation\"",
+          "\"Berdysheva\" \"Jetter\" \"total variation\" Jacobi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berdysheva–Jetter DOI 10.1016/j.jat.2009.11.005 §2 and §3.2.2",
+          "Adell–de la Cal DOI 10.1016/0898-1221(95)00081-X abstract"
+        ],
+        "reasoning": "The invariant is equivalently the Dobrushin coefficient sup_{x,z}TV(P_x,P_z) and the oscillation quotient operator norm; it is not the L2 spectral radius or variation of an input function. The inspected Jacobi kernel/spectrum theorem does not state the endpoint beta-law TV maximization.",
+        "searches": [
+          "\"Bernstein Durrmeyer\" \"oscillation\" \"1-2^{-n}\"",
+          "\"Jacobi\" \"Bernstein Durrmeyer\" \"Dobrushin\" \"contraction\" beta kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary match 2026/10/11/SCOPE-exact-first-discrete-threshold-below-the-jacobi-radau-continuous--d1b1206636bc; it concerns discrete Jacobi-Radau amplitude, a different object.",
+          "Search of 1995 and 2009 references located kernel/spectrum and TV convergence rate, not a Dobrushin formula."
+        ],
+        "reasoning": "No checked exact table records the endpoint beta overlap or asymptotic coefficient. The closest retrieved Jacobi-Radau threshold uses a different quadrature/invariant; nonmatch does not establish absence from all literature.",
+        "searches": [
+          "Resultary query: Jacobi weighted Bernstein Durrmeyer Markov kernel exact Dobrushin total variation oscillation contraction beta endpoint asymptotic",
+          "\"Bernstein Durrmeyer\" \"1-2^{-n}\" overlap"
+        ]
+      },
+      "rationale": "Jacobi L2 eigenvalues, positive approximation and shape variation do not logically imply a sharp operator oscillation/Dobrushin norm. Independent primary-section comparison found a distinct mathematical optimization over two Markov input locations, a beta-tail overlap, and its gamma-dependent n->infinity coefficient. The 1995 Adell–de la Cal abstract concerns TV between measures for convergence of Bernstein–Durrmeyer to a Szász kernel, not an identified exact x-vs-z Dobrushin coefficient; unread full text remains a priority risk. Failed searches are not novelty proof.",
+      "residual_risks": [
+        "The complete 1995 Adell–de la Cal article could not be read; exact Dobrushin/TV consequences remain a bibliographic risk.",
+        "Asymptotic calculation applies to fixed a,b>0, not parameters approaching zero.",
+        "Numerical endpoint checks cannot prove TP2 or all parameter limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides canonical positive symmetric kernel and known Jacobi spectrum but not x-endpoint Dobrushin value.",
+          "evidence": [
+            "Definition 2.1, (2.1)-(2.4), §3.2.2"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.11.005",
+          "material_read": "Open-archive ScienceDirect text: abstract, introduction, kernel Definition 2.1 and positivity in §2, §3.2.2 Jacobi spectral eigenspaces and remark.",
+          "method": "Read actual accessible publisher article body and compared theorems/quantifiers.",
+          "title": "Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions",
+          "trigger": "Exact same operator class and Jacobi eigenvalues"
+        },
+        {
+          "assessment": "Abstract compares Bernstein/Szász/Baskakov approximants using TV between distributions, not explicitly the claimed endpoint optimizer; whole-paper implication unresolved.",
+          "evidence": [
+            "1995 Computers & Mathematics with Applications 30(3–6), 1–14 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0898-1221(95)00081-X",
+          "material_read": "Indexed full abstract, scope and 2010/2025 citation descriptions; complete 1995 article unavailable.",
+          "method": "Searched lawful OA and arXiv; authorized institutional DOI request returned vpn_disconnected; abstract only.",
+          "title": "Bernstein–Durrmeyer operators",
+          "trigger": "Same class, abstract mentions total variation"
+        },
+        {
+          "assessment": "No matched Dobrushin norm or gamma prefactor in inspected material.",
+          "evidence": [
+            "arXiv:1304.5721"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.5721",
+          "material_read": "ArXiv abstract and available theorem-level description of inverse approximation and geometric-series targets.",
+          "method": "Compared definitions and claimed functional norms.",
+          "title": "Geometric series of positive linear operators and inverse Voronovskaya theorem",
+          "trigger": "Related Durrmeyer positive approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1016/j.jat.2009.11.005",
+        "https://doi.org/10.1016/0898-1221(95)00081-X"
+      ],
+      "rationale": "For this natural Markov averaging kernel, the sharp oscillation contraction coefficient is the exact worst-case one-step propagation of bounded-observable error. Proving boundary extremizers for all asymmetric Jacobi beta parameters is a structural statement; its gamma-weight prefactor quantifies an exponentially small overlap, sharply separating a different Banach-space norm from the known polynomial L2 spectral gap. The invariant is canonical, parameterized, nontrivial, and not a renaming of the spectral eigenvalue; no claim is made about iteration or arbitrary dimensions.",
+      "residual_risks": [
+        "The complete 1995 Adell–de la Cal article could not be read; exact Dobrushin/TV consequences remain a bibliographic risk.",
+        "Asymptotic calculation applies to fixed a,b>0, not parameters approaching zero.",
+        "Numerical endpoint checks cannot prove TP2 or all parameter limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete 1995 Adell–de la Cal article could not be read; exact Dobrushin/TV consequences remain a bibliographic risk.",
+    "Asymptotic calculation applies to fixed a,b>0, not parameters approaching zero.",
+    "Numerical endpoint checks cannot prove TP2 or all parameter limits."
+  ],
+  "schema_version": 1
+}

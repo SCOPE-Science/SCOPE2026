@@ -1,15 +1,21 @@
-# Scientific review: Jacobi-weighted Bernstein–Durrmeyer oscillation contraction
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain consists of integer degrees \(n\ge1\), fixed positive Jacobi parameters \(a,b\), and bounded real Borel functions. A total-positivity composition proves that the conditional beta-mixture kernels are ordered by monotone likelihood ratio; stochastic ordering reduces the global total-variation supremum to the two endpoints. Their beta-density ratio has exactly one crossing, yielding the exact regularized-beta formula. Endpoint Laplace asymptotics with a moving threshold displaced by \(O((\log n)/n)\) yield both tail contributions and the stated prefactor. Symmetry with respect to the beta prior, polynomial preservation, and factorial moments establish the already-known centered \(L^2\) eigenvalue. The attached script checks 527 finite consistency conditions but is not an infinite-dimensional proof. The positive parameter boundaries are excluded explicitly.
+## correctness
 
-## Originality — PASS within examined evidence
-Berdysheva–Jetter's full accessible article supplies the kernel, positivity and Jacobi eigenvalues but the inspected statement and Section 3.2 concern a different \(L^2\)/approximation question and do not imply a sharp worst-case oscillation norm. Abel–Ivan–Păltănea develop geometric-series/inverse approximation statements, not beta-mixture total-variation maximizers. Accessible historical records for related Bernstein and Durrmeyer approximants concern spectral traces or Hilbert–Schmidt quantities; the previously known Jacobi spectrum is explicitly treated as background, not renamed as a discovery. No covering Dobrushin or oscillation result was identified. The 1995 Adell–de la Cal paper mentions total variation in its abstract, but its full text was not available; this is a material residual historical-priority uncertainty and not represented as a complete negative comparison.
+PASS
 
-## Value — PASS
-A sharp one-step oscillation contraction factor is the natural worst-case bound for propagating errors of bounded observables under a positive averaging operator. Identifying its boundary optimizer and its exact exponentially small defect for every positive Jacobi parameter reveals a large separation from the polynomial \(L^2\) spectral gap; the precise gamma-dependent prefactor is not obtainable merely by naming a standard eigenvalue. The finding is a parameter-uniform structural formula and a fixed-parameter asymptotic, not a narrow numerical artifact. It does not assert a sharp multi-step mixing law or new \(L^2\) spectral data.
+The claimed domain is integer n>=1, a,b>0, bounded Borel real observables and fixed-parameter n->infinity; the operator is a beta-binomial Markov transition, not the ordinary Bernstein point-evaluation polynomial. For x<z, binomial weights are TP2 in (x,k) and beta densities q_{a+k,b+n-k} are TP2 in (k,y), so composing them gives a monotone-likelihood-ratio family with one density crossing. Stochastic monotonicity of every conditional beta CDF and Bin(n,x) then bounds F_x-F_z by F_0-F_1 pointwise, proving both the Dobrushin oscillation supremum and endpoint optimizer. The two beta endpoint densities have likelihood ratio proportional to (y/(1-y))^n, with unique crossing c_n=R_n^{1/n}/(1+R_n^{1/n}), R_n=B(n+a,b)/B(a,n+b). Integration gives the two incomplete-beta differences. Gamma ratios yield c_n=1/2+((a-b)log n+logGamma(b)-logGamma(a))/(4n)+o(1/n); one-sided Laplace bounds near this moving endpoint yield each overlap tail asymptotic to 2^{1-a-b}n^{(a+b)/2-1}2^{-n}/sqrt(Gamma(a)Gamma(b)), so their sum gives the announced prefactor. Reversibility and conditional beta factorial moments give lambda_1=n/(n+a+b), already a known spectral eigenvalue, not an originality claim. Independent SciPy beta-function checks at four parameter choices, including n=1,2,8,100, satisfy endpoint total-variation and overlap identities to numerical tolerance. Script reads confirm that 527 reported tests are finite; they cannot prove all n,a,b or historical novelty. No assertion of uniform asymptotics as a or b tend to zero, or of multistep mixing.
 
-## Closest literature and risks
-E. E. Berdysheva and K. Jetter, *Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions* (first available 2009-11-22), particularly kernel Definition 2.1 and spectral Section 3.2.2, supply prior mathematics. U. Abel, M. Ivan, and R. Păltănea, arXiv:1304.5721 (2013), address an inverse Voronovskaya framework. J. A. Adell and J. de la Cal, *Bernstein–Durrmeyer operators* (1995), was compared only through indexed abstract-level material; older equivalent total-variation assertions remain possible. The finite checker cannot exclude the existence of such historical results. Independent review and priority verification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jacobi L2 eigenvalues, positive approximation and shape variation do not logically imply a sharp operator oscillation/Dobrushin norm. Independent primary-section comparison found a distinct mathematical optimization over two Markov input locations, a beta-tail overlap, and its gamma-dependent n->infinity coefficient. The 1995 Adell–de la Cal abstract concerns TV between measures for convergence of Bernstein–Durrmeyer to a Szász kernel, not an identified exact x-vs-z Dobrushin coefficient; unread full text remains a priority risk. Failed searches are not novelty proof.
+
+## value
+
+PASS
+
+For this natural Markov averaging kernel, the sharp oscillation contraction coefficient is the exact worst-case one-step propagation of bounded-observable error. Proving boundary extremizers for all asymmetric Jacobi beta parameters is a structural statement; its gamma-weight prefactor quantifies an exponentially small overlap, sharply separating a different Banach-space norm from the known polynomial L2 spectral gap. The invariant is canonical, parameterized, nontrivial, and not a renaming of the spectral eigenvalue; no claim is made about iteration or arbitrary dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
