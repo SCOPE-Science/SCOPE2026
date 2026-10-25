@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T16:12:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 25502c194b0af6f714ab2e8c2d1f530cd80569b7",
+        "Pinned verify.py blob 8890404be9460877e54c66fcac8bc222b95079b3",
+        "https://arxiv.org/pdf/2310.07454",
+        "https://ddd.uab.cat/pub/artpub/2019/221314/GarLliVal2018_Preprint.pdf",
+        "https://arxiv.org/pdf/1608.02910",
+        "Independent verification /mnt/data/scope_worker01_20261025T1601Z/independent_checks.py and independent_checks.json"
+      ],
+      "rationale": "Direct differentiation verifies H=log(1+alpha x²)/alpha+log(1+beta y²)/beta constant, and grad H vanishes only at origin. Positive levels are regular compact closed ovals and dynamics has no critical points on them. On each quadrant 1+alpha x²=e^(Lu), 1+beta y²=e^(qL(1-u)); the physical-time Jacobian equals (L sqrt(q)/2)e^(-qL/2)e^((q-1)Lu/2)/sqrt((1-e^(-Lu))(1-e^(-qL(1-u)))) and the four symmetric quadrants give period T=2L sqrt(q)e^(-qL/2)Z. For fixed q>1, s=L(1-u) yields q^(-1)B((q-1)/(2q),1/2); for q<1, s=Lu yields B((1-q)/2,1/2). Splitting s at L/2 bounds remote endpoints by decaying exponentials times integrable square-root singularities; it supplies tightness, weak convergence and period coefficients. For q=1+gamma/L, dominated convergence under C[u(1-u)]^(-1/2) proves Z→∫exp(gamma u/2)du and the stated tilted law. All displayed ranges, gamma positive/negative and physical-time normalization were rechecked. Independent sympy differentiation and mpmath 45-digit x-quadrature versus u-quadrature show <=6e-14 relative error in two examples; four fixed-q asymptotic and four crossover numerical specializations agree with the claimed limits. They corroborate but do not prove the infinite limits.",
+      "residual_risks": [
+        "The proof uses elementary dominated convergence rather than formal Lean verification; the numerical tests are finite parameter specializations.",
+        "The theorem does not address alpha=0, arbitrary q(L) varying to zero/infinity, or uniform remainders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "García-Saldaña–Llibre–Valls 2020 (lawful preprint https://ddd.uab.cat/pub/artpub/2019/221314/GarLliVal2018_Preprint.pdf), Theorems 3–8 classify cubic global centers.",
+          "Ghose-Choudhury–Guha 2016 arXiv:1608.02910 Theorem 1 is a sign criterion for period monotonicity; eq. (2.1) provides a general period quadrature."
+        ],
+        "reasoning": "Both broad global-center classification and generic period-integral machinery can motivate the present calculation, but neither theorem supplies the evaluated q-dependent weak layers, their precise beta constants or the inverse-log contrast window. No stronger covering theorem was located in inspected full primary sources.",
+        "searches": [
+          "web: \"Linear type global centers of linear systems with cubic homogeneous nonlinearities\" PDF García-Saldaña Llibre Valls 2020",
+          "web: \"period\" \"cubic\" \"global center\" \"Llibre\" \"Rondón\" asymptotic",
+          "https://arxiv.org/pdf/1608.02910 [full text, Theorem 1 and eq. (2.1)]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.07454v1; https://arxiv.org/pdf/2310.07454",
+        "García-Saldaña, Llibre, Valls 2020 lawful preprint; https://ddd.uab.cat/pub/artpub/2019/221314/GarLliVal2018_Preprint.pdf",
+        "Ghose-Choudhury, Guha 2016; https://arxiv.org/pdf/1608.02910",
+        "Resultary semantic search of three distinct mathematical queries; exact record mirror excluded",
+        "Resultary balanced and different cubic time-occupation full RESULT.md texts",
+        "Additional web searches for separable cubic centers, beta occupation, asymptotic original-time laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global-center classification and compactification say nothing quantitative about beta-normalized physical-time layers.",
+          "The balanced-case theorem proves q=1 uniform limit with distinct L factor in the period; it does not cover any fixed positive q!=1.",
+          "The Liénard-II monotonicity theorem is a derivative-sign criterion; the coefficient-dependent beta constants are not present in its statements."
+        ],
+        "reasoning": "The prior conclusions do not logically imply the full current theorem merely by parameter substitution: uniform q=1 asymptotics cannot be used uniformly for fixed q!=1, while general quadratures require the additional rescaling and endpoint asymptotic analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/2310.07454 [full text Theorem 2(e), equation (33)]",
+          "https://ddd.uab.cat/pub/artpub/2019/221314/GarLliVal2018_Preprint.pdf [full text Theorem 4, Corollary 8]",
+          "https://arxiv.org/pdf/1608.02910 [Theorem 1, formula (2.1)]",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llibre–Rondón 2023 arXiv:2310.07454v1, Theorem 2(e)/equation (33): xdot=y-(4b1+2c1)x^2y, ydot=-x-4b1xy^2 with beta=4b1, alpha=-2(2b1+c1).",
+          "The q=1 published Resultary balanced case has uniform logarithmic time occupation and T=2e^{-L/2}(L+4log2+o(1)), not the q!=1 beta boundary layers."
+        ],
+        "reasoning": "The two coefficient-order regions are related by swapping x,y and reversing orientation, but q=1 is a singular boundary rather than an equivalent theorem for arbitrary q. The exact finite-amplitude law is a derived time-quadrature, not a corollary of qualitative classification alone.",
+        "searches": [
+          "Resultary: asymmetric cubic global center original-time high amplitude beta boundary layers period asymptotics logarithmic energy y(1+alpha x squared) x(1+beta y squared)",
+          "web: cubic vector field xdot y (1+a x^2) ydot -x (1+b y^2) period function asymptotic 2020 2024",
+          "https://arxiv.org/pdf/2310.07454 [Theorem 2(e), equation (33)]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search ranks the exact published mirror SCOPE-beta-layer-concentration-transition...--241e91583a30 and nearby balanced/other cubic center claims; its exact mirror is not an independent prior source.",
+          "The relevant natural invariant is an entire continuum of time-occupation probability measures with varying q; no finite table or exact database entry containing these formulas was identified."
+        ],
+        "reasoning": "A lookup table of a few periods cannot imply the weak convergence and gamma crossover quantifiers. No known table with a stronger implication surfaced; limited database coverage is an explicit residual risk.",
+        "searches": [
+          "Resultary: separable cubic Hamiltonian global center high energy averaging concentration time occupation measure endpoint phase transition coefficient ratios",
+          "Resultary: global center polynomial system xdot=y(1+a x^2), ydot=-x(1+b y^2) period function exact asymptotic",
+          "web: separable polynomial global center time fraction logarithmic coordinate Beta boundary layer high energy asymmetric 2026"
+        ]
+      },
+      "rationale": "At the frozen source tree the theorem concerns original-physical-time distributions and the two beta-layer asymptotics for all fixed q!=1 plus q=1+gamma/L. Full text of the direct cubic global-center paper (arXiv:2310.07454) gives precisely the underlying vector field (33) and center classification but not the stated high-energy occupation distributions or crossover. The complete earlier 2020 author preprint classifies global-center existence, while the 2016 Liénard-II source gives general period quadratures and monotonicity, not the beta limits. A published balanced q=1 result shows an explicitly different uniform law. Searches returned the exact mirror (excluded as self-coverage) and adjacent but non-implicative findings. This is best-of-knowledge originality, not a proof that every relevant source was indexed.",
+      "residual_risks": [
+        "A non-indexed general separable-center or large-energy asymptotic theorem could contain this beta law without naming the cubic system.",
+        "Search ranking and terminology do not prove absolute priority; the exact mirror of this record is not independent evidence.",
+        "Other 20th-century quantitative literature or specialist monographs were not exhaustively retrieved; verdict is best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global-center existence; no beta-layer/physical-time crossover theorem found",
+          "evidence": "Theorem 2(e), equation (33), around PDF page 14: xdot=y-(4b1+2c1)x^2y, ydot=-x-4b1xy^2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.07454",
+          "material_read": "Entire 19-page arXiv v1 PDF; main Theorem 2, proofs including case (ii).1 / equation (33), conclusions and references",
+          "method": "Full-text visual/text reading of primary arXiv PDF, including equation and theorem statement comparison",
+          "title": "Global centers of a class of cubic polynomial differential systems",
+          "trigger": "Exact original vector field and global-center parameter identification"
+        },
+        {
+          "assessment": "Classification of linear-type global centers, no evaluated physical-time period asymptotics or beta occupation law in inspected paper",
+          "evidence": "Theorem 4 and Corollary 8 describe global-center parameter criteria; proof uses phase-plane/infinite singularity structure.",
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2019/221314/GarLliVal2018_Preprint.pdf",
+          "material_read": "Entire lawful 18-page author PDF, results Theorems 1–8, proof sections and references",
+          "method": "Read actual author preprint through web page text and PDF screenshot, after finding lawful OA copy; not abstract-only",
+          "title": "Linear type global centers of linear systems with cubic homogeneous nonlinearities",
+          "trigger": "Potential broad published priority including the same cubic family"
+        },
+        {
+          "assessment": "General period quadrature and monotonicity do not themselves evaluate this cubic family beta asymptotics",
+          "evidence": "Theorem 1 states derivative-sign criterion; equation (2.1) expresses period as an integral over a potential well.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.02910",
+          "material_read": "Full 12-page arXiv manuscript; Theorem 1, equations (2.1)–(2.5), examples, isochronicity and outlook",
+          "method": "Read actual primary PDF including displayed theorem and examples",
+          "title": "Monotonicity of the period function of the Liénard equation of second kind",
+          "trigger": "Plausible general period quadrature/monotonicity results potentially implying quantitative claim"
+        },
+        {
+          "assessment": "Strong quantitative balanced case only; no fixed unequal beta layers or inverse-log varying-coefficient law",
+          "evidence": "Theorem states q=1 uniform occupation, O(1/L) total-variation correction and T~2Le^(-L/2); current q!=1 limits localize at endpoints and have beta factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22",
+          "material_read": "Full published RESULT.md including proof, assumptions, verification and prior work",
+          "method": "Retrieved complete published research result from GitHub and compared exact q=1 quantifiers and limit with fixed q!=1",
+          "title": "Sharp logarithmic phase and time statistics in a cubic global center",
+          "trigger": "Published quantitative result on precisely the symmetric coefficient branch"
+        },
+        {
+          "assessment": "Different cubic Hamiltonian system with quartic potential; does not imply log-product unequal-coefficient beta law",
+          "evidence": "Its system has ydot=-x+ax²-kx³-(a+kx)y², distinct from -x(1+beta y²), and has a logarithmic correction to an E^(-1/2) period.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-occupation-and-the-two-term-high-energy-period-of-a--8be50b06b677",
+          "material_read": "Full published RESULT.md with system, period theorem, occupation law and proof",
+          "method": "Retrieved complete public text and compared vector field and first integral",
+          "title": "Logarithmic occupation and the two-term high-energy period of a cubic global center",
+          "trigger": "Nearby high-energy cubic time-occupation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md and conservative field equation",
+        "Full arXiv primary vector-field classification 2310.07454",
+        "Full published balanced-case phase/TV theorem",
+        "Independent finite numerics and analytic endpoint comparison"
+      ],
+      "rationale": "The underlying unequal-coefficient cubic global center is a natural classified polynomial dynamical family; original physical-time occupation of its logarithmic first-integral share is a motivated intrinsic high-energy statistic. The answer includes exact finite-amplitude law, two distinct beta-layer probability measures and physical-period exponents, plus a sharp inverse-log coefficient crossover that changes a delta endpoint limit into a nondegenerate exponential tilt. These are natural precision facts for orbit averages and are not textbook deductions from existence of global centers or a mere relabeling of q=1.",
+      "residual_risks": [
+        "Interest is specific to a well-motivated cubic family and one normalized log-energy observable; no general all-polynomial-centers theorem is claimed.",
+        "External downstream uses of these exact beta laws were not established, but such a downstream theorem is not a prerequisite for a natural exact classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No prior/source title match alone used as O evidence. Full source results on matched cubics inspected, with exact mirror excluded. Remaining priority risk is an unindexed general method.",
+    "Finite numerical checks are supportive only; analytic proof handles the infinite asymptotic quantifiers.",
+    "Public administrative redaction is separate from scientific acceptance. No GitHub modification, dispatcher certification or public acceptance is asserted."
+  ],
+  "schema_version": 1
+}
