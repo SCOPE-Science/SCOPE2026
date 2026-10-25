@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** Exact Euler iteration and a uniform first-order logarithmic expansion reduce both grid errors to fractional jump times. Poisson arrival times have joint densities; torus Fourier averaging establishes their stable equidistribution independently of the original process. Their dyadic fractional parts are deterministic functions of the *same* independent limiting uniforms. The piecewise-affine phase identity produces the independent conditional Bernoulli marks and the stated variance. The included checker tests representative nontrivial boundary cases but does not replace the analytical proof.
+
+**Originality — PASS, with residual priority risk.** The primary recent paper arXiv:2610.20225v1, read through its introduction and Section 3.3, proves single-level errors with common jump marks across vector coordinates and explicitly does not state a two-grid joint theorem. This work instead gives the exact dependence across two nested mesh sizes, yielding a discrete Bernoulli conditional limit. Targeted published-finding corpus searches for coupled Euler errors, compound-Poisson drivers, dyadic fractional phases and related terminology returned no covering finding. General multilevel Euler limit literature might subsume this specialization; the formula's distinct scope is stated and a priority risk retained.
+
+**Value — PASS.** A two-level, common-noise correction is the primitive random quantity for multilevel simulation. Its distribution cannot be computed from either marginal single-grid limit alone. The exact cancellation from a shared continuous uniform phase to a Bernoulli mark gives a nontrivial, interpretable jump-driven conditional variance and a benchmark for checking coupled simulation methods; this does not claim a whole MLMC complexity theorem.
+
+Self-review: passed. Independent audit: not yet performed.

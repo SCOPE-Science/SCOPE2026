@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "An exact finite-jump formula and uniformly controlled one-cell power expansion give a pathwise leading error. Joint equidistribution of Poisson arrival-time phases under arbitrary bounded old-process multipliers follows from absolute continuity and Fourier approximation. The two meshes share the phase U and {2U}; their difference equals a fair Bernoulli per jump, giving the exact conditional variance. Reproducibility code checks algebra only; no finite experiment establishes the stable convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ben Alaya and Kebaier (2015) establishes a multilevel Euler CLT in a broader setting; arXiv:2610.20225v1 names it as prior multilevel work."
+      ],
+      "reasoning": "General multilevel CLT literature can potentially imply specializations; no inspected statement was shown to cover exactly the non-jump-adapted additive compound-Poisson terminal dyadic Bernoulli conditional law. This is a priority caveat, not a uniqueness proof.",
+      "searches": [
+        "multilevel Monte Carlo Euler jump-adapted mesh nested grid fractional jump time uniform Bernoulli marks",
+        "dyadic grid joint stable limit normalized Euler error compound Poisson linear drift cross covariance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.20225v1 (inspected relevant full-text sections)",
+      "published-finding corpus search: four actual queries in prior_checks",
+      "Ben Alaya--Kebaier 2015 (secondary contextual bibliographic reference only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hirokane arXiv:2610.20225v1 explicitly states in its Introduction that a fixed-horizon single-level error limit does not itself give a joint theorem for two coupled grids (Section 1).",
+        "Section 3.3 equation (3.44) concerns common marks in vector coordinates, not two mesh resolutions."
+      ],
+      "reasoning": "The present theorem specifies the coupling of the two phases, without which the Bernoulli fine/coarse variance is not determined. The inspected primary theorem does not present a multi-resolution extension.",
+      "searches": [
+        "two coupled Euler Maruyama discretization levels compound Poisson additive SDE joint error limit Bernoulli jump mark",
+        "multilevel Monte Carlo Euler jump-adapted mesh nested grid fractional jump time uniform Bernoulli marks",
+        "dyadic grid joint stable limit normalized Euler error compound Poisson linear drift cross covariance",
+        "2610.20225 joint two level discretization errors multilevel Euler semimartingale Hirokane"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hirokane arXiv:2610.20225v1 Introduction, Sections 3.2 and 3.3 give a one-grid uniform mark; shared coordinate marks are not a second-grid pair."
+      ],
+      "reasoning": "The normalized two-grid joint pair E(U),E({2U}) is stronger than two separate one-grid marginals. Its difference is equivalent to the explicit Bernoulli marked correction.",
+      "searches": [
+        "two coupled Euler Maruyama discretization levels compound Poisson additive SDE joint error limit Bernoulli jump mark",
+        "multilevel Monte Carlo Euler jump-adapted mesh nested grid fractional jump time uniform Bernoulli marks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search gave unrelated prior IDs 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1 and 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce."
+      ],
+      "reasoning": "These entries treat deterministic numerical time-stepping error and do not involve compound-Poisson dyadic stable marks or the same conclusion.",
+      "searches": [
+        "two coupled Euler Maruyama discretization levels compound Poisson additive SDE joint error limit Bernoulli jump mark",
+        "dyadic grid joint stable limit normalized Euler error compound Poisson linear drift cross covariance"
+      ]
+    },
+    "rationale": "The motivating paper's full text distinguishes its single-level result from coupled levels; its common marks concern simultaneous vector coordinates, whereas this theorem computes the dependent dyadic phase pair and Bernoulli fine-minus-coarse law. Four targeted published-finding corpus searches and broader source searches found no stated identical claim. General multilevel limit theory may dominate and is a residual priority risk.",
+    "residual_risks": [
+      "A general multilevel stable convergence theorem not fully inspected may subsume this explicit compound-Poisson specialization; its priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-grid and shared-coordinate statements do not state the derived dyadic two-grid Bernoulli law",
+        "evidence": "arXiv 2610.20225v1 lines 47-60, 86-98, 151-154, 445-450",
+        "identifier_or_url": "https://arxiv.org/html/2610.20225v1",
+        "material_read": "Abstract, Introduction, single-grid theorem description and Section 3.3 example of common uniform marks",
+        "method": "Read accessible arXiv HTML full text, directly inspected relevant theorem and example passages",
+        "title": "Asymptotic Error Distributions for Euler–Maruyama Schemes with Additive Semimartingale Noise",
+        "trigger": "Recent paper provides the marginal single-grid error and notes coupled-grid limit outside scope"
+      },
+      {
+        "assessment": "Residual risk because detailed jump-process scope of its theorem not independently checked",
+        "evidence": "Hirokane arXiv:2610.20225v1 lines 86-87 and 1282-1285",
+        "identifier_or_url": "Ben Alaya and Kebaier 2015, Annals of Applied Probability 25(1)",
+        "material_read": "Bibliographic and contextual citation in Hirokane's introduction/reference list; primary full paper not examined",
+        "method": "Citation-context comparison only",
+        "title": "Central limit theorem for the multilevel Monte Carlo Euler method",
+        "trigger": "Potential broader multilevel coverage cited by primary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4069f35a-b289-4389-8613-790d18774a01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-level coupling is central to multilevel simulation and is not determined by separate single-level limits. A shared uniform jump phase collapses under dyadic differencing to a discrete Bernoulli mark with exact nonzero conditional variance, a natural sharp diagnostic for coupled simulations. This is a self-contained finite-activity benchmark, not a claim of broad algorithmic advances.",
+    "status": "PASS"
+  }
+}
