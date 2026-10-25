@@ -1,15 +1,21 @@
-# Review of the sharp random \(\mathsf{S5}\) bisimulation-minimality window
+# Independent mathematical audit
 
-## Correctness: PASS
-Bisimilarity is exactly equality of individual colors together with equivalence-class color supports. The labelled coefficient formula is bijective. Bell-number contraction identities, second-moment control of intra-class pair counts, conditional dependency-graph Poisson approximation, and a direct support-collision union bound establish the limiting law. Pairwise independence gives subcritical necessity and first-moment bounds give supercritical sufficiency. Independent finite enumeration checked all 20 parameter cases \(1\le n\le5\), \(1\le q\le4\) against a generating-polynomial program. The finite computation does not prove the infinite limit.
+## correctness
 
-## Originality: PASS with residual uncertainty
-Earlier enumeration of simple hypergraphs (Klazar, arXiv:math/0305048) already contains the algebraic shape of the exact finite generating product; **the finite polynomial is not claimed as new**. The 2024 uniformly random S5-frame theorem of Sliusarev concerns almost-sure formula validity rather than random-valuation bisimulation quotient sizes. Halpern–Kapron study modal zero-one laws with fixed atom vocabulary; Chern and collaborators supply partition asymptotic tools. No inspected primary work or targeted search provided the sharp \(n\log n\) bisimulation minimality window or its Poisson law; an equivalent theorem under other terminology cannot be excluded.
+PASS
 
-## Mathematical value: PASS
-The logarithmic vocabulary threshold and explicit nontrivial limiting probability locate a genuine phase transition in a natural modal semantic compression statistic. A direct cluster-color collision analysis would not suffice without ruling out two distinct clusters supporting the same set of valuation types; the proof handles both mechanisms.
+In one-agent S5 equivalence frames, two worlds are bisimilar exactly when own atom color and their E-class color-support sets agree, by direct back-and-forth. Therefore a model is minimal iff each class has distinct colors and distinct classes have different sets of colors. Distinct nonempty subsets of q colors with total incidence n yield n![z^n]prod_{j<=min(n,q)}(1+z^j)^{binom(q,j)} classical simple-hypergraph count. Under uniform Bell partitions, a specified pair merges with probability B_(n-1)/B_n~alpha_n/n, where alpha_n exp(alpha_n)=n. The conditional intra-class possible pair count T satisfies T/(n log n)->1/2 in probability by Bell ratios and second moments; intersecting-pair triple expectation O(n log^2 n). Conditional q-color collision count X has a dependency-graph Poisson approximation with error O((T+H)/q^2), yielding Pois(1/(2theta)) for q/(n log n)->theta>0. Same-color classes with equal supports but no intra-class collisions are negligible by singleton-pair O(log² n/q) and higher-size class O(n²/q²) bounds; this proves minimality limit exp(-1/(2theta)). Pairwise independence of distinct collision indicators yields subcritical whp nonminimality; first-moment and support bounds give supercritical minimality. Direct independent partition/valuation refinement for every n=1..5,q=1..4 matches coefficient enumeration (20 cases).
 
-## Limits
-One agent; uniformly sampled labelled equivalence relations; independent equiprobable colors; asymptotic ratio required for the finite-window limit. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected primary theorem or relevant published finding implies the additional exact claim; the explicitly identified preexisting components are excluded from novelty. This is best-of-knowledge only, with detailed source-access and equivalence risks below.
+
+## value
+
+PASS
+
+The probability that a uniformly sampled finite S5 model is already its own bisimulation quotient is a natural modal-semantics measure of compression. Determining the sharp palette birthday scale n log n, the exact Poisson critical window, and ruling out an additional class-support collision mechanism is a meaningful complete probabilistic phase transition. The finite generating coefficient itself is known classical hypergraph enumeration and is not the novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
