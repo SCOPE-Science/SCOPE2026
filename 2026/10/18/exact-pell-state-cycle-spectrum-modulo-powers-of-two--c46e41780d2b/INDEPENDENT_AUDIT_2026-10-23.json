@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:00:02.743888Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2x2 determinant -1 makes A=(0,1;1,2) a permutation on every (Z/2^k)^2. Smith exponents of A-I and A²-I are (0,1) and (1,1), giving fixed counts 2 and 4. At j=2, A^4-I=4 C2 where C2=(1,3;3,7), with v2(gcd entries)=0 and v2(det C2)=1. Squaring recurrence A^(2^j)=I+2^j C_j gives C_(j+1)=C_j(I+2^(j-1)C_j); second factor is 2-adically invertible for j>=2, hence Smith exponents of C_j remain (0,1), so of A^(2^j)-I are (j,j+1) for all j. The congruence kernel formula 2^(min(k,e1)+min(k,e2)) gives every F_j(k). Since A^(2^k) is identity mod2^k, all orbit lengths are powers of two; c_j=(F_j-F_(j-1))/2^j yields claimed complete multiplicities and total N_k=2^(k+1)-2 k>=2, with N1=3 and boundary k2 checked. Independently enumerated every state k=1..9 (262144 states at k9), exactly matching c_0..c_k, N9=1022. Finite evidence corroborates all-k Smith-lifting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deveci–Karaduman Theorems 2.2 and 2.6 treat period growth and matrix orders rather than every state-period multiplicity.",
+          "Brent 1994 main maximal-period criterion requires degree-r polynomial irreducible mod2, but x²-2x-1 reduces (x+1)²; does not cover this case."
+        ],
+        "reasoning": "The known period theorems constrain possible orbit lengths and general lifting; do not mathematically force the specific Smith-exponent/fixed-kernel counts without additional derivation.",
+        "searches": [
+          "Resultary semantic query: Pell recurrence matrix all states mod powers of two cycle decomposition period spectrum",
+          "Deveci–Karaduman period modulo 2 power",
+          "Brent 1994 irreducibility criterion"
+        ]
+      },
+      "checked_sources": [
+        "Deveci–Karaduman (2015) full accessible text Theorems 2.1–2.6",
+        "Deveci–Akdeniz–Karaduman (2015) original PDF inspected pp1 and6",
+        "Brent arXiv:1004.5439 abstract with irreducibility assumption",
+        "Resultary query 3 with Lucas and modular-laplacian related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A^(2^k)=I gives only a maximal-period bound and says nothing about fixed state cardinalities for smaller powers.",
+          "The needed 2-adic Smith valuation induction and kernel-counting c_j=(F_j-F_(j-1))/2^j supply the additional information."
+        ],
+        "reasoning": "Full all-state spectrum not an automatic corollary of the cited seed-period theorems, though a general published Smith-kernel census specialized to this A would be covering.",
+        "searches": [
+          "Resultary semantic query: Pell recurrence matrix all states mod powers of two cycle decomposition period spectrum",
+          "Deveci–Karaduman 2015 Theorems 2.1–2.6",
+          "Deveci–Akdeniz–Karaduman 2015 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard Pell sequence has a distinguished initial pair; its period equals order of the companion matrix but does not determine counts of all shorter state cycles.",
+          "The transformed recurrence state map (a,b)->(b,a+2b) is the all-seed dynamical system, not just Fibonacci/Pisano notation for one seed."
+        ],
+        "reasoning": "No renaming of seed period is credited as new. Complete c_j(k) from fixed-point kernels is a strictly richer invariant.",
+        "searches": [
+          "Resultary semantic query: Pell recurrence matrix all states mod powers of two cycle decomposition period spectrum",
+          "Deveci–Karaduman Theorem 2.2 2015",
+          "Brent arXiv:1004.5439"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Typical published Pell/Pisano lists show period of (0,1), not distribution of 2^(2k) starting pairs.",
+          "Independent exact orbit histograms k1..9 confirm formula but are not an external preexisting database."
+        ],
+        "reasoning": "No prior exact table with full state-orbit multiplicities identified; failed search does not certify newness.",
+        "searches": [
+          "Resultary semantic query: Pell recurrence matrix all states mod powers of two cycle decomposition period spectrum",
+          "Pell periods modulo 2^k published tables",
+          "Resultary modular recurrence query"
+        ]
+      },
+      "rationale": "Deveci–Karaduman's full-text Theorem 2.2 computes the standard Pell-seed period 2^k, and Theorems 2.3–2.6 discuss recurrence periods and lifting in groups; these do not tabulate cycles of every initial pair. Deveci–Akdeniz–Karaduman 2015 studies higher-order generalized Pell p-sequences and periods in finite groups, with different recurrence and generating-seed hypotheses; Brent 1994 assumes mod-2 primitive/irreducible characteristic polynomial, whereas Pell characteristic (x+1)^2 mod2 violates it. The full state orbit formula is derived here by exact 2-adic Smith spectra; unindexed coverage remains possible.",
+      "residual_risks": [
+        "A specialist classification of all-seed modular linear recurrences via invariant factors might already imply this exact case without citing Pell in its title.",
+        "Source PDFs with only selected pages inspected cannot support a global NOT_COVERING claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SEED_PERIOD_NOT_FULL_STATE_CYCLE_COUNTS",
+          "evidence": "Theorem 2.2 gives h(P,2^u)=2^u standard-seed period; §2.4 treats cyclic-group element period and theorem2.6 period lifting. No inspected statement tabulates every modular pair orbit.",
+          "identifier_or_url": "https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups",
+          "material_read": "Full accessible article text, §§2 theorem 2.1–2.6 and period-group discussion, including theorem2.2 on powers of two",
+          "method": "Read publisher-hosted full-text reproduction with formula rendering limitations",
+          "title": "The Pell Sequences in Finite Groups",
+          "trigger": "Same Pell recurrence modulo 2^k and possible broad matrix period theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GENERALIZED_RECURRENCE_AND_SEED_FRAMEWORK",
+          "evidence": "Article explicitly defines generalized Pell p-sequences, seed sets required to generate group, and their periods; no exact all-pair state-cycle theorem appeared in these read pages, and no whole-document exclusion is claimed.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20120/volume-120-paper-34.pdf",
+          "material_read": "19-page source PDF; examined title/abstract page1 and definitions §§2–3 at page6 as screenshot",
+          "method": "PDF screenshots pp1 and6",
+          "title": "The Generalized Pell p-Sequences in Groups",
+          "trigger": "Potentially stronger general Pell matrix dynamics in finite groups"
+        },
+        {
+          "assessment": "PRINCIPAL_ASSUMPTION_INAPPLICABLE",
+          "evidence": "Irreducible primitive polynomial mod2 is essential in stated maximal-period case; Pell characteristic reduces to (x+1)^2.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.5439",
+          "material_read": "ArXiv abstract and hypothesis of main theorem",
+          "method": "Read bibliographic page and theorem summary, not full article",
+          "title": "On the periods of generalized Fibonacci recurrences",
+          "trigger": "Broad maximal-period recurrence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orbit decomposition of a canonical Pell recurrence state map on the full modular phase space is a natural dynamical/arithmetic invariant, finer than the period of the standard Pell seed. Explicit multiplicities of every cycle length for all 2-power moduli provide exact benchmark data for modular recurrence dynamics and seed sampling, not an arbitrary digit-window count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only trace-2 Pell companion matrix on all residue pairs modulo 2^k; not odd primes or other matrix traces.",
+    "Known standard-seed periods and Smith theory are not claimed original."
+  ],
+  "schema_version": 1
+}
