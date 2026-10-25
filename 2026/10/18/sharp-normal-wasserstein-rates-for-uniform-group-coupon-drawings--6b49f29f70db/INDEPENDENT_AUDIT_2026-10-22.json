@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:23:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite-horizon count law is verified from the exchangeable missing set: intersection with an independent uniform q-subset has generating function binom(n,q)^(-1)e_q(1-r_i+r_i z). For Im z>0 the zeros in t of H_z(t)=product_i(t+1-r_i+r_i z) lie in the strict lower half-plane or at -1, whose convex hull excludes 0; repeated Gauss–Lucas gives zero-freeness of the required derivative and real nonpositive PGF zeros, hence a Poisson–binomial factorization. This concerns only the count, not missing-label independence. For fixed s, u=(1-s/n)^k, v=((n-s)(n-s-1)/(n(n-1)))^k yield Var Z=nu(1-u)+n(n-1)(v-u^2)~e^(-x)n^(1-alpha). The independent-Bernoulli normal Stein derivative bound yields W1<=2/sigma; the 1-Lipschitz distance from the standardized lattice gives (1/4-o(1))/sigma lower uniformly in lattice translation. Boundary packets s=0 or n in finite-horizon part; asymptotics fixed s>=1, 0<alpha<1, x real, n sufficiently large. Independently recomputed exact hypergeometric laws and real roots for small n and varying packets, corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Betken–Thäle arXiv:2202.07485, Theorem 1 and Remark 2(i) on the open sharpness question for alpha<=1/3",
+          "Vatutin–Mikhailov doi:10.1137/1127084, abstract describes asymptotic empty-cell normal approximations"
+        ],
+        "reasoning": "The specifically stated pre-existing Wasserstein rate is weaker at alpha<=1/3, while the older group-allocation normal/ Kolmogorov results have a different metric; no inspected stronger statement implies the sharp uniform-in-alpha W1 order as a corollary.",
+        "searches": [
+          "Betken Thäle group drawings Wasserstein optimality alpha less than 1/3 remark",
+          "Vatutin Mikhailov group allocation empty cells normal Kolmogorov limit"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.07485",
+        "https://arxiv.org/abs/0707.2340",
+        "https://doi.org/10.1137/1127084",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New sharp rate n^(-(1-alpha)/2) for all 0<alpha<1, including alpha<=1/3, while cited prior states O(sqrt(log n)/n^alpha) there",
+          "Independent lattice lower bound excludes an o(1/sigma) rate even when previous upper bound was not sharp"
+        ],
+        "reasoning": "Classical Stein estimates and stability tools are admitted premises; the combination with the specific finite-horizon Poisson–binomial law resolves a prior explicitly posed optimality gap. Historical discovery of this representation would affect priority but is not established by the inspected sources.",
+        "searches": [
+          "arxiv 2202.07485 group drawings first Wasserstein normal bound and remark 2(i)",
+          "negative dependence geometry of polynomials group sampling real-rootedness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2202.07485",
+          "https://arxiv.org/abs/0707.2340",
+          "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+        ],
+        "reasoning": "Equivalent routes through negative dependence, real stability and exchangeable missing-set thinning are considered. General Poisson–binomial cumulant theory assumes an independent-sum representation but does not specifically establish this coupon process has one; the exact generating-function argument supplies it.",
+        "searches": [
+          "Poisson binomial distribution number of unobserved coupons uniform group drawings real rooted stable polynomial sharp Wasserstein normal coupon collector Batken Thäle",
+          "group drawing coupon collector finite horizon missing counts real-rooted generating polynomial hypergeometric thinning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results on Poisson-binomial cumulant effective trials and unrelated occupancy exposed-point theorems"
+        ],
+        "reasoning": "These are infinite asymptotic distribution and metric claims, not entries in a finite enumerative table; related published exact occupancy tables do not imply the asserted theorem.",
+        "searches": [
+          "Poisson binomial distribution number of unobserved coupons uniform group drawings real rooted stable polynomial sharp Wasserstein normal coupon collector Batken Thäle",
+          "Resultary occupancy coupon normal approximation missing count search"
+        ]
+      },
+      "rationale": "Best-of-knowledge review of the final claim and stronger implications: specific exact result not found to be subsumed by inspected primary sources; acknowledged overlapping premises and priority risks are itemized.",
+      "residual_risks": [
+        "Vatutin–Mikhailov full original-language article not substantively read; possible earlier independent-Bernoulli count formulation or unindexed sharper metric result.",
+        "General negative dependence theory may imply finite-horizon real-rootedness under aliases; the sharper alpha<=1/3 Wasserstein rate remains unlocated in inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING sharp alpha<=1/3 rate; does cover central limit and weaker rate",
+          "evidence": "The theorem bounds d_W at low alpha by O(sqrt(log n)/n^alpha) and identifies optimality there as open.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07485",
+          "material_read": "Full accessible Cambridge online article, theorem/normal rates and explicit Remark 2(i)",
+          "method": "published full HTML reading",
+          "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+          "trigger": "Same uniform group-drawing model, same W1 rate question"
+        },
+        {
+          "assessment": "GENERAL_TOOL not the exact coupon W1 rate",
+          "evidence": "General real stable/negative dependence closure does not assert the specific multi-packet unobserved-count sharp Gaussian Wasserstein rate.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.2340",
+          "material_read": "Accessible primary description and relevant polynomial stability treatment, not every full technical appendix",
+          "method": "primary text and theorem-level comparison",
+          "title": "Negative dependence and the geometry of polynomials",
+          "trigger": "Strong-Rayleigh real stability as a possible general implication"
+        },
+        {
+          "assessment": "INDETERMINATE full-document priority",
+          "evidence": "Abstract concerns limiting distributions for empty cells; cannot exclude unexamined full proof or modern W1 equivalents.",
+          "identifier_or_url": "https://doi.org/10.1137/1127084",
+          "material_read": "Bibliographic record and abstract only; Russian full text not materially reviewed",
+          "method": "abstract-level lookup only",
+          "title": "Limit theorems for the number of empty cells in an equiprobable scheme for group allocation of particles",
+          "trigger": "Older group-allocation closest priority candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unseen coupon counts under repeated fixed-size group drawings are a natural exchangeable dependent occupancy statistic. Their exact finite-horizon Poisson–binomial distribution is a structural theorem permitting independent-sum tools despite dependent indicators; the optimal two-sided normal W1 rate resolves the specific low-alpha optimality limitation explicitly identified by Betken–Thäle. The lattice lower bound matches the upper rate on the full alpha interval, not a routine finite check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2202.07485",
+    "https://arxiv.org/abs/0707.2340",
+    "https://doi.org/10.1137/1127084",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All normal approximations require a fixed positive packet size, fixed 0<alpha<1 and x, not a uniform endpoint theorem.",
+    "Finite packet structural theorem assumes packets independent and uniform of deterministic sizes; unseen-label indicators are dependent.",
+    "Potential older group-allocation/real-stable reformulations not completely full-text excluded."
+  ],
+  "residual_risks": [
+    "Vatutin–Mikhailov full original-language article not substantively read; possible earlier independent-Bernoulli count formulation or unindexed sharper metric result.",
+    "General negative dependence theory may imply finite-horizon real-rootedness under aliases; the sharper alpha<=1/3 Wasserstein rate remains unlocated in inspected statements."
+  ],
+  "schema_version": 1
+}
