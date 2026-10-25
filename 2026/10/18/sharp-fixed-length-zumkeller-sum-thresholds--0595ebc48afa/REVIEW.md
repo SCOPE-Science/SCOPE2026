@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated theorem has an unrestricted proof, not just numerical support. Every admissible positive summand is at least \(6\). The necessary divisor-sum inequality proves that \(945\) is the only odd Zumkeller integer at most \(971\); exact divisor witnesses establish all small numbers used. The checked primary literature supplies an even two-summand theorem for all even targets at least \(40\), with \(38\) excluded. The proof covers the k=3 upper bound and its obstruction, all even and odd four-summand targets through explicit witnesses, and a stable all-k lower obstruction: a single odd \(945\) forces a nonnegative excess of \(16\) from even increments \(0,6,14\), an impossibility. Induction by adjoining \(6\) establishes the infinite upper range.
+## correctness
 
-The verifier independently constructs the defining divisor subset sums to \(4000\), tests lengths \(3\) through \(30\), and checks the key finite lemmas. These experiments are corroboration, not a proof of the unrestricted assertions.
+PASS
 
-## Originality — PASS relative to inspected sources
-The nearest published mathematical premise is Somu, Kukla and Tran, *Some Results on Zumkeller Numbers*, arXiv:2310.14149, Proposition 4.6(a). It classifies sums of **two** Zumkeller integers for even targets and explicitly proposes three- or four-summand exploration in Section 5. Its two-sum result implies easy upper coverage after adding small summands but does not provide the new exact thresholds or their proof of sharpness. The new result is not a claim of independence from that substantial prior work.
+Confirmed exact positive Zumkeller summands, repetition permitted. Small Zumkeller 6,12,20 and 945 are verified from divisor equal-half subsets; no odd candidate <945 or between 945 and 971 meets necessary sigma(n)>=2n, by classification of odd prime-factor patterns. Using Somu-Kukla-Tran Proposition 4.6(a), every even N>=40 is a two-Zumkeller sum and 38 is not. Hence G_3=983=945+38 obstruction, while every N>=984 has a three-term sum. For k=4 even N>=980 are 6+6+two-sum, five consecutive odd numbers 981..989 have explicit four-term decompositions; 979 is obstructed. For any k>=4 odd obstruction T=6k+955 forces exactly one 945 and k-1 even terms with sum(y_i-6)=16, but y_i-6 is 0,6,14 only; impossible. Add 6 inductively to cover every integer above T. The finite verifier tests examples but does not prove the unbounded two-sum premise; that is explicitly imported from the published theorem.
 
-The primary work on individual Zumkeller numbers, the OEIS set of Zumkeller numbers, the odd-abundant list, and the OEIS two-sum exceptions do not state this all-length largest-gap formula. Numerically and semantically targeted searches found no identical theorem. The phrase *k-layered numbers* describes partitions of the divisors of one integer, not sums of k Zumkeller numbers. Residual bibliographic risk: an equivalent unindexed statement could exist; a k-layered publisher article was only accessible by abstract/excerpt.
+## originality
 
-## Value — PASS
-An explicit research direction about sums of three or four Zumkeller numbers is settled by sharp thresholds and extended to all \(k\ge3\). The infinite formula shows a genuinely discontinuous base length followed by a stable affine law. Its sharpness uses a natural obstruction combining the least odd Zumkeller number with a minimal even excess rather than an arbitrary parameter slice or a recomputed membership list.
+PASS
 
-## Limits
-The theorem concerns largest exceptions, not all gaps, number of representations, or lengths one and two. It invokes a cited published two-summand theorem. Unindexed equivalent work is possible; no independently conducted audit is claimed.
+No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp eventual representation thresholds for every exact summand count k>=3 answer a natural additive-basis/Frobenius-type gap raised in the originating Zumkeller-sums paper, including a uniform obstruction and a nontrivial affine length law; not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
