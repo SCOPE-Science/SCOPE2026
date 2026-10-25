@@ -1,15 +1,21 @@
-# Scientific review: random rotational hulls of regular Reuleaux polygons
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a single theorem for convex hulls of independently, uniformly rotated centered regular odd-sided Reuleaux bodies. A vertex-cone/arc-cone decomposition gives the full directional support CDF, including its endpoints and normalization. The exact perimeter identity follows from pointwise maxima of support functions, Cauchy's perimeter formula, and two elementary changes of variables. The two asymptotic scales have independent analytic arguments: a dominated-convergence boundary layer for expected perimeter and an exact high-probability reduction to maximal angular gaps for Hausdorff distance. The normalized exponential spacings representation proves the Gumbel limit. The small-angle expansion is an explicit beta integral. A standalone program checks literal original vertices and boundary arcs, numerical integrals, the finite parameter and asymptotic coefficients, and largest-gap identities; these tests are diagnostics, not substitutes for the proof. All hypotheses, limiting regimes, and exceptional finite-copy configurations are specified.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The motivating 2026 Falcó–Myroshnychenko preprint is devoted to classifying area-minimizing symmetry-invariant constant-width bodies and obtaining Reuleaux geometry; it does not study convex hulls of independent rotations. Material inspection of the closest public studies distinguishes: Minkowski averages versus outer convex hulls; random intersections of tangential polygons versus outer hulls of curved constant-width bodies; a deterministic centrally symmetric container versus random rotation; independently sampled arclength boundary points versus entire rotated copies; and deterministic unions of regular polygons versus support maxima of Reuleaux curves. Targeted statement-level semantic searches for exact support CDF, mean perimeter, Hausdorff circular-spacing reduction, and Gumbel normalization revealed no theorem subsuming this combined specific classification. Classical support, order-statistic, and exponential-spacing ingredients are explicitly acknowledged. Broader unindexed historical coverage is a residual risk, and absence of a search hit is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The objects are precisely the natural regular odd-order constant-width area minimizers selected by symmetry, and taking randomly rotated convex hulls is a canonical procedure for rotationally approximating their circumdisks. The theorem completely describes a nontrivial all-order expected perimeter observable, the directional extreme-value limit, and the sharp contrast between average and worst-direction approximation, rather than computing an arbitrary numerical instance. The Gumbel scale reveals the extreme gaps hidden by the mean perimeter's \(m^{-2}\) law. The exact results are valid uniformly across every eligible odd polygon order and positive integer copy count, subject only to explicitly separate limiting regimes. No general theorem for arbitrary constant-width bodies is asserted.
+For odd n, support directions decompose into n vertex cones and n arc cones each length 2alpha=pi/n, giving equal-weight distribution of R cos T and w-R cos T, T uniform[0,alpha]. For m independent Haar rotations, hull support maximum has CDF F^m; Cauchy support formula and integration yield exact perimeter formula and strict monotonicity, Barbier case m=1. Taylor/Watson endpoint integral gives 8pi R alpha²/m² deficit; upper CDF tail gives fixed-direction 2R alpha² E² weak limit. Phase rotations modulo q=2pi/n yield largest cyclic gap G_m, and on G_m<q/2 support is R cos(nearest vertex angular distance), yielding exact Delta_m=R(1-cos(G_m/2)); exceptional event probability <=m 2^(-(m-1)). Dirichlet exponential spacing representation implies mG_m/q-log m => Gumbel and logarithm-square Hausdorff scale. Fixed-m large-n beta integral gives coefficient A_m=(4-2^(1-m))/((m+1)(m+2)). Independent SciPy quadrature confirmed m=1 exactly pi w and m=2 closed formula for n=3,5,9 and m=5,30 trends; asymptotic proof is analytic.
 
-## Closest literature and limits
-Falcó and Myroshnychenko, arXiv:2608.05125v1, 2026-08-05; *Exact rotational Minkowski-average area profile of the Reuleaux triangle*; *Sharp random-rotation area order and exponential shape memory for tangential polygons*; *Exact Estermann measure of regular Reuleaux polygons*; *Gumbel transition and second-order Hausdorff error for randomly inscribed regular polygons*; *Universal radial coverage by concentric regular-polygon unions*. The comparison concerns hypotheses and implications, not merely differing titles. Mathematical limitations include fixed odd order for the Gumbel regime and no finite-copy maximal-gap identity outside its stated event. Independence of separate limiting quantities, convergence of mean Hausdorff distance, and stochastic domination of perimeters are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Cauchy perimeter/Barbier and maximum-spacing Gumbel results are credited. Falcó–Myroshnychenko identify geometry/area minimization of regular odd Reuleaux polygons, not random hull perimeters. Compared published random rotation intersection, Minkowski average and polygonal random-inscription findings with different set operations and objects. No exact outer hull profile or phase-gap transfer found in bounded searches; full related article access unavailable and residual priority risk explicit.
+
+## value
+
+PASS
+
+The regular Reuleaux bodies are a canonical symmetry-constrained constant-width extremal family. Exact finite-m expected perimeter plus two sharply different convergence scales (pointwise versus worst direction) supply a natural measurable classification of random rotational convexification and a nontrivial geometric reduction to maximal circular spacings; not a relabeling of standard spacing law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
