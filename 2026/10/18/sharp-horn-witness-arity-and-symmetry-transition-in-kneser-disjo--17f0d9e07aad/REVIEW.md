@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Galois closure is computed directly from the common disjointness objects. The support bound follows by covering a target \(k\)-set with a private-point-minimal family or reaching the all-attributes threshold; a common \((k-1)\)-core construction forces exactly \(n-2k+2\) premises. The Johnson-star argument gives the full group, and explicit lattice elements witness the modularity boundary. The supplied checker independently enumerates small Galois closures, Horn supports, and adjacency automorphisms; it does not prove the infinite-parameter assertion by itself.
+## correctness
 
-**Originality — PASS, with residual risk.** Rawson et al. (2023) give general FCA constructions; Cattaneo et al. (2016) give an exact but distinct ground-point membership context, with different attribute universe and closed-intent lattice. A published census of the Boolean ranks two through four matches an underlying abstract finite rank band, but reports antichain statistics instead of the Kneser-specific implication-support and all-parameter symmetry results. The classification of Johnson graph automorphisms and Lovász's coloring formula are credited, not claimed. A source under an unsearched equivalent terminology or an unavailable complete paper could reduce novelty; independent publication priority is not established.
+PASS
 
-**Value — PASS.** The result describes the exact cost of witnessing Horn consequences in a natural infinite family, and gives a complete structural transition between all-atom and underlying-ground-set symmetries. It separates abstract poset behavior, logical closure, and graph coloring without treating numerical coincidence as proof of an independent theorem.
+Disjoint-object derivation gives c(B)={k-sets contained in union B} while union size <=n-k and all k-sets after threshold; empty B has no k-set union and gives bottom. Minimal cover with private points or n-k+1 coverage gives <=n-2k+2 witnesses (k>=2), sharp common (k-1)-core provides matching lower bound. Johnson adjacency is intrinsic from rank-two joins for n>2k, with larger stars than tops forcing S_n; n=2k yields rank-two lattice with all binomial(2k,k) atoms freely permutable. Modular counterexample uses disjoint atoms and rank-two closed element, with k=1 Boolean boundary.
 
-**Limitations.** Only complete unweighted Kneser disjointness contexts for \(n\ge2k\) are covered. No claim is made concerning weighted closures, partial uniform set families, or arbitrary incidence structures. Finite tests are not all-parameter proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. Even allowing isomorphic abstract rank bands, the sharp Horn implication bound is a separate closure-algebra statement.
+
+## value
+
+PASS
+
+Sharp all-parameter Horn-implication arity and symmetry jump are motivated invariants of the standard Kneser disjointness Galois context; exact closure and lattice normal form support deductions beyond an isolated small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

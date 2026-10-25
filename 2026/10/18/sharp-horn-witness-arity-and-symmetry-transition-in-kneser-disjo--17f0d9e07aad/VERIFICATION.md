@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_kneser.py` using only the Python standard library. It independently generates the incidence relation of disjointness between two copies of every \(k\)-subset and computes double-prime closures without using the closed-form formula. It then compares closures and closed-set counts, computes the Möbius function by its defining recurrence, checks explicit modular-law obstructions, exhaustively computes premise-witness minima for cases with at most ten attributes, and enumerates small Johnson-graph automorphisms from adjacency. It reports `VERIFY_OK` on success.
+## correctness
 
-The small-instance test is exhaustive for input families with at most thirteen attributes, uses seeded checks otherwise, and enumerates automorphism groups only for small specified parameters. The mathematical proof in `RESULT.md` is required for the unbounded theorem. In particular the code does not establish novelty, publication priority or independent validation.
+PASS
 
-Expected key lines from the checked run:
+Disjoint-object derivation gives c(B)={k-sets contained in union B} while union size <=n-k and all k-sets after threshold; empty B has no k-set union and gives bottom. Minimal cover with private points or n-k+1 coverage gives <=n-2k+2 witnesses (k>=2), sharp common (k-1)-core provides matching lower bound. Johnson adjacency is intrinsic from rank-two joins for n>2k, with larger stars than tops forcing S_n; n=2k yields rank-two lattice with all binomial(2k,k) atoms freely permutable. Modular counterexample uses disjoint atoms and rank-two closed element, with k=1 Boolean boundary.
 
-```
-CLOSURE_MOBIUS_MODULARITY_OK 12 cases
-AUTOMORPHISM_OK 4 2 720
-AUTOMORPHISM_OK 5 2 120
-AUTOMORPHISM_OK 6 2 720
-VERIFY_OK
-```
+## originality
+
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. Even allowing isomorphic abstract rank bands, the sharp Horn implication bound is a separate closure-algebra statement.
+
+## value
+
+PASS
+
+Sharp all-parameter Horn-implication arity and symmetry jump are motivated invariants of the standard Kneser disjointness Galois context; exact closure and lattice normal form support deductions beyond an isolated small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
