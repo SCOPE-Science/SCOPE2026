@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The kernel is integrated independently by block formulas and a causal convolution recurrence. At fixed middle length the derivative is 4(1-e^{-b})(e^{-c}-e^{-a}), forcing unique symmetry. Along the symmetric subfamily the derivative has the sign of 2b+2log cosh(b/2)-L, an everywhere strictly increasing function with a unique root in (0,L). This establishes the complete global minimum including boundaries. Strict fractional bounds, monotonic shift, asymptotics and CPMG gap follow algebraically. The standalone checker passed 3,509 independent numerical comparisons; computations verify finite cases, not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1001.2960 performs nonlinear pulse timing optimization for an Ohmic *cutoff* spectrum; it provides a general stationarity method but uses a different spectral weight from the Lorentzian exponential-covariance spectrum.",
+        "arXiv:2601.00884 discusses several ideal pulse sequences and numerical OU optimization with multiple pulses, but no analytical all-two-pulse optimizer theorem."
+      ],
+      "reasoning": "General Gaussian coherence/filter-function identities are broader frameworks, not dominance statements asserting explicit optimal times for this kernel. The fixed-two-pulse exact optimization is not a corollary of the cited numerical or Ohmic results without the exact convolution and derivative-sign argument.",
+      "searches": [
+        "Optimizing Carr Purcell two-pulse sequences Lorentzian noise correlation exponential pulse placement",
+        "Lorentzian noise two pulse Carr Purcell optimum symmetric locations nonzero signed area short long time",
+        "arXiv:1001.2960",
+        "arXiv:2601.00884"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0712.2225",
+      "arXiv:1001.2960",
+      "arXiv:1011.6243",
+      "arXiv:2601.00884",
+      "the mathematical research-record index semantic searches recorded in exact_database_or_table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim asks for a unique global minimizer over all ordered pairs of inversion times in the Gaussian exponential kernel.",
+        "Cywiński et al. supply Gaussian filter-function calculus and CPMG timings, not optimality of those times for this kernel.",
+        "Pan–Xi–Cui optimize an Ohmic spectral family, and Ajoy–Alvarez–Suter use a Gaussian-frequency (rather than Lorentzian) bath.",
+        "Ji–Zhao explicitly formulate the relevant OU kernel and evaluate optimized multipulse schedules numerically, without asserting this exact two-pulse uniqueness theorem."
+      ],
+      "reasoning": "The prior model permits deriving the functional but does not logically imply the computed minimizer without solving an additional global nonlinear constrained optimization. Conversely, a Gaussian-frequency bath, an Ohmic cutoff, and non-Gaussian telegraph noise cannot dominate the OU Gaussian claim merely by sharing pulse terminology.",
+      "searches": [
+        "Ornstein Uhlenbeck Gaussian dephasing exactly optimal two-pulse dynamical decoupling pulse locations finite correlation time, pulse pair changes from T/4 to T/3",
+        "exact Ornstein Uhlenbeck dephasing covariance kernel two instantaneous π pulse times globally optimal spacing variational minimizer spin echo pulses quarter thirds",
+        "arXiv:0712.2225",
+        "arXiv:1001.2960",
+        "arXiv:1011.6243",
+        "arXiv:2601.00884"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0712.2225 establishes Gaussian filter objectives but analyzes canonical sequences/1/f and telegraph contexts, not the exact OU two-pulse global solution.",
+        "arXiv:2601.00884, §II and §III, uses the same exponential covariance and a multi-pulse numerical optimization, but not the unrestricted N=2 unique root/interval theorem."
+      ],
+      "reasoning": "No exact duplicate was found under covariance-energy, Lorentzian filter, Ornstein–Uhlenbeck dephasing, Carr–Purcell timing, two sign-switches or pulse-location terminology. The latter OU work represents a particularly relevant same-object comparator; its numerical schedules and zero-average construction do not imply global unrestricted two-pulse uniqueness.",
+      "searches": [
+        "Ornstein Uhlenbeck Gaussian dephasing exactly optimal two-pulse dynamical decoupling pulse locations finite correlation time, pulse pair changes from T/4 to T/3",
+        "Optimal spin-echo timing two pi pulses exponentially correlated noise OU stationary noise exact two pulse symmetrical unique minimizer",
+        "exact Ornstein Uhlenbeck dephasing covariance kernel two instantaneous π pulse times globally optimal spacing variational minimizer spin echo pulses quarter thirds",
+        "arXiv:0712.2225",
+        "arXiv:2601.00884"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "the mathematical research-record index returned a different OU random-sensor result, a Gaussian timing-jitter result and random-telegraph discord-transition results among nearest semantic matches; none tabulates an exact two-pulse OU minimizer or root for pulse times."
+      ],
+      "reasoning": "The exact root, monotone first pulse interval, and strict all-L deviation are not present in the checked database entries. Search exhaustiveness is not established, so the lack of a hit alone is not used as novelty proof.",
+      "searches": [
+        "Ornstein Uhlenbeck Gaussian dephasing exactly optimal two-pulse dynamical decoupling pulse locations finite correlation time, pulse pair changes from T/4 to T/3",
+        "Optimal spin-echo timing two pi pulses exponentially correlated noise OU stationary noise exact two pulse symmetrical unique minimizer",
+        "Optimizing Carr Purcell two-pulse sequences Lorentzian noise correlation exponential pulse placement",
+        "exact Ornstein Uhlenbeck dephasing covariance kernel two instantaneous π pulse times globally optimal spacing variational minimizer spin echo pulses quarter thirds",
+        "Gaussian stationary exponential covariance bang bang switching sign two switches global minimum quadratic energy functional optimal locations",
+        "Lorentzian noise two pulse Carr Purcell optimum symmetric locations nonzero signed area short long time"
+      ]
+    },
+    "rationale": "The exact claim is an unrestricted two-pulse global theorem for a stationary Gaussian exponential covariance: a unique symmetric minimizer solving L=2b+2log cosh(b/2), a strictly displaced Carr–Purcell pair, and sharp timing bounds/asymptotics. Inspection of the foundational Gaussian filter-function treatment (arXiv:0712.2225), spectral-specific Ohmic pulse optimization (arXiv:1001.2960), Gaussian-frequency bath comparison (arXiv:1011.6243), and a recent OU multi-pulse numerical design (arXiv:2601.00884) did not find this two-pulse classification. Relevant the mathematical research-record index searches found no same-object implication; neither the common general variational filter formalism nor static-noise Uhrig timings logically supply global optimality for the Lorentzian kernel without the new analysis. Priority uncertainty for unexamined specialist papers remains.",
+    "residual_risks": [
+      "Specialized older two-pulse optimization literature could contain an equivalent implicit exponential-noise timing equation not recovered by the searches.",
+      "General optimization methods and numerics can yield the same root if specialized to two pulses; claim of novelty is restricted to the explicit global classification, not to the established forward filter equation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides accepted forward Gaussian filter objective and conventional pulse schedules, not this exact OU global minimizer.",
+        "evidence": [
+          "arXiv:0712.2225 (v1 2007-12-13), Gaussian filter-function derivation; CPMG and noise-model discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0712.2225",
+        "material_read": "Primary PDF abstract, dephasing Hamiltonian and filter-function equations, pulse-sequence discussion including CPMG/UDD, and colored random-telegraph noise sections.",
+        "method": "Read full-text extracted sections and inspected first PDF page rendering.",
+        "title": "How to Enhance Dephasing Time in Superconducting Qubits",
+        "trigger": "Foundational Gaussian dephasing/filter-function and two-pulse CPMG comparator"
+      },
+      {
+        "assessment": "Its Ohmic cutoff objective is not the exponential-kernel covariance functional; no implication of the stated exact Lorentzian-root law was found.",
+        "evidence": [
+          "arXiv:1001.2960 (v1 2010-01-18), spectral model and optimization expressions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1001.2960",
+        "material_read": "Primary PDF objective, noise spectral assumptions, gradient optimality equations and discussion of optimized pulse sequences.",
+        "method": "Read primary full-text mathematical sections and inspected first PDF page rendering.",
+        "title": "Optimal Dynamical Decoupling Sequence for Ohmic Spectrum",
+        "trigger": "Plausible general pulse-placement optimization covering two inversions"
+      },
+      {
+        "assessment": "The modeled frequency spectrum is Gaussian rather than Lorentzian; the new unrestricted two-pulse OU optimum is not claimed in the material read.",
+        "evidence": [
+          "arXiv:1011.6243 (v1 2010-11-29), Gaussian-frequency bath."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1011.6243",
+        "material_read": "Primary PDF abstract, noise-spectrum type, and the discussion comparing CPMG with Uhrig-style spacing.",
+        "method": "Read relevant full-text sections and inspected first PDF page rendering.",
+        "title": "Optimal pulse spacing for dynamical decoupling in the presence of a purely-dephasing spin bath",
+        "trigger": "Pulse timing optimality and Gaussian bath description"
+      },
+      {
+        "assessment": "Same kernel supports physical relevance; N=8 numerical designs including zero-average timing do not supply N=2 explicit global root or uniqueness.",
+        "evidence": [
+          "arXiv:2601.00884 (v1 2025-12-31), §II covariance and coherence and §III pulse optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.00884",
+        "material_read": "Primary HTML, model and covariance equations in §II, Gaussian dephasing functional, and numerical pulse-position design in §III.",
+        "method": "Read full text HTML model and optimization passages.",
+        "title": "Entanglement dynamics of multi-fluxonium-qubits under Non-Markovian TLS noise",
+        "trigger": "Direct stationary Gaussian exponential covariance and numerical sequence optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36015621-38cc-44c8-b0ad-d86d280bc9a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-pulse Carr–Purcell/Uhrig placement is a central baseline for coherence protection. The theorem identifies the globally optimal continuous timing for a natural finite-memory Gaussian bath and proves that the standard zero-area pair is always strictly inferior, with a monotone crossover from quarter to one-third first-pulse fraction. The theorem provides an exact, reproducible rule and a sharp physical boundary between static-noise cancellation and finite-correlation optimality. This is a meaningful idealized control-design classification, not a parameter restatement or a finite-grid lookup.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The exact covariance integral has two independently derived representations. Its fixed-middle-duration derivative has one symmetry-enforcing sign reversal, and its symmetric derivative reduces to a strictly increasing scalar root equation. This proves the unique global minimizer for every positive duration and proves its strict distance from standard quarter–three-quarter timing. The standalone checker passed 3,509 comparisons. The finite tests are corroboration, not a proof substitute.
+
+**Originality — PASS, with residual historical-priority risk.** Cywiński et al. (arXiv:0712.2225) give the Gaussian dephasing/filter-function framework; Pan, Xi and Cui (arXiv:1001.2960) optimize pulses for an Ohmic cutoff spectral density; Ajoy, Álvarez and Suter (arXiv:1011.6243) study a Gaussian-frequency spin bath. Ji and Zhao (arXiv:2601.00884) give a same-kernel Ornstein–Uhlenbeck Gaussian model and multi-pulse numerical design, but not the explicit globally unique unconstrained two-pulse theorem. Comparisons cover equivalent covariance-energy representations and possible broader numerical optimality claims; the new global root, sharp bounds and nonzero-area optimum are not established by those statements. Search cannot exclude all prior specialist work; the remaining priority risk is documented in AUDIT.json.
+
+**Value — PASS.** The result solves a natural continuous two-control optimization problem exactly and isolates a physically useful counterintuitive effect: optimal finite-memory suppression differs strictly from the exact-static-field-canceling standard schedule. The timing shifts monotonically and has sharp short- and long-correlation asymptotics. Limitations include exactly two perfect inversions, stationary Gaussian noise and no hardware constraints.
+
+Self-review: passed. Independent audit: not yet performed.
