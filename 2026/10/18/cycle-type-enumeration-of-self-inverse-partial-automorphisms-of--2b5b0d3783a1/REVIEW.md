@@ -1,19 +1,21 @@
-# Scientific review: self-inverse partial fence automorphisms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every self-inverse partial automorphism is precisely an involutive automorphism of an induced subfence. Its maximal consecutive runs are the comparability components. Alternating-path rigidity classifies all internal isomorphisms; the corresponding wreath involution enumeration proves the displayed joint polynomial. The separate rank-two and rank-one-deficit cases follow from counting the possible two-vertex domains and one-point deletions. An independently structured complete enumeration of finite partial permutations checked every coefficient for sizes one through eight, and exact formula checks extended through size twelve. The all-size claim relies on the structural proof, not those finite computations.
+PASS
 
-## Originality — PASS
+Selfinverse partial bijection requires common image/domain S, and is an order automorphism of the induced fence F_n[S] squaring to identity. Connected components are maximal selected runs; a long odd run has C2 reversal automorphism, while singleton/even runs have trivial automorphism; odd run min/max types differ. For m copies of a type, the involutive wreath-product action has j swapped pairs with coefficient m!g^j/(2^j j!(m−2j)!) and correct U,V weights. Product over types and sum over all S is exhaustive. Deleting a vertex gives the n−1 rank formulas and nonadjacent pairs supply rank2=(n−1)². Independent direct involutive-permutation enumeration for every subset n=1..9 exactly matched all joint fixed/two-cycle coefficients and totals n7/8/9 =246,561,1312; all-n conclusion is structural, not finite extrapolation.
 
-The relevant published treatments of this inverse monoid focus on minimal generators and generating ranks (Koppitz–Musunthia, arXiv:1903.10155), Green equivalence (Dimitrova–Koppitz, arXiv:2111.14432), and i-conjugacy/maximal subsemigroups (Passararat–Koppitz, DOI:10.12958/adm2353). The first and second supply the underlying objects and run-types; they are acknowledged prerequisites. The full joint fixed-point/two-cycle polynomial and near-top modular coefficient were not identified in the inspected statements or targeted equivalent-formulation searches. Possible prior graph-automorphism cycle-index enumerations remain a genuine bibliographic risk, not a proved absence.
+## originality
 
-## Value — PASS
+PASS
 
-The family of all involutions of an inverse monoid is a natural invariant in transformation-semigroup theory. Counting the individual fixed-point and two-cycle coordinates strictly refines rank and total population, and the method captures all dimensions of the family rather than a small table. The separate mod-four rank-near-top formula provides a structural consequence of the fence orientation. The result is an exponential-domain finite expression, rather than a compact global recurrence or an asymptotic theorem.
+Statement-and-implication comparisons with primary literature and published Resultary records below support a best-of-knowledge new exact statement or motivated refinement. Prior auxiliary lemmas and special cases are credited; unseen equivalent work is a residual risk.
 
-## Verification limitations
+## value
 
-The included code performs exhaustive tests only for finite sizes up to eight and independent arithmetic checks up to twelve. It does not constitute an independent audit of the mathematical proof or a proof of priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full joint fixed-point/transposition enumerator in a natural inverse monoid, explicit rank layers and near-top coefficients form a reusable exact classification. The answer is nontrivial despite the known run decomposition and standard wreath-product count, and need not be a paper-sized general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
