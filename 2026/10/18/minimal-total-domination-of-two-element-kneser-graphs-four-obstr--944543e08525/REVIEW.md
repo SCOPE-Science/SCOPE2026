@@ -1,11 +1,21 @@
-# Scientific review of the minimal-total-domination polynomial of pair Kneser graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The core equivalence is between a total dominating subset of \(K(n,2)\) and an edge family on \([n]\) of vertex-cover number at least three. Inclusion-minimality forces exactly three and edge criticality. The separate two-cover lemma and degree split establish exactly four critical graph types. Counting labeled realizations proves the coefficients; direct coefficient inequalities prove the exact two transitions. An adjacency-based verifier checked all \(2{,}131{,}004\) nonempty subsets for \(4\le n\le7\), and arithmetic checks covered \(4\le n\le80\). Direct testing is not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, qualified by bibliographic uncertainty.** Ivančo–Zelinka (1993) and Brešar–Cornet–Dravec–Henning (first posted 2023) determine minimum total-domination numbers or minimum-set structure in Kneser graphs; they do not imply the classification of larger inclusion-minimal sets and its exact enumerator. The 2025 minimal-total-domination polynomial study for \(H\)-join graphs supplies a general graph-construction framework but no explicit pair-Kneser result. The separate general literature on well-totally-dominated graphs and ordinary domination polynomial unimodality studies distinct statements. Critical cover-number-three graph templates may be independently known, and an equivalent explicit enumerator or these phase boundaries might be unpublished or unindexed.
+PASS
 
-**Value — PASS.** Inclusion-minimal total domination is a natural obstruction-minimal network coverage invariant, and the entire polynomial measures its size distribution rather than just the familiar minimum. The four-type structure yields the complete distribution and uncovers exact, persistent transitions: loss of log-concavity one base order before loss of unimodality. These transitions illustrate why counting only minimum sets conceals global distributional behavior, and can inform questions about shape properties of other domination-type polynomials.
+For n>=4 the selected K(n,2) vertices are precisely edges of a graph F on [n]. Every 2-set in [n] must be disjoint from a selected edge, so total domination is equivalent to vertex-cover number tau(F)>=3. Inclusion-minimality forces tau(F)=3 and tau(F-e)<=2 for every edge. The critical-tau=2 lemma gives 2K2 or K3. If a vertex has degree>=3, deleting it and using incident-edge criticality forces the K3 case with all three neighbors, hence K4; the matching case is impossible by two-cover cardinality. For maximum degree<=2, edge-critical connected components are K2 and odd cycles, leaving only 3K2, K3+K2, C5. Their labeled support counts give 15*C(n,6),10*C(n,5),12*C(n,5),C(n,4) at sizes 3,4,5,6. At n=4 this reduces to z^6. The log-concavity difference at size four is 10*C(n,5)^2*(25-3n), and the size-three/four ratio (n-5)/4 gives the nonunimodality threshold at n=10. Independently enumerated all selected-vertex subsets for n=4,5,6: {6:1}; {4:10,5:12,6:5}; {3:15,4:60,5:72,6:15}. Finite checks corroborate but do not prove the unrestricted classification.
 
-The finding does not cover higher-rank Kneser graphs, all total dominating sets, or independent priority certification. The only external evidence checked was scientific literature and published result summaries, not independent proof review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
+
+## value
+
+PASS
+
+A complete inclusion-minimal total domination polynomial of a standard Kneser family, the full structural list of four obstruction graphs, and two sharp global coefficient-shape thresholds refine merely determining gamma_t. These are natural graph-family invariants with relevance to upper total domination and whether cardinality distributions are unimodal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

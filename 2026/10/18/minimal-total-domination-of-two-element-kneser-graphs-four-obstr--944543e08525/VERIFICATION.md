@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-Run `python verify_minimal_total_kneser.py` with Python 3.9 or later from a directory containing the script. It uses only the standard library, independently builds \(K(n,2)\) from the rule that two vertices are adjacent when their base pairs are disjoint, exhaustively tests every nonempty selected subset for open-neighborhood total domination, and checks inclusion-minimality by removing each selected vertex individually. This implementation does not use the cover-number classification to decide whether a set is total dominating.
+## correctness
 
-Direct checks for \(n=4\), \(5\), \(6\), and \(7\) enumerate respectively \(63\), \(1{,}023\), \(32{,}767\), and \(2{,}097{,}151\) nonempty subsets, totaling \(2{,}131{,}004\), and match every coefficient of the stated minimal-set polynomial. A separate arithmetic check tests log-concavity and unimodality for each \(4\le n\le80\), including both boundary orders and subsequent failures.
+PASS
 
-`verification_output.txt` contains actual program output reproduced in execution, finishing in `VERIFICATION_OK`. Exhaustive graph testing proves only those finite cases; the theorem for all \(n\ge4\) relies on the cover-number and criticality arguments in `RESULT.md`.
+For n>=4 the selected K(n,2) vertices are precisely edges of a graph F on [n]. Every 2-set in [n] must be disjoint from a selected edge, so total domination is equivalent to vertex-cover number tau(F)>=3. Inclusion-minimality forces tau(F)=3 and tau(F-e)<=2 for every edge. The critical-tau=2 lemma gives 2K2 or K3. If a vertex has degree>=3, deleting it and using incident-edge criticality forces the K3 case with all three neighbors, hence K4; the matching case is impossible by two-cover cardinality. For maximum degree<=2, edge-critical connected components are K2 and odd cycles, leaving only 3K2, K3+K2, C5. Their labeled support counts give 15*C(n,6),10*C(n,5),12*C(n,5),C(n,4) at sizes 3,4,5,6. At n=4 this reduces to z^6. The log-concavity difference at size four is 10*C(n,5)^2*(25-3n), and the size-three/four ratio (n-5)/4 gives the nonunimodality threshold at n=10. Independently enumerated all selected-vertex subsets for n=4,5,6: {6:1}; {4:10,5:12,6:5}; {3:15,4:60,5:72,6:15}. Finite checks corroborate but do not prove the unrestricted classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
+
+## value
+
+PASS
+
+A complete inclusion-minimal total domination polynomial of a standard Kneser family, the full structural list of four obstruction graphs, and two sharp global coefficient-shape thresholds refine merely determining gamma_t. These are natural graph-family invariants with relevance to upper total domination and whether cardinality distributions are unimodal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

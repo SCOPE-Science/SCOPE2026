@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:45:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4 the selected K(n,2) vertices are precisely edges of a graph F on [n]. Every 2-set in [n] must be disjoint from a selected edge, so total domination is equivalent to vertex-cover number tau(F)>=3. Inclusion-minimality forces tau(F)=3 and tau(F-e)<=2 for every edge. The critical-tau=2 lemma gives 2K2 or K3. If a vertex has degree>=3, deleting it and using incident-edge criticality forces the K3 case with all three neighbors, hence K4; the matching case is impossible by two-cover cardinality. For maximum degree<=2, edge-critical connected components are K2 and odd cycles, leaving only 3K2, K3+K2, C5. Their labeled support counts give 15*C(n,6),10*C(n,5),12*C(n,5),C(n,4) at sizes 3,4,5,6. At n=4 this reduces to z^6. The log-concavity difference at size four is 10*C(n,5)^2*(25-3n), and the size-three/four ratio (n-5)/4 gives the nonunimodality threshold at n=10. Independently enumerated all selected-vertex subsets for n=4,5,6: {6:1}; {4:10,5:12,6:5}; {3:15,4:60,5:72,6:15}. Finite checks corroborate but do not prove the unrestricted classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al. prove general k-tuple total domination minima and characterize minimum sets when n is large; their statements do not enumerate nonminimum inclusion-minimal sets."
+        ],
+        "reasoning": "The k-tuple total domination theorem is broader in n,r,k but weaker for this exact minimal-set polynomial; ordinary domination or 3_t-edge-critical graph terminology is a different invariant.",
+        "searches": [
+          "minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination",
+          "arXiv:2312.15464 k-Domination invariants on Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.21136/MB.1993.126050",
+        "https://arxiv.org/abs/2312.15464",
+        "https://doi.org/10.2298/FIL2501267S"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known minimum size 3 and matching-type minimum sets recover only coefficient of z^3, not coefficients at z^4,z^5,z^6 or threshold inequalities."
+        ],
+        "reasoning": "Minimum-size results do not entail all inclusion-minimal sets; the known theorem is credited and the added classification and thresholds assessed.",
+        "searches": [
+          "arXiv:2312.15464",
+          "DOI:10.21136/MB.1993.126050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge/vertex-cover duality is explicit and independently justified; ordinary minimum Kneser dominating triples are known, but inclusion-minimal total dominating sets include triangle+edge, C5 and K4."
+        ],
+        "reasoning": "Neither a cover-critical graph translation nor the known min-total-domination families supplies the four-type labeled polynomial or its coefficient transitions without additional classification.",
+        "searches": [
+          "minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination",
+          "Ivančo–Zelinka 1993 DOI:10.21136/MB.1993.126050"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper on H-join graphs considers minimal total domination polynomials for substitution families. No directly identified explicit K(n,2) labeled coefficient table; the full H-join paper was not exhaustively compared."
+        ],
+        "reasoning": "This is a real topical polynomial precedent; cannot claim full-document noncoverage from abstract, but no evidence retrieved of the present four-type exact table or cutoffs.",
+        "searches": [
+          "minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination",
+          "Subramanian–Selvakumar DOI:10.2298/FIL2501267S"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimal total dominating sets Kneser graph K(n,2) edge-critical vertex cover polynomial upper total domination). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.",
+      "residual_risks": [
+        "A cover-critical classification or minimal total domination polynomial equivalent to this special case may exist under different terminology.",
+        "The H-join paper and unindexed records were not exhaustively searched page by page."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_INVARIANT_ONLY",
+          "evidence": "Treats minimum dominating-set types, not all inclusion-minimal TOTAL dominating sets.",
+          "identifier_or_url": "https://doi.org/10.21136/MB.1993.126050",
+          "material_read": "Primary 1993 PDF introduction and main domination theorem; a rendered theorem page inspected.",
+          "method": "Primary PDF text and rendered page",
+          "title": "Domination in Kneser graphs",
+          "trigger": "same K(n,2) domination class"
+        },
+        {
+          "assessment": "MINIMA_NOT_COMPLETE_MINIMAL_ENUMERATOR",
+          "evidence": "gamma_{t×k}=k+r in stable range, all minimum sets clique; not upper inclusion-minimal polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+          "material_read": "Primary arXiv HTML abstract, definitions, main theorem and relevant results on minimum k-tuple total domination.",
+          "method": "Full available HTML and relevant theorem sections",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "potential stronger k-tuple total domination theorem"
+        },
+        {
+          "assessment": "PRIORITY_RISK_NOT_EXCLUDED",
+          "evidence": "Topic matches polynomial but not verified theorem for K(n,2); no assertion of whole-paper noncoverage.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2501267S",
+          "material_read": "Abstract, bibliographic details and available search excerpts; full mathematical text not inspected.",
+          "method": "Publisher metadata and lawful search",
+          "title": "Total domination and minimal total domination polynomial of H-join graphs",
+          "trigger": "polynomial exact analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete inclusion-minimal total domination polynomial of a standard Kneser family, the full structural list of four obstruction graphs, and two sharp global coefficient-shape thresholds refine merely determining gamma_t. These are natural graph-family invariants with relevance to upper total domination and whether cardinality distributions are unimodal.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.21136/MB.1993.126050",
+    "https://arxiv.org/abs/2312.15464",
+    "https://doi.org/10.2298/FIL2501267S",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/minimal-total-domination-of-two-element-kneser-graphs-four-obstr--944543e08525/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only actual finite cases listed under correctness were re-enumerated; infinite claims rely on the independently reconstructed package proof, not the finite checks.",
+    "No publication changes have been made; operational fields must be removed before publication.",
+    "Originality assessment is best-of-knowledge, with genuine prior-literature risks separately retained."
+  ],
+  "residual_risks": [
+    "A cover-critical classification or minimal total domination polynomial equivalent to this special case may exist under different terminology.",
+    "The H-join paper and unindexed records were not exhaustively searched page by page."
+  ],
+  "schema_version": 1
+}
