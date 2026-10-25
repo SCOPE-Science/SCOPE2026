@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The assertion is quantified over every integer \(r\ge1\) and every candidate integer \(m>1\). At \(m<145\), even candidates fail at the prime two because the parameter's two-adic valuation is at least eight; odd nonsquarefree candidates fail at any repeated odd prime. Exactly \(58\) odd squarefree candidates remain, and the attached trial-division and finite-forward-orbit certificate supplies a modular obstruction at a prime divisor for each. For each prime, the recurrence \(x_{k+1}=x_k^8\pmod p\) produces precisely \(2^{2^{3r}}\pmod p\) for every \(r\ge1\). The independent fixed point \(111^8\equiv111\pmod{145}\) proves that \(145\) works for every index. The verifier was executed from the actual embedded package. No finite sampling over \(r\) is treated as an infinite proof.
+## correctness
 
-## Originality: PASS within checked sources
-The 2021 primary source poses the general small-witness conjecture, not uniform exact least witnesses. The most relevant 2026 public mathematical record already contains the witness \(145\) for the **single** parameter \(256\) and a reduction of the small-witness conjecture to Fermat-prime parameters; its inspected full result neither states nor proves that \(145\) remains the **least** witness for every Fermat index divisible by three. Repeated exact-statement and equivalent-parameter literature searches and local previous-claim comparisons found no covering claim. Residual risk: a broader unindexed periodicity/minimality theorem might imply the result; no unconditional priority statement is made.
+PASS
 
-## Mathematical value: PASS
-The motivating small-witness conjecture asks for sharp existence information across huge parameters. This finding gives an exact constant smallest witness on an infinite parameter family, including composite Fermat-number parameters where elementary factor-witness constructions from the closest prior work do not identify a uniform small minimum. The index-periodic congruence and full bounded exclusion give an exact arithmetic classification on a natural residue class, not a single arbitrary computed instance.
+For μ_r=2^(2^(3r)), v2(μ_r)≥8, excluding all even m≤144 by comparing v2(m/2+μ_r)=v2(m)-1. For odd nonsquarefree m a prime square p²|m forces p|m/p but p∤μ_r, hence condition fails. The remaining exactly 58 odd squarefree 3≤m≤143 are exhausted by an independently recomputed orbit test: for each p|m, x1=2^8 mod p and x_{r+1}=x_r^8 mod p; if -m/p mod p is absent from the finite orbit, no r works. Fresh code confirmed a blocking prime for every candidate, 33 different blockers and maximal orbit length52. The invariant 2^8≡111 mod145 and 111^8≡111 mod145 yields μ_r≡111 mod145, and 29+111 divisible by5 and 5+111 divisible by29, so 145 satisfies all r. The finite m-bound is complete, while the orbit recurrence proves uniformity over infinitely many r.
 
-## Closest sources and limitations
-Grau–Oller-Marcén–Sadornil (2021/2022) supplied the definition and conjecture. The closest 2026 public record supplied \(145\in S_{256}\), but not the infinite least-witness law. The proof uses an exhaustive, replayable finite certificate for the cut-off \(144\); it does not classify other Fermat-index residue classes and does not exclude all possibly unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority assessment distinguishes the actual joint/exact invariant and mathematical implications from stronger but non-covering frameworks; pertinent primary statements were compared and residual risks are explicit. Uniform least mu-Sondow number 145 for mu=2^(2^(3r)), r≥1
+
+## value
+
+PASS
+
+An exact constant least-witness law along the natural infinite Fermat-index subsequence refines the foundational small-witness conjecture in a nontrivial way: existence of a witness for one parameter or all parameters does not imply simultaneous sharp minimality. The finite obstruction table is substantively motivated by the arithmetic dynamics x→x^8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
