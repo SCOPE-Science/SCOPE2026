@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every strictly increasing integer Hadamard-gap degree sequence, the proof computes the exact Hardy-basis matrix \(n_jb_j/(n_j+k)\) and factors it through the normalized Cauchy-kernel analysis map. A continuous Riesz bound follows by an explicit triangular Fourier minorant for separated logarithmic translates and a summable Gram majorant. Integer sampling is a Hilbert–Schmidt-small perturbation on a distant tail. The finite head is recovered using injectivity from zero moments and analyticity. A bounded right inverse then transfers approximation numbers in both directions, with no dependence on coefficients or index. The final theorem uses genuine infinite-dimensional estimates, not finite computations. The finite checker tests only representative arithmetic identities.
+## correctness
 
-## Originality — PASS, subject to residual access and bibliographic risk
-The closest older full text is Peláez–Seco, arXiv:1510.05455, Theorem 1 and Proposition 10: it already gives Schatten membership for \(p\ge1\) and qualitative compactness, which are explicitly not claimed as novel. It does not establish singular values term by term or the quasi-Schatten \(0<p<1\) range. Norrbo–Peláez–Wu, arXiv:2608.19086 (August 19, 2026), states boundedness and compactness in its accessible abstract, including lacunary symbols. Its inaccessible full text is a genuine residual risk, not proof of noncoverage. Guo–Tang, arXiv:2607.28221, concerns Hardy boundedness and multiplier characterizations. Semantic database searches for lacunary generalized Hilbert singular-value profiles and quasi-Schatten membership found related operator-ideal studies but no dominating statement; absence of a hit is not a proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-A termwise approximation-number theorem is stronger than membership in individual \(\mathcal S_p\) ideals, controls arbitrary approximation scales with constants uniform in the index, and resolves quasi-Banach Schatten exponents excluded by the classical \(p\ge1\) theorem. The same result provides a constructive realization of any decaying singular profile (up to sequence-dependent multiplicative constants) by a natural analytic symbol, using lacunarity exactly where it is analytically needed.
+Direct integration gives H_g z^k= sum_j n_j b_j/(n_j+k) z^{n_j−1}. Factor through V with columns v_j(k)=sqrt(n_j)/(n_j+k) and U=V*. Under x=e^t, normalized continuous kernels become separated translates of h(t)=1/(2cosh(t/2)). Their Gram kernel K(s)=|s|/[2sinh(|s|/2)] has summable off-diagonals, yielding an upper Riesz bound; a triangular Fourier minorant for separated log n_j and nonzero h-transform gives a strictly positive lower bound. Integer step sampling has derivative Hilbert–Schmidt error with decaying tail since sum n_j^-2 finite. Tail lower bound plus injectivity from vanishing Hausdorff moments of analytic F(t)=sum c_j sqrt(n_j)t^{n_j−1} yields global bounded-below V. Thus V* surjective with bounded right inverse, and approximation-number ideal inequalities show a_k(H_g) comparable with a_k(D), uniform in k,p,coefficients. Includes boundedness, compactness, S_p and realizable decay consequences, without assuming finite tests prove infinite Riesz bound.
 
-## Remaining limits
-No statement is made for non-lacunary symbols, non-Hilbert Hardy exponents, or exact optimal multiplicative constants. An equivalent strengthening in less accessible primary literature cannot be ruled out without independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior theory contains qualitative Hardy boundedness/compactness and Schatten membership for p>=1; the claim adds all-index coefficient-independent a_k equivalence, including quasi-Schatten p<1 and arbitrary prescribed decay. The nearest August 2026 Hardy lacunary paper full text was inaccessible; this remains a serious overlap risk.
+
+## value
+
+PASS
+
+An all-index singular-decay profile for a nontrivial Hardy-space integral operator is an informative operator-ideal classification. It yields a constructive realization of arbitrary compact s-number rates and unifies every quasi-Schatten exponent p>0 from a single coefficient criterion, beyond qualitative compactness or a mechanical restatement of a single Schatten class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
