@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has an exact measure normalization: directions are not uniform after conditioning on intersection. Integrating the number of edge crossings over plane offsets and using \(\int_{S^2}|u\cdot e|d\sigma=2\pi\|e\|\) produces the numerator. The polyhedral mean-width identity \(\int_{S^2}w(u)d\sigma=\sum_e\ell_e\theta_e\) produces the denominator. The resulting formula is explicitly reconstructed from the three right dihedrals and the three sloping-face dihedrals. The nontrivial cancellation \(D'=2tA/z\) and a comparison between an increasing and a decreasing function establish the strict global optimizer; the endpoint limits and inverse multiplicities follow. An independent directional quadrature program checks the formula and boundaries but is not relied upon as proof.
+PASS
 
-## Originality — PASS, with historical risk
+Correct motion-invariant measure is dσ(u)ds conditioned on hitting the body, not uniform normals after conditioning. Each generic plane intersects three or four tetrahedral edges; integrate the six |u⋅edge| crossing intervals to obtain E N=2π Σ ℓ_e/(Σ ℓ_e θ_e), with exterior dihedral θ_e and polyhedral mean-width identity. For T_t, Σℓ=L=2+t+2sqrt(1+t²)+sqrt2 and Σℓ θ=(π/2)L+2sqrt(1+t²)atan(t/sqrt(1+t²))+sqrt2 atan(1/(sqrt2 t)), yielding P=4/(1+2D/(πL))-3. Differentiating R=D/L gives sign(A/B-G(t)); A/B is strictly increasing, G strictly decreasing and they meet at t=1, proving strict ascent/decline, the unique maximum P(1)=0.2532844262756413, boundary limits 3-2sqrt2 and 0, and exact inverse multiplicities. Independent 3×30,000-direction Crofton quadrature independently integrates widths/crossing contributions and verifies five-parameter monotonicity; finite quadrature is corroboration only.
 
-The closest published result [1] bounds an unweighted sum of tetrahedral interior dihedral angles, with equality at the equal-leg cube corner; this does not imply the exact normalized length-weighted exterior sum in the Crofton section law. Source [2] treats combinatorial types and reconstruction from full directional slicing information, not the invariant-plane scalar distribution. Source [3] treats projections, not affine sections, and [4] addresses widths of regular polyhedra. Searches of the available mathematical research records and recoverable prior findings found no covering same-family claim. Equivalent calculations may exist in older stereological literature and could affect historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The shape-dependent probability of quadrilateral cuts is a natural observable for stereology and coarse combinatorial tomography. The result is a complete sharp optimization across an entire nondegenerate similarity family, including exact two-to-one inverse behavior and distinct degeneration limits. In contrast to the known equal-leg minimization of unweighted dihedral-angle sum, this involves a length-weighted exterior-angle ratio and an independent strict monotonicity proof. It does not assert an all-tetrahedra extremum.
+The Crofton identity is classical, and the cited 2026 trirectangular result treats an unweighted interior dihedral sum; the present sharp length-weighted exterior-angle ratio and entire affine-plane probability profile on the isosceles family are not consequences of those different statements.
 
-## Scope and historical comparison
+## value
 
-Primary geometric focus: MSC 52A22. Motivating public source [1] appeared January 13, 2026. The exact law is sensitive to the invariant-plane weighting; replacing it with uniformly oriented central planes or planar projections produces a different question. The originality conclusion is conditional on accessible records and full-text comparisons rather than a guarantee of worldwide priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The isosceles trirectangular family is a geometric deformation with a natural cube-corner optimum, and its complete motion-invariant affine-section polygon law plus exact nonidentifiability multiplicities have substantive integral-geometric content. The same Crofton normalization is useful when contrasting width-weighted section sampling with uniform-normal or shadow laws. Not merely a single numerical special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

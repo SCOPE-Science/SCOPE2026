@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:10:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md/check_profile.py",
+        "polyhedral Steiner mean width and Crofton crossing formula",
+        "independent_checks.py R3 30k-direction quadratures and monotonic parameter tests"
+      ],
+      "rationale": "Correct motion-invariant measure is dσ(u)ds conditioned on hitting the body, not uniform normals after conditioning. Each generic plane intersects three or four tetrahedral edges; integrate the six |u⋅edge| crossing intervals to obtain E N=2π Σ ℓ_e/(Σ ℓ_e θ_e), with exterior dihedral θ_e and polyhedral mean-width identity. For T_t, Σℓ=L=2+t+2sqrt(1+t²)+sqrt2 and Σℓ θ=(π/2)L+2sqrt(1+t²)atan(t/sqrt(1+t²))+sqrt2 atan(1/(sqrt2 t)), yielding P=4/(1+2D/(πL))-3. Differentiating R=D/L gives sign(A/B-G(t)); A/B is strictly increasing, G strictly decreasing and they meet at t=1, proving strict ascent/decline, the unique maximum P(1)=0.2532844262756413, boundary limits 3-2sqrt2 and 0, and exact inverse multiplicities. Independent 3×30,000-direction Crofton quadrature independently integrates widths/crossing contributions and verifies five-parameter monotonicity; finite quadrature is corroboration only.",
+      "residual_risks": [
+        "The proof uses exterior dihedral angles and width-biased conditional normals; replacing them with interior angles/uniform normals invalidates the formula.",
+        "Finite quadrature does not establish derivative sign globally."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Slice combinatorics determines possible triangle/quadrilateral types but not their invariant affine-plane masses; Feldman–Klain concerns orthogonal projections, not affine section planes."
+        ],
+        "reasoning": "Neither provides a stronger law for motion-invariant affine plane sections conditional on tetrahedron intersection; conditional orientation is width-biased.",
+        "searches": [
+          "arXiv:2609.16195 combinatorial slicing of polytopes",
+          "arXiv:0809.3459 angles as probabilities",
+          "Resultary published-finding semantic search: trirectangular tetrahedron random plane quadrilateral probability Crofton length weighted angle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.08304 Section3 Remark3",
+        "arXiv:2609.16195 slicing abstract and sections",
+        "arXiv:0809.3459 random projection theorem",
+        "Resultary 2026 area-weighted tetrahedron silhouettes and central section queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New P(t) identifies optimum on t>0 with strict crossing, endpoint limits and two-to-one inverse range. The prior angle-sum optimum alone lacks enough weighted information for these facts."
+        ],
+        "reasoning": "Classical Crofton supplies a reduction but the derivative sign and sharp family law require additional computation, not a direct quoted corollary.",
+        "searches": [
+          "arXiv:2601.08304 Remark3",
+          "arXiv:2609.16195 Sections3–4",
+          "arXiv:0809.3459 Theorem1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korotov–Křížek minimum concerns sum of interior angles for cube-corner tetrahedra, not Σ length×exterior angle /Σ length."
+        ],
+        "reasoning": "Converting interior to exterior does not remove the edge weights or the denominator, so unweighted angle extremality does not determine the Crofton section probability.",
+        "searches": [
+          "arXiv:2601.08304 Section3 Remark3",
+          "Resultary published-finding semantic search: trirectangular tetrahedron random plane quadrilateral probability Crofton length weighted angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known dihedral angle bounds do not tabulate this P(t); no matching parameter-dependent invariant-plane probability table found in targeted queries."
+        ],
+        "reasoning": "A table of interior-angle sums cannot be equated to the rational-arctangent probability profile. Unindexed stereology might still contain it.",
+        "searches": [
+          "Resultary published-finding semantic search: trirectangular tetrahedron random plane quadrilateral probability Crofton length weighted angle",
+          "arXiv:2601.08304 Remark3 quantitative angle bounds"
+        ]
+      },
+      "rationale": "The Crofton identity is classical, and the cited 2026 trirectangular result treats an unweighted interior dihedral sum; the present sharp length-weighted exterior-angle ratio and entire affine-plane probability profile on the isosceles family are not consequences of those different statements.",
+      "residual_risks": [
+        "Full source of arXiv:2609.16195 was not completely inspected; plausible general slicing source risk is expressly retained.",
+        "Unindexed classical integral geometry might have computed equivalent isosceles corner-tetrahedron probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong object match, distinct weighted exterior-vs-interior functional.",
+          "evidence": "Remark3 lower unweighted interior sum at equal legs, no motion-invariant plane probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.08304",
+          "material_read": "Full-text Section3 including Remark3 and its equation for interior-angle sum; page 5 screenshot inspected",
+          "method": "Original arXiv PDF full-text and image view",
+          "title": "Two-sided bounds for dihedral angle sums of path and 4-ball tetrahedra",
+          "trigger": "Same trirectangular tetrahedra and equal-leg optimum"
+        },
+        {
+          "assessment": "Combinatorial possible slice types and reconstruction, not evidence of weighted affine-plane probabilities; full-text coverage remains a risk.",
+          "evidence": "Object is slice combinatorics not invariant-plane section mass.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16195",
+          "material_read": "Abstract and publicly accessible theorem summaries/section descriptions; complete PDF text not obtained during this run",
+          "method": "Lawful OA abstract and targeted accessible portions, not falsely represented as complete",
+          "title": "Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices",
+          "trigger": "Possible general all-polytope slice result that could dominate"
+        },
+        {
+          "assessment": "Orthogonal shadows under orientation measure, rather than affine-offset-distributed sections, so no direct implication.",
+          "evidence": "Projection probability uses a different random object and measure.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.3459",
+          "material_read": "Source theorem and proof synopsis concerning projection probabilities; not claimed entire document was read",
+          "method": "Open-access theorem text and scope comparison",
+          "title": "Angles as probabilities",
+          "trigger": "Stereological probability under related geometric measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2601.08304 trirectangular geometry",
+        "exact one-crossing derivative proof in frozen RESULT.md"
+      ],
+      "rationale": "The isosceles trirectangular family is a geometric deformation with a natural cube-corner optimum, and its complete motion-invariant affine-section polygon law plus exact nonidentifiability multiplicities have substantive integral-geometric content. The same Crofton normalization is useful when contrasting width-weighted section sampling with uniform-normal or shadow laws. Not merely a single numerical special case.",
+      "residual_risks": [
+        "Only family with legs {1,1,t}, not all corner tetrahedra or general solids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
