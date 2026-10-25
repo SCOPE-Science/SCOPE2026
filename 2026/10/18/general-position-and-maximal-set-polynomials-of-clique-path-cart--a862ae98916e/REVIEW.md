@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The product metric separates clique and path coordinates. Equality in both triangle inequalities gives the precise three-vertex betweenness criterion. This yields a two-case classification of every valid vertex subset: all clique labels occur at most once, or exactly one label occurs twice and the remaining distinct labels lie strictly between its two layers. Disjoint enumeration proves the general-position polynomial. Classifying when either case can be extended, followed by inclusion–exclusion, proves the maximal-set polynomial. Exact graph-distance enumeration of 491,210 subsets on 29 independently constructed products confirmed the structural classification and all formula coefficients; all seven main-domain tests also confirmed every maximal coefficient. The finite computation is a check, not an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge literature comparison)
+Shortest paths split as 1_{labels differ}+absolute path-coordinate difference. A geodesic triple requires its middle label equal to an endpoint label and its layer between endpoint layers. Therefore any valid set uses each label once or exactly one label twice at p<q with all other labels used ≤1 inside (p,q). This partitions all subsets and yields (1+nz)^m plus m z² Σ_h(n-h-1)(1+hz)^(m-1). Maximality for adjacent repeats gives m(n-1) pairs; saturated interior repeats yield C_mn z^(m+1); nonextendible all-label single placements yield B_mn z^m by two-extreme inclusion-exclusion. Independently constructed the actual graph, BFS shortest paths and tested all 512 vertex subsets for K3□P3 and 4096 for K3□P4, including all one-vertex extensions. Coefficients respectively Ψ=(1,9,36,33,3), M:6z²+21z³+3z⁴; and Ψ=(1,12,66,88,18), M:9z²+34z³+18z⁴.
 
-The closest primary literature determines the scalar maximum general-position number for \(K_m\square P_n\), introduces the general-position counting polynomial, and studies lower general position in Cartesian products. The cited papers do not state or imply this simultaneous two-parameter all-set and all-maximal polynomial enumeration. In particular, the known equality \(\operatorname{gp}(K_m\square P_n)=m+1\) is not the novelty claim, and the \(K_2\)-factor specialization of existing path-grid work is outside the asserted domain. Search comparisons also included the published exact-polynomial results for clique coronas, generalized windmills, rook graphs, and other products. Residual priority risk: an unindexed result, or an equivalent structural enumeration in a less directly titled paper, may exist; the earlier scalar proof has partial related structural arguments.
+## originality
 
-## Value — PASS
+PASS
 
-The graph family \(K_m\square P_n\) is a natural two-parameter Cartesian product already studied for extremal general-position numbers. The new all-set and all-maximal enumerators distinguish arbitrary feasible sets from facets, give every cardinality count, and identify a nonpure general-position complex with exactly three facet sizes \(2,m,m+1\). The gap grows with \(m\), and the classification provides a useful reference family for general-position enumerative questions.
+Prior Tian–Xu proved only maximum cardinality m+1; Iršič et al introduced GP polynomials and calculated thin Cartesian path grids, not this clique–path family. The exact all-set polynomial and the complete facet-size and multiplicity polynomial are distinct, beyond scalar extrema. A semantic Resultary search and same-week SCOPE title/statement screening uncovered no direct equivalent for this exact graph family.
 
-## Limits
+## value
 
-The result does not include the thin factor \(K_2\) or arbitrary Cartesian products. Independent scientific validation and exhaustive historical priority verification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete facet enumerators of a natural Cartesian product quantify substantially more geometry than gp and lower gp; the three sizes 2,m,m+1 include an unbounded missing-size interval. Closed uniform formulas are natural exact reusable graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

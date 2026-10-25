@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Compile the standalone C++17 program with `g++ -O3 -std=c++17 -o verify verify.cpp && ./verify` from the same directory. Its output must match `verification_output.txt`.
+## correctness
 
-The program constructs graph adjacency directly, uses breadth-first search to compute shortest-path distances, and marks collinear triples using distance equalities. It then enumerates every vertex subset for 29 graph instances with factor sizes between 1 and 8 and at most 19 vertices, testing 491,210 subsets. For every instance it independently checks the structural feasibility criterion and all coefficients of the all-set polynomial. For seven instances satisfying \(m,n\ge3\), it also checks the exact count of every inclusion-maximal set against the maximal-set polynomial. It reports `VERIFICATION_OK graph_cases=29 subsets_tested=491210 feasible_subsets=4761 maximal_pair_cases=7`.
+PASS
 
-The unrestricted formulas, classification, and nonpurity conclusion are proved combinatorially in `RESULT.md`. A finite exhaustive computation alone would not prove them. No independent external scientific audit has been performed.
+Shortest paths split as 1_{labels differ}+absolute path-coordinate difference. A geodesic triple requires its middle label equal to an endpoint label and its layer between endpoint layers. Therefore any valid set uses each label once or exactly one label twice at p<q with all other labels used ≤1 inside (p,q). This partitions all subsets and yields (1+nz)^m plus m z² Σ_h(n-h-1)(1+hz)^(m-1). Maximality for adjacent repeats gives m(n-1) pairs; saturated interior repeats yield C_mn z^(m+1); nonextendible all-label single placements yield B_mn z^m by two-extreme inclusion-exclusion. Independently constructed the actual graph, BFS shortest paths and tested all 512 vertex subsets for K3□P3 and 4096 for K3□P4, including all one-vertex extensions. Coefficients respectively Ψ=(1,9,36,33,3), M:6z²+21z³+3z⁴; and Ψ=(1,12,66,88,18), M:9z²+34z³+18z⁴.
+
+## originality
+
+PASS
+
+Prior Tian–Xu proved only maximum cardinality m+1; Iršič et al introduced GP polynomials and calculated thin Cartesian path grids, not this clique–path family. The exact all-set polynomial and the complete facet-size and multiplicity polynomial are distinct, beyond scalar extrema. A semantic Resultary search and same-week SCOPE title/statement screening uncovered no direct equivalent for this exact graph family.
+
+## value
+
+PASS
+
+Complete facet enumerators of a natural Cartesian product quantify substantially more geometry than gp and lower gp; the three sizes 2,m,m+1 include an unbounded missing-size interval. Closed uniform formulas are natural exact reusable graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
