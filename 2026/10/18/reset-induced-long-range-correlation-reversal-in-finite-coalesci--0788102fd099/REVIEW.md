@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A global Poisson reset gives an exact finite-state resolvent mixture; the rare-reset Abel limit converges to the uniform single-walker distribution. At high reset rates, a two-step path enumeration gives a strictly positive \(4r^{-2}\) nonadjacent covariance. On four vertices, the five symmetry-orbit balances are individually reconstructed in the complete 15-state generator, and exact symbolic reduction proves both covariance rational functions and the unique positive root. The enumerated finite sizes provide a cross-check, not the infinite-family proof. Boundary case \(N=4\), distinct nonneighbor condition, jumping-rate normalization and \(r>0\) were examined.
+## correctness
 
-## Originality — PASS, residual bibliographic risk
-The primary full text of Durang–Henkel–Park, arXiv:1309.2107v1, was inspected for the reset protocol, empty intervals, pair-separation statistics, finite-volume treatment and appendices. It does not state the all-finite-cycle nonadjacent covariance sign reversal or the exact four-cycle opposing/adjacent sign split in the inspected material. Durang–Fortin–Henkel, arXiv:1012.4724, addresses exact two-time correlations in coagulation diffusion but not this global-reset finite-ring theorem. General resetting-correlation studies involve different physical dynamics. Searches for other parameterizations and related database records found no mathematically covering claim. Residual risk remains that specialized multi-interval finite-chain computations in uncatalogued literature imply the same four-cycle formula; failed searches are not proofs of global novelty.
+PASS
 
-## Value — PASS
-The leading nonadjacent covariance is positive under fast global resetting even though coalescing particles locally repel occupancy. This is a structural sign-reversal theorem valid for every finite system size, plus a complete sharp calculation for the smallest ring that can distinguish local from separated spatial correlations. It supplies an experimentally/simulation-accessible exact benchmark for distinguishing batch-reset-induced mixing correlations from coalescence-driven local anticorrelation.
+PASS: Global rate-r resets yield the finite-state resolvent r∫exp(-rt)P_t(full,.)dt and a unique stationary law. As r↓0, coalescence on a finite connected ring reaches one surviving symmetric walker, so the Abel-limit covariance of distinct occupancy sites is -1/N². For nonadjacent vacancies i,j, a single jump gives 2t+O(t²) per vacancy and precisely eight ordered two-event histories produce both vacancies, yielding joint vacancy probability 4t²+O(t³); exponential age mixing gives E(V_i V_j)=8/r²+O(r^-3) and Cov=4/r²+O(r^-3)>0 for large r. At N=4, independently assembled all 15 nonempty-state generator transitions and solved the exact stationary system symbolically without using the package code; the displayed near/opposite rational functions and unique positive opposite-covariance root 0.530754559719 agree exactly. Positive-root uniqueness follows from polynomial derivative positive for r>0; N>=4 universal only guarantees existence of a nonadjacent sign crossing, not its uniqueness.
 
-## Closest literature and limitations
-X. Durang, M. Henkel, H. Park, Statistical mechanics of the coagulation-diffusion process with a stochastic reset, arXiv:1309.2107v1 (2013-09-09), https://arxiv.org/abs/1309.2107.
+## originality
 
-X. Durang, J.-Y. Fortin, M. Henkel, Exact two-time correlation and response functions in the one-dimensional coagulation-diffusion process by the empty-interval-particle method, arXiv:1012.4724 (2010), https://arxiv.org/abs/1012.4724.
+PASS
 
-M. Magoni, F. Carollo, G. Perfetto, I. Lesanovsky, Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting, arXiv:2202.12655 (2022), https://arxiv.org/abs/2202.12655.
+PASS best-of-knowledge: Durang–Henkel–Park analyze reset coagulation density, contiguous empty intervals and interparticle distributions primarily for an infinite one-dimensional system; they do not state finite C_N nonadjacent occupancy covariance crossover or the exact N=4 rational near-versus-opposite threshold. The unreset two-time correlation paper changes dynamics, and general quantum reset correlation results change model entirely. Historical finite-ring multi-interval literature may still cover an implied identity; risk explicitly recorded.
 
-For larger cycles the proof gives existence, not the number or monotonicity, of crossing rates. Only four-site nearest-neighbor negativity is proved. Additional historical finite-ring joint-occupation studies could create an originality overlap and are a residual risk.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Coalescence produces local occupancy anticorrelation while shared reset age creates a far-pair positive covariance at high reset rates. The all-finite-ring sign-reversal theorem and explicit smallest-cycle coexistence of negative nearest-neighbor and positive opposite-site correlation are structural and experimentally checkable benchmarks, not arbitrary low-dimension numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
