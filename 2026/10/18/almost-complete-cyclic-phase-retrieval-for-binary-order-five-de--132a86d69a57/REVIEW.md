@@ -1,11 +1,21 @@
-# Review of cyclic phase retrieval in order-five de Bruijn cycles
+# Independent mathematical audit
 
-**Correctness.** The two descriptions of de Bruijn cycles—anchored Eulerian depth-first walks and all \(65536\) local incoming/outgoing pairings—are each complete by direct graph equivalence. Their independently produced \(2048\)-cycle sets agree, the five-bit window condition is checked for each cycle, and three integer-exact formulas agree on every independent autocorrelation shift. The derived fiber census and the two exceptional pairs are exhaustive, not sampled. The nine-lag sufficiency and sharp lag-13 cutoff follow from the complete comparison of all group keys; two explicit cycles witness failure at lag 12. Source of numerical proof: supplied executable checker and complete checked CSV tables.
+## correctness
 
-**Originality.** Full-text inspection of Spinsante–Andrenacci–Gambi (2011), DOI `10.1186/1687-1499-2011-4`, found results on aggregate and peak autocorrelation properties of the same order-five family, not a full-vector equality classification or lag-13 recovery cutoff. Full preprint inspection of Mandereau et al. (2011), DOI `10.1080/17459737.2011.608819`, found a general mathematical framework for cyclic homometry, not the present constrained exact enumeration. Rosenblatt–Seymour (1982), DOI `10.1137/0603035`, is a relevant broader homometry source with only its abstract available during this comparison; unpublished or unindexed computations remain possible. Queries also considered aliases Patterson function, Z-relation, homometric sequences, cyclic power spectrum, and full periodic autocorrelation. The classification is not an implication of prior scalar energy or peak-sidelobe statistics.
+PASS
 
-**Mathematical value.** The complete distribution has direct meaning for the finite phase-retrieval problem under a universal-cycle constraint. The particularly small number of genuinely nontrivial ambiguity fibers (two) and the sharp sufficiency of a nine-lag observation interval go beyond a simple scalar tabulation. The exceptional pairs provide explicit constructive witnesses to the obstruction, while the certificate covers every member of the natural \(2048\)-cycle family. The result asserts nothing about larger de Bruijn orders.
+An independent enumeration of all 2^16=65,536 incoming-to-outgoing local-pairing maps in the binary de Bruijn graph produced exactly 2,048 one-cycle Eulerian circuits anchored at 00000. Explicit correlation and reversal/complement grouping yielded 526 signatures with fiber sizes 2:30,4:495,8:1; exactly 528 transform orbits 2:32,4:496; exactly two fibers contain two inequivalent orbits. Autocorrelation prefix partitions have 521 signatures through lag 12 and 526 through lag 13; all 2048 cycles were checked. The pairing bijection proves domain exhaustiveness; counts do not rely on supplied CSV or claimed VERIFY_OK output.
 
-**Scientific and historical limitations.** Only order-five cycles are covered. The novelty comparison is bounded by accessible literature and relevant indexed records, and an earlier unpublished or unindexed exact census cannot be excluded. The finite proof has been checked through independent enumerations and three correlation formulas; a separate scientific audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison: New result is the information-rich equality partition; novel counts not inferred by pre-existing aggregate peak statistics.
+
+## value
+
+PASS
+
+Phase retrieval of natural complete de Bruijn cycles gives an exact, exhaustively reproducible natural ambiguity census, identifies the only nontrivial homometric classes, and establishes the sharp length of the lag-prefix needed to determine their spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
