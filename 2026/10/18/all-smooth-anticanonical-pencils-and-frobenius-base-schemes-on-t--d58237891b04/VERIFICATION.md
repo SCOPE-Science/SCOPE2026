@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-## Reproduce the finite classifications
+# Independent mathematical audit
 
-Using Python 3 with SymPy 1.14 (or a compatible exact Gröbner implementation) and a C++17 compiler, run these commands in the directory of the extracted files:
+## correctness
 
-```sh
-python3 verify_pencils.py
-python3 verify_transversality.py
-g++ -O2 -std=c++17 -o base_spectra verify_base_spectra.cpp
-./base_spectra < representatives.txt > observed_base_spectra.txt
-cmp observed_base_spectra.txt expected_base_spectra.txt
-```
+PASS
 
-The first command must report `SMOOTH 144 PENCILS 804`, `ORBITS 13`, group orbit sizes ten 72, two 36, one 12. The second must finish with `ALL 13 REPRESENTATIVE PAIRS GEOMETRICALLY TRANSVERSE`, after checking every one of their 52 affine charts by Jacobian ideal. The third produces the base-point counts over \(\mathbf F_{2^r}\) for every \(1\le r\le8\); byte-for-byte comparison with the included expected output is required. All four automated reproducibility steps above passed against the attached source files.
+For S=P1×P1 over F2, the 511 nonzero (2,2) sections undergo four-chart polynomial/Jacobian ideal smoothness tests; independent exact arithmetic obtains 144 smooth sections, all 804 qualifying pencils and their 13 orbits under the 72-element group. For 13 orbit representatives, 52 four-chart transversality ideals equal unit ideal, yielding eight reduced base points by intersection number 8. Direct independent finite-field extension enumeration degrees 1..8 and Möbius inversion reproduces all five Frobenius cycle profiles and weighted pencil/orbit counts. Exhaustive finite field and algebraic-closure ideal criteria are mathematical completeness argument; code logs alone not relied on.
 
-The source code uses only exact arithmetic. Over each affine chart, smoothness is the condition that the ideal of the equation and its two partial derivatives is the unit ideal in characteristic two. Geometric base transversality is verified by adjoining the pairwise Jacobian determinant to the ideal of the two defining sections. Degree-eight Bézout bounds guarantee extension-degree completeness once eight distinct geometric base points have been found. No field extension beyond degree eight is inferred by finite testing alone.
+## originality
 
-## Limitations
+PASS
 
-The tested scope is precisely the 511 nonzero binary sections of \(\mathcal O(2,2)\) on the split quadric, and the 804 qualifying two-dimensional subspaces. The computations do not address pencils over larger base fields, all geometric fibers of the pencils, or abstract isomorphism classes of genus-one curves. The mathematical result has been reviewed in this package, but no independent audit has been performed.
+Independent best-of-knowledge statement/implication comparisons distinguish this final theorem from relevant prior source claims. Previously known summation, size, geometric existence, and binary subcases are credited; no absolute priority guarantee is claimed.
+
+## value
+
+PASS
+
+The natural split degree-eight del Pezzo surface over F2 yields a complete arithmetic classification of all-smooth anticanonical pencils, including exact automorphism orbits and five distinct Frobenius base partitions. Universal transverse base intersection is a structural fact not implied by eight-point intersection number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

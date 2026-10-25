@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-chart Jacobian/unit-ideal criterion treats smoothness over the algebraic closure, not only at rational points, and is exhaustively applied to all 511 nonzero sections. Exactly 144 satisfy it. Direct finite linear-subspace enumeration yields 804 all-smooth pencils and the order-72 automorphism action yields thirteen complete orbits. All 13 representatives have unit ideals for the pair and its Jacobian determinant on every product chart, proving every base intersection reduced. Direct extension-field counts for degrees 1 through 8, together with degree-eight intersection theory and the already-proven reducedness, recover every Frobenius partition without extrapolation. Full reproduction commands and reference outputs are included.
+PASS
 
-## Originality — PASS, subject to priority risk
+For S=P1×P1 over F2, the 511 nonzero (2,2) sections undergo four-chart polynomial/Jacobian ideal smoothness tests; independent exact arithmetic obtains 144 smooth sections, all 804 qualifying pencils and their 13 orbits under the 72-element group. For 13 orbit representatives, 52 four-chart transversality ideals equal unit ideal, yielding eight reduced base points by intersection number 8. Direct independent finite-field extension enumeration degrees 1..8 and Möbius inversion reproduces all five Frobenius cycle profiles and weighted pencil/orbit counts. Exhaustive finite field and algebraic-closure ideal criteria are mathematical completeness argument; code logs alone not relied on.
 
-The published general all-smooth pencil theorems concern hypersurfaces in projective space or transverse hyperplanes, rather than the 804 anticanonical genus-one pencils on the fixed split quadric. Hamada–Hayano classify complex holomorphic Lefschetz pencils up to smooth equivalence, but not finite-field embedded automorphism orbits or Frobenius closed-point splitting. Earlier arithmetic classifications of individual smooth bidegree-(2,2) curves and of pencils on the nonsplit quadric do not imply this split-surface paired-section classification. Actual published-mathematics and mathematical-result index queries were made for the equivalent bidegree-(2,2), split del Pezzo, QRT pencil, and eight-base-point formulations. None of the inspected primary results gives the joint thirteen-orbit and five-partition theorem. Priority remains vulnerable to an unindexed finite census; failed searches are not interpreted as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-An all-smooth pencil is a natural finite-field Bertini object, while its scheme-theoretic base locus is the fundamental arithmetic invariant of the associated genus-one fibration after blowing up. Universally reduced eight-point base loci are a substantive geometric constraint, and the five exact Frobenius partitions determine fields of definition, distinguishing two genuinely different zero-rational-base-point types. This complete finite classification is not merely an individual-curve point count or an arbitrary table slice.
+Independent best-of-knowledge statement/implication comparisons distinguish this final theorem from relevant prior source claims. Previously known summation, size, geometric existence, and binary subcases are credited; no absolute priority guarantee is claimed.
 
-## Scientific limits
+## value
 
-The classification is confined to the split anticanonical system over the prime field of two elements. It does not claim smoothness of all geometric members, a broader-field theorem, or independent review. Reproduction uses SymPy and C++17 exact finite arithmetic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural split degree-eight del Pezzo surface over F2 yields a complete arithmetic classification of all-smooth anticanonical pencils, including exact automorphism orbits and five distinct Frobenius base partitions. Universal transverse base intersection is a structural fact not implied by eight-point intersection number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
