@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every order at least seven, the five-column test is equivalent to total domination plus distinction of every closed neighborhood. Every distant pair is already separated because its closed neighborhoods are disjoint and each has nonempty intersection with the code. The finite de Bruijn digraph therefore represents exactly all legal cyclic codes. The standalone verifier reconstructs the 661 transitions, the unique 147-state cyclic component with 489 arcs, and the exact identity \(D_{16}=D_9+6\) on all 21,609 finite entries. Min-plus associativity proves the seven-step induction at every length at least nine, and the seven base traces cover the remaining lengths. Direct exhaustive searches separately establish the orders three through six. Full-space local/global agreement is checked at orders seven and eight. Risks: the finite matrix equality must be replayed using the embedded verifier; testing a few graph orders alone would not prove the infinite assertion.
+## correctness
 
-## Originality — PASS
-Foucaud–Lehtilä introduce the precise invariant and derive bounds for general graphs and selected extremal families, not the exact prism formula. Omamalin–Canoy–Rara's prior Cartesian-product theorem characterizes valid sets abstractly but supplies no optimized prism minimum; the displayed corollary is only an upper bound. Raza et al. study locating-total domination on the *same* prism, yet only distinguish vertices outside the code, so its five-periodic construction does not imply the stronger invariant's seven-periodic optimum. Distinct published results on open locating-domination also use different neighborhood conditions. Semantic published-record searches under all three names, prism aliases, and parameter forms found no matching formula. Residual risk: historical papers not indexed under searched names or untranslated results could overlap.
+PASS
 
-## Value — PASS
-The result determines a natural sensor-identification optimum on an entire infinite family of cubic, vertex-transitive graphs, not a convenience specialization or isolated small instance. The nontrivial seven-periodic correction makes the sharp value stronger than density alone. Compared to published locating-total prism constructions, the theorem exhibits a linearly growing cost of requiring identification of *all* vertices instead of only non-code vertices: at orders divisible by 35 the gap is at least \(2n/35\). The 147-state exact recurrence is a reproducible method applicable to related cyclic sensor-placement questions. There is no claim of a broader theorem for arbitrary product graphs.
+The open-neighborhood condition and closed-neighborhood code separation reduce to every cyclic five-column word satisfying a local test for n>=7; closed neighborhoods at cyclic column separation >=3 are disjoint, so total domination separates remaining pairs. Independent reconstruction of 256 four-column states found 661 admissible transitions and the unique cyclic strongly connected component of 147 states and 489 internal edges. Independently computed min-plus powers verify exact entrywise D_16=D_9+6 on all 21,609 entries and diagonal minima (6,8,9,9,10,11,12) at lengths 7..13. Associativity proves recurrence at all n>=9; direct lengths 14/15 handle 7/8. Independent exhaustive neighborhood subset enumeration yields minima/counts n=3..6: (4,9),(4,30),(5,32),(6,110). Consequently finite recurrence is a genuine all-length proof, not finite sampling.
 
-## Closest literature and remaining limits
-The fully accessible Cartesian-product characterization of 2014 is the closest statement-level comparison. The 2021 same-graph locating-total result is a weaker invariant. The 2022–2023 general total-identifying-code paper provides the terminology and general context. The complete historical literature is not known to be exhaustively indexed; this uncertainty is retained. No general minimum-code classification or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Total dominating identifying codes are also called differentiating-total domination; general graph bounds and Cartesian-product characterizations do not supply this exact all-prism 7-periodic formula. Locating-total domination on prisms tests only unselected vertices and is a strictly weaker invariant. No exact equivalent was found in the targeted Resultary results or inspected primary mathematical material.
+
+## value
+
+PASS
+
+Exact 7-periodic minimum on the natural infinite family of prism graphs is a nontrivial graph-invariant evaluation; the 147-state finite certificate coupled with a rigorous min-plus induction gives a reusable method and a value not supplied by short enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
