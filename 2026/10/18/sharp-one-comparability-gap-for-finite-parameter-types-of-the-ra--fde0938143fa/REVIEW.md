@@ -1,11 +1,21 @@
-# Review of the sharp one-comparability type gap
+# Independent mathematical audit
 
-**Correctness (PASS).** The one-point extension condition (lower ideal, upper filter, cross-comparability) is exact. The proof identifies one unique three-member restriction fiber, establishes that an induced non-antichain base also has a one-member fiber, and telescopes the resulting doubling inequality from the two-element chain. Independent counts confirm the expected labeled poset totals and extremizing families. The universal assertion is proved symbolically, not extrapolated from finite enumeration.
+## correctness
 
-**Originality (PASS, best knowledge).** A previously published one-type counting and complexity theorem already establishes the ideal/filter representation and the antichain count. Both are expressly excluded from the novelty claim. Direct inspection of its full proof found no sharp bound conditioned on a comparable pair or the doubling lemma. The 2008 homogeneous-structure source supplies context, while Pretzel (1980) considers a related insertion-position construction but its available abstract centers on order dimension. Broad equivalence searches identified no prior sharp numerical threshold. Risk remains that Pretzel's uninspected full text or an unindexed earlier extremal result could cover some or all of the inequality. Novelty is not independently established.
+PASS
 
-**Value (PASS).** The natural model-theoretic invariant is the number of nonalgebraic finite-parameter orbits of the universal homogeneous poset. The result converts the exact maximum into a quantitative stability theorem: introducing any comparability causes a sharp multiplicative loss; a structural restriction-fiber lemma explains the phenomenon across all finite posets, and different extremal geometries show sharpness beyond a single special construction. It provides a useful boundary for counting problems without claiming that the count is efficient to compute generally.
+PASS: Nonalgebraic complete 1-types over finite induced parameter poset P in the homogeneous random poset correspond bijectively to admissible (lower ideal D, upper filter U) one-point extensions satisfying D<U. For Q=P+v, any restriction fiber has <=3 placements (below/above/incomparable v), and exactly one existing P-profile (D,U)=(L,H) has all three. If P contains a comparable pair there is also a distinct singleton fiber: choose x above all P when v lies below some old point, below all P when v lies above some, or between a<b when v is incomparable to all P. Hence total t(Q)<=2t(P). Start from an induced C2 with t=6, append n-2 arbitrary points to get t(P)<=6*2^(n-2)=3*2^(n-1). Antichain profiles give 2^(n+1)-1. One disjoint chain plus isolated vertices and height-two star/dual attain equality. Independently enumerated every labeled strict partial order through n=5 (1,3,19,219,4231 cases n=1..5), checked all legal profiles and sharpness counts; infinite proof is the restriction-fiber lemma.
 
-**Scope.** Finite induced parameter posets, complete nonalgebraic one-types, standard strict-order language; no extremizer uniqueness assertion. The verification script is corroborative; the induction is the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for the sharp nonantichain extremal count and doubling lemma. The directly related published Resultary finding already proves the ideal/filter representation, algebraic plus nonalgebraic type count, antichain 2^(n+1)-1 and #P-completeness. Its full RESULT.md was independently inspected, including formulas and proof, and it does not state/derive the extremal bound 3*2^(n-1) or fiber doubling lemma. Old insertion-poset literature (Pretzel 1980) was abstract-only and access blocked, retaining possible priority overlap.
+
+## value
+
+PASS
+
+PASS: The sharp extremal stability gap quantifies how a single comparability destroys half the antichain type excess; the doubling law controls arbitrary one-point parameter enlargements, and two structurally different extremal families show sharpness. Type/orbit-count extrema are natural numerical invariants of a canonical homogeneous structure, beyond the already known generic counting complexity result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
