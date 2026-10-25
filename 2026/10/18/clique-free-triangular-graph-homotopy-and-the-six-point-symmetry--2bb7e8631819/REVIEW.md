@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The defining forbidden triples are exactly 60 three-stars and 20 triangles in the six-point complete graph. Complete enumeration gives 1708 augmented faces. The explicit 840-pair acyclic matching leaves one critical 3-cell and 27 critical 4-cells, with a primitive integer attaching-degree vector, implying 26 four-spheres. A separate raw GF(2) boundary calculation agrees. Exact signed fixed-face enumeration over all 720 group elements and Murnaghan–Nakayama character calculations yield the claimed rational Specht summands.
+## correctness
 
-**Originality: PASS subject to explicit residual uncertainty.** The checked published research records closest to the topic treat the four-cut complex of a *five-point* triangular graph, the neighborhood complex of a six-point triangular graph, and distinct Čech and Kneser complexes. None identifies the three-clique-free complex of \(L(K_6)\), its homotopy type or its character. The main clique-free paper provides sufficient shellability conditions in graph classes not covering this nonchordal triangular graph. Higher matching and bounded-degree work treats a different complex that permits triangles. Full primary text of the motivating preprint could not be inspected, and unindexed equivalents remain possible; search absence alone does not certify uniqueness.
+PASS
 
-**Value: PASS.** The exact homotopy classification is for the first sizable triangular-graph instance with fifteen face vertices and both four- and five-dimensional facets. Its character has nontrivial nine- and sixteen-dimensional irreducibles plus a unique invariant class. The explicit integral cancellation and symmetry decomposition provide mathematical data beyond enumerating Betti numbers and are natural input to subsequent investigations of graph clique-free complexes and equivariant phenomena. No general-order extrapolation is asserted.
+The exact CF_3(L(K_6)) forbidden-set definition reduces to 80 three-edge stars/triangles of K_6. From the Git tree, inspected RESULT.md (blob e6cd0f3965e1335e062cd69f044a28f3d9db41c7) and every line of verify.py (blob 9db0d4099f4cf7ca4b4b98165c20ba0945bcebd6). Independently rebuilt all 2^15 masks, obtaining 1708 augmented faces and size counts (1,15,105,375,675,477,60), pivot matching 840 pairs, acyclicity over 1708 face nodes, critical cells (one in dim3 and 27 in dim4), primitive signed 4->3 Morse vector (5 +1, one -1, 21 zero). Forman cancellation therefore gives wedge of 26 S^4, an INTEGRAL homotopy conclusion. Reviewed finite S_6 signed Lefschetz/Young-Specht procedure and fixed-character table; finite exhaustion is for this fixed graph only. No equivariant integral wedge splitting follows.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Search compared the exact forbidden-triangle complex (not a graph cut complex), 6-label S_6 module and natural representation; no identified stronger equivalent coverage. Accessible full primary PDF on clique-free complexes and complete Resultary J(5,2) cut-complex proof do not cover this object, with residual literature uncertainty.
+
+## value
+
+PASS
+
+The triangular graph J(6,2) is a canonical finite symmetric graph. Its non-shellable-looking clique-free homotopy and complete S_6-module are natural exact invariants potentially used as benchmarks and building blocks for the graph-complex family; this is a motivated finite classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
