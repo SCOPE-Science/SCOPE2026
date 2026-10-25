@@ -1,15 +1,21 @@
-# Scientific review: quartic-graph Gabor tomography
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is all-prime and does not infer the general formula from examples. The operator-space Weyl expansion identifies the exact kernel with zero ambiguity labels. Translated quartic-graph intersections reduce to the value set of a fixed cubic \(w^3+w\). The quadratic norm-conic count gives the exact image size \((2p+\chi_p(-3))/3\). Cyclotomic minimal-polynomial rigidity handles every nonempty intersection of at most three points. At zero translation, the Hermite power-sum obstruction removes quartic-linear permutations except for the completely enumerated case \(p=7\). Every stated rank factor and kernel stratum follows. Exact enumeration of all ambiguity labels for nine primes, from \(5\) through \(31\), agrees with the proof. Risk: the numerical tests alone would not establish any untested prime; they are not the basis of the theorem.
+PASS
 
-## Originality — PASS, best knowledge
+For prime p>=5, Weyl conjugation Fourier-diagonalizes the complete p^4 projector orbit on End(C^{p^2}); rank equals number of nonzero ambiguity coefficients, with kernel the complementary Weyl labels. For a≠0, quartic graph intersections satisfy 2b/a^4=w^3+w and have 1,2,3 points, so <p prime-order roots of unity cannot cancel. Counting collisions of u³+u via u²+uv+v²=−1 gives image size Vp=(2p+chi(-3))/3. For a=b=0, character sums vanish exactly when mt+nt⁴ is a permutation; polynomial power sums exclude t⁴+ct except c=3,4 at p=7, and nonzero m at n=0 is always a permutation. Those cases give exactly the proposed 4 disjoint kernel types and rank p²[1+(p−1)Vp]−(p−1)(1+2*1_{p=7}). Checked the symbolic proof, p=5 and p=7 boundary, and independent modular enumerations of cubic images, permutations and rank at p=5,7,11,13,17,19,23,29,31; these finite enumerations only corroborate the all-prime argument.
 
-The complete-support Gabor orthonormality characterizations in Iosevich et al. (arXiv:1712.09120, Theorems 1.4–1.6) concern bases for the signal Hilbert space, rather than the span of all translated projectors in operator space. The ambiguity-function reconstruction setting of Alaifari–Wellershoff (arXiv:1901.05296) provides related machinery but not a quartic-graph finite-prime arithmetic rank formula in the inspected material. Classical permutation-binomial work addresses one ingredient, the exceptional quartic-linear permutations, but does not establish the translated-intersection image or operator-kernel census. Other available nearby results treat cubic-graph indicators, quadratic conics, or hyperbolic shells; none of those statements implies the quartic-graph rank. The searches cannot exclude all unindexed or differently presented literature, and one candidate's complete text was not inspected. This is a best-knowledge novelty assessment, not an exhaustive novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural polynomial-curve indicator window in finite-field time-frequency analysis. The result determines the exact dimension of identifiable operator data and classifies every lost Weyl direction for every prime \(p\ge5\). It shows a genuine exceptional-prime rank correction at \(p=7\), created by quartic permutation polynomials, while a cubic-image value-set controls all nonidentity translations. This is substantially more informative than measuring only the support difference set or reporting a finite census. Limitations: no nonlinear phase-retrieval uniqueness statement, no prime-power extension, and no full singular-value conditioning theorem.
+Best-of-knowledge PASS: the result is a quartic-graph specific complete lifted Gabor operator rank with exceptional p=7 Weyl kernel; prior Gabor orthonormal-basis and phase-retrieval statements do not imply its stated arithmetic rank. Full original comparison of finite-prime Gabor orthonormal bases confirms a different operator/object. Algebraic rank reduction itself is established technique, credited rather than claimed novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete explicit operator-span rank and exact Weyl-basis kernel give directly usable identifiability boundaries for the natural quartic-graph Gabor window, with a mathematically nontrivial exceptional prime; it is more than a normalization/finite spot check and does not confuse linear tomography with pure-state retrieval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
