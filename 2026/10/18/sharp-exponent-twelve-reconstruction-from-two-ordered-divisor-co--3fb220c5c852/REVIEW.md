@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The standard multiplicative ordered-factorization formula yields a twelve-dimensional prime-valuation linear system. The explicitly displayed integer matrix has determinant \(1\), checked with a fully exact independent implementation. Consequently the entire exponent multiplicity vector is recovered for any number of prime factors under the cutoff. Two distinct exponent multisets at the next cutoff both yield \((\tau,d_3)=(126,3780)\), showing optimality. Numerical direct-count checks support the formula but are not used to extend a finite computation to an infinite claim.
+PASS
 
-## Originality: PASS, with residual risk
+By stars-and-bars d_k(n)=prod_e binomial(e+k-1,k-1)^c_e. For exponent bound 12, six prime valuations (2,3,5,7,11,13) of d2 and d3 give a 12-by-12 integer matrix with columns e=1..12. Independently reconstructed all entries from definition and calculated exact det=1 and rank12 via SymPy, forcing equality of multiplicity vectors c_e from equal statistic pairs. Directly verified exponent multisets {2,2,13} and {1,6,8} both yield d2=126,d3=3780, disproving bound13. The bound is independent of number of distinct prime bases; prime identities themselves cannot be recovered.
 
-The complete primary text of the 2026 divisor-function-polynomial paper and the earlier 2020 paper on associated divisor functions was compared with this theorem. Those works establish broad algebraic identities but do not identify the sharp exponent cutoff for two low-order divisor statistics. Targeted searches for the same invariant, the determinant criterion, and its collision did not show prior coverage. A specialized unindexed computation or older result remains possible; a failed search alone does not establish novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The prime-exponent multiset is a natural arithmetic structure underlying all ordered-factorization counts. The theorem shows that only two scalar statistics retain *all* its information up to a sharp, unexpectedly high local exponent cutoff, and pinpoints an exact obstruction at the next exponent. The bound applies uniformly with no restriction on the number of prime factors.
+The stars-and-bars ordered-divisor formulas are classical. Huxley–Lettington–Schmidt addresses associated divisor function polynomials, squarefree factors, sum systems and Dirichlet series, not the exact two-statistic injectivity cutoff with 12x12 unimodular recovery. Qualified originality survives inspected prior implications.
 
-## Closest literature and limitations
+## value
 
-Huxley–Lettington–Schmidt (2026) defines factorization polynomials and proves generating and Dirichlet-series identities. Lettington–Schmidt (2020) studies associated divisor functions and sum systems. Neither inspected paper establishes the present reconstruction threshold. Prime bases are not recoverable, and exponents above \(12\) may collide. Literature completeness and independent audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+How far a pair of natural low-order divisor-count statistics recovers the prime-exponent fingerprint is a meaningful inverse arithmetic question. Exact determinant-unimodularity through exponent12 and a sharp exponent13 collision provide a reusable finite characterization, rather than arbitrary enumerated parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
