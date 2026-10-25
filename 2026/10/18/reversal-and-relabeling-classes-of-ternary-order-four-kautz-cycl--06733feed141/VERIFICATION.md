@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a directory holding the extracted program. The program uses the standard library and has no required external data. It builds all allowed length-four words directly and independently enumerates (1) all 4096 two-way local vertex transition systems and (2) every distinguished-edge-rooted depth-first Euler circuit. It asserts identity of the resulting 384-word sets before computing reflection-fixed and relabeling classes.
+## correctness
 
-The decisive exhaustive output is:
+PASS
 
-`VERIFY_OK q3_order4 cycles_384 reflection_fixed_24 bracelets_204 symbol_orbits_64 unoriented_symbol_orbits_34 achiral_symbol_orbits_4`
+PASS: Maximal ternary order-four Kautz cycles correspond bijectively to Euler circuits in the overlap digraph of 12 proper length-three vertices and 24 proper length-four edges. Anchoring the unique edge 0101 removes rotation. Every complete Euler circuit determines one of 2^12 local binary in/out transition matchings; independently re-enumerated all 4096 systems using source-independent code, retained precisely 384 single-24-edge tours, checked all cyclic windows, and applied exact canonical rotation, reversal and six-symbol-permutation orbit computations: 24 reversal-fixed; 204 bracelets; 64 relabeling classes; 34 with reversal; 4 reflective relabeling classes. The general obstruction uses at most two fixed window positions of a cycle reflection: for odd k>=3 there are at least six proper palindromes of length k, contradiction; for even k>=4 and even q>=4, each of at least four length-(k-1) proper palindromes occurs q-1 odd times, forcing too many fixed positions. The finite census covers only q=3,k=4, while the parity necessity covers all q>=3,k>=3.
 
-The proof in RESULT.md supplies the reduction from the infinite cyclic-word definitions to this finite search and independently proves the all-alphabet parity obstruction. No inference for higher-order census numbers is made from finite examples. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Rosenfeld Theorem 9 already counts 384 rotation classes, correctly credited, but the inspected 2002 text distinguishes enumeration with orientation from reversal class identification. Burris et al. 2016 study an unoriented de Bruijn coverage requirement, not reversal-fixed complete Kautz sequences; orthogonal de Bruijn constructions likewise do not count these group-action orbits. No Resultary exact Kautz orbit census/obstruction was located; residual risk of unindexed bracelet-Kautz enumeration remains.
+
+## value
+
+PASS
+
+PASS: Enumeration of symmetry classes, rather than the already-known total cycle count, is the natural next isomorphism-level question for universal Kautz cycles. The exact chiral/achiral quotient profile and four canonical reflective types give a complete meaningful small-parameter classification, and the general parity obstruction explains structural possibilities beyond the finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

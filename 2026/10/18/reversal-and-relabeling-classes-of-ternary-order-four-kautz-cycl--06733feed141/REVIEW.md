@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The overlap-graph bijection is exact, and any complete edge tour determines one transition matching at each of the twelve vertices. The checker exhausts all 4096 matching systems and independently all anchored edge-use depth-first tours, compares the exact cycle sets, verifies the required window spectrum, and computes the reverse/rotation/relabeling orbit quotients. The parity obstruction separately uses the limited number of reflection-fixed window positions and the odd multiplicity of palindromic shorter windows.
+## correctness
 
-**Originality — PASS against inspected literature, with residual risk.** Rosenfeld (2002, full relevant sections) already proves the total 384, which is not a novelty claim, and explicitly distinguishes his orientation-sensitive count from identification under reversal. Lin et al. (2011, accessible full text) study orthogonality, not the present symmetry census. Burris et al. (2016, full 13-page text) study a different unoriented *coverage* objective, not fixed classes under reversal of full Kautz cycles. No matching published-finding corpus record was located with source, parameter, synonym, or exact-number searches; however, negative search alone does not prove novelty and an unindexed enumeration remains possible.
+PASS
 
-**Value — PASS.** The four exact reflective symmetry types and the full quotient profile distinguish chiral from achiral universal cyclic sequences, the most natural isomorphism refinement of the established Kautz enumeration. The general parity obstruction explains when that structural distinction can exist, while complete finite certificates make the first nontrivial ternary case unambiguous.
+PASS: Maximal ternary order-four Kautz cycles correspond bijectively to Euler circuits in the overlap digraph of 12 proper length-three vertices and 24 proper length-four edges. Anchoring the unique edge 0101 removes rotation. Every complete Euler circuit determines one of 2^12 local binary in/out transition matchings; independently re-enumerated all 4096 systems using source-independent code, retained precisely 384 single-24-edge tours, checked all cyclic windows, and applied exact canonical rotation, reversal and six-symbol-permutation orbit computations: 24 reversal-fixed; 204 bracelets; 64 relabeling classes; 34 with reversal; 4 reflective relabeling classes. The general obstruction uses at most two fixed window positions of a cycle reflection: for odd k>=3 there are at least six proper palindromes of length k, contradiction; for even k>=4 and even q>=4, each of at least four length-(k-1) proper palindromes occurs q-1 odd times, forcing too many fixed positions. The finite census covers only q=3,k=4, while the parity necessity covers all q>=3,k>=3.
 
-**Scope and risks.** The exact class census concerns only ternary order four. The infinite obstruction is only necessary. Similar work might exist under bracelet or graph-embedding terminology; external independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Rosenfeld Theorem 9 already counts 384 rotation classes, correctly credited, but the inspected 2002 text distinguishes enumeration with orientation from reversal class identification. Burris et al. 2016 study an unoriented de Bruijn coverage requirement, not reversal-fixed complete Kautz sequences; orthogonal de Bruijn constructions likewise do not count these group-action orbits. No Resultary exact Kautz orbit census/obstruction was located; residual risk of unindexed bracelet-Kautz enumeration remains.
+
+## value
+
+PASS
+
+PASS: Enumeration of symmetry classes, rather than the already-known total cycle count, is the natural next isomorphism-level question for universal Kautz cycles. The exact chiral/achiral quotient profile and four canonical reflective types give a complete meaningful small-parameter classification, and the general parity obstruction explains structural possibilities beyond the finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
