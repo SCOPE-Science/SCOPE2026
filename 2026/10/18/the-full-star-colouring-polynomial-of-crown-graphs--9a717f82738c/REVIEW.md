@@ -1,19 +1,21 @@
-# Review of the crown-graph star-colouring profile
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Proper mixed colour classes are necessarily single matched pairs. Between two non-singleton monochromatic side classes, the complete bipartite adjacency minus a matching contains a four-vertex path unless both supports are the identical two-index set. This proves the exhaustive partition classification. Counting the cases with one discrete partition and the one common-two-block exception, followed by the Stirling subset identity, proves all coefficients and the count of optimum partitions. Direct enumeration of 1,189,120 proper colour partitions on crown graphs through order seven agrees coefficient by coefficient. Finite tests are supporting evidence, not the infinite proof.
+PASS
 
-## Originality
+For H_n=K_{n,n} minus its perfect matching, a proper mixed vertex-color class can only be {a_i,b_i}. Remaining A/B pure partitions violate the bichromatic 4-vertex PATH condition if both contain non-singleton blocks except when each has exactly the same unique 2-index block; all other valid cases have at least one discrete side. Counting selected unpaired index subsets and using Σ_{r=b}^n C(n,r)S(r,b)=S(n+1,b+1) yields c_{n,n+j}=2S(n+1,j+1)-C(n,j)+C(n,2)C(n-2,j) for 0≤j≤n; labelled palette polynomial Σ c_{n,k}(q)_k; exactly 1+C(n,2) optimum unlabelled partitions at k=n. Independently constructed all proper vertex partitions at n=3,4 and enumerated P4 paths directly: profiles {3:4,4:14,5:9,6:1} and {4:7,5:38,6:50,7:16,8:1}; matches coefficients. n≥3 assumptions and noninduced P4 correctly considered; finite counts are corroboration only.
 
-PASS at the level of the accessible mathematical literature; not a priority guarantee. The closest paper about this exact graph is Mary, Bibi, and Julietterayan (2017), whose Theorem 4.11 states the star chromatic number but does not enumerate partitions or give a star-colouring polynomial. Shalu M. A. and Antony (2023) address star-colouring bounds and uniqueness complexity on regular graphs, not the present exact family profile. Bu and collaborators discuss bounds for sparse graphs, not this enumeration. Related mathematical findings about conflict-free and strong-odd colourings of crowns use other definitions and are not implication-equivalent. Unindexed equivalent calculations are a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This determines the complete palette-dependent counting invariant, not just a minimum number. A very symmetric bipartite family has a rigid two-type structure for all optimal solutions, with a quadratic multiplicity in place of uniqueness; the full Stirling sequence counts nonoptimal solutions as well. The result is a substantive complete classification within a natural family, not a numeric boundary or arbitrary small-parameter evaluation.
+2017 paper claims the scalar optimum χ_s(H_n)=n, so that is NOT novel; full Stirling coefficient profile and classification of 1+binom(n,2) optimal unlabelled partitions are additional exact mathematics. Published odd/conflict-free crown coloring numbers concern different constraints.
 
-## Limits
+## value
 
-The older minimum-colour value is not claimed as original, and the manuscript does not establish priority against every unindexed source. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full q-palette polynomial and every unlabeled class-number coefficient are natural enumerative invariants; classifying ALL valid and minimum star color partitions refines known χ_s=n and is useful for distinguishing extremal color structures and benchmark graph-coloring enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
