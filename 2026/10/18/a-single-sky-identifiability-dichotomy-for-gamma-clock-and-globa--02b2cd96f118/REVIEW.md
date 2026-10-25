@@ -1,19 +1,21 @@
-# Scientific review: A single-sky identifiability dichotomy for gamma-clock and global-clock grey spherical fields
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assumptions fix a positive spectral shape and known gamma-process parameters. Conditional on the shared positive clock, normalized squared harmonic coefficients factor into independent gamma variables and independent normalized chi-square factors, with exact degree-dependent first-fourth moments. Kolmogorov's strong law recovers the gamma shape and scale from first and second energy averages. The gamma iid bivariate central limit theorem survives chi-square perturbations because the perturbation sums have mean and variance of order at most the harmonic sum of inverse degrees. An explicit delta-method Jacobian gives the displayed conditional covariance matrix; 780 supporting finite rational identities were replayed from the standalone checker. For the global-clock field, the entire coefficient observation and one scaled mixing variable are mutually recoverable by parameter-free kernels. Positive densities give equivalent laws at distinct amplitudes, whereas the gamma-clock consistent amplitude estimator gives singular laws. The test based on energy dispersion has a conditional error bound of order \((\log L)L^{-3/4}\) in the global case. No finite test is represented as proof of an infinite limit.
+PASS
 
-## Originality — PASS, with stated priority limits
+Conditional on T=t, the normalized multipole energies are theta times independent Gamma(at, rate b) variables times independent normalized chi-square factors. Their exact first-fourth moments and bounded degree-dependent chi-square errors yield the strong-law limits for M1, M2 and D; the method-of-moments estimators then recover t and theta. The bivariate iid Gamma CLT for the leading terms, the O(log L) accumulated chi-square perturbations and the delta method give the displayed covariance. In the global model S_l=W R_l with R_l->1 a.s., so W is recoverable and the entire array is generated from W by a parameter-free kernel. Positive densities make scaled W laws equivalent, whereas consistent gamma-model estimators give singularity. The dispersion test follows from D_L->positive in the gamma model and an O(log L/L) expectation bound in the global model. The 780 finite rational identities check algebra only; the asymptotic and measure arguments are analytic.
 
-The relevant primary manuscript, Beghin–Leonenko–Marinucci (arXiv:2610.11806v1, §§3–8, Appendices A–B), gives the exact two field constructions, gamma moments and marginal coefficient asymptotics but not an equivalence-versus-singularity theorem for amplitude laws, consistent joint single-sky estimation of amplitude and realized clock, or the stated conditional estimator covariance. Marinucci–Peccati (arXiv:0911.2502, §§1–2) treats single-multipole high-frequency ergodicity and Gaussian subordinations, rather than this multi-degree shared-clock estimation problem. Papadatos (arXiv:2205.10799, §2) studies ordinary iid gamma samples; standard gamma method-of-moments algebra is not offered as original. Published-result searches revealed no covering result. There remains a risk of older general statistical-experiment or random-effects theory providing a short abstract derivation; no claim of universal literature exhaustiveness or independent priority certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper that introduces the underlying spherical models distinguishes independent-subordinator and global-variance fields but does not determine what is recoverable from one realization. The theorem provides a sharp information-theoretic distinction between two **covariance-identical** non-Gaussian models: mutual singularity versus equivalence of infinite-resolution parameter laws, including a constructive estimator and its conditional uncertainty law. Such a distinction is directly relevant to interpreting single-realization angular spectra and cosmic variance. The result is not merely a reparameterized gamma estimator: proving that the harmonic chi-square layer is negligible at root-degree scale and identifying the irreducible global-clock information obstruction are essential.
+The accessible older spherical-field and Gamma-estimation literature does not cover the paired experiment. The newly posted grey-field paper is a plausible direct source for the field constructions and high-frequency moments; its abstract was read but the full text could not be accessed after arXiv HTML/PDF attempts and an Oxford retrieval error. No explicit abstract evidence establishes coverage of the joint estimator, conditional covariance, or law-equivalence dichotomy; this is a best-of-knowledge PASS with a material residual risk.
 
-## Closest literature and scope
+## value
 
-The most directly comparable sources are arXiv:2610.11806v1, arXiv:0911.2502, and arXiv:2205.10799. No finite-resolution minimax optimality or efficiency is asserted. Spectral shape, gamma process parameters and full noiseless harmonic observations are assumed known; latent-clock density positivity is required in the global obstruction. The central limit is conditional on the clock, not a deterministic normal approximation uniformly over near-zero clock values.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two models have identical second-order covariance but radically different information from one complete realization: the gamma-clock family identifies both amplitude and realized clock and yields an explicit conditional uncertainty law, while the global-clock family cannot consistently distinguish distinct amplitudes at infinite resolution. This is a motivated information-theoretic distinction relevant to single-sky inference, not merely the classical Gamma method-of-moments formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
