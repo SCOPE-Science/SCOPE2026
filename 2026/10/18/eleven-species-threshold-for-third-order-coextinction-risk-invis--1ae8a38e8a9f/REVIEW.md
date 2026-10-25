@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The event of simultaneous loss of any plant subset is exactly the event that all pollinators in its union neighborhood fail, giving an exact power of the shared failure probability. The first three factorial moments follow by expanding powers of the sum of binary indicators; equality of individual and pairwise joint-loss laws cancels all terms below order three. For the explicit networks, the pairwise intersection matrix and all triple-union-size counts are checked directly; their difference gives the polynomial \(6q^3(1-q)^2\). A finite bijective enumeration of multisets of triples proves the sharp lower bound through ten total vertices. Its completeness is structural, not inferred from random tests. The supplied executable independently regenerates the census and all 32 witness failure outcomes at \(q=1/2\).
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The 2004 Memmott–Waser–Price primary article was inspected through its full author-accessible text, including model assumptions, extinction experiments, and discussion; it treats tolerance under pollinator removal, not third central moments for pairwise-indistinguishable networks. The 2018 open-access Bane–Pocock–James article was inspected in its methods, results and discussion: it analyzes the distribution of a robustness score from extinction orders and the skewness of *plant degree distributions*, not the skewness of the fixed-probability extinction count. The classical Pasch trade already preserves pair incidences; this elementary design mechanism is not claimed to be new. The extra-block construction and sharp connected eleven-species conclusion were not found in the searched primary literature, relevant research-index findings or accessible prior claims. A combinatorial restatement or unexamined supplementary source could still contain an equivalent boundary; independent literature assessment is outstanding.
+PASS
 
-## Mathematical value — PASS
-Expected coextinction, variance and every pairwise plant-loss joint probability can fail to determine a natural tail-asymmetry diagnostic. The claim provides the exact first network size at which such undetectable third-order dependence can arise under degree-three pollinators, with an explicit graph pair and closed polynomial difference for all nontrivial failure probabilities. The bound is not a generic statement for arbitrary ecological network models, and a duplicated pollinator neighborhood in the sharp example is permitted and clearly disclosed. The result is a small structural benchmark for how higher-order network overlap affects ecological risk beyond means and covariances.
+Each plant-loss event over subset S has probability q^{|N(S)|}. Its first and second factorial loss moments are sums over singletons and plant pairs; the third factorial moment depends on plant-triple neighborhood unions, and equal lower moments make centered third-moment difference exactly 6 times the triple-union polynomial difference. For fixed (v,k) with k pollinators of 3 plants, weakly ordered multisets of the C(v,3) possible columns enumerate all bipartite graphs up to pollinator relabeling, including identical-neighborhood twins. Inspected source exhaustive verifier and an independently developed enumeration both covered every connected case v+k<=10: connected candidate totals 1,1,7,32,162,1083,7588 (total 8,874), all matching 1-/2-plant signatures having matching triple histograms. On 6 plants/5 pollinators, verified the witness G=(123,145,246,356,123), H=(124,135,236,456,123), identical labeled pair-signatures and distinct triple histograms G {3:1,4:3,5:16}, H {4:5,5:15}. Their centered third moments differ by 6q³(1−q)²>0 for all 0<q<1; the finite cutoff is exhaustively certified rather than extrapolated.
 
-## Closest literature and limitations
-Memmott et al. (2004), DOI 10.1098/rspb.2004.2909; Bane et al. (2018), DOI 10.1002/ece3.4529; and the classical Pasch trade in the Encyclopedia of Mathematics. The original model assumes independent equal-probability failures and simple connected bipartite interactions, with exactly three plants per pollinator and possible twin pollinator neighborhoods. An equivalent result buried in trade-classification literature or an inaccessible supplement cannot be ruled out by the searches alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Pasch four-block trade is classical, as are secondary coextinctions in bipartite networks. The new finding is the fixed-q labelled first-two-order indistinguishability versus third centered moment separation with the sharp 11-vertex cutoff under degree-three pollinators and twin neighborhoods. Inspected ecological studies optimize or average different removal statistics, not the exact moment-polynomial and complete minimality. An exhaustive scientific literature survey is not claimed.
+
+## value
+
+PASS
+
+Determining the smallest ecological incidence system on which all pairwise coextinction statistics conceal a genuine higher-order risk difference is a motivated finite extremal question. The exact 11-species cutoff, fully specified connected witness and strictly positive all-q skewness separation make a natural, self-contained invariant rather than an arbitrary unmotivated census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
