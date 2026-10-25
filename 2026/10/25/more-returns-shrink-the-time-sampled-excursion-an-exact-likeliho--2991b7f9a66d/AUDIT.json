@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact enumeration conditioned on returns uses known Catalan weights. Lagrange inversion gives Z(n,k) and size-biased q(n,k,l); a fractional-linear adjacent-count ratio is nonincreasing with excursion length with strict distinctness at support endpoint. Independent Bernoulli signs give conditional variance A=n/4 E[L*]. Large-density limit follows from consecutive-mass recurrence and a uniform geometric bound for rho in (0,1). The actual standalone script verified 43,394 exact assertions including independently enumerated balanced walks up to 18 steps. These finite checks do not establish infinite results.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Serlet 2014 Theorem 2 covers the few-zero regime k=o(sqrt(n)); it does not supply finite all-k likelihood-ratio comparisons or the positive-linear-density variance constant.",
+        "Janson 2012 Probability Surveys DOI 10.1214/11-PS188 treats general random allocations; its complete 150-page full text was not inspected and remains a risk."
+      ],
+      "reasoning": "Broad allocation limit theorems may cover the linear-density marginal limit; they do not by themselves state the exact finite cross-return likelihood-ratio order. A general previously published order theorem could be a stronger implication; this is a residual priority risk.",
+      "searches": [
+        "random walk bridge conditional number of returns size-biased excursion semilength exact likelihood-ratio ordering strict decreasing occupation variance",
+        "random walk bridge excursions positive semiduration conditional return count all moments stochastic monotonicity",
+        "conditioned Galton Watson forest number trees size biased tree size monotone",
+        "random compositions weighted Catalan component size likelihood ratio conditioned number components"
+      ]
+    },
+    "checked_sources": [
+      "Csáki and Hu 2003, doi:10.46298/dmtcs.3337",
+      "Lindell and Holst 2007, doi:10.1239/jap/1197908824",
+      "Serlet 2014, doi:10.1007/978-3-319-11970-0_19",
+      "Janson 2012, doi:10.1214/11-PS188 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Serlet 2014 §2 equations (5)–(8) already imply the entire conditional length vector density; using it is openly acknowledged.",
+        "Serlet 2014 Theorem 2 asserts a signed excursion scaling limit for few zeros, not any finite monotone ordering.",
+        "Csáki–Hu (2003) §2–§3 concern ranked excursion lengths/heights, and Lindell–Holst (2007) §§2–3 concern longest lengths / generating functions, not comparison across prescribed return counts."
+      ],
+      "reasoning": "The core claim is not the joint PMF, which is covered, but the finite likelihood-ratio hierarchy and strict occupation-variance decrease. These are mathematically consequences of the old exact enumeration PLUS an additional nontrivial comparison of adjacent normalizers; no directly covering stronger inequality was found in inspected primary texts. General-allocation subsumption is the main outstanding caveat.",
+      "searches": [
+        "random walk bridge conditional number of returns size-biased excursion semilength exact likelihood-ratio ordering strict decreasing occupation variance",
+        "random walk bridge excursions positive semiduration conditional return count all moments stochastic monotonicity",
+        "Invariance Principle for the Random Walk Conditioned to Have Few Zeros Serlet 2014",
+        "Lengths and heights of random walk excursions Csaki Hu 2003",
+        "Distributions longest excursions tied down Lindell Holst 2007"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Serlet 2014 equations (5)–(8), full public PDF, give exact conditional Catalan-product law; q_{n,k} is its size-biased marginal.",
+        "The strictly monotone cross-count ratio is Z(m,k)/Z(m,k-1)=(k/(k-1))(m-k+1)/(2m-k), a distinct order assertion.",
+        "The separately compared published binary-runs-transition result concerns fixed-composition word transitions, not excursion semilength distributions."
+      ],
+      "reasoning": "Known first-return compositions and conditioned forests are equivalent descriptions, but the paper with the exact joint distribution does not explicitly give the comparison order; deriving its truth requires a second conditional family and ratio monotonicity. Classical formulas alone are not presented as novel.",
+      "searches": [
+        "random walk bridge conditional number of returns size-biased excursion semilength exact likelihood-ratio ordering strict decreasing occupation variance",
+        "random walk bridge excursion size biased semilength total returns likelihood ratio ordering",
+        "Catalan renewal composition conditioned number k blocks size biased part length likelihood ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact coefficients Z(m,j) are classical Lagrange/Catalan numbers and are acknowledged; no table establishing likelihood-ratio monotonicity was found.",
+        "A separately compared Dyck-bridge component-length spectrum concerns geometric fibers in a dynamical system, not conditioned simple-walk excursion durations."
+      ],
+      "reasoning": "No new sequence values are claimed; the contribution is a universally quantified comparison between whole probability laws, so an unchanged Catalan coefficient table is not a covering result by itself.",
+      "searches": [
+        "Catalan excursion return count conditional length distribution table",
+        "Chung Feller sojourn number conditioned on zero crossings random walk bridge",
+        "Catalan excursion random walk bridge conditioned number returns size biased excursion length likelihood ratio variance of positive occupation time"
+      ]
+    },
+    "rationale": "The new result is a comparative likelihood-ratio ordering across EVERY prescribed return count and its strict occupation-variance consequence, rather than the already classical Catalan product law. Serlet (2014), §2 eqs.(5)–(8), explicitly contains that underlying joint enumeration; the present ratio-of-normalizers comparison (and its strong single-crossing consequence) is not among the results inspected there. Csáki–Hu and Lindell–Holst focus on ranked lengths/heights; no exact ordering was located. Further published comparison results on walk ranges, renewal models and fixed-composition runs did not state the same conditioned length ordering. Originality remains provisional to generalized renewal-allocation inequalities.",
+    "residual_risks": [
+      "A general renewal-composition stochastic-order result might imply the exact finite Catalan case.",
+      "Serlet 2014 provides the exact conditional joint law, so the new comparison is mathematically derivable from previously known enumerative input; priority pertains to the cross-count inequality, not the PMF.",
+      "The Janson 2012 allocation survey was not fully inspected due PDF fetch timeout; its general limit results may cover the linear-density asymptotic.",
+      "External/independent priority and proof review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies ranked excursion lengths/heights; no comparison of size-biased excursion laws conditional on different exact zero counts identified",
+        "evidence": [
+          "Section 2 Theorem 2.1 and discussion of ranked M; section on L_j recurrence; section 3 limiting laws."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3337/download",
+        "material_read": "PDF sections 1–3, definitions, Theorems 2.1–2.2, ranked-excursion length recurrences and theorem, plus reference context",
+        "method": "Open-access full-text extraction with targeted page and phrase review",
+        "title": "Lengths and heights of random walk excursions",
+        "trigger": "Direct random-walk excursion length and local-time source, earliest verified public date 2002-12-31 in journal metadata"
+      },
+      {
+        "assessment": "Provides first-return generating functions and rankings, not the order across fixed excursion counts",
+        "evidence": [
+          "§2 Proposition 2.1, §3.1 Proposition 3.1 and §§3.2–3.3 focus on longest ranked excursions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+        "material_read": "Accessible complete 12-page PDF text with attention to abstract, §§2–3 and Proposition 3.1, targeted search for conditional monotonicity",
+        "method": "Lawful Cambridge full-text review, targeted equations and keyword searches",
+        "title": "Distributions of the longest excursions in a tied down simple random walk and in a Brownian bridge",
+        "trigger": "Same bridge and excursion lengths, potentially a covering generating-function treatment"
+      },
+      {
+        "assessment": "Exact joint Catalan-product enumeration is COVERING for the formula groundwork; it does not assert the new all-k size-biased likelihood-ratio ordering or strict variance hierarchy",
+        "evidence": [
+          "Theorem 2: signed excursion limit when k=o(sqrt(n)); §2 equations (5)–(8): complete conditional excursion-length product weights."
+        ],
+        "identifier_or_url": "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+        "material_read": "Full 12-page accessible preprint; introduction, Theorem 2, §§2–3, especially equations (5)–(8), and document searches for variance/occupation/monotonicity",
+        "method": "Full-text inspection, on-page rendered verification of displayed enumeration and targeted term checks",
+        "title": "Invariance principle for the random walk conditioned to have few zeros",
+        "trigger": "Direct match to conditioning on a precise excursion count"
+      },
+      {
+        "assessment": "No document-wide NOT_COVERING conclusion; generalized monotone comparisons and density limits remain a specifically identified novelty risk",
+        "evidence": [
+          "2012 Probability Surveys broad overview of simply generated trees and random allocations; PDF retrieval timed out."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/11-PS188",
+        "material_read": "Title, abstract and bibliographic scope; full PDF retrieval timed out",
+        "method": "Public bibliographic/abstract access and bounded PDF attempt",
+        "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+        "trigger": "Possible stronger generalized random-allocation theorem subsuming density asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2991b7f9-a66d-472c-9344-84e90ea03d0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prescribing the number of return excursions is a standard natural conditioning of bridges and tree/forest encodings. The new likelihood-ratio comparison orders the whole time-biased component-size law, gives strict monotonicity for every power sum of degree r>1, sharp variance endpoints n²/4 to n/4 for signed semiduration, and an explicit extensive-return asymptotic. This is not a mere isolated probability-table value; it exhibits a structural concentration law with the return count as a control parameter.",
+    "status": "PASS"
+  }
+}
