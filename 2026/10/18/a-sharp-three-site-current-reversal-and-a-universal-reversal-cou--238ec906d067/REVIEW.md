@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full claim is proved using the zero-mass row subspace, the inverse of each irreducible reversible generator on that subspace, and the stationary environment-marginal constraint. The decisive nonsingularity proof uses uniqueness of the stationary distribution of the irreducible joint chain. The numerator-degree bound follows from an adjugate of dimension \(n-1\), not numerical root counting. The three-site landscape has exact detailed-balance weights and an independently solved six-state stationary flux \(\kappa(5\kappa-2)/[2(469\kappa^2+1236\kappa+792)]\). The local checker passed 187 exact assertions. The zero-current exceptional case, strict positivity of rates, and \(n\ge3\) boundary are explicit.
+PASS
 
-## Originality — PASS within inspected literature, with residual risks
+Two irreducible individually reversible n-site nearest-neighbor row generators Q0,Q1 have stationary π0,π1 and invertible restrictions on V={row vectors v:v1=0}, dim n−1. Homogeneous symmetric switching at κ>0 forces each environment marginal 1/2. For r_e=2p_e and d=r0−r1, solving r0Q0=κd, r1Q1=−κd gives d(I_V−κ(R0+R1))=π0−π1, with R_e the inverse of Q_e on V. If the operator were singular for κ>0, one would construct a nonzero signed stationary vector of total zero mass for the irreducible 2n-state joint generator, contradicting uniqueness of its normalized stationary distribution. Hence D(κ)=det(I_V−κM)>0 for κ≥0 by D(0)=1. Detailed balance annihilates π_e f_e on each edge and the current is J=(κ/2)(π0−π1)(I−κM)^−1(R0 f0−R1 f1), with numerator adjugate degree≤dim V−1=n−2. A nonzero polynomial numerator has ≤n−2 positive zeros counted with multiplicity. For n=3, positive weights w0=(2,3,1),w1=(1,1,2) and conductances c0=(1,2,3),c1=(1,1,1) enforce detailed balance. Independently solving the 6×6 exact rational stationary generator yielded J(κ)=κ(5κ−2)/[2(469κ²+1236κ+792)] and unique positive zero at κ=2/5 with sign reversal, proving sharpness at n=3. Source VERIFY.py was materially inspected; its 187 logged checks alone do not establish all n. Edge-current normalization as unwrapped velocity/n and zero-current exceptional case were checked.
 
-The 2003 three-state ratchet uses a single discrete-time landscape and external noise; its null curve does not assert the universal switching-rate root bound for a pair of individually reversible continuous-time landscapes. Zhang's 2010 two-state molecular-motor hopping model gives genuinely broader stationary-current formulas and is acknowledged as such. Its inspected equations do not state or resolve a rate-zero degree bound under individual detailed balance, nor the exact three-site sign-changing witness. Levien–Bressloff's 2015 fast-switching continuum reduction concerns a different approximation regime. Relevant research-record queries found no implication-equivalent theorem; they do not prove uniqueness. A hidden algebraic specialization of older general formulas or differently indexed current-reversal work remains a substantive residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The root-count theorem gives a cycle-size-dependent algebraic limit on how often switching frequency can reverse transport, under a physically natural detailed-balance assumption that forces each uncoupled environment to carry no current. The exact minimal three-site witness shows a positive switching rate can reverse an emergent nonequilibrium current and that the bound is nonvacuous and sharp at the smallest allowed size. This supplies a meaningful structural constraint beyond merely evaluating a finite-state stationary distribution.
+Best-of-knowledge PASS with bounded prior-coverage risk. Zhang 2010/2011 supplies general stationary motor velocities for two-state hopping, and the published 2003 minimal ratchet exhibits current nulls in a different switching scheme. These are prior current-computation frameworks and should not be claimed anew. The audited contributions are the all-cycle rate-polynomial zero bound under individually reversible uniform two-state switching and an explicit reversible 3-site rate-induced current reversal at κ=2/5. The prior general formula may admit specialization, but the inspected primary statements do not articulate the degree-sharp n−2 root obstruction or this exact witness; that requires additional zero-sum reduction and sign analysis.
 
-## Closest literature and limitations
+## value
 
-Lee et al., *Physical Review Letters* **91**, 220601 (2003); Zhang, arXiv:1007.1745 (2010); Levien and Bressloff, *Physical Review E* **92**, 042129 (2015). No independent audit or exhaustive literature review has been performed. The theorem excludes asymmetric or position-dependent switching, nonreversible individual landscapes, and multi-environment systems; sharpness beyond three sites is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A rate-tuned reversal in a motor that is reversible within each landscape is a qualitative nonequilibrium transport phenomenon. The n−2 universal upper bound constrains the number of direction switches independent of rate magnitudes, while the exact smallest-ring saturator proves reversals occur despite microscopic detailed balance. Together they are useful structural facts for flashing-ratchet design and Markov transport rather than a routine finite matrix determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
