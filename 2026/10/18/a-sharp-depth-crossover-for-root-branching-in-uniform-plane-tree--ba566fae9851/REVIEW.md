@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance follows from rooted-plane-tree decomposition and formal Lagrange inversion: \(T=z/(1-T)\), \(A_h=T(T/(1-T))^h\), and the independently root-degree-marked identity \(B_h=A_h+2A_{h+1}\). Explicit coefficient evaluation produces the sign factor \(n+1-h-2h^2\); a log-product expansion gives the limit at depths of order \(\sqrt n\). Edge cases include \(n=2\), the highest possible depth \(h=n-1\), and the deterministic depth-zero population. Direct exhaustive rational-arithmetic checks over 82,499 trees and 45,024 assertions supplement, but do not substitute for, the symbolic proof.
+PASS
 
-## Originality — PASS, qualified by residual priority risk
+Reconstructed plane-tree decomposition T=z/(1-T), level-marking A_h=T(T/(1-T))^h and root-degree mixed mark B_h=A_h+2A_{h+1}. Lagrange inversion yields a_{n,h}=(2h+1)/(n+h)*binom(2n-2,n-h-1). The ratio a_{n,h+1}/a_{n,h} reduces to the sign polynomial n+1-h-2h^2 with all other factors positive. Top-level a_{n,n}=0, n=2 zero/negative boundary and h=0 deterministic treated separately. Telescoping central-binomial quotient for h~t sqrt(n) gives e^{-t²} and the claimed limit. Independently enumerated all 625 plane trees of n=2..8 and checked each depth against the rational formula; this finite check does not prove the all-n theorem.
 
-The full-text 2011 Janson survey supplies conditioned Galton–Watson/plane-tree models and root-degree marginal laws. The 2003 Janson paper establishes mixed path-length/Wiener moments, not root-degree versus every generation. The full later distance-profile article includes root-degree-conditioned forests and limiting profiles but does not explicitly provide this exact finite mixed-moment identity or its depth-dependent sign classification. Searches covered aliases for profile, generation size, level width, root offspring, degree–profile covariance, and the exact polynomial. None of the consulted statements implies the displayed finite covariance without an additional calculation. Earlier general generating-function technology may nonetheless encode this result; independent historical-priority determination remains open.
+## originality
 
-## Value — PASS
+PASS
 
-Root offspring and depth-profile widths are natural complementary statistics of a random tree. A complete finite-size sign theorem, with isolated exact zeros and a continuum crossover at \(t=1/\sqrt2\), resolves a coherent structural dependence question rather than an arbitrary statistic: extra first-generation branching raises shallow population but has the opposite association with deep population under total-size conditioning. This sharp dependence reversal is not determined by separately known root-degree and profile marginals.
+The exact distinguished-root degree versus full-generation covariance, all finite-n sign boundary and square-root crossover were not identified in Janson's full tree-survey sections on marginal root degree and widths, nor in the distinct Wiener/internal path length theory. The compared root-degree/leaf covariance findings concern uniform recursive trees, not equiprobable Catalan plane trees. General multivariate tree generating functions could implicitly encode this mixed moment; publication-priority judgment is best-of-knowledge.
 
-## Closest literature and scientific limitations
+## value
 
-Sources: S. Janson, arXiv:1112.0510; S. Janson, DOI:10.1002/rsa.10074; *The distance profile of rooted and unrooted simply generated trees* (Cambridge full-text HTML); S. Wagner, DOI:10.1017/S0963548314000443 (abstract). The fourth reference was not inspected as full text; broad earlier frameworks may yield the formula as an unstated special computation. The asymptotic limit is only pointwise in depth scale, not a uniform quantitative bound. No independent scientific review is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated second-order statistic linking two natural local/global features of uniform Catalan trees, with a genuinely sharp finite-n depth sign transition and scaling-limit crossover; not a parameter substitution or arbitrary finite tabulation. This exact covariance can inform conditioned tree profile analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
