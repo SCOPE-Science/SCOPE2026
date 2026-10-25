@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:44:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. If q divides b+1 then b=-1 mod q, giving zero residue for even palindromes, and odd L=2k+1 digit linear form 2 sum_{j<k} (-1)^j d_j +(-1)^k d_k. For Fourier character h=0 the sum is (b-1)b^k. For q even, character h=q/2 has only the center parity phase and gives (b-1)b^(k-1). Each remaining z with z^2 !=1 gives the exact independent-digit product (-1)^(k+1)(z+z^-1), and inversion recovers the printed all-residue law. The residue correction B_q(r) is 0 for q2, either 1-2/q or -2/q for odd q>=3, or 0,1-4/q,-4/q for even q>=4, strictly inside (-1,1). Leading-digit restriction and L=1 addressed separately. Independently enumerated 630 complete exact (b,q,L,r) residue profiles for b=2..12, all q|b+1 and L=1..5; formulas and strict error bound match. Finite tests are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in Col explicitly imposes gcd(q,b^3-b)=1, excluding every divisor q>1 of b+1.",
+          "The 2024 primary article treats b≡0 or 1 mod q regimes, not general b≡-1 mod q for q>2."
+        ],
+        "reasoning": "Broad distribution estimates do not dominate the exact exceptional modulus family. Known q=2 overlap and classical even-palindrome divisibility are credited.",
+        "searches": [
+          "Banks--Hart--Sakata arXiv:math/0405056",
+          "Col 2009, Theorems 1-2 and Lemma 22",
+          "Onphaeng et al. 2024, Theorems 7 onward",
+          "Resultary semantic search: palindromes base b modulus dividing b+1 exact fixed odd length residue distribution Fourier"
+        ]
+      },
+      "checked_sources": [
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/83451",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+        "https://arxiv.org/abs/math/0405056"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Col Theorem 1 coprimality explicitly rules out q|b+1, while Lemma 22 uses a different summation over squarefree moduli and a=0.",
+          "The 2024 formulas have base congruent 0 or 1; for q>2 cannot imply base -1 through a direct equality of parameter regimes."
+        ],
+        "reasoning": "The exact nonexceptional Fourier frequency product and exceptional parity frequency derive a new law not implied by those stated theorems. q=2 is overlapping special case and not separately asserted new.",
+        "searches": [
+          "https://www.impan.pl/shop/en/publication/transaction/download/product/83451, pp.3,30-32",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+          "Resultary semantic search: palindromes base b modulus dividing b+1 exact fixed odd length residue distribution Fourier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-length exact counts for q|b+1 are a specific resonant character-spectrum identity, not uniform asymptotics for gcd(q,b(b²−1))=1.",
+          "Col Lemma 22 treats certain exceptional factors g+1 in averaged sieve/zero-residue settings."
+        ],
+        "reasoning": "The exact q-dependent parity-biased all-residue odd-length identity is stronger than a zero-residue sieve average; some Fourier recurrences could imply it implicitly, and that risk is retained.",
+        "searches": [
+          "Resultary semantic search: palindromes base b modulus dividing b+1 exact fixed odd length residue distribution Fourier",
+          "Col (2009), Palindromes dans les progressions arithmétiques, Lemma 22",
+          "Onphaeng et al. (2024), JIS 24.4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected primary formulas concern other base-modulus congruence classes or averaged sieve-zero counts; none of those inspected table/formula passages explicitly supplies the all-r unit-discrepancy odd-length law."
+        ],
+        "reasoning": "This is an infinite two-parameter closed formula rather than a lookup sequence table. Some classical digit-sum identities may yield same formula without its stated presentation, so not every possible database is ruled out.",
+        "searches": [
+          "Onphaeng et al. 2024 JIS 27 Article 24.4.8",
+          "Col 2009, Section 5.5 Lemma 22",
+          "Resultary semantic search: palindromes base b modulus dividing b+1 exact fixed odd length residue distribution Fourier"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS on the exact final claim after new Git-tree proof and computation reconstruction, Resultary semantic searches, checked primary theorem scopes and explicit source risks. Not a claim of comprehensive historical priority, external certification or entire-paper noncoverage where material was inaccessible. All known special-case antecedents are credited.",
+      "residual_risks": [
+        "A general Fourier/digit-sum identity not stated in the examined sources could logically specialize to this closed form.",
+        "The prior article Col (2009) was materially read at the main theorem and exceptional-modulus sieve lemma, not exhaustively page-by-page; no claim of whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MAIN_THEOREMS_EXCLUDE_THIS_MODULUS; LEMMA22_PARTIAL_OVERLAP",
+          "evidence": [
+            "Theorem1 condition gcd(q,g^3-g)=1; Lemma22 handles some factors of g+1 in average sieve counts, not the fixed-length all-residue law as inspected."
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/83451",
+          "material_read": "primary 41-page PDF pp.2-4 Theorems 1-2 and pp.30-32 Lemma 22, via text and page screenshot; not every page read",
+          "method": "primary French text theorem and sieve comparison",
+          "title": "Palindromes dans les progressions arithmétiques",
+          "trigger": "same palindromes and difficult moduli dividing b+1"
+        },
+        {
+          "assessment": "DIFFERENT_BASE_CONGRUENCE_CLASSES",
+          "evidence": [
+            "Analyzes b=0 or b=1 mod q regimes; b=-1 for q>2 not included in theorem cases inspected."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+          "material_read": "full 2024 primary PDF material from abstract, theorem scope, base-modulus classifications and selected proof, first page screenshot",
+          "method": "read relevant primary PDF mathematics",
+          "title": "Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+          "trigger": "same exact palindrome congruence object and formula scope"
+        },
+        {
+          "assessment": "NO_FULL_TEXT_NONCOVERAGE_CLAIM",
+          "evidence": [
+            "Relevant distribution bound requires gcd(q,b(b²-1))=1, which fails if q|b+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0405056",
+          "material_read": "published abstract/statement of coprimality hypothesis as quoted in Col and source RESULT; complete article not independently inspected",
+          "method": "read Col direct quotation and arXiv bibliographic record",
+          "title": "Almost All Palindromes Are Composite",
+          "trigger": "foundation for distribution in arithmetic progressions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Arithmetic-progression distribution of base-b palindromes is a well-developed natural problem; moduli dividing b+1 are excluded from standard equidistribution hypotheses because digit-pair phases resonate. The exact uniform/biased all-residue formula, strict universal <1 discrepancy and even-modulus persistent parity bias give structural information precisely in that arithmetic obstruction regime. Its value is the all-b all-q family, not the classical even-palindrome divisibility or q=2 special case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.impan.pl/shop/en/publication/transaction/download/product/83451",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+    "https://arxiv.org/abs/math/0405056"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single final claim was assessed under the same C/O/V bar; published ingredients credited.",
+    "Independent exact finite checks corroborate only their stated domains; unbounded statements follow mathematical arguments, not brute-force extrapolation.",
+    "No formal Lean proof, outside human attestation, unconditional novelty guarantee, or public publication is claimed."
+  ],
+  "residual_risks": [
+    "A general Fourier/digit-sum identity not stated in the examined sources could logically specialize to this closed form.",
+    "The prior article Col (2009) was materially read at the main theorem and exceptional-modulus sieve lemma, not exhaustively page-by-page; no claim of whole-document exclusion."
+  ],
+  "schema_version": 1
+}
