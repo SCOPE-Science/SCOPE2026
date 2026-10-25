@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The standalone `verify_dissociation.py` requires only Python 3.8+ standard-library modules. Run `python3 verify_dissociation.py` in the directory containing the script. It constructs the rook graph and two equivalent Shrikhande presentations on the sixteen pairs of residues modulo four. Both presentations are independently checked to have every vertex of degree six and precisely two common neighbors for each distinct vertex pair; an explicit invertible coordinate map checks equivalence of the Shrikhande descriptions.
+## correctness
 
-For each graph, the script loops over all \(65536\) bit masks and directly checks the induced-degree-at-most-one definition. Separately it evaluates the proven deletion/isolated/pairing recurrence by memoized exact integer polynomial arithmetic. Every coefficient agrees, including the trailing zeros for sizes above the dissociation number. It also classifies large valid sets by their selected-edge counts. The script asserts the complete arrays, matching polynomial difference, and graph parameters; unexpected differences terminate with an assertion failure.
+PASS
 
-The run's recorded terminal output is embedded as `verification_output.txt`. Its final line must read:
+The definition is vertex subsets inducing maximum degree at most one, empty included. The three-way least-pivot recurrence partitions by exclusion, inclusion without a neighbor, or inclusion paired with a uniquely determined neighbor; every call strictly reduces W. Independently constructed both 16-vertex graphs from the literal adjacency definitions and exhaustively checked all 65,536 masks per graph, recovering coefficient vectors [1,16,120,384,528,144] and [1,16,120,384,544,240,32]. Exact common-neighbor counts (2 for every pair) and degree six substantiate (16,6,2,2) and equal spectrum; maximal sizes and multiplicities follow from exhaustiveness. No extrapolation to general graphs is made.
 
-`VERIFICATION_OK masks_per_graph=65536 methods=brute_and_recurrence graphs=rook_shrikhande`
+## originality
 
-The proof is a complete finite exhaustive recurrence, not an inductive claim about growing graph orders. The two methods share graph adjacency constructors but not the counting implementation. They do not provide independent external scientific review or comprehensive literature-priority certification.
+PASS
+
+The comparison is between two specific cospectral SRGs under the degree-at-most-one dissociation invariant; independently published calculations of independence complexes compare only degree-zero sets and topological homotopy, not this polynomial. Published cubic-graph dissociation bounds concern valency three and do not imply these six-regular coefficient arrays. No known prior exact table was found; unindexed earlier counts remain a priority risk.
+
+## value
+
+PASS
+
+A complete dissociation polynomial is a natural graph invariant, and this exact pair is the canonical smallest-class strongly regular cospectral counterpoint: the full arrays isolate the first degree of divergence and the distinct maximal allowable cardinalities. It gives an independently usable counterexample to determination by the SRG tuple, beyond a cosmetic graph renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

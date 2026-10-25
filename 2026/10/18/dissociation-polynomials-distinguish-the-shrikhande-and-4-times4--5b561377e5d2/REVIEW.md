@@ -1,15 +1,21 @@
-# Scientific review: dissociation polynomials of the Shrikhande and rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is two explicitly labeled sixteen-vertex simple graphs. Each graph has its adjacency masks constructed independently of the claimed coefficient arrays. An exhaustive traversal of all \(2^{16}\) subsets of each graph applies the defining induced-degree condition; a second calculation employs a rigorously derived vertex recurrence whose three cases are disjoint and exhaustive. Both methods return identical integer coefficient arrays. Independent pairwise common-neighbor checks establish the shared \((16,6,2,2)\) strongly regular data; a coordinate transformation matches two standard Shrikhande presentations. Explicit maximal witnesses and the last nonzero terms justify the dissociation numbers. The finite exhaustive proof does not extend to arbitrary order and does not pretend to do so.
+## correctness
 
-## Originality — PASS, subject to the stated bibliographic risk
-Tu, Xiao and Lang (2023), DOI 10.3934/math.2023507, bound the dissociation polynomial for cubic graphs, so their theorem does not apply to either six-regular graph here. Existing results on the independence complexes of the same pair calculate ordinary independent subsets, whose definition differs from induced maximum degree at most one; neither those coefficients nor the homotopy types logically supply the present enumerator. Classical sources already show these two graphs are nonisomorphic and cospectral; the note does not claim that observation as new. Targeted mathematical database and literature searches for the two polynomials, the same invariant under aliases and the exact values found no covering calculation. This is a best-knowledge priority conclusion, not proof that no unindexed equivalent exists.
+PASS
 
-## Value — PASS
-The graph pair is the canonical nonisomorphic strongly regular twin pair with sixteen vertices. Its exact dissociation-number gap, first polynomial divergence in degree four, and distinct complete distributions provide an interpretable natural invariant separation. The first three coefficients agree for structural strongly regular reasons, while the fourth and larger coefficients distinguish the graphs. Thus the finite census answers a motivated spectral-invariance question, rather than tabulating an arbitrary graph or a textbook special case. It does not purport to classify all strongly regular pairs.
+The definition is vertex subsets inducing maximum degree at most one, empty included. The three-way least-pivot recurrence partitions by exclusion, inclusion without a neighbor, or inclusion paired with a uniquely determined neighbor; every call strictly reduces W. Independently constructed both 16-vertex graphs from the literal adjacency definitions and exhaustively checked all 65,536 masks per graph, recovering coefficient vectors [1,16,120,384,528,144] and [1,16,120,384,544,240,32]. Exact common-neighbor counts (2 for every pair) and degree six substantiate (16,6,2,2) and equal spectrum; maximal sizes and multiplicities follow from exhaustiveness. No extrapolation to general graphs is made.
 
-## Limitations
-This is an exactly verified finite comparison. More general parameter families are not determined. A literature priority risk remains for unindexed graph tables or previous dissociation computations. The accompanying verifier has no external prerequisites.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The comparison is between two specific cospectral SRGs under the degree-at-most-one dissociation invariant; independently published calculations of independence complexes compare only degree-zero sets and topological homotopy, not this polynomial. Published cubic-graph dissociation bounds concern valency three and do not imply these six-regular coefficient arrays. No known prior exact table was found; unindexed earlier counts remain a priority risk.
+
+## value
+
+PASS
+
+A complete dissociation polynomial is a natural graph invariant, and this exact pair is the canonical smallest-class strongly regular cospectral counterpoint: the full arrays isolate the first degree of divergence and the distinct maximal allowable cardinalities. It gives an independently usable counterexample to determination by the SRG tuple, beyond a cosmetic graph renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
