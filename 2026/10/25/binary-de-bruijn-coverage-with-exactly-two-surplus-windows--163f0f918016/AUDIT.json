@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Surplus arcs necessarily form balanced two-edge graph, exhausting two constant loops and the unique alternating 2-cycle. Fixed-singleton-start BEST formulas correctly divide by arc multiplicity factorials. Loop factors cancel; alternating addition gives rank-one Laplacian perturbation and geometric finite sum, with P^(k-1)=Pi. Direct exhaustive k=2,3,4 counts and independently computed integer matrix-tree ratios k=2..7 match.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tesler arXiv:1708.03654 formulas explicitly require a common multiplicity m for all k-mers; Kandel 1996 general randomized traversal applies to variable multiplicities; BEST theorem arbitrary Eulerian multigraph."
+      ],
+      "reasoning": "General BEST and directed matrix-tree theorems provide a framework but neither a preevaluated closed count for these four supports nor the alternating rank-one response without the computations shown. Fixed-common-multplicity counts do not apply to these uneven profiles. Full Kandel text remains a risk.",
+      "searches": [
+        "\"near-de Bruijn\" sequence \"two\" \"extra\" length enumeration",
+        "de Bruijn universal cycles longer than 2^n counting repeats enumerations"
+      ]
+    },
+    "checked_sources": [
+      "de Bruijn 1946 original scan",
+      "Kandel et al. 1996 official abstract and Tesler cross-reference",
+      "Alhakim arXiv:1012.1796 abstract",
+      "Tesler arXiv:1708.03654 relevant full-text sections",
+      "OEIS A016031",
+      "semantic literature searches for two-surplus k-mer coverage and equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Bruijn 1946 proves B_k; Tesler 2017 sec.2.3 gives BEST and uniform-m counts; Kandel 1996 algorithm produces random fixed-k-mer-frequency reconstructions."
+      ],
+      "reasoning": "The classical B_k cannot distinguish extra-word types. BEST can in principle compute any prescribed balanced multiplicity graph, so generic computability is anticipated; the assertion that only four types can occur and the closed universal factor R_k require the independent rank-one/alternation argument. No inspected source explicitly supplies these evaluations. If Kandel contains such a specialization, priority would require revision.",
+      "searches": [
+        "Shuffling biological sequences Kandel Matias Unger Winkler 1996 Euler tours",
+        "Multi de Bruijn Sequences Tesler 2017 fixed multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kandel–Matias–Unger–Winkler 1996 studied fixed k-let shuffling with Euler tours; Tesler 2017 sec.7 discusses the approach. No identical specialization found in accessible text."
+      ],
+      "reasoning": "The reformulation as Euler tours in the binary de Bruijn multigraph with two surplus arcs is accounted for; the exact balance supports and tree ratio are additional statements.",
+      "searches": [
+        "\"near-de Bruijn\" sequence \"two\" \"extra\" length enumeration",
+        "almost de Bruijn cyclic sequences exactly two repeated k-grams rotations enumerated",
+        "de Bruijn cycles with two surplus length-k windows exact count over all binary words length 2^k+2 classification duplicated k-mers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A016031 has only the perfect binary cycle counts 1,1,2,16,2048,...",
+        "Direct 2^n enumeration gives two-surplus 5,9,76, distinct from the known base sequence."
+      ],
+      "reasoning": "No located table with both the new 5,9,76,9472 sequence and the four sharp multiplicity types; absence of a table is not itself novelty proof.",
+      "searches": [
+        "\"5, 9, 76, 9472\" de Bruijn",
+        "\"near de Bruijn\" \"9472\"",
+        "OEIS A016031"
+      ]
+    },
+    "rationale": "Three constant-only types have baseline de Bruijn count; fourth requires and yields a new explicit alternating-pair rank-one arborescence response. Inspected general BEST and uniform multi-de-Bruijn literature does not state the nonuniform two-surplus classification or exact alternating response. Residual risk in full 1996 variable-frequency paper.",
+    "residual_risks": [
+      "Unseen full text of Kandel et al. (1996) may include this special count or stronger closed arbitrary-multiplicity formulas.",
+      "Unindexed near-de-Bruijn sequence literature or OEIS aliases may contain equivalent formulas.",
+      "General graph theorems encompass counting in principle, so novelty is the evaluated all-k formula and exact support classification rather than the existence of a method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves perfect de Bruijn cycle count; does not in inspected pages enumerate positive surplus multiplicity profiles",
+        "evidence": [
+          "1946 paper p.758 gives 1,1,2,16,2048 and formula",
+          "1946 p.760 proves doubled-network count"
+        ],
+        "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/4442708/597473.pdf",
+        "material_read": "Scanned original pages 758, 759 and 760 (PDF pages 2–4), including original definition, examples, cycle-count theorem and graph-doubling argument",
+        "method": "Read page images of the 1946 primary source",
+        "title": "A Combinatorial Problem",
+        "trigger": "Foundational complete-window count and original enumeration"
+      },
+      {
+        "assessment": "Closed formulas assume a common multiplicity m for every k-mer; generic BEST enumeration applies in principle but no four-type two-surplus closed formula or alternating two-cycle calculation found in inspected material",
+        "evidence": [
+          "arXiv:1708.03654 sec.1 p.1 defines common m",
+          "sec.2.3 p.5 gives BEST factorial counting",
+          "sec.7 p.13 discusses Kandel general Euler tours"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.03654",
+        "material_read": "Full-text abstract, introduction and Table 1, sections 2–3 on tree/BEST counts, pages 5 and 13 on fixed-edge tours and Kandel general algorithm",
+        "method": "Examined extracted full-text sections and PDF page images",
+        "title": "Multi de Bruijn Sequences",
+        "trigger": "Potential stronger coverage through edge multiplicities and BEST theorem"
+      },
+      {
+        "assessment": "Provides fixed-multiplicity uniform shuffling algorithm; no available evidence of explicit special two-surplus count, but full-text inaccessibility leaves a priority risk",
+        "evidence": [
+          "Published December 5 1996, abstract explicitly states uniform Euler-tour algorithm",
+          "Tesler sec.7 attributes variable-multiplicity random-generation scheme to Kandel et al."
+        ],
+        "identifier_or_url": "https://cris.tau.ac.il/en/publications/shuffling-biological-sequences/",
+        "material_read": "University-hosted detailed abstract and bibliographic record; source-paper author PDF request timed out",
+        "method": "Read official abstract and citation, cross-referenced Tesler sec.7 description",
+        "title": "Shuffling Biological Sequences",
+        "trigger": "Variable k-mer multiplicities might subsume the special enumeration"
+      },
+      {
+        "assessment": "Preference function construction for full cycles, not direct observed four-class excess count; full PDF uninspected",
+        "evidence": [
+          "arXiv:1012.1796 dated 2010-12-08 describes full de Bruijn sequences and preference functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1012.1796",
+        "material_read": "Arxiv first-release metadata and abstract; PDF request unsuccessful",
+        "method": "Read accessible abstract",
+        "title": "Spans of Preference Functions for De Bruijn Sequences",
+        "trigger": "Earlier enumerative and construction variants"
+      },
+      {
+        "assessment": "Contains zero-surplus baseline B, not two-surplus sequence 5,9,76,9472",
+        "evidence": [
+          "A016031 terms 1,1,2,16,2048,67108864... count length 2^k perfect cycles"
+        ],
+        "identifier_or_url": "https://oeis.org/A016031",
+        "material_read": "Sequence definition and initial values",
+        "method": "Reviewed database entry",
+        "title": "OEIS A016031",
+        "trigger": "Exact database/known table check for count sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "163f0f91-8016-4fc4-a4e5-c45d7ca5b984",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial excess over perfect de Bruijn coverage is a natural all-order object in cyclic k-mer reconstruction. The result proves a complete feasible-multiplicity classification and exact sizes of every reconstruction fiber, revealing an alternating 2-cycle with explicit parity-sensitive determinant response; it is not a single finite slice or a small numerical improvement.",
+    "status": "PASS"
+  }
+}
