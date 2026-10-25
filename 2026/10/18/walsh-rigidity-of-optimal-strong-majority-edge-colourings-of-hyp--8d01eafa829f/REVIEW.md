@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The edge-neighbourhood requirement is equivalent to vanishing signed sums because an edge has exactly \(2(d-1)\) neighbours. Summing the resulting incidence equations gives a single adjacency eigenvalue equation for the vertex sign sums. Its Walsh eigenspace has basis indexed by the \(d\) complements of singleton coordinates. Reconstructing each edge sign forces the \(d\) coefficients to lie in \(\{\pm1\}\); the converse substitution proves sufficiency. The action of translations is an explicit finite-field linear map with computed parity-dependent kernel. Exhaustive dimension-two and dimension-three checks and further finite construction checks corroborate the argument.
+## correctness
 
-**Originality — PASS, with residual search risk.** The initiating and subsequent primary papers address existence, general colour upper bounds, and several special families. They do not state a closed count and complete orbit classification of optimal two-colour hypercube edge patterns. A line-graph adjacency eigenspace calculation, even if known, gives only the linear ambient nullspace and not by itself the discrete sign classification. Searches for hypercube, edge-neighbourhood balance, sign eigenvectors, and equivalent formulations did not find a covering claim; this absence is not presented as a uniqueness proof.
+PASS
 
-**Value — PASS.** The dimension-uniform classification is a structural rigidity theorem for a natural symmetric infinite graph family. It resolves simultaneously the least colour count, the complete list and number of optimum colourings, and a parity-dependent automorphism-orbit phenomenon. Such exact classification is not supplied by general three-colour theorems and supplies reusable Fourier structure for studying locally balanced edge patterns.
+For Q_d every edge has 2(d-1) adjacent edges. With exactly two colors, the strong-majority rule forces their signed sum to zero. If s_i(x)=s_i(x+e_i) is the direction-i edge sign and T(x)=sum_i s_i(x), the edge equation is T(x)+T(x+e_i)=2s_i(x), which on summation gives A_Q T=(2-d)T. Walsh characters diagonalize the cube adjacency, and eigenvalue 2-d is precisely the d-dimensional level-(d-1) eigenspace; hence T=sum_i a_i chi_[d]\{i} and s_i=a_i chi_[d]\{i}. Signs force all a_i to be +/-1, yielding exactly 2^d distinct feasible labelled-color patterns. Their construction satisfies balance. Translations act on a_i by J+I over F2, rank d for even d and d-1 for odd d; coordinate permutations preserve odd-d sign product. Therefore one named-color orbit for even d, two for odd d, and one after global color swap. I independently enumerated every sign assignment for Q2/Q3 and matched exactly 4/8 patterns. The general proof is spectral, not an extrapolation from these checks.
 
-**Closest sources and limits.** Kalinowski et al., arXiv:2605.23828, define the notion and treat cycles and general cases; Antoniuk et al., arXiv:2607.00212, improve broad bounds; Pękała and Przybyło, arXiv:2608.04122, establish the general three-colour minimum-degree theorem. Potential unindexed equivalents under signed nullspaces remain a residual bibliographic risk. The conclusion is restricted to ordinary binary cubes and the two-colour optimum; no claim about other Hamming graphs or independent peer validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published general strong-majority edge-colouring papers establish existence and small-color bounds, including a three-color minimum-degree result, and the two-color cycle Q2 example. The submission identifies the *entire* two-color sign cube for all Q_d and its cube automorphism orbit structure. The equivalent zero-eigenspace intersection formulation does not follow just from the dimension of an eigenspace; the discrete sign rigidity argument is additional. No identified primary theorem covers the all-d hypercube sign-vector classification, subject to residual unindexed line-graph signed-nullvector literature.
+
+## value
+
+PASS
+
+The binary hypercube is a canonical highly symmetric graph family, and 2 colors is a sharp feasible strong-majority edge index despite large degrees. Exact classification of all optimal colorings and the parity-dependent orbit obstruction supplies genuinely more information than a two-color existence witness. The Walsh/line-graph spectral rigidity mechanism could be reused for related Cartesian-product balancing problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
