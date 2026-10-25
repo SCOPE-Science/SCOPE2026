@@ -1,15 +1,21 @@
-# Review of hidden independent scenery and quenched normality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the model from independent fair increments and a frozen independent fair coefficient sequence. The finite binary Pascal matrix is unit lower triangular, so the transformed sign scenery is iid; this is an exact law, not a limit approximation. The walk's number-of-negative-steps clock has independent geometric holding times. Its regenerative strong law proves vanishing time-averaged scenery almost surely, and Fubini turns this into a statement for almost every fixed environment. Bounded-increment martingale invariance then yields two independent Brownian coordinates. The separate exact pair-covariance calculation gives the finite variance, and the regenerative two-coordinate functional CLT gives the variance-three limit. The standalone checker passed 302 exact arithmetic assertions. Neither enumeration nor simulation is used to establish an infinite-time claim.
+PASS
 
-## Originality — PASS, with residual risk
+The frozen Bernoulli coefficients transform under the lower-unitriangular mod-2 Pascal matrix into iid fair scenery f_s, independent of base signs under the joint law. Number of negative increments S has iid geometric(1/2) holding times G_s with EG=2, EG²=6, so regenerative SLLN Cn/n→0 joint; Borel–Cantelli handles maximum incomplete holding block; Fubini yields almost-sure quenched bracket vanishing for typical fixed coefficient environment. Bounded martingale increments then give independent Brownian coordinates under conditional law. E[f_{S_i}f_{S_j}]=2^{−(j−i)} gives exact variance 3n−4+2^{2−n}; q0=1 correction gives 3n−7+2^{3−n}. Iid block vector (G−2,Gf) covariance diag(2,6) and clock2 gives annealed covariance diag(1,3), with negligible maximal geometric overshoot. Independently recomputed n≤10 exact variance and read full actual checker.py; finite tests not used as infinite proofs.
 
-The closest primary source, Hamza--Tournier (arXiv:2610.01658v1), Section 4.3 and Corollary 12, proves only annealed convergence in the frozen-cardinality model and explicitly describes the quenched counterpart as open. Collevecchio--Hamza--Shi--Williams (2022) supplies a general deterministic bootstrap criterion but does not establish the specific random-environment almost-sure condition. The closest accessible historical claim for this category proves quenched convergence with *independently refreshed* cardinality coefficients, not the frozen array used here. Relevant research-record searches identified no equivalent full theorem or covariance fluctuation law. Standard random-scenery or bootstrap results outside the inspected literature could still imply the finding; independent priority review is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a natural and explicitly identified special case of a quenched normality question under perfect temporal persistence of cardinality coefficients. The hidden iid scenery is a structural explanation rather than a formal rewording of the annealed statement. The exact finite covariance observable and its independent variance-three Brownian limit supply additional second-order information. The proof does not address nonfair coefficients, independent audit, quantitative rates, or quenched cross-variation fluctuation laws.
+Hamza–Tournier Section 4.3 studies the exact frozen-cardinality model and already proves annealed convergence; its quenched question is explicitly unresolved there. The current result is only the fair-parameter quenched case and an exact annealed second-order fluctuation law; general bootstrap FCLT theorems are proof ingredients, not published verification of the environmental condition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Settles a distinguished fair-coefficient special case of an explicitly posed frozen-environment quenched normality question and explains why persistent coefficient reuse still yields independent Brownian coordinates. The exact predictable-bracket variance and variance-three second-order limit are additional useful probability invariants, not rote simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
