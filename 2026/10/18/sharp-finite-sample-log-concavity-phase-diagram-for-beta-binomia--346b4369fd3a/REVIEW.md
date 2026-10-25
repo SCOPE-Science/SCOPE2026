@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The beta-binomial recurrence gives an exact adjacent-mass ratio. Clearing its positive denominators produces an explicit curvature numerator \(N_k\). Every allowed real-shape case is exhausted: both shapes above one, one above and one below one, both below one, and equality boundaries. The mixed-shape numerator moves monotonically toward exactly one vulnerable edge, making the derived edge threshold both necessary and sufficient. An independent exact-rational script checks the identity and sample cases, while the written argument proves all dimensions and all real shapes.
+PASS
 
-## Originality — PASS (priority not independently certified)
+The adjacent ratio p_{k+1}/p_k=(n-k)(alpha+k)/[(k+1)(beta+n-k-1)] is exact. Writing u=alpha−1, v=beta−1, clearing positive denominators shows r_{k-1}−r_k has numerator (n-k)(n-k+1)u+k(k+1)v+(n+1)uv. With u>0>v this decreases strictly in k, so nonnegative curvature is equivalent to its value at k=n−1, yielding threshold u>=n(n−1)(−v)/(2+(n+1)v) and strict denominator requirement. Reflection handles v>0>u; u,v>=0 gives all curvatures nonnegative. For u,v<0, setting a=−u,b=−v∈(0,1) bounds numerator by −ab(F+G−n−1)<0. Independently simplified the ratio-difference identity symbolically and read the all-rational n=2..31 verifier including explicit n=3 equality and n=4 failure; finite grid alone does not certify real continuum.
 
-The motivating 2019 beta-binomial regression source studies the same count distribution, but its own nonconcavity appendix evaluates the *parameter-space log-likelihood*, not log-concavity of the mass sequence. The broad log-concavity source of Johnson, Kontoyiannis, and Madiman does not give the explicit finite-trial boundary with one subunit shape. Bobkov, Marsiglietti, and Melbourne's abstract discusses concentration and entropy within the log-concave class; its full text was not used to exclude coverage. Searches using beta-binomial, Pólya–Eggenberger, urn, Turán, and generalized-hypergeometric aliases did not reveal a covering parameter theorem. The earlier two-point binomial-mixing family is not this beta-mixture model. An equivalent result in older urn literature remains a material residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The beta-binomial is a natural overdispersed predictive/count family. A sharp necessary-and-sufficient condition, rather than only a sufficient log-concavity regime, is useful whenever a modeling or combinatorial argument depends on discrete shape constraints. The non-obvious finite-sample phenomenon is that a shape below one may still produce a log-concave count law, but there is a hard maximum trial count beyond which no opposite-shape adjustment works. Exact edge localization and strict equality boundaries improve the mathematical understanding of the family. The claim is not a mere parameter renaming or an unmotivated small numerical case.
+General beta-binomial/Pólya–Eggenberger laws and standard sufficient shape>=1 log-concavity were known. The new finite-trial complete necessity-sufficiency rescue wedges, exact edge equality and integer ceiling are not stated by the inspected Martin et al. paper (whose Appendix B concerns regression likelihood in coefficients) or Johnson et al. compound-Poisson framework. Searches for the same under Pólya urn terminology did not yield an equivalently quantified finite-n classification; an older equivalent rational-ratio inequality may exist and is explicitly a risk.
 
-## Closest literature and limits
+## value
 
-Primary text inspected: Martin–Witten–Willis (2019), especially Section 3 and Appendix B; Johnson–Kontoyiannis–Madiman (2011), especially Sections 2 and 5. Bobkov–Marsiglietti–Melbourne (2020) was checked at its abstract and bibliographic level only. The broader Pólya–Eggenberger literature can contain alternate formulations that were not independently priority-certified. Results are confined to ordinary discrete log-concavity of the finite beta-binomial law, not likelihood curvature in regression coefficients.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a full finite-sample shape classification for a canonical overdispersed count law, including an exact finite n ceiling where a single adverse prior parameter cannot be rescued. This changes the applicability of discrete log-concavity-based concentration and algorithmic tools, rather than reparametrizing a standard sufficient condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
