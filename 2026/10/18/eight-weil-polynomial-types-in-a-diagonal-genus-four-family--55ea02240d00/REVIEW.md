@@ -1,15 +1,21 @@
-# Scientific review of the diagonal genus-four Weil spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The curve is smooth for all nonzero coefficients in characteristic \(p\ge5\); its six simple branch points and unramified infinity give genus four by Riemann--Hurwitz. The Hermitian curve over \(\mathbf F_{p^2}\) covers the Fermat sextic whenever \(p\equiv5\pmod6\), and the sextic covers the untwisted genus-four curve. Both maps are separable, so maximality makes Frobenius the scalar \(-p\) on its eight-dimensional first étale cohomology. The eight tame automorphism characters are computed using the four regular differentials and their inverses. The diagonal descent cocycle is explicitly determined by the sixth-power and cubic residue types of the coefficients. The exact character product yields all eight distinct factorization signatures with no hidden numerical assumption. Direct independent modular-field point counts agree over \(\mathbf F_{25},\mathbf F_{121},\mathbf F_{289}\) and, for every coefficient type, over \(\mathbf F_{625}\). No finite sampling is used to establish the uniform theorem.
+## correctness
 
-## Originality — PASS, subject to specified priority risks
-Kudo--Harashita (arXiv:1702.05313, Sections 1 and 4) classify superspecial curves in specific small characteristics rather than the uniform eighteen-type Weil spectrum. Kudo's accessible 2018 full preprint (arXiv:1804.09063, Sections 2--4) proves superspeciality and discusses the untwisted maximal curve, while the later 2019 journal abstract explicitly advertises maximality of that single curve. Neither inspected full primary text states the eight factorization signatures of this two-parameter twist family. Li--Mantovan--Pries--Tang (arXiv:1805.06914) establish Newton-polygon strata, which do not distinguish the eight isogeny classes because all eight classes are supersingular. Comparison against the accessible historical claim ledger and searches of the published mathematical finding index located no matching or dominating family statement. **Residual risks:** the final 2019 journal text was not accessible in full; a specialized conclusion may be derivable from classical Jacobi-sum formulas or an unindexed source. The research does not claim new maximality of the untwisted curve or new general character-sum theory.
+PASS
 
-## Value — PASS
-The eight complete Weil polynomials distinguish eight natural arithmetic isogeny classes within one geometrically isomorphic nonhyperelliptic genus-four family, including several pairs with the same number of base-field rational points. The uniform formulas determine all extension-field counts and exhibit a unique maximal diagonal class plus two inequivalent minimum-count zeta types. These exact zeta distinctions are not supplied by superspeciality, Newton polygons, or the previously known maximal untwisted curve. The family is canonically motivated by its Fermat-sextic/Hermitian geometry; the invariant is an intrinsic arithmetic invariant of Jacobians rather than an arbitrary coefficient slice. The result does not classify all forms of the geometric curve.
+The affine curve v³+At⁶+B=0 has six simple finite branch points of a separable degree-three covering, unramified infinity, and genus four by Riemann-Hurwitz. The sextic Fermat curve maps via squared coordinates to the untwisted canonical model and is itself a quotient of a Hermitian maximal curve because 6 divides p+1. Consequently Frobenius on H¹ of the base model is scalar −p. Its eight tame character weights (2,1),(1,1),(1,2),(1,3),(1,5),(2,5),(2,4),(2,3) couple to descent exponents (2si−rj mod6). Pairing their conjugates gives the four cyclotomic factors with eight distinct signature classes on the exact 18 coefficient types. Independently enumerated all 18 characters and reproduced multiplicities 1,2,4,2,4,2,1,2 for the eight signatures, independently of the source’s finite-field verifier. The argument, not finite p=5,11,17 examples, establishes every allowed p.
 
-## Closest literature and limitations
-The relevant comparison is with Kudo (2018 preprint; 2019 journal), Kudo--Harashita (2017), and Li--Mantovan--Pries--Tang (2018). Priority is uncertain where journal full text or comprehensive classical diagonal-curve tables were not inspected. The eighteen entries are coefficient-scaling classes rather than pairwise nonisomorphic curves. The verification scripts prove only the stated finite cases; the general proof is symbolic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The untwisted model’s maximality is explicitly prior (Kudo); the new target is the arithmetic twist map (r,s)→eight complete Frobenius characteristic polynomials, distinguishing even classes with identical rational point totals. Generic Jacobi sums can yield these as a specialization, leaving priority risk, but inspected primary sources do not directly state a dominating table.
+
+## value
+
+PASS
+
+The full Weil polynomial, rather than a coarse p-rank or superspeciality flag or a single point count, is an exact invariant determining Jacobian isogeny classes over the base field and all extension-field point counts. Resolving a natural two-parameter diagonal family into precisely eight classes gives motivated fine arithmetic information beyond the already-known untwisted maximal curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
