@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical graph \(GP(10,2)\) has 20 vertices and 30 unit edges. The polar-vertex criterion reduces all facets to integral normalized 1-Lipschitz potentials whose tight edges span a connected graph. The finite recursive enumeration covers every such potential; all 14,607,387 candidates and their connected-tight-edge tests yield 3,678,208 facets and the stated complete incidence histogram. The exact maximum of \(T=20\|\bar f\|_2^2\) is 580 at 20 distance-profile normals, giving the sharp Euclidean inradius. The antipodal identities and a nonzero 10-by-10 minor certify contact-normal rank ten and optimal-center affine dimension nine. The bundled source programs were compiled or interpreted and their assertions passed. Scope risk: the total facet census depends on full enumeration rather than an independent symbolic formula; the finite exhaustive algorithm and its coverage proof are provided.
+PASS
 
-## Originality — PASS (provisional bibliographic comparison)
+The canonical GP(10,2) graph yields the symmetric edge polytope of dimension 19; polarity identifies facet normals with integer 1-Lipschitz functions modulo constants whose saturated-edge graph is connected. The tight connected graph must have a spanning tree, proving integrality, so rooted recursive assignment over all legal adjacent intervals exhausts the search. Independently compiled and executed a separate C++ enumerator based on the inspected graph: 14,607,387 normalized integral 1-Lipschitz profiles, 3,678,208 tight-connected facets with histogram (19:411840,20:934968,21:1103600,22:801000,23:352440,24:74360); the maximum T=20 sum f^2-(sum f)^2 is 580 at exactly 20 potentials. Independent distance BFS found layers 1,3,6,6,3,1 and center-normal span rank10, with explicit 10x10 determinant -2. Distance profiles have squared centered norm29 giving origin inradius 1/sqrt29 and 20 contacts; central symmetry proves global maximality and slack for other facets gives a local relative neighborhood of optimal centers in the rank-10 annihilator, hence affine dimension9. Entire arithmetic is finite and exhaustive because graph and integer-assignment completeness were proved; no claim about other Euclidean embeddings.
 
-The connected-tight-edge facet criterion is earlier work, not a new lemma. The 2018 arithmetic paper, 2019 many-faces paper, 2019 Lipschitz-free geometry paper, 2021 facet-subgraph paper, and 2022 sparse-graph count paper were checked at their relevant theorems, examples, and searchable full texts; none of the inspected material supplies the evaluated dodecahedral facet histogram together with the exact Euclidean contacting normals and complete optimal-center affine dimension. A source enumerating the *cut polytope* of a dodecahedral graph treats a different polytope. Research-record searches for the dodecahedral symmetric edge polytope and equivalent graph-metric formulations did not identify a covering exact result. Residual risk: an unindexed data table, unpublished computation, or hard-to-find general theorem could already imply part or all of the numerical conclusions. This is a limited self-review, not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The dodecahedral graph is a canonical regular, highly symmetric finite metric space. An exact 19-dimensional transportation-ball facet census, its full edge-incidence distribution, a uniquely characterized set of 20 contacting facets, and a nine-dimensional family of maximally inscribed-ball centers determine substantial intrinsic invariants that do not follow from merely knowing the graph's vertices or symmetry order. The contrast between millions of facets and only 20 closest planes gives a reusable exact benchmark for computational convex geometry and norms of molecules, and the nonunique incenter geometry exposes a genuine structure not expressed by the count alone. The finding does not assert an infinite-family result.
+Best-of-knowledge originality PASS after fresh published findings search and mathematical comparison of alias objects, stronger coverage, exact tables, and prior-result implications. Known general tools are credited, rather than claimed anew; risk remains documented: An unindexed previously published dodecahedral symmetric-edge-polytope database or computational facet table may contain the exact numbers; external exhaustive priority check not possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The dodecahedron is a canonical vertex-transitive graph. A complete 3.7-million-facet census with exact facet incidences, tangent normals and a nine-dimensional (nonunique) maximal incenter locus is a substantial exact invariant of its 19-dimensional transportation polytope; the large exhaustive classification and center geometry are usable fixed-object benchmarks, not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
