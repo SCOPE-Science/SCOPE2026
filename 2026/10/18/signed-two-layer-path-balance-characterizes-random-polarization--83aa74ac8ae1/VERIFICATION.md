@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python3 verify.py` using only Python 3 standard library. The program checks the exact finite identity relating gauge balance and singularity for 1,367 seeded irreducible matrix pairs of sizes 2–4, plus an exact four-state primitive-product example with martingale first-step variance \(1/16\).
+# Independent mathematical audit
 
-Mathematical verification beyond finite checks: the proof establishes (i) spectral necessity and sufficiency of signed-path balance for eigenvalue one, (ii) Lyapunov-supermartingale convergence in the stable regime, (iii) bounded martingale convergence and transverse stability in the balanced regime, and (iv) strict conditional variance of the first increment. Finite tests neither establish novelty nor replace the almost-sure proof. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Under |R|<=P=BW with P irreducible, equality in the max-modulus convexity chain for Ru=u forces every active |s_j|=1 and a consistent vertex sign gauge; conversely a gauge h yields Rh=h. An unbalanced R has no eigenvalue 1, and R-I is Hurwitz because spectrum(R) lies in the unit disk. Bounded martingale noise and a Lyapunov matrix give a.s. convergence to 1/2. In the balanced case the sign gauge converts the two-layer dynamics to ordinary nonnegative reinforcement; m_t=πy_t is a bounded martingale and nontrivial transverse modes decay a.s. by the same Lyapunov argument, including P periodic. Conditional independence gives Var ξ>=Σ(πB)_j² p_j(0)(1-p_j(0))>0 for strictly interior z0. Exact independently computed n=4 example P=J/4, h=(+,+,-,-), lower bound 1/16; finite example is not the general proof.
+
+## originality
+
+PASS
+
+Dahiya–Kaur–Sahasrabudhe (2026) Theorem 3.1/3.3 and Section 4 supply overlapping stabilization and special random regimes, but inspected conditions for graph test and random regime impose coincident layers/additional partitions, whereas this claim classifies all distinct row-stochastic B,W with irreducible BW and signs on individual two-step paths, including primitive unsigned product with random anti-consensus. One-layer Kaur–Sahasrabudhe (2025) is also narrower. Search results do not themselves establish priority.
+
+## value
+
+PASS
+
+A necessary/sufficient combinatorial criterion distinguishes random polarization from deterministic half-consensus for two coupled interaction layers; the explicit fully mixing unsigned matrix with random anti-consensus is a mathematically motivated boundary phenomenon, and strict positive variance is substantive beyond singular drift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

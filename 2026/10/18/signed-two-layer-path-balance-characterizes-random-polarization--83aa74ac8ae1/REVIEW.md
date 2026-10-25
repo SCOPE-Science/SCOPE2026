@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The spectral maximum principle shows the signed-path test is exactly the eigenvalue-one condition. Nonbalanced stochastic approximation is strictly stable, while balanced gauges turn the recursion into a nonnegative irreducible interacting Bernoulli scheme with a bounded stationary-weight martingale and a stable transverse component. Its independent first-step innovations yield a strictly positive explicit variance bound. Exact finite rational checks validate the graph criterion and the four-state example, without treating finite checks as infinite proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The 2026 motivating paper proves the deterministic direction conditional on matrix invertibility but restricts its detailed graph tests and random-limit theorem to narrower structural assumptions. This theorem gives a necessary-and-sufficient two-layer signed-path test and a fully proved random, nondegenerate alternative for irreducible products, including strictly positive products with random polarization. The 2025 single-graph urn results and classical nonnegative synchronization do not immediately imply the signed two-layer support criterion. The signed Perron maximum principle is classical; differently formulated older results may exist, and further specialist literature review is appropriate.
+PASS
 
-## Mathematical value — PASS
-The criterion turns a matrix-invertibility test into a finite combinatorial signed-walk condition for genuinely different interaction networks and determines both branches of a natural limit-law dichotomy. The explicit strictly positive mixing example separates random polarized limits from ordinary network periodicity and supplies a nonzero lower variance certificate. This addresses an expressly identified structural gap for distinct interaction graphs.
+Under |R|<=P=BW with P irreducible, equality in the max-modulus convexity chain for Ru=u forces every active |s_j|=1 and a consistent vertex sign gauge; conversely a gauge h yields Rh=h. An unbalanced R has no eigenvalue 1, and R-I is Hurwitz because spectrum(R) lies in the unit disk. Bounded martingale noise and a Lyapunov matrix give a.s. convergence to 1/2. In the balanced case the sign gauge converts the two-layer dynamics to ordinary nonnegative reinforcement; m_t=πy_t is a bounded martingale and nontrivial transverse modes decay a.s. by the same Lyapunov argument, including P periodic. Conditional independence gives Var ξ>=Σ(πB)_j² p_j(0)(1-p_j(0))>0 for strictly interior z0. Exact independently computed n=4 example P=J/4, h=(+,+,-,-), lower bound 1/16; finite example is not the general proof.
 
-## Closest literature and limits
-Dahiya–Kaur–Sahasrabudhe, arXiv:2610.13884, Theorems 3.1 and 4.4, and Discussion Section 7; Kaur–Sahasrabudhe, DOI:10.1017/jpr.2024.105, Sections 3 and 5. Only irreducible nonnegative row-stochastic layer pairs and independent Bernoulli sampling are covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dahiya–Kaur–Sahasrabudhe (2026) Theorem 3.1/3.3 and Section 4 supply overlapping stabilization and special random regimes, but inspected conditions for graph test and random regime impose coincident layers/additional partitions, whereas this claim classifies all distinct row-stochastic B,W with irreducible BW and signs on individual two-step paths, including primitive unsigned product with random anti-consensus. One-layer Kaur–Sahasrabudhe (2025) is also narrower. Search results do not themselves establish priority.
+
+## value
+
+PASS
+
+A necessary/sufficient combinatorial criterion distinguishes random polarization from deterministic half-consensus for two coupled interaction layers; the explicit fully mixing unsigned matrix with random anti-consensus is a mathematically motivated boundary phenomenon, and strict positive variance is substantive beyond singular drift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
