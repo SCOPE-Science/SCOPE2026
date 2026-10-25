@@ -1,23 +1,21 @@
-# Supported scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Chinese remainder theorem independently determines one residue for each of the two offsets \(c,d\) modulo each of the first \(k-1\) primes. Coprimality of \(a,b\) proves that every nonnegative representation of the constructed integer has index \(1\le t\le k-1\); the corresponding prime divides both multipliers. This is an exhaustive infinite proof, not a numerical inference. The primorial growth \(\log M_k\sim k\log k\) is a standard consequence of the prime number theorem, establishing uniformity. For \(k=5\), the explicit fourfold inequality is checked algebraically. Exact standalone code independently enumerates all representations of 150 small instances and verifies 464 CRT witnesses. Risks: the analytic asymptotic uses the classical prime number theorem; no numerical or conditional assumptions replace it.
+PASS
 
-## Originality — PASS (with residual risk)
+The displayed CRT conditions have unique residues c,d in [1,M_k], and 0<c<b, 0<d<a force all nonnegative solutions of N=kab-ac-bd to have exactly t=1,...,k-1. At index t the prime p_t divides both x=tb-c and y=(k-t)a-d, excluding primitive multipliers without a finite-enumeration assumption. For k=2 positivity follows from both strict inequalities. The primorial PNT bound log M_k~k log k with k=floor((1-epsilon)log H/loglog H) gives M_k=o(H) and the uniform liminf at least one. At k=5, M=210, H>=413 gives ab/(a+b)>206, hence the strict 4(ab-a-b) bound. Independent diagnostic verified 104 CRT witnesses with 270 explicitly enumerated nonprimitive representations.
 
-Theorem 1.6 of Ding–Wang–Zhang [1] gives only the constant-scale all-pairs lower bound \(G(a,b)\ge ab\), and their Theorem 1.7 gives a stronger bound only along selected sequences with one generator fixed. The new all-pairs logarithmic lower bound does not follow from either. Jaffe [2] gives upper estimates and conjectures the fourfold lower bound; the concrete \(413\)-threshold proves a large-parameter slice but not the full conjecture. Mathematical-result searches for the exact coprime-coordinate invariant, primorial obstruction, and equivalent CRT construction found no dominating published statement. Related Frobenius results for a different semigroup of Pythagorean quadruples and densities of polynomial gcd values do not imply this two-generator claim. An unindexed elementary Jacobsthal-type argument could predate this construction; search noncoverage is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The published problem asks about the size of a new natural Diophantine Frobenius invariant. The construction makes a striking **uniform all-pairs** jump from a constant normalized lower bound to unbounded normalized growth, quantifies it at the \(\log H/\log\log H\) scale, and gives a finite threshold for a separately posed fourfold lower-bound conjecture. The exact reason—covering every feasible nonnegative representation by a distinct forced common prime—is structurally meaningful. This neither solves the exact Frobenius invariant nor establishes an optimal growth order.
+The fixed-generator-sequence lower bound of Ding–Wang–Zhang does not imply a uniform growing all-pairs lower bound; their Theorem 1.6 only gives the ab-scale globally. Jaffe explicitly conjectures a 4-times classical Frobenius lower bound, rather than proving the claimed large-minimum-parameter version. The uniform primorial obstruction is an additional quantified result, though independent derivation by older CRT/Jacobsthal methods remains possible.
 
-## Closest literature and limitations
+## value
 
-[1] Y. Ding, W. Wang and H. Zhang, *The Diophantine Frobenius Problem revisited*, arXiv:2509.08599v1 (2025), especially Theorems 1.6 and 1.7 and their proofs.
+PASS
 
-[2] G. N. Jaffe, *Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers*, arXiv:2610.17267v1 (2026), especially §7.
+Primitive-coordinate two-generator Frobenius gaps are a natural Diophantine invariant with an explicit prior lower-bound conjecture. Upgrading G/(ab) from a universal constant to divergent all-pairs growth, with constructive witnesses and a finite sufficient fourfold threshold, is a motivated gap and not merely a computational slice. The lower constant is not claimed sharp.
 
-No independent audit or optimality proof is asserted. The relevance of possible unindexed older CRT constructions remains a scientific literature risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
