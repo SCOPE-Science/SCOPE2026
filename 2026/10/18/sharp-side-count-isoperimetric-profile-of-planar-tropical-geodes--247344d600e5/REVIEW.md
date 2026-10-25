@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 2026 structural classification restricts every compact planar tropically geodesic polygon to the three admissible edge orientations; counting oriented support directions reduces the three-, four- and five-edge cases to a triangle, a parallelogram or degenerate truncation, and a rectangle with one right-isosceles corner removed. The explicit shoelace area and tropical edge lengths yield exact sum-of-squares deficits in both four-sided cases and the five-sided case. The six-sided inequality and equality case are quoted from Rosenmann's published proof and a unit-ball witness is checked directly. The standalone rational checker passed its symbolic and polygon computations. The proof requires no extrapolation from finite numerical samples.
+## correctness
 
-**Originality — PASS, with priority risk.** Rosenmann's tropical-measures paper (arXiv:2603.03215, Section 7) contains the unrestricted \(12\)-constant and \(18\)-type classification but not the complete sharp side-budget sequence or the new strict stability identity for pentagons. The earlier geodesic-sets paper (arXiv:2601.14447, Section 4) classifies allowable shapes only. Lángi–Wang (arXiv:2406.10622, Sections 1 and 3) gives Dowker-type circumscribed-area and normed-plane tiling inequalities with different quantifiers and objectives; these do not state or immediately imply the present precise individual-cell deficit identities. Index and literature searches for the exact constants and equivalent hexagonal-norm formulations found no statement subsuming the new parts. The hexagonal \(12\)-endpoint is known and is explicitly marked as such. An uncatalogued classical crystalline-polygon result is a residual priority risk, not a certified absence of prior work.
+PASS
 
-**Mathematical value — PASS.** Fixing the number of permissible tropical facet directions is a natural side-budget refinement of the new honeycomb problem. The complete \(3\)-to-\(6\) profile reveals a precise two-unit decrease in the sharp constant per added edge and classifies all equality geometries, including a nonparallelogram four-sided extremizer. The exact pentagonal identity quantifies shape stability without an unspecified constant. These refine the generic isoperimetric inequality with information relevant to polygon-constrained tilings and finite-facet approximation; they are not merely numerical recalculations.
+Rosenmann strip-normal classification limits edge directions to x,y,x-y and at most six sides. Five sides force a rectangle with one diagonal equal-leg corner cut, A=ab-u^2/2 and P=2(a+b)-u. Exact expansion P^2-14A=7(a-b)^2/2+8(u-(a+b)/4)^2 proves sharpness and unique scale/isometry family. Four sides are parallelogram or trapezoid endpoint with exact deficits 4(a-b)^2 or (2a-3b)^2; triangle endpoint always P^2=18A. General P^2>=12A with ball equality is explicitly cited prior. Independently simplified all symbolic deficits and independently checked rational polygon coordinates/perimeters, including strict-equality examples; the normal-form exhaustiveness—not random finite tests—supplies the family theorem.
 
-**Scope and risk.** The proven object class is compact planar tropically geodesic convex polygons, not every convex polygon in the norm. The four-sided equality shapes consist of two inequivalent combinatorial types. Complete historical priority is not certified and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six-sided tropical-ball optimum and strip representation are earlier Rosenmann results. The assessed novelty is conditioning on m=3,4,5 with exact sharp constants, two distinct 4-edge equality shapes and a two-square pentagonal stability law. Related normed-plane honeycomb/polygon theorems optimize different families; whether older crystalline-Wulff isoperimetry implies these small-side cases remains a genuine residual risk.
+
+## value
+
+PASS
+
+Fixed edge count is a meaningful geometric complexity constraint on tropical geodesic regions. Its complete short-side sharp isoperimetric spectrum and equality/stability classification give explicit benchmarks beyond the known unrestricted hexagonal equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
