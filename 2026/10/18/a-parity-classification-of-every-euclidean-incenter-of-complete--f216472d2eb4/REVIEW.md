@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the complete set of polar-facet sign labels from Proposition 3.4 of Higashitani–Jochemko–Michałek, not just an assumed subset. Each projected normal has exact squared norm \(s-t^2/N\). Opposite facets bound arbitrary translated inscribed balls, and the zero-centered ball attains the radius. The entire equality locus follows from the rank of the maximal-norm sign systems, followed by all remaining actual facet inequalities; strict slack at the origin establishes the *full affine dimension*. A monotone radical ratio reduces the larger even part to the single \(|t|=2\) condition. The equal-part case and the duplicate all-constant facet when \(p=q=2\) are handled separately. Exact-rational finite checks corroborate but cannot prove the universal statement.
+## correctness
 
-## Originality — PASS, qualified
-The 2018 complete-bipartite facet theorem supplies a decisive premise but not the exact maximal-Euclidean-ball-center locus. A 2019 work connects the polytope to Kantorovich–Rubinstein/Lipschitz polytopes, without the center-parity result. Closest indexed complete-multipartite metric findings concern graphs with **at least three** parts and primarily the radius/contacts; a separate star result concerns a part of size one. The accessible older same-object John/Löwner result is about anisotropic volume-optimal ellipsoids, not center freedom of Euclidean balls. Bounded searches found no implication-level covering theorem; an older alias-equivalent observation remains possible.
+PASS
 
-## Mathematical value — PASS
-The complete classification provides a natural uniqueness criterion, an exact full-center feasibility system, dimensions that grow arbitrarily with the smaller part, a reduction of the larger even part's exponential constraints to one scalar bound, and an explicit exceptional line segment whose endpoints acquire additional contacts. These are structural geometric invariants not fixed by known Ehrhart formulas or a John ellipsoid.
+Reconstructed all facet normals f=(signs,0) or (0,signs) from the cited Proposition 3.4: orthogonal H projection has norm^2=s-(sign sum)^2/N, antipodal facets force centered optimal inradius r. The zero-slack maximal-norm signs span full larger-part coordinates when q odd and sum-zero when q even. With equality constraints on H this yields the claimed affine dimensions and full remaining halfspace inequalities, including the scalar interval for even q; equal parts give zero versus a line segment. Independently recomputed exact rank of active sign normals together with H for 2<=p<=5,p<=q<=7; all agreed. In radius-contact endpoint m=2, constant sign labels are duplicate facets and counted once. Finite rank experiments do not establish the all-size result.
 
-## Limits and external validation
-The theorem uses the canonical Euclidean realization, not affine invariant geometry or weighted edges. The inequality presentation in unequal sizes is exact but does not enumerate every center-polytope vertex. Complete bibliographic novelty is not certified, and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complete-bipartite facet classification and the inradius/tangent-count portion are already implied by Higashitani-Jochemko-Michałek and subsequent multipartite inradius results. The complete locus of all optimal Euclidean ball centers (dimension p-1/p and balanced exceptional segment) is not an immediate facet count or inradius statement, and extends the known star p=1 locus to p,q>=2. Best-of-knowledge original only for the full center locus classification.
+
+## value
+
+PASS
+
+Classifying every largest-ball center is a natural intrinsic metric problem not solved by quoting inradius; the parity-controlled affine-dimension jump p-1/p and exceptional uniqueness criterion give a complete structural geometry for a whole graph family. The facet count and radius on their own would be routine deductions, so value is based on the full locus and degeneracy transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

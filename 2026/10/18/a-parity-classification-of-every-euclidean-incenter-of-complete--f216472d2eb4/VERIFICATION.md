@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The checker computes facet normal lengths and tangent-facet counts as exact rational numbers, derives active-normal rank via rational Gaussian elimination, verifies nonzero perturbations along every predicted center-affine direction using rational inequalities after legitimate squaring of nonnegative sides, and separately checks balanced-even segment endpoints and duplicate sign labels in four examples.
+## correctness
 
-Recorded program output:
+PASS
 
-```
-VERIFY_OK profiles=49 facets=30676 tangent_facets=11312 positive_dim_profiles=46
-VERIFY_ENDPOINTS_OK [(2, 5), (4, 20), (6, 70), (8, 252)]
-```
+Reconstructed all facet normals f=(signs,0) or (0,signs) from the cited Proposition 3.4: orthogonal H projection has norm^2=s-(sign sum)^2/N, antipodal facets force centered optimal inradius r. The zero-slack maximal-norm signs span full larger-part coordinates when q odd and sum-zero when q even. With equality constraints on H this yields the claimed affine dimensions and full remaining halfspace inequalities, including the scalar interval for even q; equal parts give zero versus a line segment. Independently recomputed exact rank of active sign normals together with H for 2<=p<=5,p<=q<=7; all agreed. In radius-contact endpoint m=2, constant sign labels are duplicate facets and counted once. Finite rank experiments do not establish the all-size result.
 
-Test domain: integer \(2\le p\le8\), \(p\le q\le11\); balanced-even endpoint tests use \(m=2,4,6,8\). The program assumes the published complete-bipartite facet theorem and is only finite corroboration. The paper's proof establishes all admissible integer parameters using exact formulas and linear algebra; neither enumeration nor numerical equality tests are an infinite proof. No external mathematical audit is asserted.
+## originality
+
+PASS
+
+Complete-bipartite facet classification and the inradius/tangent-count portion are already implied by Higashitani-Jochemko-Michałek and subsequent multipartite inradius results. The complete locus of all optimal Euclidean ball centers (dimension p-1/p and balanced exceptional segment) is not an immediate facet count or inradius statement, and extends the known star p=1 locus to p,q>=2. Best-of-knowledge original only for the full center locus classification.
+
+## value
+
+PASS
+
+Classifying every largest-ball center is a natural intrinsic metric problem not solved by quoting inradius; the parity-controlled affine-dimension jump p-1/p and exceptional uniqueness criterion give a complete structural geometry for a whole graph family. The facet count and radius on their own would be routine deductions, so value is based on the full locus and degeneracy transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
