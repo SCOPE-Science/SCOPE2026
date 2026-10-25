@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The sixteen cube vertices yield exactly \(4368\) potential five-vertex simplices. Each determinant is recomputed by two different exact integer formulas; exhaustive coefficient grouping gives the displayed product identity. Exact algebra transforms it into the correlation formula, and strict derivatives on the entire square of squared correlations prove the unique global maximizing point. Facet normalization, equality boundaries, and the strictly positive input domain are stated. The all-parameter theorem does not rely on finite real-number sampling.
+
+**Originality — PASS under the literature and database comparisons performed.** The motivating full primary paper defines the unrestricted four-cube inequality and proves the three-cube case, but does not treat parity-correlated matching pairs. The most relevant published special-case result proves the identical sharp constant only on a different symmetry cone of Hamming-weight and complementation invariant weights. A known independent-Bernoulli specialization cannot imply this result: within-pair correlation is generally nonzero here. The precise polynomial identity, not merely its numerical extremum, is distinct. Search results are not a proof of global novelty; unindexed prior calculations remain a material residual risk.
+
+**Mathematical value — PASS.** This addresses the first open dimension of a motivated geometric inequality and provides a complete exact two-correlation profile on a natural zero-field Ising matching, beyond separate established invariant or independent-bit families. It establishes sharp quantitative slack and correlation monotonicity, while explicitly leaving unrestricted weights open. This is a nontrivial structural inequality supported by an exhaustive determinant identity and a sharp continuum optimization, not a renamed instance of a known one-parameter inequality.
+
+The closest scientific antecedents are Averkov–von Dichter–Soprunov (arXiv:2608.14909v1) and *Sharp symmetric gap for the first open hypercube inequality* (published mathematical result). The present proof makes no independent-certification or general-conjecture claim.
+
+Self-review: passed. Independent audit: not yet performed.
