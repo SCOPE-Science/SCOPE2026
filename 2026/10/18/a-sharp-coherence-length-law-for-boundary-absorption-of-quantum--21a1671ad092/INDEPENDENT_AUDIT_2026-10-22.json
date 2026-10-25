@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:00:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The cited half-line Lindblad sink resolvent yields a Parseval decomposition A_{n,K}=B_eta(c)+E_{n,eta}(c). Exterior term nonnegative and its polynomial numerator bounded by K gives E<=K/[2pi n(n-1)] uniformly in c and eta>0. The in-band factor 2 eta sin(k)/(1+eta²+2 eta sin(k)) is bounded pointwise by sin(k)/(1+sin(k)), with equality only at eta=1; any nonzero preparation polynomial is nonzero on positive measure, proving unique far-field loss and top Toeplitz eigenvalue Lambda_K. At eta=1 the full-circle scalar symbol sigma(k) has deficit satisfying x(k)/4 <=1-sigma(k)<=x(k)/4+x(k)^2/8 with x=|exp(ik)-i|². The Dirichlet path Laplacian gives smallest x-energy lambda_K=4sin²(pi/[2(K+1)]); the chirped sine ground-state packet yields exact x²-energy lambda_K²+[4/(K+1)]sin²(pi/(K+1)). Thus both explicit K bounds and Lambda_K=1-pi²/[4(K+1)²]+O(K^-3). Independent 2048-node Gauss-Legendre quadrature and Hermitian eigenvalues for K=1,2,3,5,10,20 verified lower/upper deficit bounds and K=1=1-2/pi,K=2=2/pi. The exact Green-function premise is sourced to Riberi and not claimed as independently proved from first principles; numeric finite K cannot prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riberi gives Green resolvent and localized-site probabilities, not arbitrary packet optimization. General Toeplitz asymptotics concern eigenvalue extremes but do not alone give uniform finite-n sink absorption decomposition."
+        ],
+        "reasoning": "The Green function covers superpositions by linearity, so the claim could be derived from source plus optimization, but is not a stated corollary with no work: positivity of exterior tail, rate matching and sharp Dirichlet deficit are additional analyses.",
+        "searches": [
+          "Riberi 2026 boundary localized non Hermitian modes full HTML Sections 2–4 Appendix D",
+          "Bottcher Grudsky Spectral Properties of Banded Toeplitz Matrices 2005 Ch 10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 7adf5388bffc0742a12d66a224011990ea3d168f",
+        "Riberi arXiv:2605.08056v4 full HTML",
+        "DOI:10.1137/1.9780898717853",
+        "Resultary halfline coherent absorption query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Riberi gives exact Green function but no finite-coherence-window Rayleigh maximization. Fourier symbol and discrete Dirichlet energy prove new explicit bounds."
+        ],
+        "reasoning": "The known one-site probability follows as K=1 special case and is expressly excluded from novelty; discrete-time Hadamard absorption has different Hamiltonian and sink. The leading Toeplitz asymptotic may have a general ancestor, so credit is focused on the unified physical optimization with finite-n and finite-K quantitative certificates.",
+        "searches": [
+          "Riberi 2605.08056 v4 full HTML Appendix D",
+          "Ambainis Bach et al one-dimensional quantum walks Hadamard absorption",
+          "Parter extremal Toeplitz eigenvalue asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier polynomial c yields a finite Toeplitz compression with symbol sin(k)/(1+sin(k)), and sink matching eta=1."
+        ],
+        "reasoning": "Compared to finite-support signal-shaping/Toeplitz extremal eigenvalue language and absorption of a half-line Lindblad walk. The physical problem is not equivalent to a one-site formula K=1; a nontrivial K-dimensional spectral optimization remains.",
+        "searches": [
+          "Resultary: absorbing quantum walk half-line boundary sink coherent finite support packet optimal eventual absorption Toeplitz eigenvalue",
+          "Riberi 2605.08056 exact absorbing quantum walk",
+          "extremal Toeplitz eigenvalues finite support band-limited filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Riberi single-site coefficient corresponds to Lambda_1=1-2/pi; the submitted Lambda_2=2/pi is a different coherent packet and numerically matches an unrelated discrete-time Hadamard walk constant."
+        ],
+        "reasoning": "Existing K=1 values and unrelated Hadamard 2/pi are not a tabulation of optimal Lambda_K for all K and cannot imply the sharp K asymptotic or n-uniform error.",
+        "searches": [
+          "Riberi arXiv 2605.08056 site one absorption far field 1-2/pi",
+          "absorbing quantum walk two-site coherent packet 2/pi",
+          "Resultary quantum walk absorption Toeplitz matrix"
+        ]
+      },
+      "rationale": "PASS qualified: Riberi 2026 original half-line sink model, Green function and single-site eventual absorption were inspected in a full HTML version including Appendix D. His localized one-site initial states correspond to K=1; the submitted arbitrary *coherent finite preparation window* optimization, Toeplitz K-by-K operator, uniform n finite-distance bound and sharp K^-2 locality penalty are not stated in those results. Classical extreme Toeplitz eigenvalue theorems may imply a similar leading spectral asymptotic, but the full quantum preparation and sink-optimization claim adds the physical structure and quantitative finite bounds.",
+      "residual_risks": [
+        "General Toeplitz spectral concentration literature might already state an equivalent leading eigenvalue asymptotic in other terminology; full books not inspected.",
+        "Riberi has newer versions/title aliases; the v4 original full HTML was inspected.",
+        "Proof assumes exact Markovian Lindblad sink and eventual absorption; no finite-time/noisy physical claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full source treats initial excitation localized at one site and examines loss duality/modes. It provides reused Green function, not finite-window coherent packet Toeplitz spectral optimization.",
+          "evidence": "Single-site absorption formulas and survival Green function (Sections 2–4 and Appendix D); packet support/coherence-length eigenvalue problem not stated.",
+          "identifier_or_url": "arXiv:2605.08056v4; https://arxiv.org/html/2605.08056v4",
+          "material_read": "Complete accessible arXiv HTML text; model and resolvent Sections 2–4, discussion and Appendix D first-passage/absorption formulas",
+          "method": "Read full-text HTML and inspect relevant section equations",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Same half-line Hamiltonian, sink, resolvent and eventual absorption observable"
+        },
+        {
+          "assessment": "Generic extreme eigenvalue techniques may cover the leading K^-2 coefficient; applicability to this nonsmooth nonbanded symbol not verified from full text",
+          "evidence": "Source focuses on spectral extremes of banded Toeplitz matrices, whereas symbol here has a zero half-band and is not generally banded.",
+          "identifier_or_url": "DOI:10.1137/1.9780898717853",
+          "material_read": "Reference/chapter bibliographic description only, not full chapter",
+          "method": "Scholarly source lookup",
+          "title": "Spectral Properties of Banded Toeplitz Matrices",
+          "trigger": "Potential mathematical generalization of Toeplitz edge eigenvalue asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The amount of coherence/initial preparation bandwidth needed for near-perfect absorption is a natural quantum-transport invariant, and the sharp 1/(K+1)^2 loss with a finite-distance error provides a useful preparation-resource scaling law. Exact K=1,2 phase-control behavior and uniqueness of optimal coupling are physically motivated boundary results, not arbitrary Toeplitz number extraction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 7adf5388bffc0742a12d66a224011990ea3d168f",
+    "Riberi arXiv:2605.08056v4 full HTML",
+    "DOI:10.1137/1.9780898717853",
+    "Resultary halfline coherent absorption query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed K far-field statement with explicit K/[n(n-1)] finite-distance error, not uniform in K independently of n.",
+    "The Green function is a cited input from prior Riberi paper and is not an original result."
+  ],
+  "residual_risks": [
+    "General Toeplitz spectral concentration literature might already state an equivalent leading eigenvalue asymptotic in other terminology; full books not inspected.",
+    "Riberi has newer versions/title aliases; the v4 original full HTML was inspected.",
+    "Proof assumes exact Markovian Lindblad sink and eventual absorption; no finite-time/noisy physical claims."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: coherent preparation length and absorbing boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact boundary resolvent gives the full normalized-packet absorption effect, not merely one-site survival. The exterior-energy contribution is nonnegative and at most \(K/[2\pi n(n-1)]\) for all positive loss rates. The in-band multiplier is pointwise maximized at matched loss, and its Hermitian Toeplitz compression gives a genuine global optimizer in the far-field model. The two-sided multiplier-to-Dirichlet comparison proves the coefficient \(\pi^2/4\) without extrapolating from the numerical spectrum. The standalone checker passed 279 comparisons, including independently propagated finite-chain states. The finite simulation does not certify the infinite theorem; its proof is analytic.
+## correctness
 
-## Originality — PASS, qualified
-Riberi (arXiv:2605.08056) solves the exact forward propagator and localized-source absorption; that work is acknowledged, and the self-review was based on PDF formula sections, not a snippet alone. The present contribution is a sharp optimization over the *coherent preparation-window dimension*, including an exact \(K=2\) chiral limit, all-\(K\) finite bounds and a distance-uniform correction. Amorim and collaborators (arXiv:2512.02186) concern a coined discrete-time walk, not the present continuous-time boundary jump. The classical Hadamard-walk appearance of \(2/\pi\) is acknowledged as a different model. Generic Parter/Widom/Toeplitz extreme-eigenvalue theory may imply the eigenvalue asymptotics once the new physical operator is identified, and the original Green function implies the unoptimized linear response; these are the largest remaining novelty risks. Older full monograph text and the original Parter article were not fully inspected.
+PASS
 
-## Value — PASS
-The result solves a nontrivial, physically natural finite-coherence resource problem rather than tabulating a small graph. It quantifies the coherence-window cost of nearly perfect absorption and demonstrates a substantial phase-controlled two-site effect, with an explicit far-field approximation valid uniformly over state coefficients and sink strength.
+PASS: The cited half-line Lindblad sink resolvent yields a Parseval decomposition A_{n,K}=B_eta(c)+E_{n,eta}(c). Exterior term nonnegative and its polynomial numerator bounded by K gives E<=K/[2pi n(n-1)] uniformly in c and eta>0. The in-band factor 2 eta sin(k)/(1+eta²+2 eta sin(k)) is bounded pointwise by sin(k)/(1+sin(k)), with equality only at eta=1; any nonzero preparation polynomial is nonzero on positive measure, proving unique far-field loss and top Toeplitz eigenvalue Lambda_K. At eta=1 the full-circle scalar symbol sigma(k) has deficit satisfying x(k)/4 <=1-sigma(k)<=x(k)/4+x(k)^2/8 with x=|exp(ik)-i|². The Dirichlet path Laplacian gives smallest x-energy lambda_K=4sin²(pi/[2(K+1)]); the chirped sine ground-state packet yields exact x²-energy lambda_K²+[4/(K+1)]sin²(pi/(K+1)). Thus both explicit K bounds and Lambda_K=1-pi²/[4(K+1)²]+O(K^-3). Independent 2048-node Gauss-Legendre quadrature and Hermitian eigenvalues for K=1,2,3,5,10,20 verified lower/upper deficit bounds and K=1=1-2/pi,K=2=2/pi. The exact Green-function premise is sourced to Riberi and not claimed as independently proved from first principles; numeric finite K cannot prove asymptotics.
 
-## Limitations and independent status
-Exact ensemble eventual absorption only, no finite-time, dephasing or experimental noise guarantee. A full independent bibliographic and mathematical assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Riberi 2026 original half-line sink model, Green function and single-site eventual absorption were inspected in a full HTML version including Appendix D. His localized one-site initial states correspond to K=1; the submitted arbitrary *coherent finite preparation window* optimization, Toeplitz K-by-K operator, uniform n finite-distance bound and sharp K^-2 locality penalty are not stated in those results. Classical extreme Toeplitz eigenvalue theorems may imply a similar leading spectral asymptotic, but the full quantum preparation and sink-optimization claim adds the physical structure and quantitative finite bounds.
+
+## value
+
+PASS
+
+PASS: The amount of coherence/initial preparation bandwidth needed for near-perfect absorption is a natural quantum-transport invariant, and the sharp 1/(K+1)^2 loss with a finite-distance error provides a useful preparation-resource scaling law. Exact K=1,2 phase-control behavior and uniqueness of optimal coupling are physically motivated boundary results, not arbitrary Toeplitz number extraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
