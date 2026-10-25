@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T10:57:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md 744f686fb5f057a46829bfeb593061216d7224a3",
+        "Independent exact Taylor rational certificate and high precision logarithm",
+        "Leonardos & Melolidakis arXiv:1805.06327 Section 4.3"
+      ],
+      "rationale": "Original survival is exp(-x) below 1 and exp(-1-(x-1)/3) above; direct integration gives m_X=1+2exp(x-1) below 1 and m_X=3 above. Derivatives of m_X/x are strictly negative and match continuously at the switch. After conditional right truncation at T=1+3log(5/4), S_X(T)=(4/5)e^-1, h_Y(1-)=5, m_Y(1)=3-12log(5/4). Differentiating m/x using m'=h m-1 yields left derivative 11-48 log(5/4). Alternating logarithm Taylor bound log(5/4)<43/192 proves >1/4, on a nontrivial left neighborhood. Independent arbitrary-precision evaluation gives approximately 0.2891095369; exact analytic inequality is decisive. Truncation is X | X<=T, not censoring.",
+      "residual_risks": [
+        "Piecewise-constant hazard has downward jump; smooth-hazard case and right censoring not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banciu–Mirchandani 2013 DOI:10.1287/opre.2013.1198 Proposition 1 IGFR right-truncation preservation",
+          "Original X generalized hazard x h_X jumps from 1 at x=1^- to 1/3 at x=1^+"
+        ],
+        "reasoning": "IGFR is strictly stronger than DGMRL and does not include the explicit source, so the IGFR closure theorem cannot rule out this counterexample or imply DGMRL closure. Truncation vs censoring distinctly parsed.",
+        "searches": [
+          "web: IGFR right truncation Banciu Mirchandani Proposition 1",
+          "Resultary: Decreasing generalized mean residual life DGMRL DGMRD not preserved under right truncation piecewise exponential counterexample"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.06327 original PDF Section 4.3",
+        "doi:10.1007/s10479-023-05425-z open full HTML Section 4",
+        "doi:10.1287/opre.2013.1198 Proposition 1 (scope compared)",
+        "Resultary DGMRL/DGMRD query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018/2021 Leonardos–Melolidakis Theorem 4.3 proves positive scaling/left truncation but notes right case unknown",
+          "Leonardos–Koki–Melolidakis 2023 Section 4 says DGMRL right-truncation unclear"
+        ],
+        "reasoning": "Left-truncation closure is logically different; it cannot imply closure or nonclosure under upper conditioning. The IGFR result likewise applies only when the stronger generalized failure-rate assumption holds, which this example violates.",
+        "searches": [
+          "arXiv:1805.06327 4.3",
+          "Springer 2023 right truncation section",
+          "Resultary: Decreasing generalized mean residual life DGMRL DGMRD not preserved under right truncation piecewise exponential counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1805.06327 Section 4.3 open right truncation DGMRD question",
+          "DOI:10.1007/s10479-023-05425-z Section 4"
+        ],
+        "reasoning": "DGMRD denotes the same normalized mean-residual-demand function as DGMRL on nonnegative distributions. Both motivating texts ask whether this class survives right truncation; the exact counterexample is a negative answer, not a renaming of IGFR.",
+        "searches": [
+          "Resultary: Decreasing generalized mean residual life DGMRL DGMRD not preserved under right truncation piecewise exponential counterexample",
+          "web: DGMRD mean residual demand right truncation piecewise exponential counterexample",
+          "web: generalized mean residual life divided by age truncation preservation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest ranked hits are unrelated general counterexamples, not DGMRL closure",
+          "The primary 2021 and 2023 sources explicitly record unresolved right truncation"
+        ],
+        "reasoning": "No indexed exact counterexample under DGMRL, DGMRD or mean-residual-demand terminology appeared in actual searches; historical unindexed counterexamples remain possible.",
+        "searches": [
+          "Resultary: Decreasing generalized mean residual life DGMRL DGMRD not preserved under right truncation piecewise exponential counterexample",
+          "Resultary counterexamples DGMRL right truncation"
+        ]
+      },
+      "rationale": "The full motivating preprint and later full open-access article explicitly leave DGMRD/DGMRL preservation under right truncation open, while Banciu–Mirchandani proved it for the strictly smaller IGFR class. Exact explicit counterexample answers a natural open binary question; no equivalent published counterexample identified by Resultary and terminology searches, subject to priority limitations.",
+      "residual_risks": [
+        "An earlier differently named residual-demand counterexample may escape indexed searches.",
+        "2018 original preprint revision history not separately reconstructed.",
+        "IGFR contrast rests on the explicit published Proposition 1, not a new IGFR result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_QUESTION_PREMISE",
+          "evidence": "Theorem 4.3 proves left truncation closure and text expressly leaves right truncation for DGMRD unclear.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.06327",
+          "material_read": "Original PDF Section 4.3, p. 11 including Theorem 4.3 and right-truncation paragraph",
+          "method": "Read PDF equations and page screenshot",
+          "title": "A Class of Distributions for Linear Demand Markets",
+          "trigger": "Direct original open DGMRD truncation problem"
+        },
+        {
+          "assessment": "OPEN_QUESTION_REAFFIRMED",
+          "evidence": "Differentiates right-truncation preservation of IGFR from unsettled DGMRL/DGMRD right truncation.",
+          "identifier_or_url": "https://doi.org/10.1007/s10479-023-05425-z",
+          "material_read": "Full Springer OA HTML opened; Section 4 around Theorem 6 and right-truncation discussion read in detail",
+          "method": "Read original theorem statements and relevant surrounding proof/discussion",
+          "title": "A generalization of the increasing generalized failure rate unimodality condition",
+          "trigger": "Later paper revisiting exact question"
+        },
+        {
+          "assessment": "INAPPLICABLE_STRONGER_CLASS",
+          "evidence": "Original example has generalized hazard drop, contradicting IGFR hypothesis.",
+          "identifier_or_url": "https://doi.org/10.1287/opre.2013.1198",
+          "material_read": "Proposition 1 as explicitly identified and contrasted in accessible primary bibliographic excerpts; complete article not independently read",
+          "method": "Compared stated assumption IGFR to computed hazard switch; not claiming entire article read",
+          "title": "Technical Note—New Results Concerning Probability Distributions with Increasing Generalized Failure Rates",
+          "trigger": "Known stronger class closure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Leonardos–Melolidakis Section 4.3 original open question",
+        "Exact derivative margin"
+      ],
+      "rationale": "An explicit counterexample resolves a question explicitly left open in two papers about lifetime/demand aging classes and identifies that DGMRL is not robust to a standard survival-data operation. The exact elementary law and rigorous margin >1/4 give a reusable witness rather than routine numerical failure.",
+      "residual_risks": [
+        "No characterization of when right truncation does preserve DGMRL, and no smooth-hazard witness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Absolutely continuous and full positive support, but only piecewise-smooth hazard; upper conditional truncation not censoring.",
+    "Best-of-knowledge originality; named gaps and literature-access caveats preserved.",
+    "Publication not ready; no repository change or independent external attestation inferred."
+  ],
+  "schema_version": 1
+}
