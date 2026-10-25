@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The rank-one sampled update decomposes orthogonally into scalar data defect and zero-sum coordinate martingale. Conditional row and coordinate independence gives the exact product-and-sum identities with every quantifier accounted for. The positive step and divergent cumulative step hypotheses yield pathwise contraction of the data defect and convergence of bounded monotone coordinates to an exact solution. The initial coordinate quadratic variation gives a strictly positive limiting solution-error floor. The rational 2x2 values were replayed by exhaustive independent branching, with all-step conclusions resting on the analytical derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Razaviyayn et al. 2018/2019 Theorem 1 assumes full column rank for squared solution-error convergence; Theorem 2 covers residuals of arbitrary consistent systems.",
+        "Du–Sun 2019/2020 Theorem 2 bounds norm of the expected iterate; Theorem 8 assumes full column rank; Theorem 11 bounds residuals.",
+        "Han–Xie 2022 Theorem 3.1 bounds residual mean square and Theorem 3.2 bounds squared norm of the expected error, distinct from the expectation of squared solution error.",
+        "Xie–Yang 2026 Section 1 explicitly assumes full column rank."
+      ],
+      "reasoning": "A broader residual estimate or mean-iterate estimate can coexist with a positive solution-nullspace mean-square floor, and injective full-column-rank estimates exclude the rank-one noninjective case. Their sampling, normalization and target conclusions do not imply the quantified double-randomization nullspace law.",
+      "searches": [
+        "\"doubly stochastic Gauss Seidel\" \"minimum norm solution\" \"rank deficient\"",
+        "arXiv:1810.05251 (Theorems 1–2)",
+        "arXiv:1912.13291 (Theorems 2, 8, 11)",
+        "arXiv:2208.05437 (Theorems 3.1–3.2)",
+        "arXiv:2610.04685v1 (Section 1, Theorem 4.1)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15399v1",
+      "arXiv:2405.13340",
+      "arXiv:2208.05437",
+      "arXiv:1912.13291",
+      "arXiv:1810.05251",
+      "arXiv:2610.04685v1",
+      "https://arxiv.org/pdf/1810.05251",
+      "https://arxiv.org/pdf/1912.13291",
+      "https://arxiv.org/pdf/2208.05437"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xia–Zhou Theorem 3.1, arXiv:2610.15399v1, states \\(\\mathbb E\\|x_k-x^\\dagger\\|^2\\to0\\) under Assumption 2.1(i)/(ii); its proof deduces uniqueness of an exact solution from convergence of residuals.",
+        "For the explicit two-by-two rank-one matrix, Assumption 2.1(i) holds with \\(L=8\\) and \\(\\mu=1\\), but the independently derived exact expected squared error tends to \\(17/126\\) while the squared residual tends to zero.",
+        "The 2024 coordinate-only convergence-to-random-solution result predicts the possible qualitative distinction but not the source-specific quantitative contradiction."
+      ],
+      "reasoning": "The new formula directly contradicts the unrestricted minimum-norm convergence statement on the given noninjective example; the contradicted statement cannot be regarded as covering a theorem proving a positive variance floor. Earlier residual/mean results have strictly weaker implication than mean-square convergence to a fixed solution.",
+      "searches": [
+        "arxiv 2610.15399 theorem 3.1 convergence for exact data uniqueness issue",
+        "arxiv:2610.15399 minimum norm theorem nullspace random limit",
+        "arXiv:2405.13340 (Theorem 2.4, Remark 2.5)",
+        "arXiv:1912.13291 (Theorems 2, 8, 11)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jin–Liu 2024 Section 2 establishes weak convergence to a random exact solution for coordinate-only sampling, but no exact solution-nullspace second-moment law for independent row sampling.",
+        "Xia–Zhou 2026 Section 3.1 asserts convergence to the chosen minimum-norm solution under the relevant step assumptions, rather than deriving a nonzero variance floor."
+      ],
+      "reasoning": "The closest qualitative equivalence is convergence to a random feasible vector. That does not imply the exact time-inhomogeneous variance series, its strictly positive first-step lower bound under all divergent deterministic step schedules, or the explicit distinct-row rational example. The new statement concerns the prescribed solution norm, not only feasibility.",
+      "searches": [
+        "DSBGD rank-one uniform row coordinate sampling exact mean square error residual decays nonzero floor",
+        "coordinate descent stochastic Kaczmarz rank deficient inconsistent minimum norm solution null space drift exact variance",
+        "arXiv:2405.13340 (Section 2, Theorem 2.4, Remark 2.5)",
+        "arXiv:2610.15399v1 (Theorems 2.1, 3.1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted mathematical-record search returned neighboring numerical linear algebra and stochastic-method findings, not a tabulated instance or record of the exact constants \\(65/128\\) and \\(17/126\\).",
+        "The proof is an exact stochastic recursion with a free deterministic step sequence, rather than a pre-existing numerical table entry."
+      ],
+      "reasoning": "No covering exact database or table entry was identified. A negative search alone is not a uniqueness certificate, and the originality argument also relies on the direct primary-text implication comparisons.",
+      "searches": [
+        "Xia Zhou 2026 doubly stochastic block gradient descent linear inverse problems failure minimum norm rank deficient coordinate randomization nullspace variance",
+        "DSBGD rank-one uniform row coordinate sampling exact mean square error residual decays nonzero floor",
+        "\"randomized coordinate descent\" \"minimum-norm\" \"rank-deficient\" limit"
+      ]
+    },
+    "rationale": "The claim is the exact time-dependent solution-nullspace variance law for two independent samples, not the pre-existing qualitative fact that coordinate methods can approach random exact solutions. The 2026 source Algorithm 1 and exact-data Theorem 3.1 make an unconditional minimum-norm assertion that the rank-one example separates from its residual convergence. Older full-text results concern expected iterate, residual or full-column-rank mean-square bounds and do not state the all-admissible-step exact variance formula. Residual historical-equivalence risk remains.",
+    "residual_risks": [
+      "An older general martingale or randomized-coordinate result could admit the exact rank-one variance formula as an unlisted specialization; absence of an indexed matching title or parameter is not uniqueness proof.",
+      "The qualitative existence of random nonminimum-norm limits in noninjective coordinate descent is already anticipated in earlier literature; only the precise double-sampling moment identity and universal all-admissible-schedule positive floor are assessed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains update and broad minimum-norm assertion, not nullspace variance formula; rank-one constructed operator meets its unqualified basic step hypothesis",
+        "evidence": [
+          "Algorithm 1 independently samples a data row and coordinate; Theorem 3.1 proof concludes uniqueness after establishing an exact solution.",
+          "Source Assumption 2.3 is introduced additionally for rate claims and fails on the rank-one coordinate projector."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15399v1",
+        "material_read": "Abstract; Sections 1–3 including Algorithm 1, Assumptions 2.1 and 2.3, Theorems 2.1 and 3.1 with proof; relevant Section 4 and Appendix A supplementary estimates",
+        "method": "Full-text HTML inspection and direct comparison of algorithm, norms and assumptions",
+        "title": "On the convergence of doubly stochastic block gradient descent method for linear inverse problems",
+        "trigger": "Exact algorithm and minimum-norm convergence assertion in current motivating work"
+      },
+      {
+        "assessment": "Qualitative precedent for random exact limit with coordinate sampling, not independent row/coordinate sampling nor stated exact arbitrary-step variance law",
+        "evidence": [
+          "Theorem 2.4 concerns convergence to a random exact solution; Remark 2.5 discusses additional identification conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.13340",
+        "material_read": "Introduction, Section 2 weak-convergence argument, Theorem 2.4, Remarks 2.5 and 2.10; extension discussion",
+        "method": "Accessible arXiv full-text HTML inspection",
+        "title": "Randomized block coordinate descent method for linear ill-posed problems",
+        "trigger": "Closest earlier Hilbert-space coordinate-descent convergence-to-random-solution theory"
+      },
+      {
+        "assessment": "Theorem 3.1 controls residual mean-square; Theorem 3.2 controls norm of expected iterate error. Neither controls the new exact solution-nullspace variance.",
+        "evidence": [
+          "Theorem 3.1 residual MSE; Theorem 3.2 squared norm of expected error; Section 5.3 DSGS uses nonuniform coefficient-square sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.05437",
+        "material_read": "Introduction; Sections 3.1 and 5.3 with Theorems 3.1–3.2; DSGS specialization; displayed convergence objects",
+        "method": "ArXiv open-access PDF, searchable text and inspected first-page image",
+        "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+        "trigger": "General 2022 full/rank-deficient doubly sampled linear solver"
+      },
+      {
+        "assessment": "Separates expected iterate, full-column-rank mean-square and rank-deficient residual bounds; no specific positive coordinate-nullspace variance under source update",
+        "evidence": [
+          "Theorem 2 norm-of-expected; Theorem 8 full rank; Theorem 11 residual in rank-deficient case."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.13291",
+        "material_read": "Abstract; Section 2 algorithm; Theorems 2, 8, 11; Remark 10; associated statements",
+        "method": "ArXiv open-access PDF, searchable text and inspected first-page image",
+        "title": "A doubly stochastic block Gauss–Seidel algorithm for solving linear equations",
+        "trigger": "Related doubly sampled algorithm and rank-deficient matrix conditions"
+      },
+      {
+        "assessment": "Full-column-rank solution-norm contraction and arbitrary-consistent residual contraction, not the new exact rank-one minimum-norm variance law",
+        "evidence": [
+          "Theorem 1 assumes full column rank; Theorem 2 bounds the residual for arbitrary consistent matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.05251",
+        "material_read": "Introduction; method definition, Theorems 1–2; rank-dependent discussion",
+        "method": "ArXiv open-access PDF, searchable text and inspected first-page image",
+        "title": "A linearly convergent doubly stochastic Gauss–Seidel algorithm for solving linear equations and a certain class of over-parameterized optimization problems",
+        "trigger": "Historical original doubly stochastic Gauss–Seidel"
+      },
+      {
+        "assessment": "Full-column-rank least-squares problem explicitly assumed in introduction; no rank-one nullspace regime",
+        "evidence": [
+          "Section 1 states that the coefficient matrix is real and of full column rank; Section 4 treats rate estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04685v1",
+        "material_read": "Abstract, introduction, assumptions, sampling framework and convergence-section description",
+        "method": "Accessible arXiv full-text HTML inspection",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "2026 nearby coordinate sampling and linear least-squares estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28e88f14-5876-46c7-b8a4-39bc4a89850c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In an exact-data inverse problem, the natural goal is the unique initial-guess minimum-norm solution, not arbitrary feasibility. The positive nullspace floor for every divergent positive deterministic step schedule, despite residual and expected-iterate convergence, quantifies a structural barrier to that selection. Its 2x2 distinct-row construction falls squarely inside a current convergence guarantee and identifies which mathematical inference is not justified. This is stronger than a normalization check or merely another stochastic algorithm counterexample; the full time-dependent moment law is reusable for variance diagnostics.",
+    "status": "PASS"
+  }
+}
