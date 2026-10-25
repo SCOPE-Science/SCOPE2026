@@ -1,11 +1,21 @@
-# Scientific review: complete double total domination polynomial of circular ladders
+# Independent mathematical audit
 
-**Correctness (PASS).** For each \(n\ge3\), each vertex of the prism has degree three. Complementing a double total dominating set gives exactly an open packing. The explicit same-layer two-step and cross-layer one-step common-neighbor pairs are exactly the edges of the square of a parity-twisted auxiliary cycle. That auxiliary graph is one \(2n\)-cycle for odd \(n\), two \(n\)-cycles for even \(n\). The gap-composition argument counts every independent set in a squared cycle; reversing complement sizes gives the full polynomial, and the top-degree coefficient produces six optimizer counts. Direct exhaustive enumeration and structural graph checks are recorded in the verifier. Finite computations alone are not infinite proofs; the four general steps provide the proof. Boundary cases \(n=3,4\) are included.
+## correctness
 
-**Originality (PASS, with limits).** The entire polynomial and the six-residue multiplicity census are compared with the prism-specific 2006 results, the 2009 restatement, 2017 cylinder bounds, the 2023 bipartite-prism open-packing theorem, and 2023 work on path products. The minimum **number** of double total dominating vertices is already part of prior prism literature and is not newly claimed. The newer open-packing theorem supplies only an extremal equality for bipartite base graphs; it neither counts all feasible subsets nor handles odd base cycles. The old stratified-domination theorem explicitly discusses the numerical parameter but gives no coefficient enumerator in its directly relevant subsection. Searches for the all-set polynomial, its cycle-square equivalent, and the residue formulas found no covering result. This is best-knowledge originality and cannot establish global uniqueness; some older scanned pages and unindexed works remain residual risks.
+PASS
 
-**Value (PASS).** Determining only an extremal number discards the distribution of all feasible sets. The exact polynomial supplies every cardinality count and classifies all optimal configurations for every prism. The parity-coupled common-neighbor structure converts a domination problem to one or two cycle-square packing problems; the resulting six congruence classes explain sharply distinct counts (for example three versus quadratically growing counts). This structural counting theorem is a natural refinement of literature on total domination and open packings, not an arbitrary parameter slice.
+For n>=3, cubicity gives an exact complement bijection between |N(v)∩D|>=2 for every vertex and open packings of the prism. Its common-neighbor conflict graph equals the square of an auxiliary 2-regular graph with one C_(2n) when n odd and two C_n when n even (including n=3,4). The independent k-sets of C_L^2 correspond bijectively to circular gaps >=3; the marked origin factor L/k yields F_L=1+sum_k (L/k)binom(L-2k-1,k-1)x^k. Complement cardinalities give the complete polynomial and top coefficients derive all six residue optimizer counts. Direct independent enumeration n=3..8 matched total feasible sets (10,25,46,100,211,441), minimum sizes (4,6,7,8,10,12) and optima (3,16,10,9,35,144). Infinite proof is the conflict-graph/cyclic-gap bijection, not these finite data.
 
-**Limits and closest sources.** Henning–Maritz (2006), Section 5.4, addresses the numerical minimum; Bermudo–Sánchez–Sigarreta (2017), Section 4, obtains lower/upper bounds in the even-width case; Brešar–Klavžar–Rall (2023/2024), Theorem 2.2, addresses maximum open packings for bipartite base graphs. The 2006 source is an older scan and the inspected material focuses on its numerically relevant section. No independent audit or comprehensive bibliographic guarantee is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A cardinality-preserving complement bijection plus a complete exact polynomial of all double-total sets goes beyond the known scalar packing number of prisms. Cyclic gap compositions are elementary and no originality is claimed for that counting method itself. No searched primary theorem was found that implies all coefficients and six residue optimizer census.
+
+## value
+
+PASS
+
+Provides an exact size distribution and complete optimizer classification for the natural cubic cycle prism, distinguishing parity of the length and six residue classes. The squared-cycle conflict graph gives a reusable reduction beyond preexisting numerical extremal bounds. The all-set polynomial can support exact probabilistic domination/reliability questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the circular-ladder double total domination enumerator
+# Independent mathematical audit
 
-Run `python3 verification/verify.py` with the standard Python 3 library and no external packages. The committed output is `verification/output.txt`.
+## correctness
 
-The verifier independently constructs every prism open neighborhood and tests the original double total domination condition by exhaustive enumeration for \(3\le n\le9\). This includes exactly \(349{,}440\) binary subsets over the seven tested graph orders. It next performs full backtracking enumeration of common-neighbor-independent subsets for \(3\le n\le13\), which is a separate finite method from the direct domination checker. Next it directly compares each common-neighbor conflict edge set against the square of the parity-twisted auxiliary graph for \(3\le n\le100\), including component lengths. Finally it checks analytic maximum sizes and six-residue coefficients through \(n=400\).
+PASS
 
-These finite checks do not establish the infinite family. The mathematical proof proceeds by a general bijection, exact auxiliary graph identification and a cyclic gap composition count, valid for every \(n\ge3\). This is scientific corroboration without any independent audit or external certification.
+For n>=3, cubicity gives an exact complement bijection between |N(v)∩D|>=2 for every vertex and open packings of the prism. Its common-neighbor conflict graph equals the square of an auxiliary 2-regular graph with one C_(2n) when n odd and two C_n when n even (including n=3,4). The independent k-sets of C_L^2 correspond bijectively to circular gaps >=3; the marked origin factor L/k yields F_L=1+sum_k (L/k)binom(L-2k-1,k-1)x^k. Complement cardinalities give the complete polynomial and top coefficients derive all six residue optimizer counts. Direct independent enumeration n=3..8 matched total feasible sets (10,25,46,100,211,441), minimum sizes (4,6,7,8,10,12) and optima (3,16,10,9,35,144). Infinite proof is the conflict-graph/cyclic-gap bijection, not these finite data.
+
+## originality
+
+PASS
+
+A cardinality-preserving complement bijection plus a complete exact polynomial of all double-total sets goes beyond the known scalar packing number of prisms. Cyclic gap compositions are elementary and no originality is claimed for that counting method itself. No searched primary theorem was found that implies all coefficients and six residue optimizer census.
+
+## value
+
+PASS
+
+Provides an exact size distribution and complete optimizer classification for the natural cubic cycle prism, distinguishing parity of the length and six residue classes. The squared-cycle conflict graph gives a reusable reduction beyond preexisting numerical extremal bounds. The all-set polynomial can support exact probabilistic domination/reliability questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
