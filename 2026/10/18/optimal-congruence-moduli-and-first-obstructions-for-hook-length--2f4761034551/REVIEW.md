@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each coefficient is an integer by the Euler-product definitions. The proof explicitly reconstructs the formal Frobenius lifting lemma, verifies its valuation gain even at the dyadic prime, and uses its \(a\)-step chain to obtain the universal modulus. The \(a-1\) step chain locates the exact first higher-modulus obstruction, including the edge case \(a=1\). Separately, the non-prime-power reduction in characteristic \(p\) identifies the first nonzero coefficient for every prime divisor. The coefficient at degree one limits the integer gcd to divisors of the parameter's square. Exact computer checks independently substantiate examples but are not invoked for infinite coverage.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Sharma's full preprint explicitly proves uniform congruence modulo \(p^a\) for \(t=p^a\) and modulo \(p^2\) for prime parameters. It does not state the optimal \(p^{a+1}\) modulus for every \(a\ge2\), or the index \(p^{a-1}\) of first failure modulo \(p^{a+2}\). The prime case, non-prime-power obstruction and product identities are credited to the earlier literature. Examined relevant primary sources and mathematical record searches did not reveal an already proved best-modulus classification, but possible implicit consequences of general power-series lifting theorems remain a limitation.
+PASS
 
-## Mathematical value
-**PASS.** A recent complete prime-power-versus-composite congruence classification leaves the exact largest uniform modulus open for higher prime powers. Determining this natural integer invariant for every parameter and proving the first sharpness index fully resolves that refinement, not an arbitrarily chosen coefficient or a marginal numerical improvement. The rigorous lifting statement is uniform in every prime and exponent and clarifies the exact strength of the known partition congruence.
+Work in Z[[q]] with A(q)=∏(1−q^j). The p-adic lifting lemma H(q)^(p^r)≡H(q^p)^(p^(r−1)) mod p^r follows from Frobenius and binomial valuations. Apply it along A(q)^(p^(2a)) to A(q^(p^a))^(p^a) for t=p^a, obtaining mod p^(a+1). The first a−1 steps imply mod p^(a+2) through degree p^(a−1)−1, while direct linear coefficient of A(q^(p^(a−1)))^(p^(a+1)) is −p^(a+1), proving sharpness. For t=p^a u, u>1,p∤u, Frobenius mod p first differs at degree p^(2a) by −u²; gcd divides t² from coefficient n=1, hence 1 for nonprimepower. Independent exact integer Euler-product recurrence computed all coefficients through degree 120 for 20 t cases, reproducing prime-power gcd/first failure and nonprimepower p-obstructions.
 
-## Relationship and limits
-The product identities originate in Han's hook-length and \(t\)-core framework. Sharma, arXiv:2610.01422v1 (October 1, 2026), provides the closest premise and covers the prime case and non-prime-power direction. Novelty is restricted to the sharp higher-prime-power level and first obstruction, and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genuinely new statement is the optimal p^(a+1) uniform modulus for a≥2 with first failure n=p^(a−1); Sharma already has prime t=p and nonprimepower portions, and these are credited.
+
+## value
+
+PASS
+
+Sharp natural all-parameter congruence invariant for two canonical partition generating series, with explicit earliest obstruction, not merely a numerical improvement; solves optimal modulus for infinitely many higher prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

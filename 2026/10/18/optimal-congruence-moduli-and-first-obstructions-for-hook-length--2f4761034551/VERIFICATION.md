@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite and formal verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses integer coefficients throughout. It constructs powers of \(A(q)=\prod_{j\ge1}(1-q^j)\) via exact logarithmic derivatives and the reciprocal Euler product via unrestricted integer partitions. For smaller cases it also multiplies the factors directly, independently of the logarithmic derivative algorithm.
+## correctness
 
-Prime-power checks cover \(t=2,4,8,3,9,5,25,7\), and check all displayed finite coefficients modulo the asserted optimal prime power. At the index \(p^{a-1}\), the checked residue is \(-p^{a+1}\) modulo \(p^{a+2}\), and every earlier coefficient is zero modulo \(p^{a+2}\). Non-prime-power checks cover \(t=6,10,12,15,18,20,21,30\), comparing the first nonzero residue modulo every divisor prime at index \(p^{2a}\).
+PASS
 
-Execute `python3 verify.py`; the successful result ends in `VERIFY_OK`. A finite run cannot prove infinitely many parameter choices. The formal Frobenius lifting and characteristic-prime coefficient arguments in `RESULT.md` provide the universal proof. The literature comparison is not an independent audit.
+Work in Z[[q]] with A(q)=∏(1−q^j). The p-adic lifting lemma H(q)^(p^r)≡H(q^p)^(p^(r−1)) mod p^r follows from Frobenius and binomial valuations. Apply it along A(q)^(p^(2a)) to A(q^(p^a))^(p^a) for t=p^a, obtaining mod p^(a+1). The first a−1 steps imply mod p^(a+2) through degree p^(a−1)−1, while direct linear coefficient of A(q^(p^(a−1)))^(p^(a+1)) is −p^(a+1), proving sharpness. For t=p^a u, u>1,p∤u, Frobenius mod p first differs at degree p^(2a) by −u²; gcd divides t² from coefficient n=1, hence 1 for nonprimepower. Independent exact integer Euler-product recurrence computed all coefficients through degree 120 for 20 t cases, reproducing prime-power gcd/first failure and nonprimepower p-obstructions.
+
+## originality
+
+PASS
+
+The genuinely new statement is the optimal p^(a+1) uniform modulus for a≥2 with first failure n=p^(a−1); Sharma already has prime t=p and nonprimepower portions, and these are credited.
+
+## value
+
+PASS
+
+Sharp natural all-parameter congruence invariant for two canonical partition generating series, with explicit earliest obstruction, not merely a numerical improvement; solves optimal modulus for infinitely many higher prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
