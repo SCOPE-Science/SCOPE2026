@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the cyclic-companion local-exponent result
+# Independent mathematical audit
 
-The result gives exact algebraic identities, an analytic limiting argument, and an explicitly cited seed power-set theorem. The following independent-of-external-packages finite diagnostics were actually executed from the accompanying `checker.py`:
+## correctness
 
-```
-PASS: 1148 finite algebra and Fourier assertions
-Excluded: infinite-dimensional power-set and compactness proofs; these are analytic.
-```
+PASS
 
-The diagnostics test the cyclic power identity, block resolvent factorization, discrete Fourier recovery, and nilpotent zero-seed boundary on finite coordinate truncations for several block counts. All tests completed successfully. To reproduce, run `python checker.py` using Python 3 and its standard library.
+For quasinilpotent B satisfying the explicitly quantified uniform superpolynomial resolvent-growth hypothesis, the exact cyclic polynomial resolvent identity T^m=diag(B) and norm comparison are valid. Root-of-unity Fourier inversion isolates each B-resolvent coordinate; the logarithmic small-power loss disappears under the hypothesis, giving the pointwise maximum exponent, its filtration, and the exact power set. The compact e^{-n^2} seed has polynomial lower bounds of arbitrarily high order, and interleaving unit links yields noncompact S with S^m compact and S^r noncompact for r<m. The B=0 case correctly limits the theorem. The [0,1] classification uses Ignatev Theorem 4 as an explicit external premise, not the finite checker.
 
-The analytic derivation of the operator-resolvent estimates and local exponent formula is written in `RESULT.md`; the example's infinite full-power-set conclusion uses the explicitly cited published decreasing-weight theorem. The polynomial resolvent lower bounds prove that the seed satisfies the required uniform growth limit. Compactness and noncompactness assertions follow from the direct-sum block structure and infinite-dimensional identity corner, not from finite truncations.
+## originality
 
-Limits: finite diagnostics do not prove an infinite-dimensional result; the cited external theorem is a mathematical premise rather than a software certificate. No independent mathematical audit, external certification, or exhaustive publication-priority determination has been performed.
+PASS
+
+The previous decreasing-weight shift theorem supplies the compact seed only. Published operator-algebra examples with prescribed essential power norms and Schatten-small radical shifts concern different invariants, so do not imply the pointwise local resolvent exponent formula or the noncompact full-power-set companion example.
+
+## value
+
+PASS
+
+The equality of each local resolvent growth exponent under a cyclic companion root is a structural transfer statement, with a natural application separating full resolvent power sets from compactness and establishing arbitrary finite Calkin-nilpotency order. Neither the Fourier identity nor power compactness alone gives the exponent statement without quantitative growth control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
