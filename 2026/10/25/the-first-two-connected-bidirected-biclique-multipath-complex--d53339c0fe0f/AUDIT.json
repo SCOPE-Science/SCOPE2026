@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "All 1416 faces of the bidirected K(2,6) multipath complex are reconstructed from directed indegree/outdegree and no-directed-cycle constraints. A 793-operation witness exhaustively gives 623 free-face pairs, one critical 0-simplex and 169 critical 3-simplices, no critical cells in degrees 1 or 2. The standalone verifier checks each free face is unique and its coface maximal in the remaining complex, verifies acyclicity of the reversed-incidence Hasse graph, and recomputes mod-two Betti vectors for n=1,...,6. Forman discrete-Morse theory then proves the integral wedge of 169 three-spheres; smaller n each has nonzero reduced mod-two homology below degree 3, excluding two-connectedness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caputi et al. 2022 Theorem 3.7 concerns only arcs directed from one part to the other; the directed cycle condition is then vacuous (arxiv:2208.04656v1, Section 3.2).",
+        "Caputi et al. 2026 Theorems 2.8 and 2.10 classify connectivity/homology for bidirected polygonal graphs and do not assert general biclique coverage (arxiv:2601.05670v1).",
+        "The public research-results index contains a theorem about bidirected double-star trees, whose underlying graphs are acyclic and not K(2,6)."
+      ],
+      "reasoning": "The one-way complete-bipartite result and the bidirected path/cycle results do not imply the claimed biclique homotopy type. The general blow-up comparison in the 2026 paper explicitly requires absence of directed cycles, which fails in the symmetric orientation used here. No inspected dominating graph-class theorem applies.",
+      "searches": [
+        "Multipath complex of bidirected complete bipartite graph K_{m,n} and chessboard complexes",
+        "Homotopy type and explicit topology of directed path or multipath complexes of complete bipartite directed graphs",
+        "\"multipath complexes\" \"complete bipartite\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05670v1",
+      "arxiv:2208.04656v1",
+      "Public research-results search: bidirected double-star multipath classification (tree, different object)",
+      "Public research-results search: ordinary discrete-Morse matching complex of K(2,n) (different complex)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 work leaves the wedge classification of **bidirected cycles** open while computing their homology, and separately handles bidirected paths; a multicircuit biclique is not a case of either theorem.",
+        "The 2022 complete bipartite formula uses a single orientation in which no directed cycles occur; its conclusion is an Euler characteristic, not this integral homotopy type.",
+        "The accompanying verifier constructs an acyclic matching with precisely one 0-cell and 169 3-cells, and the sharpness check establishes nonzero low-degree homology for every smaller parameter."
+      ],
+      "reasoning": "Neither published statement implies the proposed homotopy equivalence or first 2-connected threshold by specialization, orientation reversal, duality, graph isomorphism, or a straightforward parameter change. The two orientations have different numbers of directed arcs and different admissible faces.",
+      "searches": [
+        "Multipath complex of the bidirected complete bipartite graph K_{2,6}: exact integral homotopy types, simple homology ranks and combinatorial discrete Morse matching",
+        "\"multipath complex\" \"complete bipartite\" bidirected graph homotopy",
+        "On the homotopy type of multipath complexes Section 3.2 Theorem 3.7",
+        "Multipath complexes of bidirectional polygonal digraphs Theorem 2.10 and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caputi–Collari–Smith 2026 Definition 1.2 confirms the exact multipath definition; its Section 2 results concern bidirected paths or cycles (arxiv:2601.05670v1).",
+        "Public result search returned results for distinct ordinary/strong Morse matching complexes of K(2,n) and no identified exact bidirected biclique multipath result."
+      ],
+      "reasoning": "The aliases bidirected biclique, symmetric orientation of K(2,6), directed path-forest complex, and cycle-free subcomplex of the orientation/matching complex were investigated. Their identical source/target matching constraints still require exclusion of both directed 2-cycles and 4-cycles. These cycle constraints distinguish this result from chessboard and undirected matching/Morse complexes.",
+      "searches": [
+        "Multipath complex of the bidirected complete bipartite graph K_{2,6} has homotopy type wedge of 169 three-spheres; first two-connected case K_{2,n}, n=6",
+        "Bidirectional K2,n multipath complex: n=6 has 169 top dimensional three sphere summands, discrete Morse matching on 1416 faces",
+        "\"multipath complex\" \"K_{2,6}\" wedge",
+        "\"bidirected complete bipartite\" \"multipath complex\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The matching complex of P(6) categorical-product P(6) appears with 169 spheres in dimension 11, not 169 spheres in dimension 3; its ambient graph and complex construction differ.",
+        "The indexed Morse complex of K(2,n) concerns acyclic vector fields on the undirected graph; the faces are not vertex-disjoint directed paths.",
+        "Direct enumeration and the packaged Morse certificate give the previously unspecified (24,192,600,600) face vector and 169 critical 3-cells for the biclique multipath complex."
+      ],
+      "reasoning": "Exact-number coincidence (169 in a different graph matching problem), a common input graph K(2,n), or a common computational method does not imply mathematical equivalence. No searched exact table was identified for the bidirected arc-set complex.",
+      "searches": [
+        "Multipath complex of the bidirected complete bipartite graph K_{2,6} has homotopy type wedge of 169 three-spheres; first two-connected case K_{2,n}, n=6",
+        "Bidirectional K2,n multipath complex: n=6 has 169 top dimensional three sphere summands, discrete Morse matching on 1416 faces",
+        "\"multipath complex\" \"K_{2,6}\" wedge",
+        "\"multipath complex\" \"complete bipartite\" bidirected graph homotopy"
+      ]
+    },
+    "rationale": "The exact homotopy claim for the bidirected complete bipartite digraph with two hubs and six leaves, and its first two-connected threshold, are not supplied by the examined published results for bidirected paths/cycles, one-way complete bipartite digraphs, bidirected double-star trees, or distinct Morse matching complexes. The full relevant mathematical sections and stated theorems of the two primary arXiv papers were compared at the level of graph orientation, face definition, parameter domain, and conclusion; the searched public results include no stronger covering theorem. The risk of a genuinely unindexed equivalent result remains.",
+    "residual_risks": [
+      "Equivalent statement could exist in an unindexed dissertation, appendix, or differently named paper.",
+      "Results about the cycle-free chessboard complex of complete digraphs are structurally related but their restriction to bidirected bicliques is not covered by the inspected theorem statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different underlying graph family: bidirected paths and polygons. No biclique K(2,6) computation found.",
+        "evidence": [
+          "arxiv:2601.05670v1; Definition 1.2; Proposition 2.2; Theorems 2.8, 2.10; Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.05670",
+        "material_read": "Introduction, Definitions 1.1–1.5, Section 2 through Theorems 2.8 and 2.10 and following remarks, Section 3 including non-shellability and open problem",
+        "method": "Read accessible arXiv PDF and corresponding article HTML; compared hypotheses and theorem statements",
+        "title": "Multipath complexes of bidirectional polygonal digraphs",
+        "trigger": "Same multipath construction with bidirected graphs and explicit connectivity/homology theorems"
+      },
+      {
+        "assessment": "Its complete-bipartite digraph is one-way oriented (sources to targets), not bidirected; computes Euler characteristic, not the current homotopy type.",
+        "evidence": [
+          "arxiv:2208.04656v1; pp. 1, 6–8, Theorem 3.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+        "material_read": "Introduction, Sections 2–3, especially Section 3.2 and Theorem 3.7, and parts of subsequent homotopy classification",
+        "method": "Read accessible full-text arXiv PDF; checked exact orientation and theorem quantifiers",
+        "title": "On the homotopy type of multipath complexes",
+        "trigger": "Title/abstract state results on complete bipartite directed graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d53339c0-fe0f-433d-be36-d86d4321c0a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first two-connected case in a canonical two-hub bidirected biclique family is an exact, motivated finite connectivity cutoff, not a generic table entry. The originating 2026 literature emphasizes connectivity and unresolved sphere-wedge types for bidirected graph multipath complexes; this related, genuinely cyclic family exhibits a sharp low-degree homology-to-two-connectivity transition and an explicit integral wedge decomposition not inferred from an Euler characteristic. The result is restricted to this natural finite cutoff and does not assert a larger family theorem.",
+    "status": "PASS"
+  }
+}
