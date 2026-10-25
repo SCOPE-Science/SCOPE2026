@@ -1,111 +1,251 @@
 {
   "correctness": {
-    "rationale": "The source theorem is specialized to coefficient spaces equal to the ambient Hilbert space, so every composition is well typed. The two displayed coefficient maps form a Parseval \\(g\\)-frame, the projection \\(T\\) has closed range and fixes every coefficient value, and \\(TT^*=T\\) has a one-dimensional kernel. The structural projection template and the ordinary-\\(g\\)-frame onto-analysis repair follow from exact operator identities.",
+    "rationale": "Exact counterexample to Kiran Kumar--Upender Reddy Theorem 4.2 (2020): all coefficient spaces H_j=H=R^2, K=I has dense range; Lambda_1=[[1,0],[0,0]], Lambda_2=[[0,1],[0,0]], Lambda_j=0 for j>=3. Lambda_1^*Lambda_1+Lambda_2^*Lambda_2=I, so for every f the K-g-frame inequalities hold with A=B=1. T=T^*=diag(1,0) is a closed-range orthogonal projection and T Lambda_j=T^*Lambda_j=Lambda_j for all j. Both transformed systems remain Parseval, yet TT^*=T has kernel span(e_2) and is noninvertible. This is one complete finite-dimensional counterexample to the source’s universal theorem, not a finite-to-infinite extrapolation; the same matrices work over C^2 if the convention is complex Hilbert spaces. For any proper closed span M of the coefficient ranges, P_M postcomposition leaves every Lambda_j unchanged, exposing the missing coefficient-target visibility. The source proof makes an invalid global-kernel inference from lower bounds on Lambda_j^* T^*T Lambda_j: those bounds only test T on the coefficient ranges. For the stated supplementary sufficient repair in the ordinary g-frame case, if C_Lambda:H->oplus_j H is onto, g-frame bounded-below and onto imply C_Lambda is an isomorphism. Since C_(T Lambda)=D_T C_Lambda and C_(T^* Lambda)=D_(T^*) C_Lambda, both transformed lower bounds imply D_T and D_(T^*) bounded below. Testing one coordinate gives T and T^* bounded below; hence range(T) is closed and dense, so T is invertible. The sufficient repair is restricted to identically typed coefficient spaces and K=I.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Ramu--Johnson, DOI 10.1007/s40324-016-0062-4, Theorem 3.7 gives the analogous vector-frame result and its proof detects kernels through coefficients of transformed vectors.",
-        "Hua--Huang, DOI 10.4134/JKMS.j150499, develops \\(K\\)-\\(g\\)-frame constructions and stability but its checked public scope does not imply the target theorem's global invertibility conclusion.",
-        "Closest indexed findings concern \\(K\\)-frame reconstruction compression, deletion excess, compact perturbation, or operator-orbit independence rather than coefficient-target visibility."
+        "Ramu--Johnson (2016), DOI 10.1007/s40324-016-0062-4, Theorem 3.7 and its proof: transform vectors, not output coefficient operators.",
+        "Li--Leng--Huang correction recorded in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-bounded-below-on-r-k-is-the-exact-missing-hypothesis-in-a-k-g-fr--ec0570d4e002: universal RIGHT composition Lambda_j T uses T bounded below on R(K*), not left composition.",
+        "Ahmadi--Rahimlou--Sadri--Zarghami Farfar correction recorded in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-adjoint-range-failure-in-a-transformed-k-g-fusion-frame-theorem--bcd0a70fb348: fusion-frame transport depends on adjoint ranges rather than common target coefficient ranges."
       ],
-      "reasoning": "The vector-frame theorem explains the target theorem's motivation but does not dominate the \\(g\\)-frame claim: postcomposition acts in coefficient targets, so all ranges may lie in a proper subspace fixed by a noninvertible projection.",
+      "reasoning": "Neither a valid vector-frame inversion theorem, a universal right-composition preservation criterion, nor a fusion-frame adjoint-range correction dominates this source-specific left-postcomposition counterexample. Their hypotheses and implications act on different spaces. The Hua--Huang 2016 title is plausible K-g-frame background but accessible abstract discusses stability and constructions only; because its full text was not retrieved, it is a priority risk, not certified whole-paper noncoverage.",
       "searches": [
-        "g-frame postcomposition projection coefficient range closed range theorem",
-        "Operators preserving K-g-frames projection range Lambda_j T closed range",
-        "Frame operators of K-frames Ramu Johnson Theorem 3.7 invertible"
+        "\"Frame operators of K-frames\" Ramu Johnson 2016 PDF Theorem 3.7",
+        "K-g-frame coefficient operators T Lambda_j T adjoint theorem invertible Parseval projection",
+        "operator-valued frame T Lambda projection range K-g frame correction",
+        "10.4134/JKMS.j150499 K-g frames stability full text"
       ]
     },
     "checked_sources": [
-      "doi:10.17762/turcomat.v11i3.12958, Theorem 4.2 and surrounding definitions",
-      "doi:10.1007/s40324-016-0062-4, Theorem 3.7 and proof in accessible excerpt",
-      "doi:10.4134/JKMS.j150499, publisher-visible abstract and scope",
-      "Owned current/prior ledger source identifiers and recoverable claims, for overlap only",
-      "Indexed scientific records returned by the five candidate-specific searches"
+      "doi:10.17762/turcomat.v11i3.12958 (full PDF theorem/proof)",
+      "doi:10.1007/s40324-016-0062-4 (author-posted full proof of Theorem 3.7)",
+      "doi:10.4134/JKMS.j150499 (abstract/reference list only; full text inaccessible)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-bounded-below-on-r-k-is-the-exact-missing-hypothesis-in-a-k-g-fr--ec0570d4e002 (complete mathematical finding)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-adjoint-range-failure-in-a-transformed-k-g-fusion-frame-theorem--bcd0a70fb348 (complete mathematical finding)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-range-k-frame-reconstruction-requires-range-compression--8581875a41cb (complete mathematical finding)",
+      "Four fresh Resultary searches ['counterexample theorem K-g-frame operators preserving closed range TT* invertibility projection coefficient maps', 'K-g-frame coefficient operators T Lambda_j T adjoint theorem invertible Parseval projection', 'generalized frame coefficient range annihilator postcomposition projection invertibility theorem', 'operator-valued frame T Lambda projection range K-g frame correction']",
+      "Exact-title, DOI, erratum, inversion and projection web queries as listed in four named checks."
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The vector-frame predecessor requires vector atoms spanning the ambient space through ordinary analysis coefficients and therefore does not imply the postcomposition theorem.",
-        "A public 2026 result on noninjective operator-orbit independence for \\(g\\)-fusion frames concerns linear independence of represented operators, not invertibility inferred from transformed coefficient maps.",
-        "Public 2026 results on closed-range \\(K\\)-frame reconstruction and projection excess concern frame vectors/ranges rather than the coefficient-target subspace \\(M_\\Lambda\\)."
+        "Ramu--Johnson Theorem 3.7: coefficient <f,T f_j>=<T* f,f_j>, so vanishing T*f annihilates transformed analysis and is ruled out by the K-frame lower bound.",
+        "In the actual g-frame example every Lambda_j maps H into one-dimensional M, and P_M Lambda_j=Lambda_j although P_M is singular, so the vector theorem does not carry over.",
+        "The published K-g-fusion reconstruction compression finding https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-range-k-frame-reconstruction-requires-range-compression--8581875a41cb concerns a frame operator on R(K), not whether one common output projection preserves every coefficient operator."
       ],
-      "reasoning": "The closest results share projections or noninjectivity but neither their statements nor implications force or subsume the projection counterexample to Theorem 4.2.",
+      "reasoning": "The original implication would require detecting ker(T) and ker(T*) globally from postcomposed coefficient outputs. The target hypotheses do not test those directions when the coefficient-range span is proper. Prior vector and compression results do not entail the claim’s correction.",
       "searches": [
+        "\"Frame operators of K-frames\" Ramu Johnson 2016 PDF Theorem 3.7",
         "K-g-frame coefficient range projection counterexample TT* invertible",
-        "g-frame postcomposition projection coefficient range closed range theorem",
-        "Operators preserving K-g-frames projection range Lambda_j T closed range"
+        "K-g-frame coefficient operators T Lambda_j T adjoint theorem invertible Parseval projection",
+        "operator-valued frame T Lambda projection range K-g frame correction"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Kiran Kumar--Upender Reddy, DOI 10.17762/turcomat.v11i3.12958, Theorem 4.2 and proof.",
-        "The counterexample is equivalently a failure of global invertibility, a failure of coefficient-range visibility, or invariance of all transformed coefficient maps under a noninvertible projection."
+        "Kiran Kumar--Upender Reddy, 2020, Theorem 4.2: K dense range, T closed range, both (T Lambda_j) and (T* Lambda_j) K-g-frames imply TT* invertible.",
+        "The exact example is equivalently the postcomposition representation failing to be faithful, or noninvertibility of T on the common orthogonal complement of coefficient ranges.",
+        "Resultary identical titled item is the assigned record and is not counted as independent prior priority."
       ],
-      "reasoning": "Searches covered the literal theorem, its \\(TT^*\\)-invertibility conclusion, and the projection/coefficient-range formulation. No checked result states the same source-specific failure.",
+      "reasoning": "Lookups included literal Theorem 4.2 and TT* conclusion, a matrix projection reformulation, common range/annihilator terminology and exact source DOI; no checked external statement corrects this theorem with the same coefficient-range projection. No search absence is treated as a mathematical proof of novelty.",
       "searches": [
         "\"Operators Preserving K-g- Frames\" Theorem 4.2 counterexample",
-        "\"Theorem 4.2\" \"K-g-frame\" \"TT*\" invertible",
-        "K-g-frame coefficient range projection counterexample TT* invertible"
+        "K-g-frame coefficient range projection counterexample TT* invertible",
+        "\"10.17762/turcomat.v11i3.12958\" erratum",
+        "counterexample theorem K-g-frame operators preserving closed range TT* invertibility projection coefficient maps",
+        "generalized frame coefficient range annihilator postcomposition projection invertibility theorem"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The current/prior owned ledger contains no row keyed to DOI 10.17762/turcomat.v11i3.12958.",
-        "Exact title and theorem searches returned the target article but no indexed theorem-specific correction.",
-        "The publisher page dates the article 2020-12-15 and the article itself lists MSC 42C15."
+        "Publisher DOI 10.17762/turcomat.v11i3.12958 identifies the 2020 theorem and seven-page paper; Theorem 4.2 is the target, not an erratum.",
+        "Exact semantic match in Resultary is the present same research record, excluded as independent prior coverage.",
+        "The claim is a symbolic counterexample, not a finite data-table invariant; no numerical database should be expected to dominate it."
       ],
-      "reasoning": "Exact source identifiers and theorem wording were checked in addition to semantic searches. Search absence is not used alone as novelty proof.",
+      "reasoning": "Exact article identifiers and correction/erratum searches were used instead of only broad embeddings. No checked table or indexed external record supplies the same specific correction. Lack of indexed hits is not proof of exhaustive priority.",
       "searches": [
+        "\"10.17762/turcomat.v11i3.12958\" erratum",
         "\"Operators Preserving K-g- Frames\" Theorem 4.2 counterexample",
-        "\"Theorem 4.2\" \"K-g-frame\" \"TT*\" invertible",
-        "\"10.17762/turcomat.v11i3.12958\" erratum"
+        "counterexample theorem K-g-frame operators preserving closed range TT* invertibility projection coefficient maps",
+        "generalized frame coefficient range annihilator postcomposition projection invertibility theorem",
+        "doi:10.17762/turcomat.v11i3.12958"
       ]
     },
-    "rationale": "The checked exact-source and implication-level searches did not locate the theorem-specific projection counterexample. The vector-frame predecessor is materially different because transformed vectors test \\(T^*\\) on ambient frame coefficients, whereas postcomposed \\(g\\)-frame maps may have all ranges inside one proper subspace.",
+    "rationale": "The 2020 primary target actually states the false TT* invertibility conclusion; the exact projection counterexample and its mechanism are not in its Theorem 4.2 proof. The closest mathematical predecessor, Ramu--Johnson Theorem 3.7, treats transformed frame vectors and proves a valid invertibility theorem: its coefficients <f,T f_j>=<T^* f,f_j> test the entire ambient space. The corresponding operator-valued postcomposition T Lambda_j can act identically on all coefficient data while killing an unused target subspace, so the vector result does not imply the false theorem or already supply this theorem-specific counterexample. Four fresh Resultary semantic searches and targeted exact-title, DOI, theorem-number, erratum, range-projection web searches found only the audited identical published finding as an exact match; it is excluded as independent priority. Related published findings on right composition Lambda_j T, fusion-frame adjoint ranges, and closed-range compression have different order of composition and different target conclusions; their complete RESULT statements were read. This PASS is best-of-knowledge for the exact correction and coefficient-range mechanism, not a claim that projections or the frame inequality are new.",
     "residual_risks": [
-      "An unindexed erratum, thesis remark, or informal note may already contain the same theorem-specific counterexample.",
-      "The necessary spanning condition \\(M_\\Lambda=H\\) is not a complete repair for the general \\(K\\)-\\(g\\)-frame theorem."
+      "The elementary projection observation could occur in an unindexed erratum, thesis, article revision or informal note about the precise 2020 theorem.",
+      "The highly related K-g-frame stability predecessor by Hua and Huang (2016) was not read in full; its accessible scope does not alone establish a whole-document noncoverage claim.",
+      "The result does not characterize all coefficient families that imply T invertible; the M=H necessity is weaker than sufficiency."
     ],
     "source_inspections": [
       {
-        "assessment": "Theorem 4.2 concludes global invertibility from lower bounds on postcomposed coefficient maps. The proof implicitly treats these maps as if they directly controlled \\(T\\) on all of \\(H\\), which fails when their ranges lie in a proper subspace.",
-        "evidence": "Theorem 4.2 on the article pages 1466 and its proof.",
-        "identifier_or_url": "doi:10.17762/turcomat.v11i3.12958",
-        "material_read": "Definitions of \\(K\\)-\\(g\\)-frames and their analysis/frame operators; Section 4 introduction; Proposition 4.1; Theorem 4.2 statement and complete proof; adjacent operator-preservation results.",
-        "method": "Publisher article and full-text extraction from the linked article PDF.",
+        "assessment": "COVERING target false theorem as prior problem statement, NOT_COVERING the exact correction: Theorem 4.2 concludes TT* invertibility and proof invalidly infers global kernels from coefficient postcomposition.",
+        "evidence": "Original Definition 3.3 (p.1464) and Theorem 4.2 statement/proof (p.1466); doi 10.17762/turcomat.v11i3.12958.",
+        "identifier_or_url": "https://doi.org/10.17762/turcomat.v11i3.12958",
+        "material_read": "Full seven-page publisher PDF extracted text: definitions and notation pp.1462-1465, Theorem 4.2 and complete proof p.1466, neighboring theorems and references through p.1468.",
+        "method": "Publisher open-access full PDF text, definitions and complete theorem/proof read directly.",
         "title": "Operators Preserving K-g- Frames",
-        "trigger": "Exact target theorem."
+        "trigger": "Exact target theorem and article."
       },
       {
-        "assessment": "The vector theorem's kernel argument is valid because \\(\\langle f,Tf_i\rangle=\\langle T^*f,f_i\rangle\\); this mechanism does not transfer to postcomposition \\(T\\Lambda_j\\).",
-        "evidence": "Theorem 3.7 and proof.",
-        "identifier_or_url": "doi:10.1007/s40324-016-0062-4",
-        "material_read": "Accessible author-copy excerpt containing Theorems 3.4--3.8, especially Theorem 3.7 and its proof.",
-        "method": "Publicly accessible article excerpt.",
+        "assessment": "COVERING vector-frame predecessor, NOT_COVERING left postcomposition for operator-valued coefficient maps.",
+        "evidence": "Theorem 3.7 uses lower bounds on <f,Tf_i> to eliminate ker(T*) and the analogous bound for T*f_i to eliminate ker(T), before applying the bounded inverse theorem.",
+        "identifier_or_url": "https://doi.org/10.1007/s40324-016-0062-4",
+        "material_read": "Full-text author-uploaded ResearchGate view, especially Theorems 3.4--3.8 and the complete Theorem 3.7 proof; intro and definitions.",
+        "method": "Public author-posted full text at https://www.researchgate.net/publication/296688193_Frame_operators_of_K-frames",
         "title": "Frame operators of K-frames",
-        "trigger": "The target article explicitly presents its operator results as extensions of this vector-frame work."
+        "trigger": "Source paper explicitly claims to generalize this vector K-frame invertibility result."
       },
       {
-        "assessment": "Provides \\(K\\)-\\(g\\)-frame construction and stability context; not used as whole-document negative evidence.",
-        "evidence": "Abstract and bibliographic record.",
-        "identifier_or_url": "doi:10.4134/JKMS.j150499",
-        "material_read": "Publisher-visible abstract, scope, bibliographic metadata, and references.",
-        "method": "Publisher metadata/abstract page.",
+        "assessment": "Different transformation: right composition Lambda_i T, not left T Lambda_i; does not cover the present inverse postcomposition assertion.",
+        "evidence": "Statement identifies preservation of every K-g-frame under right composition iff T bounded below on R(K*) with TK*=K*T; example Lambda_1=I, T projection fails preservation.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-bounded-below-on-r-k-is-the-exact-missing-hypothesis-in-a-k-g-fr--ec0570d4e002",
+        "material_read": "Complete published RESULT.md statement, proof, verification, related work and scope.",
+        "method": "Resultary semantic search and direct read of the published GitHub result blob.",
+        "title": "Bounded below on R(K*) is the exact missing hypothesis in a K-g-frame composition theorem",
+        "trigger": "Highly similar projection counterexample and K-g-frame composition."
+      },
+      {
+        "assessment": "Different K-g-fusion transport and adjoint-range flaw; no implication of the present K-g-frame postcomposition invertibility counterexample.",
+        "evidence": "Fusion theorem incorrectly controls R(U) instead of R(U*); explicit K U*=0 and criterion U S_Lambda U*>=c KK*.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-adjoint-range-failure-in-a-transformed-k-g-fusion-frame-theorem--bcd0a70fb348",
+        "material_read": "Complete published RESULT.md with proof and comparison.",
+        "method": "Resultary search and direct GitHub result blob read.",
+        "title": "Adjoint-range failure in a transformed K-g-fusion frame theorem",
+        "trigger": "Related projected generalized-frame operator and two-dimensional counterexample."
+      },
+      {
+        "assessment": "Concerns well-definedness of an inverse of S|R(K), not the action of T on coefficient ranges; not dominating.",
+        "evidence": "Proof constructs compressed frame operator C=P_R S|R and quantitative inverse, different object and conclusion.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-range-k-frame-reconstruction-requires-range-compression--8581875a41cb",
+        "material_read": "Complete published RESULT.md theorem, proof, scope and prior-art comparison.",
+        "method": "Resultary semantic retrieval and direct GitHub result blob read.",
+        "title": "Closed-range K-frame reconstruction requires range compression",
+        "trigger": "Neighboring projection/range correction in generalized frame literature."
+      },
+      {
+        "assessment": "UNKNOWN complete-paper coverage; public abstract emphasizes constructions and stability, and is not used to infer whole-paper noncoverage.",
+        "evidence": "2016 Journal of the Korean Mathematical Society 53(6), 1331--1345, abstract and reference list; DOI 10.4134/JKMS.j150499.",
+        "identifier_or_url": "https://doi.org/10.4134/JKMS.j150499",
+        "material_read": "Journal bibliographic record, full abstract, and references; complete paper text not accessed.",
+        "method": "Search of arXiv/preprints and open-access bibliographic and PDF sources; only bibliographic material was available.",
         "title": "K-g-Frames and Stability of K-g-Frames in Hilbert Spaces",
-        "trigger": "Primary predecessor cited by the target for \\(K\\)-\\(g\\)-frame theory."
+        "trigger": "Cited primary predecessor with same K-g-frame definitions, potential unindexed relevant results."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "The source Theorem 4.2 specializes to H_j=H and K=I. The two coefficient maps form a Parseval g-frame. The closed-range projection fixes both maps, while TT*=T has one-dimensional kernel. The arbitrary coefficient-span projection and onto-analysis sufficient repair follow by exact identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ramu--Johnson Theorem 3.7 for vector K-frames is a different operator action; Hua--Huang 2016 gives general K-g-frame context."
+        ],
+        "reasoning": "Vector coefficients test T* on ambient H; postcomposed operator values can live in a proper target subspace.",
+        "searches": [
+          "\"Frame operators of K-frames\" Ramu Johnson 2016 PDF Theorem 3.7",
+          "K-g-frame postcomposition projection coefficient range closed range theorem"
+        ]
+      },
+      "checked_sources": [
+        "Kiran Kumar--Upender Reddy (2020) Theorem 4.2",
+        "Ramu--Johnson (2016) Theorem 3.7",
+        "Hua--Huang (2016) abstract and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original vector-frame Theorem 3.7 uses <f,Tf_i>=<T*f,f_i>; the generalized maps T Lambda_j need not probe all of H."
+        ],
+        "reasoning": "The two transformation mechanisms are not logically equivalent.",
+        "searches": [
+          "\"Frame operators of K-frames\" Ramu Johnson 2016 PDF Theorem 3.7",
+          "K-g-frame coefficient range projection counterexample TT* invertible"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.2 is equivalent to an unjustified claim that postcomposition frame lower bounds detect both kernels of T; a projection onto the coefficient-range span defeats it."
+        ],
+        "reasoning": "Literal theorem, TT* and coefficient target projection interpretations were compared.",
+        "searches": [
+          "\"Operators Preserving K-g- Frames\" Theorem 4.2 counterexample",
+          "K-g-frame coefficient range projection counterexample TT* invertible"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original publisher DOI identifies the exact theorem; no indexed theorem-specific correction was then identified."
+        ],
+        "reasoning": "This is a symbolic theorem correction, not a tabulated invariant. No claim of exhaustive search.",
+        "searches": [
+          "\"10.17762/turcomat.v11i3.12958\" erratum",
+          "\"Operators Preserving K-g- Frames\" Theorem 4.2 counterexample"
+        ]
+      },
+      "rationale": "The earlier scientific assessment distinguished the false 2020 operator postcomposition theorem from the valid Ramu--Johnson vector-frame result, and identified no indexed exact counterexample. This is prior scientific analysis, not proof of historical priority.",
+      "residual_risks": [
+        "An unindexed original erratum may contain this observation",
+        "M=H is not a proven sufficient global repair"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The theorem incorrectly concludes TT* invertible",
+          "evidence": "Theorem 4.2, p.1466",
+          "identifier_or_url": "doi:10.17762/turcomat.v11i3.12958",
+          "material_read": "Theorem 4.2 and its proof with relevant definitions",
+          "method": "Publisher PDF text",
+          "title": "Operators Preserving K-g- Frames",
+          "trigger": "Exact theorem"
+        },
+        {
+          "assessment": "Different valid vector theorem",
+          "evidence": "Theorem 3.7, vector inner-product argument",
+          "identifier_or_url": "doi:10.1007/s40324-016-0062-4",
+          "material_read": "Theorem 3.7 and proof",
+          "method": "Accessible author copy",
+          "title": "Frame operators of K-frames",
+          "trigger": "Claimed vector precursor"
+        },
+        {
+          "assessment": "Not used for whole-document noncoverage",
+          "evidence": "2016 abstract",
+          "identifier_or_url": "doi:10.4134/JKMS.j150499",
+          "material_read": "Publisher abstract and references",
+          "method": "Publisher bibliographic page",
+          "title": "K-g-Frames and Stability of K-g-Frames in Hilbert Spaces",
+          "trigger": "Foundational K-g frame context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correction of a broad published global-invertibility assertion by an exact 2D Parseval counterexample that isolates a structural information-loss mechanism and gives a restricted sufficient repair.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "c3b10a14-5ed2-49c9-9ed4-ce6cbf263073",
+  "scientific_limitations": [
+    "Counterexample refutes only Theorem 4.2 and postcomposition inference; no blanket judgment about other source theorems.",
+    "The condition closure(span_j R(Lambda_j))=H is necessary for a universal T-invertibility implication of this left-composition type but is not claimed sufficient.",
+    "The onto-analysis repair is sufficient only in the ordinary g-frame specialization with coefficient spaces identified with H; not a theorem for arbitrary dense-range K.",
+    "The elementary projection observation could occur in an unindexed erratum, thesis, article revision or informal note about the precise 2020 theorem.",
+    "The highly related K-g-frame stability predecessor by Hua and Huang (2016) was not read in full; its accessible scope does not alone establish a whole-document noncoverage claim.",
+    "The result does not characterize all coefficient families that imply T invertible; the M=H necessity is weaker than sufficiency.",
+    "Mathematical contribution is narrow and elementary, so it should be framed as a concrete published-theorem correction rather than a new general theory.",
+    "No external evidence of applications relying on the false theorem is asserted."
+  ],
   "value": {
-    "rationale": "The theorem claims a global operator-invertibility consequence and is presented as an extension of a valid vector-frame result. The counterexample shows that the extension fails in the smallest nontrivial dimension, even for a Parseval \\(g\\)-frame and \\(K=I\\), and isolates the precise visibility mechanism lost when vectors are replaced by operator-valued coefficients.",
+    "rationale": "This is a motivated correction to an explicit published operator-invertibility theorem used to justify extensions from vector K-frames to operator-valued K-g-frames. The exact 2x2 Parseval example satisfies the strongest benign cases K=I and closed-range self-adjoint T, avoiding ill-typed or delicate pathologies. The coefficient-range principle explains why the published inference loses information, rather than merely showing an isolated failed numerical estimate, and the onto-analysis sufficient condition exhibits one rigorous way to restore global invertibility. A user applying the source theorem needs exactly this obstruction/visibility condition; a theorem-specific conceptual correction can be worthwhile despite its elementary matrices. No broad universal repair is claimed.",
     "status": "PASS"
   }
 }
