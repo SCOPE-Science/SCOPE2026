@@ -1,15 +1,21 @@
-# Review: palindromic shell multiplicity
+# Independent mathematical audit
 
-## Correctness — PASS
-Every shell element is a divisor of the power; shells \(n^j< n^jd<n^{j+1}\) are pairwise disjoint; complementary divisors exchange shell indices; palindromic base choices exactly ensure reciprocal closure. The sum telescopes to \(2n^k\). The full finite base coefficient is independently computed twice from all \(23\) reciprocal-divisor pairs, and the standalone verification also tests finitely many constructed powers. Infinite validity rests on the explicit proof, not on a finite search.
+## correctness
 
-## Originality — PASS, with a clear incremental boundary
-Wang–Zelinsky (arXiv:2609.36068, Theorem 5) proves existence of some representation for every power by repeating one base witness. Its Table 1 already gives the \(695\) representations of \(45045\), so that finite count is prior art. Neither the theorem's statement nor the counted table asserts the palindromic independent-choice formula or a growing representation count on odd powers. Comparisons with indexed mathematical findings did not identify a covering conclusion. The ease of adapting the published construction, possible unindexed overlap, and partial access to a foundational full text remain explicit risks.
+PASS
 
-## Mathematical value — PASS
-The number of representations is a natural statistic that the motivating paper explicitly records for small integers. The result shows a previously unquantified amplification mechanism: a base with more than one representation necessarily has a power tower with exponentially many representations, and the concrete odd family \(45045^k\) has at least \((45045^k)^{0.3053503042\ldots}\) such subsets. It establishes growth, not only membership, without claiming optimality.
+For n>1, internal reciprocal-closed endpoint-stripped S has sum n−1. Each selected shell n^j A_j consists solely of divisors of n^k in distinct strict intervals, so palindromic A_j=A_{k−1−j} ensures n^k/x remains in matching shell and sum is 1+n^k+(n−1)Σ_{j=0}^{k−1}n^j=2n^k. Distinct base choices reconstruct from shells: exact subfamily r(n)^ceil(k/2), not entire R(n^k). At n=45045 (48 divisors), exact DP and independently split MITM over all 23 proper reciprocal pairs each yield 695, giving exponent log695/(2log45045). Verification finite input exhaustive; infinite k uses injection proof.
 
-## Scope and limitations
-Counts among shell-canonical constructions are exact; unrestricted counts for the powers may be larger. The statement is not an assertion about natural density of strongly pseudoperfect integers or about the globally maximal representation growth rate. Full independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge quantitative amplification of simultaneous mirror-compatible base patterns is distinguishable from the published existence construction. Table 1 already records the base 695, and neither that number nor power existence is claimed novel. Incremental nature and possible implicit observation acknowledged.
+
+## value
+
+PASS
+
+Representation multiplicity is a natural invariant explicitly tabulated by the primary paper. The theorem turns a qualitative existence power lift into guaranteed exponentially many distinct reciprocal divisor subsets in exponent k, with a concrete odd power tower and polynomial-in-N multiplicity lower bound; no claim of optimal growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
