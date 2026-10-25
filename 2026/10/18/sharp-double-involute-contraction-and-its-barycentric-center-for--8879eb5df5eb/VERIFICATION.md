@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-`python3 verify.py` runs a standard-library, exact rational check of the first and dual involute half-sums, the three-by-three transition matrix, six admissible sample norms, and five successive full steps for a nonsymmetric starting polygon in each case.
+# Independent mathematical audit
 
-The symbolic verification of the infinite-family theorem is in RESULT.md: derive the two interpolation lists, calculate the off-diagonal entries of their product, identify the rank-one barycentric update, prove the interval and equality case by arithmetic-geometric means, and establish attainable values using an explicit one-parameter family. The finite rational checks inspect indexing but do not prove the all-real-parameter assertion.
+## correctness
 
-The reviewed mathematical claim assumes strict convexity, exactly three paired side directions, and the specified alternating Minkowski involutes. Independent audit has not been performed.
+PASS
+
+PASS. The indexed double-involute map reduces on the 3-periodic center vertices to a row-stochastic 3x3 matrix T. The two half-sum involutes give T_ij = rho delta_ij+(1-rho)w_j with rho=xyz/(4abc), x=b+c-a, y=c+a-b, z=a+b-c, and w=(b y^2,c z^2,a x^2)/(4abc-xyz). This fixes O=Σw_j M_j, multiplies all two independent differences by rho at every double step, and AM--GM yields 0<rho≤1/4, equality exactly x=y=z. The x=y=1,z∈(0,1] path realizes the full range.
+
+## originality
+
+PASS
+
+PASS on best-of-knowledge statement comparison. Existing Minkowski involute and general discrete spectral frameworks give finite maps, limiting center or regular examples but do not state the all-skew-hexagon exact scalar rate, explicit positive three-point barycenter, sharp universal 1/4 rigidity and entire attainable range.
+
+## value
+
+PASS
+
+PASS. The direct barycentric fixed point and one-eigenvalue homothety sharpen a previously iterative construction in the first nontrivial three-direction case; the 1/4 bound is sharp with a geometric rigidity theorem, a natural stability quantity and all-rate classification. It is not merely rewriting the known convergence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

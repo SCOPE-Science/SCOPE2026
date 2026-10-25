@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization uses \(U_{i+3}=-U_i\) and \(M_{i+3}=M_i\). The original involute's half-sum formulas yield the two ordered triangular interpolations with fractions \(t_i\) and \(r_i\). The product matrix has repeated off-diagonal columns, giving exactly \(T=\rho I+(1-\rho)\mathbf1w^T\) and the weighted stationary point. Its nonconstant eigenvalue is \(\rho\), so iteration contracts by the asserted factor. Elementary arithmetic-geometric-mean inequalities prove the sharp quarter bound and equality case; a one-parameter admissible family realizes every rate below it. Every assumption and indexing convention is stated in RESULT.md. The accompanying exact-rational checker validates the nonlinear-looking half-sum indexing on six examples and five steps each; this is not used as an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge self-review)
-The 2012 parallel-diagonal transform describes a single precursor but not repeated contraction. Craizer–Martini's 2014 first-public work defines the construction and qualitative convergence. The 2017 discrete-cycloid spectral framework supplies a general operator and regular-polygon instances, but not the exact all-skew-hexagon rate or sharp global bound. A publicly available general finite-solve result already makes the central point computable using a linear inverse; it is specifically acknowledged and is not presented as novel. The new claim is the explicit scalar spectral law with its sharp global extremizer and attainable range and the associated closed barycentric weights. Equivalence-formulation, broader-coverage, exact-table, and prior-implication comparisons appear in AUDIT.json. Residual risk: another general operator treatment may contain an unstated equivalent specialization, and semantic search cannot establish uniqueness.
+PASS
 
-## Mathematical value — PASS
-The six-sided direction case is a complete, natural, first-nontrivial polygonal class for this discrete Minkowski involute. Exact spectral contraction and rigidity quantify a qualitative convergence theorem and replace generic linear solves by a closed barycentric center formula. The equality class and full range are structurally motivated rather than arbitrary calculations.
+PASS. The indexed double-involute map reduces on the 3-periodic center vertices to a row-stochastic 3x3 matrix T. The two half-sum involutes give T_ij = rho delta_ij+(1-rho)w_j with rho=xyz/(4abc), x=b+c-a, y=c+a-b, z=a+b-c, and w=(b y^2,c z^2,a x^2)/(4abc-xyz). This fixes O=Σw_j M_j, multiplies all two independent differences by rho at every double step, and AM--GM yields 0<rho≤1/4, equality exactly x=y=z. The x=y=1,z∈(0,1] path realizes the full range.
 
-## Evidence and limitations
-Reproduce the exact arithmetic checks using `python3 verify.py`. The proof is symbolic, not experimental; the bounds exclude degenerate boundary norms and do not extend to more than three direction pairs. Checked primary sources: Craizer–Teixeira–da Silva (arXiv:1210.2442); Craizer–Martini (arXiv:1406.3205); Craizer–Teixeira–Balestro (arXiv:1702.00522); the publicly available finite-linear-solve result cited in RESULT.md; and Arnold et al. (arXiv:1510.07742). This is not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-of-knowledge statement comparison. Existing Minkowski involute and general discrete spectral frameworks give finite maps, limiting center or regular examples but do not state the all-skew-hexagon exact scalar rate, explicit positive three-point barycenter, sharp universal 1/4 rigidity and entire attainable range.
+
+## value
+
+PASS
+
+PASS. The direct barycentric fixed point and one-eigenvalue homothety sharpen a previously iterative construction in the first nontrivial three-direction case; the 1/4 bound is sharp with a geometric rigidity theorem, a natural stability quantity and all-rate classification. It is not merely rewriting the known convergence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
