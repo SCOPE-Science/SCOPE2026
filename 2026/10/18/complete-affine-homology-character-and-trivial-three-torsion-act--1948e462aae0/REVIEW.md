@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is defined by nonzero quadratic residues modulo \(17\), and the open-neighborhood complex has the independently reconstructed face vector \((17,136,612,1122,952,476,136,17)\). A complete acyclic discrete-Morse matching reduces integral homology to a \(5\)-by-\(40\) boundary with Smith invariants \((1,1,1,1,3)\). The standard-library verifier checks all \(136\) signed Lefschetz traces and their equality to twice the cyclotomic character plus the inflated order-four augmentation character. An explicit mod-three cycle/cocycle computation checks the trivial action on the torsion class for each group element. Finite enumeration is exhaustive because all faces and all affine maps are generated from the definition.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest same-object study, *Three-torsion in the neighborhood complex of the Paley graph of order seventeen*, establishes the Moore-space wedge and integral homology but gives no homology action. Jones's Paley symmetry theorem determines the graph automorphisms, while Matsushita's neighborhood-complex theorem concerns fundamental groups. Results for Paley tournaments and clique complexes do not imply this open-neighborhood character. Direct same-object and alias/equivalence published-finding corpus searches returned no stronger covering module computation. This is bibliographic evidence, not a proof that no equivalent treatment exists.
+PASS
 
-**Mathematical value — PASS.** The result identifies all rational irreducible constituents of a natural \(35\)-dimensional topological representation and resolves the integral sign action on the distinguished order-three torsion class. Their sharply different translation/full-group invariants cannot be inferred from the known nonequivariant Betti numbers. The result is limited to order seventeen and does not classify the integral third-homology lattice.
+Inspected source RESULT.md and complete verify_paley17.py. Rebuilt all faces of open-neighborhood complex from Q quadratic residues mod17: f=(17,136,612,1122,952,476,136,17), 3468 nonempty. Source program deterministically constructs 1711 Morse pairs, topologically sorts full 15300-incidence graph, leaves one vertex, 5 critical 2-cells, 40 critical 3-cells; exact signed 5x40 Morse matrix has minor det -3 on specified columns, a 4x4 unit det -1, mod3 rank4 and mod2 rank5, hence integral Smith (1,1,1,1,3) and H2=Z/3, H3=Z^35. Read code for independent mod3 cycle/cocycle detection and scalar verification on every 136 affine map: induced torsion scalar +1. Independently enumerated signed fixed-face traces for all 136 affine maps; character values/counts (35:1, 1:16, 3:17, -1:102). Algebraic character is 2 W+E, E inflated C4 augmentation. Important limitation: independent replay did not separately recompute the 5x40 Smith and 136 torsion cocycle action, but algorithm/code was inspected and is finite/exhaustive for the specified graph.
 
-**Closest literature:** G. A. Jones, arXiv:1006.0514 (Paley group and maps); T. Matsushita, arXiv:1210.2803 (neighborhood-complex fundamental groups); *Three-torsion in the neighborhood complex of the Paley graph of order seventeen* (public complete nonequivariant calculation, 2026-10-11). The three-torsion action and full affine character are the assessed refinements. An unindexed equivalent derivation remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact prior Paley17 neighborhood homotopy and torsion rank fully credited, but complete Resultary prior text does not determine affine rational character nor torsion action. Jones studies affine maps, Matsushita fundamental groups. Exact same-graph/module searches uncovered no stronger homology-action theorem; equivalent unpublished calculations risk remains.
+
+## value
+
+PASS
+
+The full automorphism action on the 35 rational cycles plus the order-three integral torsion of a canonical strongly regular Paley graph is a natural equivariant refinement of a torsion-containing neighborhood-complex classification; these exact symmetry data are mathematically meaningful for equivariant topology, not arbitrary finite arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

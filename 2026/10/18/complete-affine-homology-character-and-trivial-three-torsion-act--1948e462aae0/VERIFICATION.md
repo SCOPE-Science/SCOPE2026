@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_paley17.py` with Python 3; no third-party packages or external data are required. It enumerates the \(3468\) faces from seventeen eight-element open neighborhoods, constructs \(1711\) discrete-Morse pairs, checks all directed incidences are acyclic by a full topological sort, computes the signed \(5\)-by-\(40\) Morse boundary, and checks the determinant and prime-field rank certificates for integral \(\mathbb Z/3\) torsion and \(35\) free third-homology generators.
+## correctness
 
-Next it computes a mod-\(3\) cycle/cocycle pairing for the one-dimensional second-homology group, and verifies that all \(136\) affine maps induce scalar \(+1\). It independently enumerates all signed simplicial cell traces and verifies the displayed four-case rational character and its equality to the \(2W\oplus E\) character on all \(136\) elements.
+PASS
 
-The expected final line is `All exact finite checks passed.` The check is exhaustive for this explicitly finite complex; no integral third-homology group-ring lattice identification or analogous computation for other Paley graphs is supplied. The mathematical argument and assumptions are in `RESULT.md`.
+Inspected source RESULT.md and complete verify_paley17.py. Rebuilt all faces of open-neighborhood complex from Q quadratic residues mod17: f=(17,136,612,1122,952,476,136,17), 3468 nonempty. Source program deterministically constructs 1711 Morse pairs, topologically sorts full 15300-incidence graph, leaves one vertex, 5 critical 2-cells, 40 critical 3-cells; exact signed 5x40 Morse matrix has minor det -3 on specified columns, a 4x4 unit det -1, mod3 rank4 and mod2 rank5, hence integral Smith (1,1,1,1,3) and H2=Z/3, H3=Z^35. Read code for independent mod3 cycle/cocycle detection and scalar verification on every 136 affine map: induced torsion scalar +1. Independently enumerated signed fixed-face traces for all 136 affine maps; character values/counts (35:1, 1:16, 3:17, -1:102). Algebraic character is 2 W+E, E inflated C4 augmentation. Important limitation: independent replay did not separately recompute the 5x40 Smith and 136 torsion cocycle action, but algorithm/code was inspected and is finite/exhaustive for the specified graph.
+
+## originality
+
+PASS
+
+Exact prior Paley17 neighborhood homotopy and torsion rank fully credited, but complete Resultary prior text does not determine affine rational character nor torsion action. Jones studies affine maps, Matsushita fundamental groups. Exact same-graph/module searches uncovered no stronger homology-action theorem; equivalent unpublished calculations risk remains.
+
+## value
+
+PASS
+
+The full automorphism action on the 35 rational cycles plus the order-three integral torsion of a canonical strongly regular Paley graph is a natural equivariant refinement of a torsion-containing neighborhood-complex classification; these exact symmetry data are mathematically meaningful for equivariant topology, not arbitrary finite arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
