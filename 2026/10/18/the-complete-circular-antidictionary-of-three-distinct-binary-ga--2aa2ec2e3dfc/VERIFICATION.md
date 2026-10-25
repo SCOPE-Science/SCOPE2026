@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 check_three_gap_maw.py` using a standard Python 3 installation. The program constructs the cyclic factor language through the primitive period for all \(1\le a<b<c\le24\); for each tested triple it compares the exhaustive set of minimal absent factors with the explicitly predicted complete set and count. It also applies a second direct cyclic-index construction to five test instances and confirms rotation invariance on three example cycles.
+## correctness
 
-A minimal absent factor of a circular word can be tested at length at most the primitive period for this family, as supplied by the general circular/doubled-word theory in Fici–Restivo–Rizzo. The proof in RESULT.md separately rules out *every longer possible minimal absent factor* using interior phase uniqueness and therefore does not rely on any finite length bound.
+PASS
 
-The finite enumeration cannot prove universal correctness or absolute historical originality. No independent scientific review or external certification has been performed.
+For each 1<=a<b<c, the three full zero-to-zero gaps are distinct, so an observed complete gap fixes the cyclic phase. This makes any purported minimal absent word with an interior complete gap impossible because its occurring prefix and suffix would splice at the same unique phase. The one-zero factor region is the union of rectangles (p<=c,q<=a) and (p<=b,q<=c), with the unique missing corner (b+1,a+1); two-zero cases consist of 00, c-3 missing short gap lengths, and precisely two one-sided extensions; exactly (a,a) and (b,a) survive the three-zero prefix/suffix compatibility test; the phase argument excludes four or more zeros. Together these give seven exceptional words plus c-3 gap words, namely c+4, with zero-count profile (1,1,c,2). Independently built cyclic factor languages using primitive-period modular positions, obtained identical complete minimal-absent sets on all 165 triples 1<=a<b<c<=11. The finite checks corroborate but do not establish the unbounded phase-uniqueness argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact theorem after statement-level comparison: An unindexed earlier closed formula, possibly derived in algorithmic circular MAW appendices or stringology theses, could implicitly cover the same three-zero class; not excluded by absence from semantic hits. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.
+
+## value
+
+PASS
+
+The family of primitive circular binary necklaces with exactly three separated markers is a natural tractable model for forbidden-factor representation, rather than an arbitrary fixed instance. Identifying the complete antidictionary and its nonobvious c+4 largest-gap-only invariant gives explicit data relevant to circular reconstruction and factor automata beyond merely asserting computability. Each member is an exact symbolic classification and the c-independence from a,b is a meaningful structural feature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: complete circular three-gap antidictionary
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof partitions candidates by zero count and uses unique phase of each exact full zero-to-zero gap. The one-zero language is the union of two dominated rectangles; the only minimal missed corner is (b+1,a+1). There are exactly two exceptional two-zero extensions and two missed three-zero transitions; interior phase uniqueness excludes all higher-zero candidates. The derived list has seven isolated terms plus c-3 other full-gap exclusions, and its computed sets were exhaustively cross-checked for 2024 triples through c=24, as well as independent direct circular indexing on selected samples.
-The infinite assertion rests on the complete phase-uniqueness and zero-count proof; finite verification is only a cross-check.
+## correctness
 
-## Originality — PASS, with residual risk
-Primary full-text comparisons with Fici-Restivo-Rizzo, Akagi et al., and Ota-Manada establish nearby circular minimal-forbidden-factor theory, run-length MAW algorithms and generic circular reconstruction, but not the explicit all-triples exact set and c+4 count. Semantic published-record checks for minimal absent/forbidden/antidictionary, circularity, gap encodings and three isolated markers yielded no direct dominating statement. A missing or implicit prior treatment remains a genuine risk.
-The most relevant full texts are Fici–Restivo–Rizzo (2017), Akagi et al. (2022), and Ota–Manada (2023). General circular-factor algorithms do not themselves state the exact displayed symbolic family. The main remaining risk is unindexed or implicit broader coverage.
+PASS
 
-## Mathematical value — PASS
-A complete antidictionary classification for every member of a natural infinite family of primitive binary necklaces with exactly three separated rare symbols provides an exact symbolic alternative to factor enumeration. The largest-gap-only c+4 law and the zero-count profile identify nonobvious invariants relevant to circular reconstruction and forbidden-factor representations; this is not a fixed numerical census or an arbitrary parameter slice.
-The scope is strictly three isolated zeros with three distinct positive gap lengths, not general circular binary words.
+For each 1<=a<b<c, the three full zero-to-zero gaps are distinct, so an observed complete gap fixes the cyclic phase. This makes any purported minimal absent word with an interior complete gap impossible because its occurring prefix and suffix would splice at the same unique phase. The one-zero factor region is the union of rectangles (p<=c,q<=a) and (p<=b,q<=c), with the unique missing corner (b+1,a+1); two-zero cases consist of 00, c-3 missing short gap lengths, and precisely two one-sided extensions; exactly (a,a) and (b,a) survive the three-zero prefix/suffix compatibility test; the phase argument excludes four or more zeros. Together these give seven exceptional words plus c-3 gap words, namely c+4, with zero-count profile (1,1,c,2). Independently built cyclic factor languages using primitive-period modular positions, obtained identical complete minimal-absent sets on all 165 triples 1<=a<b<c<=11. The finite checks corroborate but do not establish the unbounded phase-uniqueness argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact theorem after statement-level comparison: An unindexed earlier closed formula, possibly derived in algorithmic circular MAW appendices or stringology theses, could implicitly cover the same three-zero class; not excluded by absence from semantic hits. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.
+
+## value
+
+PASS
+
+The family of primitive circular binary necklaces with exactly three separated markers is a natural tractable model for forbidden-factor representation, rather than an arbitrary fixed instance. Identifying the complete antidictionary and its nonobvious c+4 largest-gap-only invariant gives explicit data relevant to circular reconstruction and factor automata beyond merely asserting computability. Each member is an exact symbolic classification and the c-independence from a,b is a meaningful structural feature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
