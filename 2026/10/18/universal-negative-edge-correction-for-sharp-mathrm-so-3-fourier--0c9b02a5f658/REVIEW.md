@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Peter–Weyl orthogonality fixes the normalization and convolution kernel. Its differentiated trigonometric identity yields the exact endpoint norm; monotone boundary-layer coefficients and periodic mean-zero cancellation give uniform oscillatory tails; the signed-period inequalities show the limiting additive correction is strictly negative. Computation is secondary to the complete analytic argument.
+## correctness
 
-**Originality — PASS, with residual risk.** The claim is a two-term asymptotic for the unfiltered integer-spin projector on \(\mathrm{SO}(3)\), including an explicit negative universal correction. McEwen et al. study Wigner sampling, not the sharp endpoint projection norm; Fan studies different Cesàro kernels and summability thresholds. The closest published full \(\mathrm{SU}(2)\) low-pass leading asymptotic is not an implication about the even-highest-weight subprojection or its additive constant. Giulini–Soardi–Travaglini (1982) addresses character norms and Fourier convergence; only its abstract was accessible, so an unrecognized theorem remains a risk.
+PASS
 
-**Value — PASS.** This gives a sharp additive amplification law, beyond a growth exponent or leading coefficient, for an unfiltered Fourier cutoff on the physically standard rotation group. The strict sign and computable period series distinguish the boundary contribution and help quantify finite-band deviation from the leading norm. It is not a mere renaming of the full \(\mathrm{SU}(2)\) result because the spectral mask changes and absolute values do not commute with parity averaging.
+The endpoint convolution norm equals the L1 norm of the central Peter–Weyl Dirichlet kernel. Differentiating the odd-frequency cosine sum gives K_L(theta)sin^2(theta)=-m cos(2m theta)+(cot(theta)/2)sin(2m theta), m=L+1. After half-period symmetry and u=2m theta, the deficit from 4m/pi is the finite integral of |cos u-b_m(u)sin u|-|cos u|, with b_m(u)=cot(u/(2m))/(2m). On compact u intervals b_m->1/u; uniformly controlled oscillatory tails use the bounded primitive of sin(u)sgn(cos u) and small sign-flip neighborhoods of cos zeros. This warrants the improper-limit exchange. The first pi-interval has Si(pi)-2<0 and later pi-interval defects are each negative by the given T_a/E_a inequalities and O(k^-2), so C_rot<0. I independently numerically integrated the exact finite-m formula for m=1,2,4,8,16,32,64: deficits approximately -0.27324,-0.18389,-0.14299,-0.12296,-0.11299,-0.10802,-0.10553, tending toward the claimed -0.10304. These samples corroborate, not prove, the all-L asymptotic. No interval-certified decimal or quantitative o(1) rate is asserted.
 
-**Scientific limitations.** No explicit rate for the asymptotic remainder, no elementary closed form, and no independent audit are claimed. The exact constant is an improper integral of a difference with uniform tail control.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mathematical object is the L1 norm of an integer-spin (even-highest-weight on SU(2)) contiguous SO(3) Fourier projector, specifically its finite additive term. Existing rotation sampling, Cesaro summability and compact-group character norms concern different operators or weaker growth; the published Resultary SU(2) *full* cutoff gives a leading constant only and cannot transfer the absolute-value norm under parity restriction. The exact negative additive constant was not identified in the materially inspected sources. The inaccessible 1982 character-norm paper leaves a real priority risk, so this is a qualified best-of-knowledge rather than definitive global priority conclusion.
+
+## value
+
+PASS
+
+The exact two-term sharp endpoint norm describes quantitative amplification of the canonical non-Cesaro rotational Fourier truncation, a natural problem in harmonic analysis. An explicit, provably negative O(1) edge correction adds nontrivial information beyond the classical divergent leading term and is stable under a precisely specified normalization. The result is not a mere rounding of a known growth constant, and the limit integral and sign require oscillatory cancellation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

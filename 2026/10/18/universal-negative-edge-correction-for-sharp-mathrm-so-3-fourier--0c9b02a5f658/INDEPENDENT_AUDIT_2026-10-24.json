@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint convolution norm equals the L1 norm of the central Peter–Weyl Dirichlet kernel. Differentiating the odd-frequency cosine sum gives K_L(theta)sin^2(theta)=-m cos(2m theta)+(cot(theta)/2)sin(2m theta), m=L+1. After half-period symmetry and u=2m theta, the deficit from 4m/pi is the finite integral of |cos u-b_m(u)sin u|-|cos u|, with b_m(u)=cot(u/(2m))/(2m). On compact u intervals b_m->1/u; uniformly controlled oscillatory tails use the bounded primitive of sin(u)sgn(cos u) and small sign-flip neighborhoods of cos zeros. This warrants the improper-limit exchange. The first pi-interval has Si(pi)-2<0 and later pi-interval defects are each negative by the given T_a/E_a inequalities and O(k^-2), so C_rot<0. I independently numerically integrated the exact finite-m formula for m=1,2,4,8,16,32,64: deficits approximately -0.27324,-0.18389,-0.14299,-0.12296,-0.11299,-0.10802,-0.10553, tending toward the claimed -0.10304. These samples corroborate, not prove, the all-L asymptotic. No interval-certified decimal or quantitative o(1) rate is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary SU(2) result gives 8/pi^2 leading growth for full SU(2) low-pass, without a two-term SO(3) constant.",
+          "Giulini et al. 1982 is potentially broader compact-Lie-group coverage; only bibliographic material was accessible."
+        ],
+        "reasoning": "The SO(3) projector is the even-highest-weight part on the double cover; nonlinear absolute values preclude subtracting the full SU(2) norm. The inaccessible old paper is an explicit residual risk, not deemed non-covering.",
+        "searches": [
+          "Resultary: exact leading constant spherical Fourier partial sums SU(2)",
+          "Giulini Soardi Travaglini Norms of characters and Fourier series on compact Lie groups 1982"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1508.03101",
+        "https://doi.org/10.1016/0022-1236(82)90045-3",
+        "https://doi.org/10.1017/S1446788700000951",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sampling theorem controls representation and sampling of bandlimited SO(3) functions, not sharp L1 projector additive asymptotics.",
+          "Cesaro kernel smoothing changes the operator.",
+          "Full SU(2) leading growth cannot yield this constant on the even-weight subfamily."
+        ],
+        "reasoning": "Those source statements do not imply this precise two-term result. An uninspected stronger norm formula in older literature remains possible.",
+        "searches": [
+          "McEwen arxiv:1508.03101 SO3 sampling theorem",
+          "Fan Cesaro kernels on classical groups 1997",
+          "Resultary SU2 low-pass leading constant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity-restricted integer-spin character sum has kernel K_L sin^2(theta)=-m cos(2m theta)+cot(theta)sin(2m theta)/2.",
+          "An endpoint projection norm is equivalently its kernel L1 norm."
+        ],
+        "reasoning": "Looked for Lebesgue constants, rotation-group Dirichlet kernels and character-norm aliases rather than title matches. The inspected analogues do not state the same additive constant.",
+        "searches": [
+          "Resultary: exact two term Lebesgue constant SO(3) Peter Weyl projection additive negative correction",
+          "web: SO3 Dirichlet kernel Lebesgue constant additive term compact group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The computed approximately -0.10304 is an asymptotic additive constant, not a finite-valued sequence table.",
+          "The relevant published SU(2) records catalog different cutoff norms."
+        ],
+        "reasoning": "No located exact table independently supplied this SO(3) correction; lack of a hit alone cannot prove novelty.",
+        "searches": [
+          "Resultary: SO(3) low pass Peter Weyl second term",
+          "web: rotation group Lebesgue constants two term constant"
+        ]
+      },
+      "rationale": "The mathematical object is the L1 norm of an integer-spin (even-highest-weight on SU(2)) contiguous SO(3) Fourier projector, specifically its finite additive term. Existing rotation sampling, Cesaro summability and compact-group character norms concern different operators or weaker growth; the published Resultary SU(2) *full* cutoff gives a leading constant only and cannot transfer the absolute-value norm under parity restriction. The exact negative additive constant was not identified in the materially inspected sources. The inaccessible 1982 character-norm paper leaves a real priority risk, so this is a qualified best-of-knowledge rather than definitive global priority conclusion.",
+      "residual_risks": [
+        "1982 Giulini–Soardi–Travaglini full article unavailable; a stronger implicit two-term character-norm result cannot be excluded.",
+        "Improper integral difference requires cancellation; neither individual absolute integral converges.",
+        "Numerical approximation to C_rot is not interval certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sampling/transform theorem; no demonstrated sharp second-order projector norm",
+          "evidence": "Bandlimited sampling is not an L1 operator-norm asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03101",
+          "material_read": "Title/abstract and sampling-theorem scope; not full proof",
+          "method": "Primary arXiv abstract and theorem-scope comparison",
+          "title": "A novel sampling theorem on the rotation group",
+          "trigger": "SO(3) harmonic transform and unfiltered cutoff"
+        },
+        {
+          "assessment": "Covers full SU(2) cutoff leading constant, not SO(3) parity-subcutoff additive correction",
+          "evidence": "Statement gives (8/pi^2)(L+1) leading growth for all highest weights, not an O(1) term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+          "material_read": "Published record statement/summary only",
+          "method": "Read Resultary result entry",
+          "title": "Exact leading constant for spherical Fourier partial sums on SU(2)",
+          "trigger": "Closest published Resultary compact-group Fourier norm record"
+        },
+        {
+          "assessment": "Material priority risk; no assertion of whole-document noncoverage",
+          "evidence": "Only bibliographic information available; no full-text proposition comparison was possible.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-1236(82)90045-3",
+          "material_read": "Bibliographic title and citation; full article unavailable",
+          "method": "Index lookup plus authorized institutional retrieval attempt",
+          "title": "Norms of characters and Fourier series on compact Lie groups",
+          "trigger": "Potential primary general theorem controlling all Fourier projection norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-term sharp endpoint norm describes quantitative amplification of the canonical non-Cesaro rotational Fourier truncation, a natural problem in harmonic analysis. An explicit, provably negative O(1) edge correction adds nontrivial information beyond the classical divergent leading term and is stable under a precisely specified normalization. The result is not a mere rounding of a known growth constant, and the limit integral and sign require oscillatory cancellation analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1508.03101",
+    "https://doi.org/10.1016/0022-1236(82)90045-3",
+    "https://doi.org/10.1017/S1446788700000951",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "1982 Giulini–Soardi–Travaglini full article unavailable; a stronger implicit two-term character-norm result cannot be excluded.",
+    "Improper integral difference requires cancellation; neither individual absolute integral converges.",
+    "Numerical approximation to C_rot is not interval certified.",
+    "Actual frozen Git record tree 90fe3f5b68033f5b0f6f399793f62fdb8d806b1b was inspected; RESULT.md blob 3d7a30d72db6d5bf4825dcba5fab057ac9d18b38, METADATA.json blob 8a5dfab815071ca5a8203d3f0cb60d05fcb92c9a. No GitHub writes.",
+    "No unsanitized research file was approved for publication."
+  ],
+  "schema_version": 1
+}
