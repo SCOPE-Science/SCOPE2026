@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated generating equation has a unique formal-series solution with constant term one. Dividing by \(1-x\) gives the Catalan substitution; Legendre's factorial valuation yields the precise coefficientwise survival criterion \(k+s_2(k)\le r+1\). Degrees \(3k-2\) are strictly increasing, so the highest surviving term cannot cancel. This proves both eventual divisibility and failure of divisibility at the sharp last index. The modulus-32 residue calculation and initial exact values establish the four-class corollary. Two independent coefficient methods and finite conductor checks are reproducible in `verify.py`. Finite tests do not prove the infinite theorem.
+## correctness
 
-**Originality — PASS, subject to stated residual risks.** Le's 2005 generating function and the OEIS Catalan identity from 2008 are explicitly credited. They determine coefficients implicitly but do not state or evaluate the all-precision least eventual-divisibility threshold. Rowland–Yassawi's 2015 full-text Example 3.24 and Open Question 3.25 exhibit fixed forbidden congruences and ask the precise uniform exclusion supplied here. The present statement gives a new explicitly evaluated global conductor, not merely a restatement of a listed forbidden residue. Searches for equivalent conductors, digit-weight cutoffs, and resolutions of Question 3.25 found no covering result. Because the proof is short given Barry's identity, an unnoticed previously published corollary is a substantive residual originality risk. Le's complete original paper was not accessible in full; its verified abstract reports enumeration and generating functions, not modular conductors.
+PASS
 
-**Value — PASS.** The exact conductor is a natural modular invariant, answering at every precision when this nonperiodic enumerative sequence becomes identically zero modulo the given power of two. The binary-digit criterion detects an infinite set of exceptionally sharp exponents and explains the stabilization across all moduli. It also resolves a concrete published number-theoretic open question. The statement is a compact exact classification, not a finite table, arbitrary residue slice, or claimed general breakthrough in generating-function methods.
+For all r>=1 the established generating equation gives F(x)=(1−x)C(2x(1−x)^2), coefficient term 2^j C_j x^j(1−x)^{2j+1}. Kummer/Legendre gives v2(C_j)=s2(j+1)−1. Mod 2^r surviving polynomial terms are exactly k=j+1 with k+s2(k)<=r+1. The highest surviving summand has unique top degree 3K(r)−2 and top coefficient nonzero modulo 2^r (lower j have smaller degrees), so all a_n with n>=3K(r)−1 vanish mod 2^r, the preceding index does not: exact conductor L=3K−1. Sharp 3r−1 iff r is a power of 2. Explicit coefficients mod 32 for n=0..10 plus eventual zero after 10, together with exact small a_0..a_4, prove Rowland–Yassawi four forbidden classes for all r>=6. Independent calculations reconstructed coefficients by quadratic recursion and Catalan expansion and checked r<=16, forbidden precision r<=12; finite checks support but do not replace the formal proof.
 
-The closest underlying result is the Catalan generating-function representation already recorded by Barry; the closest congruence question is Rowland–Yassawi's Open Question 3.25. The theorem says nothing about the exact valuation at each index or other primes, and a later unindexed solution could affect the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The enumeration (Le 2005), Catalan substitution (Barry 2008/OEIS), and automata (Rowland–Yassawi 2015) are earlier. Precisely computing the least eventual-vanishing index L(r) at every precision and thereby answering the explicitly published four-residue Open Question 3.25 requires valuations and noncancellation of the top Catalan term. No inspected later result already answers it. The derivation is elementary, but the explicit uniform conductor and open-question resolution, not the technique, are assessed as original best-of-knowledge.
+
+## value
+
+PASS
+
+Computing the exact last nondivisible coefficient at every 2-adic precision is an intrinsically useful arithmetic property of a classical pattern-avoidance sequence, and resolves a concrete previously posed four-residue open question. The sharp digit-sum conductor is nontrivial despite relying on a known Catalan transform; it can be used for precise congruence windows, beyond a textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

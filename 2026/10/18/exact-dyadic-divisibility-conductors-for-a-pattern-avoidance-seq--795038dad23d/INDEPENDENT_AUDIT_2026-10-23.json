@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:10:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/18/exact-dyadic-divisibility-conductors-for-a-pattern-avoidance-seq--795038dad23d/RESULT.md Git blob 462bd28c33dea5af5bb41fc7b84565f22eca6dc7 tree 94ddcd432038109fc7bf6a77ddff36dceeda5cd9",
+        "Inspected original 2026/10/18/exact-dyadic-divisibility-conductors-for-a-pattern-avoidance-seq--795038dad23d/verify.py Git blob 70bfe7f69b3e12334cb3b8be92c8c04612be8c93",
+        "Independent arithmetic checks /mnt/data/scope_worker_08_20261023T1854_delivery/independent_checks.py with checked output independent_checks_output.txt"
+      ],
+      "rationale": "For all r>=1 the established generating equation gives F(x)=(1−x)C(2x(1−x)^2), coefficient term 2^j C_j x^j(1−x)^{2j+1}. Kummer/Legendre gives v2(C_j)=s2(j+1)−1. Mod 2^r surviving polynomial terms are exactly k=j+1 with k+s2(k)<=r+1. The highest surviving summand has unique top degree 3K(r)−2 and top coefficient nonzero modulo 2^r (lower j have smaller degrees), so all a_n with n>=3K(r)−1 vanish mod 2^r, the preceding index does not: exact conductor L=3K−1. Sharp 3r−1 iff r is a power of 2. Explicit coefficients mod 32 for n=0..10 plus eventual zero after 10, together with exact small a_0..a_4, prove Rowland–Yassawi four forbidden classes for all r>=6. Independent calculations reconstructed coefficients by quadratic recursion and Catalan expansion and checked r<=16, forbidden precision r<=12; finite checks support but do not replace the formal proof.",
+      "residual_risks": [
+        "Uses previously established avoidance generating function; equivalence between algebraic and Catalan series was algebraically checked.",
+        "No claim of all termwise valuations or other primes; finite checks only supplement all-r argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former lists finite residue gaps and asks whether four particular classes are absent uniformly for all r; the latter provides algorithms rather than the universal conductor closed form."
+        ],
+        "reasoning": "Even a congruence automaton per r does not by itself constitute the claimed simultaneously sharp threshold for all r.",
+        "searches": [
+          "Rowland and Yassawi 2015 Example 3.24/Open Question 3.25",
+          "Rowland and Zeilberger arxiv:1311.4776 automata"
+        ]
+      },
+      "checked_sources": [
+        "Le 2005 DOI 10.37236/1922",
+        "Rowland–Yassawi 2015 DOI 10.5802/jtnb.901",
+        "OEIS A109033",
+        "Rowland–Zeilberger arxiv:1311.4776",
+        "Resultary search exact query: pattern avoiding 1342 2143 exact 2-adic conductor Rowland Yassawi residues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 2015 primary paper explicitly poses the four-class avoidance as an open question, while the 2005 enumeration establishes only the generating function."
+        ],
+        "reasoning": "The degree/valuation proof solves the question; no direct earlier implication from the cited published conclusions is supplied.",
+        "searches": [
+          "Rowland and Yassawi DOI 10.5802/jtnb.901 Example 3.24 and Open Question 3.25",
+          "Le DOI 10.37236/1922 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing F(x)=(1−x)C(2x(1−x)^2) is an implicit coefficient encoding; L(r) is the degree+1 of F reduced mod 2^r."
+        ],
+        "reasoning": "The algebraic and Catalan generating forms are the same established series, but the exact degree after 2-adic reduction is an additional theorem; mere computability at fixed r is not an explicit all-r identity.",
+        "searches": [
+          "Le 2005 Wilf Classes of Pairs of Permutations of Length 4",
+          "OEIS A109033 Paul Barry Catalan expression",
+          "Resultary search exact query: pattern avoiding 1342 2143 exact 2-adic conductor Rowland Yassawi residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists initial terms and Catalan expression; the printed modulus 32 residues are verified as [1,1,2,6,22,24,16,16,24,24,24] with subsequent zero."
+        ],
+        "reasoning": "A finite OEIS/database table cannot cover the complete r-parameter bound; the earlier series should nevertheless be credited.",
+        "searches": [
+          "OEIS A109033",
+          "Rowland–Yassawi mod-2^r automaton tables"
+        ]
+      },
+      "rationale": "The enumeration (Le 2005), Catalan substitution (Barry 2008/OEIS), and automata (Rowland–Yassawi 2015) are earlier. Precisely computing the least eventual-vanishing index L(r) at every precision and thereby answering the explicitly published four-residue Open Question 3.25 requires valuations and noncancellation of the top Catalan term. No inspected later result already answers it. The derivation is elementary, but the explicit uniform conductor and open-question resolution, not the technique, are assessed as original best-of-knowledge.",
+      "residual_risks": [
+        "A post-2015 resolution of Open Question 3.25 outside indexed records remains possible.",
+        "Initial enumeration paper was read for its theorem-level statements, not exhaustively rederived."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as inspected",
+          "evidence": "Obtains enumeration generating functions but not all-r 2-adic conductor or forbidden high-precision residues.",
+          "identifier_or_url": "DOI:10.37236/1922",
+          "material_read": "26-page primary PDF, introduction and enumerative Theorem 1 and theorem descriptions",
+          "method": "lawful full PDF, parsed text and screenshots including early and later pages",
+          "title": "Wilf Classes of Pairs of Permutations of Length 4",
+          "trigger": "original exact same permutation class and generating series"
+        },
+        {
+          "assessment": "NOT_COVERING in 2015 version",
+          "evidence": "Question 3.25 asks precisely whether residues 2^{r−1}+c (c=1,2,6,22) never appear for r>=6.",
+          "identifier_or_url": "DOI:10.5802/jtnb.901 / arxiv:1310.8635",
+          "material_read": "full rendered primary article material including Example 3.24 and Open Question 3.25",
+          "method": "arxiv full HTML and targeted text",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "same avoidance sequence, exact published open question"
+        },
+        {
+          "assessment": "PRIOR_PREMISE",
+          "evidence": "Catalan substitution is known; no all-r exact conductor reported in inspected entry.",
+          "identifier_or_url": "https://oeis.org/A109033",
+          "material_read": "sequence and formulas including December 2008 Barry transformation",
+          "method": "online OEIS entry",
+          "title": "OEIS A109033",
+          "trigger": "exact sequence and earlier Catalan transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 462bd28c33dea5af5bb41fc7b84565f22eca6dc7 and independently checked mathematical reasoning",
+        "Le 2005 DOI 10.37236/1922",
+        "Rowland–Yassawi 2015 DOI 10.5802/jtnb.901",
+        "OEIS A109033",
+        "Rowland–Zeilberger arxiv:1311.4776"
+      ],
+      "rationale": "Computing the exact last nondivisible coefficient at every 2-adic precision is an intrinsically useful arithmetic property of a classical pattern-avoidance sequence, and resolves a concrete previously posed four-residue open question. The sharp digit-sum conductor is nontrivial despite relying on a known Catalan transform; it can be used for precise congruence windows, beyond a textbook substitution.",
+      "residual_risks": [
+        "The Catalan expansion and enumeration are old; contribution is the exact degree cut-off and forbidden-residue consequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
