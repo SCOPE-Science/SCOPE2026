@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact code `verify_spectrum.cpp` enumerates every one of the \(\binom{119}{4}=7{,}940{,}751\) anchored vertex selections with integer-pair arithmetic in \(\mathbb Z[\varphi]\), where \(\varphi^2=\varphi+1\). It confirms the entire companion `spectrum.csv`, whose 109 rows sum to \(190{,}578{,}024\) quintuples. The source also repeats the complete enumeration from a different representative in each of the two remaining coordinate classes, and checks exact agreement.
+## correctness
 
-From a shell in the same directory, run:
+PASS
 
-```sh
-c++ -std=c++17 -O2 verify_spectrum.cpp -o verify_spectrum
-./verify_spectrum --check spectrum.csv
-python3 verify_examples.py
-```
+Independent C++17 exact Z[phi] enumeration reconstructed all 120 scaled vertices and independently looped over all C(119,4)=7,940,751 fixed-anchor quintuples. It found 109 levels, 687241 zero determinants anchored, largest 12+24phi with frequency 100, and runner-up 16+20phi with frequency 450. By vertex-transitivity multiply by 24, obtaining 16,493,784 degenerate quintuples and 2400 maximizers. Coordinatewise convexity of absolute affine determinant extends the maximum to all simplices contained in the 600-cell. Verification of ring class uses exact coefficient pairing; independent sign comparator used high-precision golden-ratio numerical sign, while package script gives exact integer sign logic. No claim of all continuous equality cases.
 
-`verify_examples.py` uses SymPy for a separately computed exact determinant of two extremal configurations and their midpoint, proving that nonvertex equality configurations exist. These three commands completed successfully on the delivered sources. The C++ source also completed an undefined-behavior-sanitized build and run.
+## originality
 
-The table is the full vertex-supported distribution, not a distribution over all continuously chosen contained simplices. The code and table give an exact finite mathematical check, not independent auditing or general-purpose formal certification. Historical-priority assessment necessarily remains limited to the inspected sources.
+PASS
+
+Bao et al. analyze H4 matroid dependencies and flat incidence; those distinguish zero from nonzero linear dependences, but not 109 absolute determinant levels, their multiplicities or maximum-volume quintuples. A regular 24-cell simplex optimum cannot upper-bound an inscribed simplex in its containing 600-cell.
+
+## value
+
+PASS
+
+A complete exact determinant distribution and sharp inscribed maximum are intrinsic finite metric invariants of the exceptional regular H4 polytope; 109 algebraic levels with frequencies and optimizing edge signature are a meaningful classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
