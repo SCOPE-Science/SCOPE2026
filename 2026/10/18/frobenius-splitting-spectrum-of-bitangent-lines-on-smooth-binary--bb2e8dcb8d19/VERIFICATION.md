@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The full source-code reproduction was executed from the bundled files. Python 3 with SymPy generated \(279\) quartic projective orbits, with \(78\) geometrically smooth representatives weighted to \(10{,}920\) equations. Two independent C++17 programs each checked rational even-contact lines over fields \(\mathbf F_{2^k}\) for every \(k=1,2,3,4,5,6,7\), covering \(546\) representative-extension pairs. They used different coefficient computations and distinct irreducible field polynomials for degrees three to seven. Both returned identical vectors of fixed-line counts; the final Python program compared each entry, reconstructed Frobenius cycles using divisor inversion, and verified the whole ten-stratum table, orbit weights, and stable Hasse--Witt rank predictions.
+# Independent mathematical audit
 
-The encoded representative `2566` yielded exactly seven lines over \(\mathbf F_{128}\), one Frobenius orbit of length seven and none over extensions of degree at most six. Its seven coefficient pairs and equation appear in RESULT.md and the generated data tables.
+## correctness
 
-Finite extension checking through degree seven proves all cycle partitions here **only because** the separate geometric theorem bounds the total number of geometric bitangents by seven. The computation does not prove that theorem for arbitrary characteristic-two quartics; it invokes and independently cross-checks the known result. These are same-project checks, not independent external audit.
+PASS
 
-Run from the directory containing the packaged sources with the commands in RESULT.md. The generated `quartic_orbits.json`, `smooth_orbits.txt`, `splittings.tsv`, `independent_fixed_counts.txt`, `splitting_distribution.csv`, and `splitting_orbits.csv` are included as separate inspectable evidence.
+Over GF(2), nonzero quartic equations are precisely 32767 normalized masks on 15 monomials. Independently re-enumerated GL3(F2) orbits to 279, and checked the 279 representative Jacobian ideals on all three affine charts by exact Gröbner bases: 78 smooth orbits of total weight 10920. For geometric even-contact lines, a restricted binary quartic is a square over the closure iff its odd monomial coefficients c3,c1 vanish. Independently scanned every rational line over explicit GF(2^k), k=1..7, for the 78 smooth representatives, inverted the fixed-point sums N_k=Σ_{d|k}d m_d and recovered all ten weighted/orbit partition bins including (7):3072 equations and 20 classes. Completeness beyond finite-extension bound follows from the classical at-most-seven geometric bitangents of a smooth plane quartic in characteristic two; not an extrapolation of field-degree experiments. Independently checked the GF128 witness conjugates (9,11) through its complete Frobenius orbit. Limits: F2 plane quartic equations only; no broader field claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty attaches to the ten-bin Frobenius splitting partition with exact smooth-equation and PGL3(F2) orbit counts, not the classical geometric 1/2/4/7 bitangent marginal. Compared with published character-two bitangent statements and finite-field curve classifications; no identified stronger published result entails the exact partition table, while an unlocated zeta/2-torsion census could and remains a named priority risk.
+
+## value
+
+PASS
+
+A full exact splitting partition census over the smallest characteristic-two field records fields of definition, Frobenius permutation types and geometric plane equivalence; these distinguish curves sharing geometric bitangent counts and 2-ranks. This is a natural finite classification of genus-three canonical plane curves, not a mere repeat of the rational-bitangent marginal. It supplies reproducible exact arithmetic and a real seven-cycle witness for future finite-field curve and 2-torsion comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

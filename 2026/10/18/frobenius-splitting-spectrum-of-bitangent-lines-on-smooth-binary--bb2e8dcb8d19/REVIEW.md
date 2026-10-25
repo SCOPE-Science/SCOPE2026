@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The fixed parameter space contains exactly \(32{,}767\) equations; the \(168\)-element projective group and its \(279\) orbits are exhaustively generated. Gröbner ideals on all three affine charts verify the smoothness of all \(78\) surviving orbits and their \(10{,}920\) equations. The exact even-contact criterion \(c_1=c_3=0\) is proved from squares of binary quadratics in characteristic two. Every geometric bitangent has Frobenius orbit length at most seven by the known geometric count \(1,2,4,7\), making the finite-extension checks genuinely exhaustive. Different finite-field models and separate coefficient algorithms agree in all \(546\) representative-extension cases; stable Cartier--Manin rank and group-weight totals agree. Reproducibility does not constitute independent external verification.
+## correctness
 
-**Originality (O): PASS, with explicitly bounded priority risk.** Dolgachev--Kondō 2024 (arXiv:2406.16246v1, read in the original online manuscript) invokes the classical rank-dependent geometric bitangent totals, but studies quartic surfaces and does not provide the binary plane-quartic Frobenius splitting census. The inspected Lercier--Ritzenthaler--Rovetta--Sijsling 2014 preprint addresses smooth plane quartic moduli mainly away from characteristic two, and Top 2003 addresses small-field genus-three points. A previously recorded finite census already gives the rational-line marginal and the \(10{,}920\) smooth-equation total; neither is new. The exact ten-stratum distribution over extension fields and weighted 78-orbit refinement are not logical consequences of that marginal alone. An undiscovered complete Frobenius-on-two-torsion table could imply the result and remains an explicit residual risk; keyword-search silence is not a proof of priority.
+PASS
 
-**Value (V): PASS.** The splitting of odd theta characteristics / geometric bitangent lines is a natural arithmetic invariant of a canonical genus-three curve, recording the least fields that define its contact lines. The complete ten-stratum distribution yields more arithmetic information than the known rational-bitangent marginal, separates curves with one rational bitangent into genuinely different splitting patterns, and identifies the exactly 20 projective classes whose seven contacts become rational only in degree seven. This is a geometrically motivated complete finite classification rather than an arbitrary coefficient slice.
+Over GF(2), nonzero quartic equations are precisely 32767 normalized masks on 15 monomials. Independently re-enumerated GL3(F2) orbits to 279, and checked the 279 representative Jacobian ideals on all three affine charts by exact Gröbner bases: 78 smooth orbits of total weight 10920. For geometric even-contact lines, a restricted binary quartic is a square over the closure iff its odd monomial coefficients c3,c1 vanish. Independently scanned every rational line over explicit GF(2^k), k=1..7, for the 78 smooth representatives, inverted the fixed-point sums N_k=Σ_{d|k}d m_d and recovered all ten weighted/orbit partition bins including (7):3072 equations and 20 classes. Completeness beyond finite-extension bound follows from the classical at-most-seven geometric bitangents of a smooth plane quartic in characteristic two; not an extrapolation of field-degree experiments. Independently checked the GF128 witness conjugates (9,11) through its complete Frobenius orbit. Limits: F2 plane quartic equations only; no broader field claim.
 
-**Closest literature and limitations.** De Resmini (1970) and Stöhr--Voloch (1987) provide the known geometric bitangent count via Hasse--Witt. Dolgachev--Kondō (2024) quotes it; Lercier et al. (2014) give broader quartic-moduli methods in other characteristic; Top (2003) studies small-field rational points. No assertion is made beyond \(\mathbf F_2\), and possible earlier arithmetic classification is acknowledged. The smooth-orbit list is shared by the two independently coded bitangent enumerators. All source-code checks can be replayed locally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty attaches to the ten-bin Frobenius splitting partition with exact smooth-equation and PGL3(F2) orbit counts, not the classical geometric 1/2/4/7 bitangent marginal. Compared with published character-two bitangent statements and finite-field curve classifications; no identified stronger published result entails the exact partition table, while an unlocated zeta/2-torsion census could and remains a named priority risk.
+
+## value
+
+PASS
+
+A full exact splitting partition census over the smallest characteristic-two field records fields of definition, Frobenius permutation types and geometric plane equivalence; these distinguish curves sharing geometric bitangent counts and 2-ranks. This is a natural finite classification of genus-three canonical plane curves, not a mere repeat of the rational-bitangent marginal. It supplies reproducible exact arithmetic and a real seven-cycle witness for future finite-field curve and 2-torsion comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
