@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact Bernoulli edge-event sum evaluates to the stated finite-size expectation. The cyclic shoelace deficit is a cubic gap score plus a uniform \\(L^2\\) remainder negligible on the fluctuation scale. Geometric renewal rewards yield a Gaussian CLT with variance \\(p\\operatorname{Var}(g(K)-aK)\\), whose generating-function evaluation is the displayed strictly positive constant. Empty and small samples and boundary terms are explicitly handled. Finite independent enumeration supports, not substitutes for, the argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pérez-Lantero arXiv:1412.5153 Sections 2-4: #P-hardness and distribution approximation for stochastic point sets; mentions general polynomial-time mean algorithms, without a Bernoulli regular-polygon variance limit.",
+        "Pardon arXiv:1003.4209 first-page theorem concerns Poisson interior point processes on an expanding convex set."
+      ],
+      "reasoning": "General algorithmic approximation or a CLT for a distinct continuous interior sampling model does not imply the sharp \\(n^{-5}\\) variance and explicit coefficient for independent deletion of prescribed boundary vertices. Broad convex-hull techniques motivate, but do not subsume, the quantified claim.",
+      "searches": [
+        "Web: central limit theorem random convex hull Bernoulli vertices regular polygon perimeter area deleted vertices 2013",
+        "Web: arxiv Bernoulli random subset regular polygon expected area variance central limit theorem",
+        "arXiv:1412.5153, arXiv:1003.4209, arXiv:1301.1360 inspected primary PDFs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.5153",
+      "arxiv:1003.4209",
+      "arxiv:1301.1360",
+      "2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8",
+      "2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+      "2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1: boundary points sampled uniformly along polygon edges; Gumbel Hausdorff error, not Bernoulli vertex area fluctuation.",
+        "Pérez-Lantero arXiv:1412.5153 Theorem 1: hardness of the area distribution for general rational finite input positions; Theorem 6: additive-error probability approximation."
+      ],
+      "reasoning": "The prior hardness bound does not exclude exact formulas for a high-symmetry subclass, but neither does it yield them. The uniform boundary sampling result has a different statistic and continuous independent point locations. The new cubic geometric-renewal coefficient requires a separate calculation.",
+      "searches": [
+        "published-finding corpus: random polygon vertex thinning hole gap geometric distribution perimeter area CLT",
+        "published-finding corpus: random polygons uniformly inscribed regular vertices gap area Bernoulli central limit",
+        "Web: \"random\" \"vertices\" \"regular polygon\" \"area\" \"central limit theorem\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8 concerns intersections of disks centered at continuously sampled angles.",
+        "Koroleva–Nikitin arXiv:1301.1360 treats U-max and U-min statistics of continuously sampled circle points, not a convex hull of Bernoulli-thinned fixed polygon vertices."
+      ],
+      "reasoning": "A circular gap functional or continuous-angle inscribed polygon is not equivalent to independent retention of a fixed angular lattice. The renewal gap law and the exact sample-size dependence differ. No identical statement was identified; this does not prove absolute uniqueness.",
+      "searches": [
+        "published-finding corpus: Sharp n^5 variance constant and n^(5/2) central limit theorem for Bernoulli vertex-thinned regular n-gon convex hull area",
+        "published-finding corpus: random regular polygon surviving vertices independent Bernoulli gaps cubic renewal reward area deficit",
+        "Web: \"Bernoulli\" \"regular polygon\" \"area\" \"variance\" convex hull",
+        "Web: random vertex deletion regular n-gon area deficit variance asymptotic geometric spacings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5 treats triangles chosen among distinct vertices conditional on containing the center, not all Bernoulli-retained convex hulls.",
+        "No matching published exact moment table was returned for the stated retention law in these queries."
+      ],
+      "reasoning": "The related database records have different conditioning and sampling schemes. Absence of a match is not treated as proof of novelty; an unindexed finite-input geometry table remains a residual risk.",
+      "searches": [
+        "published-finding corpus: explicit exact mean area n p^2 sin(2pi/n) (1-q^n)/(1-2q cos(2pi/n)+q^2) and Gaussian fluctuation",
+        "published-finding corpus: stochastic point set vertices of regular polygon area moment first variance geometric spacing",
+        "Web: \"random subset\" \"regular n-gon\" \"expected area\" distribution"
+      ]
+    },
+    "rationale": "Inspected primary algorithmic work on finite stochastic point sets and continuous random polygon area limits do not give the exact fixed-lattice Bernoulli retention law, sharp explicit variance constant, or Gaussian area limit. Closest published indexed gaps results differ in object and gap law; residual priority risk is retained.",
+    "residual_risks": [
+      "Search-index coverage and external historical priority are incomplete.",
+      "A plausible circular-gap Gaussian-area record was accessible as title and summary only, not full document; its stated geometric model is distinct.",
+      "General renewal theory supplies methodology; priority of the precise regular-vertex constants requires independent literature assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General discrete stochastic-point-set computation, not an exact Bernoulli regular-vertex variance or CLT",
+        "evidence": [
+          "Theorem 1 area distribution #P-hardness; Theorem 6 additive-error sampling; Section 2 describes an expected-area O(n^2) algorithm, no sharp variance coefficient"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.5153",
+        "material_read": "Primary PDF, pages 1–3, 9–12 and indexed remainder; relevant algorithms, theorems and related-work sections",
+        "method": "Full-text extraction and rendered-page inspection",
+        "title": "Area and Perimeter of the Convex Hull of Stochastic Points",
+        "trigger": "Direct match to independently present finite points and convex-hull area"
+      },
+      {
+        "assessment": "Poisson/uniform interior sampling as volume grows; different random object and scaling",
+        "evidence": [
+          "Theorem 1.1 gives an area CLT for the Poisson polygon inside expanding convex sets; its random vertices are not fixed lattice sites"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.4209",
+        "material_read": "Original primary PDF introduction and first theorem, plus sections covering cap-based moment estimates",
+        "method": "Full-text extraction and rendered-page inspection",
+        "title": "Central limit theorems for random polygons in an arbitrary convex set",
+        "trigger": "Plausible dominating general Gaussian area theorem"
+      },
+      {
+        "assessment": "Studies U-max/-min extremes of fixed-order polygons from continuous random point locations",
+        "evidence": [
+          "Theorem B concerns the largest area among triangles from uniformly placed circle points, not the full convex hull of retained regular vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.1360",
+        "material_read": "Primary PDF abstract, introduction, and circle-vertex extremal-area theorems",
+        "method": "Full-text extraction and rendered-page inspection",
+        "title": "U-max-statistics and limit theorems for perimeters and areas of random polygons",
+        "trigger": "Random convex polygons with vertices on a circle and asymptotic areas"
+      },
+      {
+        "assessment": "Closest technique but continuous disk-intersection area rather than vertex-thinned convex-hull area. Whole-document overlap cannot be ruled out from a summary.",
+        "evidence": [
+          "Record summary gives variance \\(40\\pi^6(b-1)^4/(b^2m^5)\\) for intersections of congruent disks with independent uniform center angles; no Bernoulli parameter"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8",
+        "material_read": "Published title and search summary only; full record could not be opened",
+        "method": "Semantic research index; direct record retrieval attempted",
+        "title": "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+        "trigger": "Geometric gap-score Gaussian area fluctuations of the same \\(n^{-5}\\) order"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba8ad8ae-6bd3-43c7-a0f9-18d44f17016e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent vertex loss of a prescribed regular polygon is a natural highly structured special case of hard stochastic convex-hull distributions. Its exact mean and sharp \\(n^{-5}\\) variance/CLT determine genuine fluctuation behavior in an infinite family and allow precise comparison with continuously sampled polygons; the renewal-gap coupling is a motivated structural calculation rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
