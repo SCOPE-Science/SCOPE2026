@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the excluded-area identity
+# Independent mathematical audit
 
-The closed formula follows from the planar mixed-area edge-support identity and a finite coprime residue argument. No asymptotic assertion depends on finite numerical extrapolation. The step that collapses the support sum to one cosine relies on the identity for a centered finite trigonometric progression; the exact phase is retained in the proof.
+## correctness
 
-Run the included `checker.py` with `python3 checker.py`, using only the Python standard library. The checker reconstructs polygon Minkowski sums from their original vertices via an independent convex-hull algorithm and area formula. All 1,376 checks passed in the packaged copy: 1,360 direct finite polygon-hull comparisons, 12 sharp endpoint checks, and four numerical rotation-mean checks.
+PASS
 
-The finite tests check numerical geometry, not all polygon orders or continuously many angles. The unrestricted theorem, fold periodicity, and scaling limits are justified by the displayed algebraic and analytic proofs. The novelty comparison remains bibliographic rather than an independent priority determination.
+Planar mixed-area identity gives sum of support values of the second polygon at all edge normals of first, including coincident normals. Reduction modulo 2pi/m partitions n normals into g copies of N=n/g equally spaced residues at steps 2pi/L, yielding the finite cosine sum sin(N*pi/L)/sin(pi/L)*cos(delta). This verifies the phase shift and folded E=A+2B cos(delta). Uniform rotation folds to delta uniform on [0,pi/L], giving the CDF, moments, and exact extremal gap. For equal-area polygons, B/A0 tends to 1 and a=pi/L tends to zero without a relative-growth condition, giving limiting range pi^2 and variance 4pi^4/45, and 1-U^2 normalized law. Independently compared 72 actual Minkowski convex-hull polygon areas against formula at fixed cases; this does not substitute for the universal residue proof.
+
+## originality
+
+PASS
+
+The planar mixed-area support identity and kinematic mean are classical. The inspected 2026 Moud treatment focuses on aligned binary regular polygon exclusions, and Geigenfeind–de las Heras 2019 examines angular profiles mainly for specific regular shapes; neither materially inspected source establishes the all-pair lcm-folded cosine, sharp orientation distribution and equal-area arithmetic scaling contrast. Best-of-knowledge originality with risk of earlier unpublished trigonometric evaluations.
+
+## value
+
+PASS
+
+Excluded area is the natural mixed-area observable governing translated hard-particle overlap. The exact orientation profile for arbitrary pairs of regular orders explains gcd/lcm resonance, supplies a full random-rotation law, and establishes a meaningful quadratic-vs-quartic decay boundary for equal and consecutive order sequences. This is more than the classical orientation-average identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
