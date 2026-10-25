@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The literal furtherness count \(\Psi_x(B)=2^{|B|}-2^{|B\cap x|}\) yields exact subcomplex identifications, naturally compatible with all filtration inclusions. Atom stages alternate simplex skeletons with cones, while coatom stages are cones attached to a simplex along successive skeletons. An elementary collapsing matching gives the integral skeleton homotopy ranks, and exact persistent-chain computations verify all degrees and endpoints for \(3\le n\le8\), independently including direct order complexes for \(3\le n\le5\). The proof is uniform in \(n\), not an extrapolation from finite tests.
+
+**Originality — PASS with a disclosed residual risk.** The nearest October 2026 paper introduces the furtherness persistence filtration and concentrates on degree-zero features; the March 2026 paper establishes furtherness itself, not these all-degree diagrams. Rank-selected Boolean homology, punctured Boolean-sphere finite-space cores, and rank-span-two character calculations concern different functors/objects or restrictions, and none of their inspected statements implies these exact two rooted persistent modules. Scientific and database searches found no equivalent theorem. Unindexed work or an uninspected equivalent formulation remains possible; failed search is not proof of absolute novelty.
+
+**Value — PASS.** The Boolean sphere poset is a canonical finite topological model, and the two extremal root orbits are natural test cases for the newly introduced furtherness persistence. The theorem supplies an entire infinite family of all-degree, all-field benchmarks, detects genuine root dependence of the persistence even though terminal topology agrees, and exposes an exponentially separated, binomial-multiplicity cascade not captured by previously published degree-zero analysis. This is a structural infinite-family computation, not a single arbitrary numeric example.
+
+**Scope and limitations.** Intermediate-rank roots are not classified. No finite-space homotopy classification of the stages is asserted; computations test \(n\le8\) and do not replace the general proof. Bibliographic priority is limited to inspected accessible material and retrieved records. Independent external validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
