@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T14:09:35.512474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and VERIFICATION.md at source tree e1793b650d22aa736b63abf70aa709315f4f69a9",
+        "Assigned artifacts/verify.py, verification_output.txt (both read as source evidence, not trusted on exit)",
+        "Donovan--Scoville Theorem 5.8 journal full text",
+        "Independent direct fixed-edge-orbit enumerator: 70 group elements over seven (n,m) cases"
+      ],
+      "rationale": "PASS. The final claim is for every n>=2 and k>=1, m=3k+1 or 3k+2, on reduced rational homology of the matching complex of n cycles C_m sharing a vertex, under blade permutations preserving cyclic coordinates. Independently verify a_0=1,a_1=0,a_r=a_(r-1)-a_(r-2), giving the six-periodic sequence (1,0,-1,-1,0,1). In a pi-fixed matching, all noncentral blade edge patterns must be constant on each permutation cycle; an edge incident to the common center is unique and must occur on a fixed blade. The orbit-signed sum is F(pi)=A^{c(pi)}-2f(pi)B A^{c(pi)-1}, where A=a_(m-2), B=a_(m-3). On an invariant matching of size s comprising o edge orbits, the simplex orientation sign (-1)^(s-o), times augmented chain sign (-1)^(s-1), equals (-1)^(o-1); including the empty simplex gives reduced Lefschetz=-F. The published Donovan--Scoville Theorem 5.8 concentrates reduced homology in degree nk-1 with rank 1 when m=3k+1 and in degree nk with rank 2n-1 when m=3k+2. Substitution A=(-1)^k, B=0 or B=(-1)^k respectively and sgn(pi)=(-1)^{n-c(pi)} yields exactly sgn(pi)^k and sgn(pi)^k(2f(pi)-1). Over Q, character equality determines the module, so the second is sgn^k tensor (trivial + 2 standard). A separately written fixed-edge-orbit matching enumerator verified all 70 permutations across (n,m)=(2,4),(2,5),(3,4),(3,5),(3,7),(4,4),(4,5); finite checks corroborate but do not establish the all-parameter theorem. Both levels of the Git tree (7 top-level entries; 2 artifact blobs) were independently reconstructed from Git hashes.",
+      "residual_risks": [
+        "Relies on published Donovan--Scoville homotopy-concentration theorem, whose complete relevant proof was inspected; no new independent derivation of its Morse collapse.",
+        "Finite independent enumeration checks 70 cases but does not replace the all-n,k proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li, arXiv:2202.08828, Theorem 1.2, establishes strong equivariant log-concavity for graded matching permutation modules of any graph, not homology character evaluation.",
+          "Bate--Everitt--Ford--Ramos, DOI 10.1090/proc/17573, Theorem 1 concerns complete hypergraph matching complexes; Theorem 3 gives asymptotic fibre-closed representation restrictions, not this exact windmill module.",
+          "Dong--Wachs, DOI 10.37236/1634, Theorem 1.1 concerns complete graphs K_n and the ordinary S_n on vertices."
+        ],
+        "reasoning": "Even the general all-graph permutation-module log-concavity theorem has a different conclusion; it does not calculate the alternating chain character, homology concentration, or the exact windmill representation. Complete-graph/hypergraph objects are not the joined-cycle family. A generic classification of all fibres does not specify these modules.",
+        "searches": [
+          "web: Equivariant log-concavity of graph matchings arXiv:2202.08828",
+          "web: Homology of matching complexes and representations of symmetric groups Bate Everitt Ford Ramos full PDF",
+          "web: Combinatorial Laplacian of the Matching Complex Dong Wachs pdf",
+          "Resultary: matching complexes cactus graphs induced S_n representation Lefschetz trace fixed matchings"
+        ]
+      },
+      "checked_sources": [
+        "Donovan--Scoville, NYJM 29 (2023), Theorem 5.8, pp.1409-1410; arXiv:2207.13780",
+        "Bate--Everitt--Ford--Ramos, Proc. AMS (2026), DOI:10.1090/proc/17573",
+        "Dong--Wachs, Electronic Journal of Combinatorics 9 (2002), DOI:10.37236/1634",
+        "Shiyue Li, arXiv:2202.08828",
+        "Donovan, 2023 honors thesis, https://digitalcommons.ursinus.edu/math_hon/4/ (abstract only, PDF blocked)",
+        "Resultary 2026/10/11 integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63 (full RESULT)",
+        "Resultary 2026/10/11 complete-dihedral-homology-characters-of-cycle-matching-complexe--5aa60c866f1d (full RESULT)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing H_top has dimension 2n-1 does not distinguish 1+2 Std from another 2n-1-dimensional S_n-module.",
+          "Published source Theorem 5.8 makes no equivariant claim, and its Morse matching need not be equivariant.",
+          "The path a_r recurrence plus signed orbit count newly establishes chi(pi)=sgn(pi)^k(2f(pi)-1)."
+        ],
+        "reasoning": "The new statement does not follow merely from the source wedge decomposition, Li log-concavity, the complete-hypergraph formulas, or a cycle D_m character. To derive it requires the new fixed central-edge and blade-orbit count and Lefschetz trace computation.",
+        "searches": [
+          "Donovan--Scoville, New York Journal of Mathematics 29 (2023), Theorem 5.8 full proof",
+          "Bate--Everitt--Ford--Ramos arXiv:2312.13750 published 2026 Theorems 1 and 3",
+          "Li arXiv:2202.08828 section 1 Theorem 1.2",
+          "Resultary: complete dihedral homology characters of cycle matching complexes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Donovan--Scoville, Theorem 5.8, pp. 1409-1410, states homotopy types only: sphere in residue 1 and wedge of 2n-1 spheres in residue 2.",
+          "A self-identical mathematical-record result was retrieved and excluded as independent prior-art evidence.",
+          "Related Resultary: the cycle matching-complex dihedral character pertains to one C_m and a D_m action, not S_n on n joined copies."
+        ],
+        "reasoning": "Aliases Dutch windmill, Dutch-windmill, friendship graph (when m=3), cactus/vertex bouquet, and equivariant matching-complex homology were queried. Matching ranks and single-cycle dihedral characters do not logically determine the permutation action on joined blades; no independently prior same-character formula was found.",
+        "searches": [
+          "Resultary: Dutch windmill matching complexes blade permutation homology character sign standard representation",
+          "Resultary: friendship graph matching complex equivariant homology symmetric group blade action",
+          "web: matching complex Dutch windmill graph equivariant homology permutation blades representation",
+          "web: friendship graph matching complex equivariant homology symmetric group character",
+          "web: graph bouquet cycles equivariant matching complex homology permutation symmetric group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 5.8 gives exact ranks and degrees but no irreducible constituents or character table.",
+          "Resultary related published RESULT.md: integral branch-permutation homology of extended-star Morse complexes, a different acyclic vector-field complex of a tree with 2-edge arms.",
+          "Resultary related published RESULT.md: complete dihedral homology characters of cycle matching complexes, for one C_n with dihedral action."
+        ],
+        "reasoning": "No identified exact catalogue/table covers Dutch-windmill S_n homology characters. The closest same-family table records nonequivariant ranks, and the other explicit character tables treat different complexes. The identical self-record is excluded.",
+        "searches": [
+          "Resultary: Dutch windmill graph matching complex 3k+2 2n-1 homology representation",
+          "Resultary: friendship graph matching complex equivariant homology symmetric group blade action",
+          "web: Dutch windmill matching complex sign representation standard representation"
+        ]
+      },
+      "rationale": "PASS on a documented best-of-knowledge basis. The exact Dutch-windmill family, including the rank 1 and 2n-1 wedge cases, is already in Donovan--Scoville (NYJM 29 (2023), Theorem 5.8, pp. 1409-1410), but the full theorem and proof give nonequivariant homotopy types, not action characters. The new fixed-orbit Lefschetz calculation determines nonisomorphic S_n-modules which the rank theorem cannot distinguish. Bate--Everitt--Ford--Ramos compute complete-hypergraph matching cohomology and asymptotic representations for fibre-closed families; Dong--Wachs treat the complete-graph matching complex; neither determines the joined-cycle blade action. Shiyue Li proves equivariant log-concavity of graded matching permutation representations for all graphs, not explicit reduced homology characters. Two related published mathematical findings were read: the extended-star Morse complex has a sign-twisted augmentation module for a different object, while the single-cycle dihedral matching-complex formula lacks the common-center coupling and does not imply the windmill S_n-character. Four fresh semantic mathematical-result searches and exact web alias searches found no distinct prior claim of this complete windmill formula; the self-hit is excluded as priority evidence. The author thesis full file could not be accessed (403) and is a residual risk, not a basis for a false noncoverage assertion. Unindexed cactus/windmill equivariant calculations remain possible. Search nonappearance is not proof of novelty.",
+      "residual_risks": [
+        "The revised 2026 Connor Donovan thesis may include an unindexed equivariant treatment in inaccessible full text; landing page only, PDF 403. The authors’ published same-family theorem was read in full.",
+        "An older cactus/windmill-graph calculation under alternative graph or action terminology might predate this result; semantic and alias searches cannot prove universal absence.",
+        "Related single-cycle dihedral and extended-star branch representations use similar Lefschetz/sign techniques, but their reported statements are not implicationally sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING known nonequivariant homotopy degree/rank, NOT_COVERING the specific induced S_n top-homology character.",
+          "evidence": "Thm 5.8 gives M(D_m^n)~ S^(nk-1) for m=3k+1, ~vee^(2n-1) S^(nk) for m=3k+2; proof lists critical cells but no blade action or character.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/NYJM/NYJM/j/2023/29-54v.pdf",
+          "material_read": "Published 20-page PDF: introduction, definitions of matching complex and windmill, Theorem 5.8 and its complete Dutch-windmill proof on pp.1409-1410; cross-checked 2022 arXiv version Theorem 30.",
+          "method": "Open-access journal PDF with visual inspection of pp.1409-1410; arXiv 2207.13780 text.",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Exactly the same Dutch-windmill matching-complex family and all m,n parameters."
+        },
+        {
+          "assessment": "NOT_COVERING the exact Dutch-windmill module; complete-hypergraph and asymptotic family theorems do not specialize to this expression.",
+          "evidence": "Theorem 1 concerns matching complex of the complete hypergraph on n vertices; Thm 3 constrains arbitrary fibre-closed family asymptotics and does not give a closed Dutch-windmill character.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/234058/7/Homological_reps_of_symmetric_groups_1.pdf; DOI 10.1090/proc/17573",
+          "material_read": "Accessible accepted-version full text: introduction/object definition, Theorem 1 and its complete-hypergraph result, Section 3 Theorem 3 and fibre-closed representation-stability discussion, relevant proofs/examples.",
+          "method": "Lawful university open-access accepted PDF, pages 2-11.",
+          "title": "Homology of matching complexes and representations of symmetric groups",
+          "trigger": "2026 primary research combining matching-complex homology and symmetric-group representations."
+        },
+        {
+          "assessment": "NOT_COVERING: ordinary complete-graph matching complex, not n cycles with common center.",
+          "evidence": "Theorem 1.1 calculates H(M(K_n)) as an S_n module via self-conjugate partitions; its n labels original complete-graph vertices, not blade permutations.",
+          "identifier_or_url": "https://www.mathe2.uni-bayreuth.de/axel/papers/wachs:combinatorial_laplacian_of_the_matching_complex.pdf; DOI 10.37236/1634",
+          "material_read": "Full-text PDF introduction and Theorem 1.1 with discussion of complete-graph, chessboard and broader bounded-degree contexts.",
+          "method": "Lawful author-hosted primary PDF, opening sections.",
+          "title": "Combinatorial Laplacian of the Matching Complex",
+          "trigger": "Classical apparent general S_n representation decomposition for matching complexes."
+        },
+        {
+          "assessment": "NOT_COVERING exact homology; concerns equivariant log-concavity of the graded permutation modules spanned by matchings.",
+          "evidence": "Theorem 1.2 states strongly equivariant log concavity of V_G^bullet. Remark 1.4 explicitly treats matching-complex homology as a distinct construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.08828",
+          "material_read": "2022 primary full-text PDF: abstract, Introduction, Theorem 1.2, Section 2 strategy and remark distinguishing matching chain representations from homology.",
+          "method": "ArXiv full text.",
+          "title": "Equivariant log-concavity of graph matchings",
+          "trigger": "Theorem for the natural graph-automorphism action on matchings of arbitrary graphs."
+        },
+        {
+          "assessment": "ACCESS-LIMITED. Landing says computes Dutch-windmill homotopy type; no defensible whole-thesis noncoverage determination.",
+          "evidence": "Abstract emphasizes point/sphere/wedge classifications; possible uninspected appendix or corrections is a residual priority risk.",
+          "identifier_or_url": "https://digitalcommons.ursinus.edu/math_hon/4/",
+          "material_read": "Open thesis landing page: abstract/project description, chapter topics and update date. PDF download returned HTTP 403 and was not read.",
+          "method": "Institutional open repository landing and attempted lawful PDF; no authentication bypass.",
+          "title": "A Discrete Morse Approach for Computing Homotopy Types: An Exploration of the Morse, Generalized Morse, Matching, and Independence Complexes",
+          "trigger": "Same principal author thesis with a longer Dutch-windmill chapter; corrected April 2026."
+        },
+        {
+          "assessment": "NOT_COVERING: ordinary Morse complex of discrete vector fields on a two-edge-arm tree, not graph matching complex of joined cycles.",
+          "evidence": "Its module is sgn tensor augmentation kernel with character sgn(pi)(f(pi)-1), different graph and functor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-integral-branch-permutation-homology-of-extended-star-morse-comp--348812728b63/RESULT.md",
+          "material_read": "Published RESULT.md full finding, assumptions and join-cone proof, including character and integral module.",
+          "method": "Public repository raw result read.",
+          "title": "Integral branch-permutation homology of extended-star Morse complexes",
+          "trigger": "Semantically closest published symmetric-arm/branch equivariant homology calculation."
+        },
+        {
+          "assessment": "NOT_COVERING the joined-cycle S_n blade action; its D_m action is within one cycle.",
+          "evidence": "Theorem computes chi on C_m under rotation/reflection; no common center coupling or n-copy symmetric-group action.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-dihedral-homology-characters-of-cycle-matching-complexe--5aa60c866f1d/RESULT.md",
+          "material_read": "Published RESULT.md theorem, assumptions, fixed-orbit Lefschetz proof and complete dihedral character formulas.",
+          "method": "Public repository raw result read.",
+          "title": "Complete dihedral homology characters of cycle matching complexes",
+          "trigger": "Same cycle matching object, but single-cycle dihedral group rather than multi-blade S_n."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Donovan--Scoville Theorem 5.8",
+        "Exact representations in assigned RESULT.md",
+        "Related primary and published equivariant matching-complex results listed under originality"
+      ],
+      "rationale": "PASS. The subgroup S_n permuting identically parametrized cycle blades is canonical for this infinite natural graph family. The known wedge multiplicities alone cannot show whether a blade transposition acts by +1 or -1, or which standard isotypic components appear. The exact all-n and all-k parity-sensitive character and the explicit sgn^k tensor (1+2 Std) decomposition supply natural equivariant information, including traces at every conjugacy class, which can be used in symmetry-invariant and quotient homology calculations. This is a motivated structural refinement, not a known-table recomputation. It does not claim integral lattice decomposition or the larger within-blade automorphism group.",
+      "residual_risks": [
+        "Does not resolve full within-blade automorphism action or integral Z[S_n] lattice structure; does not claim either."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-parameter C claim relies on cited Donovan--Scoville homotopy concentration. Independent finite enumeration is corroboration only.",
+    "Historical priority is best-of-knowledge. Donovan honors thesis PDF returned HTTP 403; its full text was not inspected.",
+    "No full automorphism-group action, integral lattice decomposition, formal proof assistant certificate or expert attestation is claimed.",
+    "This is an audited change-set plan, not a GitHub edit or publication."
+  ],
+  "schema_version": 1
+}
