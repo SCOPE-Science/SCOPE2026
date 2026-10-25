@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Direct Binet analysis proves the Zeckendorf digit-deletion map and last-bit threshold. The predecessor difference formula and strict bounds establish backward closure of the admissible window for all valid pairs. Density of the irrational rotation yields every open cell; each distinct cell has a distinct bit/difference tuple. A count of the integer and theta-shifted breakpoint lattices gives 2m+2 minus four explicit indicator corrections and total 6m²+6m−4, including m=1 collisions. Standard transition invariance and known absorbing-window inequalities preserve recognition. Standalone integer BFS checks every multiplier 1..60, with an independent numeral-pair enumeration for 1..12; these tests supplement but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2512.10017v5 addresses base-k positional arithmetic, not Zeckendorf digit constraints.",
+        "arxiv:1008.1668v1 proves a 2m² count for a single-track divisibility minimal DFA, a different language."
+      ],
+      "reasoning": "Minimal automaton bounds for other numeration systems or other languages do not determine the reachable unminimized state subset of the specific four-coordinate Zeckendorf machine.",
+      "searches": [
+        "exact state complexity of Fibonacci representation multiplication relation [y]=n[x]+c offset dependency 2026",
+        "state complexity Fibonacci numeral multiplication deterministic automaton quotient 6m2 2026",
+        "arxiv:2512.10017v5",
+        "arxiv:1008.1668v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.21645v1 §3.2 and Remark 12",
+      "2026 Moradi Waterloo thesis Chapter 3 and Remark 46",
+      "arxiv:1008.1668v1",
+      "arxiv:2512.10017v5",
+      "OEIS A372846",
+      "Semantic mathematical record searches for Zeckendorf two-track multiplier reachable-state counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main article arxiv:2603.21645v1, §3.2 and Remark 12, asserts 36m² ambient states and O(m²), not exact reachable states.",
+        "Waterloo thesis pp.54–57 explicitly suggests better understanding of reachable states as a potential improvement.",
+        "Highest-scoring semantically nearby records concern Fibonacci entropy staircases and Fibonacci ambiguity of a transverse-read channel, not this automaton."
+      ],
+      "reasoning": "The prior 36m² upper bound does not entail the exact smaller count or its piecewise fibers. Minimal 2m²-scale empirical values cannot reconstruct unminimized reachable tuples. The two nearest database records have unrelated objects. The new exact census is not a relabeling or obvious numerical corollary of inspected primary conclusions.",
+      "searches": [
+        "Fibonacci Zeckendorf multiplication automaton relation y=n x+c minimal deterministic state complexity quadratic lower bound 2n^2 Myhill Nerode",
+        "exact state complexity of Fibonacci representation multiplication relation [y]=n[x]+c offset dependency 2026",
+        "exact 6m squared plus 6m minus four reachable states Zeckendorf Fibonacci multiplier transducer Moradi Rampersad Shallit",
+        "reachable state count Fibonacci automaton Y=mX+c difference-window four tuple fractional rotation beta shift floor",
+        "state complexity Fibonacci numeral multiplication deterministic automaton quotient 6m2 2026",
+        "2026/10/11/SCOPE-a-fibonacci-entropy-staircase-and-its-full-scaled-accumulation-i--be7c0c99809f",
+        "2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moradi–Rampersad–Shallit construct states (a,b,d,e) but count the full Cartesian ambient set of 36m².",
+        "Moradi 2026 thesis pp.54–57, Theorem 41 and Remark 46, gives the same O(m²) and notes reachable-state understanding would help."
+      ],
+      "reasoning": "Aliases include bounded-difference, two-track multiplication relation, Zeckendorf numeral arithmetic, trim reachable subautomaton. Unlike the ambient or minimized counts, the claimed result counts all and only reachable non-sink states of this particular automaton. No equivalent count or fiber profile in fully read main source/thesis.",
+      "searches": [
+        "Fibonacci Zeckendorf multiplication automaton relation y=n x+c minimal deterministic state complexity quadratic lower bound 2n^2 Myhill Nerode",
+        "exact 6m squared plus 6m minus four reachable states Zeckendorf Fibonacci multiplier transducer Moradi Rampersad Shallit",
+        "\"bounded-difference automaton\" Fibonacci reachable",
+        "arxiv:2603.21645v1 §3.2, Remark 12",
+        "Moradi thesis §3.3.2 / Remark 46"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A372846 tabulates minimized two-track automaton counts for multipliers 1–10: 2,10,23,40,59,85,114,146,181,224.",
+        "The exact reachable non-sink formula gives 8,32,68,116,..., clearly distinct from the minimal quotient."
+      ],
+      "reasoning": "The available OEIS sequence is a table of minimal residual language quotients, not graph-reachability counts. No consulted exact table of the 6m²+6m−4 reachable subsystem exists.",
+      "searches": [
+        "exact 6m squared plus 6m minus four reachable states Zeckendorf Fibonacci multiplier transducer Moradi Rampersad Shallit",
+        "reachable state count Fibonacci automaton Y=mX+c difference-window four tuple fractional rotation beta shift floor",
+        "OEIS:A372846",
+        "Moradi thesis Remark 46"
+      ]
+    },
+    "rationale": "The inspected 2026 Moradi–Rampersad–Shallit paper and Moradi thesis construct the exact four-coordinate multiplier automaton and bound its ambient state count by 36m². They do not calculate its exact reachable subset; the thesis explicitly identifies understanding reachable states as future work. This theorem gives the sharp reachable-state polynomial and every difference-coordinate fiber. Direct two-track minimum-state tables and older one-track divisibility results do not imply the formula. Focused published and mathematical-record searches found no covering result, with residual unindexed-work risk.",
+    "residual_risks": [
+      "Unindexed literature may contain an equivalent exact reachability formula.",
+      "This is an exact reachable-subgraph theorem, not a minimum-DFA theorem; it does not resolve the unknown asymptotically sharp minimal-state formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: ambient 36m² bound, no exact reachable-state count or per-difference fiber theorem",
+        "evidence": "Automaton states range over {0,1}²×[-m,2m−1]²; discussion of minimization instead of reachable-subgraph census.",
+        "identifier_or_url": "https://arxiv.org/html/2603.21645v1",
+        "material_read": "Full HTML article, Section 3.2, transition recurrence, theorem proof, and Remark 12",
+        "method": "Read source definitions, hypothesis, state window, proof and remark; compare formal state sets and quantifiers",
+        "title": "Complexity of Linear Subsequences of Fibonacci-Automatic Sequences",
+        "trigger": "Same four-coordinate Zeckendorf automaton and first public source"
+      },
+      {
+        "assessment": "NOT_COVERING: repeats the 36m² ambient count; explicitly states improving reachable-state understanding would help",
+        "evidence": "Remark 46: exact minimal DFA OEIS A372846 and suggestion to better understand reachable states; no reachable-state polynomial.",
+        "identifier_or_url": "https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/01edd675-7b51-46c3-b9b5-5a90c01a59b6/content",
+        "material_read": "Thesis abstract and contents; Chapter 3, pp.54–57, including Theorem 41, Lemmas 42–44, Theorem 45 and Remark 46",
+        "method": "Read PDF textual pages and rendered page images 63–66, compare full statements and discussion",
+        "title": "State Complexity of Linear Relations and Linear Subsequences of Automatic Sequences",
+        "trigger": "2026 author thesis potentially stronger than related arXiv paper"
+      },
+      {
+        "assessment": "NOT_COVERING: exact minimal single-track divisibility result pertains to another automaton",
+        "evidence": "2m² divisibility-state count is for a different language; no implication to the unminimized two-track tuple automaton.",
+        "identifier_or_url": "https://arxiv.org/html/1008.1668v1",
+        "material_read": "Full HTML sections on divisibility and automaton sizes",
+        "method": "Compare language, single-track vs two-track inputs, and minimality vs reachability",
+        "title": "State Complexity of Testing Divisibility",
+        "trigger": "Potentially dominant exact Fibonacci-state result"
+      },
+      {
+        "assessment": "NOT_COVERING: base k rather than Fibonacci/Zeckendorf, with no deduced fiber formula",
+        "evidence": "Positional base-k arithmetic lacks Zeckendorf no-adjacent-one constraints and the irrational-circle breakpoint structure.",
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Full HTML treatment of base-k recognizers and linear subsequences",
+        "method": "Compare recurrence and accepted numeration systems",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Analogous arithmetic relation in ordinary base k"
+      },
+      {
+        "assessment": "NOT_COVERING: minimal quotient of the same language, not non-sink reachable states before minimization",
+        "evidence": "For multiplier m=2 the minimal table gives 10 while present reachable construction has 32 states.",
+        "identifier_or_url": "https://oeis.org/A372846",
+        "material_read": "Sequence definition, initial values and linked source description",
+        "method": "Compare semantic invariant and selected values",
+        "title": "OEIS A372846",
+        "trigger": "Exact state counts might coincide"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "333e15af-17f5-465f-ae05-f713b1ada95b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating authors explicitly identify the reachable part of their arithmetic automaton as a mathematical object needing better understanding. The result gives a complete exact census for every multiplier, sharp per-difference fibers and a factor-six improvement on the ambient constructive quadratic state bound. Its elementary irrational-rotation geometry explains an otherwise opaque exceptional constant; neither a routine numeric lookup nor a restatement of minimal DFA tables. The scope distinction is preserved.",
+    "status": "PASS"
+  }
+}
