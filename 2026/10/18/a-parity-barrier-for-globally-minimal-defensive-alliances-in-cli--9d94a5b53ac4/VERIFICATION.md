@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-A self-contained script `verify.py` constructs the clique windmill's graph adjacency directly. It computes all nonempty defensive alliances by vertex degree inequalities; for each candidate, a dynamic subset test detects whether **any** proper nonempty defensive subset exists. Exact set masks and cardinality distributions are independently compared with the classified family.
+# Independent mathematical audit
 
-Across 136 ordered profiles of two to four blades, with blade sizes among \(2,3,4,5\) and at most 12 total peripheral vertices, the script examined exactly 537,880 nonempty vertex subsets and found 6,023 globally minimal defensive alliances, all matching the theorem. The script further checks 42 uniformly even/odd parity profiles, with \(2\le r\le7\) and \(1\le k\le7\). Run with `python verify.py` using Python 3.8+; no additional packages are required. The stdout from an actual execution appears in `verification_output.txt`.
+## correctness
 
-These computations are finite corroboration. They establish no exhaustive result beyond the specified finite test profiles, and no bibliographic novelty or independent audit conclusion. The unrestricted classification is proved in `RESULT.md`.
+PASS
+
+Every selected peripheral of a hub-free S in blade i has s_i-1 allies and degree m_i, so defense iff s_i>=k_i+1; inclusion minimality forces a single blade with exactly k_i+1 members. With hub selected, each selected peripheral needs s_i>=k_i; if any s_i>=k_i+1 a proper hub-free alliance exists. Hence minimal hub sets have s_i=0 or k_i; hub defense needs x=sum s_i>=floor(M/2), while maximum sum k_i=(M-o)/2=floor(M/2)-floor(o/2). This forces o<=1 and all s_i=k_i (since k_i>=1). Conversely tight hub-containing sets have no defending proper subset: dropping hub leaves too few per blade and dropping any peripheral violates hub threshold. Counting subsets gives sum_i C(m_i,k_i+1)z^{k_i+1}+1_{o<=1} prod_i C(m_i,k_i)z^{1+floor M/2}. Even uniform m_i=2k allows hub size rk+1, odd m_i=2k+1 prevents it and has upper k+1; drop (r-1)k. Independently exhaustive all-subsets/all proper suballiance checks on eight small mixed even/odd clique windmills reproduced exactly the set masks and polynomial. The finite test corroborates the universal inequality proof and is not an infinite proof.
+
+## originality
+
+PASS
+
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
+
+## value
+
+PASS
+
+The one-hub multi-clique family is a natural network class whose global inclusion-minimal alliance enumeration is sensitive to blade parity. Complete classification and arbitrarily long gaps of attainable minimal sizes give an exact structural answer for a recognized graph alliance invariant, not a trivial table or a generic alliance-algorithm restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

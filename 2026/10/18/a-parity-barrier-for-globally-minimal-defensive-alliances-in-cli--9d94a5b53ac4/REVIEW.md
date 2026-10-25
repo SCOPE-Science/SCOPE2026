@@ -1,12 +1,21 @@
-# Review of a parity barrier for globally minimal defensive alliances
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof exhausts hub-free and hub-containing cases using exact inequalities for every selected vertex. For hub-containing sets, an overfilled blade provides a proper hub-free alliance; the hub threshold then proves the precise odd-blade obstruction. The converse proves inclusion-minimality against **all** proper nonempty subsets, not just single-deletion tests. The complete enumerator follows from disjoint counting. Independent graph-definition enumeration tested 136 nonuniform profiles (537,880 subsets; 6,023 minimal alliances) and 42 parity instances. These finite tests do not replace the general proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Feng–Fernau–Mann (arXiv:2312.11963) treat enumeration of locally and globally minimal defensive alliances. Gaikwad–Maity (arXiv:2202.02010) treat parameterized complexity; Bazgan–Fernau–Tuza (DOI:10.1016/j.dam.2018.05.061) treat upper defensive alliances. Relevant inspected texts did not provide an explicit exact heterogeneous clique-windmill counting polynomial or the sharp parity barrier. Ibrahim's friendship-graph alliance polynomial (arXiv:1811.10089) counts a different object. The 2026 parameterized enumeration manuscript (arXiv:2609.27984) was identified, but only its abstract was accessible, so potentially relevant uninspected content remains a bibliographic risk. Search failure alone is not novelty proof.
+PASS
 
-## Value — PASS
-The result classifies and counts *every* globally minimal alliance in a natural infinite block-graph family, including nonuniform blades. It proves a sharp even–odd discontinuity in the upper alliance parameter and arbitrarily long gaps among admissible sizes. These consequences are not routine restatements of the existence or maximum-cardinality problem.
+Every selected peripheral of a hub-free S in blade i has s_i-1 allies and degree m_i, so defense iff s_i>=k_i+1; inclusion minimality forces a single blade with exactly k_i+1 members. With hub selected, each selected peripheral needs s_i>=k_i; if any s_i>=k_i+1 a proper hub-free alliance exists. Hence minimal hub sets have s_i=0 or k_i; hub defense needs x=sum s_i>=floor(M/2), while maximum sum k_i=(M-o)/2=floor(M/2)-floor(o/2). This forces o<=1 and all s_i=k_i (since k_i>=1). Conversely tight hub-containing sets have no defending proper subset: dropping hub leaves too few per blade and dropping any peripheral violates hub threshold. Counting subsets gives sum_i C(m_i,k_i+1)z^{k_i+1}+1_{o<=1} prod_i C(m_i,k_i)z^{1+floor M/2}. Even uniform m_i=2k allows hub size rk+1, odd m_i=2k+1 prevents it and has upper k+1; drop (r-1)k. Independently exhaustive all-subsets/all proper suballiance checks on eight small mixed even/odd clique windmills reproduced exactly the set masks and polynomial. The finite test corroborates the universal inequality proof and is not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
+
+## value
+
+PASS
+
+The one-hub multi-clique family is a natural network class whose global inclusion-minimal alliance enumeration is sensitive to blade parity. Complete classification and arbitrarily long gaps of attainable minimal sizes give an exact structural answer for a recognized graph alliance invariant, not a trivial table or a generic alliance-algorithm restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
