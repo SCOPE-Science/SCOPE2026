@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The two possible epoch matrices are M=B2B1 and M^T. The exact covariance map is T(X)=(MXM^T+M^TXM)/2. Symbolic expansion verifies det(I-T)=alpha*beta*eta^3*(1-x)*F1*F2/4. The positive-map and self-adjoint properties make the first positive root the first mean-square stability boundary. At the boundary, a positive-semidefinite fixed covariance decomposes into rank-one covariances, so at least one deterministic initial state has nondecaying second moment. The example's root count and isolating interval are certified exactly by Sturm's theorem; the decimal approximation is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mulayoff–Michaeli explicitly assume batches are sampled independently across iterations.",
+        "Ying et al. give a sufficient small-step condition; Ahn et al. focus on convergence-rate bounds and lower bounds."
+      ],
+      "reasoning": "These results provide related frameworks but do not state the necessary-and-sufficient first-boundary polynomial for the two-order rank-one model. A general framework may be adaptable to derive it; that does not itself establish that the explicit factorization is already stated.",
+      "searches": [
+        "arXiv:2306.07850, exact mean square stability theorem and batch-sampling assumptions",
+        "arXiv:1803.07964, Theorem 1 and constant-step random-reshuffling stability",
+        "arXiv:2006.06946, random-reshuffling convergence-rate theorems"
+      ]
+    },
+    "checked_sources": [
+      "Ying, Yuan, Vlaski, and Sayed, arXiv:1803.07964; DOI 10.1109/TSP.2018.2878551.",
+      "Ahn, Yun, and Sra, arXiv:2006.06946.",
+      "Mulayoff and Michaeli, arXiv:2306.07850.",
+      "Nguyen, Phan, and Kalagnanam, arXiv:2604.00260.",
+      "Gürbüzbalaban, Ozdaglar, and Parrilo, arXiv:1510.08560, used as background on random-reshuffling convergence rather than as a source of the exact threshold."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 stability bound is sufficient for small steps, not a necessary-and-sufficient first boundary.",
+        "The 2023 exact threshold concerns iid minibatch sampling, not one random permutation per epoch.",
+        "The 2026 O(gamma^3) result concerns the deterministic average of two state maps, not the random covariance operator."
+      ],
+      "reasoning": "No inspected theorem directly implies the displayed F1/F2 polynomial threshold. The exact result is derived from the two-step covariance recursion and independently checked symbolically.",
+      "searches": [
+        "arXiv:1803.07964, Theorem 1 and stated sufficient step-size condition",
+        "arXiv:2306.07850, Theorem 3 and independent-batch assumption",
+        "arXiv:2604.00260, Theorem 3.6 and paired-reversal covariance distinction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 paper models random reshuffling by a new random permutation each epoch and proves sufficient small-step stability, but its stated theorem does not give the F1/F2 factorization.",
+        "The 2026 paired-reversal theorem averages the two state maps; the current claim averages their covariance actions, which is a different operator."
+      ],
+      "reasoning": "The equivalence check compared the actual update law and covariance operator, not only titles or parameters. The exact operator is specific to the two possible epoch products and is not the deterministic paired-reversal map.",
+      "searches": [
+        "random reshuffling SGD two rank-one sample Hessians noncommuting exact mean-square stability threshold per-epoch product",
+        "two-component random reshuffling fixed constant step size mean-square stability epoch covariance map rank-one quadratic Hessians exact polynomial threshold",
+        "random reshuffling fixed constant step size mean-square stability exact threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved records were exact stability thresholds for two-client Loopless SVRG, two-component PAGE, and a deterministic two-step steepest-descent perturbation; none matches the random-reshuffling epoch covariance map."
+      ],
+      "reasoning": "The semantic database searches found nearby stability calculations but no exact match among retrieved results. Search failure and database partitioning do not prove uniqueness.",
+      "searches": [
+        "random reshuffling SGD two rank-one sample Hessians noncommuting exact mean-square stability threshold per-epoch product",
+        "two-component random reshuffling fixed constant step size mean-square stability epoch covariance map rank-one quadratic Hessians exact polynomial threshold",
+        "stochastic gradient descent exact mean square stability threshold noncommuting Hessian covariance matrix"
+      ]
+    },
+    "rationale": "The 2018 constant-step random-reshuffling paper gives a sufficient small-step stability result and steady-state MSD analysis, while the 2023 exact-SGD paper assumes independent minibatches across iterations. The 2020 shuffling paper studies convergence rates, and the 2026 paired-reversal paper analyzes an averaged state map rather than the random epoch covariance map. No inspected primary statement gives this exact two-component rank-one F1/F2 threshold. This is a narrow exact specialization, not a general novelty claim.",
+    "residual_risks": [
+      "Semantic searches and partitioned ledgers cannot prove uniqueness; an equivalent specialization may occur in an uninspected matrix-product treatment.",
+      "The 2018 paper's appendix stability proof was not independently reconstructed line by line; the displayed theorem is sufficient rather than an exact threshold statement.",
+      "The theorem is limited to two rank-one component Hessians in dimension two and does not characterize all possible stable step-size intervals above the first boundary.",
+      "Independent audit and external validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected theorem guarantees stability for sufficiently small steps but does not state the first exact stability boundary or the F1/F2 polynomial factorization.",
+        "evidence": [
+          "Theorem 1 gives a sufficient small-step condition; the paper's objective is a steady-state MSD bound, not an exact rank-one epoch spectral threshold."
+        ],
+        "identifier_or_url": "arXiv:1803.07964; DOI 10.1109/TSP.2018.2878551",
+        "material_read": "Primary arXiv PDF: abstract, random-reshuffling definition, Sections I–II, Theorem 1 and its stated sufficient step-size condition, and the steady-state MSD discussion. The appendix proof was not independently reconstructed line by line.",
+        "method": "Compared the stated sufficient condition and steady-state performance result with the necessary-and-sufficient threshold claimed for the noiseless two-component rank-one specialization.",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "Directly studies constant-step random reshuffling and epoch-start mean-square stability."
+      },
+      {
+        "assessment": "The inspected results are convergence-rate and lower-bound statements, not a necessary-and-sufficient stability frontier for the two-order rank-one covariance operator.",
+        "evidence": [
+          "The paper focuses on convergence rates and diminishing step-size results; its constant-step discussion gives lower bounds rather than the exact threshold asserted here."
+        ],
+        "identifier_or_url": "arXiv:2006.06946",
+        "material_read": "Primary arXiv PDF: abstract, Table 1, Sections 1–2, definitions of RandomShuffle and SingleShuffle, and the stated convergence-rate results; not every appendix proof was independently reconstructed.",
+        "method": "Compared the claims about convergence rates and step-size assumptions with the exact fixed-step mean-square stability question.",
+        "title": "SGD with shuffling: optimal rates without component convexity and large epoch requirements",
+        "trigger": "Primary full text studies random reshuffling for strongly convex and quadratic finite sums, including constant-step lower-bound settings."
+      },
+      {
+        "assessment": "The exact theorem applies to independently sampled minibatches. Random reshuffling uses both components once per epoch, so its epoch matrix is a dependent two-step product and is not the same transition law.",
+        "evidence": [
+          "The paper explicitly assumes batches are drawn uniformly and independently across iterations; Theorem 3 derives the exact threshold for that process."
+        ],
+        "identifier_or_url": "arXiv:2306.07850",
+        "material_read": "Primary arXiv full text: batch-sampling assumptions, linearized dynamics, Theorem 3 and its threshold formula.",
+        "method": "Compared the stochastic transition law and covariance recursion; checked the explicit assumption that batches are sampled independently across iterations.",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Closest primary result giving a necessary-and-sufficient mean-square stability threshold for stochastic gradient methods."
+      },
+      {
+        "assessment": "The paper cancels order-dependent terms in the deterministic average of a permutation map and its reverse. That is distinct from the mean-square covariance operator for random order selection, and it gives no F1/F2 stability threshold for this model.",
+        "evidence": [
+          "Theorem 3.6 defines the averaged state map (T_pi+T_Rev(pi))/2 and proves an O(gamma^3) order-sensitivity bound; this is not the covariance recursion T(X)=(MXM^T+M^TXM)/2."
+        ],
+        "identifier_or_url": "arXiv:2604.00260",
+        "material_read": "Primary arXiv full text: Sections 2.2, 3.2–3.4 and the proof of Theorem 3.6 in Appendix A.5.",
+        "method": "Compared its paired-reversal averaged epoch map with the random covariance map obtained by selecting one order independently at each epoch.",
+        "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+        "trigger": "Recent primary work discusses epoch-map order sensitivity and stability improvements beyond random reshuffling."
+      },
+      {
+        "assessment": "The inspected results focus on convergence rates with diminishing steps and averaging; no matching exact stability threshold is stated. This source is background rather than the source that defines the claimed threshold.",
+        "evidence": [
+          "The abstract and theorem summaries emphasize diminishing step sizes and convergence-rate estimates, not an exact constant-step covariance spectral boundary."
+        ],
+        "identifier_or_url": "arXiv:1510.08560",
+        "material_read": "Primary arXiv PDF: abstract, problem setup, Sections 1–2, and theorem summaries for diminishing-step convergence and averaged iterates.",
+        "method": "Checked whether its stated results give a fixed-step necessary-and-sufficient mean-square threshold for the two-component rank-one model.",
+        "title": "Why Random Reshuffling Beats Stochastic Gradient Descent",
+        "trigger": "Highly relevant earlier random-reshuffling convergence analysis and a possible source of equivalent formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41b02caf-b4cc-4e50-94b7-6a4e8c8fa552",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact constant-step stability is a practical design question for epoch-based optimization. The rank-one least-squares components form a natural minimal strongly convex finite-sum model, and the explicit polynomial frontier shows a real distinction between an individual component's active-curvature multiplier and the mean-square behavior of the complete reshuffling epoch. The exact boundary and certified example are more than a numerical experiment or a routine renaming.",
+    "status": "PASS"
+  }
+}
