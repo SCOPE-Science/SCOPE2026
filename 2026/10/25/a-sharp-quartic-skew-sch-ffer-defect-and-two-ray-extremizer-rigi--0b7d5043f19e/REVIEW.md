@@ -1,0 +1,11 @@
+# Scientific review: sharp quartic skew-Schäffer defect
+
+**Correctness — PASS.** The real scalar quartic identity is checked coefficient-by-coefficient, including the positive parameter denominator; the integrated statement follows from Hölder. The two perpendicular null directions are explicitly the roots of one quadratic, and the two unit-norm constraints force the stated positive branch masses. The orthogonal rotation of the traceless symmetric quadratic yields a sharp fourth-power cone-distance inequality; a two-band construction attains equality in any real \(L^4\) of dimension at least two. `verify.py` checks the symbolic expansion and finite test witnesses, not the infinite-dimensional proof.
+
+**Originality — PASS, with documented priority risk.** The materially read Xu–Liu preprint, arXiv:2610.03050v1, already calculates the infimal numerical constant via an operator norm; the present result does not present that constant as new. The materially read public finding *Exact skew geometric mean constant of* \(\ell_4\) computes a related two-by-two norm for a supremal arithmetic-mean invariant. Neither inspected result states the nonnegative pointwise squared remainder, both compulsory extremal rays and branch masses, or optimal stability coefficient for the infimal quartic quantity. Searches for equivalent forms, broader coverage, exact tabulation and claim-versus-prior implications found no dominating indexed statement. An unindexed classical weighted quartic stability identity is a real residual priority risk.
+
+**Value — PASS.** A complete extremizer description and a universal sharp distance-to-equality-cone coefficient turn the recent scalar lower-bound computation into a quantitative structural theorem on arbitrary real \(L^4\). The skew case \(\tau\ne1\) forces two orthogonal active profiles, while the known \(\tau=1\) boundary reduces to disjoint supports. The cone-distance bound is not misrepresented as an estimate to globally normalized minimizers.
+
+**Limitations.** Real scalars; fourth power; local cone distance. Full absolute publication priority cannot be certified from searches; independent scientific review is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
