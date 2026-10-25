@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T10:57:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, verify.py at Git tree 764cbfd230491ca38fcbca33465a9c99dedc7c57",
+        "symbolic polynomial/product-rule reconstruction",
+        "exact rational positive equilibrium witness"
+      ],
+      "evidence": [
+        "Assigned RESULT.md sections Finding, Assumptions, Proof (4), Verification, Limitations reconstructed independently from frozen Git blob 7224dfde2b84e8b0fc374891e4d8b7cb7343c676.",
+        "Exact symbolic cancellation, derivative of cubic at u* and inversion of theta Y^2+eta Y=Delta independently rechecked, not merely VERIFY_OK.",
+        "Independent rational admissible constant example K=3,m=1,r=1,p=s=1,a=1,b=1/10,c=2/5,x=2,y=3/10: H1=32/75>0 and H2=111/1000>0 yield a genuine positive constant T-periodic equilibrium, so theorem is not inherently vacuous.",
+        "Endpoint conditions x>=0 and 0<m<K checked: production G negative outside (m,K) except zeros, giving global maximum. Source files and all frozen blobs accounted for by independent Git tree SHA construction."
+      ],
+      "rationale": "Directly reconstruct q=s/p and Phi=x+q y: the Holling-III term s x²/(x²+a²)y cancels against q p x²/(x²+a²)y exactly; the product-rule term is +qdot*y, so Phi_dot=G-H1-qH2-q b y²-(q c-qdot)y. A T-periodic Phi has mean derivative 0. For every u>=0 and 0<m<K the cubic G has unique positive global maximum at u*=(K+m+sqrt(K²-Km+m²))/3; equality in the harvest-only ceiling is impossible for any strictly positive periodic solution because q b y²>0 and eta y>=0. Theta=min qb>0 and eta_L=min eta>=0 together with Jensen yield theta (mean y)^2+eta_L mean y<=Delta; solving gives the stated quadratic-root bound. Hypotheses and quantifiers, including strictly positive cycles only, are consistently stated.",
+      "residual_risks": [
+        "Only a necessary condition for positive T-periodic solutions; no existence or sufficiency, no blanket trapping of all forward solutions, and no conclusion when qc-qdot<0.",
+        "Predator mean root is an upper bound using coefficient minima; neither its sharpness nor attainability is proved.",
+        "No universal stability threshold, and no conclusion for nonpositive u or different Allee regimes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2) — (1.4) has autonomous logistic prey and only constant prey harvest; p.2355 Remark 8.2(2) obtains the usual maximum sustainable prey yield rho/4 from the production maximum.",
+          "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y — Lemma 2 differentiates e x + y to bound weighted total population through its logistic production envelope.",
+          "Wang–Xia, Periodic dynamics of predator-prey system with Beddington–DeAngelis functional response and discontinuous harvesting (2023), DOI 10.1186/s13661-023-01806-2 — different functional response and discontinuous harvest evolution, no dominating model-independent theorem located."
+        ],
+        "reasoning": "These predecessors establish the general method of weighting trophic levels and comparing to prey production. They do not dominate the full time-dependent strong-Allee, dual-harvest model with derivative qdot and the stated mean-predator root. A more general published production-budget theorem could cover it and remains a priority risk.",
+        "searches": [
+          "Gause predator prey periodic Holling III positive periodic orbit harvest biomass balance weighted prey predator cancellation maximum prey growth nonexistence",
+          "harvesting ceiling Allee periodic Gause type predator prey model",
+          "predator prey fixed conversion efficiency cancellation harvest periodic solution balance law",
+          "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2)",
+          "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, verify.py at Git tree 764cbfd230491ca38fcbca33465a9c99dedc7c57",
+        "Yu–Liu–Lin, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020394, model (1.6), Theorem 2.1, coincidence-degree proof",
+        "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2)",
+        "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y",
+        "Wang–Xia, Periodic dynamics of predator-prey system with Beddington–DeAngelis functional response and discontinuous harvesting (2023), DOI 10.1186/s13661-023-01806-2",
+        "Resultary semantic searches (2026-10-25); top match 2026/10/11/SCOPE-a-weighted-harvest-ceiling-for-periodic-gause-dynamics--bce778b91a9c is the SUBJECT, not independent priority"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yu–Liu–Lin Theorem 2.1 gives sufficient existence/multiplicity hypotheses; it does not imply this exact necessary time-averaged harvest obstruction.",
+          "Etoua–Rousseau absolute prey-harvest maximum is an autonomous prey-only subcase and does not control qH2 or the derivative eta for periodic coefficients.",
+          "Wang 2020 demonstrates a constant trophic weight in a Holling-II vector field. This is a genuine relevant known technique, but its theorem is not formulated for arbitrary variable q, qdot and the exact source model.",
+          "Direct example: constant coefficients K=3,m=1,r=1,q=1,H1=1/5,H2=3/5 satisfy H1< Gmax=(20+14 sqrt(7))/81< H1+qH2, so the combined-harvest test is strictly stronger than the prey-only ceiling in that parameter regime."
+        ],
+        "reasoning": "A single known maximum sustainable prey yield bound does not entail the joint-harvest certificate: the two bounds differ and the exhibited positive coefficient choice separates them. Extending the established weighted-budget METHOD is elementary but does not by itself mean that an inspected prior theorem already states or logically forces this full source-specific result. The best-of-knowledge conclusion is limited and subject to wider-general-result risk.",
+        "searches": [
+          "Yu–Liu–Lin, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020394, model (1.6), Theorem 2.1, coincidence-degree proof",
+          "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2)",
+          "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y",
+          "Gause predator prey periodic Holling III positive periodic orbit harvest biomass balance weighted prey predator cancellation maximum prey growth nonexistence",
+          "periodic predator prey harvesting weighted x+q(t)y total biomass conserved balance conversion ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu–Liu–Lin, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020394, model (1.6), Theorem 2.1, coincidence-degree proof — equations analyzed individually, no weighted x+(s/p)y period budget or joint harvest ceiling in inspected full article.",
+          "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y — e x+y conservation-type cancellation is an analogous constant-weight construction, a genuine known alias, but lacks the submitted variable weight, derivative correction and full periodic setting.",
+          "Resultary top hit exact title belongs to assigned finding and cannot establish independent prior coverage."
+        ],
+        "reasoning": "Energy-budget, trophic biomass, weighted inventory, total population and integrating-factor aliases were checked. The classical cancellation mechanism overlaps, but none of the inspected formulations establishes the entire precise variable-q periodic theorem as a prior statement or dominated corollary. No novelty is attributed to adding and differentiating equations in the abstract.",
+        "searches": [
+          "periodic predator prey harvesting weighted x+q(t)y total biomass conserved balance conversion ratio",
+          "Gause periodic predator prey weighted balance q=s/p q prime harvesting ceiling Allee Holling III",
+          "predator prey periodic varying conversion efficiency integrating factor s/p harvest nonexistence",
+          "10.3934/math.2020394",
+          "Resultary semantic searches (2026-10-25); top match 2026/10/11/SCOPE-a-weighted-harvest-ceiling-for-periodic-gause-dynamics--bce778b91a9c is the SUBJECT, not independent priority"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic-search match is the assigned finding itself, not an independent antecedent. Related records on trophic budgets and harvested periodic systems use different vector fields.",
+          "This is a continuous coefficient-family theorem, not a finite enumerated invariant/table; no exact prior table or stored parameter classification was found."
+        ],
+        "reasoning": "Finite table or exact database overlap is genuinely peripheral for this analytic all-coefficients claim. Resultary and published related mathematical records were nevertheless searched. Failure to find an entry is not proof of novelty.",
+        "searches": [
+          "Resultary semantic searches (2026-10-25); top match 2026/10/11/SCOPE-a-weighted-harvest-ceiling-for-periodic-gause-dynamics--bce778b91a9c is the SUBJECT, not independent priority",
+          "Gause predator prey periodic Holling III positive periodic orbit harvest biomass balance weighted prey predator cancellation maximum prey growth nonexistence",
+          "harvesting ceiling Allee periodic Gause type predator prey model",
+          "10.1016/j.jde.2010.06.021"
+        ]
+      },
+      "rationale": "Best-of-knowledge narrowly scoped PASS for the particular source-vector-field periodic formula and joint-harvest/mean-predator conclusions. The classical weighted biomass cancellation and absolute maximum production bound ARE prior methods; they are NOT claimed as novel. The exact Yu–Liu–Lin theorem addresses multiple positive-cycle existence and does not state the necessary variable-conversion-ratio q=s/p weighted budget. Etoua–Rousseau has a weaker autonomous prey-only-harvest structural predecessor and Wang 2020 exhibits the classical analogous weighted-total-population technique. No inspected prior theorem with assumptions that dominate periodic positive coefficients, differentiable q, Allee factor, dual harvesting, predator competition and eta=qc-qdot>=0 was shown to entail all three submitted statements. A same-source theorem may still be an unindexed consequence of standard bioeconomic energy-budget theory; no exhaustive priority certification.",
+      "residual_risks": [
+        "Weighted biomass/trophic energy-budget cancellations are classical; a prior abstract theorem may state a genuinely dominating time-variable conversion formula under another name.",
+        "A source-specific necessary harvest condition may be implicit to specialists as an elementary observation even if not printed as a separate theorem; best-of-knowledge PASS is not a priority certificate.",
+        "Searches and full-text reading are bounded; absence of exact published wording is not itself originality proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of specific weighted-period budget, joint-harvest nonexistence inequality and predator mean bound.",
+          "evidence": "The original result is a sufficient multiple-positive-periodic-solutions theorem via coincidence degree; no weighted x+(s/p)y or eta=qc-qdot balance is given in the inspected proof.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2020394",
+          "material_read": "Publisher full OA PDF: model Eq. (1.6), definitions, Theorem 2.1, coincidence-degree a priori bounds/proof and final sections; relevant source PDF pages visually checked.",
+          "method": "Lawful publisher full text, text analysis and visual PDF-page verification.",
+          "title": "Multiple positive periodic solutions of a Gause-type predator-prey model with Allee effect and functional responses",
+          "trigger": "Identical vector field and strictly positive periodic solution setting."
+        },
+        {
+          "assessment": "PARTIAL_STRUCTURAL_COVERAGE, not a dominating theorem for full submitted setting.",
+          "evidence": "Model has autonomous logistic prey and constant prey-only harvest, no Allee term, no predator harvesting, no time-dependent q. Remark 8.2(2) explicitly supplies absolute prey-only MSY rho/4, confirming the elementary production-max method predates the assigned work.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jde.2010.06.021",
+          "material_read": "All 41 article pages accessible through authorized institutional full-text retrieval; model (1.1)–(1.6), main theorems, the boundedness construction and biological implications (Section 8 and Remark 8.2) were studied; intermediate long bifurcation computations inspected topically.",
+          "method": "Authorized institutional full PDF extracted text, retrieved in page windows after checking open access routes.",
+          "title": "Bifurcation analysis of a generalized Gause model with prey harvesting and a generalized Holling response function of type III",
+          "trigger": "Strongest harvest/maximum-sustainable-yield predecessor for generalized Gause Holling-III dynamics."
+        },
+        {
+          "assessment": "METHOD_COVERAGE for trophic weighted sum; model and conclusion do not dominate submitted periodic variable-q certificate.",
+          "evidence": "Uses V=e x+y and logistic maximum production to bound total population; establishes mechanism as textbook-adjacent but not the variable q derivative or Allee dual-harvest strict cycle ceiling.",
+          "identifier_or_url": "https://www.scirp.org/journal/paperinformation?paperid=98885",
+          "material_read": "Open journal full text, weighted-total-population Lemma 2, its proof/boundedness comparison and Lyapunov weighting.",
+          "method": "Open full-text HTML reading.",
+          "title": "The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response",
+          "trigger": "Potential broad known weighted-total-population domination."
+        },
+        {
+          "assessment": "RELATED_MODEL; no known mathematical implication to submitted fixed Gause vector field.",
+          "evidence": "Different Beddington–DeAngelis response and discontinuous harvesting; no q=s/p weighted exact identity covering the submitted assumptions in read sections.",
+          "identifier_or_url": "https://doi.org/10.1186/s13661-023-01806-2",
+          "material_read": "Accessible open article: model, abstract and relevant existence/harvesting theorem descriptions.",
+          "method": "Open full-text HTML inspection of relevant sections.",
+          "title": "Periodic dynamics of predator-prey system with Beddington–DeAngelis functional response and discontinuous harvesting",
+          "trigger": "Adjacent modern time-periodic harvesting and interaction setting."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yu–Liu–Lin, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020394, model (1.6), Theorem 2.1, coincidence-degree proof",
+        "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2)",
+        "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y",
+        "Assigned RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, verify.py at Git tree 764cbfd230491ca38fcbca33465a9c99dedc7c57"
+      ],
+      "evidence": [
+        "Yu–Liu–Lin exact periodic vector field and existence/multiplicity theorem, DOI 10.3934/math.2020394.",
+        "Etoua–Rousseau 2010 Remark 8.2(2) establishes the classic separate prey MSY, whereas the submitted model explicitly harvests both species.",
+        "Exact inequivalent harvest ceilings at K=3,m=1,r=1,m=1: Gmax=(20+14 sqrt(7))/81≈0.7042, H1=1/5<Gmax, H1+qH2=4/5>Gmax; this parameter example is used only to demonstrate strength of the necessary bound, not to assert existence.",
+        "Specific additional mean predator upper bound from natural nonnegative dissipation terms qb y² and eta y."
+      ],
+      "rationale": "A source-motivated and mathematically useful necessary nonexistence test: the original Yu–Liu–Lin paper establishes positive-cycle existence regimes but does not give a combined prey-and-predator harvest obstruction. The proven joint-harvest inequality is strictly stronger than the immediate prey-only bound for positive H2 and remains checkable for arbitrarily varying positive periodic coefficients with qdot compensated by mortality. The nontriviality is demonstrated by K=3,m=1,r=1,q=1,H1=1/5,H2=3/5: H1 lies below the exact maximal G=(20+14 sqrt(7))/81, but H1+q H2=4/5 exceeds it, so the new test excludes locked cycles although prey-only MSY does not. The explicit predator-mean root adds genuinely quantitative control. These are narrow, motivated harvest-management quantities, not arbitrary parameter slices, despite a short elementary proof; neither novel weighted cancellation in general nor global sharpness is asserted.",
+      "residual_risks": [
+        "The derivation uses standard biomass-weighting, elementary polynomial optimization and Jensen; value is modest and source-specific rather than an unprecedented general dynamical method.",
+        "The necessary ceiling and predator-mean estimate are not proved globally sharp or sufficient for cycles.",
+        "Biological parameter interpretations require care when constant-rate harvesting makes the positive cone non-invariant; theorem quantifies only strictly positive periodic solutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, verify.py at Git tree 764cbfd230491ca38fcbca33465a9c99dedc7c57",
+    "symbolic polynomial/product-rule reconstruction",
+    "exact rational positive equilibrium witness",
+    "Yu–Liu–Lin, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020394, model (1.6), Theorem 2.1, coincidence-degree proof",
+    "Etoua–Rousseau, Journal of Differential Equations 249 (2010), DOI 10.1016/j.jde.2010.06.021, (1.1)–(1.6), Theorem 3.1, Remark 8.2(2)",
+    "Wang, The Dynamical Behavior of a Certain Predator-Prey System with Holling Type II Functional Response (2020), Lemma 2 and weighted V=e x+y",
+    "Wang–Xia, Periodic dynamics of predator-prey system with Beddington–DeAngelis functional response and discontinuous harvesting (2023), DOI 10.1186/s13661-023-01806-2",
+    "Resultary semantic searches (2026-10-25); top match 2026/10/11/SCOPE-a-weighted-harvest-ceiling-for-periodic-gause-dynamics--bce778b91a9c is the SUBJECT, not independent priority"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Necessary only for strictly positive periodic orbits; not existence, all invariant sets, or global extinction.",
+    "Pointwise sign qc-qdot>=0 and strong Allee 0<m<K required; q=s/p must be C1.",
+    "Classical weighted biomass and maximum-production method already known; best-of-knowledge source-specific originality only.",
+    "Mean predator bound not shown sharp; prior abstract balance law may imply it and remains historical priority risk."
+  ]
+}
