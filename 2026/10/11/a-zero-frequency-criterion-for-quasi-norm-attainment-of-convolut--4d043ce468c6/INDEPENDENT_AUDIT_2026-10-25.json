@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T12:05:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md, sections Finding, Proof, Assumptions; source tree 7b43a9ab91e68987a1ba78649601ae2057b0effb, RESULT.md Git blob 45ae652bf37f42d6c4592d6de7c2f64207352c4e",
+        "Pinned source VERIFICATION.md (original analytic estimate and finite examples), Git blob db720f4eb12091cbc6491a5b8d9c6cb1ed448cd0",
+        "Independent exact rational/complex correction and finite ramp calculations in independent_checks.py and independent_checks_output.json"
+      ],
+      "rationale": "The forward shift on c0 satisfies (W_c x)_n=sum_{j<n} c_j x_{n-j}; the n-th row has norm sum_{j<n}|c_j| and rows approach ||c||_1, establishing ||W_c||=||c||_1. The positive l1 functional has norm A but is nowhere norm-attained on B_c0 since a_n>0 for all n. With C<A, scalar norming is forced: f_a(x^k)->lambda A implies, via the nonnegative series a_n(1-Re(conj(lambda)x_n^k)), each fixed x_n^k->lambda; thus any norm limit of W_c x^k has coordinates lambda b_n. Since the actual image limit lies in c0 and b_n->s(c), necessity s(c)=0 follows. For s(c)=0, finite ramps have the uniform estimate ||W_cu^k-b||_infty <= sup_{n>k}|b_n|+sum_j|c_j|min(1,j/k)->0; this proves sufficiency and exactly the circle of norm-A limits. If c has infinite support, every row of a norm limit has modulus strictly less than C, which excludes a norm-C point of c0; finite support allows one saturating row. The coefficient map c->T_c is an isometry for differences; ||c-d||_1>=|s(c)|, with equality attained inside ||d||_1<A by the displayed complex-phase, positive-projection correction. The cases c=0 and real/complex phases, quantifiers and the strict gap were checked. Independent exact rational distance and finite ramp tests are corroborative only.",
+      "residual_risks": [
+        "The finite numerical ramp tests do not establish uniform convergence for general l1 kernels; analytic dominated convergence in the source proof is essential.",
+        "The formula requires every a_n>0 and ||c||_1<A. No conclusion is made for zero weights or C>=A."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choi et al. (2022), Proposition 4.3 constructs a different non-QNA map to c0, Proposition 5.4 is abstract, Proposition 6.2 concerns transfer of density of QNA, and Problem 7.3 asks about density under infinity sums: https://link.springer.com/article/10.1007/s13398-022-01281-x",
+          "Choi–Jung–Kim–Martín, Weak-star quasi norm attaining operators (2022), Definition 1.1, Theorem 2.1 and Example 3.4: https://www.ugr.es/~mmartins/Curriculum/Papers/pre2022-weak_star_QNA.pdf"
+        ],
+        "reasoning": "The 2022 quasi norm attainment paper discusses abstract existence, density and adjoint conditions; its range-sum problem is about global density, not the fixed-weight graph subset or its distance. The later weak-star paper uses a weaker topology on a dual range and a diagonal c0 example; it does not yield a strong norm-convergent convolution cancellation criterion. Neither supplies a stronger theorem logically implying the full claim.",
+        "searches": [
+          "Web: \"quasi norm attaining\" \"direct sum\" \"operator\"",
+          "Web: \"quasi norm attaining\" norm distance operator kernel c0",
+          "Resultary: quasi norm attaining operator direct sum coordinates c0 functional and shift convolution graph zero frequency criterion"
+        ]
+      },
+      "checked_sources": [
+        {
+          "comparison": "Open-access full primary QNA article; source of definitions and general results but no matching exact symbol metric theorem identified",
+          "identifier": "arxiv:2004.11025, doi:10.1007/s13398-022-01281-x",
+          "title": "On quasi norm attaining operators between Banach spaces"
+        },
+        {
+          "comparison": "Different weaker topology and diagonal examples; no norm-QNA graph criterion",
+          "identifier": "arxiv:2209.07763, doi:10.1016/j.jmaa.2022.126874",
+          "title": "Weak-star quasi norm attaining operators"
+        },
+        {
+          "comparison": "Full RESULT read, different map/codomain and topology",
+          "identifier": "Resultary/2026/2026/10/11/...033e6cd625fd",
+          "title": "Three dense attainment strata for rank-one perturbations of c0→ℓ∞"
+        },
+        {
+          "comparison": "Full RESULT read; UQNA is stronger than QNA and essential-norm distance is different",
+          "identifier": "Resultary/2026/2026/10/11/...1b80ec12f2df",
+          "title": "Unique quasi norm attainment forces compactness on c0(Γ)"
+        },
+        {
+          "comparison": "Full RESULT read, diagonal examples not graph convolution",
+          "identifier": "Resultary/2026/2026/10/11/...5e57531450e8",
+          "title": "Near-projection obstructions to quasi norm attainment on unconditional block decompositions"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choi et al. 2022, Propositions 4.3, 5.4, 6.2 and Problem 7.3, https://link.springer.com/article/10.1007/s13398-022-01281-x",
+          "Choi et al. 2022 weak-star paper Example 3.4 uses (n/(n+1)x_n) from c0 to ℓ∞, not graph convolution into c0: https://www.ugr.es/~mmartins/Curriculum/Papers/pre2022-weak_star_QNA.pdf",
+          "Three dense attainment strata, RESULT.md in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-dense-attainment-strata-for-rank-one-perturbations-of-c-0--033e6cd625fd",
+          "Unique quasi norm attainment forces compactness on c0(Γ), RESULT.md in https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-quasi-norm-attainment-forces-compactness-on-c-0-gamma--1b80ec12f2df"
+        ],
+        "reasoning": "The older non-QNA construction gives examples but not the exact Wiener-symbol hyperplane, and weak-star closure is not norm closure. The newer unique-QNA compactness theorem assumes a much stronger uniqueness property not known for these T_c. The rank-one perturbation theorem has a different ℓ∞ output and equality pattern. None entails cancellation s(c)=0 plus the attained metric formula as a corollary.",
+        "searches": [
+          "Resultary: quasi norm attaining operator direct sum coordinates c0 functional and shift convolution graph zero frequency criterion",
+          "Web: \"Weak-star quasi norm attaining operators\" full text Example 3.4 Choi Jung Kim Martín",
+          "Web: \"quasi norm attaining\" \"direct sum\" \"operator\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi–Choi–Jung–Martín, On quasi norm attaining operators between Banach spaces, 2022 open access: https://link.springer.com/article/10.1007/s13398-022-01281-x; Definition 1.1, Proposition 5.4 and Sections 4–7.",
+          "Resultary nearest exact result is this same finding: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-zero-frequency-criterion-for-quasi-norm-attainment-of-convolut--4d043ce468c6",
+          "Resultary separate result Three dense attainment strata for rank-one perturbations of c0→ℓ∞: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-dense-attainment-strata-for-rank-one-perturbations-of-c-0--033e6cd625fd"
+        ],
+        "reasoning": "QNA is the norm-closure intersection with a maximal sphere. Aliases searched were Wiener algebra shift convolution, Toeplitz symbol evaluation at 1, partial-sum cancellation, and graph maps to K⊕∞c0. Proposition 5.4 gives only an abstract adjoint criterion. The related c0→ℓ∞ rank-one-minus-inclusion result uses another codomain and classifies NA versus weak-star QNA by support, not the c0 shift-convolution zero-symbol test; no implication by variable substitution.",
+        "searches": [
+          "Resultary: Quasi norm attaining T:c0→K⊕∞c0 with positive ℓ1 functional and convolution Wiener algebra p(S), symbol sum p(1)=0 criterion, distance to QNA",
+          "Resultary: quasi norm attaining unilateral Toeplitz shift convolution on c0 Wiener ℓ1 finite-support iff norm attainment",
+          "Web: \"quasi norm attaining\" \"Toeplitz\" \"c0\"",
+          "Web: \"quasi norm attaining\" \"convolution\" shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published records: exact matching title corresponds to the assigned finding; other returned shift-calculus/s-number titles discuss operator norms or ideals, not this QNA metric: https://github.com/Resultary/2026",
+          "No primary article or published exact table with the same family/symbol criterion was located in the actual searches; this is search evidence rather than proof of nonexistence."
+        ],
+        "reasoning": "This is an infinite-parameter l1 classification, not a finite enumeration. Exact-parameter searches found the audited finding itself; that is not independent priority evidence. The related indexed Wiener/Toeplitz/s-number records do not state QNA, while inaccessible or unindexed exact tables remain a residual possibility.",
+        "searches": [
+          "Resultary: Quasi norm attaining T:c0→K⊕∞c0 with positive ℓ1 functional and convolution Wiener algebra p(S), symbol sum p(1)=0 criterion, distance to QNA",
+          "Resultary: quasi norm attaining unilateral Toeplitz shift convolution on c0 Wiener ℓ1 finite-support iff norm attainment",
+          "Web: quasi norm attaining graph operator c0 convolution zero sum coefficients quasi norm attainment"
+        ]
+      },
+      "rationale": "Best-of-knowledge original structured classification: the exact symbol-at-one QNA condition, full norm-A sphere-limit set, finite-support QNA/NA dichotomy for Wiener shift convolutions, and attained relative distance |s(c)| are not statements or immediate corollaries of the identified general QNA/weak-star QNA theory. The closest indexed finding is the very record under audit and cannot count as external prior coverage. Three related published mathematical findings have different operator families, ranges or attainment notions and do not imply the symbol criterion. Novelty is conditional on sources searched; unidentified prior equivalent Wiener-calculus work remains a genuine risk.",
+      "residual_risks": [
+        "Exact Wiener-convolution QNA classifications in older, unindexed operator-attainment or summability literature might exist.",
+        "The close published rank-one/diagonal c0 constructions motivate similar coordinate-rigidity techniques, limiting claims of conceptual distance from prior art.",
+        "Search-summary absence alone never establishes novelty; the indexed finding matching this exact result is itself rather than external prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General QNA theory and density results; no exact norm-convergent Wiener-symbol graph criterion or relative metric formula in inspected source",
+          "evidence": [
+            "Proposition 4.3 (non-QNA map into c0); Proposition 5.4 (adjoint criterion); Proposition 6.2 (density inheritance); Problem 7.3 (range infinity-sum density), same URL"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13398-022-01281-x",
+          "material_read": "Full accessible HTML article; read definition and substantive statements/proofs in Sections 1, 4, 5, 6 and 7, particularly Proposition 4.3, Proposition 5.4, Proposition 6.2 and Problem 7.3",
+          "method": "Primary open-access full HTML, not abstract or snippet alone",
+          "title": "On quasi norm attaining operators between Banach spaces",
+          "trigger": "Original introduction/defining paper; possible broad QNA/direct-sum coverage"
+        },
+        {
+          "assessment": "Example 3.4 distinguishes weak-star and norm QNA for a diagonal c0→ℓ∞ map; it does not imply the strong QNA Wiener-graph symbol criterion",
+          "evidence": [
+            "Theorem 2.1 is weak-star density; Example 3.4 uses T x=(n/(n+1)x_n), pages 1–3 and 7–8, same URL"
+          ],
+          "identifier_or_url": "https://www.ugr.es/~mmartins/Curriculum/Papers/pre2022-weak_star_QNA.pdf",
+          "material_read": "Abstract, introduction and main-result guide, and full Example 3.4 plus Remark 3.5 with adjacent Proposition 3.7 (pages 1–3 and 7–8); remaining passages only to locate context",
+          "method": "Original university-hosted full PDF; verified rendered pages 7–8 and parsed relevant text",
+          "title": "Weak-star quasi norm attaining operators",
+          "trigger": "Relevant c0-domain diagonal counterexample and weaker attainment notion"
+        },
+        {
+          "assessment": "Uses rank-one minus diagonal map into ℓ∞, support classification and weak-star topology, not the present fixed scalar plus Toeplitz c0 graph",
+          "evidence": [
+            "Finding: T_{a,t}x=f_a(x)1-tx; finite support versus vanishing a_n and weak-star QNA; codomain ℓ∞"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-dense-attainment-strata-for-rank-one-perturbations-of-c-0--033e6cd625fd",
+          "material_read": "Entire published RESULT.md including hypotheses, proof, examples, limitations and references",
+          "method": "GitHub source file retrieval from published Resultary repository",
+          "title": "Three dense attainment strata for rank-one perturbations of c0→ℓ∞",
+          "trigger": "Nearest separately published indexed sequence-space attainment theorem"
+        },
+        {
+          "assessment": "Assumes unique quasi norm attainment (a much stronger property); essential-norm distance to UQNA is different from relative distance to QNA",
+          "evidence": [
+            "Theorem UQNA(c0(Γ),Y) is contained in compact operators; operator distance equals essential norm"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-quasi-norm-attainment-forces-compactness-on-c-0-gamma--1b80ec12f2df",
+          "material_read": "Entire published RESULT.md including definition, proof and distance claim",
+          "method": "GitHub published RESULT.md content",
+          "title": "Unique quasi norm attainment forces compactness on c0(Γ)",
+          "trigger": "Possible abstract stronger theorem about QNA and compactness on c0"
+        },
+        {
+          "assessment": "Explicit diagonal multipliers not quasi norm attaining, but no Toeplitz symbol criterion, norm limit circle, or exact relative distance for a convolution graph",
+          "evidence": [
+            "Finding: block multipliers D_eps have non-QNA closed-ball image and approach projections"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-near-projection-obstructions-to-quasi-norm-attainment-on-uncondi--5e57531450e8",
+          "material_read": "Entire published RESULT.md including proof and limitations",
+          "method": "GitHub published RESULT.md",
+          "title": "Near-projection obstructions to quasi norm attainment on unconditional block decompositions",
+          "trigger": "Possible domination by a stronger non-QNA construction on c0"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual full RESULT.md, including absolute convergence, component divergence and metric correction",
+        "Choi et al 2022 broad QNA/density framework and Problem 7.3",
+        "Related published rank-one and projection examples read fully"
+      ],
+      "rationale": "The graph T_c=(f_a,W_c) couples a natural positive l1 functional on c0 to a Wiener algebra (absolutely summable forward-shift) convolution, with the natural symbol evaluation s(c)=p(1). Its QNA membership is a complete nontrivial infinite-dimensional classification by that one frequency, distinct from the finite-support QNA/NA criterion for W_c alone. The exact attained operator-norm distance |s(c)| gives a quantitative and geometrically transparent codimension-one boundary, and explicit examples show that quasi norm attainment is not a naive coordinatewise property under a max-sum target. This is a motivated analytic family and exact invariant, not a finite experiment, parameter renaming or a global density claim.",
+      "residual_risks": [
+        "The family fixes a positive a and assumes C<A, so the closed nowhere-dense conclusion is relative and does not imply non-density in all bounded operators.",
+        "The proof is elementary once the functional/shift family is chosen; its value is the exact natural classification and metric formula, not a general resolution of a famous open problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The positive scalar functional requires every a_n>0 and ||c||_1<A; the iff criterion is not asserted without these strict hypotheses.",
+    "The attained distance |s(c)| is relative only to the fixed-weight graph family, not the entire operator space.",
+    "Originality is best-of-knowledge: older unindexed attainment or Wiener-symbol literature could supply an equivalent classification; semantic search is not priority proof.",
+    "The reviewed result does not answer the general density-under-range-direct-sums problem; no Lean proof or expert attestation was obtained.",
+    "The four complete sanitized metadata/review file replacements are staged only; no repository change has occurred."
+  ],
+  "schema_version": 1
+}

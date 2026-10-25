@@ -1,120 +1,106 @@
 {
   "correctness": {
-    "rationale": "Operator norms computed by exact finite-row saturation; strict positivity of ℓ1 weights forces coordinatewise convergence of every scalar-norming sequence to one phase; the c0 target makes vanishing of the symbol sum necessary. Uniform convolution estimates for finite ramps, with ℓ1-dominated tails, give sufficiency in norm. The individual component is non-QNA for infinite support because each output coordinate of every image-ball limit lies strictly below the operator norm, whereas nonzero c0 vectors attain the supremum at a coordinate. An explicit phase-aligned ℓ1 perturbation gives the exact and attained relative distance. Real and complex cases, c=0 and strict norm gap examined. Finite tests are not infinite proofs.",
+    "rationale": "The forward shift on c0 satisfies (W_c x)_n=sum_{j<n} c_j x_{n-j}; the n-th row has norm sum_{j<n}|c_j| and rows approach ||c||_1, establishing ||W_c||=||c||_1. The positive l1 functional has norm A but is nowhere norm-attained on B_c0 since a_n>0 for all n. With C<A, scalar norming is forced: f_a(x^k)->lambda A implies, via the nonnegative series a_n(1-Re(conj(lambda)x_n^k)), each fixed x_n^k->lambda; thus any norm limit of W_c x^k has coordinates lambda b_n. Since the actual image limit lies in c0 and b_n->s(c), necessity s(c)=0 follows. For s(c)=0, finite ramps have the uniform estimate ||W_cu^k-b||_infty <= sup_{n>k}|b_n|+sum_j|c_j|min(1,j/k)->0; this proves sufficiency and exactly the circle of norm-A limits. If c has infinite support, every row of a norm limit has modulus strictly less than C, which excludes a norm-C point of c0; finite support allows one saturating row. The coefficient map c->T_c is an isometry for differences; ||c-d||_1>=|s(c)|, with equality attained inside ||d||_1<A by the displayed complex-phase, positive-projection correction. The cases c=0 and real/complex phases, quantifiers and the strict gap were checked. Independent exact rational distance and finite ramp tests are corroborative only.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Choi et al., Proposition 6.2, Corollary 6.3 and Problem 7.3 (full text): https://link.springer.com/article/10.1007/s13398-022-01281-x",
-        "Choi et al. Proposition 4.3 constructs a different general non-QNA map into c0: https://link.springer.com/article/10.1007/s13398-022-01281-x"
+        "Choi et al. 2022, Propositions 4.3, 5.4 and 6.2, Problem 7.3, same DOI",
+        "Choi, Jung, Kim and Martín, Weak-star quasi norm attaining operators, 2022, Example 3.4, arXiv:2209.07763"
       ],
-      "reasoning": "Existing source studies density inheritance and abstract constructions, not an exact symbol evaluation criterion or a relative distance in the fixed-functional analytic-convolution family. The open question concerns density in the full operator space and is not purportedly answered here. General existence of non-QNA maps into c0 does not imply this family classification.",
+      "reasoning": "General density and abstract QNA results do not yield the fixed-weight family criterion. The weak-star example works in a weaker topology and a different target.",
       "searches": [
-        "range infinity sum quasi norm attainment counterexample when both coordinate operators quasi attain, shift polynomial symbol nonzero at one; cancellation zero recovers QNA",
-        "Quasi norm attaining operators stability under infinity direct sums of range spaces Problem 7.3",
-        "direct sums QNA(X,Y1⊕∞Y2) failure of quasi norm attainment when each component is quasi norm attaining, rank one plus identity"
+        "quasi norm attainment c0 range direct sums density",
+        "weak-star quasi norm attaining c0 diagonal monomorphism"
       ]
     },
     "checked_sources": [
       {
-        "comparison": "Definitions, first date and primary MSC verified; source covers general QNA, not the exact graph criterion.",
-        "identifier": "arxiv:2004.11025v1",
+        "comparison": "Definitions, examples, adjoint and range-sum density",
+        "identifier": "arxiv:2004.11025, doi:10.1007/s13398-022-01281-x",
         "title": "On quasi norm attaining operators between Banach spaces"
       },
       {
-        "comparison": "Full-text relevant claims contrasted with exact symbol and distance theorem.",
-        "identifier": "doi:10.1007/s13398-022-01281-x",
-        "title": "On quasi norm attaining operators between Banach spaces"
-      },
-      {
-        "comparison": "Only summary inspected; concerns s-number profiles, not a QNA claim; no whole-document exclusion inferred.",
-        "identifier": "published research indexed record",
-        "title": "Flat s-number profile for translation-invariant operators on sequence spaces"
-      },
-      {
-        "comparison": "Only summary inspected; describes different shift-calculus bounds, not symbol cancellation and QNA.",
-        "identifier": "published research indexed record",
-        "title": "Powered-Bohr upper bounds and duality for the ell_p shift calculus"
+        "comparison": "Weaker weak-star notion and diagonal example",
+        "identifier": "arxiv:2209.07763",
+        "title": "Weak-star quasi norm attaining operators"
       }
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Choi et al. Proposition 4.3, Remark 1.5, Proposition 5.4, Section 6 and Problem 7.3: https://link.springer.com/article/10.1007/s13398-022-01281-x",
-        "Previously compared rank-one-minus-diagonal map has output range ℓ∞ and fixed scalar functional repeated in all coordinates; here output is scalar ⊕∞ c0 with an independent analytic shift and a zero-sum criterion."
+        "Choi et al. 2022, Proposition 4.3, Proposition 5.4, Problem 7.3",
+        "Choi et al. weak-star 2022, Example 3.4"
       ],
-      "reasoning": "Prior abstract results give existence of nonQNA operators or sufficient conditions for equality QNA=NA when images of balls are closed. They do not yield either direction of the zero-frequency test, the unique radius-A norm-limit geometry, or the exact |s(c)| correction cost. The older diagonal family cannot be specialized to a unilateral convolution graph merely by choosing parameters; it uses a different operator and image geometry.",
+      "reasoning": "The earlier operators and general statements lack the specific symbol cancellation or relative ℓ1 metric. The fixed-weight graph classification does not follow directly from the listed theorems.",
       "searches": [
-        "Quasi norm attainment for operators c0 to direct sum scalar and c0, pair of quasi norm attaining coordinate maps whose product operator fails quasi norm attainment; max norm codomain and functional with positive infinite support",
-        "operator T=(functional f, diagonal multiplier b) from c0 to scalar ⊕∞ c0: quasi norm attaining iff b vanishes along support of f",
-        "norm-closed image of unit ball for rank-one functional plus analytic Toeplitz shift operator on c0, zero-frequency cancellation necessary and sufficient for quasi norm attainment"
+        "quasi norm attaining positive functional plus Toeplitz shift c0",
+        "range infinity sum quasi norm attainment versus weak-star"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Primary full text (Sections 4–7) develops QNA and a distinct range-sum density question: https://link.springer.com/article/10.1007/s13398-022-01281-x",
-        "The shift-calculus and Toeplitz indexed titles found concerned norm/s-number estimates, not convergence of norming images."
+        "Choi, Choi, Jung and Martín, On quasi norm attaining operators between Banach spaces, 2022, Proposition 5.4, https://doi.org/10.1007/s13398-022-01281-x"
       ],
-      "reasoning": "Compared QNA with norm-closure-of-unit-ball intersection, Toeplitz/shift convolution, coefficient partial sums and symbol evaluation at unity. The primary QNA equivalence for adjoints (Proposition 5.4) is abstract and does not state or imply the symbol-zero test without the new coordinate-rigidity and uniform ramp argument.",
+      "reasoning": "An abstract adjoint criterion does not give this parameter-specific norm-limit circle or Wiener-symbol test; the additional coordinate-rigidity and uniform ramp estimates are needed.",
       "searches": [
-        "Quasi norm attainment of analytic Wiener convolution p(S) on c0 combined with strictly positive ℓ1 functional in an infinity sum, characterized by p(1)=0 and exact operator distance |p(1)|",
-        "norm-closed image of unit ball for rank-one functional plus analytic Toeplitz shift operator on c0, zero-frequency cancellation necessary and sufficient for quasi norm attainment",
-        "norm-attaining and quasi norm-attaining bounded analytic functions of unilateral shift on c0, ℓ1 coefficient finite support criterion",
-        "quasi norm attaining Wiener algebra convolution sum of coefficients c0 operator"
+        "quasi norm attaining Wiener algebra convolution c0 symbol p(1)",
+        "quasi norm attaining analytic Toeplitz shift c0 sum coefficients",
+        "norm-closure ball image functional convolution direct infinity sum"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Closest retrieved published descriptions: Flat s-number profile for translation-invariant operators on sequence spaces; Powered-Bohr upper bounds and duality for the ell_p shift calculus; Flat s-number and strict-singularity profiles of relative Toeplitz Schur multipliers. These are retrieval summaries, not full-document absence certificates."
+        "No matching previously independent exact formula found in the specific indexed comparisons; a matching current finding is not independent priority evidence."
       ],
-      "reasoning": "Searched exact parametrization (absolutely summable unilateral shift coefficients), alias (analytic Wiener functional calculus), zero-frequency sum and QNA/NA. No exact table or theorem with the same parameters and QNA assertions was identified. Summaries about s-numbers or Bohr sums cannot establish coverage of an attainment criterion; the residual risk remains explicit.",
+      "reasoning": "The subject is an infinite-dimensional operator class rather than a tabulated finite case. Negative search results are not proof of novelty.",
       "searches": [
-        "Quasi norm attainment of analytic Wiener convolution p(S) on c0 combined with strictly positive ℓ1 functional in an infinity sum, characterized by p(1)=0 and exact operator distance |p(1)|",
-        "norm-attaining and quasi norm-attaining bounded analytic functions of unilateral shift on c0, ℓ1 coefficient finite support criterion",
-        "range infinity sum quasi norm attainment counterexample when both coordinate operators quasi attain, shift polynomial symbol nonzero at one; cancellation zero recovers QNA"
+        "quasi norm attaining convolution graph c0 exact ℓ1 distance sum of coefficients",
+        "quasi norm attaining finite-support unilateral shift convolution c0"
       ]
     },
-    "rationale": "Full accessible primary QNA paper was inspected and compared at the level of statements and implications, including abstract characterizations, nonQNA examples, source/target sums and open density problem. No covering Wiener-symbol evaluation or exact relative metric formula appeared. Published-index semantic searches with aliases and parameters returned adjacent s-number/shift results not carrying the proposed claim. A prior rank-one-minus-diagonal construction has different hypotheses and codomain. Residual risk remains for unindexed equivalent work; no priority or independent verification is asserted.",
+    "rationale": "Published general quasi-norm-attainment theory addresses existence, adjoints and density but does not provide the exact symbol-at-one classification or the attained distance formula for this convolution graph family. Related rank-one and diagonal sequence-space constructions have different codomains or topologies. The originality assessment remains best-of-knowledge: older unindexed Wiener-calculus work could cover an equivalent formulation.",
     "residual_risks": [
-      "Unindexed or older literature on QNA of analytic Toeplitz convolutions could state an equivalent result; unsuccessful searches do not prove novelty.",
-      "Indexed-record summary comparisons alone do not exclude results hidden in their full texts; identified highly relevant QNA primary full text was inspected.",
-      "The exact positive distance is relative to a fixed-weight structured family, not the full bounded-operator class, and may not resolve broader density problems."
+      "Unindexed equivalent result in Wiener algebra or norm-attainment literature remains possible.",
+      "General QNA framework makes some supporting observations standard; distinct content is the exact family and metric classification."
     ],
     "source_inspections": [
       {
-        "assessment": "Directly relevant definition and motivation; does not itself claim the zero-frequency theorem",
+        "assessment": "General QNA/adjoint/density statements do not formulate the current Wiener-symbol metric criterion",
         "evidence": [
-          "https://arxiv.org/abs/2004.11025 (2020-04-23; primary 46B04,46B20,46B22)"
+          "Definition 1.1, Proposition 4.3, Proposition 5.4, Proposition 6.2, Problem 7.3"
         ],
-        "identifier_or_url": "arxiv:2004.11025v1",
-        "material_read": "ArXiv bibliographic and abstract record, submission history and primary MSC codes",
-        "method": "Read author abstract and primary-MSC/submission-history lines",
+        "identifier_or_url": "https://doi.org/10.1007/s13398-022-01281-x",
+        "material_read": "Full open-access HTML with relevant propositions and proofs in Sections 1 and 4–7",
+        "method": "Primary journal full text",
         "title": "On quasi norm attaining operators between Banach spaces",
-        "trigger": "First public source and classification ownership"
+        "trigger": "Foundational QNA and possible direct-sum coverage"
       },
       {
-        "assessment": "Proposition 4.3 concerns existence of general nonQNA maps into c0; Section 6 and Problem 7.3 concern density. No same-parameter Wiener-symbol theorem in inspected full text.",
+        "assessment": "Uses weak-star QNA for a diagonal map into a dual space, not norm-QNA for the graph family",
         "evidence": [
-          "https://link.springer.com/article/10.1007/s13398-022-01281-x",
-          "Proposition 4.3; Proposition 5.4; Corollary 6.3; Problem 7.3"
+          "Theorem 2.1, Example 3.4, Remark 3.5"
         ],
-        "identifier_or_url": "doi:10.1007/s13398-022-01281-x",
-        "material_read": "Accessible full article text including definition/Remark 1.5, Sections 4–7, Proposition 4.3, Proposition 5.4, Section 6, and Problem 7.3",
-        "method": "Opened full HTML and read pertinent original statements, proofs and open problems for coverage comparisons",
-        "title": "On quasi norm attaining operators between Banach spaces (open-access journal text)",
-        "trigger": "Primary source covering plausible QNA and direct-sum implications"
+        "identifier_or_url": "https://arxiv.org/abs/2209.07763",
+        "material_read": "Introduction, statements and proof of Example 3.4, adjacent Remark 3.5 and Proposition 3.7",
+        "method": "Open full author-hosted preprint and rendered pages",
+        "title": "Weak-star quasi norm attaining operators",
+        "trigger": "Analogous c0 diagonal operator and alternate topology"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "4d043ce4-68c6-404b-aa64-cee8bbd2f217",
+  "scientific_limitations": [
+    "All a_n strictly positive; c in ℓ1; ||c||_1<A",
+    "Norm and nowhere-density assertions are relative to the fixed-weight family, not the whole operator space.",
+    "Finite computations do not prove the analytic infinite-dimensional argument."
+  ],
   "value": {
-    "rationale": "A complete infinite-dimensional, real-and-complex classification for a natural Wiener functional calculus graph family, governed by the intrinsic zero-frequency symbol evaluation. The exact attained ℓ1 correction cost and hyperplane stratification give quantitative stability/instability information. Opposite examples show the combined graph can fail QNA despite QNA coordinates and can achieve QNA with a nonQNA convolution coordinate, so it is not a name change, a finite enumeration, or a routine single instance. The result is related to, but does not claim to solve, range-sum density problems.",
+    "rationale": "The graph T_c=(f_a,W_c) couples a natural positive l1 functional on c0 to a Wiener algebra (absolutely summable forward-shift) convolution, with the natural symbol evaluation s(c)=p(1). Its QNA membership is a complete nontrivial infinite-dimensional classification by that one frequency, distinct from the finite-support QNA/NA criterion for W_c alone. The exact attained operator-norm distance |s(c)| gives a quantitative and geometrically transparent codimension-one boundary, and explicit examples show that quasi norm attainment is not a naive coordinatewise property under a max-sum target. This is a motivated analytic family and exact invariant, not a finite experiment, parameter renaming or a global density claim.",
     "status": "PASS"
   }
 }
