@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify_paley37.py paley37_integral_certificate.json` with a standard Python 3 interpreter. The code re-enumerates all cliques in the 37-vertex quadratic-residue graph, reconstructs signed integer boundaries, replays every unimodular pivot, compares the full residual matrices against the JSON certificate, checks the 555 compositions of successive boundaries, and computes all 666 affine Lefschetz characters. The recorded `paley37_verification_output.txt` ends with `VERIFICATION SUCCESS`.
+# Independent mathematical audit
 
-The verified face numbers are 37 vertices, 333 edges, 888 triangles and 555 tetrahedra, with no higher simplices. The second boundary has 297 unit factors and zero residual, while the third has 554 unit factors and one residual column with 37 entries of each sign of 26. The only nonzero reduced integral homology is degree two, \(\mathbb Z^{36}\oplus\mathbb Z/26\mathbb Z\). The rational affine character has multiplicities 1, 36 and 629 for respective traces 36, -1 and 0.
+## correctness
 
-The reported checks are complete for this finite input, but do not show a homotopy decomposition, a fundamental-group presentation or equivariant integral torsion behavior. They do not constitute independent external audit.
+PASS
+
+For the specified residue graph, independent exhaustive clique extension yields (37,333,888,555), no dimension above three. Sparse integral Gaussian elimination on independently generated signed boundaries gives d2 297 isolated unit pivots and a 36x591 all-zero residual; d3 554 unit pivots with residual 334x1, exactly 37 entries +26 and 37 entries -26. Thus d3 has final Smith factor 26, not inferred from mod-2/13 ranks; B2B3=0 and rank d1=36 give precisely H2=Z^36+Z/26 and H1=H3=0. Independently enumerated all 666 affine maps and oriented fixed faces: character 36 once, -1 for 36 nonzero translations, 0 for 629 others, exactly the augmentation character.
+
+## originality
+
+PASS
+
+Best-of-knowledge original only for the precise additional integral/equivariant/multiplicative result; explicit known portions carved out. Two targeted indexed semantic searches plus specified primary comparisons do not show a stronger implying theorem; absence of hits is not a proof of novelty. See each named mathematical implication check and named residual risks.
+
+## value
+
+PASS
+
+The clique/independence complex of the canonical self-complementary strongly regular Paley graph is a natural test for integral torsion not seen rationally. Explicit simultaneous 2- and 13-primary torsion plus full affine rational module refines known H1-vanishing theorems and the different Paley-29 order-2 example; this precise integral invariant is motivated without implying any larger Paley family statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
