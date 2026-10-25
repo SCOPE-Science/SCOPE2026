@@ -1,11 +1,21 @@
-# Scientific assessment — Exact six-step density relaxation and alternating correlations of the golden-mean tent map
+# Independent mathematical audit
 
-**Correctness — PASS.** The two inverse-branch formulas are computed on the precise invariant interval. The four-dimensional transfer matrix preserves the two-cell affine space, its normalized invariant vector and its mass row. The factorized characteristic polynomial has a simple stationary eigenvalue and three distinct nonstationary eigenvalues whose sixth powers coincide; the exact density and total-variation identities follow for every admissible density and every integer time. Exact symbolic matrix multiplication and 18 exact covariance integrations were replayed using `verify.py`. The finite computer checks are corroboration; the proof contains the infinite-time argument.
+## correctness
 
-**Originality — PASS, with qualification.** Wang et al. [1] disclose the same map and invariant single-time PDF. Classical ChaosBook [2] explicitly computes its *full Perron--Frobenius spectral determinant* and therefore already contains the spectral locations and related decay rate. Those ingredients are **not** claimed to be new. The exact six-step affine-density projection and the six amplitude-resolved signed coordinate covariance constants were not found in the inspected texts or the mathematical-record comparisons. Spectral data alone do not fix this natural observable's amplitudes or the exact density projection. A historical observable-level treatment could still subsume the result; the searches do not prove global novelty. Other same-category source records concern distinct maps and distributions.
+PASS
 
-**Value — PASS.** The originating work motivates forecasting statistics from canonical chaotic maps but gives primarily one-point densities. The stationary coordinate autocorrelation, a natural two-time statistic, is fully explicit here and has strict alternating sign at all lags, while an entire four-dimensional family of initial densities admits an exact six-step total-variation identity. These resolve more than a renamed parameter or a few numerical samples. They should not be extrapolated to physical torque correlations or arbitrary smooth densities.
+The inverse-branch formulas give a four-by-four transfer matrix on discontinuous cellwise affine coefficients. The invariant mass row J and fixed vector r satisfy JP=J, Pr=r, Jr=1. Characteristic roots on ker J are -phi^-2 and phi^-2 exp(±2πi/3), all with sixth power phi^-12 and distinct, yielding the sixth-power identity and L1 equality. For g=(x-mu)rho in ker J, covariance is integral (x-mu)P^n g; six exactly evaluated phases determine all lag n. Independent symbolic SymPy calculations reconstructed P^6 and twelve covariance coefficients, rather than trusting old output.
 
-**Closest sources and remaining risks.** [1] specifies the map and PDF; [2] dominates the spectral component but does not state the coordinate covariance constants or six-step density projection. Related exact covariance calculations exist for other maps; equivalence under measurable/affine conjugacy remains a general priority risk. The spectral-to-observable calculation is a short finite-dimensional derivation, which limits the breadth of the contribution. Independent audit and comprehensive historical priority verification are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ChaosBook golden-mean pruned-map spectral determinant supplies the key known Perron-Frobenius eigenvalues, so spectrum novelty is expressly disclaimed. Wang et al use this tent map and invariant density as a fluid-statistics model but do not supply six-step density interpolation or the exact six coordinate-covariance amplitudes in inspected material. An algebraic corollary from the known spectral data is possible, but the explicit observable amplitudes and exact convex relaxation are distinct computed identities.
+
+## value
+
+PASS
+
+Quantifying exactly the convergence rate in total variation on a natural invariant finite-dimensional density family and alternating all-lag coordinate covariance supplies a useful mixing/observable benchmark for a standard explicitly solvable nonuniform tent map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
