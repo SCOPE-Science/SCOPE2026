@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:10:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/18/exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f/RESULT.md Git blob 20febc142d98cd31f5a45da255841353aa1ca1e5 tree 3917a7c7d2ae10aff3acbf6be70120ea7e55dbc5",
+        "Inspected original 2026/10/18/exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f/verify.py Git blob f0e0c000b5f7b4d7c3c27158ceea8ec03524c293",
+        "Independent arithmetic checks /mnt/data/scope_worker_08_20261023T1854_delivery/independent_checks.py with checked output independent_checks_output.txt"
+      ],
+      "rationale": "For all L>=0 uniform n in [0,2^L), Kummer gives X=v2(binomial(2n,n))=s2(n), Y=v2(binomial(3n,n)) equal to binary carries when adding n and 2n. State (previous bit b_{j-1},incoming carry c_j), initialize (0,0), read L bits with weight u^{b_j}v^{c_{j+1}}, include one terminal zero-padded carry via f=(1,1,1,v). Thus P_L=e M^L f and sum z^L P_L=e(I−zM)^−1 f. Independently built symbolic 4x4 matrix, recomputed exact N and D via determinant/Cramer; both equal pinned polynomials. Differentiating formally at u=v=1 and partial-fraction coefficient extraction yields means E X=L/2, E Y=L/2−2/3+(3+(−1)^L)/(6*2^L) and mixed covariance 5L/12−4/9+(9+7(−1)^L)/(36*2^L). Independent direct integer valuations for all n<2^L, L=0..9, agree. The matrix proof, not bounded brute force, handles all L.",
+      "residual_risks": [
+        "Terminal zero-padding carry is necessary and explicitly included; omission would produce wrong Y at some n.",
+        "The result is for complete dyadic intervals and only 2-adic valuations, not arbitrary intervals or prime p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barat–Grabner develop general block digit techniques for Pascal triangle valuations; Spiegelhofer–Wallner gives fixed-valuation counts within a row; Wan–Zudilin studies Legendre generating functions for a product."
+        ],
+        "reasoning": "No cited general theorem directly supplies the concrete bivariate rational series on n<2^L or this covariance.",
+        "searches": [
+          "Barat–Grabner DOI 10.1112/S0024610701002630",
+          "Spiegelhofer and Wallner arxiv:1604.07089",
+          "Wan–Zudilin MPIM preprint 2011/37"
+        ]
+      },
+      "checked_sources": [
+        "Barat–Grabner 2001 DOI 10.1112/S0024610701002630",
+        "Spiegelhofer–Wallner 2016 arxiv:1604.07089",
+        "Wan–Zudilin 2011 MPIM 2011/37",
+        "Kummer 1852 theorem",
+        "Resultary search exact query: binomial 2n n and 3n n joint binary carry covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The relevant general digit-statistics techniques enable constructing a transfer matrix but do not assert its exact specialized joint output."
+        ],
+        "reasoning": "The new four-state calculation and determinant gives a genuinely additional pair statistic, subject to possible earlier specialization elsewhere.",
+        "searches": [
+          "Barat–Grabner 2001 entire author PDF mathematics",
+          "Spiegelhofer–Wallner 2016 arxiv abstract/theorem scope",
+          "Wan–Zudilin 2011 Table 1 row B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Apéry-like product of two binomial factors is the same multiplication but their 2-adic valuations require a joint carry enumerator, not just the product generating function."
+        ],
+        "reasoning": "The joint distribution can equivalently be viewed as two coupled carry processes, a bivariate transducer or mixed cumulant; the classical product notation does not already specify the joint law.",
+        "searches": [
+          "Barat and Grabner 2001 block-digital matrices",
+          "Wan and Zudilin 2011 hypergeometric product",
+          "Resultary search exact query: binomial 2n n and 3n n joint binary carry covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specialization u=1 recovers a known one-variable Y enumerator; even full marginal distributions of X and Y do not mathematically determine covariance."
+        ],
+        "reasoning": "The inspected record of a univariate table does not fix two-dimensional coefficients; this is natural missing data.",
+        "searches": [
+          "Prior univariate dyadic enumerator for nu2(binomial(3n,n))",
+          "Resultary search exact query: binomial 2n n and 3n n joint binary carry covariance"
+        ]
+      },
+      "rationale": "Kummer's theorem, Barat–Grabner binomial/digit-block transfer techniques, Spiegelhofer–Wallner valuation statistics within one Pascal row and Wan–Zudilin's occurrence of binomial(2n,n)binomial(3n,n) as an Apéry-like hypergeometric sequence are prior. General methods and a known univariate marginal Y do not determine the bivariate coupling or exact all-L mixed covariance. Prior general transfer matrices could be specialized to this example, leaving an explicit specialization-priority risk; no inspected theorem provides this exact joint enumerator.",
+      "residual_risks": [
+        "A stronger binomial carry automaton source might already contain this exact two-statistic specialization unindexed.",
+        "Specialization u=1 is not claimed new; only the genuine joint coupling and covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING as inspected",
+          "evidence": "General Pascal triangle digit statistics and transfer methods, not this shared-index pair or mixed covariance.",
+          "identifier_or_url": "DOI:10.1112/S0024610701002630 / Grabner author manuscript",
+          "material_read": "26-page primary PDF, introduction and methods, searched 3n/covariance/correlation and inspected mathematical sections",
+          "method": "lawful author PDF, parsed text, screenshots of pages 0,5,15",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "closest general binary valuation matrix theory"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY in examined material",
+          "evidence": "Counts fixed valuations among entries of a single Pascal row; does not display bivariate joint distribution for n<2^L.",
+          "identifier_or_url": "arxiv:1604.07089",
+          "material_read": "title, abstract and theorem-level scope as rendered online",
+          "method": "arxiv primary abstract/theorem view",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "possible stronger binomial valuation generating function"
+        },
+        {
+          "assessment": "PRIOR_MOTIVATION",
+          "evidence": "Records same hypergeometric product, not a binomial valuation covariance theorem.",
+          "identifier_or_url": "MPIM preprint 2011/37",
+          "material_read": "Table 1 row B and surrounding motivating context",
+          "method": "public institute PDF material",
+          "title": "Generating functions of Legendre polynomials: a tribute to Fred Brafman",
+          "trigger": "product binom(2n,n) binom(3n,n) known"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 20febc142d98cd31f5a45da255841353aa1ca1e5 and independently checked mathematical reasoning",
+        "Barat–Grabner 2001 DOI 10.1112/S0024610701002630",
+        "Spiegelhofer–Wallner 2016 arxiv:1604.07089",
+        "Wan–Zudilin 2011 MPIM 2011/37",
+        "Kummer 1852 theorem"
+      ],
+      "rationale": "An exact joint law and covariance for two naturally paired binomial factors, which form a classical Apéry-like hypergeometric product, gives more than either marginal can provide. The all-length rational enumerator is a reusable finite-state object for joint divisibility statistics; the asymptotic covariance coefficient 5/12 quantifies a nontrivial dependence.",
+      "residual_risks": [
+        "The derivation uses standard Kummer/transfer methods; value lies in the explicit nontrivial new joint distribution and its computable covariance, not method novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
