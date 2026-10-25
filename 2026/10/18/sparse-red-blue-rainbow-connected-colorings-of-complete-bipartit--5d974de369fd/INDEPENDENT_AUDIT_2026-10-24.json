@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:54:05.046377Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md SHA e39828b606ba861ff395803f2548cf973f740c48, actual rainbow_sparse_verifier.py SHA d4ff3859fdbd481a9ea2814c7ec7c8ec32a03bef.",
+        "Independently tested 5,904 labelled red/blue edge masks over K2,2, K2,4, K2,5, K3,3, K3,4. Exact minima 1,4,none,2,3 and optimizer multiplicities 4,24,0,18,24 confirmed, with 10 and 264 and 1608 total valid examples respectively.",
+        "Git root tree SHA-1 cd0b998c4e4bec2f034b6401589eaa0c51fbc467 reconstructed from original mode/name/blob digest entries."
+      ],
+      "rationale": "A rainbow path with only two named colours has length at most two. In a complete biclique the opposite-side pairs are adjacent, while same-side pairs are rainbow connected exactly when their red-incidence rows or columns differ. Therefore the binary matrix must have distinct rows and columns. Ordering the u distinct length-v row words by Hamming weight proves the minimum red budget and forces all lower layers plus a terminal subset. At u=v the zero word and v-1 unit words separate all columns; at u≥v+1 every unit word appears, so no extra column constraint spoils any minimum. Multiply the terminal subset choice by u! label bijections. Möbius inversion on equality partitions of rows and columns gives the exact weighted rectangle product for every coefficient, and swapping red/blue gives reciprocity. Infeasible u>2^v follows by pigeonhole. Boundary cases u=v=2 and u>2^v explicitly checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chartrand et al. 2008 Theorems 2.4 and 2.6 give full exact rainbow connection numbers for complete bipartite and multipartite graphs, including rc=2 iff u≤2^v.",
+          "Septyanto–Sugeng 2018 extends colour codes to connected graphs and derives lower bounds for rainbow/strong rainbow indices, not edge-budget distribution."
+        ],
+        "reasoning": "The classical overall minimum number of colours does not specify how many edges of a named colour are required, how many attaining patterns exist, or all coefficients of red-weight polynomial; the latter statements are additional and not trivial corollaries of rc=2.",
+        "searches": [
+          "Resultary semantic: red blue rainbow connection complete bipartite graph minimum number of red edges binary row signatures weight enumerator",
+          "Resultary semantic: rainbow connected 2-color complete bipartite graph minimum red edges signatures separating arrays",
+          "doi:10.21136/MB.2008.133947",
+          "doi:10.5614/ejgta.2018.6.2.14"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.21136/MB.2008.133947",
+        "doi:10.5614/ejgta.2018.6.2.14",
+        "arXiv:2609.11437",
+        "Resultary two semantically distinct searches",
+        "independent exact labelled color-mask enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feasibility is known in Theorem 2.6; the newly claimed m_{a,b}=Σ_{j<r}jC(v,j)+r(u-Σ_{j<r}C(v,j)) exploits a new constrained Hamming weight optimization.",
+          "The coefficient formula R(z)=Σ_{π,σ}μ(π)μ(σ)∏_{B,C}(1+z^{|B||C|}) distinguishes both row and column equality constraints."
+        ],
+        "reasoning": "Chartrand code arguments imply the row-injectivity threshold and a construction but not the lower-layer minimum-weight optimality or full weighted double Möbius distribution; no inspected stronger formulation implies those results immediately.",
+        "searches": [
+          "Resultary semantic: red blue rainbow connection complete bipartite graph minimum number of red edges binary row signatures weight enumerator",
+          "Resultary semantic: rainbow connected 2-color complete bipartite graph minimum red edges signatures separating arrays",
+          "doi:10.21136/MB.2008.133947",
+          "doi:10.5614/ejgta.2018.6.2.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Red/blue colourings correspond to binary a×b matrices with all rows and columns distinct.",
+          "Minimum red edges equals minimum total Hamming weight of u length-v codewords with column separation; the weight enumerator is a two-sided surjective/equality partition inversion."
+        ],
+        "reasoning": "Examined the equivalent formulations as binary separating systems, named-colour resource minimization and twin-free bipartite graphs; the older color-code papers establish only the feasibility code bound in the read sections.",
+        "searches": [
+          "Resultary semantic: red blue rainbow connection complete bipartite graph minimum number of red edges binary row signatures weight enumerator",
+          "Resultary semantic: rainbow connected 2-color complete bipartite graph minimum red edges signatures separating arrays",
+          "web: minimizing ones binary matrix all distinct rows and columns minimal weight enumerate",
+          "doi:10.21136/MB.2008.133947"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent small-board enumerations give R2,2(z)=4z+2z²+4z³ and K3,3 total 264 valid two-colorings; all matched proof formula.",
+          "No retrieved primary source tabulates a two-sided all-weight red-edge coefficient polynomial; older exact rainbow indices do not provide such a table."
+        ],
+        "reasoning": "A table of rc values or an exponential code-size threshold is insufficient to recover the exact polynomial coefficients; this remains a best-of-knowledge comparison rather than novelty proof by failed search.",
+        "searches": [
+          "Resultary semantic: red blue rainbow connection complete bipartite graph minimum number of red edges binary row signatures weight enumerator",
+          "Resultary semantic: rainbow connected 2-color complete bipartite graph minimum red edges signatures separating arrays",
+          "web: minimizing ones binary matrix all distinct rows and columns minimal weight enumerate"
+        ]
+      },
+      "rationale": "The feasibility threshold for two-colour rainbow connectivity is classical: Chartrand–Johns–McKeon–Zhang 2008 Theorem 2.6 obtains rc(K_{v,u})=2 iff u≤2^v; Septyanto–Sugeng 2018 formalizes rainbow colour-code methods. These are credited and not claimed new. The asserted additional mathematics is the minimum budget of one named colour, all labelled minimizers and full coefficient-by-coefficient red budget enumerator via double partition-lattice Möbius inversion. Those specific distribution and optimization statements are absent from the relevant theorems/sections read. Closely related separating binary-array literature could contain equivalent formulas; this is recorded as a genuine risk.",
+      "residual_risks": [
+        "A minimum-weight binary separating-array or twin-free bipartite-graph enumeration could explicitly state an equivalent Hamming-layer formula.",
+        "The old two-color capacity threshold is definitively covered and not novel; independent novelty is limited to resource distribution and optimizer class.",
+        "Barát et al. 2026 complete PDF was not accessible; no whole-document not-covering claim about that source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 2.6 gives rc=2 exactly at u≤2^v; no minimal named-red-edge budget or full red-edge polynomial found.",
+          "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/133947/MathBohem_133-2008-1_8.pdf",
+          "material_read": "Entire 15-page digitized primary PDF; especially Theorems 2.4 (page 8) and 2.6 (page 11) and their constructive proof",
+          "method": "Read extraction; screenshot pages 7 and 10; compared rc=2 proof and optimum resource question",
+          "title": "Rainbow Connection in Graphs",
+          "trigger": "Origin of the complete-bipartite rainbow-connection exact criterion"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Color code formalism and capacity known; no full optimizers for red budget or two-sided Möbius polynomial.",
+          "identifier_or_url": "https://media.neliti.com/media/publications/267141-none-773a457c.pdf",
+          "material_read": "All 15 pages primary PDF, Lemma 1.1 color codes, Theorems 2.1–2.2 and Sections 3.1–3.3",
+          "method": "Read text and rendered page 2; compared code distinction and general lower bound",
+          "title": "Color Code Techniques in Rainbow Connection",
+          "trigger": "Closest general rainbow signature reduction"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Source may contain special dense graph optimizations, but accessible material only asserts existence. Not used for definitive whole-paper noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11437",
+          "material_read": "Bibliographic search result/abstract; full arXiv PDF access disabled in current search",
+          "method": "Scoped its existence objectives, did not represent full manuscript as read",
+          "title": "Rainbow Connecting 2-Colorings of Super-Dirac Graphs",
+          "trigger": "New existence-style red/blue paper on dense graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Once rainbow connectivity in two colours is possible, minimizing the edges assigned to a distinguished costly colour is a natural new optimization over the same graph. The theorem does not stop at feasibility or a fixed small parameter: for every feasible bipartition it gives the sharp budget, every attaining labelled coloring, and an exact weighted enumeration of the entire feasible sample space. The proof discovers that column-distinction imposes no extra cost at the minimum, including the balanced boundary. The full distribution can support uniform random colouring and resource-constrained enumeration and is not mere renaming of the classical rc=2 formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only complete bipartite, two named colours and both sides at least two.",
+    "Formula is finite partition sum rather than polynomial-time coefficient algorithm.",
+    "Older code/enumerator literature could overlap despite targeted checks.",
+    "Finite independent tests and source self-checks supplement rather than establish infinite quantified mathematical statements.",
+    "Originality is assessed by real source statement comparisons and retained uncertainty; an unsuccessful search is not a proof of novelty.",
+    "No Lean proof, human expert attestation, external certification or claim of scientific independence of tools.",
+    "A scientific PASS is separate from public transport permission; material privacy blocker forces not_ready."
+  ],
+  "schema_version": 1
+}
