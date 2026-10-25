@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A length-n periodic word is exactly a closed walk in the given 64-state order-three graph. Exact integer power-trace calculations and Newton identities reconstruct all 65 characteristic coefficients and match the claimed factorization. Matrix determinant logs prove the all-length zeta; Burnside and Möbius formulas give all rotation and primitive counts. Complete brute force through length seven is an independent direct model check. Operational validity is restricted to n>=4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The all-even-alphabet linear irreducible-word enumerator provides the cubic dominant factor only, counting open-end words rather than cyclic closed walks.",
+        "arxiv:2312.00394v1 studies code capacity for arbitrary alphabets and lengths, not complete periodic-point counts."
+      ],
+      "reasoning": "The previous all-alphabet result is stronger with respect to alphabet size but addresses a distinct open-boundary count; it does not imply the full trace spectrum of the quaternary transfer matrix. The growth constant is accordingly credited as already known. No inspected theorem strictly dominates the cyclic all-length claim.",
+      "searches": [
+        "reverse complement length two duplication irreducible periodic words entropy growth Perron",
+        "\"reverse-complement\" \"necklaces\" \"duplication-free\" words",
+        "On the Reverse-Complement String-Duplication System arxiv:2112.11811 Section IV"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.11811v1",
+      "arxiv:2312.00394v1",
+      "arxiv:2401.04675v1",
+      "published database search for cyclic and periodic-point aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A four-letter linear word of length four avoids a forbidden block in 240 cases, while only 228 of those give cyclically safe words, demonstrating the non-equivalence of claims.",
+        "arxiv:2112.11811v1 Section IV.A provides a binary characterization but not the four-letter periodic enumeration.",
+        "arxiv:2401.04675v1 Section 2 defines duplication via \\(v\\mapsto vv\\), not \\(v\\mapsto v\\overline{v^R}\\)."
+      ],
+      "reasoning": "Linear counts are totals of open paths, not periodic traces; their cubic denominator does not determine the additional cyclotomic and quintic factors. The error-correcting capacity theorem and tandem-only constraints have other objects. A generic existence theorem for transfer matrices does not itself provide the explicit four-letter spectrum.",
+      "searches": [
+        "arxiv:2112.11811v1 Lemma 5 irreducible factor language",
+        "arxiv:2312.00394v1 reverse complement capacity",
+        "arxiv:2401.04675v1 tandem duplication free codes",
+        "linear irreducible reverse-complement length-two general even alphabet generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2112.11811v1, Section IV.A, Lemma 5: only binary linear irreducibles are classified; IV.B uses cyclic factor frequencies rather than a four-letter periodic-point zeta.",
+        "For all four-letter complements, cyclic avoidance is the order-three shift periodic-point problem, with \\(a_n=\\operatorname{tr}(A^n)\\)."
+      ],
+      "reasoning": "Searched cyclic roots, periodic-point shifts, quaternary four-block avoidance and alias descriptions. No checked source gives the explicit degree-28 zeta polynomial or its all-length necklace coefficients. The existence of a standard matrix method does not itself calculate its characteristic polynomial; uniqueness remains uncertain.",
+      "searches": [
+        "cyclically irreducible binary reverse-complement duplication length two forbidden 0011 1100 0101 1010 circular count recurrence a_n = a_(n-1)+a_(n-3)",
+        "quaternary cyclic reverse complement duplication length two irreducible periodic point count 4 12 64 228 744 2904",
+        "\"reverse-complement\" \"periodic point\" \"duplication\" cyclic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first ten periodic counts are reproduced from an exact 64-state characteristic matrix and independently from direct word enumeration through length seven.",
+        "Checked published research-record hits concern other duplication channels, optimal codes, or binary open-boundary words rather than this quaternary cyclic spectrum."
+      ],
+      "reasoning": "No exact same count vector or zeta polynomial was found in searched tables and published records. Such unsuccessful searches are supporting evidence only, not proof of absence.",
+      "searches": [
+        "\"reverse complement\" \"duplication free\" count cyclic quaternary transfer zeta",
+        "\"reverse-complement\" \"necklaces\" \"duplication-free\" words",
+        "quaternary cyclic reverse complement duplication length two irreducible periodic point count 4 12 64 228 744 2904"
+      ]
+    },
+    "rationale": "The explicit four-letter closed-walk characteristic factorization and exact all-length cyclic and primitive necklace counts are not stated or implied by the checked binary and general-alphabet linear irreducible enumeration, code-capacity results, or tandem-duplication code constructions. Linear path counts do not determine all periodic traces. Literature and published-research record comparisons by equivalence and implication found no coverage; unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "Unindexed specialized enumeration or a published graph-zeta table could contain an equivalent exact polynomial.",
+      "The method uses standard finite-state and orbit tools; the claimed novelty is the evaluated quaternary all-length cyclic spectrum, not general transfer-matrix theory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines length-two reverse-complement rule and classifies binary open-boundary irreducibles; no explicit four-symbol cyclic characteristic polynomial or orbit enumeration in inspected relevant material",
+        "evidence": [
+          "arxiv:2112.11811v1 pages 5-8 and 16; Lemma 5, Theorem 7, Section IV.B"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.11811",
+        "material_read": "Introduction, preliminaries, Section IV.A (Lemma 5, Theorem 7 and proof), Section IV.B factor-frequency definitions, and conclusions/open questions",
+        "method": "Primary full-text PDF read in relevant sections, cross-referenced its all-length objects",
+        "title": "On the Reverse-Complement String-Duplication System",
+        "trigger": "Same duplication rule; irreducible strings and cyclic factor frequencies"
+      },
+      {
+        "assessment": "Treats optimal asymptotic code rate, not the enumerator of all cyclic words avoiding inverse duplication patterns",
+        "evidence": [
+          "arxiv:2312.00394 pages 1-4, Table 1 and channel definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.00394",
+        "material_read": "Abstract, Section 1, formal duplication-channel definitions; full-text searched for irreducible, circular and periodic",
+        "method": "Primary PDF text and term search",
+        "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+        "trigger": "Strongest potentially dominating general alphabet result"
+      },
+      {
+        "assessment": "Its forbidden blocks are tandem repeats, not reverse-complement repeats; provides code constructions, not exact periodic-point zeta for RC2",
+        "evidence": [
+          "arxiv:2401.04675v1 pages 1-4, Eq. (1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.04675",
+        "material_read": "Abstract, Sections 1-2, and definitions of allowed tandem duplication",
+        "method": "Primary PDF text, methods and key definitions",
+        "title": "On Duplication-Free Codes for Disjoint or Equal-Length Errors",
+        "trigger": "Duplication-free code language may cover a stronger periodic avoidance theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ea603e6-de0b-4d70-839c-bbdde312f219",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Four letters model the DNA alphabet with two Watson-Crick complement pairs; cyclic irreducible strands and their primitive rotation classes are a natural complete finite-length constrained-sequence inventory. The zeta polynomial exposes boundary-dependent and nonleading spectral information absent from open-boundary word counts. It is a nontrivial exact all-length classification, with applications as enumerative benchmarks, without claiming optimal error-correcting codes.",
+    "status": "PASS"
+  }
+}
