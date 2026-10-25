@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite certificate
+# Independent mathematical audit
 
-Execute `python3 evidence/verify_mk_morse.py` and `python3 evidence/verify_mk_independent.py` from the extracted package. The first script establishes a complete discrete-Morse certificate by enumerating all \(65,536\) candidate vertex subsets and all \(218,672\) nonempty-face covering incidences; every node is consumed by a topological sort after matched arrows are reversed. It then computes all eight signed simplicial Lefschetz traces. It reports `Morse and cyclic character verification: PASS` only if every internal assertion succeeds.
+## correctness
 
-The second script independently realizes the graph through the cyclic eight-point/eight-line incidence configuration and uses a fixed explicit vertex isomorphism. It enumerates all dominating complements without using the first program's forbidden-mask method. It reports `Independent cyclic configuration check: PASS` only after verifying the full face vector and reduced Euler characteristic.
+PASS
 
-These exact finite checks support the proved single-graph classification; neither program proves any claim for an infinite graph family. The scripts do not provide an independent mathematical audit.
+Independently enumerated all 2^16 masks against all closed-neighborhood obstructions. Exactly 32391 faces, dimension counts (16,120,560,1804,4176,6976,8208,6462,3136,832,96,4). Reimplemented vertex-toggle matching: 16192 pairs, seven unmatched eight-vertex faces with exact printed bitmasks. Independently directed all 218672 nonempty Hasse cover incidences and consumed every one of 32390 nodes in a topological sort, proving acyclic matching. With a single critical 0-cell and seven 7-cells, Forman implies wedge of seven S7. Independent signed fixed-face Lefschetz enumeration gives (7,-1,3,-1,7,-1,3,-1); rational cyclotomic decomposition follows.
+
+## originality
+
+PASS
+
+Matsushita–Wakatsuki give the general dominance-neighborhood Alexander-dual correspondence and calculations for products of paths; no checked classification of this 16-vertex GP(8,3) or its C8-action. The Resultary query returned related Morse/matching and other graph complexes, not the same closed-neighborhood dominance complex. Specific rational character is additional information beyond bare homology.
+
+## value
+
+PASS
+
+GP(8,3) is the classical highly symmetric Möbius–Kantor cubic graph. A complete exact finite homotopy type plus rotation character gives a natural equivariant invariant, with exhaustive, replayable discrete Morse certificate. Does not assert an all-Petersen-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
