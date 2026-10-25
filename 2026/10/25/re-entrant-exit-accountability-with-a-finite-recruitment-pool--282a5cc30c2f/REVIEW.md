@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness (C): PASS
+A vacancy begins only after survival through the exploited epoch and departure. Its Bellman recurrence accounts for a full vacant epoch **before** recruiting, so the cost present value is \(A D(m)/[1-t(1-\rho_m)]\), with convergent denominator. The difference of baseline and exploitation values yields the exact threshold. At the two largest sizes, \(\rho_n=0\) and \(\rho_{n-1}=p\); exact positive-denominator algebra proves the strict re-entrance criterion, full interval of gains, and three-agent minimal witness. The exact-rational checker reproduces 15,840 parameter-set identities and 260 strict-grid witness conditions. Numeric enumeration is not substituted for the proof. Risk: none identified within the explicit one-shot, exogenous-recruitment assumptions; if departing agents regain eligibility the theorem must be recalculated.
+
+## Originality (O): PASS, with priority risk
+The primary 2026 source analytically assumes a departure remains unreplaced. Its Appendix supports a downward-closed size set under that assumption; its simulation has recruitment but does not derive a finite-pool discounted vacancy cost or the grand-size re-entrance threshold. Joshi's independently inspected dynamic club model uses size preferences and fear-of-exclusion equilibrium, not center exploitation plus stochastic replacement of a single delegate. Mathematical-results searches using replacement, accountability, vacancy, delegation, finite pool and threshold variants yielded no indexed claim implying this theorem; this negative search is not a uniqueness guarantee. The relation to the source is a new mechanism and the structural reversal, not the already-published permanent-exit inequality. Unindexed literature and strategically endogenous recruitment remain material limitations.
+
+## Value (V): PASS
+The source's monotone accountable-size bound is a central reason to expect smaller centers in polycentric governance. A plausible policy distinction—exploitation permanently excludes a victim while other outsiders may join—can reverse that monotonicity at the full-population boundary. The theorem quantifies exactly when this happens for every population and gives an attainable, smallest-population rational witness. This is a substantive boundary of an institutional mechanism rather than a numerical reparameterization of the permanent-loss formula; it does not claim a full dynamic equilibrium.
+
+Self-review: passed. Independent audit: not yet performed.
