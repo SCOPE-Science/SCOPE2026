@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For positive peripheral counts and hub present, each coordinate increases/decreases with probability x_i/(2s). The product h=∏x_i is bounded harmonic, with zero on any missing leaf. Its Doob transform has probabilities (x_i±1)/(2s), a total-count Markov chain independent of composition, and conditional Polya-urn addition/uniform-deletion transitions yielding the Dirichlet-multinomial law with parameters two. At total n the exact law is c∏l_i, which divided by h(l) gives the uniform c; sum over positive compositions gives the joint probability, and fixed-d factorial asymptotics and a lattice Riemann sum give the Dirichlet limit. The checker independently solves original-chain rational systems for all 114 terminals across 13 cases. No finite-check-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berenbrink et al. supply marginal survival and tail bounds, not a sharper formula for the joint absorbing vector.",
+        "Öztürk has a general Markov master-equation framework, which does in principle determine finite instance probabilities but does not itself imply the closed form or arbitrarily many leaf opinions without the analysis here."
+      ],
+      "reasoning": "A master equation is broad methodology rather than a theorem for these parameters. Classical Doob-transform and Pólya-urn facts are crucial prior tools; no dominating explicit exit law was located. An uncatalogued general multitype branching result could cover the claim, so residual risk is recorded.",
+      "searches": [
+        "arXiv:2610.16684v1 Sections 2.1-2.2 and 3.5-3.6",
+        "arXiv:1112.4624 master equation and absorbing probability sections",
+        "published-finding corpus: critical birth death multitype process product harmonic function conditioned all colors survive until total n uniform positive compositions Dirichlet 1"
+      ]
+    },
+    "checked_sources": [
+      "Berenbrink et al., arXiv:2610.16684v1, originally posted 2026-10-12, full HTML sections cited above.",
+      "Öztürk, arXiv:1112.4624, posted 2011, accessible model and absorption sections.",
+      "Hardin and Lanchier, arXiv:1912.06746, consensus model and main bounds.",
+      "published-finding corpus published result ID 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32 (distinct deterministic dynamics).",
+      "published-finding corpus published result ID 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73 (distinct multinomial modes)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A gambler-ruin identity gives extinction of the hub with probability d/n but says nothing about the conditional allocation among surviving leaves.",
+        "Individual survival lower bounds do not imply joint full survival and do not specify terminal composition.",
+        "The 2011 model contains a three-opinion line (a two-leaf star) but uses general absorbing-state calculations, not this all-positive uniform family formula."
+      ],
+      "reasoning": "The new assertion is strictly stronger in a different direction from prior survival-marginal and total-count results. Obtaining the equality for all positive vectors requires a composition-sensitive product harmonic transform and reversible Pólya deletion argument. It is not a numerical substitution in a published closed-form formula.",
+      "searches": [
+        "arXiv:2610.16684v1 Theorem 2 and star gambler ruin example",
+        "arXiv:1112.4624 absorption results",
+        "arXiv:1912.06746 introduction and consensus theorem statements",
+        "published-finding corpus: The Voter Model with Opinion Graph EdgeVOG complete bipartite opinion graph polarization absorption time distribution gambler ruin stabilisation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.16684v1 §2.2 gives marginal survival guarantees and number-of-survivors concentration, not a distribution over labeled positive integer compositions.",
+        "arXiv:1112.4624 §3 investigates absorption probabilities for bounded-confidence opinion configurations using a different initial profile and numerics."
+      ],
+      "reasoning": "Alternative descriptions include exit measures of a finite multitype neutral birth–death chain, exchangeable positive occupancy compositions, and a product-harmonic Doob transform. The claim specifies all positive terminal vectors with the identical exact factorial probability, plus the rarity and Dirichlet limit; the inspected texts do not state this identity.",
+      "searches": [
+        "published-finding corpus: opinion graph star EdgeVOG singletons extremal opinions exact joint survival uniform terminal allocations",
+        "published-finding corpus: star opinion graph complete communication voter model one agent per leaf initial hub n-d terminal leaf counts all positive uniform compositions exact joint survival",
+        "web: voter model bounded confidence star graph absorption coexistence probability uniform positive composition",
+        "web: critical birth death processes joint survival first reach N uniform compositions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus record 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73 analyzes mode probabilities in growing-category multinomials, not this Markov exit law.",
+        "Closest 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32 addresses a deterministic seven-agent confidence system, rather than stochastic terminal allocations."
+      ],
+      "reasoning": "No exact table, known numerical sequence, or published database statement of these particular labeled exit probabilities was identified in the targeted searches; non-detection is not a novelty certificate.",
+      "searches": [
+        "published-finding corpus: critical branching gambler ruin independent families uniform composition upon reaching population threshold star opinion network Dirichlet multinomial",
+        "published-finding corpus: EdgeVOG star joint survival all peripheral opinions factorial n-d 2d-1 uniform absorption",
+        "web: uniform positive compositions absorption star voter model",
+        "web: independent critical branching clones exit composition uniform conditioned all alive"
+      ]
+    },
+    "rationale": "Berenbrink et al. (2026) prove individual survival bounds, simultaneous-survival count concentration, and a one-dimensional gambler-ruin star example, but not the full joint all-survivor terminal support distribution. Öztürk (2011 preprint) studies bounded-confidence three-opinion absorption via master equations and finite probability calculations, without the arbitrary-degree uniform-composition formula. Hardin and Lanchier (2019) provide confidence-model consensus bounds. Real claim- and alias-targeted searches of published mathematical research results returned no matching terminal-vector law; related urn and multitype extinction theorems remain a realistic prior-coverage risk. This is not a claim of exhaustive uniqueness.",
+    "residual_risks": [
+      "Unindexed or differently named multitype neutral branching-process exit distributions may imply the identity without matching voter-model terms.",
+      "Earlier three-opinion transition-matrix literature may contain a particular d=2 formula; the general arbitrary-star-degree result is the assessed claim.",
+      "Finite numerical checks alone do not establish the general statement; the analytical Doob-transform argument is necessary.",
+      "No independent scientific review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related model and marginal/count bounds; no full per-composition exact absorbing law seen",
+        "evidence": "The paper states each opinion survival lower bound and a lower-tail inequality for number alive; its star gambler-ruin example tracks the hub count, not peripheral composition.",
+        "identifier_or_url": "https://arxiv.org/html/2610.16684v1",
+        "material_read": "Full open-access HTML: model definitions, Section 2.1 star example, Section 2.2 distribution-of-surviving-opinions, Sections 3.5-3.6 proofs and related work",
+        "method": "Full-text HTML reading and comparison of stated hypotheses/conclusions with the terminal-vector law",
+        "title": "The Voter Model with Opinion Graph",
+        "trigger": "Identical stochastic model, star example and survival-distribution heading"
+      },
+      {
+        "assessment": "Related master-equation treatment, no demonstrated coverage of all-degree sparse-star identity",
+        "evidence": "Treats bounded-confidence opinion configurations and absorbing polarization with matrix and numerical calculations; does not give the arbitrary-d product-martingale closed form.",
+        "identifier_or_url": "https://arxiv.org/abs/1112.4624",
+        "material_read": "Open-access text of model and the finite absorbing-probability and three-opinion calculation sections",
+        "method": "Compared transition model, initial conditions, claimed exact versus numerical results",
+        "title": "Dynamics of discrete opinions without compromise",
+        "trigger": "Three-opinion bounded-confidence Markov absorption overlaps the d=2 opinion graph"
+      },
+      {
+        "assessment": "Bounds on consensus, not a terminal joint-composition formula",
+        "evidence": "Studies consensus probability bounds for spatial confidence-threshold dynamics; does not specify the uniform all-positive exit vector for complete mixing and a star opinion graph.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.06746",
+        "material_read": "Abstract, introduction, model assumptions and available main consensus bounds",
+        "method": "Compared stochastic setting and mathematical outcome against terminal support law",
+        "title": "Probability of consensus in spatial opinion models with confidence threshold",
+        "trigger": "Prior consensus and coexistence estimates for confidence-threshold voter models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36a5a0c2-0f8f-4b76-9343-1aa990d9334f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural unresolved distinction in bounded-confidence opinion dynamics is between lower bounds on marginal survival/number of surviving opinions and exact co-survival probabilities. The theorem computes the full absorbing distribution of a rare social-opinion coexistence event, including factorial probability scaling and a nondegenerate conditional Dirichlet law. This makes an otherwise unquantified structural feature precise for all star degrees.",
+    "status": "PASS"
+  }
+}
