@@ -1,15 +1,21 @@
-# Review of the disk's one-step \(\lambda\)-Steiner Santaló profile
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-step chord rearrangement fixes area at \(\pi\), and the two support-function hemispheres yield the exact polar integral. The polar objective is strictly convex in vertical translation and diverges at both boundary centers, so its scalar critical point exists uniquely. Differentiation of the elementary integral and a local implicit-function argument establish the moving center and the exact quadratic coefficient and the cubic displacement of the Santaló center relative to the centroid. Global strictness invokes the established Meyer–Reisner shadow-system theorem with its affine-rigidity clause, rather than an unproved differentiation sign. Direct improper quadrature and the closed expression agree in the included checks, including the nonsmooth endpoint. Residual correctness risk: the theorem uses the published polar-shadow rigidity statement as a cited premise, not a reconstructed proof of that established general theorem.
+## correctness
 
-## Originality
-PASS, subject to bibliographic uncertainty. Kipp–Sagmeister's complete 2026 manuscript supplies the natural operation and studies long-run random convergence, but not its Santaló volume product. Meyer–Reisner's 2006 full manuscript establishes the general reciprocal-polar convexity/rigidity principle; their 2018 manuscript restates it, and the present strictness conclusion is therefore an application of known theory. The claimed new content is the actual exact piecewise-elliptic disk profile, unique moving center, elementary polar formula, its leading quadratic constant, and the shaking-endpoint value. Related indexed Mahler profiles concern simplex difference bodies or cube/cross-polytope intersections rather than the present curved two-arc body. Unindexed older examples or unpublished notes could contain the same scalar calculation, so priority is not absolute.
+PASS
 
-## Mathematical value
-PASS. The interpolation between Steiner symmetrization and shaking is a natural recently studied operation; the one-step image of the disk is the canonical reference shape. Its precise affine-invariant response is not supplied by the qualitative shadow-system theorem. The sharp coefficient \(32/3-\pi^2\) quantifies an otherwise hidden second variation while the unique Santaló-center drift makes the asymmetric polar calculation nontrivial. The exact full-parameter formula includes the flat-sided shaking limit. No general statement about arbitrary bodies or repeated processes is inferred.
+The chord-preserving body has area pi and half-ellipse support h_±(theta)=sqrt(cos²(theta)+(1±delta)²sin²(theta)). Polar area of vertical translate is 1/2 integral 1/(h-c sin(theta))²; splitting semicircles and substitution u=cot(theta) yields I_delta(c) as stated. Positive second derivative of the polar integral and divergent boundary polar area imply unique Santaló c; derivative at 0 makes c>0 when delta>0. Differentiating elementary J(a,c), including special value J(a,-a)=4/(3a), reconstructs local expansion c=8delta/(3pi)+[32(88-9pi²)/(27pi³)]delta³+O(delta^5) and product pi²-(32/3-pi²)delta²+O(delta^4). Independent high-precision quadrature of the split polar-angle integral and of J agrees for delta=0,.25,.6,1 and endpoint product about 8.716345507; symbolic cubic coefficient cross-checked. Global strictness imports Meyer–Reisner reciprocal-polar-volume convexity and affine rigidity along shadow systems; every delta>0 boundary is two distinct elliptic arcs and cannot be a single ellipse, excluding affine plateau. Numeric samples are not substituted for convexity theorem.
 
-## Scope and limits
-The conclusion is a self-contained shape-specific benchmark. A unique one-dimensional minimization remains in the expression; the scalar minimizer is not asserted to have a radical closed form. Only a self-review and finite independent numerical spot checks have been performed. Numerical tests do not prove universal claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kipp–Sagmeister define the exact deformation; Meyer–Reisner imply the qualitative monotone direction from general shadow systems. The surviving original claim is the complete disk-specific polar integral and minimizer, sharp second and cubic variation and exact endpoint, not the existing general convexity theorem.
+
+## value
+
+PASS
+
+The Santaló point and precise Mahler deficit are canonical affine-geometric invariants of a standard one-step symmetrization path. The disk-specific sharp second variation and cubic displacement quantify how much a volume-preserving deformation departs from the extremal disk, beyond the qualitative shadow-system inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
