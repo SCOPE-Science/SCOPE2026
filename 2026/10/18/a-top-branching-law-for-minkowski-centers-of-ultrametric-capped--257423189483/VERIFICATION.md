@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical proof is the seven-step derivation in `RESULT.md`. Its essential independently checkable identities are the exact support minima of the coordinate and triangle inequalities, the reflection reformulation \((s+1)a\cdot c\le sb+\min_{K_w}a\cdot d\), and the deficit propagation over the ultrametric's highest partition.
+# Independent mathematical audit
 
-Run `python CHECKER.py` in Python 3 with NumPy and SciPy. The program constructs the original polytope inequalities, solves a distinct linear program for every triangle-support minimum, solves the Minkowski-asymmetry program, and then finds both extreme values of each optimal-center coordinate while fixing \(s=2\). It checks six hand-specified ultrametrics and 32 additional pseudorandom but reproducible hierarchical examples of size three through six. All 38 cases passed the stated comparisons. The numerical solver is finite-precision and does not prove the universal theorem; the seven symbolic proof steps supply that proof.
+## correctness
 
-The research claim is limited to strictly positive ultrametric ceilings and at least three labels. The referenced literature on generic polyhedral center optimization, bounded metric-polytope ellipsoids, and tropical ultrametrics concerns different statements. Independent mathematical and bibliographic validation remain unperformed.
+PASS
+
+Coordinate supports attain 0 and cap w_ij. For each oriented triangle functional F=d_ij-d_ik-d_jk, exact min -2 min(w_ik,w_jk) follows from a truncated 1-Lipschitz ultrametric distance-to-{i,j} function and its cut semimetric; max F=0. Reflection feasibility for z=(s+1)c gives z_ij<=s w_ij and z_ik+z_jk-z_ij>=2min(w_ik,w_jk). In any ultrametric triple its shortest pair forces s>=2; z=2w attains 2. At s=2, cap deficits vanish in equilateral triples, have zero short-edge deficit and equal long deficits in isosceles triples. Root-block triangles force all internal deficits zero, all cross deficits zero with three or more blocks, and a common h in two blocks restricted by R-L. Independent LP of n=3 ultrametric (1,5,5) found s=2, center coordinate intervals [2/3,2/3],[2,10/3],[2,10/3].
+
+## originality
+
+PASS
+
+Full inspected robust optimization article gives a generic LP framework for Minkowski centers, not this explicit evaluated ultrametric family/complete loci. Inspected Gartsman–Linial preprint studies uniform-cap metric polytope maximal inscribed/minimal circumscribed ellipsoids rather than Minkowski reflection asymmetry. Resultary nearest neighboring center results concern other polytopes (matroid bases, stellohedra, transportation polytopes). This center-locus dichotomy is not a direct restatement of them.
+
+## value
+
+PASS
+
+A complete all-n all-positive-ultrametric classification with a sharp top-branching uniqueness transition is a natural geometric invariant, including exact dimension and full center segment. It separates reflection asymmetry from ellipsoidal center notions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
