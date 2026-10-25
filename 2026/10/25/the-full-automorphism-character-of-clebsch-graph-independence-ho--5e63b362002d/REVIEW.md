@@ -1,0 +1,15 @@
+# Scientific review: Clebsch independence homology character
+
+## Correctness — PASS
+The underlying graph is defined unambiguously as the even-weight five-bit distance-four graph. The 1920-element action is the entire automorphism group: translations act transitively, and any stabilizer of zero injects into the permutations of its five neighbors, with nonneighbors determined by pairs. The supplied exact verifier enumerates all 392 independent faces, establishes an acyclic 191-pair matching with nine critical three-cells and one vertex, checks all 1200 face incidences and independently computes mod-two boundary ranks. The signed reduced Lefschetz identity is used with the correct odd-dimensional sign. Its 1920 trace values agree by two different methods and with the displayed representation formula. Character semisimplicity over the rationals finishes the proof. Limited to this finite graph and its rational homology; no generalized folded-cube assertion is made.
+
+## Originality — PASS
+Previously published exact-object findings determine the nonequivariant homotopy type \(\bigvee^9S^3\) but not the homological symmetry character. The documented odd-folded-cube *neighborhood-complex* translation representation concerns a different construction, not the independence complex. Barmak proves triangle-free independence complexes are suspensions, which does not determine the present character. Greenwood–Gleason and Schmidt concern graph construction and automorphisms rather than the action on third homology. Searches included Clebsch, Greenwood–Gleason, projective cube, folded cube, full automorphism, translation character and equivalent clique-complex terminology; no stated stronger theorem implies the new character. Residual risk: an unpublished or unindexed equivalent representation calculation may exist.
+
+## Value — PASS
+The full natural automorphism action on the nine-dimensional rational homology is a complete symmetry invariant, not an isolated small numeric parameter. It distinguishes a signed standard four-dimensional translation-fixed component from a five-dimensional orbit of nontrivial translation weights, identifies all 1920 traces in one structural formula, and shows the full group has no invariants. None of these features follows merely from the known nine-sphere nonequivariant homotopy equivalence. This is a meaningful representation-theoretic refinement of a canonical strongly regular graph complex.
+
+## Closest literature and limitations
+The two public exact-object homotopy calculations identified in RESULT.md give the face vector and homotopy type but no automorphism character. The cited Barmak suspension theorem and Schmidt folded-cube article are broader contextual results without a covering implication. The finite computation is reproducible from its included source; exact novelty outside indexed/inspected literature cannot be proved by search. No claim is made concerning other folded cubes or equivariant stable homotopy.
+
+Self-review: passed. Independent audit: not yet performed.
