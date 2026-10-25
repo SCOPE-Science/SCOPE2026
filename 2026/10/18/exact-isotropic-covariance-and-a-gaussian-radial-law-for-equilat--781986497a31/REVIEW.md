@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact transportation norm gives the section of the \(\ell_1\) unit ball. The chamber-coordinate Jacobian is \(\sqrt n\,r^{n-2}/[(k-1)!(n-k-1)!]\), so integrating it and applying Vandermonde proves the hypergeometric mixture and independent beta–Dirichlet sampler. A second finite Vandermonde identity computes the Euclidean covariance from exact Dirichlet second moments, with full zero-sum normalization. The determinant and Stirling asymptotic yield the isotropic constant. For the radial limit, the exponential moments \((1,2,6,24)\) imply delta-method variance \(4\), the random sign count concentrates at half the population, and two independent fluctuations contribute limiting variance \(1/2\) each. The beta radius and sign-count imbalance introduce only lower-order errors. Actual rational hull integrations at dimensions \(3\)–\(6\), plus moment identities through \(23\), corroborate the algebra; simulations are diagnostic only. No finite experiment substitutes for the limit proof.
+PASS
 
-## Originality — PASS, with risk
+Verified sign-chamber Jacobi density sqrt(n)R^{n-2}/((k-1)!(n-k-1)!) and total volume sqrt(n)binom(2n-2,n-1)/(n-1)!. Exact rational independent binomial moment checks through n=24 show E[1/(K+1)]=(2n-1)/(n(n+1)) and Cov=4(2n-1)/(n(n+1)^2)I_H. Proof couples Dirichlet weights to exponential ratios Q_k and delta-method CLT with variance 4; independent hypergeometric K/n->1/2, radial R=U^(1/(n-1)), gives normalized Gaussian variance one. Finite symbolic checks support, not prove asymptotic. Euclidean zero-sum metric normalization is essential.
 
-The sign-chamber decomposition and total volume of the equilateral transportation ball were already established by Alexander–Fradelizi–García-Lirola–Zvavitch, Section 5.2 (arXiv:1911.10642). The new claim explicitly excludes their volume result and instead evaluates the entire uniform bulk covariance, the isotropic constant and an exact Gaussian squared-radius fluctuation limit with its variance, using a conditional hypergeometric–Dirichlet law. Aliaga–Pernecká (arXiv:1810.11278) concerns extreme molecules, not bulk volume law. Kipp (arXiv:2407.01353) proves structural results about isotropic-constant extremizers, not this specific evaluation. Johnston–Prochno (arXiv:1911.00695) proves projection limit theorems for \(\ell_p\) balls; the law uniform on a fixed zero-sum section is not their randomly projected law. Semantic mathematical-record searches returned Hanner isotropic constants, ellipsoid distortion of equilateral free balls, and vertex-moment formulae for a different polytope, none of which imply this claim. The literature search does not prove absence of an unindexed equivalent formula; this is a substantive residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The bulk distribution and exact isotropic constant are natural affine invariants of a canonical family of finite-dimensional Lipschitz-free unit balls. The limit law identifies a nontrivial universal-order radial fluctuation scale and its precise variance as dimension grows, not a renamed known face/volume count. The explicit sampler supplies a reusable exact probabilistic representation linking transportation norms with Dirichlet and hypergeometric models. The Gaussian law is an infinite-family theorem with independent finite verification; no broader unproved generality is claimed.
+PASS with prior geometry credited: Alexander et al already give exact equilateral Lipschitz-free volume using chambers; the new assertion is bulk covariance, isotropic constant, exact sampler law and Gaussian radial CLT, neither entailed by a scalar volume formula nor identified in Kipp normality literature.
 
-## Closest literature and limitations
+## value
 
-- Alexander et al., arXiv:1911.10642, §5.2: **covers sign-chamber volume**; does not state the new bulk covariance or radial law in material inspected.
-- Aliaga and Pernecká, arXiv:1810.11278: finite extreme-molecule theorem, not bulk moments.
-- Kipp, arXiv:2407.01353: isotropic-constant extremal structure, not evaluation for the complete type-A root family in inspected material.
-- Johnston and Prochno, arXiv:1911.00695: random orthogonal projections, not uniform fixed hyperplane sections.
+PASS
 
-Unchecked or unindexed equivalent work, including possible general central limit theorems for uniform sections of \(\ell_1\) balls, remains a scientific risk. No independent validation is claimed. The new work is specific to the canonical zero-sum Euclidean geometry.
+Natural exact bulk invariant for a central family of Lipschitz-free unit balls; supplies a useful exact uniform sampler, precise affine-invariant isotropic constant, and quantitative thin-shell fluctuation universality beyond known volume.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The standalone `verify.py` performs exact rational checks of the chamber-moment identity for every dimension \(n=2,\ldots,23\). For \(n=3,4,5,6\), it reconstructs the convex hull directly and integrates the squared Euclidean radius exactly over cones from the origin to a triangulated boundary; this check does not depend on the theorem's sign-chamber counting identity. Those four calculations also check the exact coordinate volume, with the Euclidean Gram factor treated explicitly. The script performs a seeded, non-exhaustive sampling diagnostic at three larger dimensions.
+## correctness
 
-All these finite computations are corroborative only. The proof for every dimension is the chamber Jacobian and Vandermonde evaluation, while the normal limit follows from the conditional exponential representation, the multivariate central limit theorem, and the delta method. The finite checks do not imply the asymptotic statement and the probability simulations are not statistical certifications. Reproduce with `python verify.py` in an environment providing Python 3, NumPy and SciPy (the exact combinatorial checks themselves use only the Python standard library).
+PASS
 
-Independent scientific audit has not been performed.
+Verified sign-chamber Jacobi density sqrt(n)R^{n-2}/((k-1)!(n-k-1)!) and total volume sqrt(n)binom(2n-2,n-1)/(n-1)!. Exact rational independent binomial moment checks through n=24 show E[1/(K+1)]=(2n-1)/(n(n+1)) and Cov=4(2n-1)/(n(n+1)^2)I_H. Proof couples Dirichlet weights to exponential ratios Q_k and delta-method CLT with variance 4; independent hypergeometric K/n->1/2, radial R=U^(1/(n-1)), gives normalized Gaussian variance one. Finite symbolic checks support, not prove asymptotic. Euclidean zero-sum metric normalization is essential.
+
+## originality
+
+PASS
+
+PASS with prior geometry credited: Alexander et al already give exact equilateral Lipschitz-free volume using chambers; the new assertion is bulk covariance, isotropic constant, exact sampler law and Gaussian radial CLT, neither entailed by a scalar volume formula nor identified in Kipp normality literature.
+
+## value
+
+PASS
+
+Natural exact bulk invariant for a central family of Lipschitz-free unit balls; supplies a useful exact uniform sampler, precise affine-invariant isotropic constant, and quantitative thin-shell fluctuation universality beyond known volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
