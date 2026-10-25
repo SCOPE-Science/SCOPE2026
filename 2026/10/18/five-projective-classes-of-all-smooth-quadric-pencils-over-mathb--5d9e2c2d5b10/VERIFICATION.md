@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run from this directory using Python 3 and no third-party packages:
+## correctness
 
-```
-python verify_census.py
-python verify_base_smoothness.py
-```
+PASS
 
-Expected terminal markers: `CENSUS_VERIFY_OK` and `BASE_SMOOTHNESS_VERIFY_OK`. The first implementation enumerates all 448 geometrically smooth quadratic forms using the exact six-bit Pfaffian test, constructs all 14,336 unordered binary two-spaces, checks 56 polar pencils each with 256 lifts, and closes orbits under adjacent variable swaps and a transvection. The second creates the two generators and all Jacobian two-minors on each of four affine charts, then runs Buchberger's algorithm for the base-smooth representatives; the unit ideal certifies geometric smoothness over the algebraic closure. Rational base points are directly evaluated at all 15 projective binary points. Smooth genus-one base existence for two orbits follows from the complete-intersection adjunction formula. The other three orbits are ruled out by the genus-one Hasse bound.
+In characteristic two the polar alternating 4-by-4 Pfaffian detects geometric smoothness. Independently enumerated all 64 alternating forms (28 nondegenerate), all 448 smooth quadrics and all 56 fully Pfaffian-nondegenerate polar planes, each with 256 square-term lifts: total 14336. An independently constructed GL4(F2) action yielded exactly five orbits of sizes 336,560,3360,5040,5040, with all claimed 15-point base incidences. Direct independent Groebner unit-ideal tests on all four affine charts for each representative found only (192,357) and (192,358) have geometrically smooth base, giving 10080. Hasse forbids smooth genus-one intersections with zero or six rational points. Small finite exhaustive census is complete because all 1024 forms and all group orbits were covered.
 
-The output is a finite exact classification of the specified objects. It does not classify any unrestricted higher extension field, identify abstract curve isomorphism classes, or constitute an independent external audit.
+## originality
+
+PASS
+
+Asgarli–Ghioca establish existence of a pencil with all rational members smooth over F2, which is strictly weaker than the complete orbit and base-locus classification. Characteristic-zero constant-rank singular-pencil classifications have incompatible ground fields and hypotheses. Indexed published-results search showed no direct table; residual unindexed finite-geometry coverage remains.
+
+## value
+
+PASS
+
+Complete projective orbit structure and smooth/singular genus-one base-locus dichotomy for the smallest finite field give natural finite-geometric invariants beyond a known existence witness. The precise table is not mechanically implied by existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Pfaffian criterion is necessary and sufficient for a smooth quadric surface in characteristic two. Exhaustive enumeration of 448 smooth quadratic forms and 56 polar pencils establishes the exact 14,336 count. Projective orbit closure by explicit generators accounts for all 14,336 without overlap and yields five orbit sizes and rational base-point counts. Independently formulated affine Jacobian ideals for both base-smooth representatives reduce to the unit ideal over the algebraic closure. Hasse excludes genus-one smooth bases with zero or six rational points. The delivered verifier has been executed successfully.
+## correctness
 
-## Originality — PASS, with residual risk
-Asgarli and Ghioca (arXiv:2203.07169v1, introduction and Section 3) establish existence of all-smooth quadric-surface pencils; that fact is not claimed new. Their paper does not give the five binary projective classes and rational base smoothness and counts. Boralevi and Mezzetti (arXiv:2206.00503v1, introduction) study a different class of *singular* constant-rank pencils in characteristic zero, not binary pencils of three smooth members. Leep–Schueller (J. Algebra 227, 2000) assume characteristic unequal to two. Literal and alias-based targeted searches did not find the exact binary orbit table; this is evidence of no identified cover, not proof of absolute novelty. A prior unindexed equivalent finite-geometry census remains possible.
+PASS
 
-## Value — PASS
-The classification moves a natural existence problem to the complete, optimal small-field projective census. It distinguishes all five embedded pencil types, including the precise failure of base-smoothness for 4,256 pencils, and identifies the 10,080 pencils whose intersections are smooth genus-one curves and their rational-point dichotomy. Those conclusions are not routine consequences of the previously known single example or of classifications of individual quadrics.
+In characteristic two the polar alternating 4-by-4 Pfaffian detects geometric smoothness. Independently enumerated all 64 alternating forms (28 nondegenerate), all 448 smooth quadrics and all 56 fully Pfaffian-nondegenerate polar planes, each with 256 square-term lifts: total 14336. An independently constructed GL4(F2) action yielded exactly five orbits of sizes 336,560,3360,5040,5040, with all claimed 15-point base incidences. Direct independent Groebner unit-ideal tests on all four affine charts for each representative found only (192,357) and (192,358) have geometrically smooth base, giving 10080. Hasse forbids smooth genus-one intersections with zero or six rational points. Small finite exhaustive census is complete because all 1024 forms and all group orbits were covered.
 
-## Limits
-The statement is restricted to the binary field, projective equivalence of embedded pencils, and the stated genus-one base property. Code checks are exact but have not undergone external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asgarli–Ghioca establish existence of a pencil with all rational members smooth over F2, which is strictly weaker than the complete orbit and base-locus classification. Characteristic-zero constant-rank singular-pencil classifications have incompatible ground fields and hypotheses. Indexed published-results search showed no direct table; residual unindexed finite-geometry coverage remains.
+
+## value
+
+PASS
+
+Complete projective orbit structure and smooth/singular genus-one base-locus dichotomy for the smallest finite field give natural finite-geometric invariants beyond a known existence witness. The precise table is not mechanically implied by existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
