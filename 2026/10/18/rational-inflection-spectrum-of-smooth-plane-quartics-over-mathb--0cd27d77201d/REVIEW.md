@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result has a completely explicit finite domain: projective nonzero ternary quartic coefficient vectors over \(\mathbf F_3\), of cardinality \((3^{15}-1)/2=7,174,453\). Projective linear substitutions account for all \(1,557\) orbits by checking their sizes sum to that domain. The rank-\(36\) degree-seven Jacobian multiplication test is equivalent to absence of geometric singularities, since the three degree-three partials form a regular sequence precisely when they have no projective common zero. Tangent restrictions are computed with Hasse/binomial coefficients, so order-three versus order-four contact is identified exactly even in characteristic three. This gives the seventeen-stratum table of \(4,099,680\) geometrically smooth equations and \(805\) orbits.
+## correctness
 
-A second implementation reads every normalized quartic independently, finds every equation with at least seven smooth-rational-point flex contacts, then invokes its own full rank-36 geometric-smoothness check on all \(6,097\) candidate equations; exactly \(936\) are smooth. A third implementation independently recalculates smoothness and contact counts for all \(1,557\) orbit representatives. The cross-check output matches the first table in all seventeen strata. The explicit maximizer is checked directly from its derivatives and tangent-line substitutions, and all its seven rational points lie on the two-line conic. All code and expected data are embedded and were replayed from relative package paths. The method is an exhaustive finite proof for this field, not a conjectural inference from sampled experiments.
+PASS
 
-## Originality — PASS, with residual priority risk
-The 2010 conic theorem of Oyono–Ritzenthaler (arXiv:1006.0873, Section 5 Proposition 3) already locates characteristic-three inflection points on a conic; the conic property and any simple bounds arising from it are not claimed as original. Costa–Harvey–Sutherland (arXiv:2208.09890v1, first published 2022-08-21) addresses quartic point-count computation, not the joint ordinary-flex/hyperflex incidence census. Bergvall (DOI:10.1007/s40879-023-00711-3) studies bitangents and classical marked structures rather than the count of ordinary rational flexes. Earlier finite-field quartic classification material already determines the rational **hyperflex marginal**, which is not claimed as new. The proposed contribution is its joint refinement by the ordinary rational flex count, the complete seventeen-stratum weighted projective census, and the unique seven-flex extremal orbit. Exact published-finding corpus semantic queries for the flex census and equivalent contact-count descriptions found no statement implying this full table. They do find unrelated Hessian/singular-quartic studies, which were compared at the claim level and not treated as coverage.
+The entire domain consists of (3^15−1)/2=7,174,453 normalized nonzero ternary quartic forms. Exact smoothness follows from the rank-36 degree-seven multiplication map S4^3→S7 on three cubic partials: no projective common zero implies an Artinian degree-(3,3,3) complete intersection with socle degree six; rank36 converse via homogeneous ideal. Inspected exhaustive orbit C++ source using generators for PGL3(F3), yielding 1557 orbits; all smooth classes identified at rank36 (805 orbits, 4,099,680 weighted forms), and 17-row (r,h) counts. Inspected independent full-form high-flex scan and representative cross-check, plus stored exact tables; direct scan examines 7,174,453 forms and smoothness of 6097 high-contact candidates, with 936 smooth maxima and none with ≥8. Independently re-evaluated exemplar F=X³Y+2X³Z+XZ³+Y⁴ over all 13 F3 projective points and all 7 curve rational points: precise six order-three contacts and one order-four at [0:0:1], no others. This independent exemplar check does not replace complete C++ enumeration, whose source and finite exhaustive iteration were inspected.
 
-Residual risks include older unindexed computations, inaccessible works and potential arithmetical tables implicit in longer unpublished classifications. A negative search is not proof of uniqueness. A previous census of geometric or arithmetic flex counts might supersede the result, but none of the compared accessible sources states this joint \(\mathbf F_3\) result or a stronger classification that directly implies it.
+## originality
 
-## Value — PASS
-Rational flexes and hyperflexes refine the local contact divisor of a canonical genus-three plane quartic; they affect its rational tangent geometry and are a different arithmetic invariant from rational point and bitangent counts. The full joint classification is natural, covers all smooth models and explains the sharp seven-flex exceptional orbit with a single hyperflex and six ordinary flexes. Those exact counts are not a mere renaming of the known hyperflex marginal or the conic-support theorem. The unique exceptional model gives an explicit boundary example that can inform further incidence and automorphism investigations. The scope is limited to the three-element field and does not imply any field-uniform distribution or externally independently certified classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Characteristic-three conic support and generic eight geometric flexes are known; the exact 17-stratum F3 rational ordinary/hyperflex table, unique seven-rational-flex orbit and weighted classes are not found in inspected earlier primary sources. The previously known hyperflex marginal is not claimed as new. Qualified exact-table priority risk remains.
+
+## value
+
+PASS
+
+A complete joint ordinary/hyperflex arithmetic classification in a small natural coefficient space provides data finer than rational-point and hyperflex marginals; the sharp 7-flex orbit and explicit witness are useful geometric extremal invariants, not arbitrary one-off computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
