@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The Gaussian regression identity is exact for the specified rank-one sketched-harmonic pencil; it produces the reciprocal of a shifted Student variate. Its denominator has positive smooth density at zero, implying a strict inverse-tail exponent of one. The coefficient-of-variation extremum follows from bounded-support variance and is attained by the explicit two-eigenvalue construction. The accompanying fixed-seed numerical verifier confirms the extremizing vector and selected tail frequencies. Risks: only real sketches and the one-dimensional pencil are proved; exceptional denominator zero has probability zero.
+
+**Originality: PASS under available-source comparison, with residual uncertainty.** The relevant 2026 source supplies the sketched harmonic pencil and high-probability embedding conditions. The present claim concerns an exact unconditional finite-sketch law, sharp negative Ritz probability over fixed spectral range, and a universal loss of first-moment integrability. The primary abstract and detailed public methodological account were inspected but the original full text was unavailable, and so an undiscovered theorem in its appendices or prior Gaussian-Ritz literature remains a material historical-priority risk. published-finding corpus searches for shifted Student/Ritz, inverse moments and Gaussian harmonic sketching found no equivalent statement; failure to locate one is not proof of novelty.
+
+**Value: PASS.** The distribution and moment divergence quantify the rare-event gap between high-probability subspace-embedding guarantees and unconditioned means of harmonic Ritz values; the optimal condition-number bound gives a finite-dimensional benchmark for sketch-size choices. This is more than an arbitrary small-matrix counterexample because it applies to every finite sketch row count and has an optimal spectrum-only risk bound.
+
+Self-review: passed. Independent audit: not yet performed.
