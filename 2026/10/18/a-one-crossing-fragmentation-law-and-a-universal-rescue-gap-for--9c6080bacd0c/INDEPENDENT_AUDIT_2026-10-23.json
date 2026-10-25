@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:48:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transient generator [[-2h,2h],[c,-(h+c)]] and absorption vector (0,h) give Laplace transform 2h²/[s²+(3h+c)s+2h²], hence positive distinct hypoexponential rates lambda_± and E[T2]=(3h+c)/(2h²). Its hazard H2=lambda_-lambda_+(1-exp(-(lambda_+-lambda_-)t))/(lambda_+-lambda_-exp(-(lambda_+-lambda_-)t)) strictly increases 0->lambda_-; thus log(S2/exp(-mt)) has initially positive derivative and crosses zero at most once. Characteristic polynomial at m gives lambda_-<=m exactly c>=c_tail=(h-m)(2h-m)/m. For c<c_tail the survival ratio decays to zero and crosses one exactly once. Monotone coupling in c proves t* strictly increases; implicit log survival identity and lambda_-(c)-m~m²(c_tail-c)/(2h²-m²) prove the given divergence coefficient. Difference c_tail-c_mean=m by direct algebra, including c=0, equality and c=c_tail. Independent exact symbolic/numerical verification of Markov resolvent and the m=1,h=2,c=5/2 witness was performed; it is not proof of all-parameter claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Etienne and Heesterbeek (2000), J Theor Biol 203,33-50, DOI 10.1006/jtbi.1999.1060: mean-persistence/patch optimization",
+          "Hartig and Drechsler (2008), arXiv:0807.4040: exponential quasi-stationary survival ranking"
+        ],
+        "reasoning": "Earlier ecological models optimize mean persistence or use quasi-stationary exponential survival; the transient two-patch fully occupied law here has strictly increasing hazard and horizon reversal. Different premises prevent deriving this theorem immediately, though complete early texts have not all been inspected.",
+        "searches": [
+          "Resultary semantic: fixed total habitat area one vs two patches recolonization rescue extinction time survival curves exactly one crossing phase type increasing hazard mean persistence tail threshold",
+          "Etienne Heesterbeek 2000 optimal size number reserves mean extinction time Hartig Drechsler 2008 quasi stationary horizon rankings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check.py Git blobs for record 1",
+        "Quinn and Hastings (1987), DOI 10.1111/j.1523-1739.1987.tb00033.x",
+        "Etienne and Heesterbeek (2000), DOI 10.1006/jtbi.1999.1060",
+        "Hartig and Drechsler (2008), arXiv:0807.4040",
+        "Resultary semantic query on fragmentation/repairable phase-type comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quinn-Hastings 1987 available abstract addresses subdivision and short-horizon extinction risks, without an inspected full two-patch c-dependent theorem",
+          "Hartig-Drechsler 2008 exponential approximation differs from fully occupied transient CTMC"
+        ],
+        "reasoning": "Prior habitat subdivision results and phase-type methods plausibly encompass ingredients; no inspected statement implies both exact one-crossing/tail criterion and universal m gap. Full Quinn-Hastings text could not be inspected, so a specialization remains possible; not asserted definitively new.",
+        "searches": [
+          "Resultary semantic: fixed total habitat area one vs two patches recolonization rescue extinction time survival curves exactly one crossing phase type increasing hazard mean persistence tail threshold",
+          "Quinn Hastings Extinction in Subdivided Habitats short term long term patch reserve re-colonization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "two-stage absorption Laplace transform 2h²/(s²+(3h+c)s+2h²); 2-element repairable reliability/hypoexponential phase-type law",
+          "Quinn and Hastings 1987, DOI 10.1111/j.1523-1739.1987.tb00033.x"
+        ],
+        "reasoning": "The phase-type distribution and increasing hazard are standard in reliability and queueing. Such aliases do not alone give the fixed-total-area comparison, its threshold equality c_tail-c_mean=m, or near-critical crossover coefficient. The possibility of a specialized reliability corollary remains a priority risk.",
+        "searches": [
+          "Resultary semantic: fixed total habitat area one vs two patches recolonization rescue extinction time survival curves exactly one crossing phase type increasing hazard mean persistence tail threshold",
+          "two-unit repairable reliability systems phase-type increasing hazard survival functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit symbolic CTMC resolvent and analytically obtained c_tail, c_mean"
+        ],
+        "reasoning": "There is no discrete precomputed numerical invariant or finite table: the claim ranges over real h/m>1 and nonnegative c. A standard phase-type formula is not an exhaustive prior table of the comparative ecological thresholds.",
+        "searches": [
+          "Resultary semantic: fixed total habitat area one vs two patches recolonization rescue extinction time survival curves exactly one crossing phase type increasing hazard mean persistence tail threshold",
+          "two state Markov repair extinction mean tail threshold exact table"
+        ]
+      },
+      "rationale": "No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.",
+      "residual_risks": [
+        "The full Quinn-Hastings 1987 paper and Etienne-Heesterbeek 2000 paper were not read; a specialized theorem or reliability analogue may dominate these comparison thresholds. Oxford authorized retrieval for Quinn reported vpn_disconnected; no bypass.",
+        "The strictly increasing crossover coupling and divergence law apply only with initially both patches occupied, independent extinction, successful c rescue, and equal fixed-area splitting; not empirical ecological universality.",
+        "A private local bounded algebra/numerical check does not independently prove the all-parameter theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected statement providing the exact positive-recolonization phase diagram; coverage cannot be ruled out from abstract",
+          "evidence": "Quinn and Hastings (1987), Conservation Biology 1,198-209; specifically compares extinction in subdivided habitats. Oxford access reported VPN disconnected (job ee288a9fb74b8436ee2ea0876b5c0a16).",
+          "identifier_or_url": "https://doi.org/10.1111/j.1523-1739.1987.tb00033.x",
+          "material_read": "Publisher abstract/search metadata only; complete article inaccessible",
+          "method": "publisher abstract and bibliographic lookup, authorized institutional request",
+          "title": "Extinction in Subdivided Habitats",
+          "trigger": "Same ecological fragmentation and survival-horizon outcome"
+        },
+        {
+          "assessment": "Its constant-hazard quasi-stationary premise differs from initially fully occupied two-patch transient hazard",
+          "evidence": "Hartig and Drechsler (2008) analyze rankings under an exponential survival approximation, whereas H2(t) here increases 0 to lambda_-.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.4040",
+          "material_read": "Abstract and bibliographic discussion of quasi-stationary exponential survival model",
+          "method": "arXiv abstract and source comparison",
+          "title": "The time horizon and its role in multiple species conservation planning",
+          "trigger": "Potential all-horizon rank theorem"
+        },
+        {
+          "assessment": "Mean optimization does not by itself imply one-time survival crossover or exact m-width gap",
+          "evidence": "Etienne and Heesterbeek 2000; methodological relevance and uncertain uninspected details recorded.",
+          "identifier_or_url": "https://doi.org/10.1006/jtbi.1999.1060",
+          "material_read": "Publisher indexing/abstract; not complete original article",
+          "method": "bibliographic/abstract comparison",
+          "title": "On Optimal Size and Number of Reserves for Metapopulation Persistence",
+          "trigger": "Fixed area mean-persistence optimization and possible stronger reserve theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-area reserve fragmentation creates a genuine decision gap between an expected extinction time and survival at EVERY horizon. The exact constant m gap and unique critical crossover separate two operational objectives even with the same Markov mechanics. This is a motivated structural threshold and counterexample to inferring late-time benefit from mean longevity, not merely an arbitrary parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and check.py Git blobs for record 1",
+    "Quinn and Hastings (1987), DOI 10.1111/j.1523-1739.1987.tb00033.x",
+    "Etienne and Heesterbeek (2000), DOI 10.1006/jtbi.1999.1060",
+    "Hartig and Drechsler (2008), arXiv:0807.4040",
+    "Resultary semantic query on fragmentation/repairable phase-type comparison"
+  ],
+  "disposition": "passed",
+  "final_claim": "Fixed-area initially occupied one versus two independent-patch extinction/rescue model has unique survival crossover below a sharp rescue threshold, a constant-width mean-versus-tail gap, and an explicit critical divergence law.",
+  "limitations": [
+    "The full Quinn-Hastings 1987 paper and Etienne-Heesterbeek 2000 paper were not read; a specialized theorem or reliability analogue may dominate these comparison thresholds. Oxford authorized retrieval for Quinn reported vpn_disconnected; no bypass.",
+    "The strictly increasing crossover coupling and divergence law apply only with initially both patches occupied, independent extinction, successful c rescue, and equal fixed-area splitting; not empirical ecological universality.",
+    "A private local bounded algebra/numerical check does not independently prove the all-parameter theorem."
+  ],
+  "residual_risks": [
+    "The full Quinn-Hastings 1987 paper and Etienne-Heesterbeek 2000 paper were not read; a specialized theorem or reliability analogue may dominate these comparison thresholds. Oxford authorized retrieval for Quinn reported vpn_disconnected; no bypass.",
+    "The strictly increasing crossover coupling and divergence law apply only with initially both patches occupied, independent extinction, successful c rescue, and equal fixed-area splitting; not empirical ecological universality.",
+    "A private local bounded algebra/numerical check does not independently prove the all-parameter theorem."
+  ],
+  "schema_version": 1
+}

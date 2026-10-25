@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. Execute `python check.py` using Python 3 with SymPy installed. The program checks the transient resolvent, exact Laplace transform, extinction-time mean, characteristic-polynomial threshold and constant-width threshold relation by symbolic identity. It then compares the exact mean derived from a separately inverted transient Markov generator with the formula for 256 deterministic rational test triples, and computes the unique crossover time for the specified example.
+## correctness
 
-Observed result from the actual packaged checker:
+PASS
 
-`PASS: exact generator, Laplace and moment identities; 256 independent rational parameter cases; example crossover and critical asymptotics`
+The transient generator [[-2h,2h],[c,-(h+c)]] and absorption vector (0,h) give Laplace transform 2h²/[s²+(3h+c)s+2h²], hence positive distinct hypoexponential rates lambda_± and E[T2]=(3h+c)/(2h²). Its hazard H2=lambda_-lambda_+(1-exp(-(lambda_+-lambda_-)t))/(lambda_+-lambda_-exp(-(lambda_+-lambda_-)t)) strictly increases 0->lambda_-; thus log(S2/exp(-mt)) has initially positive derivative and crosses zero at most once. Characteristic polynomial at m gives lambda_-<=m exactly c>=c_tail=(h-m)(2h-m)/m. For c<c_tail the survival ratio decays to zero and crosses one exactly once. Monotone coupling in c proves t* strictly increases; implicit log survival identity and lambda_-(c)-m~m²(c_tail-c)/(2h²-m²) prove the given divergence coefficient. Difference c_tail-c_mean=m by direct algebra, including c=0, equality and c=c_tail. Independent exact symbolic/numerical verification of Markov resolvent and the m=1,h=2,c=5/2 witness was performed; it is not proof of all-parameter claim.
 
-These are reproducibility checks, not an exhaustive enumeration of real parameters or a separate independent audit. Universality follows from the explicit hazard monotonicity, the characteristic-root comparison, the coupling and critical-limit calculation in `RESULT.md`. Numerical crossover values and near-critical approximations are illustrative only.
+## originality
+
+PASS
+
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
+
+## value
+
+PASS
+
+Fixed-area reserve fragmentation creates a genuine decision gap between an expected extinction time and survival at EVERY horizon. The exact constant m gap and unique critical crossover separate two operational objectives even with the same Markov mechanics. This is a motivated structural threshold and counterexample to inferring late-time benefit from mean longevity, not merely an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
