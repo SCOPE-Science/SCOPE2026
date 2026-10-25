@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Algorithm 1 of Alcantara–Lee–Takeda reduces exactly to the two-dimensional matrix displayed in `RESULT.md`; all three strict Jury quantities are reconstructed symbolically. Direct subtraction yields both window endpoints. Their collision at \(u=v+8+16/(v-1)\) produces a nonzero nilpotent \(M+I\), precluding asymptotic convergence; the \(v=5\) minimum establishes the sharp curvature-\(17\) barrier. Monotonicity of the endpoints and a limiting argument for \(v\uparrow u\) establish the sharp robust cutoff. The smooth witness has \(-15\le p''\le5/8\), globally \(5\)-strongly convex objective, and exact Jacobian \(M(20,5,\tau)\) at its minimizer. All conclusions follow from formulas and standard spectral/linearized-instability theorems; 1,000 direct-map comparisons and 200 dimensional-scale checks supplement exact symbolic assertions.
+## correctness
 
-**Originality — PASS within investigated sources, with residual risk.** The 2024 original and later openly accessible formulations introduce this exact finite-parameter iteration and sufficient Lyapunov stepsize bounds, but do not give the paired strict Schur inequalities, the separation between curvature thresholds \(17\) and \((5+\sqrt{57})/2\), or this genuine weak-concavity strongly convex counterexample. The related doubly relaxed forward–Douglas–Rachford paper proves other sufficient splitting criteria. Targeted mathematical-record searches and relevant published statements were compared at claim level; nearest entries concern different operator-splitting recurrences. An equivalent older spectral reduction, overlooked subsequent appendix or differently parametrized special case could affect priority. The finite equal-parameter calculation is not the source's preferred \(\beta=\infty\) specialization at zero weak-concavity modulus; the smooth witness avoids that convention.
+PASS
 
-**Value — PASS.** Exact necessary-and-sufficient relaxation windows inform tuning and identify two structurally distinct robustness requirements. The sharp no-relaxation-possible regime persists in a smooth globally strongly convex problem while satisfying the cited positive weak-concavity bound on \(\beta\). This separates objective curvature, finite proximal parameter admissibility, and discrete fixed-point stability—an actionable diagnostic not obtained from a generic sufficient stepsize theorem.
+For the published finite-parameter four-operator iteration at α=β=η, γ=η/2 on f=Fx²/2,p=−Px²/2, define u=ηF>v=ηP≥0. Direct substitution of exact prox maps gives the full 2×2 state matrix M with first row ((1+v)/2,(1−u)/(2(1+u))) and second row (τ(1+v)/2,1−τ/2). The three Jury inequalities simplify to τ(u−v)/(2(1+u))>0, v+3−τ(u+v+2)/(2(1+u))>0, (1−v+τ(1+v)/(1+u))/2>0; hence the precise open stability window. For v>1 endpoint collision iff u≥u_c(v)=v+8+16/(v−1), minimum u_c=17 at v=5; a nontrivial eigenvalue −1 Jordan collision occurs at equality. A common τ for all v<u requires u−1<U(0)=6(1+u)/(u+2), yielding u<(5+sqrt57)/2; separate 0<u≤1 case admits τ=1. The smooth witness p″=−5+5(cosx−cos2x)∈[−15,5/8] gives globally ≥5-convex objective and Jacobian M(20,5,τ) unstable for all τ>0, establishing local fixed-point instability, not global divergence. Independent SymPy checked all Jury identities, collision and 6 unstable witness rates. One nonessential source phrase says U(v) increases for every u>0; the exact derivative has sign(u−1), so that phrase is false when u≤1. Its use is only in the u>1 case, and the u≤1 case is separately settled; the stated theorem survives intact. It should be corrected editorially before publication.
 
-**Limitations and closest literature.** Scoped to scalar quadratic dynamics and local instability of one smooth nonquadratic example. No blanket conclusions about general nonsmooth four-operator problems, indefinite matrices, or global nonlinear divergence. Primary: Alcantara–Lee–Takeda, arXiv:2406.16025v1 and doi:10.1137/24M1672067. Related: Dao–Pham–Tung, arXiv:2405.08485v1. Older two- and three-operator quadratic stability theory is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alcantara–Lee–Takeda introduce the four-operator iteration and prove global subsequential convergence under sufficient conditions; these are all prior. Their full preprint Algorithm 1 matches the audited finite-parameter map but does not provide the complete necessary-and-sufficient scalar Schur window, the two curvature ceilings, or the explicit strongly-convex weak-concavity instability construction. General Jury criteria are textbook prior methods, while application and sharp collision calculation to this exact algorithm are specific. Related doubly relaxed forward-Douglas–Rachford work addresses a different step map. Best-of-knowledge originality with other finite-parameter stability-table risk.
+
+## value
+
+PASS
+
+Knowing precise allowable relaxation intervals and a hard obstruction to *any* relaxation on a strongly convex test problem is a substantive algorithmic boundary, especially separating per-instance parameter tuning (17) from a robust common choice ((5+sqrt57)/2). The smooth instability witness clarifies why a source's sufficient small-step hypotheses matter; it is not merely checking a randomly chosen scalar matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

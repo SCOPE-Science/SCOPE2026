@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:12:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c for 2026/10/18/sharp-relaxation-windows-and-two-universal-stability-barriers-fo--1201ae31b393",
+        "Independent check file independent_checks.py / independent_checks_output.json",
+        "https://arxiv.org/abs/2406.16025",
+        "https://arxiv.org/abs/2405.08485"
+      ],
+      "rationale": "For the published finite-parameter four-operator iteration at α=β=η, γ=η/2 on f=Fx²/2,p=−Px²/2, define u=ηF>v=ηP≥0. Direct substitution of exact prox maps gives the full 2×2 state matrix M with first row ((1+v)/2,(1−u)/(2(1+u))) and second row (τ(1+v)/2,1−τ/2). The three Jury inequalities simplify to τ(u−v)/(2(1+u))>0, v+3−τ(u+v+2)/(2(1+u))>0, (1−v+τ(1+v)/(1+u))/2>0; hence the precise open stability window. For v>1 endpoint collision iff u≥u_c(v)=v+8+16/(v−1), minimum u_c=17 at v=5; a nontrivial eigenvalue −1 Jordan collision occurs at equality. A common τ for all v<u requires u−1<U(0)=6(1+u)/(u+2), yielding u<(5+sqrt57)/2; separate 0<u≤1 case admits τ=1. The smooth witness p″=−5+5(cosx−cos2x)∈[−15,5/8] gives globally ≥5-convex objective and Jacobian M(20,5,τ) unstable for all τ>0, establishing local fixed-point instability, not global divergence. Independent SymPy checked all Jury identities, collision and 6 unstable witness rates. One nonessential source phrase says U(v) increases for every u>0; the exact derivative has sign(u−1), so that phrase is false when u≤1. Its use is only in the u>1 case, and the u≤1 case is separately settled; the stated theorem survives intact. It should be corrected editorially before publication.",
+      "residual_risks": [
+        "The bounded independent computation tests specific instances only; the unrestricted domain is supported by the reconstructed analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source original proves sufficient convergence under restricted stepsizes and stationarity guarantees in general nonsmooth/nonconvex setting",
+          "Related DR method analyzes a different set of proximal compositions"
+        ],
+        "reasoning": "More general class of objectives in the source does not imply all-step-size necessity on scalar quadratics. The present theorem is a sharp special subcase of algorithm behavior not covered by the sufficient source hypotheses.",
+        "searches": [
+          "four operator splitting Alcantara Lee Takeda Schur stability scalar quadratic relaxation threshold 17 robust (5+sqrt 57)/2",
+          "Alcantara Lee Takeda SIAM J Optimization 2025 convergence sufficient parameters",
+          "Dao Pham Tung doubly relaxed forward DR 2024"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.16025",
+        "https://arxiv.org/abs/2405.08485",
+        "Resultary semantic search: four operator splitting Alcantara Lee Takeda Schur stability scalar quadratic relaxation threshold 17 robust (5+sqrt 57)/2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source convergence under sufficient restrictions does not exclude instability outside those restrictions",
+          "Current result proves necessary/sufficient all-state scalar window and source-exceeding unstable smooth weak-concave example"
+        ],
+        "reasoning": "A general sufficient convergence theorem cannot yield a sharp impossibility threshold or Jordan collision at large u. The result is not an implication of the source proof without analyzing the finite-β scalar linear map separately.",
+        "searches": [
+          "four operator splitting Alcantara Lee Takeda Schur stability scalar quadratic relaxation threshold 17 robust (5+sqrt 57)/2",
+          "arXiv:2406.16025 full original Algorithm 1 eqs (3.1)–(3.3)",
+          "arXiv:2405.08485 forward Douglas Rachford"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published four-operator update Algorithm 1 maps to same (y,z) state with η/2 coupling",
+          "Jury test for the exact 2×2 matrix yields strict Schur spectral inequalities"
+        ],
+        "reasoning": "Equivalent formulations in operator-splitting and Schur/Jury stability were explicitly checked. A generic Jury theorem does not precompute the sharp feasible-parametric phase diagram of this particular finite-β algorithm.",
+        "searches": [
+          "four operator splitting Alcantara Lee Takeda Schur stability scalar quadratic relaxation threshold 17 robust (5+sqrt 57)/2",
+          "Alcantara Lee Takeda arXiv:2406.16025 Algorithm 1 finite beta",
+          "Dao Pham Tung arXiv:2405.08485 doubly relaxed forward Douglas Rachford"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 17 collision and radical common threshold are exact analytic consequences of a two-state matrix",
+          "No same-algorithm complete scalar relaxation stability table surfaced in Resultary or primary paper"
+        ],
+        "reasoning": "This is not a mere numerical cutoff or known table recomputation: the distinct quantifier orders for τ and v and nonlinear witness are essential. The search is not proof of novelty.",
+        "searches": [
+          "four operator splitting Alcantara Lee Takeda Schur stability scalar quadratic relaxation threshold 17 robust (5+sqrt 57)/2",
+          "Schur Jury inequalities scalar splitting relaxation thresholds 17",
+          "Resultary splitting parameter threshold semantic results"
+        ]
+      },
+      "rationale": "Alcantara–Lee–Takeda introduce the four-operator iteration and prove global subsequential convergence under sufficient conditions; these are all prior. Their full preprint Algorithm 1 matches the audited finite-parameter map but does not provide the complete necessary-and-sufficient scalar Schur window, the two curvature ceilings, or the explicit strongly-convex weak-concavity instability construction. General Jury criteria are textbook prior methods, while application and sharp collision calculation to this exact algorithm are specific. Related doubly relaxed forward-Douglas–Rachford work addresses a different step map. Best-of-knowledge originality with other finite-parameter stability-table risk.",
+      "residual_risks": [
+        "A previously published finite-β local-stability note could produce the same thresholds under renormalized relaxation variables.",
+        "Pinned RESULT.md contains the nonessential false global monotonicity phrase U strictly increasing for all u>0; only u>1 uses it, so theorem proof survives, but editorial correction is necessary prior to publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The algorithm is prior; source provides sufficient convergence criteria rather than complete scalar all-τ Schur classification.",
+          "evidence": "Parameterization with T_{βp}(y)=y−βp′(y); source recommends β=∞ for L_p=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.16025",
+          "material_read": "Full HTML preprint accessible; Algorithm 1 equations (3.1)–(3.3), conditions on α β γ and principal convergence statements",
+          "method": "Open arXiv HTML",
+          "title": "A four-operator splitting algorithm for nonconvex and nonsmooth optimization",
+          "trigger": "identical algorithm and its published guarantees"
+        },
+        {
+          "assessment": "Different operator composition and parameterization; noncoverage of all full document not asserted.",
+          "evidence": "Different relaxed Douglas–Rachford iteration and sufficient convergence discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.08485",
+          "material_read": "Accessible abstract and relevant framing, full theorem comparison limited",
+          "method": "Open arXiv abstract",
+          "title": "Doubly relaxed forward-Douglas–Rachford splitting for the sum of two nonconvex and a DC function",
+          "trigger": "closely related relaxed splitting with weak concavity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.16025",
+        "https://arxiv.org/abs/2405.08485"
+      ],
+      "rationale": "Knowing precise allowable relaxation intervals and a hard obstruction to *any* relaxation on a strongly convex test problem is a substantive algorithmic boundary, especially separating per-instance parameter tuning (17) from a robust common choice ((5+sqrt57)/2). The smooth instability witness clarifies why a source's sufficient small-step hypotheses matter; it is not merely checking a randomly chosen scalar matrix.",
+      "residual_risks": [
+        "The claim addresses the stated mathematical object and precise invariant; no unrelated wider theorem, paper-sized output or implementation speedup is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md at fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c for 2026/10/18/sharp-relaxation-windows-and-two-universal-stability-barriers-fo--1201ae31b393",
+    "Independent check file independent_checks.py / independent_checks_output.json",
+    "https://arxiv.org/abs/2406.16025",
+    "https://arxiv.org/abs/2405.08485"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A previously published finite-β local-stability note could produce the same thresholds under renormalized relaxation variables.",
+    "Pinned RESULT.md contains the nonessential false global monotonicity phrase U strictly increasing for all u>0; only u>1 uses it, so theorem proof survives, but editorial correction is necessary prior to publication.",
+    "Full Git record-tree listings were unavailable; the five actual pinned Git file blobs were read, but source-tree SHA was not independently recomputed.",
+    "Public METADATA.json has scope_run_id and AUDIT.json has pending operational status; publication is withheld without complete sanitized source-guarded replacements."
+  ],
+  "schema_version": 1
+}
