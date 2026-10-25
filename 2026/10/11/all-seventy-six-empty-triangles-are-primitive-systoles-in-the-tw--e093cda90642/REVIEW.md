@@ -1,15 +1,13 @@
-# Same-model review
+# Mathematical research assessment
 
 ## Correctness
-PASS. The exact \(60\)-facet complex is reconstructed independently. Integral unimodular reduction proves \(H_1\cong\mathbb Z\), and an explicit primitive cocycle gives exact integer coordinates. All \(220\) three-vertex sets are exhausted: \(144\) are faces and each of the other \(76\) evaluates to \(\pm1\). Full permutation backtracking independently finds exactly \(96\) simplicial automorphisms and verifies carrier orbit sizes \(12,48,16\) and the \(48/48\) split of the induced \(\pm1\) action.
+The exact 60-facet complex has face vector (12,66,144,150,60). With a star spanning tree contracted, the 144 triangular face boundaries in 55 graph-cycle coordinates have 54 unit Smith factors and one free coordinate. An explicit integral cocycle vanishes on every face and takes values ±1 on every one of the 76 nonfacial triangular cycles (30 positive and 46 negative with the stated orientation). Therefore every such cycle is a primitive generator of H1 ≅ Z and is a shortest nontrivial simple simplicial loop. Exact facet-preserving permutation enumeration gives 96 automorphisms; their carrier orbits have sizes 12, 48, 16 and their H1 actions split equally between the two signs.
 
 ## Originality
-PASS. The exact-object literature already contains the topology, face vector, facet-orbit presentation, and automorphism-group order; these are treated as prior. Five focused semantic searches, the current and prior owned ledgers, and the full exact-object census did not supply the theorem that every empty triangle is a primitive \(H_1\)-generator or the complete \(12,48,16\) carrier-orbit refinement. An unindexed historical computation remains a residual risk.
+The primary Köhler–Lutz and Lutz database records establish the complex, its topology, face vector and symmetry-group order, all of which are prior work. Their inspected statements and tables do not state the primitive status of every missing triangle or the complete carrier-orbit decomposition. Related calculations for an orientable 12-vertex S3 × S1 complex and Walkup’s nine-vertex twisted S2-bundle concern different facet presentations and cannot imply this census. An unindexed prior exact computation remains a priority risk.
 
-## Value
-PASS. In this neighborly rank-one example, empty triangles are exactly the first combinatorially possible nonfacial simple loops. The complete result that all \(76\) are primitive, together with their three symmetry types and the nontrivial sign action on \(H_1\), is a natural structural invariant rather than a recomputation of the known homology.
+## Mathematical value
+The exact all-carrier result fills in a natural combinatorial systolic invariant of a small, highly symmetric nonorientable 4-manifold and classifies the shortest nonzero integral-homology loops under the full automorphism group.
 
-## Closest literature and limitations
-Köhler--Lutz's vertex-transitive census is the decisive closest source. The closest owned result is for a different, orientable twelve-vertex \(S^3\times S^1\) triangulation and has a different one-skeleton and carrier count. The present result is specific to simplicial edge length in the fixed twisted-bundle triangulation.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Scope
+These are simple simplicial edge-cycle statements for the specified labelled triangulation. The positive/negative orientation count is label-dependent and the result makes no assertion about metric geodesic systoles or other triangulations.
