@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The result concerns precisely the graph \(\mu(C_5)\) with the given labeled 11-vertex, 20-edge construction, and its vertex-set dominance complex, not a graph matching complex. A complete facet enumeration produces 1,435 faces. An explicitly ordered acyclic matching has 715 ordinary matched pairs and critical cells in dimensions \(0,5,6,6\); the full 1,434-vertex Hasse graph is exhausted by topological sorting. Both integral Morse coefficients between the two six-cells and the five-cell vanish. Because \(\pi_5(S^5)\cong\mathbb Z\), this implies the stated wedge, not just homology. A separate facet-based implementation agrees on all face counts and homology ranks over two primes. The evidence is finite and sufficient for this single finite object.
+## correctness
 
-## Originality
-PASS to the limits of the completed literature checks. Matsushita--Wakatsuki's accessible full text establishes the Alexander-dual description and treats chordal and grid cases, but does not compute this graph. Taylan's dominance-complex result concerns chordal graphs, whereas the Grötzsch graph is nonchordal. The closest available Grötzsch calculation concerns its *matching* complex and is not implication-equivalent; high-girth neighborhood results concern the wrong graph in the complement duality. Direct, alias, parameter and dual-formulation searches found no encompassing full computation. An unindexed earlier calculation remains a genuine residual risk, not a proof of novelty.
+PASS
 
-## Mathematical value
-PASS. The graph is the canonical smallest triangle-free graph requiring four colors and the first nontrivial four-chromatic member of the Mycielski sequence, so its topology is a natural starting case beyond forests, chordal graphs and grid families. Its nonpure dominance complex has two distinct adjacent degrees of nonzero integral homology, a qualitative obstruction to the single-sphere phenomena in chordal settings. Exact homotopy, including absence of torsion and vanishing attaching maps, informs the study of dominance complexes of chromatically extreme nonchordal graphs. It is not claimed to solve an infinite family.
+For μ(C5) the ordinary Mycielski edges, clone incidences and apex yield 11 vertices,20 edges. New independent exhaustive enumeration gives 1435 faces including empty, f-vector (11,55,165,325,422,331,120,5). Reconstructed the specified 9,4,5,0,6,3,1,7,8,2,10 vertex-stage matching: 716 augmented pairs, 715 ordinary pairs and critical masks 415,1071,1510 plus 0-cell; all 6881 reversed/ordinary Hasse incidences form an acyclic directed graph (1434 nodes visited). Reimplemented recursive oriented integer projection of critical 6-cell boundaries onto critical 5-cell, yielding exact (0,0). The resulting CW complex is S5 with two nullhomotopic 6-cell attachments, since π5(S5)=Z and each degree is zero. No statement about arbitrary Mycielskians.
 
-## Closest literature and limitations
-Matsushita--Wakatsuki, arXiv:2312.02639, first public 2023-12-05; Taylan, arXiv:1501.06754 (2015); prior named computation of the Grötzsch matching complex; published neighborhood-complex high-girth theorem. Only the single eleven-vertex case is established. No equivariant module classification, generalized Mycielski formula or independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after new searches and claim-vs-prior comparisons, subject to explicitly listed source access and priority risks. The Grötzsch dominance complex is distinct from the matching complex and not in chordal or grid families.
+
+## value
+
+PASS
+
+The canonical 11-vertex smallest triangle-free 4-chromatic graph is a motivated benchmark for topological domination and Alexander duality, where a mixed S5,S6,S6 integral homotopy is not a routine chordal/sphere theorem or an arbitrary handpicked slice; exact attaching degrees distinguish integral homotopy from homology alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
