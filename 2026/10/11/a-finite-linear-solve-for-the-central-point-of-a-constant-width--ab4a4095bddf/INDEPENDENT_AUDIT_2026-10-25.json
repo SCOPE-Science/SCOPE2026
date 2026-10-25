@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T04:00:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nondegenerate paired-direction centrally symmetric U, determinant denominators [U_i,U_{i+1}] and [V_i,V_{i+1}] are nonzero by source duality. A double U-polygon has the closed half-edge coordinate E_U defined by two independent planar linear closure equations; dim(E_U)=n-2, including E_U={0} at n=2. Applying both source half-sum involute formulas gives a linear translation-equivariant F_U and an explicit unique decomposition F_U(R_Ux)=1 B_Ux+R_U(A_Ux). For any real x in E_U (not only source P), choose q>max_i |x_i|; P_i=R_Ux_i+qU_i and P_{i+n}=R_Ux_i-qU_i has successive positive edge coefficients q±x_i, is convex and of constant U-width, and has central equidistant R_Ux. Craizer–Martini Theorem 5.1 then implies F_U^k(R_Ux) converges to a point, so A_U^k x→0 for all x; finite dimension yields spectral radius(A_U)<1 and (I-A_U) invertible. Summing the exact affine recurrence with translation B_U gives O(P)=M_1+B_U(I-A_U)^(-1)r, with first-vertex anchoring and index relabel F_U(X)_{i+1}=Z_i crucial. Independent rational tests reconstructed nontrivial E_U for n=3,4,5, computed A_U,B_U, exact center invariance under one double involute, positive-width embedding, and converging numerical iterates. These finite tests are independent checks, not the all-polygon proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1702.00522 identifies curvature-radius vectors only modulo translation, constructs shape double-evolute operators and a pseudo-inverse on that representation.",
+          "arXiv:1510.07742 develops perpendicular-bisector and angular-bisector versions, not the Craizer–Martini constant-width construction.",
+          "arXiv:1301.6395 treats smooth Minkowski constant-width involutes rather than an explicit translation-aware finite polygon center algorithm."
+        ],
+        "reasoning": "A broader shape-operator treatment would dominate only if it retained the absolute translation component and computed the limiting central point. The radius-space formalism explicitly quotients out this datum, so its linear operator/pseudo-inverse alone is not an implication of the proposed formula. Distinct geometric evolute definitions cannot be substituted without proving equivalence.",
+        "searches": [
+          "Web: Craizer Teixeira Balestro Discrete Cycloids Convex Symmetric Polygons 1702.00522 radii translation",
+          "Web: Minkowski plane constant width polygon central point explicit closed form involutes center formulas 2018 2022",
+          "arXiv:1702.00522 sections 3–4 and pseudo-inverse at end",
+          "arXiv:1510.07742 geometric evolutes sections 1–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.3205, Involutes of Polygons of Constant Width in Minkowski Planes, Theorem 5.1 and open question",
+        "arXiv:1702.00522, Discrete Cycloids from Convex Symmetric Polygons, sections 3–4 and pseudo-inverse",
+        "arXiv:1510.07742, Iterating evolutes and involutes, open Max Planck preprint sections 1 and 4.3",
+        "arXiv:1301.6395, Iteration of Involutes of Constant Width Curves in the Minkowski Plane, introduction and main results",
+        "Resultary published finding index searches: central point finite solve; double evolute center; central equidistant limit point; matched own record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Craizer–Martini convergence identifies the limit but explicitly asks for a noniterative recovery; their equations do give the one-step computational data.",
+          "Craizer–Teixeira–Balestro radius representation loses translation, which is the unknown B_U correction required for the exact point.",
+          "A generic resolvent solves an affine contraction once its A_U and B_U maps are known; no inspected prior result states their center-specific assembly with the required convex realization argument."
+        ],
+        "reasoning": "Convergence plus standard finite-dimensional linear algebra makes the last inverse operation simple, but neither convergence alone nor a translation-quotient shape operator specifies the absolute central point. The geometric identification and constructible translation cocycle fill the concrete source question. Implication from an unindexed more general affine cocycle theorem with suitable concrete hypotheses is a residual priority risk.",
+        "searches": [
+          "arXiv:1406.3205 Theorem 5.1 plus question following theorem",
+          "arXiv:1702.00522 curvature-radius up to translation, double evolute, pseudo-inverse",
+          "Max Planck full preprint of arXiv:1510.07742 sections 1.2 and 4.3",
+          "Web: Craizer involutes center matrix 2018 2020",
+          "Resultary: Craizer Martini discrete cycloids double evolute operator center fixed point direct method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1406.3205, Theorem 5.1 establishes asymptotic convergence of involutes to O; the immediate open question asks for a direct method to compute O.",
+          "Resultary same-finding entry: 2026/10/11/SCOPE-a-finite-linear-solve-for-the-central-point-of-a-constant-width--ab4a4095bddf, same present theorem (not separate prior coverage).",
+          "The affine-system expression O=M_1+B_U(I-A_U)^(-1)r is equivalent to summing the translation cocycle of the particular double-involute map."
+        ],
+        "reasoning": "Equivalent terminology includes fixed point of the affine double involute, resolvent of the shape operator, cocycle summation, central equidistant contraction, and explicit central-point formula. The closest primary paper asks the direct-computation question, while the only indexed matching formula belongs to the assigned finding itself. A generic linear affine fixed-point identity does not compute the center without constructing the geometric maps and proving contraction on E_U.",
+        "searches": [
+          "Resultary: central point of a convex constant width polygon Minkowski involute finite linear solve translation cocycle",
+          "Resultary: Craizer Martini discrete cycloids double evolute operator center fixed point direct method",
+          "Web: finite matrix formula central point involutes polygons constant width Craizer Martini",
+          "Web: \"Craizer\" \"central point\" \"direct method\" polygon",
+          "arXiv:1406.3205 sections 4–5 and Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The input is arbitrary continuous edge geometry U and the output is a geometry-dependent point O(P), not a finite catalogue item.",
+          "Published-finding semantic search returned the identical assigned record and unrelated geometric center results, not an external exact database covering this functional invariant."
+        ],
+        "reasoning": "An exact-value table is not intrinsically applicable to the infinite-dimensional family of polygon instances. Searches nevertheless checked equivalent tabulation or ready-made central point algorithms; no independent pre-existing table or formula was found. Absence from search is not proof of novelty.",
+        "searches": [
+          "Resultary: Minkowski polygon central equidistant double involute limit point",
+          "Web: central point of polygon constant width formula table database",
+          "Web: direct method central point involute Minkowski paper"
+        ]
+      },
+      "rationale": "Best-of-knowledge original relative to the inspected mathematical statements. Craizer and Martini, arXiv:1406.3205, Theorem 5.1, prove convergence of double involutes and explicitly ask immediately thereafter for a direct method to obtain their central point. Their local involute identities are used as premises, but no translation-aware finite resolvent is given there. Craizer–Teixeira–Balestro, arXiv:1702.00522, make the double-evolute map linear on curvature-radius coordinates determining polygons only up to translation; this quotient does not determine the absolute center. The Arnold–Fuchs–Izmestiev–Tabachnikov–Tsukerman theory, arXiv:1510.07742, uses different perpendicular/angular-bisector evolutes and pseudo-Steiner points. Independent published-finding search retrieved the finding itself, not another record covering the center extraction. Generic (I-A)^(-1) algebra is classical; the specific geometric realization of all shape vectors and construction of B_U for this involute is the mathematical claim.",
+      "residual_risks": [
+        "An unindexed or later note might state an equivalent affine-fixed-point resolvent specialized to the Craizer–Martini operator without using central-point terminology.",
+        "The broader 2017 curvature-radius paper was materially inspected in relevant parts; a minor remark or alternate translation-coordinate formulation elsewhere could supply an implication.",
+        "The inverse itself is standard elementary linear algebra; novelty rests specifically on constructing shape and translation maps for the geometric involute and applying contraction to all closed shapes, not on inventing (I-A)^(-1).",
+        "No exhaustive survey of every later article or unpublished thesis is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_NOT_COVERING: published local involute formulas, convergence, and an explicit open direct-computation question; no center resolvent in the focused paper material.",
+          "evidence": "Theorem 5.1 states convergence to a point; immediately afterward the authors ask: Is there a direct method to obtain the central point O from polygon P?",
+          "identifier_or_url": "arXiv:1406.3205; https://arxiv.org/pdf/1406.3205",
+          "material_read": "The full 20-page PDF with focused reading of sections 2.1–2.3, 3.1/3.4, 4.1, 5 including Lemmas 2.1–2.3, (3.1),(3.5),(3.14),(4.1), Theorem 5.1 and the question immediately following it; relevant page screenshots viewed.",
+          "method": "Lawful arXiv full PDF text and focused page-image inspection.",
+          "title": "Involutes of Polygons of Constant Width in Minkowski Planes",
+          "trigger": "Defining primary source of the exact central point and the source convergence theorem; same polygons and normalization."
+        },
+        {
+          "assessment": "NOT_FOUND_IN_INSPECTED_MATERIAL: quotient curvature-radius representation yields polygon only up to translation; no translation-aware recovery formula identified in read portions.",
+          "evidence": "Section 3 says polygons are determined up to translation by radii; section 4 operator acts in radius coordinates, and last pseudo-inverse discussion remains in this quotient.",
+          "identifier_or_url": "arXiv:1702.00522; https://arxiv.org/pdf/1702.00522",
+          "material_read": "Full 23-page PDF accessible; materially read introduction, sections 3–4 with curvature radius coordinate and double evolute, and concluding pseudo-inverse material; inspected relevant PDF page image.",
+          "method": "ArXiv PDF text and relevant page image.",
+          "title": "Discrete Cycloids from Convex Symmetric Polygons",
+          "trigger": "Nearest later overlap of authors, discrete curvature-radius space, double-evolute linear maps and pseudo-inverse."
+        },
+        {
+          "assessment": "DISTINCT_OBJECT: the presented perpendicular/angular bisector evolutes differ from Minkowski constant-width involutes; no matching extraction in the materially read sections, no whole-document exclusion asserted.",
+          "evidence": "Section 1 explicitly sets up the P- and A-evolute polygonal constructions; section 4.3 pseudo-Steiner points concern that dynamical system.",
+          "identifier_or_url": "arXiv:1510.07742; https://archive.mpim-bonn.mpg.de/1956/1/preprint_2015_46.pdf",
+          "material_read": "Accessible 80-page Max Planck preprint, focused reading of definitions and claims in sections 1.2–1.3, portions of section 4.3 on pseudo-Steiner points, not a claimed 80-page line-by-line inspection.",
+          "method": "Lawful institutional open preprint PDF text; focused sections.",
+          "title": "Iterating evolutes and involutes",
+          "trigger": "Potentially broader polygonal evolute/Steiner-type center theory."
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE: smooth constant-width curves and limiting behavior, not an explicit finite polygon center solve in the read material.",
+          "evidence": "The setting is smooth constant-width curves rather than finite edge-coefficient closed double U-polygons.",
+          "identifier_or_url": "arXiv:1301.6395; https://arxiv.org/pdf/1301.6395",
+          "material_read": "Accessible arXiv PDF, introduction and main statements focused on the smooth-curve setting.",
+          "method": "Lawful arXiv PDF text.",
+          "title": "Iteration of Involutes of Constant Width Curves in the Minkowski Plane",
+          "trigger": "Earlier same-author smooth Minkowski involutes could dominate polygon results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The central point is a canonical exact geometric invariant of arbitrary convex polygons under the published Minkowski involute construction. Its direct determination is a concrete question immediately after the source convergence theorem. The proof replaces an infinite iterative limiting process by finitely many explicit determinant/half-sum operations and one (n-2)-dimensional solve, recovering the absolute translation omitted by radius-only operators. This is a structurally motivated, all-input method for the specific open central-point problem. The matrix-resolvent algebra by itself is routine; its mathematical value here is the geometric realization/contraction argument and the computable translation cocycle, not a claim to an independent general fixed-point theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes the Craizer–Martini paired-direction representation of nondegenerate convex planar polygons and the source convergence theorem for its specific constant-U-width involutes.",
+    "n=2 is the zero-dimensional shape case; no universal geometry-independent matrix or classical Steiner-center identification is claimed.",
+    "The proof covers any finite vertex count via symbolic contraction; independent finite calculations are limited to n=3,4,5.",
+    "Primary literature comparison is best-of-knowledge and cannot exclude unindexed or implicit equivalent center formulas.",
+    "Scientific PASS and publication status not_ready are different; source public metadata contains private provenance."
+  ],
+  "schema_version": 1
+}
