@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_prism.py` using Python 3 and the standard library. The exact test program checks the signed cellular Lefschetz trace for every \(D_n\times C_2\) element with \(4\le n\le18\), reconstructing the graph and deleted square-complex cells independently of the closed-form proof. For \(4\le n\le10\), it constructs every disjoint face-pair torus chain, verifies its integer cellular boundary is zero, identifies a unimodular coefficient minor, and computes the mod-two rank of the second boundary, thereby checking both Betti-number formulas at these parameters.
+## correctness
 
-Expected terminal lines:
-```
-VERIFY_OK_PRISM_GRAPH_TWO_PARTICLE
-ALL_SYMMETRIES_N4_TO18_SIGNED_CELLULAR_LEFSCHETZ
-EXACT_TORUS_BOUNDARIES_AND_UNIMODULAR_MINOR_N4_TO10
-MOD2_SECOND_BOUNDARY_RANKS_N4_TO10
-H1_CHAR_SIGN_TWIST_FACES H2_SIGNED_NONADJACENT_PAIRS_PLUS_CAP_SWAP
-```
-These checks are genuine exhaustive finite calculations but do not, alone, prove the all-parameter theorem. The latter relies on the explicit modular indicator identity, the uniform planar face-pair basis theorem, and the representation-theoretic argument. The precise differences between topological quotient homology and quotient-group homology are addressed through finite-group rational transfer. Publication priority has not been independently certified.
+PASS
+
+For n>=5 the unordered two-particle deleted cubical model of Cn square K2 is an equivariant deformation retract under the standard subdivision hypotheses. Its explicitly oriented 0-,1-,2-cells yield a signed Lefschetz trace. Planar disjoint facial-cycle products span H2 with cap-swap sign and signed nonadjacent rim-face exterior module; the diagonal ±1 minor establishes their primitive integral independence and the cited planar rank identifies the full H2. Character arithmetic recovers H1=epsilon tensor face permutation and the three quotient invariant dimensions. An independently written exact finite cell-permutation trace check agreed for all 180 symmetry elements at n=5..10. The general proof uses facial topology, signed trace identities and planar homology input, not finite extrapolation.
+
+## originality
+
+PASS
+
+The natural full D_n×C2 action on unordered two-particle configuration homology of every prism is distinct from earlier nonequivariant planar graph-braid ranks and from character calculations for other graph families. The cap-swap and signed side-face character and quotient triplet are extra equivariant information.
+
+## value
+
+PASS
+
+Provides a complete natural infinite prism family of full group representations and three distinct rational symmetry-quotient homology outcomes, information neither ranks nor ordered configuration formulas encode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

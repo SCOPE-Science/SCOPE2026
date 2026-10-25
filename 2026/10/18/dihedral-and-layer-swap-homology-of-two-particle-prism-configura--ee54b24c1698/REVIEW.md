@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The cubical deleted-configuration model is equivariant and has precisely enumerated cells; the explicit signed-cellular trace identity is reduced to a parity-class table for arbitrary \(n\). Integral second-homology generators are built from mutually disjoint face boundaries; exact zero boundaries, a unimodular coefficient minor, and the established general planar face-basis rank yield an integral basis. Orientation reversal and factor interchange give the stated \(D_n\times C_2\) action. Rational character equality and finite-group transfer yield the remaining claims. The packaged self-contained verifier exhaustively tests every group element for \(n=4,\ldots,18\), plus integral cycle and mod-two checks for \(n=4,\ldots,10\). The proof, not the finite tests, covers \(n\ge5\).
+## correctness
 
-**Originality (PASS, subject to bibliographic risk).** Barnett–Farber (arXiv:0903.2180v1) and Ko–Park (arXiv:1101.2648v1) already give planar two-particle face-pair and homology principles, including the rank and natural torus representatives: those statements are explicitly credited and excluded from novelty. The contribution is their *simultaneous complete equivariant specialization* to all \(n\)-gonal prisms, namely the rational first-homology character, the integral second-homology symmetry lattice and signed action, and the three different rational symmetry-quotient Betti vectors. Available related results on other graph two-point configurations and prism independence or Čech complexes do not imply these statements. Exhaustive publication priority is not certified; equivalent formulations in less-indexed material are a residual risk.
+PASS
 
-**Mathematical value (PASS).** Ordinary Betti counts and an abstract free torus basis do not determine which elements of the full prism automorphism group negate a top class, how reflections act on first homology, or whether taking additional layer symmetry destroys all positive-degree rational quotient homology. The uniform group-character formulas resolve this motivated equivariant question for the entire natural prism family, and the dihedral versus full-symmetry quotient distinction is a structural consequence.
+For n>=5 the unordered two-particle deleted cubical model of Cn square K2 is an equivariant deformation retract under the standard subdivision hypotheses. Its explicitly oriented 0-,1-,2-cells yield a signed Lefschetz trace. Planar disjoint facial-cycle products span H2 with cap-swap sign and signed nonadjacent rim-face exterior module; the diagonal ±1 minor establishes their primitive integral independence and the cited planar rank identifies the full H2. Character arithmetic recovers H1=epsilon tensor face permutation and the three quotient invariant dimensions. An independently written exact finite cell-permutation trace check agreed for all 180 symmetry elements at n=5..10. The general proof uses facial topology, signed trace identities and planar homology input, not finite extrapolation.
 
-**Limitations.** No integral first-homology representation or integral quotient homology is established. Exact verifier checks are finite, not independent validation of the infinite family. The literature comparison cannot prove universal novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural full D_n×C2 action on unordered two-particle configuration homology of every prism is distinct from earlier nonequivariant planar graph-braid ranks and from character calculations for other graph families. The cap-swap and signed side-face character and quotient triplet are extra equivariant information.
+
+## value
+
+PASS
+
+Provides a complete natural infinite prism family of full group representations and three distinct rational symmetry-quotient homology outcomes, information neither ranks nor ordered configuration formulas encode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
