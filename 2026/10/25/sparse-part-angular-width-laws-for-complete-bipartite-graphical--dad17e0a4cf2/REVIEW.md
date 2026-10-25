@@ -1,0 +1,15 @@
+# Review of angular-width asymptotics
+
+## Correctness — PASS
+The zonotope support identity is exact. Gaussian centering and radial projection give the stated joint realization; the Hoeffding decomposition and an explicitly computed Gaussian radial covariance yield the positive proportional-limit variance. The fixed-part conditional law and Gaussian small-ball expansion yield both the non-Gaussian limit and its sharp lower-edge coefficient. The positive balanced variance makes the aspect-ratio-uniform normalization well-defined, and a subsequence argument covers oscillating ratios. A standalone checker reproduced forty exhaustive support comparisons, three numerical Gaussian contractions, three spherical moment simulations, three finite-size variance ratios, and three one-dimensional edge-probability comparisons. Finite diagnostics are not the proof.
+
+## Originality — PASS, qualified
+The deformed-graphical-zonotope and shuffle primary works establish the geometric family, not these stochastic limit regimes. A published exact all-graphs width-moment formula already implies the finite mean and variance, so that formula is explicitly credited, not accepted as an original claim. Gerstenberger and Vogel give the Gaussian Gini-difference influence-function framework and near-normal relative efficiency for the one-sample estimator; the balanced variance is therefore compatible with, and partly inferable from, established one-sample asymptotics. The distinctive claim concerns the complete-bipartite *intrinsic spherical* finite-small-part distribution with its sharp lower-edge exponent, the proportional/unbalanced/uniform crossover, and their joint geometric interpretation. No directly subsuming statement appeared in the inspected relevant mathematical documents or published mathematical searches; a general unindexed, studentized two-sample Gaussian U-statistic theorem may cover some distributional assertions and remains a real residual risk.
+
+## Value — PASS
+The finite-versus-growing bipartition transition concerns the actual angular width distribution of a natural infinite-dimensional graph-polytope family, rather than an arbitrary computed parameter. The exact small-end exponent records the finite graph part size and the spherical radial correction explains an unusually small positive balanced fluctuation constant. The unified theorem covers all growth rates without forcing convergence of the aspect ratio. These data are structurally meaningful geometric refinements beyond already-known first/second moments; it is not claimed that applying Hoeffding's theorem itself is new.
+
+## Limitations
+The conclusions are about the fixed unweighted root-vector realization, one random direction, distributional limits and a fixed-side lower-tail expansion. No arbitrary graph sequence, weighted family, all-angle process, or full finite-size width-density classification is asserted. Bibliographic coverage is not an independence certification.
+
+Self-review: passed. Independent audit: not yet performed.
