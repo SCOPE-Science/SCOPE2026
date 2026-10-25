@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T21:42:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer n>=2, hopping J>0 and terminal jump rate gamma>0, no-jump generator K=-iH-gamma P0/2 has all eigenvalues in the strictly left half-plane: any imaginary-axis eigenvector must have zero amplitude at site 0 and propagates by nearest-neighbor eigenvector recurrence to zero everywhere. Therefore absorption is certain and the unique Hermitian Gramian X solves K^*X+XK=-I. Reconstructing the proposed parity-resolved kernel X_rs=(n-max(r,s))[(min(r,s)+1)/gamma+gamma*min(r,s)/(4J^2)] for equal parity and i*sign(s-r)(n-max(r,s))/(2J) for unequal parity gives the Lyapunov commutator and correct absorbing/right-end boundary terms; exact all-n algebra underlies the proof. Its diagonal gives E_jT=(n-j)((j+1)/gamma+gamma*j/(4J^2)), and strict A/gamma+C*gamma minimization yields gamma_j=2J*sqrt((j+1)/j) for j>=1, whereas j=0 is n/gamma decreasing; tracing X/n gives uniform-initial-state expression. Independent SciPy continuous Lyapunov solves on 16 systems (n=2..9, two positive parameter pairs) matched the entire kernel with maximum absolute discrepancy 2.05e-12. Numerical bounds corroborate rather than imply the uniform identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:1608.05510 sections3-4; arxiv:2605.08056"
+        ],
+        "reasoning": "The general superoperator inverse of Chia et al. covers representability of first-jump moments for arbitrary finite quantum-jump models, which is prior. It does not directly state the parity-resolved all-size matrix or optimizing gamma. The semi-infinite endpoint model is the same local loss mechanism but different global spectrum and absorption certainty.",
+        "searches": [
+          "Resultary semantic search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma",
+          "arxiv:1608.05510 sections3-4; arxiv:2605.08056"
+        ]
+      },
+      "checked_sources": [
+        "Chia, Paterek and Kwek arxiv:1608.05510 relevant original full PDF sections3-4",
+        "Varbanov, Krovi and Brun arxiv:0803.3446, model and abstract",
+        "Riberi arxiv:2605.08056, abstract",
+        "Ranjith and Kumar arxiv:1302.4669, abstract only",
+        "Resultary search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1608.05510 moment inverse; arxiv:2605.08056 semi-infinite boundary loss"
+        ],
+        "reasoning": "A generic formula E[T]=trace((-generator)^-1 rho) is an existence/computability method; deriving the exact entrywise inverse for all n and proving the minimizing gamma independent of n is a nontrivial additional result. A semi-infinite result cannot be substituted for finite reflecting-end dynamics.",
+        "searches": [
+          "Resultary semantic search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma",
+          "arxiv:1608.05510 moment inverse; arxiv:2605.08056 semi-infinite boundary loss"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:0803.3446; arxiv:1608.05510; arxiv:1302.4669"
+        ],
+        "reasoning": "Quantum hitting time, first detection by repeated projective observation, Lindblad first jump and absorbing imaginary-potential evolution share terminology but not their stopping-time law. The claim is a finite open chain with exactly one autonomous irreversible endpoint sink. No inspected projective-detection expression is equivalent without changing the dynamics.",
+        "searches": [
+          "Resultary semantic search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma",
+          "arxiv:0803.3446; arxiv:1608.05510; arxiv:1302.4669"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:0803.3446 short-path examples; Resultary 2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749"
+        ],
+        "reasoning": "Small projective quantum walk calculations and fully connected renewal detection provide different observables/protocols, not an arbitrary-n terminal-Lindblad closed kernel. Unsuccessful searches alone are not priority evidence.",
+        "searches": [
+          "Resultary semantic search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma",
+          "arxiv:0803.3446 short-path examples; Resultary 2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749"
+        ]
+      },
+      "rationale": "PASS is for the explicit all-size endpoint-absorber Gramian and the source-localized optimum independent of remote chain size. Chia-Paterek-Kwek had the general quantum-jump moment resolvent framework; a formal inverse superoperator includes the observable but no inspected closed all-size path inversion. Varbanov-Krovi-Brun analyze Poisson-driven projective first detection, a different generator. The more recent Riberi endpoint imaginary-potential model uses a semi-infinite chain and permits incomplete absorption, not the finite-path exact mean. This is not new generic jump statistics. The tight-binding Ranjith-Kumar paper was not read in full and path-specific historical formulas remain possible.",
+      "residual_risks": [
+        "An older exactly evaluated finite-path Lindblad absorber could exist under Green-function or non-Hermitian nomenclature.",
+        "The general quantum-jump inverse-moment method is established prior work; only exact all-size evaluation/optimum assessed as potentially new.",
+        "Does not extend to multiple sinks, disordered edges, nonuniform hopping, infinite chains or monitored projective protocols."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERAL_FIRST_JUMP_SUPEROPERATOR; NOT_INSPECTED_AS_EVALUATED_ALL_SIZE_PATH",
+          "evidence": [
+            "Chia, Paterek and Kwek, Quantum 1 (2017) 19, arxiv:1608.05510, moment-operator formulas"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.05510",
+          "material_read": "Original accessible preprint sections 3 and 4 including general moment formula, inverse Liouvillian representation and worked open-quantum-walk examples",
+          "method": "Read original PDF relevant mathematical portions and compare generator/observable and whether a finite path is explicitly evaluated",
+          "title": "Hitting statistics from quantum jumps",
+          "trigger": "Exact quantum-jump moment framework most likely to dominate"
+        },
+        {
+          "assessment": "DISTINCT_PROJECTIVE_PROTOCOL; incomplete reading documented",
+          "evidence": [
+            "Varbanov, Krovi, Brun, Phys Rev A 78 (2008) 022324"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.3446",
+          "material_read": "Accessible abstract and model descriptions; complete original paper not reread this execution",
+          "method": "Compare Poisson-scheduled projective interrogation with autonomous endpoint-jump process",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Same hopping and short-path hitting-time terminology"
+        },
+        {
+          "assessment": "DIFFERENT_SEMI_INFINITE_GEOMETRY; no whole document priority exclusion",
+          "evidence": [
+            "Riberi, arxiv:2605.08056 (2026), semi-infinite tight-binding boundary loss"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.08056",
+          "material_read": "Accessible abstract and finite-versus-infinite geometry description in source references, not complete preprint",
+          "method": "Compare semi-infinite versus finite open path absorption, spectrum and boundary conditions",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Same local endpoint absorbing loss operator"
+        },
+        {
+          "assessment": "FULL_TEXT_UNREAD",
+          "evidence": [
+            "Ranjith and Kumar, arxiv:1302.4669 (2013)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.4669",
+          "material_read": "Abstract/bibliography only; full text not obtained",
+          "method": "Retain as same-topic priority risk without asserting noncoverage",
+          "title": "Quantum First-Passage Time: Exact Solutions for a Class of Tight-Binding Hamiltonian Systems",
+          "trigger": "Plausible hidden exact path-first-passage formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed full matrix X computes coherent initial-state first-jump means without a dimension-growing Liouvillian solve, including previously hidden off-diagonal coherence contributions. The exact optimal loss for a particle placed j sites from the sink is independent of additional remote sites although the mean is proportional to n-j, whereas the uniform mixture has a different length-dependent optimum. This is a natural, reusable quantitative transport/Zeno benchmark, not a trivial evaluation of one fixed small graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chia, Paterek and Kwek arxiv:1608.05510 relevant original full PDF sections3-4",
+    "Varbanov, Krovi and Brun arxiv:0803.3446, model and abstract",
+    "Riberi arxiv:2605.08056, abstract",
+    "Ranjith and Kumar arxiv:1302.4669, abstract only",
+    "Resultary search: Quantum path endpoint Lindblad sink absorption mean first jump Lyapunov closed integrated survival kernel optimal gamma"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older exactly evaluated finite-path Lindblad absorber could exist under Green-function or non-Hermitian nomenclature.",
+    "The general quantum-jump inverse-moment method is established prior work; only exact all-size evaluation/optimum assessed as potentially new.",
+    "Does not extend to multiple sinks, disordered edges, nonuniform hopping, infinite chains or monitored projective protocols.",
+    "Independent finite computations confirm only stated bounded examples; all unrestricted statements were assessed analytically from the source proof, not inferred from code or logs."
+  ],
+  "residual_risks": [
+    "An older exactly evaluated finite-path Lindblad absorber could exist under Green-function or non-Hermitian nomenclature.",
+    "The general quantum-jump inverse-moment method is established prior work; only exact all-size evaluation/optimum assessed as potentially new.",
+    "Does not extend to multiple sinks, disordered edges, nonuniform hopping, infinite chains or monitored projective protocols."
+  ],
+  "schema_version": 1
+}

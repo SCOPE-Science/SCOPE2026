@@ -1,15 +1,21 @@
-# Review of exact first absorption on a finite quantum path
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated claim includes the full integrated survival operator, all localized-state means and rate optima. The Hamiltonian, jump normalization, generator and boundary conditions are specified; strictly negative generator spectral real parts ensure certain absorption and Lyapunov uniqueness. An entrywise finite-difference calculation verifies every case of the closed kernel. Two implementations passed 39 exact rational Lyapunov residual tests and 33 numerical solves over independent parameters. Risks: no implications for nonuniform or infinite chains; finite tests alone are not an all-size proof.
+PASS
 
-## Originality — PASS within checked sources
+For every integer n>=2, hopping J>0 and terminal jump rate gamma>0, no-jump generator K=-iH-gamma P0/2 has all eigenvalues in the strictly left half-plane: any imaginary-axis eigenvector must have zero amplitude at site 0 and propagates by nearest-neighbor eigenvector recurrence to zero everywhere. Therefore absorption is certain and the unique Hermitian Gramian X solves K^*X+XK=-I. Reconstructing the proposed parity-resolved kernel X_rs=(n-max(r,s))[(min(r,s)+1)/gamma+gamma*min(r,s)/(4J^2)] for equal parity and i*sign(s-r)(n-max(r,s))/(2J) for unequal parity gives the Lyapunov commutator and correct absorbing/right-end boundary terms; exact all-n algebra underlies the proof. Its diagonal gives E_jT=(n-j)((j+1)/gamma+gamma*j/(4J^2)), and strict A/gamma+C*gamma minimization yields gamma_j=2J*sqrt((j+1)/j) for j>=1, whereas j=0 is n/gamma decreasing; tracing X/n gives uniform-initial-state expression. Independent SciPy continuous Lyapunov solves on 16 systems (n=2..9, two positive parameter pairs) matched the entire kernel with maximum absolute discrepancy 2.05e-12. Numerical bounds corroborate rather than imply the uniform identity.
 
-Varbanov–Krovi–Brun (2008, arXiv:0803.3446) address a distinct Poisson-measured protocol and short-path examples. Chia–Paterek–Kwek (arXiv:1608.05510) give a powerful **general** jump-moment superoperator inversion which formally represents this observable, but their inspected results do not perform the all-size homogeneous-path inversion or derive its two-term rate polynomial and size-independent minimizer. Riberi (arXiv:2605.08056) solves the autonomous boundary-loss problem on the semi-infinite chain rather than a finite reflected path. The nearest inspected mathematical records concern different graphs or detection schemes. Residual risk: a path-specific formula could exist in differently indexed physics literature; the Ranjith–Kumar (2013) paper was compared only at abstract level. Novelty cannot be established from unsuccessful searches alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact entire matrix of mean absorption times and coherent-state cross terms makes a physically natural non-Hermitian hopping problem directly solvable without inversion of an increasingly large Liouvillian. The universal sitewise optimizer is independent of remote path length, while the uniform-source optimizer depends on length and converges to a different profile. This distinction is useful for controlled loss and transport benchmarking. A small-instance formula or a generic numerical inverse would not supply this uniform structural result.
+PASS is for the explicit all-size endpoint-absorber Gramian and the source-localized optimum independent of remote chain size. Chia-Paterek-Kwek had the general quantum-jump moment resolvent framework; a formal inverse superoperator includes the observable but no inspected closed all-size path inversion. Varbanov-Krovi-Brun analyze Poisson-driven projective first detection, a different generator. The more recent Riberi endpoint imaginary-potential model uses a semi-infinite chain and permits incomplete absorption, not the finite-path exact mean. This is not new generic jump statistics. The tight-binding Ranjith-Kumar paper was not read in full and path-specific historical formulas remain possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The closed full matrix X computes coherent initial-state first-jump means without a dimension-growing Liouvillian solve, including previously hidden off-diagonal coherence contributions. The exact optimal loss for a particle placed j sites from the sink is independent of additional remote sites although the mean is proportional to n-j, whereas the uniform mixture has a different length-dependent optimum. This is a natural, reusable quantitative transport/Zeno benchmark, not a trivial evaluation of one fixed small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
