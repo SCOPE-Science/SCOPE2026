@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each integer \\(k\\ge1\\), direct reduction modulo five proves depths \\(0,1,2\\) by residue class. Hensel lifts establish permutations on the two periodic disks. The integral-polynomial iterate-lifting lemma is proved by a first-order Taylor congruence and yields the exact periods and hence 3k-1 cycles. Normalized Legendre characters separate the two near-two cycles; inverse quadratic congruences give precisely one transient predecessor per periodic vertex and either 0, \\(2\\cdot5^{t/2}\\), or \\(5^{\\lfloor k/2\\rfloor}\\) further leaves. Every depth-two vertex has indegree zero. The independently implemented complete finite directed graphs \\(1\\le k\\le7\\), 97655 states, match the proof, but are not offered as its universal justification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Panraksa--Tangboonduangjit (2026), abstract and conclusion: fixed/exact periods for arbitrary Chebyshev degree and odd prime, with nonperiodic trees expressly left separate.",
+        "Li--Lu--Tan--Chen (2022), §III: permutation-polynomial graphs consist only of cycles; the quadratic fails their bijectivity hypothesis modulo five.",
+        "Diarra–Sylla (2013 preprint), Proposition 15: local Siegel-disc invariance at periodic points for p not dividing degree, not the finite-ring incoming preimage trees."
+      ],
+      "reasoning": "The broad 2026 result dominates the periodic-point count part of this example, which is explicitly excluded from novelty. It does not specify which same-length cycles have critical descendants, nor how many incoming depth-two leaves each receives. The 2022 theorem has no nonperiodic vertices and is inapplicable.",
+      "searches": [
+        "Chebyshev polynomial functional graphs modulo odd prime powers non-permutation 5-adic x^2-2 exact graph",
+        "Chebyshev 2 polynomial mod p^k periodic cycles tails p adic functional graph",
+        "arXiv:2605.04417v2",
+        "arXiv:2209.14658v1",
+        "Diarra Sylla 2013 p-Adic dynamical systems Chebyshev polynomials Proposition 15 Siegel disc"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.4396v1: Gassert 2012, full relevant finite-field text",
+      "arXiv:2605.04417v2: Panraksa and Tangboonduangjit 2026, period theorems and concluding limitation",
+      "arXiv:2209.14658v1: Li, Lu, Tan and Chen 2022, full relevant permutation hypotheses",
+      "Diarra–Sylla (2013 preprint), Proposition 15 and proof, finite-ring branch incidence not supplied"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Periodic counts determine how many cycles of a length occur, but permit unequal distributions of transient predecessors between cycles of the same length.",
+        "The present proof distinguishes the two equal-length cycles at each near-two valuation level by a quadratic character and assigns depth-two branches to one or neither, which is independent of periodic-point enumeration.",
+        "Invariant 5-adic discs at periodic points give no distribution of depth-two leaves among distinct cycles at the same precision."
+      ],
+      "reasoning": "Gassert's complete finite-field graph does not imply the finite-local-ring graph. Li et al. assume bijectivity, false here since \\(f(2)=f(3)=2\\pmod5\\). The 2026 odd-prime-power theorem implies the period spectrum, but not the claimed depth-two fiber multiplicities, component sizes, and character-selected incidence.",
+      "searches": [
+        "arXiv:1209.4396v1 Theorem 2.3",
+        "arXiv:2605.04417v2 Sections 4-5 and conclusion",
+        "arXiv:2209.14658v1 Section III",
+        "Diarra–Sylla 2013 preprint Proposition 15 p-adic Siegel disc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "\\(D_2(x,1)=x^2-2=2T_2(x/2)\\) for odd-modulus rings; Gassert 2012 uses monic Chebyshev normalization; Panraksa--Tangboonduangjit 2026 §1 provides conjugacy under multiplication by two."
+      ],
+      "reasoning": "The comparison was made under both monic Dickson and ordinary Chebyshev conventions and under the power-map conjugacy, not just exact text matching. This conjugacy preserves the full incoming graph but neither cited source gives its branch incidence on the five-power tower.",
+      "searches": [
+        "functional graph of Dickson quadratic map x^2-2 modulo 5^k; depth-two critical branches attaching to individual cycles, quadratic character exact leaf counts",
+        "Chebyshev T2 modulo 5-adic prime powers critical residue x=0; two cycle character classes square and nonsquare receive quadratic preimage trees",
+        "\"Dickson\" \"5-adic\" \"functional graph\" critical roots",
+        "arXiv:1209.4396v1",
+        "arXiv:2605.04417v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gassert (2012), Theorem 2.3 addresses finite fields and their different graphs, not residue rings of cardinality a power of five.",
+        "Panraksa--Tangboonduangjit (2026), Corollary 5.7 counts exact-period points and explicitly excludes incoming-tree classification from its scope."
+      ],
+      "reasoning": "No directly equivalent complete branch table or exact residue-ring component census appeared in the actual topical searches. A negative search is not proof of novelty; the positive comparison is that the closest fully inspected sources cover different structures.",
+      "searches": [
+        "functional graph of Dickson quadratic map x^2-2 modulo 5^k; depth-two critical branches attaching to individual cycles, quadratic character exact leaf counts",
+        "Chebyshev T2 modulo 5-adic prime powers critical residue x=0; two cycle character classes square and nonsquare receive quadratic preimage trees",
+        "\"x^2-2\" \"modulo\" \"5^k\" \"cycles\" \"tree\"",
+        "\"Chebyshev\" \"preperiodic trees\" \"odd prime powers\" 5"
+      ]
+    },
+    "rationale": "The final claim is the exact cycle-by-cycle distribution of all transient depth-two branches and resulting rooted component sizes, not the already-known periodic-point spectrum. Gassert classifies Chebyshev maps over finite fields, not the rings \\(\\mathbb Z/5^k\\mathbb Z\\). Li--Lu--Tan--Chen classify permutation Chebyshev maps, and this quadratic is noninjective modulo five. Panraksa--Tangboonduangjit classify exact periods for all odd prime-power rings but explicitly distinguish the transient-tree problem as separate (conclusion). The new quadratic-sign selection of precisely one cycle at even levels is not implied by a cycle census. Actual topical index and literature queries did not identify equivalent branch incidence; this is a best-knowledge assessment with residual risk.",
+    "residual_risks": [
+      "A more specialized or unlocated published graph computation could already give the same five-adic depth-two branch incidence.",
+      "The cycle counts are already covered by broader exact-period theorems; only the critical-tree attachment law and resulting full components are assessed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full finite-field graph result does not cover \\(\\mathbb Z/5^k\\mathbb Z\\).",
+        "evidence": [
+          "Section 2 Theorem 2.3 concerns graphs on finite fields \\(\\mathbb F_{p^n}\\), not \\(\\mathbb Z/p^k\\mathbb Z\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.4396",
+        "material_read": "ArXiv full rendered text, including introduction, section 2 graph theorems and definitions, and distinction between finite-field powers and finite residue rings.",
+        "method": "Primary arXiv openly accessible text; direct theorem and hypothesis comparison.",
+        "title": "Chebyshev Action on Finite Fields",
+        "trigger": "Same monic Chebyshev/Dickson map and full graph enumeration in characteristic five."
+      },
+      {
+        "assessment": "Covers the cycle census used here but not the transient incidence claim.",
+        "evidence": [
+          "Concluding paragraph: classification of trees entering cycles for arbitrary degrees remains a separate problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.04417v2",
+        "material_read": "Full HTML article; abstract, Introduction, Sections 4-5 descriptions of period lifting and exact-period formulas, and the conclusion.",
+        "method": "Primary open-access arXiv HTML, including statement-level and implication comparison.",
+        "title": "Fixed points and exact periods of Chebyshev polynomials modulo odd prime powers",
+        "trigger": "Most plausible stronger result: all degree, all odd prime-power rings."
+      },
+      {
+        "assessment": "The paper treats bijective maps, all of whose vertices are periodic; the present quadratic is noninjective modulo five.",
+        "evidence": [
+          "Their Proposition 1: every vertex in a Chebyshev permutation graph belongs to a cycle; here \\(f(2)=f(3)=2\\pmod5\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.14658",
+        "material_read": "Primary full rendered arXiv text, introduction, permutation criterion and Section III graph structure.",
+        "method": "Checked mathematical hypotheses against the quadratic map modulo five.",
+        "title": "The Graph Structure of Chebyshev Permutation Polynomials over Ring Z/(p^k)",
+        "trigger": "Explicit full functional graphs over odd prime-power rings; potential broader coverage."
+      },
+      {
+        "assessment": "Proposition 15 gives indifferent periodic points and local Siegel discs of radius one for Chebyshev degree prime to p, not a cycle-resolved tree/leaf census modulo prime powers. It does not imply the critical-fiber quadratic-character incidence formula.",
+        "evidence": [
+          "2013 preprint, Proposition 15: periodic points are indifferent with local Siegel discs of radius one; unlike the claimed depth-two finite-ring fiber classification."
+        ],
+        "identifier_or_url": "https://padic2013.mi-ras.ru/Diarra.pdf",
+        "material_read": "Public 2013 preprint PDF: abstract and Proposition 15 with proof on page 12 (zero-index PDF page 11), plus relevant discussion of fixed/periodic points for degrees prime to p.",
+        "method": "Primary publicly accessible PDF; PDF page visually inspected and theorem hypotheses and conclusion compared.",
+        "title": "p-Adic dynamical systems of Chebyshev polynomials",
+        "trigger": "Earlier general p-adic Chebyshev dynamical study might subsume the five-adic graph classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0353bbb3-2765-4d66-82a7-bc4e063cf530",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Character-selected critical branches are a natural, mathematically distinct invariant beyond known Chebyshev cycle length counts. An infinite tower of residue-ring graphs has complete branch positions and nonuniform exact fiber sizes, concentrated on precisely one of two equal-length cycles at each even valuation. This resolves a substantive case of the separately identified nonpermuting incoming-tree problem and permits exact component-size calculations at arbitrary precision; it is not a parameter substitution into the known periodic census.",
+    "status": "PASS"
+  }
+}

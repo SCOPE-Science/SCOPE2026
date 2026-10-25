@@ -1,0 +1,11 @@
+# Review of the exact critical-branch classification
+
+**Correctness — PASS.** The proof checks all five residue classes modulo five. On the two periodic disks it gives exact iterate-displacement valuations and proves the period-lifting lemma without assuming finite enumeration. Two inverse branches exist at each periodic vertex by simple-root Hensel lifting, exactly one of which is transient. Their further square-root fibers are zero, \(2\cdot5^{t/2}\), or \(5^{\lfloor k/2\rfloor}\), as specified by valuation and normalized quadratic character. Independent exhaustive graph traversal for \(1\le k\le7\) confirms all incidence and component-size formulas but is not used as an infinite proof.
+
+**Originality — PASS, with residual risk.** Gassert's 2012 paper describes finite-field graphs, not prime-power residue-ring trees. Diarra–Sylla (2013), Proposition 15, establishes indifferent periodic points and their local Siegel discs but does not classify finite-ring incoming-tree incidence. Li–Lu–Tan–Chen (2022) covers permutations, while this map is noninjective modulo five. Panraksa–Tangboonduangjit (2026) already covers cycle counts and periods over odd prime-power rings, and its conclusion distinguishes nonperiodic-tree classification as separate; the new claim is instead the precise cycle-by-cycle attachment of depth-two leaves. The proof identifies one and only one of two cycles at each even valuation level by its Legendre character, a distinction not implied by periodic-point counts. The possibility of an equivalent specialized graph description in other literature remains.
+
+**Mathematical value — PASS.** The precise placement and multiplicity of critical preimage trees is a natural missing piece of the finite-ring functional-graph problem. The result determines the complete rooted graph for an infinite tower of prime-power moduli, including nonuniform branching concentrated on a distinguished quadratic-character cycle and unbounded fiber multiplicity. It does not merely rederive already-known periods or substitute a different prime into a period census.
+
+Scientific scope: \(x\mapsto x^2-2\) on \(\mathbb Z/5^k\mathbb Z\), \(k\ge1\). Other primes and Chebyshev degrees are outside the claim. Literature novelty is best-knowledge, not a claim of exhaustive worldwide coverage.
+
+Self-review: passed. Independent audit: not yet performed.
