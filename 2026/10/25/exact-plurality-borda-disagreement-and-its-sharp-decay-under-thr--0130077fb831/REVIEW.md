@@ -1,0 +1,15 @@
+# Scientific assessment: strict plurality–Borda mismatch under Walsh culture
+
+## Correctness — PASS
+The score identities derive the exact necessary and sufficient mismatch inequalities, including the reverse implication and both strict winner requirements. Reflection makes the two extreme cases disjoint and equally likely. Exponential tilting at \(t_*=(\log2)/2\) centers the exact three-point lattice increment; both remaining linear constraints have strict positive slack under the tilt, giving exponentially negligible failure. Fourier inversion supplies the aperiodic lattice local limit and the uniform mass bound needed for dominated summation of geometric weights. The factor of two and the strict lattice threshold are explicit. Independent full-word enumeration for one through eight voters agrees with compressed exact integer enumeration; these tests corroborate but do not prove the infinite limit.
+
+## Originality — PASS with priority qualification
+The directly relevant complete open paper of Mousseau, Surugue and Wilczynski proves asymptotic agreement under Walsh's uniform single-peaked model (Corollary 10) and concentration-based bounds (Proposition 11). It does not state the exact strict two-unique-winner disagreement distribution or its sharp lattice constant. The paper's Proposition 24 studies a Pólya–Eggenberger urn, not an independent Walsh culture. Its French JIAF 2025 two-page short version was also read and contains no matching formula. Walsh's original work defines the culture rather than the present comparison. Research records and reachable historical claims concerned other candidate sets, other election rules, or deterministic phenomena; no statement implying this precise asymptotic was found. This is a best-knowledge scientific comparison, not historical priority certification. A thesis or obscure past study may still establish an equivalent result.
+
+## Mathematical value — PASS
+The recent work's assertion of rapidly increasing agreement does not supply a sharp decay rate for the actual rule disagreement event. The exact probability for every finite electorate and sharp exponential rate with explicit lattice prefactor quantify when two standard voting rules can materially disagree in synthetic single-peaked elections. The direction restriction identifies the mechanism of the rare event, and the count \(Q_4=3/32\) locates the first occurrence. The result is narrow but about a naturally motivated statistic at the smallest nontrivial candidate count; it is not a disconnected parameter slice or a mere restatement of large-deviation theory.
+
+## Residual limitations
+The target event excludes all ties. The conclusion does not extend to arbitrary candidate counts, weighted or correlated vote generation, Conitzer culture, or endogenous election axes. Only same-document material and accessible closely related primary literature were checked; earlier unexamined theses may affect priority. The event-date provenance identifies the JIAF–JFPDA 2025 dissemination interval, without proving an exact initial electronic release time.
+
+Self-review: passed. Independent audit: not yet performed.
