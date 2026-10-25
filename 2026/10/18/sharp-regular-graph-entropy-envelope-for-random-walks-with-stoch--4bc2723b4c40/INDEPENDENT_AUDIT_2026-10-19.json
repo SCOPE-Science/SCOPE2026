@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T12:59:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-regular-graph-entropy-envelope-for-random-walks-with-stoch--4bc2723b4c40/RESULT.md",
+        "5f602022b19908f44f86b13e264c73fa7ef90910",
+        "independent arithmetic/geometric checks 2026-10-19; independent_checks.py (private)"
+      ],
+      "rationale": "For the observed vertex Markov chain, a root neighbor has reset and ordinary-edge probability combined into r+a, a=(1-r)/k; direct row entropy subtraction is positive Delta=(r+a)log(r+a)-rlog r-a log a. Weighted stationary averaging yields h=B-rho Delta. The resolvent pi=r sum (1-r)^t delta_o P^t and regularity identity P^{t+1}(o,o)=P^t(o,N(o))/k give rho=kr/z(G_G(z)-1). Every closed tree walk maps injectively into closed G-walks, strictly for finite cyclic G at some t; monotone Green function gives strict finite upper bound by k-regular tree. Tree first return formula yields the explicit Green radical. For high girth g, finite and infinite tree walks agree through floor((g-1)/2); a uniform bound Delta(r)(1-r)^{m+1} goes to zero, including small r by Delta(r)->0. r downarrow0 expansion has positive coefficient 1-k/|V| in r log(1/r) so finite max exceeds log k. Independent exact-rational stationary calculations on K3,C4,K4 at rates 0.1,0.33,0.8 match observed entropy and corrected formula to 1e-13; infinite high-girth limit is analytic, not numerical.",
+      "residual_risks": [
+        "Finite numerical checks establish only their finite instances; mathematical conclusions rest on analytical proof or complete finite enumeration as described."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:0810.4113 maximum entropy walk differs in transition support",
+          "finite-covering-tree Green comparison and girth locality"
+        ],
+        "reasoning": "General Markov entropy identities and tree return generating functions are prior, but do not alone force the strict sharp profile without collision correction plus closed-walk comparison. Prior maximum-entropy walks restrict transitions to graph edges without root jumps.",
+        "searches": [
+          "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+          "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+          "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-regular-graph-entropy-envelope-for-random-walks-with-stoch--4bc2723b4c40/RESULT.md",
+        "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+        "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+        "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113",
+        "Wang Chen Huang, multiple resetting nodes, arXiv:2105.08323",
+        "2026/10/11/SCOPE-stationary-circulation-coarse-ergodicity-and-entropy-laws-for-sw--73c49a018f02"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "positive correction rho Delta",
+          "high-girth limiting k-tree resolvent"
+        ],
+        "reasoning": "The earlier B_k formula would imply the wrong maximum log(k+1) for vertex observations, since finite k-regular graphs always have positive occupancy of root neighbors and Delta>0. The new bound is stricter and high-girth attained in supremum only.",
+        "searches": [
+          "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+          "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+          "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "explicit Q_r(i,o)=r+(1-r)/k for i adjacent to o",
+          "Wang--Chen arXiv:2208.05665 same setting"
+        ],
+        "reasoning": "The distinction is observed vertex sequence versus tagged action (reset/hop) sequence: at a neighbor of root the two labels land in one vertex. They are different observables with same sampling mechanism; no parameter substitution identifies their entropies.",
+        "searches": [
+          "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+          "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+          "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/11/SCOPE-stationary-circulation-coarse-ergodicity-and-entropy-laws-for-sw--73c49a018f02"
+        ],
+        "reasoning": "A graph-flow entropy Resultary entry and other finite graph statistics do not tabulate this observed-state root-reset sharp k-regular envelope. The function ranges over every degree and reset rate, not a finite table; index failure is not priority proof.",
+        "searches": [
+          "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+          "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+          "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113"
+        ]
+      },
+      "rationale": "The directly prior Wang--Chen random-walk-reset entropy model is mathematically the same, so this is not a claim to have invented the chain or basic conditional entropy formula. The claimed distinction is that their published regular-graph B_k expression counts labeled reset/hop actions instead of overlapping observed vertex destinations. The corrected collision term and strictly lower optimal universal-cover/high-girth envelope are not consequences of B_k alone. Same mathematical model full paper was not accessible during this run beyond primary abstract/metadata, so exact paper-wide comparison remains a named priority risk, not an assertion of noncoverage based on an abstract.",
+      "residual_risks": [
+        "Uninspected full Wang--Chen mathematical text might have an alternative corrected formulation or erratum despite the reported B_k specialization.",
+        "Potential other state-entropy high-girth envelope prior work under hidden Markov/renewal terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot claim full-document noncoverage; visible published simplification B_k is mathematically incompatible with state entropy without neighbor collision",
+          "evidence": [
+            "same mathematical model entropy paper, 2022; explicit source citation in assigned RESULT.md"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.05665",
+          "material_read": "Primary abstract and bibliographic information; full text not retrievable in this run",
+          "method": "Abstract/source comparison plus direct formula test against overlap at Q(i,o)",
+          "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+          "trigger": "Same process, root, degree, entropy observable"
+        },
+        {
+          "assessment": "Maximum entropy nearest-neighbor walks are not deterministic-root resetting chains",
+          "evidence": [
+            "allowed transition kernels differ"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0810.4113",
+          "material_read": "Accessible abstract and model description, not complete text",
+          "method": "Model-definition comparison",
+          "title": "Localization of maximal entropy random walk",
+          "trigger": "Potential dominating graph entropy principle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/sharp-regular-graph-entropy-envelope-for-random-walks-with-stoch--4bc2723b4c40/RESULT.md",
+        "Resultary: regular graph stochastic resetting vertex-sequence entropy rate universal cover high girth envelope",
+        "Wang and Chen, Entropy rate of random walks on complex networks under stochastic resetting, arXiv:2208.05665",
+        "Burda et al., Localization of maximal entropy random walk, arXiv:0810.4113",
+        "Wang Chen Huang, multiple resetting nodes, arXiv:2105.08323",
+        "2026/10/11/SCOPE-stationary-circulation-coarse-ergodicity-and-entropy-laws-for-sw--73c49a018f02"
+      ],
+      "rationale": "Correcting an observed-state entropy-rate identity changes the attainable maximum on every finite regular graph; the exact universal-cover envelope and uniform large-girth extremal approximation answer a natural sharp stochastic-graph optimization problem. The theory differentiates observable vertex entropy from hidden-action entropy, with both a useful counterexample and all-k structural asymptotics.",
+      "residual_risks": [
+        "Value is for the precise restricted theorem and object; no unproved broader applications or exhaustive novelty guarantee are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected full Wang--Chen mathematical text might have an alternative corrected formulation or erratum despite the reported B_k specialization.",
+    "Potential other state-entropy high-girth envelope prior work under hidden Markov/renewal terminology.",
+    "The independent comparison is best-of-knowledge, not a historical-priority certificate.",
+    "All scientific files were read-only; no Github write, publication or dispatcher closeout was performed.",
+    "Public metadata provenance remains unsanitized, so publication is withheld despite a completed scientific assessment."
+  ],
+  "schema_version": 1
+}
