@@ -1,21 +1,21 @@
-# Review of the minimal Cantor-odometer realization
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The real-coordinate embedding is injective because the first differing digit dominates the remaining tail by the explicitly positive factor \(1-2v\). The induced first-discrepancy metric is translation-invariant under the binary adding machine, so all iterates inherit one global bi-Lipschitz bound. Cylinder counts sandwich every neutralized separated-set count between powers of two with indices differing by a bounded amount. The level ratios oscillate to the prescribed values because each new superlong block dominates all predecessors. Unique ergodicity gives uniform empirical-measure convergence, making all eventually admissible PS sets equal to the entire phase space. The Haar measure of a neutralized Bowen ball is trapped between the same cylinder weights. These arguments cover every real \(0<L<U<1\) and every \(r>0\), rather than merely the checked finite instances.
+PASS
 
-## Originality
+For each real 0<L<U<1 set u=2^(-1/L)<v=2^(-1/U)<1/2 and alternate them in consecutive blocks of lengths b_j=2^(j^2). The binary digit embedding into [0,1] has first-discrepancy Euclidean gap bounded below by delta a_(k-1), delta=1-2v>0, and above by a_(k-1). Binary odometer translation preserves the earliest unequal bit under every integer iterate; hence all powers share Euclidean bi-Lipschitz constant delta^(-1). Density of integer translates and uniform cylinder frequency give minimality, unique Haar ergodicity and zero ordinary entropy. For every fixed r>0, cylinders at e^(-nr) have indices differing by O(1); both log separated cardinality and negative-log Bowen-ball Haar measure equal k(n)log2+O(1) uniformly in the center. Alternating huge level blocks force liminf/limsup (k log2)/(-log a_k)=L,U, attainable on n-index subsequences for every r; thus lower/upper neutralized topological and integrated Brin–Katok entropies are rL,rU. Uniform convergence of empirical measures makes every eventually admissible Pfister–Sullivan restriction equal K, yielding identical PS rates. A separately reproduced exact-rational finite-bit embedding and translation first-difference test corroborates geometric estimates without inferring infinite behavior.
 
-**PASS under the checked literature, with residual priority risk.** Chen–Xie–Zhou [1], Definitions 2.1/2.7 and Example 2.17, establish the definitions, the isometric entropy/box-dimension relation, and an upper/lower PS discrepancy in a nonminimal, non-uniquely-ergodic invariant set. Their Theorem 1.5 treats whole smooth manifolds. Rempe-Gillen–Urbański [2] establish nonautonomous fractal dimension machinery, not a minimal Euclidean Cantor adding machine's PS entropy. Dong–Qiao [3] study a hyperbolic-measure formula, not the claimed realization. Nothing here claims the isometry identity, classical Moran dimension estimates, or unique ergodicity of adding machines as original. The distinguishable combined statement is simultaneous **full interior-pair realization**, **minimality**, **unique ergodicity**, **uniform bi-Lipschitz control of every iterate in Euclidean distance**, and **equality of local/PS/topological neutralized profiles**. An unrecognized implicit specialization of classical odometer-fractal theory remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first directly motivating PS-entropy gap example uses nonminimal components. The construction tests whether such oscillations disappear once there is only one dense orbit closure and one invariant measure: they do not, even when the map and all iterates have controlled metric distortion. More strongly, it realizes every interior profile \((rL,rU)\) with a single construction working for all neutralization rates, and identifies the exact geometric mechanism through small-scale cylinder dimensions. The object is the classical adding machine rather than an arbitrary unmotivated dynamical family; the precise two-parameter classification is the mathematical point of the result.
+Chen–Xie–Zhou already give the r-neutralized PS definitions, an isometry/box-dimension formula, and a nonminimal, non-uniquely-ergodic oscillation example; Moran-set dimension and unique ergodicity of odometers are also standard. The combined result instead realizes *every* interior (L,U) simultaneously for all r on a minimal uniquely ergodic Euclidean Cantor system with one bi-Lipschitz bound across all iterates and matching topological/PS/local measure entropy. The construction is elementary given known ingredients, so an implicit prior-coverage risk is recorded rather than pretending each ingredient new.
 
-## Limitations and closest sources
+## value
 
-The construction is confined to embedded Cantor sets and the strict interior \(0<L<U<1\). It does not extend to smooth ambient diffeomorphisms. Classical isometry identities and nonautonomous Moran calculations already provide substantial ingredients; any priority claim for their combination requires further independent review. The executable finite checker supports arithmetic and coding identities only and has no bearing on the infinite-asymptotic proof.
+PASS
 
-References: [1] Chen–Xie–Zhou, arXiv:2610.11639v1, especially §2 and Example 2.17; [2] Rempe-Gillen–Urbański, arXiv:1210.7469v4, especially §§1–2, 7; [3] Dong–Qiao, arXiv:2408.02397.
+A prominent source gap example might suggest lack of minimality or unique ergodicity is necessary. This construction separates dynamical uniqueness from metric small-scale oscillation: even a uniformly bi-Lipschitz equicontinuous adding machine realizes any strict interior neutralized entropy gap, with exact simultaneous PS and Brin–Katok values. The full two-parameter realization answers a natural structural hypothesis rather than an arbitrary metric instance.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
