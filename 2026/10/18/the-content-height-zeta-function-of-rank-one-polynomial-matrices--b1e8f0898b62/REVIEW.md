@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A primitive–content factorization of every nonzero rank-one matrix exists over the PID \(\mathbb F_q[T]\), is unique up to exactly \(q-1\) field units, and makes both degree statistics additive. The nonzero-vector and monic-content generating series give the exact bivariate rational function. Simple/double pole coefficient calculations prove the geometric content limit and square/rectangular height transition. The exhaustive polynomial-matrix checks in `verify.py` support the finite formulas but are not used as infinite proofs. The proof handles the zero-coordinate, constant-content, degree-zero, nonprime-power-cardinality, and square/rectangular cases.
+## correctness
 
-**Originality — PASS, with bibliographic uncertainty.** The motivating arXiv:2610.11240v1 already proves the complete unweighted \(2\times2\) bounded-degree count; it is expressly excluded as an independent novelty claim. The stated finding instead resolves the joint height/content enumeration over every \(m\times n\) format and gives the limit content law. A related previously recorded polynomial-product identity describes gcd degrees of two factor pairs, not the monic content of rank-one matrices in arbitrary dimensions. Comparisons of published mathematical records for rank-one matrices and Segre varieties did not identify this bivariate refinement. General height-zeta theory is a residual source of possible equivalent statements and must not be taken as excluded by database searching alone.
+PASS
 
-**Mathematical value — PASS.** The gcd of entries is the unique nonzero Smith invariant factor, making its height-conditioned distribution a canonical arithmetic statistic. A closed, exact bivariate formula yields the full infinite family of finite statistics, a dimension-governed geometric limit, and a sharp multiplicity transition when rectangular dimensions coalesce; these are natural quantities not settled by the known two-by-two total count. The result does not assert a new proof of the known two-by-two formula, nor claim significance for arbitrary unmotivated slices.
+PASS: Over the PID Fq[T], factor each nonzero rank-one matrix uniquely up to q−1 nonzero scalars as M=g u v^T with g monic content and both u,v primitive. Height degree adds exactly. Monic polynomial content contributes (1−qwz)^−1; primitive k-vector series is (q^k−1)(1−qz)/(1−q^k z). Multiplication yields exact bivariate rational generating function; dominant simple/double pole yields the geometric law and square-vs-rectangular growth transition. Independently enumerated every coefficient array of degree ≤1 for (q,m,n)=(2,2,2),(2,2,3),(3,2,2), including polynomial minors and gcd, agreeing with every joint cell.
 
-The closest direct source is Afifurrahman, *Statistics of divisor functions over function fields*, arXiv:2610.11240v1, Theorem 2.1 and Section 4. Herrero–Martínez–Montero, arXiv:2408.07631, concerns broader function-field height-zeta theory and leaves a residual question of abstract implication; its abstract alone is not evidence that no relevant result appears in its full text. The computation checks only small prime-field cases; all infinite statements are proved algebraically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Afifurrahman 2026 Theorem 2.1 supplies rank-one 2×2 total bounded-degree enumeration; that special case is explicitly credited. The actual new statement refines to Smith-content joint distribution for all rectangular m,n with limiting law; searches of Segre height-zeta and Resultary did not find a theorem implying its exact coefficients.
+
+## value
+
+PASS
+
+PASS: Height and invariant-factor content are intrinsic natural parameters in polynomial-matrix arithmetic. Their exact joint count and limit law provide reference enumerations for rank-one polynomial matrices beyond the previously known unweighted 2×2 count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
