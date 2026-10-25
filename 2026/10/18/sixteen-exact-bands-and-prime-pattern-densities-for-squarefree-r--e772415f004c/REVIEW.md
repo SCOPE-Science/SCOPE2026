@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete theorem is proved for every squarefree positive integer at exponent \(3\), not just numerically sampled values. Infinite tail interval-filling follows from the stated greedy-weight lemma, five verified rational comparisons and the unconditional Nagura prime-gap theorem for all primes at least \(29\). Four exact rational separators prove disjointness of the sixteen bands. The component frequencies are proved by Chinese remainder constraints and the squarefree sieve. The included exact-arithmetic program rechecks all finite lemmas, but its finite output is not substituted for the infinite proof.
+PASS
 
-## Originality — PASS (subject to documented literature risk)
+On squarefree n, F(n)=σ_{−3}(n)=∏_{p|n}(1+p^{−3}). Log-weights for p≥11 satisfy every dominance-reversal tail covering inequality: five rationally checked small tail prime cases p=11,13,17,19,23, and Nagura’s unconditional prime in every (x,6x/5), x≥25, gives all p≥29 via ≥(125/91)y/(1+y)>y≥log(1+y), y=p^{−3}. Summable subsum greedy lemma fills exactly [1,T] after exponentiating finite-subsum closure. The four small weights p=2,3,5,7 strictly dominate *all* following weights by exact rational bounds, separating exactly 16 c_S[1,T] bands. CRT valuation restrictions modulo p² plus the convergent squarefree sieve give density (6/π²)∏_{p∈S}1/(p+1)∏_{p∈B\S}p/(p+1), with all 16 conditional weights summing to 1. Density is of inputs, not distribution of values within intervals.
 
-Defant's *On the Density of Ranges of Generalized Divisor Functions with Restricted Domains* (arXiv:1507.02663v1, full manuscript inspected) explicitly frames the squarefree domain and asks for exact gap counts; it provides no claimed result for the present cubic parameter. Sanna's *On the closure of the image of the generalized divisor function* (arXiv:1507.08091v1, full manuscript inspected) provides closure components and density theory **over all integers**, a different domain. Earlier related exact component calculations in accessible records concern exponent \(2\) on the squarefree domain or exponent \(3\) on unrestricted domains. Those statements do not imply the exact restricted cubic count. Search terms covered equivalent formulations and the exact claimed count. An earlier unindexed exact calculation remains possible; absence from search is not itself proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Defant's explicit question motivates exact component counts in restricted divisor-function ranges. The cubic squarefree case exhibits a structural threshold at the first four primes, giving exactly \(16\) disjoint bands, exact endpoints and a complete rational distribution of component memberships. These are natural exact invariants and a full classification of this case, rather than a routine finite tabulation.
+Best-of-knowledge exact restricted squarefree r=3 component count, endpoints and prime-pattern densities. Defant sets this natural restricted-domain problem but does not give the cubic exact answer in inspected text; Sanna’s all-integers theorem is genuinely different and does not imply restricted gaps. A hidden exact prior computation is retained as residual risk.
 
-## Limits and dependencies
+## value
 
-The result assumes the established unconditional 1952 Nagura prime-gap theorem; no independent proof of that input is included. It concerns only exponent \(3\) on squarefree positive integers and does not assert unknown exponents or unindexed prior work have been exhausted. The finite checker is a reproducibility aid, not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete exact parameter-specific answer to a recognized generalized divisor-function range-gap problem: the first four primes form four superincreasing log weights yielding 16 disjoint bands, while later primes have dense subsums. Exact endpoints and positive arithmetic densities are reusable natural invariants; finite parameter specialization is motivated and not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
