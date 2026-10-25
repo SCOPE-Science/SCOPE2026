@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The hypotheses explicitly specify finite simple graphs, the precise transit and both modalities, and the quotient multigraph retains loops and parallel edges. The proof reduces archivalness to an equivalence on every nonreflexive edge-point, identifies archival upsets with all upsets of the contracted graph's incidence poset, and combines this order isomorphism with the published order-dual congruence correspondence. Independent enumeration of the defining archival condition checks 761 edge-labeled cases through four vertices; a separate finite-algebra compatible-element route checks both edge and vertex reflexivity patterns. These computations are checks, not the infinite-family proof.
+## correctness
 
-## Originality
-PASS, with residual search risk. Alvarez's arXiv:2505.08014 (first released 2025-05-12), its 2026 article, and the available abstract of a 2024 thesis establish general duality and archival-congruence machinery but not the incidence-graph contraction/isomorphism or enumeration claimed here. The full arXiv HTML and journal HTML were read in the relevant definitional and congruence sections; graph/incidence terminology was not found in the text. Graph-polynomial background already treats vertex-induced edge counts, so the generating polynomial itself is not claimed new. Published comparison results on incidence-poset homotopy do not imply the congruence lattice classification. The older thesis full text could not be read in this check; unindexed equivalent work remains a residual risk.
+PASS
 
-## Value
-PASS. The canonical graph incidence-poset family is a motivated source of intuitionistic temporal modal algebras, and their complete congruence lattices are natural invariants controlling algebraic quotients and simplicity. The statement handles every graph size and marking, explains exactly which missing reflexive edges merge logical components, and turns an abstract congruence condition into a concrete graph-poset construction. Its full lattice structure is stronger than isolated small-size counts.
+The finite Esakia upset algebra uses the incidence height-two order and the specified forward relation xRz iff strict vertex-edge incidence or marked reflexive loop. Alvarez Definition 3.10 and Theorem 3.15 identify congruences order-dually with closed archival upsets, all subsets being closed in finite discrete topology. For an unmarked edge e, an archival upset contains e only if it contains both endpoints: a missing endpoint x has no possible witness y in S above x with yRe unless e has a loop, which it does not. Upsetness gives the converse. Therefore vertex selection is constant on connected components of the unmarked-edge graph. For a marked edge e, membership is forced if any endpoint is selected but freely optional otherwise, with y=e as archival witness; marked vertex loops yield no new obligations. Passing to quotient components produces exactly upsets of the incidence poset I(Q) with loop/parallel edge tokens intact. Order reversal/complement yields Con(A) isomorphic to Down(I(Q)); choosing absent quotient vertices W gives sum_W 2^|E(Q[W])|. Independent direct quantified archival enumeration agreed with quotient counts for every graph and edge-loop marking on n=0,1,2,3,4 (cases 1,1,3,27,729; total 761), with no extrapolation of finite tests to general n.
 
-## Boundaries
-The claim is limited to finite simple input graphs (with a possibly loopy multigraph quotient), finite temporal transits of the stated type, and the correspondingly induced temporal Heyting algebras. It does not establish a classification for all temporal transits or independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original structural or statistical addition survives direct statement/implication comparison with published primary results. Established premises, included special cases and residual priority risks are identified rather than represented as discoveries. Unsuccessful search is not treated as proof of novelty.
+
+## value
+
+PASS
+
+This gives an exact full congruence lattice (not just count) of a natural graph-indexed temporal Heyting family and reveals a graph-contraction mechanism controlled by marked edges, including genuinely necessary loop and parallel-edge tokens. It yields reusable graph formulas and a structural explanation of why marking vertices is irrelevant, thereby filling a motivated concrete specialization of a broad congruence duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
