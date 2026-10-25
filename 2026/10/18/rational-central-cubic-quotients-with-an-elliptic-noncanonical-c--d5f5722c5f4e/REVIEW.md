@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies exactly the fixed eigenspace sections, verifies the two local tangent representations, and proves rationality by the quotient of the generic three-sheeted block projection. Quasi-étaleness and adjunction give the anticanonical volume; local determinant characters and ages give the exact canonical behavior. Transfer of rational cohomology to invariant summands and the finite-order Lefschetz fixed-point formula give the middle Betti rank, independently checked by the Jacobian-ring monomials. The assumptions \(\operatorname{disc}(F)\ne0\) and smoothness of \(G\) are essential for the fixed-set and analytic classifications. No finite experiment is mistaken for an all-parameter proof.
+## correctness
 
-**Originality — PASS, with an explicit general-theory reservation.** Ballard–Duncan–Zhang, arXiv:2610.09962v1, Theorem 5.1, supplies the central automorphism and its fixed set, but studies failure of unirationality for the larger group. Cheltsov–Tschinkel–Zhang, arXiv:2502.19598v2, studies the exceptional group action in a broader equivariant-unirationality classification. Neither inspected discussion gives the coarse cyclic quotient's birational, analytic and cohomological profile. A direct instantiation of a general quotient theorem may recover parts of this determination without the same wording; no exhaustive novelty or independent-priority certificate is claimed.
+PASS
 
-**Value — PASS.** The central subgroup arises canonically from a distinguished non-unirational finite-group action on a smooth nonrational cubic threefold. Its quotient is nevertheless explicitly rational, while retaining a noncanonical elliptic singular curve and nontrivial rank-four middle cohomology. Determining the complete singularity strata, canonical indices, volume and rational Betti profile uniformly for an entire family of split cubics is a natural geometry-of-quotients classification, not an arbitrarily selected invariant.
+Smoothness holds by disjoint partial derivatives of separable F and smooth G. Nontrivial Z stabilizers are exactly E (G=0 in P2) and F=0 three points in P1. Generic block projection to P1×P2 is a rational degree-three cube-root cover upstairs; Z acts transitively on the three scales, so Y is birational to P1×P2. Equivariant tangent charts give weights (1,1,0) along E and (1,1,1) at p_i; ages 2/3 and 1 distinguish noncanonical curve vs canonical nonterminal isolated points. No divisorial branch: K_X=pi* K_Y, -K_X=2H, H³=3, thus volume 8. Transfer H*(Y,Q)=H*(X,Q)^Z plus smooth cubic threefold b3=10, chi(E)+3=3 and trace(H3)=1 gives b3(Y)=4; H3 pure, h21=h12=2. This is an unrestricted argument for all smooth split cubics, not a numerical sample.
 
-**Relationship and limits.** The initiating paper's fixed-set description is reused with credit; the novel scope is the quotient. The cohomology statement is rational and pertains to the singular coarse quotient; no claims about integral torsion or any resolution are made. Comparisons were made with the initiating full text, its predecessor, and closely matching indexed claims. Implicit overlap in general cyclic-quotient literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fermat central fixed locus is acknowledged prior work, but the combined quotient birationality, Cartier indices, klt/noncanonical structure, volume and Hodge profile for all separable split F+G was not stated in the inspected primary sources. Standard formulas lower novelty but do not outright cover the uniform conjunction.
+
+## value
+
+PASS
+
+A natural coarse quotient of a prominent exceptional cubic threefold action exhibits rationality, noncanonical elliptic singularities and nonzero four-dimensional weight-three middle cohomology; its exact singularity and Hodge profile is a compact useful datum distinguishing geometric quotient from larger-group equivariant unirationality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
