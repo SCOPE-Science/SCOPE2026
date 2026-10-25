@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (PASS).** The all-width proof uses unique distance-two spanning edges and their three-vertex simplex links; the resulting \(20n\) elementary collapses produce a natural dihedrally invariant cyclic union of \(n\) ten-vertex blocks. Exact finite verification of the universal block gives 48 elementary collapses to an octahedral sphere, and all 20 local symmetry actions have verified integer signed-Lefschetz traces. The Mayer–Vietoris decomposition makes the block homology summands natural over \(\mathbb Z\). Independent computations from the complete flag complex confirm 480 product-dihedral character cases in three widths. Quantifiers are \(n\ge7\) and inclusivity is essential. Finite tests alone are not the infinite proof; the uniform link lemma supplies it.
+
+**Originality (PASS with residual risk).** The earlier rectangular grid theorem already classifies \(\operatorname{VR}_{\le2}(C_5\square C_n)\) up to nonequivariant homotopy; those ranks are explicitly not asserted to be new. The current finding instead distinguishes row and column stabilizer orientation signs on each integral sphere generator and hence determines the full product-dihedral module. An older square-grid source (arXiv:2502.07134) and indexed width-four work do not imply those signs. Exact published-index searches using both Rips and graph-power terminology did not disclose an equivalent action; inaccessible detailed texts and unindexed literature remain a risk.
+
+**Value (PASS).** The natural signed edge-permutation lattice is stronger than the existing sphere counts: it distinguishes vertex-axis from edge-axis reflection characters for even circumference, determines every product-dihedral trace, and proves vanishing of all full-group positive-degree rational invariants. The two reflection signs have a geometric origin in the orientation of an explicit universal two-column block rather than an arbitrary parameter selection.
+
+**Limitations.** The conclusion is for an inclusive scale-two graph-metric complex and \(n\ge7\), not every scale or width. The finite local orientation and sphere certificates are executable and exact, but there is no independent validation or guarantee of complete indexing of overlapping literature.
+
+Self-review: passed. Independent audit: not yet performed.
