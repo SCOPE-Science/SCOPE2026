@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The spanning tight-edge criterion reconstructs facet dimension; odd rim parity forces two slack edges. The equality classification forces these slack edges to coincide and all rungs to be tight. A two-state Laurent transfer counts all admissible closed integer potentials without duplicates. Independent exhaustive enumeration for three odd graph sizes and coefficient checks through dimension 29 corroborate the analytic argument; they are not substitutes for its all-dimensional proof.
+## correctness
 
-**Originality — PASS (best-known comparison, not proof of uniqueness).** The closest prior full-text mathematical results are the general facet criterion of Higashitani–Jochemko–Michałek (2018); D'Alì–Delucchi–Michałek (2019) on cycles, wheels, and bipartite planar flow counts; and Braun–Bruegge (2023) on sparse few-cycle graph families. Their inspected relevant statements do not give an odd-prism top-support facet multiplicity or imply its central-trinomial evaluation without the new equality classification and transition count. Relevant indexed mathematical-record queries found no closer statement. Unindexed equivalences remain a risk.
+PASS
 
-**Value — PASS.** The number of vertices on a facet is an intrinsic combinatorial face invariant, and the maximal layer measures the largest edge-root incidence in a canonical nonbipartite graph-metric transportation ball. The extremal bound and exact multiplicity distinguish odd rim parity from bipartite planar flow methods. The statement is an infinite-family classification of a natural extremal layer, not an arbitrary small numerical census.
+All edge molecules are vertices because graph-distance one edges admit no third intermediate point. A facet's tight-edge graph must connect all 2n vertices: the roots then span the zero-sum hyperplane, and normalized tight potentials are integer. Each odd rim requires a slack edge, giving <=3n-2. Equality forces all rungs tight and a unique slack top and bottom rim edge; the identity q_i=p_i+r_(i+1)-r_i makes the two slack positions coincide, while off-slag rim increments are +/-1. For each common slack position, the 2-by-2 Laurent transition matrix T=[[z+z^-1,z],[z^-1,z+z^-1]] counts exactly the closed height/rung assignments. Trace powers have eigenvalues z+z^-1 +/-1 and, since n-1 is even, equal constant terms, giving 2n times central trinomial. The connected tight-rim paths guarantee every counted potential yields a facet without duplicating orientations. Lattice local CLT for steps -1,0,1 of variance 2/3 yields the stated asymptotic. Independent exact normalized-potential enumeration for n=3,5,7 found 18,190,1974 connected maximizers and no disconnected candidates at the bound; the finite check cannot establish the all-odd-n theorem, which follows from the structural argument.
 
-**Limits.** No counts of nonmaximal facets or all face dimensions are proved. Real scalars, unweighted circular ladders, and odd rim lengths only. The derivation relies on an established graph-facet criterion. External independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level originality is limited to the differentiated new result, with credited general tools, broader prior coverage, and recorded access risks. The new extremal facet multiplicity is not supplied by the general potential criterion.
+
+## value
+
+PASS
+
+The count of facets attaining maximum incidence with polytope vertices is a natural extremal face invariant of a nonbipartite graph family; it differs from total facet enumeration. The parity obstruction, equality rigidity and closed 2-state transfer produce a genuinely informative infinite family of exact multiplicities and asymptotics, not an arbitrary small numerical slice or merely restating the known facet criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
