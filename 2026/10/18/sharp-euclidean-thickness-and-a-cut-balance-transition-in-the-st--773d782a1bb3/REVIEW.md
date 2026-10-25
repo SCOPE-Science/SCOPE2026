@@ -1,19 +1,21 @@
-# Scientific review: sharp Euclidean width of the standard cyclohedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The target is the intrinsic Euclidean width of the unit-coefficient Minkowski sum of all coordinate simplices on connected subsets of the cycle. For a mean-zero normal, the support width is a sum of coordinate ranges. Sorted-coordinate gaps decompose exactly into nested mean-zero cut vectors. The range sum is linear in these gaps and Euclidean triangle inequality forces a minimizing cut. Because distinct proper nested cut vectors cannot be parallel, all minimizers are two-level.
+## correctness
 
-For any cut, a cyclic-run count bounds the number of tubes meeting both colors by \(A_n+s(n-s)\), with equality exactly for a single cyclic block. Optimization in \(z=s(n-s)\) gives the stated all-\(n\) widths and equality families, including the exceptional \(n=4\) singleton case. The standalone checker passes exact cut tests for sizes 3 through 10 and finite directional checks; the all-dimensional result follows from the proof, not from sampled directions.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
-The primary simplex-sum/nestohedral realization and the coarea technique are credited. The closest published result on the **same cyclohedron** proves its Euclidean **inradius**, not minimum width, and its formula cannot imply the width because no central symmetry is assumed. The nearest generalized coarea result concerns inradii of **graphical zonotopes**, whose summands are segments rather than all cyclic connected-subset simplices; the new sharp cyclic-run optimization is not part of that theorem. Published work on graph-associahedron diameters treats graph-geodesic distance.
+Actual frozen RESULT.md b30b76... gives tube-simplex-sum support width F(u)=∑_B (max_B u−min_B u). Sorting u and decomposing into centered nested cut indicators gives exact coarea sum and ℓ2 triangle inequality; strictness forces a two-level cut for any minimizer. For any S with s vertices, cyclic-run counting gives C(S)=n(n−1)+1−∑runs T(length), with T(r)=r(r+1)/2, and C(S)≥A_n+s(n−s), equality exactly single cyclic interval. Consequently optimize √n(A_n+z)/√z for z=s(n−s). For n≥5 A_n≥U_n=floor(n²/4), balanced z is optimal; n4 singleton width 4√3 beats balanced 7; n3 singleton. Exact integer cut enumeration built cyclic connected subsets independently through n10 and reproduced squared minima 27/2,48,120,722/3,1701/4,1369/2,5184/5,7442/5; equality cardinalities also verified. The general n proof is the coarea/counting/derivative chain, not sample enumeration.
 
-Inspected primary literature: Jochemko–Ravichandran, arXiv:1909.08448; Padrol–Pilaud–Poullot, arXiv:2109.09200; Cardinal–Pournin–Valencia-Pabon, arXiv:2106.16130. Compared full texts of published cyclohedron-incenter and weighted-graphical-zonotope records, and performed multiple statement-level published-finding corpus and primary-literature searches for width, support ranges, cut equivalents and dominating formulations. An older equivalent in an unindexed source remains possible; a distinct clock-quasimetric cyclohedron result was only compared at summary level. This is not a priority certificate.
+## originality
 
-## Mathematical value — PASS
-This is a complete metric invariant for a canonical infinite family, including exact normal-orbit classification and a nontrivial small-dimensional transition. It is not a restatement of the known inradius and does not claim novelty for layer-cake/coarea in isolation. The result is specific to the standard realization and does not optimize over arbitrary cyclohedron embeddings.
+PASS
 
-## Scientific limitations
-There has been no independent mathematical audit. The finite reproducibility checks cannot prove the all-dimensional statements. Search nonappearance alone is not proof of novelty, and the result makes no statement about Euclidean widths of other affine realizations.
+A published Resultary record computes inradius of EXACT SAME W_n but does not determine width; its unique singleton inball tangencies are compatible with the new balanced minimum-width cut when n≥5. Weighted graphical-zonotope inradius uses the analogous coarea mechanism, but for sums of segments, not the connected-subset simplex-sum cyclohedron. Thus the formula and change at n=5 survive comparison, subject to prior geometric-width literature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Euclidean minimum width is a natural metric invariant of the standard cyclohedron, distinct from its known inradius. Exact minimizing normal classes and abrupt singleton-to-balanced transition are useful for convex-body thickness, directional section/packing estimates and show that different extremal metrics prefer different facets. It is a complete all-n classification with independent significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
