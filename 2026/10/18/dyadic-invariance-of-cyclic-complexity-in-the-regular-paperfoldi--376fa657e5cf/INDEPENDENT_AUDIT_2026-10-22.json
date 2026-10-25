@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:04:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With 1-indexed odd-part-residue f, f_{2t}=f_t and every odd global position alternates with the next odd one. A full factor cannot be alternating for four symbols, since any two same-parity odd global positions distance 2 have opposite bits. For every even factor of length ≥8, precisely one of its two tracks alternates, while the other is a length-≥4 factor of f, giving intrinsic occurrence-start parity. When n≡0 mod4, its alternating track has even length and cyclic rotations preserve alternation; rotating a factor by r changes its occurrence parity by r mod2. Interleave an n-factor f_t... with alternating f_{2(t+j)+1} to obtain a genuine 2n-factor at 2t. Any factor beginning at 2t−1 is a one-symbol cyclic rotation of this lift, by 2n-periodicity of odd-position bits mod4. The map is surjective on all 2n-factor conjugacy classes, equivariant under even lifted rotations, and injective because an odd rotation would exchange unique alternating and nonalternating tracks. Independent 16,384-symbol enumeration found the known exhaustive 4ℓ distinct factors at each ℓ=n,2n and independently counted seven pairs (n,2n) for n=8,12,16,20,24,28,32. It reproduced c4=3,c8=4,c12=16,c20=28,c28=40. Finite checks were exhaustive only at tested lengths using Allouche p(ℓ)=4ℓ; the bijection proves all n≥8 divisible by four.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krawchuk and Rampersad, Integers 18A (2018) #A12, full 13-page PDF §2 focuses Fibonacci and Thue–Morse cyclic complexity",
+          "Cassaigne et al arxiv:1402.5843v5 §5.2 handles the all-paperfolding power-of-two ray"
+        ],
+        "reasoning": "Cassaigne is broader in the choice of paperfolding sequence but narrower in permitted lengths. Neither proposition implies arbitrary 4r doubling invariance of the regular sequence. A result on an unrelated cyclic Hilbert transform (Resultary hit) does not cover word conjugacy.",
+        "searches": [
+          "Cyclic Complexity of Some Infinite Words and Generalizations Krawchuk Rampersad 2018",
+          "Cyclic Complexity of Words Cassaigne et al 2014 paperfolding words",
+          "regular paperfolding word cyclic complexity c(2n)=c(n) conjugacy factors dyadic scaling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1402.5843",
+        "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "Resultary query: regular paperfolding word cyclic complexity c(2n)=c(n) conjugacy factors dyadic scaling",
+        "Web query: cyclic complexity regular paperfolding c(2n) c(n) theorem arbitrary multiple four"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Proposition 20 only proves ray lengths 8,16,32,...",
+          "Allouche 1992 p_f(ℓ)=4ℓ for ℓ≥7 counts factors rather than conjugacy classes"
+        ],
+        "reasoning": "The total factor count 4ℓ and special c(8*2^j)=4 do not imply c_f(2n)=c_f(n) for n=12,20,28,…; the unique-track lifting lemma supplies the missing implication.",
+        "searches": [
+          "Cassaigne Fici Sciortino Zamboni Proposition 20 paperfolding",
+          "Krawchuk Rampersad 2018 Theorem cyclic complexity Thue Morse Fibonacci"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cassaigne et al., full paper §5.2, Proposition 20: c_x(4*2^{j})=4 for j≥1",
+          "The submitted statement constructs explicit conjugacy class lift/decimation for n≥8 divisible by4"
+        ],
+        "reasoning": "The prior c(8*2^j)=4 follows as one special orbit of the new equality, but not conversely: c(12)=16, c(20)=28, c(28)=40 arise outside that ray. Prior proposition makes a full cyclic orbit property at those powers, not an arbitrary-multiplier class bijection.",
+        "searches": [
+          "regular paperfolding word cyclic complexity c(2n)=c(n) conjugacy factors dyadic scaling",
+          "cyclic complexity regular paperfolding c(2n) c(n) theorem arbitrary multiple four",
+          "Cassaigne Fici Sciortino Zamboni arxiv:1402.5843 Proposition 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive factor enumerations by c(n) and c(2n), certified cardinalities 4n and 8n for seven pairs",
+          "c_f(12)=16, c_f(20)=28, c_f(28)=40 in the frozen RESULT and separately reconstructed counts"
+        ],
+        "reasoning": "Tabulated finite values alone cannot imply equality on every multiple of four. No exact published all-4-multiples cyclic complexity table or theorem was found in examined sources.",
+        "searches": [
+          "regular paperfolding cyclic complexity c(12) c(20) c(28) doubling",
+          "regular paperfolding word cyclic complexity c(2n)=c(n) conjugacy factors dyadic scaling"
+        ]
+      },
+      "rationale": "The original Cassaigne–Fici–Sciortino–Zamboni paper proves for all paperfolding words that the special power-of-two ray c(4*2^{j})=4 for j≥1; this is acknowledged and is covered prior work. Its complete Proposition 20 has length 4*2^{n+1}, not every multiple 4r of arbitrary odd r, and does not yield the exhibited canonical one-to-one orbit decimation for all such n. Krawchuk–Rampersad 2018 examines cyclic complexity largely for Fibonacci and Thue–Morse words rather than the regular paperfolding arbitrary-multiplier doubling theorem. The new accepted statement is the much broader classwise invariant for all n≥8,4|n, not the known ray or baseline factor formula.",
+      "residual_risks": [
+        "A different paperfolding cyclic-complexity table or unindexed automatic-sequence argument could already imply all-4-multiples doubling.",
+        "The sample list of initial counts relies on the published Allouche factor-count theorem to certify exhaustiveness; independent finite prefixes alone do not certify missing factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SPECIAL_RAY_ONLY",
+          "evidence": "Proposition 20 at lengths 4*2^{j} with j≥1, no all 4|n class-bijection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5843",
+          "material_read": "Full 17-page OA PDF, especially §5.2 Proposition 20 p14 and proof read",
+          "method": "web PDF text and p13 screenshot",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Direct established cyclic complexity of paperfolding"
+        },
+        {
+          "assessment": "DIFFERENT_WORDS_RESULTS",
+          "evidence": "Analysis is primarily Fibonacci and Thue–Morse cyclic complexity, not paperfolding all-4-multiples scale invariance.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+          "material_read": "Full 13-page OA PDF, abstract, introduction and §2 theorems on Fibonacci/Thue–Morse read",
+          "method": "web PDF text and screenshot p0",
+          "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+          "trigger": "Potential stronger cyclic-complexity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A scale-invariance bijection for an entire infinite congruence class of factor lengths explains structural self-similarity of cyclic rotation equivalence, rather than a single constant power-of-two ray or isolated finite sequence values. The sharp n=4 failure clarifies the natural boundary. The nontrivial arbitrary-odd-multiplier extension supplies new exact cyclic class counts along infinitely many dyadic rays.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1402.5843",
+    "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+    "Resultary query: regular paperfolding word cyclic complexity c(2n)=c(n) conjugacy factors dyadic scaling",
+    "Web query: cyclic complexity regular paperfolding c(2n) c(n) theorem arbitrary multiple four"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality comparison; no guarantee of exhaustive historical priority.",
+    "No authorized scientific Git write, expert certification, or independent proof-assistant proof asserted."
+  ],
+  "residual_risks": [
+    "A different paperfolding cyclic-complexity table or unindexed automatic-sequence argument could already imply all-4-multiples doubling.",
+    "The sample list of initial counts relies on the published Allouche factor-count theorem to certify exhaustiveness; independent finite prefixes alone do not certify missing factors."
+  ],
+  "schema_version": 1
+}
