@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T05:11:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Yu–Tang–Zeng, arXiv:2609.38874v1, full-text HTML §§2,3 (Prop.3.1 and proof, Eqs.18–23), 5.1 (Eqs.30–34); https://arxiv.org/abs/2609.38874",
+        "Hu–Bi–Ma–Ruan, DCDS-B 15 (2011) 93–112, doi:10.3934/dcdsb.2011.15.93, full 20-page primary text, §4.1 p.102 formula omega_c²=mu*f(I2)-(d+v)², plus §§2–3 equilibrium relations.",
+        "Fresh independent SymPy calculations: independent_checks.py and independent_checks.json"
+      ],
+      "limitations": [
+        "Strictly classifies positive-inhibition B_H>0 linear Hopf crossing conditions; not l1 nondegeneracy or all boundary values B=0.",
+        "The source RESULT.md and VERIFICATION.md contain control-character-corrupted mathematical macros."
+      ],
+      "rationale": "On the explicit positive-inhibition interior B_H>0 with s>0, s<r<s+1 and 0<tildeX<1/(s+1), the normalized Jacobian J(1,1) has Tr=r[(p-p_c)-Bq/(1+B)] and det=r[1/X1-p+Bq/(1+B)]. At B_H=q_c/(q-q_c), det=r(1/X1-p_c)=rs*tildeX/X1-1; det>0 iff tildeX>1/(s+1+sr). This also gives p_c<1/X1, so source Prop.3.1 Hopf branches cover exactly p>p_c, q>q_c with B=B_H. The additional high-p q>q1 condition at B_H is q-q1=q(1-p_c X1)/(q_c X1)>0, the same determinant inequality. With K adjusted by the equilibrium relation, d_B Re(lambda)|BH=-r*q/(2(1+B_H)^2)=-r(q-q_c)^2/(2q)<0. The exact reparametrization gives omega_H²=D; source focus frequency includes the positive factor 1+B_H. All 12 fresh SymPy checks passed, including independently differentiated Jacobian and 2011 general-incidence normalization; rational sample (s,r,T,p,q)=(1,3/2,1/3,3,2) gives B_H=1/5, omega²=1/2, crossing=-25/24. The assertion is correct as a local spectral Hopf crossing criterion, not a theorem of nondegenerate nonlinear Hopf cycles, first Lyapunov coefficient, or all B=0 boundary configurations. Malformed source LaTeX control characters were resolved through the clean primary equations, not ignored.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu et al. (2011) pp.95,102 in the same SIRS framework with arbitrary incidence f(I) give equilibrium f(I_e)[N0-I_e-R_e]=(d+mu)I_e, R_e=mu I_e/(d+v), and omega_c²=mu f(I_e)-(d+v)² at Hopf.",
+          "Setting tildeX=I_e/N0, s=mu/(d+v), r=(d+mu)/(d+v), X1=1-(1+s)tildeX gives omega_c²/(d+v)² = r s tildeX/X1-1, exactly the candidate frequency formula for a more general incidence function.",
+          "Yu et al. (2026) Proposition 3.1 and Eq.(21) already cover the full positive-inhibition Hopf locus for this p/q incidence."
+        ],
+        "reasoning": "The ostensibly new frequency invariant is a direct special case of the 2011 general-incidence local Hopf frequency formula after nondimensionalizing. The present one-line criterion is also covered by the 2026 source conditions, not a new strengthening.",
+        "searches": [
+          "Hu Bi Ma Ruan 2011 full 20-page primary DOI 10.3934/dcdsb.2011.15.93; Sections 2–4.1",
+          "Bifurcations of an SIRS epidemic model with nonlinear incidence rate filetype:pdf",
+          "doi:10.1137/040604947 publisher abstract and open-preprint search",
+          "Yu Tang Zeng arXiv:2609.38874 complete relevant original Sections 2,3,5.1"
+        ]
+      },
+      "checked_sources": [
+        "Yu–Tang–Zeng, arXiv:2609.38874v1, full-text HTML §§2,3 (Prop.3.1 and proof, Eqs.18–23), 5.1 (Eqs.30–34); https://arxiv.org/abs/2609.38874",
+        "Hu–Bi–Ma–Ruan, DCDS-B 15 (2011) 93–112, doi:10.3934/dcdsb.2011.15.93, full 20-page primary text, §4.1 p.102 formula omega_c²=mu*f(I2)-(d+v)², plus §§2–3 equilibrium relations.",
+        "Alexander–Moghadas, SIAM J. Appl. Math. 65 (2005) 1794–1816, doi:10.1137/040604947, primary publisher abstract; institutional full-text access unavailable.",
+        "Cui–Zhao, JDE 384 (2024) 252–278, doi:10.1016/j.jde.2023.11.030, bibliographic primary summary and 2026 paper comparison.",
+        "Resultary semantic search: exact original-time onset frequency SIRS power-rational p q; simplified Hopf condition det>0; Yu–Tang–Zeng arXiv:2609.38874 (the only exact match is this same candidate, not independent priority)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute B_H=q_c/(q-q_c) into the source trace to get simple imaginary eigenvalues and into source determinant to get rs tildeX/X1-1; derivative of source trace yields -r(q-q_c)^2/(2q).",
+          "For the source high-p Hopf branch, q-q_1 at B_H equals q(1-p_c X1)/(q_c X1). Positivity is the same prevalence/determinant restriction, eliminating the written split without extra mathematics.",
+          "With the source parametrization r=(g+1)/a, s=(1+D)/g, tildeX=ag/((a+1)(g+1)+aD), the expression rs tildeX/X1-1 equals D; multiplying time by source factor 1+B_H gives the already displayed focus frequency.",
+          "Hu et al. (2011) general-incidence formula implies the same original-time frequency independent of the incidence exponents when endemic prevalence and demographic ratios are fixed."
+        ],
+        "reasoning": "Both source-to-candidate and stronger 2011-to-candidate implications are exact. The claim presents a useful reader-friendly interpretation but does not cross the originality boundary for an independently accepted result.",
+        "searches": [
+          "Yu–Tang–Zeng arXiv:2609.38874v1, full primary text §§2,3,5.1",
+          "Hu–Bi–Ma–Ruan DOI 10.3934/dcdsb.2011.15.93 full primary pp.93–112",
+          "Alexander–Moghadas DOI 10.1137/040604947 publisher abstract and attempted authenticated full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu et al. (2026) Eq.(21) gives Tr = r[(p-p_c)-Bq/(1+B)] and determinant r[1/X1-p+Bq/(1+B)]; Proposition 3.1 states the two Hopf branches in p relative to 1/X1.",
+          "At B_H=q_c/(q-q_c), the displayed source equations give det_H=r(1/X1-p_c)=rs*tildeX/X1-1; on the positive determinant region p_c<1/X1, so the existing two Hopf branches coalesce by arithmetic.",
+          "Yu et al. (2026) Eqs.(30),(33),(34) already define D and rescaled focus frequency n sqrt(D)/(a-m+1+n) after multiplying the vector field by 1+Bx^q. Undoing that documented factor yields omega_H²=D."
+        ],
+        "reasoning": "The whole proposed Hopf set, frequency, direction and D identity follow by a short positive-denominator algebraic rewrite of the same source equations. No new point, extra hypothesis, bifurcation branch, or invariant is established beyond their implication. Distinct wording (one-line or incidence independence) is not distinct mathematics.",
+        "searches": [
+          "arXiv:2609.38874v1 Proposition 3.1 Eqs.(18)–(23); Section 5.1 Eqs.(30)–(34)",
+          "Resultary: SIRS model codimension five Hopf bifurcation simplified criterion determinant positivity",
+          "Resultary: SIRS nonlinear incidence normalized Hopf bifurcation frequency original-time square D trace determinant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned candidate itself (2026/10/11/...66b96e62694c), excluded as independent earlier coverage; no distinct exact table or independent database record emerged from these queries.",
+          "The mathematical formula is already represented in the 2011 published primary paper (omega_c²=mu*f(I_e)-(d+v)²) and the 2026 published source linearization, irrespective of any missing database tabulation."
+        ],
+        "reasoning": "No external tabular duplicate was needed to decide originality: direct prior theorem/equation implication is stronger evidence than a verbatim table match. Do not mistake self-indexing for a distinct prior publication.",
+        "searches": [
+          "Resultary search query: incidence independent onset frequency Hopf SIRS nonlinear power rational infection SIRS p q B_H",
+          "Resultary search query: SIRS nonlinear incidence normalized Hopf bifurcation frequency original-time square D trace determinant one-line condition Yu Tang Zeng",
+          "Resultary search query: SIRS model codimension five Hopf bifurcation simplified criterion determinant positivity",
+          "Primary Yu et al. (2026) Eqs.(21),(30),(33); Hu et al. (2011) p.102 Eq.(40) and displayed omega_c"
+        ]
+      },
+      "rationale": "The claimed one-line locus, crossing and D identity are algebraic consequences of Yu–Tang–Zeng (2026) equations (18),(21),(30)–(34). More importantly, Hu–Bi–Ma–Ruan (2011) already give a general-incidence endemic Hopf frequency omega_c²=mu*f(I_e)-(d+v)²; combined with its endemic-equilibrium equation, this yields the identical normalized frequency rs*tildeX/X1-1 for any incidence function. The present p/q model is a special case. Neither title uniqueness nor failure to find a matching table establishes mathematical novelty.",
+      "residual_risks": [
+        "The standard phrase ordinary/nondegenerate Hopf would require a nonzero first Lyapunov coefficient; the exact algebra proves the simple imaginary crossing locus only. Codimension-5 generalized Hopf points in the source lie on the same linear Hopf locus. The result explicitly disclaims Lyapunov-coefficient classification; interpret Hopf criterion in that restricted spectral sense.",
+        "The equilibrium-preserving B-variation varies K simultaneously. The incidence-exponent independence holds at fixed s,r,tildeX, not freely varied dimensional parameters.",
+        "The original public RESULT.md Git blob contains 39 actual form-feed and 5 carriage-return control characters in mathematical macros; VERIFICATION.md contains 4 form feeds and 1 carriage return. The intended identities were reconstructed from mathematical context and clean primary source; uncorrected public KaTeX cannot be treated as valid display.",
+        "Full text of Alexander–Moghadas (2005) was not available through attempted OA/institutional access (vpn_disconnected); no whole-document noncoverage assertion is made for it. Direct mathematical coverage by the fully inspected 2011 and 2026 sources is decisive independently.",
+        "No claim is made about nonlinearly realized periodic orbit, Lyapunov criticality, or existence of a generic Hopf branch at degenerate points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire candidate via explicit mathematical implication (not merely a similar title); source states the equivalent Hopf alternatives and rescaled frequency and also permits degenerate Hopf points.",
+          "evidence": [
+            "Eq.(21): exact trace and determinant",
+            "Prop.3.1: two Hopf alternatives",
+            "Eqs.(30),(33),(34): D parameter, critical frequency and positive time multiplier"
+          ],
+          "identifier_or_url": "arXiv:2609.38874v1; https://arxiv.org/abs/2609.38874",
+          "material_read": "Open full-text HTML: introductory scope, normalized model and equilibrium E1 in Section 2 (13–16), complete Proposition 3.1 and proof in Section 3 (18–23), generalized-Hopf reparametrization and time multiplication in Section 5.1 (30–34), high-codimension focus context.",
+          "method": "Lawful open-access arXiv full-text HTML read by section; no PDF full-text claim.",
+          "title": "A codimension-5 Hopf bifurcation yielding 5 limit cycles in a SIRS epidemic model with nonlinear incidence rate",
+          "trigger": "Self-review, same equilibrium normalization and same Hopf equations; dominant primary novelty comparator."
+        },
+        {
+          "assessment": "Broader prior formula for any smooth incidence f(I) gives omega_c²=mu*f(I_e)-(d+v)² and yields the candidate incidence-independent normalized frequency using the equilibrium equation.",
+          "evidence": [
+            "p.95 equilibrium f(I_e)[N0-I_e-R_e]=(d+mu)I_e and R_e=mu I_e/(d+v)",
+            "p.102 Section 4.1: omega_c²=mu*f(I_e)-(d+v)²"
+          ],
+          "identifier_or_url": "doi:10.3934/dcdsb.2011.15.93; DCDS-B 15 (2011) 93–112",
+          "material_read": "Complete authorized 20-page primary text, pages 93–112: Sections 1–4.2, full stability/bifurcation proofs including p.102 omega_c formula, numerical examples and references.",
+          "method": "Lawful institutional full-text extraction after arXiv and open-access PDF attempts did not obtain the same paper.",
+          "title": "Bifurcations of an SIRS epidemic model with nonlinear incidence rate",
+          "trigger": "Earlier same generalized power-rational incidence and endemic Hopf analysis; potential stronger onset-frequency theorem."
+        },
+        {
+          "assessment": "Abstract confirms general-incidence SIRS local Hopf and first Lyapunov analysis; no full-document negative coverage assertion. Stronger 2011 primary evidence makes this access risk non-decisive.",
+          "evidence": [
+            "SIAM J. Appl. Math. 65 (2005), 1794–1816 publisher abstract",
+            "Authorized full-text attempt returned vpn_disconnected"
+          ],
+          "identifier_or_url": "doi:10.1137/040604947; https://epubs.siam.org/doi/10.1137/040604947",
+          "material_read": "Publisher abstract and bibliographic details; authenticated full text unavailable.",
+          "method": "Primary publisher page and lawful institutional retrieval attempted after unsuccessful arXiv/OA searches; access blocked.",
+          "title": "Bifurcation Analysis of an SIRS Epidemic Model with Generalized Incidence",
+          "trigger": "Older general-incidence SIRS Hopf literature; plausible equivalent normalized frequency."
+        },
+        {
+          "assessment": "Scope is saddle-node and BT, not a demonstrated independent source of the complete candidate; no unsupported claim of whole-document noncoverage.",
+          "evidence": [
+            "Yu–Tang–Zeng (2026) Introduction cites the Cui–Zhao (2024) Hopf codimension question as remaining open"
+          ],
+          "identifier_or_url": "doi:10.1016/j.jde.2023.11.030; JDE 384 (2024) 252–278",
+          "material_read": "Bibliographic/abstract-level source description cited in the complete 2026 primary paper; original full text not read.",
+          "method": "Primary bibliographic metadata plus contemporaneous 2026 paper comparison.",
+          "title": "Saddle-node bifurcation and Bogdanov-Takens bifurcation of a SIRS epidemic model with nonlinear incidence rate",
+          "trigger": "Immediate same-family predecessor to the 2026 source."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Yu–Tang–Zeng, arXiv:2609.38874v1, full-text HTML §§2,3 (Prop.3.1 and proof, Eqs.18–23), 5.1 (Eqs.30–34); https://arxiv.org/abs/2609.38874",
+        "Hu–Bi–Ma–Ruan, DCDS-B 15 (2011) 93–112, doi:10.3934/dcdsb.2011.15.93, full 20-page primary text, §4.1 p.102 formula omega_c²=mu*f(I2)-(d+v)², plus §§2–3 equilibrium relations."
+      ],
+      "rationale": "The onset frequency is a natural epidemiological invariant and a clearer parametrization could help readers. But the proposed contribution is entirely mechanical elimination, time-scale substitution and rephrasing of the same published Hopf criterion, plus a special case of the broader 2011 general-incidence frequency law. It introduces no new boundary, independent exact invariant, structural classification or non-implied mathematical phenomenon. Hence this submission has no distinct incremental mathematical value as a scientific finding, despite the relevance of the subject.",
+      "residual_risks": [
+        "A clear pedagogic interpretation can have expository utility, but it is not a new mathematical result under the requested V bar."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Yu–Tang–Zeng, arXiv:2609.38874v1, full-text HTML §§2,3 (Prop.3.1 and proof, Eqs.18–23), 5.1 (Eqs.30–34); https://arxiv.org/abs/2609.38874",
+    "Hu–Bi–Ma–Ruan, DCDS-B 15 (2011) 93–112, doi:10.3934/dcdsb.2011.15.93, full 20-page primary text, §4.1 p.102 formula omega_c²=mu*f(I2)-(d+v)², plus §§2–3 equilibrium relations.",
+    "Alexander–Moghadas, SIAM J. Appl. Math. 65 (2005) 1794–1816, doi:10.1137/040604947, primary publisher abstract; institutional full-text access unavailable.",
+    "Cui–Zhao, JDE 384 (2024) 252–278, doi:10.1016/j.jde.2023.11.030, bibliographic primary summary and 2026 paper comparison.",
+    "Resultary semantic search: exact original-time onset frequency SIRS power-rational p q; simplified Hopf condition det>0; Yu–Tang–Zeng arXiv:2609.38874 (the only exact match is this same candidate, not independent priority)."
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The standard phrase ordinary/nondegenerate Hopf would require a nonzero first Lyapunov coefficient; the exact algebra proves the simple imaginary crossing locus only. Codimension-5 generalized Hopf points in the source lie on the same linear Hopf locus. The result explicitly disclaims Lyapunov-coefficient classification; interpret Hopf criterion in that restricted spectral sense.",
+    "The equilibrium-preserving B-variation varies K simultaneously. The incidence-exponent independence holds at fixed s,r,tildeX, not freely varied dimensional parameters.",
+    "The original public RESULT.md Git blob contains 39 actual form-feed and 5 carriage-return control characters in mathematical macros; VERIFICATION.md contains 4 form feeds and 1 carriage return. The intended identities were reconstructed from mathematical context and clean primary source; uncorrected public KaTeX cannot be treated as valid display.",
+    "Full text of Alexander–Moghadas (2005) was not available through attempted OA/institutional access (vpn_disconnected); no whole-document noncoverage assertion is made for it. Direct mathematical coverage by the fully inspected 2011 and 2026 sources is decisive independently.",
+    "No claim is made about nonlinearly realized periodic orbit, Lyapunov criticality, or existence of a generic Hopf branch at degenerate points."
+  ],
+  "residual_risks": [
+    "The standard phrase ordinary/nondegenerate Hopf would require a nonzero first Lyapunov coefficient; the exact algebra proves the simple imaginary crossing locus only. Codimension-5 generalized Hopf points in the source lie on the same linear Hopf locus. The result explicitly disclaims Lyapunov-coefficient classification; interpret Hopf criterion in that restricted spectral sense.",
+    "The equilibrium-preserving B-variation varies K simultaneously. The incidence-exponent independence holds at fixed s,r,tildeX, not freely varied dimensional parameters.",
+    "The original public RESULT.md Git blob contains 39 actual form-feed and 5 carriage-return control characters in mathematical macros; VERIFICATION.md contains 4 form feeds and 1 carriage return. The intended identities were reconstructed from mathematical context and clean primary source; uncorrected public KaTeX cannot be treated as valid display.",
+    "Full text of Alexander–Moghadas (2005) was not available through attempted OA/institutional access (vpn_disconnected); no whole-document noncoverage assertion is made for it. Direct mathematical coverage by the fully inspected 2011 and 2026 sources is decisive independently.",
+    "No claim is made about nonlinearly realized periodic orbit, Lyapunov criticality, or existence of a generic Hopf branch at degenerate points."
+  ],
+  "schema_version": 1
+}
