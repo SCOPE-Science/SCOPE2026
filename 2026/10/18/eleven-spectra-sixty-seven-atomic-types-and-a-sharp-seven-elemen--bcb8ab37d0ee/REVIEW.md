@@ -1,19 +1,21 @@
-# Scientific review: two-noun cardinality syllogistic
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Four Boolean-cell counts yield a complete support/sign invariant for all 64 atomic forms. The two independent signed differences and their sum/difference exhaust noun cardinality comparisons. Counting the permitted cases gives 67, while replacing nonzero absolute differences by 1 or 2 yields a universal seven-element representative. A strict chain of comparisons with four nonempty cells forces seven. Jiang's unrestricted theorem supplies spectral shape; explicit two-noun theories realize all eleven candidates. Independent direct atomic-truth enumeration through 18 elements and ten spectrum witnesses matches the analytic proof. Finite checks are corroborative rather than infinite proofs.
+PASS
 
-## Originality
+Partition every interpretation into four nonnegative cells (a,b,c,d). All 64 ordered-noun atomic truth values are fixed by the four cell-positivity bits and signs of s=b−c, t=a−d, s+t, t−s, and conversely those data are recoverable from the atom truths. Classifying supports for (b,c) and (a,d) gives 2 zero-difference support patterns and four nonzero ones per pair, with three relative nonzero magnitude orders, hence 2·2+2·4+4·2+3·4·4−1=67 types after excluding the empty universe. Compress nonzero |s|,|t| to 1,2 preserving signs/order and each positive baseline, giving |M|<=4+3=7 for every type. Requiring four nonempty cells plus s>=1 and t>s forces |M|>=7, realized at (3,2,1,1). Jiang’s unrestricted-vocabulary spectrum-shape theorem yields only ordinary or even tails; the sharp size-7 bound restricts candidates to empty, T1..T7 and E2,E4,E6. The given explicit cell constructions realize all candidates and upward/even extensions. Independent full atomic semantic verification up to size 18 finds 67 types, with minimum-size histogram (4,6,16,9,20,4,8). The all-size reasoning relies on symbolic cell compression and Jiang’s theorem, not finite extrapolation.
 
-PASS, with historical-priority uncertainty. Jiang's main theorem covers all-vocabulary spectrum shapes but supplies no fixed-two-noun threshold, full profile count, or list of exactly eleven two-noun spectra. The published one-noun result yields five spectra and no interaction of the two independent differences. Moss's earlier finite-model framework is acknowledged; its 2016 full text was not obtained, leaving an explicit priority risk rather than an unsupported assertion of exclusion. Targeted current literature and mathematical-record searches found no equivalent bound or complete two-noun classification.
+## originality
 
-## Value
+PASS
 
-PASS. Fixed-noun resource bounds quantify precisely how much finite cardinality information a restricted natural-language syllogistic can enforce. The 67-type quotient provides a complete finite semantic test suite; the sharp seven-element bound is a fixed-size satisfiability guarantee; the eleven-spectrum census is a complete fragment classification, not an arbitrary case study. This is the first arity allowing correlated differences between two independently named noun sets.
+Jiang’s 2026 unrestricted vocabulary spectrum theorem already supplies the general tail/even-tail shape, and one-noun exact spectra are published. The assessed contribution is the sharp two-noun finite bound, 67 precise complete atomic types and exhaustive eleven-spectrum realization; neither follows merely by specializing Jiang’s theorem without a new sharp bounded model reduction. Best-of-knowledge with Moss full-text risk.
 
-## Closest literature and limitations
+## value
 
-Jiang (2026), arXiv:2609.24902, Theorem 3.16, proves the unrestricted \(T_j/E_j\) shape, which is used directly. Moss (2016), DOI 10.1007/978-3-319-29300-4_18, develops finite-model proof theory. Moss and Topal (2017), arXiv:1705.03037, treats infinite universes. The existing one-variable classification supplies a smaller-vocabulary comparison. The two-noun classification does not extend without change to larger noun vocabularies or sentence-level disjunctions. Independent historical verification remains desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact expressive power of two noun variables in finite cardinality syllogistic is a natural small-vocabulary classification problem, with a sharp model-size cutoff, complete atomic type count, and precise spectrum list. These invariants govern finite satisfiability and distinguish the jump from one noun; the result is not merely restating Jiang’s unrestricted spectrum-shape theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
