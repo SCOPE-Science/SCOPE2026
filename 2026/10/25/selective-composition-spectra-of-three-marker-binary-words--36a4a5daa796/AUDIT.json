@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "All nonnegative boundary cases are covered: the zero-only layer recovers the four zero-gap multiset by successive differences; the three-one polynomial is \\(z^{b+c}G_aG_d\\) with uniquely readable unordered outer lengths; reversal reduces four candidate assignments to at most two. The remaining one-one polynomials differ by \\((G_a-G_d)(G_b-G_c)\\), nonzero exactly when both pairs differ. The independent literal-occurrence checker verifies 12,650 weight-three strings of lengths 3–24, but the unrestricted proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Elishco arXiv:2208.14963 Section VIII formally defines observations by substrings of length at most r, not by a specified ones-count.",
+        "Gupta–Mahdavifar arXiv:2201.09955 Introduction and algorithm sections concern full composition reconstruction.",
+        "Published online study Exact binary r=2 length-limited composition reconstruction proves a class count for length-one and length-two substrings, independent of exact ones-count filtering."
+      ],
+      "reasoning": "Neither a length filter nor the full-spectrum factorization criterion implies the exact ambiguity classes for keeping only ones-count zero and three. The full-spectrum papers can decide many individual instances but do not give this selective-channel theorem or its sharp count.",
+      "searches": [
+        "published-finding corpus: partial substring composition spectrum selecting Hamming-weight strata zero one three unique reconstruction three ones",
+        "published-finding corpus: Acharya Das Milenkovic Orlitsky Pan string reconstruction subset of composition by marker weight",
+        "Web: Acharya substring compositions uniquely reconstructable strings low Hamming weight 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.2439v1",
+      "arxiv:2208.14963",
+      "arxiv:2201.09955",
+      "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+      "published-finding corpus semantic search (four domain-specific final queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acharya et al. Section 5 proves nonunique full-spectrum reconstruction for certain n, while the present theorem proves unique recovery for every n when three ones and the 0/1/3 ones-count strata are kept.",
+        "Ye–Elishco Section VIII allows all compositions up to length r and supplies Lyndon-word codes rather than every weight-three source."
+      ],
+      "reasoning": "General reconstructability for prime-related lengths does not imply an all-length theorem. An algorithm from richer full-spectrum observations cannot supply injectivity from this strictly smaller subset without a separate argument. The proof here supplies that argument and exact two-class ambiguity in the still weaker 0/3-only setting.",
+      "searches": [
+        "Web: equicomposable strings at most 3 ones sparse substring composition uniquely reconstructable",
+        "published-finding corpus: constant Hamming weight three substring composition multiset injective reversal sparse mass spectrometry string reconstruction",
+        "published-finding corpus: binary finite automata shortest separating words and pair graph distinguishability exact bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acharya et al. arXiv:1403.2439v1 pp. 2–3 defines full-spectrum equicomposability and reversal; no selected-count profile is stated there.",
+        "Literal partial spectra are the coefficients of the restricted generating polynomials defined in the proof."
+      ],
+      "reasoning": "The claim can also be phrased as injectivity of a restricted substring Parikh polynomial on the three-one layer modulo reversal. Equicomposability in Acharya et al. uses all one-count layers, so its definitions are analogous but do not state the zero/three exact ambiguity count or one-layer disambiguation.",
+      "searches": [
+        "published-finding corpus: binary weight-three words sparse Parikh spectra zero three one counts reconstructing gap quadruples orientation",
+        "Web: binary \"weight three\" \"equicomposable\" string",
+        "Web: substring composition reconstructions minimum hamming weight confusable"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e describes fixed maximum substring length r=2, not exact one-count layers.",
+        "Acharya et al. arXiv:1403.2439v1 reports a length-eight full-spectrum ambiguous example with weight four, but no all-length partial-spectrum gap classification."
+      ],
+      "reasoning": "A complete corpus index of the selected exact-count strata was not identified. This is not negative proof of prior art absence; the searched records and inspected full texts address different observables or parameter domains.",
+      "searches": [
+        "published-finding corpus: for a binary word with exactly three 1 symbols, composition multisets of substrings containing zero or three ones have one or two reversal classes, distinguished by one-one compositions",
+        "published-finding corpus: binary weight-three words sparse Parikh spectra zero three one counts reconstructing gap quadruples orientation",
+        "Web: \"substring compositions\" \"three ones\" reconstruction weight 3"
+      ]
+    },
+    "rationale": "Materially inspected relevant source sections distinguish full substring-composition reconstruction (Acharya et al., Gupta–Mahdavifar) and length-limited/prefix-suffix partial observation (Ye–Elishco) from exact marker-count strata. The nearest published research record concerns only length-2 substrings. No inspected source asserts the exact one-versus-two reversal-class count or one-one resolution in this weight-three domain; unindexed equivalent work remains a residual priority risk.",
+    "residual_risks": [
+      "The literature search is indexed and source-selective; an unindexed, differently worded low-marker composition theorem may exist.",
+      "The historical Acharya et al. work offers a general polynomial-factorization framework, and the special-case conclusion might have been derived elsewhere without being highlighted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full-spectrum reconstruction, no selected ones-count ambiguity classification identified in inspected relevant sections.",
+        "evidence": [
+          "Definition of equicomposability, pp. 2–3",
+          "Four-one length-eight example 01001101 vs 01101001, p. 2",
+          "Polynomial-equivalence characterization, pp. 3 and 10–13"
+        ],
+        "identifier_or_url": "https://people.ece.cornell.edu/acharya/papers/str_rcn_sidma.pdf",
+        "material_read": "Introduction, definitions and results (pp. 1–4), interleaving construction (p. 6), polynomial factorization results (pp. 6–13), concluding questions (pp. 25–26); selected relevant passages, not continuous cover-to-cover reproduction.",
+        "method": "Full-text PDF rendered inspection and targeted passages",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Foundational same mathematical model full-spectrum equicomposability and weight-four ambiguity"
+      },
+      {
+        "assessment": "Examines prefix/suffix and short-length partial spectra; different coordinate of restriction from number of ones.",
+        "evidence": [
+          "Section VIII Definition VIII.1 filters by substring length ≤r",
+          "Section VIII Corollary VIII.3 gives Lyndon-code construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.14963",
+        "material_read": "Abstract, introduction, definitions and Section VIII on length-limited observations, including its construction and limitations.",
+        "method": "Full-text PDF rendered passages and targeted section search",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Partial spectrum reconstruction may dominate selected-layer theorem"
+      },
+      {
+        "assessment": "Studies full-spectrum algorithmic reconstruction and coding, not the selected exact-marker-count observation channel.",
+        "evidence": [
+          "Introduction pp. 1–3 states full-spectrum model and no-backtracking algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.09955",
+        "material_read": "Abstract, introduction, reconstruction-algorithm framing and stated conditions.",
+        "method": "PDF page rendering and passages",
+        "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+        "trigger": "Potential stronger complete reconstruction algorithm"
+      },
+      {
+        "assessment": "Length-one/two composition multiset equivalence classes, not all lengths restricted to 0/1/3 one counts.",
+        "evidence": [
+          "Finding defines C_{≤2} rather than selected count strata",
+          "Proof uses run counts from adjacent pair compositions"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e/RESULT.md",
+        "material_read": "Complete RESULT.md, including theorem, proof, scope, references and limitations.",
+        "method": "Read public document at exact repository path",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Nearest semantic research result on restricted composition measurements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36a4a5da-a796-4be7-b6a7-2ab381f202cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete ambiguity classification for a natural selective observation channel in sparse-marker substring composition reconstruction, with exact 1/2 reversal classes and a provably sufficient additional one-marker stratum at every length. The gap-orientation obstruction and its removal are structural rather than an arbitrary finite parameter computation. Relevance is to partial mass-spectrometry / sparse-marker string decoding; no practical noise model is claimed.",
+    "status": "PASS"
+  }
+}
