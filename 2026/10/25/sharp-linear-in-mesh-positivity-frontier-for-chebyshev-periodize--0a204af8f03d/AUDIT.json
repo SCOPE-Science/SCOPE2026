@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Fourier-mode diagonalization directly reconstructs the exact weights; a triangular-hat moment identity handles all nonzero modes and the constant mode yields a common negative offset. The two cusp-node hats have the exact minimum by circle-unimodal convolution, giving the necessary and sufficient frontier. Cotangent summation and Taylor expansions establish the asymptotic and constant-function gap. Direct independent kernel matrix/density integration matches all formulas in 30 numerical experiments; experiments supplement the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shadimetov et al., arXiv:1012.1953 abstract describes optimal periodic Sobolev interpolation formulas but does not specify this Chebyshev-density, nonconstant-penalty, gamma-dependent sharp threshold. Full text was not accessible via attempted arxiv/ar5iv HTML.",
+        "Novak and Zhang, arXiv:1609.01146 abstract concerns a general weighted H1 problem but no Chebyshev-periodized rank-1 lattice frontiers; the full text was not materially inspected."
+      ],
+      "reasoning": "Related optimal-Sobolev quadrature results can cover the hat approximation component. No checked broader theorem was shown to imply the two exact thresholds, especially the gamma-dependent constant correction. Older potentially related full texts remain an explicitly acknowledged originality risk.",
+      "searches": [
+        "optimal periodic Sobolev interpolation lattice coefficients Shadimetov Hayotov Mamatova 2010",
+        "Optimal Quadrature Formulas for the Sobolev Space H1 Novak Zhang 2016",
+        "optimal Korobov lattice kernel quadrature Chebyshev periodization negative weights positivity threshold Sobolev tent hats"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01113v1 full primary HTML Sections 1-3",
+      "doi:10.1007/s11222-019-09901-0 full HTML Sections 3.5-3.9",
+      "arXiv:1012.1953 abstract, full text inaccessible via attempted HTML",
+      "arXiv:1609.01146 abstract, full text inaccessible via attempted HTML",
+      "Published mathematical-record comparisons on precise kernel weight aliases and phase thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bartel et al. defines optimal K^{-1}kappa and proves convergence; the new work solves a different global sign-classification question at alpha=1.",
+        "Karvonen et al. establishes general positivity for certain total-positive kernels and locally optimal nodes, conditions not established for the periodic Korobov kernel and equispaced nodes."
+      ],
+      "reasoning": "The baseline construction does not logically state the explicit linear-in-N positivity frontier. The 2019 positivity sufficient conditions are not applicable as a dominating all-gamma theorem for these nodes and kernel. The older Sobolev-paper abstract does not resolve implication; residual coverage risk remains.",
+      "searches": [
+        "arXiv:2610.01113v1 Section 3 full lattice method",
+        "Karvonen Kanagawa Särkkä 2019 Sections 3.7-3.8 and theorem",
+        "arXiv:1012.1953 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full kernel-weight derivation in arXiv:2610.01113v1, Section 3.2-3.3; no weight-sign threshold stated in inspected sections.",
+        "Karvonen et al., Statistics and Computing (2019), Section 3.7, identifies the positive Brownian-motion spline weights but not the same penalized periodic constant-mode kernel."
+      ],
+      "reasoning": "A Fourier-spline description is equivalent to the exact closed weight law, not a previously located complete phase diagram. The penalized constant mode subtracts a mesh-independent offset; the cited positive Brownian-spline interpolation uses a different kernel and cannot by itself force the asserted positivity threshold.",
+      "searches": [
+        "optimal Korobov lattice kernel quadrature Chebyshev periodization negative weights positivity threshold Sobolev tent hats",
+        "alpha one equally spaced periodic Sobolev Bayesian quadrature optimal weights all shifted piecewise linear hat weights nonnegative threshold gamma N",
+        "arXiv:2610.01113v1 equations (2.4),(3.2)-(3.5)",
+        "doi:10.1007/s11222-019-09901-0 Section 3.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches returned related periodic lattice/positive quadrature findings without this source, object and phase diagram; no exact table match identified.",
+        "The motivating 2026 paper prints formulas for kernel and kernel mean and FFT solution, but no table of all-even-N positivity thresholds."
+      ],
+      "reasoning": "An arbitrary general FFT weight solver is computational specification, not the explicit all-N if-and-only-if positivity classification or asymptotic separation proved here. Failure to find a database match is not alone novelty proof.",
+      "searches": [
+        "optimal Korobov lattice kernel quadrature Chebyshev periodization negative weights positivity threshold Sobolev tent hats",
+        "alpha one equally spaced periodic Sobolev Bayesian quadrature optimal weights all shifted piecewise linear hat weights nonnegative threshold gamma N",
+        "Fourier kernel quadrature Chebyshev transform sine density positive constant negative quadrature weights",
+        "Bartel Gilbert Griebel Kuo Sloan negative weights gamma lattice quadrature"
+      ]
+    },
+    "rationale": "The motivating 2026 primary full text specifies weights and interpolation bounds but does not classify the natural even full-grid nonnegative weight region or distinct gamma scales. General 2019 positivity theorems concern different sufficient hypotheses. Precise published-record searches and own recoverable claims gave no equivalent; older periodic Sobolev interpolation papers remain material risk without available full text.",
+    "residual_risks": [
+      "Unseen full text of older periodic-Sobolev and H1 optimal-quadrature papers might contain an equivalent gamma-dependent closed-form result.",
+      "An algebraic consequence of a general optimal-quadrature formula could have appeared in other literature without matching terminology.",
+      "Independent scientific priority and proof audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source specifies kernel-optimal weights and convergence; inspected text does not report the all-even-grid positive-weight cutoff or its N versus N^4 separation.",
+        "evidence": [
+          "arXiv:2610.01113v1 Sections 2.1,3.2,3.3",
+          "https://arxiv.org/html/2610.01113v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01113v1",
+        "material_read": "Full accessible HTML Sections 1-3 including equations (1.4), (2.4), (3.1)-(3.5), smoothness assumptions and explicit Lambda_1(t); related convergence and implementation overview",
+        "method": "direct reading of primary HTML equations and substantive surrounding discussion",
+        "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+        "trigger": "exact motivating algorithm, same kernel, density and full lattice"
+      },
+      {
+        "assessment": "General structural antecedent; no identified full-grid Chebyshev-Korobov gamma frontier; rules for totally positive kernels at locally optimal nodes do not directly govern this case.",
+        "evidence": [
+          "doi:10.1007/s11222-019-09901-0 Sections 3.5,3.7-3.9"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Full open-access HTML, introduction, Section 3.5 positivity theorems, Sections 3.7-3.9 on Brownian-motion kernel and weight sums",
+        "method": "direct reading of primary open-access journal HTML",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "plausible general prior on nonnegative kernel quadrature weights"
+      },
+      {
+        "assessment": "Possible overlap on hat/spline formulas; the complete special parameter-dependent weight-positivity claim remains unresolved from this source.",
+        "evidence": [
+          "arXiv:1012.1953 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1012.1953",
+        "material_read": "Bibliographic abstract only; arxiv HTML and ar5iv HTML attempted but inaccessible",
+        "method": "abstract review and unsuccessful lawful HTML full-text retrieval",
+        "title": "Optimal interpolation formulas in the periodic function space of S. L. Sobolev",
+        "trigger": "possible broader periodic Sobolev interpolation result"
+      },
+      {
+        "assessment": "Broad H1 quadrature context, no decisive source-to-claim implication established; priority risk acknowledged.",
+        "evidence": [
+          "arXiv:1609.01146 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.01146",
+        "material_read": "Search-indexed abstract only; ar5iv full HTML attempted and inaccessible",
+        "method": "abstract review and unsuccessful lawful HTML full-text retrieval",
+        "title": "Optimal Quadrature Formulas for the Sobolev Space H1",
+        "trigger": "possible broader weighted H1 optimal quadrature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a204af8-f03d-435a-a444-565a36e26271",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete necessary-and-sufficient positivity admissibility law for a natural all-even-mesh family enables sharp positive-data robustness choices in optimal kernel cubature. It proves actual failure via nonnegative polynomial integrands and reveals a nontrivial N versus N^4 separation that makes the constant-function positivity test misleading. The exact parameter boundary and structural hat-plus-common-offset mechanism go beyond a routine single-mesh computation.",
+    "status": "PASS"
+  }
+}

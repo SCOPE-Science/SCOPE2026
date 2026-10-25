@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact trigonometric formula follows from discrete Fourier diagonalization, the hat-spline identity at all nonzero modes, the zero-frequency kernel penalty, and a cotangent partial-fraction sum. Symmetric-decreasing convolution establishes the two minimizing hats, so the threshold is a necessary-and-sufficient positive-weight criterion. A nonnegative polynomial realizes a strictly negative cubature output. Asymptotics follow from Taylor series and are not inferred from finite tests. A directly assembled kernel matrix and density integrals passed 30 independent numerical comparisons.
+
+**Originality — PASS (same-model, priority subject to independent confirmation).** The motivating full primary text defines kernel-optimal weights and discusses error convergence but does not state a sharp positive-weight frontier. The inspected 2019 quadrature-weight primary article discusses general positivity and a different Brownian-motion spline example, but not this all-even-grid phase diagram with the two distinct threshold scales. Targeted published-record searches found no equivalent. Older periodic Sobolev interpolation work is a credible residual priority risk; accessible abstract-only evidence cannot certify noncoverage of its full text.
+
+**Mathematical value — PASS.** A positive quadrature measure is an independent structural robustness property, especially for nonnegative integrands. This theorem gives a complete sharp parameter admissibility range for the natural full even lattices, identifies the exact mechanism of first failure at the two transformed endpoints, and shows constant-function positivity cannot diagnose instability because its own threshold is three powers of the mesh farther away. It is not a mere single numerical counterexample.
+
+**Scope and limitations.** The statement is for the one-dimensional full lattice, even sizes at least four, and smoothness one, and says nothing about odd grids, subsampling, higher smoothness or dimensions. The source's RKHS worst-case error estimates remain unaffected. Priority remains provisional pending independent literature checking.
+
+Self-review: passed. Independent audit: not yet performed.
