@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact conditional law is a Bernoulli shared-edge indicator plus an independent hypergeometric count from the outside star. Its conditional factorial moments preserve degree and have the coefficient \(\rho_j\). Exchangeability makes the conditional operator self-adjoint, which forces each hypergeometric orthogonal polynomial to be an eigenfunction. The covariance of sums then gives the stated complete spectrum, both null constraints, and weighted-score variance identity. All boundary supports and positive denominators are covered. An independently constructed exact-rational verifier enumerated all graphs through six vertices and reproduced all asserted eigenvalues.
+## correctness
 
-## Originality — PASS on inspected evidence
-Liebenau–Wormald (arXiv:1702.08373), inspected through the results and statements on fixed-edge degree sequences, proves an asymptotic conditioned-binomial approximation rather than the displayed finite covariance spectrum. Lin–Reinert (DOI: 10.1239/aap/1331216648), inspected at its displayed covariance matrix and main normal-approximation theorem, concerns independent rather than fixed-total edges. Van der Hofstad–Komjáthy–Vadon (arXiv:1809.02514), inspected at the model, empirical degree results and proof organization, uses a different network model. Relevant mathematical database records and recoverable previous degree-histogram claims did not state or dominate the theorem. Classical hypergeometric polynomial eigenfunction formulas could implicitly imply the spectral calculation; this remains a specific historical-priority risk, and failed keyword searches alone do not establish novelty.
+PASS
 
-## Value — PASS
-Full exact finite-size covariance spectra are useful for calibrated weighted degree-count diagnostics under a natural conditional random-graph null with observed edge total. The surprising fact that every positive fluctuation strength is independent of the edge count, despite hypergeometric marginals that change dramatically with that count, gives a structural distinction from the independent-edge ensemble. The complete orthogonal-variance identity answers all linear degree-frequency covariance questions simultaneously; it is not a routine single-bin moment computation.
+For G(n,m), condition X=degree(v)=x; a shared edge vw is Bernoulli(x/s), while the degree contribution from the remaining t=M-s edges is an independent Hypergeom(t,s-1,m-x) variable. The conditional falling-factorial moment is polynomial in x with leading coefficient rho_j=(-1)^j(s-1)_j/(t)_j+(-1)^(j-1)j(s-1)_(j-1)/(s(t)_(j-1)). Reversibility of the exchangeable degree pair makes this conditional expectation operator self-adjoint on the one-degree hypergeometric measure; polynomial filtration plus orthogonality diagonalize all Q_j with eigenvalues rho_j. The histogram covariance is n times identity plus n(n-1) times this exchangeability kernel on centered scores; j=0 is constant, j=1 gives zero because 2m deterministic, and all j>=2 have lambda_j=n[1+(n-1)rho_j], independent of m apart from support r. Independently enumerated all simple fixed-edge labeled graphs for (n,m)=(4,2),(5,3),(5,5),(6,7), computed exact covariance and normalized spectra; observed (4,2):2.666667; (5,3):4,7; (5,5):4,4,7; (6,7):5.2,5.342857,6.142857,7.4 plus the two zero modes. Boundary singleton support treated as zero and n>=4 ensures denominator support.
 
-## Scope and limitations
-There is no independent historical-priority determination, no distributional chi-square assertion, and no extension to constrained degree sequences or nonuniform graph models. The external independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after fresh published findings search and mathematical comparison of alias objects, stronger coverage, exact tables, and prior-result implications. Known general tools are credited, rather than claimed anew; risk remains documented: An older bivariate multivariate-hypergeometric Lancaster/Hahn kernel formula could encode the same spectral coefficients under another formulation; only related abstracts/sections were available, so historical priority remains uncertain.
+
+## value
+
+PASS
+
+This gives an exact, all-polynomial-degree and all-edge-count diagonalization of the degree-histogram covariance of the most basic fixed-size random-graph model. Independence of every nonzero weighted eigenvalue from m, except truncation, is a substantial structural invariant and enables precise linear-statistic variances rather than merely an asymptotic approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

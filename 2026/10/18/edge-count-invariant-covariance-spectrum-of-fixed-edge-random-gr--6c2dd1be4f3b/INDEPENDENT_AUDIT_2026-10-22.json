@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:18:58.342180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G(n,m), condition X=degree(v)=x; a shared edge vw is Bernoulli(x/s), while the degree contribution from the remaining t=M-s edges is an independent Hypergeom(t,s-1,m-x) variable. The conditional falling-factorial moment is polynomial in x with leading coefficient rho_j=(-1)^j(s-1)_j/(t)_j+(-1)^(j-1)j(s-1)_(j-1)/(s(t)_(j-1)). Reversibility of the exchangeable degree pair makes this conditional expectation operator self-adjoint on the one-degree hypergeometric measure; polynomial filtration plus orthogonality diagonalize all Q_j with eigenvalues rho_j. The histogram covariance is n times identity plus n(n-1) times this exchangeability kernel on centered scores; j=0 is constant, j=1 gives zero because 2m deterministic, and all j>=2 have lambda_j=n[1+(n-1)rho_j], independent of m apart from support r. Independently enumerated all simple fixed-edge labeled graphs for (n,m)=(4,2),(5,3),(5,5),(6,7), computed exact covariance and normalized spectra; observed (4,2):2.666667; (5,3):4,7; (5,5):4,4,7; (6,7):5.2,5.342857,6.142857,7.4 plus the two zero modes. Boundary singleton support treated as zero and n>=4 ensures denominator support.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liebenau–Wormald G(n,m) degree-sequence asymptotics; Diaconis–Griffiths binomial exchangeable eigenkernels",
+          "arxiv:1702.08373, introduction and Proposition 1.1",
+          "2012 journal abstract: correlated Bernoulli sums and generalized Ehrenfest urns"
+        ],
+        "reasoning": "Neither inspected result provides exact finite-n covariance weighted histogram eigenvalues that remain edge-count invariant. A more general Hahn-type identity remains potential coverage.",
+        "searches": [
+          "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant",
+          "https://arxiv.org/abs/1702.08373",
+          "https://doi.org/10.1111/j.1467-842X.2012.00654.x"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1702.08373",
+        "https://doi.org/10.1111/j.1467-842X.2012.00654.x",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/edge-count-invariant-covariance-spectrum-of-fixed-edge-random-gr--6c2dd1be4f3b",
+        "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1702.08373 vs finite-sample spectral claim",
+          "arxiv:1702.08373, introduction and Proposition 1.1",
+          "2012 journal abstract: correlated Bernoulli sums and generalized Ehrenfest urns"
+        ],
+        "reasoning": "Asymptotic conditioned-binomial approximations do not mathematically imply exact covariance eigenspaces of the uniform fixed-m graph. A specialized Hahn-Lancaster theorem might imply the diagonalization after identifying its parameters but none was verified.",
+        "searches": [
+          "https://arxiv.org/abs/1702.08373",
+          "https://doi.org/10.1111/j.1467-842X.2012.00654.x",
+          "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-edge degree-pair operator as a hypergeometric Lancaster/Hahn polynomial kernel",
+          "arxiv:1702.08373, introduction and Proposition 1.1"
+        ],
+        "reasoning": "General orthogonal-polynomial spectral techniques are prior, but the actual shared-edge Bernoulli plus independent outside-star hypergeometric conditional pair law is a nontrivial graph-specific kernel.",
+        "searches": [
+          "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant",
+          "https://arxiv.org/abs/1702.08373"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query for fixed-edge histogram all-mode spectra; direct hypergeometric Hahn searches",
+          "Resultary published finding search produced no same-object exact theorem in the inspected ranked results."
+        ],
+        "reasoning": "Published result search returned Johnson slice Fourier spectra and graph histogram bounds for different observables. No exact degree-histogram spectrum table surfaced; non-find is not novelty proof.",
+        "searches": [
+          "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant",
+          "web search: bivariate hypergeometric Hahn Lancaster polynomial conditional degree random graph G(n,m) covariance spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS after fresh published findings search and mathematical comparison of alias objects, stronger coverage, exact tables, and prior-result implications. Known general tools are credited, rather than claimed anew; risk remains documented: An older bivariate multivariate-hypergeometric Lancaster/Hahn kernel formula could encode the same spectral coefficients under another formulation; only related abstracts/sections were available, so historical priority remains uncertain.",
+      "residual_risks": [
+        "An older bivariate multivariate-hypergeometric Lancaster/Hahn kernel formula could encode the same spectral coefficients under another formulation; only related abstracts/sections were available, so historical priority remains uncertain.",
+        "Search and source reading are bounded; failure to find an equivalent publication is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The degree-sequence approximation is asymptotic and not an exact finite-sample spectrum of degree-bin counts.",
+          "evidence": "arxiv:1702.08373, introduction and Proposition 1.1",
+          "identifier_or_url": "https://arxiv.org/abs/1702.08373",
+          "material_read": "Accessible full arXiv PDF examined at introduction and Proposition 1.1; covariance spectral eigenvalue theorem not found in inspected material.",
+          "method": "arXiv PDF and textual theorem search, PDF screenshot.",
+          "title": "A. Liebenau and N. Wormald, Asymptotic enumeration of graphs by degree sequence, and the degree sequence of a random graph",
+          "trigger": "Same fixed-edge G(n,m) model and asymptotic degree distributions."
+        },
+        {
+          "assessment": "Shows polynomial diagonalization is classical in related exchangeable Bernoulli systems; does not state the fixed-edge graph shared-star kernel or m-invariant all-mode rho_j.",
+          "evidence": "2012 journal abstract: correlated Bernoulli sums and generalized Ehrenfest urns",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-842X.2012.00654.x",
+          "material_read": "Publisher summary/abstract inspected, reporting bivariate binomial Lancaster eigenfunctions, not the conditioned graph pair with hypergeometric marginal. Full text not read.",
+          "method": "Publisher abstract and model comparison.",
+          "title": "P. Diaconis and R. Griffiths, Exchangeable pairs of Bernoulli random variables, Krawtchouk polynomials, and Ehrenfest urns",
+          "trigger": "Possible broad Lancaster-polynomial diagonalization framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact, all-polynomial-degree and all-edge-count diagonalization of the degree-histogram covariance of the most basic fixed-size random-graph model. Independence of every nonzero weighted eigenvalue from m, except truncation, is a substantial structural invariant and enables precise linear-statistic variances rather than merely an asymptotic approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1702.08373",
+    "https://doi.org/10.1111/j.1467-842X.2012.00654.x",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/edge-count-invariant-covariance-spectrum-of-fixed-edge-random-gr--6c2dd1be4f3b",
+    "Resultary semantic query: G(n,m) degree histogram weighted covariance eigenvalues hypergeometric orthogonal polynomials edge count invariant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The assessment applies exactly to the pinned assigned tree and the RESULT.md scope; no other graph models, embeddings or asymptotic limits beyond those explicitly stated are accepted.",
+    "Computational replay verifies specified finite identities/certificates only; scientific proof and originality require separate mathematical arguments."
+  ],
+  "residual_risks": [
+    "An older bivariate multivariate-hypergeometric Lancaster/Hahn kernel formula could encode the same spectral coefficients under another formulation; only related abstracts/sections were available, so historical priority remains uncertain.",
+    "Search and source reading are bounded; failure to find an equivalent publication is not a proof of priority."
+  ],
+  "schema_version": 1
+}
