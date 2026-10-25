@@ -1,0 +1,114 @@
+{
+  "claim": "For every integer \\(n\\ge4\\), if \\(\\operatorname{occ}_{1122}(\\pi)\\) counts indices \\(1\\le i\\le n-3\\) in the canonical sequential form \\(\\pi\\) of a non-crossing partition of \\([n]\\) with \\(\\pi_i=\\pi_{i+1}<\\pi_{i+2}=\\pi_{i+3}\\), then \\(\\sum_{\\pi\\in NC_n}\\operatorname{occ}_{1122}(\\pi)=\\binom{2n-5}{n-4}\\). For a uniformly random \\(\\Pi\\in NC_n\\), the mean is \\(\\frac{n(n+1)(n-3)}{8(2n-1)(2n-3)}\\sim n/32\\); for \\(n<4\\), the total is zero.",
+  "correctness": {
+    "rationale": "The object and statistic are explicitly defined on canonical sequential forms, with occurrences restricted to four consecutive entries satisfying \\(\\pi_i=\\pi_{i+1}<\\pi_{i+2}=\\pi_{i+3}\\). The proof decomposes non-crossing partitions into indecomposable components, derives \\(\\(T_I=x^2 C^2 T+x^5 C^4\\)\\) and \\(\\(T=C^2 T_I+x^4 C^4\\)\\), solves to \\(\\(T=x^4 C^4/(1-x C^2)\\)\\), and extracts the coefficient using the generalized Catalan formula and a stated binomial-sum identity. The zero case n<4 is immediate. The finite script reproduces Catalan cardinalities and totals through n=10 but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shattuck, arXiv:2303.06300v1, sections 1–2 and its theorem statements enumerate several named families and all repeated-letter patterns of length three.",
+        "Mansour and Shattuck (2023), DOI 10.26493/2590-9770.1552.b43, sections 1–3 and Table 1 cover five families and all length-three patterns with distinct letters.",
+        "Neither inspected paper states the total occurrence count for the length-four pattern \\(1122\\)."
+      ],
+      "reasoning": "The cited generating functions cover different pattern families and do not imply the claimed statistic as a stated special case. The result is only a first-moment formula; it does not claim to extend those papers to a full distribution.",
+      "searches": [
+        "Enumeration of non-crossing partitions according to subwords with repeated letters, subword pattern equivalences",
+        "Counting occurrences of subword patterns in non-crossing partitions, full text and pattern-family scope",
+        "counting occurrences of subword patterns in non-crossing partitions 1122"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.06300v1",
+      "DOI:10.2298/AADM211221017S",
+      "DOI:10.26493/2590-9770.1552.b43",
+      "OEIS:A002054"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected repeated-letter paper gives all length-three repeated-letter patterns and its stated families; the pattern \\(1122\\) is length four and not one of those forms.",
+        "The inspected distinct-letter paper lists length-three permutations and named families; its scope does not include 1122.",
+        "The derived generating function T(x)=x^4 C(x)^4/(1-x C(x)^2) yields the exact binomial formula and the mean by dividing by the Catalan number."
+      ],
+      "reasoning": "No checked prior result covers or directly implies the same total for canonical non-crossing partitions. The known binomial sequence is a numerical match, not by itself an implication about the statistic. The claim is restricted to the exact first moment and does not overstate full-distribution novelty.",
+      "searches": [
+        "total number of occurrences of subword 1122 over all non-crossing partitions of [n]",
+        "generating function for occurrences of pattern 1122 in noncrossing partitions",
+        "binomial coefficient C(2n-5,n-4) subword 1122 noncrossing partitions",
+        "full text search for literal 1122 in Shattuck, arXiv:2303.06300v1",
+        "full text search for literal 1122 in Mansour and Shattuck, DOI 10.26493/2590-9770.1552.b43"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shattuck, arXiv:2303.06300v1, defines a subword as a contiguous order-isomorphic factor and states the studied repeated-letter families; its result table covers all repeated-letter patterns of length three, not 1122.",
+        "Mansour and Shattuck, DOI 10.26493/2590-9770.1552.b43, lists families of distinct-letter subwords and a table for length-three permutations; its inspected scope does not include repeated-letter 1122."
+      ],
+      "reasoning": "The claim concerns a contiguous standardized length-four factor in canonical restricted-growth forms. It is not the classical subsequence statistic, nor a listed length-three equivalence. The inspected equivalence families do not specialize to 1122. No matching formulation was found in the checked sources; the absence of a search hit alone is not treated as a novelty proof.",
+      "searches": [
+        "\"1122\" \"non-crossing partitions\" subword",
+        "non-crossing partitions subword pattern length four 1122 1221 occurrence distribution equivalence",
+        "subword equivalence non-crossing partitions patterns 1122 1221",
+        "Shattuck, arXiv:2303.06300v1, definitions and listed pattern families"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002054 records the sequence 1, 5, 21, 84, 330, 1287, 5005, 19448, 75582, ... with formula \\(\\binom{2m+1}{m-1}\\); the theorem sequence equals its shift by three.",
+        "The A002054 comments identify other interpretations, including double rises in Dyck paths and permutations with one 312 occurrence; no non-crossing-partition 1122 interpretation is stated on the inspected page."
+      ],
+      "reasoning": "The numerical sequence is known, so no novelty is claimed for the binomial numbers. The checked database entry is not a table of the present statistic and does not imply its interpretation. This comparison is a limitation and residual risk, not a novelty proof.",
+      "searches": [
+        "OEIS \"1, 5, 21, 84, 330, 1287, 5005, 19448, 75582\" noncrossing partitions subword",
+        "site:oeis.org \"1122\" non-crossing partitions occurrences",
+        "OEIS A002054 binomial coefficient C(2n+1,n-1)"
+      ]
+    },
+    "rationale": "The closest inspected primary literature treats several other infinite families and all repeated-letter subword patterns of length three, or several distinct-letter families. The inspected statements and tables do not include the length-four pattern \\(1122\\). The exact coefficient sequence is known as OEIS A002054 after an index shift, which is explicitly acknowledged; that database record describes other interpretations and does not establish this non-crossing-partition statistic. This is a best-knowledge originality assessment, not a claim that searches prove novelty.",
+    "residual_risks": [
+      "The literature and web searches are not exhaustive; an unindexed prior treatment of this exact statistic may exist.",
+      "The known sequence A002054 raises the possibility of an unrecorded direct bijection to a classical Catalan statistic; no such bijection is claimed here.",
+      "The full distribution, variance, and limiting behavior of the occurrence count remain open within this work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claim: the paper treats all repeated-letter patterns of length three and several stated infinite families, none of which specializes to 1122.",
+        "evidence": "The paper explicitly states that its length-three repeated-letter table is complete for length three; its other families include 1^a, 1^b2, (rho+1)1^b, and 1^a23...m / 12...(m-1)m^a, not 1122.",
+        "identifier_or_url": "arXiv:2303.06300v1; DOI:10.2298/AADM211221017S",
+        "material_read": "Abstract and relevant full-text portions: canonical sequential form and subword definition; stated families; theorem and corollary statements for repeated-letter patterns; total-occurrence formula scope; full-text literal search for 1122.",
+        "method": "Compared the precise pattern, length, adjacency condition, canonical labeling, and stated family hypotheses against 1122.",
+        "title": "Enumeration of non-crossing partitions according to subwords with repeated letters",
+        "trigger": "Closest paper on repeated-letter contiguous patterns in non-crossing partitions."
+      },
+      {
+        "assessment": "Not covering the claim: its stated results cover several distinct-letter families and all length-three permutation patterns, not repeated-letter length-four 1122.",
+        "evidence": "The introduction enumerates the families and Table 1 is explicitly a table for subwords of length three.",
+        "identifier_or_url": "DOI:10.26493/2590-9770.1552.b43",
+        "material_read": "Abstract, introduction, definition of canonical form, the listed family scope, Table 1 for length-three permutations, and full-text literal search for 1122.",
+        "method": "Compared object class, whether occurrences are contiguous, repeated-letter status, pattern length, and theorem family coverage.",
+        "title": "Counting occurrences of subword patterns in non-crossing partitions",
+        "trigger": "Closely related paper on subword distributions over the same combinatorial objects."
+      },
+      {
+        "assessment": "The sequence is known, but the inspected record does not give this non-crossing-partition interpretation.",
+        "evidence": "The formula agrees after the shift m=n-3; the page mentions Dyck-path double rises and permutations with one 312 occurrence, not 1122 occurrences in non-crossing partitions.",
+        "identifier_or_url": "OEIS:A002054",
+        "material_read": "Sequence terms, formula, and comments listing alternative interpretations.",
+        "method": "Aligned the index shift and compared the stated interpretations with the precise statistic in the claim.",
+        "title": "OEIS A002054: Binomial coefficient C(2n+1,n-1)",
+        "trigger": "Exact numerical coefficient sequence obtained from the generating function."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4171eede-d0f1-4b31-b515-62a31317409f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pattern 1122 is a natural local motif of two adjacent repeated blocks in canonical non-crossing partition words, continuing the established study of subword statistics beyond length three. The exact total yields a nontrivial linear mean with asymptotic constant 1/32 and supplies a baseline for future distributional work. This is a first-moment result only; no unsupported broader consequence is claimed.",
+    "status": "PASS"
+  }
+}
