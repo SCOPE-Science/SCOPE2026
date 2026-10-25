@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete combinatorial graph, torus covering, shortest-deck-vector list, geodesic word enumeration, rhombus classification, and integral symmetry matrix are established in the proof. The standalone finite verifier exhaustively checks all 78 four-cycles, their homology displacements, all 26 triangles, chordlessness, affine transitivity, and the lattice determinants. Its computation supports the specific finite certificate; the covering argument justifies interpreting each displacement as the actual integral homology class. The reviewed statement does not generalize beyond the supplied graph.
+## correctness
 
-## Originality — PASS
-Datta–Upadhyay (arXiv:math/0403433) establishes the relevant cyclic torus triangulation and symmetry, not the exhaustive four-cycle homology classification. Jones–Mačaj (arXiv:2303.11808), Example 6, describes the same Paley torus and its affine dessin, not the systole count or homology-action matrix. An indexed claim about systolic cycles in \(T_{n,1,3}\) has hypothesis \(n\ge17\), whereas this result concerns \(n=13\). Other indexed records about Paley neighborhood complexes, a nine-vertex torus, and other triangulated manifolds have different complexes or parameters. Searches by graph alias, torus alias, four-cycle count, homology class, lattice vectors and symmetry found no explicitly covering claim. An unindexed classical regular-map treatment could still give the exact count: this is a residual bibliographic risk, not evidence of uniqueness.
+PASS
 
-## Value — PASS
-This is the first flag member of a distinguished cyclic torus family and the canonical 13-vertex Paley torus. The exact number, homology directions, and transitive symmetry orbit of **shortest nontrivial cycles** are natural invariants of an embedded graph/flag surface. Their three-direction symmetry contrasts with a separately indexed, anisotropic systolic tail at larger parameters. The certificate can serve as an exact benchmark for combinatorial systoles and symmetry-aware algorithms; it is not a routine relabeling of a previously tabulated Betti number.
+Identify the universal flag triangulation with the equilateral triangular tiling with increments (1,0),(0,1),(1,1), and deck lattice L={(a,b):a+3b=0 mod 13}; the quotient has precisely 13 vertices,39 edges,26 triangles, no 4-cliques, so the tiling is the genuine universal cover of a torus. Graph displacement length is ell(a,b)=max(|a|,|b|,|a-b|), from coordinate lower bounds and explicit shortest step decomposition. Exact enumeration of all L displacements ell<=4 gives only +/- (4,3), +/-(3,-1), +/-(1,4), no nontrivial shorter. Their geodesic words have 3 edges of one type and 1 other, giving 13 unoriented cycles per class. All 39 remaining 4-cycles bound elementary two-triangle rhombi indexed by graph edges. Exact separate enumeration confirmed total 78 four-cycles and histogram 39 trivial plus 13 each of 3 directions. Multiplication by 3 lifts as (a,b)->(-b,a-b), translation acts trivially on deck displacements, and -3 acts on basis A=(4,3),B=(3,-1) by [[0,-1],[1,1]]; group transitivity follows. Counting covers only 4-cycles and unit combinatorial metric, not smooth/longer loops.
 
-## Limitations
-The geometry is combinatorial rather than smooth. The separate integer vectors depend on the stated cover coordinates. Only the natural affine symmetry action is claimed, and there is no classification of higher-length cycles or all cyclic tori. Primary sections were inspected, but exhaustive bibliographic coverage is impossible. No external independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published T_{13,1,3} and its Paley torus affine symmetries are already known; the counted integral essential 4-cycle carriers and explicit action on their primitive homology classes were not found in the actually inspected primary comparisons. Resultary's nearby one-direction T_{n,1,3} theorem explicitly assumes n>=17, hence does not cover n=13. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
+
+## value
+
+PASS
+
+A canonical smallest flag cyclic torus and Paley graph has a complete shortest nontrivial homology carrier census, including multiplicities and symmetry action; it distinguishes null rhombi from essential directions in a natural minimal triangulation and provides exact systolic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
