@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the six-dimensional automorphism normal form
+# Independent mathematical audit
 
-The script `verify.py` implements the six-monomial multiplication rule from first principles. It enumerates **all** normalized candidate pairs with \(a=g=1\) in the tested finite fields and checks \(X^2=0\), \(Y^3=0\), and \(YX=\lambda XY\) by direct multiplication; every \(29\)th valid candidate additionally has the induced six-by-six linear map checked for invertibility.
+## correctness
 
-Reproduction: `python3 verify.py`. No third-party Python package is required. Successful execution prints `VERIFY_OK` after the completed case list. The tests cover \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), \(\mathbb F_5\), with commutative, primitive-cube-root, primitive-fourth-root, and generic conditions; the executable also includes a primitive cube root over \(\mathbb F_7\).
+PASS
 
-The exhaustive part is only exhaustive for the explicitly listed finite fields and normalized coefficient spaces; no computational assertion for all fields is made. The unrestricted arbitrary-field theorem follows from the displayed defining-relation coefficient identities and the finite radical-filtration surjectivity argument, not from these experiments.
+PBW reductions yield basis {1,x,y,xy,y²,xy²} and product (x^u y^v)(x^u′ y^v′)=λ^(v u′)x^(u+u′)y^(v+v′). Since automorphisms preserve the local radical, x-image initially has possible y-linear term b, but the y² coefficient of X² is b², hence b=0 over any field and cotangent invertibility requires ag≠0. I independently multiplied the five positive-degree basis elements symbolically, confirming X²=ad(1+λ²)xy², Y³=fg²(1+λ+λ²)xy² and YX−λXY=(λ−1)[a i λ−df(1+λ+λ²)]xy². The Y³ condition kills df, and the three scalar equations are necessary and sufficient for all defining relations. A filtered endomorphism invertible on m/m² is surjective on the associated graded algebra and hence the finite local algebra. The free parameter count gives the reduced variety and all finite-field orders; at λ=1 in characteristics 2 or 3 exactly two resonances produce dimension eight. This is a variety classification, not a claim that the group scheme is reduced.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full noncommutative all-field (2,3) truncation normal form. Bergh–Erdmann study quantum-complete-intersection Hochschild resolutions, not the particular complete automorphism group in the abstract read. The Díaz–Liendo–Manzano-Flores–Regeta automorphism classification is for commutative monomial quotients in characteristic zero, so its λ=1, char0 intersection is prior covered and not separately novel. A published SCOPE result on coordinate-cross quotients has xy=yx=0, unlike the present nonzero twist. Unread special-purpose automorphism literature remains a priority risk.
+
+## value
+
+PASS
+
+The smallest asymmetric two-generator skew truncation supports a natural complete automorphism-group invariant. Root-of-unity resonances produce precise extra parameters and finite-field group orders, including small-characteristic double jumps; this is structural parameter stratification beyond mere dimension counting in one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

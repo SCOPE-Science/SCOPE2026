@@ -1,19 +1,21 @@
-# Review of the automorphism-resonance theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The six-element skew-monomial basis and the exact residues of all three defining relations give a necessary-and-sufficient coefficient normal form. The coefficient \(b^2\) forces the lower-left cotangent coefficient to vanish, so the invertible diagonal coefficients and three independent scalar equations exhaust the possibilities. Filtration surjectivity verifies that each admissible endomorphism is an automorphism. A self-contained field-arithmetic verifier exhausts the normalized coefficients in prime fields and the quadratic extension of \(\mathbb F_2\), and samples transformation-matrix invertibility; numerical tests are not used as an infinite-field proof.
+PASS
 
-## Originality
+PBW reductions yield basis {1,x,y,xy,y²,xy²} and product (x^u y^v)(x^u′ y^v′)=λ^(v u′)x^(u+u′)y^(v+v′). Since automorphisms preserve the local radical, x-image initially has possible y-linear term b, but the y² coefficient of X² is b², hence b=0 over any field and cotangent invertibility requires ag≠0. I independently multiplied the five positive-degree basis elements symbolically, confirming X²=ad(1+λ²)xy², Y³=fg²(1+λ+λ²)xy² and YX−λXY=(λ−1)[a i λ−df(1+λ+λ²)]xy². The Y³ condition kills df, and the three scalar equations are necessary and sufficient for all defining relations. A filtered endomorphism invertible on m/m² is surjective on the associated graded algebra and hence the finite local algebra. The free parameter count gives the reduced variety and all finite-field orders; at λ=1 in characteristics 2 or 3 exactly two resonances produce dimension eight. This is a variety classification, not a claim that the group scheme is reduced.
 
-**PASS with residual risk.** The 2007 codimension-two quantum-complete-intersection study computes Hochschild invariants and exhibits scaling automorphisms, not all automorphisms. The 2007 representation-dimension paper does not imply this group enumeration. The 2010 quantum-plane automorphism result concerns the **untruncated** complex algebra and establishes diagonal scaling, not the finite-dimensional quotient resonance cases. The 2024 classification of commutative monomial-algebra automorphisms is restricted to characteristic zero and can cover the commutative baseline, which is not singled out as novel here. A related four-dimensional quantum complete intersection has different nilpotency indices, while a coordinate-cross algebra has vanishing mixed products; neither statement implies the six-dimensional cubic/quarter-turn resonance law. Published-source and record searches did not find a directly covering theorem. Coverage by unlocated specialized literature remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first asymmetric truncation beyond the smallest two-generator quantum complete intersections has a completely computed automorphism variety and finite-field group order. The cubic- and fourth-root enhancements are structurally distinct and are accompanied by precise small-characteristic double jumps, yielding a natural complete invariant across an infinite parameter family. The result is not just a fixed-field numerical census.
+Best-of-knowledge PASS for the full noncommutative all-field (2,3) truncation normal form. Bergh–Erdmann study quantum-complete-intersection Hochschild resolutions, not the particular complete automorphism group in the abstract read. The Díaz–Liendo–Manzano-Flores–Regeta automorphism classification is for commutative monomial quotients in characteristic zero, so its λ=1, char0 intersection is prior covered and not separately novel. A published SCOPE result on coordinate-cross quotients has xy=yx=0, unlike the present nonzero twist. Unread special-purpose automorphism literature remains a priority risk.
 
-## Limits
+## value
 
-The reduced parameter variety is classified only as a variety; the full automorphism group scheme and its nilpotent structure are not assessed. No broad general-exponent classification or external audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest asymmetric two-generator skew truncation supports a natural complete automorphism-group invariant. Root-of-unity resonances produce precise extra parameters and finite-field group orders, including small-characteristic double jumps; this is structural parameter stratification beyond mere dimension counting in one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
