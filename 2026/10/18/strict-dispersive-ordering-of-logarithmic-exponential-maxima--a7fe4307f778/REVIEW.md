@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The quantile is obtained by inverting the explicit CDF; differentiating and factoring produces an elementary function \(h\) with a rigorously negative logarithmic derivative on \((0,1)\). Integrating pointwise derivative inequalities gives the asserted strict order for every pair of parameters and probabilities. The independent-copy coupling and finite-moment justification prove the stated strict variance implication. `verify.py` tests the finite diagnostics but does not substitute for the infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** Doumas (2026) proves positivity of the variance coefficient and asks about monotonicity; Giam (2026) **already proves strict variance monotonicity**. The claim reviewed here is strictly stronger: strict ordering of *each* quantile gap for all positive real parameters. Neither the published abstract of Giam nor the accessible primary results inspected from Kochar (1996), Khaledi–Kochar (2000), and Das et al. (2025) states this comparison. The classical DFR order-statistic theorem is not applicable because the logarithmic exponential parent is IFR. Inaccessible full text of Giam and possible general transform-order coverage remain material priority risks. No independent priority certification is implied.
+PASS
 
-**Value: PASS.** The relevant coupon-collector coefficient controls variance, but variance alone cannot control all interquantile widths. Here a single monotone quantile derivative yields the stronger distributional spread order and, under a common coupling, simultaneous strict shrinkage of every two-sample absolute gap. The extension to real parameters is natural for the power-CDF family and describes a global structure rather than an isolated numerical improvement.
+Inversion of F_a(y)=(1−e^(−e^y))^a gives Q_a(u)=log[−log(1−u^(1/a))]. Differentiating gives Q_a′(u)=h(u^(1/a))/[u(−log u)], h(z)=z(−log z)/[(1−z)(−log(1−z))]. Its logarithmic derivative has numerator 1−(1−z)/(−log z)−z/(−log(1−z))<0 for 0<z<1, by strict log x<x−1 twice. Thus Q_b′(u)<Q_a′(u) whenever 0<a<b, and integrating gives every strict quantile-span inequality. Quantile coupling with two independent uniforms yields almost-sure strict contraction of pairwise gaps; exponential/double-exponential tails ensure finite second moments, so variance strictly contracts. Independently checked analytic derivative and representative parameter-quantile pairs; not a universal numerical proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Giam’s 2026 result is already sufficient for the integer variance corollary, which is not claimed novel. The full continuous-a, all-u<v quantile-width comparison is strictly stronger. Inspected DFR-parent order-statistic comparison theorems do not apply since log(E) has strictly increasing hazard e^y; no direct published implication found, with unread Giam body and transform-order generalizations material risks.
+
+## value
+
+PASS
+
+The problem originates in variance of logarithmic exponential maxima (coupon-collector coefficient), but strict dispersive order is substantially stronger than known variance monotonicity: it orders every interquantile width and all coupled two-sample gaps for a natural continuum of power-CDF parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

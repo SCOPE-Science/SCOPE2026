@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:02:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5f1f323378655f3c95b4a33665485b091366ffc2 §Proof 1–4",
+        "verify.py blob 187fc3e62fc394fbb446830ca2d9f59e995972ce, quantile/slope finite checker and independent spot arithmetic"
+      ],
+      "rationale": "Inversion of F_a(y)=(1−e^(−e^y))^a gives Q_a(u)=log[−log(1−u^(1/a))]. Differentiating gives Q_a′(u)=h(u^(1/a))/[u(−log u)], h(z)=z(−log z)/[(1−z)(−log(1−z))]. Its logarithmic derivative has numerator 1−(1−z)/(−log z)−z/(−log(1−z))<0 for 0<z<1, by strict log x<x−1 twice. Thus Q_b′(u)<Q_a′(u) whenever 0<a<b, and integrating gives every strict quantile-span inequality. Quantile coupling with two independent uniforms yields almost-sure strict contraction of pairwise gaps; exponential/double-exponential tails ensure finite second moments, so variance strictly contracts. Independently checked analytic derivative and representative parameter-quantile pairs; not a universal numerical proof.",
+      "residual_risks": [
+        "Formal Lean verification and external expert attestation not performed; analytic proof was independently reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kochar 1996 complete article DFR sufficient condition for order-statistic dispersion",
+          "Khaledi–Kochar 2000 full text DFR hypotheses and sample-size comparisons"
+        ],
+        "reasoning": "The baseline distribution log(E) has hazard e^y, which is IFR rather than DFR; those source hypotheses fail. A different generalized transform-order theorem could still cover the special power-CDF family.",
+        "searches": [
+          "dispersive ordering logarithm maxima exponential variables generalized exponentiated exponential distribution quantile spread strict variance coupon collector",
+          "Kochar 1996 dispersive ordering sample maxima DFR IFR"
+        ]
+      },
+      "checked_sources": [
+        "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1996.pdf",
+        "https://web.pdx.edu/~kochar/Papers/d_papers/SPL2000.pdf",
+        "https://doi.org/10.1016/j.spl.2026.110790",
+        "dispersive ordering logarithm maxima exponential variables generalized exponentiated exponential distribution quantile spread strict variance coupon collector"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Giam 2026 DOI 10.1016/j.spl.2026.110790 abstract records strict decrease of variance",
+          "Kochar 1996 and Khaledi–Kochar 2000 DFR order-statistic theorems"
+        ],
+        "reasoning": "The prior variance result is a corollary of the stronger claim, not conversely; neither inspected DFR theorem applies to the log-exponential IFR law. Giam’s unread full article remains a qualified coverage risk.",
+        "searches": [
+          "dispersive ordering logarithm maxima exponential variables generalized exponentiated exponential distribution quantile spread strict variance coupon collector",
+          "Decreasing nature of a sequence related to the Coupon Collector problem 2026 Giam"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khaledi–Kochar 2000 formal definition of dispersive order; the quantile derivative condition is stronger local formulation",
+          "Giam 2026 abstract only: variance decreases for integer sample sizes"
+        ],
+        "reasoning": "This is dispersive ordering Y_b ≤disp Y_a for all real 0<a<b, equivalently shrinking every pair of quantiles. It is not equivalent to variance monotonicity; the latter is only an implication.",
+        "searches": [
+          "dispersive ordering logarithm maxima exponential variables generalized exponentiated exponential distribution quantile spread strict variance coupon collector",
+          "\"exponentiated exponential\" \"dispersive order\" shape parameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Giam 2026 published integer-variance sequence theorem",
+          "Resultary search returns nearby range/sample-variance covariance record 2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8, a different statistic"
+        ],
+        "reasoning": "A variance sequence table or covariance of original exponential samples does not determine the whole quantile-gap function for every positive real a.",
+        "searches": [
+          "dispersive ordering logarithm maxima exponential variables generalized exponentiated exponential distribution quantile spread strict variance coupon collector",
+          "\"log maximum\" \"exponential\" variance Giam 2026"
+        ]
+      },
+      "rationale": "Giam’s 2026 result is already sufficient for the integer variance corollary, which is not claimed novel. The full continuous-a, all-u<v quantile-width comparison is strictly stronger. Inspected DFR-parent order-statistic comparison theorems do not apply since log(E) has strictly increasing hazard e^y; no direct published implication found, with unread Giam body and transform-order generalizations material risks.",
+      "residual_risks": [
+        "Giam 2026 complete article not read; a stronger unpublished or in-body dispersive comparison is possible.",
+        "Earlier general family-power ordering theorems may imply this particular h-monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated DFR-parent sufficient condition is inapplicable to log(E), whose hazard increases",
+          "evidence": [
+            "Kochar (1996) theorem on DFR sample order statistics"
+          ],
+          "identifier_or_url": "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1996.pdf",
+          "material_read": "Full 1996 author-hosted PDF with relevant theorem, DFR assumption and proof",
+          "method": "Read article PDF and inspected primary pages",
+          "title": "Dispersive ordering of order statistics",
+          "trigger": "Same stochastic ordering and order statistics of exponentials"
+        },
+        {
+          "assessment": "The needed parent distribution violates the theorem’s decreasing-failure-rate assumption",
+          "evidence": [
+            "Khaledi–Kochar (2000) Theorem 2.1 and surrounding hypotheses"
+          ],
+          "identifier_or_url": "https://web.pdx.edu/~kochar/Papers/d_papers/SPL2000.pdf",
+          "material_read": "Full author-hosted 2000 PDF including theorem assumptions on DFR models and proof",
+          "method": "Read complete relevant theorem section and inspected PDF pages",
+          "title": "On dispersive ordering between order statistics in one-sample and two-sample problems",
+          "trigger": "Potential stronger sample-size dispersive comparison"
+        },
+        {
+          "assessment": "Already proves integer variance implication; full text may contain the stronger quantile theorem",
+          "evidence": [
+            "Statistics & Probability Letters 236 (2026), 110790 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110790",
+          "material_read": "Published abstract/metadata establishing integer-variance decrease; complete manuscript unavailable",
+          "method": "Lawful open metadata and abstract review only; not represented as full reading",
+          "title": "Decreasing nature of a sequence related to the Coupon Collector's problem",
+          "trigger": "Direct same integer-n variance property"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Giam 2026 DOI 10.1016/j.spl.2026.110790 proves the weaker variance monotonicity for integer n",
+        "Kochar dispersive-order theory treats distributional width ordering as a standard mathematical invariant"
+      ],
+      "rationale": "The problem originates in variance of logarithmic exponential maxima (coupon-collector coefficient), but strict dispersive order is substantially stronger than known variance monotonicity: it orders every interquantile width and all coupled two-sample gaps for a natural continuum of power-CDF parameters.",
+      "residual_risks": [
+        "Motivation and originality are bounded best-of-knowledge judgments; unknown stronger historical results could change priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Giam 2026 complete article not read; a stronger unpublished or in-body dispersive comparison is possible.",
+    "Earlier general family-power ordering theorems may imply this particular h-monotonicity.",
+    "The signed dispatcher checkpoint is a sequence cursor only, not science attestation.",
+    "The public-facing source operational identifiers prevent ready publication despite scientifically complete C/O/V judgment."
+  ],
+  "schema_version": 1
+}
