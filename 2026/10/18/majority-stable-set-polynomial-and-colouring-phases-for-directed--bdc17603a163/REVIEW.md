@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The per-layer majority constraint is exactly \(x_i=0\) or \(x_{i+1}\le\lfloor m/2\rfloor\), which gives the two-state cyclic trace, the matching-based sharp cardinality bound, and all extremizer counts. Vertex transitivity proves the matching fractional lower and upper bounds. The complete two-colouring classification follows from propagation of a mixed layer and a separate monochromatic-layer argument. The included program checked 72 formula comparisons and 14 exhaustive labelled-subset instances; finite computations are corroborative only.
+## correctness
 
-**Originality — PASS with bibliographic risk.** The motivating 2026 paper proves universal and cycle-factor bounds, not this equal-layer cyclic polynomial, maximum-set census, or exact fractional/integral values. The earlier 2021 work already establishes two-colour existence when the cycle length is even, so that covered special consequence is credited. An undirected majority C-colouring record and cyclic-blow-up homology/arc-cycle records address different conditions; their conclusions do not dominate these enumerations. Searches for cyclic independent-set blow-ups, transfer-matrix majority-stable sets, and fractional majority values found no matching assertion. An unindexed equivalent exact enumeration remains possible.
+PASS
 
-**Value — PASS.** The exact all-coefficient enumerator and complete extremizer classification resolve a natural two-parameter infinite family of strongly connected, regular, vertex-transitive digraphs. Their cyclic matching mechanism separates fractional and integral majority behaviour, and the even-layer case permits two colours despite an odd directed cycle. This supplies exact benchmarks not furnished by universal probabilistic bounds.
+A selected vertex of layer i sees exactly x_(i+1) selected successors, hence admissibility is x_i=0 or x_(i+1)≤floor(m/2). Empty/nonempty weighted transition M=[[1,(1+z)^m−1],[1,B(z)−1]] counts cyclic layer words exactly once and Cayley–Hamilton yields recurrence. Each heavy layer forces empty predecessor; disjoint pairs bound selected total by floor(dm/2). Equality classifies cyclic matchings, yielding stated leading coefficients. Vertex-transitive averaging gives χ*=dm/floor(dm/2). Two colours are either everywhere balanced for even m or alternate monochromatic layers for even d; otherwise three suffice. Independent exhaustive subset-vs-occupancy comparisons covered 12 small (d,m) instances and their maximum coefficients; finite checks only corroborate unrestricted proof.
 
-**Scientific limits.** Only equal independent layers with all forward arcs are covered. The theorem does not optimize the support size of fractional colourings or treat weighted/out-of-family graphs; no independent scientific audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous general majority colouring results provide bounds and even-cycle existence, not the exact transfer-matrix polynomial, extremizer counts, or named-colour census on these cyclic complete-layer blowups.
+
+## value
+
+PASS
+
+Complete natural family classification: enumeration of all stable sets, sharp fractional-integral gap, and combinatorially interpretable extremizer coefficients, beyond standard existence bounds. Valuable for testing majority colouring bounds on vertex-transitive digraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
