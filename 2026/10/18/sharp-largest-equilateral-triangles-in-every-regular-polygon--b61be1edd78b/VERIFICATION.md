@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` after extracting it from the package. The standard-library checker independently enumerates the vertices of the orientation-specific three-variable linear program in small regular polygons. It also checks witness feasibility and the strict angular inequality for the integers 4 through 300 that are not multiples of three. The expected final line is:
+## correctness
 
-`VERIFY_OK analytic_witness_cases=198 independent_LP_orientations=80`
+PASS
 
-A finite check does not certify all dimensions, all integers, or all continuous orientations. Those follow from the explicit analytic proof, including the balanced support-normal bound, direct witness containment, and rigidity of active contacts. Historical mathematical priority remains uncertain where a highly relevant older primary source was inaccessible.
+For 3|m, the average squared vertex radius bound forces center zero and circumradius<=1 with equality only vertex triples. Otherwise dihedral symmetry reduces orientation to [0,pi/(3m)]; weighted polygon supporting normals eliminate the free center and yield a strict orientation certificate (B>A tan(delta/2)). A constructed triangle centered at (1-R,0) makes all normal constraints nonpositive and saturates the bound. Equality constraints force unique center for canonical orientation and the m-orbit classification. Independent 3-variable linear programming enumerated 6 orientations each for m=3..20 and matched the sharp formula, including noncanonical strict gaps.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
+
+## value
+
+PASS
+
+A natural complete Euclidean extremal classification across all side counts, including unrestricted translation/rotation and equality-orbit cardinality. It substantially strengthens concentric packing and isolated small-n examples, and yields an exact explicit design rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

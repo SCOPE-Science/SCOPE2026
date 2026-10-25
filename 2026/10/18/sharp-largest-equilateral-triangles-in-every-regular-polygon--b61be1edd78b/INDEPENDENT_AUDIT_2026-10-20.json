@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T04:05:03.841381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 3|m, the average squared vertex radius bound forces center zero and circumradius<=1 with equality only vertex triples. Otherwise dihedral symmetry reduces orientation to [0,pi/(3m)]; weighted polygon supporting normals eliminate the free center and yield a strict orientation certificate (B>A tan(delta/2)). A constructed triangle centered at (1-R,0) makes all normal constraints nonpositive and saturates the bound. Equality constraints force unique center for canonical orientation and the m-orbit classification. Independent 3-variable linear programming enumerated 6 orientations each for m=3..20 and matched the sharp formula, including noncanonical strict gaps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DePano–Ke–O’Rourke 1987 general algorithm bibliographic description",
+          "Mathar arXiv:1301.6293"
+        ],
+        "reasoning": "The generic algorithm computes an extremum for each polygon but inspected accessible evidence does not state the closed all-m radius/orbit formula. Because the complete 1987 text was inaccessible, avoid definitive whole-document noncoverage.",
+        "searches": [
+          "largest equilateral triangle in regular n-gon m arbitrary translation formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.6293v1 Mathar, Sections II–IV",
+        "DePano–Ke–O’Rourke (1987), abstract/bibliography only",
+        "Resultary: Exact circumscribed-equilateral-triangle spectrum of every regular polygon, full RESULT.md",
+        "frozen package RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mathar 2013 Section IV; Resultary circumscribed support triangle RESULT; DePano et al. 1987 abstract/bibliography"
+        ],
+        "reasoning": "Concentric ratios are upper bounds for freely translated inner triangles and can be strictly improved; known support spectrum concerns outer equilateral triangle containing regular polygon. The new dual-normal certificate is needed to guarantee global orientation and center optimality.",
+        "searches": [
+          "largest equilateral triangle in regular n-gon m arbitrary translation formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mathar arXiv:1301.6293 Sections II–IV concentric regular polygon circumscription, selected translated examples",
+          "Resultary: exact circumscribed-equilateral-triangle spectrum of every regular polygon (read full RESULT.md)"
+        ],
+        "reasoning": "Scaling duality to least enclosing regular polygon of a fixed equilateral triangle is equivalent to the submission, but Mathar only solves concentric optimization. The Resultary spectrum instead circumscribes equilateral triangles about a fixed regular polygon; it is not the inverse object optimization, even under polarity.",
+        "searches": [
+          "largest equilateral triangle in regular n-gon m arbitrary translation formula",
+          "largest equilateral triangle in regular n-gon m arbitrary translation formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary all-m circumscribed equilateral spectrum, 2026-10-11; Mathar special n=4,5 examples"
+        ],
+        "reasoning": "The previously tabulated square and pentagon cases are credited. The entire all-integer exact radius and equality multiplicity is not mechanically established by those finite tables or the distinct enclosing-support spectrum.",
+        "searches": [
+          "largest equilateral triangle in regular n-gon m arbitrary translation formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.",
+      "residual_risks": [
+        "The 1987 general algorithm paper may contain the exact regular-polygon formula in an appendix; full paper inaccessible.",
+        "A 2017 construction note proposes a regular-polygon geometric answer without a checked global proof; mathematical priority remains conditional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Concentric formulas and selected translated square/pentagon cases; does not establish the assessed unrestricted uniform radius in inspected portions",
+          "evidence": [
+            "Abstract explicitly restricts optimum to concentric polygons; Section IV discusses limited translated placements"
+          ],
+          "identifier_or_url": "arXiv:1301.6293v1",
+          "material_read": "ArXiv PDF abstract and concentric core, plus Section IV translated examples",
+          "method": "public arXiv PDF/text",
+          "title": "Tightly Circumscribed Regular Polygons",
+          "trigger": "regular polygons with equilateral inner/circumscribed bodies"
+        },
+        {
+          "assessment": "The prior theorem computes equilateral supporting triangles CONTAINING a regular polygon, not equilateral triangles CONTAINED IN the polygon",
+          "evidence": [
+            "Prior inradius spectra (1+2cos(2pi/(3n)))/3 arise from supporting normals"
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-exact-circumscribed-equilateral-triangle-spectrum-of-every-regul--bd64338cbea9/RESULT.md",
+          "material_read": "Complete source RESULT.md proof and scope",
+          "method": "GitHub public source blob",
+          "title": "Exact circumscribed-equilateral-triangle spectrum of every regular polygon",
+          "trigger": "same regular polygon but opposite inclusion/extremal geometry"
+        },
+        {
+          "assessment": "Potential exact treatment in full text remains unresolved; not used to assert noncoverage",
+          "evidence": [
+            "General polygon algorithm claimed, but no full text accessible"
+          ],
+          "identifier_or_url": "DePano, Ke, O’Rourke, Allerton Conference (1987)",
+          "material_read": "Bibliographic evidence and accessible abstract; attempted primary URL inaccessible and institutional worker returned error",
+          "method": "bibliographic/open-access attempt and authorized publisher tool",
+          "title": "Finding Largest Inscribed Equilateral Triangles and Squares",
+          "trigger": "general computational geometry algorithm could dominate exact special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete Euclidean extremal classification across all side counts, including unrestricted translation/rotation and equality-orbit cardinality. It substantially strengthens concentric packing and isolated small-n examples, and yields an exact explicit design rule.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1301.6293v1 Mathar, Sections II–IV",
+    "DePano–Ke–O’Rourke (1987), abstract/bibliography only",
+    "Resultary: Exact circumscribed-equilateral-triangle spectrum of every regular polygon, full RESULT.md",
+    "frozen package RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 1987 general algorithm paper may contain the exact regular-polygon formula in an appendix; full paper inaccessible.",
+    "A 2017 construction note proposes a regular-polygon geometric answer without a checked global proof; mathematical priority remains conditional."
+  ],
+  "residual_risks": [
+    "The 1987 general algorithm paper may contain the exact regular-polygon formula in an appendix; full paper inaccessible.",
+    "A 2017 construction note proposes a regular-polygon geometric answer without a checked global proof; mathematical priority remains conditional."
+  ],
+  "schema_version": 1
+}

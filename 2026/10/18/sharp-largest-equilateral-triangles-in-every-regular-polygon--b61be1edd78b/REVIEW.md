@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The halfspace formulation covers arbitrary centers and orientations. A nonnegative four-normal dual certificate bounds every orientation, and strict trigonometric estimates exclude all noncanonical orientations. Direct support-function comparisons prove the displayed optimizer is contained, and simultaneous active constraints make its center unique; the divisible-by-three case follows from the squared-radius averaging identity. The included independent linear-programming checks verify finite instances only. Risk: the universal argument depends on the stated elementary trigonometric inequalities and symmetry reduction, which are made explicit in the proof.
+PASS
 
-## Originality — PASS (historical uncertainty disclosed)
+For 3|m, the average squared vertex radius bound forces center zero and circumradius<=1 with equality only vertex triples. Otherwise dihedral symmetry reduces orientation to [0,pi/(3m)]; weighted polygon supporting normals eliminate the free center and yield a strict orientation certificate (B>A tan(delta/2)). A constructed triangle centered at (1-R,0) makes all normal constraints nonpositive and saturates the bound. Equality constraints force unique center for canonical orientation and the m-orbit classification. Independent 3-variable linear programming enumerated 6 orientations each for m=3..20 and matched the sharp formula, including noncanonical strict gaps.
 
-Mathar's 2013 paper treats concentric placements and limited translated-center examples, explicitly not a systematic simultaneous translation-and-rotation optimum. The present theorem concerns arbitrary placements, every regular side count, one closed formula and every equality case. General algorithms from DePano–Ke–O'Rourke (1987) solve a broader computational input problem but are not established by accessible evidence to give this explicit all-regular-polygon identity; the full 1987 paper is an outstanding comparison. An online 2017 construction claims applicability to regular polygons but lacks a mathematical proof and uniform closed expression; this makes priority uncertain rather than conclusively settled. Indexed published mathematical comparisons did not reveal direct equality of theorem statements. The result does not claim first discovery of the separate quadrilateral or pentagon numerical optima.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is a canonical extremal geometric quantity motivated by regular-polygon containment. The result closes the unrestricted-placement gap explicitly left in Mathar's comparison, gives a uniform nontrivial trigonometric formula for all integers, and counts and geometrically classifies every extremizer. The proof's angle duality and rigidity are structural rather than incidental finite computations. It is a precise invariant with independent geometric interest even without a downstream application.
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
 
-## Limits
+## value
 
-Priority remains conditional on the uninspected 1987 full text and nonrigorous 2017 construction; no independent audit or validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete Euclidean extremal classification across all side counts, including unrestricted translation/rotation and equality-orbit cardinality. It substantially strengthens concentric packing and isolated small-n examples, and yields an exact explicit design rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
