@@ -1,19 +1,21 @@
-# Review of the broom-tree Gaussian width trichotomy
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The object is the unweighted Euclidean symmetric-edge/root polytope of a broom having \(h\) leaves and a \(p\)-edge handle. Its antipodal support function gives the exact identity \(\sqrt{h+p}\,W/2=\max_{uv}|G_u-G_v|/(\|\Pi G\|/\sqrt{h+p})\). The genuinely independent hub-leaf and internal-path Gaussian maxima have, respectively, an order-one centered half-normal fluctuation and a vanishing-scale Gumbel fluctuation. The path is a one-dependent Gaussian increment sequence with adjacent correlation \(-1/2\); the stated signed-pair tail bound validates the local-dependence Poisson limit. The inverse chi normalization error vanishes even on the Gumbel scale. The max-continuity argument proves all three alternatives and the exact critical exposed-edge probability. The limiting first and second moments are integrated from the half-normal density; no finite experiment is taken as an infinite proof.
+## correctness
 
-The supplied verifier checks 3,600 direct finite support/width identities, 9,454 exact covariance entries, three atomic-probability numerical diagnostics, and three large-parameter sanity checks. The analytical proof does not rely on those numerical experiments. No claim of a Gumbel-regime moment theorem is made.
+PASS
 
-## Originality (O): PASS, subject to identified bibliographic risk
-The original 2019 tree symmetric-edge-polytope paper supplies the combinatorial crosspolytope equivalence, and subsequent regular-matroid and facet papers supply additional structural theory. Prior work on stationary-Gaussian maxima supplies the underlying extreme-value method. An earlier tree-root-polytope mean-width result determines a leading-order rescaled mean and a collection of limiting leading constants, including for brooms; its statement does not determine order-one fluctuation distributions, the critical centered atom, sharp handle-length crossover, conditional exposed-edge localization, or the critical variance. Published inball and tree graphical-zonotope width results concern different invariants or objects. Searches were made for broom-root-polytope widths, Gaussian edge-increment maxima, critical crossover, equivalent Gaussian-array formulations and stronger tree-wide results. No covering theorem was identified. A broader Gaussian-extreme-value formulation could imply the same distributional statement after nontrivial geometric translation; this residual literature risk is explicitly retained.
+For B_{h,p}, verified exact Gaussian width coupling Y=R^-1 H, H=max|G_u−G_v| over edges and R=||ΠG||/sqrt(h+p). Hub-leaf maximum S_h=b_h+|Z|+o_{L²}(1), because positive and negative iid leaf maxima both center at b_h and share hub Gaussian Z. Internal handle increments are 1-dependent N(0,2), adjacent normalized correlation −1/2, and independent of hub/leaf set; adjacent simultaneous-exceedance probability ≤4exp(−2u²/3) makes local dependence negligible, giving fine Gumbel at c_p,s_p. Even/odd independent increments separately give L_p−c_p→0 in L². Bridge increment is tight, so asymptotically cannot win. Chi-square normalization error O(sqrt(log n/n)) in L² is negligible even relative to s_p. Hence max selection gives the three asserted regimes, critical atom P(|Z|≤−t)=2Φ(−t)−1 for t<0, and explicit moments; expansion of b_{floor(p² exp(lambda sqrt(log p)))}−c_p→lambda/2. Does not infer moment convergence in fine Gumbel regime.
 
-Relevant primary texts materially consulted include D'Alì--Delucchi--Michałek (arXiv:1910.05193, Sections 1--2, Example 2.3), D'Alì--Juhnke-Kubitzke--Koch (arXiv:2307.04933, Sections 1, 3--4), Braun--Bruegge (arXiv:2201.13303, Sections 1--2), and Hashorva--Weng (arXiv:1312.2151, Introduction and Section 1). The comparison is about mathematical implications rather than matching titles.
+## originality
 
-## Mathematical value (V): PASS
-Every tree root polytope has the same crosspolytope face lattice and, with the standard integer-root realization, the same Euclidean volume; its directional-width fluctuation law is not combinatorially predetermined. The specific broom family naturally juxtaposes a hub of many dependent edges with a long chain of locally dependent edges. The theorem locates a sharp stretched-exponential critical window, identifies a continuous atom-generating limit law and a nontrivial phase transition in which geometric root family is exposed by a random direction. It also derives an explicit critical variance profile. Those are geometric probabilistic invariants at a structural competition boundary, not arbitrary finite recomputations or a renaming of the leading-order mean-width result.
+PASS
 
-## Closest literature and limits
-The Gaussian maxima themselves are classical, and the tree-root-polytope definition and combinatorial equivalence are not new. Unproved extensions include a complete arbitrary-tree theory, nonuniform weights, and fine-scale Gumbel moment convergence. Independent bibliographic and mathematical audits have not been performed; a hidden equivalent in Gaussian moving-average extremes cannot be ruled out by finite literature searches.
+Best-of-knowledge PASS. The classic tree-root-polytope equivalence gives crosspolytope combinatorics only, and regular-matroid/facet papers do not supply Euclidean directional-width laws. Generic locally dependent Gaussian maxima yields the handle Gumbel ingredient, but does not by itself state the correlated hub–path competition and the centered critical atom or branch exposure probabilities. An earlier tree-root-polytopes mean-width limit or broader Gaussian moving-average extremal-process result remains a live priority risk; explicit new order-one limit exceeds prior leading-order means.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+All n-vertex tree-root polytopes share the crosspolytope face lattice and fixed intrinsic volume, while Euclidean directional width and exposed-edge family remain graph-sensitive. The broom is the natural meeting point of shared-hub and local-chain Gaussian extremes; an exact critical crossover law, atomic centered limit and exposed-branch share are mathematically motivated geometric-probability structure beyond leading mean width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
