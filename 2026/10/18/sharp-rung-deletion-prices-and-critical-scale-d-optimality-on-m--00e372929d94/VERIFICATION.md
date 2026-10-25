@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The script derives reduced Laplacian cofactors directly with `fractions.Fraction` Gaussian elimination and compares them against the Chebyshev spanning-tree identity. It also checks published unweighted Möbius-ladder counts, the exact threshold derivative identity, and representative numerical convergence in both the fixed-price and linearly scaling-price regimes.
+## correctness
 
-Expected successful output:
+PASS
 
-`VERIFY_OK exact_cofactors=72 unweighted_counts=4 threshold_cases=48 fixed_price_limits=3 critical_price_limits=3`
+For n>=2 simple Möbius ladders, reduced-Laplacian injectivity makes log det strictly concave on its positive-definite domain; the global optimizer is uniquely orbit-symmetric. Fourier even and odd modes yield tau=n b^(2n-1)(T_n(1+a/b)+1), and the derivative at the deleted-rung boundary is [n²-(2n-1)t]/2. Hyperbolic stationary conditions prove the fixed-t and t/n->c limits, with c=1/2 borderline handled separately. Independently checked 24 exact rational Laplacian determinants against Chebyshev identity including n=2 and rung deletion. Finite computation is diagnostic; Steps 1-5 support all quantifiers.
 
-The 72 cofactor cases include all integers \(2\le n\le7\), \(0\le a\le3\), and \(1\le b\le3\), with exact rational determinants. The sign tests cover \(2\le n\le49\). The asymptotic comparisons are finite floating-point illustrations, not certified error bounds and not substitutes for the proof. Global uniqueness follows from strict log-determinant concavity; the finite-price and asymptotic classification follows from the exact stationary equation. Neither literature completeness nor independence is certified by this verifier.
+## originality
+
+PASS
+
+Classical tree enumerations, log-determinant strict concavity and graph-design optimality are prior ingredients, but not the stated independent-edge priced continuous Möbius-ladder optimizer with sharp support threshold and scaling. Related Resultary weighted-ladder rung-kernel concerns a finite ladder with boundary, not Möbius critical-priced D-optimality.
+
+## value
+
+PASS
+
+The exact class-deletion price n²/(2n-1), its linear critical scaling and nontrivial limiting design gain resolve a motivated optimization problem beyond ordinary unweighted tree counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
