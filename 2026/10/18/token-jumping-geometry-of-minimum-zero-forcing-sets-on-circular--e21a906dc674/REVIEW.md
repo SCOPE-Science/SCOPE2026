@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The included proof independently identifies all four-vertex optimum sets using an initial-force and neighbor analysis, then computes all potential one-token replacements by the exact three-intersection criterion. The five-type equitable adjacency matrix has row sums \(12,8,8,8,5\), which with orbit sizes \(n,2n,2n,4n,4n\) gives \(48n\) undirected edges. A two-step walk between consecutive square patterns and one-/two-step connections to orbit representatives proves the single component for all \(n\ge6\). The finite standalone independent program tests all four-subsets for small instances but is not taken as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Earlier classification already gives the five orbit types, their sizes and \(13n\) minimum sets, and these are explicitly excluded as novelty. The 2020 paper by Premodkmuar–Dominic–Chacko (Proposition 22) gives only the connected zero-forcing number and one example. Geneson–Haas–Hogben (2020) define reconfiguration graphs and prove connectedness for forests, not cyclic prisms. Cameron et al. (2023) derive scalar product bounds. None of the inspected directly relevant statements implies the new connectedness result or the \(5\times5\) adjacency quotient and \(48n\)-edge formula. Published-record searches did not identify a covering theorem. Unindexed analogous computations remain possible.
+PASS
 
-**Value — PASS.** The zero-forcing number and even a complete list of minimum sets do not determine whether feasibility-preserving single-token movement connects that list, nor do they determine its degree profile. The theorem supplies a concrete, infinite cyclic graph family where every minimum solution can be transported to every other while remaining minimum at each step. Its exact adjacency quotient makes the reconfiguration geometry explicit: there are \(4n\) odd-degree states and a \(48n\)-edge connected solution network. These distinguish solution-space navigation from static optimality.
+For n>=6 the prism is cubic and triangle-free; no three-blue set can force past the first completed closed neighborhood, whereas four vertices in two adjacent rungs force all. Every minimum set is exhausted by the five symmetry orbit templates Q,R,T,E,J of sizes n,2n,2n,4n,4n. One-token adjacency is exactly a three-vertex intersection, and bounded relative shifts determine the asserted equitable five-by-five quotient for all n>=11 (direct exceptional modular cases n=6..10). Independent brute-force zero forcing on every four-subset and all three-subsets for n=6..10, plus a separately built triple-intersection graph, verified the five orbits, connectivity, quotient, 13n vertices, 48n edges, and n/8n/4n degree multiplicities. The explicit Q_i--T--Q_(i+1) paths and orbit connections establish unrestricted n >= 6 connectedness.
 
-**Scope and risks.** The conclusion is for the specific token-jumping rule, not token sliding or nonminimum reconfiguration. Literature comparison cannot guarantee bibliographic uniqueness. Independent scientific validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The static minimum Z=4 and the five-pattern classification yielding 13n optimum sets are antecedents explicitly excluded from novelty. Geneson–Haas–Hogben 2020 define the very same token-jumping reconfiguration graphs but prove connectivity in forests and classify some paths/cycles/complete graphs, with no prism/circular-ladder theorem in the inspected full primary text. Premodkmuar–Dominic–Chacko 2020 give the connected zero-forcing number, a distinct optimization invariant. No found prior work implies the 48n edges, full equitable quotient or connected solution network for every prism n>=6.
+
+## value
+
+PASS
+
+The exact geometry of transitions among all minimum zero-forcing configurations is a natural reconfiguration question, not implied by the scalar optimum or static orbit census. Connectivity says any optimum state is reachable through optimum states; the sharp degree/equitable adjacency and 48n-edge formula characterize the network quantitatively for an infinite cyclic product family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
