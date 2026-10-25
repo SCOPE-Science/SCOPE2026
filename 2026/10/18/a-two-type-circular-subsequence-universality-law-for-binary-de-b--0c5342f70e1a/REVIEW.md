@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-factor bijection fixes all short repeat gaps; the two remaining gaps are forced to be either \((n,n)\) or \((n-1,n+1)\) by the two alternating length-\(n\) factors. The deterministic greedy scanner yields exact throughput and exactly \(L/2\) deficient rooted cuts for each even repeat gap. The geometric-arithmetic sums give the claimed formulas. Complete de Bruijn cycle enumerations for orders 3–5, direct scattered-subsequence enumeration for orders 3–4, and independent larger constructions confirm every quantitative prediction. The proof, not these finite computations, supplies the unbounded quantifiers.
+## correctness
 
-**Originality — PASS against inspected evidence, with residual risk.** The closest primary source is Abraham et al., arXiv:0905.4517, whose greedy omnisequence lemma supplies the criterion and whose Section 2 discusses de Bruijn cycles only to contrast contiguous and scattered coverage. Ruskey–Sawada–Williams (DOI:10.1137/100808782) address fixed-weight cycle construction, not rooted subsequence universality. Bille–Gørtz–Skjoldjensen (arXiv:1510.08748) treat subsequence-automaton size/delay. Searches of published mathematical findings identified a full binary-word universality generating function but no type-sensitive complete rooted histogram for binary de Bruijn cycles. The possibility of an earlier unindexed formulation remains.
+PASS
 
-**Mathematical value — PASS.** A de Bruijn cycle is a canonical exact contiguous-factor universal object. It is not obvious that all its linear cuts have scattered-subsequence universality essentially equal to one-third of the cycle length, or that the *entire* cut histogram depends only on a two-valued local alternation configuration. The all-orders classification and exact cut counts quantify a natural contrast between contiguous coverage and scattered coverage; the result is not a single finite table.
+For repeat gap L<=n-2, exactly two specified length-L+2 patterns each occur 2^(n-L-2) times, giving E_L=2^(n-L-1). All repeat events total 2^(n-1), leaving two long gaps; exactly two alternating length-n cyclic factors force either (n,n) or (n-1,n+1). Repeated equal pairs synchronize the greedy 3-state arch scanner; each gap produces floor(L/2) completed arches, and even-length gap contributes L/2 deficient cyclic cuts. Summing yields the stated floor/ceil throughput, D_n and D_n+n counts, with no inference from finite cases. Independently generated FKM de Bruijn cycles at each n=3..10 and checked every cyclic cut, all repeat gaps, K,H and de Bruijn uniqueness.
 
-**Limitations.** Only binary cycles of order at least three and length-one-period linear cuts are classified. The proof makes no statement about larger alphabets or the relative number of de Bruijn cycles in each class. Earlier equivalent work could be unindexed. The review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known omnisequence/greedy arch theory characterizes scattered universality of general words and binary de Bruijn cycles guarantee contiguous factor coverage, but neither establishes the universal per-cut two-type exact distribution for every de Bruijn cycle. Prior Resultary count of unrestricted binary words is a different enumeration problem, not this per-cycle rigidity theorem.
+
+## value
+
+PASS
+
+An exact universal rotational statistic of canonical de Bruijn cycles depends on only one local adjacency bit despite exponential variation in cycle structure. The complete all-order two-type classification and exact count of deficient roots are natural structural invariants, not one construction or a tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
