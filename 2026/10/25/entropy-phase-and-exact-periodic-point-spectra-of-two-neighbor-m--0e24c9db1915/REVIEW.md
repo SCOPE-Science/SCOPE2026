@@ -1,0 +1,9 @@
+# Review of the two-neighbor modular spacing-shift classification
+
+**Correctness — PASS.** The residue-mask equivalence gives an exact finite invariant decomposition, with free-bit density and unique fair Bernoulli maximizing measure on each cyclic phase orbit. Cyclic gaps of length at least three determine every maximum mask and the lone possible half-period stabilizer. Fixing \(n\) and reducing by \(\gcd(n,m)\) gives an exact orbit-residue constraint; the stars-and-bars coefficient is algebraically derived. The standalone checker independently enumerates boundary cases, but the unrestricted proof does not rely on those finite tests.
+
+**Originality — PASS on inspected evidence.** Kwietniak's spacing-shift entropy criterion is contextual. Kułaga-Przymus–Lemańczyk–Weiss already establish the periodic-template thinning and multiple-maximizer mechanism, which is acknowledged. White already proves cyclic-sieving and independent-set counts for powers of cycles, which are acknowledged. The contribution is the precise dynamical synthesis for all modular two-neighbor exclusions, with the complete maximizer/eigenvalue phase portrait and the exact \(\gcd(n,m)\)-dependent periodic-point function. Banks–Oprocha–Stanley (2015) could not be inspected beyond the abstract, a historical-priority risk. The possibility of an unindexed combined corollary remains.
+
+**Mathematical value — PASS.** The non-nearest-neighbor exclusion has an unbounded number of ergodic entropy-maximizers on one congruence class and a unique maximizer on the other two, together with a distinct half-period eigenvalue exception. Its exact all-period fixed-point law detects dynamics invisible to topological entropy. The classification is an infinite and intrinsically motivated symbolic family, not an isolated tabulation.
+
+Self-review: passed. Independent audit: not yet performed.
