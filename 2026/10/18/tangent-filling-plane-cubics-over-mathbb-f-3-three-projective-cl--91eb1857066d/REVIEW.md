@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exhaustive exact enumeration ranges over all \(13\) linear forms, \(364\) quadratic forms, and \(29{,}524\) cubic forms up to nonzero scaling; it computes tangent lines only at smooth rational points and tests coverage against the full \(13\)-point projective plane. Independent projective orbit generation from elementary matrix generators accounts for all \(3744\) tangent-filling cubics with three disjoint orbits, and all three representative cubics are proved geometrically smooth by explicit partial-derivative arguments. The bundled standalone verifier reproduces the computations. This is a finite complete proof, not a claim inferred from partial sampling.
+## correctness
 
-**Originality — PASS.** The primary 2023 source, Asgarli--Ghioca [1], defines tangent-filling and asks for the minimum degree in Question 1.5, but treats the explicit family at \(q\ge11\), not a complete \(q=3\) census. Their characteristic-three remark addresses a different polynomial that is not tangent-filling; it does not exclude other cubics. The 2022 Asgarli--Ghioca--Yip paper [2] studies rational-point blocking rather than the tangent-line covering invariant. Targeted searches for the exact counts, orbit representatives, equivalent dual-plane blocking-set descriptions, and small-field classifications found no covering result. Earlier related work on higher-field tangent fibers does not imply this classification. Residual risk: an older, poorly indexed finite-geometry catalogue or an equivalent dual-curve description may already contain the three-class census. Negative search results are not proof of global uniqueness in the literature.
+PASS
 
-**Value — PASS.** The exact minimum degree answers the specified source problem at the first odd prime field, and the complete projective classification identifies *all* degree-minimizing cubics, not just a convenient example. The result separates three natural rational-point strata and establishes geometric smoothness for every minimizer, a useful finite boundary case for understanding the characteristic-dependent tangent-filling phenomenon.
+A normalized nonzero degree-d ternary coefficient vector enumerates (3^((d+2 choose 2))-1)/2 projective forms. Independently evaluated every one of 13,364,29524 forms at the 13 rational points with exact formal derivatives, normalized rational tangent lines, and full coverage masks: 0,0,3744 are tangent-filling; the complete cubic rational-point/tangent profile is (4,4):936, (6,6):1872, (7,7):936. The three displayed smooth representatives have distinct point counts; source-generated PGL3 orbits have claimed sizes 936,1872,936 and fill the independently verified 3744 total. Geometric smoothness follows from the explicit representative Jacobian analysis, not from the rational-point test.
 
-**Evidence and limits.** Exact algorithm and all arithmetic are supplied in `verify.py`, supported by `requirements.txt` and the explicit representative equations in `RESULT.md`. The result is restricted to \(\mathbb F_3\). The classification was not checked against every historical printed table and has not received independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asgarli–Ghioca Question 1.5 explicitly asks minimum irreducible tangent-filling degree. Its general constructions and characteristic-three example do not classify every cubic over F3 or dominate the 3-orbit finite result; the point-blocking study has a different defining condition.
+
+## value
+
+PASS
+
+F3 is the first odd prime field and a concrete boundary case of the explicitly posed minimum-degree problem. A complete degree-three classification up to projective equivalence, including distinct rational-point strata, is a motivated natural exact invariant and not just an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
