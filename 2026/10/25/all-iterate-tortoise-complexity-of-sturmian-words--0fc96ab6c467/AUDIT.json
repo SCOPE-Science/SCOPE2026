@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The zero-position identity z_i′=max(i,z_i-k) follows by moving precisely min(k,z_i-i) earlier ones past the ith zero. It preserves prefix-zero dominance, so iterated tortoise images are phase-monotone on irrational rotation-coded factors. Adjacent rotation boundaries j=1,...,n-1 have neighboring factors p01s and p10s, which merge iff the shared prefix p contains fewer than k ones; this is equivalent to j alpha<k. The final-bit boundary j=n is excluded by conserved Hamming weight. Counting all and only these boundaries proves rho_{alpha,k}(n)=n+1-min(n-1,floor(k/alpha)), with no infinite inference from computation. A standalone independent implementation checked 114832 finite rational-cycle parameter cases and a Fibonacci-slope approximation. Assumptions alpha irrational, k>=2, n>=1 and exactly binary are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant--Kravitz arxiv:1809.09158 develops word-level stack sorting and the tortoise map; no Sturmian factor-image enumeration was identified in the examined sections.",
+        "Campbell--Rampersad arxiv:2604.25811 treats Thue--Morse and paperfolding and invites study of Sturmian systems. Its general k=1 bounds do not yield the exact iterated slope-dependent cutoff."
+      ],
+      "reasoning": "General noninjectivity or bounded-deficit statements do not dominate the exact slope-sensitive formula for every k and n. No inspected broader theorem implies these exact values. Historical priority beyond examined sources is unresolved.",
+      "searches": [
+        "Campbell Rampersad 2604.25811 Subword enumeration up to stack-sorting equivalence Sturmian",
+        "Sturmian words stack sorting Defant Kravitz one-pass tortoise factor images",
+        "\"tortoise complexity\" \"Sturmian\" formula 2026",
+        "arxiv:1809.09158",
+        "arxiv:2604.25811"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.25811, full-text public rendering, Sections 3--4 and 7",
+      "arxiv:1809.09158, public full-text rendering, definition and relevant results",
+      "Morse--Hedlund (1940), classical symbolic dynamics background",
+      "Published relevant records concerning Sturmian cyclic lifts, finite-word stack sorting, and Sturmian sparse-support patterns"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating 2026 paper defines the numerical invariant and supplies results for other infinite words and a Sturmian-direction question, not the formula for all k>=2.",
+        "The 2018 source supplies the underlying operator; its definitions alone do not yield phase-threshold merging for Sturmian languages.",
+        "The nearest previous rational one-iteration word calculation only supplies a k=1 boundary comparison."
+      ],
+      "reasoning": "The new theorem determines n+1-min(n-1,floor(k/alpha)) and an exact abelian-agreement cutoff for each k>=2. One-iteration statements and general bounds neither encode dependence on k nor recover the entire slope. Accordingly no inspected claim entails the new claim.",
+      "searches": [
+        "Sturmian words k-tortoise complexity exact formula slope first one moved end Campbell Rampersad",
+        "Sturmian tortoise equivalence factor complexity n floor reciprocal slope zero runs",
+        "Sturmian words stack sorting Defant Kravitz one-pass tortoise factor images",
+        "arxiv:2604.25811, Sections 3--4 and 7",
+        "arxiv:1809.09158, Sections 1--2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.25811 defines k-fold tortoise image complexity on word factors and asks for Sturmian extensions; the present theorem is an explicit exact two-parameter answer.",
+        "Previously examined one-iteration rational rotation factor calculations address k=1, not the iterated k>=2 collision threshold."
+      ],
+      "reasoning": "Mechanical coding of Sturmian languages, zero-position bubble motion, and continued-fraction/rotation equivalences were considered. An earlier rational k=1 formula is a boundary specialization, not an all-k implication. A purported conversion from k=1 to k>=2 would require preservation of factor-language membership by T, which fails generally: T acts on words, not as a conjugacy of the language.",
+      "searches": [
+        "Exact tortoise complexity of Sturmian infinite words, number of one-pass stack-sorting images of length-n factors of irrational mechanical sequences",
+        "Sturmian binary rotation coding one-pass tortoise image factors first 1 moved to end exact count floor 1/alpha",
+        "Sturmian words k-tortoise complexity exact formula slope first one moved end Campbell Rampersad",
+        "\"tortoise complexity\" \"Sturmian\" slope",
+        "arxiv:2604.25811, Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted records for tortoise complexity, Sturmian factors, iterated word sorting, and formula aliases did not identify a two-parameter table or previously published formula.",
+        "Nearby mathematical records on Sturmian cyclic lifts and Sturmian pattern supports concern distinct invariants."
+      ],
+      "reasoning": "A database profile of k=1 or of a single rational slope would not imply the simultaneous irrational, all-length, all-iterate result. Failure to find a table is not itself a uniqueness proof; the primary-text implication comparison is separately stated.",
+      "searches": [
+        "Exact tortoise complexity of Sturmian infinite words, number of one-pass stack-sorting images of length-n factors of irrational mechanical sequences",
+        "Campbell Rampersad 2604.25811 Subword enumeration up to stack-sorting equivalence Sturmian",
+        "\"stack-sorting equivalence\" Sturmian words tortoise",
+        "\"k-tortoise\" \"Sturmian\" \"complexity\"",
+        "site:oeis.org \"tortoise complexity\" \"Sturmian\""
+      ]
+    },
+    "rationale": "The original part is the exact all-iterate Sturmian factor-image formula for k>=2, including the slope-dependent phase transition and inversion. Originality checked by comparing direct mathematical implications against the motivating full-text paper (arxiv:2604.25811), the underlying word-operator reference (arxiv:1809.09158), an accessible earlier one-step rational-mechanical calculation, targeted mathematical research records, and alternate search terminology. The known one-step rational formula is expressly excluded as the novel content. Unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "Unindexed or poorly keyworded previous exact counts could express the same function in mechanically equivalent form.",
+      "An earlier rational k=1 formula is known; the claim of novelty is restricted to the k>=2 continuum of iteration profiles.",
+      "Full-text access and bibliographic search do not constitute independent exhaustive priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the iterated Sturmian all-k formula in the inspected text; relevant direct motivating work",
+        "evidence": "Includes Thue--Morse and paperfolding calculations; leaves Sturmian exact iterated count open as direction.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+        "material_read": "Rendered full-text article, including definitions and the conclusions/extension question (Sections 3--4 and 7), not merely a search snippet",
+        "method": "Read public full-text HTML rendering and cross-referenced named theorems and conclusion",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Defines k-tortoise complexity and names Sturmian extension problem"
+      },
+      {
+        "assessment": "NOT_COVERING in material examined; does not provide the phase-collision enumeration for Sturmian factor languages",
+        "evidence": "Defines and studies word tortoise/stack-sorting transformations, rather than all-k Sturmian factor image complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+        "material_read": "Accessible full-text rendering, relevant operator definitions and central findings on finite words",
+        "method": "Read main definitions and search for Sturmian/factor-complexity keywords in full-text rendering",
+        "title": "Stack-sorting for Words",
+        "trigger": "Original word-level tortoise map and possible general implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0fc96ab6-c467-4615-b810-0c9b1657dc11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit recent motivating work asks for tortoise image complexity beyond its Thue--Morse and paperfolding families, including Sturmian shifts. The exact formula covers every irrational slope, length, and iteration, and identifies a nontrivial finite cutoff B_k+1 of Abelian agreement, the subsequent linear-growth regime, and recovery of the underlying slope alpha by the asymptotic cutoffs. The phase-boundary and zero-position lemmas explain the collapse structurally. This is not an arbitrary finite parameter census, and does not claim a larger theorem for all aperiodic words.",
+    "status": "PASS"
+  }
+}
