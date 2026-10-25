@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Artin--Schreier leading coefficients are nonzero for every projective character line. Riemann--Hurwitz with one jump at \(2\) gives the genus. All quotient curves have one quadratic pole and are isomorphic to the same hyperelliptic curve. Norm--pullback is \([p]\) on each factor and zero between distinct factors because the mixed correspondence factors through \(\mathbb P^1\); therefore the polarized isogeny, exact degree and maximal isotropic kernel follow. The hyperelliptic Cartier congruence makes the factor Jacobians superspecial. Isogeny invariance of Newton polygons proves supersingularity, and Ekedahl's smooth-curve genus bound excludes superspeciality. Exact prime and finite-field checks corroborate the proof but do not establish its universal quantifiers.
+## correctness
 
-## Originality — PASS (residual prior-art risk)
-Example 3.9 in Borges--Niemann--Zini proves the genus and zero \(p\)-rank for the same family, and records an **unproved computational observation** about minimality. Kani--Rosen/idempotent methods and generic elementary-abelian Jacobian factorizations are prior art, so neither the genus nor a generic isogeny method is claimed new. The specific uniform quotient identification, exact polarized degree and group-scheme kernel, and unconditional Newton/superspecial distinction were not stated in the materially inspected primary Example 3.9 or the relevant published Ree-type factorization; no equivalent previously published family-specific statement was found in the checked sources. Nonetheless the facts are accessible through classical ingredients, so a previously implicit equivalent deduction remains the principal priority risk.
+PASS
 
-## Mathematical value — PASS
-This supplies a precise arithmetic structure theorem for a naturally classified infinite family of genus \((p^2-1)/2\) curves. It settles the all-slope-\(1/2\) question left as computational evidence in the originating family's published example, upgrades the decomposition to a *specified* principal-polarization pullback of exact \(p\)-power degree, and exhibits a geometrically meaningful distinction between supersingular and superspecial Jacobians in all genera of the family. It is not a new classification of Artin--Schreier covers.
+The two reduced Artin–Schreier classes (t², a t²+b t) are independent because c+a d is nonzero for every nonzero (c,d) over Fp, with break 2 at infinity. Different 3(p²−1) and Riemann–Hurwitz give genus g=(p²−1)/2; each of p+1 line quotient covers is w^p−w=At²+Bt, so over algebraically closed k is D_p:v²=u^p−u of genus h=(p−1)/2. Cross pullback–norm correspondences vanish through Jac(P¹), diagonal is [p], giving Φ^∨Φ=[p]_A and exact degΦ=p^g, with maximal isotropic kernel. Hyperelliptic Cartier–Manin residues p i−j avoid all monomial exponents h+(p−1)r, so each D_p Jacobian is superspecial; isogeny gives all slopes 1/2 for C. Ekedahl genus bound g≤p(p−1)/2 excludes superspeciality of C, also at p=3. Independently verified exact Cartier coefficient vanishing p=3,5,7,11,13; bounded checks are not proof for all p.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The originating same-model paper proves genus and p-rank, but its relevant primary sections do not establish the all-slope 1/2 result or exact polarized degree. The contribution is the uniform explicit quotient identification and canonical polarized specialization, with general isogeny machinery properly acknowledged.
+
+## value
+
+PASS
+
+The same naturally occurring prime-square Artin–Schreier family had genus and p-rank identified but minimality/slope behavior suggested only experimentally. The theorem gives unconditional all-slope supersingularity and the exact canonical polarized p-power isogeny, distinguishing supersingular from superspecial Jacobians in every allowed genus. This is a motivated geometric answer, not a rebranding of genus or generic Kani–Rosen existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

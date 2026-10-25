@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Reproduction and limits
-Run `python verify.py` with Python 3 standard library. Expected line begins `VERIFY_OK`. The program checks the congruence exclusion for hyperelliptic Cartier coefficients for nine odd primes, the \(p+1\) order-\(p\) line subgroups and distinct-pair convolution for those primes, and representative trace point-count equalities over quadratic finite fields for five primes. Those are exact finite computations; they do not establish the theorem for infinitely many primes or parameters. The proof in RESULT.md proves the general assertion using ramification, quotient equations, correspondence vanishing, and the Ekedahl bound. No independent audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The two reduced Artin–Schreier classes (t², a t²+b t) are independent because c+a d is nonzero for every nonzero (c,d) over Fp, with break 2 at infinity. Different 3(p²−1) and Riemann–Hurwitz give genus g=(p²−1)/2; each of p+1 line quotient covers is w^p−w=At²+Bt, so over algebraically closed k is D_p:v²=u^p−u of genus h=(p−1)/2. Cross pullback–norm correspondences vanish through Jac(P¹), diagonal is [p], giving Φ^∨Φ=[p]_A and exact degΦ=p^g, with maximal isotropic kernel. Hyperelliptic Cartier–Manin residues p i−j avoid all monomial exponents h+(p−1)r, so each D_p Jacobian is superspecial; isogeny gives all slopes 1/2 for C. Ekedahl genus bound g≤p(p−1)/2 excludes superspeciality of C, also at p=3. Independently verified exact Cartier coefficient vanishing p=3,5,7,11,13; bounded checks are not proof for all p.
+
+## originality
+
+PASS
+
+The originating same-model paper proves genus and p-rank, but its relevant primary sections do not establish the all-slope 1/2 result or exact polarized degree. The contribution is the uniform explicit quotient identification and canonical polarized specialization, with general isogeny machinery properly acknowledged.
+
+## value
+
+PASS
+
+The same naturally occurring prime-square Artin–Schreier family had genus and p-rank identified but minimality/slope behavior suggested only experimentally. The theorem gives unconditional all-slope supersingularity and the exact canonical polarized p-power isogeny, distinguishing supersingular from superspecial Jacobians in every allowed genus. This is a motivated geometric answer, not a rebranding of genus or generic Kani–Rosen existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
