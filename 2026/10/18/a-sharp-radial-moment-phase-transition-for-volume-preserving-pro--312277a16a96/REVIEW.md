@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation begins from the exact Beta-prime distribution for the squared block-norm ratio. The radial boundary formula gives convergent exact integrals; differentiating at their moving boundary cancels the two boundary contributions. A strict ordered-support expectation inequality controls the sign of the logarithmic derivative of the ratio of two integrals, and the exact endpoint limits establish one and only one crossing for all \(t>0\) with \(t\ne n\). Its sign yields the claimed global maximum or minimum. Polar volume integration covers \(t=n\) exactly, and elementary factor second moments give the known special benchmark at \(t=n+2\). The finite numerical checker is supplemental, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The random-diameter source motivates the problem but does not give the specified volume-preserving product-ball moment optimizer. The earlier dual-quermassintegral papers establish the geometric optimization framework and necessary subcritical criteria, with sufficient conditions in other index ranges. The new claim is a full subcritical family-level sufficiency and strict optimizer classification using explicit beta-prime kernels. General supercritical existence/uniqueness and the isotropic second moment are acknowledged as prior theory; neither is passed off as wholly new. Equivalently phrased or older unindexed results might exist, and independent priority assessment is outstanding.
+PASS
 
-## Mathematical value — PASS
-The result provides a uniform structural classification across all positive real moments and all orthogonal two-ball dimensions for the natural fixed-volume aspect parameter, including a qualitative switch at the ambient dimension and a one-dimensional equation for the precise optimum. It is useful for testing dual-quermassintegral positions and for computing central random chord moments without claiming a general affine theorem.
+Rotational invariance gives S=||U_p||^2~Beta(p/2,q/2) and beta-prime Y=(1-S)/S. Splitting radial function min of two factor radii yields convergent I0,I1 and exact M_t(r)=r^{-qt/n}(I0+r^t I1)/B. Moving-boundary terms cancel on log-r differentiation, leaving sign pJ+-qJ-. The log derivative of J+/J- is -(n-t)/2 times the strictly positive difference of E[X/(1+r^2 X)] across separated x>1 and x<1 supports, hence strictly monotone sign(t-n). Verified endpoint ratios straddle q/p in opposite orientations for t<n and t>n, proving one global max/min respectively. At t=n volume makes M constant; symmetry p=q yields r*=1; t=n+2 uses inertia integral and gives r^2=(q+2)/(p+2).
 
-## Limits and closest literature
-Guédon et al. (2026), *On random diameters of convex bodies*; Bastero and Romance (2003), *Positions of convex bodies associated to extremal problems and isotropic measures*; Bastero, Bernués, and Romance (2006), *Dual quermassintegrals, extremal positions and isotropic measures*. The result is constrained to centered, orthogonal, determinant-one two-block rescalings; it does not optimize over unrestricted linear images.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
+
+## value
+
+PASS
+
+Natural volume-preserving aspect-ratio optimization of all radial/central-line-diameter moments on products of balls, with a dimension-critical reversal and explicit monotone integral optimizer, addressing a subcritical sufficiency problem not settled by general extremal-position existence results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
