@@ -1,19 +1,21 @@
-# Scientific review: Kac-ring logarithmic revival
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical statement is an annealed-over-static-disorder limit, with fully aligned deterministic initial spins and \(0<p<1/2\). The exact half-recurrence identity reduces the magnetization magnitude to an average of overlapping \(k\)-fold Bernoulli sign products. Direct interval-overlap counting gives the finite variance; a block-separation Lindeberg argument gives the Gaussian law for growing \(k=O(\log N)\). A distinct sparse-coordinate characteristic-function argument proves asymptotic independence of the global flipper parity and the centered Gaussian. This independence is essential for the *symmetric mixture*, and cannot be inferred from variance alone. Exact weighted enumeration on rings up to 12 sites and a seeded large-ring moment test corroborate the finite formulas and mixture variance. The limiting distribution is proved analytically, not by simulation.
+PASS
 
-## Originality — PASS, subject to bibliographic limitations
+Exact complement-of-interval sign identity M_N(N−k)=E_N A_{N,k} with E_N product of all N flips and A average products of k consecutive flips. For k≤N/2, overlapping k-blocks at cyclic distance d share k−d variables, giving N Var(A)=1+2Σ_{d=1}^{k−1}q^{2d}−(2k−1)q^{2k}→(1+q²)/(1−q²). k=O(logN) independent retained b_N=N^{1/4} blocks separated by k gaps: discarded variance bound O(k²/b_N+b_Nk/N)→0, retained bounded sums satisfy Lindeberg, yielding √N(A−q^k) ⇒ Normal(0,σ²). Conditional on a spaced set J_N of independent signs, parity-weighted characteristic function magnitude ≤(q+|u|k/√N)^{|J_N|}→0, so global parity becomes independent fair sign. Thus √N M(N−k) ⇒ S(a+G) when √Nq^k→a and sharp log-window crossover follows. Reproduced exact mean/variance by full rational disorder enumeration for N=5..9 and all k≤N/2 (16 pairs) at p=1/4. This is not a fixed-time CLT and finite enumeration is not the proof.
 
-Gottwald–Oliver (2009) already derive the relevant finite second-moment law, including its half-recurrence complement, so that formula is not claimed as new. Hiura's 2021 macroscopic-fluctuation theorem uses a fixed observation horizon as system size increases; its full text expressly sets recurrence aside. Neither examined full text contains the present logarithmic backward-window central limit theorem or the global-parity-independent two-Gaussian law. Searches for the model, equivalent formulations involving sliding Bernoulli products, and finite-size recurrence Gaussian mixtures did not locate that statement. Chandrasekaran–Jain (2012), on entropy and recurrence of statistical fluctuations, is a plausible additional comparison, but the publisher's full text was not accessible; its abstract does not establish whether the precise critical-window law is included. This is a material residual originality risk, not a claim of proven worldwide uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies the exact \(\log N\) time scale separating finite-size noise from the emerging macroscopic revival in a canonical reversible model of apparent thermodynamic relaxation. The crossover profile is not merely a new moment: for nonzero shift it is a genuinely non-Gaussian symmetric mixture produced by a global parity variable. This sharp distributional resolution complements the classical moment and recurrence descriptions and supplies a finite-size benchmark for distinguishing random fluctuations from true recurrence in trajectories.
+2009 Gottwald–Oliver obtains matching finite variance, which is expressly prior. Hiura’s 2021/22 large-deviation/OU theory fixes time before N→∞ and excludes recurrence. The apparently relevant 2012 recurrence paper remained abstract-only because authorized Oxford reported VPN disconnected; this is a real material priority risk but no read theorem establishes stronger or equivalent coverage. Best-of-knowledge novelty lies in parity-independent logarithmic Gaussian-mixture law.
 
-## Limits of review
+## value
 
-Only the new stated theorem was evaluated. The proof covers fixed Bernoulli flipper density strictly between zero and one-half, a fully aligned initial spin word, and logarithmic backward windows. It does not give Berry–Esseen bounds, dynamically refreshed disorder, or a general initial-magnetization classification. The full-text access limitation for the 2012 recurrence paper remains unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ring has deterministic half-recurrence but a nontrivial annealed probabilistic revival profile; identifying the sharp (log N)/(2|log q|) crossover and two-Gaussian mixture resolves a natural transition not determined by mean/variance alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

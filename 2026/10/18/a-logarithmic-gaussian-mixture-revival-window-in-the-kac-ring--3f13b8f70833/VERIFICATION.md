@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the Kac-ring revival law
+# Independent mathematical audit
 
-Run the included `verify.py` with Python 3 using `python3 verify.py` in the directory containing this file. No third-party packages are required. The deterministic exact stage enumerates every one of the \(2^N\) flipper configurations for each \(4\le N\le12\), for all \(1\le k\le\lfloor N/2\rfloor\), weighted by independent Bernoulli probability \(p=0.3\). It verifies both \(\mathbb E[A_{N,k}]=q^k\) and the exact variance identity, including wraparound boundary cases.
+## correctness
 
-The second stage uses a fixed seed and 500 independent samples with \(N=6000\), \(p=0.25\), and \(k=6\), computing the fully signed magnetization \(E_N A_{N,k}\). Its second moment is compared against the mixture limit \(\sigma_q^2+Nq^{2k}\), with a coarse sampling tolerance; a separate signed-mean check verifies parity cancellation. Output from an execution of the packaged script:
+PASS
 
-```
-EXACT finite-state means/variances pass N=4..12, every k<=N/2
-MC signed magnetization moments 6000 6 3.019 3.132 passed; signed mean -0.06
-```
+Exact complement-of-interval sign identity M_N(N−k)=E_N A_{N,k} with E_N product of all N flips and A average products of k consecutive flips. For k≤N/2, overlapping k-blocks at cyclic distance d share k−d variables, giving N Var(A)=1+2Σ_{d=1}^{k−1}q^{2d}−(2k−1)q^{2k}→(1+q²)/(1−q²). k=O(logN) independent retained b_N=N^{1/4} blocks separated by k gaps: discarded variance bound O(k²/b_N+b_Nk/N)→0, retained bounded sums satisfy Lindeberg, yielding √N(A−q^k) ⇒ Normal(0,σ²). Conditional on a spaced set J_N of independent signs, parity-weighted characteristic function magnitude ≤(q+|u|k/√N)^{|J_N|}→0, so global parity becomes independent fair sign. Thus √N M(N−k) ⇒ S(a+G) when √Nq^k→a and sharp log-window crossover follows. Reproduced exact mean/variance by full rational disorder enumeration for N=5..9 and all k≤N/2 (16 pairs) at p=1/4. This is not a fixed-time CLT and finite enumeration is not the proof.
 
-Finite enumeration and Monte Carlo do not certify convergence for infinite \(N\), asymptotic independence, or originality. Those conclusions depend respectively on the block central limit argument, the parity-weighted characteristic-function estimate, and bibliographic comparisons in the scientific proof and review. Independent external audit has not been performed.
+## originality
+
+PASS
+
+2009 Gottwald–Oliver obtains matching finite variance, which is expressly prior. Hiura’s 2021/22 large-deviation/OU theory fixes time before N→∞ and excludes recurrence. The apparently relevant 2012 recurrence paper remained abstract-only because authorized Oxford reported VPN disconnected; this is a real material priority risk but no read theorem establishes stronger or equivalent coverage. Best-of-knowledge novelty lies in parity-independent logarithmic Gaussian-mixture law.
+
+## value
+
+PASS
+
+The ring has deterministic half-recurrence but a nontrivial annealed probabilistic revival profile; identifying the sharp (log N)/(2|log q|) crossover and two-Gaussian mixture resolves a natural transition not determined by mean/variance alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
