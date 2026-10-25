@@ -1,15 +1,21 @@
-# Review of the clique-fiber cyclic Rips homotopy classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The shortest-path product metric is explicit. The lower-scale subcomplex is a simplicial blow-up of \(\operatorname{VR}(C_n;r-1)\) and is homotopy equivalent to a circle. The common-neighbor constraint for every distance-\(r\) pair yields precisely two types of noncore faces: collapsible interval simplices and, at \(n=3r\) only, exactly \(mr\) triangles. The collapses are elementary free-face removals with a nonempty internal pivot. Each exceptional triangle attaches along a winding-number-one loop; cellular cancellation gives \(mr-1\) two-sphere summands. All quantifiers are integers \(m,r,n\) with \(m,r\ge2\) and \(n\ge3r\). Sixteen complete finite cases have separately been checked by the included exact verifier.
+## correctness
 
-## Originality — PASS (bounded comparison)
-The central comparator is Adams et al., arXiv:2502.07134, which analyzes equal-side toroidal grids; its \(6r^2-1\) sphere formula for \(C_{3r}\square C_{3r}\) does not imply the complete-fiber \(K_m\square C_n\) classification or its \(mr-1\) multiplicity. Adamaszek--Adams's cyclic Rips theorem is used to identify a circle core but does not describe the attaching maps in the product. Metric-gluing and infinite-lattice sources have different geometric hypotheses. Semantic, alias, claim-implication and recorded-finding comparisons yielded no stronger covering statement. This does not rule out unindexed or unpublished equivalent work; all source comparisons and remaining risks are specified in `AUDIT.json`.
+PASS
 
-## Value — PASS
-The family is mathematically natural, captures thin toroidal grids when \(m=3\), and shows an exact transition at the first cyclic resonance for every scale \(r\ge2\). It gives the complete integral homotopy type for an infinite three-parameter regime, rather than a handful of Betti-number experiments; the mechanism identifies exactly which higher cells create the sphere summands.
+For m,r>=2,n>=3r and inclusive shortest-path graph-metric VR(K_m square C_n;r), the product distance is d_Cn(i,j)+1_{a!=b}. Core B consists of faces with column diameter <=r−1; full clique fibers collapse by dominated-vertex pairs to VR(C_n;r−1)≈S1, with fixed-color rim degree one since (r−1)/n<1/3. Every distance-r pair must lie in one color. Its common neighboring columns are the clockwise intermediate r−1 columns, except for a third same-color column at i+2r when n=3r. Accordingly every noncore face lies in one full simplex F_{i,a} on the long edge and the intervening column vertices, or is one of exactly mr exceptional isolated maximal triangles. F_{i,a}∩B is the endpoint-edge boundary joined with a nonempty simplex and distinct F meet only in B. Pair noncore faces with their pivot-extended faces, descending in dimension, giving U↘B. Each exceptional triangle boundary winds one time around the rim because each long edge is homotopic relative endpoints through its F simplex to r consecutive same-row edges. Attaching mr degree-one 2-cells to S1 kills its fundamental group and leaves wedge^{mr−1}S2; if n>3r there are no such triangles. Verified exact m=2,r=2 boundary and stable cases; no assertion about r=1 or n<3r. This argument is uniform and not dependent on finite sampling.
 
-## Scientific scope and risk
-The theorem is specific to graph shortest-path distances, with \(m\ge2\), \(r\ge2\), and \(n\ge3r\). It does not claim classifications outside that range, equivariant refinements or a full persistence theorem. The finite verifier supports but cannot replace the all-parameter proof. Independent scientific validation remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality of the full all-r family. The pertinent finite-cycle theorem is a proof ingredient, and the contemporary square-grid theorem has a different second factor, while general metric gluing and sum-metric product homology do not deliver this homotopy. IMPORTANT: a distinct prior published clique-cylinder result already proves r=2,n>=7,m>=3 and a prior prism result proves m=2,r=2. These covered special cases cannot be counted as newly original. Neither previously read result implies higher r>=3 or the m>=3 boundary n=6, let alone mr−1 spheres at n=3r. No independent earlier all-r dominating theorem was found after checking aliases, source statements, mathematical implications and database hits. Novelty is therefore best-of-knowledge, not a proof from an absent search hit.
+
+## value
+
+PASS
+
+A sharp and motivated all-integer-scale resonance for the natural graph-metric product K_m square C_n, including thin toroidal grids at m=3 and circular ladders at m=2. Unlike a disconnected table, it gives a uniform integral homotopy classification with exact sphere multiplicity mr−1, shows disappearance of the longitudinal pi1 generator at n=3r, and identifies which distance-r simplices create the higher cells. Even though special r=2 cases were known, the full parameter-uniform higher-scale behavior and sharp boundary are nontrivial structural information that could be used to study Rips filtration and anisotropic toroidal graph products. No unsupported full-filtration claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
