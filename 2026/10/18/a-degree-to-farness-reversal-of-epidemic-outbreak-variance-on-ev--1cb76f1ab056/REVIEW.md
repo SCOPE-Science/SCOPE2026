@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent-edge transmission model is equivalent to open-component reachability on a tree. The two endpoint variance coefficients are reconstructed using, respectively, one successful infection edge and one closed transmission edge; the latter is reduced to \(nD_T(v)-W(T)\) by explicit edge-cut counting. The farness-maximizer argument excludes internal vertices and proves an unavoidable optimum change for every tree with at least three vertices. The three-vertex factorization is exact. An independently executed exact moment-polynomial checker additionally covered every root of every nonisomorphic tree of orders three through nine. Those finite computations are corroboration, not a proof of unrestricted quantifiers.
+## correctness
 
-**Originality — PASS, subject to independent bibliography.** Actual semantic-index queries covered root-cluster variance, epidemic seed risk rankings, farness, the Wiener index, and exact tree/percolation descriptions. Available related records concern mean-duration curvature, vaccination-target switching, or general epidemic percolation; their statements do not directly imply the asserted all-tree degree-to-farness variance ranking. Newman–Jensen–Ziff (2002), Newman (2002), and Kenah–Robins (2006/2007) motivate the model and its probabilistic construction. Their complete relevant technical material was not all accessible, so an unnoticed equivalent proof remains possible. The percolation representation itself is established background, not claimed new.
+PASS
 
-**Value — PASS.** The theorem answers the concrete risk-sensitive question of which single introduction vertex maximizes uncertainty in the final epidemic size; the answer must change for *every* nontrivial contact tree. The exact asymptotic coefficient identifies a meaningful geometric mechanism, while the smallest witness has a unique explicit switch point. This is more than a finite example or a routine numeric comparison. It is limited to variance, finite trees and homogeneous independent-edge transmission, without practical intervention claims.
+Percolation component of seed is exactly the one-generation epidemic set on a tree. At p near 0 only one open incident edge contributes to Var at first order, giving deg(v)p. At q=1-p near 0 a single closed edge e removes s_e(v) vertices, giving Var=q sum_e s_e(v)^2+O(q^2). Edge-separation double-counting proves sum_e s_e(v)^2=nD_T(v)-W(T); finite-tree uniformity in root holds. For every internal vertex a branch size b<n/2 exists and movement into that branch increases farness by n-2b; hence farness maximizers are leaves. Maximum-degree vertices are internal for n>=3. Independent exact percolation enumeration of P3 reproduces center-minus-leaf p(p-1)(p^2+3p-1). Recomputed edge identity and leaf farness maximizers for all unlabeled trees on 3..9 vertices; these finite checks corroborate the general argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Percolation coupling and epidemic source selection are established; searches did not find a result implying the two opposite universal variance-optimal source rankings and the farness/Wiener leading coefficient for all finite contact trees.
+
+## value
+
+PASS
+
+A universal reversal of variance-optimal seeding location for every finite tree, tied to two distinct graph invariants and a sharp minimal example, is a structural epidemic/network result; expectation-only source selection would not answer it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

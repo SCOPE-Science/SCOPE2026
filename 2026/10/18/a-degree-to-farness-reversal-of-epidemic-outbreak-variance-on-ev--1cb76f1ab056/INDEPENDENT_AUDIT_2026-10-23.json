@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:17:57.181889Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e1fa1f7fe2fbbfacbc667e217f2d9f90e1ba6615, Proof sections 1-4",
+        "Independent sympy enumeration / tree-distance identities on n=3..9 trees and P3 analytic factorization"
+      ],
+      "rationale": "Percolation component of seed is exactly the one-generation epidemic set on a tree. At p near 0 only one open incident edge contributes to Var at first order, giving deg(v)p. At q=1-p near 0 a single closed edge e removes s_e(v) vertices, giving Var=q sum_e s_e(v)^2+O(q^2). Edge-separation double-counting proves sum_e s_e(v)^2=nD_T(v)-W(T); finite-tree uniformity in root holds. For every internal vertex a branch size b<n/2 exists and movement into that branch increases farness by n-2b; hence farness maximizers are leaves. Maximum-degree vertices are internal for n>=3. Independent exact percolation enumeration of P3 reproduces center-minus-leaf p(p-1)(p^2+3p-1). Recomputed edge identity and leaf farness maximizers for all unlabeled trees on 3..9 vertices; these finite checks corroborate the general argument.",
+      "residual_risks": [
+        "Does not classify all intermediate parameter switches or all graph types; polynomial and uniform asymptotics rely on finite fixed trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General network epidemic-percolation frameworks include homogeneous trees as special models."
+        ],
+        "reasoning": "General graph epidemic models dominate the model class but the searched descriptions address disease-network correspondence, not this variance extremal theorem. No published stronger optimization assertion identified in the material reviewed.",
+        "searches": [
+          "Resultary semantic: epidemic outbreak size variance maximizing source tree percolation degree farness switching",
+          "Kenah and Robins (2007) Second look at spread of epidemics on networks, arXiv:q-bio/0610057"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted query Resultary semantic: epidemic outbreak size variance maximizing source tree percolation degree farness switching",
+        "doi:10.1103/PhysRevE.66.016128",
+        "doi:10.1103/PhysRevE.65.021904",
+        "arxiv:q-bio/0610057"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard mapping of final epidemic to percolation cluster and the combinatorial edge-separation identity are available mathematical inputs."
+        ],
+        "reasoning": "The prior coupling implies distribution calculations are possible, but neither max-degree and max-farness opposing argmax nor the universal switch appears in reviewed source material; no unconditional coverage implication was located.",
+        "searches": [
+          "Resultary semantic: epidemic outbreak size variance maximizing source tree percolation degree farness switching",
+          "Newman Jensen Ziff 2002 DOI 10.1103/PhysRevE.65.021904",
+          "Newman 2002 DOI 10.1103/PhysRevE.66.016128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source epidemic law is the bond-percolation root-component size on a tree; established network epidemic/percolation papers use same component representation."
+        ],
+        "reasoning": "Alias root-component susceptibility/variance of percolation clusters was explicitly considered. Component coupling alone supplies neither argmax degree/farness reversal nor high-p coefficient nD-W without new root-specific analysis.",
+        "searches": [
+          "Resultary semantic: epidemic outbreak size variance maximizing source tree percolation degree farness switching",
+          "Newman (2002) Spread of epidemic disease on networks, DOI 10.1103/PhysRevE.66.016128"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reproduced P3 transition and identity on every tested root of unlabeled trees of orders 3..9; the submitted theorem covers every finite size."
+        ],
+        "reasoning": "Small-tree tables and finite computational certificates cannot imply the all-finite-tree rank reversal, so exact finite matches would not cover the theorem.",
+        "searches": [
+          "Resultary semantic: epidemic outbreak size variance maximizing source tree percolation degree farness switching",
+          "Finite tree enumeration using exact open-edge subsets for each unlabeled tree of sizes 3..9"
+        ]
+      },
+      "rationale": "Percolation coupling and epidemic source selection are established; searches did not find a result implying the two opposite universal variance-optimal source rankings and the farness/Wiener leading coefficient for all finite contact trees.",
+      "residual_risks": [
+        "Older epidemic/network percolation literature was not exhaustively inspected in full text; an unpublished equivalent seed variance ranking may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background coupling, not established complete-document exclusion",
+          "evidence": "The work addresses epidemic/percolation mapping, not an identified all-tree variance optimizer theorem.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.66.016128",
+          "material_read": "Article metadata, abstract and cited model relationship; not complete PDF",
+          "method": "Bibliographic/abstract examination",
+          "title": "Spread of epidemic disease on networks",
+          "trigger": "General percolation epidemic mapping"
+        },
+        {
+          "assessment": "Possible overlap remains; not used for full-text noncoverage",
+          "evidence": "Same epidemic/percolation concept, different claimed optimization invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/q-bio/0610057",
+          "material_read": "Preprint bibliographic information and relevant source claim via package; complete original PDF not systematically read",
+          "method": "Targeted original-source search and model comparison",
+          "title": "Second look at spread of epidemics on networks",
+          "trigger": "Broad network percolation framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md all-tree proof and sharp P3 calculation",
+        "Root-specific outbreak variance and Wiener/farness graph invariants"
+      ],
+      "rationale": "A universal reversal of variance-optimal seeding location for every finite tree, tied to two distinct graph invariants and a sharp minimal example, is a structural epidemic/network result; expectation-only source selection would not answer it.",
+      "residual_risks": [
+        "Applies only to final-size variance under iid homogeneous edge transmission on trees; non-tree networks and expected outbreaks need not follow the same pattern."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every finite iid bond-transmission contact tree on n>=3 vertices changes its outbreak-size variance-maximizing seed between low p maximum degree and near-one maximum farness, with coefficients deg(v) and n D_T(v)-W(T), and exact P3 switch (sqrt(13)-3)/2.",
+  "limitations": [
+    "Prior abstract-accessible epidemic sources were not comprehensively read.",
+    "Independent finite checks cover trees through n=9 only; proof is analytic/combinatorial.",
+    "Frozen-commit source result blob and 4 principal metadata/review files inspected; complete tree enumeration not available in GitHub connector.",
+    "All five public METADATA.json files contain operational provenance; publication withheld rather than publishing unsafe bytes."
+  ],
+  "schema_version": 1
+}
