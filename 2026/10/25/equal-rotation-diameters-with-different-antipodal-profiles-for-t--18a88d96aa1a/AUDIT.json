@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The complete recursive generation has unique root/component decomposition, yielding 16,752 and 17,568 states. The seven-tube ridge graph has 58,632 and 61,488 edges and degree seven throughout. Every ridge neighbor was independently verified by parent-child rotations. All 8! vertex permutations yield exactly 48 and 16 base automorphisms, enabling exhaustive orbit-weighted BFS from 355 and 1,098 orbit representatives. All source BFS distances span every state and reproduce the twenty-bin histogram and eccentricity profile; pair totals equal the exact binomial coefficients. A separate all-source C++ BFS produced the same 20-bin counts. No extrapolation from finite samples is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1409.8114v2 Theorem 3 bounds the diameter for an eight-vertex graph between its edge count and 28 (for either cubic input: 12 and 28)",
+        "arXiv:2304.14782 proves NP-hardness of general rotation distance",
+        "arXiv:2504.18338 gives fixed-parameter tractability for rotation distance"
+      ],
+      "reasoning": "The 2014 graph-wide bounds permit diameters other than 20 and have no eccentricity or pair-distance multiplicities. The 2023 and 2025 results concern complexity, not the exact metric on either specified base graph.",
+      "searches": [
+        "graph associahedron flip diameter 2015 Manneville Pilaud paper upper bounds maximal tubings",
+        "graph associahedron graph search trees rotation distance definition combinatorial 2015",
+        "arxiv:1409.8114v2 theorem 3",
+        "arxiv:2304.14782 introduction",
+        "arxiv:2504.18338 introduction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1409.8114v2",
+      "arxiv:2304.14782",
+      "arxiv:2504.18338",
+      "2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 paper studies general flip graph diameters and Hamiltonicity, not all 16,752 or 17,568 states",
+        "K_{4,4} source provides diameter 22 and eccentricity profile 19–22 for a different eight-vertex base graph",
+        "Full exact distance distributions and diametral pair counts are not presented by the 2023/2025 algorithms"
+      ],
+      "reasoning": "The claim is a pair of full finite metric classifications. Broad diameter inequalities, existence of a shortest-path algorithm, and the exact spectrum of a different graph do not imply its specific eccentricity counts, distance-20 pair counts, or the two complete twenty-bin histograms.",
+      "searches": [
+        "arxiv:1409.8114v2 Theorem 1 monotonicity and Theorem 3 bounds",
+        "Publication identifier 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+        "arxiv:2304.14782 graph associahedron shortest paths",
+        "arxiv:2504.18338 elimination tree distances"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1409.8114v2 Section 2: maximal tubings and one-tube flips",
+        "arXiv:2504.18338 Section 1: elimination trees and parent-child rotations"
+      ],
+      "reasoning": "Rotation distance between elimination trees equals shortest flip distance between maximal proper tubings of the same graph, so both formulations were checked. General definitions do not fix the cube- or Wagner-specific profile.",
+      "searches": [
+        "graph associahedron 3-cube Q3 exact flip diameter maximal tubings",
+        "Wagner graph M8 graph associahedron flip distances cubic 8 vertices",
+        "two non-isomorphic cubic graphs eight vertices graph associahedron metric diameter",
+        "Q3 cube Wagner M8 Möbius ladder 8 vertex cubic elimination tree rotation graph eccentricity distribution diameter 20",
+        "Graph properties of graph associahedra, arXiv:1409.8114v2, Sections 2.1–2.3",
+        "Computing Distances on Graph Associahedra is Fixed-parameter Tractable, arXiv:2504.18338, Introduction and rotation definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published exact record: 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d, on K_{4,4} graph associahedron; this input has sixteen edges and is not either cubic graph",
+        "Other published records for these base graphs concerned matching complexes, Morse complexes, cut complexes and graph metrics, not elimination-tree rotation graphs",
+        "Web searches for exact 16752/17568 and cube/Wagner tubing-distance census did not identify such a table"
+      ],
+      "reasoning": "A shared eight-vertex base size or a result about different complexes does not cover the present derived reconfiguration metric. The K_{4,4} record neither states these numbers nor implies them: its base is a different graph, and generic monotonicity cannot determine exact eccentricity multiplicities. Negative searches alone are not treated as novelty proof.",
+      "searches": [
+        "graph associahedron 3-cube Q3 exact flip diameter maximal tubings",
+        "Wagner graph M8 graph associahedron flip distances cubic 8 vertices",
+        "two non-isomorphic cubic graphs eight vertices graph associahedron metric diameter",
+        "Q3 cube Wagner M8 Möbius ladder 8 vertex cubic elimination tree rotation graph eccentricity distribution diameter 20",
+        "16752 17568 graph associahedron distance twenty diametral antipodes 624 168",
+        "hypercube graph associahedron eight nodes radius 17 diameter 20 flipped tubings symmetry classes",
+        "\"16752\" \"cube\" \"associahedron\"",
+        "\"17568\" \"Wagner\" \"associahedron\"",
+        "\"cube\" \"Wagner\" \"tubings\" \"diameter\"",
+        "\"Möbius ladder\" \"graph associahedron\" 8"
+      ]
+    },
+    "rationale": "The original full-text framework [Manneville–Pilaud, arXiv:1409.8114] defines tubings and proves generic diameter bounds and Hamiltonicity, but does not compute the cube/Wagner rotation metrics. The later exact-distance complexity papers establish hardness and fixed-parameter algorithms, not these two finite censuses. Six source/alias/metric research-record searches found a different eight-vertex complete-bipartite graph-associahedron eccentricity record as the closest numeric treatment, plus unrelated results for the same base graphs. No checked statement implies the stated two distributions. Residual risk: unindexed prior calculations or supplements.",
+    "residual_risks": [
+      "An unpublished or unindexed previous cube/Wagner elimination-tree distance computation may exist.",
+      "The distinct K_{4,4} public record was compared from its retrieved claim summary, not the complete original proof or supplements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the eight-vertex cube/Wagner exact radius, diameter or distribution; general bounds only",
+        "evidence": [
+          "arXiv:1409.8114v2 lines 55–76 (diameter theorems), 81–135 (definitions, rotations), Section 4.5 scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1409.8114v2",
+        "material_read": "Full relevant introduction and Sections 2–3; Section 4 scope checked, including stated graph-size enumeration range up to six vertices",
+        "method": "Open access HTML full text; inspected definitions, flips, diameter theorems and source-word searches for cube, Wagner, cubic",
+        "title": "Graph properties of graph associahedra",
+        "trigger": "Foundational highly relevant original diameter and tubing paper"
+      },
+      {
+        "assessment": "Covers general problem hardness and move definitions, not the present exact finite pair metrics in inspected material",
+        "evidence": [
+          "arXiv:2304.14782 Introduction and rotation move definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.14782",
+        "material_read": "Accessible open text introduction, definition of rotation and complexity statement; searched text for cube and Wagner",
+        "method": "Open-access textual presentation and targeted text search",
+        "title": "Hardness of Finding Combinatorial Shortest Paths on Graph Associahedra",
+        "trigger": "Later general rotation-distance result might imply or tabulate the exact eight-vertex distances"
+      },
+      {
+        "assessment": "Provides general FPT algorithm, not named eight-vertex exact distributions in inspected material",
+        "evidence": [
+          "arXiv:2504.18338 Introduction, definitions and main algorithmic claim"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.18338",
+        "material_read": "Accessible open text Introduction and rotation definition; text search for cube, Wagner and Möbius",
+        "method": "Open textual full document and targeted term searches",
+        "title": "Computing Distances on Graph Associahedra is Fixed-parameter Tractable",
+        "trigger": "Potential stronger exact algorithmic coverage of all rotation distances"
+      },
+      {
+        "assessment": "Different graph: base K_{4,4}, eccentricities 19–22, diameter 22; does not give claimed cube/Wagner profiles. Full source not inspected; residual overlap risk acknowledged.",
+        "evidence": [
+          "Public record identifier 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+          "Record states K_{4,4} eccentricity spectrum and diameter 22"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+        "material_read": "Research search title and summary, not its full source or supplement",
+        "method": "Published research-record search; exact title and statement-level summary comparison",
+        "title": "The complete eccentricity profile of the balanced K_{4,4} graph associahedron",
+        "trigger": "Nearest published exact graph-associahedron eccentricity record with eight base vertices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18a88d96-aa1a-44d3-be41-abd3ff3ebeda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the complete shortest-rotation metric on two canonical eight-vertex connected cubic input graphs; state spaces exceed 16,000 and there are over 140 million unordered tree pairs in each. They have the same radius 17 and diameter 20 but substantially different antipodal-pair and eccentricity distributions, while each has exactly 16 symmetry orbits of diametral-eccentric states. This motivated structural comparison is not a routine restatement of the general diameter bounds and provides exact benchmarks for tree-rotation reconfiguration.",
+    "status": "PASS"
+  }
+}
