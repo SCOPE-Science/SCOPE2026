@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Direct exact algebra: Q is orthogonal; H eigenvalues d,d±sqrt(h²+t²) and SPD when d>w; Ab=dq1+hq2 gives the genuine Krylov basis; all three row pairs have minimum singular values c,pc,0 so the unique E-optimal selector equals both DEIM and Q-DEIM. The exact sketched compression is [[d,h-pt],[h,d]], with characteristic discriminant 4h(h-pt). The defective boundary, nonreal phase, condition-two choice d=3w, and sharp envelope follow by explicit nonnegative-square identity. The exact 3×3 rational witness has SPD spectrum {2,3,4}. Standalone SymPy checker passed; finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grigori et al prove Ritz similarity by adding a correction that enforces true residual orthogonality; this assumption is not present in unmodified dsRR.",
+        "Liu and Liu use real Schur extraction to handle nonreal reduced spectra, without guaranteeing spectral reality."
+      ],
+      "reasoning": "A stronger exact Ritz-recovery theorem for a different corrected algorithm does not cover the unmodified projection. The general nonreal admission is broader in matrix class but weaker in the joint optimizer and sharp-envelope assertions.",
+      "searches": [
+        "2026 real-arithmetic sketched eigensolvers symmetric matrices near isometry nonreal Ritz pair deterministic DEIM",
+        "Grigori Kressner Shao Simunec restore similarity sRR nonreal eigenvalues positive definite DEIM row sampling",
+        "arXiv:2601.10248 §§2–3",
+        "arXiv:2610.22261 §3.1"
+      ]
+    },
+    "checked_sources": [
+      "Bergermann arXiv:2604.07158v1 (first public 2026-04-08), accessible full HTML §§2.4,3,4.1,5.3 and §6.",
+      "Nakatsukasa & Tropp arXiv:2111.00113 (2021-10-29), accessible full HTML §§6.7–6.8.",
+      "Liu & Liu arXiv:2610.22261v1 (2026-10-15), accessible full HTML §3.1.",
+      "Grigori et al arXiv:2601.10248 (2026-01-15), accessible full HTML §§2–3.",
+      "Relevant indexed mathematical finding records including 30698826464a,77e11f8220ee,89eb763dddfc,dc23fa36a6e4; no implication of the full new claim found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: symmetric sRR may have nonreal eigenvalues (Nakatsukasa–Tropp 2021; Liu–Liu 2026). Prior: maximization of sigma_min(SV), DEIM, Q-DEIM and dsRR (Bergermann 2026).",
+        "New: the unique maximizer among every two-row coordinate subset is the same subset chosen by both named methods; A is SPD with kappa=2; the characteristic discriminant and normalized sharp envelope are explicit."
+      ],
+      "reasoning": "The cited prior statements do not imply failure under an E-optimal deterministic coordinate sampler with arbitrarily vanishing embedding error, nor the exact h=pt frontier and maximal imaginary-pollution formula. Conversely the present result does not contradict general numerical stability/error theory because its classical Ritz gap vanishes in the near-isometric limit.",
+      "searches": [
+        "sketched Rayleigh Ritz symmetric positive definite matrix nonreal complex approximate eigenvalues deterministic row sampling Krylov invariant subspace two iterations",
+        "Deterministic sketching for Krylov subspace methods Bergermann 2604.07158 dsRR DEIM Q-DEIM two-step SPD optimal row subset complex conjugate Ritz values",
+        "arXiv:2111.00113 §§6.7–6.8",
+        "arXiv:2604.07158 §§3–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For square selected SV, sketched least-squares sRR is exactly the oblique Petrov–Galerkin compression (SV)^{-1}SAV. Nakatsukasa–Tropp §6.8 already acknowledges complex eigenvalues for Hermitian input.",
+        "The fresh theorem imposes the additional global E-optimality and DEIM/Q-DEIM constraints and an exact sharp envelope, absent from the inspected sources."
+      ],
+      "reasoning": "General nonsymmetric/oblique projection can yield nonreal eigenvalues and is not novel. The claimed exact simultaneous optimizer, condition-two Krylov realization and quantitative phase/envelope are not equivalent to that generic observation; they require additional constructive identities.",
+      "searches": [
+        "sketched Rayleigh Ritz square root spectral pollution in subspace embedding distortion near-isometric optimum row selection",
+        "optimal two-row DEIM sketch SPD 3x3 orthonormal Krylov basis exact nonreal Ritz eigenvalues spectral transition h p t",
+        "arXiv:2111.00113 §6.8",
+        "arXiv:2604.07158 §2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source experiments report residuals for dsRR but not a three-by-three all-selector enumeration or an exact imaginary-pollution table.",
+        "The queried public research index returned no matching record with the optimal-coordinate, condition-two sketched Ritz spectrum and envelope."
+      ],
+      "reasoning": "The finding is an analytical continuum classification, not a recomputation of a known numerical table. Absence of a search hit is not itself a novelty certificate.",
+      "searches": [
+        "Deterministic sketching for Krylov subspace methods Bergermann 2604.07158 dsRR DEIM Q-DEIM two-step SPD optimal row subset complex conjugate Ritz values",
+        "optimal two-row DEIM sketch SPD 3x3 orthonormal Krylov basis exact nonreal Ritz eigenvalues spectral transition h p t",
+        "sketched Rayleigh Ritz square root spectral pollution in subspace embedding distortion near-isometric optimum row selection",
+        "arXiv:2604.07158 §6 eigenvalue experiments"
+      ]
+    },
+    "rationale": "Originality is limited to the joint E-optimal two-row, actual DEIM/Q-DEIM, genuine two-step Krylov, condition-two SPD quantitative phase diagram and sharp fixed-width imaginary envelope. The basic nonreal projection observation is explicitly assigned to Nakatsukasa–Tropp (2021), reinforced by Liu–Liu (2026). Bergermann (2026) defines the deterministic sampler; the inspected full text does not state the combined construction or sharp spectral threshold. Grigori et al (2026) restore true Ritz similarity by altering the algorithm. Equivalent formulations and stronger implications were compared; remaining bibliographic risk is recorded.",
+    "residual_risks": [
+      "Earlier special constructions under terms such as oblique Ritz pollution or optimized interpolation nodes may exist outside the inspected corpus.",
+      "General perturbation theory could contain a sharp two-by-two imaginary-part inequality; this would not by itself imply joint E-optimal coordinate selection and exact condition-two Krylov realization.",
+      "The claim is not that nonreal eigenvalues of symmetric sketched RR are new; that possibility is established prior work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the method and selection objective but does not state the simultaneously E-optimal, condition-two, defective/nonreal phase diagram or the attained sharp imaginary envelope.",
+        "evidence": [
+          "arXiv:2604.07158 §§2.4, 3.1, 4.1, 5.3; arxiv.org/abs/2604.07158"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+        "material_read": "Relevant material in accessible full arXiv HTML: §§2.4, 3, 4.1, 5.3 and the eigenvalue experiments in §6.",
+        "method": "Inspected method definitions, reduced matrix (SV)^† SAV, Algorithm 2 DEIM, Algorithm 3 Q-DEIM, Algorithm 6 dsRR, and row-subset criterion; searched nonreal/complex terminology.",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Defines deterministic row-subset sRR, global minimum-singular-value objective, DEIM and Q-DEIM."
+      },
+      {
+        "assessment": "Covers general nonreal sRR behavior, which is expressly excluded from the novelty claim; does not impose the later E-optimal deterministic coordinate-selection requirement or give this sharp phase-envelope family.",
+        "evidence": [
+          "arXiv:2111.00113 §§6.7–6.8, arxiv.org/abs/2111.00113"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Accessible full arXiv HTML, especially §§6.3, 6.7–6.8 and symmetric examples in §8.3.3.",
+        "method": "Read §6.8 statement that sRR may return nonreal estimates even when input is Hermitian, and checked the Krylov-specific final-column structure in §6.7.",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Foundational source of sketched Rayleigh–Ritz and explicitly recognized nonreal symmetric-input Ritz estimates."
+      },
+      {
+        "assessment": "Already recognizes nonreal Ritz estimates and devises a real Schur method; does not supply exact E-optimal row selection or its sharp Jacobi-family transition.",
+        "evidence": [
+          "arXiv:2610.22261 abstract and §3.1, arxiv.org/abs/2610.22261"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22261",
+        "material_read": "Accessible arXiv full HTML, abstract, §3.1 real Schur extraction and statements on embedding assumptions and symmetric projections; inspected for DEIM.",
+        "method": "Compared the nonreal-sketch premise and real-Schur remedy with exact two-row deterministic selector; searched for DEIM/row-selection coverage.",
+        "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+        "trigger": "Very recent real-symmetric sketch eigensolver confronting nonreal sketched projected eigenvalues."
+      },
+      {
+        "assessment": "The theorem gives exact standard Ritz values for a modified similarity-restoring method, not unmodified square coordinate-sketched Rayleigh–Ritz, so it does not invalidate or imply the E-optimal counterexample.",
+        "evidence": [
+          "arXiv:2601.10248 §§2–3, arxiv.org/abs/2601.10248"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.10248",
+        "material_read": "Full arXiv HTML, especially §§2.2–2.3 and §§3.1–3.2, plus corresponding published abstract.",
+        "method": "Read the correction enforcing true orthogonality and the exact similarity-to-standard-Ritz conclusion, and checked the algorithmic distinction from unmodified dsRR.",
+        "title": "Restoring similarity in randomized Krylov methods with applications to eigenvalue problems and matrix functions",
+        "trigger": "Potential broader guarantee of real/Ritz-similar projected eigenvalues."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15c0a9d2-0140-449c-9962-650e34d56964",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum-singular-value of a selected Krylov basis is a motivated deterministic sketch-design objective in the 2026 literature. The result shows its *unique global optimizer*, also obtained by two practical pivoting algorithms, fails to preserve real Ritz eigenvalues even with perfect conditioning up to arbitrarily small embedding defect. The exact parameter frontier and sharp sqrt(defect) spectral-pollution envelope quantify a structural limit and motivate separate symmetry-preserving Ritz treatment. It is not a claim about an arbitrary poor sketch or a mere restatement of known nonreal sRR possibility.",
+    "status": "PASS"
+  }
+}

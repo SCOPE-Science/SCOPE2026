@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Orthogonality, the actual two-step Krylov relation, and SPD eigenvalues follow by exact matrix factorization. Direct comparison of all three two-row coordinate samplers proves global optimality and the prescribed DEIM/Q-DEIM selections. The sketched matrix is derived directly from the specified algorithm, its discriminant gives the complete three-regime classification, and a nonnegative-square identity proves the sharp fixed-width imaginary envelope. The rational condition-two example and symbolic checker agree. The proof does not extrapolate numerical samples to continuous parameters.
+
+**Originality — PASS, subject to the stated residual risk.** Nakatsukasa–Tropp already prove that symmetric sRR may produce nonreal eigenvalues, so this is not claimed as a novelty. Bergermann defines precisely the deterministic optimal-sampling objective and dsRR but does not derive the simultaneous optimal-selection, condition-two SPD, and sharp phase-envelope statements. Liu–Liu address the known nonreal phenomenon by real Schur; Grigori–Kressner–Shao–Simunec restore a different projected similarity relation. Relevant published records and mathematical literature were compared by implication. A previously unlocated equivalent specialized example or estimate remains a bibliographic risk.
+
+**Value — PASS.** Near-optimal embeddings are used to justify deterministic sketching in eigensolvers. Demonstrating that the *globally best* minimum-singular-value coordinate subset still admits defective and nonreal spectra, even at full-matrix condition number two, identifies a precise limit of that design criterion. The complete parameter boundary and sharp imaginary-part envelope quantify the phenomenon and distinguish it from a generic warning about nonsymmetric projections.
+
+**Scope and limits.** Three real coordinates, a two-dimensional genuine Krylov subspace, exact E-optimal two-row sampling, DEIM and Q-DEIM, exact arithmetic, and the specified symmetric Jacobi family. The bound is not universal for all sketches; general nonreal sRR behavior and remedies are prior results. No independent validation is represented.
+
+Self-review: passed. Independent audit: not yet performed.
