@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T07:05:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.02887 Section 9, Proposition 22 and normalization",
+        "https://arxiv.org/pdf/1603.07172 Theorem 1.10 and derivation of multiple-edge overlap law",
+        "Assigned pinned RESULT.md; verify.py inspected but not executed as opaque source code; independent_checks.py constructed separately"
+      ],
+      "rationale": "For k>=3,n>=2,N=kn, the centered pair-incidence features w_e(M)=1_{e co-block}-p have constant diagonal squared norm m-mu and span the unique (N-2,2) irreducible image: the standard (N-1,1) component vanishes because every vertex has exactly k-1 same-block neighbours. Schur scalar and trace d=N(N-3)/2 yield P(M,M′)=d(S-mu)/(|H|(m-mu)), and transitivity plus symmetry give both exact sharp endpoint norms. Counting labeled intersection tables gives the stated probability polynomial. For fixed k, each factorial-moment pattern with one chosen pair in each of r reference blocks contributes lambda^r; every other fixed component pattern has at least one extra co-location constraint and total O_k,r(1/n). Bounded second moments imply UI of centered absolute deviations. Poisson recursion then gives the displayed coefficient; subsequent k->infinity Gaussian limit is valid only after fixed-k n->infinity. Independently enumerated all partitions for (n,k)=(2,3),(2,4),(3,3),(4,2),(4,3), reproducing exact norm fractions 9/5,24/7,243/70,80/21,11178/1925. Direct full projector idempotence, trace and absolute row sums checked for the four cases with <=280 partitions. The original paper arXiv:2201.02887 Proposition 22 has a printed normalization issue: for (n,k)=(2,3), its displayed diagonal is 6/5 and trace 12 although rank d=9. The audited Gram formula has trace 9 and squares to itself. This printed defect is not used as proof of novelty.",
+      "residual_risks": [
+        "The independent finite enumerations corroborate only their explicit parameters, not the infinite factorial-moment proof.",
+        "No rate uniform in k nor simultaneous k,n limit is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1603.07172 Theorem 1.10 supplies total variation error O_k(1/n) for regular degree k, stronger than weak convergence.",
+          "https://arxiv.org/pdf/2201.02887 Sec. 9 (PDF pp.12-15) supplies the same (kn-2,2) pair-overlap projection structure.",
+          "https://arxiv.org/pdf/2108.07692 Cor.5.3 proves the zero-overlap event with exp(-(k-1)^2/2) limit."
+        ],
+        "reasoning": "Published general Poisson approximation covers every fixed k with quantitative error; combined with the known spectral dependence and elementary trace/row-sum identity it logically covers the claimed leading sharp endpoint norm. The later k->infty constant is the ordinary asymptotic for a Poisson first absolute deviation.",
+        "searches": [
+          "Angel van der Hofstad Holmgren Poisson approximation bipartite configuration multiple edges Theorem 1.10 arXiv 1603.07172",
+          "Filmus Lindzey Simple Algebraic Proofs Section 9 Proposition 22 hypermatchings",
+          "Meagher Shirazi Stevens arXiv:2108.07692 Corollary 5.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.02887",
+        "https://arxiv.org/pdf/1603.07172",
+        "https://arxiv.org/pdf/2108.07692",
+        "https://arxiv.org/pdf/1409.2057",
+        "Resultary semantic search: 2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85",
+        "Resultary semantic search: 2026/10/11/SCOPE-exact-endpoint-norms-for-the-n-2-2-fourier-block-of-symmetric-gr--2557238644ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In degree-k regular bipartite configuration model, sum_ij binom(Aij,2) has exactly S distribution for every n; its mean is nk(k-1)^2/(2(kn-1)).",
+          "Theorem 1.10 yields Poisson(lambda_n) in total variation with rate O_k(1/n), and an elementary direct two-pair count bounds the second moment.",
+          "Section 9 gives a pair-overlap expression for the (kn-2,2) spherical kernel. Rank-d trace fixes any printed normalization. E|Poisson(lambda)-lambda|=2lambda P(Poisson(lambda)=floor(lambda)), giving the submitted limit."
+        ],
+        "reasoning": "The full claimed limit is a direct logical corollary of previously published results under an exact random-graph identification and routine spectral and moment operations. The printed scalar discrepancy is small normalization arithmetic, not an independent new spectral theorem.",
+        "searches": [
+          "arXiv:2201.02887 Section 9 and Proposition 22",
+          "arXiv:1603.07172v2 Theorem 1.10 and Section 4.2",
+          "arXiv:2108.07692v1 Theorem 5.1 Corollary 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1603.07172 Eq. (1.41): Mbar=sum_ij binom(Xbar_ij,2); Eq.(1.42) its mean; Theorem 1.10 gives Poisson total-variation approximation.",
+          "The exact finite intersection-table probability formula in assigned RESULT.md agrees term by term with the bipartite stub-pairing model."
+        ],
+        "reasoning": "The random contingency table equals a regular bipartite configuration-model adjacency multiplicity table. Therefore the primary Poisson assertion is already a fixed-degree specialization of an earlier stronger theorem; renaming S as Mbar does not create a new law.",
+        "searches": [
+          "Resultary semantic query: sharp L-infinity Fourier projection norm (kn-2,2) on uniform partitions hypermatchings overlap Poisson",
+          "Resultary semantic query: random k-block partitions common co-block pairs Poisson mean (k-1)^2/2",
+          "Angel--van der Hofstad--Holmgren arXiv:1603.07172v2, equations (1.40)-(1.44) and Theorem 1.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact audited record as the closest hit, not an independent prior source.",
+          "Its separate symmetric-group (N-2,2) endpoint norm record concerns the left-regular representation and different Fourier multiplicity.",
+          "No independently indexed exact norm table was identified in these searches; nevertheless the cited general primary theorems settle the implication test."
+        ],
+        "reasoning": "Failure to locate the exact numeric constant under the same title is immaterial: the joint prior theorems and simple norm identity entail it. The unrelated regular-group table does not independently entail the homogeneous-space identity.",
+        "searches": [
+          "Resultary semantic search hit 2026/10/11/SCOPE-a-poisson-asymptotic-for-sharp-fourier-projection-norms-on-unifo--65a32e191d85",
+          "Resultary semantic search hit 2026/10/11/SCOPE-exact-endpoint-norms-for-the-n-2-2-fourier-block-of-symmetric-gr--2557238644ab",
+          "uniform set partitions pair-overlap absolute row sums spectral projector sharp limit Poisson"
+        ]
+      },
+      "rationale": "A decisive exact reduction was absent from the submitted comparison. The intersection table A of independent uniformly random partitions has precisely the distribution of the edge-count table of a degree-k bipartite configuration model with n vertices on each side: both give probability ((k!)**(2n)/((kn)!))/prod(A_ij!). Hence S=sum_ij binom(A_ij,2) is exactly the multiple-edge statistic Mbar of Angel--van der Hofstad--Holmgren (2019), Theorem 1.10, which already gives the Poisson law with even a quantitative total-variation error O_k(1/n) and mean mu. Filmus--Lindzey (2022), Section 9, independently established the same (kn-2,2) pair-overlap spherical-projector structure, though the displayed normalization in Proposition 22 has a trace discrepancy. Correcting that scalar by the routine diagonal trace, taking absolute row sums and applying the elementary Poisson centered first absolute moment directly produces the submitted fixed-k norm limit and the subsequent Gaussian iterated constant. The final claim is thus a short corollary of combined published general results, not an original independent theorem under the stipulated implication-based priority standard. Existing work also gives the zero-overlap special event. This rejects scientific originality without questioning the correctness of the result.",
+      "residual_risks": [
+        "The exact Filmus--Lindzey printed coefficient discrepancy has been checked at n=2,k=3; a later corrected version may resolve the printing, but does not create novelty for the submitted norm.",
+        "No separate proof that an earlier article literally prints the final numeric endpoint constant is needed, because joint prior implication is mathematically decisive.",
+        "The Poisson-to-absolute-deviation passage requires bounded second moments, which follow by elementary two-pair pattern counts and are not a new research step."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already derives pair-overlap dependence of the projector; the coefficient as printed does not satisfy diagonal rank trace in the n=2,k=3 test. Does not explicitly state the target endpoint norm asymptotic.",
+          "evidence": [
+            "PDF Section 9 pages 12-15; Proposition 22 page 14; multiplicity-one statement p13; printed coefficient leads trace 12 against rank 9 at n=2,k=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.02887",
+          "material_read": "Primary PDF Section 9, pages 12-15, complete spherical overlap construction and Proposition 22; rendered page 14 inspected.",
+          "method": "arXiv full PDF text, targeted section reading and rendered page screenshot",
+          "title": "Simple Algebraic Proofs of Uniqueness for Erdős–Ko–Rado Theorems",
+          "trigger": "Same homogeneous space S_kn/(S_k wr S_n), same pair-overlap statistic and same (kn-2,2) projection."
+        },
+        {
+          "assessment": "Decisively covers S asymptotic distribution by exact configuration-model identification; stronger total-variation rate. No Fourier norm language needed to cover the Poisson component.",
+          "evidence": [
+            "Eq.(1.41) defines multiple-edge sum binom(Xij,2); Theorem 1.10 p7 proves total-variation Poisson approximation; Sec4.2 p18 proves it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.07172",
+          "material_read": "Primary PDF introduction equations (1.40)-(1.45) and Theorem 1.10, pages 6-8; section 4.2 proof of Theorem 1.10, pages 17-18; rendered page 7 inspected.",
+          "method": "arXiv full PDF targeted complete theorem and proof reading with page screenshot",
+          "title": "Limit laws for self-loops and multiple edges in the configuration model",
+          "trigger": "Same multiple-edge statistic for random degree-k bipartite configuration table; stronger probability statement."
+        },
+        {
+          "assessment": "Earlier zero-overlap limit at the same parameter, but this alone does not yield full centered first absolute moment.",
+          "evidence": [
+            "Section 5 p11-13, Corollary 5.3 gives P(S=0) -> exp(-(k-1)^2/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.07692",
+          "material_read": "Primary PDF introduction, Section 5 Theorem 5.1 and Corollary 5.3 pages 11-13, and Section 6 use; rendered page 13 inspected.",
+          "method": "arXiv full PDF text and rendered page screenshot",
+          "title": "An Extension of the Erdős–Ko–Rado Theorem to uniform set partitions",
+          "trigger": "Same uniform partition space and zero-overlap event; Bender-derived limiting exponent."
+        },
+        {
+          "assessment": "k=2 spectral analogue, not itself a claim about k>=3 uniform set partitions or the particular endpoint norm.",
+          "evidence": [
+            "arXiv:1409.2057v1 introduction and Gelfand pair S_2n/(S_2 wr S_n) description."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2057",
+          "material_read": "Primary PDF abstract/introduction and opening representation-theoretic context, pages 1-2; no assertion of entire paper coverage.",
+          "method": "arXiv primary PDF targeted introduction reading",
+          "title": "Erdős–Ko–Rado for Perfect Matchings",
+          "trigger": "Related perfect-matching (k=2) Gelfand-pair spectral model."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.02887",
+        "https://arxiv.org/pdf/1603.07172",
+        "https://arxiv.org/pdf/2108.07692"
+      ],
+      "rationale": "The operator is a canonical multiplicity-one harmonic Fourier projection, and its sharp L1/L-infinity amplification coefficient is a mathematically motivated natural quantitative invariant. A corrected trace normalization and explicit limiting constant can be useful when applying existing hypermatching spectral theory. The exact fixed-block-size formula has a genuine interpretation independent of complexity claims or a joint-limit theorem. This gives mathematical utility even though the central claimed asymptotic lacks scientific originality because it is directly implied by earlier general results.",
+      "residual_risks": [
+        "The new computational content beyond the combined prior theorems is limited to standard normalization and Poisson absolute-moment algebra; its publication priority is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific failure is originality, not an error in the analytic proof.",
+    "Fixed k>=3 and n>=2; only later k->infty; no simultaneous parameter limit.",
+    "Old published Poisson approximation covers S under exact bipartite configuration-model reduction; known projector structure covers the remaining spectral ingredient.",
+    "Assigned metadata and review files contain private operational provenance; no public edits or relocation were performed."
+  ],
+  "schema_version": 1
+}
