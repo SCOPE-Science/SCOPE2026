@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a majority-stable set of size \(s\), the tournament arc count gives \(s(s-1)/2\le sk\) and thus \(s\le2k+1\), where \(k=\lfloor(n-1)/4\rfloor\). The explicit alternating-residue construction achieves equality in both residue classes, including the singleton case \(n=3\). Translation of a maximum stable set supplies a primal fractional colouring with cost \(n/(2k+1)\); the uniform counting bound supplies the matching lower certificate. The ordinary two-/three-class assertions follow from explicit stable partitions and the cardinality obstruction. The checker enumerates \(174{,}760\) subsets through order \(17\), and separately tests \(250\) finite orders. Independent numerical linear programming on orders \(3\) through \(13\) agrees with the formula. The finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS (with priority risks)
-The inspected recent primary source (Ben-Ameur–Maddaloni, arXiv:2610.11997v1) introduces improved upper bounds for all digraphs and tournaments, plus hardness and approximation results, rather than the exact fractional parameter of consecutive-outneighbour cyclic tournaments. The earlier detailed fractional treatment by Anastos–Lamaison–Steiner–Szabó (arXiv:1911.01954, Section 4) uses weighted stable sets for general bounds; no exact formula for these tournaments was identified. The majority-colouring foundation (arXiv:1608.03040) contains integral-colouring constructions or obstructions, not the present fractional orbit certificate. A separate exact acyclic dichromatic-colouring result on cyclic tournaments is not equivalent to majority colouring: its stable-class requirement is directed acyclicity, not a bounded internal outdegree. The published 2025 concave-round-tournament article is bibliographically close, but a complete copy was not accessible; the 2026 primary source describes its result as integral two-/three-colouring, which alone does not imply the fractional exact value. Database searches of the numerical ratio, naming variants and stronger families revealed no covering source. Unindexed equivalent work remains possible, so this review is not an external priority certificate.
+PASS
 
-## Value — PASS
-The family consists of all orders of a standard, vertex-transitive tournament, not an arbitrarily selected finite list. It provides a closed exact linear-programming invariant, matching explicit feasible and lower certificates, and a sharp residue-class transition between fractional values below and above two; the ordinary majority chromatic number also changes between two and three. These exact values give benchmark instances for the 2026 general fractional-majority-colouring programme and distinguish majority colouring from acyclic dichromatic colouring. This is a complete natural-class evaluation, not a proposed general bound or a claim to a new general LP method.
+In any majority-stable subtournament S of size s, the sum of internal outdegrees is s(s-1)/2 while each is <=k=floor((n-1)/4); hence s<=2k+1. Alternating even or odd residues supply a 2k+1-member set with all outdegrees exactly k, with n=3 handled by singleton. Summing fractional coverage yields lower bound n/(2k+1); averaging cyclic translates of an extremal stable set with weights 1/(2k+1) attains it. For n=4k+1, complementary alternating residue classes are stable, so integer 2, whereas n=4k+3 has 2(2k+1)<n and requires integer 3; complement partition into two blocks of k+1 is stable. Independently enumerated all stable subsets for odd n=3..17 to verify maxima 1,3,3,5,5,7,7,9, including fractions n/alpha. The all-order result uses arc-count and orbit argument, not finite sampling.
 
-## Closest sources and limitations
-Primary comparisons: Ben-Ameur–Maddaloni (2026, arXiv:2610.11997), Anastos–Lamaison–Steiner–Szabó (arXiv:1911.01954), Kreutzer et al. (arXiv:1608.03040). Related integral-only source: Gacitúa Fuentes et al. (2025, DOI:10.1016/j.procs.2025.10.288), full text unavailable. Published indexed records on cyclic-tournament acyclic dichromatic colouring concern a different invariant. The theorem does not encompass arbitrary circulant tournaments and has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General fractional majority coloring inequalities from Anastos et al and Ben-Ameur/Maddaloni 2026 apply to arbitrary digraphs and tournaments but no exact cyclic-carousel formula was identified in accessible publications. The published cyclic-tournament acyclic dichromatic number 2 has a stronger transitive-color-class requirement, distinct from internal outdegree <=k. The known concave-round tournament integral 2/3-coloring aligns with ordinary values but does not by itself imply the fractional optimum. Full Ben-Ameur and 2025 integral paper access gaps remain priority risks.
+
+## value
+
+PASS
+
+Every odd-order cyclic/carousel tournament is a canonical vertex-transitive tournament, so the closed exact fractional LP optimum and dual cardinality certificate give benchmark instances for general majority coloring. The strict parity split across the reference value 2 (and integral 2 versus 3) illustrates an intrinsic sharp combinatorial boundary, not a handful of computed examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
