@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Exact support-based containment proofs in each phase; single-latitude square certificate, strict convexity of support root, dimension-dependent scalar monotonicity, and two complete isotropic contact measures imply global minimum and uniqueness. Numeric verifier passed 200 parameter cases with 1001 sampled directions each but is not used for infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yıldırım 2006 abstract states a (1+epsilon)-approximation algorithm for convex hulls of arbitrary ellipsoids, which covers the objects algorithmically but not an explicit contact-transition theorem in the accessible material.",
+        "Güler–Gürtuna 2007 Theorem 2.7 establishes necessary/sufficient contact optimality universally; Sections 5–8 compute slabs, cone truncations, and cylinders."
+      ],
+      "reasoning": "The general ellipsoid-hull algorithm applies to the body but does not by its stated result imply the exact dimension-dependent threshold, support certificate, and two-contact scalar solution. Full Yıldırım paper inaccessible, so risk is retained.",
+      "searches": [
+        "\"On the Minimum Volume Covering Ellipsoid of Ellipsoids\" Yildirim 2006 DOI 10.1137/050622560",
+        "\"The extremal volume ellipsoids of convex bodies\" arxiv:0709.0707",
+        "\"minimum volume enclosing ellipsoid convex hull of two balls of unequal radii\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0709.0707",
+      "https://doi.org/10.1137/050622560",
+      "https://www.research.ed.ac.uk/en/publications/on-the-minimum-volume-covering-ellipsoid-of-ellipsoids/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic John–Löwner contact conditions are used as proof machinery, but they do not compute which ball contacts occur or solve the transition.",
+        "The point-hull geometry is the first active branch only, and equal-radius capsules correspond to a boundary specialization; neither alone determines the entire interval of q in (0,1)."
+      ],
+      "reasoning": "The new theorem is a nontrivial exact specialization not stated or logically obtained by direct substitution from the inspected general/canonical papers. Potential unpublished or unexamined specialist equivalent formulas remain a specific risk.",
+      "searches": [
+        "Güler–Gürtuna (2007) arxiv:0709.0707v1 Theorems 2.2, 2.7 and 8.1",
+        "Yıldırım 2006 DOI:10.1137/050622560 abstract",
+        "\"minimum volume covering ellipsoid\" \"ellipsoids\" unequal balls"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For unequal balls, the support function is the maximum of two shifted Euclidean norms; the explicit competing source computes slabs, cylinders, and truncated cones instead.",
+        "Güler–Gürtuna (2007) Section 8 Theorem 8.1 describes the hull of two spherical sections, not a hull of two full translated balls."
+      ],
+      "reasoning": "A rotational two-ball hull cannot be obtained from the displayed flat-section cone/cylinder constructions merely by reparameterizing sphere radii; their boundary curvatures and support structures differ. No verified equivalent exact theorem was located.",
+      "searches": [
+        "\"minimum volume ellipsoid covering convex hull of two balls unequal radii closed form\"",
+        "\"unequal radii two balls minimum volume ellipsoid convex hull exact formula contact\"",
+        "arxiv:0709.0707v1, Sections 2, 5–8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned general ellipsoid-hull literature and formula-free optimization methods; no verified tabulation of the specific full parameter family was found."
+      ],
+      "reasoning": "No table or database establishing the exact contact regime for arbitrary d,q,L was verified; absence is not a proof of uniqueness or bibliographic priority.",
+      "searches": [
+        "\"minimum volume ellipsoid\" \"two spheres\" \"different radii\"",
+        "\"unequal radius capsule\" \"Löwner\" ellipsoid"
+      ]
+    },
+    "rationale": "The exact three-phase geometry of unequal-radius two-ball hulls, including screened-tip transition and two-latitude scalar reconstruction, was not implied by inspected general certificate, numerical algorithm, truncated-cone, slab, or equal-radius/point-limit results. Güler–Gürtuna full text was inspected. Yıldırım full text was inaccessible, posing residual historical-priority risk.",
+    "residual_risks": [
+      "The full text of Yıldırım (2006), a plausible same-objects source, remained inaccessible; the abstract alone does not prove the proposed result absent.",
+      "Historical special-case formulas in computational geometry or optimal experimental design may use alternate normalizations and evade semantic retrieval; independent priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established the exact generic certificate machinery and explicit different bodies: slabs, truncated cones, cylinders. No two unequal-radius full-ball hull formula identified in inspected material.",
+        "evidence": [
+          "arxiv:0709.0707v1, pp. 0–3, Theorems 2.2 and 2.7, Section 8 Theorem 8.1 (p.31)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+        "material_read": "Accessible 36-page PDF: abstract, introduction and description of Sections 5–8, Theorems 2.2 and 2.7, Section 8 theorem and construction; searched PDF for sphere/two balls. No claim to have read all 36 pages end to end.",
+        "method": "arXiv public PDF text extraction plus direct PDF-page screenshots",
+        "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+        "trigger": "Primary geometrically relevant complete treatment of exact Löwner ellipsoids of symmetric bodies"
+      },
+      {
+        "assessment": "Its available announced result is an approximation algorithm for general hulls, not a stated exact unequal-ball transition. Unknown whether an equivalent specific case is buried in the full paper.",
+        "evidence": [
+          "DOI:10.1137/050622560; publicly posted online 2006-09-15; abstract describes (1+epsilon)-approximate hull ellipsoids."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050622560",
+        "material_read": "Publisher/University abstract, bibliographic history, and available linked descriptions only; full original article was inaccessible.",
+        "method": "Public publisher and institutional bibliographic webpages; open-access handle checked without readable text",
+        "title": "On the Minimum Volume Covering Ellipsoid of Ellipsoids",
+        "trigger": "Potentially dominant general convex-hull-of-ellipsoids source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "424a15ee-ef51-4c92-931b-ddc75e603f5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides exact minimum-volume ellipsoid, sharp active contact transition and complete orbit geometry for a canonical two-ball hull in every dimension, with a unique scalar reconstruction. No general theorem was merely restated, and its mixed-radius interval is not determined by the equal-radius or point limiting cases.",
+    "status": "PASS"
+  }
+}
