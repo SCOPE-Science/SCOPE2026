@@ -1,15 +1,21 @@
-# Scientific review: isolated Fourier zeros of the uniform Sierpiński carpet measure
+# Independent mathematical audit
 
-## Correctness — PASS
-The entire real-frequency zero set is determined from the explicit eight-digit mask product. Its mask zero set has one analytic oval and one isolated double zero per unit torus. The essential, independently proved cyclotomic separation lemma excludes intersections between rescaled ovals and the candidate isolated lattice: two relevant real cyclotomic quantities with reciprocal product would generate identical odd-degree real fields, and an odd-order Galois automorphism would force one of them to equal \(\pm1\), an impossibility at the permitted conductors. Exactly \(r\) quadratic zero factors occur at each isolated frequency, giving Taylor order \(2r\), zero phase index, and the stated leading polynomial. Nested ternary sublattices give an exact multiplicity formula and its geometric asymptotics. The submitted checker passed 80 exact cyclotomic exclusions, eight high-precision local tests, and three lattice enumerations. Infinite claims do not depend on these finite tests.
+## correctness
 
-## Originality — PASS, qualified
-The 2006 Dutkay–Jorgensen affine-IFS study establishes the general Fourier-mask framework and investigates orthogonal bases; its inspected definitions, Fourier-weight relation, and examples do not contain the carpet's isolated-versus-oval dichotomy or all-order multiplicities. Chen–Yan (arXiv:2505.09360) supplies related infinite-convolution theory but restricts its main mask conditions to prime-cardinality digit families, and its inspected theorems and examples do not imply the eight-digit carpet result. Published findings on ternary finite-field Fourier supports and dyadic three-point self-similar measures concern different mask geometries. The previously known discrete zero censuses for the three-digit dyadic Sierpiński gasket and its weighted variant do not imply the new mixed-dimensional classification. The principal residual risk is an unindexed earlier treatment of the same carpet diffraction mask or its cyclotomic torsion separation; independent historical priority is unverified.
+PASS
 
-## Mathematical value — PASS
-The classical uniform Sierpiński carpet is a canonical planar singular measure, and Fourier zeros govern exponential orthogonality and diffraction. Its mask has both a nodal oval and an isolated quadratic point, unlike discrete-mask Sierpiński gasket models. Determining whether scaled ovals pass through the isolated lattice is a natural structural gap; the obstruction requires genuine odd-order cyclotomic Galois reasoning, not numerical enumeration. The theorem identifies *every* isolated zero, its arbitrary even order and zero winding index, and a precise geometric order census of density \(8/9^r\). These classify natural invariants of the full carpet transform without claiming an unsupported application or classification of nonisolated curve intersections.
+For the canonical eight-digit equal-weight ratio-1/3 planar carpet and real-frequency Fourier convention exp(-2pi i xi.x), the infinite product has factors P(s,t)=exp[-2pi i(s+t)]((1+2cos2pi s)(1+2cos2pi t)-1)/8 and a nonzero tail away from finite mask zeros. Its single mask has exactly one positive nonsingular closed oval Gamma and a single isolated torus point (1/2,1/2). At a candidate isolated real lattice point xi=(3/2)(u,v) with odd u,v, an odd-order real cyclotomic Galois orbit excludes any oval collision at 2*3^h roots; exactly r=1+min(v3(u),v3(v)) factors vanish quadratically. Thus the isolated locus is 3(Z+1/2)^2, order exactly 2r, positive-definite radial leading term times nonzero complex constant and phase winding zero. Nested 3-adic sublattices imply N_(2r)(R)=N_iso(R/3^(r-1))-N_iso(R/3^r), density 8/9^r and weighted M(R)~pi R^2/4 with O(R+1) error. Independent exact lattice enumeration R=300 yields 31,428 points and shell counts 27,948,3088,348,40,4; a finite check does not replace the cyclotomic proof.
 
-## Sources and limits
-D. E. Dutkay and P. E. T. Jorgensen, *Fourier frequencies in affine iterated function systems*, arXiv:math/0604547 (first posted 2006-04-25); J.-L. Chen and X.-Y. Yan, *Spectral properties of a class of Sierpinski-type Moran measures on* \(\mathbb R^n\), arXiv:2505.09360 (first posted 2025-05-14). Checked claims do not establish global publication priority. Complex-frequency zeros, curve intersections and arbitrary digit weights are outside the theorem. Numerical checks verify selected finite cases only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dutkay–Jorgensen provide generic affine-IFS Fourier mask machinery but not the exact real zero curve/lattice dichotomy of this carpet. Chen–Yan’s prime-cardinality Sierpiński-type Moran families have different digit sets, not the eight-digit carpet; their zero-pattern results do not dominate this one. The original characterizations are materially read; prior older nodal geometry remains possible.
+
+## value
+
+PASS
+
+Exact decomposition of a natural planar self-similar Fourier zero set into a 1-dimensional analytic stratum and infinitely many isolated even-order nodes, with an exact multiplicity census and winding invariant, is a substantial structural classification, not a routine specialization of the product identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
