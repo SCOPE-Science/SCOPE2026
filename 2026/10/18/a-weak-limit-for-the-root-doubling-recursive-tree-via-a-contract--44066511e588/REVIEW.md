@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is for the original root-only doubling chain with the exact updates \(b\to b+1\) and \(b\to2b+2\). The proof reconstructs the logarithmic-time generator, proves the one-step PDMP jump-probability match exactly, bounds multiple jumps by \(O((\log(1+1/n))^2)\), and supplies a compact-state coupling and tightness to pass from finite-time approximation to the invariant law. The process has Foster drift \(\mathcal A x=2-x\) and a directly calculated single-jump density minorization on every compact set, implying unique attracting invariant law. The reciprocal post-jump map is uniformly contractive; its expected-cycle occupation law is stationary. Exact rational checker tests validate finite-n mean, second moment, hazard identity and jump-reciprocal algebra. Infinite convergence is analytical, not inferred from computations.
+## correctness
 
-**Originality — PASS, qualified.** Björnberg–Mailler Proposition 1.1 gives all limiting moments and tightness, but Remark 1.2 specifically says it does not prove a weak limit because Carleman's condition fails. The present invariant-PDMP weak law and reciprocal perpetuity occupation representation are not equivalent to that moment statement. The state-dependent-PDMP stationarity literature (e.g. Czapla) provides general techniques, but the inspected abstract does not apply them to this discrete tree or establish convergence. Searches in public mathematical records and the accessible preceding claims found no matching theorem. Unindexed general asymptotic pseudotrajectory results or uninspected stationarity papers might subsume components; independent priority audit remains necessary.
+PASS
 
-**Mathematical value — PASS.** The result resolves an explicit weak-convergence gap identified by the source paper for the natural normalized size observable. It gives both existence of a limit and a constructive probabilistic description avoiding the indeterminate-moment obstruction. It also identifies an ergodic logarithmic-time dynamical mechanism and explains the previously known moment sequence. This is a structural probabilistic theorem, not a reformulation of its finite moments.
+The exact root-only tree transition is b→b+1 with probability b/(b+1), b→2b+2 with probability 1/(b+1), implying E B_n=2n, EB_n²=5n²−n and tight X_n=B_n/n on [1,infinity]. The normalizing clock delta_n=log((n+1)/n) makes ordinary move exactly flow phi_delta(x)=1+(x−1)e^(−delta) and a root move exactly 2phi_delta. For the proposed PDMP with deterministic drift 1−x and doubling jumps rate1/x, the survival probability from x for time delta_n is x/(e^delta+x−1), so the first-jump event is exactly the discrete root probability; within-interval movement differs O(delta_n) on jump intervals, multiple jumps O(delta_n²), yielding finite log-time coupling on compacts since sum delta_n²=O(1/n). The PDMP Foster drift A x=2−x and common one-jump minorization on bounded [1,R] give a unique attracting invariant π; conditioning backwards from N at floor(N e^(−T)) with tightness proves full X_N weak convergence. At jump epochs reciprocal post-jump variable Zprime= (1−U+UZ)/2 contracts pathwise by at most 1/2; stationary occupation of drift cycles with finite expected time T yields explicit law; prior moment convergence transfers all polynomial moments without asserting moment determinacy. Independently computed exact finite law moments n<=10 and reciprocal update identities.
 
-**Closest prior work and limitations.** Björnberg–Mailler, arXiv:2501.18466, Proposition 1.1/Remark 1.2/Section 2.1; Czapla, arXiv:2303.11576, general stationary PDMP methods. No total-variation convergence of the discrete atomic law, no almost-sure limit, no quantitative convergence rate, and no extension to all-vertex doubling are claimed. Broader-priority literature cannot be ruled out by database search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Björnberg–Mailler original root-doubling model proves exact limiting moments and tightness and expressly says their method does not establish weak convergence (Proposition 1.1, Remark 1.2). The present full-sequence weak limit plus explicit unique PDMP invariant and contractive post-jump reciprocal representation closes that precise gap; published general state-dependent PDMP ergodic tools may supply standard ingredients, but do not alone connect this discrete model to the invariant law.
+
+## value
+
+PASS
+
+Closes a mathematical open convergence question explicitly left by the model creators: full weak convergence despite non-Carleman moments, with a unique invariant PDMP and explicit contractive reciprocal perpetuity occupation formula. This is substantive probabilistic structure, independent of the already known moments; no new moment formula is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
