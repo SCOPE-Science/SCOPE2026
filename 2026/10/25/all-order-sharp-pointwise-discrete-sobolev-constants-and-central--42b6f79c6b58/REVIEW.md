@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** For all positive integer orders and lengths, the exact Gram matrix is a symmetric binomial Toeplitz matrix. The proposed first inverse column solves that matrix equation, using a degree-\(2r-1\) polynomial with prescribed boundary zeros. The Toeplitz inverse recurrence then gives a diagonal difference whose only sign factor is \(d-2j\), and exact Riemann-sum asymptotics follow. Equality is Cauchy--Schwarz equality in the induced Hilbert inner product. The exact checker reports 715 successful independent rational assertions; finite testing is not used as a substitute for the proof.
+
+**Originality: PASS, subject to residual bibliographic risk.** The source's sharp result is for an \(\ell^1\) target, whereas the new theorem proves an all-orders \(\ell^\infty\) target with universal central localization and sharp asymptotics. Dow (2003) already supplies the Toeplitz recurrence and the explicit fourth-order inverse; these are prior inputs and the \(r=2\) case alone is not claimed original. The new all-order first-column formula and resulting all-order central sharp-constant law were not found in source full texts or targeted research-record and literature searches. A pre-existing general discrete Green-kernel formula might supply broader coverage and remains a priority risk.
+
+**Value: PASS.** The exact endpoint norm and localization of extremizers are natural companion questions to the recently solved sharp finite-difference \(\ell^1\) inequality. The proof resolves both simultaneously for every derivative order and every sequence length, including a nontrivial universal finite-size monotonicity identity and a sharp large-length scaling coefficient. The scope is discrete unweighted backward differences with zero exterior data, not other target norms or boundary conditions.
+
+Self-review: passed. Independent audit: not yet performed.
