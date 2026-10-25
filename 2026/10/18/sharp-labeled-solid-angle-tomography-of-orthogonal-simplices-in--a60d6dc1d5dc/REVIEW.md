@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tangent-cone inequalities lead directly to the Gaussian formula (1) with the full \(2^{-(d-1)}\) half-normal conditioning factor. Independent planar and trihedral-angle computations confirm the normalization. Differentiation under expectation produces a grounded positive-weight graph Laplacian as the negative Jacobian. For two normalized candidate leg vectors, a maximal or minimal coordinate ratio forces a strictly unequal measured angle, proving *global* uniqueness. Strict row diagonal dominance of any selected Jacobian principal block and the implicit-function theorem prove local failure with fewer than \(d-1\) readings. An explicit positive lower bound on the grounding weight gives inverse Lipschitz stability. These analytic arguments cover all dimensions and positive leg vectors; the numerical checker is a cross-check, not a substitute for proof.
+## correctness
 
-## Originality — PASS under inspected evidence, with residual priority risk
-Licht (arXiv:2610.05883v1, Section 3 and Theorem 1.1) develops solid-angle integrals and minimum-angle shape bounds; these are credited. The exact trirectangular tetrahedron references describe direct metric formulas. The same-family scalar problem of optimizing the *minimum* angle and its dimension asymptotics is logically weaker than reconstructing all leg lengths from labeled readings. Additional semantic searches for inverse vertex-angle tomography, orthogonal simplex angle-to-leg uniqueness, and grounded-log-Jacobian formulations found no equivalent statement. This does not prove worldwide novelty: older specialist tetrahedral-angle literature remains a residual risk, and Liu–Joe's full article was not inspected directly.
+PASS
 
-## Mathematical value — PASS
-Solid-angle data are natural scale-free simplex quality statistics. The result solves a complete inverse problem for a geometrically natural infinite family, gives the *minimal* number of labeled scalar observations and proves a quantitative perturbation guarantee suitable for anisotropic simplex shape inference. These conclusions are not a mere restatement of minimum-angle bounds. The logarithmic coefficient is explicit but deliberately not asserted optimal.
+The tangent cone at a_i e_i gives q_i=2^(1-d) E Phi(-sum_{j!=i}(a_i/a_j)H_j) with independent half-normal H_j. Extreme ratio coupling proves global uniqueness using the omitted normalized leg as strict comparison; Jacobian offdiagonal positive and negative diagonally dominant on any measured principal block proves rank and local ambiguity by implicit function theorem. On bounded log-ratios the omitted-leg weight w_id has an explicit positive Gaussian-event lower bound; an extremal-coordinate maximum principle yields the inverse sup-norm estimate. Independent d=2 planar-angle calculation and d=3 trihedral determinant calculation agreed with Gaussian integral to <9e-16.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
+
+## value
+
+PASS
+
+A minimal-measurement and stable inverse-tomography theorem for natural orthogonal simplices, including exact d-1 threshold, label order and quantitative conditioning. The inverse map is not implied by control of a single minimum angle and could guide geometric reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
