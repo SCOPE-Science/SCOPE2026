@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Equations (4)–(6) algebraically reconstruct exact conditional first and second moments. The quadratic Fourier terms are explicitly canceled, yielding exact formula (1) for every n>=3, p in (0,1) and residue r. Exact rational calculations compare independent binomial and Eisenstein-field implementations for 588 triples. Uniform exponential remainder, rational/irrational phase arguments, monotonic theta and fair-case sign correction justify all asymptotic and boundary claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fontana–Semeraro (2022), §§2–4: broad Fréchet-class moment/correlation bounds.",
+        "Mutti–Semeraro (2023), §§1,3–4 and appendices: convex-order minimal symmetric Bernoulli dependence.",
+        "Exact threshold for modular freedom under pairwise-independent fair bits: sharp attainable residue laws under pairwise independence, not iid vectors conditioned on a given residue."
+      ],
+      "reasoning": "Generic moment representations permit computation after supplying a specific pmf, but no cited universal result fixes the cosine phase, its quadratic correction, or the resulting sign/density classification. Mutti–Semeraro treats extremal dependence at fixed symmetric Bernoulli margins rather than this conditional-bias family.",
+      "searches": [
+        "symmetric multivariate Bernoulli minimal dependence copulas conditioned on modular sum",
+        "A simple Markov chain for independent Bernoulli variables conditioned on their sum",
+        "Computational and Analytical Bounds for Multivariate Bernoulli Distributions"
+      ]
+    },
+    "checked_sources": [
+      "Heng–Jacob–Ju (2020), arXiv:2012.03103",
+      "Fontana–Semeraro (2022), DOI 10.1007/s42519-021-00231-x",
+      "Mutti–Semeraro (2023), arXiv:2309.17346",
+      "Exact threshold for modular freedom under pairwise-independent fair bits, public mathematical proof"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2012.03103 (2020), Theorem 1 concerns exact-sum sampler mixing; the conditioned target has a fixed count.",
+        "doi:10.1007/s42519-021-00231-x (2022), Proposition 2 describes extremal distributions at fixed marginal mean.",
+        "arXiv:2309.17346 (2023), Section 4 provides minimal mean pair correlations under convex-order extremality.",
+        "The modular-freedom theorem imposes pairwise independence before choosing a modular residue law; it does not imply a conditional covariance formula after iid conditioning."
+      ],
+      "reasoning": "None establishes fixed bias p and residue r conditional moment formulas across all n, much less the universal infinitely-many sign reversals and almost-everywhere arcsine law. The classical root-of-unity identity is used but not claimed novel; its precise implication for pair covariance is proved in the present result.",
+      "searches": [
+        "root unity filter binomial distribution conditioned congruence residue dependence",
+        "Symmetric Bernoulli distributions and minimal dependence copulas",
+        "independent Bernoulli variables conditioned on their sum covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact condition is a Hamming-weight congruence restriction on biased binary words.",
+        "arXiv:2012.03103, §§1–4 and Appendix D, conditions on a single fixed total, not a residue class."
+      ],
+      "reasoning": "Possible aliases include congruence-restricted binary words, a binomial law conditioned modulo three, and a weight-residue ensemble. Those aliases were searched; the fixed-sum sampling theorem does not assert or imply the infinite oscillatory covariance signs.",
+      "searches": [
+        "Bernoulli variables conditioned sum congruent zero modulo three pairwise covariance",
+        "Bernoulli conditioning residue classes root unity covariance",
+        "modulo three conditioning of iid biased Bernoulli sum changes pairwise dependence sign infinitely often"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finite exact covariance identity was cross-checked against its independently derived binomial-residue sum, with 588 rational cases.",
+        "The examined finite-dimension Bernoulli moment tables in Fontana–Semeraro (2022) give bounds, not this sequence of conditional covariances."
+      ],
+      "reasoning": "No exact table or finite-parameter database located contained the modulo-three conditional covariance for all biases, residues and dimensions. Absence of a located table is not evidence of universal novelty; the mathematical source comparisons are the principal evidence.",
+      "searches": [
+        "probability random binary word weight congruent mod 3 covariance of two coordinates",
+        "biased random bits conditioned Hamming weight divisible by 3 correlations",
+        "binomial random variables conditioned modulo 3 pairwise covariance"
+      ]
+    },
+    "rationale": "The inspected primary sources characterize fixed-sum Bernoulli conditioning, general finite Bernoulli dependence bounds, or convex-order minimal dependence, whereas the final theorem classifies conditional pair-covariance sign oscillations under a modulo-three sum constraint for arbitrary bias and residue and proves a normalized arcsine law. These are neither stated nor entailed directly by the published theorems compared. Priority risk remains for unindexed modular-binary-word literature.",
+    "residual_risks": [
+      "Mathematical statements about congruence-restricted binary strings may appear in coding, statistical physics or enumerative-probability literature under other nomenclature.",
+      "The search is selective; no exhaustive human priority audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different conditioning event (single exact total), and a Markov-chain mixing theorem; no coverage of modulo-three covariance phases.",
+        "evidence": [
+          "2020-12-05 first arXiv posting",
+          "§1.1 defines conditioning on sum exactly I; Theorem 1 addresses N log N sampler mixing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.03103",
+        "material_read": "Accessible full-text introduction, problem definition §1.1, theorem and main discussion §§2–4, relevant sampling and proof appendices; full-text keyword inspection for modular conditioning and covariance.",
+        "method": "Read searchable original preprint text and relevant theorem/proof sections.",
+        "title": "A simple Markov chain for independent Bernoulli variables conditioned on their sum",
+        "trigger": "Closest fixed-sum Bernoulli conditioning"
+      },
+      {
+        "assessment": "Fréchet-class extremal moment bounds do not fix the signs of this explicit congruence-conditioned family across dimension.",
+        "evidence": [
+          "2022-01-18 publication",
+          "Proposition 2 describes extremal two-point laws; §4 treats fixed-dimension moment and VaR bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s42519-021-00231-x",
+        "material_read": "Open-access article introduction and §§2–4, especially Proposition 2, moment bounds, correlation tables, and the reference section; text inspected for modular conditions.",
+        "method": "Read publicly accessible publisher full-text HTML and relevant equations/tables.",
+        "title": "Computational and Analytical Bounds for Multivariate Bernoulli Distributions",
+        "trigger": "Broad finite Bernoulli correlation bounds that might dominate the claim"
+      },
+      {
+        "assessment": "Extremal dependence/correlations for symmetric Bernoulli margins, not modulus-three conditioning or oscillatory asymptotics.",
+        "evidence": [
+          "2023-09-29 first arXiv posting",
+          "§4 concerns mean Pearson correlations and minimal convex sums; no congruence-conditioned sign theorem identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.17346",
+        "material_read": "Accessible original full-text Introduction, §§2–4 including equation (4.1) and Proposition 4.2, conclusion and relevant appendices; searched text for modular/congruence conditioning.",
+        "method": "Read searchable preprint HTML extraction, compared theorem objects/assumptions and appendices.",
+        "title": "Symmetric Bernoulli distributions and minimal dependence copulas",
+        "trigger": "Pairwise dependence and negative-dependence extremality for symmetric Bernoulli vectors"
+      },
+      {
+        "assessment": "It optimizes residue laws under merely pairwise independence and fixed fair marginals; it does not condition an iid Bernoulli vector on a residue event or study induced pair covariance and its phase reversals.",
+        "evidence": [
+          "Main theorem: arbitrary residue law attainable for pairwise-independent fair bits above sharp length threshold q²−1.",
+          "Assumptions explicitly allow non-mutually-independent coordinates; proof uses first two moments, unlike the iid-under-conditioning Fourier covariance studied here."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-threshold-for-modular-freedom-under-pairwise-independent-f--b3e76a9c5e42/RESULT.md",
+        "material_read": "Complete RESULT.md statement, assumptions, proof, prior-work comparison and limitations.",
+        "method": "Read published complete proof text from its publicly accessible repository.",
+        "title": "Exact threshold for modular freedom under pairwise-independent fair bits",
+        "trigger": "Highly relevant public result mentioning residue constraints on Bernoulli counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11a6addf-22e8-431f-be01-090104154896",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural weakening of fixed-total conditioning to a modulo-three constraint qualitatively changes pair dependence: neither globally negative nor positive, but infinitely recurrent signs at every bias; a sharp six-class finite sign law at fair bias and arcsine empirical normalization at generic bias quantify the phenomenon. This is a motivated structural classification of weight-constrained Bernoulli sampling, not a bare elementary moment rewrite.",
+    "status": "PASS"
+  }
+}
