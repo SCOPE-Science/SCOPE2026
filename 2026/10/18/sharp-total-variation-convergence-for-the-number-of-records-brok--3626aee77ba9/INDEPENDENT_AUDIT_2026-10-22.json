@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:50:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent J_n as count of consecutive past observations below X_n, reading backward, before first larger: P(J_n=j)=1/[(j+1)(j+2)] for 0<=j<n and P(J_n=n)=1/(n+1). Given j, the destroyed current-record count equals independent reverse-rank records K_j=sum_{i<=j} Bernoulli(1/i); these insertion ranks have independent uniform laws. Summing A_j(z) gives (2-z)F_n(z)=1+(1-z)A_n(z)/(n+1), with cancellation at z=2 because A_n(2)=n+1. Subtract the geometric PGF 1/(2-z) to obtain P(G=k)-P(B_n=k)=[P(K_n+G=k)-a_{n,k}]/(n+1). Since A_n is real-rooted with all nonpositive roots, a_{n,k} is log-concave on 1..n; ratio of its convolution with geometric to a_{n,k} is nondecreasing in k, so signed masses cross once. Stochastic dominance then makes TV equal maximal CDF gap, the displayed geometric smoothing kernel and Kolmogorov gap. Uniform lattice LLT for independent Bernoulli with variance v_n=H_n-H_n^(2)~log n follows via Fourier bound |phi_n(t)|<=exp(-2v_n sin^2(t/2)); thus max a_{n,k}~1/sqrt(2pi v_n), and geometric smoothing attains the same asymptotically at k nearest H_n, giving sharp constant. Independently enumerated all permutations for n=1..6, matched exact mixture p(B2)=(1/2,1/3,1/6), and verified finite TV values. These finite checks do not prove LLT or n->infty.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Naiman–Torcaso 2022 main theorem gives qualitative geometric(1/2) convergence, with selected fixed-k expressions.",
+          "Fill arXiv:1901.08232 concerns conditional bivariate Pareto record killing and refined fixed-k probabilities."
+        ],
+        "reasoning": "Qualitative weak/pointwise convergence does not upper or lower bound total variation at the sharp n*sqrt(log n) scale. Bivariate Pareto records have incomparable points and different conditioning; Fill bounds do not directly cover the scalar deterministic-time process.",
+        "searches": [
+          "Resultary: number of broken current records new observation geometric limit total variation convergence rate",
+          "web: \"records broken\" \"total variation\" geometric observation",
+          "arXiv:2210.08426",
+          "arXiv:1901.08232"
+        ]
+      },
+      "checked_sources": [
+        "Naiman & Torcaso, A Geometric(1/2) Distribution Associated with Record Breaking, arXiv:2210.08426 full 9pp PDF",
+        "Fill, Breaking Bivariate Records, arXiv:1901.08232 (abstract/scope)",
+        "Resultary bivariate full-kill Stirling law 2026/10/4/...bb66bcfebcc4",
+        "Frozen Git RESULT.md and verify.py at assigned tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Naiman–Torcaso establishes the limiting Geom(1/2) law but not a uniform local CLT smoothing formula for signed finite differences.",
+          "Fill describes a different bivariate conditioning model."
+        ],
+        "reasoning": "An exact representation of B_n as a random-length record count supplies an additional rational generating-function identity, then log-concavity and Fourier local CLT give the novel quantitative statements. Neither prior convergence theorem implies the sign change or sharp rate; both require new finite-law algebra.",
+        "searches": [
+          "Resultary: number of broken current records new observation geometric limit total variation convergence rate",
+          "web: \"records broken\" \"total variation\" geometric observation",
+          "arXiv:2210.08426",
+          "arXiv:1901.08232"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Naiman–Torcaso arXiv:2210.08426 studies precisely the deterministic-time scalar current-records killed by X_n.",
+          "K_n has unsigned Stirling-first-kind/cycle-count distribution via independent Bernoulli(1/j)."
+        ],
+        "reasoning": "Compared the same stochastic object and transform to the primary source, including reverse-record process, random permutation cycles and geometric limit. The present explicit finite PGF is a stronger probability-law identity, not a differently named statistic.",
+        "searches": [
+          "Resultary: number of broken current records new observation geometric limit total variation convergence rate",
+          "web: \"records broken\" \"total variation\" geometric observation",
+          "arXiv:2210.08426",
+          "arXiv:1901.08232"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4 concerns bivariate full kills and fixed-k errors, not scalar B_n TV.",
+          "The exact formula here determines all n through Stirling/Bernoulli coefficients; no preexisting exact scalar TV table identified."
+        ],
+        "reasoning": "The finite distributions can be computed by existing record numbers, but the one-sign-crossing identity and exact max-of-geometric-kernel formula are not the same as tabulating small n; no covering pre-existing table was found.",
+        "searches": [
+          "Resultary: number of broken current records new observation geometric limit total variation convergence rate",
+          "web: \"records broken\" \"total variation\" geometric observation",
+          "arXiv:2210.08426",
+          "arXiv:1901.08232"
+        ]
+      },
+      "rationale": "Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.",
+      "residual_risks": [
+        "Other classical permutation/Stirling identities might yield equivalent exact finite formula under a different notation; inspected sources do not conclusively certify first discovery.",
+        "Fill full paper not examined; despite different model, avoid whole-document noncoverage assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes pointwise convergence to geometric(1/2); no stated one-crossing finite-horizon TV formula or n*sqrt(log n) sharp constant in the read paper",
+          "evidence": [
+            "Main theorem is qualitative geometric limit for scalar temporal records; source exhibits selected fixed-k probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.08426",
+          "material_read": "Full nine-page open-access primary PDF text read, including model definition, main convergence theorem, fixed-count computations and references; relevant figure screenshot examined",
+          "method": "arXiv PDF text plus a primary-page screenshot",
+          "title": "David Q. Naiman and Fred Torcaso, A Geometric(1/2) Distribution Associated with Record Breaking",
+          "trigger": "Exact deterministic-time scalar record-breaking statistic and geometric(1/2) limit"
+        },
+        {
+          "assessment": "Different bivariate Pareto record setting conditioned on arrival being new Pareto record; not identical to automatic scalar temporal new-point record process",
+          "evidence": [
+            "A bivariate partial-order/Pareto killing model differs from the total order of continuous scalar observations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.08232",
+          "material_read": "Public primary abstract and bibliographic description read; article not reviewed cover-to-cover",
+          "method": "arXiv bibliographic/OA search",
+          "title": "James Allen Fill, Breaking Bivariate Records",
+          "trigger": "Related geometric law for counts of killed Pareto records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This quantifies the approximation error for a concrete record-destruction process beyond a qualitative geometric limit: exact total-variation/Kolmogorov coincidence and a sharp 1/(n sqrt(log n)) rate with universal constant are mathematically useful for finite-horizon probabilistic accuracy. It integrates record-count log-concavity and smoothing of an independent Bernoulli-sum local CLT; the sharp constant is not an automatic consequence of distributional convergence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Naiman & Torcaso, A Geometric(1/2) Distribution Associated with Record Breaking, arXiv:2210.08426 full 9pp PDF",
+    "Fill, Breaking Bivariate Records, arXiv:1901.08232 (abstract/scope)",
+    "Resultary bivariate full-kill Stirling law 2026/10/4/...bb66bcfebcc4",
+    "Frozen Git RESULT.md and verify.py at assigned tree"
+  ],
+  "disposition": "passed",
+  "limitations": "Deterministic-time i.i.d. continuous scalar observations only; no atoms, heterogeneous sampling, multivariate Pareto order or finite-n normal approximation claim.",
+  "residual_risks": [
+    "Other classical permutation/Stirling identities might yield equivalent exact finite formula under a different notation; inspected sources do not conclusively certify first discovery.",
+    "Fill full paper not examined; despite different model, avoid whole-document noncoverage assertion."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes pointwise convergence to geometric(1/2); no stated one-crossing finite-horizon TV formula or n*sqrt(log n) sharp constant in the read paper",
+      "evidence": [
+        "Main theorem is qualitative geometric limit for scalar temporal records; source exhibits selected fixed-k probabilities."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2210.08426",
+      "material_read": "Full nine-page open-access primary PDF text read, including model definition, main convergence theorem, fixed-count computations and references; relevant figure screenshot examined",
+      "method": "arXiv PDF text plus a primary-page screenshot",
+      "title": "David Q. Naiman and Fred Torcaso, A Geometric(1/2) Distribution Associated with Record Breaking",
+      "trigger": "Exact deterministic-time scalar record-breaking statistic and geometric(1/2) limit"
+    },
+    {
+      "assessment": "Different bivariate Pareto record setting conditioned on arrival being new Pareto record; not identical to automatic scalar temporal new-point record process",
+      "evidence": [
+        "A bivariate partial-order/Pareto killing model differs from the total order of continuous scalar observations."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1901.08232",
+      "material_read": "Public primary abstract and bibliographic description read; article not reviewed cover-to-cover",
+      "method": "arXiv bibliographic/OA search",
+      "title": "James Allen Fill, Breaking Bivariate Records",
+      "trigger": "Related geometric law for counts of killed Pareto records"
+    }
+  ]
+}

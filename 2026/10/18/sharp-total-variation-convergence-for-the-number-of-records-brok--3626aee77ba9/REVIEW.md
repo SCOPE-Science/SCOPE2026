@@ -1,19 +1,21 @@
-# Scientific review of the record-breaking approximation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The count is reduced to reverse records within a random contiguous suffix whose length has the explicitly integrated distribution. Independent relative ranks yield the factorized polynomial for the conditional count. The generating-function identity follows by a verified first-difference recurrence with the correct base case; a signed convolution then gives an exact distributional comparison. Real nonpositive roots give log-concavity and one likelihood-ratio crossing, converting total variation into a finite weighted local-mass maximum. A self-contained Fourier bound supplies the lattice local central limit theorem and the sharp constant. Exhaustive rank enumeration at the smallest horizons and rational identities through \(n=9\) are supplementary checks, not substitutes for the universal proof.
+PASS
 
-## Originality
+Represent J_n as count of consecutive past observations below X_n, reading backward, before first larger: P(J_n=j)=1/[(j+1)(j+2)] for 0<=j<n and P(J_n=n)=1/(n+1). Given j, the destroyed current-record count equals independent reverse-rank records K_j=sum_{i<=j} Bernoulli(1/i); these insertion ranks have independent uniform laws. Summing A_j(z) gives (2-z)F_n(z)=1+(1-z)A_n(z)/(n+1), with cancellation at z=2 because A_n(2)=n+1. Subtract the geometric PGF 1/(2-z) to obtain P(G=k)-P(B_n=k)=[P(K_n+G=k)-a_{n,k}]/(n+1). Since A_n is real-rooted with all nonpositive roots, a_{n,k} is log-concave on 1..n; ratio of its convolution with geometric to a_{n,k} is nondecreasing in k, so signed masses cross once. Stochastic dominance then makes TV equal maximal CDF gap, the displayed geometric smoothing kernel and Kolmogorov gap. Uniform lattice LLT for independent Bernoulli with variance v_n=H_n-H_n^(2)~log n follows via Fourier bound |phi_n(t)|<=exp(-2v_n sin^2(t/2)); thus max a_{n,k}~1/sqrt(2pi v_n), and geometric smoothing attains the same asymptotically at k nearest H_n, giving sharp constant. Independently enumerated all permutations for n=1..6, matched exact mixture p(B2)=(1/2,1/3,1/6), and verified finite TV values. These finite checks do not prove LLT or n->infty.
 
-PASS on the examined evidence, with a continuing risk of undiscovered equivalents. Naiman–Torcaso, *A Geometric(1/2) Distribution Associated with Record Breaking*, arXiv:2210.08426v1, proves the limiting geometric law for the same scalar time-record model; its accessible complete text contains no global total-variation rate, exact generating-function remainder, or one-crossing formula. Fill, *Breaking Bivariate Records*, arXiv:1901.08232v1, treats a different unconditional/conditional structure for genuinely random bivariate observations and does not imply this deterministic-time formula. Published related work on bivariate complete-record kills has the same distinction. Searches for finite-size generating functions, geometric total variation, permutation-cycle convolutions, and exact approximation rates found no implication establishing the present full statement. Search absence is not a proof of priority.
+## originality
 
-## Value
+PASS
 
-PASS. The primary result improves a qualitative geometric record-breaking limit to an exact finite-horizon error formula and the asymptotically sharp rate and constant. A natural \(O(1/n)\) coupling bound misses the additional \(1/\sqrt{\log n}\) factor; the one-crossing representation explains why a broadening cycle-count distribution smooths the rare long-suffix correction. The result quantifies the accuracy of a natural finite-sample approximation instead of merely recasting a known limit.
+Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.
 
-## Scientific limitations
+## value
 
-The theorem assumes i.i.d. observations without ties, and the asymptotic is for the number of observations tending to infinity. Open-access source inspection and mathematical-record searches cannot exclude unindexed prior work. Numeric checks concern finite cases, while the local theorem supplies the infinite argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This quantifies the approximation error for a concrete record-destruction process beyond a qualitative geometric limit: exact total-variation/Kolmogorov coincidence and a sharp 1/(n sqrt(log n)) rate with universal constant are mathematically useful for finite-horizon probabilistic accuracy. It integrates record-count log-concavity and smoothing of an independent Bernoulli-sum local CLT; the sharp constant is not an automatic consequence of distributional convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
