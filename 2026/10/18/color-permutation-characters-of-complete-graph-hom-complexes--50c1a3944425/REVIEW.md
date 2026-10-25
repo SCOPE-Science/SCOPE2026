@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prior nonequivariant concentration in degree \(n-m\) is exactly Babson–Kozlov [1, Proposition 4.5]. For every color permutation, a product cell contributes to the signed cellular trace only when all blocks are unions of permutation cycles. Combining its dimension parity with its orientation sign gives the weight \((-1)^{q-m}\), where \(q\) counts selected cycles. Exact Stirling-number inclusion–exclusion produces the stated character, including the disconnected boundary case \(n=m\). The quotient claim follows from the absence of sign representations in function-permutation modules using \(j-1<n\); the three-block decomposition follows from Young's rule. All three embedded verification programs reproduce the specified finite consistency checks. The infinite proof does not depend on extrapolation from those tests.
+## correctness
 
-## Originality — PASS (with bibliographic qualification)
-Babson–Kozlov [1] determine the ordinary homotopy type and homology rank, but the inspected Section 4.3 does not give the target-color \(S_n\) top-homology character, and its highlighted source-vertex involution is a different action. Thansri [2] works equivariantly with source-factor symmetry for hypergraph box/Hom comparison, not this target-color representation. Dochtermann [3] develops graph homotopy functoriality, and [4] concerns Boolean constructions and their distinct permutation actions. Related mathematical search records involve directed Hom into tournaments, finite poset endomorphism actions and deleted joins; their objects or action groups differ. The full character and quotient statement therefore supply a distinct refinement of known results. The possibility of an equivalent calculation in unindexed literature remains; no absolute novelty certification is made.
+PASS
 
-## Value — PASS
-Color relabeling is the full natural automorphism action on the target complete graph, and its effect on homology is not recoverable from the established sphere counts alone. A uniform formula for every conjugacy class and every pair \(2\le m\le n\) gives an infinite-family equivariant invariant. The exact rational acyclicity of the symmetry quotient and irreducible decomposition in the three-source case illustrate concrete topological and representation-theoretic consequences; neither is merely a rearrangement of a Betti number. No claim is made concerning integral equivariant lattices, quotient contractibility or arbitrary source graphs.
+Read fixed tree RESULT.md and artifacts/verify_action.py. For every 2<=m<=n each Hom(K_m,K_n) cell is an m-tuple of disjoint nonempty color blocks; a cell fixed under g uses q whole color cycles, with signed Lefschetz weight (-1)^(q-m). Inclusion-exclusion over onto assignments gives L(g)=sum_{j=0}^m (-1)^j binom(m,j)(1-j)^{c(g)}. Combining the known Babson-Kozlov homology wedge in degree n-m, subtracting the trivial H0 Lefschetz contribution and sign(g)=(-1)^{n-c} yields the claimed class function (all n=m boundaries included). F_{n,q} colorings with q<m<=n stabilize a repeated pair transposition, hence have zero sign-isotypic part, proving the quotient has vanishing reduced rational homology via equivariant simplicial subdivision and rational averaging. For m=3 decompose the 2^{c(g)} all-subsets module by Young rule; coefficients n-2 and n-2j+1 are nonnegative. Independently enumerated complete fixed-cell signs for (2,4),(3,4),(3,5),(4,5), 24/24/120/120 target permutations respectively; all match. Infinite claim is the counting proof plus prior nonequivariant topology.
 
-## Closest literature and limits
-[1] E. Babson–D. N. Kozlov, *Complexes of graph homomorphisms*, arXiv:math/0310056, Section 4.3; [2] T. Thansri, *Simple \(\Sigma_r\)-homotopy types of Hom complexes and box complexes*, doi:10.2206/kyushujm.66.493; [3] A. Dochtermann, arXiv:math/0605275; [4] E. Babson–D. N. Kozlov, arXiv:math/9704227. Residual risk: unindexed equivalent representation formula. Finite tests verify only the explicitly stated parameter ranges.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Babson/Kozlov full primary PDF contains nonequivariant wedge of spheres/Betti numbers, not the target-color S_n character computed here. Source permutation of source positions differs mathematically from target-color permutations. Resultary searched exact target character, sign function modules and rational quotient, no identified covering equivalent. Prior wedge is credited, priority of equivariant refinement remains best knowledge.
+
+## value
+
+PASS
+
+A uniform exact character for the natural target-color action of complete-graph Hom complexes, with a rationally acyclic symmetry quotient and explicit Specht multiplicities, is a meaningful equivariant refinement of standard nonequivariant topology and useful in graph-homomorphism representation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
