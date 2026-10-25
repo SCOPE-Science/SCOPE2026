@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verification/verify.py` with Python 3.10+ and SymPy from the package root. The program constructs the five exact leader-position objective functions, checks four crucial symbolic difference identities and the switching-root equation, proves the chosen six-vertex test signs by exact rational arithmetic, and for each of \(m=2,3,4,5\) builds the full weighted graph Laplacian at four sets of positive rational resistance/feedback parameters. It exhausts every unordered pair of distinct leaders, compares the exact inverse-trace against the formula for its orbit, and checks the minimum independently. It additionally checks positivity of the three comparison numerators at exact test values. Recorded outcome: PASS, 681 assertions.
+## correctness
 
-The exhaustive finite checks do not prove any statement for infinitely many sizes or all real parameters. Those claims rely on the positive-factor comparisons, quadratic-root analysis, and series/parallel derivation in `RESULT.md`. No external or independent audit has been conducted. Library and unindexed-literature coverage is not certified complete.
+PASS
+
+For each of the five distinct automorphism orbits of unordered leaders, effective resistance to the added grounded node is δ+(x+r)(d−x+r)/(d+2r). Explicit rational sums eliminate HS, LL and LS by strictly positive differences. Independently recomputed all four asserted symbolic rational differences with SymPy, each simplifying exactly to zero. The surviving HH–HL sign is −P_m/((b+2r)(b+2r+1)); discriminant and positive-root arguments correctly cover b≤1/(m−1), the nonempty reentrant interval, the double root, and b above the critical value. m=2,b=6/5 has roots (5±sqrt(13))/10 and independently computed signs at r=1/20,1/2,2 are +,−,+ for P_m, yielding HH,HL,HH. Expansion b_c−b_0=1/(2m³)+O(m^−4) checked symbolically. Finite matrix orbits supplement the universally quantified algebraic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: noisy consensus leader selection and resistance/centrality formulas are established by Lin–Fardad–Jovanović and Fitch–Leonard. Those general objectives could evaluate any fixed double-star pair, but inspected statements do not give the strict exclusion of all other orbits and the complete two-parameter finite-gain, reentrant optimizer classification. No numerically matching parameter is considered novelty by itself; novelty is the global case partition.
+
+## value
+
+PASS
+
+The weighted double-star is a canonical two-community tree, and two-leader pinning variance is a natural control objective. A complete optimizer phase diagram, explicit equality cases, and a nonmonotone six-node switching example are substantive structural information beyond merely evaluating one instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

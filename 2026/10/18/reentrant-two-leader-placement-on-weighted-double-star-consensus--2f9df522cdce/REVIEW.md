@@ -1,19 +1,21 @@
-# Scientific review: reentrant leader placement on double stars
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full result concerns the unique balanced double-star family with \(m\ge2\), positive bridge resistance \(b\), and positive inverse feedback gain \(r\). The inverse Laplacian is the Green function of a two-terminal grounded resistive network. A series/parallel reduction gives the effective resistance of each tree vertex; summing it over the five exhaustive leader-position orbits yields rational objective functions. Three strict positive-numerator identities exclude every non-HH/non-opposite-HL orbit. The remaining difference has the negative sign of an explicit quadratic; its discriminant and Vieta signs prove every boundary and multiplicity. The six-vertex reentrance follows by exact substitutions. The accompanying program checks symbolic factorization and full Laplacian matrices, but the infinite theorem rests on the explicit algebraic argument.
+PASS
 
-## Originality — PASS, with residual risk
+For each of the five distinct automorphism orbits of unordered leaders, effective resistance to the added grounded node is δ+(x+r)(d−x+r)/(d+2r). Explicit rational sums eliminate HS, LL and LS by strictly positive differences. Independently recomputed all four asserted symbolic rational differences with SymPy, each simplifying exactly to zero. The surviving HH–HL sign is −P_m/((b+2r)(b+2r+1)); discriminant and positive-root arguments correctly cover b≤1/(m−1), the nonempty reentrant interval, the double root, and b above the critical value. m=2,b=6/5 has roots (5±sqrt(13))/10 and independently computed signs at r=1/20,1/2,2 are +,−,+ for P_m, yielding HH,HL,HH. Expansion b_c−b_0=1/(2m³)+O(m^−4) checked symbolically. Finite matrix orbits supplement the universally quantified algebraic proof.
 
-The 2013 Lin–Fardad–Jovanović paper develops noisy-leader optimization and numerical algorithms. Fitch–Leonard's 2014 joint-centrality theory can evaluate fixed leader sets and is a strict conceptual predecessor; this result does not claim otherwise. Their inspected explicit network examples and the tree/cycle material in Patterson–Yi–Zhang do not state the weighted double-star all-parameter optimizer, the exclusion of three orbits, or the sharp reentrant resistance window. Comparisons also considered leader-selection aliases, equivalent grounded-resistance formulas, published exact tables and archived related graph results. No exact or stronger matching result was identified in the inspected sources; unindexed work or a hidden specialization remains possible. A failed keyword search alone has not been treated as a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The parameter \(b\) models weakening of a bridge and \(\kappa\) models the same practical leader-controller gain at two nodes. The result shows that moving feedback location can be optimal in a nonmonotone sequence under a monotone change in control strength. A full six-vertex witness, an exact all-size phase boundary, and an inverse-cubic width law offer a reusable analytical benchmark for stochastic control placement and a structural explanation that cannot be inferred from symmetry alone. The precise boundary and full optimizer set, rather than a generic numerical example, supply the mathematical value.
+Best-of-knowledge: noisy consensus leader selection and resistance/centrality formulas are established by Lin–Fardad–Jovanović and Fitch–Leonard. Those general objectives could evaluate any fixed double-star pair, but inspected statements do not give the strict exclusion of all other orbits and the complete two-parameter finite-gain, reentrant optimizer classification. No numerically matching parameter is considered novelty by itself; novelty is the global case partition.
 
-## Literature and limitations
+## value
 
-Full accessible primary texts: Lin–Fardad–Jovanović, arXiv:1302.0450; Fitch–Leonard, arXiv:1407.1569; Patterson–McGlohon–Dyagilev, arXiv:1412.6595; Patterson–Yi–Zhang, arXiv:1708.06873. The first two are primary historical predecessors. The proof assumes balanced arms, equal gains, equal noise, and exactly two leaders; it does not classify heterogeneous gains, arbitrary trees, or other objectives. Exact equivalent prior literature might still be located. The included 681 assertions are finite consistency checks, not a replacement for the proof or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The weighted double-star is a canonical two-community tree, and two-leader pinning variance is a natural control objective. A complete optimizer phase diagram, explicit equality cases, and a nonmonotone six-node switching example are substantive structural information beyond merely evaluating one instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
