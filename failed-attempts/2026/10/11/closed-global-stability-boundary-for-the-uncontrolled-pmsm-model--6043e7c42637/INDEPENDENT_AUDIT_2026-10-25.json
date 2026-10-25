@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T17:54:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real gamma<=1 and sigma>0, V=(x²+y²+(2−gamma)z²/sigma)/2 is positive definite and radially unbounded. Independent SymPy expansion of grad(V)·f +x²+(y−z)²+(1−gamma)z² gave exactly zero. For gamma<1 the dissipation is negative definite, implying global existence and GAS. At gamma=1 the zero-derivative set {x=0,y=z} has only the origin as invariant subset because xdot=y², so LaSalle proves all-solution convergence. For gamma>1, substitution of E±=(gamma−1,±sqrt(gamma−1),±sqrt(gamma−1)) into all three field components is exactly zero, prohibiting global attraction. Invariant compactly supported stationary measures are delta_origin, by integrating the nonnegative derivative defect and support invariance; equivalently global convergence and bounded convergence imply the same for any invariant probability. Normalization and endpoint are respected. No claim for controlled/load-forced PMSM, nor rates at gamma=1. The included verifier algebra is consistent but is not independent external certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuznetsov et al. (2020), Nonlinear Dynamics 102:713-732, Theorem 1 and proof case (1) r<=1: unique equilibrium and global attraction for any sigma>0 and b in the considered physically sound range (0,4], which includes b=1; https://link.springer.com/article/10.1007/s11071-020-05856-4#Sec2",
+          "Their general Lorenz conclusion allows b beyond this task’s fixed b=1 and thus is a dominating parameter family."
+        ],
+        "reasoning": "For b=1 and r=gamma, the 2020 global result proves attraction for 0<gamma<=1 for every sigma>0. The explicit PMSM equilibrium formulas for gamma>1 are exactly the Lorenz nonzero steady states after swapping coordinates. The extra gamma<=0 region is an elementary extension of a known Lyapunov criterion, not a separate substantive contribution.",
+        "searches": [
+          "Lorenz system origin globally asymptotically stable rho less than or equal to 1 sigma b arbitrary LaSalle",
+          "Lorenz equations r <= 1 globally asymptotically stable equilibrium origin Lyapunov",
+          "The Lorenz system hidden boundary of practical stability and the Lyapunov dimension Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1186/s13662-017-1118-1, 2017 Remark 1(i), equation (11), primary full-text HTML",
+        "doi:10.1007/s11071-020-05856-4, 2020 Theorem 1 and proof r<=1, primary full-text HTML",
+        "doi:10.1155/2017/4923987, earlier same mathematical model local analysis",
+        "doi:10.3390/math11143182, context and introductory controlled-motor application, not needed for coverage",
+        "Resultary semantic searches: exact-model / global Lyapunov / invariant-measure formulations; inspected complete distinct PMSG record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2017 PMSM paper equations (4),(11) show the identical field after state interchange: https://link.springer.com/article/10.1186/s13662-017-1118-1",
+          "2020 Lorenz paper Theorem 1 and proof directly give the natural positive-parameter GAS branch including r=1: https://link.springer.com/article/10.1007/s11071-020-05856-4",
+          "For any invariant probability mu and bounded continuous f, invariance gives integral f dmu = integral f(phi_t x)dmu; global pointwise attraction and bounded convergence force f(0), so mu=delta_0.",
+          "The prior paper explicitly gives Lorenz equilibria S±=(±sqrt((r−1)b),±sqrt((r−1)b),r−1) for r>1; under b=1 and swap these match the claimed E±."
+        ],
+        "reasoning": "The composition of an explicitly published invertible conjugacy, a global attraction theorem, elementary nonzero steady states, and the standard stationary-measure corollary entails the submitted central theorem and its corollary. Failure to include exactly the same measure-theoretic wording does not confer originality.",
+        "searches": [
+          "Dynamical analysis permanent-magnet synchronous motor chaotic system 2017 Lorenz remark interchanging x z",
+          "Lorenz system r<=1 global stability Barbashin Krasovskii Theorem 1 2020",
+          "Dynamics and Stability Permanent-Magnet Synchronous Motor He 2017 model equilibrium bifurcation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang, Liao & Mu (2017), Remark 1(i), model (4) -> Lorenz model (11), explicitly by interchanging x and z; https://link.springer.com/article/10.1186/s13662-017-1118-1#Sec3",
+          "Direct substitution X=z,Y=y,Z=x yields Xdot=sigma(Y-X), Ydot=rX-Y-XZ, Zdot=XY-Z with r=gamma,b=1; also independently checked symbolically."
+        ],
+        "reasoning": "The coordinate transformation is invertible and conjugates the whole autonomous flow exactly without time change. Local, global, and invariant-measure properties pass across it. Thus an earlier proof stated for Lorenz directly covers this PMSM system.",
+        "searches": [
+          "Lorenz PMSM model equivalent Lorenz system coordinate transformation",
+          "normalized permanent magnet synchronous motor transformed Lorenz equations x y z",
+          "permanent magnet synchronous motor Lorenz yz xz",
+          "doi:10.1186/s13662-017-1118-1 Remark 1(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary’s exact-object hit was the focal PMSM entry itself; another related finding is the distinct coefficient-one PMSG flow with z-dot=-z+xy and x-dot=a(y-x)+zy; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-stability-skeleton-of-the-coefficient-one-normalized-pmsg--a230a9b3d4e2/RESULT.md",
+          "The decisive earlier coverage is analytic: published Theorem 1 of the Lorenz paper, not a numerical parameter table or an exact-result database."
+        ],
+        "reasoning": "No finite table could establish an all-parameter global theorem; this named check is addressed through exact prior analytic theorem coverage. The superficially nearby PMSG record has genuinely different dynamics and was not falsely counted as equivalent.",
+        "searches": [
+          "Resultary semantic PMSM chaotic motor global stability gamma less than 1 invariant measure Lyapunov gamma=1 pitchfork threshold",
+          "Resultary semantic permanent magnet synchronous motor zero-input uncontrolled normalized equations xdot=-x+yz ydot=-y-xz+gamma z zdot=sigma(y-z) global asymptotic stability gamma 1 Lyapunov LaSalle",
+          "Resultary semantic permanent magnet synchronous motor global asymptotic stability equilibrium gamma sigma Lyapunov derivative -x^2-(y-z)^2"
+        ]
+      },
+      "rationale": "The full closed global-attraction claim is already implied by published Lorenz results. Zhang–Liao–Mu (2017), Remark 1(i), explicitly gives the exact coordinate swap (X,Y,Z)=(z,y,x) from this uncontrolled PMSM system to Lorenz with r=gamma,b=1. Kuznetsov–Mokaev–Kuznetsova–Kudryashova (2020), Theorem 1 and proof case r<=1, establishes all Lorenz trajectories converge to the unique origin for 0<r<=1 and every sigma>0,b=1; the endpoint follows by the standard invariant-set argument even though the article prints a strict derivative sign there. The regime r>1 has explicit nonzero equilibria, so no global attraction. The claimed compact invariant-probability rigidity follows as a general corollary of global attraction by invariance and bounded convergence for test functions, irrespective of whether this exact wording appears in prior papers. Negative gamma is outside the 2020 physical-positive-r statement but is a routine extension of the same classical quadratic argument, not a new motivated mathematical phenomenon. This is mathematical implication coverage, not a bibliographic title match.",
+      "residual_risks": [
+        "Kuznetsov et al. (2020) state a strict negative derivative at r=1 that is only semidefinite in some nonzero directions. The critical claim remains provable by an independent LaSalle/Barbashin–Krasovskii invariant-set check; this is a proof-presentation caveat, not a priority gap.",
+        "Lorenz paper uses r>0 physically. gamma<=0 is outside that stated domain, but the submitted proof extends the established Lyapunov cancellation mechanically; no independent motivation was offered for a new result restricted to negative gamma.",
+        "A full bibliographic survey of older Lorenz literature is unnecessary to disprove originality since explicit published covering results were already read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly identifies the submitted model as classical Lorenz under swap x and z, decisively invalidating its distinct-system novelty premise.",
+          "evidence": "Remark 1(i) explicitly swaps x,z and writes Lorenz (11); lines 224–231 in inspected primary HTML.",
+          "identifier_or_url": "doi:10.1186/s13662-017-1118-1; https://link.springer.com/article/10.1186/s13662-017-1118-1",
+          "material_read": "Open-access full-text HTML: model equations (3)-(4), Section 3 and full Remark 1(i), equations (11) and discussion of equivalence; bibliographic context.",
+          "method": "Published publisher HTML full text, mathematical comparison with submitted vector field",
+          "title": "Dynamical analysis of the permanent-magnet synchronous motor chaotic system",
+          "trigger": "Exact PMSM differential equations and possible Lorenz reduction"
+        },
+        {
+          "assessment": "Establishes an earlier global convergence theorem for the exact conjugate family (b=1), covering positive gamma<=1 including the boundary; printed strict derivative inequality at r=1 needs an invariant-set interpretation, which does not undermine its explicit global conclusion.",
+          "evidence": "Theorem 1 and proof case (1), equations (1),(3), Section 2: r<=1 unique origin, global attraction via Lyapunov/Barbashin–Krasovskii.",
+          "identifier_or_url": "doi:10.1007/s11071-020-05856-4; https://link.springer.com/article/10.1007/s11071-020-05856-4",
+          "material_read": "Full freely accessible publisher HTML: Lorenz field equation (1), Theorem 1, global-stability hypotheses and full proof case r<=1, nonzero equilibria and parameter ranges.",
+          "method": "Primary open-access article, theorem-and-proof reading",
+          "title": "The Lorenz system: hidden boundary of practical stability and the Lyapunov dimension",
+          "trigger": "Global attraction for Lorenz at r<=1 after identified conjugacy"
+        },
+        {
+          "assessment": "Gives corroborating local threshold/equilibria; the decisive mathematical global coverage instead comes from Lorenz reduction and 2020 Theorem 1.",
+          "evidence": "He (2017) same mathematical model equilibrium threshold and numerical observations, distinct from the broader Lorenz theorem.",
+          "identifier_or_url": "doi:10.1155/2017/4923987; https://doi.org/10.1155/2017/4923987",
+          "material_read": "Accessible published article’s normalized model, equilibrium/local stability and numerical bifurcation sections as available in HTML.",
+          "method": "Published primary article HTML text comparison",
+          "title": "Dynamics and Stability of Permanent-Magnet Synchronous Motor",
+          "trigger": "Prior same mathematical model equilibrium and bifurcation literature cited by submission"
+        },
+        {
+          "assessment": "NOT direct mathematical coverage; PMSG ODE with xdot=a(y-x)+zy, ydot=-y-xz+bx, zdot=-z+xy is not the same PMSM ODE. Excluded from decisive originality argument.",
+          "evidence": "Distinct vector field and parameter regime a=109/20,b>0 in published RESULT.md.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-stability-skeleton-of-the-coefficient-one-normalized-pmsg--a230a9b3d4e2/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, assumptions, full proof, verification, relation to prior work and references.",
+          "method": "GitHub public full-text inspection after Resultary hit",
+          "title": "Exact stability skeleton of the coefficient-one normalized PMSG flow",
+          "trigger": "Second-highest relevant Resultary semantic result, plausible different machine model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical finding, the sharp origin global-attraction threshold is already a standard classical Lorenz result transported by the exact variable permutation explicitly published for this PMSM in 2017. The invariant probability assertion is an immediate generic consequence of convergence to a single equilibrium, not a new structural invariant or separately motivated classification. The gamma<=0 endpoint extension is the same elementary energy calculation and was not motivated as a distinct physical or mathematical gap. This is a useful engineering restatement but the claimed research contribution amounts to known theorem specialization/renaming plus a routine corollary, which does not meet the mathematical-value bar independently of correctness. This judgment is not based on the size of the result or on computational reproducibility.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Positive-parameter Lorenz coverage is decisive; negative gamma is outside prior physically positive-r assumptions, but routine Lyapunov extension under the same formula does not give a separately motivated contribution.",
+    "Earlier primary theorem at r=1 prints strict derivative negativity where only semidefiniteness holds; convergence nonetheless follows by LaSalle on the unique invariant subset.",
+    "No controlled/forced-system conclusion.",
+    "Privacy sanitization incomplete; scientific rejection complete but publication transport not ready."
+  ],
+  "schema_version": 1
+}
