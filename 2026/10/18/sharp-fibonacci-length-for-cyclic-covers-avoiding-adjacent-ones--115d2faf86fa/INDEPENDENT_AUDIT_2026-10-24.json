@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T16:55:42.167127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa/check.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c/2026/10/18/sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa/check_output.txt"
+      ],
+      "rationale": "All n>=2 linearly admissible n-words avoiding 11 form arcs in a strongly connected directed overlap graph on admissible (n−1)-words, whose base arc count is F_(n+2). For each arc 0u0 with u avoiding 11 and containing 1, duplicate it: there are F_n−1, and a direct degree calculation gives in-degree = out-degree at each vertex; strong connectivity yields an Euler cycle whose periodic spelling is legal and covers every linear admissible window with claimed multiset. For lower bound, integer vertex potential phi = number of leading zeros before first one (or n−1 if none) obeys phi(tail)−phi(head)<=1 on every permissible arc and equals 1 on every duplicated arc. Subtracting one mandatory copy of each arc from arbitrary closed covering walk yields a nonnegative balanced corrective flow whose potential sum is F_n−1, proving at least that many extra traversals. This dual bound is unrestricted, not inferred from finite counts. Independently regenerated all allowed arcs, degree-balance and potential inequalities for n2..10; supplied check.py covers n2..17 and exhaustive shorter binary cycles n2..5.",
+      "residual_risks": [
+        "Requires every linearly admissible length-n word, including 101 for n=3, despite periodic repetition of that word being inadmissible.",
+        "Does not classify all shortest words or alternate optimally repeated multisets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al. 2024 RLL article maximizes length with DISTINCT allowed windows, not a shortest possibly repeated full cover.",
+          "Chee–Etzion et al. de Bruijn covering uses Hamming radius as coverage relation, not exact required substrings.",
+          "Generic directed Chinese postman theory optimizes arcs of a given directed graph via min-cost flow."
+        ],
+        "reasoning": "General route inspection could compute every finite n by solving a flow LP, but does not entail the explicit F_n−1 dual optimum and matching 0u0 multiset without a special exact potential and augmentation.",
+        "searches": [
+          "arxiv:0711.1695 periodic language de Bruijn cycles",
+          "arxiv:2403.01454 maximum RLL sequences",
+          "arxiv:2404.13674 de Bruijn Hamming covering",
+          "directed Chinese postman integer min cost flow"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:0711.1695",
+        "arxiv:2603.11934",
+        "arxiv:2403.01454",
+        "arxiv:2404.13674",
+        "arxiv:math/0310385",
+        "Resultary semantic query: de Bruijn graph shortest closed cover every binary word avoiding 11 Fibonacci directed Chinese postman run length limited"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Order-three allowed linear word 101 is excluded under periodic-forbidden rule in Moreno–Matamala, so their Eulerian lexicographic construction does not solve this cover.",
+          "Bounded Hamming weight universal cycles and run-length-limited maximal simple cycles optimize different constraint/coverage objectives."
+        ],
+        "reasoning": "None of inspected theorems implies the exact required duplicate set under a different arc language, whereas the tight first-one potential is sufficient for universal lower bound. The possibility of an earlier golden-mean de Bruijn postman formula remains.",
+        "searches": [
+          "arxiv:0711.1695 section 2.1 legal words under infinite periodic extension",
+          "arxiv:2603.11934 bounded weight decoding",
+          "arxiv:2403.01454 maximum distinct-window RLL",
+          "arxiv:2404.13674 Hamming covering arrays"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed problem is equivalently a minimum-length covering closed walk in the overlap digraph whose arcs are all length-n words with no linear occurrence of 11.",
+          "Moreno–Matamala 2007 §2.1 restricted language requires infinite periodic repetition to avoid forbidden substrings, excluding linearly allowed 101 at n=3."
+        ],
+        "reasoning": "Their minimum lexicographic restricted universal cycles demand a STRICTLY different arc set, while the audited problem requires duplicated arcs to cover linearly allowed nonperiodic words. Directed postman is an equivalent abstract optimization, not a closed Fibonacci value.",
+        "searches": [
+          "de Bruijn graph shortest closed cover every binary word avoiding 11 Fibonacci directed Chinese postman run length limited",
+          "Moreno Matamala 0711.1695 forbidden substrings de Bruijn periodic admissibility",
+          "golden mean shift directed Chinese postman closed walk minimum repeated arcs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent code verifies 3,6,10,17 at n=2..5 and source supplied output extends through 17.",
+          "Known RLL restricted-cycle tables concern periodic admissibility and sometimes maximal distinct-window length."
+        ],
+        "reasoning": "Finite numerical lists do not establish the all-n theorem; no exact matching Fibonacci postman length table identified by name or alias, with residual unindexed earlier-work risk.",
+        "searches": [
+          "de Bruijn graph shortest closed cover every binary word avoiding 11 Fibonacci directed Chinese postman run length limited",
+          "golden mean Fibonacci de Bruijn cyclic superstring shortest every n word with no consecutive ones",
+          "restricted language shortest de Bruijn covering sequence Fibonacci 3 6 10 17"
+        ]
+      },
+      "rationale": "The all-linearly-admissible constrained cyclic superstring is a directed route-inspection instance but differs in demanded arc set and objective from classical restricted de Bruijn cycles; the exact Fibonacci minimum and explicit optimal repeated arcs are best-of-knowledge new. Generic postman min-cost flow is prior; its application alone would not state the closed formula.",
+      "residual_risks": [
+        "Historical directed postman completions of golden-mean overlap graphs may contain the same Fibonacci optimum without recognizable title.",
+        "Full arxiv:math/0310385 only abstract-level comparator; uninspected details might be relevant to generalized covering codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct arc language, does not assert same sharp optimum",
+          "evidence": "Its periodic-legal word requirement excludes 101 when 11 forbidden; our order-three cover includes 101 as a linear factor.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+          "material_read": "Accessible primary PDF, introduction, §2.1 periodic legal factor definition and algorithm objective; visually examined relevant PDF page",
+          "method": "Read actual definitions to compare window sets and min-lexicographic vs min-length goal",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Closest restricted-language de Bruijn sequence theorem"
+        },
+        {
+          "assessment": "Bounded-weight decoding does not by accessible statement imply forbidden-11 all-window minimum",
+          "evidence": "Required words of bounded Hamming weight differ from binary no-11 words.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11934",
+          "material_read": "Public primary abstract and described decoding/bounded-weight objective; complete proof not independently re-read",
+          "method": "Compared constrained alphabet languages and optimization target",
+          "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+          "trigger": "Recent potential all-window superstring framework"
+        },
+        {
+          "assessment": "Maximizes number of DISTINCT admissible windows, not shortest repeated-arc full cover",
+          "evidence": "Shortest covering walk may have duplicate arcs; a maximal distinct simple cycle does not cover all linear windows.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.01454",
+          "material_read": "Accessible primary abstract and theorem descriptions concerning maximum distinct-window paths/cycles",
+          "method": "Compared objective and repeated-edge allowance",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Direct run-length-limited de Bruijn graph work"
+        },
+        {
+          "assessment": "Hamming-radius coverage, not exact substring requirement",
+          "evidence": "Any substring within a specified Hamming radius may cover a target, unlike this exact all-substring cover.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.13674",
+          "material_read": "Accessible primary abstract and Hamming-radius covering definitions",
+          "method": "Compared coverage relation and admissibility",
+          "title": "On de Bruijn Covering Sequences and Arrays",
+          "trigger": "Competing use of covering terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:0711.1695",
+        "arxiv:2603.11934",
+        "arxiv:2403.01454",
+        "arxiv:2404.13674",
+        "arxiv:math/0310385"
+      ],
+      "rationale": "Shortest cyclic superstrings representing every binary no-11 linear word are natural constrained universal-window objects, and the gap from impossible strict de Bruijn coverage demands an exact repeated-arc optimum. The result gives a complete all-n Fibonacci length, a concrete optimal cycle multiset, and a sharp combinatorial dual potential, useful as a benchmark for constrained sequence coverage beyond a finite census.",
+      "residual_risks": [
+        "No enumeration of all optimal cycles or treatment of other forbidden words; application scope is exactly stated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires every linearly admissible length-n word, including 101 for n=3, despite periodic repetition of that word being inadmissible.",
+    "Does not classify all shortest words or alternate optimally repeated multisets.",
+    "Historical directed postman completions of golden-mean overlap graphs may contain the same Fibonacci optimum without recognizable title.",
+    "Full arxiv:math/0310385 only abstract-level comparator; uninspected details might be relevant to generalized covering codes.",
+    "No enumeration of all optimal cycles or treatment of other forbidden words; application scope is exactly stated."
+  ],
+  "schema_version": 1
+}
