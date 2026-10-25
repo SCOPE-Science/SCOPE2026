@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. All seven irreducible complex representations of the Hurwitz-unit group are accounted for: three characters, three quaternionic two-dimensional twists and one tetrahedral three-dimensional representation. Determinants in the two-dimensional blocks are explicitly reduced to quaternion real parts, while the tetrahedral block is reduced to a determinant of signed permutation matrices. The cases yield exactly the stated nullities. An exact-integer exhaustive calculation checks all 253 support triples containing the identity; left-translation symmetry covers all 2024 supports. The proof, not the checker alone, explains the spectral classification.
+PASS
 
-## Originality
+All 24 Hurwitz units decompose as Q8 semidirect C3. The irreducible degrees 1,1,1,2,2,2,3 have squared sum 24. On a three-tap support, the two nontrivial linear characters vanish exactly for a Q8-coset transversal; the 2D determinant equals 1+u²+v²+2ua+2vb+2uvc (a,b,c quaternion real parts), and the 3D tetrahedral signed-permutation block vanishes exactly for the cyclic edge-order types. Combining dimensions gives nullities 16,2,8,6 for three, two, one, zero order-three edges respectively; nontransversals have nullity 0. Counting 8³ transversals and normalizing Q8 yields exactly (32,288,96,96) by edge type, plus 1512 nonsingular. Independent reconstructed modulo-1000003 ranks of 253 normalized 24×24 integer convolution matrices reproduce every count. Modular ranks are corroboration, not a complex/infinite-field proof; the complete Fourier argument gives complex classification.
 
-PASS with residual priority risk. Dechant, arXiv:1205.1451 (2012), establishes the quaternionic group model; Arezoomand and Taeri, DOI 10.37236/3105 (2013), establish the general finite-Cayley Fourier reduction. Neither inspected source supplies the explicit three-tap rank strata or all-support census. Closest published three-tap classifications address other nonisomorphic group families. A prior result on zeros of individual rank-one binary-polyhedral representation coefficients addresses a different object, not group-algebra convolution. Full-text inspection of potentially unknown older spectral tables has not been exhaustive; independent publication priority is unresolved.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The binary tetrahedral group is the canonical quaternion-by-three binary polyhedral example, and the classification captures nontrivial interaction of its one-, two-, and three-dimensional Fourier blocks. It provides a natural complete nullity classification, a quotient-transversal singularity criterion, four distinct nonzero ranks, exact finite support counts, and a sharp coset-extremizer theorem. This is more than checking individual invertibility examples or applying the Fourier formula without resolving its determinants.
+Best-of-knowledge PASS for the particular unweighted 3-tap binary-tetrahedral convolution support nullities and exact 2024-support census, not for Fourier methods or the group model. Closely related published 3-tap classifications concern groups not isomorphic to 2T. Older group-ring/cayley spectrum priority remains a risk.
 
-## Scope and risks
+## value
 
-Only distinct unweighted three-tap supports are covered. The literature comparison establishes no universal novelty certificate and supplies no independent mathematical audit. Exact-arithmetic checking is exhaustive for the asserted finite group but is not an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Motivated complete zero-eigenvalue classification for a natural nonabelian 24-element group, distinguishing representations and subgroup cosets, with four nontrivial kernel strata and sharp complete enumeration. Not a mere routine eigenvalue for one arbitrarily chosen 3-subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
