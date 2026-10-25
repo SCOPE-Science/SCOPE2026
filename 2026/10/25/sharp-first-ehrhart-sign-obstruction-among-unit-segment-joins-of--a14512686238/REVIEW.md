@@ -1,0 +1,15 @@
+# Scientific review: sharp Ehrhart-sign obstruction for box–segment joins
+
+## Correctness — PASS
+The lattice slice identity reduces the entire Ehrhart polynomial to five explicit power-sum polynomials. Their monomial expansions prove that only the linear coefficient may be nonpositive and yield its exact elementary-symmetric formula. The claimed normalized volume follows from a direct join integral. The one-side-equal-to-one obstruction and the three inequalities bounding all sorted integer tuples at volume at most the exhibited witness establish **finite exhaustiveness**. `verify.py` implements exactly those mathematical bounds and checks all 10618 sorted cases, obtaining a single violating tuple. Forward-difference calculations provide a separate rational-arithmetic check for the critical coefficient. Pair balancing is a direct exact algebraic identity. This is a finite proof of a natural finite minimum, not an assertion that finite sampling proves a general real-parameter identity.
+
+## Originality — PASS under inspected evidence
+The closest relevant papers are Liu–Tao–Xin, arXiv:2606.18794, Section 2, and Liu, arXiv:2610.06338, Sections 3–4. Both were inspected in available primary full-text form. They establish the join generating function, eventual non-positivity and specific counterexamples, but they do not classify arbitrary four-dimensional integer boxes joined to a unit segment, give the sharp normalized-volume minimizer, or the exact complementary-side balancing reversal. Existing low-dimensional join positivity results concern other factor dimensions and are not implications of the present minimum. Search matches for lattice boxes and Ehrhart \(h^*\)-log-concavity concern a different invariant and operation. The 2023 Ferroni–Higashitani survey was accessible at abstract level but not fully inspected; older equivalent tabulations remain a historical-priority risk. A negative search is not presented as proof of novelty.
+
+## Mathematical value — PASS
+The 2026 work establishes an eventual failure and exhibits a side-\(100\) cube; here the smallest normalized volume within a canonical four-parameter family is determined exactly and uniquely. The exact coefficient criterion and its balancing sign reversal organize the full positivity region, explaining why the first minimum-volume counterexample is not a cube. This gives a reproducible sharp benchmark for the geometric operation and not merely a single ad hoc counterexample. The work does not claim a new general theorem for arbitrary lattice joins.
+
+## Limitations and comparison risks
+The normalized-volume optimum is only within unit-segment joins of positive-integer four-dimensional boxes. The survey context may conceal earlier equivalent coefficient and extremal statements; no publication priority or independent validation is asserted. The mathematics beyond the finite minimum follows algebraically; the finite minimum follows the explicitly bounded exhaustive integer loop, whose range is justified in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.

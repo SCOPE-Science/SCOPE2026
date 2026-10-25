@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact lattice-height slicing gives L_J=sum_{j=0}^4 e_j F_j, with explicit polynomial F_j. All coefficients outside degree one are positive; [t]L_J=-Delta/30. Pair balancing is an exact polynomial difference. One-side-equal-one gives Delta<0. For product <=4928, the sorted-side inequalities prove an exhaustive 10618-case integer domain; the included exact verifier checks that its sole Delta>0 member is (7,8,8,11). Direct forward-difference reconstruction from lattice counts independently checks the critical coefficient. Normalized volume equals 24 times side-length product. The infinity of larger products does not affect the minimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Tao–Xin Theorem 2.3: every dilation-large Ehrhart-positive four-dimensional polytope joined with the unit interval is eventually Ehrhart non-positive.",
+        "Liu arXiv:2610.06338 Section 3 Example 3.4 cites r=100; Section 4 Example 4.1 studies a pyramid with r=7."
+      ],
+      "reasoning": "The general existence theorem does not bound the least volume or classify four independent integer edge lengths. The later survey examines a different (pyramid) operation and repeats the original join example, so neither is stronger coverage of the present minimum or its balancing identity.",
+      "searches": [
+        "arXiv 2606.18794 Liu Tao Xin exact sharp lattice join of four-dimensional rectangular boxes with unit segment",
+        "arXiv 2610.06338 Ehrhart properties lattice joins orthotopes threshold smallest counterexample",
+        "join cubes interval Ehrhart positive smallest dilation nine four dimensional 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.18794, primary HTML Introduction/Section 2",
+      "arXiv:2610.06338, primary HTML Section 3, relevant Sections 4 and 7.3",
+      "arXiv:2307.10852, abstract and metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.18794 gives the underlying join generating series and coefficients for pure powers; substitution yields the easy part of the current criterion.",
+        "The closest published numerical comparison uses an equal-side 4-box of side length 100 (arXiv:2606.18794 Example 2.4), while arXiv:2610.06338 also supplies a pyramid example."
+      ],
+      "reasoning": "The coefficient identity is acknowledged as a short algebraic specialization; the new sharp integer-volume extremum and its uniqueness require an additional discrete optimization. The pair-balancing reversal requires comparing distinct orthotopes and is not a corollary of eventual negativity or positivity preservation statements.",
+      "searches": [
+        "Ehrhart polynomial sign of join of scaled 4-cube and unit segment sharp integer threshold r 9",
+        "Balancing edge lengths of boxes Ehrhart positive joins sign transition mixed elementary symmetric coefficients",
+        "Ehrhart positivity join 4-dimensional boxes with segment sharp minimal product side lengths 4928"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.18794 Section 2 treats double power sums and coefficient signs for rP*[0,1].",
+        "arXiv:2610.06338 Section 3 recalls the same standard lattice-join convolution.",
+        "arXiv:2307.10852 abstract addresses broad Ehrhart positivity and counterexamples, without a verifiable matching full-text result."
+      ],
+      "reasoning": "Any equivalent formulation would give a sharp minimum of normalized six-volume 118272 for four-dimensional orthotopes joined with an interval, or the same degree-one coefficient condition after expressing the box Ehrhart polynomial in elementary symmetric functions. Neither inspected primary full-text section supplies the uniqueness claim, and the broad survey is not claimed fully excluded.",
+      "searches": [
+        "Ehrhart join box negative linear coefficient",
+        "Ehrhart orthotope join positivity explicit",
+        "Ehrhart positivity of lattice joins of rectangular boxes with a segment exact criterion four-dimensional box 4 parameters",
+        "join of lattice boxes with a unit interval negative Ehrhart coefficient minimized by 7 8 8 11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source table with the quadruple (7,8,8,11), product 4928 or normalized volume 118272 appeared in the inspected primary materials or targeted searches.",
+        "The submitted exact verifier exhaustively checks 10618 sorted integer candidates under the mathematically proven cutoff."
+      ],
+      "reasoning": "The minimization is a newly established finite classification for this family, rather than an asserted database lookup. Negative search results are only supporting context; the proof of minimality is the exhaustive certificate, not the literature search.",
+      "searches": [
+        "Ehrhart negative coefficients for rectangular box join 7,8,8,11 minimal normalized volume 118272",
+        "minimum-volume non-Ehrhart-positive join of four-dimensional lattice orthotope and unit segment; 4928; lengths 7 8 8 11",
+        "7 8 8 11 Ehrhart lattice join"
+      ]
+    },
+    "rationale": "The motivating arXiv:2606.18794 (Proposition 1.2 and Section 2) gives generic join power sums, eventual non-positivity and an r=100 four-cube example; it does not state or imply the unique minimum-volume four-box-by-unit-segment obstruction or the exact four-variable balancing reversal. arXiv:2610.06338 (Sections 3 and 4) repeats general operations and gives a distinct pyramid example, not this sharp box-join minimum. Searches for equivalent wording, parameters, normalized volume, orthotopes and box joins found no directly covering primary theorem. The 2023 survey was accessible at abstract level only, retaining priority risk; no failed search is treated as proof of global novelty.",
+    "residual_risks": [
+      "Older treatments, including the Ferroni–Higashitani survey, might contain equivalent formulas or a sharper table not accessible in full.",
+      "The algebraic criterion is largely an immediate specialization of known join convolution; the claimed new value is the sharp discrete optimizer and sign-reversal structure, not originality of power sums.",
+      "Independent specialist priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general convolution and eventual negativity but not four-independent-side sharp minimal volume.",
+        "evidence": [
+          "Theorem 2.3: eventual negativity for rP*[0,1], d>=4.",
+          "Example 2.4: r=100 for a four-cube.",
+          "Proposition 1.2(iv): Ehrhart series of joins multiply."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.18794",
+        "material_read": "Primary HTML full text: Introduction and entire Section 2, Proposition 1.2, Lemmas 2.1-2.2, Theorem 2.3 and Example 2.4.",
+        "method": "Read displayed definitions, identities, proofs, coefficient signs, and example parameters in the primary arXiv HTML.",
+        "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+        "trigger": "Directly motivates joins with a unit segment and gives a dimension-four cube counterexample."
+      },
+      {
+        "assessment": "No covering criterion or minimum-volume box-join statement in the relevant sections.",
+        "evidence": [
+          "Section 3 Example 3.4 repeats the four-cube join at r=100.",
+          "Section 4 Example 4.1 gives a different pyramid over a side-7 four-cube.",
+          "Section 7.3 addresses Cayley boxes, not the stated join."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06338v2",
+        "material_read": "Primary HTML full text: Section 3 (join statements, Examples 3.4-3.5) and relevant Section 4 (pyramid Example 4.1); section on Cayley boxes inspected for distinct operations.",
+        "method": "Read primary arXiv HTML statements and explicit numerical examples, comparing their operations and parameters.",
+        "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+        "trigger": "Recent broad preservation-theorem paper on lattice joins, pyramids, and boxes."
+      },
+      {
+        "assessment": "No inference of noncoverage from the abstract; retained as historical-priority residual risk.",
+        "evidence": [
+          "Survey advertises geometric and combinatorial counterexamples and Ehrhart positivity; no specific box-by-interval minimum can be checked from accessible abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.10852",
+        "material_read": "Abstract, metadata and publisher abstract only; primary full text not inspected.",
+        "method": "Checked arXiv abstract, public publisher abstract, and attempted primary HTML access.",
+        "title": "Examples and Counterexamples in Ehrhart Theory",
+        "trigger": "Historical broad Ehrhart-positivity survey cited by primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1451268-6238-4ff4-8ca0-7fec45c5f7b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recently constructed join operation produces eventual Ehrhart coefficient negativity but its concrete r=100 cube example provides no sharp size. Here a natural four-parameter orthotope family is classified coefficientwise, the smallest negative member is uniquely determined by normalized volume, and an exact complementary-pair balancing threshold explains the nontrivial anisotropy. This is a natural finite minimum benchmark and structural sign law, rather than a decorative parameter choice, table repetition or rebranding of the general join formula.",
+    "status": "PASS"
+  }
+}
