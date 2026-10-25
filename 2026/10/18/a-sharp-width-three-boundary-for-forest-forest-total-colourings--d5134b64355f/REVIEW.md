@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The counting lower bound follows from counting \(M=ab+a+b\) edges against per-color forest capacities \(N-s_c-1\); the triangle ensures \(s_c<N\) even for unused colors. The explicit universal star scheme attains the bound outside the finite boundary case. The fully specified \(K_{1,3,5}\) four-color array is directly inspected by the standalone verifier; its restrictions prove all remaining cases. Equality in all four forest capacities yields the stated spanning-tree rigidity. All integers, quantified widths, and endpoint conditions are checked.
+## correctness
 
-## Originality — PASS with residual risks
-The closest foundational primary text (Borowiecki–Kemnitz–Marangio–Mihók 2011) proves the complete-graph value in Theorem 8, not this tripartite classification. Cara–Dorfling (2026) focuses on planar families, while \(K_{1,3,5}\) contains a \(K_{3,3}\) subgraph. Karafová (2013) concerns fractional complete-graph colorings, which do not imply the integer cone result. Record searches covered alternative names and the explicit exceptional graph, and no theorem implying the exact width-three classification was identified. Priority is not independently certified, and a missed publication remains possible.
+PASS
 
-## Value — PASS
-This determines a natural generalized total-chromatic invariant exactly on the full fixed-width family \(K_{1,a,b}\), \(\min(a,b)\le3\), with all unbounded opposite-part sizes. The exceptional nonplanar \(K_{1,3,5}\) is a sharp one-color improvement over the standard hub-star/forest-decomposition construction. Its optimal colorings meet every forest capacity at equality, forcing a nontrivial spanning-tree structure for all four edge colors. The theorem identifies the first width beyond the straightforward star-only behavior and the precise transition where that exception ends.
+For 1<=a<=b and a<=3, N=a+b+1 and M=ab+a+b. Each vertex color class has s_c<N since the tripartite graph contains a triangle; the edge forest of color c avoids s_c vertices and has at most N-s_c-1 edges. Thus M<=k(N-1)-N; algebra gives k>=3 at a=1, >=4 at a=2, and >=4 for a=3,b<=5 or >=5 for b>=6. The explicit hub-color/part-color and AB-star coloring uses a+2 colors where needed. For the finite exceptional K_{1,3,5}, the RESULT.md vertex and 23 edge assignments avoid endpoint colors, give acyclic edge classes with edge counts 7,6,7,3 on the allowed 8,7,8,4 vertices and acyclic vertex-induced graphs; I checked all 23 edges, four forests, and capacity saturation independently. Deleting B columns preserves valid colorings for b=3,4. At (3,5), total forest capacity is exactly M=23, so every optimal coloring saturates each color capacity and gives a spanning tree. This establishes the entire a<=3 infinite family; finite checks only corroborate witness details.
 
-## Scientific limits
-The proof does not generalize to unrestricted tripartite widths; all-coloring enumerators and full bibliographic priority are open to separate study. Finite checks do not replace the all-order mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Borowiecki–Kemnitz–Marangio–Mihók (2011) explicitly define forest–forest generalized total colorings and prove the complete-graph value in Theorem 8, not a tripartite width-3 family. Cara–Dorfling arxiv:2608.19294 treats planar graph families; K_{1,3,5} contains K_{3,3}. A fractional total-coloring result on complete graphs uses another invariant. No located primary formula dominates the a=1,2,3 all-b classification or the saturation statement; residual coverage risk remains for unindexed tripartite total-coloring articles.
+
+## value
+
+PASS
+
+This gives a complete exact phase diagram in an unbounded natural tripartite family, determines a genuinely exceptional nonplanar K_{1,3,5} four-color witness instead of five generic star colors, and proves structural spanning-tree rigidity of every optimum at the sharp endpoint. These are nonroutine extremal facts, not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

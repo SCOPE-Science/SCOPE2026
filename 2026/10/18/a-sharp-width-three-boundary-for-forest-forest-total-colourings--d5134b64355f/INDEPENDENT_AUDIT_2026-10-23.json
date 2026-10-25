@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:12:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/a-sharp-width-three-boundary-for-forest-forest-total-colourings--d5134b64355f/RESULT.md (blob b67fa1181fa92188377539d8498c96f55477e242)",
+        "2026/10/18/a-sharp-width-three-boundary-for-forest-forest-total-colourings--d5134b64355f/verify.py (or dedicated verification source)",
+        "/mnt/data/scope_worker_08_20261023T1254_delivery/independent_checks_output.txt"
+      ],
+      "rationale": "For 1<=a<=b and a<=3, N=a+b+1 and M=ab+a+b. Each vertex color class has s_c<N since the tripartite graph contains a triangle; the edge forest of color c avoids s_c vertices and has at most N-s_c-1 edges. Thus M<=k(N-1)-N; algebra gives k>=3 at a=1, >=4 at a=2, and >=4 for a=3,b<=5 or >=5 for b>=6. The explicit hub-color/part-color and AB-star coloring uses a+2 colors where needed. For the finite exceptional K_{1,3,5}, the RESULT.md vertex and 23 edge assignments avoid endpoint colors, give acyclic edge classes with edge counts 7,6,7,3 on the allowed 8,7,8,4 vertices and acyclic vertex-induced graphs; I checked all 23 edges, four forests, and capacity saturation independently. Deleting B columns preserves valid colorings for b=3,4. At (3,5), total forest capacity is exactly M=23, so every optimal coloring saturates each color capacity and gives a spanning tree. This establishes the entire a<=3 infinite family; finite checks only corroborate witness details.",
+      "residual_risks": [
+        "Finite independent tests corroborate only tested parameters; universal argument is from source proof and standard theorem applications."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2011 Theorem 1 supplies generic inequalities and Theorem 8 yields floor(n/2)+2 for complete graphs only.",
+          "The 2026 source addresses planar graph families; K_{1,3,5} is nonplanar."
+        ],
+        "reasoning": "Generic bounds and graph families not containing the K_{1,3,5} witness do not imply the exact four-color configuration or compulsory spanning trees.",
+        "searches": [
+          "Borowiecki et al. 2011 Theorems 1,8 DOI:10.7151/dmgt.1540",
+          "Cara–Dorfling arxiv:2608.19294",
+          "generalized total coloring forest forest complete tripartite K_{1,a,b} vertex edge arboricity exact four colors"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md, verify.py blob 4145aa85bfd80531070a2a6412ee0c7d16db80a9",
+        "Borowiecki et al 2011 DOI:10.7151/dmgt.1540 full author-provided text Theorems 1,8",
+        "Cara–Dorfling arxiv:2608.19294 abstract",
+        "Karafová DOI:10.7151/dmgt.1697 abstract",
+        "Resultary search: generalized total coloring forest forest complete tripartite K_{1,a,b} vertex edge arboricity exact four colors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 calculates forest–forest generalized total chromatic number for complete K_n, not K_{1,a,b}.",
+          "Planar family results cannot give K_{1,3,5} containing K_{3,3}."
+        ],
+        "reasoning": "No mathematical implication from these reviewed statements fixes the complete tripartite width-three phase diagram; the forest-capacity equality is a separate new argument.",
+        "searches": [
+          "Borowiecki et al., Discussiones Math Graph Theory 31 (2011), p.219 Theorem 8 DOI:10.7151/dmgt.1540",
+          "Cara–Dorfling arxiv:2608.19294"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2011 primary gives the identical formal definition chi_(D1,D1) for forest vertex and edge color classes.",
+          "K_{1,a,b} is a complete tripartite graph with one singleton part; vertex/edge arboricity alone is a weaker pair of invariants."
+        ],
+        "reasoning": "Aliases including forest-forest generalized total coloring and simultaneous vertex-edge arboricity were compared by definition; none of the identified aliases converts a prior exact K_n theorem into this K_{1,a,b} formula.",
+        "searches": [
+          "generalized total coloring forest forest complete tripartite K_{1,a,b} vertex edge arboricity exact four colors",
+          "doi:10.7151/dmgt.1540",
+          "generalized (D1,D1)-total colouring complete tripartite cone forest arboricity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete direct 23-edge four-color certificate was checked from the actual RESULT.md; no earlier tabulation for this invariant on K_{1,3,5} appeared in the primary comparison.",
+          "A table of ordinary edge chromatic or fractional colors has different constraints."
+        ],
+        "reasoning": "An exact known small-graph table could imply the exceptional numerical value; no such source was located, and failed search alone does not rule it out.",
+        "searches": [
+          "generalized total coloring forest forest complete tripartite K_{1,a,b} vertex edge arboricity exact four colors",
+          "K_{1,3,5} generalized total coloring 4 colors arboricity",
+          "2011 forest forest complete graph table"
+        ]
+      },
+      "rationale": "Borowiecki–Kemnitz–Marangio–Mihók (2011) explicitly define forest–forest generalized total colorings and prove the complete-graph value in Theorem 8, not a tripartite width-3 family. Cara–Dorfling arxiv:2608.19294 treats planar graph families; K_{1,3,5} contains K_{3,3}. A fractional total-coloring result on complete graphs uses another invariant. No located primary formula dominates the a=1,2,3 all-b classification or the saturation statement; residual coverage risk remains for unindexed tripartite total-coloring articles.",
+      "residual_risks": [
+        "Cara–Dorfling full manuscript not materially inspected; scope assessed from abstract only.",
+        "Bibliography might omit a complete multipartite (D1,D1) classification with a different title.",
+        "General result concerns min part<=3 only, not unrestricted multipartite graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 8 only for K_n; source states exact values for paths/cycles/complete graphs and general inequalities, not this tripartite family",
+          "evidence": "Theorem 8 chi_(D1,D1)(K_n)=floor(n/2)+2, n>=3; ResearchGate author full text pp 209–222",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1540",
+          "material_read": "Full author-posted ResearchGate text, definitions, Theorems 1–10 including Theorem 8 and family list",
+          "method": "read full text rendered on author-hosted article page, including Theorem 8",
+          "title": "Generalized total colorings of graphs",
+          "trigger": "identical D1,D1 invariant, possible stronger general theorem"
+        },
+        {
+          "assessment": "Planarity focus does not cover nonplanar K_{1,3,5}; no whole-document noncoverage claim",
+          "evidence": "arxiv:2608.19294 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2608.19294",
+          "material_read": "Abstract and accessible source-scope summary, not complete text",
+          "method": "arXiv abstract and paper scope search",
+          "title": "On Generalized Total Colourings of Planar Graphs",
+          "trigger": "same coloring invariant, possible stronger family"
+        },
+        {
+          "assessment": "Fractional complete-graph coloring is a different invariant and class; inapplicable to integral tripartite optimum",
+          "evidence": "DOI:10.7151/dmgt.1697",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1697",
+          "material_read": "Title and abstract",
+          "method": "publisher abstract",
+          "title": "Generalized fractional total coloring of complete graphs",
+          "trigger": "parameter alias fractional coloring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md, verify.py blob 4145aa85bfd80531070a2a6412ee0c7d16db80a9",
+        "Borowiecki et al 2011 DOI:10.7151/dmgt.1540 full author-provided text Theorems 1,8",
+        "Cara–Dorfling arxiv:2608.19294 abstract",
+        "Karafová DOI:10.7151/dmgt.1697 abstract",
+        "Resultary search: generalized total coloring forest forest complete tripartite K_{1,a,b} vertex edge arboricity exact four colors"
+      ],
+      "rationale": "This gives a complete exact phase diagram in an unbounded natural tripartite family, determines a genuinely exceptional nonplanar K_{1,3,5} four-color witness instead of five generic star colors, and proves structural spanning-tree rigidity of every optimum at the sharp endpoint. These are nonroutine extremal facts, not arbitrary numerical slices.",
+      "residual_risks": [
+        "Cara–Dorfling full manuscript not materially inspected; scope assessed from abstract only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
