@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification checks and limits
+# Independent mathematical audit
 
-The mathematical argument in `RESULT.md` establishes the formula for every integer \(n\ge4\). It handles every rooted ordered DFS tree, including trees with branches, and constructs an attaining path.
+## correctness
 
-Run `python3 verify_wheel_klx.py` with Python 3 and no external dependencies. The program builds each wheel directly, enumerates all ordered DFS traversals at rim orders three through nine (2,380 total, of which 1,428 have branching), calculates the traversal contour, represents non-tree edges as arcs from the descendant's last contour occurrence to the next ancestor occurrence, and counts arcs crossing each reverse tree edge. Exact minima agree with \(\lceil n/2\rceil+1\) for each tested rim order. The explicit attaining paths are independently checked through rim order 500; star cuts are also checked.
+PASS
 
-Finite enumeration is not an exhaustive proof beyond the enumerated orders. The matching general upper and lower bounds are deductive. No independent audit has been performed.
+PASS. For every n>=4, wheel K1∨C_n has KLX=DTC=ceil(n/2)+1, classical stc=3 and tw=3. In any ordered DFS tree with hub root or leaf the hub cut gives n-1 crossing non-tree edges. Otherwise pre-hub ancestors form one nonempty contiguous rim path length a, and all remaining rim vertices belong to hub's unique DFS-child subtree. Its entering and departing tree-edge cuts each cross two rim edges and respectively a or n-a hub spokes, hence backedge crossing-only congestion at least max(a+1,n-a+1). An explicit Hamiltonian DFS path with a=floor(n/2) rim vertices before hub makes all non-tree edges crossing and yields equality; hub star shows stc=3 and width-3 bags with a K4 minor prove tw=3. Boundary n=4 and excluded n=3 noted. Inspected source full traversal/arc verifier; its enumeration of n<=9 and explicit paths to n<=500 are support only, not proof of arbitrary n.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
+
+## value
+
+PASS
+
+PASS. DFS-restricted congestion versus conventional spanning-tree congestion is a natural comparison in the new KLX parameter. This theorem gives an exact unbounded additive and multiplicative penalty within planar three-connected fixed-treewidth wheel graphs, a structural separation not implied by a general maximum-degree lower bound. The two hub-adjacent cut argument is portable to other apex DFS problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

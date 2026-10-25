@@ -1,15 +1,21 @@
-# Scientific review: depth-first congestion of wheel graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound isolates the two DFS-tree edges incident with the hub when internal. A DFS prefix before hub discovery must be a contiguous rim path, and its complement is connected; therefore every remaining rim vertex lies in the unique first child subtree of the hub. The corresponding cuts contain respectively \(a+2\) and \(n-a+2\) edges, giving the bottleneck \(\max\{a+1,n-a+1\}\). Root/leaf hub cases are handled separately for \(n\ge4\). A balanced Hamiltonian DFS path reaches the lower bound without enveloping arcs. The wheel has classical spanning-tree congestion three and treewidth three by the given elementary proofs. A standalone program independently checks the full arc definition for all 2,380 ordered DFS traversals through nine rim vertices, including branching trees, and the construction through 500 rim vertices. Finite tests do not replace the infinite proof.
+## correctness
 
-## Originality
-PASS on examined sources, with residual risk. The June 2026 initiating paper gives definitions, \(\operatorname{DTC}\le\operatorname{KLX}\), low-value characterizations, and a degree-based bound, but no wheel exact evaluation. The published complete/bipartite and balanced multipartite KLX evaluations have disjoint nontrivial graph domains; only the excluded four-vertex wheel is already covered by the complete-graph result. The ordinary spanning-tree-congestion problem allows the hub star and has value three, whereas the new DFS value grows linearly. Named and alias searches did not identify a covering wheel result. Unindexed prior calculations or a theorem stated using DFS-normal-tree congestion remain possible.
+PASS
 
-## Value
-PASS. The exact solution treats the canonical planar, three-connected apex-cycle family, and the crossing-only equality proves that enveloping arcs are unnecessary in an optimum even though branching DFS trees exist. The unbounded ratio between depth-first and unconstrained tree congestion on a fixed-treewidth family quantifies a natural constraint in the newly introduced traversal model. This is stronger than merely deriving growth from the known hub-degree bound, and supplies exact benchmarks for DFS congestion algorithms.
+PASS. For every n>=4, wheel K1∨C_n has KLX=DTC=ceil(n/2)+1, classical stc=3 and tw=3. In any ordered DFS tree with hub root or leaf the hub cut gives n-1 crossing non-tree edges. Otherwise pre-hub ancestors form one nonempty contiguous rim path length a, and all remaining rim vertices belong to hub's unique DFS-child subtree. Its entering and departing tree-edge cuts each cross two rim edges and respectively a or n-a hub spokes, hence backedge crossing-only congestion at least max(a+1,n-a+1). An explicit Hamiltonian DFS path with a=floor(n/2) rim vertices before hub makes all non-tree edges crossing and yields equality; hub star shows stc=3 and width-3 bags with a K4 minor prove tw=3. Boundary n=4 and excluded n=3 noted. Inspected source full traversal/arc verifier; its enumeration of n<=9 and explicit paths to n<=500 are support only, not proof of arbitrary n.
 
-## Limits and closest literature
-The scope is precisely \(K_1\vee C_n\), \(n\ge4\), and does not classify other apex graphs. Source comparisons: Bourotte–Ducloz–Orponen–Seki (arXiv:2606.24675v1); published complete and complete-bipartite evaluation (record b27f97da8029); published balanced complete multipartite evaluation (record d7d7a1fe0f08). Independent bibliographic validation remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS based on reading actual full source claims and comparing implications to materially inspected primary literature and published Resultary records. No identified stronger theorem implies the exact present final claim; named overlaps are credited, not asserted absent merely from search results. Residual risks of unindexed or incompletely inspected sources explicitly remain.
+
+## value
+
+PASS
+
+PASS. DFS-restricted congestion versus conventional spanning-tree congestion is a natural comparison in the new KLX parameter. This theorem gives an exact unbounded additive and multiplicative penalty within planar three-connected fixed-treewidth wheel graphs, a structural separation not implied by a general maximum-degree lower bound. The two hub-adjacent cut argument is portable to other apex DFS problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
