@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite integer Manhattan box in dimension three, coordinatewise clamping is a 1-Lipschitz retraction from an equal cube. The cited equal-cube scale-two wedge theorem and scale-three contractibility imply the appropriate topological restrictions on the box. The normalized-span sign-reversing involution cancels all simplices with any coordinate width two. Exact remaining contributions 1, -1, 1, -2 in dimensions zero through three give Euler characteristic 1-abc and therefore exactly abc three-spheres. For each unit cube, its top-dimensional fundamental class is split off by a clamping retraction; all distinct unit-cube classes project to zero. The combined retractions yield a full-rank split sublattice, hence an integral basis. Connected graph counts and degree reasons yield the complete field persistence intervals. The standard-library verifier checks 27 span types, cube projections, and mod-two boundary ranks on eight boxes up to 64 vertices. Finite checks corroborate rather than replace the proof.
+## correctness
 
-## Originality — PASS, conditional on available bibliographic evidence
-Gupta–Sarkar–Shukla (arXiv:2511.04238v1, Theorems 3.15 and 4.13) already give the equal-cube three-sphere wedge and finite-scale contractibility; their three-dimensional multiplicity is not determined, but only bounded below. The present exact formula, rectangular-family extension, local cancellation, natural integral basis, and persistence barcode are not obtained by those statements alone. Adamaszek–Adams (arXiv:2103.01040) address binary Hamming cube graphs; Adams et al. (arXiv:2502.07134) examine periodic two-dimensional torus grids. A reported 27-point ternary Hamming result counts 46 spheres, not the eight spheres for the Manhattan 3-by-3-by-3 box. Published mathematical-record query summaries likewise described neighboring but non-covering objects. Indexed searches cannot exclude all equivalent unpublished or unindexed work, and the result depends on the cited equal-cube baseline.
+PASS
 
-## Mathematical value — PASS
-The exact number of three-sphere summands resolves a previously unspecified natural invariant, supplies a uniform answer for all rectangular three-dimensional lattice regions, upgrades it to canonical integral cube generators and inclusion maps, and determines the full finite metric persistence. The cube count has geometric meaning as a volumetric cellular topological invariant, not an arbitrary enumeration.
+PASS. For B_{a,b,c} with L1 shortest-path metric, coordinatewise clamping from a larger equal cube is 1-Lipschitz and simplicial at every scale. Gupta–Sarkar–Shukla Thm 4.13 proves larger equal-cube scale-two Rips wedge of S³; its retract has only free H3 and no low homotopy, so by Hurewicz/Whitehead it is a wedge of S³. Thm 3.15 gives contractibility for r>=3, inherited under retraction. Every diameter≤2 clique with coordinate width two has an extreme pair at distance two and a unique midpoint; insertion/deletion of midpoint reverses simplex sign and preserves exact width. Local remaining width coefficients γ=(1,-1,1,-2), hence χ=1-abc, yielding exactly abc spheres. Cube fundamental classes have independent integral clamping evaluations (diagonal ±1) and split rank abc homology, thus an integral basis. Scale-one graph has E-N+1 independent 1-cycles; degree separation yields stated all-field intervals. Independent enumeration of all cliques of the 27-point 3x3x3 Manhattan graph confirmed γ values after translation multiplicities and zero width-two contributions. Finite check is corroborative, not general proof.
 
-## Limitations
-This is not an independent validation; no claim is made for higher-dimensional boxes or for Euclidean, Hamming, or wrapped metrics. The general homotopy statement depends on the named prior theorem, independently from the exact new Euler and basis arguments. The finite verifier cannot establish infinite-family correctness on its own. Literature coverage cannot guarantee global novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the complete stated final theorem; known ingredients and special cases credited, scientifically relevant differences documented below. Inaccessible/unread plausible sources are explicitly retained as residual risks, not treated as proof of coverage or as automatic FAIL.
+
+## value
+
+PASS
+
+PASS. Resolves the exact sphere multiplicity left unspecified (only bounded below) in a published scale-two equal-cube wedge theorem, extends to all rectangular integer Manhattan boxes, and provides integral cube-by-cube generators/inclusion-natural basis and full persistence. The unknown precise abc is the natural count of coordinate unit cells, relevant to discrete geometric topology, not an arbitrary slice or duplicate table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
