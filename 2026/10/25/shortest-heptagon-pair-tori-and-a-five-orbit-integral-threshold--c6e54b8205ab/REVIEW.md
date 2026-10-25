@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The explicitly presented McGee graph has \(24\) vertices, \(36\) edges, girth \(7\), \(32\) shortest cycles, and \(152\) unordered vertex-disjoint shortest-cycle pairs. The complete unordered two-particle cubical model has chain ranks \((276,792,558)\), a second boundary of rank \(504\) modulo \(101\), and a signed torus-column minor of exact determinant \(+1\) in rank \(54\). The modular lower bound and kernel upper bound coincide, while the unimodular projection proves integral generation. Exhaustive symmetry enumeration gives \(32\) automorphisms and seven orbits; every four-orbit union is mod-two deficient; exact Smith normal forms prove the five-orbit and three-orbit quotient claims. The standalone program recomputes each critical assertion from graph definitions. Risk: the computation depends on the stated graph and orientation conventions; the code checks both signed boundary composition and all product-torus boundaries.
+
+## Originality — PASS
+The closest general papers address ordered two-point deleted products and planar graph braid homology. The McGee graph is nonplanar; none of the inspected full texts states or entails the exact shortest-heptagon torus census, unimodular integral basis, or orbit threshold. A McGee independence-complex result applies to a different construction, and a Coxeter-graph torus-lattice calculation to a nonisomorphic graph. Searches included the McGee name, its \((3,7)\)-cage alias, relevant homology and cycle-pair numbers, equivalent integral quotient statements, and broader geometric-generation results. No claim of universal uniqueness follows from the database comparison. Risk: a doctoral thesis was accessible by abstract but not full text, and unindexed equivalent calculations remain possible.
+
+## Mathematical value — PASS
+The McGee graph is the unique minimal cubic graph of girth seven, and its automorphism group is not vertex-transitive. Shortest cycles therefore form a distinguished geometric family, not an arbitrary numerical slice. The result proves their integral sufficiency, displays an index-\(16\) obstruction invisible over \(\mathbb Q\), and determines the smallest number of symmetry orbits required to generate the full integer homology. These are structural features beyond the Betti number and are pertinent to geometric generation in nonplanar graph-configuration spaces. Risk: conclusions are specific to one extremal graph; no general theorem for other cages is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
