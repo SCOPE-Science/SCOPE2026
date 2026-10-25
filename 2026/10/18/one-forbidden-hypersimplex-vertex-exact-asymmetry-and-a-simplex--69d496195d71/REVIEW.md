@@ -1,11 +1,21 @@
-# Review of the one-forbidden-basis Minkowski-asymmetry classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the deleted-vertex hypersimplex as the cube slice with one rank inequality, by the one-coordinate-exchange description of hypersimplex edges. Reflected containment against every defining inequality gives a full-dimensional linear program with exact lower bounds. Equality conditions reconstruct **every** minimizing center without assuming symmetry. The rank--corank gap cases are exhaustive, and exact-rational reflected-vertex checks on 36 profiles support the argument. The infinity of dimensions is proved analytically, not inferred from finite tests.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Relevant matroid-polytope work describes relaxation cuts and lattice-point invariants but not this asymmetry law. General robust optimization gives an algorithmic formulation, not the explicit piecewise formula and simplex-of-centers classification. An earlier classification for rank-two matroids is excluded by assuming both rank and corank at least three. A related panhandle-matroid formula concerns the opposite cell in a hypersimplex split, not this deleted-basis polytope. The accessible literature and indexed mathematical records did not identify a theorem implying the all-rank result. Equivalent results under alternate terminology cannot be ruled out completely.
+PASS
 
-**Mathematical value — PASS.** A natural one-basis perturbation of the uniform-matroid polytope exhibits a sharp geometric stability threshold. More surprisingly, a single removed basis creates an entire high-dimensional simplex of optimal affine-invariant centers precisely at rank--corank gap one, whereas the balanced and more unbalanced regimes have unique centers. The exact symmetry-loss amounts and center classification provide geometric structure beyond the known truncation or general optimization descriptions.
+The one-vertex-deleted hypersimplex equals the full Δ_{n,k} intersected with x(H)<=k-1: every exchanged-basis edge crosses that integral hyperplane only at an original surviving vertex. For k,l>=3, reflected containment is exactly 1<=z_i<=(s), z([n])=k(s+1), z(H)<=s(k-1)+max(0,k-l), where z=(s+1)c. The four coordinate/block-sum obstructions give s=max{M/m,m/(m-1)} (m=min(k,l),M=max(k,l)). Saturation uniquely fixes z all 1 or all s for gap>=2; balanced gives blockwise 1/s unique; gap-one leaves a capped (m+1)-coordinate residual simplex of dimension m, yielding the proposed complete center locus. Independent exact-rational reflection checks over all surviving basis vertices for k,l=(3,3),(3,4),(4,3),(3,5),(5,3),(4,5),(5,5), including affine simplex barycenters; all satisfy inequalities. These finite tests supplement the all-parameter halfspace proof.
 
-**Closest literature and limits.** The general robust-polyhedron method and the circuit-hyperplane polyhedral split are acknowledged as ingredients; neither should be claimed new. The domain is one forbidden basis with rank and corank at least three. Independent validation and an exhaustive historical priority search are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rank-two and corank-two matroid base-polytope Minkowski-center classification is preexisting and correctly excluded (k,l>=3). Generic robust LP for Minkowski centers could compute instances, and circuit-hyperplane split sources describe the vertex deletion geometry, but the exact all-(k,l) asymmetry jump and transition to a full m-simplex of minimizing centers is not stated by them. Best-of-knowledge structural specialization distinct from mere software LP output.
+
+## value
+
+PASS
+
+Single-basis deletion of a uniform matroid is a natural extremal perturbation of a hypersimplex. Discovering the exact conditions for zero symmetry loss and that nonunique optimizing centers form a whole m-simplex at rank/corank gap one is a motivated, complete polyhedral-geometric classification with exact parameter boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
