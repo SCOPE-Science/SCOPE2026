@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The monotone cost c(n)=floor(n^2/4)/n gives n_i<=12 and s<=6. The included exact checker enumerates every nondecreasing multiset in that finite domain, with rational costs, and proves the unique maximum lcm is 60 at (3,4,5). The component-group product has exponent equal to that lcm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The accessible abstract of arXiv:2608.09002 gives the single-reducible-fiber threshold and a non-semiample example.",
+        "The full text of arXiv:2609.23306 gives the multi-fiber delta criterion and sum-based N criteria; no lcm optimization is stated in the inspected sections."
+      ],
+      "reasoning": "These sources establish the geometric context and constraints, but their stated conclusions do not dominate the exponent optimization. The earlier source's full text remains an explicit residual risk.",
+      "searches": [
+        "arXiv:2608.09002 Mori dream Jacobian elliptic surfaces of Kodaira dimension one",
+        "arXiv:2609.23306 semistable Jacobian elliptic surfaces delta definition floor(n_i^2/4)/n_i polyhedral cone theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.09002v1 (abstract and metadata)",
+      "arXiv:2609.23306v1 (full HTML text, Theorem 1.1 and Sections 1-2)",
+      "The included exact finite verifier verification/check_lcm_bound.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source literature's N(pi) quantity is a sum of fiber indices, whereas the new invariant is their least common multiple.",
+        "The unique lcm extremizer (3,4,5) has sum 12 and cost 43/15; the source's sum-based sufficient criterion does not state an lcm maximum."
+      ],
+      "reasoning": "A bound or equality classification for the sum does not imply the lcm maximum: lcm is sensitive to coprimality and prime-power structure. The new finite classification therefore adds a distinct invariant rather than renaming the sum result.",
+      "searches": [
+        "arXiv:2609.23306v1 Theorem 1.1 delta(pi) N(pi) Mori dream criteria",
+        "arXiv:2608.09002v1 single I_n fiber threshold n<=4chi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.23306v1 defines delta(pi)=sum floor(n_i^2/4)/n_i and states the polyhedrality criterion delta(pi)<=chi; it also discusses N(pi)=sum n_i.",
+        "The exponent of a finite product of cyclic groups Z/n_i Z is lcm(n_i); this is not the same invariant as N(pi)."
+      ],
+      "reasoning": "The published delta condition supplies the feasible region, but the inspected statements do not optimize the least common multiple. The new conclusion is an exact finite extremal classification inside that region.",
+      "searches": [
+        "arXiv:2609.23306v1, full-text HTML, Theorem 1.1 and Sections 1-2",
+        "arXiv:2608.09002v1, abstract and metadata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved papers discuss the delta constraint and sum-based Mori-dream criteria, but no exact table for the maximum lcm under delta<=3 was identified.",
+        "The standalone exact enumeration in verification/check_lcm_bound.py provides the finite classification for this numerical problem."
+      ],
+      "reasoning": "There is no natural published table to cite for this derived finite optimization; the mathematical object is a constrained multiset problem, and the full feasible set is enumerated exactly in the included verifier.",
+      "searches": [
+        "elliptic surface torsion subgroup Mordell-Weil injects product of component groups I_n fiber orders n_i",
+        "maximum least common multiple lcm of reducible fiber sizes n_i under sum floor(n_i^2/4)/n_i <= 3 semistable Jacobian elliptic surface component group exponent"
+      ]
+    },
+    "rationale": "The claim optimizes the exponent lcm(n_i), not the previously studied sum N=sum n_i. The inspected full text states the delta criterion and sum-based criteria but not this lcm maximum. The earlier source full text was inaccessible, so priority is not claimed absolutely.",
+    "residual_risks": [
+      "The full text of arXiv:2608.09002v1 was not retrieved; it may contain an unindexed related numerical observation.",
+      "An older source may optimize the exponent of the product of component groups under an equivalent formulation.",
+      "The extremal numerical multiset I_3+I_4+I_5 has not been shown here to be geometrically realized by a surface satisfying all assumptions.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_CONSTRAINT_NOT_LCM_OPTIMIZATION",
+        "evidence": "Theorem 1.1 states delta<=chi as the polyhedrality criterion and gives an N-based sufficient condition; the inspected text does not state the maximum lcm at chi=3.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.23306",
+        "material_read": "Abstract and full arXiv HTML text, especially the introduction, Theorem 1.1, and Sections 2.2-2.5.",
+        "method": "Compared the exact definitions, hypotheses, delta condition, sum N, and stated conclusions.",
+        "title": "Semiampleness on Jacobian elliptic surfaces of Kodaira dimension one",
+        "trigger": "Same fiber-index objects and the exact delta constraint; most plausible source for a stronger multi-fiber statement."
+      },
+      {
+        "assessment": "INCOMPLETE_PRIORITY_CHECK",
+        "evidence": "The abstract gives the n<=4chi threshold and a non-semiample example but does not mention an lcm optimization. Full-text coverage remains possible.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.09002",
+        "material_read": "ArXiv abstract and metadata only; full text was not retrieved through the available arXiv access attempts.",
+        "method": "Abstract-level statement comparison only; no whole-document noncoverage claim is made.",
+        "title": "Mori dream Jacobian elliptic surfaces of Kodaira dimension one",
+        "trigger": "Original source of the one-reducible-fiber polyhedrality threshold cited by the later paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39c967fb-4693-4bbf-9a17-eb928161aa81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exponent of the reducible-fiber component-group product is a natural integral invariant of the root-lattice data and controls the possible orders of its elements. The exact chi=3 bound and unique equality pattern provide a complete first-case constraint for torsion and lattice-gluing questions, without claiming a general formula or geometric existence.",
+    "status": "PASS"
+  }
+}
