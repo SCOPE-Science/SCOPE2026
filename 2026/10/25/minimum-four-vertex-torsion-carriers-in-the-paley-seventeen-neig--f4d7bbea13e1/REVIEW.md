@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A deterministic standalone checker reconstructs all simplices and verifies signed chain identities. The second and third boundary ranks are respectively 120 and 491 in characteristic three, giving one nonzero degree-two homology direction. All 2380 possible four-vertex supports are exhausted; exactly 510 induce missing-tetrahedron spheres. Direct third-boundary membership checks for all 510 establish 476 essential and 34 null supports, with six explicitly counted affine orbits. The local support lower bound follows from the edge-incidence equations for four vertices. The published integral order-three result is prior work, not re-proved as a new claim.
+
+**Originality — PASS with residual bibliographic risk.** The closest exact-complex paper establishes a Moore-space wedge and complete face counts. Its full scientific RESULT was read; no four-support census, null orbit, or essential-orbit classification appears. A prior action computation for the same complex describes its homology representation but not representatives. Kahle's 2005 primary paper develops neighborhood-complex theory for random graphs, not this deterministic finite calculation. Relevant published-finding corpus searches under aliases and numerical parameters found no covering record. Additional unpublished or unindexed calculations cannot be excluded.
+
+**Mathematical value — PASS.** A nontrivial three-primary class in this canonical strongly regular graph's neighborhood complex raises the natural geometric question of shortest explicit cycles carrying it. The sharp four-vertex threshold and complete classification distinguish 476 essential from 34 inessential induced spheres, information not determined by a Moore-space homotopy type or the one-dimensional homology representation. The contrast of five surviving orbits with one vanishing orbit gives concrete structural geometry for the torsion class, rather than an arbitrary numerical slice.
+
+**Limitations.** The theorem concerns mod-three homology and a single finite complex. Exact integral Smith form and fundamental-group conclusions are accepted as known background when mentioned, not certified anew. Exhaustive finite computations establish the stated support census; no infinite family is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
