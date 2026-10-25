@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matrix parameterization is algebraically equivalent to the specified Rodrigues rotation and valid on the entire fundamental interval. Eight feasible vertices generate twelve explicit nondegenerate supporting triangles, six from each cube. The three-dimensional facet bound \(f_2\le2f_0-4\) rules out any omitted facets, so the twelve halfspaces exactly define the intersection. Each support plane is unit distance from the origin, giving volume as one third of the total area. The cosine-parameter derivative proves strict monotonicity, and cube threefold symmetry supplies all angles. Symbolic and exact-rational certificate checks, and an independent halfspace hull reconstruction, pass. Edge case \(\theta=0\) is handled as the undeformed cube.
+## correctness
 
-## Originality
-PASS relative to materially inspected and discoverable records, not an assertion of global priority. The closest full text of Nye–Kulchitsky–Johnson (doi:10.1002/nag.2299) studies computational handling of dilated polyhedral particles rather than explicit rotated-cube intersection volume. The full accessible contact-volume work (doi:10.1007/s00466-026-02822-6) has a cube rotation about the coordinate \(z\)-axis, not the threefold body-diagonal action. Wolinski's cited 2004 problem concerns the union swept over all angles. Published computational results involving translation covariograms or cube–octahedron intersection do not imply a two-congruent-cube rotational overlap law. Novelty searches cannot prove priority, and older recreational-geometry publications are a residual risk.
+PASS
 
-## Mathematical value
-PASS. Relative rotational overlap, facet topology and extremal overlap are natural complete invariants of a basic geometric alignment family. The exact three-quarter minimum and the rigidity of a twelve-triangle equifacial intersection throughout the nontrivial family explain geometric changes that overlap estimates alone do not capture. The result is a nontrivial complete one-parameter classification, not a special-angle computation or merely an application of an already identified formula.
+Read frozen RESULT.md and check_cube_twist.py. Rodrigues rotation in q has rows a=2(q+1)/(q²+3), b=(q²-1)/(q²+3), d=2(1-q)/(q²+3). Eight candidate points +-w and +-cyclic(1,-1,q) satisfy all twelve original and rotated cube halfspaces. Each of twelve planes cuts out a nondegenerate triangle with area (3+q²)/2; Euler plus F<=2V-4 with V<=8 proves no missing facets, hence intersection exactly candidate hull. Facet apices lie at signed unit support distance and partition volume: V=12/3*(3+q²)/2. q monotone from one to zero on the fundamental interval, endpoints correctly distinguish cube versus eight-vertex twelve-triangle polyhedron. Independently constructed exact rational rotation and 60 active facets for five rational q values incl q=0, checked orthogonality, all halfspace incidences and area identities. Infinite continuum follows exact geometric argument, not angle sampling.
 
-## Scope and limitations
-Centered equal cubes and rotations about a shared body diagonal only; no arbitrary rigid motions. The available comparisons do not certify exhaustive historical priority. Independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+Body-diagonal relative cube overlap is a natural rotational covariogram/contact benchmark. Closed volume/area laws and rigidity of combinatorial facet type at every nonzero fundamental angle are independently useful exact geometry, not generic contact numerics or swept-volume computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical verification relies on the explicit symbolic identities, supporting-plane vertex triples, Euler facet bound and pyramid-volume decomposition in RESULT.md. The included reproducible `check_cube_twist.py` performs: (i) symbolic orthogonality, rotation determinant, support-plane cross-product and derivative checks; (ii) 97 rational interior cases plus the two endpoints for all twelve active planes; and (iii) 231 independent NumPy/SciPy halfspace intersections and convex-hull volume reconstructions. The exact-rational case checks do not by themselves prove the continuum theorem; the displayed analytic proof does.
+## correctness
 
-Run `python check_cube_twist.py` from the extracted package directory. SymPy is required, and the independent hull check also requires NumPy and SciPy. No external certification or independent audit was carried out.
+PASS
+
+Read frozen RESULT.md and check_cube_twist.py. Rodrigues rotation in q has rows a=2(q+1)/(q²+3), b=(q²-1)/(q²+3), d=2(1-q)/(q²+3). Eight candidate points +-w and +-cyclic(1,-1,q) satisfy all twelve original and rotated cube halfspaces. Each of twelve planes cuts out a nondegenerate triangle with area (3+q²)/2; Euler plus F<=2V-4 with V<=8 proves no missing facets, hence intersection exactly candidate hull. Facet apices lie at signed unit support distance and partition volume: V=12/3*(3+q²)/2. q monotone from one to zero on the fundamental interval, endpoints correctly distinguish cube versus eight-vertex twelve-triangle polyhedron. Independently constructed exact rational rotation and 60 active facets for five rational q values incl q=0, checked orthogonality, all halfspace incidences and area identities. Infinite continuum follows exact geometric argument, not angle sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.
+
+## value
+
+PASS
+
+Body-diagonal relative cube overlap is a natural rotational covariogram/contact benchmark. Closed volume/area laws and rigidity of combinatorial facet type at every nonzero fundamental angle are independently useful exact geometry, not generic contact numerics or swept-volume computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

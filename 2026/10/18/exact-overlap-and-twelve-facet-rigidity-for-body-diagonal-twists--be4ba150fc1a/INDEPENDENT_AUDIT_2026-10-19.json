@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T23:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read frozen RESULT.md and check_cube_twist.py. Rodrigues rotation in q has rows a=2(q+1)/(q²+3), b=(q²-1)/(q²+3), d=2(1-q)/(q²+3). Eight candidate points +-w and +-cyclic(1,-1,q) satisfy all twelve original and rotated cube halfspaces. Each of twelve planes cuts out a nondegenerate triangle with area (3+q²)/2; Euler plus F<=2V-4 with V<=8 proves no missing facets, hence intersection exactly candidate hull. Facet apices lie at signed unit support distance and partition volume: V=12/3*(3+q²)/2. q monotone from one to zero on the fundamental interval, endpoints correctly distinguish cube versus eight-vertex twelve-triangle polyhedron. Independently constructed exact rational rotation and 60 active facets for five rational q values incl q=0, checked orthogonality, all halfspace incidences and area identities. Infinite continuum follows exact geometric argument, not angle sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polyhedral dilated-contact algorithms compute distances and numerical volumes; rotation benchmark in 2026 concerns coordinate z-axis, not 3-fold body diagonal. Translation-only covariograms hold orientation fixed."
+        ],
+        "reasoning": "General polyhedral algorithms could evaluate an instance but do not publish or logically determine this one-parameter closed form and rigid facet classification without the new geometric specialization.",
+        "searches": [
+          "doi:10.1002/nag.2299",
+          "doi:10.1007/s00466-026-02822-6",
+          "Resultary hypercube translation overlap"
+        ]
+      },
+      "checked_sources": [
+        "Nye, Kulchitsky, Johnson, Intersecting dilated convex polyhedra, DOI 10.1002/nag.2299",
+        "Solving contact problems using Fiber Monte Carlo, 2026, DOI 10.1007/s00466-026-02822-6",
+        "Wolinski, Le cube en rotation, 2019, swept union of rotating cube",
+        "Bianchi, Matheron covariogram problem, 2005, translational (abstract level)",
+        "Resultary cube–cross-polytope intersection and translation-distance phase results, nonidentical problems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Methodological commonality of convexity/intersection does not mean union swept by all rotations equals overlap of two fixed orientations."
+        ],
+        "reasoning": "Neither cited prior main theorem entails volume=6+2q² and twelve facet congruences; residual unindexed equivalent recreational result remains plausible.",
+        "searches": [
+          "Nye contact DOI 10.1002/nag.2299",
+          "Wolinski swept union 2019",
+          "Bianchi translational covariogram abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent description as simultaneous intersection of twelve unit-support halfspaces and the convex hull of eight explicit points; both established symbolically."
+        ],
+        "reasoning": "Searched rotational overlap and 8-vertex/12-face terminology, not just cube-title similarity; numerical contact reports do not supply the formula with exact geometry.",
+        "searches": [
+          "intersection volume of two cubes rotated around common body diagonal volume dodecahedron twelve triangular faces",
+          "body diagonal cube rotation volume cubical dodecahedron twelve congruent faces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wolinski studies continuous swept union volume, not two-orientation intersection; cube-cross-polytope intersection has different normal family."
+        ],
+        "reasoning": "No identified exact table for twisted common-diagonal cube overlap; prior numerical benchmarks are not equivalent exact formula tables.",
+        "searches": [
+          "Le cube en rotation 2019",
+          "Resultary cube-cross-polytope polytope volume queries"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority after direct frozen-result reconstruction, actual published Resultary semantic searches, primary-source comparisons, and explicit coverage/implication tests; novelty is not guaranteed. Exact limitations and unread or inaccessible papers are recorded.",
+      "residual_risks": [
+        "Older recreational geometry could record the same body-diagonal intersection volume under a different angle convention or as a cubical dodecahedron.",
+        "The classic covariogram primary full text was not read; its translational setup does not itself establish rotating overlap.",
+        "The numeric/scalar check of finitely many q values does not establish rigidity without exact facet-count proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PURPOSE: algorithm for dilated collision proximity; no identified common body-diagonal cube exact intersection family.",
+          "evidence": [
+            "Defines dilated polyhedra contact computation and avoids undilated frame intersections."
+          ],
+          "identifier_or_url": "DOI:10.1002/nag.2299",
+          "material_read": "Accessible article sections covering computational distance/dilation/contact approach and geometric examples.",
+          "method": "Accessible original scientific article, relevant sections inspected",
+          "title": "Intersecting dilated convex polyhedra method for modeling complex particles in discrete element method",
+          "trigger": "Polyhedral particle intersection techniques"
+        },
+        {
+          "assessment": "PARTIAL_RELATED: numerical contact volume estimate for a different axis, not the analytic body-diagonal overlap and all facets.",
+          "evidence": [
+            "3D contact numerical benchmark, coordinate-axis rotation."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00466-026-02822-6",
+          "material_read": "Accessible paper numerical cube rotation example and method/discussion; benchmark rotates around coordinate z-axis.",
+          "method": "Accessible HTML article, relevant experimental and method sections inspected",
+          "title": "Solving contact problems using Fiber Monte Carlo",
+          "trigger": "Recent two-cube rotation volume benchmarks"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL: swept volume is union over angles, not intersection of the starting and single rotated cube.",
+          "evidence": [
+            "2004 diagonal-axis swept-volume geometry."
+          ],
+          "identifier_or_url": "https://medium.com/@fran6w/le-cube-en-rotation-96b136175f5e",
+          "material_read": "Accessible article describing a continuously rotated cube and its swept union volume.",
+          "method": "Accessible full short article read",
+          "title": "Le cube en rotation",
+          "trigger": "Same diagonal axis and potential exact recreational result"
+        },
+        {
+          "assessment": "DIFFERENT_INPUT: standard covariogram is translation overlap K cap(K+x), not rotated copies; no full-paper noncoverage conclusion.",
+          "evidence": [
+            "Translational covariogram setup."
+          ],
+          "identifier_or_url": "Bianchi 2005, Journal London Mathematical Society",
+          "material_read": "Bibliographic abstract/scope only, no full mathematical text examined.",
+          "method": "Bibliographic comparison",
+          "title": "Matheron's conjecture for the covariogram problem",
+          "trigger": "General covariogram could dominate if allowing rotations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Body-diagonal relative cube overlap is a natural rotational covariogram/contact benchmark. Closed volume/area laws and rigidity of combinatorial facet type at every nonzero fundamental angle are independently useful exact geometry, not generic contact numerics or swept-volume computations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientifically passed means only this specific final claim and stated assumptions. No automatic bibliographic priority, formal proof, expert attestation or scientific independence certificate is implied.",
+    "The referenced checker was inspected as evidence and necessary independent finite mathematics performed; finite checks do not prove unbounded theorems.",
+    "Both public metadata sources have restricted provenance and publication is not ready; package remains unchanged.",
+    "Older recreational geometry could record the same body-diagonal intersection volume under a different angle convention or as a cubical dodecahedron.",
+    "The classic covariogram primary full text was not read; its translational setup does not itself establish rotating overlap."
+  ],
+  "schema_version": 1
+}
