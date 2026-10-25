@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-state path-density ratio is derived from the killed and exclusion generators, with the same surviving off-diagonal jump rates and killing potential \(c_k\). Positivity of transition-path densities and connectivity of the \(k\)-subset exclusion graph force \(c_k\) to be constant if the full conditional path law equals exclusion from even one initial state at even one positive horizon. The nontrivial subset-sum lemma applies exactly when \(2\le k\le n-2\), and the complement identity covers the excluded last layer \(k=n-1\). The four-cycle is a strict counterexample to extending interior rigidity to one-hole systems. The general proof is analytic; 22,872 reproducible finite checks add support, not an infinite certificate.
+PASS
 
-## Originality — PASS, qualified
+The killed k-subset generator differs from ordinary exclusion by the exact internal-jump killing potential c_k(A)=sum_{u<v in A}(q_uv+q_vu). Finite-state Feynman–Kac gives a path-law RN derivative proportional to exp(-int_0^T c_k(X_t)dt). If equality holds from a single set over one T>0, this integral must be pathwise constant; positive densities of prescribed jump-time simplices and connectivity of the k-subset exclusion graph force every adjacent state to have equal c_k. For 2<=k<=n-2, comparing k-subsets differing in u,v gives equal (k-1)-subset sums of (w_ux-w_vx); index-replacement proves every symmetrized pair weight equal, and positivity/connectivity yields complete support. For k=n-1, c_{n-1}(V\{v})=W-d_w(v); equality iff weighted degrees equal. Four-cycle has one-hole equality but not two-particle equality. Read verifier’s exhaustive n=3,4 and bounded larger-n capacity enumeration; finite enumeration corroborates only small cases.
 
-The motivating source (Shiatis, arXiv:2610.00741v1, Theorem 1.4 and equation (2.4)) already contains the general measure-change formula, which is expressly excluded from the novelty claim. Its accessible primary full text was examined for classification of graph supports, interior occupancy and the one-hole weighted-regular exception; those conditions and the one-start/one-horizon rigidity are not stated there. Queries of published mathematical findings and a comparison with related literature revealed no equivalent classification or stronger coverage. The relevant older integrable snake-model paper was only evaluated from bibliographic/abstract material, not its full text; a classical formulation in finite-state killing or hypergraph design theory remains a residual possibility. Absence from searches does not establish absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact classification for all connected bidirectional finite jump networks and every nontrivial particle density, not a rate normalization exercise: a single missing vacancy allows sparse weighted-regular supports, whereas two or more vacancies force all pairs to communicate with a common symmetric aggregate rate. This gives a practical criterion for when inexpensive exclusion dynamics *exactly* sample conditionally collision-free paths, including nonreversible directed-rate splits, and a sharp boundary that is obscured by the general change-of-measure relation.
+Shiatis (2026) derives the Feynman–Kac conditioning/exclusion measure change generally, which is acknowledged as prior. The submitted result adds an explicit graph-rate iff theorem at all particle densities, notably a single starting set/horizon rigidity and the exceptional one-hole weighted-regular class. The primary article’s integrable ring/lattice examples and general change-of-measure statement do not provide this subset-sum classification. Resultary searches on collision/exclusion conditioning yielded nearby configurations, not the exact graph-rate equivalence. Best-of-knowledge PASS despite possible classical finite-set-potential alias.
 
-## Scope and closest literature
+## value
 
-Shiatis (2026) provides the general measure-change result; Johnston and Shiatis (2025) study integrable ring models. The new theorem is confined to full finite-horizon occupancy paths on finite connected bidirectional graphs; neither one-time-marginal equality nor arbitrary directed supports are classified. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact equality of conditioning-on-survival and rejection-only exclusion is a natural probabilistic equivalence question. The classification gives an abrupt, mathematically motivated density boundary between complete uniform-symmetrized-rate graphs and sparse weighted-regular graphs. Its one-starting-law/one-horizon strengthening and nonreversibility robustness make a complete, reusable structural lemma, not a standalone normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
