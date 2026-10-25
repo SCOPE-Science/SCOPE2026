@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Four explicit Nyström matrices reduce the entire set function to two-by-two inverses; symmetric/antisymmetric diagonalization gives the exact coefficients. Symbolic derivative identity with strictly positive factors proves C>0 for 0<r<1 and tau>0. The explicit negative case uses log(1-u)<=-u. Direct proof of monotonicity uses nested PSD Nyström increments. Small-r Taylor expansions give the claimed limit. Independent 1,343-case direct-matrix verifier passed; experiments are only corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krause, Singh and Guestrin JMLR 9 (2008) studies Gaussian mutual information; it contains no response-dependent variational free-energy trace correction.",
+        "Titsias AISTATS 2009 defines the objective but does not imply a universal submodularity property from monotonicity."
+      ],
+      "reasoning": "An abstract submodularity theorem for mutual information cannot dominate the claimed response-dependent objective because a nonzero data quadratic term is present; explicit negative defects are compatible with known logdet submodularity. No published general result found that implies this exact if-and-only-if criterion.",
+      "searches": [
+        "\"VFE\" \"submodular\" sparse Gaussian process inducing point selection",
+        "\"diminishing returns\" \"variational free energy\" \"inducing\"",
+        "Gaussian process mutual information submodular log determinant Krause 2008 sensor placements",
+        "Monotone variational free energy set objective supermodular interaction even under two by two positive definite kernel"
+      ]
+    },
+    "checked_sources": [
+      "Schaub and Zaspel (2026), arXiv:2606.01821 (original objective and marginal gain).",
+      "Cao et al. (2013/2015), arXiv:1310.6007 (older related inducing subset optimization).",
+      "Titsias (2009), Proceedings of AISTATS 5, article titisias09a (variational objective).",
+      "Krause, Singh, Guestrin (2008), JMLR 9 (mutual-information submodularity)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.01821 analytic gain and monotonicity sections give F(S+{j})-F(S)>=0, which does not constrain sign of gamma=F({1})+F({2})-F(empty)-F({1,2}).",
+        "arXiv:1310.6007 provides a closely related VFE optimization procedure, but the inspected objective/selection discussion does not state an identical or dominating two-site defect criterion."
+      ],
+      "reasoning": "This theorem derives full response-alignment dependence, explicit sharp necessary and sufficient submodularity inequality, and weak-correlation negative regime; none logically follows from the nonnegative marginal gains alone.",
+      "searches": [
+        "Schaub Zaspel 2026 variational free energy pivot selection equation gain monotonicity",
+        "Cao Brubaker Fleet Hertzmann 2013 efficient optimization sparse Gaussian process regression inducing subsets",
+        "Variational free energy Nyström inducing pivot selection submodularity failure two by two positive correlated kernel anti-correlated response exact threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaub–Zaspel arXiv:2606.01821 gives positive VFE pivot gain but no exact two-site submodularity region in inspected analytic sections.",
+        "Cao et al. arXiv:1310.6007 derives related VFE subset optimization but not the displayed two-site defect in material read."
+      ],
+      "reasoning": "Submodularity here is the inequality F({1})+F({2})>=F(empty)+F({1,2}), equivalent in the two-site case to diminishing returns. Prior per-pivot positive gains prove F monotone, which does not imply the defect is nonnegative; the negative exact witness contradicts any such implication.",
+      "searches": [
+        "Variational free energy Nyström inducing pivot selection submodularity failure two by two positive correlated kernel anti-correlated response exact threshold",
+        "Cholesky GP variational ELBO not submodular data-fit breaks diminishing returns exact two inducing point example",
+        "\"variational free energy\" \"submodularity\" Nyström Cholesky pivot Gaussian process",
+        "\"not submodular\" \"variational\" \"inducing points\" Gaussian process"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits include 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 (history-contaminated ACA selection) and 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (SPD coordinate sampling), neither concerning GP variational set-function defect.",
+        "Accessible own recent-slot ledger claim summaries showed no inducing-point, Nyström, Gaussian-process VFE, or submodularity classification."
+      ],
+      "reasoning": "Compared scientific statements, not title resemblance; the retrieved Cholesky and pivot algorithms have different sampling rules and errors. Semantic search and accessible own claims are not comprehensive uniqueness certificates; no exact matching table or database record was found.",
+      "searches": [
+        "Variational free energy pivoted Cholesky one step selection versus residual-trace optimality rank two",
+        "Exact diminishing returns classification Nyström Gaussian process variational free energy two inducing points data alignment correlated outputs",
+        "Variational Gaussian process inducing point selection not submodular even positive correlation near independent kernel",
+        "\"variational free energy\" \"diminishing returns\" pivoted Cholesky"
+      ]
+    },
+    "rationale": "Closest 2026 paper establishes nonnegative VFE pivot gains but not a two-site second-difference sign; inspected Cao et al. inducing optimization gives no identified equivalent sharp alignment criterion. Known GP mutual-information submodularity concerns a different objective. Targeted published-finding corpus searches and accessible recent-slot claim comparisons found no dominating claim. Residual specialized-priority risk is recorded and independent historical verification remains outstanding.",
+    "residual_risks": [
+      "An earlier specialized GP inducing-point or variational design article might have derived the same two-site second difference using another normalization; no exhaustive historical priority proof is claimed.",
+      "published-finding corpus similarity search and accessible own files are incomplete indices, not uniqueness certificates.",
+      "The 2008 mutual-information source was evaluated at abstract/method level only, since its objective is demonstrably distinct; no claim of full-text negative result is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME objective and strongest local overlap; no complete two-site submodularity phase criterion identified in inspected material.",
+        "evidence": [
+          "Original positive marginal gain derives monotonicity; no cross-subset second difference is shown in the inspected derivation.",
+          "Source first publicly posted 2026-06-01."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.01821",
+        "material_read": "Full lawful open HTML derivations of VFE gain and monotonicity (including equations, discussion and conclusion).",
+        "method": "Read original paper equations and monotonicity argument, compared the sign/quantifiers of their one-step gain with the new two-set defect.",
+        "title": "Variational Free Energy Pivot Selection for Pivoted Cholesky",
+        "trigger": "Direct 2026 motivating method and identical variational set function"
+      },
+      {
+        "assessment": "Same variational formulation family and useful predecessor; no identified precise two-site alignment region or equivalent negative result.",
+        "evidence": [
+          "Optimization of variational bound over inducing configurations and selection is developed; submodularity characterization not found in inspected formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.6007",
+        "material_read": "Accessible paper full-text objective and inducing-selection discussions; relevant formulas and method sections.",
+        "method": "Compared inducing-set optimization objective, marginal updates and possible diminishing-returns conditions.",
+        "title": "Efficient Optimization for Sparse Gaussian Process Regression",
+        "trigger": "Closest older inducing-selection/VFE objective that may subsume the criterion"
+      },
+      {
+        "assessment": "Defines the central objective but no identified exact submodularity criterion in the material inspected.",
+        "evidence": [
+          "Homoscedastic variational free-energy matrix formula and residual trace penalty agree with the normalized definition."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v5/titsias09a.html",
+        "material_read": "Accessible conference article mathematical derivation including PDF page-visual inspection of the objective and optimization statement.",
+        "method": "Compared variational bound and trace correction to the exact function specialized here.",
+        "title": "Variational Learning of Inducing Variables in Sparse Gaussian Processes",
+        "trigger": "Original definition of variational inducing-set objective"
+      },
+      {
+        "assessment": "GP mutual-information set function, mathematically distinct from response-dependent inducing-point VFE; not dominating.",
+        "evidence": [
+          "Classical sensor-placement submodularity concerns entropy/mutual information rather than Titsias trace-corrected VFE."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/v9/krause08a.html",
+        "material_read": "Abstract and method/summary level retrieved material, not claimed full text.",
+        "method": "Identified objective from title and abstract and checked whether response-dependent VFE is the same.",
+        "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+        "trigger": "Plausibly dominating general GP submodularity claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32919c0e-9edb-4ef2-9183-ec0412587e96",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two sites are the smallest nontrivial inducing-subset selection problem. Complete necessary-and-sufficient submodularity classification pinpoints when standard diminishing-returns-based greedy reasoning is valid. The opposed-response weak-correlation obstruction persists arbitrarily near independent kernels and separates monotonic VFE improvement from submodularity. Exact mathematical motivation is GP inducing subset selection, not arbitrary slice or routine reparameterization.",
+    "status": "PASS"
+  }
+}
