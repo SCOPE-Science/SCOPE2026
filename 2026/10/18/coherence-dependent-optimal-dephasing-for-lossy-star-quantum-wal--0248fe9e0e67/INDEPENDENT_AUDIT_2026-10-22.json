@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2, J,kappa>0, gamma>0, and any leaf-supported density matrix rho, the site-projector Lindblad dephasing term damps each off-diagonal entry at rate gamma. Hilbert–Schmidt dissipation excludes imaginary-axis eigenvectors: they would be diagonal with zero hub entry; the hub-leaf commutator forces zero. Hence all integrals converge. Writing x=rho00,p=sum leaf diagonals,B=sum leaf entries,eta=Im(sum hub-leaf entries), the four closed linear equations integrate to tau=(m+1)/kappa+kappa/(4J²)+gamma/(2J²)+(m-s)/gamma, s=B(0)=m<b|rho|b> in [0,m]. Completing a square uniquely minimizes at gamma*=J sqrt[2(m-s)] if s<m; if s=m, positive-gamma infimum is not attained and exact gamma=0 bright mean 2/kappa+kappa/(4mJ²), strictly smaller than lim positive gamma; a dark component at gamma=0 gives infinite unconditional mean. Independently checked exact formula against full matrix Liouvillian resolvent in six cases, including coherent inputs; finite checks do not replace analytic integrability and boundary proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Pepe et al. PDF models a dephased extended star/asymmetric chain with energy defects and fixed initial delocalization; it does not yield arbitrary s-dependent all-gamma exact mean.",
+          "Bressanini et al. study decoherence/classicalization of graph walks without a single absorbing hub."
+        ],
+        "reasoning": "The primary extended-star dephasing study is physically close but its objective and topology differ; general Lindblad resolvent theory is a method, not automatically the stated scalar formula and optimizer.",
+        "searches": [
+          "Resultary: lossy star quantum walk site projector dephasing exact mean absorption time bright overlap optimal gamma",
+          "arxiv:2308.15857",
+          "arxiv:2204.01836",
+          "arxiv:2210.17524"
+        ]
+      },
+      "checked_sources": [
+        "GitHub pinned RESULT.md and verification.py, tree f368fab88a6688d6c39206e9c3723ca6d6bea728",
+        "arxiv:2308.15857 full PDF Sections II–III",
+        "Resultary query: Resultary: lossy star quantum walk site projector dephasing exact mean absorption time bright overlap optimal gamma"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pepe et al. Eq. (7) traces survival and Eq. (8) uses the 50%-time; deriving the mean requires integrating this different observable and exploiting the exact four-variable hub-only closure."
+        ],
+        "reasoning": "No reviewed source directly implies the specific all-mixed-state formula or bright input singular gamma boundary from its stated result.",
+        "searches": [
+          "Resultary: lossy star quantum walk site projector dephasing exact mean absorption time bright overlap optimal gamma",
+          "arxiv:2308.15857",
+          "arxiv:2309.00164"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pepe–Pouthier–Yalouz Eq. (8) defines absorption time by P_abs(t)=50%, not survival-time integral; their Eq. (12) optimizes energy-defect location at given gamma.",
+          "Alterman–Berman–Strauch examine fully connected networks with leaf-to-leaf hoppings, not homogeneous hub-only star."
+        ],
+        "reasoning": "Mean absorption time and median hitting/half-trapping time are not equivalent functionals; all-to-all network is not obtained by setting a scalar parameter of a pure star with fixed topology.",
+        "searches": [
+          "Resultary: lossy star quantum walk site projector dephasing exact mean absorption time bright overlap optimal gamma",
+          "arxiv:2308.15857",
+          "arxiv:2309.00164"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pepe et al. Fig. 4 numerically plots dephasing-dependent 50%-absorption time vs energy detuning; no exact table for gamma* based on bright overlap s."
+        ],
+        "reasoning": "The finding is an analytic all-state law, not a numerical table; numerical graphs with other observables do not determine it.",
+        "searches": [
+          "Resultary: lossy star quantum walk site projector dephasing exact mean absorption time bright overlap optimal gamma",
+          "arxiv:2308.15857"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.",
+      "residual_risks": [
+        "General quantum Markov resolvent identities could implicitly specialize to the same formula; not exhaustively excluded.",
+        "Yalouz–Pouthier earlier coherent extended-star full text was not independently read, so no claim of whole-document noncoverage.",
+        "Requires exact site-projector dephasing convention, symmetric hopping and hub-only loss; positive gamma and zero gamma need separate treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different half-absorption metric and energy defect tuning, no all-leaf-mixed-state mean/bright-overlap optimum",
+          "evidence": [
+            "Eq. 8 P_abs(tau)=50%; Eq.12 speedup compares defect tuning; Fig.4 gamma-dependent plots"
+          ],
+          "identifier_or_url": "arxiv:2308.15857",
+          "material_read": "Full 15-page arXiv PDF, master-equation Section II, absorption observable Eq. (7), 50% time Eq. (8), Sec. III numerical energy-defect optimization, Fig. 4 and Appendix discussions",
+          "method": "Primary full PDF and displayed page image",
+          "title": "Optimized excitonic transport mediated by local energy defects: survival of optimization laws in the presence of dephasing",
+          "trigger": "Closest dephased star trapping optimization"
+        },
+        {
+          "assessment": "No absorber/mean trap time claimed by inspected source summary",
+          "evidence": [
+            "Not a full-paper NOT_COVERING assertion; retain possible literature risk"
+          ],
+          "identifier_or_url": "arxiv:2204.01836",
+          "material_read": "Abstract and bibliographic comparison only; no full text claimed",
+          "method": "abstract/metadata",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Graph star dephasing as a possible broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural star transport architecture, dephasing optimization depends on a single physically measurable bright-state overlap and is independent of trap strength. The singular discontinuity for exactly bright preparation distinguishes the zero-noise and long-time limits. This is a motivated full-state exact mean-trapping invariant and optimizer, not a numerical convenience.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform one-particle star, no disorder or leaf-leaf hopping.",
+    "Only unconditional mean time, not quantile optimization or spectral gap.",
+    "At gamma=0, dark population yields infinite unconditional mean; bright state has a nonuniform limit."
+  ],
+  "schema_version": 1
+}

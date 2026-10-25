@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization of the Lindblad generator gives off-diagonal pure-dephasing rate \(\gamma\) and center population loss rate \(\kappa\), fixing all factors of two. The Hilbert–Schmidt dissipation identity excludes imaginary-axis spectrum for \(\gamma,\kappa,J>0\), and hence justifies integration to infinity. Four closed collective observables yield the exact mean. Completing a square gives global uniqueness of the positive optimizer when \(s<m\), while the bright/dark decomposition handles the singular \(\gamma=0\) boundary separately. Direct full-superoperator integration and numerical optimization passed 326 checks (maximum absolute discrepancy \(2.096\times10^{-13}\)). Computations corroborate, but do not replace, the analytic proof.
+PASS
 
-## Originality — PASS (same-model, with residual risk)
+For m>=2, J,kappa>0, gamma>0, and any leaf-supported density matrix rho, the site-projector Lindblad dephasing term damps each off-diagonal entry at rate gamma. Hilbert–Schmidt dissipation excludes imaginary-axis eigenvectors: they would be diagonal with zero hub entry; the hub-leaf commutator forces zero. Hence all integrals converge. Writing x=rho00,p=sum leaf diagonals,B=sum leaf entries,eta=Im(sum hub-leaf entries), the four closed linear equations integrate to tau=(m+1)/kappa+kappa/(4J²)+gamma/(2J²)+(m-s)/gamma, s=B(0)=m<b|rho|b> in [0,m]. Completing a square uniquely minimizes at gamma*=J sqrt[2(m-s)] if s<m; if s=m, positive-gamma infimum is not attained and exact gamma=0 bright mean 2/kappa+kappa/(4mJ²), strictly smaller than lim positive gamma; a dark component at gamma=0 gives infinite unconditional mean. Independently checked exact formula against full matrix Liouvillian resolvent in six cases, including coherent inputs; finite checks do not replace analytic integrability and boundary proof.
 
-The 2018/2022 extended-star studies optimize coherent trapping and onsite energy defects. The 2023 dephased extended-star study fixes a uniformly delocalized peripheral input and uses the time to half absorption, plus a strong-noise approximation; it does not state the arbitrary-initial-density all-noise mean-time identity. The 2023 fully connected network study has additional leaf–leaf hoppings, so its coherence-dependent transport formulas do not imply those for the hub-only star by a direct parameter substitution. The 2022 star dephasing classicalization study has no absorbing hub. Exact-formula and model-alias searches found no equivalent recorded result. An implicit reduction from a more general full-resolvent theory remains possible, and the earliest coherent star primary paper was compared through its abstract rather than full text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural hub-and-spoke excitonic transport model, the optimizer is an explicit function of the preparation's bright overlap and graph size, yet entirely independent of the trap rate. The exact discontinuity for perfectly bright preparation makes the order of the vanishing-noise and infinite-time limits operationally consequential. The result distinguishes beneficial dephasing from bright-state degradation without assuming random disorder or restricting to localized states.
+Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.
 
-## Limitations
+## value
 
-This is an infinite-time one-particle mean-absorption theorem for uniform hopping and dephasing. It does not show robustness to graph disorder, optimal finite-time transport, or automatic novelty relative to all possible unpublished or uninspected resolvent identities. Independent audit remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural star transport architecture, dephasing optimization depends on a single physically measurable bright-state overlap and is independent of trap strength. The singular discontinuity for exactly bright preparation distinguishes the zero-noise and long-time limits. This is a motivated full-state exact mean-trapping invariant and optimizer, not a numerical convenience.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
