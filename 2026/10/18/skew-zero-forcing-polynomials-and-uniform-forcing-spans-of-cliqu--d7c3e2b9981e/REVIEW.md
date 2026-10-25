@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central structural lemma classifies all nonempty inclusion-minimal skew forts: three white vertices in one peripheral clique, or the hub together with two white vertices from every blade. A failed forcing process leaves a nonempty skew fort, and no skew force can enter a fort. These two precise obstructions yield the full polynomial and extremal formulas. An independent graph-adjacency simulator checked all 1,291,680 possible initial subsets across 182 finite blade-size profiles and 71,009 further candidate white sets for minimality of forts. The proof, not finite enumeration, establishes the theorem for every allowed parameter vector.
+## correctness
 
-## Originality — PASS, qualified
-The previously known odd-cycle-bouquet zero-span result covers the all-triangle case and is fully acknowledged. Jacob's 2023 skew-span work defines the polynomial and proves general span properties; Cooper and Fickes supply closure/matching structures; Johnson, Vick, and Narayan study low failed-skew-forcing numbers. The inspected theorem statements do not imply the exact heterogeneous clique-bouquet enumerator or the nonzero span formula. Closest related records concern ordinary friendship-graph zero forcing, dissociation on windmills, and skew forcing on chain graphs; those use either different forcing rules or different graph classes. The early DeAlba reference was inspected only at abstract level. An unindexed equivalent remains a residual originality risk.
+PASS
 
-## Value — PASS
-The two-type minimal-fort hypergraph describes a natural local-versus-global propagation obstruction on a nontrivial infinite class of block graphs. The exact polynomial counts all successful initial configurations, shows every inclusion-minimal success is minimum, and proves the size-independent span \(2r-2\) once any blade contains more than three vertices total (at least three peripheral vertices). This is substantive graph-structure and enumeration information beyond the already known triangular-bouquet boundary.
+Under the skew color-change rule any vertex with one white neighbor may force. Nonempty terminal white sets are precisely skew forts, in which no vertex has exactly one neighbor. In a clique bouquet, a minimal fort is either three peripheral vertices within one blade, or the white hub plus two vertices in every blade; all other white configurations contain a smaller one of these. Their avoidance forces at most two whites per blade and either a blue hub or one blade with at most one white. This establishes (1+z)prod(Q_i)-prod(E_i) and shows all inclusion-minimal forcing sets have size N-2r, counted by prod C(n_i,2)+sum_j n_j prod_{i ne j} C(n_i,2). A triple fort bounds maximum failing cardinality at N-3 when any blade size>=3, hence span 2r-2; all two-vertex blades instead have only the all-white fort, span zero. Independent adjacency/saturation simulation exhaustively checked six small heterogeneous blade profiles and their forcing histograms, rather than merely trusting the supplied 182-profile log. The proof explicitly requires r>=2 and every n_i>=2; singleton blades and standard (blue-only) forcing are not included.
 
-## Limitations and closest sources
-The result applies only to at least two blades with each peripheral blade of size at least two. Related sources are Jacob (2023, arXiv:2309.06234), Cooper–Fickes (2023, arXiv:2303.17419), and Johnson–Vick–Narayan (2022, arXiv:2209.09379). No independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier skew forcing work defines the polynomial and span and covers the odd-cycle/triangle bouquet zero-span case. The nonzero span invariance across heterogeneous clique sizes and entire labelled forcing polynomial do not follow from the related chain-graph, standard friendship-graph or windmill dissociation polynomials returned by Resultary. Originality is bounded by possibly unindexed specialized windmill/skew-forcing enumerations.
+
+## value
+
+PASS
+
+The exact forcing polynomial, minimal-fort classification and striking uniform span 2r-2 for all nontrivial heterogeneous clique bouquets solve natural graph forcing enumeration and obstruction questions. The family interpolates friendship/windmill graph structures and provides a reusable exact test class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
