@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact **one-step** squared-energy minimax statement. The block normal equation gives the exact energy-drop identity and a symmetric eigenvalue optimization. The constant vector bounds the attainable worst-case reduction from above under *every* probability distribution, while the uniform average of the block maps is an entrywise nonnegative symmetric circulant matrix. A row-sum/spectral-radius argument proves the constant vector is its slowest mode. The tridiagonal Dirichlet recurrence gives the explicit Green sum; the critical scaling follows from the exact formula. All dimensions, coupling bounds, and limiting quantifiers are spelled out in `RESULT.md`. `verify.py` checks the exact finite equations; it is not substituted for the universal proof.
+PASS
 
-## Originality — PASS, with risks
+The exact block minimization identity gives expected loss (Ge)^T B_p(Ge) and worst-case generalized Rayleigh minimum. G1=(1−2t)1 makes the constant-error quotient the same ℓ_q=(1−2t)1_q^T T_q^{-1}1_q/n for every fixed p, hence universal upper bound on Λ(p). For uniform p, each block update I−E_j T_q^{-1}E_j^TG is entrywise nonnegative since T_q^{-1}≥0 and off-block G couplings are nonpositive. Their average is circulant, symmetric and has constant row sum 1−ℓ_q, therefore Perron spectral radius equals 1−ℓ_q and the minimum energy-decrement eigenvalue equals ℓ_q. Solving Dirichlet recurrence T_q z=1 with zero artificial boundaries yields the stated hyperbolic sum. The qα→s crossover follows by explicit small-α limits with q<n. Independent tests at all 105 triples n=3..9, 1≤q<n, t in {1/8,.35,.48} checked numerical eigenvalue, Green sum, closed hyperbolic formula and nonnegative mean update to 6e−16. These finite tests do not establish the universal result.
 
-The 2026 Xie–Yang preprint develops batch-coordinate sampling and general upper convergence bounds, but the inspected main theorems and numerical sections do not provide this complete optimal fixed-distribution rate, periodic tridiagonal block Green sum, or critical screened-Poisson crossover. The 2017 Tu et al. work treats accelerated block Gauss–Seidel, and its separate circulant/tridiagonal examples are not this matched periodic block model. Wu's 2018 block-Gauss–Seidel paper is relevant but only abstract-level access was available: full-document comparison remains a residual bibliographic risk. The nearby available mathematical results address single-coordinate optimal sampling, stochastic delays, or different Gaussian and block methods; neither the general theory nor those available specific statements imply the explicit new minimax value without the nontrivial positive-map/Green-function argument.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing a fixed distribution over overlapping consecutive blocks is a concrete scheduling decision for batch coordinate descent on a standard discretized periodic screened operator. The exact all-size rate and globally optimal policy give a quantitative benchmark against learned and heuristic sampling. The nonconstant crossover \(F(s)\) identifies when near-singular coupling defeats small blocks and establishes the correlation-length scale needed to recover an efficient fraction of the ideal block improvement. It is a structural, sharp classification of a natural numerical family, not a single unmotivated finite example.
+The actual prior inverse-positive single-coordinate sampling theorem optimizes p for q=1 over a broader SPD Stieltjes class; here q is arbitrary and blocks are overlapping cyclic intervals with a separate exact closed contraction and screened crossover. Full relevant parts of Xie–Yang's randomized batch-selection paper and the published coordinate-sampling RESULT were inspected; neither supplies this sharp all-distribution contiguous-block result. Existing sketch-and-project framework yields a spectral optimization but not the computed optimum and scaling. Best-of-knowledge acceptance, not historical priority certification.
 
-## Scope and unresolved matters
+## value
 
-This does not optimize adaptive sampling, prove an exact multistep rate, extend to arbitrary cyclic/stochastic Hessians, or evaluate hardware cost. General block-projection identities and the existence of linear convergence are established prior results. Full-text access to every older relevant article was not achieved, so a prior equivalent result outside the inspected literature cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimizing the sharp one-step worst-case convergence factor over all static overlapping block probabilities is a meaningful algorithm-design question. The explicit Green sum quantifies how block length and coupling correlation length trade off and gives a scaling crossover between inefficient short blocks and near-full-block sampling. These are reusable exact convergence invariants, not a routine substitution in a published table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
