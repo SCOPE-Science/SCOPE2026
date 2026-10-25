@@ -1,19 +1,21 @@
-# Scientific review: order-five de Bruijn circular attractors
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof establishes a universal lower bound of seven by counting the \(32\) unique length-five windows and five windows per selected position. Every cyclic order-five de Bruijn word is represented exactly once by a depth-first enumeration of Hamiltonian cycles of five-bit windows anchored at the unique all-zero vertex. All seven-position candidates that can cover the unique length-five windows are precisely the \(384\) circular-gap-bounded seven-subsets. Exact short-factor incidence masks give a necessary-and-sufficient test for covering every remaining factor, and any longer factor is automatically crossed after the length-five test. The executable finite certificate exhausts all \(2048\) words, reproduces the six numerical census claims, and independently checks all factor lengths for all candidate subsets on the six extreme words. It does not infer statements about arbitrary orders.
+PASS
 
-## Originality
+PASS: Each order-five binary de Bruijn cycle has exactly 32 distinct cyclic length-five windows; a marked position belongs to five of them, so every circular string attractor has at least ceil(32/5)=7 positions. Each cyclic word corresponds uniquely to a 32-vertex Hamilton tour of overlapping five-bit windows rooted at the unique 00000 occurrence; exact DFS counts 2048 such words. A seven-position set hits all unique length-five windows iff all cyclic intermarked gaps are at most five, giving exactly 384 candidates independent of the cycle. Those selected length-five incidences automatically hit any factor of length >=5; for lengths 1..4 the union-of-all-occurrence position masks supply necessary-and-sufficient tests. Independently implemented C++ reconstruction exhausted 2048 tours ×384 complete candidate sets, reproducing minimum 216 (4 words), maximum 368 (2 words), 120 distinct counts, and total 589120. Its deterministically sorted complete 2048-row CSV SHA-256 is 8bb608eb66f3bfac0152475146822a21df2a5ecb9665f2f9193ef22ec4291ea2, exactly matching frozen census.csv. Direct proof of exhaustive object/candidate parametrization converts finite enumeration to an exact finite theorem; no infinite claim made.
 
-PASS within the examined literature. The primary 2026 small-attractor classifications address linear Fibonacci and period-doubling words. Mantaci et al. (2021, Section 6.2, Proposition 41) give linear de Bruijn asymptotic estimates, not this circular finite census. Romana (2023) gives general decision algorithms; Whittington (2024, Section 5, Theorem 5.22) proves a prime-order result only for one specially constructed and unfolded Lyndon de Bruijn sequence, leaving general de Bruijn behavior as an explicit question. The exact order-five circular all-cycle conclusion and especially the optimizer-count distribution do not follow from those results. Searches for equivalent formulations and published finite tables found no covering assertion, but possible unindexed tabulations or older equivalent descriptions remain a priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is a complete exact cutoff on a canonical, mathematically closed finite class of \(2048\) nonisomorphic-by-rotation universal cycles. The fifth order is the first sizeable odd-prime order beyond the smallest de Bruijn examples; every sequence meets the sharp information-theoretic lower bound even though the number of optimal position sets varies substantially, from \(216\) to \(368\). That variation is important when evaluating rigidity and abundance of optimal attractors and is not captured by the minimal size alone. The finding is finite and self-contained, not an arbitrary sample or a claim of broad asymptotic progress.
+PASS best of knowledge: actual general-framework primary source text and result-set searches were checked against each exact claim, with the four distinct prior-implication tests documented. A universal over 2048 cyclic classes and every minimum-set multiplicity cannot follow from a theorem about one chosen linear word, nor from general verification or asymptotic bounds. The full finite exhaustive proof is extra mathematical content, subject to unlocated equivalent tables. No failed search is equated to a novelty proof; unaccessed primary material is named explicitly.
 
-## Closest work and residual uncertainty
+## value
 
-See the four primary works listed in RESULT.md. A different, unpublished or unindexed classification of the exact finite family is not excluded. All numerical claims were reproduced from the standalone checker, not a reference table.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Circular string attractors are natural factor-cover/hitting-set invariants of cyclic universal words. The known length-five window lower bound is sharp on every one of the 2048 order-five de Bruijn cycles, but numbers of extremal seven-sets vary nontrivially from 216 to 368. Full optimizer multiplicity census of a canonical closed finite family supplies useful optimality/rigidity data not determined by just one benchmark word or the optimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
