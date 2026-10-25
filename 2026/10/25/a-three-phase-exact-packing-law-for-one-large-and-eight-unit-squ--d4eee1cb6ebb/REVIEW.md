@@ -1,0 +1,11 @@
+# Review of the exact nine-square packing phase diagram
+
+**Correctness — PASS.** The lower-bound argument applies to every axis-parallel placement, not just the displayed packings: when the free width is less than two unit sides, usable outer strips have only one choice of horizontal and vertical side. Any assignment of eight small squares to those strips forces four of each if the container has side below five. Their extreme members overlap strictly in both projections because the container side is below both five and the large side plus two. The three constructions are explicit; all inequalities are strict where needed and compatible at the endpoints.
+
+**Originality — PASS (bounded best-knowledge check).** Direct examination of the complete public HTML manuscripts arXiv:2610.22622v1 and arXiv:2610.28504v1 shows respectively formulas up to seven and up to eight squares. The latter discusses nine items as a future general problem, not this nine-item ray. Generic sequence-pair characterization permits finite searches but does not state the optimized piecewise formula. Searches for alternative descriptions (one large plus eight equal, three-phase mixed-size packing, orthogonal/axis-parallel square containment, nine-square phase thresholds) yielded no matching theorem. This is evidence of no observed coverage, not proof of global novelty. Classical packing sources and possible unindexed case calculations are a residual priority risk.
+
+**Value — PASS.** The first side-count beyond the complete eight-square classification is nine, and a single variable oversized square with eight equal smaller squares gives a geometrically motivated test family. The nontrivial rigid plateau on the full interval \(3\le t\le4\), its two exact transitions, and the all-placement two-strip obstruction provide a complete and reusable benchmark in a difficult mixed-size packing setting. Unlike simple area estimates, the lower bound arises from forced overlap of ordered extremal squares; a numerical packing construction alone would not yield it.
+
+The result does not cover rotations, nine arbitrary side lengths, or \(t<2\), and the post-anchor October 20 follow-up is consulted only for comparison. No human or independent audit has been made.
+
+Self-review: passed. Independent audit: not yet performed.
