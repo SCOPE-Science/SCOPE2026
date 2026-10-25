@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is confined to the deterministic stationary hydrodynamic free-boundary model. Exact killed-kernel time change yields \(rT_H=S^{1/(2H)}/\mathbb E[S^{1/(2H)}]\), and mass conservation yields the normalized stationary age density. A finite log-moment Taylor expansion proves \(L^1\) convergence; an exact Fubini identity gives the entire total-variation distance and its sharp coefficient. The Brownian survival expansion gives a convergent exponential-integral constant. The 53 successful numerical checks corroborate the independent moment calculations; no asymptotic proof is delegated to numerics.
+
+**Originality — PASS with material risk.** Meerson–Vilk, arXiv:2512.14345v1, already provide the stationary age-resolved Green function and support radius, so the age marginal itself is prior-implied and is not the novel assertion. The singular non-Gaussian boundary profile and exact \(H^{-1}\) total-variation coefficient require analysis beyond the displayed source formulas and were not located in the inspected Model B sources or indexed comparisons. The unavoidably close implicit coverage from that exact Green function remains a genuine risk, and independent assessment may conclude the derivation is subsumed.
+
+**Value — PASS.** Age since last reset and complete reset-interval duration are natural observables of the globally selected-particle renewal mechanism, unlike an arbitrary spatial slice. The result shows that an apparently random reset mechanism becomes asymptotically clocklike when the anomalous diffusion exponent grows, and quantifies both the uncertainty remaining at order \(H^{-1}\) and the shape of the boundary layer. This temporal information is not contained in the already reported spatial-radius asymptotic alone.
+
+**Closest literature and limits.** The 2025/2026 hydrodynamic source [1] contains all finite-\(H\) age-resolved input. Vilk–Assaf–Meerson (2022) treat the \(H=1/2\) Model B with spatial/radius fluctuations. Bodrova–Chechkin–Sokolov (2019) analyze renewal Poisson resets without farthest-particle selection. No finite-population error or commuting-limits result is established.
+
+Self-review: passed. Independent audit: not yet performed.
