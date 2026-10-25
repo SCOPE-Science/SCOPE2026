@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The deterministic profile-flow reduction follows from transitive relabeling, in both directions. Exact orbit counts yield rational masses and integer max-flow capacities. A dependency-free, exact Dinic implementation reconstructs and saturates all 171 networks for 2<=n<=19; each flow then lifts to a true coupling on labeled partitions. For (20,2), the one-split neighborhood of (10,10) comprises exactly five enumerated profiles, with mass 94410316/580606446 versus source mass 92378/524287; the positive cross-product difference 4137160923896 proves impossibility. No use is made of finite extrapolation to n>20.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Canfield (1993) abstract specifies the existence/nonexistence of injective matchings between adjacent ranks and asymptotic bounds for a matchingless interval.",
+        "Graham, Maximum Antichains in the Partition Lattice, pages 84–85, explains ordinary Hall matchings and bounds on antichains."
+      ],
+      "reasoning": "An injective matching only enforces cardinality Hall inequalities; a uniform coupling enforces probability-normalized Hall inequalities. This distinction prevents treating Canfield’s stated matching theorem as covering the exact minimum-size stochastic-coupling failure. The inaccessible full proof remains a residual priority risk.",
+      "searches": [
+        "Canfield Matchings in the Partition Lattice 1993 theorem",
+        "partition lattice LYM property rank row matching",
+        "E Rodney Canfield Matchings in Partition Lattice pdf arxiv"
+      ]
+    },
+    "checked_sources": [
+      "Pittel, Electronic Journal of Combinatorics 7 (2000), R5, DOI 10.37236/1483",
+      "Canfield, SIAM Journal on Discrete Mathematics 6 (1993), DOI 10.1137/0406008 (abstract only)",
+      "Graham, Maximum Antichains in the Partition Lattice (public scanned note)",
+      "Research-record semantic searches of normalized matching, partition refinement coupling, 20-point cutoff, and equivalent Hall obstructions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pittel (2000), DOI 10.37236/1483, PDF pp. 1–2 and theorem overview: joint meet/join of independently sampled unrestricted uniform set partitions.",
+        "Graham note, scanned pp. 84–85: cardinality matching and Sperner-antichain question.",
+        "Canfield (1993), DOI 10.1137/0406008: abstract and bibliographic record for rank matching."
+      ],
+      "reasoning": "Independence-based meet/join limit laws do not couple fixed block-count laws by refinement. Sperner antichain maximality and ordinary injection are weaker than the normalized transport property. Neither inspected result states the exact 20-point first failure, although implicit deductions in inaccessible older proofs cannot be excluded.",
+      "searches": [
+        "Where the Typical Set Partitions Meet and Join Pittel 2000 paper",
+        "Maximum Antichains in the Partition Lattice Graham pdf",
+        "stochastic covering partition lattice k blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Integral normalized Hall inequalities are equivalent to a coupling supported on refinement; the profile-flow equivalence is proved in RESULT.md.",
+        "Canfield (1993), DOI 10.1137/0406008, concerns ordinary injections between ranks."
+      ],
+      "reasoning": "The exact probabilistic equivalent is the normalized matching property of adjacent partition-lattice ranks, not an ordinary cardinality matching or stochastic ordering of one scalar observable. Thus title-based comparisons to matching papers are inadequate. The Hall inequality for the balanced profile is strictly stronger than the matching Hall requirement, so matching results do not automatically cover the stated cutoff.",
+      "searches": [
+        "partition lattice normalized matching property first failure exact",
+        "partition lattice full normalized matching for n up to 19",
+        "uniform random set partitions with k blocks cannot be coupled monotonically by refinement for n 20"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard Stirling tables give S(20,2)=524287 and S(20,3)=580606446, not normalized refinement transports.",
+        "The included verifier regenerates all block-size profiles and exact orbit counts, without relying on a published database or table."
+      ],
+      "reasoning": "Known enumeration of each partition-lattice rank supplies marginal denominators but not feasibility of a coupled random pair. Published counting tables are not themselves a table of the 171 normalized Hall network statuses.",
+      "searches": [
+        "set partitions Stirling number rank coupling exact n20",
+        "set partitions.org Stirling restricted counts",
+        "partition lattice 20 normalized matching property first failure exact"
+      ]
+    },
+    "rationale": "Literature and research-record queries located related partition-lattice rank matchings (Canfield), antichains (Graham), and random partition meet/join (Pittel), but not the first-order-20 failure of normalized stochastic refinement of the exact fixed-block-count uniform measures. Logical implication comparisons distinguish injection, scalar statistics, and independent meet/join from uniform-law transport. The inaccessible Canfield full text leaves a specifically identified priority risk.",
+    "residual_risks": [
+      "Canfield 1993 full paper could contain an unadvertised normalized Hall computation or imply this cutoff; source could not be checked beyond abstract.",
+      "Other preexisting normalized-matching results may use different language or appear in unindexed books; no global uniqueness is claimed.",
+      "The positive lower-order classification relies on exact executable integer max flows, not a succinct handwritten list of transportation matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies meet/join of independent unrestricted uniform set partitions, not adjacent-block-count monotone couplings",
+        "evidence": [
+          "PDF introduction specifies independent sampling from the full partition lattice",
+          "Theorems 1–5 concern counts and limits for meets/joins"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/1483",
+        "material_read": "PDF pages 1–2 and text of introduction/theorem overview; reference statements on independent meet and join",
+        "method": "Primary open-access PDF text and page-image inspection",
+        "title": "Where the Typical Set Partitions Meet and Join",
+        "trigger": "Historical probability study of uniform set partitions under refinement"
+      },
+      {
+        "assessment": "Explains injective Hall matchings and antichain size; does not state normalized stochastic coupling across ranks",
+        "evidence": [
+          "Page 84 describes rank matching between R(n,k) and R(n,k+1)",
+          "Page 85 contrasts cardinality Hall matching with normalized matching ideas and describes n<=20 antichain bounds"
+        ],
+        "identifier_or_url": "https://www.math.ucsd.edu/~ronspubs/78_14_antichains.pdf",
+        "material_read": "Scanned pages 84–85",
+        "method": "Primary page-image inspection",
+        "title": "Maximum Antichains in the Partition Lattice",
+        "trigger": "Closest classical matching/antichain equivalence and finite-cutoff precedent"
+      },
+      {
+        "assessment": "The stated theorem is injective matching between adjacent ranks, which is weaker than normalized coupling when ranks differ; full-text implicit overlap unresolved",
+        "evidence": [
+          "Abstract defines matching as one-to-one injection from smaller rank to larger related by refinement",
+          "Abstract gives asymptotic matchingless interval, not smallest normalized-coupling obstruction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0406008",
+        "material_read": "Published abstract, bibliographic metadata, and references; full text not accessible",
+        "method": "Publisher page and open-access search; institutional full-text access unavailable",
+        "title": "Matchings in the Partition Lattice",
+        "trigger": "Most plausible strong coverage by historical primary literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42981a32-d30d-483e-b2cd-2bc1601db85d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform refinement is a natural strong comparison of exchangeable random partitions as the number of blocks rises; the first ground-set size at which it fails is an exact structural boundary, not an arbitrary slice. The explicit balanced-block probability obstruction is conceptually simple, while the 171 exact flow certificates establish sharpness. This separates normalized stochastic coupling from the weaker classical rank-matching and antichain framework. There is no claimed downstream theorem or infinite-scope conclusion.",
+    "status": "PASS"
+  }
+}
