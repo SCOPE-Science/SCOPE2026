@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact statement distinguishes cyclic period windows from noncyclic finite substrings. The proof establishes the period length via the lifting-the-exponent valuation, identifies every word with a bin containing a unit modulo \(3^k\), and counts missing critical bins by an invertible residue permutation on nonzero multiples of three. The end cases \(k=1\) and \(k=2\) and the strict endpoint inequalities are handled. Irrational-rotation equidistribution proves the claimed density rather than assuming independence. The companion verifier independently compares cyclic digit windows against unit remainders for \(1\le k\le9\) and confirms critical phases through \(k=100\). These finite checks are supplemental, not infinite proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+Lifting exponent for 2^(2*3^t)-1 establishes ord_(3^k)(2)=2*3^(k-1), so long-division remainders traverse precisely all units mod Q=3^k. Each length-j word equals floor(2^j r/Q), r a unit. With M=2^floor(log2(2*3^(k-1))), bins for j<m have width >=3 and all nonempty with unit; for j>m there are more possible words than starts. At j=m bin width Q/M lies in [3/2,3); if Q>=2M every bin has a unit. If Q<2M, a missing bin contains one multiple r=3t, with residue u=Mr mod Q satisfying Q-M<u<M; multiplication by M permutes multiples of three mod Q, giving exact max(0, floor((M-1)/3)-floor((Q-M)/3)) missing words. The phase J_k=m for k>=2 iff Q>=2M follows from modulo-eight / bin-size endpoint argument; index densities follow from equidistribution of (k-1)log_2(3) modulo one, yielding log2(3/2) and log2(4/3). Independently generated true cyclic binary division periods for k=1..10, and counted all j<=m+1 word sets; discrepancies zero, including k=8 deficit 544 and k=10 deficit 2162.
 
-The nearest primary literature is López and Stoll, arXiv:2105.06513, especially the bin-occupancy Lemma 11 and the gap criterion Theorem 1. That criterion does not decide its intermediate regime without an additional calculation; it does not state the exact maximal universally occurring length, the missing-block floor count, or the distribution of phase indices. Their 2012 article treats exactly the same denominator family and establishes fixed-length eventual completeness according to its available abstract; this is the most serious risk. The article's full text was not retrievable from accessible mirrors, so a stronger unseen conclusion cannot be ruled out. Search results and accessible comparable records did not show an implication or exact table giving this phase law. Priority beyond the inspected material is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximal length at which all binary blocks occur is a natural arithmetic-combinatorial invariant of a periodic rational expansion. Fixed-length convergence leaves the difficult joint regime in which word length grows like the logarithm of the denominator unresolved by its conclusion. The exact missing-block count, the sharp one-bit phase switch, and the positive densities of both phases give a complete answer for a canonical prime-power family. The finding is about a structural threshold rather than an arbitrary finite slice.
+No inspected primary theorem or relevant published finding implies the additional exact claim; the explicitly identified preexisting components are excluded from novelty. This is best-of-knowledge only, with detailed source-access and equivalence risks below.
 
-## Closest literature, limitations, and risk
+## value
 
-The result treats binary repetends of \(1/3^k\) only, does not count individual word multiplicities, and does not establish analogous formulas for other denominators or radices. The 2012 article on the same family is accessible by bibliographic record and abstract, but full-document comparison was unavailable; general floor-distribution theorems may also cover the count. No independent evaluation has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question of exactly which contiguous binary patterns occur in the full period of reciprocals 1/3^k is a natural, previously studied digit-complexity invariant. This determines the moving information-scale critical length, not merely convergence at each fixed length, and yields an exact missing-pattern count and a nontrivial natural-density phase law. Such an exact boundary is independently useful for normality/complexity questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

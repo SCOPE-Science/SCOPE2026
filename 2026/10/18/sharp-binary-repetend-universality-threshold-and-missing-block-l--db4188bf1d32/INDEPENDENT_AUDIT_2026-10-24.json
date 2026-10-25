@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:52:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-binary-repetend-universality-threshold-and-missing-block-l--db4188bf1d32/RESULT.md",
+        "2026/10/18/sharp-binary-repetend-universality-threshold-and-missing-block-l--db4188bf1d32/verify.py",
+        "independent exact finite reconstruction /mnt/data/_scope07_independent_checks.py (private, not a public proof)"
+      ],
+      "rationale": "Lifting exponent for 2^(2*3^t)-1 establishes ord_(3^k)(2)=2*3^(k-1), so long-division remainders traverse precisely all units mod Q=3^k. Each length-j word equals floor(2^j r/Q), r a unit. With M=2^floor(log2(2*3^(k-1))), bins for j<m have width >=3 and all nonempty with unit; for j>m there are more possible words than starts. At j=m bin width Q/M lies in [3/2,3); if Q>=2M every bin has a unit. If Q<2M, a missing bin contains one multiple r=3t, with residue u=Mr mod Q satisfying Q-M<u<M; multiplication by M permutes multiples of three mod Q, giving exact max(0, floor((M-1)/3)-floor((Q-M)/3)) missing words. The phase J_k=m for k>=2 iff Q>=2M follows from modulo-eight / bin-size endpoint argument; index densities follow from equidistribution of (k-1)log_2(3) modulo one, yielding log2(3/2) and log2(4/3). Independently generated true cyclic binary division periods for k=1..10, and counted all j<=m+1 word sets; discrepancies zero, including k=8 deficit 544 and k=10 deficit 2162.",
+      "residual_risks": [
+        "No extrapolation from ten k values; equidistribution proof uses irrationality log2 3; k=1 exceptional threshold J1=1 is expressly stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 Theorem 1 gives a sufficient criterion via maximal gaps and explicitly does not resolve an intermediate occupancy regime.",
+          "For Q=3^k, the power of 2 cycles through all units; direct u-interval congruence evaluates critical bins more sharply than the general gap criterion."
+        ],
+        "reasoning": "The prime-power repetend theorem supplies context and a necessary mechanism but, as inspected, not the exact moving critical deficit or asymptotic index density. A stronger uninspected 2012 result cannot be ruled out.",
+        "searches": [
+          "López Stoll The repetends of reduced fractions a/b^k approach full complexity increasing k arxiv:2105.06513 Theorem 1",
+          "published bounds for gap between consecutive reduced residues modulo prime powers",
+          "Resultary critical binary repetend universality 3-adic"
+        ]
+      },
+      "checked_sources": [
+        "López–Stoll 2022 arXiv:2105.06513 Lemma 11 and Theorem 1",
+        "López–Stoll 2012 Integers 12 A28 (abstract only)",
+        "Resultary binary repetend query",
+        "SCOPE2026 related-file search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known lemma equates quotient bins and word presence; it does not compute number of empty bins in width (1.5,2).",
+          "Subsequence universality involves noncontiguous choices, whereas the claim uses contiguous cyclic binary factors."
+        ],
+        "reasoning": "General fixed-length full-complexity and coarse gap bounds do not directly imply the phase-specific exact critical deficit; the submitted calculation of multiples-of-three bin exceptions is substantive.",
+        "searches": [
+          "López Stoll 2022 Lemma 11 Theorem 1 arxiv:2105.06513",
+          "López Stoll 2012 Integers A28 same 1/3^k family abstract",
+          "Resultary closed-form law binary subsequence universality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "López–Stoll 2022 Lemma 11 supplies the remainder-to-bin word-occurrence equivalence used here.",
+          "The earlier 2012 paper studies exactly binary repetends 1/3^k and eventual full fixed-length complexity, but only abstract was accessible this run."
+        ],
+        "reasoning": "The bin interpretation and fixed-j convergence are known, not claimed novel. Submitted critical moving j=m_k deficit is more specific than the inspected statement of the 2022 general result; inaccessible 2012 full text remains a material risk.",
+        "searches": [
+          "Resultary: binary repetend 1/3^k critical universality threshold missing length log period complexity López Stoll",
+          "López Stoll 2022 arxiv:2105.06513 Lemma 11",
+          "López Stoll 2012 binary periods 1/3^k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent computed first ten critical deficits 0,0,2,0,4,0,0,544,0,2162; these numerics alone do not prove priority.",
+          "No retrieved exact pre-existing table or formula for all k in the inspected 2022 paper."
+        ],
+        "reasoning": "A bin occupancy formula for all k and an irrational-rotation phase density are not a finite-table extrapolation. The exact same 2012 family is a significant inaccessible-paper risk, not declared noncovering.",
+        "searches": [
+          "López Stoll 2012 Integers 12 A28 binary period 1/3^k tables",
+          "binary De Bruijn missing words 3^k base2",
+          "GitHub SCOPE2026 scoped search 1/3^k repetend missing blocks"
+        ]
+      },
+      "rationale": "No inspected primary theorem or relevant published finding implies the additional exact claim; the explicitly identified preexisting components are excluded from novelty. This is best-of-knowledge only, with detailed source-access and equivalence risks below.",
+      "residual_risks": [
+        "2012 original family paper full text could not be read; Oxford authorized source responded vpn_disconnected and is not bypassed.",
+        "A general discrepancy or fractional-part bin occupancy theorem may imply the missing-block count with a different vocabulary.",
+        "Prior fixed-length universality is excluded from novelty; density assumes k-index natural density and cyclic contiguous factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method and convergence known; inspected result does not supply all-k moving critical deficit or density.",
+          "evidence": [
+            "Lemma 11; Theorem 1 and immediate discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.06513",
+          "material_read": "Original PDF sections introducing full complexity, Lemma 11 remainder-bin equivalence, Theorem 1 and discussion of unresolved intermediate gap regimes.",
+          "method": "Read lawful arXiv PDF and examined theorem page image; source text checked against exact moving m_k conclusion.",
+          "title": "The repetends of reduced fractions a/b^k approach full complexity with an increasing k",
+          "trigger": "Primary same-digit-complexity and prime-power methods"
+        },
+        {
+          "assessment": "DO NOT infer whole-document noncoverage. Abstract concerns fixed length; a hidden stronger all-k theorem remains a concrete originality risk.",
+          "evidence": [
+            "Published as Integers 12 (2012), A28; abstract only; full text unread."
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/INTEGERS/papers/m28/m28.pdf",
+          "material_read": "Abstract and bibliographic description only; full PDF inaccessible through attempted lawful sources; institutional retrieval unavailable.",
+          "method": "Attempted lawful full-text/archival URL and authorized institutional source; access blocked.",
+          "title": "The 2-adic, binary and decimal periods of 1/3^k approach full complexity for increasing k",
+          "trigger": "Exactly same denominators, potentially stronger previous coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "López–Stoll 2022 arXiv:2105.06513 Lemma 11 and Theorem 1",
+        "López–Stoll 2012 Integers 12 A28 (abstract only)",
+        "Resultary binary repetend query",
+        "SCOPE2026 related-file search"
+      ],
+      "rationale": "The question of exactly which contiguous binary patterns occur in the full period of reciprocals 1/3^k is a natural, previously studied digit-complexity invariant. This determines the moving information-scale critical length, not merely convergence at each fixed length, and yields an exact missing-pattern count and a nontrivial natural-density phase law. Such an exact boundary is independently useful for normality/complexity questions.",
+      "residual_risks": [
+        "Mathematical value is judged on the exact motivated final invariant and proof, not on correctness alone; published corollaries/aliases remain a potential literature risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No extrapolation from ten k values; equidistribution proof uses irrationality log2 3; k=1 exceptional threshold J1=1 is expressly stated.",
+    "2012 original family paper full text could not be read; Oxford authorized source responded vpn_disconnected and is not bypassed.",
+    "A general discrepancy or fractional-part bin occupancy theorem may imply the missing-block count with a different vocabulary.",
+    "Prior fixed-length universality is excluded from novelty; density assumes k-index natural density and cyclic contiguous factors."
+  ],
+  "schema_version": 1
+}
