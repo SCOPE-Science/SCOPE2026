@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier resolvent follows by iteration of the exact backward characteristic-function equation for positive Laplace parameter. The stationary law is a convergent Laplace perpetuity with strictly positive density. Strong Markov decomposition at target local time identifies the Laplace hitting transform. The two-factor Fourier majorant is explicitly integrable, supplies uniform absolute convergence of the resolvent difference, and proves the all-parameter geometric truncation bound. The independent finite-difference/oscillatory-quadrature tests cover representative negative contractions and the zero-contraction limit; they are supporting checks, not infinite proof.
+## correctness
 
-**Originality — PASS (self-review).** Biroli et al. (arXiv:2406.08387v1) leave the negative-multiplier boundary constant \(\kappa\) to simulation, rather than giving a closed evaluable formula. Pierce (arXiv:2204.07215) derives a positive-proportion pantograph and poses a hitting-time equation but not its general solution. Harbola (Phys. Rev. E 108, 014135) concerns spatial displacement statistics. The present explicit full-line resolvent evaluation and geometric error bound cover a different conclusion; ordinary resolvent identities and stationary product formulas are acknowledged prior ingredients. A logically equivalent representation could still be implicit in more general potential-kernel literature and needs independent examination.
+PASS
 
-**Value — PASS.** The motivating paper identifies precisely this unresolved numerical boundary value as preventing a fully analytic solution in the negative-rescaling regime. The new representation computes that natural invariant for all admissible parameters without simulation calibration; it works for starts on either side of the target and includes a constructive error bound. It is useful for testing the reported improvement of reflected partial resetting and subsequent resetting-rate optimization. It is not merely normalization, a special parameter slice, or an unexplained numerical curiosity.
+For r,D,L>0 and -1<a<0, the exact backward generator D∂²+r(f(ax)-f(x)) yields a Laplace-resolvent characteristic-series with factors s+r+Da^{2j}k². Contractive Laplace perpetuity gives stationary π_L>0. Strong Markov decomposition at a Brownian point hit gives G_s(x,L)=E_x[e^{-sτ_L}]G_s(L,L) (jump crossings do not count); sG_s(L,L)→π_L. Two denominator factors bound the resolvent difference by |a|^n|L-x|∫|k|/[(1+ck²)(1+ca²k²)]dk, equal to |a|^n|L-x|log(a^{-2})/[c(1-a²)], yielding dominated convergence, absolute Fourier-series convergence and explicit tail bound. Independent Fourier cosine quadratures at D=r=L=1,a=-1/2, using 19 terms, found π_L≈0.2028088623482, E_0τ≈1.3472474853 and κ≈1.6786337452; differences from package numbers reflect truncation/quadrature and are bounded. This is an infinite-parameter proof from the resolvent, not a claim of interval-certified quadrature. Minor documentation inconsistency: RESULT.md describes verify.py as standard-library-only but actual inspected script imports NumPy and SciPy; this does not change mathematical content.
 
-Closest literature: arXiv:2406.08387v1 (full text inspected, particularly Sec. III.B), arXiv:2204.07215 (full text inspected, especially Sec. IV.B), and Phys. Rev. E 108, 014135 (abstract inspected). Residual risk: a broader, already published equivalent potential-kernel formula may imply this series. No claim of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Biroli et al. derive the same negative-rescaling MFPT boundary-value equation but explicitly supply κ through simulations in Sec. III.B; the reviewed all-real-x Fourier potential kernel and κ evaluation are not in that section. Classical local-time/Green potential identities are acknowledged methods, not new.
+
+## value
+
+PASS
+
+Closes the explicit undetermined negative-reset boundary constant in a precisely posed first-passage problem with an all-starting-point, simulation-free integral-series resolvent and geometric truncation error. The constant was a genuine missing quantitative input in a relevant published analysis; the formula is useful without finite-window simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

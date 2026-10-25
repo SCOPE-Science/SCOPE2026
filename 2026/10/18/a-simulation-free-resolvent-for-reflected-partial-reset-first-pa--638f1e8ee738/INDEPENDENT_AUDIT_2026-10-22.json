@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T15:06:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r,D,L>0 and -1<a<0, the exact backward generator D∂²+r(f(ax)-f(x)) yields a Laplace-resolvent characteristic-series with factors s+r+Da^{2j}k². Contractive Laplace perpetuity gives stationary π_L>0. Strong Markov decomposition at a Brownian point hit gives G_s(x,L)=E_x[e^{-sτ_L}]G_s(L,L) (jump crossings do not count); sG_s(L,L)→π_L. Two denominator factors bound the resolvent difference by |a|^n|L-x|∫|k|/[(1+ck²)(1+ca²k²)]dk, equal to |a|^n|L-x|log(a^{-2})/[c(1-a²)], yielding dominated convergence, absolute Fourier-series convergence and explicit tail bound. Independent Fourier cosine quadratures at D=r=L=1,a=-1/2, using 19 terms, found π_L≈0.2028088623482, E_0τ≈1.3472474853 and κ≈1.6786337452; differences from package numbers reflect truncation/quadrature and are bounded. This is an infinite-parameter proof from the resolvent, not a claim of interval-certified quadrature. Minor documentation inconsistency: RESULT.md describes verify.py as standard-library-only but actual inspected script imports NumPy and SciPy; this does not change mathematical content.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known fixed-origin resetting and positive-proportional resetting formulas do not directly imply the reflected a<0 all-start resolvent with κ eliminated; general Markov Green identities alone do not compute explicit stationary and transient factors."
+        ],
+        "reasoning": "Known fixed-origin resetting and positive-proportional resetting formulas do not directly imply the reflected a<0 all-start resolvent with κ eliminated; general Markov Green identities alone do not compute explicit stationary and transient factors.",
+        "searches": [
+          "Brownian diffusion proportional resetting negative multiplier a reflected partial reset exact first passage mean Fourier resolvent Biroli",
+          "rescaling resetting reflected Brownian mean first passage exact integral formula negative rescaling beyond Biroli",
+          "https://arxiv.org/pdf/2406.08387"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2406.08387",
+        "https://arxiv.org/abs/2204.07215"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source fully solves only positive rescaling; on -1<a<0 it leaves a numerical input κ. Computing it via an explicit resolvent is a strict extension, not relabeling the already published κ-dependent series."
+        ],
+        "reasoning": "The source fully solves only positive rescaling; on -1<a<0 it leaves a numerical input κ. Computing it via an explicit resolvent is a strict extension, not relabeling the already published κ-dependent series.",
+        "searches": [
+          "https://arxiv.org/pdf/2406.08387",
+          "Brownian diffusion proportional resetting negative multiplier a reflected partial reset exact first passage mean Fourier resolvent Biroli",
+          "rescaling resetting reflected Brownian mean first passage exact integral formula negative rescaling beyond Biroli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "stationary Green-function potential kernel",
+          "reflected proportional reset and pantograph first-passage boundary value"
+        ],
+        "reasoning": "Examined reductions/aliases: stationary Green-function potential kernel. Compared identical mathematical objects, not just titles; the targeted combination was not supplied by the inspected sources.",
+        "searches": [
+          "Brownian diffusion proportional resetting negative multiplier a reflected partial reset exact first passage mean Fourier resolvent Biroli",
+          "rescaling resetting reflected Brownian mean first passage exact integral formula negative rescaling beyond Biroli",
+          "https://arxiv.org/pdf/2406.08387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published parameter table or exact closed numerical κ expression found; finite simulated κ values in prior Fig. 6 do not give an all-parameter formula."
+        ],
+        "reasoning": "No published parameter table or exact closed numerical κ expression found; finite simulated κ values in prior Fig. 6 do not give an all-parameter formula.",
+        "searches": [
+          "Brownian diffusion proportional resetting negative multiplier a reflected partial reset exact first passage mean Fourier resolvent Biroli",
+          "rescaling resetting reflected Brownian mean first passage exact integral formula negative rescaling beyond Biroli",
+          "https://arxiv.org/abs/2204.07215"
+        ]
+      },
+      "rationale": "Biroli et al. derive the same negative-rescaling MFPT boundary-value equation but explicitly supply κ through simulations in Sec. III.B; the reviewed all-real-x Fourier potential kernel and κ evaluation are not in that section. Classical local-time/Green potential identities are acknowledged methods, not new.",
+      "residual_risks": [
+        "A general resetting resolvent identity may yield an equivalent implicit representation elsewhere",
+        "Numerical Fourier quadrature requires its own error control; geometric bound covers the series tail only",
+        "Verification script requires NumPy and SciPy despite source narrative saying standard library"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published equations (52), (57)–(60) leave κ=T(-L/|a|) externally simulation-calibrated; the new kernel supplies it directly",
+          "evidence": [
+            "Sec III.B pp. 9–11 Eq. (52) calls κ unknown",
+            "p. 11 Eq. (60) and accompanying paragraph use numerically supplied κ",
+            "Published result also has positive-a solution, credited as prior"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.08387",
+          "material_read": "Read arXiv PDF 19-page paper sections III.A–III.B, equations (51)–(60), Fig. 6 and Appendix A; inspected PDF rendered page 11",
+          "method": "Compared κ definition, sampled domain and analytic series with the new full-line Fourier kernel",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Exactly the stochastic process and negative-multiplier boundary constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes the explicit undetermined negative-reset boundary constant in a precisely posed first-passage problem with an all-starting-point, simulation-free integral-series resolvent and geometric truncation error. The constant was a genuine missing quantitative input in a relevant published analysis; the formula is useful without finite-window simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2406.08387",
+    "https://arxiv.org/abs/2204.07215"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general resetting resolvent identity may yield an equivalent implicit representation elsewhere",
+    "Numerical Fourier quadrature requires its own error control; geometric bound covers the series tail only",
+    "Verification script requires NumPy and SciPy despite source narrative saying standard library",
+    "Publication transport blocked by private operational provenance in source metadata; no GitHub write or external attestation."
+  ],
+  "residual_risks": [
+    "A general resetting resolvent identity may yield an equivalent implicit representation elsewhere",
+    "Numerical Fourier quadrature requires its own error control; geometric bound covers the series tail only",
+    "Verification script requires NumPy and SciPy despite source narrative saying standard library"
+  ],
+  "schema_version": 1
+}
