@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact outlier-row formula follows from the rank-three regular polygon Gram matrix and a rank-one Sherman--Morrison update. The diagonal entries of an orthogonal projection control every other row by Cauchy--Schwarz. Uniform shifted-circle quadrature controls the absolute trigonometric kernel and its first radius derivative, proving the unique critical scale, its universal leading coefficient, the \(1/2\) constant-order term, and the \(\pi/4\) additive optimizer correction. Upward derivative jumps at absolute-value switching points rule out nonsmooth maximizers. These steps justify the claim for all \(n\to\infty\) and all outlier phases; the attached finite checker is complementary only.
+## correctness
 
-## Originality — PASS within examined evidence
-The full accessible treatment of least-squares stability by Cohen, Davenport and Leviatan addresses \(L^2\) reconstruction accuracy and well-conditioned sampling, not a one-point contaminated \(\ell^\infty\) hat-matrix norm. McWilliams, Krummenacher, Lucic and Buhmann address leverage/covariate corruption and randomized robust regression, not the exact deterministic ring design or the maximizing radius. Hoaglin--Welsch provides standard hat-matrix identities. Two nearby published mathematical claims were compared through their complete RESULT statements: one computes only the uncontaminated cyclic three-frequency convolution norm; the other computes the continuous-volume affine projector norm on a simplex. Neither implies the outlier scale or its two-term expansion. The search cannot certify universal historical novelty: prior projector row-sum and regression-diagnostics terminology remains a residual risk.
+PASS
 
-## Value — PASS
-A canonical balanced fixed-rank design has bounded endpoint projection norm. Adding one strategically placed covariate makes worst-case fitted-value error grow as \(\sqrt n\); the exact coefficient and universal optimizing geometry quantify a substantive high-leverage instability invisible to the ordinary \(L^2\) operator norm (always one) or mere leverage diagonals. The \(1/2\) and \(\pi/4\) corrections identify the precise critical window rather than an arbitrary finite test case.
+PASS. The original n-gon design has Gram diag(n,n/2,n/2). Sherman--Morrison rank-one inversion for the added row (1,Rcosφ,Rsinφ) yields exact outlier H_{*,*}=(1+2R²)/D and H_{*,j}=(1+2Rcos(2πj/n−φ))/D, D=n+1+2R², giving M_n by signed row sums. Old-row leverage H_jj<=3/n implies the uniform ℓ∞ row bound sqrt(3(n+1)/n). Independent direct 3x3 Gram inversions checked the outlier row formula and old-row bound in 12 finite configurations. Shifted circle bounded-variation quadrature has uniform |S−nm(R)|<=8R and differentiated O(1) error away from upward absolute-value cusps. At radius R=ρ√n the leading profile 4ρ/[π(1+2ρ²)] uniquely peaks at ρ=1/√2, dominating all old rows; its next term 2ρ²/(1+2ρ²) yields +1/2. The stationary equation reduces to n−2R²+πR=O(1), giving every maximizing R=√(n/2)+π/4+O(n^−1/2), uniformly φ. Cusp derivatives jump upward so no local maxima occur there. No finite-n uniqueness claimed and finite checks are not a proof of asymptotics.
 
-## Limits and literature
-The operator controls worst-case **all-response** bounded perturbations, not noise affecting only the anomalous sample. Optimality is asymptotic in the number of circle points, uniform in phase. Relevant older terminology might contain an equivalent result, and independent audit has not been done. Principal comparison material: arXiv:1111.4422 (sections 1--3); arXiv:1406.3175 (sections 2--3); Hoaglin--Welsch (hat matrices); published complete statements for the cyclic three-frequency projection and simplex affine \(L^2\) projector.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the optimized rank-one contaminated circular design, uniform two-term amplification and all-maximizer radius. Prior cyclic projector norms concern the uncontaminated design and general regression leverage literature does not logically dominate the specific endpoint asymptotic.
+
+## value
+
+PASS
+
+PASS. It identifies the exact high-leverage instability of a canonical balanced sample under bounded response noise, the optimal outlier distance, and a universal second-order intercept, distinguishing a natural adversarial ℓ∞ stability problem from stochastic single-point influence and ordinary bounded cyclic projection norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

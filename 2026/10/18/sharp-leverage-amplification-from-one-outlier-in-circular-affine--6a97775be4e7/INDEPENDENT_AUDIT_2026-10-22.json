@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f45452adde7f358cbf2efab134a3300d66a72aad",
+        "checker.py blob 69950451fd37df4ddc3dc7b77fb50530b98f6989",
+        "Independent direct Gram inverse vs outlier row for n=6,12,100,300 and varied R,φ"
+      ],
+      "rationale": "PASS. The original n-gon design has Gram diag(n,n/2,n/2). Sherman--Morrison rank-one inversion for the added row (1,Rcosφ,Rsinφ) yields exact outlier H_{*,*}=(1+2R²)/D and H_{*,j}=(1+2Rcos(2πj/n−φ))/D, D=n+1+2R², giving M_n by signed row sums. Old-row leverage H_jj<=3/n implies the uniform ℓ∞ row bound sqrt(3(n+1)/n). Independent direct 3x3 Gram inversions checked the outlier row formula and old-row bound in 12 finite configurations. Shifted circle bounded-variation quadrature has uniform |S−nm(R)|<=8R and differentiated O(1) error away from upward absolute-value cusps. At radius R=ρ√n the leading profile 4ρ/[π(1+2ρ²)] uniquely peaks at ρ=1/√2, dominating all old rows; its next term 2ρ²/(1+2ρ²) yields +1/2. The stationary equation reduces to n−2R²+πR=O(1), giving every maximizing R=√(n/2)+π/4+O(n^−1/2), uniformly φ. Cusp derivatives jump upward so no local maxima occur there. No finite-n uniqueness claimed and finite checks are not a proof of asymptotics.",
+      "residual_risks": [
+        "Asymptotic theorem only for sufficiently large n, all phases; exact outlier-row norm valid finite n.",
+        "One free outlier with equal weights; does not measure changing only the outlier response or stochastic risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen--Davenport--Leviatan give L² approximation/sampling stability for least squares; McWilliams et al. study leverage and covariate contamination for robust estimation.",
+          "Neither retrieved theorem reports a uniform two-term sharp ℓ∞ hat-matrix norm or optimizer radius for a regular circular design plus one point."
+        ],
+        "reasoning": "General Sherman--Morrison or Cauchy--Schwarz regression identities do not imply the phase-uniform optimum √(2n)/π+1/2 and radius correction π/4.",
+        "searches": [
+          "least squares hat matrix circular equally spaced design with one outlier optimum infinity row sum Lebesgue constant radius",
+          "arxiv:1111.4422",
+          "arxiv:1406.3175"
+        ]
+      },
+      "checked_sources": [
+        "Resultary https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md",
+        "Resultary https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+        "Cohen et al arxiv:1111.4422",
+        "McWilliams et al arxiv:1406.3175",
+        "Resultary query least squares hat matrix circular equally spaced design with one outlier optimum infinity row sum Lebesgue constant radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unaugmented cyclic norm has kernel (1/n)(1+2cos), no adjustable outlier R.",
+          "Continuous simplex affine projector has no separate high-leverage observation or n-gon Fourier quadrature."
+        ],
+        "reasoning": "The extra rank-one Gram update plus uniform shifted-mesh quadrature and differentiated maximization are mathematically required; neither prior result yields the new two terms nor every maximizing radius.",
+        "searches": [
+          "least squares hat matrix circular equally spaced design with one outlier optimum infinity row sum Lebesgue constant radius",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-column affine regression hat matrix is an orthogonal projector and its induced ℓ∞ norm is the maximum absolute row sum.",
+          "The exact cyclic three-frequency Fourier projector describes only the unaugmented regular polygon design; adding a variable-radius outlier destroys translation-invariance."
+        ],
+        "reasoning": "Uncontaminated Fourier convolution and continuous-measure affine simplex projection are not the same finite augmented design or norm optimization.",
+        "searches": [
+          "least squares hat matrix circular equally spaced design with one outlier optimum infinity row sum Lebesgue constant radius",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known finite cyclic three-term Fourier norm is a bounded residue-class formula; the augmented outlier maximum diverges with √n."
+        ],
+        "reasoning": "No matching optimized outlier-radius exact asymptotic table was found. A negative search is not a priority certificate.",
+        "searches": [
+          "least squares hat matrix circular equally spaced design with one outlier optimum infinity row sum Lebesgue constant radius",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the optimized rank-one contaminated circular design, uniform two-term amplification and all-maximizer radius. Prior cyclic projector norms concern the uncontaminated design and general regression leverage literature does not logically dominate the specific endpoint asymptotic.",
+      "residual_risks": [
+        "Long historical hat-matrix and discrete Lebesgue-function literature may contain an equivalent computation under another terminology.",
+        "General least-squares primary papers not read in full this run; no whole-paper NOT_COVERING claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unaugmented baseline only, with bounded norm and no outlier-radius optimization",
+          "evidence": "Theorem gives Λ_n=(1/n)Σ|1+2cos(2πj/n)| and bounded n→∞ limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md including exact residue-class sums and proof by convolution signs",
+          "method": "Read full pinned GitHub RESULT.md blob 77f1297adad2e40848f100c38ecac5359e4aa348",
+          "title": "Exact three-frequency Fourier projection norm on every cyclic group",
+          "trigger": "Closest baseline norm for the regular polygon affine projector"
+        },
+        {
+          "assessment": "Continuous simplex measure and varying spatial dimension, rather than discrete n-gon plus outlier",
+          "evidence": "Its L∞ norm is exact in dimension d and measures a different projection kernel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+          "material_read": "Entire Resultary RESULT.md: simplex-volume kernel, Dirichlet barycentric integral and exact extremizers",
+          "method": "Read full pinned GitHub RESULT.md blob 4b0346cbc5cac9f66c9750f331e082a306ed1160",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Related sharp endpoint operator norm for affine least-squares projection"
+        },
+        {
+          "assessment": "Norm and sampling objectives differ; whole-paper noncoverage not asserted",
+          "evidence": "L2 least-squares stability motivation, not an identified phase-uniform outlier ℓ∞ extremum.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.4422",
+          "material_read": "Arxiv abstract, publication metadata, references from reviewed package; complete primary paper not read in this run",
+          "method": "Checked indexed public arXiv metadata and the named source",
+          "title": "On the stability and accuracy of least squares approximations",
+          "trigger": "General L2 sampling stability could imply sharp sensitivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob f45452adde7f358cbf2efab134a3300d66a72aad",
+        "Independent statement-and-implication comparison documented in originality"
+      ],
+      "rationale": "PASS. It identifies the exact high-leverage instability of a canonical balanced sample under bounded response noise, the optimal outlier distance, and a universal second-order intercept, distinguishing a natural adversarial ℓ∞ stability problem from stochastic single-point influence and ordinary bounded cyclic projection norms.",
+      "residual_risks": [
+        "Only three-feature planar affine design and one contaminating point are treated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic theorem only for sufficiently large n, all phases; exact outlier-row norm valid finite n.",
+    "One free outlier with equal weights; does not measure changing only the outlier response or stochastic risk.",
+    "Long historical hat-matrix and discrete Lebesgue-function literature may contain an equivalent computation under another terminology.",
+    "General least-squares primary papers not read in full this run; no whole-paper NOT_COVERING claim.",
+    "Only three-feature planar affine design and one contaminating point are treated."
+  ],
+  "schema_version": 1
+}
