@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every successfully forced partial colouring must seed at least \(m-1\) vertices per blade, because two initially blank vertices in one blade cannot produce a first forcing move there. If the hub starts coloured, all remaining blade blanks force. If the hub is blank, it is necessarily the first vertex forced, precisely when the seed colours collectively cover the other \(m\) hues. The only failing locally admissible pattern relative to a fixed full colouring consists of one omitted vertex of the same colour in every blade. Distinct successful partial assignments cannot share different full forced completions. Thus the explicit weighted enumeration is valid for all \(k,m\ge2\). The closed probability identity follows from the independent label model; exact small-instance enumeration is corroborative.
+## correctness
 
-**Originality — PASS at accessible-literature coverage, with residual risk.** Farr's 2026 original article defines the forced-colouring function and evaluates complete graphs, small graphs, and general properties but does not address clique windmills with several blades. Farr and Morgan' earlier general work sets up the framework rather than supplying this evaluated family. Published results about forced colourings of complete multipartite or bipartite graphs do not imply the formula: a clique windmill with at least two nontrivial blades is not complete multipartite (it has an induced pair of disjoint edges). Published windmill polynomials for geometric-position, dissociation, and ordinary zero forcing measure different invariants, so coincident graph families do not establish a covering theorem. Searches included the exact graph aliases, colour-forcing aliases, the shared-hub obstruction, probability-function names, and the closed form. Some related public records were accessible only as indexed summaries; an undiscovered exact equivalent is a remaining priority risk.
+PASS
 
-**Value — PASS.** This is a complete all-parameter coefficient classification for the named clique-windmill family in a recent counting framework. The hub's colour-pooling condition creates a non-product term of size \(m\), yields the exact minimum seed size and number of minimizers, and supplies a tractable benchmark for forcing-colouring functions, whose unrestricted evaluation is computationally hard. The cross-blade obstruction is not a mere clique substitution, while the conclusion makes no claim to a general graph theorem.
+For each blade K_m joined to a common hub, >=m-1 blade vertices must initially carry pairwise distinct colours: with two blanks no first leaf move can see q-1=m colours. With a seeded hub, every remaining leaf forces; with the hub blank it must be forced first, which fails exactly when all k blades omit the same one of the m nonhub colours. Each properly forced initial assignment has unique completed colouring. With (m+1)(m!)^k completions the seed polynomial equals (m+1)(m!)^k x^[k(m-1)] ((1+x)(m+x)^k-m), and minimum seed k(m-1) coefficient (m+1)(m!)^k(m^k-m)>0. Independent graph-based exhaustive initial-state counts for (k,m)=(2,2),(3,2),(2,3) gave respectively {2:24,3:96,4:60,5:12}, {3:144,4:480,5:432,6:168,7:24}, and {4:864,5:2160,6:1008,7:144}, agreeing with the derivation. The proof, not these small cases, covers all k,m>=2.
 
-Closest literature: Farr's 2026 article (arXiv:2609.17108v1), the original graph-polynomial proposal (arXiv:2406.15746v1), and related published complete-multipartite forcing results. The independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No prior examined theorem states or implies the clique-windmill all-k,m forcing polynomial. The combinatorial invariant is Farr's iterative local completion, not zero forcing or a unique-extension parameter. This is a best-of-knowledge claim only.
+
+## value
+
+PASS
+
+The shared hub creates correlated missing-colour obstructions across k cliques; its m exclusions are not a product of single-clique formulas. Closed all-coefficient forcing and probability polynomials and the minimum successful seed for the natural generalized friendship family give reusable exact examples for a newly defined forced-colouring invariant, beyond a routine one-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

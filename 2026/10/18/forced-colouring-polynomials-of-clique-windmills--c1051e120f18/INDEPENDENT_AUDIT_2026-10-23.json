@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:46:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each blade K_m joined to a common hub, >=m-1 blade vertices must initially carry pairwise distinct colours: with two blanks no first leaf move can see q-1=m colours. With a seeded hub, every remaining leaf forces; with the hub blank it must be forced first, which fails exactly when all k blades omit the same one of the m nonhub colours. Each properly forced initial assignment has unique completed colouring. With (m+1)(m!)^k completions the seed polynomial equals (m+1)(m!)^k x^[k(m-1)] ((1+x)(m+x)^k-m), and minimum seed k(m-1) coefficient (m+1)(m!)^k(m^k-m)>0. Independent graph-based exhaustive initial-state counts for (k,m)=(2,2),(3,2),(2,3) gave respectively {2:24,3:96,4:60,5:12}, {3:144,4:480,5:432,6:168,7:24}, and {4:864,5:2160,6:1008,7:144}, agreeing with the derivation. The proof, not these small cases, covers all k,m>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farr gives K_n and special/bipartite formulas and general complexity; the family W_{k,m} joins k cliques via a shared hub.",
+          "Published complete-multipartite q=r result is on a different graph family."
+        ],
+        "reasoning": "Neither complete-graph formulas nor complete-multipartite q=r products subsume the shared-hub obstruction and exact k,m polynomial.",
+        "searches": [
+          "Farr forced colouring function graph clique windmill generalized friendship graph exact partial forced colouring enumerator",
+          "https://arxiv.org/pdf/2609.17108",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.17108",
+        "https://arxiv.org/pdf/2406.15746",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "frozen RESULT.md blob f4cb2e4a72a2c867cdd6c14a0920d57afd71eab4",
+        "frozen windmill_forcing_verify.py blob b156aa0aaf0a3d6a8fdd9e4369f0338a480b6d5d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local rule determines whether a given partial assignment forces; it does not supply the exact m simultaneous missing-colour exclusions on W_{k,m}."
+        ],
+        "reasoning": "Prior rule and generic polynomial definitions do not mechanically imply the family-specific all-coefficient formula without a new counting argument.",
+        "searches": [
+          "https://arxiv.org/pdf/2609.17108",
+          "https://arxiv.org/pdf/2406.15746",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farr 2026 defines a partial proper colouring forced by seeing q-1 neighbour colours; the windmill polynomial counts named partially coloured assignments, not graphical zero forcing.",
+          "Farr and Morgan 2024 give the general polynomial formalism."
+        ],
+        "reasoning": "The operation is reducible to the forced-colouring function but an explicit evaluation for the hub-joined family was not found in the inspected definitions/instances.",
+        "searches": [
+          "Farr forced colouring function graph clique windmill generalized friendship graph exact partial forced colouring enumerator",
+          "https://arxiv.org/pdf/2609.17108",
+          "https://arxiv.org/pdf/2406.15746"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search surfaced a multipartite chromatic-palette result but no clique-windmill seed coefficient table."
+        ],
+        "reasoning": "No indexed full windmill table was found; that absence is not a novelty proof and older literature remains a risk.",
+        "searches": [
+          "Farr forced colouring function graph clique windmill generalized friendship graph exact partial forced colouring enumerator",
+          "Farr forced colouring function graph clique windmill generalized friendship graph exact partial forced colouring enumerator"
+        ]
+      },
+      "rationale": "No prior examined theorem states or implies the clique-windmill all-k,m forcing polynomial. The combinatorial invariant is Farr's iterative local completion, not zero forcing or a unique-extension parameter. This is a best-of-knowledge claim only.",
+      "residual_risks": [
+        "Unindexed older or parallel forced-colouring enumeration of generalized friendship graphs may exist.",
+        "The exhaustive small graph checks corroborate only the listed parameter pairs and do not certify all sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NON_COVERING_WITHIN_INSPECTED_MATERIAL",
+          "evidence": "The inspected statements have no general windmill identity or k,m polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108",
+          "material_read": "Definition, complete graph computations, named small examples, bipartite theorem and discussion of larger palettes",
+          "method": "Primary PDF full text opened; targeted theorems, sections and relevant pages examined",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Exact local rule and possible closed windmill formulas"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Framework is generic; it does not establish the windmill polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.15746",
+          "material_read": "Introduction and relevant forced-colouring function sections and examples",
+          "method": "Primary PDF full text opened; targeted theorems, sections and relevant pages examined",
+          "title": "Graph polynomials: some questions on the edge",
+          "trigger": "Earliest forced-colouring polynomial formulation"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_CLASS",
+          "evidence": "Multipartite part-colour support is not the shared-hub windmill adjacency.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "material_read": "Entire published RESULT.md and statement/proof",
+          "method": "Published GitHub RESULT.md downloaded and read in full with proof/limitations",
+          "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+          "trigger": "Nearby published exact family formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shared hub creates correlated missing-colour obstructions across k cliques; its m exclusions are not a product of single-clique formulas. Closed all-coefficient forcing and probability polynomials and the minimum successful seed for the natural generalized friendship family give reusable exact examples for a newly defined forced-colouring invariant, beyond a routine one-instance count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2609.17108",
+    "https://arxiv.org/pdf/2406.15746",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+    "frozen RESULT.md blob f4cb2e4a72a2c867cdd6c14a0920d57afd71eab4",
+    "frozen windmill_forcing_verify.py blob b156aa0aaf0a3d6a8fdd9e4369f0338a480b6d5d"
+  ],
+  "disposition": "passed",
+  "limitations": "Restricted to k,m>=2, named q=m+1 palette, initially proper assignments and local forcing process; no larger-palette or uniqueness-only theorem.",
+  "residual_risks": [
+    "Unindexed older or parallel forced-colouring enumeration of generalized friendship graphs may exist.",
+    "The exhaustive small graph checks corroborate only the listed parameter pairs and do not certify all sizes."
+  ],
+  "schema_version": 1
+}

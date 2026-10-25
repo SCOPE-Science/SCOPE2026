@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The included standalone `windmill_forcing_verify.py` uses standard-library integer combinatorics and a graph-neighbourhood implementation of the local colouring rule. Run `python windmill_forcing_verify.py`; no network calls or third-party modules are required.
+## correctness
 
-The checker enumerates all \((m+2)^{km+1}\) possible labelled blank-or-colour assignments for each of the seven pairs \((k,m)=(1,2),(2,2),(3,2),(4,2),(1,3),(2,3),(1,4)\), a total of \(366142\) assignments. It rejects incompatible starting colours, repeatedly fills vertices whose neighbours exhibit exactly \(m\) distinct colours, and compares exact coefficient counts with the claimed formula. The \(k=1\) computations serve solely as an external boundary sanity check. For the claimed domain \(2\le k,m\le7\), the checker also verifies one explicit minimum successful seed pattern for every initial choice of hub hue. All listed checks succeeded.
+PASS
 
-The proof's critical steps are the invariant preventing any first force in a blade with at least two blanks; the hub-first characterization when the hub is blank; the exact enumeration of the \(m\) common-omission obstructions per full proper colouring; and unique full completion for successfully forced initial assignments. These mathematical arguments, not enumeration, prove the infinite theorem. The verification code does not certify all integer parameter values or search all existing literature. Independent validation and external audit have not been performed.
+For each blade K_m joined to a common hub, >=m-1 blade vertices must initially carry pairwise distinct colours: with two blanks no first leaf move can see q-1=m colours. With a seeded hub, every remaining leaf forces; with the hub blank it must be forced first, which fails exactly when all k blades omit the same one of the m nonhub colours. Each properly forced initial assignment has unique completed colouring. With (m+1)(m!)^k completions the seed polynomial equals (m+1)(m!)^k x^[k(m-1)] ((1+x)(m+x)^k-m), and minimum seed k(m-1) coefficient (m+1)(m!)^k(m^k-m)>0. Independent graph-based exhaustive initial-state counts for (k,m)=(2,2),(3,2),(2,3) gave respectively {2:24,3:96,4:60,5:12}, {3:144,4:480,5:432,6:168,7:24}, and {4:864,5:2160,6:1008,7:144}, agreeing with the derivation. The proof, not these small cases, covers all k,m>=2.
+
+## originality
+
+PASS
+
+No prior examined theorem states or implies the clique-windmill all-k,m forcing polynomial. The combinatorial invariant is Farr's iterative local completion, not zero forcing or a unique-extension parameter. This is a best-of-knowledge claim only.
+
+## value
+
+PASS
+
+The shared hub creates correlated missing-colour obstructions across k cliques; its m exclusions are not a product of single-clique formulas. Closed all-coefficient forcing and probability polynomials and the minimum successful seed for the natural generalized friendship family give reusable exact examples for a newly defined forced-colouring invariant, beyond a routine one-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
