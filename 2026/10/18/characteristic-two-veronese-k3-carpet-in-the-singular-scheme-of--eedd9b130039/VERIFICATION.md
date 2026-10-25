@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and SymPy. Successful output starts with `VERIFY_OK` and reports the three tested finite fields. The script derives all six partial derivatives, checks the exact odd-characteristic affine elimination and the characteristic-two square-zero normal form, verifies the complete-intersection Hilbert polynomial and its conormal twist, enumerates finite-field projective singular-support points over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\), and confirms the generic odd-characteristic Hessian rank over three prime fields.
+## correctness
 
-The manuscript's scheme-theoretic statements for arbitrary algebraically closed fields are proved by its affine-chart derivations, complete-intersection argument, and global sheaf calculations. The finite tests alone would not prove the infinite assertions; the literature search alone cannot prove originality. The characteristic-zero literature cited for K3-carpet nonexistence is not applied to characteristic two. No independent audit has been performed.
+PASS
+
+Differentiating P=abc+af²+be²+cd²+2def forces every projective Jacobian point into a diagonal chart. For a=1 in char not two, eliminate b=-d²,c=-e²,f=-de; residual ideal (d²e,de²)=(de)∩(d,e)^3 has two reduced axes with length-one embedded point, replicated in three symmetric charts. In char2 eliminate b=d²,c=e²,f=de+u yielding u²=0; the three principal quadrics have height 3, a (2,2,2) complete intersection. Hilbert polynomial 4m²+2, local square-zero ribbon, reduced Veronese; Hilbert comparison gives nilradical O_P2(-3), adjunction omega O and H1=0, degree8. Serre S2/R1 yields normality of cubic. Independent symbolic derivatives, substitutions and Hilbert polynomial agreed; general proof not inferred from q=2,3,5 counts.
+
+## originality
+
+PASS
+
+The same named symmetric permanent appears in Shafiei but its apolar annihilator is a different ideal and assumes char≠2; Alper–Bogart–Velasco deals with nonsymmetric generic permanent. Bangere–Mukherjee–Raychaudhury prove nonexistence of embedded second-Veronese K3 carpets over C, not characteristic two. However permanent equals symmetric determinant modulo two, so unindexed symmetric-determinantal Jacobian geometry is a serious residual equivalence risk.
+
+## value
+
+PASS
+
+An intrinsic Jacobian scheme of a natural cubic has a sharp modular transition from one-dimensional conics with embedded points to a Gorenstein multiplicity-two K3 carpet supported on the Veronese, with explicitly calculated nilradical, degree and Hilbert polynomial. The package supplies nontrivial local and global geometry rather than a type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

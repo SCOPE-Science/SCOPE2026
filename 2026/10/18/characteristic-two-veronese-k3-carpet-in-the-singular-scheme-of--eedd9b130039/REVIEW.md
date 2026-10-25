@@ -1,15 +1,21 @@
-# Review of the symmetric-permanent Jacobian singular schemes
+# Independent mathematical audit
 
-## Correctness: PASS
-All projective singular points lie in a diagonal chart since the three diagonal partials exclude simultaneous diagonal vanishing. For odd characteristic exact elimination gives \(k[d,e]/(d^2e,de^2)\), exhibiting two reduced local conic branches and one embedded length-one point on each of three charts. In characteristic two the corresponding chart is \(k[d,e,u]/(u^2)\); the three global quadrics form a regular sequence. Their Hilbert polynomial, the nilradical line-bundle degree, adjunction, and sheaf cohomology prove the K3-carpet structure. The packaged script checks derivations, substitutions, Hilbert polynomial, finite-field points, and a generic transverse Hessian. The symbolic chart proof covers all characteristics stated, not merely the tested finite fields.
+## correctness
 
-## Originality: PASS (qualified)
-Shafiei, arXiv:1303.1860, Sections 1 and 3.2, studies the apolar ideal of the same symmetric permanent, which is not its Jacobian ideal and excludes characteristic two in its main hypotheses. Alper--Bogart--Velasco, arXiv:1505.02205, studies the generic nonsymmetric permanent and determinantal complexity, not this symmetric Jacobian scheme. Bangere--Mukherjee--Raychaudhury, arXiv:2006.16448, Theorem 3.4, excludes a second-Veronese K3 carpet in characteristic zero; it does not imply nonexistence or give this construction in characteristic two. Searches for the characteristic-two symmetric determinant reformulation and the odd-characteristic conic scheme did not disclose equivalent coverage. The classical reduced rank-one determinantal locus and K3-carpet definitions are not claimed. A serious residual risk is an implicit computation in general symmetric determinantal singular-scheme literature.
+PASS
 
-## Mathematical value: PASS
-The natural same cubic has two strikingly different intrinsic nonreduced singular schemes across residue characteristic. Characteristic two produces an explicit projective Gorenstein multiplicity-two structure on the quadratic Veronese with K3 invariants and conormal \(\mathcal O(-3)\), whereas odd characteristic has three conics plus embedded-point contributions. The construction isolates a genuine modular phenomenon absent from characteristic-zero statements. It supplies full local and global scheme structures rather than merely an elementary nonsmoothness test.
+Differentiating P=abc+af²+be²+cd²+2def forces every projective Jacobian point into a diagonal chart. For a=1 in char not two, eliminate b=-d²,c=-e²,f=-de; residual ideal (d²e,de²)=(de)∩(d,e)^3 has two reduced axes with length-one embedded point, replicated in three symmetric charts. In char2 eliminate b=d²,c=e²,f=de+u yielding u²=0; the three principal quadrics have height 3, a (2,2,2) complete intersection. Hilbert polynomial 4m²+2, local square-zero ribbon, reduced Veronese; Hilbert comparison gives nilradical O_P2(-3), adjunction omega O and H1=0, degree8. Serre S2/R1 yields normality of cubic. Independent symbolic derivatives, substitutions and Hilbert polynomial agreed; general proof not inferred from q=2,3,5 counts.
 
-## Limitations
-This is a scheme-theoretic description of one natural cubic, not a classification of all carpets, nor proof of absence of equivalent older work. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same named symmetric permanent appears in Shafiei but its apolar annihilator is a different ideal and assumes char≠2; Alper–Bogart–Velasco deals with nonsymmetric generic permanent. Bangere–Mukherjee–Raychaudhury prove nonexistence of embedded second-Veronese K3 carpets over C, not characteristic two. However permanent equals symmetric determinant modulo two, so unindexed symmetric-determinantal Jacobian geometry is a serious residual equivalence risk.
+
+## value
+
+PASS
+
+An intrinsic Jacobian scheme of a natural cubic has a sharp modular transition from one-dimensional conics with embedded points to a Gorenstein multiplicity-two K3 carpet supported on the Veronese, with explicitly calculated nilradical, degree and Hilbert polynomial. The package supplies nontrivial local and global geometry rather than a type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
