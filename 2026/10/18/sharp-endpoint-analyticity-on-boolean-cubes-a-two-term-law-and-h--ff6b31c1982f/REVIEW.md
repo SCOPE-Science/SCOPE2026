@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The heat kernel factorizes into independent coordinate flips. Differentiation, a binomial telescoping identity, and transitive graph symmetry give an exact endpoint norm for every finite dimension and time. A uniform local Stirling expansion gives the phase-dependent correction, with error \(O(d^{-2})\) in relative terms on compact positive-time intervals. Binomial variance bounds confine all optimized times to compact intervals. The smooth continuum envelope has a unique nondegenerate maximum; half-shell competitors and quadratic upper-envelope comparison give both the sharp next coefficient and the optimizer's time/phase localization. The standalone finite checker passes 475 assertions; it does not replace the mathematical proof.
+PASS
 
-## Originality — PASS with disclosed priority risk
+Unnormalized cube heat kernel is product Bernoulli with p=(1-e^{-2t})/2. Direct differentiation reduces the row absolute sum to e^{-2t} E|Bin(d,p)-dp|/(pq); telescoping yields the stated (d-1)-binomial mass. Stirling shift a={dp} gives B(t,a)=1/12+(6a(1-a)-1)/(12pq). The smooth leading g(t) has unique t*; uniform expansion plus nondegenerate maximum and selectable half-integer dp witnesses give two-term maximum and O(d^-1) localization/phase O(d^-1/2). Independently optimized near t* at d=200,1000,5000: correction tends toward b*=0.29250016, maximizing fractional part ≈0.5; exact kernel expansion vs finite values agrees. Numerical work is not asymptotic proof.
 
-The historical De Moivre binomial mean-absolute-deviation formula, Frame's 1945 first correction, Berend–Kontorovich's 2013 bounds, pre-existing general Bernoulli-resampling derivative norms, and Elezović's 2026 all-orders fixed-parameter formula are explicitly excluded from the discovery claim. The inspected source material does not optimize the Boolean hypercube first-derivative semigroup norm jointly over time and dimension or establish phase locking of the *maximizing time*. Zhang (2022) treats Boolean heat smoothing in different settings. Relevant published mathematical records about Hamming spectral projections, products of conditional expectations and endpoint diagonal maximal regularity do not imply the graph-semigroup optimized two-term formula. This comparison is by object and implication, not title alone. Hidden equivalent classical formulations remain a residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp constant \(M_d\) is the scale-invariant endpoint analyticity constant for a canonical high-dimensional heat semigroup. Its order \(\sqrt d\) growth and explicit subleading coefficient quantify how endpoint analyticity deteriorates under Boolean tensorization. The nontrivial half-shell localization explains why optimizing time removes the first-order lattice fluctuation despite the underlying discontinuous binomial index. These structural facts go beyond computing a binomial mean deviation at prescribed parameters.
+Best-of-knowledge PASS. De Moivre exact deviation, classical fixed-p asymptotics and semigroup bounds cover the initial identity but not continuous-time optimized c*sqrt(d)(1+b*/d) and half-shell locking of EVERY maximizing time. Published SCOPE degree-two Walsh projection lattice phase is a different operator and order; no stronger implication located. The full Elezović 2026 paper was not obtained, priority remains a concrete risk, not declared definitively absent.
 
-## Scientific limits
+## value
 
-The result is asymptotic, not a closed form for each finite \(d\); no claim for general finite graphs or other \(L^p\) exponents is made. Historical coverage may be incomplete. The correctness rationale depends on the uniformity of the Stirling remainder and on the nondegenerate maximum; both are explicitly addressed in the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nontrivial phenomenon that continuous-time optimization suppresses fixed-p lattice oscillations and selects half-integer binomial shells is a motivated endpoint semigroup asymptotic. Exact second coefficient and optimizer phase complement established fixed-parameter deviation theory and can inform optimal derivative norm bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
