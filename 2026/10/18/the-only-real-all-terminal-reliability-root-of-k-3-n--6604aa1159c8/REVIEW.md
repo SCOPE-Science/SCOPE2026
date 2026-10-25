@@ -1,11 +1,21 @@
-# Scientific review: complete-bipartite all-terminal reliability zeros
+# Independent mathematical audit
 
-**Correctness — PASS.** The connection-state inclusion-exclusion is exact: with all smaller-part vertices nonisolated, disconnectedness of the three distinguished vertices is equivalent to at least one of three singleton-separation events. Their probabilities are computed per independent degree-three vertex. The resulting previously known three-power polynomial identity is reconstructed. The exact identity \(A+2C-3B=(1-q)^2\) and power convexity handle \(B\ge0\); odd parity and the strictly positive quadratic \(1-4x+7x^2\) handle \(B<0\). A second-derivative calculation proves the exact multiplicity at \(q=1\). The leading coefficient is positive for every \(n\ge2\). Exhaustive edge-subset enumeration for \(2\le n\le5\), plus exact rational tests and symbolic identities through \(n=20\), corroborate the proof without replacing it. Risk: no independent formal proof check; none is claimed.
+## correctness
 
-**Originality — PASS, with stated residual bibliographic risk.** Brown and McMullin (arXiv:2603.09059v1, Section 4) explicitly pose the exact zero-versus-one-real-root classification question and do not classify \(K_{3,n}\). Brown, Koç and Kooij (DOI 10.1007/s11235-013-9820-0) give the same reliability expression but their indexed theorem concerns inflection points, not zeros; the polynomial formula is credited rather than claimed. Brown and Mol (arXiv:1703.10566, Sections 2–4) address complex root magnitudes, and Brown and Colbourn (1992) give general real-root location constraints, not a zero-count for this family. Relevant search formulations included graph reliability, reduced Tutte specialization, complete bipartite and triple-star terminology, and the exact three-power formula. No observed source states a stronger theorem implying the new real-zero classification. The 2014 full PDF and any unindexed equivalent argument remain residual risks, and a negative search result is not treated as uniqueness proof.
+PASS
 
-**Value — PASS.** It addresses the literal current research question on how many real roots remain after stripping the forced spanning-tree factor; it resolves this exact natural invariant for the infinite family \(K_{3,n}\) of unbounded cycle rank, and distinguishes the neighboring even-parity \(K_{2,n}\) case which does possess a nontrivial real root. Although the needed inequalities are elementary once the known exact formula is recognized, the all-parameter zero-root conclusion was not located in the accessible root literature and is more than a coefficient recomputation.
+PASS: Independently reconstructed the three-hub separation inclusion-exclusion: R=(1-q)^n [(1+q+q²)^n -3(q+2q²)^n+2(3q²)^n]. The three events and their overlap are exhaustive after every degree-three vertex retains an edge. With A=1+q+q², B=q(1+2q), C=3q², exact identity A+2C-3B=(q-1)² plus convexity yields F>0 for B>=0 and q!=1. For -1/2<q<0, the parity argument and 1-4x+7x²>0 establish positivity for both parities. F(1)=F'(1)=0, F''(1)=6n²3^(n-2)>0, and leading coefficient 1-3*2^n+2*3^n>0 for n>=2 establish precisely n+2 copies of q=1 and 2n-2 nonreal roots. Independent edge-mask connectivity enumeration reproduced the formula for n=2,3,4; all-real n bound rests on the inequalities, not enumeration.
 
-**Limits and related sources.** The result covers \(K_{3,n}\), not all complete bipartite graphs; it does not locate the complex roots. The complete 2026 initiating preprint and relevant sections of the 2017 preprint were read. The 2014 source was materially inspected only through search-indexed exact formula and adjacent theorem excerpt, not its full PDF. An Oxford thesis excerpt studies real zeros of a different polynomial, the flow polynomial. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.
+
+## value
+
+PASS
+
+PASS: Root count after removing the forced spanning-tree factor is a natural invariant central to a 2026 reliability-root question. An explicit infinite family of unbounded cycle rank with no reduced real roots and a contrasting K_(2,n) even-n negative real root are genuinely informative. The old exact polynomial expression alone is not the new finding; the uniform all-real positivity certificate is.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

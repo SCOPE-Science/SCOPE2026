@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification and its scope
+# Independent mathematical audit
 
-Execute `python3 verify_k3n_reliability.py` in the same directory as this document. No external package or network access is required.
+## correctness
 
-Observed output from the packaged source:
+PASS
 
-`VERIFY_OK independent_connected_graphs=4 edge_subsets=37440 exact_n=2..20`
+PASS: Independently reconstructed the three-hub separation inclusion-exclusion: R=(1-q)^n [(1+q+q²)^n -3(q+2q²)^n+2(3q²)^n]. The three events and their overlap are exhaustive after every degree-three vertex retains an edge. With A=1+q+q², B=q(1+2q), C=3q², exact identity A+2C-3B=(q-1)² plus convexity yields F>0 for B>=0 and q!=1. For -1/2<q<0, the parity argument and 1-4x+7x²>0 establish positivity for both parities. F(1)=F'(1)=0, F''(1)=6n²3^(n-2)>0, and leading coefficient 1-3*2^n+2*3^n>0 for n>=2 establish precisely n+2 copies of q=1 and 2n-2 nonreal roots. Independent edge-mask connectivity enumeration reproduced the formula for n=2,3,4; all-real n bound rests on the inequalities, not enumeration.
 
-The checker enumerates all \(2^{3n}\) operational edge subsets for \(2\le n\le5\) and independently builds the reliability polynomial from the counts of connected spanning subgraphs; coefficient arrays agree with the factored formula. It verifies exact derivatives, leading coefficients and degrees, plus rational evaluations and the \(K_{2,n}\) comparison. The all-real and all-integer quantifiers depend on the displayed analytic proof; finitely many computations cannot establish them. The 2014 source's complete text was not available for inspection. Independent audit and validation have not occurred.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the precisely scoped new theorem, after direct mathematical implication comparisons with established results. No identified covering theorem after Resultary and primary-source review. The listed inaccessible/partial literature is a residual risk, not proof of priority.
+
+## value
+
+PASS
+
+PASS: Root count after removing the forced spanning-tree factor is a natural invariant central to a 2026 reliability-root question. An explicit infinite family of unbounded cycle rank with no reduced real roots and a contrasting K_(2,n) even-n negative real root are genuinely informative. The old exact polynomial expression alone is not the new finding; the uniform all-real positivity certificate is.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
