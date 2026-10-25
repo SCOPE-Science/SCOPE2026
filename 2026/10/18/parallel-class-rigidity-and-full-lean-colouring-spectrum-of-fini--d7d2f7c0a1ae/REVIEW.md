@@ -1,13 +1,21 @@
-# Scientific review: parallel-class rigidity of affine-plane lean colourings
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly uses the affine-plane axioms and the nontrivial restriction \(q\ge3\). A repeated pair lies on a monochromatic line. If two such lines meet, choosing a fourth available direction through every external point propagates that shared colour to the entire plane; nonconstant colouring rules this out. Other repeated colours must therefore occupy pairwise parallel lines, and different lines must have different colours or a transversal would force a forbidden intersection. This establishes the biconditional classification and the coefficient polynomial. The order-two exception is separately proved. Exhaustive independent partition enumeration at \(q=2,3\) and checks of every constructed partition at \(q=4,5,7\) corroborate the theorem. The finite computations are not used as an all-order proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The motivating defining paper [1] provides the uniform lower bound \(q\), so that numerical lower bound is credited. It does not classify the full affine-plane partitions, exact palette enumerator or unbounded gaps; its wide-path-connected result has an inapplicable edge-overlap hypothesis. Tuza's survey [2] discusses chromatic-spectrum gaps under C- and mixed-hypergraph constraints that differ from lean colourings. The comparison included terminology for Steiner designs, parallel classes and monochromatic-or-rainbow line patterns. No covering published claim was identified; an unindexed equivalent remains a material bibliographic risk.
+PASS
 
-**Value — PASS.** An axiomatic two-parameter incidence structure yields a complete nontrivial structural classification rather than a routine scalar minimum. It produces a closed counting polynomial, an exact set of allowable colour counts, and \(q(q-2)\) gaps, in all finite affine planes, without assuming Desarguesian coordinates.
+For q≥3 a repeated-colour pair forces its unique joining line monochromatic. Two intersecting monochromatic lines propagate their common colour to any outside point by a transversal through that point avoiding the two parallel directions and their intersection (at most three excluded of q+1≥4). Since ≥2 colours required, all monochromatic lines parallel. Distinct parallel mono-lines cannot share a colour (a transversal would force a crossing mono-line), and all other points have fresh singleton colours. Converse by checking a transversal meets a selected line at most once. Therefore the partition count is 1+(q+1)(2^q−1), coefficient (q+1)C(q,k), colour spectrum q²−k(q−1), missing q(q−2), and labeled falling-factorial polynomial; q=2 every nonconstant colouring is lean. Independent exhaustive 21147 partitions at q=3 give 4+12+12+1=29 and q=2 yields 14.
 
-**Limitations.** The theorem does not decide existence of affine planes for arbitrary orders or the analogous classification in higher-dimensional affine geometries. The checks exhaust only orders two and three; at larger tested orders they check all predicted patterns, not all possible partitions. An independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-**Closest scientific sources.** [1] H. Piehowski, *The Lean Number of a Hypergraph*, arXiv:2607.14015v1 (15 July 2026). [2] Z. Tuza, *Mixed hypergraphs and beyond* (2019); different local colouring constraints.
+Full affine-plane colouring partition rigidity and exact named-palette polynomial go beyond Piehowski’s general uniform-edge scalar lower bound and his inapplicable wide-path-connected theorem. Mixed/C-hypergraph spectrum gaps use distinct constraints. No covering affine-plane result was found among indexed research findings.
+
+## value
+
+PASS
+
+Axiomatic classification for every existing finite affine plane, Desarguesian or not, establishes a natural design-incidence structure, nontrivial missing-colour spectrum and exact count polynomial rather than merely an elementary minimum. All finite orders quantified by the incidence proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

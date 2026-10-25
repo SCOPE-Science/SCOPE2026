@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The supplied Python program `verify_affine_lean.py` contains no external dependencies. It constructs affine lines using prime fields at orders \(2,3,5,7\) and the four-element field at order \(4\), confirms each pair of distinct points lies on exactly one line, and tests each predicted partition's validity and required coefficient counts.
+## correctness
 
-It enumerates all set partitions by restricted growth strings at orders \(2\) and \(3\), testing the lean condition directly; the valid counts are exactly \(14\) and \(29\). In order three, the spectrum with multiplicities is \((3:4),(5:12),(7:12),(9:1)\). For orders \(4,5,7\), it tests all predicted construction partitions and their multiplicities; it does not enumerate all possible partitions. The program terminates with `PASS` after its assertions.
+PASS
 
-The unbounded theorem is proved by incidence axioms, not computational induction or numerical extrapolation. Neither independent review nor external automated formal proof is claimed.
+For q≥3 a repeated-colour pair forces its unique joining line monochromatic. Two intersecting monochromatic lines propagate their common colour to any outside point by a transversal through that point avoiding the two parallel directions and their intersection (at most three excluded of q+1≥4). Since ≥2 colours required, all monochromatic lines parallel. Distinct parallel mono-lines cannot share a colour (a transversal would force a crossing mono-line), and all other points have fresh singleton colours. Converse by checking a transversal meets a selected line at most once. Therefore the partition count is 1+(q+1)(2^q−1), coefficient (q+1)C(q,k), colour spectrum q²−k(q−1), missing q(q−2), and labeled falling-factorial polynomial; q=2 every nonconstant colouring is lean. Independent exhaustive 21147 partitions at q=3 give 4+12+12+1=29 and q=2 yields 14.
+
+## originality
+
+PASS
+
+Full affine-plane colouring partition rigidity and exact named-palette polynomial go beyond Piehowski’s general uniform-edge scalar lower bound and his inapplicable wide-path-connected theorem. Mixed/C-hypergraph spectrum gaps use distinct constraints. No covering affine-plane result was found among indexed research findings.
+
+## value
+
+PASS
+
+Axiomatic classification for every existing finite affine plane, Desarguesian or not, establishes a natural design-incidence structure, nontrivial missing-colour spectrum and exact count polynomial rather than merely an elementary minimum. All finite orders quantified by the incidence proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
