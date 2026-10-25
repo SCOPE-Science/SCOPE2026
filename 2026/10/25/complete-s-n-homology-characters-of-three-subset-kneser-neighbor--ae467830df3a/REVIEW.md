@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The hypothesis \(n\ge6\), the exact open-neighborhood face criterion, the augmented orientation convention, and the degenerate degree-zero boundary \(n=6\) are explicit. Boolean Möbius inversion on the disjoint cycles of an arbitrary permutation computes the reduced Lefschetz trace exactly. Nilakantan–Singh's previously proved one-degree homology concentration then identifies it with the actual rational homology character. The binomial-character calculation establishes two absent irreducible types and rational quotient acyclicity. The standalone exact checker independently confirms the character for all 253 cycle types through \(n=12\), while the written proof covers every \(n\ge6\).
+
+**Originality — PASS, with residual priority risk.** The original 20-page arXiv:1807.11732v1 was inspected in relevant definitions, Theorems 1.1 and 1.3 and the final Section 4.2 proof: its result is the nonequivariant sphere wedge, not the complete permutation-group homology character. The original two-subset article arXiv:1802.05848v1 treats a distinct graph family and does not imply the three-subset character. Targeted literature and mathematical-record comparisons did not identify a dominating calculation of the same \(S_n\)-representation. Such searches do not establish absolute novelty; unindexed work remains possible.
+
+**Value — PASS.** The three-subset family is a canonical next step beyond the previously studied two-subset case. A uniform quartic cycle-statistics formula supplies the complete rational representation of an exponentially large chain complex, as well as rational acyclicity for two natural group quotients. These symmetry-sensitive conclusions are not encoded by the existing homotopy type or Betti ranks. The calculation is a substantive all-parameter invariant, not a small experimental rank increment.
+
+**Limitations.** The proof relies on a correctly identified published nonequivariant homotopy theorem; it does not classify integral representation lattices, quotient torsion, or an explicit basis. Unindexed equivalent work and errors in any externally supplied premise remain residual risks, and independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
