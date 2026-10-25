@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is an exact event-probability calculation, not an asymptotic extrapolation: the random side triangle partitions its host into three disjoint corner triangles plus its own interior; integrating the two independent side fractions gives each corner probability explicitly. Summing yields the barycentric expression. The derivative identities prove strict Schur concavity on the open simplex (including unequal coordinates on opposite sides of one-half), hence the unique centroid maximum. The stated vertex expansion follows by Taylor bounds on the displayed scalar function. The independent numerical checker passed all tests, which are corroborative only.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest paper with the same sampling distribution, Maesumi (arXiv:1804.11007), solves the law of inscribed **area** and does not provide a spatial point-inclusion map or its Schur order. Reitzner–Schütt–Werner (arXiv:1911.05917) treat boundary-pooled sampling and asymptotic face and volume expectations. Ismailov (arXiv:2601.02929) treats a circle rather than one sample per straight side. Targeted exact-formula, containment, centroid, source-ID, and geometric random-hull searches revealed no same-object equivalent; existence of a neglected elementary derivation cannot be excluded.
+PASS
 
-**Value — PASS.** A natural pointwise geometric observable—the probability that a random inscribed convex hull covers a given host point—is completely classified throughout the host, not just averaged. The strict Schur order singles out the centroid as the uniquely most robust point in every triangle, and the binary-entropy boundary law quantifies how robustness is lost toward a vertex. The spatial integral recovers the known mean area as a consistency check without being equivalent to the new profile.
+Affine arclength fractions remain uniform on each side. Almost surely the three corner triangles and sampled central triangle partition the host. A corner has probability F(x,y)=1-x-y-xy log[(1-x)(1-y)/(xy)]; exact integration from x/(1-y) to 1 and summing three corners gives the stated Σt(1-t)log((1-t)/t). The sign and monotonicity of φ' show strict pairwise equalization (Schur concavity) even across t=1/2; centroid maximum 2log2/3, zero host boundary, fixed-direction vertex expansion εH(q)+O_q(ε²log(1/ε)), and spatial mean 1/4 follow analytically. Independent SymPy integral and three direct simulated inclusion rates with 100,000 trials each corroborate; finite checks are not the proof.
 
-**Limits.** Exactly three independent edge-stratified samples, not perimeter-pooled samples or higher polygons. No independent mathematical audit or exhaustive bibliographic certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed-point inclusion profile and strict Schur extremum are not covered by the full closely matched Maesumi area-distribution paper, nor by differently sampled circle/boundary results inspected. This is a best-of-knowledge, qualified conclusion; an unindexed elementary barycentric derivation remains possible.
+
+## value
+
+PASS
+
+Pointwise probability of a random inscribed triangle covering a given point is a natural geometric depth invariant. The full shape-independent profile and strict maximizer extend far beyond the known average area and quantify sharp entropy boundary decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

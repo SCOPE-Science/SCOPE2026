@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T07:07:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine arclength fractions remain uniform on each side. Almost surely the three corner triangles and sampled central triangle partition the host. A corner has probability F(x,y)=1-x-y-xy log[(1-x)(1-y)/(xy)]; exact integration from x/(1-y) to 1 and summing three corners gives the stated Σt(1-t)log((1-t)/t). The sign and monotonicity of φ' show strict pairwise equalization (Schur concavity) even across t=1/2; centroid maximum 2log2/3, zero host boundary, fixed-direction vertex expansion εH(q)+O_q(ε²log(1/ε)), and spatial mean 1/4 follow analytically. Independent SymPy integral and three direct simulated inclusion rates with 100,000 trials each corroborate; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maesumi 2019 treats all host triangles but studies the area CDF, not a function of fixed barycentric P. Reitzner, Schütt and Werner arXiv:1911.05917 treat pooled boundary samples and asymptotic expected hull functionals."
+        ],
+        "reasoning": "Neither general host shapes in an area statistic nor pooled-boundary asymptotics imply this exact conditional spatial profile.",
+        "searches": [
+          "Resultary semantic query: probability a uniformly chosen point on each side of a triangle forms a triangle containing a fixed barycentric point; inclusion depth centroid log2",
+          "https://arxiv.org/abs/1804.11007",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://armanmaesumi.github.io/papers/2019_triangle_picking/Triangle_Inscribed_Triangle_Picking.pdf",
+        "https://arxiv.org/abs/1804.11007",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maesumi gives area mean 1/4; the new integration agrees, but integration has no reverse implication. Ismailov arxiv:2601.02929 uses independent samples on a circle."
+        ],
+        "reasoning": "Different random sampling domains prevent reduction to the same barycentric profile without new analysis.",
+        "searches": [
+          "Resultary semantic query: probability a uniformly chosen point on each side of a triangle forms a triangle containing a fixed barycentric point; inclusion depth centroid log2",
+          "https://arxiv.org/abs/1804.11007",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations as barycentric coverage depth, probabilistic inclusion in side-stratified inscribed triangle, Schur/majorization profile and centroid coverage were searched."
+        ],
+        "reasoning": "The fixed host-point event is not determined by the one-number mean area; a circle-uniform radial containment function uses a different sampling measure.",
+        "searches": [
+          "Resultary semantic query: probability a uniformly chosen point on each side of a triangle forms a triangle containing a fixed barycentric point; inclusion depth centroid log2",
+          "https://arxiv.org/abs/1804.11007",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact pointwise function is continuous in two barycentric variables, rather than a finite table; none of the retrieved indexed triangle results tabulates it."
+        ],
+        "reasoning": "The 1/4 integrated value is prior art and is insufficient to infer the pointwise logarithmic law.",
+        "searches": [
+          "Resultary semantic query: probability a uniformly chosen point on each side of a triangle forms a triangle containing a fixed barycentric point; inclusion depth centroid log2",
+          "https://arxiv.org/abs/1804.11007",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+        ]
+      },
+      "rationale": "The exact fixed-point inclusion profile and strict Schur extremum are not covered by the full closely matched Maesumi area-distribution paper, nor by differently sampled circle/boundary results inspected. This is a best-of-knowledge, qualified conclusion; an unindexed elementary barycentric derivation remains possible.",
+      "residual_risks": [
+        "An unindexed classical random-triangle containment formula under geometric-probability terminology might match.",
+        "Monte Carlo confidence is supporting evidence only, not an infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AREA_DISTRIBUTION_NOT_POINT_INCLUSION",
+          "evidence": [
+            "Maesumi computes inscribed triangle area distribution and expectation 1/4 but not the inclusion probability at a fixed barycentric point."
+          ],
+          "identifier_or_url": "https://armanmaesumi.github.io/papers/2019_triangle_picking/Triangle_Inscribed_Triangle_Picking.pdf",
+          "material_read": "Complete 9-page mathematical PDF, including probability integral and area moments",
+          "method": "Primary PDF read and page images checked",
+          "title": "Maesumi, Triangle Inscribed-Triangle Picking",
+          "trigger": "Same host and independently uniform one-per-side sampling"
+        },
+        {
+          "assessment": "DIFFERENT_CIRCLE_UNIFORM_MODEL",
+          "evidence": [
+            "Sampling three points uniformly on circle differs from independent arclength fractions on three sides."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+          "material_read": "Accessible arXiv abstract and title; full paper not inspected",
+          "method": "Primary arXiv bibliographic record",
+          "title": "With what probability does an inscribed triangle contain a given point?",
+          "trigger": "Similar containment observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pointwise probability of a random inscribed triangle covering a given point is a natural geometric depth invariant. The full shape-independent profile and strict maximizer extend far beyond the known average area and quantify sharp entropy boundary decay.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://armanmaesumi.github.io/papers/2019_triangle_picking/Triangle_Inscribed_Triangle_Picking.pdf",
+    "https://arxiv.org/abs/1804.11007",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed classical random-triangle containment formula under geometric-probability terminology might match.",
+    "Monte Carlo confidence is supporting evidence only, not an infinite proof.",
+    "Review is best-of-knowledge; not formal proof or exhaustive historical priority certification.",
+    "No change set for sanitizing private operational metadata supplied, hence publication not ready."
+  ],
+  "residual_risks": [
+    "An unindexed classical random-triangle containment formula under geometric-probability terminology might match.",
+    "Monte Carlo confidence is supporting evidence only, not an infinite proof."
+  ],
+  "schema_version": 1
+}
