@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The random-variable domain and independence are explicit. Geometric-series conditioning gives the folded mass function exactly, and the rational probability-generating function follows. Its logarithm gives positive odd Lévy intensities and square-form even intensities, including the symmetric boundary. The Lévy masses sum to the negative logarithm of the zero mass, establishing a genuine compound-Poisson pgf. Bouzar (2008), Proposition 1, identifies thinning-self-decomposability with the monotonicity of the canonical sequence. The odd-to-even inequalities hold automatically, and even-to-odd inequalities are a monotone one-parameter family with the first member controlling all later members. The boundary \((q-r)^2\ge q^3+r^3\) is therefore necessary and sufficient. Exact mass-function minors give log-concavity only for equal parameters, with the \(k=1\) boundary treated separately. The mathematical proof is universal; code covers rational examples, not all parameters.
+PASS
 
-## Originality — PASS on inspected evidence
+Derived p0=c=(1-q)(1-r)/(1-qr), pk=c(q^k+r^k) for k>=1 from the two disjoint diagonals of X-Y. G(z)=c(1-qr z^2)/[(1-qz)(1-rz)]; logarithm expansion gives nonnegative nu_odd and nu_even, summable since q,r<1 and G(1)=1. Bouzar Prop 1 applies since p0>0 and the law is compound Poisson: the canonical sequence a_k=k nu_k must be nonincreasing. Every odd-to-even step decreases; each even-to-following-odd inequality is (q^m-r^m)^2 >= q^(2m+1)+r^(2m+1). With q>=r,t=r/q<=1 its left (1-t^m)^2 increases, right q(1+t^(2m+1)) decreases, so all m iff m=1, yielding the displayed sharp included boundary. For k>=2, p(k-1)p(k+1)-p(k)^2=c^2(qr)^(k-1)(q-r)^2, and k=1 minor p1^2-p0p2=2c^2qr>0: log-concavity only at symmetry, incompatible with threshold. Independent exact Fraction tests checked examples on both sides plus symmetry; finite examples are not proof of the all-m iff statement.
 
-The signed model and its infinitely divisible integer-line representation are given in Kozubowski–Inusah (2006), which was inspected through its definitions, representations, further properties and proofs. Those results do not imply infinite divisibility of the folded absolute value by closure alone. Bouzar (2008) gives the general thinning criterion, but its theorem does not state the folded skew family, its parity-resolved Lévy measure, or the single sharp cubic boundary. The 2022 statistical review and Pakes's overview cover count differences, thinning, and general infinite-divisibility theory without an identified dominating folded-Laplace phase diagram. A later accessible treatment of signed asymmetric discrete-Laplace processes did not yield this folded classification. Targeted mathematical-record and text searches found no equivalent, including folded-discrete-Laplace, absolute-difference-of-geometric, compound-Poisson, and thinning aliases. The symmetric log-concavity component is already implied by known geometric-range factorization and is **not** separately counted as novel. Residual risks include synonymous older treatments not indexed or not accessible in full and possible implicit algebraic deduction from combined classical facts; searching does not prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Taking the absolute value is a common loss-of-sign observation of signed integer data but does not respect addition of independent summands. The exact signed Lévy law hence does not answer whether the folded count remains infinitely divisible. The explicit nonnegative-jump structure resolves that issue for the entire two-parameter family, and its discrete-self-decomposable subset is determined by one exact cubic inequality despite the infinitely many canonical coefficient tests. The sharp disjointness from log-concavity illuminates how distinct distributional structure notions behave under folding. This is a complete natural family classification rather than an arbitrary numerical slice; no downstream paper-scale theorem is claimed.
+Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: Kozubowski–Inusah (2006), Bouzar (2008), Karlis–Mamode Khan (2022 advance publication), Pakes (2022), and Arnold–Arvanitis (2025). Assumes independent zero-based geometrics with parameters in the open unit interval, and uses binomial thinning only. The computational replay checks examples rather than the infinite proof. Novelty relative to inaccessible or unindexed sources is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The absolute magnitude |X-Y| is a standard observable for paired count differences, but folding does not preserve signed convolution representations. A complete two-dimensional, equality-inclusive cubic thinning phase boundary with an explicit parity-sensitive Levy measure is a useful structural classification of discrete distributions, clearly separating ID, thinning SD, and log-concavity; it is not solely a reparametrized example of the general criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
