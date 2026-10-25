@@ -1,15 +1,21 @@
-# Scientific review of image ranks and idempotent retractions
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the operation-preserving maps from output-coordinate filters, verifies that all maps in the stated normal form preserve implication, and derives the exact surjection and fixed-root enumerators. Critical existing-meet preservation is justified via the relative Boolean algebra above a nonempty intersection, rather than assumed. All parameter ranges include \(n=2\), \(r=0\), \(r=n-1\), and the permutation case. Independent finite enumeration tests the actual implication equation for all join-generated maps through \(n=4\), giving totals 7, 43, 393 and idempotent counts 4, 14, 64. The proof, not enumeration, establishes the universal formulas.
+## correctness
 
-## Originality — PASS (qualified)
-Gaitán 2012/2014/2015 established relevant Tarski endomorphism-monoid reconstruction, and classical semi-Boolean/Tarski duality supplies the general representation framework. González–Calomino (2021) studies finite-nearlattice homomorphisms and representation. The assessed new mathematical content is the complete image-rank distribution, Boolean-image dichotomy, and rank-resolved idempotent counts for the implication reduct of the punctured finite Boolean cube. Searches under Tarski, implication algebra, semi-Boolean, pointed transformation, nearlattice, Stirling and idempotent terminology located no exact covering theorem. Gaitán 2012 could only be examined by abstract, and unknown earlier duality/semigroup sources remain possible priority risks; this is a best-knowledge qualified review, not a certificate of novelty.
+PASS
 
-## Mathematical value — PASS
-Image ranks and retraction counts are intrinsic invariants of a finite algebra's endomorphism monoid and measure the possible images of implication-preserving maps. The classification answers both questions for all sizes, with a sharp qualitative distinction between proper Boolean images and the full punctured image. This complete concrete classification is motivated independently of computational feasibility; no speculative downstream theorem is required.
+On the implication-only algebra I_n=P([n]) minus ∅ (n≥2), A⇒B=([n]\A)∪B, join is term-definable by (A⇒B)⇒B. Existing nonempty intersections are definable inside Boolean intervals [C,[n]] using relative complement and are preserved. The coordinate filter I_j={i:j∈F({i})}, nonempty by F([n])=[n], must be a singleton or all [n]: a proper filter with at least two elements would violate preservation of {s,u}∩{t,u}={u}. Thus every F uniquely is Fθ(A)={j:θ(j)=0 or θ(j)∈A}, with θ:[n]∪{0}→itself, θ(0)=0, and θ|[n] either permutation or taking 0 at least once; the converse preserves implication coordinatewise. For nonunit θ, with r distinct occupied nonzero symbols, image is the Boolean cube on r nonzero preimage blocks above nonempty fixed bottom θ^{-1}(0), so rank 2^r. Units have rank 2^n−1. Surjection count is binom(n,r)(r+1)!S(n,r+1), total (n+1)^n−n^n+n!. Idempotency θ²=θ gives binom(n,r)[(r+1)^(n−r)−r^(n−r)], plus one identity unit. Fresh independent complete pointed-map enumeration for n=2,3,4 matched ranks {1:1,2:4,3:2}, {1:1,2:18,4:18,7:6}, {1:1,2:56,4:216,8:96,15:24}, with idempotent totals 4,14,64. This is corroboration of a full-n proof.
 
-## Literature and limitations
-Primary materials: Gaitán (2014), DOI 10.2478/dema-2014-0022; Gaitán (2015), DOI 10.4467/20842589RM.15.002.3911; González–Calomino (2021), arXiv:2106.00807. Gaitán (2012), DOI 10.1007/s00233-011-9345-3 was accessible only through bibliographic data and abstract. The theorem does not cover arbitrary implication algebras or conjugacy classes. Finite verification is restricted to four-point ground sets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact image rank and idempotent retraction distribution for a natural finite Tarski implication family, distinguishing previously established general endomorphism representations and monoid reconstruction.
+
+## value
+
+PASS
+
+The number and sizes of images and idempotent retractions are intrinsic monoid invariants of a natural implication reduct of a finite Boolean lattice. The formulas classify every possible rank and every idempotent rank uniformly in n, including a meaningful Boolean-image versus punctured-full-image dichotomy. Such complete exact monoid data are useful independently of a hypothetical downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
