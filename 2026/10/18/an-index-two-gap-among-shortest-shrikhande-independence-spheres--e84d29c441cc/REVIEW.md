@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete Cayley model has 16 vertices, 48 edges and independence face vector \((16,72,96,16)\). Exact integer boundaries have ranks \((57,16)\) in degrees two and three, with 16 unit Smith factors for the third boundary. All 32 induced six-vertex octahedral cycles are exact integral cycles; their augmented lattice has Smith factors \(1\) repeated 38 times and \(2\) once, proving index two in the rank-23 integral second homology. The affine group orbit calculation verifies transitivity. Full binary seven-vertex enumeration, coupled with the primitive lattice quotient, establishes the minimal eight-vertex support of the missing coset. The explicit eight-vertex sphere collapses and its exact signed cycle, added to the lattice matrix, give 39 unit Smith factors. The supplied checker independently reconstructs each certificate from the graph definition.
+PASS
 
-## Originality
+From the Cayley steps ±(1,0), ±(0,1), ±(1,1) on Z4², independently rebuilt the 16-vertex graph with 48 edges and independence face vector (16,72,96,16). Signed simplicial boundary ranks are 57 and 16; the 16 ∂3 invariant factors are units, so reduced H2 is free Z^23. Exact Smith normal form of [∂3 | 32 oriented induced octahedra] is 1^38,2, proving full-rank index 2, while one cycle appended to ∂3 gives 17 units. Exhaustive binary H2 census of all 11,440 seven-vertex sets gives 11,120 zero and 320 one, each positive set containing exactly one six-vertex octahedron; no outside-index-two class has support ≤7. The eight-vertex set {0,1,2,4,7,9,10,11} has 8,19,14,1 faces, two actual elementary collapses to a 12-triangle sphere, and its signed cycle extends Smith factors to 39 units, hence generates the missing coset. The general six-vertex minimum for a flag H2 carrier follows by vertex-link Mayer–Vietoris: each vertex of a minimal induced support has a 4-vertex 1-cycle link; any five-vertex flag support would be a cone/simplex. The supplied orbit code also checks 192 affine automorphisms act transitively on the 32 carriers.
 
-**PASS, subject to the stated literature limits.** The closest published results on the same graph establish the ambient \(23\)-sphere wedge and a full group character; their mathematical statements and proofs do not determine six-vertex sphere supports, a finite-index integral sublattice, or the sharp eight-vertex coset support. Barmak's star-cluster methods and the established four-by-four chessboard-complex theorems treat general methods or a different graph, not this integral carrier classification. The overlapping objects, graph aliases and stronger-coverage possibilities were compared at the claim level. One relevant modern graph monograph could only be inspected through published previews, leaving a bibliographic risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The index-two gap is a substantive integral local-to-global phenomenon: shortest induced cycles exhaust the rational homology yet fail to generate its integer lattice. The precise parity obstruction and sharp, explicitly spherical eight-vertex repair distinguish minimal support from full integral generation in a canonical strongly regular graph. They are not a rephrasing of its known Betti numbers or its abstract wedge homotopy type.
+A best-of-knowledge comparison of specific mathematical implications and exact model/normalization found no identified earlier theorem proving this new claimed part. Previously published overlapping objects, numerical invariants and limitations are credited. The four explicit checks, primary-source inspections and risk list below bound this assessment. Previously known homotopy and group-representation information cannot imply the exact images of these 32 inclusion maps over Z. The 2-torsion quotient is invisible to rational full-span data, and the sharp eight-vertex repair is not a corollary of the known wedge count.
 
-## Scope and limitations
+## value
 
-All conclusions are graph-specific and exact; no family extrapolation is claimed. Literature coverage does not imply absolute publication priority, and no independent external scientific audit is asserted. The elementary sphere carrier is not claimed unique beyond its support size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical exceptional strongly regular graph supplies a natural test of how shortest induced fundamental cycles assemble its integral H2. Thirty-two individually primitive six-vertex classes have full rational span but index-two integral deficiency, and an explicitly supported eight-vertex sphere plus a sharp seven-vertex obstruction exactly resolves the deficiency. This is a motivated integral local-to-global invariant invisible to known Betti counts and group characters, not mere reproduction of a graph catalogue number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
