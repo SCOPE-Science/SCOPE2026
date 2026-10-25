@@ -1,11 +1,27 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite classification is supported by an explicit mathematically complete leaf-attachment generation and an exact recursive rooted-tree isomorphism invariant. A second, logically different checker independently computes full graph automorphisms of the witness. The graph's two-class equitable quotient and its three true orbit classes also have a short direct proof. The standalone checker reproduces exactly 47 unlabelled nine-vertex trees with one failure; all smaller sizes are exhausted. Finite coverage, not extrapolation to all orders, is claimed.
+## correctness
 
-**Originality — PASS (qualified).** The nearest inspected full-text study, Arvind–Köbler–Rattan–Verbitsky (2015), proves forests amenable and gives Johnson-graph examples, but those do not imply preservation of orbit-refinability by taking line graphs of trees. The accessible introduction and abstract of Kiefer–Schweitzer–Selman (2015) establish the general logical context without giving the claimed sharp tree-order obstruction. Searches also considered tree-edge rooted refinement, block graphs and equitable partitions. No equivalent or stronger statement was identified, though specialized prior coverage remains possible and independently established priority is not asserted.
+PASS
 
-**Value — PASS.** The result isolates a sharp natural boundary for colour refinement under the line-graph operation. The original graphs are trees, a class on which refinement is especially strong; a unique smallest tree nevertheless produces a line graph with equitable classes strictly coarser than its automorphism orbits. The witness has an explicit structural explanation, rather than relying only on a census, and one arbitrary individualized vertex repairs the failure. A complete minimal classification is useful for testing preservation theorems and their hypotheses. It does not settle larger orders.
+Reconstructed the exhaustive induction by leaf addition and a complete rooted-tree code (minimum rooted code over all roots). Stable color refinement was reimplemented on each line graph and compared with edge-orbit codes obtained by cutting each tree edge. The census recovered counts 1,1,1,2,3,6,11,23,47, one order-nine exception with 2 stable classes versus 3 orbits, and success for all eight marked cases. A separate brute-force automorphism checker for the witness also passed. The local reimplementations were not byte-identical to the packaged scripts; their source blobs and tree identities were verified separately.
 
-The chief residual risks are a previously published equivalent small-obstruction census, and software implementation error despite the elementary coverage proof and independent witness checker. General all-size uniqueness is neither claimed nor inferred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard definition matches the claim, but refinability of T does not imply refinability of its line graph; no such implication appears in the inspected theorem.
+
+No general line-graph theorem or broader classification inspected implies the nine-vertex minimal obstruction or the eight marked-vertex repair.
+
+No matching published exact census was found; the finite table is a reproducible local certificate, not a database-priority proof.
+
+The exact minimum counterexample and the all-markings property are additional finite structural facts, not a restatement of the general refinability hierarchy.
+
+## value
+
+PASS
+
+The first explicit obstruction at the sharp order-nine boundary is a motivated finite classification problem in a classical invariant-partition setting. The eight individualization outcomes explain a concrete repair mechanism; this is more than a routine color-refinement exercise or a relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
