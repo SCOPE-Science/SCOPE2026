@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T02:44:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "doi:10.3934/math.2022171 (Keyoumu–Ma–Guo, 2021 online / 2022 journal), model (1.2), logarithmic system (2.1), Theorem 2.1, Section 3",
+        "G. Teschl, Ordinary Differential Equations and Dynamical Systems, §3 (Liouville formula and Floquet determinant), https://schecter.math.ncsu.edu/ma_732_sp13/teschl_ode.pdf",
+        "Pinned Git RESULT.md blob 48d1dfa80782a45fa2fc760d5a9ea82f596702f7 and verify.py blob 4b9eaa36c586589e1cc6eb24110c3e9369c66352"
+      ],
+      "rationale": "Direct reconstruction from the exact source equations confirms tr J=-(d+d1+c+γ+βDv+β1βvT). From dot T/T=λ/T-βDv-d and dot D/D=λ1/D-β1βvT-γ, the claimed pointwise cohomology follows identically; integrate and use Liouville to obtain the exact endpoint ratio and exponential. On an ω-periodic strictly positive solution the endpoint ratio equals one and λ/T, λ1/D>0, proving det Φ(ω)<exp[-∫(d1+c)]<1. det Φ is positive and equals the product of the complex multiplier moduli, so at least one modulus is strictly below the stated fourth-root baseline. All quantifiers (continuity of coefficients, positivity of T,D; periodicity only for the Floquet portion) and normalization Φ(0)=I were checked. Independent SymPy Jacobian/cohomology identities vanish algebraically; numerical integration of a nonperiodic one-period segment gives det 0.669254913853902 vs both Liouville and endpoint-corrected expression 0.669254913853891, confirming the endpoint factor is necessary off-cycle. The numerical check is not the infinite proof.",
+      "residual_risks": [
+        "Positive locked-cycle existence is inherited conditionally from the source paper; the determinant formula does not prove it.",
+        "Numerical example starts near, not exactly on, a periodic orbit; the finite-time endpoint ratio 1.00089045 is required, and no numerical extrapolation is used for a theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Liouville identity gives det Φ(t)=exp∫tr J for any continuously differentiable nonautonomous vector field.",
+          "For the exact source model, tr J=-(d+d1+c+γ+βDv+β1βvT), strictly less than -(d+d1+c+γ).",
+          "Therefore the known general theorem applied to the published model immediately yields stronger det Φ(ω)<exp[-∫(d+d1+c+γ)] than the advertised det Φ(ω)<exp[-∫(d1+c)]."
+        ],
+        "reasoning": "A general standard theorem and the published vector field give all advertised contraction and multiplier consequences more strongly; the distinct cohomological re-expression itself was not located verbatim. This sharply limits scientific contribution, assessed as failure of V rather than pretending an exact external publication was found.",
+        "searches": [
+          "Teschl ODE and Dynamical Systems §3 Liouville/Floquet monodromy determinant identity",
+          "Web 2026-10-25: Liouville formula determinant fundamental matrix periodic differential equations trace Floquet product theorem",
+          "Resultary 2026-10-25: exact Liouville determinant contraction for cooperative dissipative compartmental periodic ODE positive diagonals"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2022171 (Keyoumu–Ma–Guo, 2021 online / 2022 journal), model (1.2), logarithmic system (2.1), Theorem 2.1, Section 3",
+        "doi:10.1155/2017/5285810 (Tang–Ma–Bai, 2017), four-state autonomous MERS-CoV/DPP4 model and equilibrium stability",
+        "doi:10.3934/mbe.2022570 (Keyoumu–Guo–Ma, 2022), CTL-extended periodic model existence",
+        "doi:10.1007/s11538-011-9677-x (Browne–Pilyugin, 2012), periodic therapy Floquet theory at infection-free states",
+        "G. Teschl, Ordinary Differential Equations and Dynamical Systems, §3 (Liouville formula and Floquet determinant), https://schecter.math.ncsu.edu/ma_732_sp13/teschl_ode.pdf",
+        "Resultary semantic search hits: exact title mirror, unrelated dengue Floquet and Nosé–Hoover volume identities (2026-10-25)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper gives the precise 4-state equations, strictly positive coefficient assumptions and positive locked-cycle existence under its hypotheses.",
+          "The source log equations give d log T and d log D directly; their sum transforms the trace tautologically.",
+          "No new existence, stability classification, or sharp threshold is entailed by the transformed identity; the directly known divergence implies the advertised exclusion of fully repelling cycles."
+        ],
+        "reasoning": "The source model plus Liouville and direct signs entails a STRICTLY STRONGER version of the sole Floquet conclusion. The exact cohomological formula is a routine algebraic specialization of standard machinery, which undermines value even if not previously typeset in the same form.",
+        "searches": [
+          "AIMS Mathematics 7 (2022), model (1.2), transformation (2.1), proof of Theorem 2.1",
+          "PMC DOI 10.1155/2017/5285810 text excerpts: original autonomous DPP4 model and global equilibrium results",
+          "Resultary 2026-10-25 comparisons: exact monodromy/product searches and general volume contraction results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary top exact phrase returned the publication mirror of the assessed 2026-10-11 record, not an independent earlier result.",
+          "Source paper (2.1) already displays log-coordinate equations but does not report the variational determinant or multiplier product.",
+          "The expression can be equivalently written as exp[-∫(d+d1+c+γ+βDv+β1βvT)] over any solution, by Liouville."
+        ],
+        "reasoning": "Looked for cohomological divergence, product of Floquet multipliers, logarithmic coordinate conjugacy and exact DPP4 model aliases. No independent prior expression found, but the formulas are algebraically equivalent to the source Jacobian trace plus the standard Liouville identity. The published mirror cannot establish earlier external priority.",
+        "searches": [
+          "Resultary 2026-10-25: periodic within-host MERS-CoV DPP4 infection model Floquet monodromy determinant Liouville volume contraction identity positive periodic solution",
+          "Resultary 2026-10-25: divergence cohomological identity log T D periodically forced epidemic virus ODE nonlinear incidence one contracting Floquet multiplier",
+          "Web 2026-10-25: Keyoumu Floquet DPP4 determinant; MERS-CoV Jacobian trace Floquet periodic",
+          "AIMS original full PDF doi:10.3934/math.2022171, model (1.2), logarithmic system (2.1), Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source publishes its forcing coefficients and a periodic solution plot, not a tabulated determinant, monodromy matrix or Floquet spectrum.",
+          "This all-positive-function analytic identity is not a bounded enumerative/database quantity; no exact numerical table could cover the full coefficient-function statement."
+        ],
+        "reasoning": "Exact-table recomputation is genuinely inapplicable to the all-coefficients theorem. We did compare the published concrete forcing set and checked that the weaker announced baseline 0.9043571086 is already dominated by the elementary 0.8874700357 bound.",
+        "searches": [
+          "Publisher primary full PDF DOI 10.3934/math.2022171, Section 3 numerical parameters (3.1)",
+          "Resultary published finding search: periodic MERS-CoV DPP4 monodromy determinant and phase-volume law"
+        ]
+      },
+      "rationale": "NARROW BEST-OF-KNOWLEDGE PASS for the explicit log(TD) finite-time determinant representation as a separately stated formula: inspected primary literature does not print that expression for the same four-state periodic model. However, it is an immediate re-expression of the published model equations and classical Liouville identity, not a new stability theorem. The stronger directly evident negative-divergence bound, and the absence of a new dynamical consequence, are decisive under V; do not mistake a distinctive formula presentation for a substantive mathematical advance.",
+      "residual_risks": [
+        "No exhaustive global search can establish historical novelty of the specific displayed cohomological algebra.",
+        "Full CTL-extended paper and Browne–Pilyugin paper were not materially read; abstracts cannot categorically exclude identical secondary statements.",
+        "The exact identity may already have appeared in unpublished notes; this is not needed for the decisive V failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No written Floquet determinant result; the published equations themselves already imply direct strictly negative divergence and a stronger unconditional determinant bound.",
+          "evidence": "PDF p. 3085 model (1.2), positive periodic coefficients; p. 3086 log transform (2.1); p. 3093 existence theorem; p. 3094 source example (3.1).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/2/PDF/math-07-02-171.pdf (doi:10.3934/math.2022171)",
+          "material_read": "Public 14-page PDF extracted text: model (1.1)/(1.2), log model (2.1), Theorem 2.1 and proof, integrated balances, Section 3 conclusions and numeric example; page 3 image visually inspected.",
+          "method": "Lawful open-access PDF full-text review and original PDF page screenshot, direct algebraic implication comparison.",
+          "title": "Existence of positive periodic solutions for a class of in-host MERS-CoV infection model with periodic coefficients",
+          "trigger": "Exact primary source establishing coefficient positivity, system and the positive periodic solution; potential implicit prior determinant result."
+        },
+        {
+          "assessment": "The displayed contribution is autonomous-equilibrium stability, not an explicit forced positive-cycle monodromy formula; direct-page access limitation retained.",
+          "evidence": "Equation (2) has constant parameters; abstract and Section 3 describe equilibrium stability.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5574235/ (doi:10.1155/2017/5285810)",
+          "material_read": "Open-access article text returned by web search engine, sections containing four-state equation (2), abstract, simulations and conclusions; direct website revisit displayed browser challenge, so no claim of complete direct reread.",
+          "method": "Indexed open full-text extraction and direct page access attempt; no access bypass.",
+          "title": "A Novel Dynamic Model Describing the Spread of the MERS-CoV and the Expression of Dipeptidyl Peptidase 4",
+          "trigger": "Autonomous predecessor on the same four biological state variables."
+        },
+        {
+          "assessment": "Abstract reports periodic existence in a CTL extension, not the exact four-state formula; uninspected body is a residual priority risk.",
+          "evidence": "Publisher abstract dated 2022-08-22, discusses lower CTL-bound construction and oscillation existence.",
+          "identifier_or_url": "https://aimspress.com/article/doi/10.3934/mbe.2022570 (doi:10.3934/mbe.2022570)",
+          "material_read": "Publisher landing-page abstract, bibliography and attempt to open Full Text(HTML); complete article body was not exposed.",
+          "method": "Publisher HTML and abstract inspection; no unsupported whole-text NOT_COVERING conclusion.",
+          "title": "Periodic oscillation for a class of in-host MERS-CoV infection model with CTL immune response",
+          "trigger": "Same-author extension of the seasonal model with changed CTL state structure."
+        },
+        {
+          "assessment": "The abstract discusses Floquet therapy-phase effects near infection-free states, not this DPP4 positive-cycle identity; uninspected details explicitly limited.",
+          "evidence": "PubMed abstract states effects of RT/P inhibitors on stability of infection-free steady states.",
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/21822766/ (doi:10.1007/s11538-011-9677-x)",
+          "material_read": "PubMed bibliographic record and full abstract, no full article text.",
+          "method": "Indexed abstract comparison without whole-document exclusion.",
+          "title": "Periodic multidrug therapy in a within-host virus model",
+          "trigger": "Plausible broader prior use of Floquet theory for periodically driven within-host systems."
+        },
+        {
+          "assessment": "Generic Abel–Jacobi–Liouville formula predates the record and supplies its determinant and Floquet-product mechanism.",
+          "evidence": "Equation (3.122) and adjacent Floquet theorem (3.15) in the located excerpt.",
+          "identifier_or_url": "https://schecter.math.ncsu.edu/ma_732_sp13/teschl_ode.pdf (Gerald Teschl, §3)",
+          "material_read": "Search-index excerpt around formula (3.122): the monodromy determinant equals exp of the integral of the variational trace; theorem name and context.",
+          "method": "Textual source excerpt, not an assertion of complete book inspection.",
+          "title": "Ordinary Differential Equations and Dynamical Systems",
+          "trigger": "General existing determinant theorem covering the standard part of the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3934/math.2022171 (Keyoumu–Ma–Guo, 2021 online / 2022 journal), model (1.2), logarithmic system (2.1), Theorem 2.1, Section 3",
+        "G. Teschl, Ordinary Differential Equations and Dynamical Systems, §3 (Liouville formula and Floquet determinant), https://schecter.math.ncsu.edu/ma_732_sp13/teschl_ode.pdf",
+        "independent_checks.py independent symbolic trace, positivity comparison and finite-time integration"
+      ],
+      "rationale": "The ONLY advertised dynamical consequence is a volume contraction and at least one contracting Floquet multiplier. Yet without any cohomological calculation, the published positive four-state model has tr J=-(d+d1+c+γ+βDv+β1βvT)<-(d+d1+c+γ) at every positive state. Liouville already gives the STRICTLY STRONGER periodic estimate det Φ(ω)<exp[-∫(d+d1+c+γ)]<exp[-∫(d1+c)], and the same fourth-root multiplier deduction. For the published forcing averages the elementary upper bound is 0.8874700356624355 versus the claimed 0.9043571086383213. The exact alternative representation in λ/T and λ1/D is merely the sum of two displayed logarithmic state balances and adds no sharper parameter threshold, sign change, stability classification, bifurcation diagnosis, or new computable invariant. No independently motivated use of the new coordinates is established. Therefore a cheap routine divergence normalization yielding a weaker previously implied conclusion fails the common mathematical-value bar, even though its equality is correct and its formatting may be absent from indexed sources. A repair would require a genuinely substantive surviving theorem, not disclaimers, extra verification or rephrasing; none is supplied.",
+      "residual_risks": [
+        "A future application might exploit the λ/T and λ1/D representation for observational inference, but no such theorem, model identifiability condition or substantial mathematical role is proved in this package.",
+        "A negative verdict concerns demonstrated mathematical value of this submitted final claim; it does not assert that source-model stability questions themselves are unimportant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.2022171 (Keyoumu–Ma–Guo, 2021 online / 2022 journal), model (1.2), logarithmic system (2.1), Theorem 2.1, Section 3",
+    "doi:10.1155/2017/5285810 (Tang–Ma–Bai, 2017), four-state autonomous MERS-CoV/DPP4 model and equilibrium stability",
+    "doi:10.3934/mbe.2022570 (Keyoumu–Guo–Ma, 2022), CTL-extended periodic model existence",
+    "doi:10.1007/s11538-011-9677-x (Browne–Pilyugin, 2012), periodic therapy Floquet theory at infection-free states",
+    "G. Teschl, Ordinary Differential Equations and Dynamical Systems, §3 (Liouville formula and Floquet determinant), https://schecter.math.ncsu.edu/ma_732_sp13/teschl_ode.pdf"
+  ],
+  "disposition": "failed",
+  "final_claim": "For the positive four-dimensional coefficient-periodic MERS-CoV/DPP4 ODE, det Φ(t)=(T(t)D(t)/(T(0)D(0))) exp[-∫_0^t(d1+c+λ/T+λ1/D)]; for an ω-periodic positive trajectory det Φ(ω)<exp[-∫_0^ω(d1+c)]<1 and at least one of the four Floquet multiplier moduli is <exp[-1/4∫_0^ω(d1+c)].",
+  "limitations": [
+    "The identity is mathematically correct, but direct pointwise negative divergence gives stronger contraction and the same qualitative Floquet statement.",
+    "No claim that the exact formula has been published elsewhere; originality is assessed narrowly and cautiously.",
+    "The determinant restriction does not imply orbit stability, absence of saddle directions, or a Floquet spectrum classification."
+  ],
+  "residual_risks": [
+    "Prior literature/source text access as detailed in axes.originality; no automatic failure for unavailable article bodies.",
+    "The published model gives positive solutions conditionally; stability and usefulness of the alternate determinant representation are not established."
+  ],
+  "schema_version": 1
+}
