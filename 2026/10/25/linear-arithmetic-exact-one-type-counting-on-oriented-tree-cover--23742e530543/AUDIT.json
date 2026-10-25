@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Proof identifies complete nonalgebraic one-types with ideal/filter pairs satisfying L<U; excludes only comparability-generating profiles. For cover-tree P, directed lower/upper principal subtrees give D_v and U_v product recursions. Each nonempty upper filter has an antichain of minimal elements. If that antichain has one minimum v, nonempty compatible ideals number D_v-2. With at least two minima and a lower witness, unique undirected paths yield a unique greatest common lower bound v and at least two upper-cover branches; the number of such filters is U_v-2-sum_{v<.w}(U_w-1), and compatible nonempty ideals number D_v-1. The baseline L-empty or U-empty is 2J(P)-1. The cases are disjoint and exhaustive. A separate two-state ideal DP on the undirected cover tree computes J(P), so all terms use linear many O(n)-bit integer operations. Standalone direct reachability-based enumeration matched 43,614 exhaustive labeled directed trees through six vertices and 480 larger reproducible samples. A finite check is only corroboration; no proof for cover graphs containing cycles is given.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Existing rooted-forest formula: exact 1-type count only for ancestor-order rooted forests; the new theorem covers both directions of branching and arbitrarily alternating cover orientation.",
+        "Existing series–parallel formula: exact two-state recursion only for N-free posets; the four-element N-poset has a tree cover graph and is in the new domain, with 20 types.",
+        "Existing height-two general bipartite formula and hardness theorem do not cover arbitrary-height oriented cover trees; general hardness does not preclude a restricted efficient algorithm.",
+        "Felsner–Manneville, Linear Extensions of N-free Orders, sections 1 and 3, counts linear extensions rather than one-point extensions and restricts to N-free orders."
+      ],
+      "reasoning": "Neither previously identified tractable subclass contains all tree-cover orders. The N-shaped four-element cover-tree witness separates the new domain from N-free/series-parallel families; adjoining arbitrarily many incomparable lower arms gives unbounded width. General unrestricted hardness and count of linear extensions do not imply or subsume the claimed specialized formula.",
+      "searches": [
+        "random poset homogeneous universal partial order complete nonalgebraic 1 types over finite tree cover graphs oriented Hasse trees type counting algorithm",
+        "linear-time exact counting of random poset unary types over arbitrary oriented cover trees, not only rooted forests or series parallel orders",
+        "finite poset one-point extensions count rooted tree Hasse cover tree N-free poset series parallel types"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.0838 (2013-10-02, order polynomials, inspected pages 1–3)",
+      "doi:10.1016/0012-365X(80)90100-4 (1980 Pretzel, abstract only)",
+      "https://page.math.tu-berlin.de/~felsner/Paper/n-free.pdf (N-free linear extensions, inspected selected sections)",
+      "doi:10.4230/LIPIcs.ESA.2016.39 (2016, linear extensions, abstract)",
+      "published general random-poset #P-completeness (semantic index summary)",
+      "accessible exact claims for ancestor-order forests, N-free series-parallel posets, height-two posets (statement-level overlap comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published general 1-type hardness result characterizes admissible pairs \\(L,U\\) and shows #P-hardness, without an explicitly asserted arbitrary tree-cover recurrence.",
+        "Own accessible rooted-forest and series–parallel exact statements are restricted to proper subfamilies; their formulas do not directly compute all oriented Hasse trees.",
+        "Jochemko arXiv:1310.0838 Thm 2.5 studies orbit polynomial of order-preserving maps; neither its statement nor the inspected sections imply the tree insertion-profile branching correction.",
+        "Pretzel (1980) abstract covers insertion-position dimension; full text could not be inspected to rule out a corresponding enumeration."
+      ],
+      "reasoning": "A general bijection from one-types to ideal/filter pairs provides a starting point but not the efficient tree-specific decomposition. The proof supplies a nontrivial unique-branching classification. A published stronger statement giving exact counts for arbitrary finite posets with polynomial-time evaluation would dominate this claim, but none was found in inspected material; literature completeness remains qualified.",
+      "searches": [
+        "exact number nonalgebraic one types count universal homogeneous random poset with parameter finite poset cover graph tree linear time product formula upper cones lower cones",
+        "one point extensions finite poset tree cover graph exact formula N-free order preserving maps",
+        "counting one-point extensions finite partially ordered sets tree cover graphs enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pretzel, A construction for partially ordered sets, Discrete Mathematics 32 (1980), DOI 10.1016/0012-365X(80)90100-4: abstract introduces insertion-position poset and studies its dimension, particularly small-height cases, but does not supply the asserted tree-cover count.",
+        "Jochemko, arXiv:1310.0838, pages 1-3: order-preserving maps to chains and their orbital order polynomials are studied; compatible lower/upper one-point profiles are a different object.",
+        "Related published finite-parameter 1-type counting in the random poset gives ideal/filter semantics and general hardness, not a tree-cover restricted formula."
+      ],
+      "reasoning": "The one-point type count is equivalently the cardinality of admissible ideal/filter pairs or insertion positions. The new decomposition relies on a unique maximal common lower bound of a multi-minimal upper filter in an arbitrarily oriented Hasse tree and gives a two-direction recurrence. The inspected abstract/full-text segments and indexed statements do not present that exact formula. Abstract-only access to the closest 1980 paper is retained as a publication-priority risk.",
+      "searches": [
+        "counting insertions new element into arbitrary oriented tree posets cover graphs downsets upsets",
+        "one point extensions insertion positions finite poset N-free series parallel rooted forest tree Hasse formula",
+        "One-point extensions of a finite tree poset: exact count from downward ideal and upward filter recurrences and branching correction with linear algorithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-index searches returned no matching universal directed-cover-tree formula or table in the reviewed closest titles.",
+        "Direct independent exact enumeration on all labeled oriented trees through six vertices finds the claimed values, including 20 on the N-poset; no existing public table was established from searches.",
+        "General poset order-polynomial enumerations count related order ideals, not this insertion-profile table."
+      ],
+      "reasoning": "The N-poset numeric check is corroborative, not a novelty claim by itself. The contribution is the all-size structural identity and linear arithmetic algorithm. Search failures cannot establish uniqueness; a specialized classical or unindexed tabulation remains possible.",
+      "searches": [
+        "insertion-position count over tree Hasse posets, N shaped 4 point counterexample, 20 positions, pair-of-ideals",
+        "one point extension types random poset directed Hasse tree count table",
+        "count number one element extensions poset cover graph tree linear time ideals filters algorithm"
+      ]
+    },
+    "rationale": "Closest accessible results count unrestricted random-poset 1-types via ideal/filter pairs and prove general hardness, or handle rooted forests and N-free series-parallel posets; none states the directed-cover-tree formula. The four-element N-poset is itself a cover tree but not series-parallel, separating the all-orientations claim from the strongest nearby special-case recurrences. Jochemko concerns order maps, Felsner-Manneville concerns linear extensions, and Pretzel 1980 concerns insertion-position structures (abstract only). Actual semantic-index and literature comparisons did not find coverage, but absence of a match is not proof of worldwide priority. Pretzel full text and published full unrestricted-type article were inaccessible and remain residual risks.",
+    "residual_risks": [
+      "Pretzel 1980 full text unavailable; abstract only, so specialized equivalent enumeration cannot be completely excluded.",
+      "Full text of indexed unrestricted 1-type hardness article unavailable; exact published statement and indexed summary do not imply this restricted recurrence, but source inspection remains incomplete.",
+      "Search/index coverage cannot certify worldwide priority; unindexed older insertion-position calculations may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract concerns dimension of insertion-position poset, with special analysis when base height is at most one. Does not resolve arbitrary oriented tree-cover counting; full text cannot be designated NOT_COVERING.",
+        "evidence": [
+          "Publisher abstract DOI 10.1016/0012-365X(80)90100-4; Discrete Mathematics 32 (1980), 59–68."
+        ],
+        "identifier_or_url": "doi:10.1016/0012-365X(80)90100-4",
+        "material_read": "Publisher abstract, citation information, references; full text unavailable.",
+        "method": "Publisher abstract and separate preprint/open-access search; institutional full-text access attempt was unavailable.",
+        "title": "A construction for partially ordered sets",
+        "trigger": "Closest classical use of insertion positions of elements in finite posets."
+      },
+      {
+        "assessment": "Enumerates orbits of monotone maps to chains; it does not assert the mixed lower/upper insertion count or branching recurrence on arbitrary Hasse trees.",
+        "evidence": [
+          "https://arxiv.org/pdf/1310.0838, pages 1–3, especially Theorem 2.5."
+        ],
+        "identifier_or_url": "arxiv:1310.0838",
+        "material_read": "Full text pages 1–3: introduction, definition of order polynomials, Theorem 2.5 and proof; abstract and bibliography also checked.",
+        "method": "Legally accessible arXiv PDF text and page-image inspection.",
+        "title": "Order polynomials and Pólya’s enumeration theorem",
+        "trigger": "Potential dominating use of order-preserving maps that counts ideals."
+      },
+      {
+        "assessment": "Counts linear extensions on N-free orders, not one-point insertion profiles; tree-cover orders with an induced N fall outside its domain.",
+        "evidence": [
+          "Felsner–Manneville paper, pages 1–2, 5–7, especially Section 1.1 and Section 3."
+        ],
+        "identifier_or_url": "https://page.math.tu-berlin.de/~felsner/Paper/n-free.pdf",
+        "material_read": "Abstract, introduction, Section 1.1 with Theorem 1.1, Section 3 algorithm description and concluding remarks; cover definition illustration viewed.",
+        "method": "Lawful full PDF opened; text sections and page-image inspected.",
+        "title": "Linear Extensions of N-free Orders",
+        "trigger": "Highly relevant N-free poset computational decomposition and potential stronger counting algorithm."
+      },
+      {
+        "assessment": "Different output (linear extensions), not complete types or insertion positions; the restricted counting theorem here is logically independent of its stated claims.",
+        "evidence": [
+          "ESA 2016, published 2016-08-18, DOI 10.4230/LIPIcs.ESA.2016.39."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.ESA.2016.39",
+        "material_read": "Public abstract and bibliographic metadata.",
+        "method": "Open abstract and publication page.",
+        "title": "Counting Linear Extensions: Parameterizations by Treewidth",
+        "trigger": "Cover-tree algorithmic counting context and possible structural domination."
+      },
+      {
+        "assessment": "Shows ideal/filter semantics and general #P-completeness; summary does not assert a tree-cover recurrence. Full-text comparison incomplete, retained as qualification.",
+        "evidence": [
+          "Published title and indexed summary of unrestricted #P-completeness."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+        "material_read": "Public search-index title and summary; full article not retrieved.",
+        "method": "Semantic research-index search and comparison to its public summary.",
+        "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+        "trigger": "Same exact semantic object and general computational complexity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23742e53-0543-4848-9ed9-a13fecb0820f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives an exact linear-arithmetic counting theorem for a natural and substantially broader restricted family than rooted forests or series-parallel orders; its width can grow without bound and it includes the forbidden N configuration. The branching-point lemma and two opposite recurrences are a structural reason for tractability despite general #P-completeness. It yields reproducible exact counts for all sizes, not a small arbitrary table or a mere restatement of a basic ideal-count recurrence.",
+    "status": "PASS"
+  }
+}
