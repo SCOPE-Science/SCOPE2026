@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:50:19Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independently evaluated full-grid barycentric and deleted-grid corrected cardinal functions for N=8,32,96, six deletion locations and 201 angles: 3,618 identities agreed to 3e-7.",
+        "Independent scalar maximization yielded rho1=1.031819618245588, rho2=1.009025844398614, and (rho30−1)*(30pi)^2=0.3749098 approaching 3/8. Inspected check_erasure.py source (blob 4f5923fa...) but did not execute untrusted repository code. These checks corroborate—not establish—uniform limits."
+      ],
+      "limitations": [
+        "Finite computations verify only the stated bounded instances or exact algebraic certificates; all-parameter scope relies on mathematical proof."
+      ],
+      "rationale": "For each deleted index, cancellation of the leading coefficient gives reduced cardinal polynomial tilde_l_i=l_i−(w_i/w_k)l_k, with Chebyshev barycentric weights w_i=(-1)^i c_i. Thus at missing x_k the Lebesgue sum equals N/c_k−1, and for all x the reduced Lebesgue sum differs from (N/c_k−1)|l_k(x)| by at most Lambda_full=O(log N). The standard angular cardinal formula and sine-concavity bound provide global localization. For deleted distance d_N→∞, the cardinal norm tends to 1; at fixed j, theta=z/N gives limiting mode |2z sin z/(z²−j²pi²)| with maxima controlled off compact z intervals. Mode derivative at j*pi yields strict >1; maximizing delta near 3/(2j*pi) produces rho_j=1+3/(8pi²j²)+O(j^-4). A subsequence split over bounded d_N or d_N→∞ proves the asserted uniform law. Endpoints have cardinal norm exactly one giving coefficient two.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiang bounds interpolation error at intact or other nodes; Mascarenhas examines roundoff stability of intact grid; Wu moves nodes without reducing their number."
+        ],
+        "reasoning": "Examined whether general Lebesgue norm comparison or perturbed-grid theorem directly contains deletion as a special case. A deletion is not a small angular perturbation of N+1 retained nodes, so no coverage without a new argument.",
+        "searches": [
+          "Xiang arXiv:1411.7746 fundamental-polynomial bounds",
+          "Mascarenhas arXiv:1309.7944",
+          "Wu arXiv:2606.23409 full-grid perturbation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1309.7944",
+        "https://arxiv.org/pdf/1411.7746",
+        "https://doi.org/10.1093/comjnl/15.2.156",
+        "https://arxiv.org/abs/2606.23409"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known w_j and intact-grid O(log N) growth are ingredients, but the deletion cancellation, boundary local profile and j^-2 overshoot computation are additional deductions."
+        ],
+        "reasoning": "The rank-one correction yields linear amplification; a classical formula alone does not state its optimized location-dependent asymptotic coefficient. Originality is best-of-knowledge rather than assuming no historical equivalent erasure calculation.",
+        "searches": [
+          "Mascarenhas arXiv:1309.7944 Section 2 formulas",
+          "Xiang arXiv:1411.7746 cardinal bounds",
+          "Salzer DOI:10.1093/comjnl/15.2.156"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact reduced cardinal basis follows from classical weights, but that identity only bounds the operator norm after optimizing a deleted cardinal polynomial."
+        ],
+        "reasoning": "Compared node erasure, missing sample, reduced degree, Lebesgue function and fundamental polynomial overshoot. Known full-grid barycentric stability is not the asserted asymptotic linear growth and fixed-j boundary profile.",
+        "searches": [
+          "Resultary: single erasure Chebyshev Lobatto missing interpolation node Lebesgue constant asymptotics boundary",
+          "Mascarenhas arXiv:1309.7944 cardinal/barycentric formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The constants rho1 and rho2 are optimizations of a limiting continuum profile, not mere lookup of finitely many degrees; no checked table lists all rho_j or uniform asymptotics."
+        ],
+        "reasoning": "A database of small Lebesgue constants could corroborate values but cannot imply N→infinity and j→infinity asymptotics; exact previous tabulation cannot be categorically excluded without full older literature.",
+        "searches": [
+          "Salzer 1972 Chebyshev-point interpolation formula",
+          "Resultary: single erasure Chebyshev Lobatto missing interpolation node Lebesgue constant asymptotics boundary"
+        ]
+      },
+      "rationale": "Classical intact-grid logarithmic Lebesgue growth and barycentric weights, and robustness of perturbed full-size grids, are antecedents. A lost sample produces a degree-reduced cardinal cancellation identity and an exact three-regime boundary-layer instability, not a simple restatement of intact-grid stability. Older Salzer full text remains priority risk.",
+      "residual_risks": [
+        "Salzer 1972 full original article and other older missing-observation literature not inspected; the exact boundary-layer asymptotics may have a historical equivalent.",
+        "Numerical ρ_j values and finite-degree samples are not by themselves a proof of uniform error over k and N; the analytical localization and subsequence argument carry that burden."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports known weight formula and classical numerical stability, does not in inspected main statements classify one-node removal",
+          "evidence": "Second-kind Chebyshev weights with endpoint halves and alternating signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.7944",
+          "material_read": "Full OA PDF, 31 pages; introduction, barycentric formula section and stability discussion accessed",
+          "method": "Read text and PDF screenshot",
+          "title": "The stability of barycentric interpolation at the Chebyshev points of the second kind",
+          "trigger": "Exact intact-grid barycentric weights and stability"
+        },
+        {
+          "assessment": "Different interpolation error problem; no inspected single-node-erasure boundary law",
+          "evidence": "Bounds and convergence rates for intact systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.7746",
+          "material_read": "Full OA PDF, 28 pages, especially introduction and fundamental-polynomial estimates",
+          "method": "Read text and PDF screenshot",
+          "title": "On Interpolation Approximation: Convergence rates for polynomial interpolation for functions of limited regularity",
+          "trigger": "General fundamental-polynomial and operator norm estimates"
+        },
+        {
+          "assessment": "Closest historical access gap; cannot rule out an older omitted-node result",
+          "evidence": "Salzer provides classical formulas for Chebyshev-point interpolation.",
+          "identifier_or_url": "https://doi.org/10.1093/comjnl/15.2.156",
+          "material_read": "Bibliographic citation and abstract only; complete printed article not inspected",
+          "method": "Open bibliographic search",
+          "title": "Lagrangian Interpolation at the Chebyshev Points ...; Some Unnoted Advantages",
+          "trigger": "Potential 1972 antecedent on specialized Chebyshev cardinal polynomials"
+        },
+        {
+          "assessment": "Full-size node perturbations differ from deletion and degree reduction",
+          "evidence": "Node displacement preserves node count in the described theory.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23409",
+          "material_read": "Abstract and cited formulation, not whole PDF",
+          "method": "Open abstract search",
+          "title": "When do perturbed Chebyshev–Lobatto points remain Chebyshev?",
+          "trigger": "Modern node perturbations as possible broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "Best-of-knowledge original and valuable in the explicit narrow domain; no claim of universal extension or certified historical priority."
+      ],
+      "rationale": "A single missing interpolation datum is a mathematically natural robustness failure. The theorem quantifies precisely how endpoint proximity controls otherwise unexpectedly linear norm growth, gives the complete uniform missing-node classification, and isolates nontrivial boundary overshoot corrections useful for interpolation conditioning. This is stronger than a textbook restatement of the O(log N) intact-grid constant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1309.7944",
+    "https://arxiv.org/pdf/1411.7746",
+    "https://doi.org/10.1093/comjnl/15.2.156",
+    "https://arxiv.org/abs/2606.23409",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f"
+  ],
+  "disposition": "passed",
+  "final_claim": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+  "limitations": [
+    "Assigned Git record tree matched the read-only frozen source_tree_sha; exact RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, AUDIT.json, METADATA.json inspected.",
+    "No GitHub mutation or dispatcher scientific closeout performed.",
+    "Source-publication transport is not_ready for confidentiality; scientific assessment remains complete."
+  ],
+  "residual_risks": [
+    "Salzer 1972 full original article and other older missing-observation literature not inspected; the exact boundary-layer asymptotics may have a historical equivalent.",
+    "Numerical ρ_j values and finite-degree samples are not by themselves a proof of uniform error over k and N; the analytical localization and subsequence argument carry that burden."
+  ],
+  "schema_version": 1
+}

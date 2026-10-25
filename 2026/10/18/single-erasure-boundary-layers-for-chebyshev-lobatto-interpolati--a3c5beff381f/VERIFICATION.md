@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Analytical checks
+# Independent mathematical audit
 
-The full-to-reduced cardinal cancellation is an exact polynomial identity. The weighted \(\ell^1\) comparison is uniform in the index. An elementary sine-concavity argument establishes the full-grid logarithmic remainder. The fixed-index endpoint profile follows from compact-angle convergence plus a uniform tail bound; the bulk limit follows from uniform angular localization; the boundary-index correction follows from a localized expansion of the exact sinc-ratio profile.
+## correctness
 
-## Finite computational checks
+PASS
 
-Run `python3 check_erasure.py` with Python 3 and no external libraries. The packaged source produced `PASS: 1242 deterministic finite comparisons`. Checks include node-deletion identities, retained-node cardinal reconstructions, deterministic evaluation-angle comparisons, the pointwise triangle inequality, removable-limit values, and moderate-degree regime comparisons. Computation does not replace any argument proving an infinite-degree limit. The decimal boundary-mode values are exploratory approximations, not certified numerical enclosures.
+For each deleted index, cancellation of the leading coefficient gives reduced cardinal polynomial tilde_l_i=l_i−(w_i/w_k)l_k, with Chebyshev barycentric weights w_i=(-1)^i c_i. Thus at missing x_k the Lebesgue sum equals N/c_k−1, and for all x the reduced Lebesgue sum differs from (N/c_k−1)|l_k(x)| by at most Lambda_full=O(log N). The standard angular cardinal formula and sine-concavity bound provide global localization. For deleted distance d_N→∞, the cardinal norm tends to 1; at fixed j, theta=z/N gives limiting mode |2z sin z/(z²−j²pi²)| with maxima controlled off compact z intervals. Mode derivative at j*pi yields strict >1; maximizing delta near 3/(2j*pi) produces rho_j=1+3/(8pi²j²)+O(j^-4). A subsequence split over bounded d_N or d_N→∞ proves the asserted uniform law. Endpoints have cardinal norm exactly one giving coefficient two.
 
-## Unproved or externally unchecked items
+## originality
 
-No exact global finite-degree optimizer is claimed, and multiple erasures are not covered. Independent mathematical validation and independently exhaustive bibliographic priority checking have not been performed. Historical printed full text may contain equivalent formulations not found in the accessible material.
+PASS
+
+Classical intact-grid logarithmic Lebesgue growth and barycentric weights, and robustness of perturbed full-size grids, are antecedents. A lost sample produces a degree-reduced cardinal cancellation identity and an exact three-regime boundary-layer instability, not a simple restatement of intact-grid stability. Older Salzer full text remains priority risk.
+
+## value
+
+PASS
+
+A single missing interpolation datum is a mathematically natural robustness failure. The theorem quantifies precisely how endpoint proximity controls otherwise unexpectedly linear norm growth, gives the complete uniform missing-node classification, and isolates nontrivial boundary overshoot corrections useful for interpolation conditioning. This is stronger than a textbook restatement of the O(log N) intact-grid constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
