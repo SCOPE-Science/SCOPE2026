@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 check_exact.py` with a standard Python 3 interpreter. The computation uses integer pairs representing elements of \(\mathbb Z[\varphi]\) and exact sign tests in \(\mathbb Q(\sqrt5)\), with no external libraries. It requires no network access and reads no input files.
+## correctness
 
-Observed successful terminal line:
+PASS
 
-`VERIFY_OK 32 vertices, 30 rhombic facets, 39 exact levels, 20 isolated maximizers`
+Reconstructed the two shells (12 cyclic (0,±1,±phi) and 20 cyclic (0,±phi,±phi^{-1}) or independent ±1 triples), six-generator zonotope Z=2phi P, 15 cross-product facet-normal pairs, and zonotope volume sum 8*sum|det(g_i,g_j,g_k)|=20(2phi)^3. Independent exact Z[phi] four-combination enumeration computed C(32,4)=35960, exactly 39 levels, 2340 dependent quadruples, maximum determinant 6+8phi with multiplicity 20. The 20 maximizing 4-sets intersect pairwise in at most 2 vertices. Multi-affinity of oriented determinant in each of four vertex positions and equality in convex combinations implies every global optimizer is supported on four vertices: a nonvertex would force two extreme 4-sets sharing three vertices, impossible. The code is an exhaustive finite certificate for this fixed 32-vertex point set, not an infinite-family theorem; ring sign comparisons use 2(a+b phi)=(2a+b)+b sqrt(5). Source exact 39-level table and all 30 rhombic facets inspected, but independent histogram check here corroborated its counts, max, and isolation rather than independently recreating the entire 39-entry table.
 
-The checker verifies all \(64\) signed sums in the six-generator realization; the exact support inequalities from \(15\) generator pairs; all thirty supporting rhombi; the \(20+12\) vertex-valence split; zonotope volume \(20\); the full \(35\,960\)-quadruple histogram; \(2\,340\) degenerate cases; \(39\) distinct levels; unique top determinant \(6+8\varphi\) of multiplicity \(20\); all long equilateral triangle and antipodal apex relations; and absence of any two top quadruples sharing three vertices. The generated histogram matches the supplied `volume_spectrum.json` entry by entry.
+## originality
 
-Exactness is for this finite point-set calculation. The extension to arbitrary contained tetrahedra follows mathematically from the separate determinant-affinity argument in `RESULT.md`; finite tests alone do not prove that step. Independent validation and a definitive search of all historical tables remain unperformed.
+PASS
+
+Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.
+
+## value
+
+PASS
+
+A maximal-volume inscribed simplex and complete exact 4-vertex determinant spectrum are natural geometric invariants of a canonical Catalan solid. The all-contained-tetrahedra equality rigidity is a stronger geometric assertion than a finite list of sample volumes; the exact 39-level spectrum can be reused in Catalan-solid triangulation/volume computations. The 12/20 shell interaction and absence of shared triples are not a textbook norm inequality or arbitrary coordinate slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

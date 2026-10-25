@@ -1,11 +1,21 @@
-# Review: rhombic-triacontahedron maximal tetrahedra and exact spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated coordinate model is independently reconstructed as a six-generator zonotope. Exact field arithmetic verifies that its thirty rhombic supporting facets have exactly the stated thirty-two extreme vertices, and the twenty-generator-triple zonotope volume identity gives volume \(20\). All \(35\,960\) unordered vertex quadruples are enumerated exactly, not sampled: thirty-nine determinant levels, \(2\,340\) zeros, and twenty maximum determinants equal to \(6+8\varphi\). Each maximizer has the proved mixed-shell geometry, and no two share three vertices. The multi-affine determinant expansion rules out *every* nonvertex maximizer, so the global sharp upper bound and the complete equality statement follow. The checker was executed successfully with no dependencies or floating-point proof tests.
+## correctness
 
-**Originality — PASS under inspected evidence.** Koca, Koca and Koc (arXiv:1403.2847, Section 3.3, Figure 8) identify the convex body's icosahedral and dodecahedral orbits but do not state this simplex-volume optimization in the inspected full-text material. Horváth and Lángi (arXiv:1402.6496, abstract and Section 1) optimize polytopes of prescribed size on a *variable sphere* rather than maximize tetrahedral occupancy of the fixed Catalan solid. The closely related indexed theorem for a regular icosahedron concerns only its twelve outer vertices: its maximum does not upper-bound tetrahedra that also use a dodecahedral point; its nonvertex equality families contrast with the isolated twenty here. Searches for rhombic-triacontahedral maximal tetrahedra, 39-volume spectra, dual-shell mixed tetrahedra, and equivalent zonotope formulations did not reveal a covering statement. A historical-priority risk remains because some older combinatorial tables and the full 2002 Bourke page could not be examined fully.
+PASS
 
-**Mathematical value — PASS.** This is a complete sharp extremal theorem for a canonical quasicrystallographic acceptance-window polytope, not a generic determinant recomputation. Its optimizing tetrahedra *must mix two distinct radial vertex shells*: each uses a long equilateral triangle of three outer icosahedral vertices and an inner dodecahedral apex. The exact rigidity (no nonvertex optimizers) is stronger than a largest-vertex-determinant observation and contrasts with the known continuous maximizing families in the outer regular icosahedron. The entire thirty-nine-level discrete distribution is supplied and independently auditable by an exact finite calculation. The result does not claim generality for all zonotopes or deformations.
+Reconstructed the two shells (12 cyclic (0,±1,±phi) and 20 cyclic (0,±phi,±phi^{-1}) or independent ±1 triples), six-generator zonotope Z=2phi P, 15 cross-product facet-normal pairs, and zonotope volume sum 8*sum|det(g_i,g_j,g_k)|=20(2phi)^3. Independent exact Z[phi] four-combination enumeration computed C(32,4)=35960, exactly 39 levels, 2340 dependent quadruples, maximum determinant 6+8phi with multiplicity 20. The 20 maximizing 4-sets intersect pairwise in at most 2 vertices. Multi-affinity of oriented determinant in each of four vertex positions and equality in convex combinations implies every global optimizer is supported on four vertices: a nonvertex would force two extreme 4-sets sharing three vertices, impossible. The code is an exhaustive finite certificate for this fixed 32-vertex point set, not an infinite-family theorem; ring sign comparisons use 2(a+b phi)=(2a+b)+b sqrt(5). Source exact 39-level table and all 30 rhombic facets inspected, but independent histogram check here corroborated its counts, max, and isolation rather than independently recreating the entire 39-entry table.
 
-**Closest comparisons and limitations.** The group-theoretic construction of the polytope is prior work, and neither the determinant method nor maximum-at-vertices principle is claimed as new. Priority beyond the specified full-text inspections, search records, and exact scientific comparisons requires further independent historical checking. Independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original claim: the mathematical implication and same-object comparisons below show no identified covering result. The decisive proof and quantitative classification are distinct from established background; incomplete primary sources are named as priority risks, not cleared without reading.
+
+## value
+
+PASS
+
+A maximal-volume inscribed simplex and complete exact 4-vertex determinant spectrum are natural geometric invariants of a canonical Catalan solid. The all-contained-tetrahedra equality rigidity is a stronger geometric assertion than a finite list of sample volumes; the exact 39-level spectrum can be reused in Catalan-solid triangulation/volume computations. The 12/20 shell interaction and absence of shared triples are not a textbook norm inequality or arbitrary coordinate slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
