@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md two-block lemma and proof, tree 4549852e8dd5c6f268b332358f312230d3e0d35a",
+        "Klavzar et al arXiv:2408.03132 tree path case k=1",
+        "independent_checks_output.txt BFS checks 520 parameter pairs"
+      ],
+      "rationale": "For n,k positive, graph distance in P_n^k is ceil(|u-v|/k). On each modulo-k residue class, between endpoints a<c with c-a a multiple of k, the shortest path must make only +k jumps and is uniquely the intervening residue chain. Thus a mutually visible color class contains at most two of each residue (size<=2k), and a noncomplete graph needs at least two classes. If n<=k+1 the graph is complete. For k+2<=n<=2k two contiguous cliques suffice; for n>2k put t=ceil(n/(2k)) and divide P_{2kt}^k into t classes, each two length-k blocks t blocks apart. For cross-block offsets alpha,beta, the constructed monotone internal route avoids both blocks and has length t+1_{beta>alpha}, including t=2,beta<alpha special route, so is shortest. Truncate prefix to n: monotone geodesics remain inside endpoints. Independent forbidden-internal-vertex BFS verified construction for all 520 pairs 1<=k<=8,1<=n<=65; it is a diagnostic, not infinite proof.",
+      "residual_risks": [
+        "No powers of cycles, other unit interval graphs, or independent/total visibility colorings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavzar et al general lower bounds and tree results, not all powers of paths",
+          "Bresar et al 2025 independent mutual-visibility variant and products",
+          "Resultary hit 7f9c854a9a00 dual/outer/total visibility coloring on multipartite graphs"
+        ],
+        "reasoning": "No named broader theorem inspected forces chi_mu(P_n^k) for all n,k. Independent/proper variants and graph products have nonidentical admissibility, so their formulas do not dominate this claim.",
+        "searches": [
+          "mutual visibility coloring path graph powers chromatic number",
+          "Klavzar Kuziak Tripodoro Yero 2024 Theorems visibility product",
+          "arXiv:2505.04144 independent mutual visibility coloring strong Cartesian paths"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.03132v1 tree/path values",
+        "arXiv:2505.04144 independent variant",
+        "arXiv:2512.12251 glued trees/complexity",
+        "Resultary query: mutual visibility coloring path graph powers chromatic number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing new theorem to k=1 recovers known path answer max(2,ceil(n/2)) for n>=3",
+          "For fixed k>=2 chi_mu grows unbounded in n while ordinary chi(P_n^k)=k+1"
+        ],
+        "reasoning": "The new theorem strictly extends the k=1 family and is not implied by lower bound |class|<=2k alone, because it also needs a matching coloring. Product formulas concern a distinct graph operation.",
+        "searches": [
+          "mutual visibility coloring path graph powers chromatic number",
+          "arXiv:2408.03132 Proposition path chromatic number",
+          "arXiv:2505.04144 visibility products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klavzar et al 2024 exact path theorem corresponds to k=1",
+          "General P_n^k is a proper interval graph but prior result is for trees and certain products"
+        ],
+        "reasoning": "A path power is not in general a tree for k>=2, and its geodesic set system changes; rewriting graph as interval graph is not a known formula for the relevant visibility chromatic parameter.",
+        "searches": [
+          "mutual visibility coloring path graph powers chromatic number",
+          "mutual visibility chromatic P_n^k kth power of paths",
+          "arXiv:2408.03132 path P_n coloring k=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact values for paths P_n (k=1)",
+          "New formula gives every positive pair (n,k), including noncomplete thresholds"
+        ],
+        "reasoning": "No covering path-power database/table was found; finite independent BFS cases used to check formula but are not its mathematical basis.",
+        "searches": [
+          "mutual visibility coloring path graph powers chromatic number",
+          "mutual visibility path power exact chromatic table squared paths",
+          "arXiv:2408.03132 path exact values"
+        ]
+      },
+      "rationale": "Known mutual-visibility colorings on ordinary trees include k=1 paths, but the all-k exact path-power formula requires new geodesic blocking and two-block constructions. Path powers are graph powers, not Cartesian/strong products of paths, and independent variants are different constraints. Best-of-knowledge PASS with residual index risk.",
+      "residual_risks": [
+        "Other exact visibility results for proper interval graphs not indexed by the searched titles could imply a special case.",
+        "Known path case k=1 has prior credit; no novelty asserted for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "k=1 and general bounds known, all path powers not established",
+          "evidence": "Klavzar et al 2024 path result and general bounds",
+          "identifier_or_url": "https://arxiv.org/html/2408.03132v1",
+          "material_read": "Sections on definitions, trees/paths, two-color classes and product families including relevant propositions",
+          "method": "Available primary full text examined including relevant path theorem",
+          "title": "Coloring the vertices of a graph with mutual-visibility property",
+          "trigger": "Primary definition and exact tree/path result"
+        },
+        {
+          "assessment": "Independent and product constraints differ; no all-power-of-path nonindependent formula",
+          "evidence": "Bresar et al 2025 independent variant",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.04144",
+          "material_read": "Definitions and graph-product results in accessible paper",
+          "method": "Relevant primary full text inspected",
+          "title": "Independent mutual-visibility coloring and related concepts",
+          "trigger": "Potential stronger variant and products"
+        },
+        {
+          "assessment": "Not shown to imply exact all-k path-power formula",
+          "evidence": "Babu et al 2025, complexity and glued trees",
+          "identifier_or_url": "https://arxiv.org/html/2512.12251v1",
+          "material_read": "Accessible treatment of complexity and glued tree families",
+          "method": "Primary article sections on graph classes",
+          "title": "Mutual-visibility coloring of graphs",
+          "trigger": "Potential coverage by later complexity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md full construction",
+        "Klavzar et al path k=1 baseline"
+      ],
+      "rationale": "The k-th powers of paths are canonical proper-interval graph families. Exact all-parameter visibility chromatic number is structurally nontrivial: a geodesic residue obstruction is tight only after constructing two-block geodesic-avoiding color classes; the threshold at n=4k and unbounded gap from ordinary chromatic number are natural consequences. This is not a routine substitution into a tree result.",
+      "residual_risks": [
+        "Does not determine arbitrary proper interval graphs or powers of cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

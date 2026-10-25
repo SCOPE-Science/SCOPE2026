@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone script `verify.py` constructs graph adjacencies and independently recomputes shortest-path lengths by breadth-first search. It checks visibility for every pair in every proposed color class by repeating BFS with the other vertices of that class removed from the admissible internal states.
+## correctness
 
-The same script builds the collection of all mutually visible subsets (bounded by the proved \(2k\) residue-class obstruction) on small instances, then determines a minimum partition through exact subset dynamic programming. This is an exact computation for the tested small instances, not an exhaustive argument for all orders.
+PASS
 
-Invocation: `python3 verify.py`
+For n,k positive, graph distance in P_n^k is ceil(|u-v|/k). On each modulo-k residue class, between endpoints a<c with c-a a multiple of k, the shortest path must make only +k jumps and is uniquely the intervening residue chain. Thus a mutually visible color class contains at most two of each residue (size<=2k), and a noncomplete graph needs at least two classes. If n<=k+1 the graph is complete. For k+2<=n<=2k two contiguous cliques suffice; for n>2k put t=ceil(n/(2k)) and divide P_{2kt}^k into t classes, each two length-k blocks t blocks apart. For cross-block offsets alpha,beta, the constructed monotone internal route avoids both blocks and has length t+1_{beta>alpha}, including t=2,beta<alpha special route, so is shortest. Truncate prefix to n: monotone geodesics remain inside endpoints. Independent forbidden-internal-vertex BFS verified construction for all 520 pairs 1<=k<=8,1<=n<=65; it is a diagnostic, not infinite proof.
 
-Actual result: `verification_output.txt`.
+## originality
 
-The unrestricted theorem follows from the congruence-class lower bound and the explicit monotone geodesic construction in `RESULT.md`. No external independent audit or mathematical formalization was performed.
+PASS
+
+Known mutual-visibility colorings on ordinary trees include k=1 paths, but the all-k exact path-power formula requires new geodesic blocking and two-block constructions. Path powers are graph powers, not Cartesian/strong products of paths, and independent variants are different constraints. Best-of-knowledge PASS with residual index risk.
+
+## value
+
+PASS
+
+The k-th powers of paths are canonical proper-interval graph families. Exact all-parameter visibility chromatic number is structurally nontrivial: a geodesic residue obstruction is tight only after constructing two-block geodesic-avoiding color classes; the threshold at n=4k and unbounded gap from ordinary chromatic number are natural consequences. This is not a routine substitution into a tree result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
