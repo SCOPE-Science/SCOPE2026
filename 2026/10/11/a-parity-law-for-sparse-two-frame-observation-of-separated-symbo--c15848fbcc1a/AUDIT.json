@@ -1,110 +1,130 @@
 {
   "correctness": {
-    "rationale": "A two-frame observation detects exactly a difference at n+{0,1,d,d+1}; singleton-coordinate discrepancies force integer translate coverage and arbitrary differences establish sufficiency. The even lower bound follows from ≤4 covered sites per chosen time. For every 2d+1 time block, the d interior target coordinates require at least ceil(d/2) times because any translate intersects that target interval in ≤2 sites. Explicit modulo 2d (even d) and 2d+1 (odd d) schedules attain the respective bounds. All quantifiers and edge case d=1 were checked; 500 exact finite checks corroborate constructions without replacing the all-d argument.",
+    "evidence": [
+      "Assigned RESULT.md Steps 1–4: exact winning/translate equivalence, interval-incidence inequalities and explicit periods.",
+      "Assigned check_observation.py inspected; independent implementation verified all matching covers/incidence constraints for d=1..100.",
+      "Independent complete enumeration of all nonempty binary schedules with each period 1..11 for d=1..6 (4,083 patterns per d) found respective minimum densities 1/3,1/4,2/7,1/4,3/11,1/4. These bounded checks are corroboration only.",
+      "Git tree reconstructed from seven verified frozen Git file blob SHAs exactly matches assigned 0d220632508c99b6506e13f7bd0207412cee2e6e."
+    ],
+    "rationale": "At the stated compatible metric, only coded coordinates 0 and 1 exceed threshold 1/2. Under the explicit conjugacy x -> ((x_j,x_{j+d}))_j, a time n detects exactly differences in n+F_d with F_d={0,1,d,d+1}; singleton discrepancies show A winning iff A+F_d=Z. Any covered interval of N-d-1 interior sites requires at least (N-d-1)/4 observation times, uniformly in the interval start, establishing lower Banach density >=1/4. In every block I of length 2d+1, its last d sites J can be covered only by translates starting in I. Every triple of distinct offsets in F_d spans at least d, so each translate meets J in at most two sites, requiring at least ceil(d/2) observation times per block. This gives lower density >=ceil(d/2)/(2d+1). For even d, residues 0,2,...,d-2 modulo 2d cover all sites via the two adjacent pairs, density 1/4. For odd d, residues 0,2,...,d-1 modulo 2d+1 cover [0,d] and [d,2d], density (d+1)/(4d+2). Both are periodic schedules, so the stated uniform bounds are sharp. The d=1 overlap F_1={0,1,2} is handled by the odd-block argument; no false four-distinct-element count is used. This proves all integer d>=1 without numerical extrapolation.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "final_claim": "For every integer d>=1, binary full-shift observations of two consecutive frames from sensors separated by d have minimum winning lower Banach density 1/4 for even d and (d+1)/(4d+2) for odd d, with explicit periodic optimizers.",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "The threshold metric and symbolic coding are part of the statement; no metric-independent cost is asserted.",
+    "Numerical and finite exhaustive checks corroborate but do not prove the all-d theorem.",
+    "Originality is best-of-knowledge; a relevant primary article could not be fully inspected."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Bollobás–Janson–Riordan arXiv:0910.3815 concerns general covers of groups by arbitrary finite sets and their efficiency.",
-        "Ferrari DOI 10.3934/jdg.2026045 describes a finite graph criterion for periodic schedules in shifts of finite type."
+        "BJR Theorem 5.1 gives a minimum-cycle-mean algorithm and existence of periodic optimum for any finite S; its tables cover sample small diameters, not a parameter-uniform closed evaluation.",
+        "Ferrari gives the general homoclinic witness-cover lower bound beta>=kappa(F) and exact full-shift standard contiguous window, beta=1/(2R+1), in its accessible Introduction."
       ],
-      "reasoning": "General computability and inequalities do not, from the material inspected, contain the closed exact formula for all positive separations. This may be a consequence of broad machinery but requires the sharp incidence argument and matching designs given here; full-body risk remains.",
+      "reasoning": "The general algorithm logically computes individual d with enough work but does not supply the claimed closed-form infinite-family evaluation or its sharp odd-parity local certificate. The known contiguous-window cases d=1,2 are covered, and are credited; the family-wide disconnected-pattern statement for d>=3 is not an inspected prior corollary. Ferrari main-body access remained unavailable and is recorded as a risk rather than a categorical NOT_COVERING statement.",
       "searches": [
-        "On covering by translates of a set Bollobas Janson Riordan arxiv 0910.3815",
-        "observer hider games expansive dynamical systems 2026 Mathematics Subject Classification"
+        "BJR arXiv:0910.3815 full v2 Sections 5–7 (Theorem 5.1, Theorem 5.2, Lemma 6.1, Example 6.3 and tables)",
+        "Ferrari DOI:10.3934/jdg.2026045 Introduction, subshift/full-shift examples",
+        "Web: translates of {0,1,k,k+1} parity minimal density"
       ]
     },
     "checked_sources": [
-      "https://doi.org/10.3934/jdg.2026045",
-      "https://arxiv.org/abs/0910.3815",
-      "https://arxiv.org/abs/2501.01571"
+      "L. Ferrari, Observer–hider games for expansive dynamical systems, J. Dynamics Games (2026), DOI 10.3934/jdg.2026045, public abstract and Introduction.",
+      "B. Bollobás, S. Janson and O. Riordan, On covering by translates of a set, Random Structures & Algorithms 38 (2011), arXiv:0910.3815v2, Sections 5–7, Theorems 5.1–5.2, Table 3 and Lemma 6.1.",
+      "C. Li, D. Offner and I. Ye, Minimum packing density for sets of four integers, arXiv:2501.01571v1 (2025), Sections 1–3.",
+      "Published mathematical-index results for three targeted covering/observation queries; only identical self-indexed target matched exact parameters."
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Ferrari reports β=1/(2R+1) for standard contiguous-window full shifts, not this disconnected sensor pattern in the accessible introduction.",
-        "The present proof establishes β_d=κ(F_d) and then explicitly κ(F_d)=1/4 for even d and (d+1)/(4d+2) for odd d."
+        "Known contiguous-window sampling specializes to the d=1 three-site window and d=2 four-site window, yielding 1/3 and 1/4; these special cases are not claimed new.",
+        "BJR guarantees rational periodic covering rates for every finite pattern but does not entail a symbolic d-dependent formula without the specific combinatorial analysis.",
+        "Li–Offner–Ye Main Theorem proves min packing density 1/7 for the different set {0,1,4,6}, not min covering density of the paired pattern."
       ],
-      "reasoning": "The new infinite-family closed form is not the same statement as a general bound β≥κ(F) or an algorithm evaluating each fixed F. It is a specialized exact result, and a previously published full theorem could still subsume it.",
+      "reasoning": "The submitted uniform formula is not inferred by merely substituting parameters into any theorem statement actually inspected. Prior general procedures allow computing each instance, and low-d corollaries are credited, but sharp local odd obstruction and matching explicit all-d constructions are additional information. The inaccessible main body of Ferrari could still contain a decisive hidden equivalent, explicitly retained as residual risk.",
       "searches": [
-        "Luis Ferrari Observer hider games expansive dynamical systems June 29 2026",
-        "integer covering efficiency two pairs 0 1 d d+1 odd even"
+        "Ferrari Observer–hider DOI:10.3934/jdg.2026045 published Introduction full-shift values",
+        "BJR Theorem 5.1 and Example 6.3 arXiv:0910.3815",
+        "Li–Offner–Ye arXiv:2501.01571 full article (packing/covering distinction)"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Two-frame paired coding is exactly equivalent to integer covering by translates of F_d={0,1,d,d+1}; RESULT.md proves necessity from singleton-symbol discrepancies.",
-        "Ferrari DOI 10.3934/jdg.2026045 introduces witness-set covering κ(F) but the public introduction shows full-shift contiguous-window and golden mean examples, not this evaluated disconnected family."
+        "The symbolic observation winning condition is exactly A+{0,1,d,d+1}=Z, the translate covering invariant discussed in Ferrari and BJR.",
+        "The same indexed research record appeared in Resultary at the title-matching 2026/10/11 path; this is self-indexing, not independent prior art."
       ],
-      "reasoning": "Alternative formulations as an integer translate-covering problem and as finite-memory conjugate-shift sampling were compared; neither identified an already stated parity formula.",
+      "reasoning": "Conjugacy and witness-set duality reduce the problem to an ordinary integer translate-cover, rather than introducing a different mathematical invariant. Compare the uniform parity formula against covering results, not just symbolic-dynamics titles. Neither the published general definitions nor a self-indexed finding establish independent earlier discovery of the all-d expression.",
       "searches": [
-        "parity law optimal sparse observation cost of conjugate binary full shift with separated delayed two-frame sensor F_d {0,1,d,d+1}",
-        "covering density translates four integers 0 1 m m+1 parity exact formula"
+        "Resultary: minimum density cover integers translates {0,1,d,d+1} parity even odd 1/4 (d+1)/(4d+2) adjacent pair blocks",
+        "Web: covering density Z {0,1,m,m+1} exactly odd",
+        "Ferrari DOI:10.3934/jdg.2026045 publisher Introduction and BJR arXiv:0910.3815 Sections 5–6"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Targeted searches found no exact indexed formula or table for F_d; the code checks constructive period covers for 500 positive separations.",
-        "C. Li–D. Offner–I. Ye arXiv:2501.01571 studies a different packing-density problem for a different four-point set."
+        "BJR Table 3 concerns minimal efficiency across k-element sets with a sample {0,1,2,4}; the text does not present all-d F_d rows or a parity formula.",
+        "Resultary returned a match to the very same target finding, alongside mathematically different covering and parity records; no different indexed exact all-d table was identified."
       ],
-      "reasoning": "No same-invariant table was identified. Exhaustive finite experiments are not used as novelty evidence or an all-d proof.",
+      "reasoning": "Small fixed-d values or finite minimum-cycle tables do not determine an all-positive-integer closed family formula. No genuinely independent prior table covering the exact parameter family was identified; this nonhit is only bounded search evidence, not absolute novelty proof.",
       "searches": [
-        "2/7 covering of integers by translates {0,1,3,4} sparse observations full two shift",
-        "minimum covering density block union two adjacent pairs translated at odd distance integers"
+        "BJR arXiv:0910.3815v2 Tables 1–3 of sample integer covering periods and four-point efficiency",
+        "Resultary: covering density tiles integers finite four-point set two adjacent pairs 0 1 d d+1",
+        "Web: cover integers translates two disjoint adjacent pairs m m+1 density"
       ]
     },
-    "rationale": "The concrete two-sensor parity law is an infinite parameter-wise exact evaluation of a disconnected four-coordinate observation geometry. Ferrari (2026) supplies the general observation-cost and witness-cover framework and contiguous-window examples, while Bollobás–Janson–Riordan treats translate coverings generally; no inspected material stated or yielded a uniform even/odd formula for the sensor family. Search nonhits do not certify absolute novelty. The inaccessible source body and possible implicit treatment in general covering theory are recorded as risks.",
+    "rationale": "The all-separation closed formula for the disconnected sensor shape F_d=(1+x)(1+x^d) is a specific uniform classification. Its reduction to integer translate covering is classical, and small contiguous-window cases d=1 and d=2 are subsumed by prior examples; those are not independently novel. Bollobás–Janson–Riordan supplies general optimal periodic covering/finite minimum-cycle-mean machinery (Theorem 5.1) but not a uniform symbolic even/odd law or the matching local certificate for this family in inspected Sections 5–7 and tables. Ferrari defines the same observation cost and a general witness-pattern obstruction, with exact contiguous-window full-shift examples. The accessible publisher introduction does not state the evaluated separated two-frame family, but full theorem sections could not be read; priority for an unindexed equivalent there remains a material residual risk. Li–Offner–Ye establishes minimum PACKING density for a different four-point set, which does not imply the claimed COVERING density. The self-indexed identical Resultary record was excluded as independent prior evidence. On actually inspected sources and statement-level implications, the uniform parity formula survives best-of-knowledge novelty; neither failed search nor limited full-text access is treated as proof of uniqueness.",
     "residual_risks": [
-      "Ferrari source full theorem sections remained inaccessible after lawful full-text attempts; it might evaluate the same pattern without appearing in the public introduction.",
-      "General translate-covering literature may contain an unindexed equivalent four-point parity formula.",
-      "No search or allocation separation can exclude all unpublished or unindexed results."
+      "The full sections/examples/appendices of Ferrari (DOI 10.3934/jdg.2026045) were not retrievable through the attempted lawful routes, so possible same-pattern analysis there remains unexcluded.",
+      "Earlier integer-covering literature, including older results of Newman, Schmidt–Tuller, and unindexed special cases, might contain an equivalent uniform formula.",
+      "The d=1 and d=2 contiguous-window instances are already covered by general standard-window results and are not themselves novel.",
+      "A general minimum-cycle-mean algorithm computes each fixed parameter; the independently useful content assessed here is the uniform closed parity expression and matching direct certificate."
     ],
     "source_inspections": [
       {
-        "assessment": "General obstruction and standard full-shift examples visible; precise separated two-frame parity formula not found in accessible material; unresolved full-body comparison.",
+        "assessment": "Definitions and standard full-shift special examples cover the foundation; the indexed Introduction does not resolve disconnected family F_d. No conclusion about inaccessible sections.",
         "evidence": [
-          "Public introduction describes κ(F), the standard full-shift window value, golden-mean example, and finite SFT criteria.",
-          "Verified early online public date 2026-06-29 and primary MSC 37B05."
+          "Public paper reports beta_delta(f)>=kappa(F) and beta_delta(sigma)=1/(2R+1) for contiguous windows; DOI:10.3934/jdg.2026045, early online 2026-06-29."
         ],
-        "identifier_or_url": "https://doi.org/10.3934/jdg.2026045",
-        "material_read": "Public abstract, detailed HTML introduction, displayed section outline, bibliography and MSC metadata; the full theorem/example sections were not retrieved.",
-        "method": "Publisher open-index text and public metadata; complete open-access page unavailable.",
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/jdg.2026045?viewType=HTML",
+        "material_read": "Public publisher abstract and entire visible Introduction, including formula beta_delta, witness-cover bound, full-shift contiguous window case and outline of Sections 6–10; full body not obtained.",
+        "method": "Publisher publicly indexed full HTML Introduction after arXiv/preprint and open-access full-text search did not yield a copy.",
         "title": "Observer–hider games for expansive dynamical systems",
-        "trigger": "Identical sparse-observation cost and full-shift objects"
+        "trigger": "Same lower-Banach-density winning-schedule quantity for the full shift and witness patterns"
       },
       {
-        "assessment": "Broad translate covering/efficiency theory; whether an unnoticed theorem specializes to the four-point family remains a literature risk.",
+        "assessment": "General periodic covering existence, min-cycle-mean method, sample tables and tiling results are relevant foundations, without an explicit all-d paired-adjacent-point parity formula in inspected sections.",
         "evidence": [
-          "The article studies arbitrary finite-set translational covers and covering efficiency, without a specified adjacent-pair odd/even formula in visible material."
+          "Theorem 5.1: optimal periodic covering given by min mean cycle; Table 3 gives k=4 sample efficiency and set {0,1,2,4}; Lemma 6.1 relates Z and cyclic covers."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/0910.3815",
-        "material_read": "Open abstract, publication metadata and exposed bibliography; mathematical body unavailable in retrieval.",
-        "method": "Public arXiv-index and publisher-index text; full-text mirror attempt unsuccessful.",
+        "identifier_or_url": "https://arxiv.org/pdf/0910.3815",
+        "material_read": "Authorized full 41-page arXiv v2 source obtained; inspected Sections 5–7, Theorem 5.1, Remark 5.4, Tables 1–3, Lemma 6.1 and Example 6.3, with source-wide targeted term checks.",
+        "method": "Public arXiv full text and direct PDF page inspection.",
         "title": "On covering by translates of a set",
-        "trigger": "Equivalent finite-set translate-covering problem"
+        "trigger": "Exactly equivalent integer finite-set translate covering and general algorithmic domination"
       },
       {
-        "assessment": "Different extremal packing-density invariant and explicit support; it does not establish the observation-cost formula in the inspected abstract.",
+        "assessment": "Its main minimum packing result for {0,1,4,6} is a distinct extremal problem and does not imply the evaluated paired translate-cover cost.",
         "evidence": [
-          "Studies minimum packing density, with extremal support {0,1,4,6} and value 1/7."
+          "Main theorem gives packing density at least 1/7, equality at {0,1,4,6}; the introduction defines covering separately but states no formula for F_d."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2501.01571",
-        "material_read": "Open abstract and authorship/date metadata.",
-        "method": "Public mathematical preprint abstract.",
+        "identifier_or_url": "https://arxiv.org/pdf/2501.01571",
+        "material_read": "Seven-page arXiv v1 text, including full statement, packing/covering definitions, main packing theorem, Propositions 1–2 and remainder of packing proof.",
+        "method": "Public arXiv full text and direct PDF page inspection.",
         "title": "Minimum packing density for sets of four integers",
-        "trigger": "Possible four-element covering/packing equivalences"
+        "trigger": "Potential duality of minimum packing and minimum covering for finite four-point sets"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "c15848fb-cc1a-44fd-8e05-9eab244cf071",
+  "previously_published_pending_reaudit": false,
+  "review_type": "mathematical_review",
   "value": {
-    "rationale": "The exact infinite-family observation-cost law quantifies a nontrivial parity loss in two-frame sampling of spatially separated symbolic sensors. For even spacing four sensed coordinates can be tiled at optimal efficiency 1/4; for odd spacing a sharp local incidence obstruction forces a strictly greater observation density, with an explicit optimal schedule. This resolves a natural precise sampling-design invariant rather than an arbitrary small parameter case. The cost is explicitly metric/sensor-dependent, not claimed conjugacy invariant.",
+    "evidence": [
+      "The local incidence certificate supplies an exact odd-gap obstruction; constructions match it for every positive separation.",
+      "Ferrari DOI 10.3934/jdg.2026045 motivates adversarial Banach-density observation cost, and BJR 2011 motivates efficiency of finite translate covers."
+    ],
+    "rationale": "The set {0,1,d,d+1} is a natural two-sensor/two-consecutive-time observation geometry for a symbolic shift, not an arbitrary hand-picked four-site slice. Exact observation density matters because a schedule must distinguish every pair and a single-site discrepancy is adversarially decisive. The all-separation law gives a genuine phase-by-parity phenomenon: even gaps tile with rate 1/4 while odd gaps require a sharp penalty of 1/(8d+4), with both bounds constructively attained and a local obstruction explaining the difference. A finite catalogue or an existence algorithm alone does not provide this uniform structural explanation. The precise fact is plausibly useful as a benchmark for sparse observation, covering efficiency and metric-dependent symbolic dynamics. It is not asserted to solve arbitrary subshift observations or provide a conjugacy-invariant cost.",
     "status": "PASS"
   }
 }
