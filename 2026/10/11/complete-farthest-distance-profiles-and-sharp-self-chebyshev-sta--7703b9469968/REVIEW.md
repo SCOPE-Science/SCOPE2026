@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces farthest boundary distance to finitely many vertices using strict convexity of squared distance along each edge. The antipodal angular ordering of the regular polygon vertices identifies the farthest vertex on the *whole* side for every odd order, and the opposite-side pair for every even order; no discrete sampling is substituted for that claim. Direct distance expansion yields the entire continuous profile and the nonnegative stability defect with unique zero at each side midpoint. Equality and distinguished farthest-vertex counts follow from the strict angular order. Standard trigonometric identities and verified Taylor expansions give the exact perimeter ratios and asymptotics. The supplied checker reconstructs published triangle/square endpoints and independently checks 401,880 vertex-distance comparisons, as supplementary evidence.
+## correctness
 
-## Originality — PASS, with explicit risks
-Walter's original full text gives a generic finite polygon algorithm, a triangle theorem, and an isolated square example; it does not give a uniform all-order side profile. The later 2021 full journal paper provides the arbitrary-triangle radius and a different half-disk polygon construction for maximum perimeter, but no regular-family profile. The 2023 full preprint resolves the global quadrilateral minimizer and expressly conjectures that odd regular polygons will be the optimal \(n\)-gons; it does not state the complete self-radius/profile formula. Candidate-specific public searches under self/relative Chebyshev radius, farthest-point distance and regular-polygon aliases, and separate published-result semantic comparisons found no implication-equivalent uniform profile or sharp boundary-center stability law. A same-valued regular-even-polygon bisection diameter is recognized and credited; the even numerical constant is not claimed independently as novel. An unindexed elementary derivation and an unknown general link with bisection remain residual risks.
+PASS
 
-## Value — PASS
-The self Chebyshev radius is a studied minimax invariant, and regular odd polygons have specifically been proposed as exact optimizers of a still-open sharp perimeter inequality for prescribed vertex number. The all-order profile supplies their exact conjectural coefficient, all minimax centers, all farthest endpoints of the distinguished chords, and a sharp perturbation law. The opposite quadratic-versus-linear local behavior is a concrete structural difference not visible from the scalar radius alone. This is a natural complete family classification motivated by a published mathematical gap, not an arbitrary finite slice or unsupported downstream theorem.
+For a boundary side point x=(r,t), r=R cos α>0 and |t|≤s=R sin α, α=π/n, squared Euclidean distance restricted to each nondegenerate polygon edge is strictly convex, so its boundary maximum is at a polygon vertex. Every vertex lies at angle (2k+1)α. For odd n the antipodal target θ+π, |θ|≤α, has nearest vertex at π (with ties only at original-side endpoints), hence µ²=(R+r)²+t². For even n the nearest antipodal vertices are at π±α, yielding µ²=4r²+(s+|t|)². These exact expressions give unique minimizers t=0 per side, n boundary centers, squared defects t² and t²+2s|t|, plus the stated farthest vertices. Perimeter 2nR sin α divided by center values gives both exact ratios. Independent SymPy series reproduced odd π[1+π²/(12n²)+π⁴/(120n⁴)+O(n^-6)] and even π[1+5π²/(24n²)+61π⁴/(1920n⁴)+O(n^-6)]. An independent brute full-vertex maximum check for n=3..61 over 43 side points each made 81,184 vertex-distance comparisons, max abs squared error 1.33e-15. This finite test corroborates, not proves, the all-n claim; the proof is the angular order and convexity. All n≥5 and R>0 normalizations/boundaries accounted for.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete all-n claim solely because its odd-family profile, exact quadratic stability and odd perimeter conjectural benchmark survive the primary-source and Resultary implication checks. IMPORTANT PRIOR COVERAGE: the published October 4 Resultary even-bisection result itself proves the entire even pointwise profile 4r²+(s+|t|)² and linear cusp (not just numerical radius). Thus those even ingredients carry NO independent originality. Walter 2016 gives an arbitrary fixed polygon finite algorithm, Balestro et al. 2021 treat triangles and a different maximization, and Nikitenko–Nikonorov 2023 conjecture odd n-gon global optimality without the odd profile. No compared prior source covers the odd family or combined parity statement. Historical risks remain explicit; prior-work attribution needs correction before publication.
+
+## value
+
+PASS
+
+The odd regular n-gon profile gives an exact all-n candidate ratio 2n tan(π/(2n)) for the published odd n-gon minimum-perimeter-at-fixed-self-radius conjecture and classifies all boundary minimax centers and farthest chords, including best-possible exact t² displacement. This is a natural self-contained geometric classification and useful parameter-dependent benchmark, not an arbitrary slice. The parity contrast is real, but the even profile/cusp is ALREADY KNOWN and not itself counted as new value. The computation does not solve the global conjecture or assert n=3/4 novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:00:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a boundary side point x=(r,t), r=R cos α>0 and |t|≤s=R sin α, α=π/n, squared Euclidean distance restricted to each nondegenerate polygon edge is strictly convex, so its boundary maximum is at a polygon vertex. Every vertex lies at angle (2k+1)α. For odd n the antipodal target θ+π, |θ|≤α, has nearest vertex at π (with ties only at original-side endpoints), hence µ²=(R+r)²+t². For even n the nearest antipodal vertices are at π±α, yielding µ²=4r²+(s+|t|)². These exact expressions give unique minimizers t=0 per side, n boundary centers, squared defects t² and t²+2s|t|, plus the stated farthest vertices. Perimeter 2nR sin α divided by center values gives both exact ratios. Independent SymPy series reproduced odd π[1+π²/(12n²)+π⁴/(120n⁴)+O(n^-6)] and even π[1+5π²/(24n²)+61π⁴/(1920n⁴)+O(n^-6)]. An independent brute full-vertex maximum check for n=3..61 over 43 side points each made 81,184 vertex-distance comparisons, max abs squared error 1.33e-15. This finite test corroborates, not proves, the all-n claim; the proof is the angular order and convexity. All n≥5 and R>0 normalizations/boundaries accounted for.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walter Section 5: generic finite polygon extremal candidates, not an explicit uniform polygon family profile.",
+          "Balestro et al. 2021 Theorem 4 concerns a different global maximum perimeter variational problem.",
+          "Nikitenko–Nikonorov 2023 Theorem 1 concerns quadrilaterals; Section 9 conjectures odd regular optimality.",
+          "The prior even-bisection theorem explicitly supplies µ_even²=4r²+(s+|t|)², including its exact cusp and minimizer."
+        ],
+        "reasoning": "Prior Resultary bisection work dominates ALL even-order pointwise and stability subclaims; do not label the even branch novel. But no compared broader theorem implies the odd-order profile, sharp odd quadratic defect and odd n-gon perimeter candidate. The combination is not wholly mathematically covered; accepted originality is confined to the odd family and the full parity juxtaposition.",
+        "searches": [
+          "Resultary semantic search: relative Chebyshev radius boundary of regular n-gon farthest vertex distance profile side midpoint and quadratic linear stability",
+          "Resultary semantic search: regular even polygon maximum relative diameter bisection equal R sqrt(1+3 cos²(pi/n)) optimal cut",
+          "https://arxiv.org/pdf/1606.06717",
+          "https://doi.org/10.1007/s00025-021-01394-6",
+          "https://arxiv.org/pdf/2301.03218",
+          "https://arxiv.org/pdf/1803.00321",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1606.06717",
+        "https://doi.org/10.1007/s00025-021-01394-6",
+        "https://arxiv.org/pdf/2301.03218",
+        "https://arxiv.org/pdf/1803.00321",
+        "https://arxiv.org/pdf/1511.08009",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md",
+        "Resultary full semantic query results q1-q4 and search for odd candidate benchmark",
+        "2026-10-11 assigned Git tree / RESULT.md / AUDIT.json / verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute a=r, b=s and the even bisection proof d_M²=4a²+(b+|t|)² to obtain the entire even formula and even stability t²+2s|t|, not merely the n=4/6 special cases.",
+          "Walter polygon algorithm and Balestro triangle theorem do not derive the odd all-n continuous profile as an explicit theorem.",
+          "Nikitenko Section 9's odd regular polygon global minimizing conjecture is open and does not yield the sharp odd family distance equation."
+        ],
+        "reasoning": "The submitted full statement is not a special case of the cited even bisection theorem because its n is arbitrary and the even work assumes central symmetry. The odd branch and quadratic-vs-linear cross-parity contrast have independent exact content. No claim of a new even constant, even full profile, or general polygon extremality is credited here.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md",
+          "https://arxiv.org/pdf/1606.06717",
+          "https://doi.org/10.1007/s00025-021-01394-6",
+          "https://arxiv.org/pdf/2301.03218",
+          "https://arxiv.org/pdf/1803.00321",
+          "Resultary semantic search: relative Chebyshev radius boundary of regular n-gon farthest vertex distance profile side midpoint and quadratic linear stability",
+          "Resultary semantic search: self Chebyshev radius regular polygon parity exact circumradius cos(pi/n) farthest distance and perimeter ratio",
+          "Resultary semantic search: regular even polygon maximum relative diameter bisection equal R sqrt(1+3 cos²(pi/n)) optimal cut"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundary self Chebyshev radius = relative Chebyshev radius of the boundary to itself = boundary-constrained Euclidean one-center covering radius; µ is the farthest-distance function. Walter (2016) Section 1 and Balestro et al. (2021) Section 2 explicitly define this same invariant.",
+          "Originality question is the all-n pointwise µ(t), not just the scalar radius or the perimeter lower bound."
+        ],
+        "reasoning": "The general finite candidate algorithm handles a fixed polygon, but its statements do not give the closed odd-order formula µ²=(R+R cos(pi/n))²+t² for all n. The exact parity comparison adds odd-order information not implied by the published even branch.",
+        "searches": [
+          "Resultary semantic search: relative Chebyshev radius boundary of regular n-gon farthest vertex distance profile side midpoint and quadratic linear stability",
+          "Resultary semantic search: self Chebyshev radius regular polygon parity exact circumradius cos(pi/n) farthest distance and perimeter ratio",
+          "Web search: self Chebyshev radius regular polygon midpoint 1+cos and perimeter ratio; Rolf Walter regular polygon all order",
+          "https://arxiv.org/pdf/1606.06717",
+          "https://arxiv.org/pdf/2301.03218",
+          "https://doi.org/10.1007/s00025-021-01394-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary October 4 even-bisection source supplies exactly the even profile, not only its radius.",
+          "Published 2016 square value and 2021 equilateral-triangle value are prior scalar calibration cases.",
+          "The searched Resultary hit list and inspected 2023 odd n-gon conjecture yielded no published all-odd-n exact center-stability table/formula."
+        ],
+        "reasoning": "A numerical even-radius table would not alone imply the pointwise profile, but the actual earlier bisection source DOES prove the even profile. The remaining odd continuous profile is not found as an exact table. Unsuccessful searches establish only a qualified best-of-knowledge risk assessment.",
+        "searches": [
+          "Resultary semantic search: self Chebyshev radius regular polygon parity exact circumradius cos(pi/n) farthest distance and perimeter ratio",
+          "Resultary semantic search: regular even polygon maximum relative diameter bisection equal R sqrt(1+3 cos²(pi/n)) optimal cut",
+          "Resultary semantic: regular odd polygon self Chebyshev radius perimeter 2n tan(pi/2n) parity stability",
+          "https://arxiv.org/pdf/1606.06717",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete all-n claim solely because its odd-family profile, exact quadratic stability and odd perimeter conjectural benchmark survive the primary-source and Resultary implication checks. IMPORTANT PRIOR COVERAGE: the published October 4 Resultary even-bisection result itself proves the entire even pointwise profile 4r²+(s+|t|)² and linear cusp (not just numerical radius). Thus those even ingredients carry NO independent originality. Walter 2016 gives an arbitrary fixed polygon finite algorithm, Balestro et al. 2021 treat triangles and a different maximization, and Nikitenko–Nikonorov 2023 conjecture odd n-gon global optimality without the odd profile. No compared prior source covers the odd family or combined parity statement. Historical risks remain explicit; prior-work attribution needs correction before publication.",
+      "residual_risks": [
+        "An older unindexed treatment of regular odd boundary farthest-distance profiles or a global theorem could give the same formulas; lack of an indexed hit is not a novelty certificate.",
+        "The October 4 even-bisection result explicitly already contains the exact even pointwise formula and linear cusp. The submitted RESULT.md describes only coincidence of the even scalar value; prior-work attribution should be updated before public republication.",
+        "The odd formula is elementary once antipodal vertex ordering is identified; value comes from the specific natural invariant/open regular odd n-gon benchmark, not proof difficulty.",
+        "No assertion that regular odd n-gons globally optimize fixed-vertex-number perimeter; this is still conjectural."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FINITE_ALGORITHM_NOT_ALL_N_REGULAR_PROFILE",
+          "evidence": "Section 5 gives a candidate-chord finite algorithm for arbitrary fixed polygons; Section 6 is explicitly limited to n=3 and n=4, with square L/delta=8/sqrt5. The text does not supply the uniform odd-side formula or exact t² stability.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.06717",
+          "material_read": "Complete 32-page preprint accessible; specifically inspected Sections 1 and 4-6, Lemma 5.3 (polygon algorithm) and Section 6 square example.",
+          "method": "Full accessible arXiv PDF parsed text plus rendered PDF page 22.",
+          "title": "On a Minimax Problem for Ovals",
+          "trigger": "Original source defining the relative/self Chebyshev radius and polygon candidate algorithm."
+        },
+        {
+          "assessment": "TRIANGLE_CASE_AND_DIFFERENT_GLOBAL_MAXIMUM_PERIMETER_PROBLEM",
+          "evidence": "Theorem 2 classifies triangles; Theorem 4 maximizes perimeter at a fixed self radius using half-disk based n-gons U_n. No uniform exact regular odd polygon boundary farthest-distance profile or quadratic stability appears.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01394-6",
+          "material_read": "All 13 article pages: introduction and Theorem 2 (arbitrary triangles), Section 4 Theorems 3 and 4 (half-disk and maximizing n-gon constructions), conclusion and bibliography.",
+          "method": "Tried arXiv/preprint and lawful open access; authorized institutional paper tool returned complete page text for all 13 pages and text was examined.",
+          "title": "Extremal Problems for Convex Curves with a Given Self Chebyshev Radius",
+          "trigger": "Directly relevant 2021 primary paper on the same invariant and polygon classes."
+        },
+        {
+          "assessment": "QUADRILATERAL_GLOBAL_OPTIMUM_AND_ODD_N_CONJECTURE_NOT_ODD_PROFILE",
+          "evidence": "Theorem 1 proves a global quadrilateral extremal inequality. Section 9 says computational experiments suggest odd regular n-gons are global minimizers, a conjecture; neither the odd-family complete µ(t) formula nor its exact center stability is proved there.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03218",
+          "material_read": "Complete accessible 42-page preprint; particularly pages 1-3 definitions and quadrilateral theorem and Section 9 pages 39-40 conjectures.",
+          "method": "Full public arXiv PDF text plus rendered page 40.",
+          "title": "The Extreme Polygons for the Self Chebyshev Radius of the Boundary",
+          "trigger": "Later primary source on same invariant, potential odd regular n-gon coverage."
+        },
+        {
+          "assessment": "COVERS_EVEN_POINTWISE_PROFILE_NOT_ODD_FAMILY",
+          "evidence": "For x=(a,t), it explicitly proves d_M²=4a²+(b+|t|)² and unique midpoint minimizer; identifying a=R cos(pi/n), b=R sin(pi/n) yields EXACTLY the submitted even µ_n² and cusp. This prior result therefore covers the entire EVEN branch, not merely its scalar radius. It assumes n even and supplies no odd profile, no odd quadratic defect or odd perimeter benchmark.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md",
+          "material_read": "Entire published RESULT.md (finding, mathematical proof, verified profile, limitations and references).",
+          "method": "Read actual public GitHub repository file via authorized read-only GitHub connector.",
+          "title": "Exact maximum-relative-diameter bisection of every regular even polygon",
+          "trigger": "Indexed published result with identical even-order radius and potential stronger coverage of entire even profile."
+        },
+        {
+          "assessment": "CENTER_LINE_REDUCTION_FOR_CENTRALLY_SYMMETRIC_BODIES",
+          "evidence": "Proposition 3.1 reduces minimizing bisections of centrally symmetric bodies to lines through the symmetry center. This does not cover regular odd n-gons (not centrally symmetric) or their exact boundary self-radius profile.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.00321",
+          "material_read": "Accessible 16-page PDF: introduction, main Section 3 Proposition 3.1, formula (2.2), and Sections 4-5 examples.",
+          "method": "Public arXiv full-text sections and rendered page 6.",
+          "title": "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+          "trigger": "Foundational primary source underlying the even bisection result; investigate reductions."
+        },
+        {
+          "assessment": "DIFFERENT_MULTIPARTITION_FUNCTIONAL_SMALL_CASES",
+          "evidence": "Analyzes maximum relative diameter of partitions including regular hexagon; no universal regular odd self-Chebyshev profile or center stability is implied by the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08009",
+          "material_read": "Accessible 16-page preprint: definitions, introduction, regular hexagon example and standard k-partitions.",
+          "method": "Public arXiv full text Sections 1-2 and search of hexagon references.",
+          "title": "The maximum relative diameter for multi-rotationally symmetric planar convex bodies",
+          "trigger": "Older primary treatment of polygon diameter partitions, possible n-gon table overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The odd regular n-gon profile gives an exact all-n candidate ratio 2n tan(π/(2n)) for the published odd n-gon minimum-perimeter-at-fixed-self-radius conjecture and classifies all boundary minimax centers and farthest chords, including best-possible exact t² displacement. This is a natural self-contained geometric classification and useful parameter-dependent benchmark, not an arbitrary slice. The parity contrast is real, but the even profile/cusp is ALREADY KNOWN and not itself counted as new value. The computation does not solve the global conjecture or assert n=3/4 novelty.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1606.06717",
+    "https://doi.org/10.1007/s00025-021-01394-6",
+    "https://arxiv.org/pdf/2301.03218",
+    "https://arxiv.org/pdf/1803.00321",
+    "https://arxiv.org/pdf/1511.08009",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7/RESULT.md",
+    "Resultary full semantic query results q1-q4 and search for odd candidate benchmark",
+    "2026-10-11 assigned Git tree / RESULT.md / AUDIT.json / verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥5, regular convex Euclidean polygons only; ambient chord distance, center constrained to boundary.",
+    "No claim of global minimizer among irregular n-gons; the odd minimization conjecture remains open.",
+    "The exact even full distance profile and its cusp appeared earlier in the even-bisection publication, which must be credited; best-of-knowledge originality applies to odd family and parity juxtaposition.",
+    "No formal Lean/expert verification and no independent publication or priority guarantee."
+  ],
+  "residual_risks": [
+    "An older unindexed treatment of regular odd boundary farthest-distance profiles or a global theorem could give the same formulas; lack of an indexed hit is not a novelty certificate.",
+    "The October 4 even-bisection result explicitly already contains the exact even pointwise formula and linear cusp. The submitted RESULT.md describes only coincidence of the even scalar value; prior-work attribution should be updated before public republication.",
+    "The odd formula is elementary once antipodal vertex ordering is identified; value comes from the specific natural invariant/open regular odd n-gon benchmark, not proof difficulty.",
+    "No assertion that regular odd n-gons globally optimize fixed-vertex-number perimeter; this is still conjectural."
+  ],
+  "schema_version": 1
+}

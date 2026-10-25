@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The analytical proof uses the exact vertex angles \((2k+1)\pi/n\), for \(k=0,\ldots,n-1\), after orienting one polygon side vertically. For a side point \((r,t)\), the farthest vertex minimizes the dot product with \((r,t)\). The odd case has the unique opposite vertex except at side endpoints; the even case has the nearest of the two opposite-side endpoints. These are exact all-\(n\) angular-ordering statements, not numerical conjectures.
+# Independent mathematical audit
 
-The bounded companion `verify.py` checks the symbolic large-\(n\) expansions of the odd and even perimeter ratios through terms of order \(n^{-4}\), and the existing equilateral-triangle and square calibration constants. Independently of the choice made in the analytical proof, it computes the maximum over **every** polygon vertex for 51 points on a representative side for every \(3\le n\le121\), and again for orders \(201\) and \(301\). It checks the stated squared-distance profiles and exact stability defects. Running the actual packaged script produced `VERIFY_OK`, 401,880 vertex-distance comparisons, and a maximum absolute squared-distance discrepancy of \(1.3323\times10^{-15}\) for circumradius \(1\).
+## correctness
 
-The numerical checks are finite diagnostic tests; the continuous-profile theorem is justified by the angle-ordering argument. The results do not establish any global perimeter extremal property among irregular polygons. Published general inequalities and the known triangle and square cases are acknowledged as prior results. Independent audit is not performed.
+PASS
+
+For a boundary side point x=(r,t), r=R cos α>0 and |t|≤s=R sin α, α=π/n, squared Euclidean distance restricted to each nondegenerate polygon edge is strictly convex, so its boundary maximum is at a polygon vertex. Every vertex lies at angle (2k+1)α. For odd n the antipodal target θ+π, |θ|≤α, has nearest vertex at π (with ties only at original-side endpoints), hence µ²=(R+r)²+t². For even n the nearest antipodal vertices are at π±α, yielding µ²=4r²+(s+|t|)². These exact expressions give unique minimizers t=0 per side, n boundary centers, squared defects t² and t²+2s|t|, plus the stated farthest vertices. Perimeter 2nR sin α divided by center values gives both exact ratios. Independent SymPy series reproduced odd π[1+π²/(12n²)+π⁴/(120n⁴)+O(n^-6)] and even π[1+5π²/(24n²)+61π⁴/(1920n⁴)+O(n^-6)]. An independent brute full-vertex maximum check for n=3..61 over 43 side points each made 81,184 vertex-distance comparisons, max abs squared error 1.33e-15. This finite test corroborates, not proves, the all-n claim; the proof is the angular order and convexity. All n≥5 and R>0 normalizations/boundaries accounted for.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete all-n claim solely because its odd-family profile, exact quadratic stability and odd perimeter conjectural benchmark survive the primary-source and Resultary implication checks. IMPORTANT PRIOR COVERAGE: the published October 4 Resultary even-bisection result itself proves the entire even pointwise profile 4r²+(s+|t|)² and linear cusp (not just numerical radius). Thus those even ingredients carry NO independent originality. Walter 2016 gives an arbitrary fixed polygon finite algorithm, Balestro et al. 2021 treat triangles and a different maximization, and Nikitenko–Nikonorov 2023 conjecture odd n-gon global optimality without the odd profile. No compared prior source covers the odd family or combined parity statement. Historical risks remain explicit; prior-work attribution needs correction before publication.
+
+## value
+
+PASS
+
+The odd regular n-gon profile gives an exact all-n candidate ratio 2n tan(π/(2n)) for the published odd n-gon minimum-perimeter-at-fixed-self-radius conjecture and classifies all boundary minimax centers and farthest chords, including best-possible exact t² displacement. This is a natural self-contained geometric classification and useful parameter-dependent benchmark, not an arbitrary slice. The parity contrast is real, but the even profile/cusp is ALREADY KNOWN and not itself counted as new value. The computation does not solve the global conjecture or assert n=3/4 novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
