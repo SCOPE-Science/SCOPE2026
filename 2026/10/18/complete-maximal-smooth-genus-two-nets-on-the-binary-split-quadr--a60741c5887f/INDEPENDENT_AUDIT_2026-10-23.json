@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:01:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four standard affine charts cover P1xP1. For each of 4095 nonzero bidegree-(2,3) sections over F2, geometric smoothness is equivalent to all Jacobian ideals (f,fx,fy) being unit ideals; the symbolic source verify_geometry.py uses exact Groebner bases, not rational-only sampling. An independently coded characteristic-two bivariate polynomial/gcd smoothness test reproduced exactly 1116 smooth masks, including all seven of the exhibited net. Independent XOR subspace census yielded 44070 pencils and 250992 pencil/extension incidences; each 3-space has seven pencils and four extension vectors, so 250992/28=8964 distinct nets. Recomputed every net’s 9-point F2-rational spectrum: exactly the stated 14 types with counts summing 8964; independent transformation of all 36 polarized PGL2(F2)^2 automorphisms gave 249 orbits, each size36. A 4-dimensional section subspace has a nonzero kernel of the three-dimensional first-jet evaluation at any rational point, so contains a singular member; the 3-dimensional example proves sharpness. Adjunction gives genus two on smooth (2,3). Exhaustive finite coefficient enumeration is genuine exhaustive proof for this fixed finite vector space, not extrapolation to other fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 finite-field paper includes seven smooth conics in characteristic two on projective plane, different surface and degrees.",
+          "General theorems on smooth hypersurface linear families and first-jet dimension bound do not supply complete quadric bidegree-(2,3) net numbers."
+        ],
+        "reasoning": "The abstract existence/maximal-dimension framework covers motivation and a general jet technique, not the specific 8964-net enumeration, 249 orbits or 14 arithmetic spectra.",
+        "searches": [
+          "Asgarli Ghioca arXiv:2203.07169 Smoothness in pencils of hypersurfaces over finite fields",
+          "Asgarli Ghioca Reichstein arXiv:2207.00918 Linear families of smooth hypersurfaces over finitely generated fields"
+        ]
+      },
+      "checked_sources": [
+        "full Git tree all 11 blobs including smooth_masks.txt and verify_nets.cpp",
+        "own complete 4095 mask smoothness, 44070 pencils and 8964 net enumeration",
+        "own all 36 polarized automorphism actions and nine-rational-point count table",
+        "F2 P1xP1 bidegree (2,3) smooth genus 2 linear nets subspaces 8964 249 orbits",
+        "Asgarli Ghioca arXiv:2203.07169 full PDF",
+        "Asgarli et al arXiv:2207.00918 accessible sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jet map gives dimension at most three: this structural bound is general and credited.",
+          "Existence of smooth pencils in other projective embeddings says nothing about number of all-smooth nets and spectra."
+        ],
+        "reasoning": "A general jet obstruction is known, but the complete enumerative and arithmetic results require additional exhaustive finite-field computation and orbit analysis and are not logical consequences of the cited existence statements.",
+        "searches": [
+          "arXiv:2203.07169 smooth pencils projective hypersurfaces",
+          "arXiv:2207.00918 smooth linear families finite fields"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bidegree (2,3) sections on split quadric yield genus-two curves and all-smooth dimension3 linear subspaces; equivalences are polarized automorphisms, NOT arbitrary abstract genus-two isomorphisms.",
+          "Resultary search returned genus-two monodromy and unrelated polarizations, no same net census."
+        ],
+        "reasoning": "Aliases under Segre quadric and polarized genus-two linear systems were compared; generic genus-two curve classifications do not canonically enumerate all-smooth three-dimensional subspaces of this fixed 12-dimensional representation.",
+        "searches": [
+          "F2 P1xP1 bidegree (2,3) smooth genus 2 linear nets subspaces 8964 249 orbits",
+          "smooth genus two (2,3) linear systems P1xP1 F2 nets Grassmannian F2 dual rational sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Own exact full 4095-mask smoothness and 8964-net/249-orbit census matches assigned complete table.",
+          "No prior identical census in Resultary top returned records; no claim that search failure proves priority."
+        ],
+        "reasoning": "This is an exhaustive natural finite classification with documented reproducibility, and no located database supplies this exact table or a theorem implying it.",
+        "searches": [
+          "F2 P1xP1 bidegree (2,3) smooth genus 2 linear nets subspaces 8964 249 orbits",
+          "1116 smooth 44070 pencils 8964 nets genus two binary quadric rational points 249"
+        ]
+      },
+      "rationale": "Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.",
+      "residual_risks": [
+        "A separate unindexed F2 genus-two net database could duplicate the finite census.",
+        "Independent code reproduces counts but was not formally proof-assistant verified; both exact algorithms need reproducible replay when published."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering exact genus-two quadric census",
+          "evidence": "Example uses plane conics, while claim uses full bidegree-(2,3) system on P1xP1 with 8964 nets.",
+          "identifier_or_url": "arXiv:2203.07169",
+          "material_read": "primary arXiv full PDF, examples including characteristic-two smooth conic pencil, principal statements and proofs",
+          "method": "read PDF text and compared ambient variety, polynomial degree, and linear system",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "closest finite-field smooth-linear-system paper"
+        },
+        {
+          "assessment": "general framework, no confirmed exact net census",
+          "evidence": "Existence and upper-bound discussion does not give finite F2 coefficient-level incidence/orbit arithmetic counts.",
+          "identifier_or_url": "arXiv:2207.00918",
+          "material_read": "arXiv abstract and relevant accessible theorem discussion; not asserted as full text if inaccessible",
+          "method": "cross-checked its stated projective hypersurface scope against polarized quadric claim",
+          "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+          "trigger": "potential general theorem with larger scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-smooth linear systems on varieties over finite fields form a motivated extremal problem. A complete census for the first genus-two bi-graded linear system on the smallest split quadric, including every maximal net, projective automorphism orbit and all member point-count spectra, refines generic existence and jet bounds with exact arithmetic geometry. The fixed finite object and orbit invariant are canonical, not a fabricated numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only polarized split quadric (P1xP1,O(2,3)) over F2; not arbitrary genus-two curves/isomorphism classes.",
+    "Combinatorial finite-census algorithms establish a finite fact, not a theorem for larger fields."
+  ],
+  "schema_version": 1
+}

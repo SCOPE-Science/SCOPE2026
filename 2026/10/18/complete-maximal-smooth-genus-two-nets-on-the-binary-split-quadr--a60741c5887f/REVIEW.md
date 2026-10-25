@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** A four-chart Jacobian-ideal test characterizes geometric smoothness over the algebraic closure by exact Gröbner computations, not extension-field sampling. All 4095 coefficient masks are checked. The 44,070 pencils and 250,992 pencil extensions yield 8964 nets by the exact 28-to-one incidence count, independently confirmed by canonical sets. A local first-jet dimension argument proves maximality; all 36 polarized automorphisms and all 9 rational points are checked explicitly. The packaged complete execution succeeds.
+## correctness
 
-**Originality (PASS, bibliographic qualification).** The inspected 2022 papers of Asgarli–Ghioca and Asgarli–Ghioca–Reichstein treat smooth linear systems of hypersurfaces in projective space, not a full bidegree-\((2,3)\) system on the split quadric. The generic jet upper bound and general existence question are prior art and are not claimed as new. The accepted claim is the exhaustive 8964-net enumeration, 249 polarized orbits and 14 rational genus-two spectra. Equivalent computational data could be unindexed; absence from searches is not proof of priority.
+PASS
 
-**Value (PASS).** This is a natural complete extremal classification in the first positive genus beyond elliptic \((2,2)\) divisors on the split quadric. The outcome refines existence/maximality by a full projective orbit decomposition and arithmetic signatures of all seven curves in each net. The classification is specifically motivated by the known smooth-linear-system problem, not by an arbitrary degree cutoff.
+Four standard affine charts cover P1xP1. For each of 4095 nonzero bidegree-(2,3) sections over F2, geometric smoothness is equivalent to all Jacobian ideals (f,fx,fy) being unit ideals; the symbolic source verify_geometry.py uses exact Groebner bases, not rational-only sampling. An independently coded characteristic-two bivariate polynomial/gcd smoothness test reproduced exactly 1116 smooth masks, including all seven of the exhibited net. Independent XOR subspace census yielded 44070 pencils and 250992 pencil/extension incidences; each 3-space has seven pencils and four extension vectors, so 250992/28=8964 distinct nets. Recomputed every net’s 9-point F2-rational spectrum: exactly the stated 14 types with counts summing 8964; independent transformation of all 36 polarized PGL2(F2)^2 automorphisms gave 249 orbits, each size36. A 4-dimensional section subspace has a nonzero kernel of the three-dimensional first-jet evaluation at any rational point, so contains a singular member; the 3-dimensional example proves sharpness. Adjunction gives genus two on smooth (2,3). Exhaustive finite coefficient enumeration is genuine exhaustive proof for this fixed finite vector space, not extrapolation to other fields.
 
-**Scope and risk.** These are fixed-coordinate polarized nets, not abstract genus-two isomorphism types; extending the finite enumeration to other characteristics or bidegrees is not established. SymPy and a C++17 compiler are needed for replay. Independent outside audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge assessment from exact implication comparisons of same mathematical objects; known special cases and general mechanisms are credited; actual full primary texts read when accessible and residual priority risk recorded. The retained exact result is not proved covered by the identified sources.
+
+## value
+
+PASS
+
+All-smooth linear systems on varieties over finite fields form a motivated extremal problem. A complete census for the first genus-two bi-graded linear system on the smallest split quadric, including every maximal net, projective automorphism orbit and all member point-count spectra, refines generic existence and jet bounds with exact arithmetic geometry. The fixed finite object and orbit invariant are canonical, not a fabricated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
