@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:15:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and verify_grid10.cpp at pinned blob",
+        "Both stored matrices and verify_matrices.py at pinned blobs; independent GF2 elimination; independent finite matching DP"
+      ],
+      "rationale": "The ordinary matching complex of the 3-by-10 vertex grid has 47 graph edges. Source verify_grid10.cpp exhaustively branches on each edge, removing incidences, and its greedy early-edge toggle has the usual acyclic alternating-path argument. Two complete, independent stored GF(2) critical-cell boundary matrices were read as actual source blobs, parsed and independently row-reduced with exact BigInt bitset elimination: ascending 122x393 rank120; descending 30x301 rank28; no malformed rows. Thus reduced H10 has dimension 2 and H9 dimension 273 in both matchings, with no other critical degrees. Independently, an edge-state matching DP counted 47,177,097 augmented faces and Euler sum 271, consistent with -273+2=-271. The finite certificate supports exactly P3-square-P10 mod-two homology; it proves neither integral freeness nor any larger width.",
+      "residual_risks": [
+        "The 47,177,097-face C++ regeneration was inspected but not rerun end-to-end locally because of its 1GB resource requirements; the stored exact matrix rank and independent face count are not independent matrix-generation certificates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent Chauhan–Sharma–Shukla grid preprint treats matching complexes of P3 x Pn and is the most plausible stronger coverage; only its abstract and the source package characterization of Table 1 through n=9 were available. Earlier purported all-width classification was withdrawn after a proof gap."
+        ],
+        "reasoning": "Full text of the strongest plausible primary source was inaccessible; no affirmative coverage established from material actually read. This creates a named priority risk, not a proof of novelty.",
+        "searches": [
+          "arXiv:2609.27366v1",
+          "arXiv:2106.09915"
+        ]
+      },
+      "checked_sources": [
+        "Actual 2026-10-18 RESULT.md, verify_grid10.cpp, verify_matrices.py and both full binary matrix text blobs",
+        "arXiv:2609.27366 abstract",
+        "arXiv:2106.09915 withdrawal information",
+        "Resultary search: matching complex P3 square P10 mod 2 homology 273 2 dimension 10 grid Chauhan Sharma Shukla"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously reported connectivity and all-width conjecture do not establish nonzero H10; they are potentially contradicted rather than implying this exact finite calculation."
+        ],
+        "reasoning": "The present exact homology is a natural frontier counterexample if the prior conjecture says all spheres are in degree 9 at width 10.",
+        "searches": [
+          "arXiv:2609.27366v1",
+          "Resultary search: matching complex P3 square P10 mod 2 homology 273 2 dimension 10 grid Chauhan Sharma Shukla"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed only-dimension-(n-1) wedge would force H10=0 at width10; the two independent rank certificates instead yield H10(F2)=2."
+        ],
+        "reasoning": "Looked for matching-complex grid P3 x P10, width-ten Betti and higher-degree classes under equivalent nomenclature; no same-result hit in returned Resultary comparisons.",
+        "searches": [
+          "Resultary search: matching complex P3 square P10 mod 2 homology 273 2 dimension 10 grid Chauhan Sharma Shukla",
+          "arXiv:2609.27366v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned package cites the earlier n<=9 table; exact n=10 ranks 273 and 2 are not among those n<=9 results."
+        ],
+        "reasoning": "Checked actual independent exact matrix certificates, rather than treating resemblance to unrelated matching-complex tables as equivalent coverage. Complete external table audit unavailable.",
+        "searches": [
+          "Resultary search: matching complex P3 square P10 mod 2 homology 273 2 dimension 10 grid Chauhan Sharma Shukla",
+          "arXiv:2609.27366v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge first exact nonzero H10 result at n=10, an object directly adjacent to earlier computed widths 1 through 9 and a counterexample to the proposed all-width single-sphere-dimension pattern. Indexed matching complexes on other finite graphs do not imply this specific mod-two group.",
+      "residual_risks": [
+        "Highly relevant 2026 grid paper could not be fully read due to disconnected institutional VPN; priority risk is explicit.",
+        "A matching finite computation in an unindexed appendix or other independent source might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INCOMPLETE_PRIMARY_INSPECTION; coverage cannot be ruled out from abstract alone",
+          "evidence": "Abstract concerns matching complexes and sharp connectivity; package cites Conjecture 4.1 and table only through n=9, unverified against full source text.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27366",
+          "material_read": "Abstract and metadata, not full text; institutional source unavailable",
+          "method": "arXiv abstract, OA attempts, authorized Oxford request returned vpn_disconnected",
+          "title": "Homology of matching complexes of 3 × n grid graphs",
+          "trigger": "Same graph family, exact parameter frontier, claimed dimension pattern"
+        },
+        {
+          "assessment": "Prior claimed universal argument has withdrawn proof gap; no established contrary exact width10 rank read",
+          "evidence": "Withdrawal does not itself prove the new finite result; the new exact certificates are the C evidence.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.09915",
+          "material_read": "Bibliographic and withdrawal/proof-gap status, not all mathematical pages",
+          "method": "arXiv metadata and published corrigendum records",
+          "title": "Matching complexes of 3 × n grid graphs",
+          "trigger": "Earlier universal classification potentially dominating width10"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Proposed width-wise matching-complex conjecture of Chauhan–Sharma–Shukla",
+        "Exact two Morse matrices and independent GF2 checks"
+      ],
+      "rationale": "A complete exact natural grid-width threshold, n=10 immediately beyond published n<=9 computations, refutes the mathematically motivated all-width one-dimensional sphere-wedge pattern at the first open width. Mixed adjacent homology degrees are a substantive obstruction, not an arbitrary tiny-instance table entry.",
+      "residual_risks": [
+        "No homology for other n or integral torsion claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

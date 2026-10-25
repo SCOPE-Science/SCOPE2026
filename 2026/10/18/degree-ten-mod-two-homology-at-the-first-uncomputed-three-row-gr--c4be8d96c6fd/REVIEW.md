@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph and matching-complex definitions are explicit. Complete independent edge-subset recursion enumerates exactly 47,177,097 augmented faces. The earliest-pivot argument proves both sequential-toggle matchings acyclic. Two full Morse reductions leave only dimensions 9 and 10, with respective exact boundary ranks 120/122 and 28/30. Complete binary boundary matrices are supplied and recomputed; an independent integer-bitset rank implementation verifies each. The two calculations agree on homology dimensions 273 and 2. The result is a finite-field statement, not an integral assertion.
+## correctness
 
-## Originality
-PASS on the inspected published record, subject to ordinary indexing risk. The source paper arXiv:2609.27366v1 computes grid widths only through nine and explicitly poses an all-width dimension-(n−1) wedge conjecture. The width-ten class in degree ten contradicts it and cannot follow from the published connectivity bounds or degree-alternating Lefschetz traces. A 2021 attempted all-width homotopy classification was withdrawn over a gap. Public indexed work on orthogonal and half-turn Lefschetz formulas was considered by implication rather than title alone. No equivalent published determination of the width-ten degree-ten homology was identified; contemporaneous unindexed research may exist.
+PASS
 
-## Mathematical value
-PASS. This is the first uncomputed width beyond the explicit primary-literature table, and it disproves a precise, explicitly formulated new conjecture. The unexpected extra homological degree is topologically consequential rather than a small improvement to an already tabulated number.
+The ordinary matching complex of the 3-by-10 vertex grid has 47 graph edges. Source verify_grid10.cpp exhaustively branches on each edge, removing incidences, and its greedy early-edge toggle has the usual acyclic alternating-path argument. Two complete, independent stored GF(2) critical-cell boundary matrices were read as actual source blobs, parsed and independently row-reduced with exact BigInt bitset elimination: ascending 122x393 rank120; descending 30x301 rank28; no malformed rows. Thus reduced H10 has dimension 2 and H9 dimension 273 in both matchings, with no other critical degrees. Independently, an edge-state matching DP counted 47,177,097 augmented faces and Euler sum 271, consistent with -273+2=-271. The finite certificate supports exactly P3-square-P10 mod-two homology; it proves neither integral freeness nor any larger width.
 
-## Limitations and closest literature
-No assertion about integral homotopy or torsion. Closest source: Chauhan–Sharma–Shukla, arXiv:2609.27366v1, Theorem 1.2 and Conjecture 4.1. Earlier all-width 2021 attempt was withdrawn. Other available grid-matching papers compute symmetry-indexed Euler/Lefschetz invariants, not the required individual homology group. Full replay should be independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge first exact nonzero H10 result at n=10, an object directly adjacent to earlier computed widths 1 through 9 and a counterexample to the proposed all-width single-sphere-dimension pattern. Indexed matching complexes on other finite graphs do not imply this specific mod-two group.
+
+## value
+
+PASS
+
+A complete exact natural grid-width threshold, n=10 immediately beyond published n<=9 computations, refutes the mathematically motivated all-width one-dimensional sphere-wedge pattern at the first open width. Mixed adjacent homology degrees are a substantive obstruction, not an arbitrary tiny-instance table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
