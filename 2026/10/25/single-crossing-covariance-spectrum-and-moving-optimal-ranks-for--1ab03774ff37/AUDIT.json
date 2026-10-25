@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The geometric-series covariance is derived with one reused observation noise. Strict log-ratio monotonicity of two covariance eigenvalues holds for every 0<omega*lambda_max<=1, including omega*lambda_max=1. A one-variable derivative proves unique unimodality of the iteration-K covariance spectral filter. Pairwise crossing order and Frobenius/trace eigenvalue optimality imply contiguous rank blocks moving only in the decreasing normal-eigenvalue direction. Exact two-level asymptotics give trace-loss ratio mu/L. No finite experiment is treated as an infinite proof; the checker has 6,254 finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abhishek–Holman use leading normal eigenspaces with separate residual handling, not a theorem claiming these eigenspaces optimize the exact propagated covariance for all iterations.",
+        "Vogel–Wade 1994 covers SVD-based iterative ill-posed inversion as established background; only abstract-level material was accessible."
+      ],
+      "reasoning": "Standard spectral-filter and Eckart–Young statements individually cover covariance diagonalization and selecting largest known eigenvalues, but do not themselves assert the parameter-uniform one-crossing structure, contiguous rank windows, or monotone direction. An inaccessible older SVD paper leaves a genuine historical overlap risk.",
+      "searches": [
+        "\"iterative regularization\" covariance eigenmodes rank truncation crossing singular values",
+        "\"Landweber\" \"noise\" \"spectral window\" covariance rank",
+        "Vogel Wade Iterative SVD-Based Methods for Ill-Posed Problems DOI 10.1137/0915047",
+        "arxiv:2610.00882v1 Sections 3.3 and 3.6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00882v1 (inspected full HTML including sections and appendix)",
+      "Computation 14 (2026) 162 (relevant full text)",
+      "Vogel–Wade 1994 DOI 10.1137/0915047 (abstract only)",
+      "Qu–Wang–Jiang 2009 DOI 10.1109/TIP.2008.2008076 (abstract only)",
+      "Available mathematical-record semantic summaries for Landweber covariance ranks, spectral filters, CG and SVT"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supports exact covariance expressions and an existing randomized approximation program. Its text does not directly state the pairwise ranking theorem, any consecutive top-r covariance window theorem, or the sharp long-horizon trace-loss example.",
+        "Qu–Wang–Jiang concerns convergence of algebraic reconstruction algorithms, not the propagated covariance spectral ordering.",
+        "The Computation (2026) source discusses Landweber spectral-filter recovery in ordinary order, not optimal Gaussian-covariance rank migration.",
+        "Semantic mathematical-record results concerned spectral-filter Rayleigh residual distortion, CG fluctuations, and SVT rank staircases; none directly implies this noise covariance theorem."
+      ],
+      "reasoning": "The new covariance identity itself is not original. The new implications follow from a strict log-ratio monotonicity across all modes and a strict spectral-filter unimodality proof. Conventional Eckart–Young requires ordering at each fixed time but does not guarantee which normal-eigenvalue indices win or how those indices change over time. Full historical equivalence cannot be excluded.",
+      "searches": [
+        "arxiv:2610.00882v1 Sections 3.1, 3.3, 3.6, Appendix 5.1",
+        "Qu Wang Jiang Necessary and sufficient convergence conditions for algebraic image reconstruction algorithms DOI 10.1109/TIP.2008.2008076",
+        "Adjoint-Based Joint Reconstruction of Heat Source and Initial Condition with Uncertainty Quantification Computation 14 (2026) 162 Section 4.2",
+        "Semantic mathematical-record query: Landweber propagated Gaussian covariance eigenvalues spectral filter successive iterations one crossing eigenvalue ordering switching rank optimal approximation",
+        "Semantic mathematical-record query: Landweber regularized inverse singular covariance top r eigenvectors contiguous spectral block monotone sweep small singular values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The covariance is explicitly a singular-value filter in Abhishek–Holman, but no corresponding all-pair once-only crossing or optimal contiguous-window selection theorem was found in the inspected full text.",
+        "A decreasing pairwise variance ratio can be derived by differentiating the exact covariance filter; this derivation is included rather than claimed as established by the cited source."
+      ],
+      "reasoning": "Equivalent terminology includes singular-value filtering, variance-mode crossover, spectral-rank migration, optimal covariance truncation and moving spectral windows. Search and full-text comparison did not locate a direct existing assertion; absence from inspected sources does not establish priority.",
+      "searches": [
+        "\"Landweber\" covariance eigenvalues crossing iteration singular values variance top rank ordering",
+        "\"Landweber\" \"variance\" \"spectral\" \"unimodal\" eigenvalues stopping",
+        "\"Landweber\" \"noise amplification\" \"unimodal\" regularization spectral",
+        "arxiv:2610.00882v1, equations (3.26)–(3.27)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is an all-dimensional analytical ordering theorem, not a finite invariant, numerical catalogue, or previously tabulated sequence.",
+        "Known exact covariance-mode expressions are acknowledged as part of prior literature."
+      ],
+      "reasoning": "An exact database/table match is not the natural coverage channel; checked formulas and the cited stochastic inverse-problem papers instead. No table claim or false exhaustive search is made.",
+      "searches": [
+        "\"Landweber\" \"variance\" \"top\" \"eigenmodes\" \"truncation\"",
+        "\"Landweber\" \"variance\" \"middle\" \"singular values\"",
+        "\"landweber noise filter (1-(1-omega lambda)^k)^2/lambda variance crossing top eigenmode optimal rank r contiguous moving spectral window\""
+      ]
+    },
+    "rationale": "The 2026 motivating source previously derives exactly the covariance filter and describes small-singular-direction variance importance. The assessed, separately proved structural ordering theorems and arbitrarily poor fixed-leading-eigenspace trace ratio were not found in inspected relevant full texts or returned mathematical-record summaries. Search cannot establish uniqueness; inaccessible historical SVD literature remains a specifically identified priority risk.",
+    "residual_risks": [
+      "Full text of Vogel–Wade 1994 was not obtained; an equivalent historical theorem cannot be excluded.",
+      "The exact covariance filter is already published, and the newly assessed order classification is obtained analytically from it; other filter literature may state an equivalent monotone-ratio or variation-diminishing conclusion.",
+      "Self-review is not independent priority validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVARIANCE_FORMULA_PREVIOUSLY_KNOWN; GLOBAL_ORDERING_NOT_FOUND_IN_INSPECTED_TEXT",
+        "evidence": [
+          "Existing source already derives the Gaussian variance eigenvalues and warns about discarded small singular directions.",
+          "No theorem was found stating once-only covariance mode exchanges or monotone contiguous top-r covariance ranks."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Full accessible HTML, including introduction, Sections 3.1, 3.3, 3.6.1, 3.6.2 and Appendix 5.1.",
+        "method": "Compared the derivation and role of Eq. (3.26)–(3.27), leading singular-subspace restriction, residual covariance discussion and conclusions to every component of the new theorem.",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "Identical Landweber covariance and randomized normal-operator approximation problem."
+      },
+      {
+        "assessment": "GENERAL_SPECTRAL_FILTER_BACKGROUND_NOT_DIRECT_COVERAGE",
+        "evidence": [
+          "Discussion of standard resolution of large singular modes before small singular modes, without formal covariance top-r rank-window classification."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2079-3197/14/7/162",
+        "material_read": "Full-text Section 4.2 and relevant Landweber spectral-filter discussion.",
+        "method": "Compared early-stop spectral filtering and sensitivity to small singular values with the proposed all-iteration covariance ranking theorem.",
+        "title": "Adjoint-Based Joint Reconstruction of Heat Source and Initial Condition with Uncertainty Quantification",
+        "trigger": "Relevant contemporary Landweber inverse-problem spectral-filter and uncertainty discussion."
+      },
+      {
+        "assessment": "PRIORITY_RISK_FULL_TEXT_UNREAD",
+        "evidence": [
+          "Abstract covers partial dominant singular-value decompositions in iterative inverse methods; covariance-mode ordering could not be decisively excluded."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0915047",
+        "material_read": "Bibliographic metadata and abstract only; full primary text was not accessible.",
+        "method": "Compared accessible abstract claims; did not label the entire unavailable article as non-covering.",
+        "title": "Iterative SVD-Based Methods for Ill-Posed Problems",
+        "trigger": "Historically plausible older dominant-SVD inverse-problem method."
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE_IN_ACCESSIBLE_MATERIAL",
+        "evidence": [
+          "Accessible abstract concerns convergence conditions, not exact propagated covariance top-r ordering."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIP.2008.2008076",
+        "material_read": "Abstract and bibliographic material.",
+        "method": "Checked statement of convergence results against the new covariance spectral-order assertion.",
+        "title": "Necessary and sufficient convergence conditions for algebraic image reconstruction algorithms",
+        "trigger": "Landweber iteration convergence theory and spectral effects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ab03774-ff37-4381-b872-59a85f9a2e65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Noise-propagation covariance compression in iterative inverse problems is a natural and active numerical uncertainty-quantification task. A complete globally monotone rank-order classification shows exactly how the covariance-optimal rank-r subspace moves from large to small normal eigenvalues as the iteration grows. The sharp loss mu/L for fixed dominant normal eigenspaces exposes a potentially arbitrarily poor allocation of an exact covariance-compression budget; it does not falsely attribute this error to schemes retaining residual covariance.",
+    "status": "PASS"
+  }
+}
