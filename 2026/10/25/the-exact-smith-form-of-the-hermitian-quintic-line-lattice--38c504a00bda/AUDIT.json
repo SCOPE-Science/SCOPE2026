@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "The script enumerates all 4369 normalized projective points, 1105 isotropic points, and 325 distinct isotropic lines over \\(\\mathbb F_{16}\\). It reconstructs the integral Gram matrix with diagonal -3 and off-diagonal 0 or 1. Exact modular elimination gives ranks 37 mod 2 and 53 mod 3; geometry bounds the rational rank by b2=53. Z/4 elimination gives 37 unit factors and 16 factors of valuation one, with no valuation-two factors. Shimada's general theorem excludes odd-prime discriminant factors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harashita, §6, Corollary 6.2 gives \\(e_{\\Lambda}(a)\\le\\nu m=2\\) for \\(q=4\\) and \\(m=1\\); Remark 6.3 states that lower bounds for individual exponents are not treated.",
+        "Shimada (2001), accessible abstract: the generator lattice has full middle-Betti rank and discriminant a power of p; the abstract does not state the q=4, m=1 Smith multiplicities."
+      ],
+      "reasoning": "The cited general result is stronger in parameter coverage but weaker in precision: it allows valuation two and gives no multiplicities. The present claim narrows to one surface and resolves the exact factors; it is not implied by the upper bound. The older source's full text could not be fetched, so a specific table there remains a residual risk rather than being treated as checked.",
+      "searches": [
+        "published-finding corpus query: Hermitian surface H(3,16) 325 maximal totally isotropic lines lattice discriminant 2-primary elementary divisors",
+        "Harashita arXiv:2610.01731v1, Corollary 6.2 and Remark 6.3"
+      ]
+    },
+    "checked_sources": [
+      "Harashita, arXiv:2610.01731v1, §§3.3–3.4 and §6.",
+      "Shimada, DOI:10.1112/S0024611500012673, accessible abstract only; full-text fetch timed out.",
+      "published-finding corpus semantic search results for the three exact queries recorded above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier claim gives the bound \\(p^{md/2}\\) and explicitly makes no claim that this is the actual exponent.",
+        "For \\(N=5\\), \\(p=2\\), and \\(\\operatorname{ord}_{5}(2)=4\\), the smallest \\(q\\) is \\(4\\), so that bound is \\(4\\). The new exact computation yields only \\(1\\) and \\(2\\) as nonzero Smith factors, with multiplicities \\(37\\) and \\(16\\).",
+        "Harashita's Remark 6.3 says lower bounds on individual exponents are not treated in that work."
+      ],
+      "reasoning": "A bound by 4 does not imply that no factor 4 occurs, nor does it determine the multiplicity of factors 2. The exact Z/4 elimination plus rank 53 supplies those missing facts for this finite configuration. This is a motivated extension of the general result, not a routine rephrasing.",
+      "searches": [
+        "Accessible earlier ledger claim on arXiv:2610.01731v1 and DOI 10.1112/S0024611500012673: smallest Hermitian cover for Fermat degree N and p^nu congruent to -1 mod N; p-primary annihilator bound",
+        "Harashita arXiv:2610.01731v1, §6, Remark 6.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harashita, arXiv:2610.01731v1, §§3.3–3.4 identifies the line-intersection Gram matrix and intersection numbers; §6 identifies its p-adic elementary divisors with the valuations e_Lambda(a).",
+        "published-finding corpus's closest line-matrix record is the 85-line Yu–Zhu quintic (2026/10/4/SCOPE-integral-spectrum-of-the-85-line-incidence-graph-on-the-yu-zhu-q--067e669d2fbd), a different complex quintic and a different line configuration."
+      ],
+      "reasoning": "The claim is about the integer Smith form of the complete 325-line Gram matrix on X=H(3,16), not merely the rank, spectrum, or discriminant power. No exact equivalent formulation for this object appeared in the actual published-finding corpus search results. The Yu–Zhu record concerns 85 lines on a different surface and does not imply the claimed factors.",
+      "searches": [
+        "published-finding corpus query: Fermat quintic surface characteristic two q=4 325 lines Gram matrix Smith normal form 2-adic elementary divisors",
+        "published-finding corpus query: Hermitian surface H(3,16) 325 maximal totally isotropic lines lattice discriminant 2-primary elementary divisors",
+        "published-finding corpus query: Shimada lattice of algebraic cycles Fermat degree five surface characteristic two rank 53 discriminant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus items returned were the 85-line Yu–Zhu quintic spectrum (2026/10/4/SCOPE-integral-spectrum-of-the-85-line-incidence-graph-on-the-yu-zhu-q--067e669d2fbd), the 64-line Schur quartic spectrum (2026/10/4/SCOPE-spectrum-and-common-transversal-profile-of-the-64-schur-lines--76e63f54b379), and a Hermitian quartic singularity basket (2026/10/4/SCOPE-a-hidden-a-5-point-in-hels-s-8-6-4-hermitian-quartic--b60418bd8981)."
+      ],
+      "reasoning": "None is an exact table for the smooth characteristic-two Hermitian quintic \\(H(3,16)\\), its \\(325\\) rational lines, or its Smith invariant factors. The queried published-finding corpus records are not exact-database coverage for this claim.",
+      "searches": [
+        "published-finding corpus query: Fermat quintic surface characteristic two q=4 325 lines Gram matrix Smith normal form 2-adic elementary divisors",
+        "published-finding corpus query: Shimada lattice of algebraic cycles Fermat degree five surface characteristic two rank 53 discriminant"
+      ]
+    },
+    "rationale": "The new claim is the exact Smith profile \\(\\operatorname{diag}(1^{37},2^{16})\\) for the \\(q=4\\) Hermitian quintic line matrix. Harashita proves only the general exponent bound \\(e\\le2\\) and explicitly leaves lower bounds open; the prior accessible claim about the smallest Fermat cover states a bound, not the actual exponent or multiplicity. The exact finite computation is a meaningful refinement rather than a restatement of that bound.",
+    "residual_risks": [
+      "The full text of Shimada (2001) was not retrieved; a special-case table or equivalent Smith-form computation for \\(q=4,m=1\\) could exist there.",
+      "The code verifies the finite enumeration and local Smith data; the general rank and absence of odd-prime factors rely on the cited literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general rank and upper bound \\(e\\le2\\), but does not state the exact \\(q=4\\) Smith multiplicities; the exact computation is additional finite information.",
+        "evidence": "The paper gives \\(e_{\\Lambda}(a)\\le\\nu m\\) and says in Remark 6.3 that lower bounds for individual exponents are not treated.",
+        "identifier_or_url": "arXiv:2610.01731v1",
+        "material_read": "Full arXiv HTML: abstract and introduction; §§3.3–3.4, including Lemma 3.11 on intersection numbers and Definition 3.12 for the Gram matrix; §6, Corollary 6.2 and Remark 6.3.",
+        "method": "Compared the exact object, line intersection pairing, \\(q=4\\) and \\(m=1\\) parameters, exponent bound, and explicit statement that lower bounds are not treated.",
+        "title": "An explicit form of the standard conjecture of Hodge type for Hermitian varieties, with p-adic applications",
+        "trigger": "Primary source for the general Hermitian line Gram matrix and p-adic exponent bound."
+      },
+      {
+        "assessment": "The accessible material supports full rank and 2-primary discriminant but does not state the exact Smith multiplicities. A special-case result in the uninspected full text remains a residual risk.",
+        "evidence": "The accessible abstract states rank equal to the middle Betti number and discriminant a power of \\(p\\); its explicit code-lattice examples are described for \\(p=q=2\\) and \\(L^3\\), not specifically \\(q=4,m=1\\).",
+        "identifier_or_url": "DOI:10.1112/S0024611500012673; author-hosted preprint",
+        "material_read": "Accessible abstract and the discussion of its result in Harashita §1; author-hosted PDF open attempt timed out, so the full text was not read.",
+        "method": "Compared the abstract's scope, rank statement, characteristic-primary discriminant statement, and its explicit special cases with the \\(q=4,m=1\\) claim.",
+        "title": "Lattices of algebraic cycles on Fermat varieties in positive characteristics",
+        "trigger": "Closest older general theorem on the lattice of linear cycles on Fermat hypersurfaces."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38c504a0-0bda-46b1-a365-bbb07246abba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact elementary divisors give the 2-primary Smith profile of a natural 325-line configuration, sharpening the general exponent bound from \\(4\\) to \\(2\\) and resolving the multiplicity. The invariant is motivated by the recent p-adic lattice theorem, is not implied by the upper bound, and has a standalone exact reproduction script.",
+    "status": "PASS"
+  }
+}
