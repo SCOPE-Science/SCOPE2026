@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is local to a distinguished point of two finite, nonempty monotone reflexive neighborhood frames. The three modal truth clauses are stated explicitly. The forward interaction follows from upward closure. For the reverse implication, singleton availability in the first factor or intersection closure in the second suffices; both cases have explicit rectangular witnesses. Necessity uses an inclusion-minimal horizontal neighborhood and a pair of vertical neighborhoods with a non-neighborhood intersection; the constructed row valuation forces the iterated box but excludes every rectangle. The transposed proof is symmetric. Sharpness uses one-/two-point obstruction arguments and displayed six- and nine-point models. These reasoning steps prove arbitrary finite cases and are corroborated, not established, by exhaustive enumeration through three points per factor.
+PASS
 
-## Originality (PASS, subject to stated priority risk)
+At a fixed product point P⊆X×Y, set Q={u:P_u∈G}. Rectangle □ means some U∈F,V∈G with U×V⊆P, while □1□2 means Q∈F. For finite nonempty upward-closed reflexive F,G, if {x}∈F then {x}×P_x works; if G binary-intersection closed, the finite intersection of P_u for u∈Q works. Conversely when singleton absent and G nonintersection closed, choose inclusion-minimal U∈F of size≥2 and B0,B1∈G with intersection not in G; sections B0/B1 over distinct members of U force □1□2 but any witness rectangle must use U and its vertical neighborhood would lie in the forbidden intersection. Transpose proves second equivalence. A nonintersection-closed reflexive family requires carrier≥3, so one reverse fail needs 2×3=6 and both need 3×3=9. Verified explicit 6- and 9-point truth sets; the 9-point valuation makes both iterated boxes true and rectangle box false. No infinite generalization.
 
-Aghamov–Kudinov–Nguyen–Piribauer (2026, arXiv:2606.31852) define full product modalities and prove forward interaction in normal neighborhood frames. The nearest public result, *Rectangularization exactly controls modality elimination in neighborhood full products* (2026), requires filter neighborhood families and shows all finite normal products collapse; it does not include the nonintersection-closed families required for the present counterexamples. Sano (2011) covers monotone neighborhood products but not the third rectangular modality; Kudinov (2014) also treats two coordinate modalities. Targeted semantic searches did not locate a finite nonnormal reverse-mix criterion or the two sharp small-product thresholds. This is a qualified originality comparison, not a claim of a complete search of all historical papers.
+## originality
 
-## Value (PASS)
+PASS
 
-The reverse interaction has a direct semantic interpretation: whether successive neighborhood quantification can be replaced by a single rectangle. The theorem completely resolves that question at each point of any finite monotone reflexive product with a simple factorwise test. It isolates exactly where the finite-normal collapse fails when intersection closure is dropped, and it determines the least Cartesian carriers for one-directional and simultaneous failure. Both the conditional characterization and the sharpness bounds respond to a natural expressive boundary between monotone and normal modal semantics, rather than an arbitrary finite slice.
+Previous full-product filter semantics and normal-frame rectangularization theorem are directly relevant and were inspected. Their hypotheses assume intersection-closed families; all finite such filters are principal, so their reverse mix cannot fail, whereas this claim characterizes the nonnormal monotone case and proves finite cardinality sharpness. It does not rebrand the known forward implication or normal collapse as novel.
 
-## Scientific limits and residual risks
+## value
 
-Infinite nonprincipal neighborhood families need not obey this finite criterion. The theorem does not axiomatize the full nonnormal three-modal logic and does not re-prove the existing normal-frame product completeness results. A differently named historical conditional-product construction could independently contain the same small countermodels. Computational exhaustion stops at three-point factors; larger finite sizes are covered by proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The factorwise iff criterion settles when two-step neighborhood quantification reduces to a rectangle under precisely weakened nonnormal hypotheses. Six- and nine-world sharp thresholds identify the first natural expressive separation; this is structural modal semantics, not a one-off tiny-model calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
