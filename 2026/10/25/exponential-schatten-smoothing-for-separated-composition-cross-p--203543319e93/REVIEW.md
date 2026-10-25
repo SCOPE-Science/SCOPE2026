@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized logarithmic Bergman moments give the orthonormal basis exactly; splitting the representing measure into two regions localizes one of the two composition factors to a bounded subdisk. Its high-degree restriction is Hilbert–Schmidt with squared norm bounded by the explicit monomial tail. A rank-\(2N\) approximation yields (1), and geometric decay yields all positive Schatten exponents. The converse for linear fractions is a direct application of Clifford–Zheng's inspected Theorem 1.3 (same normalized weighted Hilbert norm) and Leng–Zhao's inspected Hardy Theorem 3.4. The finite exact-arithmetic tests in `verify.py` are supplementary and do not replace infinite-dimensional arguments.
+
+**Originality — PASS, qualified.** Leng–Zhao (arXiv:2610.15472v1) provide the Bergman characterization only for \(1<p<\infty\); their general sufficient criteria include some trace-class cases, so neither trace-class membership alone nor the Hardy all-\(p\) criterion is claimed as new. Clifford–Zheng (2003) already determine compactness. The quantitative singular-value estimate and resulting complete quasi-Schatten \(0<p<1\) criterion are not asserted in the inspected corresponding primary results, nor identified by the specified research-record and literature searches. A previously published, differently formulated quantitative estimate remains a priority risk.
+
+**Value — PASS.** This is a motivated unresolved quantitative boundary in the recent Bergman cross-adjoint classification, not a routine rephrasing of the known compactness theorem. The rank-\(2N\) estimate supplies explicit exponential control and a uniform implication into all nonlocally convex Schatten quasi-ideals; it applies even when the two constituents are noncompact and gives a concrete infinite-rank witness. No exact rate or general \(\delta=1\) classification is claimed.
+
+**Related literature and limits.** Leng–Zhao (2026), Theorems 3.4/4.6 and Proposition 4.9; Clifford–Zheng (2003), Theorem 1.3; Čučković–Zhao (2004), individual weighted compositions. The sufficient condition is not asserted necessary for arbitrary analytic maps, and the displayed upper rate need not be sharp.
+
+Self-review: passed. Independent audit: not yet performed.
