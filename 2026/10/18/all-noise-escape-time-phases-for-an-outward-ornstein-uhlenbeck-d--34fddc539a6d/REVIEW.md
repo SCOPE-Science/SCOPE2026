@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact radial mean-exit integral uses the generator with diffusion intensity \(D\). From this kernel, a monotone integral proves strict mean-time decay in all dimensions \(d\ge2\). A nontrivial one-crossing argument for the Dawson kernel proves a unique finite one-dimensional maximum. The planar formula follows from the exact exponential kernel and has the displayed sharp endpoint asymptotic. The independent `verify.py` numerical checks are supplementary, not a proof of universal statements.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed generator D(u''+(d-1)u'/s)+κs u'=-1 with regular origin and outer Dirichlet boundary and its exact integral. For ν=d/2≥1, hν(z)=∫_0^z(1-w/z)^(ν-1)e^-w dw is strictly increasing and bounded by 1, proving U_d strictly decreases with D. In d=1, h1/2 solves h'=1-(1-1/(2z))h; comparison with g=z/(z-1/2) and asymptotic h-g≈1/(2z²)>0 shows a single h-maximum, then h(ka)-h(a) changes sign once. The planar h1=1-e^-z gives exact exponentially small deficit. Independent symbolic check h1,h2,h3 via integration. Boundaries require r>0,R>r,D>0; finite evidence is not the all-D proof.
 
-The closest **same-object** paper is Chemnitz, Engel and Koltai (2026), Example 2.1, which already obtains the sign of the first small-noise response in every dimension; its Remark 2.4 notes that such a derivative cannot settle the full positive-noise range. Kersting and collaborators (2022), Theorem 4, already provide the general integral formula. These results and their implications are excluded from the originality claim. No covering published claim for the unique global noise optimum together with all-noise higher-dimensional monotonicity and the sharp planar exponentially small deficit was identified during the inspected comparisons. Older works developing Ornstein–Uhlenbeck exit formulas (Graczyk–Jakubowski 2008; Grebenkov 2014) were not fully read and may provide broader implications. Independent priority verification is still outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete optimization diagram resolves a natural question specifically left open by a first-order stochastic-inertia computation: whether the mean escape delay persists or turns around at finite noise, and whether zero first derivative in dimension two hides any effect. The answer provides a unique optimum in dimension one, a uniform strict inequality for all positive noise in higher dimensions, and an exponentially small critical planar law. It is a self-contained structural result for the same natural observable, not a generic formula restatement.
+The known OU mean-exit integral and first-order stochastic-inertia sign are fully credited. Reviewed Kersting et al. full primary text and accessible Chemnitz abstract; neither inspected evidence states the unique all-intensity d=1 maximum plus strict d≥2 monotonicity and exact planar exponential deficit. Chemnitz full primary text could not be inspected; residual overlap risk remains but is not automatically scientific failure.
 
-## Scope and limitations
+## value
 
-Fixed positive initial radius, constant isotropic diffusion, outward linear drift and a spherical absorbing boundary. The existing formula and first-order response belong to cited prior work. Numeric verification is finite and independent external assessment was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full-positive-noise dimension phase classification is not a routine small-noise perturbation: unique nonzero one-dimensional optimizer, d≥2 strict global decrease, and exponentially small critical planar deficit characterize a natural mean-exit quantity beyond known first-order inertia signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

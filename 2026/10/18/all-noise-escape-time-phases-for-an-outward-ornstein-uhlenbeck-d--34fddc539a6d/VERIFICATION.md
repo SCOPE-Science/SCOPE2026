@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The companion `verify.py` computes the mean exit expectation by two independently parameterized radial quadratures and compares them, evaluates the one-dimensional Dawson kernel and its root condition, checks the exact planar exponential-integral identity, samples monotonicity for dimensions \(d=2,\ldots,8\), and verifies the backward-generator equation numerically at interior radii. A successful run prints the total deterministic assertion count and the reference optimum.
+## correctness
 
-Run `python3 verify.py` with NumPy and SciPy installed. The program makes no external requests and uses no stochastic simulations. Its checks validate normalization and numerical consistency for finite parameter selections; the infinite-range existence, strict monotonicity, unique optimizer and planar asymptotic are proved in `RESULT.md`, not inferred from the computations.
+PASS
 
-The mathematical sources supply the established first-order stochastic-inertia sign and exact OU exit integral. The all-noise comparison theorem and optimizer are supported by the explicit kernel argument in the accompanying proof. Independent audit status: not performed.
+Reconstructed generator D(u''+(d-1)u'/s)+κs u'=-1 with regular origin and outer Dirichlet boundary and its exact integral. For ν=d/2≥1, hν(z)=∫_0^z(1-w/z)^(ν-1)e^-w dw is strictly increasing and bounded by 1, proving U_d strictly decreases with D. In d=1, h1/2 solves h'=1-(1-1/(2z))h; comparison with g=z/(z-1/2) and asymptotic h-g≈1/(2z²)>0 shows a single h-maximum, then h(ka)-h(a) changes sign once. The planar h1=1-e^-z gives exact exponentially small deficit. Independent symbolic check h1,h2,h3 via integration. Boundaries require r>0,R>r,D>0; finite evidence is not the all-D proof.
+
+## originality
+
+PASS
+
+The known OU mean-exit integral and first-order stochastic-inertia sign are fully credited. Reviewed Kersting et al. full primary text and accessible Chemnitz abstract; neither inspected evidence states the unique all-intensity d=1 maximum plus strict d≥2 monotonicity and exact planar exponential deficit. Chemnitz full primary text could not be inspected; residual overlap risk remains but is not automatically scientific failure.
+
+## value
+
+PASS
+
+Full-positive-noise dimension phase classification is not a routine small-noise perturbation: unique nonzero one-dimensional optimizer, d≥2 strict global decrease, and exponentially small critical planar deficit characterize a natural mean-exit quantity beyond known first-order inertia signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
