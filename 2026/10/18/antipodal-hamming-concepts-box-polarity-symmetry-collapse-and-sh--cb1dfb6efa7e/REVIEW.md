@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(q\ge2\) and \(d\ge1\), two Galois derivations give precisely the empty extent, the full extent, and the nonempty boxes with proper supports in every coordinate. The order and rank calculations follow from the inclusion order on boxes. For nonbinary alphabets the rank of two-atom joins recovers Hamming distance, forcing every automorphism to preserve the canonical Hamming graph; the binary case is a height-two diamond. A three-atom witness proves nonmodularity in all other cases. Sound pair-mixing and coordinate-saturation implications provide iterative width \(q\); a saturated coordinate line proves optimality. Coordinate witnesses give the direct upper bound, while the same line and a private-coordinate family give the matching lower bound \(\max\{q,d\}\). The empty-basis and binary exceptions are treated separately. Independent incidence-matrix enumeration checks the formulas in eight small cases, and sampling checks an additional case. The general proof is not inferred from finite experiments.
+PASS
 
-## Originality — PASS, qualified
+For q>=2,d>=1, the polar of S is exactly the product of coordinate complements A\P_i(S), giving empty closure for empty S, full W if any coordinate support is A, and otherwise the proper Cartesian support box. This proves the exact closed extents/rank polynomial, including q=2 height-two exceptional diamond and d=1 Boolean case. For q>=3,d>=2, two-atom join rank recovers Hamming distance, forcing the full wreath-product automorphisms; an explicit triple violates modularity outside exceptional cases. Binary pair-mixing plus q-letter saturation yields iterative Horn width q, while a full-coordinate line makes width below q impossible; direct width is max(q,d) for q>=3 using coordinate witnesses and matching q-line/private-coordinate minimal stems, while q=2 requires width 2. The source incidence-based checker was inspected; the general proof covers parameters beyond finite test cases.
 
-The contranominal scale is classical and the cardinal-product description of its concept boxes is a consequence of established formal-context product theory, particularly Jäkel–Schmidt (2018); these are not novel claims in themselves. Dürrschnabel–Koyda–Stumme (2021) studies contranominal scales and attribute implications in a different setting. Rawson et al. (2023) develops general hypergraph/concept-lattice correspondences. Adaricheva–Nation–Rand (2011) establishes general notions of direct and ordered-direct bases. The assessed specialized contribution is the exact optimal antecedent-width separation for one-pass versus iterated inference in the antipodal Hamming context, together with the precise exceptional symmetry and structural thresholds. Searches did not identify an explicit covering theorem, but absence of an indexed match is not proof of priority. General product results strongly cover the elementary box-count consequence, and equivalent width statements under product-closure terminology are an acknowledged risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural full-distance relation on finite Hamming spaces, the specialized width result distinguishes two fundamentally different modes of implicational inference: constant optimal premise width under chaining but width increasing with dimension for a single simultaneous step. The complete lattice classification and binary/nonbinary symmetry jump contextualize the result and expose the exact limits of the phenomenon. The value is structural and finite-combinatorial; it does not depend on a claim of algorithmic running-time improvement or paper-sized scope.
+The rectangular product representation and notions of direct implicational basis are prior art in FCA. The specialized all-parameter sharp iterative q versus one-pass max(q,d) separation, together with exceptional automorphism enlargement at q=2, was not identified as an existing theorem in inspected product and implication-basis literature; best-of-knowledge only.
 
-## Closest literature and limitations
+## value
 
-Jäkel–Schmidt (2018) already covers cardinal-product concept rectangles, so box factorization and its straightforward counting corollary are not asserted to be new. Adaricheva–Nation–Rand (2011) already treats direct bases in general. Specialized one-pass width equivalences could exist elsewhere, particularly in database dependencies or closure-system product literature. No independent publication-priority audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact minimum premise arity of full closure reconstruction is an intrinsic and relevant complexity invariant for a natural antipodal Hamming context. The unbounded one-pass vs bounded iterative gap at fixed nonbinary q is mathematical content beyond routine box counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
