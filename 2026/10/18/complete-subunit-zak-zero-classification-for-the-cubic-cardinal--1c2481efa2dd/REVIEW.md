@@ -1,19 +1,21 @@
-# Review of complete cubic spline Zak zeros
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof handles every \(\lambda\in[1/2,1]\), \(x,\nu\in[0,1)\). Its critical nonstandard step is nonnegativity of four parameter-dependent cubic polynomials for all real parameters. The standalone rational-arithmetic certificate checks all 400 triangular Bernstein coefficients on a covering of the entire parameter rectangle and verifies total area exactly one, not a finite grid of sample points. At interior frequencies the final Bernstein coefficient is strictly positive; the edges use the sinc-fourth formula and positivity of the spline. The half-frequency classification invokes the published larger-scale B-spline Zak theorem after an exactly normalized aliasing identity. The endpoint at \(\lambda=1/2\) is separately covered.
+PASS
 
-## Originality (O): PASS
+For 1/2≤λ≤1 and 0<x≤1/2, pairing positive/negative translation coefficients gives Im(Z)/(sqrt(λ)sin(2πν)) as a degree-three polynomial in cos(2πν), whose four triangular Bernstein coefficients are linear combinations of monotone d_j. An independently reconstructed exact rational sign subdivision of T=2/λ−2∈[0,2], x∈[0,1/2] produced nine full-dimensional cells, ten triangles of total rational area one, and all 400 nonnegative degree-3 Bernstein controls (79 zero), giving continuum nonnegativity. The final coefficient b3>0 supplies strict off-half-frequency nonvanishing for x>0. The x=0 boundary follows from positive sinc-fourth-power Poisson terms and ν=0 from nonnegative spline summands. On ν=1/2 the sinc aliases under q=1/λ,d=2−q with positive factor (d/q)^(7/2), yielding the asserted interval from the established superunit half-frequency result; d=0 gives an entire zero line. Boundary λ=4/7 is a singleton and λ=1/2 is the half-open horizontal line. Independent strict-positivity proof checked fully; the cited superunit theorem itself was not rederived and its full text was inaccessible this execution.
 
-Hasannasab–Lemvig (arXiv:2609.13116v1) gives the superunit classification used in the half-frequency proof and already identifies the half-frequency subunit zero intervals in Proposition 4.1, but not the missing all-frequency cubic subunit continuum. Lemvig–Nielsen (arXiv:1507.03982v3) treats B-spline Gabor obstructions rather than this complete zero-set classification. An order-three real-scale result has different spline order and does not imply the cubic inequality; a known reciprocal-integer result covers a discrete endpoint only. A bounded literature/record search checked aliases, broader ranges, table implications and mathematical statement overlap. An older equivalent positivity observation remains an unresolved historical-priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-This closes a natural interval of scale parameters left outside the full larger-scale classification for the first cubic B-spline, precisely locates a sharp transition at \(4/7\), and rigorously excludes otherwise hidden complex-frequency zeros. The key two-variable exact positivity certificate is not a renaming, a single numerical example or an order increment by substitution.
+Best-of-knowledge originality is specifically the strict uniform off-half-frequency nonvanishing for 1/2≤λ≤1, not the prior half-frequency intervals or 4/7 boundary; comparison is limited by current inability to inspect the same primary preprint in full.
 
-## Limits
+## value
 
-No claim is made for lower scales, other spline orders or Gabor frame sufficiency. The exact Bernstein certificate is necessary for the provided proof, and the larger-scale theorem is an acknowledged dependency. Literature priority is bounded, and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A rigorous continuum two-parameter positivity certificate upgrades previously known half-frequency data into an exhaustive Zak zero-locus classification at every real subunit scale in the natural first cubic case. This is a nonroutine exact function-theoretic boundary, not novelty of 4/7 alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
