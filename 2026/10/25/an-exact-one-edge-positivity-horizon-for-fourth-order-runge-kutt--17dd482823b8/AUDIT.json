@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The generator is fully specified and reversible. Direct block multiplication gives all off-diagonal entries. Distinct-leaf quadratic discriminants are negative; diagonal entries are positive by the spectral theorem and positivity of the degree-four Taylor polynomial on the negative real axis. Weighted Cauchy–Schwarz proves 9AD>4C² for each one-hop cubic, so it decreases and has exactly one positive root. The exact three-state stable-but-nonpositive matrix was reconstructed; the standalone rational checker passed 387 configurations. No finite check is treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1106.3626v1 develops SSP theory for two-step Runge–Kutta schemes; it does not classify completed RK4 star-generator matrix entries.",
+        "The IMEX study discusses design-time positivity restrictions, not the exact one-step classical RK4 star cutoff."
+      ],
+      "reasoning": "Method-wide SSP constraints and scalar absolute stability do not logically dominate a sharp, nonuniform-generator-specific iff. The explicit stable-but-negative 3-state certificate rules out equivalence to a scalar stability radius.",
+      "searches": [
+        "Three state reversible birth death Markov chain fourth order Runge Kutta loses positivity within spectral stability region",
+        "Runge Kutta order four positivity three state continuous time Markov chain example 2010",
+        "arxiv:1106.3626v1",
+        "doi:10.1016/j.cam.2014.05.011"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1106.3626v1",
+      "arxiv:1403.6519v1",
+      "doi:10.1016/j.cam.2014.05.011"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest accessible weighted-star Laplacian claim takes bidirectional rates equal and hence does not allow the displayed reversible nonuniform CTMC.",
+        "The 2011 and 2014 full papers supply SSP background, not the exact Markov-star transition formula."
+      ],
+      "reasoning": "The previous symmetric star theorem follows as a special case when a_i=b_i; implication goes new→symmetric, not symmetric→new. The general SSP results lack inequalities selecting the unique positive roots for arbitrary independent a_i,b_i.",
+      "searches": [
+        "Classical fourth order Runge Kutta RK4 entrywise positivity reversible continuous-time Markov generator on a directed star with unequal leaf exit rates threshold cubic polynomials",
+        "Three state reversible birth death Markov chain fourth order Runge Kutta loses positivity within spectral stability region",
+        "arxiv:1403.6519v1",
+        "arxiv:1106.3626v1",
+        "Strong stability preserving RK4 weighted star Laplacian positivity exact threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General SSP conditions are method-wide sufficient convex-step conditions; the present generator-specific cubic cutoff is necessary and sufficient.",
+        "arxiv:1403.6519v1 contains no directed-star or Markov-chain case in its 21-page text."
+      ],
+      "reasoning": "A Markov generator with nonuniform stationary law is diagonally symmetrizable but not the ordinary weighted-Laplacian heat generator with equal bidirectional rates, so the all-rate edge identities are not a relabeling of the symmetric claim.",
+      "searches": [
+        "Classical fourth order Runge Kutta RK4 entrywise positivity reversible continuous-time Markov generator on a directed star with unequal leaf exit rates threshold cubic polynomials",
+        "Directed star generator fourth order Taylor polynomial offdiagonal one hop cubic root positivity and leaf-leaf always positive",
+        "RK4 end-step CTMC directed star positivity one-step positivity radius",
+        "arxiv:1403.6519v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned exact table of bidirected-star rate-dependent horizons.",
+        "Available full texts contain generic order conditions and optimal SSP coefficients, not one-edge cubic threshold tables."
+      ],
+      "reasoning": "No exact rate-indexed classification or three-state matrix certificate matching the claim was found; absence from these searches is not alone proof of novelty.",
+      "searches": [
+        "Classical fourth order Runge Kutta RK4 entrywise positivity reversible continuous-time Markov generator on a directed star with unequal leaf exit rates threshold cubic polynomials",
+        "Three state reversible birth death Markov chain fourth order Runge Kutta loses positivity within spectral stability region",
+        "Directed star generator fourth order Taylor polynomial offdiagonal one hop cubic root positivity and leaf-leaf always positive",
+        "2014 explicit Runge Kutta SSP high linear order MSC codes 65L06"
+      ]
+    },
+    "rationale": "The exact all-rate one-edge cutoff and minimal three-state spectral-stability counterexample are not implied by the inspected generic SSP theory. Closest accessible local statement treats symmetric weighted-star graph Laplacians (the special case a_j=b_j); its proof and claim do not cover nonuniform stationary distribution nor the stable-but-negative reversible example. The 2011 two-step SSP study and 2014 explicit SSP study concern general timestep methods and bounds, not these star-generator entrywise identities. Searches of published mathematical records for reversed-edge, birth–death and directed-star equivalents found no stronger claim; this is best-knowledge originality, not a proof of absence.",
+    "residual_risks": [
+      "Specialized earlier positivity literature may contain a related edge-factorization; the searches cannot establish global uniqueness.",
+      "No independent literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No result comparing complete RK4 entries on nonuniform bidirected-star Markov generators",
+        "evidence": [
+          "arxiv:1106.3626v1, pp. 1–3 describes general two-step SSP conditions and construction up to eighth order."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+        "material_read": "Full abstract, introductory SSP hypotheses/equations and following stated method scope, plus searches across PDF for Markov and star cases",
+        "method": "Primary open-access PDF text and inspected first-page rendering",
+        "title": "Strong Stability Preserving Two-step Runge–Kutta Methods",
+        "trigger": "General SSP and fourth-order Runge–Kutta positivity background"
+      },
+      {
+        "assessment": "No star-rate-specific exact necessary-and-sufficient positivity interval or minimal reversible 3-state example in inspected material",
+        "evidence": [
+          "arxiv:1403.6519v1, introductory general SSP convex-combination conditions; no star or Markov case under full-document term searches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.6519",
+        "material_read": "Full abstract, introductory formulas, method objectives and text searches throughout 21-page PDF for star and Markov",
+        "method": "Lawful arXiv full text and inspected first-page rendering",
+        "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and optimal Nonlinear Order",
+        "trigger": "Directly relevant RK4/linear endpoint monotonicity study"
+      },
+      {
+        "assessment": "Considers optimized IMEX methods and sufficient structural positivity requirements, not the exact classical RK4 star-generator classification",
+        "evidence": [
+          "Higueras et al. (2014), Introduction and Conclusions on SSP, timestep positivity and IMEX scheme design."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2014.05.011",
+        "material_read": "Accessible publisher full HTML introduction, method discussion and conclusions",
+        "method": "Publisher full article HTML",
+        "title": "Optimized strong stability preserving IMEX Runge–Kutta methods",
+        "trigger": "Positivity alongside stability in Runge–Kutta numerical propagation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17dd4828-23b8-439f-99f5-b7ec0af68bda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arbitrary bidirected star is a natural minimal model of hub-mediated state transitions with nonuniform stationary weights, rather than an arbitrary parameter slice. The theorem gives a complete all-rate positivity interval, identifies which matrix entries alone control failure, and exhibits the smallest reversible Markov chain where scalar RK4 spectral stability fails to protect probabilistic nonnegativity. These are motivated qualitative distinctions relevant to numerical propagation; the proof extends beyond mere computation.",
+    "status": "PASS"
+  }
+}
