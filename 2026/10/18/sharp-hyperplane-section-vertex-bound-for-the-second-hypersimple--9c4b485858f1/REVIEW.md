@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Hypersimplex adjacency is the Johnson graph \(J(n,2)\), so a generic section contributes exactly two vertices per sign-mixed index triple. For an additive pair-weight sign graph, the established threshold-graph construction representation turns every triple into the bit pattern \((b_j,b_k,b_k)\). Reindexing by the earliest member expresses the mixed-triple count as a sum of products of zero and one suffix counts; the optimal product is the balanced value \(\lfloor k^2/4\rfloor\) for each suffix. Every suffix can be balanced simultaneously. The explicit centered arithmetic normal and a generic small perturbation attain the upper bound: strict mixed triples and complementary tie pairs account for every case and recover the same sum. Degenerate cuts are controlled by a vertex-avoiding perturbation, as independently formulated in the 2024 general-polytope paper. The checker exhausts all construction words through \(n=15\) and tests exact-integer generic central and general cuts, but infinite validity rests on the proof.
+PASS
 
-## Originality
+PASS: for n>=3 the 1-skeleton of the second hypersimplex Δ(n,2) is J(n,2), and each Johnson edge belongs to a unique triangle indexed by a triple i,j,k. Generic hyperplane signs of e_i+e_j are threshold-graph edges (weights a_i+a_j-t); every mixed sign triple contributes exactly two crossing Johnson edges, so f_0=2M(G). In a creation ordering of threshold graph, pair signs on i<j<k are b_j,b_k,b_k, thus M(G)=sum_{i=1}^{n-2}Z_iO_i over suffix zeros/ones. Each term <=floor((n-i)^2/4) with equality exactly when all suffixes are balanced. Existence of each threshold construction as strict additive weights gives generic equality realizability. For centered hyperplanes a_i=i-(n+1)/2 with arbitrarily small centered generic perturbation, triples counted via strict mixed pair sums and complementary tie pairs total the same maximal M; construction works all n. Nongeneric sections cannot exceed generic by an inward/parallel perturbation of section vertices, consistent with De Loera–Lopez-Campos–Torres Lemma 2.1. Elementary sum equals binom(n,3)+floor((n-1)^2/4). Independently enumerated all 1020 threshold words for n=3..10, verifying mixed triples, equality words and maxima; finite tests are corroboration, not infinite proof.
 
-**PASS, subject to bibliographic risk.** Comparisons were made to the full relevant portions of Diaconis–Holmes–Janson, *Threshold graph limits and random threshold graphs* (2009), Kaibel–Walter, *Simple Extensions of Polytopes* (2013), and De Loera–Lopez-Campos–Torres, *On the Number of Vertices in a Hyperplane Section of a Polytope* (2024), as well as related geometric results. Their weight-graph equivalence, Johnson adjacency description, general polytope bound, and perturbation lemma are all acknowledged as existing ingredients. The present extremal value, balanced-suffix classification, and centered attainment are not statements or direct instances of those published results. In particular the general upper bound with \(\binom n2\) polytope vertices is of order \(n^4\), rather than the sharp order \(n^3\) here. The main residual priority risk is an older equivalent theorem on threshold-graph mixed triangles under graph-theoretic terminology; no failed search is treated as uniqueness proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** This closes a natural all-dimensional extremal problem for the hyperplane sections of a prominent family of polytopes. It supplies a sharp bound valid for all affine cuts, an exact combinatorial equality criterion for generic cuts, and the stronger geometric fact that the maximum is already achieved by central hyperplanes. The result is nontrivial relative to the general upper-bound theorem and is not an arbitrary small numerical refinement.
+PASS best-of-knowledge: classical Johnson adjacency and threshold graph constructions plus general polytope section upper bounds are prior. The exact sharper hypersimplex extremal mixed-triple statistic, balanced-suffix equality and generic centroid attainment are not in the materially inspected primary sources. A possible earlier graph-only threshold mixed-triangle extremum remains a credible priority risk.
 
-## Scope and validation
+## value
 
-The result does not classify degenerate equality cases, higher hypersimplices, or higher face numbers. Bibliographic priority remains provisional. The executable finite checks supplement a complete combinatorial argument but are not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Δ(n,2) is a canonical highly symmetric polytope, and maximizing vertices of its affine hyperplane sections is a natural global extremal problem. The exact order-n^3 bound (vs general bound order-n^4 in its vertex count), full generic equality characterization and all-n central attainment provide a substantive structural classification, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
