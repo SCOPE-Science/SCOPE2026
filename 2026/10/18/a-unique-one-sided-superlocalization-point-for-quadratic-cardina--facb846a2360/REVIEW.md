@@ -1,17 +1,21 @@
-# Review of a unique one-sided quadratic-spline localization point
+# Independent mathematical audit
 
-## Correctness — PASS
-The five-diagonal cardinal spline Gram matrix is computed by exact integration. Its symbol is strictly positive and its reciprocal has exactly two simple poles within the unit circle. The residues reconstruct the inverse Toeplitz coefficients. The finite-support decomposition yields an identity for every remote right cell, not a numerical fit. The slow-mode coefficient is an elementary quadratic with one interior root; at that site the other mode remains nonzero. A separate convex-quadratic calculation determines the exact cell suprema and decay rates. The standalone checker independently passed 297 numerical assertions. No finite calculation is used as a substitute for the proof.
+## correctness
 
-## Originality — PASS within the inspected record
-Passenbrunner–Shadrin (2013) show general inverse-Gram and projector-kernel exponential estimates, and Shadrin (2001) establishes the general de Boor spline projector boundedness theorem. The reviewed passages do not identify an interior evaluation point where the leading cardinal quadratic inverse-Gram pole cancels. The new result is the unique exact one-sided cancellation and its sharp two-rate classification, **not** discovery of Gram invertibility or uniform spline localization. published-finding corpus published-record queries covering cardinal quadratic kernels, exact Gram inverse roots and superlocalization found no implied equivalent. Historical priority is not thereby proved.
+PASS
 
-The especially relevant Demko (1977) and de Boor (2011) texts were located but full-text inspection was not achieved; these are residual literature risks. Equivalent material may use the terminology of dual cardinal B-splines or fundamental spline kernels.
+Direct piecewise B-spline integration independently recovered Gram entries g0=11/20,g±1=13/60,g±2=1/120, with strictly positive symbol (cos²θ+13cosθ+16)/30≥2/15. Quartic Q=z⁴+26z³+66z²+26z+1 has two distinct interior negative roots r,s, and Laurent inverse coefficients A r^{|k|}+C s^{|k|}, verifying infinite-mode decomposition by contour residues. Substituting the three nonzero translates on each side gives exact two-mode formula on y=m+t for m≥3. F_r(x) has exactly one zero in (0,1) at (sqrt(−r)−r)/(1−r), F_s there nonzero; max |Phi_z|=(1+z)/2. Uniform-in-t limiting supremum and the exact exceptional formula follow. Independent 36 kernel evaluations agreed to numerical precision. The theorem is one-sided and pointwise fixed x: no two-sided or arbitrary-knot statement.
 
-## Value — PASS
-Exact pointwise localization rates govern truncation error of spline reproducing kernels and dual basis representations. A unique site with complete cancellation of the dominant residue gives a structurally motivated improvement by nearly an order of magnitude in exponential base on one entire remote half-line; establishing its uniqueness and one-sided nature is more informative than merely recomputing a Gram entry.
+## originality
 
-## Limitations
-Quadratic uniform-cardinal knots only; fixed evaluation points and remote right-hand cell suprema only. No uniform-in-mesh estimate, global optimal projection norm, or independent scholarly audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge: compared mathematical objects, parameter ranges, equivalent transforms, prior stronger results and available exact tables; the specific final theorem is not known to follow from the inspected primary and Resultary findings. General exponential kernel localization and inverse-banded decay bounds do not describe the exact root F_r(x*) or faster subdominant root. An older exact cardinal inverse-matrix identity might, and is retained as a risk. A band-inverse decay theorem permits O(|r|^m), but no strict improvement at an exceptional x follows without vanishing leading coefficient and a nonvanishing next coefficient. These are verified by distinct analytic cancellations.
+
+## value
+
+PASS
+
+Exponential localization of orthogonal spline projection kernels is a central approximation-theory issue. An exact unique evaluation site where the principal inverse-Gram pole is suppressed and the one-sided localization base is approximately tenfold smaller supplies an independently useful sharp exception to generic decay estimates, with a complete all-cell identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
