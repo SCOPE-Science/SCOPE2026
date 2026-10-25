@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Execute `python3 verify_monge.py` with Python 3 in this directory; the checker uses only the standard library. It enumerates exact ordering regions, simulates matrices from the claimed distribution and checks their Monge inequalities, verifies the mean of the extreme contrast against an exact rational formula, checks beta moments, tests the two explicit mass profiles at 40,000 columns, and compares an empirical joint edge CDF with its limiting Gumbel product. The script's deterministic seed makes the experiment reproducible.
+## correctness
 
-A successful numerical run corroborates finite identities and limiting trends. The almost-sure uniform shape theorem and joint independent Gumbel law are instead proved analytically in RESULT.md. Sample-based tests do not establish infinite quantifiers. The proof assumes intrinsic-uniform measure on nonnegative, normalized, two-row Monge cost matrices; it is not a result about vertex-uniform or noise-perturbed sampling. Independent external review has not been performed.
+PASS
+
+Normalize 2n iid Exp(1) coordinates by their sum to obtain the intrinsic-uniform simplex; column differences are iid continuous Laplace and sorting full pairs enforces the Monge order, with equal n! arrangement probabilities. The bijection U=W+D_+, V=W+(-D)_+ has Jacobian one and factorization Exp(2) for W independent of Laplace D. Sorting preserves original gamma row sums, giving Beta(n,n) exactly. Empirical-L1 quantile convergence for Laplace D and uniform marked LLN for W give full cumulative A,B limits, with A(1/2)=1/8, B(1/2)=3/8. The exact joint CDF of largest D and negative smallest D tends to product independent Gumbels; denominator S/(2n)=1+O_P(n^-1/2) does not change centered extremes. Independent finite sampling for n=100,2000 corroborated cumulative curves only; infinite a.s. and weak limits follow analytically.
+
+## originality
+
+PASS
+
+Erickson–Kretschmann gives the same body and its 1/n! relative volume; conditioning/sorting provides the law but its explicit Laplace-W independence, whole cumulative mass shape and joint extremes are not stated by that cited theorem. The noisy Monge estimation literature concerns a different probability model.
+
+## value
+
+PASS
+
+Provides a complete natural intrinsic-uniform random-point model for a standard Monge polytope and identifies deterministic row asymmetry and asymptotically independent edge extremes; this answers distributional questions not captured by volume or polytope face counts. Exact sampler is useful for geometric sampling and simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

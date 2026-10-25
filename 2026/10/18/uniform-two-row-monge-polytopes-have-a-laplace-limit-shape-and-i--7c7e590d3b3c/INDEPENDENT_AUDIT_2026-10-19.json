@@ -1,0 +1,82 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T17:54:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize 2n iid Exp(1) coordinates by their sum to obtain the intrinsic-uniform simplex; column differences are iid continuous Laplace and sorting full pairs enforces the Monge order, with equal n! arrangement probabilities. The bijection U=W+D_+, V=W+(-D)_+ has Jacobian one and factorization Exp(2) for W independent of Laplace D. Sorting preserves original gamma row sums, giving Beta(n,n) exactly. Empirical-L1 quantile convergence for Laplace D and uniform marked LLN for W give full cumulative A,B limits, with A(1/2)=1/8, B(1/2)=3/8. The exact joint CDF of largest D and negative smallest D tends to product independent Gumbels; denominator S/(2n)=1+O_P(n^-1/2) does not change centered extremes. Independent finite sampling for n=100,2000 corroborated cumulative curves only; infinite a.s. and weak limits follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same source comparison: Erickson–Kretschmann, arXiv:2311.07522, Sec. 5.2 Thm. 5.6: two-row relative volume 1/n!"
+        ],
+        "reasoning": "Existing normalized-volume theorem covers 1/n! volume fraction but not the conditional point distribution or function-level mass law; estimation theorems cover noisy regression rather than uniform volume points.",
+        "searches": [
+          "two row Monge polytopes uniform Lebesgue volume sampling sorted exponential columns Laplace limit shape independent Gumbel"
+        ]
+      },
+      "checked_sources": [
+        "Erickson–Kretschmann, arXiv:2311.07522, Sec. 5.2 Thm. 5.6: two-row relative volume 1/n!"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same source comparison: Erickson–Kretschmann, arXiv:2311.07522, Sec. 5.2 Thm. 5.6: two-row relative volume 1/n!"
+        ],
+        "reasoning": "Knowing relative volume 1/n! alone cannot determine conditional law, a.s. quantile cumulative limits, or joint Gumbel independence; added probability arguments are essential.",
+        "searches": [
+          "two row Monge polytopes uniform Lebesgue volume sampling sorted exponential columns Laplace limit shape independent Gumbel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same source comparison: Erickson–Kretschmann, arXiv:2311.07522, Sec. 5.2 Thm. 5.6: two-row relative volume 1/n!"
+        ],
+        "reasoning": "Two-row Monge inequality is exactly sorted column contrast, equivalently conditioning iid gamma-normalized exponential columns on monotone differences. This is a change of presentation not a new identity for Dirichlet marginals.",
+        "searches": [
+          "two row Monge polytopes uniform Lebesgue volume sampling sorted exponential columns Laplace limit shape independent Gumbel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same source comparison: Erickson–Kretschmann, arXiv:2311.07522, Sec. 5.2 Thm. 5.6: two-row relative volume 1/n!"
+        ],
+        "reasoning": "Corpus query yielded near matches for unrelated ordering/convex bodies, not an exact sampler, centroid table, cumulative profiles or joint edge law for 2-by-n Monge. Negative search is not proof of priority.",
+        "searches": [
+          "two row Monge polytopes uniform Lebesgue volume sampling sorted exponential columns Laplace limit shape independent Gumbel"
+        ]
+      },
+      "rationale": "Erickson–Kretschmann gives the same body and its 1/n! relative volume; conditioning/sorting provides the law but its explicit Laplace-W independence, whole cumulative mass shape and joint extremes are not stated by that cited theorem. The noisy Monge estimation literature concerns a different probability model.",
+      "residual_risks": [
+        "Order-statistic/optimal transport literature may encode the same uniform Monge sampling distribution under a different name.",
+        "Only two-row case is proved; no arbitrary-row extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "2-by-n relative volume 1/n! is prior art; no uniform intrinsic-volume cumulative row profiles or Gumbel edge limits established in inspected theorems",
+          "evidence": [
+            "Theorem 5.6: volume of two-row Monge polytope is 1/n! simplex fraction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.07522",
+          "material_read": "17-page PDF, especially introduction, Sections 1,2 and 5.2 and Theorem 5.6, including page images",
+          "method": "read lawful arXiv PDF and inspected relevant pages",
+          "title": "W. Q. Erickson and J. Kretschmann, The structure and normalized volume of Monge polytopes",
+          "trigger": "same normalized Monge polytope and relative volume"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a complete natural intrinsic-uniform random-point model for a standard Monge polytope and identifies deterministic row asymmetry and asymptotically independent edge extremes; this answers distributional questions not captured by volume or polytope face counts. Exact sampler is useful for geometric sampling and simulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Order-statistic/optimal transport literature may encode the same uniform Monge sampling distribution under a different name.",
+    "Only two-row case is proved; no arbitrary-row extension.",
+    "Independent bounded checks are corroborative; unbounded statements rest on the reconstructed mathematics.",
+    "Publication is withheld for private operational provenance; no source writes or certificates issued."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The uniform measure is obtained by normalizing independent rate-one exponential entries, then sorting complete columns by their differences; gamma–Dirichlet independence and exchangeability rigorously identify the conditional Monge law. The change of variables for an exponential pair yields independent standard Laplace differences and rate-two exponential minima. The row total is therefore exactly Beta-distributed. Empirical quantile convergence in the first Wasserstein metric and a marked empirical-CDF strong law prove uniform convergence of both cumulative profiles. Explicit Laplace-tail calculations and normalization control establish the joint independent Gumbel limits. A separate finite-centroid identity follows from beta order statistics. The bundled checker replays finite calculations, not asymptotic proofs.
+## correctness
 
-## Originality — PASS, with limitations
-The central primary source is Erickson–Kretschmann (arXiv:2311.07522), especially its definition, vertex/facet classifications and Theorem 5.6 on the two-row normalized volume. The ordering observation underlying the sampler is elementary and the prior volume result is credited, not claimed as new. The distinctive result here is the *full two-row limit shape together with joint asymptotically independent extremes and exact finite mass laws*. Hütter–Mao–Rigollet–Robeva (arXiv:1904.03136) treat noisy estimation rather than the uniform-volume model. Indexed prior findings on Monge inradii and Minkowski centers address metric extrema rather than typical random points. Targeted literature and mathematical-record searches identified no statement implying this complete distributional classification, but negative searches do not prove uniqueness; unindexed analogous formulations remain possible.
+PASS
 
-## Mathematical value — PASS
-The normalized two-row family is the first nontrivial family for which the primary source has an exact volume classification. Intrinsic-uniform sampling is a natural geometric law for typical feasible Monge cost matrices. Its complete limiting cumulative shape, exact one-quarter half-column bias, exact Beta row totals, and paired Gumbel edges distinguish bulk geometry from boundary fluctuations and give a reproducible reference distribution for geometric sampling and benchmarking. The result covers all dimensions in this family and is more than a finite recomputation or a small numerical improvement.
+Normalize 2n iid Exp(1) coordinates by their sum to obtain the intrinsic-uniform simplex; column differences are iid continuous Laplace and sorting full pairs enforces the Monge order, with equal n! arrangement probabilities. The bijection U=W+D_+, V=W+(-D)_+ has Jacobian one and factorization Exp(2) for W independent of Laplace D. Sorting preserves original gamma row sums, giving Beta(n,n) exactly. Empirical-L1 quantile convergence for Laplace D and uniform marked LLN for W give full cumulative A,B limits, with A(1/2)=1/8, B(1/2)=3/8. The exact joint CDF of largest D and negative smallest D tends to product independent Gumbels; denominator S/(2n)=1+O_P(n^-1/2) does not change centered extremes. Independent finite sampling for n=100,2000 corroborated cumulative curves only; infinite a.s. and weak limits follow analytically.
 
-## Scope and outstanding risks
-The theorem does not extend to more than two rows or imply that the two extreme contrasts are independent at finite size. The historical comparison is limited to material reviewed and indexed results; alternative terminology may conceal an equivalent result. Numerical tests are corroboration and independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Erickson–Kretschmann gives the same body and its 1/n! relative volume; conditioning/sorting provides the law but its explicit Laplace-W independence, whole cumulative mass shape and joint extremes are not stated by that cited theorem. The noisy Monge estimation literature concerns a different probability model.
+
+## value
+
+PASS
+
+Provides a complete natural intrinsic-uniform random-point model for a standard Monge polytope and identifies deterministic row asymmetry and asymptotically independent edge extremes; this answers distributional questions not captured by volume or polytope face counts. Exact sampler is useful for geometric sampling and simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
