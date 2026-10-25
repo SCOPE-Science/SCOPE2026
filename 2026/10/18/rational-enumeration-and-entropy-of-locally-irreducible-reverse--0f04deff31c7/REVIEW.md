@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A length-two reverse-complement duplication creates exactly a factor \(ab\bar b\bar a\). The proof applies marked-cluster inclusion-exclusion, exhaustively classifies overlaps of shifts \(1,2,3\), solves a two-type continuation system, and derives the rational generating function and cubic recurrence as formal series. A primitive nonnegative companion matrix proves the growth rate. Two different exact finite counting methods, plus literal exhaustive enumeration and a positional-conjugacy cross-check, agree in all verified ranges.
+## correctness
 
-**Originality — PASS on the sources inspected.** The 2021 source establishes the mutation operation and treats the binary length-two case but not the uniform even-alphabet rational enumeration. The 2023 source proves a global unbounded-error coding-capacity theorem, which neither implies nor is implied by the local irreducible-language count. A 2026 abstract gives a channel-level even-length conjugacy without reporting this recurrence. Relevant alternative formulations searched include length-four ordinary palindrome avoidance, the exact DNA-alphabet numerical sequence, and cubic-denominator variants. No covering published result was identified, but the recent full text and unindexed pattern-avoidance literature are genuine residual risks. Failure to find matches is not itself novelty proof.
+PASS
 
-**Mathematical value — PASS.** The count and exact entropy are natural invariants of local irreducibility in DNA-motivated reverse-complement duplication systems. The unexpectedly small cubic denominator works uniformly for every even alphabet and gives sharp quantitative information unavailable from general expressiveness or coding-capacity theorems. In particular, it separates exponential abundance of locally irreducible words from the known zero rate of arbitrary-multiplicity error correction. This is a structural counting theorem, not an arbitrary isolated table value.
+The one-step inverse occurs iff the word contains ab bar(b) bar(a), exactly q² forbidden length-four factors. Inspected complete marked cluster shift table: only overlap lengths 3 (type A), 2 (one same-type), 1 (q successors). Two continuation equations eliminate to J(z)=1+z+2z²+(q+1)z³+qz⁴+qz⁵ and denominator 1-(q-1)z-(q-2)z²-(q-1)z³. The first six coefficients are consistent with inclusion/exclusion of length-four occurrences. A separate independently written last-three-symbol DP and formal series recurrence matched q=2,4,6 for n through 10; this is bounded corroboration, not the all-n proof. The 3×3 recurrence matrix for all even q≥2 is primitive (q=2 has q-2=0 yet remains strongly connected with a loop), so Perron–Frobenius gives unique dominant positive λ between q-1 and q and Θ_q(λ^n).
 
-**Scope and limitations.** There is no assertion of unique roots, a disjoint descendant-cone code, or an extension to odd alphabets/higher duplication lengths. The short finite checks support but do not replace the symbolic proof; one plausible recent source has only been checked at abstract level.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Read original 2022 full primary PDF and found it already characterizes binary irreducibles and their forbidden factors; that antecedent is explicitly credited. The exact all-even-q rational GF and entropy are not in the inspected source or subsequent 2026 conjugacy and code-capacity papers. Best-of-knowledge pass with genuine prior-language alias risk.
+
+## value
+
+PASS
+
+Counting locally irreversible roots is a natural exact language growth invariant for the DNA reverse-complement channel, not merely a coding bound. The uniform all-even-alphabet rational GF and entropy explicitly quantifies constrained words beyond the previously analyzed binary automaton; the proper result remains useful even if future higher-block classifications are open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
