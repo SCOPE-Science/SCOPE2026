@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks
 
-Run `python verify.py` with Python 3 (no third-party packages required). The separately implemented evaluator constructs the upset lattice of each complete two-level frame and computes each nucleus from upper cones, without using the theorem's Boolean compatibility formula. It then checks nucleus identities, composes every ordered pair on every upset, and compares those outcomes with the criterion and closed-form pair count. A separate standard Bron–Kerbosch implementation enumerates maximal commuting cliques and checks the claimed two unique extremizers.
+# Independent mathematical audit
 
-For the case with two points on each level, the program also enumerates all meet-closed possible fixed-point families on the seven-element Heyting lattice, reconstructs closure maps, and tests meet preservation. It finds exactly the 16 subset-generated nuclei, providing a second finite check of exhaustiveness.
+## correctness
 
-The expected per-case totals for \((r,s)=(2,2),(2,3),(3,2),(3,3)\) are respectively \(162,542,542,1682\) ordered commuting pairs and \(7,11,11,15\) for the maximum commuting-family sizes. The expected final output line is `VERIFY_OK`.
+PASS
 
-Limits: exhaustive computation only covers these four finite parameter pairs; the upper bound, unique-extremizer classification, and exact all-size formulas require the general mathematical proof in `RESULT.md`. No independent external audit was carried out.
+Lindenhovius' Artinian-poset theorem supplies the all-nuclei subset parametrization; for the upset algebra of the complete r-by-s height-two order, write parameters B in the lower Boolean algebra and A in the upper Boolean algebra. The direct cone evaluation yields the displayed top and bottom actions. Comparing two composite closure maps gives commutation exactly when B\D nonempty implies C subseteq A and D\B nonempty implies A subseteq C. An inclusion relation between unequal lower indices forces the same strict order on unequal upper indices: a cycle in the bipartite edge incidence graph would give two distinct order-preserving increasing perfect matchings between the same finite chains, impossible. Hence the graph is a forest with at most 2^r+2^s-1 edges; an inclusion-extremal spanning tree forces all nonextreme bottom subsets to share one extreme upper neighbour and yields the two and only two extremizers. Partitioning ordered lower-subset pairs into equality/strict comparable/incomparable cases and counting compatible upper pairs gives 2^r*4^s + 2(3^r-2^r)3^s +(4^r-2*3^r+2^r)2^s, with balanced probability asymptotic 2(9/16)^n. Independently reimplemented all-upset direct composition and the Boolean implication for (r,s)=(2,2),(2,3),(3,2), obtaining 162,542,542 commuting ordered pairs; the packages' larger finite output is corroboration not an infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.
+
+## value
+
+PASS
+
+The largest mutually composition-commuting class of closure modalities is a natural algebraic and logical invariant: maximal family structure can matter for simultaneous valid closure operations. The theorem proves a sharp two-parameter cap, precisely classifies its two equality families and computes the probability of commutation for arbitrary r,s, exposing a nontrivial exponentially rare regime when r=s grows. This is not a mere renaming of the known Artinian subset/nucleus bijection; the new obstruction is compatibility across two incomparable Boolean layers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
