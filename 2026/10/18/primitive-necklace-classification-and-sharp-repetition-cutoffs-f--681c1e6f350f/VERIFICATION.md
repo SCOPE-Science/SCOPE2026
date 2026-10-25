@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 (standard library only). The program enumerates all rotation classes of binary circular words of lengths \(1\) through \(9\) and ternary circular words of lengths \(1\) through \(6\). It computes complete two-pebble semantic types by stabilization of atomic pair types under existential rebinding of each of the two variables. It compares the predicted primitive-root/capped-exponent classes against the stable semantic classes in both directions.
+## correctness
 
-Observed run: `FO2_CYCLE_VERIFY_OK binary=153/140 ternary=225/219`. There were no predicted-class splits or merges in either bounded census. This provides finite diagnostic corroboration, not proof of the general theorem.
+PASS
 
-The mathematical generality comes from the factor-language argument and the matching-residue/matching-atomic-type two-pebble back-and-forth system in `RESULT.md`. The cases primitive length \(1\), \(2\), and \(\ge3\) are handled separately; the exact boundaries are distinguished by explicit two-variable sentences. No external independent audit or formal certification was performed.
+For any finite factor, alternating shadowed x/y successor existential quantifiers express its occurrence with FO²; arbitrary factor-language equality forces equality of primitive periodic necklaces by finite-residue pigeonholing. A definable length-d factor T_u(x) selects one primitive residue per repetition, detecting k>=2; nonadjacent opposite-colour witnesses separate k=2/3 when d=2, and loops, bidirected edges and nonneighbors separate k=1/2/3/4 when d=1. At k>=c(d), preserving primitive residue and equality/both successor atoms gives the full finite two-pebble back-and-forth: the equal, forward, backward, and nonneighbor options exist with the same residues exactly from k=4,3,2 in the respective three regimes. Thus arbitrary-rank equivalence is proved, including length-one loops and length-two bidirected cases. Independent semantic partition computation compared 101 colored-cycle models and 80 predicted equivalence classes with zero disagreements. The bounded computation corroborates but does not establish the universal quantification.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
+
+## value
+
+PASS
+
+The theorem gives an exact complete invariant and sharp finite cutoffs for all repetition powers of primitive coloured successor cycles at unrestricted FO² quantifier rank; its c(1),c(2),c(d≥3) thresholds diagnose genuine model-theoretic collapse not a routine renaming. The explicit linear-time decision algorithm makes this structural classification useful for finite-model comparison. Only single directed cycles with unary colour partition and without a linear order or counting are covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

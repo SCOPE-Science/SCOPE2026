@@ -1,11 +1,21 @@
-# Scientific review: two-variable theories of colored successor cycles
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof distinguishes primitive roots by arbitrarily long factors definable with alternating reuse of two variables, then separates the repetitions below the cutoff by concrete formulas. For all larger repetitions, a two-pebble back-and-forth relation preserves residues and complete atomic pair types; the available relative neighbor/non-neighbor options are checked separately for primitive lengths one, two and at least three. This proves both directions for all lengths and unbounded quantifier rank. A separate finite semantic-type refinement of 153 binary and 225 ternary cyclic-word models agrees with the classification, but is treated only as corroboration.
+## correctness
 
-**Originality — PASS with residual risk.** Closest primary full texts inspected concern two-variable logic on *linearly ordered* words (Weis--Immerman) and on successors of underlying *linear orders* (Michaliszyn--Witkowski). Neither covers directed circular successor structures, and neither implies the exact period-dependent repetition threshold. A further finite-model counting-logic paper on linear orders provides motivation rather than coverage. Targeted searches for equivalent cyclic-word/necklace/two-pebble formulations returned no exact result; absence from the searched literature is not proof of priority. A specialized older circular-word game theorem might still contain the statement.
+PASS
 
-**Value — PASS.** This is an exact structural classification for a natural infinite family of finite models in a well-studied logic. It distinguishes every primitive color pattern, exhibits precise stabilization of repetition multiplicity, proves the optimal boundary cases, and yields an effective linear-time equivalence algorithm. The trichotomy of sharp cutoffs is not a consequence of merely noting two-variable expressive limitations; it needs separate local-configuration arguments.
+For any finite factor, alternating shadowed x/y successor existential quantifiers express its occurrence with FO²; arbitrary factor-language equality forces equality of primitive periodic necklaces by finite-residue pigeonholing. A definable length-d factor T_u(x) selects one primitive residue per repetition, detecting k>=2; nonadjacent opposite-colour witnesses separate k=2/3 when d=2, and loops, bidirected edges and nonneighbors separate k=1/2/3/4 when d=1. At k>=c(d), preserving primitive residue and equality/both successor atoms gives the full finite two-pebble back-and-forth: the equal, forward, backward, and nonneighbor options exist with the same residues exactly from k=4,3,2 in the respective three regimes. Thus arbitrary-rank equivalence is proved, including length-one loops and length-two bidirected cases. Independent semantic partition computation compared 101 colored-cycle models and 80 predicted equivalence classes with zero disagreements. The bounded computation corroborates but does not establish the universal quantification.
 
-**Scope and integrity.** Single finite directed cycle with finite alphabet, unary colors and ordinary \(\mathrm{FO}^2\) only; no claims for counting, visible order, arbitrary binary predicates or unions of cycles. Experiments do not establish infinitary quantifier-depth equivalence. The review is a non-independent assessment and leaves a specific historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
+
+## value
+
+PASS
+
+The theorem gives an exact complete invariant and sharp finite cutoffs for all repetition powers of primitive coloured successor cycles at unrestricted FO² quantifier rank; its c(1),c(2),c(d≥3) thresholds diagnose genuine model-theoretic collapse not a routine renaming. The explicit linear-time decision algorithm makes this structural classification useful for finite-model comparison. Only single directed cycles with unary colour partition and without a linear order or counting are covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
