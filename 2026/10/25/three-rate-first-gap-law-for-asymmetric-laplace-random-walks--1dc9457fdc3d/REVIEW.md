@@ -1,0 +1,11 @@
+# Review
+
+**Correctness (C): PASS.** The maximum-time partition is exhaustive and disjoint; reverse and forward increments are independent. Conditional exponential memorylessness yields the two barrier survival factors exactly. The ladder factorization is checked against its explicit numerator roots, with correct \(z=0\) boundary and transformed survival tails. Binomial coefficient asymptotics, remainder summation, and a unique density-crossing proof justify the claimed exact total variation and its constants. Independent coefficient recurrences were checked by exact rational code for four rate pairs through horizon 12; these checks are auxiliary, not infinite proofs.
+
+**Originality (O): PASS subject to priority risk.** The closest primary manuscripts are Pitman–Tang's general extreme-order limit result (arXiv:2007.13991), the symmetric-Laplace limit/expectation analysis (arXiv:2107.05095), the symmetric-jump top-gap generating-function paper (arXiv:1405.1222), and the symmetric finite-horizon order-statistic paper (arXiv:2206.15057). Their scopes do not logically imply the asymmetric exact finite-horizon three-exponential law and its sharp drift-rate switch. Searches for asymmetric and skew Laplace first-gap aliases and mathematical record titles disclosed no matching statement. Residual risk: unindexed older bilateral-exponential fluctuation theory could contain equivalent formulas; the result may be derivable by combining classical fluctuation identities, which alone does not prove earlier publication of this exact statement.
+
+**Value (V): PASS.** Top-gap distributions describe near-record separation in random walks; the asymmetric setting has a qualitative drift/no-drift dichotomy absent in a purely symmetric model. The formula gives full finite-time distributions and computable moments with no inversion of transform integrals, while the exact TV rates identify a sharp spectral drift crossover. It is a structural distributional result, not a mere parameter replacement or a small numerical improvement.
+
+**Scope and limitations.** Bilateral-exponential increments only; fixed distinct rates for geometric asymptotics; no near-critical double scaling or joint gap-time law. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
