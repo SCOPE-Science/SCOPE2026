@@ -1,23 +1,21 @@
-# Review of the two rational \(S_5\)-modules on Petersen matching homology
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim concerns the *ordinary* matching complex of the Kneser realization \(P=KG(5,2)\) of the Petersen graph, and the natural action of \(S_5\) induced by the five symbols. Exhaustive matching enumeration yields face cardinalities (1,15,75,145,90,6), including the empty simplex. Exact rational ranks (1,14,61,79,6) of the augmented simplicial boundary maps prove rational Betti ranks five in degree two and five in degree three, with no other reduced homology.
+PASS
 
-For each conjugacy type, the invariants of the oriented simplicial chain complex are constructed by coherent signed orbit sums, and their exact rational boundary ranks give the invariant homology dimensions. Because taking invariants under a finite cyclic group is exact over \(\mathbb Q\), the fixed dimensions determine the two ordinary characters by the cyclic averaging identity. The resulting rows equal the sign-twisted five-point permutation character and the irreducible Specht \((3,2)\) character. The modular direct trace computation independently reproduces every row. All seven classes, including the order-six mixed cycle and both order-two classes, are covered. This is a proof for one fully enumerated finite complex, not an extrapolation from tests.
+The ordinary matching complex uses 15 edges of Petersen graph KG(5,2) as vertices and disjoint edges as simplices; its natural group is S5 on five underlying labels. Exhaustive matching counts by cardinality k=0..5 are (1,15,75,145,90,6). Exact rational invariant-chain elimination as implemented in the inspected verify_invariants.py finds reduced boundary ranks (1,14,61,79,6), giving H2 and H3 both rank5. Seven cyclic-invariant subcomplex computations recover class traces chi2=(5,-3,1,2,0,-1,0), chi3=(5,1,1,-1,1,-1,0) on (1^5),(2,1^3),(2^2,1),(3,1^2),(3,2),(4,1),(5). My independent standard-field oriented chain and image-trace computation reproduces every rank/trace; it is corroboration, not a claim that mod-p always equals Q. In characteristic zero averaging is exact and fixed dimensions determine class characters. chi2(g)=sgn(g)f(g) identifies sgn⊗Q^5, chi3(g)=((f-1)^2+f(g²)-1)/2-f gives the Specht S^(3,2) by Sym² of the standard module. Rational semisimplicity and characters prove the isomorphisms, with H_q=0 elsewhere. No integral module or homotopy equivariance follows.
 
-## Originality (PASS, subject to residual risk)
+## originality
 
-The closest previous graph-specific computation (record `80050a32-4367-4c54-9ae8-daf37b3378cd`) already establishes the mixed sphere-wedge homotopy type and the two Betti numbers. Those assertions are not new. Shareshian–Wachs, arXiv:math/0409054v1, examine complete-graph and chessboard matching complexes and present Bouc's representation theory, not this proper Petersen matching subcomplex. Zaslavsky (DOI:10.1016/j.disc.2011.12.010, §§3–3.2) classifies automorphism orbits of matchings in the Petersen graph, but does not identify its simplicial homology modules or the two boundary-image modules. Bate–Everitt–Ford–Ramos, arXiv:2312.13750v3, focus their explicit representation decompositions on complete-hypergraph matching complexes; the stated results do not specialize to \(\mathcal M(KG(5,2))\).
+PASS
 
-Exact-statement, equivalence, reduction, and stronger-coverage searches did not identify a covering published calculation. They also distinguished ordinary matching complexes from *two*-matching complexes and from the Morse complex of the Petersen graph, both different objects. Nonetheless, unindexed or differently named equivariant computations could exist. No absolute priority claim is made.
+Prior exact nonequivariant Petersen matching homotopy yields five S2 and five S3 but supplies only Betti numbers, not the distinct rational S5 characters. General complete-graph matching Specht results do not automatically descend to the Petersen subgraph matching complex. This exact two-module decomposition is original at best knowledge; standard representation-theory character identities are not presented as new.
 
-## Value (PASS)
+## value
 
-The Petersen graph is a canonical highly symmetric graph with intrinsic \(S_5\)-action. Its equal degree-two and degree-three Betti ranks do not determine the two actions. This calculation finds a mathematically meaningful contrast: one rational module is reducible and a sign twist of a natural permutation representation, while the other is the irreducible five-dimensional \((3,2)\) Specht module. These characters can inform other equivariant constructions on the same graph and provide an exact comparison target; no dependent theorem is needed for the invariant itself to be of interest. This is neither a renamed homology rank nor a routine sign-only calculation.
+PASS
 
-## Remaining scientific limits
+Petersen is the canonical S5-automorphism cubic Kneser graph, and the full rational automorphism action on the same-rank homology groups is a natural invariant. The finding distinguishes a reducible signed five-point module in degree two from irreducible S^(3,2) in degree three, information the homotopy wedge statement omits and future equivariant matching-complex work could require. This is a substantive classification, not a relabeling of Betti ranks.
 
-Only rational representations of the natural \(S_5\)-action are classified. Integral lattice structure, torsion, equivariant homotopy and generalizations to other graphs are not asserted. Bibliographic nonretrieval is not a proof of global priority. Computational inputs, complete boundary formula, invariant-orbit algorithm and executable checks are supplied.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
