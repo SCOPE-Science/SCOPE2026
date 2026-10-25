@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:00:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: verified Git blob a457d45251b104d62380edc392ceba32859abb72",
+        "check.py: verified Git blob d4e046a96fdda6c9983b833a11631b1ed276eb74"
+      ],
+      "rationale": "For P_h=conv((±1,±1,0),(0,0,h)), h>0, conditioning motion-invariant planes on intersection gives orientation density proportional to width and uniform offset conditional on orientation. A generic plane has N in {3,4,5} cut edges; exactly four disjoint 2-vs-3 sign partitions yield pentagons (apex paired with a base vertex). A triangular-prism Minkowski difference Q and Q^+=conv(Q∪{0}) translate each separating-offset length into mean-width(Q^+)-mean-width(Q). Evaluating the standard exterior-dihedral-edge mean width formula produces P5=F/B, with B=2(pi-acos(1/r))+s acos(1/r^2), F=2s asin(1/r^2)+4 acos(1/r)-pi sqrt(2), r=sqrt(1+h^2), s=sqrt(2+h^2). Crofton edge crossing sum gives E N=2pi(2+s)/B and P3=4-E N+P5, P4=E N-3-2P5. Direct asymptotics give positive interior pentagons and 2(2-sqrt(2))/h tall-height decay; maximum existence, not uniqueness, is asserted. Independent width-weighted normal-and-offset simulations at h=0.4,1,2,5 (130000 draws each) differed from exact three-type distribution by at most 0.00182; h=2 predicts (0.36485656,0.50418302,0.13096043). Finite simulation cannot prove the exact integral formulas.",
+      "residual_risks": [
+        "Numerical finite diagnostics cannot replace analytic proof; scoped normalization and quantifiers are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular-pyramid five-vertex shadow law addresses projection silhouette, not affine-section cut edges. Brandenburg et al optimize sections rather than give a distribution."
+        ],
+        "reasoning": "A theorem for arbitrary rectangular **shadows** does not dominate a probability law for height-offset dependent square-pyramid **sections**.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a; Brandenburg De Loera Meroni arXiv:2304.14239"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and check.py full Git blob contents",
+        "Birkemeyer et al arXiv:2609.16195 full paper and pyramid-section proposition",
+        "Brandenburg De Loera Meroni arXiv:2304.14239 (abstract/context)",
+        "Resultary published five-vertex shadow law 2026/10/11",
+        "Stereology for some classes of polyhedrons doi:10.2307/1427832 (abstract/bibliographic)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sources have deterministic classification or orientation-only shadow probabilities; the reviewed claim integrates both orientation and plane offset with Crofton normalization."
+        ],
+        "reasoning": "The prior results neither fix the shape-dependent pentagon integral nor determine P3/P4 via normalized edge crossing; their implications fall short of the claim.",
+        "searches": [
+          "arXiv:2609.16195 section combinatorics; arXiv:2304.14239 slicing optimization; published-shadow SCOPE result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Birkemeyer Brose Brandenburg Prün, arXiv:2609.16195, Proposition 3.9 discusses pyramid sections but no normalized probability law."
+        ],
+        "reasoning": "Counting feasible polygon-section types or interpreting an orthogonal shadow is not equivalent to conditioning an affine plane by invariant measure and integrating its random offset.",
+        "searches": [
+          "Resultary query: random affine plane right square pyramid cross-section vertex count pentagon probability invariant Crofton mean width; arXiv:2609.16195"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published stereology work for prisms concerns a different polyhedron, and searched section-count sources did not provide this right-square-pyramid formula."
+        ],
+        "reasoning": "No exact database/table of these invariant-plane section probabilities was identified; old stereological tables remain possible priority risk, not proven absent.",
+        "searches": [
+          "Resultary five-vertex shadow law; targeted pyramid probability/stereology web search; doi:10.2307/1427832"
+        ]
+      },
+      "rationale": "The probability law for random affine *sections* is mathematically different from the previously published square/rectangular-pyramid law for five-vertex *orthogonal projections*. A recent deterministic combinatorial slicing paper studies section patterns, not the invariant conditioned plane distribution. Neither source has been found to imply this exact height-dependent full section distribution; residual stereology priority uncertainty remains.",
+      "residual_risks": [
+        "Unindexed stereology of random plane cuts of square pyramids might duplicate the closed distribution; literature search is not exhaustive.",
+        "The peak is asserted to exist, not shown unique; numerical simulations do not establish the continuum edge-angle identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Treats combinatorial section types/reconstruction rather than invariant-measure probability of types",
+          "evidence": "Its pyramid section proposition is qualitative; no F(h)/B(h) distribution identified",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16195",
+          "material_read": "Accessible complete paper, including pyramid-section Proposition 3.9 and searches for random and probability",
+          "method": "Full open primary text inspected",
+          "title": "Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices",
+          "trigger": "Same polytope family, plausible section prior"
+        },
+        {
+          "assessment": "Orthogonal projection shadow and affine offset section are different events",
+          "evidence": "Resultary specifically describes uniformly random planar shadows and apex height optimum",
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "Published Resultary semantic summary; no primary full proof retrieved",
+          "method": "Resultary title/abstract only",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "Direct closely named published probability law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md and check.py full Git blob contents",
+        "Birkemeyer et al arXiv:2609.16195 full paper and pyramid-section proposition",
+        "Brandenburg De Loera Meroni arXiv:2304.14239 (abstract/context)",
+        "Resultary published five-vertex shadow law 2026/10/11",
+        "Stereology for some classes of polyhedrons doi:10.2307/1427832 (abstract/bibliographic)"
+      ],
+      "rationale": "The complete triangle/quadrilateral/pentagon law of random affine sections of the simplest non-simplicial pyramid is a natural stochastic-geometric observable; it includes correct width-biased orientation sampling, explicit elementary integrals, an interior maximum existence mechanism and sharp thin/tall asymptotics. It is not just edge enumeration or a restatement of shadow probabilities.",
+      "residual_risks": [
+        "Mathematical value is limited to precise theorem scope and does not establish unproved general downstream claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
