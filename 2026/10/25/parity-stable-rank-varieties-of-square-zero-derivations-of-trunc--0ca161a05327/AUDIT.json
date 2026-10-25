@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Every derivation equals f(t)∂_t, with f(0)=0 if the truncation length is odd. In characteristic two the square D_f^2 is a derivation and equals zero exactly when f f'=0 mod t^n. For v=ord_t f, the latter is equivalent to vanishing of odd-index coefficients c_j with j≤n-v, while rank is min(m,ceil((n-v)/2)). Sorting the only possible valuations for each rank produces explicit coordinate charts: punctured affine plane times affine space for r≤floor(m/2), and multiplicative times affine space for larger ranks. The arithmetic point-count formula follows. Independent direct polynomial multiplication and matrix Gaussian elimination checked all 17 finite q,n cases in the packaged Python script. The computations do not certify the universal argument; the derivation identities prove it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "S. Skryabin, Nilpotent elements in the Jacobson–Witt algebra over a finite field, Transformation Groups 19 (2014), Theorem 3.4, counts nilpotent elements of Der(k[x_1,...,x_s]/(x_i^p)) for prime p; the one-variable characteristic-2 ring has truncation length exactly 2.",
+        "A. Premet, Regular derivations of truncated polynomial rings, arXiv:1405.2426, works in characteristic greater than 2 and addresses regular derivations."
+      ],
+      "reasoning": "Neither general nilpotent counts for prime-truncated Jacobson–Witt algebras nor regular-derivation invariant theory covers varying one-variable truncation length n=2m and 2m+1 in characteristic two, with ranks and varieties resolved.",
+      "searches": [
+        "\"nilpotent p-map zero cone of one-variable Witt derivations char 2 finite field rank stratification differential algebra\"",
+        "\"Frobenius nilpotent cone derivations of k[t]/(t^n) in characteristic two\"",
+        "\"exact finite-field rank distributions of square-zero derivations of truncated polynomial rings\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0602344 (primary full-text sections)",
+      "arxiv:1405.2426 (primary PDF introduction)",
+      "Skryabin, DOI 10.1007/s00031-014-9270-0 (author-hosted primary full text)",
+      "Zhou–Wang–Zhang, DOI 10.1080/03081080802443091 (abstract only)",
+      "Published semantic research-result queries on differential square-zero rank distributions and restricted nilpotence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously available classification of ranks of all derivations of k[t]/t^n by the t-adic valuation has no square-zero constraint and hence does not enumerate the restricted strata.",
+        "L. L. Avramov, R.-O. Buchweitz, S. Iyengar, Class and rank of differential modules, arXiv:math/0602344, §6, studies square-zero matrices and ranks with R-linear differential module maps, not k-linear Leibniz derivations.",
+        "J. Zhou, D. Wang, Q. Zhang, Square-zero derivations of matrix algebras over commutative rings (2010) studies the different property of preserving square-zero elements; only abstract was accessible."
+      ],
+      "reasoning": "The earlier all-derivation rank counts cannot determine how ff'=0 cuts each valuation cell or the resulting adjacent-truncation geometric isomorphism. The comparison paper on differential modules drops the Leibniz condition and works with R-linear operators. The matrix-algebra title has a distinct definition and domain.",
+      "searches": [
+        "\"rank spectrum derivations truncated polynomial algebra square zero differential\"",
+        "\"F_2 algebra k[t]/t^n differential derivations D^2=0 finite-field counts, n=2m and 2m+1 equidistribution\"",
+        "\"Class and rank of differential modules\" square-zero matrices derivations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For characteristic 2, D^2=0 is equivalently the zero locus of the restricted 2-map on derivations, and D_f^2(t)=ff' modulo t^n. Skryabin, Nilpotent elements in the Jacobson–Witt algebra over a finite field (2014), Theorem 3.4, considers the Jacobson–Witt algebra of a prime-truncated ring, a different parameter family."
+      ],
+      "reasoning": "The 2-restricted-nilpotent or differential-algebra wording retrieves relevant broader settings, but their hypotheses do not yield the claimed all-length rank strata or parity-preserving isomorphisms.",
+      "searches": [
+        "\"square zero differential derivation truncated polynomial ring rank varieties characteristic 2\"",
+        "\"nilpotent p-map zero cone of one-variable Witt derivations char 2 finite field rank stratification differential algebra\"",
+        "\"square-zero derivations\" \"truncated polynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record results on nilpotency-index distribution for Jordan lifts over finite dual numbers concern matrix lifts, not polynomial derivations; no matching rank table was retrieved.",
+        "The supplied checker confirms small finite cases by direct row reduction, but these are verification instances, not previously published tables."
+      ],
+      "reasoning": "No indexed exact table of the new invariants or stronger enumerator was identified in the queried research records or inspected papers; search incompleteness remains a risk.",
+      "searches": [
+        "\"Characteristic-two truncated polynomial algebra Fq[t]/(t^n), square-zero derivations D^2=0, exact rank counts N_r=(q^2-1)q^(2r-2) for r <= floor(floor(n/2)/2), and N_r=(q-1)q^(floor(n/2)-1) otherwise.\"",
+        "\"exact finite-field rank distributions of square-zero derivations of truncated polynomial rings\""
+      ]
+    },
+    "rationale": "The statement classifies the reduced rank loci of square-zero Leibniz derivations on all single-variable power truncations in characteristic two and proves adjacent-length isomorphisms. Avramov–Buchweitz–Iyengar classify differential-module phenomena for arbitrary R-linear square-zero operators (not Leibniz maps); Premet treats regular derivations in characteristic >2; Skryabin studies nilpotent derivations in prime-truncated multivariable Jacobson–Witt algebras. Direct comparisons and semantic searches revealed no theorem implying the present rank-specific geometric and finite-field distributions. Absence in searched sources is not absolute priority proof.",
+    "residual_risks": [
+      "Broader unpublished/older classification of restricted Witt derivation schemes could entail the new rank-strata theorem, although none was identified in actual searches.",
+      "The Zhou–Wang–Zhang publisher full text could not be read, but the accessible abstract concerns square-zero-element preserving maps on matrix algebras.",
+      "Search and article inspection do not establish worldwide novelty or independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: arbitrary R-linear square-zero module differential, no square-zero Leibniz-derivation rank strata.",
+        "evidence": [
+          "2006-02-16 first public version; definitions of differential module in introduction; §6 square-zero matrix comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0602344",
+        "material_read": "Full open-access PDF first page, introduction, rank questions, and §6 on square-zero matrices.",
+        "method": "Opened open-access article and inspected primary full-text passages, including PDF pages.",
+        "title": "Class and rank of differential modules",
+        "trigger": "Both papers study square-zero linear differentials and rank"
+      },
+      {
+        "assessment": "Not covering: characteristic p>2, prime-truncated multivariable ring and regular derivations.",
+        "evidence": [
+          "Intro establishes char p>2 and O_n=k[x_1,...,x_n]/(x_i^p), contrasting with arbitrary length and characteristic 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2426",
+        "material_read": "Primary PDF first page and introduction including characteristic and ring definition, with nilpotence-related passages.",
+        "method": "Opened public PDF and examined mathematical definitions and scope.",
+        "title": "Regular derivations of truncated polynomial rings",
+        "trigger": "Same phrase truncated polynomial derivations"
+      },
+      {
+        "assessment": "Does not provide arbitrary one-variable non-prime truncations nor rank-resolved reduced 2-nilpotent locus.",
+        "evidence": [
+          "The Jacobson–Witt algebra concerns k[x_i]/(x_i^p); for characteristic 2 one variable gives only k[t]/(t^2)."
+        ],
+        "identifier_or_url": "https://shelly.kpfu.ru/e-ksu/docs/F1143899874/sskr032.pdf",
+        "material_read": "Author-hosted full article introduction, setup of prime-truncated ring, §1 and Theorem 3.4.",
+        "method": "Read public full PDF and compared parametrized objects and implications.",
+        "title": "Nilpotent elements in the Jacobson–Witt algebra over a finite field",
+        "trigger": "Potential broader nilpotent-derivation enumeration"
+      },
+      {
+        "assessment": "Abstract indicates a preserver-map condition for square-zero elements in matrix algebras rather than D composed with itself in a truncated polynomial ring.",
+        "evidence": [
+          "Different object M_n(R) and explicit preserver terminology in abstract; full paper not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081080802443091",
+        "material_read": "Bibliographic record and abstract only; full publisher text inaccessible, no lawful preprint found in bounded search.",
+        "method": "Abstract and metadata review; distinguish definitions.",
+        "title": "Square-zero derivations of matrix algebras over commutative rings",
+        "trigger": "Exact words square-zero derivations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ca161a0-5327-4ef6-9f18-99edab571bb5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Square-zero derivations are differential structures with Leibniz compatibility, and their ranks determine homology size. The result classifies the intrinsic reduced rank-locus geometry for every length in characteristic two, gives an explicit half-rank transition from punctured-plane to toric affine strata, and establishes unexpected isomorphism of the full family of rank loci between adjacent even and odd truncation lengths. This is an infinite parametrized geometric classification plus complete finite-field rank distribution, not a single small calculation or a generic all-derivation rank recomputation.",
+    "status": "PASS"
+  }
+}
