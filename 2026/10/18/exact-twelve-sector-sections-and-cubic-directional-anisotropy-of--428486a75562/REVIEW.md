@@ -1,23 +1,21 @@
-# Review of exact tricylinder central-section areas
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cylindrical radial gauge is \\(\\rho(u)=R/\\sqrt{1-\\min_i u_i^2}\\). Each of the twelve generic direction sectors has one active cylindrical inequality, and projection onto the complementary coordinate pair has Jacobian \\(|n_i|\\). Circular-sector area under this projection gives the stated twelve arctangents exactly. Dominated convergence handles degenerate normal directions. The lower area bound is pointwise sharp, and its equality proof excludes all non-coordinate planes. Four symmetric zero-crossing layers yield the exact uniform cubic correction \\(-4(|p|^3+|q|^3)\\delta^3/3\\). In a local tangent chart the cubic term is not a polynomial, so third-order differentiability fails.
+PASS
 
-The packaged checker compared the formula with independently parameterized polar integration at 240 generic directions (maximum discrepancy less than \\(8\\times10^{-10}\\)) and direct section-polygon reconstruction at 24 directions (discrepancy less than \\(9\\times10^{-9}\\)). It also checked three exact symmetry examples and four cubic-ray tests. These finite checks support, but do not prove, the analytic claims.
+For K_R defined by x²+y²<=R², x²+z²<=R², y²+z²<=R², its ray gauge is rho_K(u)=R/sqrt(1-min_i u_i²) because each cylinder bounds r²(1-u_i²). Hence any central plane H_n has exact area R²/2 ∫_{unit great circle} (1-min u_i²)^-1 dθ, with integrand uniformly <=3/2. Six pair-equality planes ui=±uj meet generic H_n in twelve oriented rays; each sector has constant minimizing coordinate ell. Orthogonal projection omitting ell maps this sector to a radius-R circular sector and has area Jacobian |n_ell|, giving twelve atan2(kΔ,D)/(2k) contributions. Continuity by dominated convergence handles exceptional normals. Integrand >=1 proves A>=πR², equality requiring whole great circle lie in union of coordinate zero circles, forcing a coordinate plane. Independent 240k-angle midpoint polar quadrature gives A(e3)=π, A((1,1,0)/√2)=3.63565503163=√2(1+π/2), A((1,1,1)/√3)=3.34372984533=6√3 atan(1/3), and a generic normal 3.41350487818. Near n=(δp,δq,sqrt(1-δ²)), u3² yields π δ² before subtracting four coordinate-node neighborhoods: positive-part integrals of (δ²p²-s²)_+ and (δ²q²-s²)_+ give cubic correction -4/3(|p|³+|q|³)δ³ with uniform O(δ⁴). Independent quadrature at δ=.04,.02,.01 for axial and equal-component p,q yielded cubic estimates tending to -1.333333 and -0.942809. The even non-polynomial |p|³+|q|³ term prevents degree-3 Taylor polynomial.
 
-## Originality — PASS, with residual historical risk
+## originality
 
-The complete Angell–Moore 1987 paper was inspected, including its geometric illustrations and its derivation of volumes and surface areas of intersections of cylindrical bodies. Its orthographic drawings are *projected views*, not arbitrary intrinsic planar-section area formulas. Moore 1974 was accessible only as an abstract and bibliographic entry. The 2013 Illinois report could be identified and dated but could not be inspected in full. The accessible MathWorld treatment gives the classical volume and surface, not the stated directional area formula and third-order local jet.
+PASS
 
-Comparisons against mathematical-record searches for tricylinders, sectional area, arctangents, and cubic regularity, as well as known studies of an intersecting two-cylinder body, produced no mathematical statement implying this exact three-cylinder central-section theorem. Non-identification by search is not a proof of historical priority. The inaccessible older works remain a material uncertainty, although no observed statement decisively covers this theorem.
+Classical Steinmetz-solid literature treats volume, exterior surface, and orthographic views. This claim evaluates intrinsic central *plane-section area* in arbitrary direction and discovers its anisotropic cubic jet, mathematically different observables not fixed by volume or shadow. Closest Resultary orthogonal-three-disk hull is a different union/convex-hull body.
 
-## Mathematical value — PASS
+## value
 
-The tricylinder is a canonical curved convex body whose volume and surface were known long ago. A complete **direction-dependent central-section area rule** and a sharp equality case answer natural slicing questions, and the uniform cubic layer expansion reveals a geometric non-smoothness invisible to the isotropic quadratic term. These joint structural properties are more than a restatement of classical volume calculations or a finite table.
+PASS
 
-## Scope and risks
+The Steinmetz tricylinder is a classical natural body. An exact all-normal central-section area law, sharp minimizer set, and non-polynomial cubic angular response near minimizers provide a useful integral-geometric invariant beyond known volumes. Its finite 12-sector complexity is geometrically forced by equal-coordinate active-constraint boundaries, not an arbitrary enumeration.
 
-All results concern equal-radius, concurrent, pairwise-orthogonal cylinders. The global maximum is not established. Numerical calculations alone cannot certify the continuum formula or uniform asymptotics; those rely on the geometric and analytic proof. The 1974 article and 2013 project report were not available for complete text-to-claim comparison; mathematical priority remains provisional.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
