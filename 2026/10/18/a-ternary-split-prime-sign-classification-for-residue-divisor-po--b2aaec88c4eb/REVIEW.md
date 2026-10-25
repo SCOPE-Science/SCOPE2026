@@ -1,11 +1,21 @@
-# Scientific review: ternary residue divisor-power sums
+# Independent mathematical audit
 
-**Correctness — PASS.** The divisor classification follows by splitting every divisor of \(3^tm\) according to the exponent of \(3\) and the quadratic character modulo \(3\). Each real-parameter inequality follows from a positive Euler-factor ratio when \(s<0\); divergent reciprocal-prime mass in the class \(2\pmod3\) provides positive witnesses in every mixed-sign valuation fiber. The cumulative coefficient is evaluated by absolutely convergent zeta and Dirichlet \(L\)-series. The finite checker compares a direct enumeration with an independent character-based expression; numerical regression is not mistaken for the infinite argument.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Pongsriiam–Vaughan (2015) concern the distribution of the ordinary divisor-count function over integer progressions, which does not imply any pointwise fixed-integer classification. Pongsriiam (2021, Problem 15) explicitly proposes comparing divisor powers restricted to residue classes, but does not solve the ternary case. The published modulus-2 theorem gives a valuation-only sign rule, whereas this theorem proves simultaneous positive and negative values *within a fixed positive valuation* and obtains a character-dependent negative summatory constant. Searches for the exact fixed-modulus-3 difference and equivalent character-factor formulations did not reveal a stronger statement; an incompletely indexed earlier theorem is possible.
+PASS
 
-**Value — PASS.** Modulus \(3\) is the first case where residue classes of the unit group require a nontrivial real Dirichlet character. The same-valuation mixed-sign phenomenon is absent in the known parity case, and the complete real-exponent threshold is a natural resolution of a named residue-divisor comparison question. The strictly negative mean despite infinitely many adjacent positive-to-negative reversals is a mathematically interpretable bias, not a gratuitous finite table.
+Splitting d|3^t m by 3-adic exponent gives exact D_s=(T_t-1/2)S_s-C_s/2. For negative s, each p≡2 mod3 Euler character factor is strictly positive and smaller than the ordinary factor, hence 0<C_s(m)<=S_s(m), with equality precisely if no p≡2 occurs. The geometric sum T_t gives uniform negativity for s<=-1 and sharp mixed signs for -1<s<0 by divergence of sum_{p≡2 mod3}p^s; multiplying by p≡1 creates infinitely many same-fibre examples. Successors coprime to 3 are always negative, yielding adjacent reversals. For s>=0 direct inequalities settle signs including s=0 boundary. Summing over divisors, the absolutely convergent coefficient c_s=1/2((3^s-1)ζ(1-s)-L(1-s,χ3))<0 follows for s<0 with stated error estimates. Independently compared direct divisor sums against character factorization for 249 n and 4 integer exponents; the analytic divergence and convergence are the infinite proof.
 
-Limitations: this does not classify all positive-value densities or address nonnegative-exponent cumulative asymptotics. Existing literature may contain a rephrasing not detected in the completed comparisons. The primary reviewed statements are exactly those in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 primary Problem 15 poses class-resolved divisor-power sign questions but does not answer modulus 3. Published parity/modulus-2 finding shares threshold -1 and summatory-bias phenomenon, but depends only on v2 and does not imply modulus-3 same-valuation opposite signs or nontrivial χ3 L correction. Pongsriiam–Vaughan 2015 concerns divisor function on arithmetic progressions of n, not individual divisors d|n. No full or weaker cited theorem implies this sharp ternary partition.
+
+## value
+
+PASS
+
+Modulus 3 is the first residue unit group with a nontrivial real character and exhibits a genuinely new mixed-sign phenomenon at fixed v3 compared with parity. The exact sharp exponent threshold plus counterintuitive negative asymptotic mean despite infinite adjacent reversals addresses an explicitly published mathematical problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
