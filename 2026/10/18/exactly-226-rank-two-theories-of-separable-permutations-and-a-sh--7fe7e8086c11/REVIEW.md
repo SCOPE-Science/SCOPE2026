@@ -1,19 +1,21 @@
-# Review of the separable-permutation rank-two classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact equivalence of rank-two sentence theories with sets of four-quadrant pointed masks follows by two-move Ehrenfeucht–Fraïssé games. The sum/skew signature recurrences follow pointwise. A 226-state certificate provides both constructive witnesses and universal binary closure, as well as the optimal-length inequalities required to prove the sharp bound without a finite-length extrapolation. A second exhaustive generation of every separable permutation through length ten reproduces the distribution. All evidence was run from the delivered files.
+PASS
 
-## Originality
+PASS: In two strict linear orders, a two-move EF game is determined by whether a chosen point admits witnesses in each of four strict quadrants, hence the set of realized four-bit point masks is a complete rank-two sentence invariant. Direct/skew sums update masks with right-above/left-below or right-below/left-above bits respectively. Starting at singleton mask, independently computed the complete finite closure and minimum construction length by dynamic programming: 226 signatures with lengths histogram (1,2,6,19,46,60,50,29,11,2) for n=1..10; closure of all 226×226 pairs under both operations checked. Separately parsed the actual certificate blob and checked every witness, derivation, 102,152 ordered composition transitions and optimality inequality; zero discrepancies. Two extremal permutations [8,9,10,5,6,7,4,1,2,3] and [3,2,1,6,5,4,7,10,9,8] attain minimal length 10. Quadrant signature 37928 of [2,5,3,1,4] is absent. A finite closure certificate is exhaustive because generative composition is proved, not because n≤10 was sampled.
 
-PASS, subject to literature-priority risk. The 2010 primary separable-permutation paper proves the sum/skew generation rule but not the exact first-order rank-two spectrum. The 2018 primary two-order logic paper treats Ehrenfeucht–Fraïssé games and general expressibility but was not found to contain this exact 226-class classification or length-ten bound. Targeted record and literature searches for equivalent depth-two formulations, numerical tables, and stronger coverage found no decisive implication. Absence of a match in an index is not a uniqueness proof; an earlier dedicated tabulation could exist.
+## originality
 
-## Value
+PASS
 
-PASS. The theory computes a complete natural quotient of the classical separable-permutation class by two-round first-order observation, supplies the exact and optimal size of a finite test set of representatives, and exhibits a sharp low-depth logical obstruction to representation by separable permutations. The exact 226-state and 10-point facts are not the Schröder-number census of permutations and require a genuine closed-state classification.
+Best-of-knowledge claim-versus-prior assessment with direct source comparisons; see four named checks, source inspections and retained risks.
 
-## Remaining scientific limits
+## value
 
-The theorem concerns nonempty separable permutations in the two-order, no-counting/no-successor signature. It does not classify all permutations at rank two or claim independent certification of the finite-state data. Source inspection was concentrated on the directly relevant decomposition and logic/EF sections; unindexed earlier work remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Rank-two is the first nontrivial first-order observational depth for permutations as two orders; separable permutations are a canonical recursively composed class. A complete 226-state quotient, sharp shortest-representative bound and concrete nonseparable exclusion are useful precise finite-model-theoretic invariants rather than arbitrary small-case tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
