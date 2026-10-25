@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For width at most one and a nonempty path set, exactly one string occurs at each level and is eventually enumerated, yielding a uniform exact selector. For width at most two, the recursion-theorem construction branches at fresh levels, extends a provisional child while waiting for the candidate output, and then continues the opposite bit. Every level has at most two nodes, every abandoned side branch is finite, and the construction preserves a unique infinite path even if a simulated computation stalls. If the candidate is total on the promised class, it disagrees at infinitely many fresh coordinates, contradicting eventual agreement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaufmann–Kummer, “On a Quantitative Notion of Uniformity,” publisher abstract: for c.e. trees of width at most \\(n\\), the least list size for finite-error branch approximation is \\(2n-1\\); the abstract does not state a singleton-path restriction.",
+        "Binns–Kjos-Hanssen (2014) studies reverse-mathematical strength of path existence for trees with restricted branching, rather than finite-error index selectors."
+      ],
+      "reasoning": "The general width-bounded theorem is broader in its input class but its abstract alone does not establish that the lower bound persists after restricting to singleton-path trees. A theorem for all trees does not, by itself, prove the same lower bound on this subclass; the diagonal construction here proves the single-program obstruction directly.",
+      "searches": [
+        "published-finding corpus: Kaufmann Kummer quantitative uniformity bounded width c.e. tree singleton path finite-error programs",
+        "Web: \"On a Quantitative Notion of Uniformity\" \"singleton\" Kaufmann Kummer",
+        "Web: computability theory nonuniform uniformization paths finite computable tree bounded width index selector unique path"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1408.2857 — Binns and Kjos-Hanssen, 2014-08-12; abstract and sections 1–2 read.",
+      "doi:10.3233/FI-1996-25106 — Kaufmann and Kummer, 1996; publisher abstract and bibliographic metadata inspected.",
+      "doi:10.1007/3-540-60246-1_123 — Kaufmann and Kummer, MFCS 1995 extended abstract; Springer bibliographic page inspected.",
+      "published-finding corpus records 2026/9/30/SCOPE-uniform-introreducibility-spectra-contain-a-full-turing-cone--814c9df824fe; 2026/9/30/SCOPE-treeable-degrees-are-closed-under-finite-turing-joins--12c6f0655c30; 2026/9/30/SCOPE-a-finite-template-first-obstruction-dichotomy-at-the-first-zero--9c22ee0d0adc."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaufmann–Kummer (1996), DOI 10.3233/FI-1996-25106, provides a broad width-bounded uniformity theorem and an optimal finite list of \\(2n-1\\) programs.",
+        "The accessible source does not explicitly say whether the lower-bound witness has exactly one path."
+      ],
+      "reasoning": "The present claim is not the general \\(2n-1\\) theorem: it isolates the promised singleton-path class and proves that width two already prevents one-program eventual agreement, whereas width one admits exact uniform selection. The proof supplies the needed restricted lower bound directly. The possibility that the inaccessible full proof already contains this exact restriction is retained as a residual risk.",
+      "searches": [
+        "published-finding corpus: uniform path selector from index of computably enumerable binary tree of width at most two with exactly one infinite path",
+        "Web: \"For recursively enumerable trees of width at most n\" \"2n−1\" Kaufmann Kummer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaufmann–Kummer publisher abstract, DOI 10.3233/FI-1996-25106, states that a branch of a c.e. bounded-width tree is recursive but there is no algorithm computing a branch from its index.",
+        "Binns–Kjos-Hanssen, arXiv:1408.2857, §§1–2, defines path and branching notions for binary trees and studies path-existence principles."
+      ],
+      "reasoning": "The claim concerns a total computable map from a tree index and coordinate to a bit that is eventually correct on the unique path. This is stronger than merely failing to compute an exact branch: finite-error eventual agreement is explicitly included. The new restriction is that every input tree is promised to have exactly one path.",
+      "searches": [
+        "published-finding corpus: uniform path selector from index of computably enumerable binary tree of width at most two with exactly one infinite path",
+        "published-finding corpus: uniform computability from indices of singleton paths of c.e. trees finite width halting coding",
+        "Web: \"uniformly\" \"c.e. tree\" \"bounded width\" computable paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus records included 2026/9/30/SCOPE-uniform-introreducibility-spectra-contain-a-full-turing-cone--814c9df824fe, 2026/9/30/SCOPE-treeable-degrees-are-closed-under-finite-turing-joins--12c6f0655c30, and 2026/9/30/SCOPE-a-finite-template-first-obstruction-dichotomy-at-the-first-zero--9c22ee0d0adc; their objects and quantifiers differ from the present claim."
+      ],
+      "reasoning": "published-finding corpus is the exact semantic database queried for matching claims. No exact tabular invariant is involved. The returned nearest records concern introreducibility, treeable degrees, and finite-template obstructions, not a unique path through a c.e. binary tree.",
+      "searches": [
+        "published-finding corpus: uniform path selector from index of computably enumerable binary tree of width at most two with exactly one infinite path",
+        "published-finding corpus: least number of candidate programs approximating unique path through c.e. bounded width tree",
+        "published-finding corpus: Kaufmann Kummer quantitative uniformity bounded width c.e. tree singleton path finite-error programs"
+      ]
+    },
+    "rationale": "published-finding corpus semantic searches returned no matching singleton-path finite-error selector theorem. Kaufmann–Kummer (1996) is a close and important prior source: its accessible abstract gives the broad bounded-width result and the optimal \\(2n-1\\) list size, but does not specify whether its lower-bound example has exactly one path. The claim is deliberately restricted to the singleton-path promise and does not repeat the broader theorem. Full-text overlap remains a stated residual risk.",
+    "residual_risks": [
+      "The full Kaufmann–Kummer paper was not read. Its lower-bound proof could already use singleton-path trees, in which case the restricted claim would be covered. The accessible abstract alone does not settle this.",
+      "No independent literature audit has been performed; the self-review is provisional to the sources and searches listed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongly related general result, but the accessible abstract does not state whether the lower-bound construction has exactly one infinite path. The exact singleton-path overlap remains unresolved.",
+        "evidence": "The abstract states that the least list size for trees of width at most \\(n\\) is \\(2n-1\\) and notes nonuniformity of branch computation.",
+        "identifier_or_url": "https://doi.org/10.3233/FI-1996-25106; https://doi.org/10.1007/3-540-60246-1_123",
+        "material_read": "Publisher abstract and bibliographic metadata; the full text was not accessible.",
+        "method": "Compared the stated class, width parameter, finite-error criterion, and program-list quantifiers with the singleton-path claim.",
+        "title": "On a Quantitative Notion of Uniformity",
+        "trigger": "Closest literature search for uniform path selection from indices of bounded-width c.e. trees."
+      },
+      {
+        "assessment": "Related background, not a statement of the present uniformity obstruction.",
+        "evidence": "The paper defines extendible and branching nodes and studies VSMALL/DIM principles for existence of paths.",
+        "identifier_or_url": "https://arxiv.org/abs/1408.2857",
+        "material_read": "Abstract and HTML text of sections 1–2.",
+        "method": "Compared the objects and target: branching-node bounds and reverse-mathematical path-existence principles versus index-uniform finite-error selectors.",
+        "title": "Finding paths through narrow and wide trees",
+        "trigger": "Archive-era primary source on path selection and restricted binary trees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "05b4e27d-fdb6-4c0f-851f-e5a25be4b72c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The singleton-path promise removes multiplicity of infinite branches as an explanation for nonuniformity. The exact contrast between width one (uniform exact selection) and width two (no one-program finite-error selector) isolates the smallest width at which this uniformity obstruction appears. The claim is a self-contained boundary theorem rather than a finite experimental observation.",
+    "status": "PASS"
+  }
+}
