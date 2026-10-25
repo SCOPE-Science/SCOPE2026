@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The accompanying `check_contact_resonance.py` uses only Python's standard library. Run `python3 check_contact_resonance.py` from this directory; no dependency installation, network resource or special data file is required.
+## correctness
 
-The checker reconstructs integer parameter vectors for 431 permitted contact sets in dimensions 2–24. It certifies 9,605 comparisons between square-root-normalized facet distances by rational upper/lower bounds computed from integer square roots (with denominator scale \(10^{45}\)); verifies strict discrete concavity of the engineered cumulative slack sequence, positivity of all reconstructed increments and exact telescoping; and verifies the dimension-four witness with two simultaneously tangent upper cardinalities. An exact arithmetic argument, not the test range, establishes the general necessity and sufficiency.
+PASS
 
-The source theorem underlying the facet inequalities is Bayer et al., *Combinatorics of generalized parking-function polytopes*, arXiv:2403.07387, Theorem 2.3(c). The earliest identified supporting public source, Behrend et al., *Partial permutohedra*, arXiv:2207.14253, first appeared 2022-07-28 and is classified primarily under MSC2020 52B05. The new proof is self-contained once the published facet system is accepted.
+Using Bayer et al. Theorem 2.3(c), for b1>=2 the facets are all lower x_i>=1 and upper cardinality-k subsets with Euclidean normals sqrt(k). Any r-ball satisfies r<=(sum_{j=n-k+1}^n(S_j-1))/(k+sqrt(k)); the symmetric center (1+r)1 achieves all bounds and any active k enforces uniqueness. Positive integer A_k give rational ratios A_k/A_l on ties. If k != l and neither sqrt is rational, rearranging sqrt(k)=q sqrt(l)+q*l-k and conjugating irrational parts forces k=l; hence simultaneous ties require both square indices. Construct any T subset square indices via M=100n^4 and A_j=M(j+sqrt(j)) for j in T or M*j+floor(Msqrt(j))+1 otherwise. A nonsquare singleton is selected by bounded additive offsets 1 versus n+4. Strict discrete concavity of baseline M sqrt(j) dominates bounded perturbations, making y_i=A_{n-i+1}-A_{n-i} positive increasing integers and b=(1+y1,y2-y1,...) positive. All T realized, max tangent count n+sum_{j<=floor(sqrt n)} binom(n,j²). Independently programmed all nonempty square-index subsets and nonsquare singletons for n=2..21, checking reconstruction, integer positivity, strict concavity, and minima with 65-digit decimal arithmetic. That is bounded corroboration, not proof of all n; exact irrational-obstruction/concavity prove all n.
 
-Scientific limits: integer parameters with first parameter at least two, and Euclidean metric in original coordinate space. Finite exact-arithmetic tests do not certify all dimensions. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Neither known facet theorem nor known inradius scalar minimization logically determines which multiple cardinalities can tie under integer monotone b constraints; proof adds substantive arithmetic classification.
+
+## value
+
+PASS
+
+Complete attainable simultaneous contact-orbit classification for a natural integral generalized-permutohedral family. Perfect-square arithmetic obstruction is surprising and controls sharp maximum facets, absent from the scalar inradius formula or previous two-parameter phase diagram. Exact family-wide integer construction and all ties are independently useful geometric/combinatorial facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

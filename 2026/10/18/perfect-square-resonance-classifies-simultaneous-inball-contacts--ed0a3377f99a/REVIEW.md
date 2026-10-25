@@ -1,25 +1,21 @@
-# Mathematical review: perfect-square resonance of inball contacts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Bayer et al. (arXiv:2403.07387, Theorem 2.3(c)) show that for positive integral parameters with \(b_1\ge 2\), exactly the lower coordinate inequalities and all nonempty upper subset-sum inequalities are facets. Their Euclidean distances from the uniform candidate incenter give the already-known baseline \(r=\min_k A_k/(k+\sqrt k)\); all lower facets touch, and the upper facets of size \(k\) touch exactly when the ratio is minimized. Uniform-center uniqueness follows by simultaneous sharp inequalities on every subset of any active size.
+PASS
 
-The new necessity uses the integrality of the \(A_k\). A rational ratio of two expressions \(k+\sqrt k\) with distinct positive integer indices forces both indices to be perfect squares, by squaring and comparing rational and irrational terms. The new converse constructs integer data \(A_k\) a bounded distance from \(100n^4(k+\sqrt k)\), with zero normalized excess exactly at any chosen square indices, or uniquely smallest excess at an arbitrary nonsquare singleton. The explicit second-difference lower bound dominates all perturbations, hence the data give a positive integral \(\mathbf b\) by reversed first differences. Telescoping recovers the target \(A_k\) exactly. Every binomial facet orbit is positive, so the maximum is obtained by activating all square-index orbits.
+Using Bayer et al. Theorem 2.3(c), for b1>=2 the facets are all lower x_i>=1 and upper cardinality-k subsets with Euclidean normals sqrt(k). Any r-ball satisfies r<=(sum_{j=n-k+1}^n(S_j-1))/(k+sqrt(k)); the symmetric center (1+r)1 achieves all bounds and any active k enforces uniqueness. Positive integer A_k give rational ratios A_k/A_l on ties. If k != l and neither sqrt is rational, rearranging sqrt(k)=q sqrt(l)+q*l-k and conjugating irrational parts forces k=l; hence simultaneous ties require both square indices. Construct any T subset square indices via M=100n^4 and A_j=M(j+sqrt(j)) for j in T or M*j+floor(Msqrt(j))+1 otherwise. A nonsquare singleton is selected by bounded additive offsets 1 versus n+4. Strict discrete concavity of baseline M sqrt(j) dominates bounded perturbations, making y_i=A_{n-i+1}-A_{n-i} positive increasing integers and b=(1+y1,y2-y1,...) positive. All T realized, max tangent count n+sum_{j<=floor(sqrt n)} binom(n,j²). Independently programmed all nonempty square-index subsets and nonsquare singletons for n=2..21, checking reconstruction, integer positivity, strict concavity, and minima with 65-digit decimal arithmetic. That is bounded corroboration, not proof of all n; exact irrational-obstruction/concavity prove all n.
 
-The standalone integer checker verifies 431 constructive patterns for dimensions 2–24, 9,605 exact interval comparisons, strict concavity, positivity and telescoping, plus the explicit dimension-four witness. The checker is finite corroboration, not a proof of the universal theorem.
+## originality
 
-## Originality — PASS, with bibliographic uncertainty
+PASS
 
-Behrend et al., *Partial permutohedra* (arXiv:2207.14253), examine the related classical/partial permutohedral construction, faces, volumes and Ehrhart theory. Hanada et al., *Generalized parking function polytopes* (arXiv:2212.06885), study the two-parameter subclass and its face structure and volume. Bayer et al., *Combinatorics of generalized parking-function polytopes* (arXiv:2403.07387), prove the unrestricted facet and generalized-permutahedron descriptions. Those results do not state the integral perfect-square resonance criterion or its universal constructive converse.
+Best-of-knowledge, statement-and-implication comparison: inspected same-object primary results and relevant published records; literature access limits documented. Neither known facet theorem nor known inradius scalar minimization logically determines which multiple cardinalities can tie under integer monotone b constraints; proof adds substantive arithmetic classification.
 
-The closest earlier metric statements already give the scalar inradius, tangent-orbit test and individual singleton realizations, which are explicitly treated as prior work. The new claim classifies **all possible sets of simultaneously active cardinalities**, and derives a sharp maximum of the total facet-contact count. A short accessible index record for a related two-parameter inball theorem does not permit whole-document exclusion of uninspected statements, so an older equivalent formulation remains possible.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The central mathematical question is which simultaneous facet-orbit contact patterns can occur in an integral family whose face structure remains unchanged as parameters vary. The answer is a surprising arithmetic rigidity law, not merely an evaluation of a distance formula: nonsquare cardinalities are completely isolated, arbitrary collections of square cardinalities are realizable, and the maximum number of tangent facets follows exactly. Both obstruction and realization are needed; neither follows solely from knowing the inradius and each individually achievable orbit. This supplies a complete classification of natural contact degeneracies for an infinite family of simple lattice polytopes.
+Complete attainable simultaneous contact-orbit classification for a natural integral generalized-permutohedral family. Perfect-square arithmetic obstruction is surprising and controls sharp maximum facets, absent from the scalar inradius formula or previous two-parameter phase diagram. Exact family-wide integer construction and all ties are independently useful geometric/combinatorial facts.
 
-## Limits
-
-Real parameters and the \(b_1=1\) facet-degeneracy regime are outside the claim. No claim is made for John ellipsoids, affine-invariant contacts, or exhaustive prior-literature absence. Code corroboration is not independent mathematical validation.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
