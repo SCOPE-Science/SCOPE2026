@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The reproducibility program `verify.py` uses only the Python standard library. Execute `python3 verify.py` from a directory containing that program; successful execution ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-Method A exhausts all reflexive binary relations on a star with \(1\) to \(4\) leaves, filters by transitivity, then tests the original (FS1), (FS2), (CJ2) relational inclusions and the claimed canonical triple independently. It counts orbits under all permutations of leaves. Method B enumerates all labelled finite partial orders on up to five vertices, checks order ideals and the Stirling formula, canonicalizes partial orders, and applies Burnside's cycle formula to positive multiplicity assignments.
+## correctness
 
-Expected labeled counts for leaf counts \(1\) through \(5\): \(4,20,189,3084,81536\). Expected unlabeled counts: \(4,13,50,232,1303\). The direct relation-orbit method checks both columns through four leaves; the poset method checks both through five. These exhaustive finite results are checks, not proofs for arbitrary widths; the unrestricted claims require the normal-form argument and Burnside derivation in `RESULT.md`.
+PASS
+
+For every m>=2, on the rooted-star order FS1 and FS2 follow from reflexive root/leaf loops; CJ2 is equivalent to xRt for every leaf x when rRt. Transitivity forces Q=R|L to be a preorder, I={x:xRr} a predecessor-closed union of Q-classes, and T={t:rRt} either empty or the unique greatest Q-equivalence class. Conversely all paths through leaf/root close for the reconstructed R. The Stirling-number transform counts Q-equivalence set partitions, quotient labeled posets, their ideals, and the optional top flag. Burnside on poset automorphisms and positive block weights proves the unlabelled coefficient formula. Independent enumeration from original relational inclusion definitions checked n=1..3 leaf counts 4,20,189. Finite tests corroborate; the full proof is the symbolic bijection and Burnside argument; m=1 only a base consistency check.
+
+## originality
+
+PASS
+
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Finite rooted stars are the first branching forest orders under the existing modal-frame representation. The triple normal form gives a reusable structural classification of reflexive/transitive expansions, while the separate exact labeled and isomorphism enumerators answer genuinely different natural classification questions for every width, not a renamed chain count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

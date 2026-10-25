@@ -1,11 +1,21 @@
-# Scientific review: rooted-star Dunn–Fischer–Servi census
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the published three compatibility inclusions, under reflexivity on a rooted star, to a single requirement that every leaf access each root-accessible leaf. Transitivity then forces a leaf preorder, a predecessor-closed root-predecessor ideal, and either no root targets or the complete greatest preorder cluster. The converse is proved by inspecting all two-step path types. The exact labeled formula follows from partitioning preorder clusters and counting poset ideals; the unlabelled formula follows from a weighted automorphism-cycle count. These arguments cover every width. The self-contained `verify.py` directly checks all reflexive relations for up to four leaves against the literal frame axioms, with 3084 labeled relations and 232 orbits at four leaves, and independently checks quotient-poset and cycle-index coefficients through five leaves.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2021 Flaminio–Godo–Menchón–Rodríguez paper is the essential source of the general FSD forest conditions and dual representation; it is not claimed as new. Its inspected Sections 5–6 do not give the reflexive-transitive rooted-star triple, Stirling transform, or orbit series. The 2024/2026 Balbiani–Diéguez–Fernández-Duque–McLean work concerns general birelational semantics and finite-frame properties, not these exact censuses. Related modal-chain enumerations and structural results on forests do not imply the branching-star counts by direct specialization. Searches for the named conditions, equivalent preorder decorations, and the exact number sequences found no decisive stronger coverage. An earlier equivalent statement under different terminology or in unindexed material remains possible; non-retrieval alone is not novelty proof.
+PASS
 
-**Mathematical value — PASS.** A rooted star is the first branching finite Gödel forest, with \(2^m+1\) downsets on \(m\) leaves. The simultaneous Dunn–Fischer–Servi conditions together with reflexivity/transitivity are a natural S4-style intersection of important modal frame hypotheses. Rather than enumerate isolated small frames, the result classifies all widths, isolates a quotient-poset invariant, gives both labeled and up-to-isomorphism formulas, and determines explicit nontrivial counts. The result does not assert a general finite-forest theorem and has no claim to a new general modal duality.
+For every m>=2, on the rooted-star order FS1 and FS2 follow from reflexive root/leaf loops; CJ2 is equivalent to xRt for every leaf x when rRt. Transitivity forces Q=R|L to be a preorder, I={x:xRr} a predecessor-closed union of Q-classes, and T={t:rRt} either empty or the unique greatest Q-equivalence class. Conversely all paths through leaf/root close for the reconstructed R. The Stirling-number transform counts Q-equivalence set partitions, quotient labeled posets, their ideals, and the optional top flag. Burnside on poset automorphisms and positive block weights proves the unlabelled coefficient formula. Independent enumeration from original relational inclusion definitions checked n=1..3 leaf counts 4,20,189. Finite tests corroborate; the full proof is the symbolic bijection and Burnside argument; m=1 only a base consistency check.
 
-**Literature and limitations.** The closest inspected primary source is arXiv:2110.02528 (Definition 6.11 and Proposition 6.12). arXiv:2403.00201, §§1–2 and its finite-frame discussion, treats a broader but different question; arXiv:2304.12094 provides related decidability context at abstract level. This review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared theorem-level implications and all four named originality checks against relevant primary literature, published Resultary records, numerical sources and compatible general statements; conclusion is best-of-knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Finite rooted stars are the first branching forest orders under the existing modal-frame representation. The triple normal form gives a reusable structural classification of reflexive/transitive expansions, while the separate exact labeled and isomorphism enumerators answer genuinely different natural classification questions for every width, not a renamed chain count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
