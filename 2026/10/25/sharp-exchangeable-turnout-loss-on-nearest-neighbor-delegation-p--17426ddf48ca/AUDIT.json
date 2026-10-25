@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Each voter is unrepresented exactly when every distinct voter in its default-delegation orbit abstains. Exchangeability makes this probability depend only on orbit size. Every local functional component of a path has a one- or two-vertex cycle; decreasing sequence partial sums force extremal cycle placement, and component cost subadditivity collapses all intervals. Exact fixed-count and direct turnout enumeration (see checks/verify.py) checks n=2..9 and n=2..6, respectively; enumeration is corroboration not infinite proof. The two-ended optimizer classification under i.i.d. 0<q<1 follows from strict inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "COMSOC2025 paper49 §§2–5 defines independent-turnout default delegation and studies equilibria and welfare; extended arXiv:2607.12610 Appendix B.4 gives only unrestricted global cycle optima.",
+        "arXiv:2506.09789 §3 and Appendix B studies voting influence and exponential discounting along chains, not optimization of lost ballots over nearest-neighbor profiles.",
+        "arXiv:2607.01730 introduces ranked back-up delegates and personal fallback ballots: the set of admissible allocation rules and loss criterion are different."
+      ],
+      "reasoning": "Allowing longer edges yields n a_n, which is a lower bound but not the constrained optimum; substituting path length into unrestricted results does not prove endpoint optimality. Expected voting power of a given voter is a different optimization target from total lost voting weight.",
+      "searches": [
+        "published-finding corpus: Cycles in Liquid Democracy A Game-Theoretic Justification Proposition 19 voter participation cycles optimal lost votes locality constraint",
+        "published-finding corpus: Liquid democracy path graph optimal delegation reliability correlated abstention exchangeable probability vote preservation",
+        "Web: \"liquid democracy\" \"local\" \"neighbors\" voting power failure delegation",
+        "Web: \"delegation\" \"path\" \"participation\" \"expected\" \"cycles\" liquid democracy lost votes"
+      ]
+    },
+    "checked_sources": [
+      "COMSOC2025 paper49, 2025 workshop text (main model and structural sections)",
+      "arXiv:2607.12610, full-text HTML, §§2–5 and Appendix B.4",
+      "arXiv:2506.09789, parsed full-text sections and appendices on influence",
+      "arXiv:2607.01730, abstract/introduction only",
+      "arXiv:2608.13188, abstract and public announcement only",
+      "Earlier published result 24ed26cd-fb3d-4e0b-a2e6-481016e2f9cc (equilibrium result)",
+      "Earlier published result 174f37a2-5b2b-44da-8771-08a7883a67b3 (profile enumeration)",
+      "published-finding corpus semantic searches listed above (no matching mathematical implication found)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unrestricted global optimum n a_n is implicit in Hamiltonian-cycle Proposition 19 for independent turnout, while the new path optimum is strictly larger for n>=3 and iid 0<q<1.",
+        "The exact path theorem relies on a two-cycle/interval decomposition and subadditivity not present in the unrestricted proposition.",
+        "arXiv:2608.13188 concerns expected voting weight and random-walk decay centrality, distinct from a total lost-weight optimization; complete text was not accessible for a decisive full-text comparison."
+      ],
+      "reasoning": "The predecessor and new claim solve related but mathematically different feasible sets and objective hypotheses; a general lower bound is not an upper bound for a restricted class. Exchangeable dependence is additionally outside the independent-turnout premise. However, the inaccessible 2026 source creates a documented rather than excluded priority risk.",
+      "searches": [
+        "Primary paper: arXiv:2607.12610, Appendix B.4, Proposition 19 and §2 model",
+        "Primary paper: COMSOC2025 paper49, §§2–5",
+        "Primary paper: arXiv:2506.09789, §3 and Appendix B",
+        "Web: \"Power in Liquid Democracy: A Network Centrality Approach\" path cycle turnout expected vote loss 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.12610, Appendix B.4 Proposition 19, unrestricted all-voter-cycle lost-vote optimum; the graph has no locality constraint.",
+        "Published result 24ed26cd-fb3d-4e0b-a2e6-481016e2f9cc gives Hamiltonian Nash equilibria under a sufficient homogeneous-tolerance diameter condition, not path-constrained expected-loss minima.",
+        "Published result 174f37a2-5b2b-44da-8771-08a7883a67b3 counts reachability profile equivalence classes, not abstention losses."
+      ],
+      "reasoning": "Expected-loss and path-constrained placement are not equivalent to equilibrium existence or reachability-profile counting. The known unrestricted Hamilton cycle cannot be drawn with nearest-neighbor edges for n>=3. No searched record established the sharp path formula.",
+      "searches": [
+        "published-finding corpus: In probabilistic default-delegation liquid democracy, delegation permitted only between consecutive voters on a path: minimal expected lost voting weight attained by a reciprocal pair at a path endpoint, for exchangeable turnout, exactly 2 a_2 + sum_{s=3}^n a_s.",
+        "published-finding corpus: Delegation graph functional digraph nearest-neighbor path optimal expected vote loss attendance independent q endpoint 2-cycle",
+        "Web: \"liquid democracy\" \"path\" \"probabilistic\" delegation \"optimal\" cycles",
+        "Prior-publication comparison by claim identifier: 24ed26cd-fb3d-4e0b-a2e6-481016e2f9cc and 174f37a2-5b2b-44da-8771-08a7883a67b3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2025 COMSOC and expanded 2026 primary texts contain no table or exact formula for path-neighbor profiles under exchangeable turnout.",
+        "published-finding corpus ranked search hits concerned unrelated voting-paradox enumerations, not an exact table of path-constrained default-delegation losses."
+      ],
+      "reasoning": "The exact expression L_n=2 a_2+sum_{s=3}^n a_s was not located as a table value, alias, or previously recorded sharp path invariant in searched sources. Search failure alone is not affirmative proof of originality.",
+      "searches": [
+        "published-finding corpus: liquid democracy default delegation cycles probabilistic voters loss",
+        "published-finding corpus: delegation cycles voting abstention path neighbor reliability",
+        "Web: \"delegation\" \"path graph\" \"expected votes\" minimize lost",
+        "Web: \"liquid democracy\" \"exchangeable\" turnout abstention"
+      ]
+    },
+    "rationale": "The strongest close source proves an unrestricted Hamiltonian-cycle minimum; this cannot be realized on paths with n>=3 and does not derive a feasible optimum under the path restriction. The surviving claim adds arbitrary exchangeable turnout and an exact positive locality penalty. Checked earlier published claims on strategic equilibria and liquid-approval reachability have distinct objectives. Full-text comparison with a newer centrality paper was unavailable and is a residual priority risk.",
+    "residual_risks": [
+      "An obscure publication may already treat exchangeable turnout and network-restricted default delegation under equivalent reliability terminology.",
+      "Full content of arXiv:2608.13188 was inaccessible; abstract suggests a different objective but cannot support a full-document exclusion.",
+      "Later parts of arXiv:2607.01730 temporarily inaccessible; ranked-backup semantics differ from the present single-default model.",
+      "The actual first online posting date of COMSOC2025 paper49 may precede the confirmed 2025-09-17 workshop start."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines independent-turnout default delegation; no path-neighbor exchangeable vote-loss minimization theorem in inspected sections. Expanded version compared separately.",
+        "evidence": [
+          "COMSOC2025 paper49 pp. 3–4 model, p. 11 reference to later extended vote-loss analysis."
+        ],
+        "identifier_or_url": "https://www.ac.tuwien.ac.at/comsoc2025/comsoc2025-papers/49.pdf",
+        "material_read": "PDF pages 1–3 (model and participation), 6–11 (equilibrium structure/welfare; line extracted); verified visual page 1.",
+        "method": "Primary PDF extracted-text reading with direct page screenshot.",
+        "title": "Cycles in Liquid Democracy: A Game-Theoretic Justification (COMSOC workshop version)",
+        "trigger": "Introduces the precise default-delegation voting semantics and defines the problem motivating path locality."
+      },
+      {
+        "assessment": "A full directed cycle minimizes lost votes when all pairs of voters can delegate; no nearest-neighbor path restriction or arbitrary exchangeable-turnout optimum is stated in the inspected treatment.",
+        "evidence": [
+          "arXiv:2607.12610 Appendix B.4, Proposition 19, and preceding expectation recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.12610",
+        "material_read": "Model §2, contributions §§1–5 and Appendix B.4 including formula and Proposition 19; appendix context through expected vote-loss recursion.",
+        "method": "Primary arXiv full-text HTML reading with targeted passage comparisons.",
+        "title": "Cycles in Liquid Democracy: A Game-Theoretic Justification (expanded)",
+        "trigger": "Proposition 19 is the strongest close predecessor and could dominate a loss-minimization claim."
+      },
+      {
+        "assessment": "Calculates voting influence/expected weight for fixed delegation graphs; not the constrained optimization of total lost weight or exchangeable fixed-count turnout.",
+        "evidence": [
+          "arXiv:2506.09789 §§2–3 and Appendix B, equations (7)–(11)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.09789",
+        "material_read": "Introduction, §2.4 on cycles, §3 on influence down chains, Appendix B on suspendible delegation graphs and stationary weights.",
+        "method": "Primary arXiv parsed full-text reading.",
+        "title": "Delegations as Adaptive Representation Patterns: Rethinking Influence in Liquid Democracy",
+        "trigger": "Same suspendible-delegation chains and cycles; possible alias via expected voting weight."
+      },
+      {
+        "assessment": "The visible model uses ranked backup delegates and personal fallback ballots, which are excluded here. No whole-text noncoverage claim is made.",
+        "evidence": [
+          "arXiv:2607.01730 abstract, Introduction, design overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.01730",
+        "material_read": "Abstract, introduction, contribution list and contents; later sections became temporarily inaccessible.",
+        "method": "Primary arXiv HTML partial reading.",
+        "title": "Resilient Liquid Democracy: Mitigating Voting Power Imbalances via Secure Delegation Networks",
+        "trigger": "Discusses robustness to delegate abstention and potential locality/backup design."
+      },
+      {
+        "assessment": "Its announced results address centrality and representative slate selection, not a specified exchangeable-turnout path lost-vote optimum. Inaccessible detailed full text remains a risk.",
+        "evidence": [
+          "arXiv:2608.13188 abstract and public July 2026 workshop announcement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.13188",
+        "material_read": "Abstract and author-supplied public announcement of the scope; full arXiv PDF/HTML retrieval failed.",
+        "method": "Published metadata/abstract comparison and external announcement only; no full-text inspection claimed.",
+        "title": "Power in Liquid Democracy: A Network Centrality Approach",
+        "trigger": "Recent study of first-passage weighting on functional delegation graphs including paths and cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17426ddf-48ca-43ec-b010-eb3ed1da4369",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Physical or trust-network constraints make the predecessor’s all-vertex cycle unavailable. The exact optimum for a path is therefore a natural, previously unreported design invariant: it quantifies the unavoidable number of unrepresented votes, gives the optimal local edge orientation, handles arbitrary turnout correlation subject to exchangeability, and isolates a nonvanishing large-n absolute locality penalty. It addresses a real structural gap rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
