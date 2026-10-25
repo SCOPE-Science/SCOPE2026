@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:57:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 0114b486a17ae2d3991e740ff012cbfcdbf8c5e0 §§1-4",
+        "Dilworth 1950 chain-cover theorem",
+        "pinned verify.py blob 068623c8d009144c96b40d1f775043b3406e5431, exact integer finite checker source inspected"
+      ],
+      "rationale": "The pinned source defines a unit flow on a finite acyclic directed graph with every arc on a source-sink route and at least two distinct routes. Nonnegative flow decomposes into route-incidence vectors because of acyclicity. Arc precedence e<f when head(e) reaches tail(f) is a strict poset, and a chain of arcs extends to a route. Dilworth makes its width w equal the minimum number of routes covering all arcs, allowing overlaps. For an admissible reflection with factor lambda every c_e>=1/(lambda+1); summing over a size-w antichain yields lambda>=w-1 since a route meets an antichain at most once. Averaging a width-w route cover gives a unit flow c_e>=1/w; for any c with those inequalities, wc-chi_R is a nonnegative flow of strength w-1 for every route R, yielding exact containment for all F(G), and conversely this condition is forced at optimum. Positive integer flows decompose into integer routes, so the minimal k with all arc entries positive is exactly cover width w; this is the codegree in the declared lattice. A matching in the transitive-closure poset provides w=|E|-nu. No inference from the bounded checker is necessary for the all-DAG proof.",
+      "residual_risks": [
+        "The program enumerates finitely many small DAGs, not every DAG; was read but not executed independently this run.",
+        "Directed cycles, inaccessible arcs and capacitated/different-demand flow systems are not in this theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun–Cornejo (2024) treats Gorenstein/balanced DAGs and edge-disjoint route partitions for their codegrees, a proper restriction compared with arbitrary DAGs needing overlapping covers.",
+          "Published order-polytope asymmetry law for longest poset chains applies to a different polytope construction; not all DAG route-flow polytopes are order polytopes."
+        ],
+        "reasoning": "Subclasses and integrally equivalent special planar networks do not imply the all-DAG theorem or its all-centers certificate.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of acyclic network flow polytopes arc poset width codegree",
+          "arXiv:2408.05320",
+          "arXiv:2203.01896",
+          "Resultary 2026/10/11/SCOPE-minkowski-asymmetry-and-canonical-center-polytopes-of-finite-pos--2f48aab3ef81"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.01896",
+        "arXiv:2408.05320",
+        "Dilworth, Ann. of Math. 51 (1950), 161–166",
+        "Resultary 2f48aab3ef81 and 9a80040abd60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dilworth yields route cover size but not coordinate reflection and all optimal centers; latter follow by separate proof.",
+          "Known Gorenstein codegree arguments using balanced edge-disjoint partitions do not automatically extend to unbalanced DAGs and arbitrary overlapping route covers."
+        ],
+        "reasoning": "Prior ingredients are used but not a known stronger previously stated theorem implying every aspect of the submitted all-DAG formula.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of acyclic network flow polytopes arc poset width codegree",
+          "web: \"Minkowski asymmetry\" \"flow polytope\" codegree",
+          "Dilworth 1950",
+          "arXiv:2408.05320",
+          "arXiv:2203.01896"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An arc poset is formed by reachability between directed arcs; its width equals a minimum *overlapping* source-to-sink route cover by Dilworth.",
+          "Codegree uses strict positivity in the relative interior of the natural integral unit-flow lattice, not a Euclidean inradius."
+        ],
+        "reasoning": "Investigated path-cover, Dilworth chain-cover, positive integer flow covering, codegree, and affine Minkowski-center aliases. Only the first two combinatorial equivalences are known inputs; no inspected general s(F) classification is subsumed.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of acyclic network flow polytopes arc poset width codegree",
+          "web: \"Minkowski asymmetry\" \"flow polytope\" codegree",
+          "arXiv:2203.01896",
+          "arXiv:2408.05320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact flow-polytope Euclidean inradius uses metric effective-resistance weights; Minkowski asymmetry is affine and differs mathematically.",
+          "Finite route/antichain tables cannot cover arbitrarily large DAGs."
+        ],
+        "reasoning": "There is no applicable numerical database/table that determines the whole infinite family of optimal centers under the Minkowski reflection containment.",
+        "searches": [
+          "Resultary: Minkowski asymmetry of acyclic network flow polytopes arc poset width codegree",
+          "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-acyclic-flow-polytopes-as-an-effective-res--9a80040abd60",
+          "arXiv:2203.01896"
+        ]
+      },
+      "rationale": "This is the all-DAG equality s(F)=width(arc poset)-1 and equality of minimizing-center set with the coordinate lower-bound slice, together with lattice codegree. Earlier flow-polytope papers establish route vertices/triangulations and codegree for stronger balance/Gorenstein assumptions; their theorems do not state the current all-network reflection containment or all centers. An abstract Dilworth identity alone has no Minkowski centers. Originality is qualified by general combinatorial-polytope symmetry literature.",
+      "residual_risks": [
+        "Possible unlocated affine symmetry theorem for positive 0/1-polytopes or flow semigroup codegrees could imply the result after equivalence.",
+        "The full secondary literature on network-flow codegrees is not exhaustive; noncoverage is asserted only for inspected mathematical statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes flow-polytope combinatorial framework but examined statements do not give affine Minkowski asymmetry or complete minimizing center set",
+          "evidence": "Source-to-sink route vertices, Proposition 2.3 and Gorenstein discussion",
+          "identifier_or_url": "arXiv:2203.01896",
+          "material_read": "Accessible complete primary PDF, route-vertex descriptions and Gorenstein/triangulation sections",
+          "method": "arXiv PDF opened; inspected page images, searched relevant sections",
+          "title": "Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras",
+          "trigger": "Exact same directed acyclic unit-flow polytope objects"
+        },
+        {
+          "assessment": "The theorem covers specially balanced Gorenstein networks and edge-disjoint route structure; cannot by itself imply current arbitrary-DAG asymmetry-plus-all-centers classification",
+          "evidence": "Definition and Theorem 4.1, 2024",
+          "identifier_or_url": "arXiv:2408.05320",
+          "material_read": "Accessible complete primary PDF, network definitions and Gorenstein codegree Theorem 4.1",
+          "method": "arXiv PDF opened and relevant page image visually inspected",
+          "title": "Equatorial Flow Triangulations of Gorenstein Flow Polytopes",
+          "trigger": "Potential stronger codegree result on the same graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md and explicit non-Gorenstein Δ2×Δ1 example",
+        "arXiv:2203.01896 geometry of flow polytopes",
+        "Dilworth 1950"
+      ],
+      "rationale": "Acyclic unit-flow polytopes are central combinatorial optimization objects, and Minkowski asymmetry is a natural but difficult affine invariant. Identifying it exactly for arbitrary acyclic networks by a readily computable arc-poset width, simultaneously classifying every center and relating the same number to lattice codegree, is a genuine complete infinite-family structural classification. The polytime Dilworth matching formula is useful even when the graph is not planar, balanced, or Gorenstein.",
+      "residual_risks": [
+        "Value does not rest on 1,393 finite test graphs; the theorem and center-locus relation supply the motivation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite acyclic DAG, all arcs route-supported, at least two distinct routes; unit total strength, natural relative lattice.",
+    "Directed cycles, general demands, capacities, and singleton route polytopes excluded."
+  ],
+  "schema_version": 1
+}
