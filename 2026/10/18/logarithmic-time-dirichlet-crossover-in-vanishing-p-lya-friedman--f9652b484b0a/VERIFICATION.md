@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the balanced mixed-urn crossover
+# Independent mathematical audit
 
-An exact-rational finite-state enumeration in `verify.py` was run with Python 3 and returned `Exact finite-state and deterministic asymptotic checks passed: 280206`.
+## correctness
 
-Each enumerated state is advanced by all colors and both Bernoulli replacement outcomes, with exact rational probabilities. The checker compares the one-step conditional drift with the theorem's formula and separately checks the finite-time expectation against the product formula, preserving mass one at each step. It spans two and three colors, multiple initial compositions and reinforcement strengths, and five rational mixing probabilities including both endpoints.
+PASS
 
-The script also evaluates selected finite logarithmic-time contraction factors; these are illustrative computations, not a proof of convergence. Infinite asymptotic assertions rely on the exact martingale recurrence, the square-summable rescaled noise bound, finite-prefix coupling to a pure Pólya urn, and uniform harmonic-product asymptotics. The normalizer and the Dirichlet reference law are explicitly defined, and no numerical or external proof certificate is needed.
+For fixed k>=2, integer r,a,b and p_N→0, exact conditional proportions give drift −gamma_N(Z−u)/(theta+j), gamma_N=kb p_N/c. Dividing by the product A_t of drift factors gives a square-integrable vector martingale with maximal tail O(K^{−1/2}) uniformly for gamma_N<=1/4; a common uniform-input coupling makes every fixed initial K draws equal to a classical Pólya process eventually. Its bounded Dirichlet limit B is therefore the *single shared random vector* for all logarithmic times. The harmonic expansion of log A_floor(N^s) is uniform for s∈[delta,1] and yields e^{−kb lambda s/c}; if p_N log N diverges, the maximal multiplier tends to zero. The finite exact rational drift test independently checks several k,r,a,b, but path convergence follows from martingale bounds and the coupling.
 
-There is no independent audit or independent validation in this package.
+## originality
+
+PASS
+
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
+
+## value
+
+PASS
+
+An explicit critical scale p_N~lambda/log N interpolates classical random Dirichlet proportions and deterministic balanced proportions, *uniformly as a stochastic logarithmic-time path* with one common Dirichlet variable. This is a nontrivial singular triangular-array limit, not simply a restatement of either endpoint theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

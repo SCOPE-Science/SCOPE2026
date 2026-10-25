@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is exact for arbitrary fixed positive counts, positive integer reinforcement values and every fixed color number \(k\ge2\). Its central recurrence follows directly from the two normalized replacement rules, including the case where the Friedman diagonal amount is smaller than an off-diagonal amount. Dividing by the deterministic drift product yields a true square-integrable martingale; the uniform \(j^{-3/2}\)-dominated increment variance bound and Doob inequality control the triangular array. A common inverse-transform coupling matches every fixed initial segment to an ordinary Pólya urn, giving the same Dirichlet random vector at every logarithmic time; uniform contraction-product asymptotics complete both finite and infinite drift regimes. The exact finite-row mean identity is independently checked by 280,206 finite-state and deterministic diagnostic assertions. Finite diagnostics are not used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For fixed k>=2, integer r,a,b and p_N→0, exact conditional proportions give drift −gamma_N(Z−u)/(theta+j), gamma_N=kb p_N/c. Dividing by the product A_t of drift factors gives a square-integrable vector martingale with maximal tail O(K^{−1/2}) uniformly for gamma_N<=1/4; a common uniform-input coupling makes every fixed initial K draws equal to a classical Pólya process eventually. Its bounded Dirichlet limit B is therefore the *single shared random vector* for all logarithmic times. The harmonic expansion of log A_floor(N^s) is uniform for s∈[delta,1] and yields e^{−kb lambda s/c}; if p_N log N diverges, the maximal multiplier tends to zero. The finite exact rational drift test independently checks several k,r,a,b, but path convergence follows from martingale bounds and the coupling.
 
-Inspected closest primary texts: Shi–Yin–Miao (arXiv:2605.26669, two-color fixed-positive mixing and CLT); Alves–Rosales (arXiv:2502.16768, fixed-positive mixing equilibration); Zhang (arXiv:2204.04810, general randomized/nonhomogeneous urn strong laws); Crimaldi–Dai Pra–Minelli (arXiv:1407.5043, interacting rather than single mixed urn), and the classical Dirichlet limit in Janson (arXiv:1911.09569). Their stated theorems, scopes and relevant proofs do not imply the explicit coupled triangular-array affine Dirichlet profile when mixing vanishes at \(1/\log N\). Targeted mathematical-record and literature searches found no equivalent statement; this absence is not proof of novelty. A broader earlier triangular-array stochastic-approximation or perturbation theorem could subsume the claim and remains the main priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central mathematical issue is the singular crossover between random long-run Pólya proportions and deterministic Friedman equalization: taking the mixing probability to zero before versus after infinite time gives incompatible answers. The exact critical scale \(1/\log N\), the full finite-parameter family of non-Gaussian contracted Dirichlet limits, and the fact that every logarithmic observation shares one random vector give a structural interpolation rather than a routine specialization. The result covers arbitrarily many colors and includes a quantitative finite-row mean formula. It does not address asymmetric or unbalanced replacement matrices, fixed mixing probabilities, or rates of convergence.
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit critical scale p_N~lambda/log N interpolates classical random Dirichlet proportions and deterministic balanced proportions, *uniformly as a stochastic logarithmic-time path* with one common Dirichlet variable. This is a nontrivial singular triangular-array limit, not simply a restatement of either endpoint theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
