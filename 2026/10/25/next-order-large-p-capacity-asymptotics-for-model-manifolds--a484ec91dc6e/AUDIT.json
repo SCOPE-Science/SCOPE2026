@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(R>0\\), the radial \\(p\\)-capacity is \\(I_\\varepsilon(R)^{1-p}\\) with \\(I_\\varepsilon(R)=\\int_R^\\infty S(t)^{-\\varepsilon}dt\\) and \\(\\varepsilon=(p-1)^{-1}\\). The relative \\(O(t^{-1})\\) error contributes \\(o(\\varepsilon)\\) to \\(h\\varepsilon I_\\varepsilon\\); \\(\\Gamma(1-k\\varepsilon,h\\varepsilon R)=1+k\\gamma_{\\mathrm E}\\varepsilon-hR\\varepsilon+o(\\varepsilon)\\). Taking the reciprocal and applying the dimension normalization yields exactly the stated coefficient. The theorem is restricted to the explicit sphere-area asymptotic and fixed radius.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.14600v1 covers general large-p invariants and rank detection but only gives O(p^{-1}) precision for the logarithmic expansion.",
+        "arXiv:2502.13651v1 gives the hyperbolic sphere-area and annular-capacity formulas, a special case rather than the stated model-manifold asymptotic.",
+        "arXiv:2207.02012v1 studies the radius-to-infinity limit of capacity at fixed p on asymptotically hyperbolic manifolds; it does not compute the p-to-infinity coefficient under the stated model sphere-area expansion."
+      ],
+      "reasoning": "The checked sources do not supply the exact coefficient for every rotationally symmetric model satisfying the stated C r^k e^{hr}(1+O(r^{-1})) expansion. The claim is broader than the hyperbolic special case and sharper than the general rank-detection remainder.",
+      "searches": [
+        "large p asymptotic expansion p-capacity geodesic ball incomplete gamma sphere area exponential polynomial growth",
+        "asymptotic p-capacity model manifold polynomial correction volume entropy rank symmetric space constant coefficient Euler gamma",
+        "arXiv:2502.13651v1, Sections 1 and 4",
+        "arXiv:2207.02012v1, Theorem 1.7 and equations (1.11)-(1.13)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.14600v1",
+      "arXiv:2502.13651v1",
+      "published-finding corpus semantic search results for the three queries listed in prior_checks.resultary_queries",
+      "arXiv:2207.02012v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jin–Yin, arXiv:2604.14600v1, Theorem 1.13: the rank term is identified, but the remainder is O(p^{-1}); the proof uses two-sided growth bounds.",
+        "Jin–Yin, arXiv:2604.14600v1, equation (3.3): exact radial capacity of a ball is represented by the integral of sphere area to power 1/(1-p).",
+        "Jin–Xiao, arXiv:2502.13651v1, equation (1.5): the analogous exact formula for hyperbolic annuli."
+      ],
+      "reasoning": "Neither checked result states the coefficient log(C h^{m-1-k})+hR-k gamma_E. The present proof uses the sharper relative sphere-area expansion to evaluate the incomplete-gamma term to first order, which the prior O(p^{-1}) statement does not determine.",
+      "searches": [
+        "arXiv:2604.14600v1, Theorem 1.13, Lemma 4.2, equations (3.1)-(3.3)",
+        "arXiv:2502.13651v1, equations (1.1) and (1.5)",
+        "large p capacity asymptotic rank log p term volume entropy radial p-harmonic capacity gamma prefactor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.14600v1, Theorem 1.13: logarithmic rank coefficient plus O(p^{-1}) remainder.",
+        "arXiv:2604.14600v1, Lemma 4.2 and proof of Theorem 1.13: two-sided sphere-growth bounds and a Laplace-type estimate; no explicit C-dependent constant.",
+        "No equivalent exact constant term appeared among the returned published-finding corpus semantic results."
+      ],
+      "reasoning": "The checked source states the first logarithmic correction but leaves the constant inside O(p^{-1}). The added relative asymptotic coefficient C and the incomplete-gamma expansion are necessary to resolve it.",
+      "searches": [
+        "exact next-order asymptotic p-capacity of geodesic balls rotationally symmetric manifold sphere area S(r) ~ C r^k e^{h r} Euler gamma constant coefficient",
+        "large p capacity asymptotic rank log p term volume entropy radial p-harmonic capacity gamma prefactor",
+        "arXiv:2604.14600v1, Theorem 1.13 and Lemma 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query 1 returned, among its closest hits, 2026/10/11/SCOPE-exact-first-order-non-sphericity-of-haddad-s-barker-larman-branc--d0052bf7d6bd and 2026/10/4/SCOPE-second-order-curvature-gap-for-the-regular-simplex-sharpness-fam--c82d257f195e; neither concerns capacity.",
+        "published-finding corpus query 2 returned 2026/9/20/SCOPE-weak-lp-volume-ratio-exponential-all-p--cb86d86a6a44; it concerns finite-dimensional volume ratios, not geometric p-capacity.",
+        "published-finding corpus query 3 returned 2026/10/11/SCOPE-uniform-dimension-bandwidth-crossover-for-zonal-hemispherical-sp--ff7d4d2424fb and other unrelated spectral/convex-geometric results."
+      ],
+      "reasoning": "No exact matching published-finding corpus entry was found in the bounded semantic searches. Database non-retrieval is not treated as proof of novelty.",
+      "searches": [
+        "exact next-order asymptotic p-capacity of geodesic balls rotationally symmetric manifold sphere area S(r) ~ C r^k e^{h r} Euler gamma constant coefficient",
+        "large p capacity asymptotic rank log p term volume entropy radial p-harmonic capacity gamma prefactor",
+        "p-capacity asymptotic expansion model manifolds exact sphere-area prefactor C r^k e^{h r} incomplete gamma constant term"
+      ]
+    },
+    "rationale": "The closest primary source proves the \\(k\\log p/p\\) rank term with an \\(O(p^{-1})\\) remainder, not the prefactor-dependent constant. The new claim assumes a sharper relative asymptotic \\(S(r)=Cr^k e^{hr}(1+O(r^{-1}))\\) and resolves that coefficient explicitly. This is a focused refinement using a standard integral asymptotic, not a claim to a new capacity theory.",
+    "residual_risks": [
+      "A focused Laplace/incomplete-gamma expansion is standard analysis; an older or unindexed potential-theory source may contain the same coefficient under equivalent hypotheses.",
+      "The exact sphere-area asymptotic is an additional hypothesis and has not been established here for every symmetric space or model manifold.",
+      "No independent audit or exhaustive bibliographic priority search has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source, but not covering the explicit constant: it proves the logarithmic coefficient and an O(p^{-1}) remainder using two-sided growth bounds.",
+        "evidence": "Theorem 1.13 and Lemma 4.2; equation (3.3) gives the radial capacity integral.",
+        "identifier_or_url": "arXiv:2604.14600v1",
+        "material_read": "Full arXiv HTML; Theorem 1.13, Lemma 4.2, equations (3.1)-(3.3), and the proof of the second-order refinement.",
+        "method": "Compared the stated theorem, radial capacity identity, and proof precision with the claimed prefactor-sensitive coefficient.",
+        "title": "New Asymptotic Geometric Quantities in Riemannian Geometry and Their Geometric and Dynamical Applications",
+        "trigger": "Primary recent source for large-p capacity, entropy, and rank asymptotics."
+      },
+      {
+        "assessment": "Supporting special case, not covering the prefactor expansion for general rotationally symmetric models.",
+        "evidence": "Equations (1.1) and (1.5) give \\(S(r)=\\omega_{m-1}\\sinh^{m-1}r\\) and the exact radial annulus formula.",
+        "identifier_or_url": "arXiv:2502.13651v1",
+        "material_read": "Full arXiv HTML; sphere-area formula (1.1), radial annular capacity formula (1.5), and the capacity inequality sections.",
+        "method": "Compared its hyperbolic-specific exact integral with the general model-manifold statement.",
+        "title": "Sharply estimating hyperbolic capacities",
+        "trigger": "Plausible source for exact ball/annulus capacity formulas and a hyperbolic specialization."
+      },
+      {
+        "assessment": "Related but not covering: it studies radius tending to infinity at fixed p and bounds involving a relative-volume function, rather than the large-p expansion for fixed radius.",
+        "evidence": "Theorem 1.7 and equations (1.11)-(1.13) are radius-to-infinity limits; no fixed-radius p-to-infinity prefactor expansion is stated.",
+        "identifier_or_url": "arXiv:2207.02012v1",
+        "material_read": "Full arXiv HTML; introduction, Theorem 1.7, equations (1.11)-(1.13), and capacity-limit discussion.",
+        "method": "Compared the order of limits and the coefficient claimed in the present result.",
+        "title": "The relative volume function and the capacity of sphere on asymptotically hyperbolic manifolds",
+        "trigger": "Related capacity asymptotics for geodesic balls on asymptotically hyperbolic manifolds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a484ec91-dc6e-4aa2-89bf-267cbe3df3c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The \\(O(p^{-1})\\) remainder in the recent rank-detection theorem hides a natural next coefficient. Under a precise sphere-growth law, this coefficient separates the scale-invariant amplitude \\(C h^{m-1-k}\\) and the radius term \\(hR\\), distinguishing models with the same exponential rate and polynomial exponent. It is an exact, reusable next-order benchmark for geometric potential theory.",
+    "status": "PASS"
+  }
+}
