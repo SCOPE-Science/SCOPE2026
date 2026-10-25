@@ -1,19 +1,21 @@
-# Review of the exact progression census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Lucas' binary digit theorem identifies the odd-binomial index support as a product of independent integer intervals at separated binary runs. The step requiring proof is the additive rigidity: each coordinate difference in a relation of two sums lies strictly between consecutive multiples of the next block's base, so no carries can cancel between blocks. This gives an exact correspondence for all consecutive three-term identities, hence for every progression length. The signed-step interval count, subtraction of constant sequences and reversal involution complete the enumeration. The maximum and Fibonacci consequences are deduced from the same formula. Independently enumerating 8192 finite instances and checking boundary identities supports but does not substitute for the proof.
+PASS
 
-## Originality
+Lucas mod-2 makes odd Pascal support E_n exactly all submasks of n, decomposed into disjoint consecutive 1-bit runs of lengths t_i, each contributing 0<=u_i<2^t_i. The mandatory separating zero makes any equality x+y=z+w coordinatewise: the lowest nonzero block difference has magnitude <=2(2^t_i-1), strictly less than 2^{a_(i+1)-a_i}; induction kills all differences. Consecutive three-term identities then force all k-term progressions to factor by blocks, including k=2. The number of oriented length-k progressions in each interval is B_i=L_i(2h_i+1)-(k-1)h_i(h_i+1); subtract ∏L_i constant sequences, pair reversal, divide by 2. The max length, Fibonacci 3-AP-free count, and extremal product are consequences. Independent direct Lucas-index enumeration matched the formula for n=3,11,27,59,87,127 and k=2..5 including n=27 counts 120/24/10. This finite corroboration does not establish all n.
 
-PASS on the literature comparisons performed, with residual risk. The closest exact-object source is Meštrović's 2014 Lucas-theorem survey, section 6.1, which records the count of odd entries in each Pascal row, not their arithmetic-progression counts. Rolnick (2014) proves digitwise avoidance results for ternary Stanley sequences, with different mathematical objects; his results do not imply the claimed Pascal-row census. Kuca (2018) uses Sierpinski-triangle patterns and additive homomorphisms for Ulam-type sequences but does not supply the row-by-row factorization. Targeted searches for Pascal parity support, arithmetic progressions, binary runs, maximum lengths, and equivalent formulations found no statement covering the present theorem. An equivalent unindexed result may exist.
+## originality
 
-## Value
+PASS
 
-PASS. Arithmetic progressions in the parity support of binomial rows are a natural additive statistic of the familiar Sierpinski-Pascal structure. The result replaces a general exponential enumeration with a full closed expression for all progression lengths and every row, gives an exact extremal count and a sharp combinatorial criterion, and connects the sequence of progression-free row indices to Fibonacci enumeration. Its value does not depend on an unproved downstream application; the mathematically motivated full census and additive rigidity are the contribution.
+Best-knowledge PASS for all-length fixed-Pascal-row AP census, not the Lucas digit support, Fine/Glaisher support size, or generic digit combinatorics. Existing Lucas and Sierpinski results characterize odd entries; Rolnick examines different ternary Stanley sequences, and Kuca additive Ulam-type sequences. Their stated results do not directly count all AP lengths in each binary Pascal support. An unindexed equivalent digital-block AP formula remains possible.
 
-## Closest literature and limitations
+## value
 
-Meštrović, *Lucas' theorem: its generalizations, extensions and applications*, arXiv:1409.3820v1, section 6.1; Rolnick, *On the classification of Stanley sequences*, arXiv:1408.1940v1, section 3; Kuca, *Structures in Additive Sequences*, arXiv:1804.09594v1, sections 3--5. This result is restricted to parity modulo two and does not enumerate progression counts by fixed common difference. Publication priority and universal mathematical correctness have not received independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parity support of Pascal rows is a natural Sierpinski-type additive set. A uniform exact product formula replaces raw enumeration for every row and progression length, gives a maximal-length extremal count, and sharp Fibonacci characterization of AP-free rows. This is an independently usable exact arithmetic invariant with a concrete combinatorial motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

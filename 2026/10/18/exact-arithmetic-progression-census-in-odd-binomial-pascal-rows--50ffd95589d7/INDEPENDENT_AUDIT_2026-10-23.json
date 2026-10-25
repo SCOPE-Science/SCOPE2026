@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T17:01:18.121454Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas mod-2 makes odd Pascal support E_n exactly all submasks of n, decomposed into disjoint consecutive 1-bit runs of lengths t_i, each contributing 0<=u_i<2^t_i. The mandatory separating zero makes any equality x+y=z+w coordinatewise: the lowest nonzero block difference has magnitude <=2(2^t_i-1), strictly less than 2^{a_(i+1)-a_i}; induction kills all differences. Consecutive three-term identities then force all k-term progressions to factor by blocks, including k=2. The number of oriented length-k progressions in each interval is B_i=L_i(2h_i+1)-(k-1)h_i(h_i+1); subtract ∏L_i constant sequences, pair reversal, divide by 2. The max length, Fibonacci 3-AP-free count, and extremal product are consequences. Independent direct Lucas-index enumeration matched the formula for n=3,11,27,59,87,127 and k=2..5 including n=27 counts 120/24/10. This finite corroboration does not establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meštrović, Lucas theorem: generalizations, extensions and applications (1878–2014), arXiv:1409.3820, Section 6.1",
+          "Rolnick, On the classification of Stanley sequences, arXiv:1408.1940",
+          "Kuca, Structures in Additive Sequences, arXiv:1804.09594"
+        ],
+        "reasoning": "Lucas/Fine statements dominate the support description and its cardinality, not the k-AP census or extremal count.",
+        "searches": [
+          "Resultary: arithmetic progression counts positions odd binomial Pascal row binary one runs AP k term Sierpinski",
+          "Resultary: Pascal triangle binary parity arithmetic progression submask Sierpinski row",
+          "Source: Meštrović Lucas theorem survey arXiv:1409.3820 Section 6.1",
+          "Source: Rolnick Stanley sequences arXiv:1408.1940",
+          "Source: Kuca Structures in Additive Sequences arXiv:1804.09594"
+        ]
+      },
+      "checked_sources": [
+        "Meštrović, Lucas theorem: generalizations, extensions and applications (1878–2014), arXiv:1409.3820, Section 6.1",
+        "Rolnick, On the classification of Stanley sequences, arXiv:1408.1940",
+        "Kuca, Structures in Additive Sequences, arXiv:1804.09594",
+        "Classical Lucas theorem modulo 2 (digitwise binomial congruence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Meštrović, Lucas theorem: generalizations, extensions and applications (1878–2014), arXiv:1409.3820, Section 6.1",
+          "Rolnick, On the classification of Stanley sequences, arXiv:1408.1940",
+          "Kuca, Structures in Additive Sequences, arXiv:1804.09594"
+        ],
+        "reasoning": "Knowing ∏L_i gives only k=1 (size), whereas the proposed B_i require additional oriented-progression structure and no-carry rigidity.",
+        "searches": [
+          "Resultary: arithmetic progression counts positions odd binomial Pascal row binary one runs AP k term Sierpinski",
+          "Resultary: Pascal triangle binary parity arithmetic progression submask Sierpinski row",
+          "Source: Meštrović Lucas theorem survey arXiv:1409.3820 Section 6.1",
+          "Source: Rolnick Stanley sequences arXiv:1408.1940",
+          "Source: Kuca Structures in Additive Sequences arXiv:1804.09594"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meštrović, Lucas theorem: generalizations, extensions and applications (1878–2014), arXiv:1409.3820, Section 6.1",
+          "Rolnick, On the classification of Stanley sequences, arXiv:1408.1940"
+        ],
+        "reasoning": "Odd Pascal positions are submask sums with separated full digit intervals; this is a digital Cantor-like Cartesian product but not ternary Stanley sequence.",
+        "searches": [
+          "Resultary: arithmetic progression counts positions odd binomial Pascal row binary one runs AP k term Sierpinski",
+          "Resultary: Pascal triangle binary parity arithmetic progression submask Sierpinski row"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Meštrović, Lucas theorem: generalizations, extensions and applications (1878–2014), arXiv:1409.3820, Section 6.1",
+          "Rolnick, On the classification of Stanley sequences, arXiv:1408.1940",
+          "Kuca, Structures in Additive Sequences, arXiv:1804.09594"
+        ],
+        "reasoning": "Fibonacci three-term-free index count follows familiar binary no-adjacent-ones table; it is a corollary, not a standalone priority claim.",
+        "searches": [
+          "Resultary: arithmetic progression counts positions odd binomial Pascal row binary one runs AP k term Sierpinski",
+          "Resultary: Pascal triangle binary parity arithmetic progression submask Sierpinski row"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for all-length fixed-Pascal-row AP census, not the Lucas digit support, Fine/Glaisher support size, or generic digit combinatorics. Existing Lucas and Sierpinski results characterize odd entries; Rolnick examines different ternary Stanley sequences, and Kuca additive Ulam-type sequences. Their stated results do not directly count all AP lengths in each binary Pascal support. An unindexed equivalent digital-block AP formula remains possible.",
+      "residual_risks": [
+        "Highly relevant possible digit-additive AP literature not exhaustively read; no priority proof from absent search hits.",
+        "Lucas and Fine counts are classical and not presented as new.",
+        "Independent direct counting samples do not replace exact separated-block argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Digitwise parity support and total cardinality are established prior; exact AP census not determined from the material read",
+          "evidence": "Known result |E_n|=2^{popcount(n)} is ∏L_i, not the nonconstant k-AP product count.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.3820",
+          "material_read": "Available abstract and referenced section identification; full arXiv HTML unavailable in this run",
+          "method": "Bibliographic abstract and comparison to mathematical claim",
+          "title": "Meštrović, Lucas theorem survey",
+          "trigger": "Same odd-binomial support and classical Fine count"
+        },
+        {
+          "assessment": "Ternary-digit greedy Stanley sequence setting distinct from fixed binomial parity supports",
+          "evidence": "Novelty claim not based on failure to search an alternate AP source.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.1940",
+          "material_read": "Abstract and publication synopsis, no full text",
+          "method": "Abstract-level comparison",
+          "title": "Rolnick, On the classification of Stanley sequences",
+          "trigger": "Arithmetic-progression avoidance via digit constructions"
+        },
+        {
+          "assessment": "Ulam/additive sequences, not exact per-Pascal-row length census, subject to uninspected-text risk",
+          "evidence": "Future primary reading could reveal a relevant digital-block lemma.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.09594",
+          "material_read": "Citation and available synopsis; primary full text not inspected",
+          "method": "Synopsis-level comparison",
+          "title": "Kuca, Structures in Additive Sequences",
+          "trigger": "Sierpinski and additive-sequence combinatorics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parity support of Pascal rows is a natural Sierpinski-type additive set. A uniform exact product formula replaces raw enumeration for every row and progression length, gives a maximal-length extremal count, and sharp Fibonacci characterization of AP-free rows. This is an independently usable exact arithmetic invariant with a concrete combinatorial motivation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant possible digit-additive AP literature not exhaustively read; no priority proof from absent search hits.",
+    "Lucas and Fine counts are classical and not presented as new.",
+    "Independent direct counting samples do not replace exact separated-block argument.",
+    "No external human expert attestation or formal Lean verification is asserted.",
+    "All original source packages remain unchanged; scientific assessment is distinct from operational publication authorization."
+  ],
+  "schema_version": 1
+}
