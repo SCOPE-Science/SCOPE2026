@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The condition on two distinct sides reduces affinely to two independent uniform unit-interval variables. The exact min/max values of the chord's defining affine functional over the inner triangle establish two disjoint failure sets, each integrated explicitly with boundaries and antiderivatives supplied in `RESULT.md`. Adding the same-side atom completes the full law. Geometrically independent barycentric clipping experiments verified 20 frequencies within their expected simulation uncertainty. No finite test is treated as an infinite proof.
+
+**Originality — PASS, with meaningful bibliographic risk.** published-finding corpus searches for arclength-uniform triangular boundary chords, homothetic-core penetration and affinity found no implication-equivalent indexed theorem. A directly relevant 2016 triangle-secant author full text was inspected, establishing that it studies a different slope-sampled chord-length threshold. The strongest neighboring classical sources concern secant length, interior-generated chords and containment functions; only their abstracts or bibliographic information were accessible. Consequently an inaccessible older equivalent law remains possible, and no blanket uniqueness claim is made. Conditional universality and sharp distributional extremality are not implied by a mere secant-length calculation.
+
+**Mathematical value — PASS.** This gives the complete exact law of a natural continuously varying geometric penetration statistic under an experimentally meaningful endpoint sampling model. The conditionally universal factorization leads to a sharp *simultaneous* stochastic bound for all nondegenerate triangles, geometric rigidity at the equilateral case, and a concrete two-shape non-identifiability phenomenon. These are substantive global structures rather than a single arbitrary numeric probability.
+
+Limitations: The normalization, center choice and endpoint sampling measure are essential. Full texts of Ehlers–Enns (1981), Enns–Ehlers (1988) and Ren (2014) were unavailable. Some historically equivalent formulations cannot be ruled out without wider expert review.
+
+Self-review: passed. Independent audit: not yet performed.
