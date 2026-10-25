@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Symmetry averaging is valid for the spectral-norm objective. The four orbit classes produce a two-by-two antisymmetric block, one extra eigenvalue and the ordinary-class repeated eigenvalue. Through part size seven, the norm of its first column supplies a matching global lower bound. Beyond that point, a concrete feasible chain meets a proved convex first-order global optimality certificate with nonnegative weights. The analytic proof handles every integer part size in the stated domain; finite numerical checks are supplementary.
+
+**Originality — PASS, best-knowledge.** The closest sources are Boyd–Diaconis–Xiao (2004), section 7.1, and Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955; 2009 published version), section 5.4.2 on intact bicliques and section 5.4.4 on two cliques joined by a bridge. The intact-biclique formula is not the one-edge-deleted optimization, and the bridge-of-cliques example solves a different graph (the complement of the graph studied here). Source searches for one-edge-deficient bicliques, missing links, near-complete bipartite graphs and spectral-optimum equivalences found no demonstrated exact covering formula. This is not a proof of absence across every publication. Other unindexed edge-failure treatments remain a residual risk.
+
+**Value — PASS.** One missing allowed transition edge is a natural robustness perturbation of a standard explicit fastest-mixing example. The result determines all optimal spectral values across arbitrary balanced part sizes, identifies the non-obvious transition at eight, supplies explicit optimal edge probabilities, and quantifies a strictly positive \(n^{-2}\) asymptotic penalty. This is more than recomputing a known table or applying the intact-biclique formula by substitution.
+
+**Scientific boundaries.** Only symmetric stochastic chains with freely chosen self-loops and one deleted cross-edge are covered. No classification of all possibly nonsymmetric optimal weights or arbitrary failures is claimed. A targeted primary-source comparison was performed, not a comprehensive survey of unindexed papers. The standalone finite checker does not replace the convex analytical proof.
+
+Self-review: passed. Independent audit: not yet performed.

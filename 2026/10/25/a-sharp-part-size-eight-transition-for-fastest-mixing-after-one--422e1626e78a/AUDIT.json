@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Graph automorphism averaging reduces feasible chains to two edge-orbit weights. The complete eigenvalue decomposition gives one simple symmetric mode, a two-by-two antisymmetric block, and an ordinary zero-sum eigenvalue of multiplicity 2n-4. Its first-column norm produces a universal lower bound attained through n=7. For n>=8, the feasible radical candidate activates both signed block eigenvalues and the ordinary eigenvalue, and an explicitly nonnegative three-term convex-gradient combination vanishes; therefore the convex SLEM objective is globally minimized. The square-root, feasibility and asymptotic identities were rechecked algebraically; finite Python checks support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2009, sections 2 and 5 give general symmetry and SDP methods.",
+        "Boyd et al. 2004 section 7.1 gives exact unperturbed complete-bipartite cases."
+      ],
+      "reasoning": "Generic solvability by an SDP covers numerical instances as a method, not the explicit all-n optimum and sharp eight-part-size change. Neither inspected special-case formula contains the one-missing-edge feasible set. Universal black-box computation alone does not state the analytical claim.",
+      "searches": [
+        "\"fastest mixing\" \"near-complete bipartite\" deleted edge",
+        "\"fastest mixing Markov chain\" \"edge removed\" \"complete bipartite\"",
+        "Boyd Diaconis Parrilo Xiao Fastest Mixing Markov Chain on Graphs with Symmetries full text"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://arxiv.org/html/0709.0955v1",
+      "https://drops.dagstuhl.de/entities/volume/LIPIcs-volume-215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 intact K_{m,n} symmetry forces one off-diagonal parameter and gives minimum 1/3 for m=n.",
+        "2009 two-cliques-with-bridge uses a three-parameter chain on the complement graph and has an optimum approaching 1, unlike the present graph, whose optimum approaches 1/3."
+      ],
+      "reasoning": "An intact support optimum cannot be restricted by deleting an edge without changing symmetry and feasibility; its value 1/3 is a lower bound only. The bridge-of-cliques exact result has different allowed support and asymptotic value. General representation methods furnish tools but do not imply the asserted explicit two-branch optimum without the new derivation.",
+      "searches": [
+        "arxiv:0709.0955v1 section 5.3.2 5.3.4",
+        "DOI:10.1137/S0036144503423264 section 7.1",
+        "DOI:10.1137/070689413 section 5.4.2 5.4.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defective graph is K_{n,n} minus one cross-edge, also described as the biclique with one absent link; its complement is two disjoint K_n cliques joined by one bridge.",
+        "The 2007/2009 symmetry paper treats the joined-cliques graph directly in section 5.4.4, but that is not the FMMC constraint graph here."
+      ],
+      "reasoning": "The complement swaps permitted and forbidden off-diagonal supports; a fastest-mixing matrix on the complement does not map to a feasible matrix with unchanged SLEM. The exact defective-biclique objective was not found under the tested aliases.",
+      "searches": [
+        "\"fastest mixing Markov chain\" \"edge deletion\" \"bipartite\"",
+        "\"fastest mixing\" \"missing link\" \"bipartite\"",
+        "fastest mixing symmetric Markov chain complete bipartite graph K n n with single deleted missing edge sharp spectrum optimum phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches returned mostly graph-polytopal and general mixing work rather than an exact FMMC table for defective bicliques.",
+        "The 2004 paper has an exact K_{m,n} formula, whose admissible support includes the edge deleted here."
+      ],
+      "reasoning": "No exact table or statement found covering both the n=7 versus n=8 change and the closed radical thereafter. This is a bounded negative retrieval result, not evidence of universal nonexistence.",
+      "searches": [
+        "FMMC complete bipartite minus edge optimal transition probabilities",
+        "\"fastest mixing\" \"complete bipartite\" \"missing edge\"",
+        "fastest mixing Markov chain edge failure complete bipartite single absent edge mixing rate"
+      ]
+    },
+    "rationale": "Relevant primary full-text treatments give FMMC convex SDP and automorphism reductions, exact intact biclique spectra, and the distinct two-cliques-with-bridge solution, but not an exact parameterization or part-size-eight optimum of the one-edge-deleted balanced biclique. Targeted semantic and text searches found no covering statement. The phase transition and exact penalty are not corollaries of the intact-biclique formula; absence from unindexed literature cannot be guaranteed.",
+    "residual_risks": [
+      "Unindexed or non-English exact edge-failure biclique optimization results may exist; targeted retrieval is not exhaustive.",
+      "The 2022 general fastest-mixing geometric-bounds work was encountered through a publicly available abstract/bibliographic description only; no claim of full-text noncoverage is made.",
+      "General SDP algorithms can recover any single finite n numerically, though they do not provide the exact uniform phase formula given here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Intact biclique covered; one-edge-deleted biclique not established in inspected sections",
+        "evidence": "Section 7.1 assumes all cross edges present and a single common probability p; spectral list 1,1-mp,1-np,1-(m+n)p.",
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full-text PDF definition/convexity and section 7.1 around pages 684–685; document text search for missing/deleted edge",
+        "method": "Read relevant full-text sections and compared graph support, variables, spectral formulas",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original FMMC formulation and possible complete-bipartite exact formula"
+      },
+      {
+        "assessment": "Intact bipartite and complementary joined-cliques graph addressed; neither statement implies the defective-biclique optimum",
+        "evidence": "5.4.2 uses one transition parameter on intact K_{m,n}; 5.4.4 derives a different three-parameter fastest chain on two K_n cliques joined by a bridge.",
+        "identifier_or_url": "arxiv:0709.0955v1; doi:10.1137/070689413; https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "2007 arXiv HTML sections 1 and contents; published full-text PDF sections 5.4.2 and 5.4.4 (pages 812–816), plus whole-PDF targeted term searches",
+        "method": "Examined actual full-text matrices and eigenvalue reductions, not only abstracts",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Primary 2007 symmetry paper with complete-bipartite and related near-biclique cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "422e1626-e78a-40c4-a09f-99f3d418c8a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first edge failure of a maximally symmetric bipartite communication topology is a natural robustness test. The exact optimizer changes structure at part size eight; a closed radical for every larger graph and a 4/(9n^2) spectral penalty quantify asymptotic robustness. This is a natural complete classification of the standard SLEM objective, not a tiny arbitrary parameter slice or a table reproduction.",
+    "status": "PASS"
+  }
+}
