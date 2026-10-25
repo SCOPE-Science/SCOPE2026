@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The classification is exhaustive under separate row and column permutations: every board of cardinality at most sixteen has a canonical five-row bitmask tuple among the enumerated 5130 orbit representatives. Exact integral elementary elimination of each third boundary produces no residual for the 4763 representatives on fewer than sixteen squares and all but one sixteen-square type. The exceptional integral boundary has 93 unit pivots plus a single column with entries of gcd three. Mod-three ranks \(67,93\) for the exceptional complex, and \(176,423\) for the full board, with explicit class-nonboundary checks, establish the precise order-three group and its nonzero integral inclusion. The verifier is standalone and was executed from the packaged contents.
+
+**Originality — PASS, subject to bibliographic limits.** The closest original results are Shareshian–Wachs (arXiv:math/0409054, including the relevant Section 8 on subboards) and Jonsson (arXiv:1203.5644, Section 3). Both prove full-board homology or nonvanishing results, not the smallest *intrinsically torsion-bearing* induced board or its unique symmetry type. The closest screened matching-complex threshold result concerns graphs of at most seven vertices, not ten-vertex bipartite graphs. The distinction between a short ambient cycle and torsion internal to its supporting induced complex is essential to noncoverage. A remaining possibility is an equivalent result in unindexed literature.
+
+**Mathematical value — PASS.** The five-by-five rook complex is a canonical minimal chessboard complex with integral three-torsion. Locating the first *intrinsic* occurrence of that torsion across sparse induced subboards, proving uniqueness and recovering the full torsion class, gives a sharp and geometrically interpretable boundary phenomenon not implied by ambient homology. The result does not rely on arbitrary board restrictions or a routine Betti-number restatement.
+
+**Limits.** This is an exhaustive finite theorem about degree-two intrinsic torsion, not a statement that shorter cycles cannot represent ambient homology. No independent audit or external certification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
