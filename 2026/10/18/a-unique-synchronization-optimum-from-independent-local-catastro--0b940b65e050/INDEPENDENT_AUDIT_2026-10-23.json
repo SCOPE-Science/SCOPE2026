@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T11:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified irreducible countable-state birth/death/hopping/local-clearing CTMC, the total-population Foster–Lyapunov drift is LS=2a-(d+r)S and a negative quadratic bound for LS^2 guarantees unique stationary law and finite second moments. Generator balances for m=E[Ni], U=E[Ni(Ni-1)], W=E[N1N2] are (d+r)m=a, (2d+2h+r)U-2hW=2am and -2hU+2(d+h+r)W=2am. Solving gives U=2a^2(d+r+2h)/((d+r)Delta), W=a^2(2d+r+4h)/((d+r)Delta), Delta=r^2+3(d+h)r+2d^2+4dh. Direct independent symbolic simplification confirms V=m+a^2*r*(d+r+h)/((d+r)^2 Delta), C=a^2*h*r/((d+r)^2 Delta)>0, and ratio C/(V-m)=h/(d+r+h). Derivative C_r has numerator P(r)=2d^3+4d^2h-(2d^2+4dh)r-(7d+6h)r^2-3r^3 with P_prime<0, P(0)>0 and P(d)<0: exactly one global optimum r* in (0,d). C_h>0 and stated limits follow from rational expression. Linear affine conditional-mean drift matrix exponentiates to the exact stationary cross-lag covariance, avoiding any unwarranted Gaussian assumption. The code’s finite-state truncations are corroborative and do not prove infinite-state moments; our proof uses Foster–Lyapunov and exact balances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange full text focuses generating functions, stationary occupation means and condensation on extensive networks, with no observed cross-site covariance/optimal-reset theorem.",
+          "Dynamic-network queues with faulty links perturb routing rather than instantaneous resetting all particles at one site.",
+          "Single-population catastrophe factorial moments are not automatically a joint covariance theorem for bidirectionally coupled populations."
+        ],
+        "reasoning": "A general Markov-generator calculation could specialize to this model but is not itself an explicit all-positive-parameter unique optimum result. A broad factorial moment framework might still mathematically imply the algebra, so that remains a named residual risk.",
+        "searches": [
+          "Grange 2023 arXiv:2311.12414 full text",
+          "Mandjes–Starreveld–Bekker 2018 DOI 10.1007/s10955-018-2036-7",
+          "Kapodistria et al. 2015/2016 immigration-death catastrophes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 8cd2e89996d415c701195b62ebf693214841fa59, verification.py SHA 290850be5f2e585b75981e88f09d74afb4929505 fully inspected",
+        "Independent symbolic stationary moment and covariance algebra, reset/hop derivative equations checked",
+        "Grange 2023 arXiv:2311.12414 complete available article and sections",
+        "Kapodistria–Phung-Duc–Resing 2015/16 catastrophe process report description",
+        "Mandjes et al. 2018 network queues bibliographic material",
+        "Resultary two targeted catastrophe/covariance searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-type resetting moment recursions can derive U-like equations but not W without modeling intersite hops; positivity of C and unique optimum depend on solving that coupled system.",
+          "Extensive-network mean occupations do not imply the root of P(r) for a two-node site-reset covariance."
+        ],
+        "reasoning": "The claim is not a mere quote from the named priors; explicit generator, mixed moment, signed ratio and global cubic-monotonicity arguments are essential. Full general catastrophe-network literature remains possible implicit coverage.",
+        "searches": [
+          "Grange 2023 full text §§2–5 and appendices",
+          "Kapodistria et al. 2015/2016 one-component binomial catastrophes",
+          "Mandjes et al. 2018 dynamic-graph queues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A local all-particle clearing is a binomial catastrophe of removal probability 1, but coupling two sites by hopping produces a mixed-moment equation absent from the one-dimensional birth-death closure.",
+          "Grange extensive connected-network resetting is not the same exact finite-two-node generator or covariance objective."
+        ],
+        "reasoning": "Checked alternate stochastic clearing/resetting/Markov-queue/birth-immigration-death terminology and isolated existing moment methods from the additional two-site mixed covariance optimum. Potential queueing alias remains a priority risk.",
+        "searches": [
+          "Grange 2023 arXiv:2311.12414 local resetting nonconserving zero-range",
+          "Kapodistria–Phung-Duc–Resing 2015/2016 doi:10.1017/S0269964815000297",
+          "Resultary: two site immigration death hopping independent whole site resetting catastrophes covariance optimum reset rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target claims continuous-parameter exact rational moment expressions and the globally unique positive cubic root, not numerical queue performance figures.",
+          "All-unit numerical moment sample is an exact witness but not the theorem."
+        ],
+        "reasoning": "No preexisting closed covariance table for this exact generator was identified; catalogue search absence does not alone establish novelty.",
+        "searches": [
+          "Grange arXiv:2311.12414 figures and mean-occupation results",
+          "Resultary: two site particle catastrophes independent site resetting stationary positive covariance synchronization optimum",
+          "Mandjes et al. queueing model"
+        ]
+      },
+      "rationale": "Existing literature includes site resetting in extensive zero-range networks and one-type immigration/death with catastrophes or stochastic queue networks; no consulted source states this two-site joint signed covariance, its a-independent overdispersion ratio, and the unique optimal independent site clearing rate. Generator moment closure is standard and is not asserted to be invented here; the sharp covariance and global one-optimum classification is the candidate original content. Broad queueing factorial-moment frameworks could algebraically subsume it, an explicit residual implication risk rather than an automatic rejection.",
+      "residual_risks": [
+        "General multitype queueing or Markov-modulated catastrophe formula may implicitly specialize to same two-site exact moments",
+        "Truncated-chain numerical computations cannot alone establish infinite-state stationary law",
+        "Claims require equal immigration/death/clearing rates between sites; no sign extension to heterogeneous networks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses extensive fitness networks and generating functions/mean occupancies, not the specific two-site covariance optimum in inspected text",
+          "evidence": [
+            "The model is nearby but has different network and observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.12414",
+          "material_read": "Complete lawful full primary text, sections 2–5 and appendices; searched covariance, variance and second-moment terminology",
+          "method": "Open full-text reading and in-document term search",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Direct local site resetting of hopping populations"
+        },
+        {
+          "assessment": "One-population factorial moment method does not directly present bidirectional two-population mixed covariance",
+          "evidence": [
+            "Potential stronger general extension in uninspected full paper."
+          ],
+          "identifier_or_url": "https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+          "material_read": "Published title, study context, report and article abstracts; full mathematical report not separately inspected in this run",
+          "method": "Lawful indexed source descriptions",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "All-particle removal is extreme binomial catastrophe, making one-population recurrence plausible prior"
+        },
+        {
+          "assessment": "Related dynamic network class, but faulty links differ from local whole-site clearings",
+          "evidence": [
+            "Prior general queueing stationary recursions might subsume special moments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-018-2036-7",
+          "material_read": "Publisher bibliographic description and reported queueing/faulty-link model, not full article proof",
+          "method": "Indexed publisher source description",
+          "title": "Queues on a Dynamically Evolving Graph",
+          "trigger": "Network queues with failures could cover catastrophe aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent local clears nonetheless generate strictly positive stationary synchrony between symmetrically hopping sites; the sign is nontrivial because immigration and clearing clocks are independent. An exact local-reset rate below death rate maximizing that dependence, plus an injection-independent correlation-to-excess-variance identity and lag formula, is a natural complete finite-network fluctuation classification. It answers precise parameter-selection and covariance questions for reset transport models, not a trivial consequence of the process being symmetric.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 8cd2e89996d415c701195b62ebf693214841fa59, verification.py SHA 290850be5f2e585b75981e88f09d74afb4929505 fully inspected",
+    "Independent symbolic stationary moment and covariance algebra, reset/hop derivative equations checked",
+    "Grange 2023 arXiv:2311.12414 complete available article and sections",
+    "Kapodistria–Phung-Duc–Resing 2015/16 catastrophe process report description",
+    "Mandjes et al. 2018 network queues bibliographic material",
+    "Resultary two targeted catastrophe/covariance searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite and symbolic checks are distinguished from all-parameter or infinite-state proofs; see the mathematical proof reconstruction.",
+    "Frozen METADATA.json contains scope_run_id and research AUDIT.json contains operational provenance; full sanitized source package and status replacements not independently prepared, hence cannot safely hand an import-ready publication plan."
+  ],
+  "residual_risks": [
+    "General multitype queueing or Markov-modulated catastrophe formula may implicitly specialize to same two-site exact moments",
+    "Truncated-chain numerical computations cannot alone establish infinite-state stationary law",
+    "Claims require equal immigration/death/clearing rates between sites; no sign extension to heterogeneous networks."
+  ],
+  "schema_version": 1
+}
