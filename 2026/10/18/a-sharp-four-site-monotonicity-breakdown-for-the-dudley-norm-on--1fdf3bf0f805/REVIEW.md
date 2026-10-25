@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Translation invariance, reflection antisymmetry, and convex norm averaging reduce the four-dimensional dual optimization to two variables without losing optima. The symmetric ball is the intersection of sixteen explicitly stated halfplanes; exact rational enumeration gives all six vertices and an analytic comparison gives the two branches on the entire real interval. The restricted monotone optimization and three-site endpoint-flattening argument are reconstructed in the proof. Replayed standalone exact checks agree, and a separate full-space linear-program calculation agreed at 98 numerical parameter points.
+## correctness
 
-**Originality — PASS, with residual search risk.** The original 2023 source develops norming/extreme-point theory for the sum-norm Dudley space but does not state the positive-flux monotonicity failure. Its 2022 companion supplies an arbitrary finite-metric LP recipe, not the closed four-point phase transition or minimality assertion. The 2013 algorithm addresses the maximum-normalized metric. The closest published indexed record concerns equal-arm star metrics, not this path. Claims and logical implications, not titles alone, were compared; an unindexed identity remains possible.
+PASS
 
-**Mathematical value — PASS.** The monotone Kantorovich-potential heuristic fails for a natural positive-flux signed measure precisely at the first path cardinality where an interior slope can reverse. The exact crossover and the closed monotone-restricted optimum quantify the obstruction, rather than merely supplying a numerical norm value. This is a motivated sharp boundary in finite metric duality; no general classification is asserted.
+For the zero-mass measure (-1,1-t,-(1-t),1) on the unit four-path, cumulative fluxes are (1,t,1)>0. Reflect f by -f(3-i) and average to obtain a norm-nonincreasing representative (-a,-b,b,a) with the same pairing. Its norm is max(|a|,|b|)+max(|a-b|,2|b|), and pairing 2[a+(t-1)b]. The sixteen linear halfplanes have exactly six vertices ±(3/5,1/5), ±(1/3,-1/3), ±(1/3,1/3); evaluating each proves the exact unrestricted max{(4-2t)/3,(4+2t)/5} for every 0<t<1. Restricting to monotone representatives a>=b>=0, the scalar quotient 2[1-(1-t)u]/[1+max(1-u,2u)] (0<=u<=1) peaks only at u=0 or 1/3, giving max{1,(4+2t)/5}; strict mismatch for t<1/2. For <=3 sites, negative endpoint slopes may be flattened to zero: positive flux strictly improves the pairing without increasing sup-norm or path Lipschitz norm, proving minimality. Independent Fraction enumeration reconstructed 6 vertices; numerical t samples are not the universal proof.
 
-**Limitations and risks.** This is a one-parameter four-point path result and not a characterization for arbitrary metric spaces or weighted paths. General existing finite LP formulations could evaluate the same examples computationally. Searches may miss unindexed symbolic formulas. The finite exact checker verifies the polygon and samples; the proof covers the continuum of parameters. Independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hille and Theewis previously supplied the general finite-space Dudley-norm linear program and norming-potential theory. That framework can in principle compute this finite instance but does not by itself state the analytic two-branch family or the minimal strictly-positive-flux monotonicity obstruction. The Resultary equiradial-star theorem also has a piecewise Dudley norm but is a distinct metric graph and does not imply the four-site path sawtooth phenomenon. Best-of-knowledge PASS limited to the closed sharp obstruction, not novelty of general LP computation.
+
+## value
+
+PASS
+
+Strictly positive transport flux normally motivates monotone Kantorovich potentials for transport seminorms; the bounded sup plus Lipschitz penalty defeats this intuition first at four sites. The exact parameter crossover and cardinality minimality are motivated, sharp structural facts in a natural finite metric, not an arbitrary table slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
