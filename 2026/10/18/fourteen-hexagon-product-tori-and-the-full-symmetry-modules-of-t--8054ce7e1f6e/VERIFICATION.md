@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof reduces to exact integer cellular chains, two explicit integer determinant certificates, mod-two Gaussian elimination, and exhaustive evaluation of the full 336-element graph automorphism group. The standalone files `verify.py` and `CERTIFICATE.json` are sufficient to replay these finite calculations with Python, NumPy, and SymPy.
+## correctness
 
-Replay observed: **PASS** with cell vector 91, 252, 168; boundary-minor determinant +2, rank modulo two 153; torus-minor determinant +1; 14 torus generators; automorphism character class counts 1, 21, 28, 56, 42, 56, 48, 84; character squared norms 336 and 336, with cross inner product zero.
+PASS
 
-The computation makes no statement about homotopy attaching maps, integral representation splitting, or arbitrary graphs. The mathematical proof of the integral torus basis additionally uses the saturation argument in `RESULT.md`. Independent scientific audit is not claimed.
+From the actual Fano incidence definition regenerated unordered two-particle deleted-product cells (91,252,168), verified d1*d2=0, spanning-tree reduction to 162×168 integer B with 430 nonzero entries. Using actual CERTIFICATE.json row/col indices independently reconstructed exact 154×154 determinant +2 (SymPy), mod-2 rank153 and mod3/mod5 rank154. With 14 listed vertex-disjoint hexagon product cycles, reconstructed all boundaries=0 and selected 14×14 torus minor determinant +1: they form primitive complete Z-basis of ker d2. Smith factors 153 units and one 2 imply H1=Z^8⊕Z/2, H2=Z^14. Independently computed character class-count sum=336, inner products ||χ8||²=||χ6||²=336, cross=0 and invariant dimensions=0; chain Lefschetz trace derives character table. Exact finite complex certificate proves the finite-graph assertion, not originality.
+
+## originality
+
+PASS
+
+First-homology ranks and graph cellular model credited to Barnett–Farber and Ko–Park, and count 42 disjoint hexagons to Lawrence–Wilson. New specific primitive fourteen-torus basis and full Heawood 336-group rational character decomposition are not consequences of those known statements nor of ordered-Heawood mod2 computations.
+
+## value
+
+PASS
+
+Canonical natural two-particle topology on a distinguished symmetric graph: geometric integral homology basis and explicit automorphism irreducible decomposition are motivated invariants beyond ordinary Betti numbers, with a reproducible exact finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
