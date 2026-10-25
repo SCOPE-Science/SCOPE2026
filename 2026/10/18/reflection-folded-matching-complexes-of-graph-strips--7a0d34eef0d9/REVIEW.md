@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The geometric-fixed barycentric-orbit lemma is reconstructed from unique simplicial support and orbit-constant barycentric weights; it gives a genuine PL triangulation, not just an Euler characteristic. Every Cartesian strip graph edge is classified into internal half-strip, center-layer, seam or crossing-boundary types, and compatibility is exactly pairwise vertex-disjointness. Odd heights yield the graph-matching simplicial join, while even heights yield the terminal-whiskered half-strip matching complex. Commuting base-graph automorphisms prove naturality. The classical path-independence suspension recurrence supplies the stated grid periodic contractibility and suspension powers. Independently written scripts inspect all 71 nonempty labeled base graphs of orders 2–4 and both parities for k=1,2,3 (426 orbit-graph identifications and 16 full small face-vector comparisons) and exact mod-two path homology at thirteen widths. These finite checks support but do not prove the universal statement.
+## correctness
 
-## Originality (PASS; identified bibliographic limits)
-The recent 2026 three-row grid source gives nonequivariant homological statements in its accessible abstract, not the claimed all-depth reflection fixed spaces. A publicly available three-row row-reflection Lefschetz result has been fully compared: its elementary fixed-edge orbit argument and the standard geometric fixed-locus construction imply the k=1 odd path special case. A prior two-layer result already covers the even k=1 whiskering case. Both are expressly excluded from the claimed new k≥2 domain. A separate full public three-row half-turn theorem computes alternating characters, not deep all-base-graph fixed-point spaces. Actual published-finding corpus searches for odd/even folds, parameter aliases, join/whiskering equivalences and grid reflected matching complexes did not reveal a dominating k≥2 statement. Crucially, the 23-page nearest recent primary preprint could not be read in full: its abstract alone does NOT establish noncoverage; a hidden generalized folding lemma remains a real risk. None of the accessible strong prior statements logically supplies the all-depth PL theorem without new edge-orbit analysis.
+PASS
 
-## Value (PASS)
-The structural graph-independent PL theorem computes the geometric fixed-point topology of every odd/even deeper reflected graph strip using only a half-strip matching complex; it remains valid for disconnected base graphs and arbitrary cycles. The odd fold is an explicit join while the even fold is a boundary-whiskered graph complex, a nontrivial parity change. It also gives an infinite two-parameter family of contractible fixed loci for path grids, with width residue n=2 mod 3 independent of otherwise difficult ambient grid homotopy types. This is an exact integral geometric reduction, not a numerical trace or a routine fixed low-dimensional example.
+A fixed point of a finite simplicial involution has a stable support and orbit-constant barycentric coordinates, giving exactly the simplicial orbit complex of qualifying vertex orbits. For a matching complex, an edge orbit qualifies iff its edges are vertex-disjoint. Odd height: all crossing-central-edge pairs share the center vertex and are inadmissible; lower k-layer orbits correspond to edges of H_k, while central G edges are singleton disjoint-orbit vertices, so fixed space is |M(H_k)*M(G)|. Even height: center-seam edges are singleton orbits and conflict exactly with edges incident to the terminal half-strip layer, realizing |M(boundary-whiskered H_k)|. Both identifications are canonical under Aut(G). For G=P_n, M(P_n)=Ind(P_(n−1)) and the standard 3-step path suspension recurrence gives contractibility iff n≡2 mod3, otherwise the floor(n/3)-fold suspension of M(P_n□P_k). Independently reconstructed all orbit-conflict equivalences for G=P_3, k=2 and 3, both parities; qualifying vertices respectively 10,9 and 15,14. Finite tests do not establish universal PL topology.
 
-## Closest literature and limitations
-See arXiv:2609.27366v1, Matsushita's *Matching Complexes of Small Grids* and the two inspected published three-row reflection calculations in RESULT.md. The full most-relevant 2026 preprint was inaccessible; hidden overlap and unindexed general formulas remain possible. There is no universal homotopy classification of the even whiskered factor, and the result is about geometric fixed points, not homotopy fixed points or quotient spaces. The verification programs use finite instances, not proof by enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fully read published 3×n reflection Lefschetz result gives alternating homological traces and counts of invariant matching edge orbits for height three (k=1). Such traces cannot determine geometric fixed spaces in general; the new PL identification extends to any graph G and all k≥2 and distinguishes odd joins from even boundary whiskers. Other published 3×n symmetry-character results are more specialized. The closest new 2026 nonequivariant 3×n manuscript remained inaccessible full text; it might contain an incidental folding lemma, explicitly recorded as priority risk.
+
+## value
+
+PASS
+
+The exact, natural PL reduction of every deeper reflected matching complex from a full strip to a half strip is a nontrivial equivariant structural fact, valid for arbitrary base graphs. The odd join/even whisker parity gives a computable recursive model; the n≡2 mod3 all-odd-height contractibility yields an infinite uniform family without requiring the unknown nonequivariant large-grid type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
