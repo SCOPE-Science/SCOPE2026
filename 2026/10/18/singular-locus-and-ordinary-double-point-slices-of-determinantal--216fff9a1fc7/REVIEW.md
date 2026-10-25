@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cited 2005 prime ideal is independently matched to the definition of the principal component. On a nonzero rank-one base point the first jets form the smooth tangent bundle. On a rank-two first-derivative chart, a regular invertible row-column transformation sends the derivative to a block identity; the 3-minor ideal becomes the lower Schur-complement entries, the polarized 2-minor equations force the constant matrix to a trace-zero \(2	imes2\) block, and its only remaining determinant gives \(a^2+bc=0\). The rank-two fiber is dense in the determinantal zero-base fiber, so closure gives every lower-rank singular point; the nonzero-base points are smooth. The singular set has codimension two, and Jonov's Cohen--Macaulay theorem supplies \(S_2\), so Serre's criterion gives normality. Twenty independent exact modular differential-rank checks agree with the proof but are not used to assert infinite correctness.
+## correctness
 
-## Originality — PASS, with stated residual risk
-Košir--Sethuraman (2002 and 2005) give components and a prime ideal; Jonov (2010) proves Cohen--Macaulayness; Ghorpade--Jonov--Sethuraman (2012) compute Hilbert series and Gorenstein status. The directly inspected source statements do not give the complete singular support and explicit generic transverse \(A_1\) equation. Equivalent-form, broader-coverage, exact-table, and implication checks are documented in `AUDIT.json`; searches against an external mathematical findings index located no same-object result, which is not treated as proof of novelty. The unresolved Smith--Weyman preprint on resolutions of tangent schemes is an explicit residual risk.
+PASS
 
-## Mathematical value — PASS
-The principal jet component is an established natural object, whose whole first-jet scheme is reducible. Its exact codimension-two singular support and uniform ordinary-double-point slices distinguish the intrinsic geometry of the principal component from the reducibility-induced singular behavior of the full scheme. Normality has a concrete divisor-theoretic consequence and follows from a nontrivial new regularity check, not from Cohen--Macaulayness alone. This is an infinite, motivated geometric classification rather than a narrow numerical slice. The deeper zero-base rank-one stratum and positive characteristics are intentionally not classified.
+For every 3<=m<=n over an algebraically closed field of characteristic zero, the source defines P as the reduced closure of jets at nonzero rank-one X, rather than the entire reducible jet scheme. Košir–Sethuraman supply the prime ideal (2x2 minors of X, their X/Y polarizations, 3x3 minors of Y). The nonzero-X locus is a smooth rank-(m+n-1) tangent bundle; dimension=2(m+n-1). On rank Y=2, the pivot A, Schur complement D-CA^(-1)B and Y-dependent invertible row/column operations set Y to diag(I_2,0) scheme-theoretically. The polarized minors then set all X entries outside the leading 2x2 block to zero and force its trace zero; the remaining X minor is a^2+bc=0. Free rank-two-Y coordinates number 2(m+n-2), and the transverse quadratic cone has isolated A1 singularity and multiplicity 2. Every lower-Y-rank point of the zero-X fiber is singular by closedness/density; no X!=0 point is singular. The reduced singular support is exactly X=0,rank(Y)<=2, irreducible dimension 2(m+n-2), codimension 2. Prime domain plus Jonov Cohen–Macaulay S2 and R1 gives normality. Original finite verifier checks 20 tangent ranks modulo 101 only; these are not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the complete reduced singular support and generic A1 chart on the principal component together with R1/normality; the prime ideal, Cohen–Macaulayness, components and global reducible-scheme nonnormality are prior art.
+
+## value
+
+PASS
+
+The reduced principal jet component of a determinantal cone is a standard natural geometric object. Exact codimension-two singular support, a uniform A1 transverse chart for every matrix size and normality distinguish intrinsic singularities from the known reducibility of the total jet scheme. They are substantive scheme-level and divisor-theoretic geometry, not a textbook reuse of CM or an isolated finite numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
