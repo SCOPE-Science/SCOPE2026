@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact projection and normalized retraction give F(theta). Symbolically checked rational derivative identities provide parameter-uniform positive polynomial signs and monotonicity. Strict amplitude descent proves global convergence, reciprocal asymptotic proves the critical rate (with finite termination excluded), implicit monotonicity plus derivative positivity proves attraction, and endpoint expansions prove both asymptotic laws. Checker successfully replays identities; finite tests are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sakai--Iiduka Theorem 3.8 gives a sufficient small-step average expected-gradient estimate, not a necessary-and-sufficient global threshold and locally attracting cycle.",
+        "Bensaid--Poëtte--Turpault proves convergence under Euclidean smoothness and line-search/safe-steps assumptions, not a universal theorem for arbitrary large steps on embedded manifolds."
+      ],
+      "reasoning": "A stronger general-manifold all-step theorem would cover this specialization, but none of the examined texts supplies one. An abstract convergence bound below a sufficient step cannot imply the sharp endpoint, cycles, or linear-amplitude onset.",
+      "searches": [
+        "adaptive Riemannian Adam AMSGrad constant learning rate periodic orbit cycle unit circle sphere",
+        "Riemannian adaptive gradient epsilon normalization strict stability threshold symmetric two-cycle",
+        "Riemannian AMSGrad sphere circle linear objective exact symmetric two cycle angular amplitude critical step normalization retraction",
+        "arXiv:2407.15471v1 section 4 constant RMSProp",
+        "arXiv:2409.00859v1 Theorems 3.7–3.9"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2409.00859v1",
+      "https://arxiv.org/abs/2210.02070",
+      "https://arxiv.org/html/2407.15471v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original Riemannian RMSProp construction is admitted as fully prior-covered; the result concerns derived exact dynamics.",
+        "The closest Euclidean adaptive cycle theorems change both the update and state dimension and cannot be specialized to the normalized circle rule."
+      ],
+      "reasoning": "Compared actual map, domain, parameters and conclusions rather than titles. Neither the general small-step bound nor preexisting Euclidean cycling entails alpha=2epsilon as a sharp global boundary, n|theta_n|=epsilon/2, a unique symmetric attracting cycle, linear onset or stiff-step multiplier.",
+      "searches": [
+        "Sharp global convergence threshold for Riemannian RMSProp on unit circle sphere f=-x1 normalized retraction with beta2=0, attracting two cycle",
+        "Riemannian adaptive gradient epsilon normalization strict stability threshold symmetric two-cycle",
+        "arXiv:2409.00859v1 Section 2.3",
+        "arXiv:2210.02070 and arXiv:2407.15471v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original method reduces to angle map F(theta)=theta-atan(alpha*w(theta)); arXiv:2409.00859v1 contains only the abstract Algorithm 1 and general sufficient stochastic convergence estimates.",
+        "Bock and Weiss arXiv:2210.02070 uses Euclidean Adam with momentum and memory, not the projected zero-memory circle map."
+      ],
+      "reasoning": "Rephrased as an exact normalized-retraction circle flip/frontier and as an attracting two-cycle of projected coordinatewise normalized gradients. Related Euclidean optimizer cycling does not determine this step threshold or nonlinear asymptotics; no exact equivalence found in inspected material.",
+      "searches": [
+        "Sharp global convergence threshold for Riemannian RMSProp on unit circle sphere f=-x1 normalized retraction with beta2=0, attracting two cycle",
+        "Riemannian RMSProp zero-memory unit circle critical inverse n convergence epsilon, universal linear period doubling amplitude",
+        "projected coordinatewise normalized gradient method circle symmetric two cycle cos theta 1/t convergence",
+        "arXiv:2409.00859v1 Algorithm 1 Section 2.3",
+        "arXiv:2210.02070"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published mathematical-record hits concern Euclidean scalar-quadratic optimizer dynamics and lack this circle map; no inspected exact tabulation includes the two-parameter cycle threshold."
+      ],
+      "reasoning": "This continuous-parametric limit-cycle theorem is not a finite census or table lookup. Searches for the exact amplitude function and normalized projected map did not expose a covering table; this negative result is not a uniqueness or priority proof.",
+      "searches": [
+        "Riemannian RMSProp zero-memory unit circle critical inverse n convergence epsilon, universal linear period doubling amplitude",
+        "projected coordinatewise normalized gradient method circle symmetric two cycle cos theta 1/t convergence",
+        "Riemannian RMSProp unit circle constant learning rate two cycle threshold",
+        "2026/10/4/SCOPE-exact-history-selected-transverse-spectrum-of-amsgrad--fffdf083adda"
+      ]
+    },
+    "rationale": "Comparison of map and logical implication with original Sakai--Iiduka algorithm, general convergence theorems, Euclidean Adam cycles and Euclidean RMSProp safe-step analyses finds no theorem subsuming the exact projected-circle sharp global-to-periodic transition. Relevant published-record search hits concern different updates/objects. Equivalence elsewhere remains a possibility.",
+    "residual_risks": [
+      "Unindexed specialized Riemannian RMSProp circle-cycle calculations may exist.",
+      "Only the accessible portions identified as material_read of the original sources were inspected; the scope of any uncovered supplementary content cannot be excluded.",
+      "No independent external audit or publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the current method and gives small-step average-gradient estimates, not the sharp one-dimensional global dynamics or large-step period-two classification.",
+        "evidence": "Algorithm 1 and RMSProp rules, original HTML lines 108–139; Theorem 3.8, lines 334–345, assumes a sufficient step and bounds average expected squared gradients.",
+        "identifier_or_url": "https://arxiv.org/html/2409.00859v1",
+        "material_read": "Original complete accessible HTML inspected at Abstract, Algorithm 1, Section 2.3 RMSProp specialization, Theorems 3.7–3.9, comparisons and appendix headings.",
+        "method": "Direct primary-source HTML reading and inspection of stated hypotheses and implication.",
+        "title": "A general framework of Riemannian adaptive optimization methods with a convergence analysis",
+        "trigger": "Defines the exact algorithm and could contain stronger global convergence theorem."
+      },
+      {
+        "assessment": "Euclidean Adam with first and second moment state, optional bias correction and different denominator placement. Its existence theorem does not imply the exact manifold RMSProp threshold, circle phase or reciprocal critical law.",
+        "evidence": "Abstract and section 2.1 distinguish Euclidean Adam and their epsilon-under-square-root variant.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.02070",
+        "material_read": "Primary arXiv full HTML sections 1–2, algorithm and the abstract account of full paper; optimizer state and cycle claims examined.",
+        "method": "Direct source text comparison of update, objective and state space.",
+        "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+        "trigger": "Reports attracting period-two cycles in adaptive optimizers on simple objectives."
+      },
+      {
+        "assessment": "Proves Euclidean RMSProp convergence under appropriate step controls, not this zero-memory embedded-circle normalization-retraction map or the sharp supercritical symmetric cycle.",
+        "evidence": "Introduction and contribution lines 88–125, Section 4 and Section 7 concerns scalar Euclidean adaptivity and sufficient stability.",
+        "identifier_or_url": "https://arxiv.org/html/2407.15471v1",
+        "material_read": "Original primary HTML introduction, stated Results, Section 4 header, theorem references, final discussion and Appendix C identity.",
+        "method": "Direct full-page source reading for update assumptions, line search vs fixed steps and geometric domain.",
+        "title": "Convergence of the Iterates for Momentum and RMSProp for Local Smooth Functions: Adaptation is the Key",
+        "trigger": "Strong potentially covering convergence theorem for constant-step RMSProp."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25f4b1ac-7763-425e-a442-08a7505c37c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp necessary-and-sufficient global convergence threshold for a concrete source-defined algorithm, precise critical slowing n^-1, a unique locally attracting symmetric cycle and linear non-smooth onset address a natural stability and fixed-step tuning gap. These structural facts remain informative despite the restricted one-dimensional manifold; no generalization is asserted.",
+    "status": "PASS"
+  }
+}
