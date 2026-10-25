@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The integer matrix is unimodular, symmetric positive definite and hyperbolic, with three distinct positive eigenvalues. A three-row Krylov determinant and Descartes' rule establish nonsingularity at every three distinct times. Primitive integer Fourier resonances then give the fourth-order moment formula. An elementary parity obstruction rules out the fifth-order moment; finite Fourier–Walsh inversion gives the stated exact five-symbol distribution. All assumptions, endpoint null sets, and infinite-versus-finite checks are identified. The independent exact-arithmetic program prints `VERIFY_OK` and its computations are reproducible with Python's standard library.
+## correctness
 
-**Originality — PASS (provisional against the inspected record).** Sun's toral-automorphism paper concerns entropy of ergodic measures, and Pollicott's commuting-toral work counts periodic points; neither gives the particular half-circle sensor, a parity classification of four-time moments, or the rational five-symbol law in the inspected full text. The general arithmetic Fourier-resonance method is standard and is not claimed new. Targeted searches for toral four-point sign resonance and five-block independence found no equivalent statement in the checked sources. Novelty is a limited bibliographic judgement, not a universal database certificate; lacunary/Fourier literature could subsume the computation in unstated form.
+PASS
 
-**Value — PASS.** The natural question is how far low-order statistical independence can mask deterministic dependence for a fixed smooth hyperbolic map under a coarse observable. The theorem gives an exact first detectable successive-window length, exact quantitative conditional bias, and a complete arbitrary-time fourth-order criterion. These specific invariants identify a hidden-memory phenomenon and are not merely a renamed characteristic-polynomial identity.
+A is symmetric positive-definite integer det1 with charpoly t^3-5t^2+6t-1, distinct positive eigenvalues. The Krylov determinant det(v0,v1,v2)=1 implies e1 has all eigenmode components; any three distinct row vectors v_n=e1^T A^n must be independent, since a nonzero three-term real polynomial cannot vanish at all three positive eigenvalues by Descartes. Haar pushforward then gives independence of the three sampled circle coordinates. For four rows a rank-one primitive integer resonance c yields a four-sign Fourier moment 0 if some c even, otherwise 1/(3 product c), using Poisson smoothing and absolutely summable fourth-order Fourier terms. Consecutive circuit (-1,6,-5,1) is even. Among five 4-subsets only (0,1,2,4) has all-odd circuit (-5,29,-19,1), yielding 1/8265. Sum of five sampling rows is (1,1,1) mod 2, forbidding an all-odd fivefold resonance. Walsh inversion yields the full five-sign law. Independently recomputed all five primitive circuits, all Walsh weights and exact positivity; finite tests do not prove the all-time Descartes or resonance argument.
 
-**Scope and risk.** Only the stated discontinuous half-circle observable and exact integer matrix are covered; there is no general robust sensor theorem. Independent bibliographic and mathematical validation have not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical harmonic resonance and toral entropy/mixing are acknowledged. Pollicott (2012) describes growth of periodic points of commuting toral maps, including comparable eigenvalue examples, not half-circle sign block distributions; its accessible complete HTML §§1–5 was read. Sun (2011) concerns entropy spectra of ergodic measures, and Aistleitner–Berkes–Tichy survey Fourier resonances in lacunary series. No inspected theorem supplies this matrix-specific fourth-circuit parity law or exact five-bit distribution; general harmonic methodology may make it derivable, which is not claimed new.
+
+## value
+
+PASS
+
+Three-wise and four-consecutive independence mask finite-memory predictability in an explicit deterministic but mixing dynamical system. The exact smallest consecutive detection length 5, the rational conditional bias, and an all-four-time correlation classification measure information carried by a natural coarse observation, giving a useful explicit hidden-memory benchmark rather than a mere characteristic-polynomial restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
