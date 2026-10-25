@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-This report records ordinary analytical and numerical checks of the stated theorem. It does not supply an independent audit.
+## correctness
 
-The pivotal identity is obtained by transforming \(e^{-(c-1)Y_{(1)}}\) under the exact conditional minimum density. The resulting beta mean is \(1/c\) and its variance is \((c-1)^2/[c^2(mc+c-1)]\). Conditional iid truncated exponentials yield the law of large numbers. The unconditioned independent gamma sum makes the normalization rigorous. The exact first two moments of the limiting truncated exponential are \(1\) and \(2-c(\log c)^2/(c-1)^2\).
+PASS
 
-Execute `python verify.py` from this extracted package. Tests include exact beta-moment algebra at rational parameters, numerical quadrature of limiting moments, an exact integral benchmark for the two-coordinate polytope, and simulated finite-dimensional radial quantities from the correct conditional law. Randomized checks are supporting diagnostics, not a proof of limiting assertions. The proof covers all fixed \(c>1\), while the sampler tests a finite set of ratios and dimensions.
+Uniform-volume on P_m(c) equals normalized iid Exp(1) coordinates conditioned on scale-invariant E=max Y≤c min Y. The minimum density is m exp(-my)(1-exp(-(c−1)y))^(m−1); Z=exp(-(c−1)min Y) transforms exactly to Beta(m/(c−1),m), mean 1/c and variance (c−1)^2/[c²(mc+c−1)]. Given minimum and index the other entries are iid truncated Exp on [y,cy]. Conditional LLN plus independent Gamma(m,1) sum proves the ν_c empirical weak limit, exchangeability gives fixed-k propagation of chaos, endpoint sampling gives both extremes. Direct integration verifies mean 1, second moment 2-c(log c/(c−1))² and radius 1-c(log c/(c−1))²; deterministic scaled coordinate bounds [1/c,c] upgrade to L^q. Verified moment formulas independently at c=1.001,1.5,2,3,10; no finite simulation used to prove asymptotics.
+
+## originality
+
+PASS
+
+The original central simplex volume/face enumeration and exponential simplex coupling are acknowledged as prior. The proposed object is instead the conditional uniform-volume empirical coordinate law, beta localization, extreme coordinates, and typical squared radius for fixed c>1. Accessible indexed sources did not provide those statements, with priority risk from classical Gibbs conditioning/order-statistics methods.
+
+## value
+
+PASS
+
+Central simplex polytopes are natural high-dimensional convex bodies whose volume and faces were studied. A typical uniform-volume point law, asymptotic independence, boundary localization and sharp Euclidean radius determine genuinely different geometry from volume or Hausdorff extremal values. The c=2 constant answers an explicit rescaling motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

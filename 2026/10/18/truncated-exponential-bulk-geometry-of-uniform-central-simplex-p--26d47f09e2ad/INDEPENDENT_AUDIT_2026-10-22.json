@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T21:59:56.131701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4477cc7892c8b63521aa82a7e6247f720f184353",
+        "verify.py blob e183b6acda29319f99d914e82dd823ccd5cbecce",
+        "independent exact moment identities and floating checks"
+      ],
+      "rationale": "Uniform-volume on P_m(c) equals normalized iid Exp(1) coordinates conditioned on scale-invariant E=max Y≤c min Y. The minimum density is m exp(-my)(1-exp(-(c−1)y))^(m−1); Z=exp(-(c−1)min Y) transforms exactly to Beta(m/(c−1),m), mean 1/c and variance (c−1)^2/[c²(mc+c−1)]. Given minimum and index the other entries are iid truncated Exp on [y,cy]. Conditional LLN plus independent Gamma(m,1) sum proves the ν_c empirical weak limit, exchangeability gives fixed-k propagation of chaos, endpoint sampling gives both extremes. Direct integration verifies mean 1, second moment 2-c(log c/(c−1))² and radius 1-c(log c/(c−1))²; deterministic scaled coordinate bounds [1/c,c] upgrade to L^q. Verified moment formulas independently at c=1.001,1.5,2,3,10; no finite simulation used to prove asymptotics.",
+      "residual_risks": [
+        "Only c>1 fixed; no varying-ratio or extreme-value fluctuation law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Submitted source acknowledges an earlier SCOPE fixed-ratio volume/Hausdorff finding; Resultary queries did not return exact source identifier.",
+          "General unconditioned simplex extreme-value results lack max/min<=c constraint."
+        ],
+        "reasoning": "Hausdorff worst-case distance and overall volume do not imply typical-volume radial concentration. General Gibbs conditioning might dominate if made explicit for this boundary event; such a source was not inspected.",
+        "searches": [
+          "Resultary: central simplex ratio constrained coordinates truncated exponential beta minimum bulk uniform random polytope",
+          "Resultary: fixed-ratio central simplex polytopes exponential Hausdorff volume phase transition dimension c_m",
+          "https://arxiv.org/abs/2606.02087",
+          "web: ratio constrained simplex truncated exponential volume typical coordinates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: central simplex ratio constrained coordinates truncated exponential beta minimum bulk uniform random polytope",
+        "Resultary: fixed-ratio central simplex polytopes exponential Hausdorff volume phase transition dimension c_m",
+        "https://arxiv.org/abs/2606.02087",
+        "web: ratio constrained simplex truncated exponential volume typical coordinates",
+        "https://www.alphaxiv.org/abs/2606.02087"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kazakov abstract supplies probabilistic volume-count idea; here Z=e^{-(c-1)Y_min} is exactly Beta(m/(c-1),m) after conditioning.",
+          "The law ν_c has E S=1, E S²=2-c a_c², giving the sharp typical radius."
+        ],
+        "reasoning": "Conditional iid truncated exponentials plus a beta localization calculation are extra steps not entailed by the total probability of the conditioning event or the Hausdorff radius.",
+        "searches": [
+          "Resultary: central simplex ratio constrained coordinates truncated exponential beta minimum bulk uniform random polytope",
+          "Resultary: fixed-ratio central simplex polytopes exponential Hausdorff volume phase transition dimension c_m",
+          "https://arxiv.org/abs/2606.02087",
+          "web: ratio constrained simplex truncated exponential volume typical coordinates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kazakov arXiv:2606.02087 abstract proves volume ratio using exponential variables for edge-trisection; the new statement conditions their entire sample under max<=c min and describes its limiting empirical law."
+        ],
+        "reasoning": "An exact volume fraction of P_m(2) does not determine the conditional coordinates or concentration radius; equivalence would require an unreported conditional limit result.",
+        "searches": [
+          "Resultary: central simplex ratio constrained coordinates truncated exponential beta minimum bulk uniform random polytope",
+          "Resultary: fixed-ratio central simplex polytopes exponential Hausdorff volume phase transition dimension c_m",
+          "https://arxiv.org/abs/2606.02087",
+          "web: ratio constrained simplex truncated exponential volume typical coordinates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches on central simplex, Marion, beta minimum, volume/Hausdorff found no exact table for 1-c(log c)^2/(c-1)^2; search results mostly concerned different simplex constructions."
+        ],
+        "reasoning": "The exact beta transform and continuous c formula are not merely recomputed volume tables; lack of hits does not establish absence of equivalent law.",
+        "searches": [
+          "Resultary: central simplex ratio constrained coordinates truncated exponential beta minimum bulk uniform random polytope",
+          "Resultary: fixed-ratio central simplex polytopes exponential Hausdorff volume phase transition dimension c_m",
+          "https://arxiv.org/abs/2606.02087",
+          "web: ratio constrained simplex truncated exponential volume typical coordinates"
+        ]
+      },
+      "rationale": "The original central simplex volume/face enumeration and exponential simplex coupling are acknowledged as prior. The proposed object is instead the conditional uniform-volume empirical coordinate law, beta localization, extreme coordinates, and typical squared radius for fixed c>1. Accessible indexed sources did not provide those statements, with priority risk from classical Gibbs conditioning/order-statistics methods.",
+      "residual_risks": [
+        "The complete Kazakov 2026 paper and the previously reported volume/Hausdorff finding were not materially read; their unseen results might contain a related limit.",
+        "Classical conditional exponential order-statistic theorems may imply this special limit through a short application."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms prior volume/exponential argument; cannot claim full manuscript noncoverage",
+          "evidence": "Abstract states volume formula and exponential interpretation, no displayed conditional coordinate law.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.02087",
+          "material_read": "Accessible primary abstract and bibliographic metadata, not full manuscript body",
+          "method": "Web arXiv abstract; HTML/PDF attempt unavailable",
+          "title": "Generalization of Marion's Theorem: Volumes of Central Polytopes Obtained by Trisecting the Edges of Simplices",
+          "trigger": "Original same central simplex c=2 construction and exponential method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/truncated-exponential-bulk-geometry-of-uniform-central-simplex-p--26d47f09e2ad/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/truncated-exponential-bulk-geometry-of-uniform-central-simplex-p--26d47f09e2ad/REVIEW.md"
+      ],
+      "rationale": "Central simplex polytopes are natural high-dimensional convex bodies whose volume and faces were studied. A typical uniform-volume point law, asymptotic independence, boundary localization and sharp Euclidean radius determine genuinely different geometry from volume or Hausdorff extremal values. The c=2 constant answers an explicit rescaling motivation.",
+      "residual_risks": [
+        "Judgment addresses mathematical motivation of the exact invariant, not expected citations or paper-sized impact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Fixed c>1; uniform Hausdorff volume distribution only; no varying c_m, no rate, no whole-polytope convergence.",
+  "schema_version": 1
+}

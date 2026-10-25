@@ -1,15 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditioning event is scale invariant, so normalizing independent exponentials gives exactly uniform relative volume in the required central simplex polytope. A direct change of variables computes the conditional minimum transform as \(\mathrm{Beta}(m/(c-1),m)\), including its exact variance; this yields concentration at \(a_c=\log(c)/(c-1)\). Conditional on the minimum, the remaining coordinates are independent truncated exponentials, giving an empirical weak law; independence of the gamma sum from the simplex proportions justifies normalization. Exchangeability plus the with-/without-replacement coupling proves finite-coordinate asymptotic independence. Moment integration and deterministic bounded support prove the precise radial constant and \(L^q\) convergence. The proof verifies all normalization conventions and is independent of finite experiments.
+## correctness
 
-## Originality — PASS, with qualifications
-Kazakov (2026), arXiv:2606.02087, Sections 2–5 and appendices, determines the edge-trisection polytope, its volume fraction, and its face structure. The exponential representation is expressly prior work. A prior central-simplex result covers volume fractions and Hausdorff distances even at a growing coordinate ratio, but does not imply the uniform-volume conditional marginal limit, endpoint concentration, or the typical squared radius. Searches under Marion/ratio-constrained simplex, truncated-exponential conditioning, beta minimum, and Euclidean thin-shell aliases did not reveal a published covering theorem. The title/statement comparison, not the absence of keyword matches, supports originality. A different derivation in general conditioned-order-statistics literature remains a plausible priority risk.
+PASS
 
-## Mathematical value — PASS
-Kazakov's central-simplex construction supplies a natural family whose volume is explicitly known, while its high-dimensional typical point geometry remains different information from face counts or total volume. The theorem identifies the full typical-coordinate distribution, its support endpoints, and a nontrivial exact Euclidean concentration coefficient for every fixed ratio, including the canonical edge-trisection case. It turns a qualitative rescaling question into explicit values without requiring a universal or paper-sized theorem. The result makes no claim about all convex bodies or whole-polytope Hausdorff shape.
+Uniform-volume on P_m(c) equals normalized iid Exp(1) coordinates conditioned on scale-invariant E=max Y≤c min Y. The minimum density is m exp(-my)(1-exp(-(c−1)y))^(m−1); Z=exp(-(c−1)min Y) transforms exactly to Beta(m/(c−1),m), mean 1/c and variance (c−1)^2/[c²(mc+c−1)]. Given minimum and index the other entries are iid truncated Exp on [y,cy]. Conditional LLN plus independent Gamma(m,1) sum proves the ν_c empirical weak limit, exchangeability gives fixed-k propagation of chaos, endpoint sampling gives both extremes. Direct integration verifies mean 1, second moment 2-c(log c/(c−1))² and radius 1-c(log c/(c−1))²; deterministic scaled coordinate bounds [1/c,c] upgrade to L^q. Verified moment formulas independently at c=1.001,1.5,2,3,10; no finite simulation used to prove asymptotics.
 
-## Closest literature and limits
-The main manuscript's full public text was reviewed for its central-polytope inequalities, exponential-volume argument, combinatorial classification and future questions. The Fried simplex-extreme paper was compared from its abstract only; it does not condition on all coordinate ratios. The previous central-simplex volume/Hausdorff finding was compared by mathematical implication but not independently re-reviewed. An unlocated equivalent elementary conditional-sample theorem remains the chief originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original central simplex volume/face enumeration and exponential simplex coupling are acknowledged as prior. The proposed object is instead the conditional uniform-volume empirical coordinate law, beta localization, extreme coordinates, and typical squared radius for fixed c>1. Accessible indexed sources did not provide those statements, with priority risk from classical Gibbs conditioning/order-statistics methods.
+
+## value
+
+PASS
+
+Central simplex polytopes are natural high-dimensional convex bodies whose volume and faces were studied. A typical uniform-volume point law, asymptotic independence, boundary localization and sharp Euclidean radius determine genuinely different geometry from volume or Hausdorff extremal values. The c=2 constant answers an explicit rescaling motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
