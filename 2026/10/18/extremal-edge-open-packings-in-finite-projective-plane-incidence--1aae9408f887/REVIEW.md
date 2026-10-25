@@ -1,15 +1,21 @@
-# Scientific review: projective-plane edge-open packings
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses only finite projective-plane incidence axioms. Each selected edge maps bijectively to its leaf after orienting the induced star components. Mixed-side leaf sets have nonincidence constraint and the double-counting inequality \(|X|+|Y|\le q^2+1\), strictly below the constructed \(q(q+1)\) optimum. With all leaves on one side, two centers force at least one omitted line; equality forces all centers onto that line and every other line to meet precisely its unique center. Duality and distinctness yield all \(2(q^2+q+1)\) maxima. The code independently checks the complete \(q=2,3\) censuses and constructions for \(q=5,7\). Unverified computational orders do not enter the proof.
+## correctness
 
-## Originality — PASS, residual historical risk
-The original edge-open-packing article establishes the generic degree bound and enumerates other standard graph families. The full relevant section of Brešar–Samadi (arXiv:2403.00750v1, Theorem 4.1) classifies equality at \(|E|/\delta\), not the strict near-equality value or its projective-plane maximizers. The injective-edge-coloring article (arXiv:2010.00429) studies numbers of colors, not maximum class size. Searches using Levi-graph, induced-star-forest, and injective-color-class aliases did not reveal a stronger theorem. The order-two Heawood case is excluded from the asserted theorem. An unindexed equivalence in classical incidence-geometry or induced-star literature remains possible.
+PASS
 
-## Value — PASS
-The result proves an exact invariant for an infinite geometric class without a Desarguesian assumption. The sharp one-step improvement to the general degree bound is accompanied by a complete rigidity and counting theorem, not just an isolated numeric example. The mixed-leaf obstruction is an independent incidence-counting tool potentially usable for partial-plane configurations.
+For the bipartite Levi graph of an existing projective plane of order q>=3, each edge-open packing induces a star forest and each selected edge determines one leaf. Orient components and put line leaves in X and point leaves in Y, whose opposite-type members must be nonincident. When both X and Y are nonempty, choose a leaf line L and leaf point y; letting Z be the off-L points lying on other X-lines yields q(|X|-1)<=q|Z|, while Y has at most q^2-|Z| points, so |B|=|X|+|Y|<=q^2+1<q(q+1). With one leaf side, two distinct centers have a joining line not itself available as a leaf, bounding |B| by q^2+q; equality forces that to be the sole missing line, every center on it and all other lines attached to the unique point of intersection. Dualize for the point version; there are exactly 2(q^2+q+1) distinct constructions and no others. Independent projective-coordinate incidence generation and maximal clique search at q=2,3 gave sizes 6,12 and exactly 14,26 maximizing edge sets, respectively, over 28 and 3094 inclusion-maximal cliques. The q>=3 theorem follows from the incidence proof and does not assert projective-plane existence for every integer q.
 
-## Scientific limitations
-Finite tests cover prime fields of orders 2, 3, 5, and 7; exhaustive maximal-packing enumeration is only performed at orders 2 and 3. No experiment establishes the general theorem without the written proof. Existence of planes of arbitrary order is not assumed. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.
+
+## value
+
+PASS
+
+The general |E|/delta degree bound equals q^2+q+1 on these regular incidence graphs, but the exact graph-specific optimum is one smaller and the entire equality set is rigidly controlled by a single omitted point or line. The classification and exact 2v count make the one-unit improvement structurally meaningful, not merely an isolated numerical gain. This is a natural infinite family including non-Desarguesian planes, and the incidence-counting mixed-leaf obstruction could be reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
