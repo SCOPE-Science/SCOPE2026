@@ -1,21 +1,21 @@
-# Scientific assessment: equal-length electrical bypasses for Steiner pair designs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes an existing simple Steiner \(2\)-\((v,k,1)\) design, unit incident-edge conductances and the canonical orthogonal cut/cycle projectors. The central nonstandard identity is not inferred from numerical experiments: \(NN^{\mathsf T}=(r-1)I+J\) leads to the explicit Poisson potential \(x=(k/v)\mathbf1_{p_0}-(1/v)\mathbf1_{B_0}\) and \(y=(N^{\mathsf T}x-\mathbf1_{B_0}^{\mathrm{block}})/k\). The graph gradient equals the unique electrical flow. Counting the length-five bypasses and evaluating all current signs establishes the equal-weight path decomposition and exactly \(5-4\rho\) and \(6(1-\rho)\) for the two endpoint projection norms. The dominance cases follow from the design incidence bound \(b\ge v\). There is no reliance on edge transitivity or on existence of designs with unverified parameters.
+PASS
 
-The independent exact-rational checker reconstructs grounded graph Laplacians and verifies \(279\) full projector columns and \(14{,}064\) enumerated length-five bypasses over five finite designs, including nonsymmetric affine cases. These tests corroborate, but do not substitute for, the universal proof.
+For an arbitrary existing simple Steiner 2-(v,k,1), N N^T=(r−1)I+J and r(k−1)+1=v. The displayed potentials x=(k/v)e_p−(1/v)1_B, y=(N^T x−e_B)/k solve the unit source Poisson equation and give the unique cut projection current. Each edge-avoiding path has length at least 5; selecting the first second-block neighbor x outside B and z in B\{p} yields exactly (v−k)(k−1) paths; their 1/(kv) signed contributions match every nonzero current-table entry. Their total weight is 1−ρ, ρ=(k−1)/v+1/k, without cancellation; ||Q||_1=||Q||_∞=5−4ρ, ||I−Q||=6(1−ρ). Rank N=v implies b>=v and excludes k>=4 dominance; admissible k=3 small orders are 7 and 9. Independent Fano-projective-plane grounded-Laplacian pseudoinverse confirms all columns (~2.52380952 and ~2.28571429) and idempotence; finite examples corroborate rather than prove the universal statement.
 
-## Originality — PASS (self-review, residual uncertainty)
+## originality
 
-The nearest primary framework is Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582 (2023), which develops cycle-space projection theory with explicit investigations of Hamming graphs and tori, not the Steiner point–block current law. Schild–Rao–Srivastava, arXiv:1708.01632 (2017), and Gurel-Gurevich–Nachmias–Sachdeva, arXiv:2605.24130 (2026), prove general electrical-current localization bounds rather than the present exact uniform decomposition. A related symmetric-design calculation already covers its projective-plane special cases; that statement does not cover nonsymmetric Steiner designs and does not state the equal-weight shortest-bypass theorem across all such designs. The affine-plane instances have different point/block counts and cannot be covered by the symmetric hypothesis. Relevant semantic record searches found Steiner incidence-graph topology results, but no identified equivalent electrical projector theorem.
+PASS
 
-The principal residual risk is an equivalent formula in older incidence-network, electrical-routing, or design literature that uses different terminology. Available full texts were inspected where materially relevant; a related record's full text was not accessible, so its summary is not asserted to prove complete noncoverage. Originality is not a claim of exhaustive uniqueness in all publications.
+The same objects can be called Steiner incidence electrical routing / cut projection norms. Older symmetric projective-plane calculation covers a special case, but not arbitrary asymmetric Steiner 2-designs or the explicit uniform shortest-bypass decomposition. Exact source comparisons did not identify a dominating all-design statement.
 
-## Mathematical value — PASS
+## value
 
-This is an exact structural statement for a broad natural class of finite linear spaces, not an arbitrarily selected small example or isolated numeric table. A **Hilbert-energy-minimizing** unit edge flow, which is generally not length-minimizing, is shown to use *only* the direct edge and equal-weight **shortest bypasses**, independently of automorphism groups or the isomorphism type of the underlying Steiner design. The theorem converts that current geometry into universal quantitative Banach-space cut/cycle norms, a strict dominance classification, and sharp asymptotic bounds. It extends the symmetric-design case to nonsymmetric Steiner triple systems and affine geometries of unbounded order.
+PASS
 
-No result is asserted for arbitrary minimum-norm projections, weighted graphs, non-Steiner block designs, or intermediate \(\ell_p\). Independent validation and comprehensive literature certification remain outstanding.
+A broad natural class of finite incidence networks has an unusually rigid energy-minimizing edge flow supported on shortest bypasses and exact Banach endpoint projection norms, regardless of automorphisms; the nonsymmetric extension is mathematically substantive.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

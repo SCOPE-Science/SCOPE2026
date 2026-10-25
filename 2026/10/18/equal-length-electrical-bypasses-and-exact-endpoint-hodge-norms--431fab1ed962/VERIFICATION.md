@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_steiner_currents.py` using Python 3; the script imports only Python's standard library. It builds the following Steiner \(2\)-designs directly from finite arithmetic: all pairs on five points, the projective planes of orders two and three, and the affine planes of orders three and five.
+## correctness
 
-For each graph it constructs an unweighted point-to-block signed incidence, forms a grounded graph Laplacian, inverts that Laplacian in exact rational arithmetic, and constructs all entries of the orthogonal cut projector. It checks the incidence axioms, uniform diagonal \(\rho\), exact absolute column sums \(5-4\rho\) and \(6(1-\rho)\), matrix symmetry, and projector idempotence for all examples of at most \(52\) edges. It also independently enumerates **every** length-five edge-avoiding bypass for each root incidence edge and verifies equality of the complete electrical-flow column with the asserted direct-edge-plus-bypasses combination.
+PASS
 
-Expected final output: `VERIFIED 5 designs; 279 edge columns; 14064 length-five bypass paths`. This output was reproduced from the packaged script during the self-review. The five finite examples are not an exhaustive list of Steiner designs. The all-parameter statements follow from the explicit incidence-matrix proof in `RESULT.md`, not computational extrapolation.
+For an arbitrary existing simple Steiner 2-(v,k,1), N N^T=(r−1)I+J and r(k−1)+1=v. The displayed potentials x=(k/v)e_p−(1/v)1_B, y=(N^T x−e_B)/k solve the unit source Poisson equation and give the unique cut projection current. Each edge-avoiding path has length at least 5; selecting the first second-block neighbor x outside B and z in B\{p} yields exactly (v−k)(k−1) paths; their 1/(kv) signed contributions match every nonzero current-table entry. Their total weight is 1−ρ, ρ=(k−1)/v+1/k, without cancellation; ||Q||_1=||Q||_∞=5−4ρ, ||I−Q||=6(1−ρ). Rank N=v implies b>=v and excludes k>=4 dominance; admissible k=3 small orders are 7 and 9. Independent Fano-projective-plane grounded-Laplacian pseudoinverse confirms all columns (~2.52380952 and ~2.28571429) and idempotence; finite examples corroborate rather than prove the universal statement.
 
-A separate analytic consistency check verifies \(\rho+(k-1)(v-k)/(kv)=1\) and the identities \(\rho+5(1-\rho)=5-4\rho\) and \((1-\rho)+5(1-\rho)=6(1-\rho)\). No external independent audit has been conducted.
+## originality
+
+PASS
+
+The same objects can be called Steiner incidence electrical routing / cut projection norms. Older symmetric projective-plane calculation covers a special case, but not arbitrary asymmetric Steiner 2-designs or the explicit uniform shortest-bypass decomposition. Exact source comparisons did not identify a dominating all-design statement.
+
+## value
+
+PASS
+
+A broad natural class of finite incidence networks has an unusually rigid energy-minimizing edge flow supported on shortest bypasses and exact Banach endpoint projection norms, regardless of automorphisms; the nonsymmetric extension is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
