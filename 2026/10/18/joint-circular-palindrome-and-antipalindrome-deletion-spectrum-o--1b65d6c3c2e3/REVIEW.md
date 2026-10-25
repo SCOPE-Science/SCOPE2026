@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Complete two-way Eulerian enumeration agrees on all \(2048\) rotations; direct length-five window checks and exact dynamic programming prove every profile. Independent longest-common-subsequence calculations agree for all \(65536\) cuts, and the complete table and group orbit totals are checked by executable source.
+## correctness
 
-**Originality — PASS against the inspected record.** Guo–Shallit–Shur cover antipalindromic factor/conjugacy structure, whereas Müllner–Ryzhikov formulate the natural paired circular-subsequence extrema but do not count de Bruijn-conditioned outcomes. Chang–Wang treat the reverse-complement-symmetric boundary, which is not newly claimed on its own. An accessible prior ordinary-palindromic marginal gives only column sums and does not imply the nineteen joint counts. Earlier unindexed tables remain a priority risk.
+PASS
 
-**Mathematical value — PASS.** The Lyngsø–Pedersen circular balanced-word question and its ordinary palindromic counterpart motivate precisely this paired invariant. The uniform-factor de Bruijn subclass exhibits a sharp and nontrivial incompatibility between its two maxima, with an exhaustive conditional distribution useful as an exact benchmark.
+A binary order-five de Bruijn cycle is an Euler tour of the 16-vertex/32-edge order-four de Bruijn directed graph. Each local vertex has two incoming and two outgoing edges, hence 2 choices of pairing; all 2^16=65,536 local pairings exhaust all Euler tours via the one-cycle test, uniquely rooted at 00000. This gives exactly 2048 rotation classes. For every one of the 32 cuts per class, independent recurrence on subintervals gives optimal palindromic subsequence length when endpoints match and antipalindromic length when endpoints differ, with correct empty and singleton cases. A fresh separately written C++ exhaustive enumerator (not the submitted verify.cpp or CSV) confirmed all 2048 cycles, all 65,536 rooted cuts, every one of the 20 joint frequency cells, exactly 19 occupied cells: A=26 row (4,16,284,52,32), A=28 row (52,80,860,180,136), A=30 row (12,16,192,44,24), A=32 row (8,2,44,10,0), 32 two-cycle and 496 four-cycle reversal/complement orbits. For this exact finite domain the enumeration is exhaustive, rather than an empirical extrapolation.
 
-The result does not address other orders, asymptotic existence, the global circular-word conjectures, or priority beyond the inspected literature. Numerical checks support the finite theorem and do not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The preceding Guo–Shallit–Shur study treats palindromic/antipalindromic contiguous factors or conjugates, and Müllner–Ryzhikov treats general longest circular scattered-subsequence questions, not a complete order-five de Bruijn-conditioned joint distribution. Chang–Wang reverse-complement-symmetric cycles may cover the perfect antipalindromic boundary, explicitly excluded as a separately novel claim; they do not give the remaining joint cells. Best-of-knowledge PASS with risk of an older unindexed census.
+
+## value
+
+PASS
+
+Order-five binary de Bruijn cycles form a canonical natural finite population of 2048 rotation classes; the complete two-observable deletion tradeoff and forbidden extremal pair distinguish circular palindrome and antipalindrome geometry that neither marginal or known perfect-boundary existence result determines. A finite classification can be valuable without an all-order formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

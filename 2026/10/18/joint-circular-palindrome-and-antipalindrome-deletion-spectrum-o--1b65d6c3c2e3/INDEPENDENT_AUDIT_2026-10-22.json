@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T11:03:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A binary order-five de Bruijn cycle is an Euler tour of the 16-vertex/32-edge order-four de Bruijn directed graph. Each local vertex has two incoming and two outgoing edges, hence 2 choices of pairing; all 2^16=65,536 local pairings exhaust all Euler tours via the one-cycle test, uniquely rooted at 00000. This gives exactly 2048 rotation classes. For every one of the 32 cuts per class, independent recurrence on subintervals gives optimal palindromic subsequence length when endpoints match and antipalindromic length when endpoints differ, with correct empty and singleton cases. A fresh separately written C++ exhaustive enumerator (not the submitted verify.cpp or CSV) confirmed all 2048 cycles, all 65,536 rooted cuts, every one of the 20 joint frequency cells, exactly 19 occupied cells: A=26 row (4,16,284,52,32), A=28 row (52,80,860,180,136), A=30 row (12,16,192,44,24), A=32 row (8,2,44,10,0), 32 two-cycle and 496 four-cycle reversal/complement orbits. For this exact finite domain the enumeration is exhaustive, rather than an empirical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo et al. focus on palindromic/antipalindromic factors, not scattered subsequences on de Bruijn cycles.",
+          "Müllner–Ryzhikov derive general bounds and conjectures over balanced circles; these bound possible lengths but do not fix a complete conditional distribution.",
+          "Chang–Wang investigate reverse-complement-symmetric de Bruijn sequences and related existence counts; may imply A=32 boundary but not the joint 19-cell table."
+        ],
+        "reasoning": "The broad all-balanced-cycle inequalities cannot dominate this exact restricted-class two-variable table. The highly relevant symmetry theorem may subsume a subset of one boundary and is credited.",
+        "searches": [
+          "Guo Shallit Shur antipalindromes and conjugates 1503.09112",
+          "Müllner Ryzhikov palindromic subsequences finite words 1901.07502",
+          "Chang Wang de Bruijn complement reverse 2408.01794"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1901.07502",
+        "https://arxiv.org/abs/1503.09112",
+        "https://arxiv.org/abs/2408.01794",
+        "Resultary semantic query: binary de Bruijn order 5 2048 cycles circular longest palindromic antipalindromic subsequence joint deletion distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General bounds restrict minimum possible A/P but do not specify the joint distribution among rotation classes.",
+          "Reverse-complement symmetry constrains perfect A=32 cycles but cannot imply the conditional values P=25,26,27,28,29 on every symmetry type."
+        ],
+        "reasoning": "A known marginal or extremal-characterization corollary cannot establish a 20-cell joint table; no inspected theorem counts all 2048 cycles by both statistics.",
+        "searches": [
+          "arxiv:1901.07502 balanced circle palindromic subsequence lower bound",
+          "arxiv:2408.01794 reverse complement de Bruijn sequences enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Müllner–Ryzhikov arXiv:1901.07502 defines ordinary and reverse-complement scattered palindromic subsequences on balanced cycles, but without the de Bruijn order-five 2048-cycle table.",
+          "Resultary ranked results include binary palindromic deletion-code optimal sizes, unrelated to statistics of cyclic Euler words."
+        ],
+        "reasoning": "Aliases include circular longest palindromic subsequence, reverse-complement subsequence, edit-to-palindrome with deletions, and Euler-tour statistics; the inspected prior theorems do not enumerate the joint law of both extrema.",
+        "searches": [
+          "binary de Bruijn order 5 2048 cycles circular longest palindromic antipalindromic subsequence joint deletion distribution",
+          "de Bruijn order 5 longest palindromic subsequence complement reverse circular deletion table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching joint two-statistic table among twelve ranked Resultary findings.",
+          "Fresh independent full 2^16 pairing enumeration and dynamic programming reproduce all 20 cells and both 2048 total and 528 symmetry-orbit count; prior archive CSV independently exists but was not presumed sufficient alone."
+        ],
+        "reasoning": "This is complete finite classification of a natural size-2048 object class rather than a toy sampled histogram. Absence from indexed sources leaves potential historical priority risk.",
+        "searches": [
+          "binary de Bruijn order 5 2048 cycles circular longest palindromic antipalindromic subsequence joint deletion distribution",
+          "de Bruijn order 5 palindrome antipalindrome 2048 circular joint exhaustive table 19"
+        ]
+      },
+      "rationale": "The preceding Guo–Shallit–Shur study treats palindromic/antipalindromic contiguous factors or conjugates, and Müllner–Ryzhikov treats general longest circular scattered-subsequence questions, not a complete order-five de Bruijn-conditioned joint distribution. Chang–Wang reverse-complement-symmetric cycles may cover the perfect antipalindromic boundary, explicitly excluded as a separately novel claim; they do not give the remaining joint cells. Best-of-knowledge PASS with risk of an older unindexed census.",
+      "residual_risks": [
+        "Unindexed historical enumeration could already contain all or part of the exact 2048-cycle two-variable table.",
+        "The result is order-five only, and maximal subsequence lengths may come from distinct cuts; no extension to other orders is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates paired extrema but contains no conditional de Bruijn order-five joint census",
+          "evidence": "arXiv:1901.07502",
+          "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+          "material_read": "Original full-text PDF definitions, examples, bounds and statements of conjectures concerning circular words",
+          "method": "Public arXiv PDF with relevant original page-image inspection",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Directly studies both circular scattered-subsequence extrema"
+        },
+        {
+          "assessment": "Contiguous factor statistics are not the same as longest scattered subsequences on order-five de Bruijn cycles",
+          "evidence": "arXiv:1503.09112",
+          "identifier_or_url": "https://arxiv.org/abs/1503.09112",
+          "material_read": "Original full-text PDF discussion of antipalindromic factors and related word operations",
+          "method": "Public arXiv PDF and page-image inspection",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Similar palindrome terminology and conjugacy"
+        },
+        {
+          "assessment": "Relevant to A=32 boundary cases; does not enumerate full joint P/A table",
+          "evidence": "arXiv:2408.01794",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01794",
+          "material_read": "Original full-text PDF definitions, existence constructions and symmetry counting",
+          "method": "Public arXiv PDF, including original page-image inspection",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Exact same binary odd-order de Bruijn class and relevant reverse-complement symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order-five binary de Bruijn cycles form a canonical natural finite population of 2048 rotation classes; the complete two-observable deletion tradeoff and forbidden extremal pair distinguish circular palindrome and antipalindrome geometry that neither marginal or known perfect-boundary existence result determines. A finite classification can be valuable without an all-order formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1901.07502",
+    "https://arxiv.org/abs/1503.09112",
+    "https://arxiv.org/abs/2408.01794",
+    "Resultary semantic query: binary de Bruijn order 5 2048 cycles circular longest palindromic antipalindromic subsequence joint deletion distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite statement only for binary order-five cycles modulo rotation, not all orders or all balanced circular words.",
+    "No universal independent human certification; exhaustive independently coded finite enumerator supplies algorithmic reproducibility for finite theorem."
+  ],
+  "residual_risks": [
+    "Unindexed historical enumeration could already contain all or part of the exact 2048-cycle two-variable table.",
+    "The result is order-five only, and maximal subsequence lengths may come from distinct cuts; no extension to other orders is established."
+  ],
+  "schema_version": 1
+}
