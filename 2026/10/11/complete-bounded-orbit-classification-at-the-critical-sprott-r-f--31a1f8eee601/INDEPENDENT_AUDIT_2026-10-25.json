@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T17:14:27.952489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the EXACT pinned polynomial field xdot=a-y, ydot=b+z, zdot=xy-z, independent symbolic differentiation gives dH/dt=b+a x for H=y+z+x²/2, and dE/dt=-y²+b(x+y)+a(H+x²/2) for E=y²/2+xH-x³/6 (both polynomial residuals identically zero). At a=0,b!=0 the linearly drifting continuous H precludes any bounded forward-complete orbit, hence any nonempty compact invariant set. At a=b=0, H=h gives a globally invertible polynomial coordinate reduction on each leaf: v=xdot=-y, z=h+v-x²/2, with (xdot,vdot)=(v,x²/2-h-v). The energy E_h=v²/2+hx-x³/6 satisfies Ehdot=-v². For any bounded forward/complete orbit, monotone finite-limit energy plus compact invariant omega/alpha sets shows every limit point is equilibrium x²/2=h, v=0. Connected omega limit gives convergence to one equilibrium. Thus for h<0 no bounded forward orbit, for h=0 only origin as bounded complete orbit (equal limiting E would force v identically zero), and for h>0 exactly two equilibria and a unique bounded nonstationary complete branch: (u,0) with u=sqrt(2h) has eigenpolynomial λ²+λ-u (saddle), (-u,0) has λ²+λ+u (sink). Left unstable branch has x<u and E_h<U_h(u)=u³/3 at all finite times; x cannot cross u and U_h(x) tends +infinity as x->-infinity, confining x,v and forcing omega limit sink. Right branch x>u cannot be bounded by same energy barrier and lack of equilibria on x>u. All other bounded complete orbits must start at saddle and end at sink by strict energy drop, so left branch is unique up to translation. Exact potential difference U_h(u)-U_h(-u)=2u³/3 equals integral v²=integral y². Finally at a=b=0, compact stationarity gives ∫y²=0, invariant support y=0 then zdot constraints give z=0, and arbitrary measures on equilibrium line are invariant. Critical algebra was independently checked in SymPy, not inferred from VERIFY_OK; the global argument is analytic, not numerical. Limits: no claims for a≠0 or finite-time escape.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct published 2026/10/4 Sprott-R theorem covers exactly the compact invariant measures on a=0, including no measure for b≠0 and only equilibrium-line measures for a=b=0; its critical Lyapunov polynomial equals -E of the reviewed result.",
+          "Sprott–Zeraoulia (2010), Section 2, establishes ellipsoidal boundedness estimates under strictly positive dissipation hypotheses and does not state the critical zero-restoring all-height phase portrait.",
+          "The 2012 Sprott–Zeraoulia jerky boundedness full text could not be acquired; abstract alone insufficient for noncoverage."
+        ],
+        "reasoning": "The prior 2026/10/4 result strongly overlaps but its mathematical conclusions are compact-statistics/period constraints, not all bounded complete trajectories or their unique connecting orbit/action for each h>0. Classical LaSalle and unstable-manifold methods are proof ingredients rather than a verified prior theorem asserting the specific complete classification. This is qualified, not absolute priority.",
+        "searches": [
+          "\"Boundedness of Certain Forms of Jerky Dynamics\" arxiv filetype:pdf",
+          "\"About the boundedness of 3D continuous-time quadratic systems\" pdf Sprott",
+          "\"Sprott R\" polynomial Lyapunov function first integrals",
+          "Resultary semantic search: Sprott R zero parameters invariant cubic potential bounded heteroclinic classification",
+          "Resultary semantic search: damped quadratic oscillator saddle sink unique heteroclinic action",
+          "Resultary 2026/10/4 Sprott-R compact-recurrence phase boundary RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Sprott 1994, https://sprott.physics.wisc.edu/pubs/paper212.pdf, complete four page scan read",
+        "Sprott and Linz 2000, https://sprott.physics.wisc.edu/pubs/paper250.pdf, printed pp.1–5 and relevant Eq. (8) full text",
+        "Sprott 2013–2014, https://sprott.physics.wisc.edu/technote/regions.htm, HTML note",
+        "Distinct published Resultary 2026/10/4 same-system critical recurrence theorem, complete RESULT.md",
+        "Sprott–Zeraoulia 2010, https://test-sprott.physics.wisc.edu/pubs/paper338.pdf, parsed text and relevant hypotheses",
+        "Zeraoulia–Sprott 2012, doi:10.1007/s12346-011-0056-7, abstract only; full-text inaccessible",
+        "Resultary 2026/10/11 matching assessed finding (self-match, not independent prior evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous 2026/10/4 theorem states absence of compact invariant probabilities for a=0,b!=0. A bounded forward-complete trajectory would have an invariant weak-* limit of time averages; hence that prior theorem ALREADY implies the reviewed no-bounded-forward-orbit claim for b!=0.",
+          "Previous 2026/10/4 theorem explicitly determines compact invariant measures at a=b=0 on the equilibrium line, so reviewed measure conclusion is also covered.",
+          "Its Lyapunov identity -dE/dt=y² provides the dissipative starting point, but the prior theorem does not assert invariant H foliation, saddle unstable-branch confinement, existence and uniqueness of the heteroclinic for each positive h, or its exact action.",
+          "Sprott 1994 and Sprott–Linz 2000 furnish the vector field/jerk identity but do not prove the critical separatrix."
+        ],
+        "reasoning": "Partial implication is identified and not counted as novelty. The remaining complete all-height orbit census and exact action are not a direct formal corollary of the prior *theorem statements* alone: additional phase-plane invariant-leaf/unstable-manifold analysis is necessary. Novelty assessment concerns that remaining mathematical assertion, subject to inaccessible/unindexed literature risks.",
+        "searches": [
+          "Resultary semantic search: Sprott R zero parameters invariant cubic potential bounded heteroclinic classification",
+          "Resultary semantic search: damped quadratic oscillator saddle sink unique heteroclinic action",
+          "Resultary 2026/10/4 Sprott-R compact-recurrence phase boundary RESULT.md",
+          "Resultary 2026/10/11 matching record is assessed work, not independent prior evidence",
+          "Sprott and Linz 2000 Eq.(8), primary full PDF",
+          "Sprott Zeraoulia 2010 general boundedness theorem Eq.(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott–Linz 2000 Eq. (8) gives x triple-prime + x double-prime - x x prime + a x + b=0, an exact rewriting of Sprott R. At a=b=0 one integration gives x double-prime+x prime-x²/2=constant, equal to -h after H normalization.",
+          "The assessed RESULT.md explicitly reduces H=h by v=x prime=-y to x prime=v, v prime=x²/2-h-v. This is a damped cubic-potential oscillator, not a new name for the jerk equation."
+        ],
+        "reasoning": "The third-order jerk is an equivalent prior formulation and is fully credited; the published jerk equation alone and its noncritical attractor graphics do not provide the complete critical bounded-orbit theorem. Search for the zero-parameter integrated oscillator and heteroclinic aliases did not identify a verified covering statement.",
+        "searches": [
+          "Sprott R jerk x''' + x'' - x x' =0 first integral complete bounded orbit classification",
+          "quadratic jerk x''' + x'' - x x' = 0 heteroclinic",
+          "damped nonlinear oscillator x'' + x' = x^2/2 - h heteroclinic uniqueness",
+          "Sprott and Linz 2000, printed p.4 Eq. (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1994 Table I at printed R648 records Case R at a=0.9,b=0.4, its one equilibrium, Lyapunov spectrum and dimension; it does not tabulate h>0 separatrices or their action.",
+          "Sprott 2013 Case R numerical color regions concern attractors and unbounded samples, not invariant-height bounded complete orbit classification.",
+          "Resultary exact previously published Sprott-R invariant-measure theorem at 2026/10/4 overlaps measures as described; matching 2026/10/11 record is the assessed work itself, not independently earlier."
+        ],
+        "reasoning": "The exact original table and modern numerical atlas give equations and numerical sample parameters; the separate published mathematical record contains only a partial exact critical classification (measures). None of those gives the unique heteroclinic count and exact dissipative action on every h>0.",
+        "searches": [
+          "Sprott R x'=a-y y'=b+z z'=xy-z zero parameters invariant cubic potential bounded heteroclinic classification",
+          "\"Sprott R\" \"heteroclinic\" boundary orbit",
+          "Sprott R a=0 b=0 boundedness criteria critical jerk cubic potential",
+          "Sprott 1994 Some simple chaotic flows Table I Case R",
+          "Sprott 2013 Dynamic Regions two-parameter Case R atlas"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the precise leafwise bounded-complete-trajectory classification and action, NOT for the previously known equations, jerk representation, Lyapunov polynomial, or invariant-measure claims. The distinct published generalized Sprott-R theorem from 2026/10/4 already proves the a=0,b≠0 lack of compact invariant probabilities and the a=b=0 equilibrium-support property and explicitly contains the negative of the proposed dissipative E. Moreover its nonexistence of invariant probability together with ordinary time averaging implies absence of bounded forward orbits at b≠0, so this part is covered as a corollary. But that theorem does not imply its own stated results determine that for each h>0 there exists *exactly one* nonstationary bounded complete separatrix and compute the 2/3(2h)^{3/2} action. The latter requires separate invariant-leaf reduction, saddle separatrix barrier, and global limit-set analysis. The original 1994/2000/2013 Sprott sources contain equations and numerical chaos but no such classification. Relevant broad 2010 bound does not dominate. A 2012 jerk-boundedness article remains inaccessible and is a named priority risk, rather than automatic scientific failure.",
+      "residual_risks": [
+        "The full 2012 paper Boundedness of Certain Forms of Jerky Dynamics could not be inspected: open/preprint searches unsuccessful and authorized institutional access reported vpn_disconnected. It might include a covering critical-parameter normal form.",
+        "An unindexed study of the exactly equivalent zero-parameter jerk or damped cubic mechanical system could already derive the same unique heteroclinic and exact energy loss.",
+        "The 2010 boundedness paper was read in parsed text at relevant hypotheses; screenshots at its alternate author-mirror URL returned 502, so no whole-PDF visual certification is claimed.",
+        "Known previous generalized Sprott-R result already proves the measure assertions, the polynomial dissipation identity and, as a corollary, the b!=0 bounded-forward obstruction; novelty is restricted to global leafwise orbit geometry and action."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives Case R at a=0.9,b=0.4 with numeric Lyapunov data and discusses parameter variations, but no all-h critical bounded-orbit or heteroclinic theorem.",
+          "evidence": "R648 Table I row R has dot x=0.9-y, dot y=0.4+z, dot z=xy-z; R650 describes numerical parameter perturbations.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+          "material_read": "All four page images, printed R647–R650, particularly Table I on R648 and parameter variation on R650.",
+          "method": "Direct visual inspection of complete author-hosted scanned article.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Original 1994 source naming and defining Case R and potentially tabulating its dynamics."
+        },
+        {
+          "assessment": "Printed p.4 Eq. (8) gives exactly x triple-dot + x double-dot - x x dot + a x + b = 0; the nearby discussion treats nonzero-parameter chaos, not the critical leafwise classification.",
+          "evidence": "Printed p.4 Eq. (8) and printed p.5 Figure 4 use a=0.9,b=0.4, not a=b=0.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+          "material_read": "Contiguous introductory/jerk text through printed pp.1–5, visual PDF page with Eq. (8), and searched later PDF text for boundedness/heteroclinic.",
+          "method": "Text extraction plus PDF page rendering and inspection.",
+          "title": "Algebraically Simple Chaotic Flows",
+          "trigger": "Sprott–Linz 2000 primary review giving same Sprott-R system in scalar jerk representation; possible equivalent formulation."
+        },
+        {
+          "assessment": "Records the same two-parameter Case R field and numerical classification colors; not an analytic global separatrix census.",
+          "evidence": "Introduction describes numerical initial-condition scans; Case R explicitly gives dx/dt=a-y, dy/dt=b+z, dz/dt=xy-z.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Complete short HTML note (introduction and all case listings, focusing on lines 144–152).",
+          "method": "Full HTML text inspection.",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Author-run two-parameter numerical region atlas for the same exact normalization."
+        },
+        {
+          "assessment": "Decisive PARTIAL PRIOR COVERAGE: already proves no compactly supported invariant probability for a=0,b≠0 and only equilibrium-line compact probabilities at a=b=0. It exhibits polynomial energy with derivative y². It does not classify the nonstationary bounded complete trajectories on each invariant H height, prove unique saddle-to-sink heteroclinic, or compute its exact action.",
+          "evidence": "Finding paragraphs for a=0; proof uses -xz-y²/2-xy-x³/3 with derivative y² at a=b=0 (negative of the assessed E). Its principal theorem only classifies invariant measures and period restrictions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-compact-recurrence-phase-boundary-and-strict-period-floor-in-the--83559b1ef571/RESULT.md",
+          "material_read": "Entire RESULT.md finding, assumptions, proof, verification, limitations, and prior-work discussion.",
+          "method": "Full primary published record read at Git repository.",
+          "title": "Compact-recurrence phase boundary and strict period floor in the generalized Sprott R flow",
+          "trigger": "A *distinct* earlier published mathematical record on the exact same parameterized system and the same critical plane."
+        },
+        {
+          "assessment": "Gives enclosing ellipsoid bounds for systems satisfying strict positive quadratic-dissipation coefficients; this framework does not assert the critical Sprott R levelwise heteroclinic classification.",
+          "evidence": "Section 2 Eq. (7) requires strictly positive ω, φ, ϕ, d and Section 3 treats Lorenz-type dissipative ellipsoids; no named Case R all-height separatrix result found.",
+          "identifier_or_url": "https://test-sprott.physics.wisc.edu/pubs/paper338.pdf",
+          "material_read": "Introduction and general-form hypotheses (pp.1–4), strict dissipativity conditions, representative examples (pp.5–7), from PDF extracted text; attempted page screenshots returned transport 502.",
+          "method": "Full-PDF searchable parsed text selectively inspected; visual screenshot attempt unsuccessful.",
+          "title": "About the boundedness of 3D continuous-time quadratic systems",
+          "trigger": "Sprott–Zeraoulia 2010 general quadratic-flow boundedness theory, potentially dominating the critical case."
+        },
+        {
+          "assessment": "NOT DETERMINED from full text; the abstract discusses parameter ranges with bounded solutions, not the particular critical separatrix classification, but abstract cannot establish noncoverage.",
+          "evidence": "Journal description and DOI; authorized full-text response VPN disconnected. Explicit residual priority risk, not the basis for PASS.",
+          "identifier_or_url": "https://doi.org/10.1007/s12346-011-0056-7",
+          "material_read": "Citation, abstract, and bibliographic descriptions only; full text unavailable on searched open/preprint sources. Authorized institutional download reported VPN disconnected.",
+          "method": "Publisher/academic abstract inspection; arXiv/OA discovery attempts; institutional full-text attempt after those failed.",
+          "title": "Boundedness of Certain Forms of Jerky Dynamics",
+          "trigger": "Relevant titled 2012 Sprott–Zeraoulia paper on bounded jerk equations; possible stronger unseen result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zero-restoring/zero-forcing plane is a natural degeneration of the original minimal quadratic chaotic Sprott-R family, not an arbitrary coefficient slice. A complete global classification of bounded complete motions at all invariant heights is mathematically stronger and different from the already-known no-recurrence / compact-invariant-measure identities: it identifies the unique actual saddle-to-sink orbit on every positive leaf, excludes every other bounded complete non-equilibrium motion (including on the degenerate h=0 leaf), and computes its exact dissipation 2(2h)^{3/2}/3. Such all-level separatrix geometry is useful as a rigorous boundary benchmark for numerical continuation and perturbative bifurcation studies of this named flow. The Lyapunov identity, nonzero-forcing obstruction and invariant-measure census were known; they are not counted as independent new value. The proof uses classical planar methods rather than a novel general theory, so the significance is a motivated complete classification, not a new general heteroclinic theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sprott 1994, https://sprott.physics.wisc.edu/pubs/paper212.pdf, complete four page scan read",
+    "Sprott and Linz 2000, https://sprott.physics.wisc.edu/pubs/paper250.pdf, printed pp.1–5 and relevant Eq. (8) full text",
+    "Sprott 2013–2014, https://sprott.physics.wisc.edu/technote/regions.htm, HTML note",
+    "Distinct published Resultary 2026/10/4 same-system critical recurrence theorem, complete RESULT.md",
+    "Sprott–Zeraoulia 2010, https://test-sprott.physics.wisc.edu/pubs/paper338.pdf, parsed text and relevant hypotheses",
+    "Zeraoulia–Sprott 2012, doi:10.1007/s12346-011-0056-7, abstract only; full-text inaccessible",
+    "Resultary 2026/10/11 matching assessed finding (self-match, not independent prior evidence)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original published same-object compact invariant probability statements and Lyapunov dissipation identity already cover important portions; scientific originality PASS is limited to all-height complete bounded-orbit census, unique heteroclinic and exact action.",
+    "Inaccessible 2012 Zeraoulia–Sprott full paper is a residual novelty risk, not inferred to be negative or covering from abstract.",
+    "Substantial remaining analytic claims verified by direct phase-plane proof reconstruction; exact algebra checker alone is insufficient to establish them.",
+    "Public source METADATA.json and AUDIT.json retain internal process/run identifiers, and REVIEW.md exposes model-workflow provenance. Complete guarded privacy-safe replacements preserving prior scientific evidence were not staged. Publication is withheld, not scientifically failed."
+  ],
+  "schema_version": 1
+}

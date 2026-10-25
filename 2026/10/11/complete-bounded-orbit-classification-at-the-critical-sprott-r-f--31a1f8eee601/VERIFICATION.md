@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3 (standard library only). Successful execution prints `POLYNOMIAL_IDENTITIES_OK` and `ENDPOINT_ACTION_ALGEBRA_OK`. The checker performs exact polynomial-coefficient operations with rational numbers, not sampled floating-point tests. It verifies the global polynomial drift formula, the energy drift formula, and the endpoint action algebra.
+## correctness
 
-The uniqueness of the bounded heteroclinic on each positive leaf is proved analytically using the planar reduction, the strict energy inequality, the saddle's one-dimensional unstable manifold, confinement on the left branch, and the impossibility of a bounded right branch. The script does not certify these infinite-time dynamical conclusions independently. No numerical trajectory is used as evidence for an infinite-time claim. The historical search may miss algebraically equivalent or unindexed results. Independent audit is not yet performed.
+PASS
+
+For the EXACT pinned polynomial field xdot=a-y, ydot=b+z, zdot=xy-z, independent symbolic differentiation gives dH/dt=b+a x for H=y+z+x²/2, and dE/dt=-y²+b(x+y)+a(H+x²/2) for E=y²/2+xH-x³/6 (both polynomial residuals identically zero). At a=0,b!=0 the linearly drifting continuous H precludes any bounded forward-complete orbit, hence any nonempty compact invariant set. At a=b=0, H=h gives a globally invertible polynomial coordinate reduction on each leaf: v=xdot=-y, z=h+v-x²/2, with (xdot,vdot)=(v,x²/2-h-v). The energy E_h=v²/2+hx-x³/6 satisfies Ehdot=-v². For any bounded forward/complete orbit, monotone finite-limit energy plus compact invariant omega/alpha sets shows every limit point is equilibrium x²/2=h, v=0. Connected omega limit gives convergence to one equilibrium. Thus for h<0 no bounded forward orbit, for h=0 only origin as bounded complete orbit (equal limiting E would force v identically zero), and for h>0 exactly two equilibria and a unique bounded nonstationary complete branch: (u,0) with u=sqrt(2h) has eigenpolynomial λ²+λ-u (saddle), (-u,0) has λ²+λ+u (sink). Left unstable branch has x<u and E_h<U_h(u)=u³/3 at all finite times; x cannot cross u and U_h(x) tends +infinity as x->-infinity, confining x,v and forcing omega limit sink. Right branch x>u cannot be bounded by same energy barrier and lack of equilibria on x>u. All other bounded complete orbits must start at saddle and end at sink by strict energy drop, so left branch is unique up to translation. Exact potential difference U_h(u)-U_h(-u)=2u³/3 equals integral v²=integral y². Finally at a=b=0, compact stationarity gives ∫y²=0, invariant support y=0 then zdot constraints give z=0, and arbitrary measures on equilibrium line are invariant. Critical algebra was independently checked in SymPy, not inferred from VERIFY_OK; the global argument is analytic, not numerical. Limits: no claims for a≠0 or finite-time escape.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the precise leafwise bounded-complete-trajectory classification and action, NOT for the previously known equations, jerk representation, Lyapunov polynomial, or invariant-measure claims. The distinct published generalized Sprott-R theorem from 2026/10/4 already proves the a=0,b≠0 lack of compact invariant probabilities and the a=b=0 equilibrium-support property and explicitly contains the negative of the proposed dissipative E. Moreover its nonexistence of invariant probability together with ordinary time averaging implies absence of bounded forward orbits at b≠0, so this part is covered as a corollary. But that theorem does not imply its own stated results determine that for each h>0 there exists *exactly one* nonstationary bounded complete separatrix and compute the 2/3(2h)^{3/2} action. The latter requires separate invariant-leaf reduction, saddle separatrix barrier, and global limit-set analysis. The original 1994/2000/2013 Sprott sources contain equations and numerical chaos but no such classification. Relevant broad 2010 bound does not dominate. A 2012 jerk-boundedness article remains inaccessible and is a named priority risk, rather than automatic scientific failure.
+
+## value
+
+PASS
+
+The zero-restoring/zero-forcing plane is a natural degeneration of the original minimal quadratic chaotic Sprott-R family, not an arbitrary coefficient slice. A complete global classification of bounded complete motions at all invariant heights is mathematically stronger and different from the already-known no-recurrence / compact-invariant-measure identities: it identifies the unique actual saddle-to-sink orbit on every positive leaf, excludes every other bounded complete non-equilibrium motion (including on the degenerate h=0 leaf), and computes its exact dissipation 2(2h)^{3/2}/3. Such all-level separatrix geometry is useful as a rigorous boundary benchmark for numerical continuation and perturbative bifurcation studies of this named flow. The Lyapunov identity, nonzero-forcing obstruction and invariant-measure census were known; they are not counted as independent new value. The proof uses classical planar methods rather than a novel general theory, so the significance is a motivated complete classification, not a new general heteroclinic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
