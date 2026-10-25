@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T17:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on K=k ones in an exchangeable n-letter binary word, each arrangement has equal probability. Positive run-block compositions yield N(2s)=2 binom(k-1,s-1)binom(n-k-1,s-1), N(2s+1)=(n-2s)/s times the same product; hence the universal even-to-odd ratio (n-2s)/(2s) after mixing any exchangeable law. Folding B=min(K,n-K) gives a TP2 kernel in B versus total runs R, with nested supports, from monotonic neighboring-count ratios. The symmetric beta-binomial folded masses wα(B) are strictly TP2 across α since (α+b)/(α+n-b-1) rises with α for b<h. The two-by-two mixed determinant factors into sums of nonnegative products, and boundary-support witnesses force strictness at precisely r odd, whereas the universal run-pair identity forces equality at r even. Every r≤n has positive Pólya mass for n≥2 and α>0; n=1 is excluded. Independently enumerated every binary word at n=2..9 with exact rational α=1/2 and 3/2 and verified every strict/equal adjacent determinant, separately from source checker. Infinite-parameter theorem follows from TP2 algebra, not finite α sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eryilmaz JAP 45 (2008) pp.1011–1012 Lemma 1, Theorem 1: joint run formulas, with multi-color urns.",
+          "The all-α sign comparison is a determinant inequality for a family of distributions, not a fixed-α distribution formula."
+        ],
+        "reasoning": "Eryilmaz 2008 Theorem 1 supplies general joint distribution over run statistics for all colors, but no likelihood-ratio comparison over different symmetric initial masses or paired equality classification was found in its results.",
+        "searches": [
+          "Resultary exact semantic query: Polya urn symmetric two colors run count likelihood ratio stochastic ordering concentration exact plateaus",
+          "SCOPE frozen-repository keyword search: Polya urn run likelihood",
+          "https://doi.org/10.1239/jap/1231340230",
+          "https://doi.org/10.1239/aap/1198177236"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 54791fd1297233dda2a301fe64a2a818e5b734f6 and exact verify_polya_runs.py blob 845ed94c45da84c6312f1b679eab8c99a863e121",
+        "Independent all-binary-word exact enumeration n=2..9 for symmetric α=1/2,3/2",
+        "Eryilmaz 2008 full 17-page Cambridge primary PDF Theorem 1, source title and equations; Makri et al. 2007 primary available full article sections",
+        "Resultary Polya runs/order query and SCOPE repository search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct source equations for adjacent g_{b+1}/g_b and wα(b+1)/wα(b) have the stated monotone ratios, with boundary support providing the strict odd adjacent steps."
+        ],
+        "reasoning": "Classical TP2 composition yields the final conclusion only after proving two nontrivial premises: nested-support TP2 for folded conditional run counts and strict TP2 for folded beta-binomial counts. The bare named composition theorem is not the specific claim.",
+        "searches": [
+          "Resultary exact semantic query: Polya urn symmetric two colors run count likelihood ratio stochastic ordering concentration exact plateaus",
+          "SCOPE frozen-repository keyword search: Polya urn run likelihood",
+          "https://doi.org/10.1239/jap/1231340230",
+          "https://doi.org/10.1239/aap/1198177236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source conditional counts N_{n,k}(r) agree with classical block-composition formulas, but its new concentration comparison uses a strict TP2 beta-binomial fold."
+        ],
+        "reasoning": "A Wald–Wolfowitz fixed-composition run distribution is conditional on K=k; the Pólya total-run likelihood-ratio order varies the latent concentration and must compare mixtures across K, not conditional counts alone.",
+        "searches": [
+          "Resultary exact semantic query: Polya urn symmetric two colors run count likelihood ratio stochastic ordering concentration exact plateaus",
+          "SCOPE frozen-repository keyword search: Polya urn run likelihood",
+          "https://doi.org/10.1239/jap/1231340230",
+          "https://doi.org/10.1239/aap/1198177236"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Universal identity f(2s+1)/f(2s)=(n-2s)/(2s) was rederived from compositions."
+        ],
+        "reasoning": "No exact table for every n and pair α1<α2 including alternating equality positions was found; fresh n=2..9 rational direct enumeration agrees with the strict/equal pattern.",
+        "searches": [
+          "Resultary exact semantic query: Polya urn symmetric two colors run count likelihood ratio stochastic ordering concentration exact plateaus",
+          "SCOPE frozen-repository keyword search: Polya urn run likelihood",
+          "https://doi.org/10.1239/jap/1231340230",
+          "https://doi.org/10.1239/aap/1198177236"
+        ]
+      },
+      "rationale": "Exact Pólya urn run-count laws and joint multicolor run-statistic distributions are prior, including Eryilmaz Theorem 1. However, a distribution identity indexed by α does not automatically certify all-concentration likelihood-ratio sign monotonicity or exact alternating adjacent equality. The present theorem proves an additional uniform parameter-order property by a TP2 decomposition and identifies universal plateaus for exchangeable binary words. Strong historical risk remains that traditional run-distribution literature implicitly simplifies to this ordering.",
+      "residual_risks": [
+        "Classical fixed-composition or exchangeable-runs literature might already contain the universal paired plateau identity.",
+        "Older Pólya/run joint formula may imply the strict MLR through an earlier unpublished or implicit TP2 argument; independent full historical priority not guaranteed.",
+        "Only symmetric real positive initial concentration and both-color total runs are ordered; asymmetric multicolor versions not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTRIBUTIONS_NOT_ORDERING",
+          "evidence": "Theorem 1 expresses joint run-statistic probabilities for fixed urn parameters; does not assert parameter-family MLR or exact adjacent equalities.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1231340230",
+          "material_read": "Full 17-page 2008 primary PDF inspected, especially Introduction pp.1007–1010, Lemma 1 and Theorem 1 pp.1010–1013, conditional joint run formulas and later run-length sections; document text search for likelihood ratio returned none",
+          "method": "Read searchable Cambridge-hosted PDF, visually inspected first page, compared theorem implication",
+          "title": "Run statistics defined on the multicolor urn model",
+          "trigger": "Same two-color Pólya model nested inside general multicolor urn; close possible prior coverage"
+        },
+        {
+          "assessment": "NO_IDENTIFIED_COVERAGE_OF_PARAMETER_ORDER",
+          "evidence": "Studies exact success-run statistics and reliability, rather than α1<α2 likelihood ratio over the total number of both-color runs.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1198177236",
+          "material_read": "Accessible author-upload full presentation, Introduction and relevant results on success runs and run lengths; other sections keyword-searched",
+          "method": "Compared all-color total runs versus success-only statistics and stochastic order",
+          "title": "Success run statistics defined on an urn model",
+          "trigger": "Pólya success and failure run-count literature directly overlaps conditional combinatorics"
+        },
+        {
+          "assessment": "PRIORITY_RISK_FULL_TEXT_UNREAD",
+          "evidence": "Exchangeable-law identity could be earlier; do not claim novelty for its proof absent historical coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(91)90185-T",
+          "material_read": "Bibliographic metadata/abstract only, not accessible complete source",
+          "method": "Evaluated title and scope only",
+          "title": "Distribution theory of runs via exchangeable random variables",
+          "trigger": "Classical exchangeable binary runs may already contain universal even–odd ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Likelihood-ratio order is substantially stronger than a monotone expected number of runs and is informative for reinforced-sequence inference and run-based testing. The sharp pattern of equality plateaus versus strict transitions explains exactly which thresholds discriminate changes in concentration. The universal exchangeable identity is a natural combinatorial structural lemma, not a renamed binomial identity only.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 54791fd1297233dda2a301fe64a2a818e5b734f6 and exact verify_polya_runs.py blob 845ed94c45da84c6312f1b679eab8c99a863e121",
+    "Independent all-binary-word exact enumeration n=2..9 for symmetric α=1/2,3/2",
+    "Eryilmaz 2008 full 17-page Cambridge primary PDF Theorem 1, source title and equations; Makri et al. 2007 primary available full article sections",
+    "Resultary Polya runs/order query and SCOPE repository search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical fixed-composition or exchangeable-runs literature might already contain the universal paired plateau identity.",
+    "Older Pólya/run joint formula may imply the strict MLR through an earlier unpublished or implicit TP2 argument; independent full historical priority not guaranteed.",
+    "Only symmetric real positive initial concentration and both-color total runs are ordered; asymmetric multicolor versions not established.",
+    "All literature-priority findings are best-of-knowledge; source downloads/reading scope is stated exactly; absent search hits do not certify worldwide novelty.",
+    "Finite consistency checks are not infinite theorems; general claims were assessed by the mathematical proof and critical algorithms."
+  ],
+  "residual_risks": [
+    "Classical fixed-composition or exchangeable-runs literature might already contain the universal paired plateau identity.",
+    "Older Pólya/run joint formula may imply the strict MLR through an earlier unpublished or implicit TP2 argument; independent full historical priority not guaranteed.",
+    "Only symmetric real positive initial concentration and both-color total runs are ordered; asymmetric multicolor versions not established."
+  ],
+  "schema_version": 1
+}
