@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For i<j, the event A that j descends from i has probability 1/i; conditional martingale mean E[S_j(t)|F_j]=t/j gives E[A S_j(t)]=t/(ij). The exact one-step mixed-moment recurrence \\(U_{t+1}=(1+2/t)U_t+1/(ij)\\), with \\(U_j=j/i\\), is solved by \\(U_t=t^2/(ij)\\), proving every zero cross covariance. Two-colour beta-binomial urn supplies one-point variance. Double-counting subtree edges gives path-length identity and harmonic exact variance; rational exhaustive tests independently verify \\(n\\le9\\). Edge cases i=1 and i=n are included. No finite enumeration is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lodewijks studies joint degree, depth, graph distance and labels, rather than descendant subtree cardinalities.",
+        "Acan et al. prove one-vertex descendant-size limit in uniform attachment and related preferential models.",
+        "Benkner and Wagner study counts of distinct fringe-subtree shapes, rather than labeled-size covariance."
+      ],
+      "reasoning": "These methods and statistics overlap in model, but their inspected assertions neither give nor imply a diagonal birth-indexed subtree-size covariance matrix as an immediate special case. General urn machinery might still encompass an implicit proof, which is noted as residual risk.",
+      "searches": [
+        "\"On joint properties of vertices with a given degree or label in the random recursive tree\" arXiv:2204.09032",
+        "arXiv:2204.09032 subtree size",
+        "\"Giant descendant trees, matchings and independent sets\" arXiv:1908.02407",
+        "\"Distinct Fringe Subtrees in Random Trees\" arXiv:2105.04231"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.05487, Cor.1.6, App.A.1",
+      "arXiv:1908.02407, Thm.2.4",
+      "arXiv:2204.09032, abstract and introduction",
+      "arXiv:2105.04231, introduction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known total path-length scalar variance can be recovered from the diagonal claim, but the reverse implication is invalid: one scalar variance cannot determine all pair covariances.",
+        "Results for root-degree/path length and root-degree/leaf count concern distinct observables.",
+        "Marginal Beta limits determine single-vertex variances but cannot exclude off-diagonal cross terms."
+      ],
+      "reasoning": "The novel mathematical point assessed here is the exact cancellation of nested/disjoint genealogical covariance for every ordered birth-label pair. It is not an immediate consequence of the listed published scalar or marginal statements; implicit coverage by uninspected classic multivariate urn literature cannot be ruled out.",
+      "searches": [
+        "arXiv:1706.05487 Corollary 1.6 and Appendix A.1",
+        "arXiv:1908.02407 Theorem 2.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson 2017 Cor. 1.6 gives a split-tree realization and Appendix A.1 a two-colour urn for principal subtrees.",
+        "Acan et al. 2019 Theorem 2.4 gives the marginal Beta(1,r-1) descendant proportion for a specified vertex."
+      ],
+      "reasoning": "Marginal Beta laws do not determine pairwise covariance. A global split-tree representation can generate the same joint law, but neither inspected statement specifies all distinct birth-indexed cross moments or their exact cancellation. An implicit derivation via the representation remains plausible.",
+      "searches": [
+        "\"random recursive tree\" \"subtree sizes\" \"uncorrelated\"",
+        "\"random recursive trees\" \"size\" \"orthogonal\" \"fringe subtree\"",
+        "arXiv:1706.05487 (split-tree representation, Corollary 1.6, Appendix A.1)",
+        "arXiv:1908.02407 (Theorem 2.4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closely related published records concern root attachment/path-length covariance and root-degree/leaf covariance; neither describes pairwise descendant subtree size covariances.",
+        "No matching explicit finite covariance table was found in the stated sources."
+      ],
+      "reasoning": "No inspected exact table subsumes this complete age-indexed covariance. Absence of a table is not proof of novelty.",
+      "searches": [
+        "\"recursive tree\" \"subtree sizes\" \"uncorrelated\""
+      ]
+    },
+    "rationale": "Reviewed exact objects and implications, not just titles. Closest work yields one-point descendant size and split-tree representation, or different joint observables. None of the identified theorem statements directly subsumes the all-pairs exact covariance or the resulting individual path-length variance allocation. The possibility of implicit earlier generalized urn derivations remains an explicit risk.",
+    "residual_risks": [
+      "Joint Pólya-urn or random split-tree formulas in earlier texts could imply the diagonal covariance without stating it.",
+      "Some outside paywalled probability works were not inspected cover-to-cover; historical uniqueness is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers split-tree realization and marginal/principal-branch urn structure, not the asserted pairwise birth-indexed covariance matrix in inspected statements",
+        "evidence": [
+          "arXiv:1706.05487, pp.1-4, 15-16; published MSC classification at doi:10.1017/S0963548318000226"
+        ],
+        "identifier_or_url": "arXiv:1706.05487",
+        "material_read": "Introduction, Theorem 1.5, Corollary 1.6, Appendix A.1 Pólya-urn description; full-text search for covariance and subtree sizes",
+        "method": "Primary arXiv PDF parsed text and visual page inspection",
+        "title": "Random recursive trees and preferential attachment trees are random split trees",
+        "trigger": "Same random recursive tree and general split-tree representation; primary MSC 60C05, first public 2017-06-17"
+      },
+      {
+        "assessment": "Shows beta marginal for fixed vertex; no explicit cross-label covariance identified in inspected claims",
+        "evidence": [
+          "arXiv:1908.02407 Theorem 2.4 and its proof"
+        ],
+        "identifier_or_url": "arXiv:1908.02407",
+        "material_read": "Abstract, introduction, §§2.1 and 3.2, Theorem 2.4, and relevant proof of the beta limit; searched for joint descendants",
+        "method": "Primary arXiv PDF parsed text and visual inspection of theorem page",
+        "title": "Giant descendant trees, matchings and independent sets in the age-biased attachment graphs",
+        "trigger": "Exact same vertex-descendant statistic in the uniform attachment special case"
+      },
+      {
+        "assessment": "Analyzes degree, depth, label and graph distance, not birth-indexed descendant subtree-size cross moments in inspected material",
+        "evidence": [
+          "arXiv:2204.09032 abstract and introduction pp.1-3"
+        ],
+        "identifier_or_url": "arXiv:2204.09032",
+        "material_read": "Abstract, full introduction including scope and main claims, and targeted document-wide searches for subtree-size terminology",
+        "method": "Primary arXiv PDF parsed text and visual inspection of first page",
+        "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "trigger": "Joint labeled-vertex statistics in the same random recursive tree"
+      },
+      {
+        "assessment": "Focuses on number of distinct subtree shapes, not joint sizes at prescribed chronological labels",
+        "evidence": [
+          "arXiv:2105.04231 abstract and Introduction"
+        ],
+        "identifier_or_url": "arXiv:2105.04231",
+        "material_read": "Abstract and opening section defining distinct fringe subtrees; targeted text search for covariance",
+        "method": "Primary arXiv PDF parsed text and visual inspection of first page",
+        "title": "Distinct Fringe Subtrees in Random Trees",
+        "trigger": "Same model and fringe subtree concept"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "405a1ed0-5336-40e3-ae7e-b7e1f03276e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The surprising cancellation holds across overlapping nested subtree sizes and gives the complete n-dimensional covariance, not a marginal urn exercise. It yields exact uncertainty quantification for every weighted chronological descendant-influence score and identifies which individual early subtrees contribute to path-length variance. The nontrivial zero off-diagonal law, full covariance rank, and sharp variance localization motivate the specific fact; scalar path-length formulas alone cannot provide these contributions.",
+    "status": "PASS"
+  }
+}
