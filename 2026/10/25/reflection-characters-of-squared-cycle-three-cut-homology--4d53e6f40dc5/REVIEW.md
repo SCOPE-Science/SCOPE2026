@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The four connected-triple patterns follow from the two-neighbor condition in the squared cycle. Checking fourth-vertex extensions gives exactly the cyclic four-block tetrahedra; all larger faces are excluded. A reflection fixes faces only as unions of its fixed vertices and transposed pairs. Their enumerated numbers and orientation signs yield the displayed ordinary Lefschetz formulas, and equivariant Alexander duality converts these to the top-homology character with the full-vertex sign twist. The self-contained checker independently reconstructs the dual and the original cut complexes on two finite ranges, including all reflection elements, with successful results. The infinite assertion rests on the exact pattern and orbit arguments, not those finite runs.
+
+**Originality — PASS, with bibliographic risk.** The cited squared-cycle theorems calculate shellability and sphere counts, not the reflection character. The closest published cyclic representation calculation explicitly restricts to rotations, so does not determine the two inequivalent reflection conjugacy classes at even lengths. Bayer and coauthors' dihedral calculations refer to unpowered cycles or different squared-cycle parameters. The resulting character values are not implied by rank data or restriction to the cyclic subgroup. The relevant full texts, published result records and focused indexed searches were compared. Independently rediscovered or unindexed symmetry results remain possible.
+
+**Value — PASS.** In the natural studied family of ordinary cut complexes, the full dihedral module cannot be recovered from already-known nonequivariant topology or cyclic restriction. The theorem resolves that missing structural information for an infinite family. In even lengths it distinguishes vertex-axis and edge-axis reflections by explicit, growing and frequently opposite-signed traces, for example \((0,2)\) at length ten and \((1,-3)\) at length twelve. This is meaningful equivariant topology, not a renaming of Betti numbers.
+
+Scope: rational characters at reflections for \(n\ge9\), using published degree concentration; no integral representation classification, equivariant homotopy equivalence or higher cycle powers.
+
+Self-review: passed. Independent audit: not yet performed.

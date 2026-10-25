@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every n>=9, the allowed connected triples in the Alexander dual are exactly four cyclic orbit types; checking one extra vertex produces exactly n consecutive four-blocks and no larger faces. Reflection-fixed simplices split into fixed vertices and swapped pairs with explicit complete counts (f,t,T,Q)=(1,(n-1)/2,2,1) in odd size, (2,(n-2)/2,4,0) for even vertex-axis, and (0,n/2,0,2) for even edge-axis. Alternating signed chain traces and the standard equivariant Alexander-duality orientation sign yield the exact stated formulas using published degree concentration. The embedded independent verifier confirms all 217 reflection cases for 9<=n<=22 on the dual and 69 direct ordinary cut-complex cases for 9<=n<=14, including all signs; finite data is not the proof for infinite n. No internal dependency on old computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chauhan-Shukla arXiv:2603.23155 proves shellability for n>=6p-3 and nonequivariant sphere counts; for p=2, this covers n>=9 without a reflection character.",
+        "The closest rotation-module result determines the C_n restriction but explicitly states it does not determine reflections or the D_n action."
+      ],
+      "reasoning": "The larger parameter-range shellability theorem is nonequivariant. Distinct rational dihedral representations can restrict to the same cyclic representation, so knowing the rotation character is not stronger coverage of the new reflection claim.",
+      "searches": [
+        "arxiv:2603.23155, Theorem 1.4 and Sections 3-4",
+        "published-finding corpus semantic search: \"dihedral symmetry n>=9 3-cut complex cycle powers reflection traces for n odd even\"",
+        "published-finding corpus record 2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d, complete RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.13675 Sections 7.4/Propositions 7.27 and 7.29",
+      "arxiv:2406.01979 Theorem 1.4 and Section 4",
+      "arxiv:2603.23155 Theorem 1.4 and Section 4",
+      "published 2026/10/11 cyclic homology representation RESULT.md",
+      "published 2026/10/04 squared-cycle face-vector RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected rotation-only result states cyclic characters for p>=2 and n>=6p-3, explicitly excluding dihedral reflection representation.",
+        "For n=10 the new reflection traces are (0,2), whereas at n=12 they are (1,-3): these cannot be derived from Betti ranks and cannot be recovered from the cyclic restriction without further reflection information."
+      ],
+      "reasoning": "The cited published results determine the total rank and rotations, not the distinction between vertex-axis and edge-axis reflections. Algebraically a restriction to C_n forgets information about the reflection-generator action; our exact signed fixed-face counts supply that missing data.",
+      "searches": [
+        "arxiv:2304.13675, Table 1 and Proposition 7.29",
+        "published-finding corpus record 2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d",
+        "published-finding corpus semantic search: \"squared cycle three cut complex dihedral character reflection 2026\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayer et al., arXiv:2304.13675, Proposition 7.29 computes cyclic characters for cut size two and for cut size equal to the cycle length minus four; not the current cut-size-three, length-at-least-nine domain.",
+        "Equivariant Alexander duality transforms the new reflection character into a degree-one dual-cohomology trace. Prior ordinary homology ranks do not determine those traces."
+      ],
+      "reasoning": "Equivalent language (dihedral action on the Alexander dual, reflection Lefschetz number, or top-homology sign twist) was explicitly compared. None of the inspected primary claims determines reflection values for the current ordinary three-cut family.",
+      "searches": [
+        "published-finding corpus semantic search: \"dihedral reflection character three cut complex squares of cycles C_n^2 equivariant homology n>=9\"",
+        "published-finding corpus semantic search: \"reflections Lefschetz three-cut complex power cycle 2026 D_n dihedral homology\"",
+        "arxiv:2304.13675, Section 7.4 and Proposition 7.29"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chauhan-Shukla-Vinayak arXiv:2406.01979, Table 2 records small integral Betti groups, and Theorem 1.4 covers nonequivariant n>=9 topology.",
+        "The published borderline squared-cycle table gives faces and Euler numbers for cut size varying with n, not signed reflection traces."
+      ],
+      "reasoning": "Known tables list homology dimensions and f-vectors. The sign-weighted fixed-face values at different reflection classes are independent representation data and are not entries in those tables.",
+      "searches": [
+        "published-finding corpus semantic search: \"squared cycle three cut complex dihedral character reflection 2026\"",
+        "published-finding corpus published source: Face vector and Euler characteristic of the borderline squared-cycle cut complexes, complete RESULT.md",
+        "arxiv:2406.01979, Theorem 1.4 and Table 2"
+      ]
+    },
+    "rationale": "Primary full-text comparison identifies prior results for nonequivariant sphere wedges (all n>=9) and a full cyclic restriction of the homology representation. The new reflection traces are mathematically additional data, distinguish even reflection classes, and cannot be inferred from the cyclic restriction. Earlier dihedral results apply to unpowered cycles or different cut parameters. The near-match published f-vector result gives only scalar face/Euler information. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "Unindexed work or later versions beyond the inspected primary sources could contain an equivalent reflection calculation.",
+      "The closed reflection formulas rest on the standard equivariant Alexander duality sign convention; direct-cut chain computations provide an independent finite normalization check but cannot certify infinite-parameter conclusions on their own."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the ordinary three-cut squared-cycle reflection character for n>=9.",
+        "evidence": [
+          "Proposition 7.29 concerns C_n cyclic action at cut sizes two or n-4, while current n>=9 at cut size three differs.",
+          "Table 1 separately identifies the squared-cycle cases treated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Table 1; Section 7.4, particularly Conjectures 7.23-7.25 and Propositions 7.27 and 7.29, with rendered page inspection.",
+        "method": "Direct arXiv primary PDF full-text section and screenshot inspection.",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Foundational cut-complex work with equivariant character results and squared-cycle cases."
+      },
+      {
+        "assessment": "NOT_COVERING the reflection representation; supplies nonequivariant topology and relevant degree concentration.",
+        "evidence": [
+          "Theorem 1.4 states shellability and sphere multiplicities; tables give unsigned homology groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.01979",
+        "material_read": "Theorem 1.4 and introduction; Section 4 Tables 1-5 and Conjecture 4.3, including page-image review.",
+        "method": "Direct arXiv primary PDF selected complete theorem and table sections.",
+        "title": "Shellability of 3-Cut Complexes of Squared Cycle Graphs",
+        "trigger": "Direct primary n>=9 three-cut squared-cycle classification and homology tables."
+      },
+      {
+        "assessment": "NOT_COVERING symmetry characters; the exact nonequivariant range is n>=6p-3.",
+        "evidence": [
+          "Theorem 1.4 gives only shellability and sphere count; the conclusion asks about broader graph families, without dihedral reflection formulas."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/403112762_Shellability_of_3-cut_complexes_of_powers_of_cycle_graphs",
+        "material_read": "Full accessible introduction, Theorem 1.4, proof conclusion and final Section 4; original arXiv submission date independently checked.",
+        "method": "Authorized author-posted open-access full text parsed from ResearchGate and arXiv abstract.",
+        "title": "Shellability of 3-cut complexes of powers of cycle graphs",
+        "trigger": "Most recent broad primary theorem for the identical p=2 family."
+      },
+      {
+        "assessment": "NOT_COVERING; strictly calculates cyclic rotations, explicitly excluding dihedral reflection characters.",
+        "evidence": [
+          "Its scope states G=<rotation>, and Limitations explicitly says it does not determine a dihedral reflection character."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d/RESULT.md",
+        "material_read": "Entire publicly available RESULT.md, including statement, equivariant Alexander duality proof and Limitations.",
+        "method": "Read-only retrieval of published Markdown text.",
+        "title": "Rational cyclic homology representations of three-cut complexes of cycle powers",
+        "trigger": "Closest indexed primary claim: exact cyclic symmetry of same family."
+      },
+      {
+        "assessment": "NOT_COVERING; counts faces/Euler values of a different diagonal and explicitly does not determine homological actions.",
+        "evidence": [
+          "The reported result is a face vector and Euler characteristic conditional on a homotopy conjecture, without symmetry traces."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754/RESULT.md",
+        "material_read": "Entire published RESULT.md, including theorem, proof, relation to prior work and limitations.",
+        "method": "Read-only retrieval of published Markdown text.",
+        "title": "Face vector and Euler characteristic of the borderline squared-cycle cut complexes",
+        "trigger": "Near-matching squared-cycle parameter and complete face-count theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d53e6f4-0dc5-4c6b-832a-40c9eea9562b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An infinite natural family already has complete nonequivariant and cyclic-restricted classifications, but these leave the dihedral representation undetermined. The new formulas complete the missing reflection part and quantitatively separate the two geometrically distinct reflection conjugacy classes at even lengths: (0,2) for length ten and (1,-3) for length twelve. The structural fixed-face orbit argument explains the parity dependence and supplies information useful for equivariant and quotient topology, beyond Betti numbers or known tables.",
+    "status": "PASS"
+  }
+}
