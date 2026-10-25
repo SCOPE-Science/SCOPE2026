@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For integer shape, the reciprocal-mass power has a continuous second derivative of the form \(aS_1^2(a-R)\); strict monotonicity of \(R=S_2/S_1^2\) follows by Cauchy–Schwarz. The derivative of the unit forward difference has at most one negative-to-positive sign change, so the second difference at the first interior site is both necessary and sufficient for every site. The root equation has a unique positive solution. Direct concavity/convexity comparisons place that root strictly between the asymptotic power threshold and the published continuous index. Taylor expansion at scale \((\log r)^{-2}\) gives the two stated limits. The verification program cross-checks selected instances, not the infinite theorem.
+
+**Originality — PASS with residual priority risk.** The full text of Alqasem–Aravinda–Marsiglietti, arXiv:2610.05439v1, Definition 1.1 and Example 1.2(3), gives the sufficient continuous second-derivative index but neither the maximal discrete index nor the first-interior-point equivalence or the large-shape ratio. Focused searches of the arXiv paper, general literature, aliases, and published mathematical finding records found no statement implying the sharp boundary. There remains a risk that earlier gamma-ratio or sequence-convexity literature includes an equivalent statement under different names; search absence alone does not establish publication priority.
+
+**Mathematical value — PASS.** This resolves the natural exact concavity parameter for a named heavy-tailed law singled out by the motivating paper, collapses infinitely many separate inequalities to one sharp midpoint, and quantifies the asymptotic size of the gap in the formerly available parameter. In the finite-variance regime it makes the primary paper's applicable variance bound stronger. It is an exact family classification rather than a generic renaming or tiny coefficient tweak.
+
+**Limitations and closest source.** Shape is restricted to positive integers, the index is for generalized-mean concavity of the mass sequence, and no global priority beyond examined evidence or optimal variance inequality is claimed. The closest primary source is https://arxiv.org/html/2610.05439v1.
+
+Self-review: passed. Independent audit: not yet performed.
