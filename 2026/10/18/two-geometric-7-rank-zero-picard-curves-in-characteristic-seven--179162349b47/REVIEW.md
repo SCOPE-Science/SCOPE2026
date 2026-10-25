@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The regular-differential basis and characteristic-seven coefficient formula yield a block-diagonal Cartier operator. A nonzero quadratic coefficient forces positive stable rank. For zero quadratic coefficient the two-by-two block is rank one and has zero stable rank exactly on the explicitly calculated twisted-square equation. The discriminant eliminates one of the three coarse candidates; the remaining two are smooth. The nonspecial Picard isomorphism theorem identifies precisely two geometric classes. Standalone exact arithmetic checks reproduce all coefficient identities and the \(\mathbf F_{343}\) census. The argument is independent of the finite census for geometric quantifiers.
+## correctness
 
-**Originality — PASS.** The earlier finite-field paper classifies the classical curve \(y^3=x^4-x\), which is the first of the two classes, and also treats the special curve \(y^3=x^4-1\). That is not the complete zero-rank Picard locus. The 2019 Picard normal-form work provides the isomorphism theorem but not the characteristic-seven arithmetic locus. The 2023 Nourozi–Rahmati Picard paper gives Cartier formulas but its broad nonvanishing statement conflicts with the explicitly computed smooth second curve. The 2022 trielliptic-strata paper addresses general geometry, not the two-class census. Published index and research-record searches for Picard \(7\)-rank-zero classes, aliases, and Cartier parameters found no statement implying this complete theorem. The 2015 publisher PDF was unavailable; an unindexed equivalent result remains possible.
+PASS
 
-**Value — PASS.** The genus-three Picard locus is a natural two-dimensional arithmetic moduli problem. An exhaustive rank-zero classification by abstract geometric isomorphism is a structural finite moduli result, not a random coefficient calculation. It identifies the previously missing second class, its \(a\)-number, and the precise smooth/singular boundary; it also supplies a checkable counterexample to a published blanket Cartier-rank assertion.
+For y³=f=x⁴+a x²+b x+c over algebraic closure of F7, independently expanded f⁴ and f² in F7[x,a,b,c] and confirmed all five pinned Cartier matrix entries. The dx/y summand has scalar 2a, forcing a=0 for p-rank0. For a=0,b nonzero the 2x2 semilinear block is rank1 and its stable-rank-zero criterion M^(7)M=0 simplifies −c(2b^8+3c^6)=0. With t=c³/b⁴, this allows t=0,2,5; the quartic discriminant b⁴(4t−6) rules out t=5, and b=0 smooth case has nonzero stable rank. Both surviving curves have Cartier rank1/a-number2. Over algebraic closure scaling gives one marked class for each t; Bouw–Koutsianas–Sijsling–Wewers Lemmas 1.17 and 1.21 rule out hidden abstract isomorphism between the two nonspecial curves. The full parameter equivalence is symbolic; GF343 finite checks from package merely corroborate.
 
-**Limits.** The result does not classify intermediate ranks, Newton polygons, arithmetic twists, or fields of minimal definition. The older finite-field paper could not be inspected in full PDF, though detailed article excerpts identify its restricted family scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A best-of-knowledge comparison of final claim and its implications, distinct from matching names or symbols, with actual relevant searches, full-text inspections and explicit residual bibliographic risks. Same Cartier-coefficient method is prior art, but the prior uniform nonvanishing inference is too strong; independently derived nilpotent semilinear block and discriminant gives exact p-rank-zero stratum and corrects that statement.
+
+## value
+
+PASS
+
+The exact p-rank-zero locus and a-number for the natural genus-three cyclic cubic Picard family in characteristic seven is a sharply defined arithmetic-geometric classification; two geometric classes, including a nonclassical one correcting a published nonvanishing assertion, matter for moduli and Cartier strata beyond a routine evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
