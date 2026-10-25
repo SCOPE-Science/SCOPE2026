@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Any two nonproportional forms give a bijective pair coordinate map. This proves that distinct row facets intersect in at most one vertex and validates each root-star free-face cancellation. Translation preserves each cancellation orbit. The surviving graph has \((n-1)q^2\) edges and \(nq\) vertices; its exact equivariant chain modules give the stated multiplicity and trace formulas. The verifier checks every cancellation, each translation's fixed-face Lefschetz trace, and every Fourier multiplicity in five examples. The infinite theorem follows from the proof, not the tests.
+
+**Originality — PASS, with bibliographic uncertainty.** The principal generalized-inflation theorem assumes flabbiness, absent here. The earlier Latin-array inflation computation assumes strength \(n-1\) and addresses nonequivariant topology. The earlier Steiner-incidence neighborhood-complex theorem gives a relative simplex-collapse technique that covers the graph-collapse idea in broader form but does not supply the affine translation module or projective-direction recovery. Direct searches for translation characters, orthogonal-array design complexes, Reed–Solomon codeword complexes, and equivalent statements found no stronger coverage. A potentially unindexed treatment of design-automorphism homology remains possible.
+
+**Value — PASS.** The exact complex representation recovers the arrangement of projective evaluation directions from homology, an invariant strictly richer than the sphere-wedge multiplicity. It distinguishes symmetry-enriched structures that are invisible to the common nonequivariant homotopy type. The result also gives a precise nonflabby example tied to a new generalized-inflation framework, without requiring a general downstream theorem.
+
+**Scope and limitations.** Direction recovery is relative to the specified translation action; no classification up to arbitrary simplicial isomorphism is claimed. The standalone numerical checks are prime-field instances, while the proof covers prime powers. Independent bibliographic priority and scientific validation have not been certified.
+
+Self-review: passed. Independent audit: not yet performed.
