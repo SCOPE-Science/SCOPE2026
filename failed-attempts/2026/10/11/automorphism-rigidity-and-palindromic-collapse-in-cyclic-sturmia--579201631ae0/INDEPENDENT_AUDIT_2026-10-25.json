@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T15:15:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob e7da5efaba410f5f2a63b8305989e8ddf13cf983",
+        "Pinned verify.py Git blob 9d8f29014eaf25a585deb1757b11c3ebc9e7195a",
+        "https://arxiv.org/pdf/1411.0180",
+        "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf"
+      ],
+      "rationale": "The circle-of-circumference-k coding floor(t+j alpha) mod k reconstructs the full lift, with one-to-one fibers off Z+alpha Z and two-point fibers on that dense countable set, differing at exactly one site. Irrational rotation yields minimality and unique ergodicity, measure-isomorphism and eigenvalues exp(2pi i m alpha/k). Any automorphism descends to a translation, and preservation of the exceptional fiber orbit restricts it to shift powers plus cyclic symbol additions. Independently, Cyr–Kra proves the same automorphism conclusion via a sharper published bound. There are n Sturmian difference words of length n−1, each permitting k starts, so p(n)=kn. A palindrome must have all increments zero for k>=3; a constant length-n run occurs iff (n−1)alpha<1, yielding P(n)=k for n<=ceil(1/alpha), zero after. The irrational equality endpoint is excluded automatically. Rational finite checks corroborate but do not prove the universal statements.",
+      "residual_risks": [
+        "No formal machine proof of every topological step; independent mathematical reconstruction uses standard Sturmian rotation coding properties.",
+        "The exact-rational tests apply only to finite periodic analogues, not to irrational automorphism groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1411.0180: Theorem 1.4: for any minimal subshift with liminf(p(n)/n)<K, |Aut(X)/<sigma>|<K (K integral).",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimal-permutative-lifts-preserve-linear-recurrence--6093fd0395d8/RESULT.md: full prior result only treats minimal finite permutative lifts over linearly recurrent bases.",
+          "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf: general block-lift formulation and some substitution examples; not the full automorphism theorem verbatim."
+        ],
+        "reasoning": "Setting K=k+1 in Cyr–Kra gives |Aut/<sigma>| <= k because p(n)=kn. The k distinct commuting symbol additions tau_a yield at least k cosets; no nontrivial tau_a is a shift power due to irrational rotation. Therefore they exhaust Aut/<sigma>, so Aut(X)=<sigma,tau_1> ≅ Z×C_k. This supplies the complete advertised automorphism classification as a straightforward published-theorem consequence. Other sources cover the general representation and recurrence in narrower regimes.",
+        "searches": [
+          "Cyr Kra The automorphism group of a shift of linear growth Beyond transitivity Theorem 1.4 quotient size complexity",
+          "Resultary semantic: Minimal permutative lifts preserve linear recurrence strictly ergodic Sturmian all irrational",
+          "Kang Jäger On lifts strictly ergodic permutative sliding block codes Sturmian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1411.0180",
+        "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf",
+        "https://archipel.uqam.ca/8430/1/Blondin-Mass%C3%A9-2011c-preprint.pdf",
+        "https://arxiv.org/abs/1003.1224",
+        "https://page.mi.fu-berlin.de/rote/Papers/abstract/Sequences%2Bwith%2Bsubword%2Bcomplexity%2B2n.html",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimal-permutative-lifts-preserve-linear-recurrence--6093fd0395d8/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0 (self mirror excluded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1411.0180: Theorem 1.4 exact strict bound |Aut(X)/<sigma>|<K and hypotheses matching p(n)=kn.",
+          "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf: first-difference lift representation; standard Sturmian p(n)=n+1.",
+          "https://archipel.uqam.ca/8430/1/Blondin-Mass%C3%A9-2011c-preprint.pdf: binary rotation-coding palindromes are substantial, but k>=3 reversal of +1 produces forbidden -1."
+        ],
+        "reasoning": "Central novelty is defeated by genuine logical implication: combining Cyr–Kra with obvious k translations and elementary complexity gives the claimed entire group exactly. The remaining p(n)=kn is the standard n-factor Sturmian count with k initial symbols, measurable spectrum is the almost-one-to-one coding of circle rotation, and the palindrome cutoff is the immediate fact that all reverse increments must be 0 and maximal consecutive zero run has (n−1)alpha<1. An explicit earlier source of that exact k>=3 palindrome formula was NOT established; it is not falsely labeled a verbatim previously published formula.",
+        "searches": [
+          "Cyr Kra Theorem 1.4 linear growth Aut/<shift> cardinality bound",
+          "Sturmian p(n)=n+1 finite cyclic extension length n word complexity kn",
+          "palindrome cutoff k≥3 cyclic first difference Sturmian zero run"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf: Theorems 1.3 and 1.5, finite permutative skew-product presentation includes modular first differences as a two-block code.",
+          "https://arxiv.org/pdf/1411.0180: Theorem 1.4 applies to any minimal subshift of word complexity p(n)=kn.",
+          "https://archipel.uqam.ca/8430/1/Blondin-Mass%C3%A9-2011c-preprint.pdf: rotation-coding palindrome statements concern binary/two-interval cases, not the k>=3 formula."
+        ],
+        "reasoning": "The lift is precisely an almost-one-to-one k-unit circle rotation coding and a k-sheet permutative Sturmian extension. Though no identically titled older article was found, its central advertised exact automorphism group follows from Cyr–Kra Theorem 1.4 after computing the elementary p(n)=kn and observing k distinct letter translations. Different notation does not evade prior implication.",
+        "searches": [
+          "Resultary semantic: Sturmian cyclic first difference lift alphabet k automorphism group Z x Z/k and palindrome complexity cutoff",
+          "Resultary semantic: coding irrational rotation into k equal intervals cyclic Sturmian extension centralizer automorphisms word complexity kn",
+          "web: k-colour rotations, Sturmian permutative lifts, circle k-cover centralizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary mirror SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0 is the assigned finding itself, not independent prior coverage.",
+          "https://page.mi.fu-berlin.de/rote/Papers/abstract/Sequences%2Bwith%2Bsubword%2Bcomplexity%2B2n.html: classic k=2 binary complexity; unrelated to any finite exhaustive database for all irrational slopes.",
+          "The family has an uncountable rotation parameter; no exact finite table can independently justify its universal characterization."
+        ],
+        "reasoning": "No independent exact table for the k>=3 palindrome cutoff was located. This absence is a residual unknown, not proof of novelty. The main group result does not depend on a table: a stronger theorem already implies it.",
+        "searches": [
+          "Resultary search: automorphism rigidity and palindromic collapse cyclic Sturmian lifts",
+          "Resultary search: Sturmian k letter cyclic cover first differences palindromic complexity automorphism",
+          "Rote sequences with subword complexity 2n palindrome codings"
+        ]
+      },
+      "rationale": "A decisive stronger prior theorem covers the main asserted nontrivial automorphism classification: Cyr–Kra (2015), Theorem 1.4, states |Aut(X)/<sigma>|<K when the minimal shift has liminf p(n)/n<K. Here p(n)=kn, so choosing K=k+1 gives at most k cosets, and obvious k inequivalent cyclic alphabet translations give at least k. Hence the advertised complete group Z×C_k is already a direct corollary of the published theorem. The remaining complexity and palindrome counts follow from standard Sturmian factor counts and the elementary reversal 1 versus −1 modulo k. No identical older source for the exact k>=3 palindrome cutoff was proven, but it does not establish independent substantive originality for this combined claimed rigidity theorem.",
+      "residual_risks": [
+        "The older k>=3 palindrome formula might be explicitly recorded under different rotation-coding terminology; searched sources did not establish this.",
+        "Binary Rote paper was seen only in abstract, and the 2011 palindrome PDF screenshot timed out, though full textual PDF was available.",
+        "Cyr–Kra bound is a strict quotient-cardinality estimate, not a verbatim computation of the target group; the explicit elementary specialization and k distinct translation classes are given here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE STRONGER-COVERAGE: published theorem logically implies the advertised automorphism group without a new automorphism rigidity argument.",
+          "evidence": [
+            "Cyr–Kra Theorem 1.4: minimal + liminf p(n)/n<K implies |Aut/<shift>|<K.",
+            "Set K=k+1 and use at least k distinct obvious cosets: quotient has exactly k and Aut=Z×C_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0180",
+          "material_read": "Complete open preprint PDF, especially page 2 Theorem 1.4 and hypotheses of low complexity; theorem statement was independently checked in PDF screenshot as well as extracted text.",
+          "method": "Specialize strict quotient-cardinality bound to p(n)=kn and count the known k translation cosets.",
+          "title": "The automorphism group of a shift of linear growth: Beyond transitivity",
+          "trigger": "Potential theorem covering exact automorphism group despite different terminology."
+        },
+        {
+          "assessment": "Provides general representation and selected ergodicity theorems; no extra novelty credit for generic skew-product setup.",
+          "evidence": [
+            "The two-block example h_{k,2}=x_1−x_0 (mod k) is explicitly in the source.",
+            "Kang–Jäger Theorems 1.3 and 1.5 cover permutation skew-product setup and minimality."
+          ],
+          "identifier_or_url": "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf",
+          "material_read": "Complete 30-page legally available author-hosted PDF; definitions and Theorems 1.3, 1.5, 1.6 and discussion of classes of permutative codes inspected.",
+          "method": "Compare skew-product framework, Sturmian/rotation specializations and hypothesis range.",
+          "title": "On lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "Exact two-block first-difference construction used in the assigned theorem."
+        },
+        {
+          "assessment": "No claimed full-document exclusion of all implicit specializations; explicitly gives substantial binary rotation-palindrome theory, not directly the present k>=3 elementary cutoff.",
+          "evidence": [
+            "Theorems 19–20 concern standard binary rotation codings and Rote-type difference sequences.",
+            "For k>=3 +1 and −1 modulo k differ, forcing constant palindrome factors in present lift."
+          ],
+          "identifier_or_url": "https://archipel.uqam.ca/8430/1/Blondin-Mass%C3%A9-2011c-preprint.pdf",
+          "material_read": "Complete 16-page accessible preprint PDF textual extraction; introduction and Theorems 19, 20 and 25 read, with scope and alphabet assumptions inspected.",
+          "method": "Compared two-interval/binary reversal properties against k>=3 cyclic staircase; PDF screenshot retrieval did not complete.",
+          "title": "Palindromic complexity of codings of rotations",
+          "trigger": "Prior source with potentially dominating palindrome classification."
+        },
+        {
+          "assessment": "General multiliteral background only; not independent exact group classification as stated.",
+          "evidence": [
+            "Discusses multiliteral analogues of Sturmian properties and palindrome complexity in different codings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.1224",
+          "material_read": "Accessible full HTML discussion of multi-alphabet coding and palindrome/interval-exchange properties; principal definitions/results compared.",
+          "method": "Check whether exact cyclic k-colour mechanical lift and its automorphism quotient arise.",
+          "title": "Sturmian Jungle (or Garden?) on Multiliteral Alphabets",
+          "trigger": "Multiliteral Sturmian and generalized palindromic properties might dominate the result."
+        },
+        {
+          "assessment": "Narrow linearly recurrent setting, neither the exact group nor the palindrome cutoff; not a dominating source for all irrational slopes.",
+          "evidence": [
+            "Its result requires linearly recurrent base and minimal finite permutation extension, not all irrational Sturmian shifts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-minimal-permutative-lifts-preserve-linear-recurrence--6093fd0395d8/RESULT.md",
+          "material_read": "Entire published RESULT.md scientific theorem, proof and limitations.",
+          "method": "Compare linearly recurrent assumptions, finite extension mechanism, and lack of automorphism/palindrome results.",
+          "title": "Minimal permutative lifts preserve linear recurrence",
+          "trigger": "Closest independent published Resultary record on permutative lifts."
+        },
+        {
+          "assessment": "Clear antecedent of binary complexity, not direct k>=3 classification; limited access depth retained as risk.",
+          "evidence": [
+            "Binary 2n complexity; at k=2 +1=−1 and the palindrome obstruction disappears."
+          ],
+          "identifier_or_url": "https://page.mi.fu-berlin.de/rote/Papers/abstract/Sequences%2Bwith%2Bsubword%2Bcomplexity%2B2n.html",
+          "material_read": "Publisher/author bibliographic abstract and summary, not the complete paper.",
+          "method": "Compared k=2 complexity and reversal constraint with k>=3 setting.",
+          "title": "Sequences with subword complexity 2n",
+          "trigger": "Classical binary first-difference lift and word-complexity prior art."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1411.0180",
+        "https://archipel.uqam.ca/8430/1/Blondin-Mass%C3%A9-2011c-preprint.pdf",
+        "https://users.fmi.uni-jena.de/~tjaeger/preprints/PermutativeSBCs.pdf",
+        "Pinned RESULT.md Git blob e7da5efaba410f5f2a63b8305989e8ddf13cf983"
+      ],
+      "rationale": "Automorphism rigidity is a natural valuable invariant for minimal symbolic systems, but for this particular example it is already a short corollary of the exact quotient cardinality theorem of Cyr–Kra. The remaining all-slope word complexity p(n)=kn is standard Sturmian counting after choosing the initial colour; absence of nonconstant palindromes and the cutoff are direct one-local-edge reversal and maximum zero-run deductions. The submitted combination offers a clear explanatory example but, without a new obstruction or independent structural mathematical fact beyond stronger prior work and textbook coding deductions, it does not clear the research-value bar. This rejection does not deny pedagogical use or correctness.",
+      "residual_risks": [
+        "A future independent application of the sharp palindrome cutoff could elevate a different specifically motivated and appropriately scoped claim; none is demonstrated here.",
+        "A narrower alternative research claim has not been separately audited or supplied as complete repaired scientific files."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The review distinguishes scientific correctness from originality and mathematical value; O/V FAIL are based on direct published mathematical implication and derivative remaining invariants, not inaccessible-source failure.",
+    "No claim of independence, external certification, repository publication, Oxford authorization bypass, GitHub write, or dispatcher closeout.",
+    "The originally published exact palindrome cutoff was not independently located, so no false claim of verbatim prior coverage is made."
+  ],
+  "schema_version": 1
+}
