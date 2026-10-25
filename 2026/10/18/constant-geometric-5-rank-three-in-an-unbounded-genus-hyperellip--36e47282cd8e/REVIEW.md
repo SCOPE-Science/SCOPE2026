@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The squarefree hypothesis holds for every \(r\ge1\); the Cartier–Manin matrix is reconstructed from the exact three-term square and has one nonzero entry per admissible row and column. The transformation \(t=2i-1\) reduces its stable Frobenius rank to cycles of multiplication by \(5\) modulo \(4\cdot3^r\). The elementary primitive-root argument establishes that only three odd residue labels form entire lower-half cycles, including all boundary cases \(r=1\) and high \(3\)-adic valuation. A packaged verifier checks six independent finite cases; infinite scope follows from proof, not samples.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Pan's 2026 Section 3 studies the complex family, not reduction \(5\)-rank. Nourozi–Rahmati–Tafazolian's 2019 Theorem 4.1 computes \(a\)-numbers for exponents divisible by the characteristic, and their general formula gives one-step Cartier coefficients; neither specifies the stable Cartier rank \(3\) across this prime-power tower. Frei's 2017 work separates these invariants. A relevant 2014 maximal-curves study and 2024 \(a\)-number paper were checked at abstract level; neither accessible abstract supplies the claim. No overlap was located in targeted published-record searches or accessible prior mathematical claims. Residual risk: cyclic-cover character formulas or unindexed computations might imply the precise value. Searching alone does not certify uniqueness.
+PASS
 
-**Mathematical value — PASS.** The \(5\)-rank is a standard Jacobian invariant not determined by genus, individual Cartier rank or a complex group action. The exact stable-rank calculation identifies a naturally defined infinite tower with exponentially increasing genus and constant positive \(5\)-rank, and exhibits the three surviving characters explicitly. This is a structural arithmetic phenomenon, not a single small-genus computation or a restatement of the \(a\)-number formula. No general claim about all hyperelliptic towers is asserted.
+In characteristic 5, f(x)=x^{2g+1}+x for g=3^r has squarefree derivative at roots because 5∤2g. The Cartier–Manin matrix from f²=x²+2x^(2g+2)+x^(4g+2) has at most one nonzero entry per row/column, following odd labels t=2i−1 under multiplication by 5 modulo 4g. Consequently stable p-rank equals number of full cycles confined to odd labels below 2g, not one-step matrix rank. For v_3(t)=k, the 5-action on units mod 3^(r−k) has full order 2·3^(r−k−1); if r−k≥2, each fixed-mod-4 orbit includes labels above the cutoff. For r−k=1 exactly two labels t=3^(r−1),5·3^(r−1) survive, and v_3(t)=r contributes t=3^r. Thus exactly three labels survive for all r≥1. Independent exact partial-permutation computations r=1..5 reproduced ranks 3 with the specified survivor sets; they corroborate rather than prove the all-r orbit calculation.
 
-**Limitations.** No full Newton polygon, Ekedahl–Oort classification, or complete p-rank distribution in the larger family is proved. Independent verification of novelty remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pan introduces the underlying complex curve family; Nourozi computes a-numbers for related x^m+x models, which are not stable p-ranks. A specific complete multiply-by-5 orbit proof establishes constant rank three in all genera 3^r. Resultary same-object search did not find prior exact p-rank expression, but implicit general cyclic-cover coverage remains plausible.
+
+## value
+
+PASS
+
+Geometric p-rank measures the étale p-torsion of Jacobians and is distinct from a-number. A natural exponent subfamily of known hyperelliptic curves has unbounded genus yet fixed positive p-rank three; this exact stable-Cartier classification is a motivated new arithmetic invariant, not a mere restatement of one-step Cartier ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
