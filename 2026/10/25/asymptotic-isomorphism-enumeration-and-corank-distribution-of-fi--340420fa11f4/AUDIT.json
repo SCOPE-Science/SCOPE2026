@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Rigorous two-sided isomorphism-orbit squeeze: union-bound fraction of non-2LI matrices, known and reproved 2LI monomial uniqueness, explicit Burnside sum over all monomial elements, and exact rank formula. Fixed permutation contributes at most q^{-sn/2} per element; diagonal scalings contribute O_q(n q^{-n}); together R=O_q(n^2(1-1/q)^n). These estimates are independent of corank. Finite exact checks confirm the monomial-versus-genuine class distinction. No finite experiment is used in place of the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei–Zou Theorem 2.1 concerns invertible structure matrices only; Section 3 develops the corresponding perfect-case fixed-point systems.",
+        "Cabrera Casado et al. Theorem 5.3 characterizes monomial changes under 2LI but contains no enumeration of nonperfect isomorphism classes.",
+        "Boudi et al. Corollary 2.7 treats natural-basis uniqueness, not asymptotic counts."
+      ],
+      "reasoning": "The theorem explicitly encompasses singular matrices of every fixed positive corank. The cited sources provide tools and proper special cases, but none of the inspected statements has stronger coverage over true isomorphism classes of nonperfect evolution algebras.",
+      "searches": [
+        "finite field evolution algebras dimension n asymptotic isomorphism types singular deficiency corank r 2LI Burnside",
+        "count all evolution algebras isomorphism classes over finite fields asymptotic number n fixed q singular",
+        "arXiv:2310.12368 Theorem 2.1 and Section 3; arXiv:2505.14584 Theorem 5.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22248v1 Section 1.3.4 and Question 21",
+      "arXiv:2310.12368 Theorems 1.1, 2.1 and Sections 3–6",
+      "arXiv:2006.14460 Corollary 2.7",
+      "arXiv:2505.14584 Theorem 5.3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known perfect-case enumeration implies only the corank-zero part, not singular-orbit classes.",
+        "Earlier random-model automorphism rigidity concerns probabilities for matrices; a probability bound does not automatically control the Burnside sum of stabilizer orders needed for class counting.",
+        "The proof supplies an explicit summable fixed-point bound and 2LI-orbit squeeze across all coranks."
+      ],
+      "reasoning": "The new positive-corank asymptotics require two estimates not implied by perfect-only enumeration or random rigidity alone: non-2LI matrices contribute negligibly at the number-of-orbits scale, and the total fixed-point mass over the full monomial group is exponentially small. These steps are proved directly.",
+      "searches": [
+        "Burnside monomial group orbits of random finite field evolution algebra matrices; asymptotic count of evolution algebra isomorphism classes",
+        "2026 evolution algebra counting asymptotics fixed field singular rank distribution",
+        "Source arXiv:2610.22248v1 Section 1.3.4 and Question 21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaygorodov et al. (arXiv:2610.22248v1), Question 21 explicitly asks the full not-necessarily-perfect asymptotic.",
+        "Wei–Zou (arXiv:2310.12368) Section 2 gives a perfect-only monomial Burnside enumeration."
+      ],
+      "reasoning": "The fixed-corank r>=1 asymptotic cannot be identical to the perfect r=0 case: positive corank matrices admit extra nonmonomial natural-basis changes. This result estimates true isomorphism classes in every corank, using a nontrivial orbit squeeze. A match on the monomial group alone is not equivalent to this statement.",
+      "searches": [
+        "For each fixed rank deficiency r, asymptotic isomorphism classes of n dimensional evolution algebras over F_q is q^{n^2}/((q-1)^n n!) times q^{-r^2} P_q / P_r^2",
+        "asymptotic number isomorphism classes n-dimensional evolution algebras finite fields q n factorial",
+        "Source arXiv:2610.22248v1 Question 21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wei–Zou explicitly calculate finite dimensions 2, 3, and 4 for perfect algebras and do not state the large-n positive-corank constants.",
+        "Exact independent small-case computations give 9,13,85 true isomorphism classes in the tested parameters, which differ from 10,15,104 monomial orbits."
+      ],
+      "reasoning": "Neither a finite low-dimensional table nor the count of monomial orbits for invertible matrices is the asserted uniform asymptotic isomorphism-census for arbitrary corank. No covering exact table was found in the inspected sources.",
+      "searches": [
+        "2026 survey question 21 evolution algebra counting asymptotics positive density nonperfect",
+        "evolution algebras finite field asymptotic monomial orbits nonperfect enumeration",
+        "arXiv:2310.12368 Sections 4–6, dimensions 2–4"
+      ]
+    },
+    "rationale": "The 2026 survey labels the all-algebra asymptotic open. The 2023 perfect Burnside enumeration and 2020/2025 2LI rigidity results do not count singular true isomorphism classes. The new uniform positive-corank orbit squeeze provides asymptotic constants and a nonperfect limiting fraction. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An unindexed or differently phrased result may already establish all-corank isomorphism enumeration.",
+      "Perfect-corank asymptotic alone is covered by prior perfect-only results; novelty is in singular strata and the full census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Question 21 explicitly requests the asymptotic of all finite-field evolution algebra isomorphism classes; result is not given there",
+        "evidence": [
+          "Section 1.3.4 attributes finite perfect counts to Wei–Zou",
+          "Question 21 distinguishes all algebras including nonperfect ones"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22248v1",
+        "material_read": "Section 1.3.4 (Counting), Section 2.2.3 Question 21, related Question 22, and relevant references",
+        "method": "public full-text HTML and exact-section search",
+        "title": "Evolution algebras: a survey of results and a list of open problems",
+        "trigger": "2026 source describing open enumeration problem"
+      },
+      {
+        "assessment": "Known formula applies to invertible matrices only; its conclusion does not cover nonperfect isomorphism types",
+        "evidence": [
+          "Theorem 2.1 restricts to idempotent/perfect evolution algebras",
+          "Explicit dimension 2–4 calculations likewise restrict to this class"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+        "material_read": "Introduction, Theorem 1.1, Theorem 2.1 with proof, Section 3 fixed-point systems, finite-dimensional counting sections",
+        "method": "public arXiv rendered full-text and section/keyword searches",
+        "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+        "trigger": "closest full-rank orbit-enumeration theorem"
+      },
+      {
+        "assessment": "2LI gives unique natural basis, but this source does not derive the large-dimension isomorphism census",
+        "evidence": [
+          "Corollary 2.7 gives 2LI criterion",
+          "The enumeration proof explicitly reuses that established criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.14460",
+        "material_read": "Introduction, Definition 2.6, Corollary 2.7 and proof, Definition 2.8 and adjacent results",
+        "method": "public arXiv rendered full-text",
+        "title": "Natural families in evolution algebras",
+        "trigger": "source of natural-basis rigidity and 2LI terminology"
+      },
+      {
+        "assessment": "Arbitrary-field 2LI monomial rigidity is established, but no class-counting asymptotic is stated in the inspected relevant material",
+        "evidence": [
+          "Theorem 5.3 uses rank of multiplication by a natural vector",
+          "Its conclusion is a basis-change constraint, not rank-stratified enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.14584",
+        "material_read": "Introduction, Section 5 Theorem 5.3 with proof, related Section 6 overview",
+        "method": "public arXiv rendered full-text and theorem search",
+        "title": "Solenoids in automorphism groups of evolution algebras",
+        "trigger": "possible broader natural-basis theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "340420fa-11f4-4512-a7fb-885afdc4221f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives the full asymptotic requested by an explicit recent open problem, with a uniform absolute corank error and explicit nonzero constants for each fixed positive deficiency. Singular isomorphism classes occupy a positive limiting fraction, so the extension is not a negligible exceptional case or a routine small-dimensional computation.",
+    "status": "PASS"
+  }
+}
