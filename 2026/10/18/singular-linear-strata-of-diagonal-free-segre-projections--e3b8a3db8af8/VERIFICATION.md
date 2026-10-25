@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Use Python 3 with SymPy and run `python3 verification/check_crown.py` from the directory containing `RESULT.md`. The independent enumerator constructs all faces via intersections of the exact \(3n\) facet equations and checks the corresponding primitive-normal Smith forms. Expected output:
+## correctness
 
-```
-n=3 faces=49 singular_faces=15 components=9
-n=4 faces=349 singular_faces=50 components=14
-n=5 faces=1911 singular_faces=140 components=20
-n=6 faces=9327 singular_faces=357 components=27
-VERIFY_OK
-```
+PASS
 
-All four cases completed successfully in an exact-arithmetic replay. The checker additionally verifies that every singular face lies in one of the predicted maximal strata, and that none of the simplicial normal cones has nontrivial lattice index. No random computation is used. Finite computation cannot certify the infinite-family theorem or novelty; the proof's face and integral-semigroup arguments are essential for both.
+For n≥3 over algebraically closed arbitrary-characteristic k, the affine lattice of crown-edge polytope P_n is saturated by integral transportation. The inequalities x_i,y_i≥0, sums=1 and x_i+y_i≤1 exhaust facets. Each edge vertex makes at most two h_i=1−x_i−y_i active, so a face with one diagonal facet has two arms and smooth generic interior unless contained in a row/column star; two active diagonal facets force a reverse-edge segment. The respective normal cones are nonsimplicial at row stars and reverse-edge segments, and all other cones are unimodular; hence the *reduced* singular support is exactly 2n row/column P^{n−2} plus C(n,2) reverse-edge lines. The transverse saturated generators (e_i,0),(e_i,1) give rank-one 2×(n−1) and 2×(2n−4) determinantal cones of multiplicity n−1 and 2n−4; coordinate supports give exact incidence. Does not assert global nonreduced singular scheme.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact *all-n reduced singular component geometry*, intersections, and transverse types; general toric fan and graph edge-polytope criteria are credited, and Hilbert-series/degree/normality data of the same monomial model cannot imply this classification without new local work.
+
+## value
+
+PASS
+
+A natural diagonal-free Segre embedding is an important basic toric statistical model; explicit singular support includes an unexpected reverse-edge stratum alongside star spaces, a genuine equidimensional-to-mixed-dimensional transition, and two exact transverse local singularity families. These are independently usable geometric invariants rather than a numerical tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

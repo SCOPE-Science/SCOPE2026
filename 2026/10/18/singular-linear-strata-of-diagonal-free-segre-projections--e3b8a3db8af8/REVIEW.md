@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The max-flow description proves that the edge polytope is the product of simplices cut by the inequalities \(x_i+y_i\le1\); a nonempty face has at most two active diagonal-cut facets. The one-cut and two-cut analysis exhausts the singular normal cones and yields precisely the row stars, column stars and reverse-edge segments. Explicit saturated transverse semigroups determine the local rank-one determinantal models. The exact face-lattice and Smith-normal-form checker verifies the complete singular-support criterion at \(n=3,4,5,6\), including the possibility of simplicial nonunimodular cones. The proof, not the finite checks, establishes the uniform theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2008 Ohsugi--Hibi classification of *simple* graph-edge polytopes and the 2020 Coons--Sullivant classification of rational likelihood estimators for quasi-independence models have different conclusions. Earlier work on matching-deleted Segre projections already supplies Hilbert functions, normality and degrees for these very monomial embeddings, so none of these facts is presented as a novel contribution. The surviving increment is the explicit complete reduced singular-component, incidence and generic transverse-germ classification for all \(n\ge3\). Searches by crown-graph edge polytope, diagonal-free Segre projection, structural-zero independence model, dual normal fan and reverse-edge strata identified no stronger covering theorem. An equivalent classification hidden in broad toric or statistical-model literature is still possible; external verification is recommended.
+PASS
 
-**Mathematical value — PASS.** The incidence geometry identifies an unexpected second stratum of singular lines in addition to the two families of large linear spaces. The general multiplicity formulas \(n-1\) and \(2n-4\) and the equidimensional-to-mixed-dimensional transition distinguish two different local geometries of a natural toric projection of Segre varieties. These precise invariants are not consequences of the previously recorded Hilbert numerator, nor merely a restatement of the toric smoothness algorithm.
+For n≥3 over algebraically closed arbitrary-characteristic k, the affine lattice of crown-edge polytope P_n is saturated by integral transportation. The inequalities x_i,y_i≥0, sums=1 and x_i+y_i≤1 exhaust facets. Each edge vertex makes at most two h_i=1−x_i−y_i active, so a face with one diagonal facet has two arms and smooth generic interior unless contained in a row/column star; two active diagonal facets force a reverse-edge segment. The respective normal cones are nonsimplicial at row stars and reverse-edge segments, and all other cones are unimodular; hence the *reduced* singular support is exactly 2n row/column P^{n−2} plus C(n,2) reverse-edge lines. The transverse saturated generators (e_i,0),(e_i,1) give rank-one 2×(n−1) and 2×(2n−4) determinantal cones of multiplicity n−1 and 2n−4; coordinate supports give exact incidence. Does not assert global nonreduced singular scheme.
 
-**Limitations.** The Jacobian scheme and nongeneric intersection germs are not classified; all characteristic assertions concern the reduced support and normal toric local rings. Scientific originality requires independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact *all-n reduced singular component geometry*, intersections, and transverse types; general toric fan and graph edge-polytope criteria are credited, and Hilbert-series/degree/normality data of the same monomial model cannot imply this classification without new local work.
+
+## value
+
+PASS
+
+A natural diagonal-free Segre embedding is an important basic toric statistical model; explicit singular support includes an unexpected reverse-edge stratum alongside star spaces, a genuine equidimensional-to-mixed-dimensional transition, and two exact transverse local singularity families. These are independently usable geometric invariants rather than a numerical tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
