@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Unnormalized Fourier diagonalization gives lambda_{d,k}=1+(d-2k)q+tail. For dq<=2 the common tail bound R<=q^2(e^2-3)<q shows the unique minimum is parity. Decreasing absolute terms from binomial weight two onward show B_d>0 for d<=floor(1/q). At d=floor(1/q)+2, B_d<0 and all larger dimensions inherit the negative principal submatrix. One polynomial determines the intervening dimension and its rank-one boundary. The derivative bound proves one critical root q_d for each d>=17 and a binomial expansion gives q_d=1/d+1/(2d^3)+O(d^-4). check.py ran 327 exact/rational tests and four 70-digit root brackets. The mathematical proof covers infinitely many dimensions and all continuous parameters in scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feragen–Lauze–Hauberg, arXiv:1411.0296, Theorem 1 and discussion of geodesic Gaussian kernels.",
+        "Jayasumana et al., arXiv:1412.0265, general metric-space Gaussian positive-definiteness criterion."
+      ],
+      "reasoning": "General conditional-negative-definiteness conditions characterize Gaussian positivity for every positive bandwidth, not the fixed-bandwidth spectral sign cutoff for finite Boolean Hamming cubes. The two general studies focus on manifolds and intrinsic metric geometry; their abstract criteria do not imply the one-step Boolean dimension law or precise rank defect.",
+      "searches": [
+        "Gaussian kernel Hamming distance squared not positive definite Boolean hypercube Walsh Fourier 2014",
+        "positive definite kernels Hamming cube completely monotone distance squared Gaussian Feragen",
+        "Gaussian covariance e^-a k squared on Hamming cube Fourier positive definiteness first dimension failure high temperature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.4148 v1 and 2014 open paper",
+      "arxiv:1411.0296 open full text",
+      "arxiv:1412.0265 accessible parts",
+      "indexed Walsh Hamming ball concentration summary a2f5ddac5a0f",
+      "indexed q-ary Hamming sphere sampling summary f3d01cadaa90"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harrow–Kolla–Schulman, arXiv:1209.4148, formula (2.2) for Krawtchouk eigenvalues and their spherical maximal operator theorem.",
+        "Feragen–Lauze–Hauberg, arXiv:1411.0296, Schoenberg/CND theorems in Section 3 and the manifold applications in Sections 4–5.",
+        "Jayasumana et al., arXiv:1412.0265, Sections 1 and 4 discuss Gaussian kernels through Hilbert space embedding."
+      ],
+      "reasoning": "Harrow et al. give the spectral method but do not evaluate squared-distance Gaussian coefficients. The metric Gaussian papers give universal/structural conditions but no exact scalar threshold on finite Hamming cubes. The new proof adds quantitative dominance and alternating-tail inequalities, implying a full cutoff that is absent from the inspected hypotheses and conclusions.",
+      "searches": [
+        "isotropic positive definite kernels discrete hypercube Schoenberg 2015",
+        "positive definite functions on Hamming spaces isotropic kernels Krawtchouk 2012 2013",
+        "Gaussian RBF Hamming distance squared positive definite counterexample 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harrow–Kolla–Schulman, arXiv:1209.4148, Section 2: simultaneous Krawtchouk diagonalization of Hamming sphere averages.",
+        "Relevant indexed claims examined by title and scientific summary concern Walsh concentration on Hamming balls (index a2f5ddac5a0f) and Hamming shells (index f3d01cadaa90), not the squared-distance Gaussian positive-type boundary."
+      ],
+      "reasoning": "The character transform of the Gaussian Hamming kernel is a Krawtchouk sum. The proposed result is not merely that transform: it proves, in an entire parameter regime, that one specific parity coefficient is uniquely smallest, finds its single-index sign boundary and proves the critical-root asymptotic. None of the inspected records asserts an equivalent exact implication.",
+      "searches": [
+        "binary cube squared distance Gaussian kernel positive semidefinite iff parity Walsh Fourier coefficient and floor reciprocal parameter",
+        "Walsh Krawtchouk transform truncated discrete Gaussian exp(-t j^2) critical dimension integer",
+        "kernel exp(-beta Hamming weight squared) Fourier coefficient parity character",
+        "\"exp(-t d_H^2)\" \"positive definite\" hypercube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact threshold table or polynomial equality boundary was returned for the squared-Hamming Gaussian. Closest scientific records instead concern sphere averages, Turán extremal mass, Walsh sampling and degree-two Hamming projections.",
+        "Earlier accessible mathematical claims were compared by source objects and implication; none asserted the exact squared-Hamming Gaussian dimension cutoff."
+      ],
+      "reasoning": "A finite Krawtchouk transform is a general computational device, not an exact database of these critical roots; a database listing all character eigenvalues would not alone establish their unique-minimum ordering and global dimension cutoff.",
+      "searches": [
+        "dimension threshold squared Hamming distance Gaussian kernel hypercube exp(-a d_H^2)",
+        "Hamming group gaussian exp(-lambda d(x,y)^2) rank threshold positive definite",
+        "Gaussian radial kernel exp(-t Hamming distance squared) binary hypercube maximal positive definite dimension threshold large damping parity Walsh eigenvalue"
+      ]
+    },
+    "rationale": "The new quantitative single-character cutoff is not supplied by the general Gaussian negative-type condition or by the Krawtchouk averaging framework. The inspected sources do not derive the parity ordering or one-step dimension and sharp root sequence. Novelty assessment is bounded; a missed equivalent theorem remains possible.",
+    "residual_risks": [
+      "Unindexed or synonymously stated discrete Gaussian covariance results may already include the one-character strong-damping criterion.",
+      "Full text of every tangentially related indexed harmonic sampling record was not inspected; their visible scientific abstracts do not assert this kernel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_FRAMEWORK_NOT_IMPLYING: evaluates spherical averaging operators and maximal norms, without the squared-distance Gaussian sign classification.",
+        "evidence": "2012-09-19 v1 public date; published paper Section 2 identifies characters and Krawtchouk diagonalization.",
+        "identifier_or_url": "https://arxiv.org/abs/1209.4148",
+        "material_read": "arXiv submission history; accessible journal full-text pages 1–2 and 5–6 including Fourier/Krawtchouk Section 2 and formula (2.2).",
+        "method": "Public arXiv record; published open PDF text and visual page inspections.",
+        "title": "Dimension-free L2 maximal inequality for spherical means in the hypercube",
+        "trigger": "The exact Walsh/Krawtchouk spherical Fourier framework and earliest source of the problem setting."
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND_NOT_COVERING: all-bandwidth geodesic metric criteria do not yield exact fixed-bandwidth positivity on finite binary cubes.",
+        "evidence": "Theorem 1 uses all Gaussian bandwidths on geodesic spaces; Section 5 analyzes empirical graph distances but not squared Hamming binary cubes.",
+        "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+        "material_read": "Open arXiv HTML, abstract, statements of Theorems 1–4, Schoenberg/CND Section 3, related work and graph experiments in Sections 4–5.",
+        "method": "Accessible primary full text in arXiv HTML.",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "Intrinsic Gaussian kernels and the obstruction to unconditional positive definiteness."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_IN_READ_PORTIONS: metric kernel criteria but no Boolean-cube dimension parity threshold was identified in inspected material.",
+        "evidence": "Abstract and Section 4 specify general metric/Hilbert embedding and Riemannian applications; they do not state a binary Hamming cube cutoff.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.0265",
+        "material_read": "Open arXiv HTML abstract, introductory motivation, metric preliminaries and Section 4 Hilbert-space embedding framework.",
+        "method": "Accessible primary article text in arXiv HTML.",
+        "title": "Kernel Methods on Riemannian Manifolds with Gaussian RBF Kernels",
+        "trigger": "Potentially dominating metric Gaussian RKHS criterion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40e7711b-848a-4704-a67c-a700bc60a588",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The intrinsic squared-Hamming Gaussian is a natural distance-based covariance whose positivity, unlike the chordal Gaussian, is not guaranteed. The result gives for every sufficiently strong damping a sharp maximal binary-cube dimension, with a one-integer boundary test, a unique parity obstruction, a rank defect exactly one at equality, and a quantified asymptotic critical correction. These infinite-family structural facts are useful for deciding whether an entire Hamming dataset admits a positive-semidefinite covariance and go beyond running a standard Fourier transform or recomputing a finite table.",
+    "status": "PASS"
+  }
+}
