@@ -1,19 +1,21 @@
-# Scientific review: global inverse-fold classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact log-odds elimination reduces every inverse fiber to \(t-BS(t)=z\), with the eliminated belief determined uniquely. Its derivative is \(1-BS(t)(1-S(t))\), giving an exhaustive, global monotonicity/cubic/fold trichotomy, including properness and the number of real roots. The two nondegenerate fold lines are interior to the physical domain; fixing target belief and using continuity supplies admissible paired preimages. Direct algebra proves the sharp adaptation threshold. The cubic coefficient and strip-width opening are checked analytically and through symbolic/numeric diagnostics; finite samples are not substitutes for proofs.
+PASS
 
-## Originality — PASS, subject to literature risk
+Pass to log-odds t=log(x/(1-x)), set S(t) sigmoid, T=t-a(S(t)-b+cq), Q=(1-k)q+k(p0+p1*S(t)). Eliminating q from the second gives exact one-dimensional fiber equation h_B(t)=t-B*S(t)=z with B=a(1-c*k*p1/(1-k)) and z=T-ab+ac(Q-kp0)/(1-k). Each real t solves for one unique real q. Since h_B prime=1-B*S*(1-S) and max S(1-S)=1/4, B<4 yields analytic global diffeo, B=4 a strictly monotone cubic critical point at t=0 (h4=-2+t^3/12+O(t^5)) and inverse Hölder exponent sharp 1/3. For B>4 there are two simple turning points ±2 atanh(sqrt(1-4/B)), with 3 real inverse roots inside their height strip, 2 on edges and 1 elsewhere. Width Bd-4atanh(d)>0 with leading (B-4)^(3/2)/3. For physical (x,q) in (0,1)^2, local fold paired roots retain q in (0,1) by continuity, proving noninjectivity iff B>4, while B<=4 implies global injectivity. Rearranging B<=4 gives k_inj=(a-4)/(a-4+a*c*p1) for a>4; k>=1/(1+c*p1) ensures B<=0 for every a>0. Domain includes k strictly less than 1; do not conflate ambient 3 with 3 physical preimages. Independently checked 15 numerical log-odds inverse elimination and strip-root cases; analytic calculus establishes all real parameters.
 
-The 2026 motivating study specifies exactly this two-state learning system but examines equilibria and dynamical bifurcations, not the stated inverse-multiplicity trichotomy. The 2018 one-dimensional MWU work gives a known logistic fold threshold, explicitly acknowledged; however it has no adaptive second coordinate and no result saying the coupled system's effective fold parameter is \(a(1-ckp_1/(1-k))\), with global physical injectivity restored above the sharp memory threshold. The 2017 congestion-game MWU paper covers a different game-update dynamics. Semantic research-record searches using model aliases, log-odds, noninvertibility, folds and three-preimage equivalences found no directly covering record; a general two-dimensional economic-map result may still imply the claimed theorem and warrants independent bibliographic verification.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a natural full inverse classification for a concrete newly analyzed population-game dynamics, distinguishing invertible oscillatory/chaotic regimes from genuine folding and exhibiting an explicit large-learning-intensity stabilization *of inverse geometry* through adaptive memory. This is a global geometric mechanism, not a local fixed-point Jacobian or an arbitrary numerical threshold. The cusp-like \(3/2\) opening quantifies the loss of inverse uniqueness. It does not assert that invertibility forces dynamical convergence or prevents chaos.
+Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. An elementary 1D logistic slope criterion implies the form h_B prime after independently deriving the correct 2D inverse reduction; prior dynamics papers do not supply that reduction or sharp physical embedding threshold for this model.
 
-## Closest references and limitations
+## value
 
-Metaxas–Sapsis, arXiv:2606.29967v1, Sections 2.2–2.3, 3, Appendix A.1, full accessible HTML read; Chotibut–Falniowski–Misiurewicz–Piliouras, arXiv:1807.06831v1, PDF pp. 2–4 read; Palaiopanos–Panageas–Piliouras, arXiv:1703.01138v1, PDF pp. 1–2 and 10–11 read. Residual risk: older general noninvertible-map/skew-product theory; no independent literature review or mathematical audit. The three-preimage count is for the ambient real-plane extension and is **not** incorrectly claimed throughout the physical square.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Global inverse multiplicity and sharp adaptation-dependent injectivity for the exact published risk-sensitive belief-learning model isolate folding independently from stability/chaos. It is mathematically motivated to know when belief feedback restores invertibility even at arbitrarily large learning intensity; the full fold strip, physical restriction and cubic cusp refine familiar one-dimensional logistic slope calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

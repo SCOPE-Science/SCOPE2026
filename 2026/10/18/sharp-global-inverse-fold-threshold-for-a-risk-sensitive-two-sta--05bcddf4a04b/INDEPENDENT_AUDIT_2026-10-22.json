@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:11:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-global-inverse-fold-threshold-for-a-risk-sensitive-two-sta--05bcddf4a04b/RESULT.md blob f68fe251a4a2dd31ebae4b1ee10c2b1c234ec58d",
+        "2026/10/18/sharp-global-inverse-fold-threshold-for-a-risk-sensitive-two-sta--05bcddf4a04b/check_inverse_geometry.py blob 76a847dda2c23b951785fce1c59a3f865a16789c",
+        "Independent private bounded cross-check source /mnt/data/scope08_science_checks.py (not a general proof)"
+      ],
+      "rationale": "Pass to log-odds t=log(x/(1-x)), set S(t) sigmoid, T=t-a(S(t)-b+cq), Q=(1-k)q+k(p0+p1*S(t)). Eliminating q from the second gives exact one-dimensional fiber equation h_B(t)=t-B*S(t)=z with B=a(1-c*k*p1/(1-k)) and z=T-ab+ac(Q-kp0)/(1-k). Each real t solves for one unique real q. Since h_B prime=1-B*S*(1-S) and max S(1-S)=1/4, B<4 yields analytic global diffeo, B=4 a strictly monotone cubic critical point at t=0 (h4=-2+t^3/12+O(t^5)) and inverse Hölder exponent sharp 1/3. For B>4 there are two simple turning points ±2 atanh(sqrt(1-4/B)), with 3 real inverse roots inside their height strip, 2 on edges and 1 elsewhere. Width Bd-4atanh(d)>0 with leading (B-4)^(3/2)/3. For physical (x,q) in (0,1)^2, local fold paired roots retain q in (0,1) by continuity, proving noninjectivity iff B>4, while B<=4 implies global injectivity. Rearranging B<=4 gives k_inj=(a-4)/(a-4+a*c*p1) for a>4; k>=1/(1+c*p1) ensures B<=0 for every a>0. Domain includes k strictly less than 1; do not conflate ambient 3 with 3 physical preimages. Independently checked 15 numerical log-odds inverse elimination and strip-root cases; analytic calculus establishes all real parameters.",
+      "residual_risks": [
+        "At B=4 set-theoretic bijection does not imply smooth inverse; local exponent 1/3 and singular Jacobian must be distinguished.",
+        "Ambient three-preimage strip is not a guarantee of three admissible physical preimages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their eq. (9) matches both coordinate updates; Appendix A.1 uses logits to control boundary equilibria, not to eliminate beliefs and classify inverse fibers.",
+          "The map updates two strategy probabilities through nonlinear symmetric coupling, not the q+linear EMA belief update Q=(1-k)q+k(p0+p1x)."
+        ],
+        "reasoning": "The 2018 MWU family contains logistic interval folds but for a different coupling law. The same mathematical model Metaxas–Sapsis paper examines equilibria/bifurcations, not global inverse fiber counts.",
+        "searches": [
+          "Resultary: risk sensitive multiplicative weights coupled belief two state map injectivity fold threshold inverse log odds",
+          "literature: Metaxas Sapsis Risk-Sensitive Learning in Population Games under Extreme Events 2026 full manuscript Sections 2–3 Appendix A.1; Chotibut Falniowski Misiurewicz Piliouras 2018 two-agent MWU"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "K. Metaxas and T. P. Sapsis, arXiv:2606.29967v1; public full manuscript https://www.researchgate.net/publication/408235857_Risk-Sensitive_Learning_in_Population_Games_under_Extreme_Events_Bifurcations_and_Chaotic_Dynamics",
+          "material_read": "Full public manuscript §§2.2–2.3 (eq. 9, equilibrium) and §§3 dynamics, Appendix A.1 boundary equilibrium proof and logit transform (p.19); targeted full-text searches for invertibility/fold/Jacobian",
+          "title": "Risk-Sensitive Learning in Population Games under Extreme Events: Bifurcations and Chaotic Dynamics"
+        },
+        {
+          "identifier_or_url": "T. Chotibut, F. Falniowski, M. Misiurewicz and G. Piliouras, arXiv:1807.06831v1",
+          "material_read": "Primary 13-page PDF: abstract, §2 game map, diagonal reduction and numerical bifurcation setup",
+          "title": "Family of chaotic maps from game theory"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An elementary 1D logistic slope criterion implies the form h_B prime after independently deriving the correct 2D inverse reduction; prior dynamics papers do not supply that reduction or sharp physical embedding threshold for this model.",
+          "Their eq. (9) matches both coordinate updates; Appendix A.1 uses logits to control boundary equilibria, not to eliminate beliefs and classify inverse fibers.",
+          "The map updates two strategy probabilities through nonlinear symmetric coupling, not the q+linear EMA belief update Q=(1-k)q+k(p0+p1x)."
+        ],
+        "reasoning": "An elementary 1D logistic slope criterion implies the form h_B prime after independently deriving the correct 2D inverse reduction; prior dynamics papers do not supply that reduction or sharp physical embedding threshold for this model.",
+        "searches": [
+          "Resultary: risk sensitive multiplicative weights coupled belief two state map injectivity fold threshold inverse log odds",
+          "literature: Metaxas Sapsis Risk-Sensitive Learning in Population Games under Extreme Events 2026 full manuscript Sections 2–3 Appendix A.1; Chotibut Falniowski Misiurewicz Piliouras 2018 two-agent MWU"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their eq. (9) matches both coordinate updates; Appendix A.1 uses logits to control boundary equilibria, not to eliminate beliefs and classify inverse fibers.",
+          "Source claim 2026/10/18/sharp-global-inverse-fold-threshold-for-a-risk-sensitive-two-sta--05bcddf4a04b/RESULT.md (Git blob f68fe251a4a2dd31ebae4b1ee10c2b1c234ec58d): Elimination maps the coupled 2D inverse problem to a one-dimensional logistic-shift graph; B is the effective fold parameter. The B=4 cusp reuses a classical maximum logistic derivative of 1/4, but that derivative alone does not imply the physical square injectivity or adaptation threshold."
+        ],
+        "reasoning": "Elimination maps the coupled 2D inverse problem to a one-dimensional logistic-shift graph; B is the effective fold parameter. The B=4 cusp reuses a classical maximum logistic derivative of 1/4, but that derivative alone does not imply the physical square injectivity or adaptation threshold.",
+        "searches": [
+          "Resultary: risk sensitive multiplicative weights coupled belief two state map injectivity fold threshold inverse log odds",
+          "literature: Metaxas Sapsis Risk-Sensitive Learning in Population Games under Extreme Events 2026 full manuscript Sections 2–3 Appendix A.1; Chotibut Falniowski Misiurewicz Piliouras 2018 two-agent MWU"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search for risk-sensitive multiplicative-weights coupled belief inverse fold returned unrelated threshold/inverse work; no exact published same map inverse-multiplicity result identified, which is not a novelty proof."
+        ],
+        "reasoning": "Resultary semantic search for risk-sensitive multiplicative-weights coupled belief inverse fold returned unrelated threshold/inverse work; no exact published same map inverse-multiplicity result identified, which is not a novelty proof.",
+        "searches": [
+          "Resultary: risk sensitive multiplicative weights coupled belief two state map injectivity fold threshold inverse log odds"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. An elementary 1D logistic slope criterion implies the form h_B prime after independently deriving the correct 2D inverse reduction; prior dynamics papers do not supply that reduction or sharp physical embedding threshold for this model.",
+      "residual_risks": [
+        "A broader textbook global fold theorem may make the scalar classification routine once the reduction is known; originality/value rest on the coupled-model reduction and exact physical-versus-ambient conditions.",
+        "No assertion of chaotic invariant sets or stability; result is inverse geometry only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in materially inspected claims: equilibrium stability and bifurcations, no global inverse count or exact B=4 threshold",
+          "evidence": "Their eq. (9) matches both coordinate updates; Appendix A.1 uses logits to control boundary equilibria, not to eliminate beliefs and classify inverse fibers.",
+          "identifier_or_url": "K. Metaxas and T. P. Sapsis, arXiv:2606.29967v1; public full manuscript https://www.researchgate.net/publication/408235857_Risk-Sensitive_Learning_in_Population_Games_under_Extreme_Events_Bifurcations_and_Chaotic_Dynamics",
+          "material_read": "Full public manuscript §§2.2–2.3 (eq. 9, equilibrium) and §§3 dynamics, Appendix A.1 boundary equilibrium proof and logit transform (p.19); targeted full-text searches for invertibility/fold/Jacobian",
+          "method": "Lawful publicly accessible ResearchGate full-text page, inspected sections, internal keyword search",
+          "title": "Risk-Sensitive Learning in Population Games under Extreme Events: Bifurcations and Chaotic Dynamics",
+          "trigger": "identical state/belief map and most plausible full-text coverage"
+        },
+        {
+          "assessment": "NOT_COVERING: two agent congestion game and invariant-diagonal maps, not affine risk-adaptive belief filter",
+          "evidence": "The map updates two strategy probabilities through nonlinear symmetric coupling, not the q+linear EMA belief update Q=(1-k)q+k(p0+p1x).",
+          "identifier_or_url": "T. Chotibut, F. Falniowski, M. Misiurewicz and G. Piliouras, arXiv:1807.06831v1",
+          "material_read": "Primary 13-page PDF: abstract, §2 game map, diagonal reduction and numerical bifurcation setup",
+          "method": "arXiv PDF textual reading and screenshot",
+          "title": "Family of chaotic maps from game theory",
+          "trigger": "MWU logistic folds and two-agent dynamics can predate this theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/sharp-global-inverse-fold-threshold-for-a-risk-sensitive-two-sta--05bcddf4a04b/RESULT.md blob f68fe251a4a2dd31ebae4b1ee10c2b1c234ec58d",
+        "K. Metaxas and T. P. Sapsis, arXiv:2606.29967v1; public full manuscript https://www.researchgate.net/publication/408235857_Risk-Sensitive_Learning_in_Population_Games_under_Extreme_Events_Bifurcations_and_Chaotic_Dynamics",
+        "T. Chotibut, F. Falniowski, M. Misiurewicz and G. Piliouras, arXiv:1807.06831v1"
+      ],
+      "rationale": "Global inverse multiplicity and sharp adaptation-dependent injectivity for the exact published risk-sensitive belief-learning model isolate folding independently from stability/chaos. It is mathematically motivated to know when belief feedback restores invertibility even at arbitrarily large learning intensity; the full fold strip, physical restriction and cubic cusp refine familiar one-dimensional logistic slope calculations.",
+      "residual_risks": [
+        "Importance is confined to the stated objects/parameters; do not claim a general unsolved conjecture or publication priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "At B=4 set-theoretic bijection does not imply smooth inverse; local exponent 1/3 and singular Jacobian must be distinguished.",
+    "Ambient three-preimage strip is not a guarantee of three admissible physical preimages.",
+    "A broader textbook global fold theorem may make the scalar classification routine once the reduction is known; originality/value rest on the coupled-model reduction and exact physical-versus-ambient conditions.",
+    "No assertion of chaotic invariant sets or stability; result is inverse geometry only."
+  ],
+  "schema_version": 1
+}
