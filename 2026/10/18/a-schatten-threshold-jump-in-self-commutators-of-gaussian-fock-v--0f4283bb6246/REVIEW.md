@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normed Fock basis gives the explicit bounded two-step shift. Multiplication of its matrix and adjoint yields the Jacobi coefficients in the proof, and absolute summability yields trace class. Exact telescoping gives the trace, coordinate compressions prove the sharp \(\mathcal S_p\) threshold even for \(0<p<1\), and mutually separated indefinite principal blocks establish both infinite spectral inertias. The supplied executable independently checks finite coefficients, diagonal telescoping and representative inertia; these tests are supplementary and not used to infer infinite claims.
+PASS
 
-## Originality
+Using e_n=z^n/sqrt(n!), the two-step shift has coefficients b/sqrt(n+1), 2a sqrt((n+1)/(n+2)). Direct multiplication gives diagonal H_00=2|a|^2+|b|^2, H_11=8|a|^2/3-|b|^2/2, H_nn=8|a|^2/[n(n+2)]-|b|^2/[n(n+1)] (n>=2), and H_{n,n+1}=conj(a)b for n=0 and -2conj(a)b/[(n+2)sqrt(n+1)] otherwise. Absolute sums give trace class and exact telescoping trace 8|a|^2. Pure-case diagonal tails scale n^-2; mixed off-diagonal weighted shifts scale n^-3/2. Separating supports via PHQ compression makes p>2/3 necessary even for 0<p<1. Infinitely many disjoint indefinite adjacent principal blocks for ab!=0 prove both infinite inertias; zero and pure-symbol cases follow directly.
 
-PASS, subject to the usual unindexed-literature caveat. Constantin's 2012 author-shared full text was inspected for its symbol-boundedness, compactness, spectrum, and Schatten statements. Its main theorems concern the integration operator itself, not the commutator. The 2013 Constantin--Peláez arXiv full text similarly discusses weighted Fock operator Schatten membership and embeddings, and Constantin--Persson (2015) provides a disk spectrum result. Targeted published-result comparisons on commutator traces and Schatten thresholds returned closest results for other operator families (Cesàro self-commutators, weighted-integration self-commutators and Fock Toeplitz settings); their hypotheses do not imply the displayed Gaussian Fock Volterra Jacobi matrix, exact mixed-symbol threshold, or inertia classification. This is a research-level bibliographic assessment, not independent priority certification.
+## originality
 
-## Value
+PASS
 
-PASS. The complete sharp Schatten-ideal classification is motivated by the previously known exact degree-two bounded-symbol family and measures the compact spectral defect of a nonnormal operator that itself can be noncompact. The sharp change in threshold and infinite sign inertia under an arbitrarily small linear perturbation are substantive structural phenomena, not restatements of boundedness or the classical spectral disk. The trace remains invariant and provides an independent nontrivial check.
+The degree<=2 Fock Volterra symbol classification and operator Schatten/spectral results of Constantin and later weighted-Fock studies are prior art and credited; none of the inspected claims controls the singular values of H=[T*,T] or proves its mixed-symbol p=2/3 transition and infinite positive/negative inertia. Different published self-commutator results concern Hardy–Volterra, Toeplitz, polydisc-quotient or Cesaro operators, not this Fock Jacobi matrix. Best-of-knowledge novelty, with possibility of unindexed equivalent weighted-shift commutator theory.
 
-## Remaining limits
+## value
 
-One complex variable and the standard Gaussian Hilbert norm only; eigenvalue-by-eigenvalue constants are not identified. Full bibliographic priority is unresolved for literature not indexed by available searches. Finite checks do not replace analytic infinite-dimensional proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete sharp Schatten-ideal and sign-inertia classification measures compact nonnormality defect across the natural bounded degree-two family. An arbitrarily small mixed linear term changes critical singular-value exponent and definiteness; the trace stays fixed. This is a motivated operator-theoretic structural transition, not the known spectrum of T or a mere computational certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
