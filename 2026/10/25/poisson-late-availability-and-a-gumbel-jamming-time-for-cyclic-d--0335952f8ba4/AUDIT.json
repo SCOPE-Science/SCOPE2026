@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The exact first-arrival construction and infinite-line half-path equation yield p_infty(t)=exp[-t-2(1-e^-t)]. The backward ancestry can cross distance R only via a strictly decreasing chain bounded by 2^(R+2)/R!. Taking R=ceil(4 log n) makes the total coupling error superpolynomially small. A dependency-neighborhood Stein–Chen bound uses b1,b2=O(log n/n), and factorial moments for well-separated rare edges give the spatial Poisson process. Finally T<=t iff there are zero available edges. Finite-state and randomized verifier completed 71 assertions; computational checks are not a substitute for the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Penrose–Sudbury, arXiv:math/0503519: materially read graphical construction, graph deposition and fixed-time normal approximation sections.",
+        "Turban, arXiv:1908.00940: materially read model, scaling regimes and extreme-value discussion; model uses a complete graph with all adsorbate placements allowed.",
+        "Purvis et al., doi:10.1103/PhysRevE.91.022118: materially read author full text on one-dimensional near-jamming availability and coverage."
+      ],
+      "reasoning": "Graph RSA gives general tools but not a late-time uniform-in-system-size Poisson approximation in the inspected work. Fully-connected k-mer extreme covering times use different adsorption geometry and time scales; their theorems cannot be substituted for cyclic nearest-neighbor dimers. A currently unlocated stronger geometric stabilization theorem may still cover the case.",
+      "searches": [
+        "On cycle C_n continuous time random sequential adsorption of hard core dimers with independent unit exponential edge clocks: at time log(n)+x available vacant pairs converge as a spatial Poisson point process of intensity exp(-2-x), with total variation error O(log n/n); final accepted dimer time minus log n plus 2 has a standard Gumbel distribution.",
+        "On graph cycles C_n random greedy matching with exponential edge clocks, terminal blocking time and last accepted edge order Gumbel extreme value jamming time Poisson late gaps.",
+        "Penrose Sudbury dimer random sequential adsorption finite cycle C_n terminal jamming time Gumbel Poisson vacant edge point process log n",
+        "random sequential adsorption dimer finite cycle time to jamming Gumbel distribution last deposition logarithm n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0503519",
+      "https://www.researchgate.net/publication/273463495_Scaling_behavior_near_jamming_in_random_sequential_adsorption",
+      "https://arxiv.org/abs/1908.00940",
+      "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+      "https://doi.org/10.1103/PhysRevE.91.022118",
+      "published-finding corpus semantic search against cyclic RSA, greedy matching aliases, late-time Gumbel and vacant pairs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Penrose–Sudbury graph RSA: local-dependence mechanism and fixed-time law, not this moving-time result.",
+        "Purvis–Reeve–Wattis–Mao: availability to coverage asymptotics (one-/two-dimensional), not distribution of the last available position on a finite ring.",
+        "Turban: exact covering-time laws for complete-graph k-mers, not cycle with permanently separated isolated vacancies.",
+        "Arratia–Goldstein–Gordon: general Chen–Stein tool, whose finite-dependency sums must be established for this specific RSA process."
+      ],
+      "reasoning": "Classical exact E2 gives only one-point means. Fixed-time normal approximations are not rare-event Poisson limits at t~log n, and fully-connected covering-time laws have no implication to cycles. The new theorem combines quantified decreasing-clock ancestry, joint rare-event bounds, spatial moments, and the equivalence between jamming and zero available pairs.",
+      "searches": [
+        "On cycle C_n continuous time random sequential adsorption of hard core dimers with independent unit exponential edge clocks: at time log(n)+x available vacant pairs converge as a spatial Poisson point process of intensity exp(-2-x), with total variation error O(log n/n); final accepted dimer time minus log n plus 2 has a standard Gumbel distribution.",
+        "random sequential adsorption \"jamming time\" \"Gumbel\" dimer lattice",
+        "\"random sequential adsorption\" \"Poisson\" \"jamming time\" one dimensional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The late availability count is a greedy-matching blocking indicator on the line graph of a cycle.",
+        "published-finding corpus record 2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f discusses extremal average maximal matching size, not arrival-time laws.",
+        "The inspected Penrose–Sudbury graph deposition model has matching first-clock construction but different limit theorems."
+      ],
+      "reasoning": "The greedy-matching and RSA aliases produce the same object, but the closest retrieved maximal-matching papers characterize terminal set cardinalities or average sizes. Such final-state distributions do not imply a late-time spatial Poisson law, a quantified Gumbel jamming time, or the given first-clock intensity.",
+      "searches": [
+        "On cycle C_n continuous time random sequential adsorption of hard core dimers with independent unit exponential edge clocks: at time log(n)+x available vacant pairs converge as a spatial Poisson point process of intensity exp(-2-x), with total variation error O(log n/n); final accepted dimer time minus log n plus 2 has a standard Gumbel distribution.",
+        "On graph cycles C_n random greedy matching with exponential edge clocks, terminal blocking time and last accepted edge order Gumbel extreme value jamming time Poisson late gaps.",
+        "random sequential adsorption matching on path or cycle: extreme value law jamming completion time and vacant edges Poisson",
+        "random greedy matching cycle exponential edge arrival times last chosen edge time Gumbel shift e^-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de counts greedy output probabilities on chain graphs, not cycle jamming times.",
+        "The accessible classical coverage formula is the infinite-line vacant-pair probability, not a finite-volume tabulated Gumbel or spatial Poisson law."
+      ],
+      "reasoning": "Neither the observed research records nor the inspected exact adsorption tables give the claimed finite-cycle rare-event intensity, point process, or total-variation estimate. No mere agreement of numerical constants is treated as establishing novelty.",
+      "searches": [
+        "On cycle C_n continuous time random sequential adsorption of hard core dimers with independent unit exponential edge clocks: at time log(n)+x available vacant pairs converge as a spatial Poisson point process of intensity exp(-2-x), with total variation error O(log n/n); final accepted dimer time minus log n plus 2 has a standard Gumbel distribution.",
+        "One dimensional lattice dimer deposition: exact vacancy E2(t)=exp(-t-2(1-exp(-t))) implies Poisson number of surviving available pairs near t=log n and Gumbel time to jamming.",
+        "One-dimensional lattice dimer RSA finite length jamming time logarithmic asymptotic Gumbel"
+      ]
+    },
+    "rationale": "Inspected primary near-jamming availability (Purvis et al.), general graph deposition (Penrose–Sudbury), and fully-connected covering times (Turban). None of the materially read results states or obviously dominates the cyclic late-time spatial Poisson law with an O(log n/n) finite-size bound and centered Gumbel jamming time. Multiple published-finding corpus alias/equivalence searches returned static matching or unrelated time-distribution claims. This supports originality relative to identified work only; unavailable specialist literature and a broader general theorem are residual risks.",
+    "residual_risks": [
+      "A specialist theorem for the extremal completion times of one-dimensional RSA or random greedy matchings not located in searched literature could cover the result.",
+      "A sufficiently strong general rare-event Poisson approximation for stabilizing deposition fields might imply this finite-cycle specialization.",
+      "The Pippenger 1989 and Burridge–Mao 2004 papers were not inspected in full; no full-document exclusion is claimed.",
+      "Independent historical priority and scientific validation remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reproduces object and graphical ideas but inspected main statements concern fixed-time occupation/variance, not late-time cycle spatial Poisson and Gumbel law",
+        "evidence": [
+          "arXiv:math/0503519",
+          "General graph deposition graphical construction and normal approximation at fixed times"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+        "material_read": "Full accessible PDF, model definitions, introduction, sections on graph deposition, finite-time normal limits, and ancestry construction/proofs",
+        "method": "Primary PDF text and selected rendered-page inspection",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "Closest broad graph RSA and stabilization theorem source"
+      },
+      {
+        "assessment": "Studies scaling of expected availability with coverage; no inspected joint late-time spatial Poisson distribution or finite-cycle Gumbel completion time",
+        "evidence": [
+          "doi:10.1103/PhysRevE.91.022118",
+          "APS public publication date 2015-02-17"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/273463495_Scaling_behavior_near_jamming_in_random_sequential_adsorption",
+        "material_read": "Accessible author full text, introduction, one-dimensional discrete adsorption and concluding near-jamming discussion",
+        "method": "Read full available article text, not abstract-only",
+        "title": "Scaling behavior near jamming in random sequential adsorption",
+        "trigger": "Same one-dimensional dimer availability near jamming"
+      },
+      {
+        "assessment": "Complete graph where every k-set can adsorb, exact full-coverage extreme-time distributions on different scales, does not imply cycle RSA last deposition",
+        "evidence": [
+          "arXiv:1908.00940",
+          "The fully connected rather than nearest-neighbor geometry is explicit in its model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.00940",
+        "material_read": "Accessible complete arXiv HTML article, abstract, model, main results, scaling-regime discussions and theorem applications",
+        "method": "Read complete rendered source in relevant sections, compared graph geometry and time normalization",
+        "title": "Random sequential adsorption of k-mers on the fully-connected lattice: probability distributions of the covering time and extreme value statistics",
+        "trigger": "Highly plausible competing extreme-value/covering-time theorem"
+      },
+      {
+        "assessment": "Static density and general local weak limit, not finite-cycle time-to-jamming extreme fluctuations",
+        "evidence": [
+          "doi:10.1002/rsa.21200"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+        "material_read": "Accessible publisher HTML, general local limit construction and path/cycle applications",
+        "method": "Read article sections and compared fixed-time/static greedy output with late-time RSA",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Graphical greedy local-limit results, including cycles and paths"
+      },
+      {
+        "assessment": "Historical risk: Pippenger also treats edge adsorption and mean dynamical occupancy on graphs, as noted in the abstract; a late-time rare-event result cannot be excluded without full-text inspection.",
+        "evidence": [
+          "1989 Pippenger work; full-text not obtained"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Only accessible abstract and bibliographic scope, not full paper",
+        "method": "Abstract-level inspection; no full-document noncoverage claim",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Early foundational RSA on graphs"
+      },
+      {
+        "assessment": "Residual priority risk, paper chiefly discusses recursive final coverage calculations",
+        "evidence": [
+          "Burridge and Mao 2004; linked PDF inaccessible"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.69.037102",
+        "material_read": "Abstract and bibliographic material; linked full text inaccessible",
+        "method": "Bounded open-access inspection only, no full-text noncoverage assertion",
+        "title": "Recursive approach to random sequential adsorption",
+        "trigger": "Potential older one-dimensional exact recursion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0335952f-8ba4-4ef5-aa57-c7d3d2fb3e13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural time at which a finite adsorbent loses all admissible dimer sites has a nontrivial extreme-time law on the logarithmic scale. The result identifies its explicit Gumbel centering, positions of the last vacancies as a homogeneous Poisson point process, and an O(log n/n) approximation rate, extending the known mean jamming-coverage calculations into a genuine quantitative kinetic fluctuation theorem.",
+    "status": "PASS"
+  }
+}
