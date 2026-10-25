@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_flower_snark.py` (only Python 3 standard library). The exact run checked the canonical graph6 isomorphism and emitted:
+## correctness
 
-```
-VERIFY_OK_FLOWER_SNARK_INDEPENDENCE_HOMOTOPY_AND_FULL_DIHEDRAL_CHARACTER
-GRAPH_N_M 20 30 UNIQUE_5_CYCLE (5, 6, 7, 8, 9)
-F_VECTOR (20, 160, 660, 1510, 1923, 1310, 450, 75, 5) FACES 6113
-MORSE_PAIRS 3054 HASSE_COVERS 29610 ACYCLIC_VERTICES 6113
-CRITICAL_DIMS {0: 1, 5: 1, 4: 3} CRITICAL_FIVE_TO_FOUR {2: -1, 0: 1}
-HOMOTOPY_WEDGE_TWO_S4
-AUTOMORPHISM_GROUP_D10_ORDER 20
-H4_TRACES_ROTATIONS (2, 0, 2, 0, 2, 0, 2, 0, 2, 0)
-H4_TRACES_REFLECTIONS (2, 0, 2, 0, 2, 0, 2, 0, 2, 0)
-H4_Q_MODULE_TRIVIAL_PLUS_ROTATION_SIGN
-```
+PASS
 
-Every face is enumerated from the exact graph adjacency test; a complete directed-Hasse topological sort verifies acyclicity. The signed projection recursively eliminates all matched four-faces before computing the remaining integral attaching degree. A unit entry in that boundary is sufficient for the sphere cancellation, in view of the absence of other critical dimensions. The graph-automorphism group has been bounded and its twenty elements enumerated. Signed Lefschetz calculations are performed for every element, not a selection of conjugacy classes. This is a finite result about \(F_5\); the code does not prove an infinite-parameter statement. The group representation is classified over \(\mathbb Q\), not as a direct-sum decomposition of \(\mathbb Z[D_{10}]\)-lattices. Independent scientific audit is not performed.
+Independently reconstructed the stated 20-vertex cubic graph with 30 edges; vertex subsets give exactly 6,113 nonempty independent faces, f-vector (20,160,660,1510,1923,1310,450,75,5). Independently reconstructed 3,054 disjoint discrete-Morse pairs, full 29,610 Hasse cover acyclicity, and critical cells one 0-cell, three 4-cells, one 5-cell. Recomputed the signed integral Morse 5→4 differential (1,0,-1), a primitive vector, hence the resulting CW attachment kills one of three 4-sphere generators and Ind(F5)≃S4∨S4 integrally, not just homology. Verified unique graph 5-cycle on the five b-vertices; dihedral maps r,s preserve all 30 edges and give 20 automorphisms, with uniqueness bounding the group by 20. Independently counted signed fixed independent faces for all 20 automorphisms; reduced H4 trace is 2 for even powers r^k and sr^k and zero for odd, giving Q[D10]-module 1⊕ε with ε(r)=-1, ε(s)=+1.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete integral F5 independence-complex wedge type together with the full D10 rational homology character. Isaacs and Zheng et al treat the graph and crossing numbers; available homotopy results for other graph classes do not establish this particular signed Morse boundary or symmetry character.
+
+## value
+
+PASS
+
+The first genuine 20-vertex flower snark is a canonical nontrivial cubic graph. An exact integral homotopy classification plus all-automorphism action is a natural and previously unavailable invariant for comparisons across snarks, independent of any all-flower-snark formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
