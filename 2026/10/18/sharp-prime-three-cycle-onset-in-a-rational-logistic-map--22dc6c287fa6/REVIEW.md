@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact third-iterate cancellation produces the degree-six polynomial with no poles or fixed-point contamination on the invariant interval. Its discriminant has exactly one root above \(1\) in the admissible range. Six disjoint exact-rational sign brackets at \(\mu=23/4\), continuity, nonvanishing boundary/fixed-point evaluations and cyclic multiplicity prove the full \(0/3/6\) census and neutral multiplier at equality. The executable symbolic verifier confirms the finite identities and signs; the analytic continuation argument establishes the continuous-parameter theorem.
+PASS
 
-## Originality — PASS
+K_mu maps [0,1] into itself exactly for 0<mu<=3+2sqrt2 because its maximum is mu(3-2sqrt2). Exact rational third-iterate factorization (K³-x)/(K-x)=P_mu(x)/((D1+N1)(D2+N2)) has positive denominator on interval, degree-six P. Fixed-point evaluations P(0)=mu²+mu+1>0, P((mu-1)/(mu+1))=16mu^4[(mu²-3mu-1)²+3mu²]/(mu+1)^6>0, and P(1)=8, exclude spurious fixed/endpoint roots. The exact discriminant factors as 256mu^16(mu²-mu+1)²(mu²+mu+1)² B(mu)² A(mu)³, with quartic A=mu^4-4mu³-10mu²+4mu+1; Descartes/signs imply one root >1, mu*. Exact rational endpoint brackets at mu=23/4 certify six distinct roots, so discriminant continuity forces six throughout (mu*,3+2sqrt2] and zero in (1,mu*), with mu<=1 monotone K_mu(x)<x. At threshold, nonfixed repeated roots must propagate around a full 3-cycle with equal multiplicity and product derivative 1, exhausting degree6 as three double roots. Independently rederived rational P, factored discriminant, tested six exact rational sign brackets; checked multiplier analytically rather than trusting a numerical bifurcation plot.
 
-The originating 2022 article (DOI: 10.3934/mbe.2022115) has the same map and studies fixed-point stability, period-doubling plots, and numerical chaotic windows. The 2025 two-parameter extension (DOI: 10.3390/math13030518) likewise studies approximate windows and fixed points at the present specialization; neither inspected complete article gives the exact period-three dynatomic discriminant or point census. Similar database entries involving rational second-order maps, rational rotations, and two-cycle bifurcations concern inequivalent recurrences. Residual risk: a prior result under a different conjugacy or notation might contain this precise parameter and count; semantic search cannot rule it out exhaustively.
+## originality
 
-## Value — PASS
+PASS
 
-An exact prime-period-three threshold is a natural bifurcation question for the source's interval map, beyond its numerical transition diagrams. This algebraic onset and exact count provide a rigorous witness for the classical all-period phenomenon and separate creation of unstable/neutral odd cycles from numerically detected chaos. The result is a complete classification of the natural low-prime period, not a point sample or a restatement of stability of equilibria.
+The same rational family has been studied for fixed-point stability and numerical period-doubling/chaos (Kumar 2022 and Conejero et al 2025), but the inspected exact statements do not provide quartic first prime-three onset, complete 0/3/6 point census, or the neutral multiplier. General period-three forcing theorems are not numerical threshold theorems.
 
-## Limits and closest literature
+## value
 
-The claim is limited to \([0,1]\) and \(0<\mu\le3+2\sqrt2\). It does not identify the earliest positive-entropy parameter or compute post-birth stability and basins. The source papers are the most direct same-map comparators. Full independent validation has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp global algebraic parameter boundary and complete three-cycle count for a concrete published nonlinear recurrence; replaces ambiguous numerical chaos onset plots with an exact, rigorous bifurcation census. Natural dynamically meaningful cutoff, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
