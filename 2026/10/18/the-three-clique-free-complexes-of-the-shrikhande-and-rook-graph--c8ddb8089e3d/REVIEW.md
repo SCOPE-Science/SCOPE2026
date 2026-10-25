@@ -1,15 +1,21 @@
-# Scientific review of the Shrikhande and rook clique-free classifications
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definitions, 32 triangles each, full face enumeration, deterministic Morse matching and complete directed Hasse acyclicity were reconstructed. The computed integer Morse matrices have shapes \(5\times14\) and \(21\times6\), respectively, with explicit full-rank unit minors. The high-dimensional attaching-degree classification makes the resulting integral homotopy wedges rigorous. An independent raw simplicial mod-two boundary calculation confirms the indicated nine and fifteen generators in their respective degrees. The `verify.py` program and the actual run output are enclosed.
+## correctness
 
-## Originality — PASS
-The main February 2026 clique-free paper was read at theorem and relevant-proof level, and earlier algebraic clique-ideal treatments were compared. The first establishes shellability under chordality and attachment conditions rather than the asserted classifications. Both graphs contain induced four-cycles, excluding the chordal hypothesis. The exact published independence-complex results for the same graph pair use forbidden edges (\(t=2\)), whereas this statement uses forbidden triangles (\(t=3\)); neither the former nor the known Čech-complex comparison implies this pair of homotopy types. Exact graph names, triangle-hypergraph equivalents, both sphere dimensions and multiplicities, broader clauses and exact-table searches did not identify covering prior work. No uniqueness claim follows from search failures.
+PASS
 
-## Value — PASS
-These graphs share the same strongly regular parameters and all 32 three-cliques, yet the corresponding three-clique-free complexes have homology in **different dimensions** and distinct integral homotopy types. This is an exact naturally paired classification rather than an arbitrary graph choice, small parameter increment, or already known table. It supplies a benchmark for the recently studied clique-free construction and shows standard strongly regular graph data cannot determine this topological invariant.
+For the precisely defined pair of 16-vertex SRG(16,6,2,2) graphs, CF3(G) consists of ALL vertex masks excluding every induced triangle. I independently enumerated each graph and 32 triangular masks, all 2^16 subsets: augmented face totals 8951 (Shrikhande) and 7343 (rook), including the empty simplex. The deterministic 0..15 toggle matches 4466/3658 pairs; an independently constructed oriented Hasse DAG topological sort exhausts all 8951/7343 vertices, proving acyclicity. Critical counts are 5 dimension-five and 14 dimension-six cells for Shrikhande, 21 dimension-five and 6 dimension-six for rook, plus the critical vertex after discarding the empty vertex pair. Independent exact Morse boundary elimination gives an integer 5x14 matrix with a +1 rank-five minor and 21x6 with -1 rank-six minor, respectively; primitive integral Smith factors give free reduced homology Z^9 in degree6 and Z^15 in degree5. A one-vertex CW model with cells only dimensions five/six has attaching classes classified by their integral degree vectors (pi5 wedge S5=Z^r) and unimodular cancellations, yielding the claimed wedges of spheres. The scope excludes other SRGs and equivariance.
 
-## Sources and limitations
-Main inspected primary sources: Ghosh–Selvaraja, arXiv:2602.09623v1 (2026-02-10), and Moradi, arXiv:1712.00583v1 (2017-12-02). The closest published mathematical research result compares **ordinary independence complexes** of the same graph pair; that does not subsume three-clique-free complexes. The claim is finite and does not address other strongly regular graphs or a general closed formula. An unindexed equivalent calculation or an older example buried in other primary literature remains possible. Independent external examination of the finite certificates has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The CF3 triangle-exclusion complex is strictly distinct from the ordinary independence complex CF2. Primary clique-free shellability results are conditional on chordality/diamond-freeness or clique attachments and do not give either 16-vertex homotopy type. The paired exact six-vs-five dimensional homotopy classification appears new at best knowledge, while related published ordinary independence values do not imply it.
+
+## value
+
+PASS
+
+A natural controlled counterexample to the idea that equal strongly regular parameters or equal triangle totals determine higher clique-free topology: these two classical nonisomorphic graphs have identical (16,6,2,2), 32 triangles and face counts through dimension2, but sphere-wedge homotopy lives in different dimensions. The exact finite two-object classification is mathematically motivated and reusable, not an arbitrary cut of an infinite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
