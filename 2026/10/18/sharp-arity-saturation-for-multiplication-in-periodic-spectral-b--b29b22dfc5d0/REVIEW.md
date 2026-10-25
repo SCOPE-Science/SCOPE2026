@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact multilinear norm, not merely a finite frequency experiment. For each tuple of lattice frequencies, its weight ratio is an attainable product-of-character norm quotient. Conversely the Fourier-convolution triangle inequality bounds all general inputs by the supremum of these ratios, so this is the exact operator norm. Every nonzero integer frequency has length at least one. The logarithmic partial derivative of the radial majorant has sign \((S-r_i)(1-Sr_i)<0\) for at least two nonzero frequencies. Thus all active lengths reduce to one and the complete integer optimization becomes \((1+n^2)/2^n\), maximized exactly at \(n=2,3\). This proves the claimed uniform constant and its character equality cases; the one- and zero-frequency cases and \(s=0\) are checked separately. Approximate Euclidean Dirac-frequency inputs give the claimed lower bound. The finite checker executes from the embedded package but is not substituted for the universal argument.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+Fourier coefficient convolution gives the exact operator norm as the supremum over lattice-character weight ratios: characters attain each ratio. For >=2 active integer frequencies, their lengths >=1 and the radial majorant (1+(sum r_i)^2)/prod(1+r_i²) is strictly decreasing in each r_i because derivative has sign (S-r_i)(1-S r_i)<0. All lengths therefore reduce to 1, giving (1+n²)/2^n, maximized exactly at n=2,3 with 5/4. Equality in triangle inequality forces aligned unit coordinate vectors; s=0 and 0/1 active cases yield 1. Shrinking positive Fourier bumps around m^-1/2 e_1 produce the separate Euclidean lower bound. Independently enumerated short integer tuples; finite enumeration not a universal proof.
 
-The closest primary paper is Choulli–Lu–Takase, arXiv:2610.06169v1, whose Sections 2.2, 4.3, and 4.5 were read in their HTML full text. Equation (2.7) supplies only the two-factor bound \(2^{s/2}\); iteration incurs a factor per additional product. Its high-dimensional definitions do not state or imply the sharp dimension- and arity-independent constant. Potts–Schmischke, arXiv:1907.11412, Theorem 3.11, was inspected in the full preprint and concerns inheritance of Wiener smoothness by ANOVA terms rather than multiplication. Nguyen–Nguyen–Sickel, arXiv:2011.07663, Section 2.2, explicitly excludes algebra questions from its study of embedding \(s\)-numbers. Searches for polynomially weighted Wiener algebra products and equivalent sharp Japanese-bracket convolution estimates disclosed no identified covering theorem. The general Fourier-convolution reduction is classical and not claimed as original. Residual risk: an earlier equivalent sharp discrete-weight inequality under Beurling-algebra terminology may remain undiscovered; search failures are not priority proofs.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The newly studied periodic spectral Barron norm occurs in quantitative approximation and nonlinear PDE arguments. The source's two-factor constant yields a bound growing exponentially with polynomial degree when iterated, whereas the exact multilinear constant never grows with the number of factors and is already achieved by three aligned unit frequencies. Its extension across every torus dimension, precise equality frequency pattern, and sharp contrast with unbounded Euclidean arity norms identify a structural lattice effect. The exact degree-independent constant is pertinent whenever high-degree polynomial nonlinearities are bounded in these spaces; this does not assert a particular downstream PDE theorem.
+Best-of-knowledge PASS for the exact dimension- and arity-independent periodic spectral Barron product norm and precise character equality. Prior source proves weighted convolution estimates but gives weaker two-factor constant and exponentially growing iterated estimates. Distinct integer lattice optimization is a new sharp fact to examined results.
 
-## Limits and closest literature
+## value
 
-The proof applies only to the specific isotropic integer-lattice Fourier weight with nonnegative smoothness. Non-character extremizers are not classified; neither the sharp diagonal-power constant for higher exponents nor the exact Euclidean multilinear norm is established. The closest literature and remaining priority risk are listed in RESULT.md and AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Spectral Barron/Wiener norms arise in periodic nonlinear approximation. Exact m-independent multilinear multiplication constants replace exponentially iterated weaker estimates, identify extremizing frequency patterns and a genuine lattice/continuum structural distinction, naturally useful for bounding polynomial nonlinearities without inventing downstream theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

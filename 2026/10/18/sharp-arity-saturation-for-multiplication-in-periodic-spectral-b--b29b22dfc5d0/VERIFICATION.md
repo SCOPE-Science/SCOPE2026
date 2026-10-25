@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in RESULT.md establishes the infinite-range assertion using exact Fourier-coefficient convolution and a one-variable monotonicity derivative. The standalone script `CHECK.py` runs without third-party packages: `python3 CHECK.py`.
+## correctness
 
-On execution, it returned `PASS: 253432 exact-rational assertions; 125433 exhaustive frequency configurations` and a qualification that its finite scope does not prove the universal claim. Its frequency boxes were: one dimension with entries from \(-2\) to \(2\), arities \(2\) through \(7\); two dimensions with entries from \(-1\) to \(1\), arities \(2\) through \(4\); and three dimensions with the same entries, arities \(2\) through \(3\). Further tests covered explicit extremizers, polynomial convolution, and a continuous-frequency lower-bound construction. These checks test examples and equality consistency, not completeness beyond their finite ranges.
+PASS
 
-Independent mathematical verification and publication-priority certification have not been performed.
+Fourier coefficient convolution gives the exact operator norm as the supremum over lattice-character weight ratios: characters attain each ratio. For >=2 active integer frequencies, their lengths >=1 and the radial majorant (1+(sum r_i)^2)/prod(1+r_i²) is strictly decreasing in each r_i because derivative has sign (S-r_i)(1-S r_i)<0. All lengths therefore reduce to 1, giving (1+n²)/2^n, maximized exactly at n=2,3 with 5/4. Equality in triangle inequality forces aligned unit coordinate vectors; s=0 and 0/1 active cases yield 1. Shrinking positive Fourier bumps around m^-1/2 e_1 produce the separate Euclidean lower bound. Independently enumerated short integer tuples; finite enumeration not a universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact dimension- and arity-independent periodic spectral Barron product norm and precise character equality. Prior source proves weighted convolution estimates but gives weaker two-factor constant and exponentially growing iterated estimates. Distinct integer lattice optimization is a new sharp fact to examined results.
+
+## value
+
+PASS
+
+Spectral Barron/Wiener norms arise in periodic nonlinear approximation. Exact m-independent multilinear multiplication constants replace exponentially iterated weaker estimates, identify extremizing frequency patterns and a genuine lattice/continuum structural distinction, naturally useful for bounding polynomial nonlinearities without inventing downstream theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
