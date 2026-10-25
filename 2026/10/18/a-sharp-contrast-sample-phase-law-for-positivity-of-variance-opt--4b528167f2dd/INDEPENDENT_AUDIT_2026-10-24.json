@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:03:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "DOI:10.1109/SSP64130.2025.11073388 section III.A",
+        "arXiv:2606.08817 abstract"
+      ],
+      "rationale": "The specified U columns are orthonormal and each row product-squared is 1/16; independent Bernoulli covariance ratios give every B_ab=(h+ell)/2. Orthogonal E+/E- reduction yields minus corrected eigenvalue beta-(h-ell)K_-/(2nu), K_-~Bin(2nu,1/2); exact failure is K_->=nu(kappa+1)/(kappa-1). It is absent for all samples exactly for 1<kappa<3, with singularity at equality. Raw PD is K_+>0,K_->0, yielding joint probability (1-4^-nu)q. Fusion minus eigenvalue scaled by ell is (kappa+1)+[theta-(kappa-1)]K_-/nu; extremal K_-=2nu gives iff theta>(kappa-3)/2. Frobenius variances (h^2+ell^2)/(2nu) and (h-ell)^2/(4nu), CLT threshold 2sqrt2/c and Cramer exponent follow from exact binomial. Independently enumerated all 16 one-sketch outcomes at h=7,l=1: 4 bad corrected, 3 bad corrected with good raw, 9 raw good.",
+      "residual_risks": [
+        "Finite independent checks are corroborative; unrestricted theorem rests on mathematical reductions and exact certificates, not samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 arXiv:2606.08817 describes low-variance and regularized inverse fusion only at abstract level",
+          "Choi et al 2016 linear-shrinkage positive-definite modification"
+        ],
+        "reasoning": "Potential broader statistical guarantee from 2026 primary paper is unresolved access risk; generic shrinkage/covariance estimators do not directly imply exact all-sample threshold of defined four-row design.",
+        "searches": [
+          "DOI:10.1109/SSP64130.2025.11073388 control variance positivity",
+          "arXiv:2606.08817 low-variance sketch fusion",
+          "arXiv:1606.03814 positivity covariance shrinkage"
+        ]
+      },
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "DOI:10.1109/SSP64130.2025.11073388 section III.A",
+        "arXiv:2606.08817 abstract",
+        "Resultary: Bernoulli Galerkin matrix sketch control variates positive definiteness loss sample contrast phase transition",
+        "Resultary: SCOPE Galerkin control variate variance optimal Bernoulli four row positivity failure contrast",
+        "DOI:10.1109/SSP64130.2025.11073388 control variance positivity",
+        "arXiv:2606.08817 low-variance sketch fusion",
+        "arXiv:1606.03814 positivity covariance shrinkage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2025 paper proves optimal B and warns SPD may fail; submitted law adds κ=3, qν, fusion threshold, Gaussian crossover",
+          "2026 full manuscript unavailable"
+        ],
+        "reasoning": "Previous qualitative warning is implied by the submitted example, not vice versa: it cannot supply the quantitative nu-uniform classification. Originality conditional on unread primary 2026 material.",
+        "searches": [
+          "Resultary: Bernoulli Galerkin matrix sketch control variates positive definiteness loss sample contrast phase transition",
+          "Resultary: SCOPE Galerkin control variate variance optimal Bernoulli four row positivity failure contrast",
+          "DOI:10.1109/SSP64130.2025.11073388 control variance positivity",
+          "arXiv:2606.08817 low-variance sketch fusion",
+          "arXiv:1606.03814 positivity covariance shrinkage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2025 optimal coordinatewise B formula and failure warning are same ingredients",
+          "Current q_nu(kappa) derives from a two-eigenspace Bernoulli design"
+        ],
+        "reasoning": "General control-variates statement is credited; a qualitative existence of ill-conditioning is not equivalent to an exact binomial spectral event.",
+        "searches": [
+          "Resultary: Bernoulli Galerkin matrix sketch control variates positive definiteness loss sample contrast phase transition",
+          "Resultary: SCOPE Galerkin control variate variance optimal Bernoulli four row positivity failure contrast",
+          "DOI:10.1109/SSP64130.2025.11073388 control variance positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching binomial-tail table in queried Resultary findings",
+          "Exact enumeration of 16 one-sketch configurations is reproduced from model rather than from known table"
+        ],
+        "reasoning": "Finite-support distribution is stated explicitly as a general nu binomial tail, not known-table recomputation; negative search provides limited novelty evidence only.",
+        "searches": [
+          "Resultary: Bernoulli Galerkin matrix sketch control variates positive definiteness loss sample contrast phase transition",
+          "Resultary: SCOPE Galerkin control variate variance optimal Bernoulli four row positivity failure contrast"
+        ]
+      },
+      "rationale": "Polydorides et al 2025 already give the optimal entrywise control variate and warn about loss of positive definiteness; no novelty claimed for that warning. The exact four-row all-sample coefficient contrast 3, binomial failures, fusion ridge, and sqrt(nu)-contrast transition are separately assessed, with substantial risk from unavailable full 2026 sketching preprint.",
+      "residual_risks": [
+        "Full text of arXiv:2606.08817 was inaccessible (authorized Oxford vpn_disconnected), and could contain exact special model results.",
+        "The numerical contrast example may be rediscovered as a specialization of prior Bernstein/binomial positivity analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative risk and beta-optimal weight are PRIOR, no exact four-row law located in read parts",
+          "evidence": "Eq.(13)–(18), p.3–4, warning about corrected SPD",
+          "identifier_or_url": "DOI:10.1109/SSP64130.2025.11073388",
+          "material_read": "Full accepted open manuscript sections II–III, equations (13)–(18), Section III.A warnings",
+          "method": "open PDF inspected",
+          "title": "Randomised sketching of parametric linear systems",
+          "trigger": "precursor control formula and positivity warning"
+        },
+        {
+          "assessment": "Possible much broader bounds or exact small design in unread main text. No whole-paper noncoverage claim.",
+          "evidence": "Abstract mentions low-variance Galerkin sketching and regularized inverse fusion",
+          "identifier_or_url": "arXiv:2606.08817v1",
+          "material_read": "Public abstract and secondary mathematical summary; arXiv and OA full text inaccessible",
+          "method": "abstract and lawful-access attempts; Oxford vpn_disconnected",
+          "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+          "trigger": "closest contemporary direct method"
+        },
+        {
+          "assessment": "Different estimation model, not known exact binomial Galerkin law",
+          "evidence": "Linear shrinkage positivity restoration, generic context",
+          "identifier_or_url": "arXiv:1606.03814",
+          "material_read": "Abstract and statements relating to covariance positive definiteness",
+          "method": "public abstract inspection",
+          "title": "Fixed support positive-definite modification of covariance matrix estimators via linear shrinkage",
+          "trigger": "generic shrinkage alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact package RESULT.md and verify.py",
+        "DOI:10.1109/SSP64130.2025.11073388 section III.A",
+        "arXiv:2606.08817 abstract"
+      ],
+      "rationale": "The model is a transparent minimal leverage-balanced Galerkin example of a real algorithmic conflict: optimal entrywise variance reduction need not preserve SPD. Exact finite-sample tail and contrast-versus-sample phase transition expose when this happens and distinguish it from matrix inversion constraints; not a generic matrix counterexample alone.",
+      "residual_risks": [
+        "Mathematical value limited to precise natural object/parameter family; no blanket generalization or publication-scale guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of arXiv:2606.08817 was inaccessible (authorized Oxford vpn_disconnected), and could contain exact special model results.",
+    "The numerical contrast example may be rediscovered as a specialization of prior Bernstein/binomial positivity analyses.",
+    "No generalization beyond exact RESULT.md domains. Publication withheld due confidential operational fields in public-facing JSON."
+  ],
+  "schema_version": 1
+}
