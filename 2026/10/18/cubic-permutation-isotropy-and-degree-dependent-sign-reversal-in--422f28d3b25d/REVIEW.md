@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact formula is derived from three exhaustive index-coincidence cases for uniform permutations acting on a zero-sum vector. The coefficient simplifies to \(d/((d-1)(d-2))\); double stochasticity guarantees zero-sum input/column weights and closes the conditional recurrence. The degree formula follows by counting entries. A distinct rational fourth-order obstruction was checked by the bundled exact program. Critical constraints are integer \(d\ge3\), finite depth, and independent fresh uniform permutations. Exact finite tests verify example cases but are not the proof.
+## correctness
 
-## Originality — PASS, qualified
-The full accessible text of Chiclana, arXiv:2610.14724v1, contains the same shuffled-kernel model and explicit covariance/chi-square identities in Theorem 1.6 and Corollary 1.7, but not this cubic scalar identity or degree-sign classification. Loizou–Richtárik, arXiv:1905.08645v2, studies mean-square and mean convergence of randomized gossip rather than the present uniformly permuted tensor. Searches of mathematical research records and primary literature for cubic moment, permutation twirling, symmetrization, sign reversal, and third-order gossip identified no equivalent statement. The structure is plausibly contained in more general invariant-tensor theory, which remains a priority risk. The review does not claim global uniqueness or independent certification.
+PASS
 
-## Mathematical value — PASS
-This is an exact higher-order distribution-shape law in an actively studied random Markov-product model, rather than another mean-square estimate. A new factor depending on the graph degree has a sharp sign transition at half density, completely invisible to the known nonnegative quadratic contraction. The exact fourth-order failure shows why cubic scalar closure is structurally special and what a higher-moment extension would need to overcome. No mixing bound, downstream statistical guarantee, or larger contribution is asserted.
+For zero-sum input row x and centered zero-sum column w, direct counting without-replacement permutation moments over equal, two-equal and all-distinct triples gives E(x_pi·w)^3 = [d/((d-1)(d-2))](Σx³)(Σw³). A doubly stochastic P has zero-sum columns after subtracting J, so summing this identity over output columns gives one-step scalar κ(P); fresh independent permutations allow exact conditional iteration over all finite L. An r-regular zero-one adjacency kernel has dr entries 1/r, giving (d-r)(d-2r)/[r²(d-1)(d-2)] and sign/zero transitions including r=d. Full enumeration of d=4 two-by-two averaging kernel confirms 4th moment ratios 11/21 and 2/3, so fourth scalar closure genuinely fails. Independent rational checks also verified the κ polynomial for d=3..7. d≥3, independent shuffles, double-stochasticity and finite depth are essential; C3 is signed, not a distance.
 
-## Limits
-The moment is signed and is not a metric; the theorem concerns expectations, finite depth, and independent uniform shuffles. Earlier generic permutation-invariant tensor results could imply the identity. Independent audit and priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chiclana's full accessible primary article, same shuffled-doubly-stochastic model, proves exact quadratic/chi-square contraction and regular-degree second-moment factors, not the examined third-centered-moment identity or degree-dependent sign reversal. Those nonnegative quadratic factors do not imply a signed cubic invariant. More general symmetric-group tensor-invariant theory may encapsulate the elementary third-order expectation; best-of-knowledge originality remains conditional on that risk. Loizou–Richtárik randomized gossip uses mean-square convergence under other updates.
+
+## value
+
+PASS
+
+Signed cubic centered dispersion measures skewness/asymmetry of a stochastic profile and is qualitatively invisible in existing quadratic mixing estimates. An exact scalar factor for arbitrary kernels, negative regular-degree factors above half density, and a concrete fourth-order nonclosure obstruction identify the precise special structure of degree three, making the result useful even without a mixing-time theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

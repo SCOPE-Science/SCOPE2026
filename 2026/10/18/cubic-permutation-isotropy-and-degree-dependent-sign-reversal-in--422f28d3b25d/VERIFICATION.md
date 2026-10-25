@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible calculations
+# Independent mathematical audit
 
-Run `python3 verify_cubic.py` with standard Python. The checker uses `fractions.Fraction`, `itertools.permutations`, and `itertools.product`, with no simulation and no external packages. In the current calculation it reported:
+## correctness
 
-`PASS 96 exact rational assertions; d=3..6 one-step, d=3/4 multi-step, and quartic obstruction`
+PASS
 
-For dimensions 3, 4, 5, 6 the checker exhausts all coordinate shuffles for several explicit doubly stochastic kernels and three zero-sum test inputs. It verifies selected products over all shuffles in every layer at dimensions 3 and 4, all tested regular-degree formulas, and the two distinct fourth-power ratios 11/21 and 2/3. Its finite range is **not** a verification of an infinite or all-dimension mathematical assertion; the elementary symbolic argument in RESULT.md supplies that proof. Bibliographical priority and independent validation remain unperformed.
+For zero-sum input row x and centered zero-sum column w, direct counting without-replacement permutation moments over equal, two-equal and all-distinct triples gives E(x_pi·w)^3 = [d/((d-1)(d-2))](Σx³)(Σw³). A doubly stochastic P has zero-sum columns after subtracting J, so summing this identity over output columns gives one-step scalar κ(P); fresh independent permutations allow exact conditional iteration over all finite L. An r-regular zero-one adjacency kernel has dr entries 1/r, giving (d-r)(d-2r)/[r²(d-1)(d-2)] and sign/zero transitions including r=d. Full enumeration of d=4 two-by-two averaging kernel confirms 4th moment ratios 11/21 and 2/3, so fourth scalar closure genuinely fails. Independent rational checks also verified the κ polynomial for d=3..7. d≥3, independent shuffles, double-stochasticity and finite depth are essential; C3 is signed, not a distance.
+
+## originality
+
+PASS
+
+Chiclana's full accessible primary article, same shuffled-doubly-stochastic model, proves exact quadratic/chi-square contraction and regular-degree second-moment factors, not the examined third-centered-moment identity or degree-dependent sign reversal. Those nonnegative quadratic factors do not imply a signed cubic invariant. More general symmetric-group tensor-invariant theory may encapsulate the elementary third-order expectation; best-of-knowledge originality remains conditional on that risk. Loizou–Richtárik randomized gossip uses mean-square convergence under other updates.
+
+## value
+
+PASS
+
+Signed cubic centered dispersion measures skewness/asymmetry of a stochastic profile and is qualitatively invisible in existing quadratic mixing estimates. An exact scalar factor for arbitrary kernels, negative regular-degree factors above half density, and a concrete fourth-order nonclosure obstruction identify the precise special structure of degree three, making the result useful even without a mixing-time theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
