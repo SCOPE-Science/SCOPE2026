@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Fix the exact word \\(B=0\\pi(T)\\), justified by arXiv:2510.11318 Theorem 2. Every φ-image starts in 0 and any 1 or 2 is terminal, so T-adjacent pairs are contained in 00,01,02,10,20; all five occur in \\(\\varphi^4(0)\\). Define \\(W_a=\\pi(\\varphi^3(a))\\), whose lengths are 20,17,11. Since \\(T=\\varphi^3(T)\\), all B factors of lengths \\(\\le11\\) are exhaustively covered by \\(0W_0\\) and \\(W_aW_b\\) for those five adjacent pairs. Exact enumeration of all these six short words gives \\(P(1),\\ldots,P(11)=(2,2,2,2,2,1,2,1,1,0,0)\\), as recorded and reproduced by the checker. Missing length-10 and -11 centers prohibit all longer even and odd palindromes. Fifteen distinct palindromes have appeared by prefix length 25, but only fourteen by 24, proving the sharp defect \\(N-15\\) for \\(N\\ge25\\). A separately implemented 100,000-symbol eertree agrees. Finite sampling is corroboration only; infinite exclusion comes from the finite-cover lemma.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.16596, Theorem 1.1: imposes reversal closure and \\(p(n)\\le 3n/2+1\\), which fail for this word.",
+        "arXiv:math/0106121: general palindrome-complexity results include complement-symmetric Rote families rather than arbitrary non-complement-symmetric Rote words.",
+        "Direct four-factor evidence: 0010 occurs but its bit complement 1101 is absent; 1011 occurs while its reverse 1101 is absent. This defeats the hypotheses needed for the above implications."
+      ],
+      "reasoning": "The title/subject Rote is not enough for coverage. Known infinite palindromic families require reversal or complementation symmetry, neither of which this B possesses, and the recent low-complexity equality condition additionally fails from \\(n\\ge3\\) because \\(p(n)=2n\\). No broader theorem inspected entails the complete values \\(P_B(1),\\ldots,P_B(9)\\), the zero tail, or the prefix-25 sharp stabilization.",
+      "searches": [
+        "Rote words palindromic complexity not reversal closed palindromes 2n 2024",
+        "Rote word finite palindromes binary factor complexity 2n",
+        "On the number of palindromic factors of low complexity words arXiv:2609.16596",
+        "Palindrome complexity Allouche Baake Cassaigne Damanik arXiv:math/0106121"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2510.11318",
+      "https://arxiv.org/html/2609.16596",
+      "https://arxiv.org/abs/math/0106121",
+      "https://oeis.org/A288462",
+      "https://dmtcs.episciences.org/en/articles/16926"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2510.11318 supplies precisely the \\(B=0\\pi(T)\\) premise for the proof and the unrelated ordinary factor count \\(p(n)=2n\\); full text has no occurrence of “palindrom”.",
+        "Kim and Kwon arXiv:2609.16596 Section 1 Theorem 1.1 requires reversal closure, invalid here as witnessed by 1011 and its absent reverse 1101.",
+        "The published theorem 'Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts' excludes long palindromes in cyclic Sturmian lifts under particular conditions, not in the binary Kimberling word."
+      ],
+      "reasoning": "The new statement is an exact property of a specific 2025-studied morphic word. Prior identification of its morphism is used as a premise and does not enumerate its palindromes. The general comparison results either have unfulfilled hypotheses or address different families, so the complete table and sharp saturation threshold are not obtained as their corollaries.",
+      "searches": [
+        "arXiv:2510.11318 Theorem 2 Section 5 palindrome factor complexity",
+        "arXiv:2609.16596 Theorem 1.1 reversal closed p(n) <= 3n/2 + 1",
+        "palindromic complexity Kimberling A288462 binary word 010010110010100101"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.11318, §3, Theorem 2: \\(B=0\\pi(T)\\), \\(\\pi(0)=100,\\pi(1)=101,\\pi(2)=10\\); §5 proves ordinary complexity 2n, not \\(P_B(n)\\).",
+        "OEIS A288462 identifies the same Kimberling sequence by inflation rules; the checked entry does not contain the fifteen-palindrome table.",
+        "Published mathematical-record search found 'Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts', which concerns cyclic Sturmian first-difference lifts, not this Tribonacci-derived binary word."
+      ],
+      "reasoning": "Aliases tested include Kimberling word, A288462, the initial digits, the equivalent Tribonacci morphic coding, finite palindrome spectrum, longest palindromic factor, and sharp palindromic defect. Neither the 15-factor statement nor its combinatorial equivalent (no factors of length 10 or 11 that are palindromes) was found. Lack of retrieval is not a proof of priority.",
+      "searches": [
+        "Kimberling binary word A288462 palindromic complexity palindromic factors longest palindromes Tribonacci morphism 0 f(TR) 0→10 1→0 2→1",
+        "palindromic complexity of Kimberling A288462 binary word 010010110010100101",
+        "Kimberling A288462 palindromic factors palindrome complexity",
+        "Kimberling A288462 palindrome 100101001",
+        "Dvořáková Pelantová Shallit Kimberling palindrome"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A288462 sequence entry, https://oeis.org/A288462, contains the original word description; no exact palindrome table was found in the material checked.",
+        "Closest publicly retrieved tables concern binary palindromic-duplication code sizes and binary string-attractor counts, not factors of Kimberling's word."
+      ],
+      "reasoning": "The exact counts 2,2,2,2,2,1,2,1,1, followed by zeros, were searched both with the source sequence ID and without. Nearby integer coincidence or a table about a different word is not coverage. No equivalent published exact database entry was identified.",
+      "searches": [
+        "OEIS A288462 Kimberling binary word palindrome count",
+        "Kimberling A288462 palindromic factors sequence 2 2 2 2 2 1 2 1 1",
+        "Kimberling palindrome 100101001 longest nine A288462"
+      ]
+    },
+    "rationale": "The first primary paper for the exact word, arXiv:2510.11318, proves the Tribonacci encoding, ordinary factor complexity 2n and critical exponent, but states neither the explicit palindromic complexity function nor the 25-position sharp saturation of distinct palindromes. Relevant general results about complement-symmetric Rote or reversal-closed low-complexity words do not imply this assertion because this word lacks both symmetries. Semantic mathematical-record searches with aliases, numeric values, factor-language formulations and the underlying morphic encoding returned no covering result. Comparisons are statements/implications, not mere title matches; an unpublished equivalent remains possible.",
+    "residual_risks": [
+      "Semantic and keyword search cannot exclude unindexed, unpublished, or differently described preexisting exact calculations.",
+      "OEIS and published research records are not complete priority or uniqueness databases; absence of a hit is not a novelty certificate.",
+      "The source morphic representation is a published theorem used as a premise, not re-proved from Kimberling’s inflation rules here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "\\(P_B(n)\\), the complete 15-palindrome census and prefix defect are NOT_COVERING in the inspected article; \\(B=0\\pi(T)\\) and \\(p_B(n)=2n\\) are established premises.",
+        "evidence": [
+          "Theorem 2, Section 3, states \\(B=0f(T)\\) and \\(\\pi=f\\circ\\varphi\\), with \\(\\pi(0)=100,\\pi(1)=101,\\pi(2)=10\\).",
+          "Section 5 provides ordinary factor complexity and critical exponent; no palindromic-complexity classification appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.11318",
+        "material_read": "Full accessible arXiv HTML article, including Theorem 2 in Section 3 and Section 5 (factor complexity, bispecial factors, critical exponent).",
+        "method": "Read full article text and inspected theorem statements and their proof hypotheses; searched the complete text for palindrome-related claims.",
+        "title": "On a sequence of Kimberling and its relationship to the Tribonacci word",
+        "trigger": "Identical original word, morphic representation, ordinary complexity."
+      },
+      {
+        "assessment": "NOT_COVERING: requires reversal-closed language and \\(p(n)\\le 3n/2+1\\); Kimberling’s B has neither property at relevant lengths.",
+        "evidence": [
+          "Theorem 1.1, arXiv:2609.16596, requires a reversal-closed factor language.",
+          "Kimberling B contains 1011 without its reverse 1101 and has published ordinary factor count 2n."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.16596",
+        "material_read": "Full accessible arXiv HTML including abstract, introduction, Theorem 1.1, proof framework and consequences.",
+        "method": "Compared all main theorem hypotheses and the invariant, not the title alone.",
+        "title": "On the number of palindromic factors of low complexity words",
+        "trigger": "Recent potentially stronger theorem relating palindrome counts and low ordinary factor complexity."
+      },
+      {
+        "assessment": "NOT_COVERING: the specified complementary-symmetric family excludes the Kimberling word.",
+        "evidence": [
+          "The cited Rote-family palindrome-complexity statement is conditioned on complement symmetry.",
+          "Kimberling’s B has factor 0010 but not its complement 1101."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0106121",
+        "material_read": "Accessible arXiv PDF and the palindrome-complexity statements for complementary-symmetric Rote words, including their hypotheses.",
+        "method": "Compared the symmetry assumption with actual length-four Kimberling factors.",
+        "title": "Palindrome complexity",
+        "trigger": "General palindromic-complexity results including complement-symmetric Rote sequences."
+      },
+      {
+        "assessment": "NOT_COVERING in material checked: defines the word but provides no fifteen-palindrome classification.",
+        "evidence": [
+          "OEIS A288462 identifies the same sequence 0100101100... by Kimberling’s inflation rules."
+        ],
+        "identifier_or_url": "https://oeis.org/A288462",
+        "material_read": "Available OEIS sequence entry, description, and search-indexed mathematical references.",
+        "method": "Inspected the entry for an equivalent exact palindromic-factor list or defect value.",
+        "title": "OEIS A288462 (Kimberling binary word)",
+        "trigger": "Exact source sequence entry and possible known invariant table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e9a97df-968b-46a8-9507-1267778a48d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Palindromic complexity and defect are standard intrinsic invariants of infinite words, and this exact Kimberling word was recently studied using morphic, factor-complexity, and critical-exponent tools. The classification shows that despite having ordinary factor complexity \\(p(n)=2n\\) for every n, its distinct palindrome collection is finite (15) and its palindromic defect grows linearly with an exact sharp starting threshold. This differs structurally from complement-symmetric Rote words with palindromes at every length. It is a complete natural classification, not an arbitrary finite prefix statistic or a consequence of a renaming of the known \\(p(n)=2n\\) result. Its significance is confined to this word; no downstream general theorem is asserted.",
+    "status": "PASS"
+  }
+}
