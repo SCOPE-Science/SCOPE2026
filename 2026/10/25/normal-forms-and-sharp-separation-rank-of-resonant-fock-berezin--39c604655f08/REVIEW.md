@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Gaussian Berezin formula reduces fixedness, at nonzero resonance, to a locally nilpotent polynomial differential equation. An invertible linear coordinate change makes the equation an explicitly solvable first-order polynomial evolution. The solution map is degree-preserving. The coefficient matrix is invertible because its reversed-column diagonal is the nonvanishing binomial profile, proving exact—not merely bounded—separation rank. The proof treats arbitrary degree and arbitrary entire factors. Supplementary symbolic tests through degree eight pass.
+
+**Originality — PASS with historical-priority risk.** Qin–Liu–Huang's 2026 correction explicitly treats two-product differences and derives a degree-one cutoff using a coefficient-rank argument; its full mathematical Section 3 was inspected. The present complete polynomial normal form, dimension formula and exact rank at *every* degree go beyond that two-product theorem. Bauer–Choe–Koo's 2015 general fixed-point characterization by Laplacian eigenfunctions may imply the bare PDE characterization, which is therefore not claimed as new; the full text was inaccessible and may conceal a prior exact-rank result. Searches for equivalent finite-separation-rank statements did not find a dominating source, but do not prove priority.
+
+**Mathematical value — PASS.** Product length is the natural complexity parameter in the commuting Toeplitz/cancellation problem that motivated the 2026 correction. The result supplies a complete all-order filtration and an explicit basis, proving that higher polynomial degrees occur and require *exactly* correspondingly more product terms. The rank-degree equality is substantially more informative than the known two-term restriction and makes possible precise complexity estimates for higher product sums.
+
+**Limitations.** Single nonzero resonant frequency and finite polynomial degree only; not a multivariable or several-frequency classification. The primary 2015 article was not fully available, so an older general theorem could overlap. The mathematical proof is analytical; finite checks only test special degrees.
+
+Self-review: passed. Independent audit: not yet performed.
