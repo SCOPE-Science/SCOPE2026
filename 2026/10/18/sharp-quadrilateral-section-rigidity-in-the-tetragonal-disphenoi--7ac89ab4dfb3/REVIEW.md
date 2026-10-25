@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For an invariant random affine plane conditioned to hit a tetrahedron, each edge contributes an offset interval whose spherical mean is half its Euclidean length. Counting almost-everywhere triangle versus quadrilateral section vertices gives the exact intrinsic probability via the classical mean-breadth edge formula. Explicit outward-face normals of the tetragonal disphenoid give two exterior-angle classes. The full-range derivative identity \(2L\alpha'+\sqrt2\beta'=0\) reduces the derivative sign to the sign of \(1-t\), proving the unique strict optimum for all \(t>0\); the endpoints and second derivative are evaluated analytically. An independent directional quadrature checks the closed formula for seven positive parameters. This numerical test does not replace the proof.
+## correctness
 
-## Originality — PASS, subject to residual historical priority
-The classical invariant-plane edge crossing identity, polyhedral mean-width formula, and Finch's regular-tetrahedron width are prior knowledge; none alone states the sharp varying-shape section-probability minimum. Finch (arXiv:1110.0671, full accessible text sections 1–5) treats widths of regular tetrahedra and cubes, not variable disphenoid section topology. Hajja–Walker (DOI:10.1080/00207390110038231, full article text) treats equal-faced tetrahedral centers, not stochastic plane intersections. Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479, full HTML, sections 1–3) treats regular simplices, mean width, and distinct fixed-circumradius comparison problems. Searches for the probability law, shape-parameter formulas and their equivalent mean-width/edge-length ratio did not identify a matching or logically stronger theorem. Independent literature exhaustion is not claimed.
+PASS
 
-## Value — PASS
-This resolves a natural geometric-stereology shape-optimization problem with a fully specified invariant sampling protocol, rather than supplying only a routine value for one solid. It produces a globally strict optimizer, all-parameter probability law, both singular degeneration limits, and quantified local stability for a canonical isosceles equifacial family. The exact law clarifies the direction-weighting distinction relevant to section sampling; it can serve as an analytic calibration case for measurements of tetrahedral cells. It makes no claim of a broad new integral-geometric principle and no result for general disphenoids.
+The section type under translation-invariant unoriented affine-plane measure is obtained from ordered vertex projections: quadrilateral offsets are the middle gap. Integrating edge-crossing counts gives (3+p4) E(width)=sum(edge lengths)/2. The polyhedral exterior-dihedral mean width identity E(width)=sum(length*exterior_angle)/(4*pi) verifies the full tetrahedron normalization. In T_t the edge and facet normal dot products give L=sqrt(1+t²), alpha=2acos(t/sqrt(1+2t²)), beta=2acos(1/sqrt(1+2t²)). Differentiating F=(2L alpha+sqrt(2) beta)/(2L+sqrt(2)) cancels the angular derivative and gives F'=2 sqrt(2) t (alpha-beta)/(L(2L+sqrt(2))²). Its sign is sign(1-t); since p4=2pi/F-3 this proves unique global minimum t=1, strict monotonicity on both sides, and limit values sqrt(2)-1 and 1. The expansion coefficient pi sqrt(2)/(9 acos(-1/3)^2) follows by F''(1)=-sqrt(2)/9. Independently computed p4 using 30,000 deterministic spherical directions at seven t values: agreement to <=0.0031; numerical agreement does not establish infinite-t monotonicity.
 
-## Scope and residual uncertainty
-The regular case follows classically once the face-angle normalizations are fixed; priority interest is specifically in the **strict shape rigidity and full profile**. Literature not indexed online may already contain this sharp inequality. Independent mathematical and priority audits have not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genuinely claimed contribution is the global one-parameter extremal theorem for invariant hitting-plane quadrilateral probability, not the classical Crofton/Steiner formula or regular tetrahedron width. Finch's full regular-polyhedron width preprint concerns moment profiles of a single regular shape, while the closest published Resultary tetrahedron silhouette study measures projected shadows, not affine-plane hitting-section types. Hajja--Walker treats equifacial geometry and may conceal a relevant ratio inequality; only partial accessible material was inspected, so no whole-document noncoverage claim is made. No strong prior implication or database/table coverage was found in the actual bounded search.
+
+## value
+
+PASS
+
+Quadrilateral-vs-triangle section frequency is a natural stereological invariant under the correctly width-biased invariant-plane law. The exact rigid optimizer, monotonic shape profile, both distinct degenerations, and quantitative second-order stability provide a motivated structural classification of a canonical continuous family; they are not merely reprinting the classical mean-width identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

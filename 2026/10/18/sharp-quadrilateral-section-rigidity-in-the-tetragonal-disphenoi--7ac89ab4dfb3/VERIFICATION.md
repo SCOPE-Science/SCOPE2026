@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the displayed theorem
+# Independent mathematical audit
 
-The proof uses invariant affine-plane measure rather than uniform orientation followed by a uniform conditional hitting offset. The distinction is essential: integration first over all offsets produces the length-weighted Crofton edge-crossing identity, and averaging over normals gives the classical exterior-angle mean-width denominator.
+## correctness
 
-The six edge lengths, outward facet normals, two exterior angle values, exact derivative cancellations, endpoint limits, and the Taylor coefficient are explicitly shown in `RESULT.md`. The derivative sign yields the full positive-parameter inequality, independently of numerical sampling. The exact lower value occurs only at \(t=1\).
+PASS
 
-The delivered `checker.py` uses only Python standard-library functions. Run `python3 checker.py`. It independently forms and sorts projected vertex heights at 180,001 deterministic near-uniform spherical directions for each of seven shape parameters, checking the Crofton ratio, the mean-width identity, and the expected polygon-vertex count. It also numerically checks the one-parameter monotonicity profile and local quadratic coefficient. The program prints `VERIFY_OK`; finite checks are sanity tests, not an infinite proof or an independent scientific audit.
+The section type under translation-invariant unoriented affine-plane measure is obtained from ordered vertex projections: quadrilateral offsets are the middle gap. Integrating edge-crossing counts gives (3+p4) E(width)=sum(edge lengths)/2. The polyhedral exterior-dihedral mean width identity E(width)=sum(length*exterior_angle)/(4*pi) verifies the full tetrahedron normalization. In T_t the edge and facet normal dot products give L=sqrt(1+t²), alpha=2acos(t/sqrt(1+2t²)), beta=2acos(1/sqrt(1+2t²)). Differentiating F=(2L alpha+sqrt(2) beta)/(2L+sqrt(2)) cancels the angular derivative and gives F'=2 sqrt(2) t (alpha-beta)/(L(2L+sqrt(2))²). Its sign is sign(1-t); since p4=2pi/F-3 this proves unique global minimum t=1, strict monotonicity on both sides, and limit values sqrt(2)-1 and 1. The expansion coefficient pi sqrt(2)/(9 acos(-1/3)^2) follows by F''(1)=-sqrt(2)/9. Independently computed p4 using 30,000 deterministic spherical directions at seven t values: agreement to <=0.0031; numerical agreement does not establish infinite-t monotonicity.
 
-The historical-priority search is bounded. Mathematical claims are restricted to three-dimensional nondegenerate tetrahedra and, for the shape-rigidity statement, the tetragonal disphenoids \(T_t\) with \(t>0\). No assertion of rigidity in the complete two-parameter family of equifacial tetrahedra is made.
+## originality
+
+PASS
+
+The genuinely claimed contribution is the global one-parameter extremal theorem for invariant hitting-plane quadrilateral probability, not the classical Crofton/Steiner formula or regular tetrahedron width. Finch's full regular-polyhedron width preprint concerns moment profiles of a single regular shape, while the closest published Resultary tetrahedron silhouette study measures projected shadows, not affine-plane hitting-section types. Hajja--Walker treats equifacial geometry and may conceal a relevant ratio inequality; only partial accessible material was inspected, so no whole-document noncoverage claim is made. No strong prior implication or database/table coverage was found in the actual bounded search.
+
+## value
+
+PASS
+
+Quadrilateral-vs-triangle section frequency is a natural stereological invariant under the correctly width-biased invariant-plane law. The exact rigid optimizer, monotonic shape profile, both distinct degenerations, and quantitative second-order stability provide a motivated structural classification of a canonical continuous family; they are not merely reprinting the classical mean-width identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
