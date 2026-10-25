@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:55:42.435888Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥4, the local mask condition F_t(a,b,c) counts the two vertical plus four intercolumn occupied neighbors of each occupied site and is equivalent to stability. Its 64 ordered mask-pair transfer graph encodes EVERY cyclic frozen configuration by closed walks of length n, independent of small enumerations. An independent implementation reconstructed all 512 triple tests: threshold 4 has one cycle-bearing SCC with 31 states and 79 arrows; threshold 5 has a seven-state 10-arrow SCC plus isolated empty loop. Exact SymPy integer characteristic polynomials factor as x^7(x−1)P9P14 and x^4(x³−x²−3), verifying the full displayed P9,P14. Transfer traces independently matched physical occupancy brute counts n=4,5,6 and yielded n=7: Z4=(151,455,1754,5997), Z5=(14,17,47,86). The t=5 SCC encodes three row choices of vacancy and cyclic separation by two wholly occupied columns. Perron primitiveness/analytic weighted transfer plus Chebyshev imply density limits and void probability; independent eigenvectors give threshold4 α=3.4541747197759363, density=.7969487456890813, void=.00833835118453382; threshold5 α=1.8637065278191889, density=.9198294099517191, empty-column probability zero asymptotically. The exact small finite graph computation plus Perron theory proves all n≥4 and limit n→∞; short brute checks alone do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shrock transfer matrices enumerate proper q-colorings of triangular strips; the local restriction is inequality along every edge. The submitted local criterion is a minimum occupied-degree threshold, a different constraint."
+        ],
+        "reasoning": "Transfer-matrix technology is known and broader; it is not a mathematical domination of these explicit occupancy transfer polynomials or the 4→5 void effect.",
+        "searches": [
+          "triangular lattice width 3 torus bootstrap percolation frozen configurations threshold four five transfer matrix",
+          "Chang Shrock ground state entropy Potts antiferromagnet triangular strips cond-mat 0004129"
+        ]
+      },
+      "checked_sources": [
+        "Chang–Shrock arXiv:cond-mat/0004129, Potts AF proper coloring transfer",
+        "Choi–Yu arXiv:1903.01595, Newman–Ziff bootstrap lattice transitions",
+        "Kogut–Leath 1981 DOI 10.1088/0022-3719/14/22/013, abstract only",
+        "Resultary targeted search triangular lattice width 3 torus bootstrap percolation frozen configurations threshold four five transfer matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choi–Yu bulk finite-size transition estimates do not imply rational generating function or characteristic-polynomial counts for labelled periodic width-three frozen words.",
+          "Triangular proper-coloring entropy is a different partition function and cannot supply a four-neighbour void occupancy probability."
+        ],
+        "reasoning": "Neither inspected primary result gives the claimed exact n-dependent counts/4-vs-5 hard-core structure as a special case.",
+        "searches": [
+          "Choi Yu Newman-Ziff bootstrap percolation triangular Table 1",
+          "triangular lattice width 3 torus bootstrap percolation frozen configurations threshold four five transfer matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use triangular-lattice neighbourhoods but Choi–Yu count dynamical bootstrap percolation transition observables under Bernoulli filling, not uniform recurrent fixed configurations on width 3 torus."
+        ],
+        "reasoning": "A fixed-state count is not the same as the basin size or percolation threshold; same lattice/wording does not imply same statistic.",
+        "searches": [
+          "triangular lattice width 3 torus bootstrap percolation frozen configurations threshold four five transfer matrix",
+          "Choi Yu triangular bootstrap Newman Ziff arXiv 1903.01595"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kogut–Leath 1981 abstract discusses bootstrap-culling transitions on bulk lattices. Its full text was not accessed; an old exact width-three table cannot be excluded.",
+          "Targeted Resultary records nearest concern unrelated triangular geometry, graph entropy or percolation but no 31- and 7-state frozen configurations."
+        ],
+        "reasoning": "No exact matching occupancy count/table was confirmed. Incomplete access to the plausible 1981 article is expressly retained as originality risk, not used as a fictitious whole-document not-covering verdict.",
+        "searches": [
+          "triangular lattice width 3 torus bootstrap percolation frozen configurations threshold four five transfer matrix",
+          "Kogut Leath bootstrap percolation triangular lattice frozen state width three 1981"
+        ]
+      },
+      "rationale": "The width-three triangular Potts antiferromagnet transfer results count proper graph colorings, not threshold-stable occupancy subsets. Published bootstrap percolation simulations concern bulk transitions or final dynamical percolation rather than the exact uniform stationary fixed-state ensemble. The 4-vs-5 neighbour exact polynomials, hard-core vacancy classification, and positive-to-zero empty-column limit were not found in current primary searches, with a distinct unresolved bibliographic risk from the 1981 Kogut–Leath article.",
+      "residual_risks": [
+        "The full 1981 Kogut–Leath article was not inspected, and earlier width-three culling count tables could be unindexed.",
+        "Only periodic strips of exactly three rows and n≥4 are covered; occupation under uniform frozen states is not Bernoulli-culling output."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING frozen occupied-neighbour criterion in inspected material",
+          "evidence": [
+            "Potts ground-state entropy equals the proper-coloring count; its transfer matrix enforces adjacent colors unequal rather than occupied-degree at least 4 or 5."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/0004129; https://arxiv.org/abs/cond-mat/0004129",
+          "material_read": "Open-access 51-page PDF: introduction, graph/strip setup and sections on chromatic counting and transfer eigenvalues",
+          "method": "Read accessible arXiv full-text pages and verified PDF page rendering",
+          "title": "S.-C. Chang, R. Shrock, Ground State Entropy of the Potts Antiferromagnet on Triangular Lattice Strips",
+          "trigger": "Identical strip geometry and use of transfer matrices"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; do not infer no matching finite-width table from abstract",
+          "evidence": [
+            "Abstract reports triangular-lattice transition study; absence of full text leaves a possible table overlap."
+          ],
+          "identifier_or_url": "DOI:10.1088/0022-3719/14/22/013",
+          "material_read": "Abstract and bibliographic metadata only; full body not obtained",
+          "method": "Publisher/abstract discovery only",
+          "title": "P. M. Kogut, P. L. Leath, Bootstrap percolation transitions on real lattices",
+          "trigger": "Early study of exactly the bootstrap-culling class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six-regular three-row toroidal triangular graph is a natural smallest nontrivial periodic strip for high-neighbour bootstrap culling. Its adjacent thresholds 4 and 5 show a sharp structural change: entire empty columns survive in the four-frozen ensemble but are forbidden except for the all-empty state at five. Exact entropy, vacancy density, and finite transfer spectra form a motivated complete classification of this finite-width family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full 1981 Kogut–Leath article was not inspected, and earlier width-three culling count tables could be unindexed.",
+    "Only periodic strips of exactly three rows and n≥4 are covered; occupation under uniform frozen states is not Bernoulli-culling output.",
+    "Best-of-knowledge scientific originality, not an independent Lean/expert formal certification.",
+    "No public edit, no data publication and no status synchronization are being asserted."
+  ],
+  "schema_version": 1
+}
