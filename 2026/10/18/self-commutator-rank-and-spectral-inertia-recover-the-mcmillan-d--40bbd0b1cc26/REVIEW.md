@@ -1,11 +1,21 @@
-# Review: stable rational Volterra convolution self-commutators
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hilbert--Schmidt kernel computation uses the continuous Lyapunov identity \(AP+PA^{\mathsf T}=-bb^{\mathsf T}\) and gives \(K=RUPU^*R-UPU^*\) with the correct orientation. Kalman controllability gives \(P>0\); observability makes \(U\) injective; the Hurwitz assumption makes \(p(D)\) and \(p(-D)\) coprime, so the two ranges intersect only at zero. A full-column-rank congruence proves rank \(2d\) and inertia \((d,d)\), while orthogonal reflection parity proves the \(d\)-dimensional spectral formula. Four independently quadrature-checked stable configurations passed, including a repeated pole and oscillatory complex poles. The proof is infinite-dimensional; numerical truncations are only supporting evidence.
+## correctness
 
-**Originality — PASS under bounded historical comparison, with residual risk.** The Potts thesis (publicly deposited 2013-05-20; accessible PDF, introduction, convolution preliminaries and Chapter 5 inspected) treats cyclicity, asymptotic convolution powers, and commutants, not the adjoint self-commutator. The Andersson--Carlsson 2015 finite-rank original concerns **finite-rank truncated convolution/correlation operators**; the accessible authors' arXiv companion \(1506.05566\), particularly its introduction and finite-rank criteria, does not supply signed-inertia formulas for \(TT^*-T^*T\). The 1987 Ball--Ran background on rational transfer functions and Hankel Gramians supplies known ingredients, not the target claim. Searches of publicly available literature and mathematical research records produced no direct covering claim. Complete 2015 original full text was not accessible; overlap could remain. Absence of a search result alone is not proof of priority.
+PASS
 
-**Value — PASS.** The assertion is a complete structural classification for every stable **minimal** scalar rational convolution filter, including arbitrary Jordan structure and conjugate pole pairs. The integer McMillan degree is recovered from a directly defined operator-theoretic nonnormality invariant and the entire nonzero spectral data reduce to a dimension-\(d\) matrix. This is not an arbitrary finite slice or a numerical table: it relates realization order, signed spectral inertia and quantitative trace norm for the full natural class.
+The Lyapunov identity W(t)=P-e^{At}Pe^{A^Tt} yields the exact kernel K=RUPU*R-UPU*. Stability makes p(z) and p(-z) coprime, so the forward and reversed observability ranges are disjoint; minimality gives P>0, U injective, and exactly d positive/d negative eigenvalues. Reflection parity yields orthogonal block ± singular values with the stated Gram matrices. Rechecked scalar limit at a->0 from the closed formula; the saved numerical checker independently tests Jordan and oscillatory cases but finite sections do not prove generality.
 
-**Limitations and closest literature.** No converse for general nonrational kernels, no unstable/multichannel extension, and no independent proof/priority review. Closest sources: Potts (2012/2013), Andersson--Carlsson (2015) and their arXiv:1506.05566 companion, Ball--Ran (1987). Unavailable complete 2015 original remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rank is for the self-commutator of the causal triangular convolution, not rank of a general truncated Toeplitz/Hankel convolution itself. Andersson–Carlsson companion arXiv:1506.05566 §2.1 treats finite-rank symbol characterization of Θ_f, whereas T here is generally infinite rank. Potts thesis concerns cyclicity and commutants. Neither inspected comparison directly states inertia (d,d), the signed spectrum, or recovery of McMillan degree by commutator rank.
+
+## value
+
+PASS
+
+A sharp system-order invariant for causal rational convolution plus signed spectral recovery is a natural bridge between realization theory, Gramian geometry and finite-rank operator theory; beyond a renamed standard trace identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

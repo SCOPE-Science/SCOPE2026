@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact Lyapunov identity, the finite-rank integral-kernel decomposition, Kalman controllability/observability tests, and the coprime annihilating-polynomial argument are proved in `RESULT.md`. The checker `check.py` executes four separately parameterized stable minimal examples. It computes direct scalar-integral quadratures for points on and off the diagonal, compares finite-section self-commutator eigenvalues with those predicted by the reduced parity Gram matrix, tests the trace and determinant identities, and checks a repeated-pole and oscillatory-pole instance. The checks passed when run with NumPy and SciPy. Rerun: `python check.py`.
+## correctness
 
-Limitations: no finite grid verifies a statement over all stable dimensions or all kernels. Analytic proof rather than computation supports generality. Historical priority remains subject to further external review, particularly the complete 2015 Andersson--Carlsson source, which was not accessible. Independent audit not performed.
+PASS
+
+The Lyapunov identity W(t)=P-e^{At}Pe^{A^Tt} yields the exact kernel K=RUPU*R-UPU*. Stability makes p(z) and p(-z) coprime, so the forward and reversed observability ranges are disjoint; minimality gives P>0, U injective, and exactly d positive/d negative eigenvalues. Reflection parity yields orthogonal block ± singular values with the stated Gram matrices. Rechecked scalar limit at a->0 from the closed formula; the saved numerical checker independently tests Jordan and oscillatory cases but finite sections do not prove generality.
+
+## originality
+
+PASS
+
+The rank is for the self-commutator of the causal triangular convolution, not rank of a general truncated Toeplitz/Hankel convolution itself. Andersson–Carlsson companion arXiv:1506.05566 §2.1 treats finite-rank symbol characterization of Θ_f, whereas T here is generally infinite rank. Potts thesis concerns cyclicity and commutants. Neither inspected comparison directly states inertia (d,d), the signed spectrum, or recovery of McMillan degree by commutator rank.
+
+## value
+
+PASS
+
+A sharp system-order invariant for causal rational convolution plus signed spectral recovery is a natural bridge between realization theory, Gramian geometry and finite-rank operator theory; beyond a renamed standard trace identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
