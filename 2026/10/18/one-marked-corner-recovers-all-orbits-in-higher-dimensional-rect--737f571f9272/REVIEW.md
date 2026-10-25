@@ -1,9 +1,21 @@
-# Scientific review: rooted higher-dimensional rectangular grids
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses stable equitability and the two unique opposite corners to recover the two coordinate-value multisets by explicit triangular predecessor-deck identities. It then reconstructs the pairing from signed changes on predecessor and successor edges, and shows that the resulting joint profiles coincide exactly with orbits under permutations of equal-length factors. Boundary vertices, singleton opposite corner, repeated factor lengths, and dimension three are included. Four standalone finite checkers tested direct refinement (239 factor tuples, 124,767 vertices), weighted quotient refinement (188 tuples, 24,015 quotient states), root-preserving automorphisms (seven small grids), and deck reconstruction (106 tuples, 31,285 vertices). These computations support but do not replace the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2015 foundational colour-refinement paper provides general definitions, and the 2014 product-graph paper provides factorization and automorphism context, not an all-dimension corner-rooted adjacency-refinement theorem. Previous two-dimensional rectangular-grid work does not determine arbitrary-dimensional colour classes, and a previous strict-coordinatewise-order product result uses all comparable pairs, not grid edges. Searches for rooted Cartesian grids, multidimensional products of paths, and graph-refinement orbit recovery did not surface a statement implying the present claim. No failed search is treated as conclusive novelty evidence. Residual risks include specialized work not retrieved and an incompletely read 2016 individualization source; no independent publication-priority verification has occurred.
+PASS
 
-**Value — PASS.** Arbitrary-dimensional path products are natural finite Cartesian geometries. The theorem provides a complete, dimension-free orbit description and closed formulas for every stable cell and cell count, using one marked corner and local unlabelled adjacency. The crucial new mechanism is the recovery of paired coordinate distances from local deck signatures, which is not supplied by the rank-only or marginal invariants. There is no claim of a general graph-identification theorem, an exact stabilization depth, or a paper-sized contribution requirement.
+For G=Cartesian product of finite paths P_ni with ni>=2, one marked origin singles out every distance layer and the unique farthest corner. Stability exposes predecessor colour multisets. Induction reconstructs each vertex’s multiset A={x_i} using triangular deck relations S0=p a0+a1 and Sj=(p-1)aj+a(j+1) for j>=1; reflection from the farthest corner similarly reconstructs B={L_i-x_i}. Comparing A,B predecessor and successor signed-card changes reconstructs actual coordinatewise pairs (x_i,L_i-x_i), including zero coordinates via upper neighbours. Equality of these pairs is exactly the orbit under permutations of equal-length axes fixing origin. Therefore class count product_m binomial(r_m+m-1,m-1) and multinomial sizes follow for all d>=3, also formally d=1,2; no unstated dependence on disjoint factor lengths. I independently checked that A,B alone need not encode the pairing (the supplied example P2×P3×P4), making the combined card argument necessary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge, subject to explicitly documented priority risks: searched the available Resultary records and primary literature, compared the exact claimed quantifiers/invariants to prior implications rather than matching titles, and did not treat inaccessible full text as proof of noncoverage.
+
+## value
+
+PASS
+
+A full orbit census for all finite high-dimensional boxes under only unit-edge adjacency and one corner anchor is a natural structural result for 1-WL and symmetry. Recovering factor-length-sensitive coordinate multisets from unlabelled graph colour signatures is a nontrivial inverse problem, with precise class cardinalities useful in refinement benchmarking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
