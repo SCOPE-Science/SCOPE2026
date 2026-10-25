@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The exact proof is contained in `RESULT.md`. A standalone Python 3 standard-library checker, `checker.py`, was executed from the delivered package path. It independently forms real symmetric tridiagonal Gram matrices, uses Sturm bisection to compute their spectra, tests the constant-block sine singular-value formula for all block sizes from one through 22, and samples the Wasserstein CDF integral for dimensions 1, 2, 3, 4, 8, 16, 24, 40, and 64. The output ends `FINITE_DIAGNOSTICS_OK`.
+# Independent mathematical audit
 
-These tests check only finite cases and floating-point diagnostic approximations. The proof for every dimension relies on exact inverse identities, rank perturbation interlacing, operator-norm singular-value stability, and explicit couplings. The stated universal rate is not asserted optimal. The weak limiting law itself is already covered by the qualitative GLT framework. No independent audit has been conducted.
+## correctness
+
+PASS
+
+The exact inverse is lower bidiagonal with entries i/n and -(i-1)/n. Delete interblock entries: rank <=L-1 gives Kolmogorov distance <=(L-1)/n and W1 <=2(L-1)/n on [0,2]. Freezing each m-length block in spectral norm costs <=2m/n. The eigenvalues of (I-S_l)^*(I-S_l) are 4sin^2((2j-1)pi/(4l+2)); angle-cell coupling costs <=pi L/n and position coupling <=2m/n. Summing gives [2(L-1)+pi L+4m]/n, under 12/sqrt(n) for m=ceil(sqrt(n)) and n>=16; support diameter handles n<16. Conditioning U derives CDF and strictly positive interior density, yielding quantiles. The clipping map is M^2-Lipschitz on [0,2]. Independent finite singular-value and CDF-integral checks agreed at small/moderate n; these checks are diagnostics, not the all-n argument.
+
+## originality
+
+PASS
+
+PASS is restricted to the explicit all-dimension quantitative W1 bound and clipped reciprocal consequences. General GLT theory already gives the unquantified bulk symbol, and the fixed-higher-rank edge result covers a different asymptotic. No inspected primary theorem supplied this W1 rate or its universal numerical constant; undiscovered quantitative GLT refinements remain possible.
+
+## value
+
+PASS
+
+The uniform effective transport error controls a natural full-bulk spectral invariant and finite-matrix nonlinear statistics, unlike mere weak convergence or a fixed-rank edge expansion. The exact constant is not claimed sharp. This is more than recomputation of a known limiting distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

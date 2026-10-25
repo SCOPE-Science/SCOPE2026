@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact inverse is lower bidiagonal with entries i/n and -(i-1)/n. Delete interblock entries: rank <=L-1 gives Kolmogorov distance <=(L-1)/n and W1 <=2(L-1)/n on [0,2]. Freezing each m-length block in spectral norm costs <=2m/n. The eigenvalues of (I-S_l)^*(I-S_l) are 4sin^2((2j-1)pi/(4l+2)); angle-cell coupling costs <=pi L/n and position coupling <=2m/n. Summing gives [2(L-1)+pi L+4m]/n, under 12/sqrt(n) for m=ceil(sqrt(n)) and n>=16; support diameter handles n<16. Conditioning U derives CDF and strictly positive interior density, yielding quantiles. The clipping map is M^2-Lipschitz on [0,2]. Independent finite singular-value and CDF-integral checks agreed at small/moderate n; these checks are diagnostics, not the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The author-provided full GLT article states limiting distributions via singular symbols, without a finite-n 12/sqrt(n) W1 estimate in the inspected theorem."
+        ],
+        "reasoning": "A stronger quantitative GLT theorem could potentially subsume the bound; none was identified in the material read. This is a positive best-of-knowledge comparison, not novelty proved by absence.",
+        "searches": [
+          "generalized locally Toeplitz convergence rates Wasserstein variable coefficient finite bands singular value",
+          "Garoni Serra Capizzano 2018 spectral distribution GLT main theorem"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md (blob 35a9a25cb8232d76c6b08a959897b9932b09945f)",
+        "https://doi.org/10.1007/s00041-017-9525-y",
+        "https://arxiv.org/abs/0906.2104",
+        "https://arxiv.org/abs/1109.5400",
+        "Resultary published 2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The GLT theorem implies weak convergence only; fixed-edge results concern the top few singular values and a different scale.",
+          "The transport bound implies Lipschitz clipped observables through Kantorovich duality; that finite-size inference is absent from the inspected qualitative statements."
+        ],
+        "reasoning": "Existing broad qualitative coverage is acknowledged, but neither checked theorem entails the numerical finite-n rate. Fixed rank and proportional rank are incomparable asymptotic questions.",
+        "searches": [
+          "arxiv:0906.2104 alpha Toeplitz singular asymptotic",
+          "Garoni Serra Capizzano 2018 GLT variable coefficient theorem",
+          "Resultary fixed higher Cesaro singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_n inverse, after dividing by n, is slowly varying bidiagonal with GLT singular symbol x|1-e^(i theta)|.",
+          "Garoni–Serra-Capizzano (2018) provides qualitative distribution for variable-coefficient Toeplitz and GLT sequences."
+        ],
+        "reasoning": "The qualitative GLT symbol agrees with U=2X sin(Theta); that part is covered. Weak distribution convergence does not imply an explicit all-n Wasserstein bound.",
+        "searches": [
+          "Resultary: finite Cesaro matrix empirical reciprocal singular values quantitative Wasserstein bulk distribution",
+          "GLT finite Cesàro inverse bidiagonal symbol x|1-exp(i theta)|"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-11 fixed-higher-rank Cesàro finding has a 1/(log n)^2 deficit for j fixed.",
+          "The present statistic averages all inverse-scaled singular values and studies j/n -> alpha in (0,1)."
+        ],
+        "reasoning": "A table of individual low fixed ranks or a qualitative limit does not supply the all-n transport rate; no matching exact quantitative table was located.",
+        "searches": [
+          "Resultary: logarithmic spectral edge of higher singular values finite Cesaro matrices",
+          "finite Cesaro singular values bulk reciprocal quantiles exact table"
+        ]
+      },
+      "rationale": "PASS is restricted to the explicit all-dimension quantitative W1 bound and clipped reciprocal consequences. General GLT theory already gives the unquantified bulk symbol, and the fixed-higher-rank edge result covers a different asymptotic. No inspected primary theorem supplied this W1 rate or its universal numerical constant; undiscovered quantitative GLT refinements remain possible.",
+      "residual_risks": [
+        "Quantitative GLT literature could furnish a dominating effective rate with different norm or constants.",
+        "Full 2009 alpha-Toeplitz manuscript was not read; its abstract alone cannot establish lack of coverage.",
+        "The n^-1/2 rate and constant 12 are not optimality statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative symbol limit, not the explicit finite-dimensional W1 rate found here.",
+          "evidence": [
+            "The GLT main theorem characterizes the limiting empirical singular distribution in terms of the variable-coefficient Toeplitz symbol."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-017-9525-y",
+          "material_read": "Author-posted full-text main theorem, GLT symbol statements, applications to singular-value distributions, relevant formulas and conclusion.",
+          "method": "Full-text HTML theorem/quantifier comparison.",
+          "title": "Spectral Distribution Results Beyond the Algebra Generated by Variable-Coefficient Toeplitz Sequences: The GLT Approach",
+          "trigger": "A general symbolic theorem could dominate the proposed Cesàro bulk law."
+        },
+        {
+          "assessment": "Potential coverage in full text cannot be excluded.",
+          "evidence": [
+            "Its abstract describes limiting singular distributions of alpha-Toeplitz sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0906.2104",
+          "material_read": "Public arXiv abstract and bibliographic description only; full paper not obtained.",
+          "method": "ArXiv/archival publication metadata.",
+          "title": "Spectral features and asymptotic properties for alpha-circulants and alpha-Toeplitz sequences",
+          "trigger": "Early primary work on Toeplitz singular distributions."
+        },
+        {
+          "assessment": "Different functional-space duality problem, not finite-matrix quantitative reciprocal singular law.",
+          "evidence": [
+            "Focuses on dual Cesàro spaces rather than matrix singular-value distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.5400",
+          "material_read": "Available introductory and section-level open text.",
+          "method": "Browsable lawful article text.",
+          "title": "On the dual of Cesàro function space",
+          "trigger": "Relevant Cesàro nomenclature could mask equivalence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform effective transport error controls a natural full-bulk spectral invariant and finite-matrix nonlinear statistics, unlike mere weak convergence or a fixed-rank edge expansion. The exact constant is not claimed sharp. This is more than recomputation of a known limiting distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No optimal W1 exponent/constant is asserted; near-zero reciprocal inversion does not control the top original Cesàro singular value at the same rate.",
+    "The prior qualitative symbol is not claimed as original.",
+    "Quantitative GLT literature could furnish a dominating effective rate with different norm or constants.",
+    "Full 2009 alpha-Toeplitz manuscript was not read; its abstract alone cannot establish lack of coverage.",
+    "The n^-1/2 rate and constant 12 are not optimality statements."
+  ],
+  "schema_version": 1
+}
