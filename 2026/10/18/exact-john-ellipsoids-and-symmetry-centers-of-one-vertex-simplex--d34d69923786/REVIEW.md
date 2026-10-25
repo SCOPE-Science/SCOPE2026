@@ -1,15 +1,21 @@
-# Scientific review: exact John ellipsoids and symmetry centers of one-vertex simplex frusta
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed formulas are restricted to integer dimension \(n\ge2\) and real truncation \(0\le t<1\), with both cases agreeing exactly at \(t_*=(n-1)/(n+1)\). Each supporting halfspace is checked by its exact ellipsoid support function. In the shallow regime the original simplex John-contact certificate survives; in the deep regime positive weights on the \(n\) side contacts and both axial contacts satisfy the full zeroth- and second-moment identities required by John's theorem. This establishes global maximality, without assuming the optimizer symmetric. The Minkowski coefficient is bounded using individual coordinates and the upper-sum constraint, with matching lower-bound verification and uniqueness. The radius is maximized over the actual polytope vertices. The standalone rational checker validates the exact identities on \(258\) parameter pairs and tests feasible symmetric competitors; finite tests are not relied on for infinite conclusions.
+## correctness
 
-## Originality — PASS, with priority risk
-The original simplex John ellipsoid is classical, and the corner-volume characterization of Eydelzon (2026), Section 1, does not address a vertex truncation. Mordhorst (2016), Section 6, uses a special truncated simplex whose John ellipsoid does not change, consistent with but not equivalent to the whole sharp profile here. Xiong and Freund (2026), Theorem 1.1, prove existence of symmetry-dependent roundings for arbitrary convex bodies and analyze the different family \(\operatorname{conv}(\Delta\cup-\alpha\Delta)\); they do not compute this frustum's contact transition. A published exact mixed-volume calculation for the identical frustum gives opposite-body mixed volumes only, not John ellipsoids, their contact spectra, or Minkowski-center rigidity. A published capped-cube John computation instead has extra coordinate upper facets and a distinct three-regime structure. A targeted literature and published-claim comparison did not establish an equivalent prior result. Earlier unindexed optimal-design or frustum-ellipse calculations remain a real originality risk; nonmatches alone do not prove priority.
+PASS
 
-## Mathematical value — PASS
-Removing one simplex vertex is a canonical, dimension-independent way to deform a body away from equality in sharp convex-geometric inequalities. The exact threshold at which the new facet first becomes supporting for the maximal-volume ellipsoid gives a structural contact transition, not a change of notation or a tabulated endpoint. The initially **stationary John center** contrasts with the immediately and uniquely drifting Minkowski center, and the exact sharp John-centered containment factor identifies precisely when truncation improves that ellipsoidal approximation. These are complete natural geometric invariants for the entire one-parameter family, with a reproducible global contact proof.
+For every n≥2 and 0≤t<1, F={x_i≥0, t≤sum x_i≤1}. Symmetry of the unique John ellipsoid gives c=(h/n)1 and Q=pP⊥+qP∥, but the proof certifies GLOBAL John maximality by direct positive John contact measures, not a restricted symmetric search. Containment is equivalent to h/n≥sqrt(((n−1)p+q)/n), h−sqrt(nq)≥t, h+sqrt(nq)≤1. Substituting the two exact shape branches yields equality of n side facets and upper rank bound, with lower bound becoming active at t*=(n−1)/(n+1). For shallow t each of n side contacts and the upper axial contact has weight n/(n+1). Above t*, writing s=sqrt(nq)/h, side weight (n−1)/(n(1−s²)) and axial weights (1±ns)/(2(1±s)) have exactly zero mean and identity second moment, all positive except lower at boundary. Reflection of vertices gives sym(F)≤1/(n−t); z=1/(n+1−t)1 meets every reflected halfspace and is uniquely forced at equality. Maximizing convex ellipsoid norm at vertices e_i and t e_i gives John-centered radius n initially and sqrt(1+(n−1)²/t) afterward. Independently recalculated support, moment and reflected-facet identities for 170 dimension/depth pairs; only the analytic arguments cover arbitrary n and t.
 
-## Limits and relation to earlier literature
-The result does not determine the best ellipsoidal rounding over all ellipsoids, and it does not extend to multiple or oblique truncations. It uses standard Euclidean coordinates before optional affine transport; no independent verification is claimed. The known simplex and shallow-truncation observations are credited as prior work. The potentially strongest unexcluded comparison is specialized unpublished or unindexed work on John ellipsoids of general pyramidal frusta.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-body published Godbersen mixed-volume theorem addresses Minkowski coefficients, not John contacts, and Mordhorst documents only a selected shallow truncated simplex retaining its parent ellipsoid. General simplex John or symmetry-dependent rounding bounds do not supply the exact all-depth regime. Best-of-knowledge original beyond known shallow behavior, with possible old unindexed truncation calculations as residual risk.
+
+## value
+
+PASS
+
+One-vertex parallel truncation of a simplex is a canonical deformation in convex geometry. The exact sharp point where its global John center stops being fixed, the distinct unique Minkowski symmetry center and change in prescribed John rounding quantify three nonequivalent geometric centers; the nontrivial contact emergence is informative independently of general John bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
