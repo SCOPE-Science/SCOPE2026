@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the exact root component in independent bond percolation, establishes a weighted path-coverage formula on forests, and computes all of the one- and two-vaccine expected infection counts on the cycle using two edge-disjoint routes. The resulting signed second difference is derived algebraically, bounded globally by the adjacent-to-root pair, and classified by a strictly increasing reciprocal-power expression. Every nonempty background makes the graph a forest. The proof treats \(n=3\), the boundary \(p=2/(n-1)\), and the finite range \(0<p<1\) explicitly. Exact-integer brute force independently verifies all vaccine sets for \(C_n\) of orders \(3\) to \(8\) at four probabilities and all Prüfer-coded trees of orders \(2\) to \(6\) at one rational probability. The analytical argument, not the finite checks, supplies universal quantification.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Altarelli et al.'s 2013 SIR immunization setup develops mean-field/cavity optimization rather than cycle submodularity boundaries. Holme's 2017 exact small-graph vaccination study compares importance rankings under a different seed convention, not the all-orders phase theorem. Li et al. (2023) rigorously derive a submodular reward on trees with delayed vaccines, and this is acknowledged as relevant tree-side coverage rather than claimed new. Srivastava and Teng (2024) recognize non-submodularity in broader networks; their paper was withdrawn in 2026 for an approximation-proof flaw and is not used as a mathematical premise. The searched indexed results did not expose an equivalent exact cycle threshold or individual-pair switching classification, but absence of retrieved results cannot prove uniqueness. An undiscovered reduction from two-terminal reliability could cover the statement; independent bibliographic validation remains necessary.
+PASS
 
-**Value — PASS.** Diminishing marginal returns is the exact structural hypothesis behind the standard greedy fixed-budget guarantee for a monotone coverage-like immunization objective. The theorem determines the complete transmissibility interval in which that premise actually holds on every simple cycle, identifies the first possible graph-order obstruction, and gives the entire positive/negative interaction phase diagram for every pair. These conclusions are substantive infinite-family classification results, not just a numerical counterexample. Applicability is restricted to the specified independent one-source pre-outbreak model.
+For C_n, n>=3, one root, p in (0,1), each nonroot vaccine subset: edge-disjoint complementary paths give P(root connects k)=p^k+p^(n-k)-p^n. After a vaccine the remaining root arms have lengths i-1 and n-i-1; after two vaccines i<j they have lengths i-1 and n-j-1. Signed B second difference equals (n-1)p^n-sum_{k=n-i}^{n-1}p^k-sum_{k=j}^{n-1}p^k and is <=p^(n-1)((n-1)p-2), equality only at root neighbors. For nonempty background deletion leaves a rooted forest with nonnegative weighted path coverage, hence all additional second differences <=0. Continuity/monotone p^{-h} argument yields unique pair-specific crossing only for separation >=2. n=3 boundary is outside 0<p<1; C4 neighbors give p^3(3p-2). Independent exact live-edge enumeration checked all n=3..6, p=1/4,3/4, vaccine backgrounds and pairs, matched formulas. Finite checks are not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sharp all-subsets on-cycle if-and-only-if threshold, individual pair switching and minimum graph size are compared against tree immunization submodularity and general epidemic optimization/reliability. No inspected exact statement implied the cycle threshold; novelty limited to this special stochastic model and not proven by unsuccessful search.
+
+## value
+
+PASS
+
+The usual greedy guarantee for a monotone vaccination benefit depends on submodularity. A uniform exact threshold on a natural unicyclic graph, all pair-switching thresholds and minimum four-vertex counterexample identify precisely where that structural prerequisite holds. This is an infinite family with explicit boundary, not a routine substitution or isolated tiny check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
