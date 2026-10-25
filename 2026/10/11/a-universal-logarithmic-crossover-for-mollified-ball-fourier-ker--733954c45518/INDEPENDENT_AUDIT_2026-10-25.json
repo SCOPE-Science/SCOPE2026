@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T11:43:17Z",
+  "axes": {
+    "correctness": {
+      "critical_boundary_checks": [
+        "p_delta,lambda>1 uniformly for bounded lambda and sufficiently small delta; d fixed >=2",
+        "eta nonnegative unit mass, supp in (-1/2,1/2), common W^(2,1) bound; profile can depend on delta",
+        "phase beta=(d+1)pi/4 and sphere measure |S^(d-1)|, Fourier inversion (2pi)^(-d)",
+        "endpoint lambda=0 yields Phi=1; lambda of either sign allowed",
+        "r<1 and r>delta^-1 tails bounded uniformly",
+        "not an operator multiplier norm; no fixed-p away from critical or dimension-uniform claim"
+      ],
+      "independent_checks_file": "independent_fourier_results.json",
+      "rationale": "For every fixed d>=2 the exact inverse Fourier transform of B_R is (2pi)^(-d/2)R^(d/2)r^(-d/2)J_(d/2)(Rr); the Bessel expansion uniformly for R=1+delta u yields leading a_d r^(-alpha) Re(e^{i(r-beta)}A_delta(delta r)) with alpha=(d+1)/2, beta=(d+1)pi/4, and error O(r^(-alpha-1)). The normalized W^(2,1) profile family gives |A(s)|<=C(1+s)^(-2) and |A(s)-1|<=C(delta+|s|), uniformly even for delta-dependent eta. For p=p_c-lambda/log(1/delta), alpha p_c=d and the leading radial weight is r^(-1+alpha lambda/L). The integrable Bessel remainder contributes o(L) to the Lp-power via Holder; r<1 costs O(1), r>delta^-1 costs O(1), and logarithmic boundary layers of relative thickness epsilon cost O(epsilon L). On delta^(-epsilon)<=r<=delta^(-(1-epsilon)), A=1+o(1), while periodic |cos|^p averages to Gamma((p+1)/2)/(sqrt(pi)Gamma((p+2)/2)) with O(1) weighted error. Setting t=log(r)/L gives C_d int_0^1 exp(alpha lambda t)dt. Constants are uniform on each compact lambda set, fixed d and a common W^(2,1) bound, including changing profiles. Independently written checks verify Fourier/Bessel normalization, 25 coefficient/crossover configurations, 12 3D ball inversion identities, six box-profile antiderivative identities and C_2/C_3 values; these finite checks are corroborative, not proof.",
+      "residual_risks": [
+        "No finite computation establishes the universal limit; analytic proof relies on standard fixed-order Bessel asymptotic and uniform integration by parts, explicitly reconstructed.",
+        "The proof assumes regularity/nonnegativity/uniform family bound exactly as stated; it does not cover rough unbounded classes."
+      ],
+      "source_files": [
+        "RESULT.md blob f02c2efa7b314a960c065af0c864f3ec65a65d06",
+        "verify_crossover.py blob 71f92cf8a17b4ad2a3154e87ded10a79bba3af23 (inspected but not executed)",
+        "SLOGAN.txt blob d617e022c6ed005122260a7f9a080e48ee52aaab"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1, Theorem 1.1 and Corollary 1.3: Fourier multiplier operator bounds with exponents and logarithmic growth; these are not sharp L^p-power kernel masses.",
+          "Kanghui Guo, A uniform L^p estimate of Bessel functions and distributions supported on S^{n-1}, Proc. AMS 125 (1997) 1329-1340, DOI 10.1090/S0002-9939-97-03667-8, abstract: uniform Bessel Lp estimates but no obtained full text.",
+          "Stempak 2000 abstract: sharpened Guo uniform Bessel bound, not evidence of the exact profile-independent double limit."
+        ],
+        "reasoning": "Compared the quantity and quantifiers, not just p-values: operator norms differ from kernel Lp norms and cannot furnish the exact C_d Phi_d(lambda). General Bessel estimates might provide ingredients but neither inspected principal statement supplies all-dimensional, lambda-compact, profile-family-uniform asymptotics. Inaccessible Guo/Stempak details are documented as genuine uncertainty, not as rejection.",
+        "searches": [
+          "Resultary semantic: Fourier transform mollified Euclidean ball kernel Lp critical exponent 2d/(d+1) logarithmic crossover lambda/log smoothing",
+          "Resultary semantic: Exact leading constant endpoint kernel trapezoidal disc mollifier Carbery Seeger",
+          "Resultary semantic: uniform Lp Bessel asymptotic parameter p tending to threshold logarithmic integrals",
+          "Web: Carbery Seeger Mollified disc multipliers arxiv 2609.32919 pdf kernel Lp 2026",
+          "Web: Kanghui Guo uniform Lp estimate Bessel functions distributions supported on spheres pdf",
+          "Web: \"A uniform Lp estimate of Bessel functions\" pdf Kanghui Guo"
+        ]
+      },
+      "checked_sources": [
+        "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1",
+        "Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier (2026-10-04), Resultary/2026 RESULT.md",
+        "Kanghui Guo, A uniform L^p estimate of Bessel functions and distributions supported on S^{n-1}, Proc. AMS 125 (1997) 1329-1340, DOI 10.1090/S0002-9939-97-03667-8",
+        "Krzysztof Stempak, Proc. AMS 128(10) (2000), 2943-2946, DOI 10.1090/S0002-9939-00-05365-X",
+        "Resultary/2026 published record 2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C_2 = 2^(1/3) pi^-2 B(1/2,7/6), exactly the 2026-10-04 prior constant; no novelty claimed for this slice.",
+          "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1, pp.1–4, Corollary 1.3: operator norms may grow logarithmically, with kernel at p=4/3 of lower order; not the present power-norm asymptotic.",
+          "The current proof uses a profile-uniform integration-by-parts envelope and periodic averaging for all p=p_c-lambda/L; these quantifiers are absent from the earlier endpoint statement."
+        ],
+        "reasoning": "Prior exact planar endpoint is a direct corollary of the present assertion. The reverse is not a logical consequence of its single fixed-p coefficient. Nor do the existing operator estimates yield sharp kernel powers or the universal exponential-tilt curve. Standard Bessel asymptotics are acknowledged as prior mechanism; the combined joint uniform formula is the proposed new scientific content.",
+        "searches": [
+          "Resultary semantic: Fourier transform mollified Euclidean ball kernel Lp critical exponent 2d/(d+1) logarithmic crossover lambda/log smoothing",
+          "Resultary semantic: Exact leading constant endpoint kernel trapezoidal disc mollifier Carbery Seeger",
+          "Resultary semantic: uniform Lp Bessel asymptotic parameter p tending to threshold logarithmic integrals",
+          "Resultary semantic: \"mollified\" \"ball\" \"critical\" \"log\" \"Lp\" kernel",
+          "Web: Carbery Seeger Mollified disc multipliers arxiv 2609.32919 pdf kernel Lp 2026",
+          "Web: Kanghui Guo uniform Lp estimate Bessel functions distributions supported on spheres pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1: exact kernel-comparability only at fixed planar p=4/3, while claimed limit varies p by -lambda/log(1/delta).",
+          "Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier (2026-10-04), Resultary/2026 RESULT.md: exact coefficient at (d,lambda)=(2,0), single box profile.",
+          "Resultary/2026 published record 2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518: identical indexed record is a copy of this assessed source, not an independent prior.",
+          "Kanghui Guo, A uniform L^p estimate of Bessel functions and distributions supported on S^{n-1}, Proc. AMS 125 (1997) 1329-1340, DOI 10.1090/S0002-9939-97-03667-8: only abstract accessible; no whole-paper negative result."
+        ],
+        "reasoning": "Equivalent formulations as uniform Abelian or Bessel cutoff asymptotics were sought. At the level of actual statements, the principal 2026 source and earlier exact endpoint result do not imply the whole uniform lambda-window: a single p_c limit does not determine exponent reweighting or dimension/profile uniformity. An identical Resultary hit is this same source record. Literature-search absence is not treated as definitive novelty.",
+        "searches": [
+          "Resultary semantic: Fourier transform mollified Euclidean ball kernel Lp critical exponent 2d/(d+1) logarithmic crossover lambda/log smoothing",
+          "Resultary semantic: uniform Lp Bessel asymptotic parameter p tending to threshold logarithmic integrals",
+          "Resultary semantic: \"Bessel\" \"critical\" \"log\" \"variable exponent\" integral",
+          "Web: Bessel kernel Lp norms near endpoint log asymptotic Fourier transform ball smoothed radial mollifier",
+          "Web: site:arxiv.org \"A uniform Lp estimate of Bessel functions\" Guo; site:ams.org title pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier (2026-10-04), Resultary/2026 RESULT.md: exact d=2, lambda=0 coefficient only.",
+          "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1: only two-sided order for the corresponding kernel; no table of C_d Phi_d(lambda)."
+        ],
+        "reasoning": "A continuous asymptotic parameter family is not naturally a finite database invariant. The only relevant published exact value found is the one-point endpoint specialization, and it is explicitly credited. No inspected exact formula/table covers the lambda continuum and all fixed dimensions.",
+        "searches": [
+          "Resultary semantic: Exact leading constant endpoint kernel trapezoidal disc mollifier Carbery Seeger",
+          "Resultary semantic: \"mollified\" \"ball\" \"critical\" \"log\" \"Lp\" kernel",
+          "Web: Carbery Seeger Mollified disc multipliers arxiv 2609.32919 pdf kernel Lp 2026",
+          "Web: Bessel kernel Lp norms near endpoint log asymptotic Fourier transform ball smoothed radial mollifier"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass based on primary statements and mathematical implication, not titles or negative search alone. The all-dimension lambda/log critical-window formula, uniform over a bounded W^(2,1) profile family, is absent from the inspected Carbery–Seeger multiplier theorem and not implied by the earlier dimension-two fixed endpoint coefficient. A plausible older uniform-Bessel source remained inaccessible; this is a named residual risk, not in itself proof of coverage.",
+      "residual_risks": [
+        "Guo 1997 and Stempak 2000 full papers were not read; their abstract-level Bessel estimates may hide relevant stronger asymptotics.",
+        "A general Abelian or stationary-phase result in older nomenclature could imply this special cutoff law without repeating its explicit formula.",
+        "Published Resultary exact endpoint d=2, lambda=0 is prior. The identical indexed current record is not independent priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper establishes operator-multiplier bounds and fixed-exponent kernel comparability, including ||K_delta||_(4/3) asymptotically comparable with (log(1/delta))^(3/4), not the exact variable-exponent p_delta,lambda kernel-power limit or its uniform-in-profile all-dimensional constant.",
+          "evidence": [
+            "arXiv 2609.32919, pp.1–4, formulas (1.1),(1.4), Theorem 1.1, Theorem 1.2, Cor.1.3 and endpoint kernel-vs-operator remark; Section 3.1, Section 4.2",
+            "web PDF text source  and screenshot  / "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32919",
+          "material_read": "16-page arXiv PDF opened; introduction pp.1–4, Theorems 1.1–1.2, Corollary 1.3, radial endpoint-kernel comparison, Section 2 radial Fourier material, Section 3.1 regularity/mollification discussion and Section 4 concluding remarks and dimension scope; PDF structure and absence of appendix checked. Not every technical line of later operator proof separately analyzed.",
+          "method": "Full-text arXiv PDF text views; visual page screenshots at pp.4 and 14; mathematical comparison of the actual stated theorems and implications",
+          "title": "Mollified disc multipliers",
+          "trigger": "Exact family of mollified radial disc/ball multipliers; possible dominating theorem"
+        },
+        {
+          "assessment": "Covers exactly the planar p=4/3 endpoint for the box boundary mollifier. Its constant equals C_2; it does not state d>=3, lambda!=0, or uniform smooth profile-family crossover.",
+          "evidence": [
+            "Resultary Git blob e5dc4aeb2fae35c2a5265d2182640a1866cf31aa, Finding and Proof, 2026/10/4",
+            "Formula 2^(1/3) B(1/2,7/6)/pi^2 equals C_2; independently checked."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-leading-constant-for-the-endpoint-kernel-norm-of-a-trapezo--1a76f3a9a8a8/RESULT.md",
+          "material_read": "Complete public RESULT.md, including full claim, exact Fourier-Bessel proof, endpoint coefficient, limitations and reference comparison.",
+          "method": "GitHub fetch_file on Resultary/2026; complete source text and mathematical comparison",
+          "title": "Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier",
+          "trigger": "Exact matching d=2, lambda=0 endpoint coefficient"
+        },
+        {
+          "assessment": "Abstract discusses uniform Bessel Lp bounds for Fourier transforms of measures on spheres; cannot infer full-document noncoverage or exclude hidden related asymptotics. The paper itself does not appear from the abstract to address an explicit mollified-ball variable-exponent critical window.",
+          "evidence": [
+            "K. Guo, Proc. AMS 125 (1997), 1329–1340, DOI 10.1090/S0002-9939-97-03667-8; institutional abstract ",
+            "Authorized full-text attempt returned vpn_disconnected; no content was read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-97-03667-8",
+          "material_read": "Bibliographic information and abstract only at https://bearworks.missouristate.edu/articles-cnas/2669/; no full text obtained.",
+          "method": "Web title and open-access/preprint searches followed by authorized institutional full-text request; access returned vpn_disconnected, no bypass or second attempt",
+          "title": "A uniform L^p estimate of Bessel functions and distributions supported on S^{n-1}",
+          "trigger": "Older potentially dominating Bessel L^p uniform norm estimates"
+        },
+        {
+          "assessment": "Abstract announces an improved uniform Lp Bessel estimate, but gives no basis for asserting an exact joint mollified-ball cutoff asymptotic. Residual literature risk retained.",
+          "evidence": [
+            "Stempak, Proc. AMS 128(10) (2000) 2943–2946; web result "
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-00-05365-X",
+          "material_read": "Bibliographic metadata and public abstract only (ResearchGate), no full text inspected.",
+          "method": "Title/abstract web discovery, no publisher text claims",
+          "title": "A weighted uniform L^p-estimate of Bessel functions: A note on a paper of Guo",
+          "trigger": "Potential strengthening of Guo Bessel-integral estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical index p_c=2d/(d+1) is intrinsically the borderline for integrability of the Fourier transform of the Euclidean ball; the reciprocal-logarithmic exponent window is its natural nontrivial crossover scale. Determining the sharp exponential-tilt profile C_d Phi_d(lambda) on both sides, uniformly for a nontrivial class of varying boundary mollifiers in every fixed d>=2, supplies a mathematically motivated exact universality law not mechanically determined by a single endpoint constant. The kernel/operator distinction is essential, and the theorem does not claim a general disc-multiplier bound.",
+      "residual_risks": [
+        "The contribution is confined to radial boundary-coordinate smoothing and critical-window kernel Lp powers; it does not solve sharp Fourier-multiplier operator norms or fixed off-critical behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Carbery & Seeger, Mollified disc multipliers (2026), arXiv:2609.32919v1",
+    "Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier (2026-10-04), Resultary/2026 RESULT.md",
+    "Kanghui Guo, A uniform L^p estimate of Bessel functions and distributions supported on S^{n-1}, Proc. AMS 125 (1997) 1329-1340, DOI 10.1090/S0002-9939-97-03667-8",
+    "Krzysztof Stempak, Proc. AMS 128(10) (2000), 2943-2946, DOI 10.1090/S0002-9939-00-05365-X",
+    "Resultary/2026 published record 2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Guo/Stempak full text could not be reviewed. Oxford institutional source reported vpn_disconnected.",
+    "No formal proof assistant or expert attestation is claimed; existing verification channels not changed.",
+    "Public source package contains operational identifiers and model-review provenance; no sanitized replacement material was staged. The PASS scientific judgment is not a publication approval."
+  ],
+  "residual_risks": [
+    "Guo 1997 and Stempak 2000 full papers were not read; their abstract-level Bessel estimates may hide relevant stronger asymptotics.",
+    "A general Abelian or stationary-phase result in older nomenclature could imply this special cutoff law without repeating its explicit formula.",
+    "Published Resultary exact endpoint d=2, lambda=0 is prior. The identical indexed current record is not independent priority evidence.",
+    "No finite computation establishes the universal limit; analytic proof relies on standard fixed-order Bessel asymptotic and uniform integration by parts, explicitly reconstructed.",
+    "The proof assumes regularity/nonnegativity/uniform family bound exactly as stated; it does not cover rough unbounded classes.",
+    "The contribution is confined to radial boundary-coordinate smoothing and critical-window kernel Lp powers; it does not solve sharp Fourier-multiplier operator norms or fixed off-critical behavior."
+  ],
+  "schema_version": 1
+}

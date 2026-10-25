@@ -1,19 +1,21 @@
-# Scientific review: universal logarithmic crossover for mollified-ball Fourier kernels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is uniform for each fixed dimension and for profile families with bounded \(W^{2,1}\) norm, not for dimensions tending to infinity or arbitrary rough smoothings. The ball-transform formula is exact; its uniform fixed-order Bessel expansion produces the correct \(r^{-(d+1)/2}\) oscillatory term and an integrable remainder. Uniform Fourier decay of the boundary profile bounds the spatial tail beyond \(\delta^{-1}\). On intermediate logarithmic annuli, the profile tends uniformly to one and periodic averaging of the cosine power reduces the integral to \(\int_0^1 e^{(d+1)\lambda t/2}dt\). Inner/outer edge contributions can be made arbitrarily small relative to \(\log(1/\delta)\). The endpoint coefficient agrees algebraically with the published planar trapezoidal endpoint value. Supplementary exact-normalization checks were executed from `verify_crossover.py`; they are not treated as proofs of the limiting theorem.
+PASS
 
-## Originality — PASS, with residual risk
+For every fixed d>=2 the exact inverse Fourier transform of B_R is (2pi)^(-d/2)R^(d/2)r^(-d/2)J_(d/2)(Rr); the Bessel expansion uniformly for R=1+delta u yields leading a_d r^(-alpha) Re(e^{i(r-beta)}A_delta(delta r)) with alpha=(d+1)/2, beta=(d+1)pi/4, and error O(r^(-alpha-1)). The normalized W^(2,1) profile family gives |A(s)|<=C(1+s)^(-2) and |A(s)-1|<=C(delta+|s|), uniformly even for delta-dependent eta. For p=p_c-lambda/log(1/delta), alpha p_c=d and the leading radial weight is r^(-1+alpha lambda/L). The integrable Bessel remainder contributes o(L) to the Lp-power via Holder; r<1 costs O(1), r>delta^-1 costs O(1), and logarithmic boundary layers of relative thickness epsilon cost O(epsilon L). On delta^(-epsilon)<=r<=delta^(-(1-epsilon)), A=1+o(1), while periodic |cos|^p averages to Gamma((p+1)/2)/(sqrt(pi)Gamma((p+2)/2)) with O(1) weighted error. Setting t=log(r)/L gives C_d int_0^1 exp(alpha lambda t)dt. Constants are uniform on each compact lambda set, fixed d and a common W^(2,1) bound, including changing profiles. Independently written checks verify Fourier/Bessel normalization, 25 coefficient/crossover configurations, 12 3D ball inversion identities, six box-profile antiderivative identities and C_2/C_3 values; these finite checks are corroborative, not proof.
 
-Carbery–Seeger's *Mollified disc multipliers* (arXiv:2609.32919v1, full text inspected) treats fixed-exponent multiplier norms and mentions comparability of the planar endpoint kernel norm, not a varying-exponent crossover. The published *Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier* (complete RESULT.md inspected) proves just the \((d,\lambda)=(2,0)\) coefficient for a single profile; the present theorem includes it without presenting that old number as new. The new statement quantifies the complete near-critical window, includes all fixed dimensions at least two, and is uniform even when normalized smooth profiles vary with the cutoff. Neither cited fixed-exponent result logically supplies this joint uniform limit. Semantic searches for double-scaling, endpoint Bessel norms, critical windows, arbitrary profiles and Fourier balls found no equivalent published formula. Kanghui Guo's 1997 uniform Bessel \(L^p\) estimates are potentially relevant but only an abstract was inspected, so any detailed relation remains a residual risk; absence from search results is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-At the natural endpoint \(p_c=2d/(d+1)\), the Fourier kernel is exactly at the logarithmic-integrability transition. Fixed-exponent \(L^p\) comparisons on either side do not say how the logarithm interpolates when the exponent moves by the critical \(1/\log(1/\delta)\) width. The universal crossover identifies this scale and its exact all-dimensional shape, independent of a broad class of smoothing profiles. That is a motivated sharp boundary law for spectral cutoff kernels, beyond a routine fixed-parameter constant evaluation.
+Best-of-knowledge pass based on primary statements and mathematical implication, not titles or negative search alone. The all-dimension lambda/log critical-window formula, uniform over a bounded W^(2,1) profile family, is absent from the inspected Carbery–Seeger multiplier theorem and not implied by the earlier dimension-two fixed endpoint coefficient. A plausible older uniform-Bessel source remained inaccessible; this is a named residual risk, not in itself proof of coverage.
 
-## Closest literature and limitations
+## value
 
-The strongest direct predecessor is the complete published fixed-exponent endpoint coefficient for one planar radial profile. The 2026 Carbery–Seeger manuscript treats the same smoothing family but primarily multiplier-operator bounds. Standard Bessel asymptotics are classical and are not claimed as new. The new theorem addresses kernel \(L^p\)-mass only, and an older equivalence in uniform oscillatory-integral literature cannot be excluded. Independent replication or external audit of this result has not yet occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The critical index p_c=2d/(d+1) is intrinsically the borderline for integrability of the Fourier transform of the Euclidean ball; the reciprocal-logarithmic exponent window is its natural nontrivial crossover scale. Determining the sharp exponential-tilt profile C_d Phi_d(lambda) on both sides, uniformly for a nontrivial class of varying boundary mollifiers in every fixed d>=2, supplies a mathematically motivated exact universality law not mechanically determined by a single endpoint constant. The kernel/operator distinction is essential, and the theorem does not claim a general disc-multiplier bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
