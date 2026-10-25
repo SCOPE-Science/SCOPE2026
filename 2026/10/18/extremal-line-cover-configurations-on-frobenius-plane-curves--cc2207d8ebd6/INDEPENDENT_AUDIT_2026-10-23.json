@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:50:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md cdfc50d2ee137b1dd00d8130c931101b2752e485",
+        "Exact verifier code and associated sources at frozen Git tree cb50e45fcb6f1687f99a9b3efebd8409d0f20d61",
+        "Independent bounded local mathematical checks (paths in private working audit environment)"
+      ],
+      "rationale": "For q=p^(2n+1), the rational curve has exactly q affine points P_s and one point P_infty. Every nonvertical rational line intersects affine points in a coset of the kernel of x^{p^2}-a x; for nonzero kernel the gcd(p^2-1,p^(2n+1)-1)=p-1 shows kernel is F_p u, so maximal intersections are precisely affine F_p-line cosets of cardinality p. Every line through P_infty meets at most one affine point. The established minimum is q/p+1. For p>=3, if t>=2 chosen lines pass through infinity, affine incidence cap q+p-(p-1)t<q excludes such a minimum; with exactly one infinity line and q/p other lines, any submaximal ordinary secant would lose >=p-1 incidences that the infinity line cannot repair. If maximal secants left one hole and one double, summing all F_p affine line points (zero for odd p), and comparing with the zero sum of F_q, forces hole=double, contradiction. Thus an affine one-spread plus one arbitrary infinity line is necessary/sufficient. Independent plane switching in q=p^m, m>=3 yields at least (q+1)((q-1)/(p-1)+2^(q/p^2)-2) configurations. For p=2 the q+1 rational points form an arc with no three collinear; minimum covers of (q+2)/2 rational lines are exactly one tangent plus a matching, or solely secants with a unique doubled point, whose counts add to binom(q+2,2)(q-1)!!. The source's q=27 and q=8 checks were inspected; independent combinatorial evaluation q=8 gives binomial(10,2) times 7!! = 45*105 = 4725, matching the total, and q=27 switched spreads yield 19 distinct spread choices hence >=532 covers. All generic claims use the field/geometry proof, not extrapolation from checks.",
+      "residual_risks": [
+        "Only odd extension degrees m=2n+1; for even m, the additive-polynomial kernel changes.",
+        "For odd p, a lower bound on the number of all optimal covers is proved, not an exact spread enumeration.",
+        "The characteristic-two cover count is for distinct unordered F_q-lines with two-point incidence, not scheme multiplicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original 2026 manuscript establishes existence of a parallel-line optimal covering construction and a q/p+1 lower bound; its inspected section 4 contains no all-minimizers theorem.",
+          "Affine one-spreads and line-spread switching are classical, but do not independently impose the Frobenius incidence and odd-p zero-hole rigidity of this curve."
+        ],
+        "reasoning": "General affine-spread theory covers the combinatorial building blocks, not the equivalence of every minimum rational-line cover of this specific singular Frobenius curve to a spread plus an infinity line.",
+        "searches": [
+          "Asgarli Dassarma Ghioca MacLean Stokdyk arxiv 2610.13042 section 4 proof",
+          "affine vector space partitions spreads of quadrics Gupta Pavese 2024",
+          "Tight Irreducible Affine Spreads Akman Sissokho 2607.23411"
+        ]
+      },
+      "checked_sources": [
+        "Asgarli–Dassarma–Ghioca–MacLean–Stokdyk arxiv:2610.13042v1 section 4 full",
+        "Gupta–Pavese DOI:10.1007/s10623-024-01447-1 introduction, Theorem 2.11 and conclusion inspected",
+        "Akman–Sissokho arxiv:2607.23411v1 introduction, Theorem 2.11 and conclusion inspected",
+        "Resultary search for Frobenius-curve line coverings and affine one-spreads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Proposition 4.1 uses a single parallel coset partition to establish attainability, without proving every attaining cover has that structure.",
+          "In odd p, the new zero-sum first moment forbids a single repeated/missing affine point, a defect permitted by capacity counting alone."
+        ],
+        "reasoning": "Known cov(C)=q/p+1 does not imply uniqueness of extremal arrangement types, the parity dichotomy, or the complete characteristic-two count. These require the new equality analysis.",
+        "searches": [
+          "arxiv:2610.13042v1 Section 4 Proposition 4.1 proof",
+          "finite affine spread coverings Frobenius curves p odd one hole"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli et al. arxiv:2610.13042v1 Proposition 4.1 studies exactly the curve YZ^(p^2-1)=X^(p^2) over q=p^(2n+1) and proves cov=q/p+1.",
+          "The rational affine point set is equivalent to the graph s -> s^(p^2), and maximal rational line intersections correspond to affine Fp-cosets."
+        ],
+        "reasoning": "The exact minimum was explicitly prior work and is excluded from novelty. Equality structure as affine one-spreads and the binary count are extra statements not implied by just knowing the minimum.",
+        "searches": [
+          "optimal covers of Frobenius curves y=x^(p^2) prime odd extension lines spread exact number of minima",
+          "arxiv:2610.13042 Proposition 4.1 nonreflexive curve"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=8 count 4725 follows the standard all-arc matching formula, not a previously inspected database uniquely about this Frobenius curve.",
+          "Resultary searches for exact Frobenius curve minimum line cover patterns found codes/plane covers with different objects and did not produce this formula."
+        ],
+        "reasoning": "No exact curve-family cover table was located. The binary matching enumeration is classical and is not by itself a broad new theorem; an unindexed curve-specific enumeration might exist.",
+        "searches": [
+          "optimal cover line sets nonreflexive Frobenius curve y=x^(p^2) over finite fields",
+          "q=8 oval minimum line covers binom(q+2,2)(q-1) double factorial"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority after direct comparison of the precise final mathematical statement, known stronger results, equivalent formulations, special cases and searched databases. Prior common premises/corollaries are explicitly excluded from the asserted original contribution; literature completeness is not claimed.",
+      "residual_risks": [
+        "Classical complete classifications of minimal arc/oval covers could supply the binary enumeration as a routine corollary; novelty is strongest in the paired odd-characteristic rigidity.",
+        "Gupta–Pavese was read through its relevant spread correspondence and Akman–Sissokho full HTML inspected; a differently worded specific curve classification could still exist in other finite-geometry literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proves q/p+1 and parallel-coset construction; does not classify all equality families or count characteristic-two covers.",
+          "identifier_or_url": "arxiv:2610.13042v1",
+          "material_read": "Complete section 4 pp relevant Proposition 4.1, its proof and ensuing remarks, plus opening theorem setup",
+          "method": "Primary arXiv HTML full source section",
+          "title": "Covering plane curves over finite fields with lines",
+          "trigger": "Exactly the same curve family and original minimum"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_SPREAD",
+          "evidence": "Establishes correspondences between hyperbolic/parabolic/elliptic affine spreads and quadric spreads; not a classification of minimal covers of the Frobenius plane curve.",
+          "identifier_or_url": "arxiv:2402.07882 / DOI:10.1007/s10623-024-01447-1",
+          "material_read": "Introduction, finite-geometric affine-spread definitions, Section 2 including Theorem 2.11, and Section 3 conclusion; not every detail of the 8-page proof independently inspected",
+          "method": "Primary lawful arXiv PDF, text and page 1 screenshot",
+          "title": "Affine vector space partitions and spreads of quadrics",
+          "trigger": "General spread constructions might dominate the specific classification"
+        },
+        {
+          "assessment": "COVERS_COMPONENT_NOT_CURVE_CLASSIFICATION",
+          "evidence": "Gives affine 1-spreads in AG(m,p) for m>2, including nonparallel constructions in an appropriate dimension; this existing spread theory is prior. It does not identify all extremal Frobenius-curve covers or calculate their exact parity-specific count.",
+          "identifier_or_url": "arxiv:2607.23411v1",
+          "material_read": "Entire accessible HTML, definitions and Theorem 1, Construction 1/2, and proof of complete tightness/irreducibility",
+          "method": "Primary arXiv full HTML",
+          "title": "A note on Tight Irreducible Affine Spreads",
+          "trigger": "Could provide already-known nonparallel affine F_p one-spreads relevant to the lower-bound construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md proof and scope",
+        "The named primary literature / prior source comparisons in originality check"
+      ],
+      "rationale": "The original problem asks for fewest rational lines covering a natural nonreflexive Frobenius curve, and the published work gives only the optimum number. This theorem identifies every optimum, makes a sharp p-odd rigidity statement excluding even one affine hole, reveals many non-pencil spreads, and gives an exact binary count through the oval matching structure. The parity-dependent geometry explains minimizers of an independently motivated covering problem. Classical spreads and matching formulas are explicitly attributed; novelty/value is their precise curve-specific extremal classification, not a new spread technique.",
+      "residual_risks": [
+        "The binary exact number follows standard finite-oval matching enumeration once the incidence reduction is established; its standalone combinatorics is routine.",
+        "The odd-p no-hole step and global extremizer description provide the substantive structural content."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Extension degree must be odd; exact optimal-cover count is asserted only in characteristic two.",
+    "The p-odd numerical formula is a lower bound only, not all affine spread enumeration.",
+    "Public-facing frozen AUDIT.json and METADATA.json include scope_run_id (private operational identifier), and no complete neutral UTF-8 sanitized replacement bytes with exact guards and hashes have been prepared. Withhold all public publication; scientific verdict does not override transport/privacy."
+  ],
+  "schema_version": 1
+}
