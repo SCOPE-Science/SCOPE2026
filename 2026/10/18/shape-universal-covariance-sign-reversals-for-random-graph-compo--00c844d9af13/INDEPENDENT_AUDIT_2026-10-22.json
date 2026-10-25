@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T02:11:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13/RESULT.md blob 4b21dafa6a52d9e17f0711af83da9862ad7b87a9",
+        "2026/10/18/shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13/verify_component_covariance.py blob a8481c8d55404e1cf356b047c1a15c0d90da8062",
+        "Independent private bounded cross-check source /mnt/data/scope08_science_checks.py (not a general proof)"
+      ],
+      "rationale": "For disjoint vertex sets of sizes h and k, two specified connected-component events share exactly hk required absent cross-edges, so P(A_S and B_T)=P(A_S)P(B_T)(1-p)^(-hk). Intersecting vertex sets cannot both be distinct components. Summing over disjoint sets gives E(C_H*C_K)=mu_H*mu_K[(n-h)_k/(n)_k](1-p)^(-hk), hence exact covariance and rank-one cross-size block, with a unique positive sign-switch p*. The negative log of 1-p* is the rectangular average of log((n-a-b)/(n-a-b-1)); strictly increasing summands establish threshold ordering whenever both size pairs feasible. Taylor expansion yields p*=1/n+(h+k-2)/(2*n*n)+O(n^-3). At p=1/n+lambda/n^2, tree-leading means E[X_j]=n*tau_j(1)+O(1) and bracket=hk(lambda-(h+k-2)/2)/n^2+O(n^-3), giving the finite critical-window covariance. Domain h!=k, h+k<=n, 0<p<1, fixed h,k for asymptotics. Independent exact-Fraction enumeration of labeled G(n,p), n=4,5,6 and 3 rational p values checked mixed factorial moments; enumeration is not the universal proof.",
+      "residual_risks": [
+        "The rank-one statement excludes same-size covariance blocks, whose diagonals include identical-component terms.",
+        "The p=1/n+lambda/n^2 expansion is fixed-size, not uniform for h,k growing with n; at finite n choose p in (0,1)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper treats random graph process and fixed-edge component statistics; an implicit derivation via general generating functions remains possible.",
+          "The abstract/source establishes tree-count Gaussian covariance context but does not permit a full-text exclusion; current fine-critical comparisons remain provisional.",
+          "The stated generating function characterizes size of the component containing a fixed vertex, and may imply some marginals; complete implications not established."
+        ],
+        "reasoning": "Classical Erdős-Rényi factorial-moment and generating-function machinery contains ingredients for the exact covariance. The inspected fixed-edge critical process and generic tree census do not visibly assert strict all-p sign thresholds or the n^-2 size-indexed crossings; an implication from a stronger theorem must still be checked.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) component counts distinct size covariance factorial moments rank one cross shape critical p 1/n sign reversal",
+          "literature: Pittel 1990 On tree census and the giant component in sparse random graphs; Janson Knuth Luczak Pittel birth of giant component fixed edge; Ráth moment generating formula connected component size"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "Janson, Knuth, Łuczak and Pittel, arXiv:math/9310236v1",
+          "material_read": "Available 131-page primary PDF; title/abstract, component generating-function and near-critical sections, targeted covariance occurrence around §23",
+          "title": "The birth of the giant component"
+        },
+        {
+          "identifier_or_url": "B. Pittel, Random Structures & Algorithms 1 (1990), 311-342, doi:10.1002/rsa.3240010306",
+          "material_read": "Publisher abstract/metadata only; full 1990 text inaccessible, arXiv/OA attempts unsuccessful",
+          "title": "On tree census and the giant component in sparse random graphs"
+        },
+        {
+          "identifier_or_url": "B. Ráth, Electronic Communications in Probability 23 (2018), doi:10.1214/18-ECP126",
+          "material_read": "Repository abstract and publication metadata, no full PDF material read",
+          "title": "A moment-generating formula for Erdős–Rényi component sizes"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known tree-census asymptotic leading covariance (Pittel 1990) covers the order-n regime away from criticality. Since the critical p=1/n+lambda/n^2 cancellation requires one further expansion, the finite p sign hierarchy and O(1) critical constants are not shown to be a direct corollary of the accessible abstract; full-text uncertainty recorded.",
+          "The paper treats random graph process and fixed-edge component statistics; an implicit derivation via general generating functions remains possible.",
+          "The abstract/source establishes tree-count Gaussian covariance context but does not permit a full-text exclusion; current fine-critical comparisons remain provisional."
+        ],
+        "reasoning": "A known tree-census asymptotic leading covariance (Pittel 1990) covers the order-n regime away from criticality. Since the critical p=1/n+lambda/n^2 cancellation requires one further expansion, the finite p sign hierarchy and O(1) critical constants are not shown to be a direct corollary of the accessible abstract; full-text uncertainty recorded.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) component counts distinct size covariance factorial moments rank one cross shape critical p 1/n sign reversal",
+          "literature: Pittel 1990 On tree census and the giant component in sparse random graphs; Janson Knuth Luczak Pittel birth of giant component fixed edge; Ráth moment generating formula connected component size"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper treats random graph process and fixed-edge component statistics; an implicit derivation via general generating functions remains possible.",
+          "Source claim 2026/10/18/shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13/RESULT.md (Git blob 4b21dafa6a52d9e17f0711af83da9862ad7b87a9): C_H and C_K are labeled connected-component isomorphism counts; the identity is a mixed factorial moment or covariance of component-type counts. Grouping over shapes gives total component sizes X_h,X_k."
+        ],
+        "reasoning": "C_H and C_K are labeled connected-component isomorphism counts; the identity is a mixed factorial moment or covariance of component-type counts. Grouping over shapes gives total component sizes X_h,X_k.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) component counts distinct size covariance factorial moments rank one cross shape critical p 1/n sign reversal",
+          "literature: Pittel 1990 On tree census and the giant component in sparse random graphs; Janson Knuth Luczak Pittel birth of giant component fixed edge; Ráth moment generating formula connected component size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned mostly unrelated Gaussian covariance/rank records; no exact published cross-size shape rank-one/sign table found. Noncoverage cannot be inferred from failed semantic matching."
+        ],
+        "reasoning": "Resultary query returned mostly unrelated Gaussian covariance/rank records; no exact published cross-size shape rank-one/sign table found. Noncoverage cannot be inferred from failed semantic matching.",
+        "searches": [
+          "Resultary: Erdos Renyi G(n,p) component counts distinct size covariance factorial moments rank one cross shape critical p 1/n sign reversal"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. A known tree-census asymptotic leading covariance (Pittel 1990) covers the order-n regime away from criticality. Since the critical p=1/n+lambda/n^2 cancellation requires one further expansion, the finite p sign hierarchy and O(1) critical constants are not shown to be a direct corollary of the accessible abstract; full-text uncertainty recorded.",
+      "residual_risks": [
+        "Material access blocker: Pittel (1990) full text not read; Oxford institutional request returned vpn_disconnected (no retry/bypass); its detailed covariance formulas may dominate the claimed critical window.",
+        "General component generating-function identities might imply the exact factorial-moment formula, so originality is best-of-knowledge for the packaged combined threshold hierarchy, not claim of inventing factorial moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_DIRECT_COVERAGE_FOUND: fixed-edge enumeration and near-critical distribution, not the stated all-p cross-shape covariance sign law",
+          "evidence": "The paper treats random graph process and fixed-edge component statistics; an implicit derivation via general generating functions remains possible.",
+          "identifier_or_url": "Janson, Knuth, Łuczak and Pittel, arXiv:math/9310236v1",
+          "material_read": "Available 131-page primary PDF; title/abstract, component generating-function and near-critical sections, targeted covariance occurrence around §23",
+          "method": "arXiv PDF text search and page screenshots of front matter and relevant sections",
+          "title": "The birth of the giant component",
+          "trigger": "overlapping connected-component generating functions and critical graph evolution"
+        },
+        {
+          "assessment": "ACCESS_RISK: known leading-order joint tree census, finer exact formulas unverified",
+          "evidence": "The abstract/source establishes tree-count Gaussian covariance context but does not permit a full-text exclusion; current fine-critical comparisons remain provisional.",
+          "identifier_or_url": "B. Pittel, Random Structures & Algorithms 1 (1990), 311-342, doi:10.1002/rsa.3240010306",
+          "material_read": "Publisher abstract/metadata only; full 1990 text inaccessible, arXiv/OA attempts unsuccessful",
+          "method": "Publisher abstract and DOI; authorized institutional PDF attempt blocked because VPN disconnected",
+          "title": "On tree census and the giant component in sparse random graphs",
+          "trigger": "high-priority earlier tree component covariance kernels"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY: one distinguished component size distribution, not by itself a multitype covariance law",
+          "evidence": "The stated generating function characterizes size of the component containing a fixed vertex, and may imply some marginals; complete implications not established.",
+          "identifier_or_url": "B. Ráth, Electronic Communications in Probability 23 (2018), doi:10.1214/18-ECP126",
+          "material_read": "Repository abstract and publication metadata, no full PDF material read",
+          "method": "Lawful repository metadata/abstract",
+          "title": "A moment-generating formula for Erdős–Rényi component sizes",
+          "trigger": "possible stronger exact distribution formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13/RESULT.md blob 4b21dafa6a52d9e17f0711af83da9862ad7b87a9",
+        "Janson, Knuth, Łuczak and Pittel, arXiv:math/9310236v1",
+        "B. Pittel, Random Structures & Algorithms 1 (1990), 311-342, doi:10.1002/rsa.3240010306"
+      ],
+      "rationale": "Different connected-component types in random graphs interact even though edge indicators are independent. The complete finite-p shape-universal rank-one covariance block and strictly size-ordered sign changes give an exact dependence classification; nonzero n^-2 crossover offsets at criticality are informative for sharp finite-size fluctuation calculations. Exact factorial moments alone are familiar, but the assembled transition/eigenstructure of the cross-size block is a motivated, nontrivial mathematical fact.",
+      "residual_risks": [
+        "Importance is confined to the stated objects/parameters; do not claim a general unsolved conjecture or publication priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The rank-one statement excludes same-size covariance blocks, whose diagonals include identical-component terms.",
+    "The p=1/n+lambda/n^2 expansion is fixed-size, not uniform for h,k growing with n; at finite n choose p in (0,1).",
+    "Material access blocker: Pittel (1990) full text not read; Oxford institutional request returned vpn_disconnected (no retry/bypass); its detailed covariance formulas may dominate the claimed critical window.",
+    "General component generating-function identities might imply the exact factorial-moment formula, so originality is best-of-knowledge for the packaged combined threshold hierarchy, not claim of inventing factorial moments."
+  ],
+  "schema_version": 1
+}

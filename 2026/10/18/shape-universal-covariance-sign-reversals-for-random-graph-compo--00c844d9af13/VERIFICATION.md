@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic derivation begins with the exact joint probability of two prescribed, disjoint connected-component events. A shared absence requirement for each of the cross-edges gives factor \( (1-p)^{-hk} \). Summation over disjoint vertex sets supplies the falling-factorial ratio. The strictly ordered threshold is derived from a rectangular average of strictly increasing summands. Fixed-size Taylor expansion gives the displayed second-order threshold and the nonzero critical-window covariance constant.
+## correctness
 
-Run `python verify_component_covariance.py` using Python 3.9 or newer and the standard library. In the completed package this executed successfully with `PASS 8676 exact pair-moment and numeric threshold checks`. The tests exhaustively enumerate graphs through six vertices and several probabilities. They do not prove the all-size statements.
+PASS
 
-The historical-priority check was not exhaustive. The 1990 tree-census full text was not accessible; the accessible abstract establishes the already-known first-order Gaussian component census. Independent mathematical audit has not been performed.
+For disjoint vertex sets of sizes h and k, two specified connected-component events share exactly hk required absent cross-edges, so P(A_S and B_T)=P(A_S)P(B_T)(1-p)^(-hk). Intersecting vertex sets cannot both be distinct components. Summing over disjoint sets gives E(C_H*C_K)=mu_H*mu_K[(n-h)_k/(n)_k](1-p)^(-hk), hence exact covariance and rank-one cross-size block, with a unique positive sign-switch p*. The negative log of 1-p* is the rectangular average of log((n-a-b)/(n-a-b-1)); strictly increasing summands establish threshold ordering whenever both size pairs feasible. Taylor expansion yields p*=1/n+(h+k-2)/(2*n*n)+O(n^-3). At p=1/n+lambda/n^2, tree-leading means E[X_j]=n*tau_j(1)+O(1) and bracket=hk(lambda-(h+k-2)/2)/n^2+O(n^-3), giving the finite critical-window covariance. Domain h!=k, h+k<=n, 0<p<1, fixed h,k for asymptotics. Independent exact-Fraction enumeration of labeled G(n,p), n=4,5,6 and 3 rational p values checked mixed factorial moments; enumeration is not the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication originality check after current primary reading and published-Resultary search. Equivalent forms, broader theorems, exact tables, and prior implication are assessed separately; residual risks are not hidden. A known tree-census asymptotic leading covariance (Pittel 1990) covers the order-n regime away from criticality. Since the critical p=1/n+lambda/n^2 cancellation requires one further expansion, the finite p sign hierarchy and O(1) critical constants are not shown to be a direct corollary of the accessible abstract; full-text uncertainty recorded.
+
+## value
+
+PASS
+
+Different connected-component types in random graphs interact even though edge indicators are independent. The complete finite-p shape-universal rank-one covariance block and strictly size-ordered sign changes give an exact dependence classification; nonzero n^-2 crossover offsets at criticality are informative for sharp finite-size fluctuation calculations. Exact factorial moments alone are familiar, but the assembled transition/eigenstructure of the cross-size block is a motivated, nontrivial mathematical fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
