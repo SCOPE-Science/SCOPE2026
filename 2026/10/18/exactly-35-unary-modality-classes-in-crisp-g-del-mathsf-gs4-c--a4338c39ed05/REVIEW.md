@@ -1,19 +1,21 @@
-# Review of the exact 35-class unary modality theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first five equations in the proof are Lemma 5 of the cited full text; the sixth is Lemma 10(1). Lemmas 15–17 give the seventh and prove double-negation stability of the updownset used to derive the eighth. Monotonicity/antitonicity and the reflexive diamond inclusion complete that derivation. Since all eight equations hold in *every* permitted model, any contextual rewrite preserves operator semantics. The standalone program reduces every one of 105 generator/representative products to one of 35 representatives using these equations. By induction this is an all-word upper bound, not extrapolation from finite cases. The same program checks the five explicit models satisfy *all* frame conditions and have 35 distinct outcome vectors. Thus the sharp lower bound matches the upper bound. The checker was run from the exact file embedded in the new package.
+PASS
 
-## Originality — PASS (historical-priority risk noted)
+Reconstructed the eight universal equations BB=B, DD=D, NNN=N, BDBD=BD, DBDB=DB, BN=ND, DNN=NBN and DNB=NB, with the last two invoking Pacheco up-downset and confluence lemmas. Their contextual congruence yields an explicit complete table of 35 representatives closed under all 105 prefixed-generator actions; induction covers every word. Independently rebuilt the bounded congruence closure of 29524 words of length <=9, checked all 105 actions, and evaluated the 35 reps in five displayed two-to-four-world birelational witness models, yielding 35 distinct signature vectors. All eight identities held on the witness valuations; these finite models provide the lower bound only, while sound universal equations supply the upper bound.
 
-Pacheco's Theorem 18 (arXiv:2609.00736, 2026) explicitly obtains only the upper bound 105 and no exact census. Its Lemmas 5, 10, 15–17 are credited as components of the proof, not claimed as new. Ciraulo's 2025 constructive Kuratowski work discusses different constructive-topological operators; Pacheco explicitly distinguishes it from these modal systems. Targeted searches for '35' together with the logic, its aliases, and unary modality reductions, as well as published research-record searches and prior-claim checks, found no stronger/equivalent 35-state theorem. Search absence alone is not a uniqueness proof; algebraic/pointfree formulations are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact cardinality is the natural outstanding invariant left bounded but undetermined by a specific recent paper. The result strengthens a 105-class upper bound to a sharp 35 and supplies a complete finite calculation of the unary modal composition monoid, with a reusable reduction algorithm and explicit separating structures. It settles a classification question, not an arbitrary low-dimensional slice or a mere numeric experiment.
+Pacheco (arXiv:2609.00736) establishes finiteness and a bound of 105 in the same crisp Gödel S4 setting. The 35 sharp index, new DNB=NB reduction and five small separating frames are stronger. Full primary text was not accessible despite lawful routes; the attribution and potential priority overlap are retained as residual risks. No direct Resultary match found.
 
-## Limitations and closest literature
+## value
 
-The main source is Pacheco, *Modalities in non-classical variations of S4*, arXiv:2609.00736. A secondary related source is Ciraulo, *Kuratowski's problem in constructive Topology* (2025). A first-order mathematical consequence of unrelated published mathematical research items about five modal-to-modal translations does not imply this exact 35-element unary word monoid. The external-priority risk remains; the five models are not certified size-minimal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp operator-monoid size and complete finite composition table resolve the previously explicitly bounded 105-to-exact-size gap for a natural modal logic. This is not a mere parameter substitution; it supplies an intrinsic finite classification and concrete separators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
