@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T15:56:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 87eb2467ef15151fb7b02c58be77e787d6fc6e4a",
+        "VERIFICATION.md a455ca0af20d5c6fc2ebafafd186c3f00aeff0dc",
+        "verify.py 2a2054a22f78ee99205dbd4ab5056cf42782e689",
+        "Bruckamp--Chimani--Juhnke Theorem 5.11 and 7.6, DOI 10.1007/s00454-024-00675-5"
+      ],
+      "evidence": [
+        "Retrieved all seven actual source files by their frozen Git blob SHAs; independently rebuilt Git tree 530808fbae97b8167cdd0478a6ee763c191cf256.",
+        "Primary open-access Bruckamp--Chimani--Juhnke Definition 5.2 and Theorem 5.11 imply all nonnegativity and alternating-sign facets for a block path.",
+        "Analytically checked a+b=e_1+e_n, the exact even/odd norms, lower and upper facet clearances, even uniform and odd alternating centers, n=2 square and n=3 unique-center boundaries.",
+        "Independently reconstructed LPs in dimensions n=2..11, all radii agreed to floating precision; for n=2..6 independently matched every predicted facet to the convex-hull facets (4,7,12,21,38); for n=3..11 verified four active physical facets of rank three at the relative-interior witnesses."
+      ],
+      "rationale": "For n>=2, the zero-inclusive interval-indicator hull has exactly the nonnegative-coordinate facets and upper facets indexed by odd-support alternating-sign vectors. Two maximal upper normals a,b satisfy a+b=e1+en, and normalized ball-facet clearances therefore bound rho by 2/(2+||a||+||b||). Their norms give the displayed even/odd formulas. The even uniform center and odd two-level center satisfy every upper and lower clearance and attain equality. At radius rho, endpoint equations and the a-equation are three independent equalities (n>=3). A small parity-appropriate interior perturbation preserves the forced contacts while making all other facets strict, showing the affine incenter dimension is n-3. The n=2 square and n=3 unique-center cases are included. The finite LP and hull comparisons are corroboration, not proof of all dimensions.",
+      "residual_risks": [
+        "Finite numerical LP checks are not the infinite proof; correctness depends on the primary exact facet classification and rigorous full-dimensional slack construction.",
+        "The zero-inclusive Euclidean coordinates are essential: a unimodular nonorthogonal transformation need not preserve ball radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruckamp--Chimani--Juhnke gives exact irredundant facets for all connected blocks polytopes but no Euclidean radii or optimal-center analysis.",
+          "Didi Biha--Kerivin--Ng gives a complete inequality system for tree connected-subgraph polytopes; its accessible article transcription focuses on facets and optimization.",
+          "The signed order polytope formula concerns facets with roots of support at most two in a different standard realization; the present polytope has facet normals of arbitrary odd support up to n."
+        ],
+        "reasoning": "A polyhedral H-description is not itself the asserted metric optimization, and general facet results supply the hypotheses rather than the explicit minimax theorem. Other inradius theorems for different polytopes do not imply the same Euclidean formula merely because their centers have positive dimension.",
+        "searches": [
+          "Bruckamp Chimani Juhnke 2024/2025 complete facet Theorem 5.11, Narayana Theorem 7.6",
+          "Didi Biha Kerivin Ng 2015 connected-subgraph polytopes of trees Section 5 Theorem 6",
+          "published signed order polytope inradius longest path Resultary record bd0fdb1bb195"
+        ]
+      },
+      "checked_sources": [
+        "Bruckamp--Chimani--Juhnke, DOI 10.1007/s00454-024-00675-5",
+        "Beck et al. 2013, DOI 10.37236/2997",
+        "Didi Biha--Kerivin--Ng 2015, DOI 10.1016/j.disc.2014.08.026",
+        "Dahl 2011, DOI 10.1016/j.laa.2011.05.026",
+        "Resultary published mathematical results, exact and related inradius queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.11 implies the alternating-sign facet system after path specialization but does not state the sharp combined endpoint-facet inball certificate.",
+          "Theorem 7.6 is an Ehrhart equivalence under a nonorthogonal transformation.",
+          "A signed-order-polytope formula has unit and two-coordinate facet roots, unlike arbitrarily long alternating normals here.",
+          "Dahl 2011 describes interval-vector polyhedral descriptions in its abstract; complete text was unavailable, so its coverage is not ruled out."
+        ],
+        "reasoning": "Known facet/optimization/Ehrhart information is a prerequisite for, not a statement of, the precise parity split plus complete incenter family. The exact original result is not a tautological corollary of a metric theorem read in the available primary sources. Dahl remains a specific priority risk.",
+        "searches": [
+          "arXiv:2304.06318 Theorem 5.11 Definition 5.2 Theorem 7.6",
+          "arXiv:1211.2039 full PDF p.2-12",
+          "Geir Dahl 2011 Polytopes related to interval vectors and incidence matrices",
+          "Resultary full record longest signed path inradius signed order polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bruckamp--Chimani--Juhnke Theorem 7.6 identifies the exact zero-inclusive interval vector hull and an integral type-A root-polytope transform; its transform does not preserve ambient Euclidean distances.",
+          "Beck et al. 2013, p.2 explicitly define the complete interval-vector hull without the zero vector."
+        ],
+        "reasoning": "Block-path connected blocks, path-edge connected subgraphs and the zero-inclusive consecutive-one hull are identical in the stated coordinates. The nonzero-only interval hull is a distinct body; root-polytope unimodular equivalence is not a Euclidean isometry.",
+        "searches": [
+          "On the Connected Blocks Polytope arXiv:2304.06318 Theorem 7.6 and Theorem 5.11",
+          "convex hull consecutive-ones interval incidence vectors Euclidean inscribed ball center",
+          "interval vector polytope inradius center zero vector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assigned title as its own record and nearby different-polytope inradius results, not an independently prior same-object table.",
+          "Beck et al. 2013 record combinatorial face/volume/Ehrhart data, not Euclidean ball tables."
+        ],
+        "reasoning": "A published radius sequence or incenter-dimension table could preempt a claimed new exact fact; no such same-object source was identified in actual queries. Absence from search results is not proof of novelty.",
+        "searches": [
+          "Resultary search Euclidean inradius Chebyshev centers zero-inclusive convex hull interval indicator",
+          "Resultary search positive type A root polytope Narayana Euclidean ball",
+          "connected blocks polytope inradius parity radical table",
+          "interval vector polytope inscribed sphere table"
+        ]
+      },
+      "rationale": "The exact zero-inclusive connected-block path polytope has been studied for facets and Narayana/Ehrhart data by Bruckamp--Chimani--Juhnke. The published complete facet list is a critical mathematical input, but its theorems do not compute the Euclidean inball or dimension of the locus of optimal centers. Beck--De Silva--Dorfsman-Hopkins--Pruitt--Ruiz explicitly use a nonzero-only interval hull and study volume, Ehrhart and face data. The earlier connected-subgraph tree-polytope descriptions do not themselves give a Euclidean clearance optimum. Theorem-specific and alias searches did not find independently prior formulas; this is a best-of-knowledge assessment, not proof of historical novelty, and Geir Dahl 2011 remains an inaccessible full-text risk.",
+      "residual_risks": [
+        "Geir Dahl (2011) complete article could not be read and might contain a broader implicit or explicit metric theorem; complete text could not be obtained.",
+        "The full Didi Biha--Kerivin--Ng (2015) original was not directly retrievable, though substantial publisher text was searchable; do not infer whole-document noncoverage from excerpts.",
+        "Equivalent historic Euclidean formulas under consecutive-one hull, nonorthogonal root coordinates with transported quadratic norm or Chebyshev-center terminology could be missed by searches.",
+        "Finite LP checks prove only their tested dimensions; the all-dimensional proof relies on complete facets and algebraic inequalities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the required complete facet classification, Gorenstein and Narayana descriptions, not an exact Euclidean inball or all-center locus.",
+          "evidence": "Definition 5.2 gap-negativity and Theorem 5.11 facets; Theorem 7.6 explicit zero-inclusive path vertex set and unimodular root equivalence.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-024-00675-5; arXiv:2304.06318",
+          "material_read": "Full accessible open-access HTML: Sections 1, 3, 5 (Definition 5.2, Lemmas 5.7-5.8, Theorem 5.11) and 7 (Theorems 7.2 and 7.6), mathematical proofs and full-page search for radius/Euclidean.",
+          "method": "Read primary publisher HTML and compare the statements and proof implications.",
+          "title": "On the Connected Blocks Polytope",
+          "trigger": "Exact same vertices and all-dimensional facet theorem for block paths"
+        },
+        {
+          "assessment": "Explicitly excludes the zero vector from its complete-interval polytope and focuses on lattice and combinatorial data, not Euclidean inscribed balls.",
+          "evidence": "Page 2 defines P_n(I_[n]) as convex hull of all nonzero interval vectors; Theorem 1 matches Ehrhart polynomials with root polytopes.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p22/pdf/; arXiv:1211.2039",
+          "material_read": "Accessible 12-page PDF: introduction, all theorem statements, Sections 2-6 on root correspondence, interval-vector families and volume/face data, rendered pages 2,4,12, whole-PDF searches inradius/Chebyshev/Euclidean/ball.",
+          "method": "Primary PDF text plus rendered page inspection.",
+          "title": "The combinatorics of interval-vector polytopes",
+          "trigger": "Exact interval-vector alias and potential older full-dimensional metric theorem"
+        },
+        {
+          "assessment": "Available material establishes tree and cycle complete polyhedral descriptions, no direct evidence of this Euclidean formula; unread full text remains a priority risk, not declared wholly noncovering.",
+          "evidence": "Section 5 summary says the authors give complete tree/cycle polyhedral characterizations; Section 2 differentiates zero-inclusive CSP from CSP-prime.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2014.08.026",
+          "material_read": "Indexed primary publisher article transcription: title, abstract, model and zero-inclusive CSP definition, introduction, Sections 2 and 5 outlines and theorem topics; publisher full text not directly readable in current access.",
+          "method": "Publisher search-index transcription; arXiv/OA attempts and open literature discovery and publisher text review.",
+          "title": "Polyhedral study of the connected subgraph problem",
+          "trigger": "Earlier full tree-polytope facet coverage and exact interval-edge incidence alias"
+        },
+        {
+          "assessment": "Full priority comparison cannot be made from abstract; possible older equivalent metric formulation is retained as residual risk.",
+          "evidence": "Abstract describes complete linear descriptions through incidence-matrix transformations; contains no Euclidean radius claim in accessible text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.05.026",
+          "material_read": "Bibliographic abstract on interval vectors and acyclic incidence matrices only; arXiv/preprint and lawful-OA searches did not supply full text, full text remained inaccessible.",
+          "method": "OA/arXiv discovery, abstract inspection and open literature discovery and abstract inspection.",
+          "title": "Polytopes related to interval vectors and incidence matrices",
+          "trigger": "Earlier interval-vector polyhedral theory with possible equivalent realization"
+        },
+        {
+          "assessment": "Not a covering formula: signed-order facets are unit/two-coordinate roots with fixed box facets, whereas the present path interval body has arbitrarily long alternating normals.",
+          "evidence": "Its equations (1)-(4),(9)-(12) restrict its input to signed order polytope systems with minimal type-B root normals of support at most 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195",
+          "material_read": "Complete public RESULT.md theorem, assumptions, proof, signed-root facet description and limitations.",
+          "method": "Retrieved public published Resultary record and compared facet-normal support and Euclidean realization.",
+          "title": "A longest signed path gives the exact Euclidean inradius of every signed order polytope",
+          "trigger": "Published recent broad-looking Euclidean inradius theorem with nonunique centers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bruckamp--Chimani--Juhnke, DOI 10.1007/s00454-024-00675-5",
+        "Beck et al., DOI 10.37236/2997",
+        "RESULT.md frozen at 87eb2467ef15151fb7b02c58be77e787d6fc6e4a"
+      ],
+      "evidence": [
+        "Natural full-family Euclidean metric problem for the canonical zero-inclusive connected-block path polytope studied previously for facet and Ehrhart structure.",
+        "Parity-dependent sharp inradius and unexpectedly nonunique affine codimension-3 incenter set for all n>=3; not a routine rebranding of facet count or lattice-volume data."
+      ],
+      "rationale": "The zero-inclusive interval-incidence body is a canonical block-path connected-subgraph polytope with a substantial combinatorial literature. Its Euclidean inradius is a natural exact invariant not preserved by its familiar unimodular root-polytope equivalence. A uniform all-dimensional radius formula with a nontrivial parity split and an (n-3)-dimensional incenter family answers a meaningful, intrinsic metric question; the double-facet tangency certificate and relative-interior analysis reveal the geometry beyond tabulating small cases. No new facet-classification theorem, weighted-generalization, or combinatorial type of the incenter polytope is claimed.",
+      "residual_risks": [
+        "The certificate uses elementary inequalities once nonstandard complete facets are known; the contribution is a motivated exact metric structural classification, not a new general facet theorem.",
+        "No statement about branched block graphs, affine-distorted embeddings or incenter-polytope vertices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Odd/even formula applies only to Euclidean zero-inclusive interval-incidence realization, not arbitrary affine transforms or general graph block trees.",
+    "Historical priority is best-of-knowledge; Dahl 2011 full text unavailable, and the 2015 connected-subgraph paper could not be read fully by direct publisher access.",
+    "Finite computation confirms examples rather than universal quantifiers.",
+    "No GitHub write or research acceptance publication performed; guarded operation plan is staged for separate validation."
+  ]
+}

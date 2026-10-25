@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The arbitrary-dimensional mathematical proof is in `RESULT.md`. This verification record reports reproducible, supporting calculations; it does not substitute for that proof.
+# Independent mathematical audit
 
-Critical symbolic premises: the zero-inclusive interval-incidence polytope has nonnegative coordinate facets and all odd-length alternating-sign facets \(\langle\alpha,x\rangle\le1\). The two distinguished facet normals satisfy \(a+b=e_1+e_n\). Their combined clearances prove the global bound \(\rho(2+\|a\|+\|b\|)\le2\). The even uniform center and odd two-level center attain that bound. The full center locus is the feasible solution set of the radius-fixed clearance inequalities, and three forced independent equalities leave affine dimension at most \(n-3\). Explicit small perturbations give relative interior witnesses for every dimension \(n\ge4\), proving equality; \(n=3\) has a unique center.
+## correctness
 
-Run the standalone file using `python verify.py` in an environment with `numpy` and `scipy`. It generates all predicted facets through dimension \(14\), reconstructs their normal lengths, independently solves the full Euclidean inball linear program, verifies the symbolic center witnesses and the rank of the three active equations, and compares the predicted facet set with a convex hull independently constructed from all interval vertices through dimension \(6\). Its successful output is:
+PASS
 
-`VERIFY_OK block-path-insphere n=2..14 full_facet_lp=yes center_witnesses=yes incenter_dim=n-3 convex_hull_facets=n2..6`
+For n>=2, the zero-inclusive interval-indicator hull has exactly the nonnegative-coordinate facets and upper facets indexed by odd-support alternating-sign vectors. Two maximal upper normals a,b satisfy a+b=e1+en, and normalized ball-facet clearances therefore bound rho by 2/(2+||a||+||b||). Their norms give the displayed even/odd formulas. The even uniform center and odd two-level center satisfy every upper and lower clearance and attain equality. At radius rho, endpoint equations and the a-equation are three independent equalities (n>=3). A small parity-appropriate interior perturbation preserves the forced contacts while making all other facets strict, showing the affine incenter dimension is n-3. The n=2 square and n=3 unique-center cases are included. The finite LP and hull comparisons are corroboration, not proof of all dimensions.
 
-The finite computations are not an infinite proof and do not independently validate novelty or the scientific value assessment.
+## originality
+
+PASS
+
+The exact zero-inclusive connected-block path polytope has been studied for facets and Narayana/Ehrhart data by Bruckamp--Chimani--Juhnke. The published complete facet list is a critical mathematical input, but its theorems do not compute the Euclidean inball or dimension of the locus of optimal centers. Beck--De Silva--Dorfsman-Hopkins--Pruitt--Ruiz explicitly use a nonzero-only interval hull and study volume, Ehrhart and face data. The earlier connected-subgraph tree-polytope descriptions do not themselves give a Euclidean clearance optimum. Theorem-specific and alias searches did not find independently prior formulas; this is a best-of-knowledge assessment, not proof of historical novelty, and Geir Dahl 2011 remains an inaccessible full-text risk.
+
+## value
+
+PASS
+
+The zero-inclusive interval-incidence body is a canonical block-path connected-subgraph polytope with a substantial combinatorial literature. Its Euclidean inradius is a natural exact invariant not preserved by its familiar unimodular root-polytope equivalence. A uniform all-dimensional radius formula with a nontrivial parity split and an (n-3)-dimensional incenter family answers a meaningful, intrinsic metric question; the double-facet tangency certificate and relative-interior analysis reveal the geometry beyond tabulating small cases. No new facet-classification theorem, weighted-generalization, or combinatorial type of the incenter polytope is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
