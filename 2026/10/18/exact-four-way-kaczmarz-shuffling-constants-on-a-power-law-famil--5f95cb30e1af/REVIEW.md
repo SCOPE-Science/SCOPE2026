@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full-rank paired-row construction gives Gram eigenvalues \(1\pm c_j\). Rank-one orthogonal-projector products turn the squared Frobenius error into the exact count of row-label switches. SS, RR and FlipFlop have explicit switch counts; the IID count is binomial, with conditional independent fair switches. The finite inequalities follow from \(c^2\le h\le1\), \(h\ge c\), Jensen, and positivity. A monotone quadrature estimate of order \(N^{-1}\), dominated convergence after \(\lambda=v/t\), and \(t^\beta/N\to0\) establish all four leading constants. The standalone program passed 414 checks, including rational exhaustive cases. Finite checks are supporting evidence only.
+## correctness
 
-## Originality
-PASS, subject to ordinary unindexed-literature risk. The primary 2026 power-law SGD paper gives precise Gaussian-model constants at exponent \(1/2\) but does not contain the present coherent-pair four-policy finite formulas or the exponent-dependent \(2^\beta\) advantage. Earlier SS-versus-RR matrix inequalities and a general RR rate theorem do not imply the stated four-way constants. Published mathematical research records were searched for aliases, paired row projections, gamma constants and four-policy shuffling profiles; the closest two-row Kaczmarz record concerns a different relaxed cyclic finite-horizon operator-norm question. A result hidden in broader alternating-projection or shuffling literature remains possible.
+PASS
 
-## Value
-PASS. The 2026 motivating paper explicitly asks how sampling constants behave for general power-law spectral edges. The construction supplies a fully solvable non-Gaussian benchmark with finite-sample comparisons for four widely used policies, including RR, and computes how the strong shuffle advantage scales with the spectral exponent. It isolates the role of row coherence in addition to the spectral CDF. It neither claims that the local two-projection identity is new nor claims universality from one family.
+Pinned RESULT.md, verify_pair_shuffling.py inspected. Each 2D row pair has residual rank-one projectors whose Frobenius product squared is c_j^(2 w) with w equal to number of row-label switches. SS has 2t−1 switches; FF t; RR t plus t−1 independent Bernoulli(1/2) switches, yielding h_j^(t−1). For IID the pair count K~Binomial(2Nt,1/N), with conditional E[c^(2w)|K≥1]=h^(K−1), K=0 gives 2, giving a_j,b_j finite formula. Jensen and c²≤h, h≥c prove finite inequalities. Monotone Riemann-sum error O(1/N), Laplace v=tλ scaling and exponential domination produce Γ(β+1)/(2(k t)^β) with t^β/N→0. Independent exact rational binomial pair calculation checked five (N,t,c) settings. These finite checks do not imply all-β limits; analytic domination does.
 
-## Scope and residual risks
-The family is paired, consistent, row-equilibrated, and uses exact orthogonal Kaczmarz projections with isotropic initialization. The limit requires growing dimension and epochs jointly. The source paper's formal positive-gap conjecture is not disproved; only an exponent-independent numerical interpretation of its Gaussian ratio is excluded for this family. Further literature may contain an equivalent paired-row aggregation or asymptotic constant calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+2026 Ahle–Bulatov–De Sa–Ré v2 is closest full text, deriving Gaussian-design spectral-edge β=1/2 error constants (SS/FF/IID) and a qualitative shuffling gap conjecture; its quantitative √2 in that model is neither asserted universal nor refuted. The audited coherent 2-row full-rank family has exact finite formulas including RR for any β>0, and gives exponent-indexed ratio 2^β. Two-factor rearrangement work of Yun–Sra–Jadbabaie and broad Liu RR convergence bounds do not imply these four traces and powerlaw constants.
+
+## value
+
+PASS
+
+The row-normalized fully consistent paired block family disentangles spectral-edge exponent from row-coherence geometry while giving exact finite constants for four widely used sampling policies; it quantifies a genuine dependence of the IID/SS advantage on β, an interpretable shuffling-performance benchmark rather than a textbook inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
