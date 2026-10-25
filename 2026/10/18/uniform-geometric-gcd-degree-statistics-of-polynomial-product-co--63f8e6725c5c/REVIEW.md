@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source model is specified with nonzero monic polynomials, ordered quadruples, all prime powers and every nonnegative cutoff. Unique factorization identifies two gcds and one coprime pair, whose cardinality follows from the exact polynomial Möbius series. Summing its degrees yields the explicit joint and total counts. A comparison of the normalized joint weights to an independent uniform–geometric law gives the stated total-variation bound through two verified geometric-series estimates. The included finite verifier independently reconstructs the statistics in small finite fields and checks further exact formulas. Finite testing alone is not treated as proof.
+## correctness
 
-**Originality — PASS, with meaningful residual uncertainty.** Afifurrahman's 2026 Theorem 2.1 and equation (4.4) are the closest precursor and provide a powerful coprime parametrization for the same scalar energy. They do not state the two-dimensional gcd-degree enumeration or the quantitative joint independence law. Theorem 2.2 gives four prescribed entry degrees rather than gcd-degree fibers; Section 7 fixes a nonzero shift. Comparisons to function-field divisor correlation literature and searches by aliases, parameter forms and rank-one matrix interpretations did not identify the new joint law. The numerical total count is known and not claimed as new. Because the refinement uses an established parametrization, an unstated or unindexed equivalent result remains possible; absence of a search hit is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The gcds on opposite diagonals encode the natural common factors of a singular polynomial matrix. The exact two-dimensional distribution refines a recently studied multiplicative-energy invariant, and the explicit, uniform total-variation error establishes a non-obvious asymptotic independence phenomenon separating a macroscopic uniform scale from a tight signed geometric imbalance. This is a structural probability law, not merely a recomputation of the scalar energy.
+For nonzero monic F_q[T] factors under the SAME cutoff d, the parameterization (f1,f2,f3,f4)=(gu,hv,gv,hu) with monic gcd(u,v)=1 is unique; deg(g)=a, deg(h)=b, and residual degrees <=d-max(a,b). Polynomial Mobius series 1-qz gives the exact coprime-pair count C_L=(q^(2L+1)-1)/(q-1), including L=0. Thus N(a,b)=(q^(2d+1-|a-b|)-q^(a+b))/(q-1) and the stated summed scalar energy follow. For (A,J=A-B), the unnormalized joint weight W is pointwise bounded by R=q^(-|J|); boundary omitted mass <=2q/(q-1)^2 and interior correction <=q/(q-1)^2. Normalizing R of mass (d+1)(q+1)/(q-1) yields the stated TV upper bound 3q/((q²-1)(d+1)), uniformly in q,d; weak limit follows for fixed q. Independent multiplication+gcd enumeration matched every degree-pair count for F2 d=0..3 and F3 d=1..2. Finite tests do not prove infinite field/degree scope.
 
-**Limitations.** Monic nonzero factors and common degree cutoff only; no optimality for the error constant. Full historical uniqueness and outside independent assessment remain unestablished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS concerns ONLY the 2D gcd-degree fiber formula plus uniform quantitative asymptotic independence, NOT the previously published scalar total energy or standard coprime parametrization. Afifurrahman 2026 Section 2 counts the same scalar collision total and four individual factor degrees; its Section 7 stratifies a distinct nonzero-shift problem, and Section 4 employs the related gcd-free decomposition. Neither the inspected statement nor its proof gives this joint gcd law or bilateral-geometric TV rate. Shifted divisor work has different ensemble/cutoff. This could be an easily derived specialization of a known technique, so historical equivalent not excluded.
+
+## value
+
+PASS
+
+The gcd degrees of opposing entries are canonical invariants of singular polynomial 2×2 matrices in an already studied restricted multiplicative-energy ensemble. Their complete joint finite law and uniform O(1/d) total-variation approximation isolate one macroscopic uniform coordinate from a tight geometric difference. The result contains informative conditional structure genuinely unrecoverable from the known scalar energy and is mathematically useful even though the coprime technique is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
