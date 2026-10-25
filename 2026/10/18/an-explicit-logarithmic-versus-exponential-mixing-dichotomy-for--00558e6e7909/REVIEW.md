@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The chain is strictly positive at finite sensitivity, so existence and uniqueness of its stationary law follow from finite-state Markov theory. The shared-signal/uniform-agent coupling bounds the expected next-count separation by \(eta\gamma/2\) times the current separation, giving the claimed logarithmic-time upper bound. In the second regime, the worst external signal still favors the current near-consensus: binomial Chernoff bounds establish exponentially small exit probabilities and an exponential lower bound for worst-case mixing. The parameters, domains, integer rounding and independence assumptions are specified. A standalone checker re-evaluates finite matrices, but is not substituted for proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The motivating complete primary manuscript (arXiv:2507.06661v1) gives high-sensitivity threshold calculations, simulations, and a qualitative observation of time/ensemble disagreement; it does not state a finite-population logarithmic-versus-exponential total-variation mixing-time theorem with constants uniform over the common signal bias. Comparison with established Curie–Weiss Glauber mixing results recognizes their exponential time scales but a different single-site mechanism. The proofs apply standard coupling and binomial concentration techniques; an uninspected broader synchronous-heatbath or random-field result could subsume these parameter bounds, so absolute novelty is not certified.
+PASS
 
-## Mathematical value — PASS
-The result distinguishes literal stationarity from dramatically delayed equilibration in a concrete, previously published social-response model, giving an explicit population-size separation between rapid mixing and metastable consensus. The result supplies a rigorous explanation for how finite trajectories can exhibit apparently broken ergodicity without a finite-state loss of ergodicity; it does not claim a sharp model-wide phase boundary.
+PASS: The transition probability is logistic in the count and shared signal; conditional on a common signal, the count update is binomial. For finite β all individual update probabilities lie strictly between zero and one, so the finite chain is irreducible/aperiodic and has a unique stationary law. Since σ′≤1/4, the expected next-count distance under the monotone shared-signal coupling contracts by βγ/2; iterating and comparing to stationarity gives the stated logarithmic bound when βγ<2. In the high-conformity region, the payoff difference remains positive near consensus even under the worst signal, giving a uniform small exit probability from disjoint near-consensus sets. The binomial Chernoff–Cramér bound and union bound imply TV separation until exponential time; constants and domains are stated. The finite checker tests sample kernels but does not establish the all-N result.
 
-## Limitations
-The conditions are sufficient, not necessary. Standard probabilistic tools are credited. No result is established for memory-based decisions or asynchronous, sparse-network updating. The lower exponent is an explicit bound, not a sharp escape-rate constant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.
+
+## value
+
+PASS
+
+PASS: The published model’s apparent loss of ergodicity can be misread as a literal finite-state stationary-law failure. The claim gives a mathematically motivated correction: finite-N uniqueness together with explicit, qualitatively different relaxation-time bounds in two regimes. The constants are uniform over signal bias and the metastable lower bound is rigorous rather than inferred from finite trajectories. It is a meaningful quantitative distinction, not merely a standard uniqueness observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T18:50:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The transition probability is logistic in the count and shared signal; conditional on a common signal, the count update is binomial. For finite β all individual update probabilities lie strictly between zero and one, so the finite chain is irreducible/aperiodic and has a unique stationary law. Since σ′≤1/4, the expected next-count distance under the monotone shared-signal coupling contracts by βγ/2; iterating and comparing to stationarity gives the stated logarithmic bound when βγ<2. In the high-conformity region, the payoff difference remains positive near consensus even under the worst signal, giving a uniform small exit probability from disjoint near-consensus sets. The binomial Chernoff–Cramér bound and union bound imply TV separation until exponential time; constants and domains are stated. The finite checker tests sample kernels but does not establish the all-N result.",
+      "reason": "PASS: The transition probability is logistic in the count and shared signal; conditional on a common signal, the count update is binomial. For finite β all individual update probabilities lie strictly between zero and one, so the finite chain is irreducible/aperiodic and has a unique stationary law. Since σ′≤1/4, the expected next-count distance under the monotone shared-signal coupling contracts by βγ/2; iterating and comparing to stationarity gives the stated logarithmic bound when βγ<2. In the high-conformity region, the payoff difference remains positive near consensus even under the worst signal, giving a uniform small exit probability from disjoint near-consensus sets. The binomial Chernoff–Cramér bound and union bound imply TV separation until exponential time; constants and domains are stated. The finite checker tests sample kernels but does not establish the all-N result.",
+      "sources": [
+        "RESULT.md at pinned commit",
+        "verification/checker source and saved output inspected; not executed in this run"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "arXiv:2507.06661v1",
+        "Resultary queries for synchronous opinion-chain mixing and common external signals",
+        "Classical Curie–Weiss/Glauber mixing literature as a distinct-mechanism comparison"
+      ],
+      "checks": {
+        "broader_coverage": {
+          "evidence": [
+            "The inspected model paper does not prove finite-N mixing-time bounds. Classical Glauber/Curie–Weiss chains use different single-site/asynchronous dynamics and do not by themselves imply these count-chain constants."
+          ],
+          "reasoning": "Standard coupling and concentration methods are ingredients, not a prior statement of this particular bias-uniform dichotomy. An uninspected broader synchronous heat-bath or random-field theorem remains a priority risk.",
+          "searches": [
+            "Resultary query: synchronous heat-bath/common random field mixing time exponential lower bound",
+            "Resultary query: Curie–Weiss Glauber mixing versus synchronous logistic count chain"
+          ]
+        },
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The prior paper’s claims concern high-sensitivity behavior, a mean-field stability threshold and finite simulations; it does not derive the stated total-variation mixing bounds."
+          ],
+          "reasoning": "Positivity and uniqueness are elementary consequences of the finite transition kernel, but the logarithmic and exponential quantitative regimes are not implied by the inspected paper. Best-of-knowledge originality passes with a residual risk for broader synchronous-chain literature.",
+          "searches": [
+            "arXiv:2507.06661v1, especially model definitions and sections 3–5",
+            "Targeted Resultary queries above"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "De Domenico, Caccioli and Livan, “Peer influence breaks ergodicity in an opinion dynamics model with external information,” arXiv:2507.06661v1, sections 2–5: same binary-state, peer-payoff and external-signal model, with mean-field threshold analysis, simulations and time/ensemble disagreement.",
+            "The full text describes high-sensitivity thresholds and memory variants but does not state finite-N total-variation mixing bounds with explicit uniform constants."
+          ],
+          "reasoning": "The underlying model and qualitative metastable/ergodicity-breaking phenomenon are prior. The assessed claim is a quantitative finite-population mixing theorem with a logarithmic contraction regime and an exponential lower-bound regime, not a renaming of the qualitative threshold.",
+          "searches": [
+            "Resultary query: synchronous binary opinion model shared signal finite-population total-variation mixing time",
+            "Resultary query: peer influence logarithmic versus exponential mixing dichotomy common environmental signal",
+            "arXiv:2507.06661v1 full text, model sections 2–5 and Appendix A"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "No direct Resultary record matching the exact pair of bounds and their parameter conditions was returned."
+          ],
+          "reasoning": "No exact database/table entry for the claimed mixing-time dichotomy was identified; search failure is not proof of novelty.",
+          "searches": [
+            "Resultary query: “finite N” “total variation” “shared external signal” opinion mixing",
+            "Resultary query: βγ<2 logistic coupling opinion chain metastability"
+          ]
+        }
+      },
+      "rationale": "Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.",
+      "reason": "Best-of-knowledge comparison supports non-coverage by inspected sources; source-specific evidence, implications and residual risks are recorded below. This is not a certification of independent priority.",
+      "residual_risks": [
+        "A broader synchronous heat-bath or random-field chain result could dominate the sufficient bounds; no such decisive coverage was found in the inspected sources.",
+        "The theorem gives sufficient regimes, not a sharp transition line or sharp escape-rate constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model/qualitative phenomenon; no finite-N TV mixing-time dichotomy or explicit contraction/Chernoff constants found.",
+          "evidence": [
+            "Model/payoff definitions at arXiv HTML lines 50–64; high-sensitivity and simulation discussion lines 85–137; discussion lines 163–169."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.06661v1",
+          "material_read": "Full arXiv HTML: model implementation, high/low sensitivity, stability analysis, network section, discussion and Appendix A.",
+          "method": "Compared the exact update rule and theorem statements, not only the title.",
+          "title": "Peer influence breaks ergodicity in an opinion dynamics model with external information",
+          "trigger": "Same underlying social-response model and apparent ergodicity-breaking phenomenon."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The published model’s apparent loss of ergodicity can be misread as a literal finite-state stationary-law failure. The claim gives a mathematically motivated correction: finite-N uniqueness together with explicit, qualitatively different relaxation-time bounds in two regimes. The constants are uniform over signal bias and the metastable lower bound is rigorous rather than inferred from finite trajectories. It is a meaningful quantitative distinction, not merely a standard uniqueness observation.",
+      "reason": "PASS: The published model’s apparent loss of ergodicity can be misread as a literal finite-state stationary-law failure. The claim gives a mathematically motivated correction: finite-N uniqueness together with explicit, qualitatively different relaxation-time bounds in two regimes. The constants are uniform over signal bias and the metastable lower bound is rigorous rather than inferred from finite trajectories. It is a meaningful quantitative distinction, not merely a standard uniqueness observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2507.06661v1",
+    "Resultary queries for synchronous opinion-chain mixing and common external signals",
+    "Classical Curie–Weiss/Glauber mixing literature as a distinct-mechanism comparison"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The parameter conditions are sufficient, not necessary; no sharp transition curve is claimed.",
+    "No theorem is claimed for memory-based, asynchronous or sparse-network variants.",
+    "Uninspected broader synchronous-chain literature remains a priority risk."
+  ]
+}
