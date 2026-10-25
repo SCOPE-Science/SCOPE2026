@@ -1,15 +1,21 @@
-# Review: sharp mean-width interval for tree symmetric edge polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-function identity follows directly from the signed-edge vertices; Gaussian radial normalization uses the intrinsic dimension \(n-1\), not the ambient dimension \(n\). Reduced tree-incidence determinants prove both lattice equivalence and the exact Euclidean volume. A uniform conditional-truncation argument gives the lower Gaussian maximum bound, a Gaussian exponential-moment inequality gives the upper bound, disjoint path edges certify sharpness, and a second-moment bound justifies convergence of the broom expectations. The packaged checker corroborates Gram determinants for all 1,440 labeled trees through six vertices and runs finite support/maximum tests. Finite sampling is not a proof of the limit theorem.
+## correctness
 
-## Originality — PASS, with bibliographic limits
-The tree crosspolytope equivalence is explicitly credited to D'Alì–Delucchi–Michałek (arXiv:1910.05193, Example 2.3). The more general graphic-matroid equivalence is credited to D'Alì–Juhnke-Kubitzke–Koch (arXiv:2307.04933, Theorem 4.6), and the Gaussian mean-width identity is classical, represented by Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479). Their relevant full-text sections and results were inspected. The checked literature and mathematical findings include mean-width invariance for *graphical zonotopes*, an inapplicable different convex construction, and inradius formulae for tree symmetric-edge polytopes; no statement subsuming the exact interval of limit constants was identified. Earlier equivalent wording in graph-indexed Gaussian extreme-value theory is a residual risk, not excluded by searching.
+PASS
 
-## Mathematical value — PASS
-Canonical tree root polytopes are indistinguishable under the entire lattice/Ehrhart and face-vector data, and even their Euclidean volumes coincide. The sharp classification of every possible leading-order intrinsic Euclidean mean width shows precisely how much geometric information those invariants omit. The interval is natural (all trees on a fixed number of vertices) rather than an arbitrarily selected parameter slice. The power-law broom interpolation and sharp universal lower bound do not follow directly from the cited lattice equivalence or regular-polytope mean-width identities. There is no claim of a finite-dimensional optimum classification.
+Incidence columns for tree edges form an integral basis of A_{n-1}; reduced determinants ±1 give lattice equivalence and Cauchy–Binet determinant n, so equal intrinsic volume. The support function is max edge |x_i−x_j|. Project i.i.d. normal coordinates onto sum-zero H and separate the independent radial chi_{n-1} variable to obtain the exact Gaussian width formula. For the lower bound select a fixed neighbor of the |Z_i| maximum; condition on the maximizing index/magnitude and use truncated half-normal domination to bound neighbor expectation by sqrt(2/pi). Gaussian mgf of 2(n-1) variance-two signed increments bounds the upper maximum by 2sqrt(log(2n-2)); independent disjoint path edges reach it. Stars reach sqrt(2log n). A broom with n^alpha handle has scaled max 2sqrt(alpha) for alpha≥1/2, and an integrated union-tail E[M²]≤4log(2n)+4 guarantees uniform integrability for expectations, yielding all constants 4sqrt(alpha).
 
-## Limits
-The result is self-reviewed, not independently audited, and literature comparisons cannot prove absence of an unindexed equivalent theorem. The limiting constants do not specify the order-one finite-dimension corrections or all high-dimensional distributional behavior.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+D’Alì–Delucchi–Michałek Example 2.3 already proves tree root polytopes are lattice crosspolytopes, and Kabluchko–Litvak–Zaporozhets supply the generic Gaussian mean-width representation. Neither yields the graph-indexed edge-difference extremal **limit-set** over all trees. A Resultary finding on tree graphical zonotopes gives width variance for Minkowski sums; those are different from the convex-hull root polytopes (max vs sum of absolute differences), so it cannot imply this theorem.
+
+## value
+
+PASS
+
+It precisely measures Euclidean geometric information invisible to face vectors, Ehrhart polynomials, lattice equivalence and even Euclidean volume, over the natural collection of all trees. The continuum and sharp endpoints are mathematically motivated exact asymptotic invariants, not arbitrary finite slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

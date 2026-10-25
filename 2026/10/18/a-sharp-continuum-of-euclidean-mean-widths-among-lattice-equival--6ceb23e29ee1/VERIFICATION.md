@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The proof establishes all-dimensional claims analytically using incidence-matrix minors, intrinsic Gaussian polar decomposition, elementary Gaussian maximal inequalities, independent disjoint path increments, and uniform integrability. Exact finite-dimensional determinant checks are not substituted for any infinite claim.
+# Independent mathematical audit
 
-`CHECK.py` is a complete standard-library Python 3 program. Run `python3 CHECK.py` in a directory containing this file. A successful run prints the Prüfer-tree count, three finite Monte Carlo triplets, and `PASS`.
+## correctness
 
-Observed check on the supplied bytes: 1,440 Prüfer-tree Gram determinants verified, all 2,250 sampled Gaussian support comparisons verified, and deterministic star/broom/path exploratory estimates printed for three dimensions (128, 512, 2048). Those estimates are approximate and are *not* certificates of asymptotic constants. Gaussian sample generator seed: 20261017.
+PASS
 
-The identity \(w(P_T)=2\mathbb E M_T/a_{n-1}\) uses the chi radial mean in dimension \(n-1\). The lower bound's chosen neighbor is fixed as a function of the maximizing index and does not depend on the Gaussian sample values. The broom path length is \(\lfloor n^\alpha\rfloor\) for \(\alpha<1\); at the endpoint \(\alpha=1\), use the path, not that formula. These distinctions are essential to the claim.
+Incidence columns for tree edges form an integral basis of A_{n-1}; reduced determinants ±1 give lattice equivalence and Cauchy–Binet determinant n, so equal intrinsic volume. The support function is max edge |x_i−x_j|. Project i.i.d. normal coordinates onto sum-zero H and separate the independent radial chi_{n-1} variable to obtain the exact Gaussian width formula. For the lower bound select a fixed neighbor of the |Z_i| maximum; condition on the maximizing index/magnitude and use truncated half-normal domination to bound neighbor expectation by sqrt(2/pi). Gaussian mgf of 2(n-1) variance-two signed increments bounds the upper maximum by 2sqrt(log(2n-2)); independent disjoint path edges reach it. Stars reach sqrt(2log n). A broom with n^alpha handle has scaled max 2sqrt(alpha) for alpha≥1/2, and an integrated union-tail E[M²]≤4log(2n)+4 guarantees uniform integrability for expectations, yielding all constants 4sqrt(alpha).
 
-No external independent audit, human validation, or formal proof assistant certification has been performed.
+## originality
+
+PASS
+
+D’Alì–Delucchi–Michałek Example 2.3 already proves tree root polytopes are lattice crosspolytopes, and Kabluchko–Litvak–Zaporozhets supply the generic Gaussian mean-width representation. Neither yields the graph-indexed edge-difference extremal **limit-set** over all trees. A Resultary finding on tree graphical zonotopes gives width variance for Minkowski sums; those are different from the convex-hull root polytopes (max vs sum of absolute differences), so it cannot imply this theorem.
+
+## value
+
+PASS
+
+It precisely measures Euclidean geometric information invisible to face vectors, Ehrhart polynomials, lattice equivalence and even Euclidean volume, over the natural collection of all trees. The continuum and sharp endpoints are mathematically motivated exact asymptotic invariants, not arbitrary finite slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
