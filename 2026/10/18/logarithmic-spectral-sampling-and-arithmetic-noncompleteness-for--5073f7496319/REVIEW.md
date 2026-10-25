@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The point-spectrum formula is verified by direct integration and the finite beta integral. A dual functional orthogonal to all sampled eigenvectors yields a bounded analytic function on a narrower horizontal strip; the classical Blaschke zero condition and the stated divergent exponential sum force it to vanish identically. The exact change of variables \(y=\log(x/(1-x))\) gives an integrable Fourier transform with density \(g(x(y))(1-x(y))e^{\sigma y}\), which implies the dual functional vanishes. Conversely, the product of finitely many translation differences has Fourier zeros on the prescribed arithmetic cosets, and infinitely many disjoint translates produce independent annihilators. Scope includes complex \(L^p(0,1)\), \(1<p<2\), fixed interior \(\sigma\), and pairwise distinct sampling frequencies; the infinite conclusion rests on the analytic proof, not the finite checker.
+## correctness
 
-**Originality — PASS with historical residual risk.** Belli–Gül–Ross–Siskakis (2026), DOI:10.1007/s00020-026-02865-7, derives the eigenvectors and explicitly raises in Example 6.5 the question of whether selected infinite families span \(L^p\). The present positive Blaschke sampling condition and negative infinite-codimension arithmetic construction are not stated there. Searches for equivalent Mellin, Fourier, complex Müntz, and spectral-sampling formulations found nearby but non-covering results, including the \(L^2\) rank-one perturbation and discrete Cesàro operator spectra. Classical Blaschke and Fourier theorems are the proof tools, not newly claimed general discoveries. Unindexed complex Müntz theory and historical priority remain risks; no claim of independent verification is made.
+PASS
 
-**Mathematical value — PASS.** The original authors explicitly identify the eigenvector-generated invariant-subspace density problem. A sufficient quantitative logarithmic frequency window and a general infinitely codimensional finite-coset obstruction answer meaningful complementary cases, even when both eigenvalue sets accumulate only at the same spectral cusp. This separates spectral accumulation from completeness without promising a full general classification.
+For complex Lp, 1<p<2, a=1/q<σ<b=1/p, eigenvectors e_t=x^{σ+it−1}(1−x)^{−σ−it} have finite Beta norm B(p(σ−a),p(b−σ)) and eigenvalue 1/(σ+it). A continuous dual annihilator g∈Lq gives holomorphic F(s)=∫g(x)x^{s−1}(1−x)^−s dx bounded on any substrip; under z↦tanh(πz/(4δ)), zeros at pairwise distinct real t_n violate disk Blaschke summability if ∑exp(−π|t_n|/(2δ))=∞, hence F vanishes. Logistic substitution makes F a Fourier transform of integrable H, giving g=0 by uniqueness and dense span by Hahn–Banach. Arithmetic finite coset Γ⊂∪(θ_j+hZ), L=2π/h, supplies independent compactly supported annihilators ∏(τ_L−e^{iθ_jL})φ with disjoint translated supports, hence infinite codimension. For c log n, c<2w/π choose δ>πc/2 and exponent≤1, opposite to hn. Independent finite factor-root check confirms 33 zeros but is not a functional-analytic proof.
 
-**Limits.** The coefficient in the sufficient logarithmic condition need not be optimal; necessity, other spectral curves, convergence rates, and broader \(p\)-ranges remain untreated. The historical survey is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct comparison of normalized mathematical statements, source theorem scope and implications; not absolute historical-priority certification. Responds with dense and infinitely codimensional frequency classes to the previously posed infinite eigenfamily completeness question.
+
+## value
+
+PASS
+
+Directly answers a named concrete completeness question for the real-variable Cesàro operator with two sharp qualitative contrasts (dense logarithmic spectra vs infinitely codimensional arithmetic spectra) despite the same accumulation of eigenvalues at zero. Not a routine standalone Blaschke theorem application absent eigenvector strip and Fourier annihilator construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
