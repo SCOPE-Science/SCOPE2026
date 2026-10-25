@@ -1,19 +1,21 @@
-# Review: Polynomial discrepancy ladders in primitive automatic subshifts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all positive integers \(r,d\), the substitution has \(r\) identity columns, a successor, and a reset. Exact enumeration of compositions without resets proves the binomial depth profile; compositions with resets give the complete constant kernel, including the all-successor constant that first appears at depth \(d+1\). The fixed-point column identity identifies formal maps with actual two-sided progressions. The primitive, height-one and aperiodic hypotheses are checked, and the discrepancy operator has diagonal \(r\) plus a nilpotent successor component. The published Theorems A/B then yield the dynamical classification. A standalone program passed 1,822 sampled integer assertions; the infinite assertions rely on the proof.
+PASS
 
-## Originality — PASS under examined evidence
+The r+2 column maps are exactly r identities, one capped successor g, and a zero reset. An m-digit column is nonconstant iff there is no reset and no more than d successors; choosing j successor positions gives precisely the claimed binomial D_m, including m=0. Constant columns are c0 through c_{m-1} before saturation and c0 through c_{d+1} afterward; injectivity of distinct column functions on the full-alphabet fixed sequence proves K_m and 2d+3 kernel size. Power g^{d+1} is constant, so on unequal-letter pairs discrepancy operator equals rI plus nilpotent upper-step transitions, spectral radius r. Primitive aperiodic height-one conditions checked, allowing the published Gröger–Krawczyk Theorems A/B to yield ac and null/tame equivalence. Independent explicit enumeration of 84 r,d,m cases (r=1..3,d=1..4,m=0..6) matched both D_m and K_m, not treated as proof of the all-parameter theorem.
 
-Closest work: Gröger–Krawczyk (arXiv:2602.23267), in particular Example 5.3 and Proposition 5.6, provides a single linear example and the general qualitative law \(\Theta(m^{d_s}\lambda_s^m)\); Theorems A/B establish nullness/tameness and amorphic complexity in general. Fuhrmann–Gröger, *Math. Z.* (2020), supplies earlier general bounds. Those existing results are not claimed as discoveries. Neither examined source states the uniform explicit two-parameter construction, the exact binomial progression profile at every depth, nor the full finite-kernel census. Searches of published mathematical records and known prior claims did not identify the same specialization. An equivalent historical reset-counter construction remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The general literature exposes a polynomial/exponential dichotomy but does not realize all polynomial degrees in a single elementary uniform construction with exact finite-scale data. The family separates two independent controls: the discrepancy base \(r\), which governs the known tame/null boundary, and the exponent \(d\), which can be made arbitrarily large without changing amorphic complexity when \(r=1\). The finite-depth formulas refine an entire infinite family, not an arbitrary fixed small case, and distinguish systems the coarse invariant collapses.
+Gröger--Krawczyk give general asymptotic growth order Theta(m^ds lambda^m), numerical spectral rule and an earlier linear example, but their identified Theorems A/B/Proposition 5.6 do not present the explicit two-parameter saturated-successor/reset family or its exact finite-depth binomial and kernel formulas. Asymptotic growth type alone does not imply the exact coefficients. The inherited tame/null/amorphic classification is explicitly credited, not claimed new.
 
-## Scientific limits
+## value
 
-No assertion about arbitrary substitutions or non-power progression steps. The dynamical characterization is used from the cited literature, not newly proved. Historical priority uncertainty and lack of independent audit remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The construction realizes every positive polynomial discrepancy exponent alongside every positive integer base within a single primitive aperiodic automatic family, while giving exact all-depth counts and a finite kernel. This is a motivated parametric realization and a useful separation of amorphic complexity from polynomial discrepancy degree, not just a generic restatement of spectral-radius theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
