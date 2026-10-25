@@ -1,19 +1,21 @@
-# Scientific review: A sharp total-variation phase diagram for reinforced binary sampling
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The urn count has an exact beta-binomial mass and a beta-mixture representation. A strictly increasing ratio of adjacent likelihood ratios makes the negative signed-mass set an interval. This structural lemma turns convergence of cumulative distribution functions into convergence of the **exact finite-lattice total-variation metric** in the critical scaling. Independent beta/binomial fluctuation components produce the Gaussian variance factor; a separate scale separation proves total variation tends to one when draws dominate initial concentration. In the concentration-dominated regime, a summed second-order Taylor expansion and an exact binomial-score identity yield the universal \(\varphi(1)\) coefficient. The complete quantifiers and estimates appear in `RESULT.md`. The standalone script checks 200 exact-rational parameter sets and 24 numerical asymptotic cases. Finite checks alone are not the proof.
+PASS
 
-## Originality (O): PASS on inspected primary evidence
+Exact rising factorial ratio R_{k+1}/R_k increases in k, endpoints R_0,R_n>1 via strict Jensen and variance of beta-binomial differs, giving one nonempty consecutive negative block; independently verified 200 parameter triples with exact rational arithmetic. Joint beta/conditional-binomial CLT gives N(0,1+ρ) versus N(0,1); because maximizing signed interval is exact for each n and weak normal cdfs converge uniformly, critical TV tends to F(ρ). For ρ→∞ beta variation on scale n/sqrt(A) dominates sqrt(n) binomial noise, giving TV→1. For ρ→0 beta third moment Taylor in global l1 has error O((n/A)^(3/2)+(n/A)^2) and second derivative norm gives e^-1/2/sqrt(2π); the analytic estimates justify joint n,A limit, not finite samples.
 
-The closest papers concern (i) Pólya convex ordering, Meleşteu–Pascu–Pascu (2022), arXiv:2201.05870; (ii) process Gaussian asymptotics covering precisely the same draw-to-initial-mass regimes, Borovkov (2019), arXiv:1912.09665; and (iii) binomial approximation to beta-binomial by Stein bounds or fixed-parameter corrections, Teerapabolarn (2008, 2014). Their precise inspected statements overlap essential ingredients, but do not imply the exact *discrete* total-variation phase profile and small-ratio coefficient without additional work. The supporting Gaussian fluctuation structure and fixed-parameter corrections are credited as existing facts. Searches also considered beta-binomial likelihood-ratio aliases and broader Bernoulli-mixture classes, with no stronger direct coverage identified. See `AUDIT.json` for source inspections, mathematical implication comparisons and residual priority risks. This finding has no independent validation.
+## originality
 
-## Value (V): PASS
+PASS
 
-The result supplies a natural sharp boundary for treating reinforced sampling as independent sampling: approximation error is of exact first order when the urn is much larger than the sample, remains bounded away from zero at comparable scales, and approaches one when sampling overwhelms initial mass. The Gaussian critical formula and the universal first-order coefficient give explicit benchmark values, beyond a generic convergence statement. The connected optimizing interval also has finite-sample meaning for the test distinguishing the two models.
+Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.
 
-## Limitations and status
+## value
 
-Fixes the interior fraction \(\,p\in(0,1)\,\) while concentrations diverge; no uniformity near endpoints or critical convergence rate is claimed. Undiscovered equivalent earlier work cannot be ruled out, and known Gaussian limits are not presented as new. The attached checker is finite corroboration rather than a formal infinity certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Total-variation rather than weak-convergence comparison matters for distinguishing exchangeable reinforcement from independent sampling. Exact three-regime phase profile, finite-sample interval optimizer and small-rho universal coefficient give nontrivial inferential effect sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

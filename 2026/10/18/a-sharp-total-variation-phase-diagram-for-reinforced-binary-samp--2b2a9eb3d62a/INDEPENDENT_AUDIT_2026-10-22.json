@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:19:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact rising factorial ratio R_{k+1}/R_k increases in k, endpoints R_0,R_n>1 via strict Jensen and variance of beta-binomial differs, giving one nonempty consecutive negative block; independently verified 200 parameter triples with exact rational arithmetic. Joint beta/conditional-binomial CLT gives N(0,1+ρ) versus N(0,1); because maximizing signed interval is exact for each n and weak normal cdfs converge uniformly, critical TV tends to F(ρ). For ρ→∞ beta variation on scale n/sqrt(A) dominates sqrt(n) binomial noise, giving TV→1. For ρ→0 beta third moment Taylor in global l1 has error O((n/A)^(3/2)+(n/A)^2) and second derivative norm gives e^-1/2/sqrt(2π); the analytic estimates justify joint n,A limit, not finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaussian variance-inflation limit approximations are known; a general bound of order n/A in the small regime is documented."
+        ],
+        "reasoning": "CLTs and nonsharp bounds do not imply the F(rho) TV transition nor the exact e^-1/2/sqrt(2π) coefficient without the two-crossing/second-derivative argument.",
+        "searches": [
+          "Resultary exact semantic query: Pólya urn beta binomial binomial total variation asymptotic gaussian variance inflation sharp small n/A coefficient",
+          "arXiv:1912.09665",
+          "Teerapabolarn 2008 binomial approximation beta-binomial"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.09665",
+        "arXiv:2201.05870",
+        "Teerapabolarn, A bound on the binomial approximation to the beta binomial distribution, 2008",
+        "Teerapabolarn, An improved binomial approximation for the beta binomial distribution, 2014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak normal convergence alone is insufficient for total variation; the finite-sample one-block sign mechanism makes interval Kolmogorov convergence sharp in TV.",
+          "Small-rho Taylor expansion controls summed absolute count-mass errors to o(n/A)."
+        ],
+        "reasoning": "New implications require a count likelihood-ratio sign interval and global l1 Taylor control beyond known Gaussian fluctuations or convex orders.",
+        "searches": [
+          "Resultary exact semantic query: Pólya urn beta binomial binomial total variation asymptotic gaussian variance inflation sharp small n/A coefficient",
+          "arXiv:1912.09665",
+          "arXiv:2201.05870"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The beta-binomial law is a Bin(n,P) mixture with P~Beta(Ap,Aq); it is a two-color Polya urn sample count.",
+          "Borovkov analyzes urn Gaussian regimes; Meleșteu et al. analyze convex ordering, not a TV metric formula."
+        ],
+        "reasoning": "These aliases identify the same stochastic object but do not identify an earlier exact TV phase diagram for comparison with Bin(n,p).",
+        "searches": [
+          "Resultary exact semantic query: Pólya urn beta binomial binomial total variation asymptotic gaussian variance inflation sharp small n/A coefficient",
+          "arXiv:1912.09665",
+          "arXiv:2201.05870"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted verification tests 200 exact rational finite parameter triples and 24 numerical approximations, but those tests were not treated as novelty evidence."
+        ],
+        "reasoning": "No checked fixed-parameter beta-binomial probability table implies a double limit over arbitrary A_n→∞ and n/A_n regimes.",
+        "searches": [
+          "Resultary exact semantic query: Pólya urn beta binomial binomial total variation asymptotic gaussian variance inflation sharp small n/A coefficient",
+          "arXiv:1912.09665"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.",
+      "residual_risks": [
+        "Older binomial-beta-binomial asymptotic TV expansions or sharp Le Cam-type comparisons may use different sampling terminology.",
+        "The Teerapabolarn 2008/2014 entire full texts were not inspected in this execution; only indexed statements and their described results were compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Gaussian fluctuation regimes that explain variance inflation; not an exact beta-binomial-count vs binomial total-variation limit F(rho) nor universal first-order coefficient.",
+          "evidence": [
+            "Gaussian approximations concern urn process scaling/normal limits, which alone do not imply discrete count TV convergence.",
+            "No equality statement for the specific TV error between X_n and Bin(n,p) identified in relevant theorem passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.09665",
+          "material_read": "abstract, relevant process-limit corollaries/normal-approximation discussion, PDF page images; searched text for total variation",
+          "method": "lawful arXiv PDF with theorem and implication comparison",
+          "title": "Gaussian process approximations for multicolor Pólya urn models",
+          "trigger": "Gaussian two-variance asymptotics and prior sharp probability approximations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Total-variation rather than weak-convergence comparison matters for distinguishing exchangeable reinforcement from independent sampling. Exact three-regime phase profile, finite-sample interval optimizer and small-rho universal coefficient give nontrivial inferential effect sizes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1912.09665",
+    "arXiv:2201.05870",
+    "Teerapabolarn, A bound on the binomial approximation to the beta binomial distribution, 2008",
+    "Teerapabolarn, An improved binomial approximation for the beta binomial distribution, 2014"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed interior p∈(0,1), A_n→∞; no uniform p endpoint regime or TV convergence rates for critical ρ; pre-existing Gaussian approximations acknowledged."
+  ],
+  "residual_risks": [
+    "Older binomial-beta-binomial asymptotic TV expansions or sharp Le Cam-type comparisons may use different sampling terminology.",
+    "The Teerapabolarn 2008/2014 entire full texts were not inspected in this execution; only indexed statements and their described results were compared."
+  ],
+  "schema_version": 1
+}
