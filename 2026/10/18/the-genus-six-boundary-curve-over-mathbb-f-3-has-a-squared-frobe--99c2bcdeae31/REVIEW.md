@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise base field, smooth normalization, separable Artin–Schreier cover and four rational simple poles are established. A translation-orbit argument proves the infinite count identity for \(3\nmid n\). Two exact finite-field point-count methods reproduce the critical extension-degree-three and degree-six counts. Integer Newton identities plus the genus-six functional equation recover the entire numerator, and exact convolution verifies its factorization. The quartic's rational irreducibility and the elliptic trace are checked. Standard finite-field isogeny theory then proves the decomposition. Critical mathematics and every computational input are documented in RESULT.md and verify.py.
+## correctness
 
-**Originality — PASS with explicit residual risk.** Tafazolian's originating paper [1] classifies the curve's geometry and automorphisms but does not determine the arithmetic zeta polynomial. Giulietti–Korchmáros [2] treat a genus-two family, and Weil-polynomial databases [3] list isogeny classes but do not identify this explicit genus-six Jacobian. Searches for the equation, zeta polynomial, its aliases, the factorization and analogous group cases in published-finding corpus and the indexed literature did not identify a covering claim. An unindexed arithmetic table or independent point-count computation remains a possible overlap; search nonretrieval alone is not presented as novelty proof.
+PASS
 
-**Mathematical value — PASS.** The \(c=1\) model is the natural smallest-field arithmetic specialization of the exceptional genus-six, characteristic-three automorphism-boundary family singled out by a new geometric classification. Its complete Hasse–Weil numerator determines point counts over every finite extension and exhibits a nontrivial repeated elliptic–surface decomposition of its Jacobian. The translation symmetry provides an exact infinite family of point-count identities, so this is more than a small finite example or a routine normalization check. The arithmetic classification does not claim a statement for the full parameter family.
+For F3(x,y), y³−y=x+1/(x³−x), the four poles x=0,±1,∞ are rational simple and totally ramified; Artin–Schreier genus formula yields g=6. Translation x→x+1 permutes finite poles and adds one to f; absolute trace shift is n mod3, so for every n with 3∤n exactly one zero-trace point in each three-orbit and N_n=3^n+1. Independent direct finite-field extensions n=1..6 by explicit irreducible polynomials and fiber-count enumeration returned [4,10,76,82,244,670]. Newton identities and genus6 functional equation force L=1+16T³+118T⁶+432T⁹+729T¹², and direct convolution confirms square [(1−T+3T²)(1+T−2T²+3T³+9T⁴)]². E:v²=u³+u²+2 has #E(F3)=3, trace1; quartic inverse Frobenius factor irreducible, ordinary and a genuine Weil factor, giving Jac(X)~(E×A)² over F3 and Jac(F3)=1296. Full infinite n identity rests on orbit proof and Weil functional equation, not a finite extrapolation.
 
-Residual risk: possible unindexed equivalent arithmetic computation, no explicit isogeny map, and only one coefficient specialization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tafazolian 2026 Proposition8.7 presents precisely this c=1 family (general c parameter), and genus6 with full automorphism classification in 8.8, but inspected primary text does not compute exact F3 zeta numerator, translation trace point-count spectrum or Jacobian isogeny factors. The existing finite field Weil tables catalog possible factors but not the association to this exact normalized curve.
+
+## value
+
+PASS
+
+A natural sharply classified genus6 ordinary automorphism-boundary curve gains complete zeta/Jacobian arithmetic and an infinite congruence-class point-count identity. The explicit squared Weil polynomial and elliptic×simple-surface decomposition are useful intrinsic invariants for arithmetic geometers and not entailed by abstract group/genus classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
