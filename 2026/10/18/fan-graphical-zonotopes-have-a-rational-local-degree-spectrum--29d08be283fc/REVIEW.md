@@ -1,15 +1,27 @@
-# Scientific review: rational local-degree spectrum of fan graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement distinguishes zonotope vertex degree from local divisor-class rank, correctly identifies degree with the number of facets of the associated normal cone, and uses the source-backed Hasse-cover/facet criterion. The partition into path runs is exhaustive because every path edge crossing an inward-to-outward spoke boundary is forced by the directed triangle; internal path orientations are independent. The precise cover count is \(m+\sum_j(s_j-1)\). The directed-path sink enumerator \(\binom{L}{2s-1}\) follows by the augmented-sign switch bijection. Summing over compositions yields \(2z/(1-3z+(1-u)z^2)\) with no omitted cases. At excess zero, all Hasse covers form a tree, and the integral incidence matrix gives a unimodular cone; otherwise the chamber has more than dimension-many facets and cannot be smooth. Direct orientation enumeration in the accompanying checker confirms full coefficient spectra for \(1\le m\le8\), independently of the generating-series computation. A second method reconstructs the global zonotope edge counts using the sum of acyclic-orientation counts of graph-edge contractions for \(1\le m\le7\); these agree with the histograms. Boundary cases \(m=1,2\) and all characteristics are addressed.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest original work is Postnikov–Reiner–Williams, arXiv:math/0609184, Proposition 3.5 and Section 5, which establish a general chamber/facet dictionary and classify **globally** simple graphical zonotopes; they do not provide a per-vertex edge-degree distribution for the fan family. Grujić, arXiv:1604.06931, proves a general **global face polynomial**, with explicit cycle and block examples but no fan-local degree histogram. Forcey's fan-acyclotope table lists total vertices and facets only. Direct searches by fan, acyclotope, simple chambers, local degree, transitive reduction and the rational-function/Fibonacci specializations did not reveal equivalent all-parameter statements; that absence alone is not proof of uniqueness. Analogous wheel, multipartite and generalized-theta counts on different graph families do not imply the fan spectrum, even though small-parameter special cases may overlap. Residual risk: an unindexed chamber-valency enumeration or a specialized classical graphical-arrangement calculation may yield an equivalent formula.
+PASS
 
-## Mathematical value — PASS
-The fan \(K_1\vee P_m\) is a canonical growing family of connected chordal graphs with nonsimple graphical zonotopes from \(m\ge3\). The number of incident invariant curves is the most elementary local numerical obstruction to toric smoothness; its full distribution is more informative than a global smoothness test or a total face vector. The exact bivariate rational function supplies every degree stratum, the Fibonacci regularity count, an exponential decay rate, and the first two moments in one structural theorem. This is a natural exact infinite classification rather than an arbitrary small-instance census, and it has an explicit run decomposition explaining the phenomenon.
+For F_m=K1 join P_m, m>=1, maximal graphical-arrangement chambers index acyclic orientations, and facets of their cones correspond to Hasse covers; thus the zonotope vertex degree is the cover count. Spoke A/B labels force each between-run edge A→B and forbid it from being a cover due to the hub alternative. Internal edges are covers; an A-run contributes its sinks' spokes, a B-run its sources' spokes. For run length L, adjoin a plus and minus to an orientation word: s sinks correspond to 2s-1 sign flips, giving binom(L,2s-1). Hence T(z,u)=z/((1-z)^2-u z²), and summing compositions with either initial spoke direction yields 2T/(1-T)=2z/(1-3z+(1-u)z²). The m-degree coefficient and δ>=0 follow; m covers form a spanning tree whose primitive lattice incidence vectors are unimodular, so δ=0 is sufficient as well as necessary for smooth toric fixed points in any characteristic. Coefficient extraction yields 2Fib_{2m}, total 2*3^{m-1}, mean and variance for m>=3 and max floor((m-1)/2). A fresh independent enumeration over all orientations for m=1..7 computed Hasse covers by edge deletion/reachability and recovered Q7(u)=754+600u+102u²+2u³ and all preceding coefficients. This is corroboration, not the proof for every m.
 
-## Limits and independent checking
-No statement is made about local divisor-class groups, generic transverse singularity types, or positive-dimensional components of the singular locus. Finite exhaustive tests check only \(m\le8\) and path-run lengths \(L\le10\); the unlimited case uses a symbolic proof. Literature searches cannot rule out unindexed equivalent claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact fan chamber cover-count distribution could appear as an orientation-descent polynomial or face-incidence refinement; the general arrangement dictionary is covered, the specialized run-decomposition local spectrum was not found in read source material.
+
+A stronger general degree-refined theorem could dominate this claim, but the inspected general theorems have different outputs. In particular a global face polynomial cannot by itself determine the vertex-degree multiset.
+
+Known total counts are dominated parameters of degree sums, not a table of the exact local degree distribution. The Fibonacci smooth-point interpretation is treated as a consequence of the full polynomial, not standalone novelty.
+
+Neither global criterion for smooth zonotopes nor global face enumeration implies the per-vertex fan excess spectrum without additional dedicated calculation. The actual claim is a family-specific refinement of established graphic-arrangement theory.
+
+## value
+
+PASS
+
+Fan graphs are a canonical family of graphical zonotopes, generally nonsimple; a complete distribution by excess number of invariant curves is more informative than the previously tabulated total vertices or a global simplicity criterion. It supplies a characteristic-free toric smooth fixed-point count, all local edge degrees, moments and extremal excess via a concise natural run statistic. The invariant is motivated by toric singularity detection and polytope graph structure; no local class-group rank or entire singular-locus classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

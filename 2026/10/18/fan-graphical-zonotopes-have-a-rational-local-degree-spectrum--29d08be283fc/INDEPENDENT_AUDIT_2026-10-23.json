@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:03:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 803a478b32233e686bde2fe3730d989a6216f356",
+        "Pinned independent verifier source (check_fan.py)",
+        "Independent check: independent_checks.py and independent_checks_output.txt"
+      ],
+      "rationale": "For F_m=K1 join P_m, m>=1, maximal graphical-arrangement chambers index acyclic orientations, and facets of their cones correspond to Hasse covers; thus the zonotope vertex degree is the cover count. Spoke A/B labels force each between-run edge A→B and forbid it from being a cover due to the hub alternative. Internal edges are covers; an A-run contributes its sinks' spokes, a B-run its sources' spokes. For run length L, adjoin a plus and minus to an orientation word: s sinks correspond to 2s-1 sign flips, giving binom(L,2s-1). Hence T(z,u)=z/((1-z)^2-u z²), and summing compositions with either initial spoke direction yields 2T/(1-T)=2z/(1-3z+(1-u)z²). The m-degree coefficient and δ>=0 follow; m covers form a spanning tree whose primitive lattice incidence vectors are unimodular, so δ=0 is sufficient as well as necessary for smooth toric fixed points in any characteristic. Coefficient extraction yields 2Fib_{2m}, total 2*3^{m-1}, mean and variance for m>=3 and max floor((m-1)/2). A fresh independent enumeration over all orientations for m=1..7 computed Hasse covers by edge deletion/reachability and recovered Q7(u)=754+600u+102u²+2u³ and all preceding coefficients. This is corroboration, not the proof for every m.",
+      "residual_risks": [
+        "Only torus-fixed vertex local edge degree and smoothness, not arbitrary torus-orbit strata or entire singular scheme; toric lattice/root lattice convention is fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PRW Proposition 5.2 characterizes global simplicity of graphical zonotopes from graph blocks and Proposition 3.5 discusses fan/poset covers; neither records fan-specific all-degree counts.",
+          "Grujić Theorem 1.1 encodes global face numbers through chromatic symmetric functions, which may determine aggregate edges but not obviously vertex degree distribution."
+        ],
+        "reasoning": "A stronger general degree-refined theorem could dominate this claim, but the inspected general theorems have different outputs. In particular a global face polynomial cannot by itself determine the vertex-degree multiset.",
+        "searches": [
+          "arXiv:math/0609184",
+          "arXiv:1604.06931",
+          "Resultary: fan graph graphical zonotope vertex degree distribution acyclic orientations smooth torus fixed points Fibonacci"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0609184 (Propositions 3.5, 5.2)",
+        "arXiv:1604.06931 (Theorem 1.1)",
+        "https://sforcey.github.io/sf34/hedra/fanacyc.htm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Hasse-cover correspondence is a prior premise; deriving the specific rational GF needs the run-sink formula and composition enumeration."
+        ],
+        "reasoning": "Neither global criterion for smooth zonotopes nor global face enumeration implies the per-vertex fan excess spectrum without additional dedicated calculation. The actual claim is a family-specific refinement of established graphic-arrangement theory.",
+        "searches": [
+          "arXiv:math/0609184",
+          "arXiv:1604.06931",
+          "Hedra Zoo fanacyc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Postnikov–Reiner–Williams identify normal-fan chambers with acyclic orientations and Hasse covers, supplying the geometric-to-combinatorial translation.",
+          "Grujić gives global face data, not the fan parameterized per-vertex degree polynomial in inspected theorem."
+        ],
+        "reasoning": "Exact fan chamber cover-count distribution could appear as an orientation-descent polynomial or face-incidence refinement; the general arrangement dictionary is covered, the specialized run-decomposition local spectrum was not found in read source material.",
+        "searches": [
+          "Resultary: fan graph graphical zonotope vertex degree distribution acyclic orientations smooth torus fixed points Fibonacci",
+          "arXiv:math/0609184",
+          "arXiv:1604.06931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hedra Zoo lists fan total vertices/facets, including 2*3^{m-1} orientations after indexing; it does not furnish the complete Q_m(u) in inspected material.",
+          "Finite Q3..Q7 agree with independent orientation enumerations; agreement is not proof absence from other tables."
+        ],
+        "reasoning": "Known total counts are dominated parameters of degree sums, not a table of the exact local degree distribution. The Fibonacci smooth-point interpretation is treated as a consequence of the full polynomial, not standalone novelty.",
+        "searches": [
+          "Hedra Zoo fan graph acyclotope https://sforcey.github.io/sf34/hedra/fanacyc.htm",
+          "arXiv:1604.06931",
+          "Resultary: fan graph graphical zonotope vertex degree distribution acyclic orientations smooth torus fixed points Fibonacci"
+        ]
+      },
+      "rationale": "Exact fan chamber cover-count distribution could appear as an orientation-descent polynomial or face-incidence refinement; the general arrangement dictionary is covered, the specialized run-decomposition local spectrum was not found in read source material.\n\nA stronger general degree-refined theorem could dominate this claim, but the inspected general theorems have different outputs. In particular a global face polynomial cannot by itself determine the vertex-degree multiset.\n\nKnown total counts are dominated parameters of degree sums, not a table of the exact local degree distribution. The Fibonacci smooth-point interpretation is treated as a consequence of the full polynomial, not standalone novelty.\n\nNeither global criterion for smooth zonotopes nor global face enumeration implies the per-vertex fan excess spectrum without additional dedicated calculation. The actual claim is a family-specific refinement of established graphic-arrangement theory.",
+      "residual_risks": [
+        "Other literature may encode the same local-degree histogram in a refined acyclic-orientation enumerator not found by searched titles or parameter aliases.",
+        "Full singular locus and local class groups are not classified; edge excess is deliberately not equated with class-group rank.",
+        "Brute m<=7 cannot certify all-m generating function; exact run argument is the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard geometric correspondence and a global simplicity criterion, not Q_m(u) in material read",
+          "evidence": [
+            "Irredundant cover relations correspond to facets; graphical zonotope simplicity controlled by biconnected blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0609184",
+          "material_read": "Primary paper relevant discussion of acyclic orientations, normal cones and Hasse covers, Proposition 3.5 and Proposition 5.2; PDF page inspected",
+          "method": "Open-access arXiv PDF, searched relevant propositions and visual PDF screenshot",
+          "title": "Faces of Generalized Permutohedra",
+          "trigger": "General acyclic-orientation and facet/simplicity results for graphical zonotopes"
+        },
+        {
+          "assessment": "Global face counts, not complete fan local-degree distribution in material read",
+          "evidence": [
+            "Chromatic-symmetric-function specialization determines global f-polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.06931",
+          "material_read": "Primary PDF abstract, Theorem 1.1 and face-enumeration sections; opening page screenshot",
+          "method": "Open-access arXiv PDF",
+          "title": "Counting Faces of Graphical Zonotopes",
+          "trigger": "Potentially stronger global enumeration of graphical zonotopes"
+        },
+        {
+          "assessment": "Known total counts only in inspected entry",
+          "evidence": [
+            "Fan acyclic orientation vertex count 2*3^(m-1) in matching indexing."
+          ],
+          "identifier_or_url": "https://sforcey.github.io/sf34/hedra/fanacyc.htm",
+          "material_read": "Displayed fan-acyclotope vertex/facet enumeration and terminology",
+          "method": "Author-maintained HTML tabulation",
+          "title": "Hedra Zoo: fan graph acyclotope",
+          "trigger": "Published exact database/table for fan zonotopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0609184 (Propositions 3.5, 5.2)",
+        "arXiv:1604.06931 (Theorem 1.1)",
+        "https://sforcey.github.io/sf34/hedra/fanacyc.htm"
+      ],
+      "rationale": "Fan graphs are a canonical family of graphical zonotopes, generally nonsimple; a complete distribution by excess number of invariant curves is more informative than the previously tabulated total vertices or a global simplicity criterion. It supplies a characteristic-free toric smooth fixed-point count, all local edge degrees, moments and extremal excess via a concise natural run statistic. The invariant is motivated by toric singularity detection and polytope graph structure; no local class-group rank or entire singular-locus classification is claimed.",
+      "residual_risks": [
+        "Only torus-fixed vertex local edge degree and smoothness, not arbitrary torus-orbit strata or entire singular scheme; toric lattice/root lattice convention is fixed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
