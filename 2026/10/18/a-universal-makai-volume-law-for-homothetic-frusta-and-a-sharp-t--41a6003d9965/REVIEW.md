@@ -1,15 +1,21 @@
-# Review of the Makai-volume law for homothetic frusta
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The support-function identity for the width of \(P_t(B)\) gives a polar fiber with exact length \((2-(1+t)h_{B-B}(u))/(1-t)\) over \((B-B)^\circ\). A gauge layer-cake integral gives the polar volume; slicing gives the primal volume. Multiplication proves the asserted base-independent formula for every compact convex base and every \(0\le t<1\). Two polynomial identities prove strict monotonicity, the quadratic prism-endpoint gap, and both sharp constants for every integer dimension \(d\ge2\). The three-dimensional sharp estimate and both equality cases follow from the previously established planar Eggleston theorem. The independent program-based checks completed for \(d=2,\ldots,39\) and for sixteen direct geometric volume cases; the infinite-domain proof is analytical, not experimental.
+## correctness
 
-## Originality
-**PASS, within verifiable literature; historical priority remains uncertain.** Winter's 2026 upper inequality for polytope Makai volume cannot imply an exact parameter profile for arbitrary nonpolyhedral bases or the lower inequality here. Aliev's three-dimensional theorem requires tetrahedral symmetry; the displayed frusta allow arbitrary bases and have no such symmetry in general. The complete accessible result on Santaló products of homothetic frusta concerns polarity about the Santaló center, not the polar of the difference body. The complete accessible simplex-truncation mixed-volume result treats opposite-body mixed volumes on a simplex base, not the arbitrary-base polar volume proved here. Searches of exact formulas, aliases, prism/cone geometry, polar difference bodies, and indexed results found no equivalent theorem. Older unindexed integral geometry and convex-body literature could still cover an equivalent identity.
+PASS
 
-## Mathematical value
-**PASS.** The formula supplies an exact dimension-reducing structural law for a central affine-invariant extremal functional, uniformly over nonsmooth and nonsymmetric convex bases, together with a sharp deformation gap. In dimension three, a known sharp two-dimensional inequality lifts to the full class of homothetic cone frusta with a complete extremal characterization. The result is not an arbitrary small numerical improvement or a rephrased existing Santaló-volume statement.
+For d>=2 and B any compact full-dimensional convex base, 0<=t<1, the frustum horizontal section at z is zB, yielding vol_d(P_t)=(1-t^d)vol_{d-1}(B)/d. Let r=h_B(u), l=-h_B(-u), w=r-l=h_{B-B}(u). The exact width W(u,s) over [t,1] has polar vertical-fiber length [2-(1+t)w]/(1-t) for w<=1, zero otherwise. The gauge layer-cake on C=(B-B)° gives ∫_C w=(d-1)/d vol C, hence polar volume [d+1-(d-1)t]/[d(1-t)] vol C. This proves the full base-independent product. Polynomial identities F_d(t)=(sum_{j<d}t^j)(d+1-(d-1)t), F_d′=2(1-t)sum_{j=0}^{d-2}binom(j+2,2)t^j and 2d-F_d=(1-t)^2 sum_{j=0}^{d-2}(j+1)(d-1-j)t^j give monotonicity and exact sharp quadratic gap constants. In d=3 applying the already-known planar Eggleston M2>=3/2 with triangle equality gives exact bound [2+t+t²−t³]/3 and equality classification (triangular bases at fixed t, tetrahedra at t=0). Independently checked both all-d polynomial identities symbolically for d=2..29; source verifier additionally compares 16 direct small-dimensional polar volumes but no infinite-domain conclusions follow from those samples. t=1 is only an affine-normalized limit, not a full-dimensional frustum.
 
-## Closest literature and boundaries
-M. Winter, *A relation between Mahler volume and flag number for convex polytopes*, arXiv:2610.09990v1 (2026), proves a different, global upper bound. A. Aliev, *Mahler-type volume inequality for convex bodies with tetrahedral symmetry*, arXiv:2511.14991v1 (2025), recalls Eggleston's planar lower bound and handles tetrahedral symmetry in three dimensions. The publicly accessible full results on homothetic-frustum Santaló products and truncated-simplex Godbersen mixed volumes are adjacent but do not compute the polar difference-body volume for arbitrary bases. The result does not establish Makai's conjecture beyond the stated class, and no independent priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact arbitrary-base polar difference-body factorization, sharp interpolation gap and its 3D Eggleston lift. Known planar Eggleston inequality and related Santaló frustum formula are explicitly credited as distinct prior results.
+
+## value
+
+PASS
+
+The Makai difference-body polar volume is a natural affine-invariant functional, and the complete arbitrary-base frustum factorization reduces a d-dimensional geometric problem to dimension d−1 with a universal sharp parameter law. Its exact quadratic stability at the prism limit and sharp 3D lower bound for an entire nonsymmetric base class supply reusable geometric information; Eggleston is a transparently acknowledged input, not repackaged novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

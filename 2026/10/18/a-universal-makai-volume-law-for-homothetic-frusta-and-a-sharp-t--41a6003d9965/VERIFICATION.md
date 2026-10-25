@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the homothetic-frustum Makai-volume law
+# Independent mathematical audit
 
-The proof in `RESULT.md` verifies the exact primal-volume formula by Cavalieri integration and the polar difference-body volume by evaluating its one-dimensional fibers. The central identity is the polar fiber length \((2-(1+t)h_{B-B}(u))/(1-t)\) for \(u\) in \((B-B)^\circ\), and zero otherwise. The gauge integral over the polar base is exactly \((d-1)/d\) of its volume. Multiplying produces the base-independent formula for every dimension and convex base, without smoothness assumptions.
+## correctness
 
-The exact polynomial identities \(F_d'(t)=2(1-t)\sum_{j=0}^{d-2}\binom{j+2}{2}t^j\) and \(2d-F_d(t)=(1-t)^2\sum_{j=0}^{d-2}(j+1)(d-1-j)t^j\) give strict monotonicity and the sharp quadratic gap. The dimension-three inequality uses the published planar Eggleston result and its triangle equality characterization. No unproved all-dimensional Makai lower bound is assumed.
+PASS
 
-The standalone `verify.py` ran successfully on the actual scientific files and printed `VERIFY_OK symbolic_dimensions=2..39 numeric_cases= 16`. It compares symbolic polynomials and direct convex-hull/halfspace volumes of representative nonsymmetric frusta in dimensions three and four. Such finite checks are supplementary and do not establish the quantified theorem by enumeration. The endpoint \(t=1\) is interpreted only after affine normalization, since the displayed unnormalized body is dimension deficient there. No independent scientific audit or external certification is asserted.
+For d>=2 and B any compact full-dimensional convex base, 0<=t<1, the frustum horizontal section at z is zB, yielding vol_d(P_t)=(1-t^d)vol_{d-1}(B)/d. Let r=h_B(u), l=-h_B(-u), w=r-l=h_{B-B}(u). The exact width W(u,s) over [t,1] has polar vertical-fiber length [2-(1+t)w]/(1-t) for w<=1, zero otherwise. The gauge layer-cake on C=(B-B)° gives ∫_C w=(d-1)/d vol C, hence polar volume [d+1-(d-1)t]/[d(1-t)] vol C. This proves the full base-independent product. Polynomial identities F_d(t)=(sum_{j<d}t^j)(d+1-(d-1)t), F_d′=2(1-t)sum_{j=0}^{d-2}binom(j+2,2)t^j and 2d-F_d=(1-t)^2 sum_{j=0}^{d-2}(j+1)(d-1-j)t^j give monotonicity and exact sharp quadratic gap constants. In d=3 applying the already-known planar Eggleston M2>=3/2 with triangle equality gives exact bound [2+t+t²−t³]/3 and equality classification (triangular bases at fixed t, tetrahedra at t=0). Independently checked both all-d polynomial identities symbolically for d=2..29; source verifier additionally compares 16 direct small-dimensional polar volumes but no infinite-domain conclusions follow from those samples. t=1 is only an affine-normalized limit, not a full-dimensional frustum.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact arbitrary-base polar difference-body factorization, sharp interpolation gap and its 3D Eggleston lift. Known planar Eggleston inequality and related Santaló frustum formula are explicitly credited as distinct prior results.
+
+## value
+
+PASS
+
+The Makai difference-body polar volume is a natural affine-invariant functional, and the complete arbitrary-base frustum factorization reduces a d-dimensional geometric problem to dimension d−1 with a universal sharp parameter law. Its exact quadratic stability at the prism limit and sharp 3D lower bound for an entire nonsymmetric base class supply reusable geometric information; Eggleston is a transparently acknowledged input, not repackaged novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
