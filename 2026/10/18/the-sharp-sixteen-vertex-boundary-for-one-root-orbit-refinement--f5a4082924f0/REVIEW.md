@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Translation reduces the individualised root to the group identity. The finite-abelian classification gives exactly the 20 listed group types below order sixteen. Every undirected Cayley generator set is a subset of inversion classes; the complete 821 cases are each accompanied by automorphism permutations covering every stable refinement class. The independent stdlib checker reconstructs all 821 graphs and validates all 4936 individual permutations against the full adjacency matrix and their root/target constraints. A separate exact sixteen-vertex checker confirms the strongly regular parameters and separates the nine nonneighbours by adjacency of their two common neighbours with the root. This is a complete finite proof, not a statistical extrapolation.
+## correctness
 
-**Originality — PASS, with residual specialized-census risk.** The 2015 Arvind–Köbler–Rattan–Verbitsky framework concerns amenability/refinability and individualization in general, not the minimum for abelian Cayley groups. Kluge's 2022 Lemma 38 handles prime-order circulants and its later construction supplies a sixteen-vertex counterexample, but does not prove that no smaller **abelian** Cayley graph fails. The found 16-vertex example is explicitly acknowledged as prior art. The novel assertion is the closed lower cutoff at sixteen across all abelian groups and connection sets. Targeted searches of publication records and a research index disclosed no stronger coverage. A specialized earlier classification may exist, and priority has not been independently certified.
+PASS
 
-**Value — PASS.** The precise first failure is a motivated boundary for one-point individualization in a natural vertex-transitive graph family, sharpened beyond the existing prime-order theorem. A complete finite group-and-generator census, with independently replayable automorphism witnesses, makes the threshold reproducible rather than an isolated example. It does not require a larger asymptotic theorem to be useful.
+The frozen RESULT.md gives an exhaustive finite theorem for every inverse-closed Cayley connection set of each finite abelian group of order <16. Independent re-enumeration of 20 group presentations verified all 821 inversion-orbit masks and, without trusting the checker exit status, every one of 4936 saved root-fixing automorphism permutations against the complete adjacency matrices, confirming refinement-class transitivity. A separately reconstructed 16-vertex adjacency matrix has degree 6, exactly two common neighbours for each distinct pair and rooted cells 1/6/9; amongst the nine nonneighbours the root/common-neighbour-pair adjacency invariant splits 3 vs 6. Finite exhaustion is valid here because the group list and all inverse-closed subsets are exhaustive, not an extrapolation.
 
-**Limitations.** The result does not extend the first-failure classification to arbitrary nonabelian groups, all graph orders, or multi-point individualization. Publication priority remains subject to external literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical order-16 rooted failure was already established; only the all-abelian lower bound through order 15 is assessed as new. Kluge 2022 proves prime-order circulant Tinhofer behaviour and supplies a Z4×Z4 obstruction, but not a complete lower census of every smaller abelian group. Arvind et al. develop general individualization/refinement notions, not this sharp low-order minimum. Semantic and exact-term searches located no dominating earlier all-abelian lower-bound theorem; this is best-of-knowledge, not certified priority.
+
+## value
+
+PASS
+
+A sharp least-order obstruction across all finite abelian Cayley groups is a natural finite classification boundary, not an arbitrary small slice. The universal lower half is a nontrivial exhaustive combinatorial theorem with checked automorphism certificates; the known exceptional graph alone would not determine minimality. This is a reusable exact calibration example for rooted colour refinement, despite absence of an all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
