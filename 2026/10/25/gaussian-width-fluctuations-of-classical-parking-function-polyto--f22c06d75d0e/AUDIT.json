@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact vertex rearrangement yields h(G)=sum G_i + sum_{i<j}max(0,G_i,G_j) and the width kernel L=max(0,x,y)-min(0,x,y). Direct enumeration checks this for n=2..6. Hoeffding decomposition gives degenerate remainder mean-square O(n²), negligible at n^(3/2). Taylor expansion of the chi radius adds -(mu/4)(G²-1) to the first projection. Eight independently numerically integrated half-normal identities confirm the analytic evaluated second moment, variance sigma²=(14pi+12sqrt3-30sqrt2-21)/(24pi)>0. The joint bivariate iid CLT and parity zero-covariance give the independent Gaussian limit. Finite checks corroborate rather than prove the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Existing partial-permutohedron first-order analysis establishes width/m^(3/2) convergence in probability and Gaussian support but no normalized centered second-order CLT.",
+        "Bayer et al. arXiv:2403.07387 gives generalized-permutahedron structures and diameters, rather than probability distribution or width variance."
+      ],
+      "reasoning": "A first-order convergence in probability, even with concentration inequalities, is strictly weaker than identifying the order-n fluctuation distribution and its covariance with vertex rank. Extending the class of polytopes by itself does not give broader coverage of the unstudied invariant.",
+      "searches": [
+        "Published mathematical-record query: central limit theorem fluctuations directional width of classical parking function polytope partial permutohedron k=n-1 Gaussian U statistic sphere radius",
+        "Published mathematical-record query: partial permutohedron second order Gaussian width fluctuations central limit variance for k/m to one",
+        "arXiv:2403.07387 full generalized-parking-function polytope work"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.06885 and open Springer article",
+      "arXiv:2403.07387 and full Springer article",
+      "arXiv:2403.06975 arXiv HTML",
+      "FPSAC2025/11 face proceedings",
+      "arXiv:2512.14199 abstract (expanded faces paper; full text inaccessible in this run)",
+      "published mathematical-record semantic searches for Gaussian support, partial-permutohedron CLT, mean width, rank statistics, circumradius and ellipsoids"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior first-order width statement determines the n^(3/2) deterministic leading term for k=m-1, but does not state a central limit or numerical variance.",
+        "Our first projection is f(x)=|x|Phi(|x|)+phi(|x|)+phi(0) and requires the additional radial correction -(mu/4)(x²-1).",
+        "The final bivariate limit has independent width and exposed-layer Gaussian coordinates, a conclusion not forced by separate marginal limits."
+      ],
+      "reasoning": "The novelty-bearing assertion is the joint centered limit and exact variance, not the kernel, binomial exposed layer, or mean. Neither an exact first-moment formula nor convergence of width/n^(3/2) entails its centered order-n limiting law. Classical U-statistic CLTs supply the method, not this geometry-specific evaluated covariance.",
+      "searches": [
+        "Published mathematical-record query: parking function polytope random spherical direction width CLT U statistics",
+        "Published mathematical-record query: partial permutohedron second order Gaussian width fluctuations central limit variance for k/m to one",
+        "prior directional-width analysis for partial permutohedra; 2023 Hanada et al.; 2025 Bayer et al."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behrend arXiv:2403.06975 states the classical parking-function polytope is a translate of the partial permutohedron at parameter n=m-1.",
+        "A known partial-permutohedron Gaussian support identity gives the first-order width, but is silent about the order-n Gaussian limit.",
+        "The rank statistic is the number of negative Gaussian coordinates up to a negligible one-coordinate convention."
+      ],
+      "reasoning": "Affine translation leaves widths invariant, so partial permutohedra at n=m-1 must be checked, not treated as a distinct family. Equivalence of objects and support formulas does not imply the variance calculation or independent joint limit. Competing parking-function word CLTs and parking-tree width results use different probability spaces.",
+      "searches": [
+        "Published mathematical-record query: parking function polytope random spherical direction width CLT U statistics",
+        "web: partial permutohedron central limit theorem width",
+        "arXiv:2403.06975 (parking-function/partial-permutohedron translation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest indexed records deal with circumradius and Löwner ellipsoids (not directional width CLT).",
+        "A known exact support/mean-angle formula does not tabulate or imply the order-n limiting variance."
+      ],
+      "reasoning": "No covering table or exact database of order-n width fluctuation constants emerged; known exact first-order values are antecedents and are excluded from the claim of novelty. Absence in search is not proof of global novelty.",
+      "searches": [
+        "Published mathematical-record query: classical parking function polytope exact gaussian mean width width ratio to permutahedron and asymptotics positive Gaussian order statistics",
+        "Published mathematical-record query: exact exterior normal cone solid angles of parking function polytope vertices binomial number negative Gaussian entries",
+        "web: parking function polytopes Gaussian width fluctuations normal limit"
+      ]
+    },
+    "rationale": "The theorem evaluates an order-n centered Gaussian width limit with an exact nonzero variance and proves its joint independence of the exposed-vertex layer. This is not stated or implied by the closest first-order partial-permutohedron width analysis, exact vertex/support formulas, or the available generalized parking-function polytope papers. Explicit search/implication comparisons and risks are recorded; search incompleteness is acknowledged.",
+    "residual_risks": [
+      "The expanded 2025 faces-of-parking-function-polytopes preprint arXiv:2512.14199 had only abstract/short-proceedings material accessible; full-length text comparison remains incomplete.",
+      "Less-indexed stochastic geometry or U-statistic analyses may have independently obtained this same limit; failed searching is not proof of priority.",
+      "The result is restricted to classical parking-function polytopes; generalize-parameter width CLTs are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the polytope and vertex family; does not state an order-n central limit theorem or an exact width-variance constant. No novelty claimed for vertices.",
+        "evidence": [
+          "arXiv:2212.06885 first-public 2022-12-13",
+          "Journal article Springer 10.1007/s00026-023-00671-1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-023-00671-1",
+        "material_read": "open-access article HTML: definitions, vertex descriptions, facet/volume results, relations to partial permutohedra, section outline and references; searches for Gaussian and width in full HTML returned no matches",
+        "method": "article text read with targeted same-object theorem and term comparisons",
+        "title": "Generalized parking function polytopes",
+        "trigger": "same classical polytope and two-parameter generalization; possible coverage of support geometry"
+      },
+      {
+        "assessment": "Theorem descriptions give combinatorial, h-polynomial, rank and diameter results; none implies the stated centered width CLT or variance.",
+        "evidence": [
+          "arXiv:2403.07387 v1 2024-03-12",
+          "Springer Discrete & Computational Geometry full-text sections 1–5"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-025-00770-1",
+        "material_read": "open-access full HTML: introduction, vertex theorem 2.3, generalized-permutahedron and polymatroid section descriptions and explicit article contribution overview",
+        "method": "compare explicit theorem outputs and techniques with the random-direction joint Gaussian fluctuation claimed here",
+        "title": "Combinatorics of generalized parking-function polytopes",
+        "trigger": "full-generalized same-object vertex/facet and generalized permutahedron work"
+      },
+      {
+        "assessment": "The translation is exact and is incorporated into the comparison. Its integer-point enumeration result does not determine fluctuations of Haar-direction Euclidean widths.",
+        "evidence": [
+          "arXiv:2403.06975 abstract explicitly gives translation",
+          "Theorem 1 concerns Ehrhart polynomial"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.06975",
+        "material_read": "arXiv HTML: abstract, introduction, Section 2 definition and properties, Ehrhart theorem and references",
+        "method": "compare translation equivalence, Euclidean support, and lattice-count claim versus width fluctuations",
+        "title": "Ehrhart polynomials of partial permutohedra",
+        "trigger": "classical parking-function polytope is a translate of partial permutohedron, requiring a direct equivalence comparison"
+      },
+      {
+        "assessment": "The exposed-face and normal-fan analysis does not in reviewed material state a Gaussian width CLT. An expanded later preprint requires future priority checking.",
+        "evidence": [
+          "FPSAC 2025/11 accessible proceedings paper",
+          "arXiv:2512.14199 expanded later version abstract"
+        ],
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2025/11.pdf",
+        "material_read": "accessible 12-page proceedings preprint abstract, introductory statements, and key facial/normal-fan propositions; not asserted as complete full-text search",
+        "method": "compare face and normal cone classifications with joint random-direction width functional and limiting covariance",
+        "title": "Faces of parking function polytopes",
+        "trigger": "direct same-polytope facial and normal-cone work plausibly overlapping exposed vertices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f22c06d7-5d0e-44f5-9258-5d7e84507e90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random-direction width is a natural geometric invariant of the classical parking-function polytope. The leading n^(3/2) law does not fix the nontrivial n-scale variance or its joint dependence on the exposed layer. A complete joint limit with an explicitly evaluated small, positive variance identifies the radial-normalization cancellation and asymptotic independence of geometric width and vertex-layer selection. The all-dimension asymptotic structure, not a tiny isolated numerical improvement, is the motivated contribution.",
+    "status": "PASS"
+  }
+}
