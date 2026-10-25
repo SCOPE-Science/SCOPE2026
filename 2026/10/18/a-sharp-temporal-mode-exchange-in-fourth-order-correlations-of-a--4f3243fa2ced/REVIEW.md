@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary Gaussian conditional-variance representation is exact under independent Brownian reservoirs and a common switching clock. The two-state generator moment equations independently give the stationary first and second moments. The backward affine semigroup yields the factored rational Laplace transform. Stationarity and the jump carré-du-champ identity give the right-hand third derivative, the nonanalytic even extension and the diffusivity-independent inversion. The spectral crossing, nonvanishing double-pole coefficient, and positive post-transition slow residue are proved algebraically for every allowed parameter. The standalone symbolic and matrix-exponential checker executed successfully. Risk: all conclusions are conditional on the specified Markov and independence hypotheses; no sampling guarantees are proved.
+## correctness
 
-**Originality — PASS with residual risk.** The 2023 Biroli–Kulkarni–Majumdar–Schehr paper, including its Supplement, gives the full same-time Gaussian mixture and two-particle equal-time square correlation, which are not claimed as new. The 2025 Biroli et al. experimental preprint examines collective static observables and delayed *linear* position correlations, but not the delayed square correlation. Behme–Di Tella–Sideris (2022/2024) give general Markov-modulated OU autocovariance representations applicable to the conditional variance, so the mere existence of an exact three-mode representation is not claimed as new. The assessed distinctive assertion is the sharp full-parameter mode-exchange threshold with a non-cancelled resonance and the exact cubic-cusp inverse law for delayed fourth-order particle correlations. Risk: an earlier specialization of broad general autocovariance theory may already derive equivalent evaluated thresholds or inversion identities.
+PASS
 
-**Value — PASS.** The existing stationary joint law explains same-time emergent correlations but does not classify their time-lagged relaxation. The mode exchange shows two physically distinct memory timescales with a genuine critical polynomial prefactor. The independent derivative-ratio diagnostic recovers the common switching rate without the thermal diffusivity and remains nonzero precisely because the trap stiffness actually jumps. These are measurable structural distinctions, although derivative estimation may be difficult.
+Conditional on the complete environment, distinct particle coordinates are independent centered Gaussians with shared random variance V. Its PDMP generator yields the first two conditional stationary moments. The affine two-state expectation semigroup gives rational Laplace denominator (z+2r)(z+lambda_-)(z+lambda_+), with lambda_-=2k+r-sqrt(r^2+4h^2). The stationary carré-du-champ identities yield C'(0+)=0,C''(0+)=-E f_S(V)^2<0 and C'''(0+)=8rh^2 E V^2>0, giving even |t|^3 cusp. At r=k-h^2/k the poles collide and evaluated nonzero numerator gives t exp(-2rt). The exact derivative ratio J=2(k+r)+4h^2/(2k+r) has derivative 2-4h^2/(2k+r)^2>0. Independently reconstructed SymPy moment identities and 16 numerical finite-lag matrix-semigroup cases. Applicable to exact ideal stationary model only; no finite-sample identifiability guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The underlying common-variance mixture and equal-time fourth-order covariance are in Biroli et al., and general Markov-modulated OU covariance methods are in Behme et al. Those known formulas are acknowledged and not claimed new. The claimed evaluated temporal cusp, pole-order transition, sign of colliding residue and diffusion-free inverse are more specific than inspected prior statements. Algebraic specialization of a general rational covariance formula remains a derivability risk, but an explicit published matching set of identities was not identified.
+
+## value
+
+PASS
+
+Cross-particle fourth-order correlations reveal common environmental fluctuations invisible in ordinary cross-particle position covariance. An exact relaxation-mode crossover and a parameter-inference invariant are natural model-specific dynamical diagnostics, beyond the equal-time covariance already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

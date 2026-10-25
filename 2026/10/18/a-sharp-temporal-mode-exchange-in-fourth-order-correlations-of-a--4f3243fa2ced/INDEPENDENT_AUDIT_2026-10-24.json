@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:56:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the complete environment, distinct particle coordinates are independent centered Gaussians with shared random variance V. Its PDMP generator yields the first two conditional stationary moments. The affine two-state expectation semigroup gives rational Laplace denominator (z+2r)(z+lambda_-)(z+lambda_+), with lambda_-=2k+r-sqrt(r^2+4h^2). The stationary carré-du-champ identities yield C'(0+)=0,C''(0+)=-E f_S(V)^2<0 and C'''(0+)=8rh^2 E V^2>0, giving even |t|^3 cusp. At r=k-h^2/k the poles collide and evaluated nonzero numerator gives t exp(-2rt). The exact derivative ratio J=2(k+r)+4h^2/(2k+r) has derivative 2-4h^2/(2k+r)^2>0. Independently reconstructed SymPy moment identities and 16 numerical finite-lag matrix-semigroup cases. Applicable to exact ideal stationary model only; no finite-sample identifiability guarantee.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dynamically emergent correlations between particles in a switching harmonic trap: Supplement S73 is an equal-time expression; it has no nonzero lag or triple-pole analysis.",
+          "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes: Uninspected full applications leave a risk that a general formula specializes directly."
+        ],
+        "reasoning": "Behme–Di Tella–Sideris 2022 general covariance/moment theory is broader in model class but the accessible theorem descriptions do not explicitly supply this evaluated mode-order phase transition and nonvanishing residue. This is a genuine residual equivalence risk, not categorically not covering.",
+        "searches": [
+          "switching harmonic trap temporal squared cross-particle covariance fourth-order mode exchange cusp nonanalytic short time Markov-modulated OU",
+          "arXiv:2312.02570",
+          "arXiv:2207.11093"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.02570",
+        "https://arxiv.org/abs/2207.11093",
+        "https://arxiv.org/abs/2508.07199",
+        "RESULT.md",
+        "verify.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dynamically emergent correlations between particles in a switching harmonic trap: Supplement S73 is an equal-time expression; it has no nonzero lag or triple-pole analysis.",
+          "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes: Uninspected full applications leave a risk that a general formula specializes directly."
+        ],
+        "reasoning": "Known C(0) gives one number and cannot determine C''(0), C'''(0) or a pole collision. General covariance representation makes these quantities computable but does not by itself certify they have been previously explicitly evaluated.",
+        "searches": [
+          "switching harmonic trap temporal squared cross-particle covariance fourth-order mode exchange cusp nonanalytic short time Markov-modulated OU",
+          "arXiv:2312.02570",
+          "arXiv:2207.11093"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dynamically emergent correlations between particles in a switching harmonic trap: Supplement S73 is an equal-time expression; it has no nonzero lag or triple-pole analysis.",
+          "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes: Uninspected full applications leave a risk that a general formula specializes directly."
+        ],
+        "reasoning": "The lagged variance-process autocovariance Cov(V_t,V_0), fourth-order particle covariance and a rational Markov-modulated OU transform are equivalent representations; equal-time results are only the t=0 slice.",
+        "searches": [
+          "switching harmonic trap temporal squared cross-particle covariance fourth-order mode exchange cusp nonanalytic short time Markov-modulated OU",
+          "alternate parametrizations, duality, aliases for For the symmetric two-state switching harmonic Brownian gas with k>h>0, r,D>0, the station"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dynamically emergent correlations between particles in a switching harmonic trap: Supplement S73 is an equal-time expression; it has no nonzero lag or triple-pole analysis.",
+          "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes: Uninspected full applications leave a risk that a general formula specializes directly."
+        ],
+        "reasoning": "Biroli 2023 supplement S69–S73 evaluates the t=0 variance-mixing covariance, which equals C(0), not the complete C(t), triple-mode residues or J. No located full lagged-cusp table.",
+        "searches": [
+          "switching harmonic trap temporal squared cross-particle covariance fourth-order mode exchange cusp nonanalytic short time Markov-modulated OU",
+          "published tables and exact calculated invariant in For the symmetric two-state switching harmonic Brownian gas with k>h>0, r,D>0, the stationary cross-"
+        ]
+      },
+      "rationale": "The underlying common-variance mixture and equal-time fourth-order covariance are in Biroli et al., and general Markov-modulated OU covariance methods are in Behme et al. Those known formulas are acknowledged and not claimed new. The claimed evaluated temporal cusp, pole-order transition, sign of colliding residue and diffusion-free inverse are more specific than inspected prior statements. Algebraic specialization of a general rational covariance formula remains a derivability risk, but an explicit published matching set of identities was not identified.",
+      "residual_risks": [
+        "General Markov-modulated OU full-text applications could contain an equivalent evaluated specialization; no novelty guarantee.",
+        "Exact derivative estimation from empirical lagged covariance can be ill-conditioned; mathematical inverse does not address statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers common variance mixture and equal-time pair covariance, not an identified nonzero-time fourth-order mode-exchange theorem",
+          "evidence": [
+            "Supplement S73 is an equal-time expression; it has no nonzero lag or triple-pole analysis."
+          ],
+          "identifier_or_url": "arXiv:2312.02570",
+          "material_read": "Main paper and supplementary equal-time squared-position covariance S69-S73, particularly PDF supplement page 15",
+          "method": "Public arXiv full paper and supplement, read and checked rendered PDF page",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "same two-state model and common variance mixture"
+        },
+        {
+          "assessment": "Provides general moment/autocovariance machinery, possible algebraic route to the result",
+          "evidence": [
+            "Uninspected full applications leave a risk that a general formula specializes directly."
+          ],
+          "identifier_or_url": "arXiv:2207.11093",
+          "material_read": "Abstract and accessible general theorem descriptions; full theorem not rederived from this paper",
+          "method": "Public arXiv record and relevant abstract/theorem summaries",
+          "title": "On moments of integrals with respect to Markov additive processes and of Markov modulated generalized Ornstein–Uhlenbeck processes",
+          "trigger": "potential broader moment/autocovariance theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-particle fourth-order correlations reveal common environmental fluctuations invisible in ordinary cross-particle position covariance. An exact relaxation-mode crossover and a parameter-inference invariant are natural model-specific dynamical diagnostics, beyond the equal-time covariance already known.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2312.02570",
+    "https://arxiv.org/abs/2207.11093",
+    "https://arxiv.org/abs/2508.07199",
+    "RESULT.md",
+    "verify.py",
+    "independent_checks.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the symmetric two-state switching harmonic Brownian gas with k>h>0, r,D>0, the stationary cross-particle squared-position covariance has a |t|^3 cusp, an explicit Laplace transform, a sharp slowest-mode exchange at r=k-h^2/k with a nonzero double-pole t exp(-2rt) at collision, and a diffusion-free short-lag inverse of r.",
+  "limitations": [
+    "General Markov-modulated OU full-text applications could contain an equivalent evaluated specialization; no novelty guarantee.",
+    "Exact derivative estimation from empirical lagged covariance can be ill-conditioned; mathematical inverse does not address statistics."
+  ],
+  "residual_risks": [
+    "General Markov-modulated OU full-text applications could contain an equivalent evaluated specialization; no novelty guarantee.",
+    "Exact derivative estimation from empirical lagged covariance can be ill-conditioned; mathematical inverse does not address statistics."
+  ],
+  "schema_version": 1
+}
