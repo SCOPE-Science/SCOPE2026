@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The alphabet-lumping partition is equitable with marked singleton cells. The exact algebraic identity B^(k-j)F^(k-1)B^(i-1)e_r=q^(i-1+k-j)[v_j=r_i] proves all named coordinate tests are in the refinement colour-function space by round 3k-3; the two inclusions prove equality, including empty-marker and k=1 boundaries. Cited de Bruijn automorphism theorem yields S_u stabilizers; Stirling equality-pattern orbits give full count. Three standalone programs tested 925, 1899 and 3423 instances independently of the symbolic proof. Finite tests do not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boutin et al. Thm 4.12 gives Aut(D(q,k))=S_q; Thm 4.13 gives minimum determining-set cardinality, neither dictates how refinement behaves on non-determining marks.",
+        "Berkholz et al. DOI:10.1007/s00224-016-9686-0 supplies generic canonical colour-refinement algorithms."
+      ],
+      "reasoning": "No stronger retrieved theorem implies the coordinatewise-collapse formula or the precise restricted-Bell gap; general computing tools are not explicit characterization results.",
+      "searches": [
+        "For every nonempty set of individually colored vertices in a directed de Bruijn graph, stable bidirectional color refinement equals coordinatewise individual letters used by the marked words plus a single unnamed-letter class, independent of letter equality. Automorphism orbit refinement iff marked vertex set is determining.",
+        "one-dimensional Weisfeiler Leman finite automata de Bruijn graphs marked vertices"
+      ]
+    },
+    "checked_sources": [
+      "Boutin-Goliber-Pelto, arXiv:1412.5842 (2014-12-18)",
+      "Kiefer-Schweitzer-Selman, arXiv:1503.08792 (2015-03-30)",
+      "Berkholz-Bonsma-Grohe, doi:10.1007/s00224-016-9686-0 (2016-06-27)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boutin et al. Thm 4.12 supplies automorphism group; new linear adjacency-operator identity computes stable colours and can be verified independently.",
+        "Boutin et al. Thm 4.13 only determines minimum cardinality of a pointwise base; arbitrary marker sets include bases and non-bases.",
+        "Kiefer et al. general counting-logics framework does not identify these exact local counts."
+      ],
+      "reasoning": "Aut/stabilizer information implies orbit partitions but not colour-refinement success or failure. Deriving exact stable colours requires the displayed B^(k-j)F^(k-1)B^(i-1) identity; the known group theorem is explicitly cited, not claimed new.",
+      "searches": [
+        "De Bruijn graph rooted at word, adjacency operators recover indicators letter at every position and exact stable equitable partition",
+        "de Bruijn graph determining set automorphism group orbit color refinement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boutin et al. arXiv:1412.5842 §4.3 treats identifying/determining sets, not stable in/out colour multiplicities.",
+        "Kiefer et al. arXiv:1503.08792 treats C2 graph identification generally."
+      ],
+      "reasoning": "Also searched labelled shift registers and alphabet lumping; no retrieved exact marked-word counting classification; failed search alone not a novelty proof.",
+      "searches": [
+        "Rooted directed de Bruijn graph B(q,k), one named vertex r, one-dimensional Weisfeiler Leman stable colors are coordinatewise alphabet pattern relative to letters occurring in r; class count (t+1)^k and Bell orbit discrepancy",
+        "One-point color refinement on shift-register graphs de Bruijn symbolic words stabilizer orbits unrevealed alphabet equality",
+        "de Bruijn graph color refinement equitable partition marked vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reported restricted-Bell and ​class-size formulas follow a proof for every q,k,M, not a pre-existing fixed finite table.",
+        "No comparable published mathematical statement in the searched sources treats this family of marked shift digraphs."
+      ],
+      "reasoning": "No natural exact table or indexed classification with identical parameters was located; separate class/orbit enumerations were reconstructed rather than inferred from a search absence.",
+      "searches": [
+        "Equitable partitions of de Bruijn digraphs induced by alphabet lumping, marked-word orbit decomposition and two variable counting logic",
+        "marked de Bruijn graph equality-pattern stabilizer orbit Stirling number count"
+      ]
+    },
+    "rationale": "The explicit all-marker stabilization theorem and class/orbit formulas were compared by statement and implication with the original de Bruijn automorphism/determining-set results and general equitable-partition results. The known determining number cannot entail refinement being orbit-exact, and a general algorithm cannot entail these exact coordinates or Stirling orbit counts. No equivalent indexed finding was located; residual specialized-literature priority risk is recorded.",
+    "residual_risks": [
+      "A specialized publication on rooted directed shift digraphs could contain an equivalent theorem under another name; no publication-priority certification is claimed.",
+      "General C2 equivalence can use atomic loop status, hence is not interchangeable with the operational counting-refinement partition claimed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_THE_EXPLICIT_REFINEMENT",
+        "evidence": "Aut group S_q and determining number are stated, but no coordinatewise marked counting-refinement theorem or depth/orbit formula.",
+        "identifier_or_url": "https://arxiv.org/html/1412.5842v3",
+        "material_read": "Section 4.3 and Theorems 4.12–4.13, with definitions and context",
+        "method": "accessible arXiv HTML full-text and section comparison",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "same directed de Bruijn graphs, distinguishing and determining markers"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND_NOT_DOMINATING",
+        "evidence": "No statement that arbitrary individually marked directed de Bruijn graphs have the exact described stable partition.",
+        "identifier_or_url": "https://arxiv.org/html/1503.08792v1",
+        "material_read": "Abstract, general framework and stated results concerning graph identification",
+        "method": "accessible arXiv HTML primary paper",
+        "title": "Graphs Identified by Logics with Counting",
+        "trigger": "general counting logic versus equitable graph partitions"
+      },
+      {
+        "assessment": "ALGORITHMIC_BACKGROUND_NOT_DOMINATING",
+        "evidence": "Generic refinement complexity and algorithm, not de Bruijn coordinate tests or marked orbit census.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-016-9686-0",
+        "material_read": "Accessible HTML introduction, formal refinement setup and main complexity results",
+        "method": "publisher HTML primary source",
+        "title": "Tight Lower and Upper Bounds for the Complexity of Canonical Colour Refinement",
+        "trigger": "canonical refinement on directed graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "337bc215-e8cf-48e7-ac47-a8024b17fe7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact all-parameter marked local-counting classification provides a uniform dimension-length bound, every cell size, every automorphism orbit fiber via restricted Stirling numbers, and a sharp equivalence with determining sets for k>=2. It resolves a structural information-loss question in directed symbolic shift networks, beyond merely recomputing group sizes or generic refinement.",
+    "status": "PASS"
+  }
+}
