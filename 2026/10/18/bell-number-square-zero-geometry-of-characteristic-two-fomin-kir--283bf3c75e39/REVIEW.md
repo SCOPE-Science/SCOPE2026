@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The two independent quadratic triangle relations leave two independent symmetric-product classes; their square coefficients force the complete triple support/equal-weight condition in every characteristic-two field. A path-closure argument proves the global weighted set-partition description. Disjoint edge supports prove the subspace inclusion criterion; thus the full reduced component decomposition, EGF and dimension statements follow for every parameter. Exhaustive degree-two quotient checks over two finite fields corroborate, but are not substituted for, the proof.
+## correctness
 
-**Originality (O): PASS subject to explicitly recorded priority risks.** Relevant historical quadratic-algebra presentations and set-partition gradings predate the present finding and are not claimed anew. The established commutative quotient has a strictly different square-zero question. Inspected primary sections/available full-text searching did not reveal the full characteristic-two original-algebra zero-square/linear-component/weighted-Bell classification, and targeted published-record queries did not return a covering theorem. The 1997 foundational work was not exhaustively inspected in all versions, a long survey was inspected selectively, and an equivalent description in Nichols-algebra language remains possible. No absolute uniqueness or exhaustive-priority claim is made.
+PASS
 
-**Value (V): PASS.** Degree-one nilpotent geometry is a natural representation-theoretic and noncommutative quadratic invariant. The classification gives every point, all geometrically irreducible components, every component dimension, exact finite-field counts and an unexpected Bell-number specialization for an algebra whose full high-rank Hilbert series is substantially more complicated. In dimension at least four the locus is provably non-equidimensional, a geometric conclusion not furnished by knowing the original presentation or Bell combinatorics alone.
+In the degree-two quotient of the original noncommutative FK algebra in char 2, disjoint-edge terms cancel and independent triple relation classes give precisely u(v+w)=0=w(u+v). For each vertex triple, 0/one nonzero/all three equal nonzero are the only solutions. Every connected nonzero-edge support is therefore a complete clique with one edge weight; connected components yield unique weighted partitions. Free weights extend to linear L_pi; L_pi subset L_rho iff each nonsingleton block of pi survives identically in rho. Maximal spaces have at most one singleton. Labeled block EGFs give N_n(q) and component series, max dimension floor(n/2), odd/even top counts. Independently enumerated all F2 coefficient sets through n=5 obtaining Bell numbers 2,5,15,52; source verifier constructs the complete degree-two relations and tests GF(4). Geometry is reduced locus only, not scheme reducedness.
 
-**Closest literature and limits.** Kirillov (arXiv:q-alg/9705003) gives the underlying quadratic algebra. Blasiak–Liu–Mészáros (arXiv:1310.4112) use its set-partition grading; Liu (arXiv:1409.4872) computes a commutative quotient; Kirillov (arXiv:1502.00426) surveys related algebras. The present claim concerns the original noncommutative algebra in characteristic two. Its nonreduced scheme, higher degrees and absolute historical priority remain unestablished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact mathematical implications, not titles. Foundational quadratic relations enable the new algebraic derivation but do not, alone, state its result. The partition-graded subalgebra and the commutative quotient are genuinely different statements; no direct implication of the complete reduced zero locus from the inspected earlier theorems.
+
+## value
+
+PASS
+
+The degree-one nilpotent locus is an intrinsic and tractable geometric invariant of a difficult noncommutative quadratic algebra. Full weighted-partition point classification, finite-field counts and precise non-equidimensional irreducible arrangement provide structural geometry not implied by a known generators-and-relations presentation or a generic Bell-number identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

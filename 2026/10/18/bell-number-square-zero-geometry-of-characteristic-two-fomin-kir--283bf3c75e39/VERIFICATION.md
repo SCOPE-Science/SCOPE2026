@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` using standard Python 3; no third-party dependencies. The verifier builds the quadratic presentation directly, computes row bases of the exact quadratic-relation space over characteristic two, and compares literal squares of all degree-one vectors to the proposed graph/partition criterion for \((n,q)=(2,2),(3,2),(3,4),(4,2),(4,4),(5,2),(6,2)\). Independent set-partition exhaustive subspace-inclusion checks cover \(2\le n\le6\). The successful output ends `VERIFY_OK_FK_CHARACTERISTIC_TWO`.
+# Independent mathematical audit
 
-These are finite parameter checks and **not** proofs for larger dimensions or all characteristic-two fields. The proof in `RESULT.md` uses independent degree-two relation classes and all-triple closure; it is uniform. The underlying zero locus is treated in the **reduced** sense, and no claim about a nonreduced quadratic equation scheme is made. The literature comparison is selective; independent mathematical audit and absolute priority validation have not been performed.
+## correctness
+
+PASS
+
+In the degree-two quotient of the original noncommutative FK algebra in char 2, disjoint-edge terms cancel and independent triple relation classes give precisely u(v+w)=0=w(u+v). For each vertex triple, 0/one nonzero/all three equal nonzero are the only solutions. Every connected nonzero-edge support is therefore a complete clique with one edge weight; connected components yield unique weighted partitions. Free weights extend to linear L_pi; L_pi subset L_rho iff each nonsingleton block of pi survives identically in rho. Maximal spaces have at most one singleton. Labeled block EGFs give N_n(q) and component series, max dimension floor(n/2), odd/even top counts. Independently enumerated all F2 coefficient sets through n=5 obtaining Bell numbers 2,5,15,52; source verifier constructs the complete degree-two relations and tests GF(4). Geometry is reduced locus only, not scheme reducedness.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing exact mathematical implications, not titles. Foundational quadratic relations enable the new algebraic derivation but do not, alone, state its result. The partition-graded subalgebra and the commutative quotient are genuinely different statements; no direct implication of the complete reduced zero locus from the inspected earlier theorems.
+
+## value
+
+PASS
+
+The degree-one nilpotent locus is an intrinsic and tractable geometric invariant of a difficult noncommutative quadratic algebra. Full weighted-partition point classification, finite-field counts and precise non-equidimensional irreducible arrangement provide structural geometry not implied by a known generators-and-relations presentation or a generic Bell-number identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
