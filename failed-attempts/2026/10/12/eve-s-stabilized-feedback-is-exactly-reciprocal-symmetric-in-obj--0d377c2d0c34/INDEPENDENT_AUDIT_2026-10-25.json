@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T08:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Delta_t,Delta_(t-1)>0, the source min-gap ratio is |q-1|/min(q,1), which equals q-1 for q>=1 and 1/q-1 for q<=1. Thus reciprocal symmetry is exact. For a geometric gap trace the clipped input is constant; solving the source affine EMA with tilde_d_1=1 gives hat_d+(1-hat_d)beta3^(t-1). For c>1 and beta3 in [0,1), hat_d in [1/c,c] is positive and alpha_t converges to alpha1/hat_d. Threshold inequalities yield the stated closed bands, intermediate formula and endpoints. At c=10, q=0.1 and 10 both give d=9, not the upper clamp. Independently reconstructed exact rational tests covered c=2,10,13/2 and eight boundary/interior ratios each. The universal proof is algebraic; checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original defining equations cover all positive objective-gap time series, not just constant-ratio or geometric traces.",
+          "Equations (6)–(8) already clip the exact D(a,b) function to [1/c,c], solve the feedback as an EMA with beta3, initialize tilde_d_1=1, and set alpha_t=alpha_1/tilde_d_t.",
+          "If the source input is specialized to Delta_t=q^(t-1)Delta_1 then its d_t is constant; the phase bands are simply the source clip preimages of 1/c and c."
+        ],
+        "reasoning": "The source gives a strictly more general input/output map and recurrence. The submitted geometric response and asymptotic limit are direct specializations of that general definition plus elementary solution of a constant-input affine recurrence.",
+        "searches": [
+          "Hayashi–Koushik–Neubig 2016, Section 3.2, Eq. (8), https://jkoushik.me/eve/",
+          "Hayashi–Koushik–Neubig, source Algorithm/Figure 1 and Eqs. (6)–(8)",
+          "Resultary query: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry",
+          "Resultary query: adaptive gradient Eve feedback objective loss increase decrease symmetric absolute difference minimum gap and geometric decay",
+          "Resultary query: clipping thresholds and exact asymptotic learning rate for constant ratio loss sequence Eve optimizer"
+        ]
+      },
+      "checked_sources": [
+        "Hayashi, Koushik and Neubig, Eve: A Gradient Based Optimization Method with Locally and Globally Adaptive Learning Rates, arXiv:1611.01505 (2016), author-hosted complete HTML https://jkoushik.me/eve/, Section 3.2 Equations (5)–(8) and Section 3.3",
+        "Resultary semantic search: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry",
+        "Resultary semantic search: adaptive gradient Eve feedback objective loss increase decrease symmetric absolute difference minimum gap and geometric decay",
+        "Resultary semantic search: clipping thresholds and exact asymptotic learning rate for constant ratio loss sequence Eve optimizer",
+        "Resultary (published result): Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "Repository search: Eve global-feedback reciprocal within SCOPE-Science/SCOPE2026 (no indexed matching file returned)",
+        "On the Synergy of Optimizers and Activation Functions: A CNN Benchmarking Study, Mathematics 13 (2025), Section 2.2.8, https://www.mdpi.com/2227-7390/13/13/2088 (secondary formula presentation; not treated as an independent exact theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq. (8): D(a,b)=|a-b|/min(a,b); swapping a and b makes no change. Equivalently q=a/b and 1/q=b/a yield identical D.",
+          "For geometric gaps d=max(q,1/q)-1 is constant. The source EMA tilde_d_t=beta3 tilde_d_(t-1)+(1-beta3)clip(d,[1/c,c]), tilde_d_1=1, solves to clip(d)+[1-clip(d)]beta3^(t-1).",
+          "The maximal-rate band is simply max(q,1/q)-1<=1/c, hence c/(c+1)<=q<=(c+1)/c; the minimal-rate band is the >=c counterpart.",
+          "The source paper also explicitly states the global learning-rate range [alpha1/c,c alpha1] and discusses stabilization by the minimum of adjacent losses."
+        ],
+        "reasoning": "Every submitted equality and its boundary cases follow from the original full-domain equations by one algebraic substitution, two inequalities, and an elementary constant-coefficient recurrence. No additional hypothesis leads to a mathematical property beyond the source-defined transfer function.",
+        "searches": [
+          "Hayashi–Koushik–Neubig 2016, Section 3.2, Eq. (8), https://jkoushik.me/eve/",
+          "Author-hosted complete Eve paper, Section 3.2 and Section 3.3",
+          "Resultary: Resultary query: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (8) in the defining full-text paper states d_t=|f_t-f_(t-1)|/[min{f_t,f_(t-1)}-f*] for t>1 with positive denominators.",
+          "For positive gaps a and b the source function D(a,b)=|a-b|/min(a,b) satisfies D(a,b)=D(b,a) identically, and for q=a/b equals max(q,1/q)-1.",
+          "The final formula d(q)=max(q,1/q)-1 is equivalent to source Eq. (8) for every positive pair (a,b), not a distinct model result."
+        ],
+        "reasoning": "The new q is a normalization of the original pair. Reciprocal q corresponds to interchanging those inputs. Both numerator and denominator of source Eq. (8) are symmetric, making the headline statement an explicit tautological reformulation.",
+        "searches": [
+          "Hayashi–Koushik–Neubig 2016, Section 3.2, Eq. (8), https://jkoushik.me/eve/",
+          "Resultary query: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry",
+          "Resultary query: adaptive gradient Eve feedback objective loss increase decrease symmetric absolute difference minimum gap and geometric decay",
+          "Resultary query: clipping thresholds and exact asymptotic learning rate for constant ratio loss sequence Eve optimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns nearby optimizer stability records but no independent exact Eve-ratio theorem among examined top results.",
+          "Published stochastic OSGM record instead concerns batch-curvature population feedback, with R(p;A,B)=(B/A)(1-pA)^2 and H(p;A,B)=B(-p/A+p^2/2), not Eve’s min-gap feedback.",
+          "This claim is an analytic rewriting of a defined response function, not an independently tabulated finite invariant."
+        ],
+        "reasoning": "No separate exact table is relevant; the decisive exact source is already the 2016 defining equation. Unsuccessful database search cannot outweigh the elementary direct implication from that source.",
+        "searches": [
+          "Resultary query: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry",
+          "Resultary query: adaptive gradient Eve feedback objective loss increase decrease symmetric absolute difference minimum gap and geometric decay",
+          "Resultary query: clipping thresholds and exact asymptotic learning rate for constant ratio loss sequence Eve optimizer",
+          "GitHub repository code search: Eve global-feedback reciprocal, SCOPE-Science/SCOPE2026"
+        ]
+      },
+      "rationale": "The central equality is the defining 2016 Eve response rewritten using q=Delta_t/Delta_(t-1). More decisively, its claimed symmetry under q->1/q is exactly the exchange symmetry already built into the source Eq. (8): absolute difference and min of the two positive gaps are each invariant under exchange. The source provides the full response on arbitrary (not merely geometric) positive gap sequences, plus clipping and the EMA recurrence. The geometric phase thresholds are obtained immediately by substituting a constant ratio and solving inequalities; the EMA limit is the standard solution of the same source linear recurrence. Absence of a printed q-notation corollary is not a novelty distinction under the statement-and-implication standard.",
+      "residual_risks": [
+        "The full author-hosted source is the decisive exact general definition. Its discussion does not explicitly print q->1/q as a standalone equation; coverage judgment rests on strict equation equivalence, not matching wording.",
+        "Implementations and later descriptions may change the denominator or add epsilon, so the audited equalities apply only to the exact paper definition with strictly positive gaps.",
+        "The feedback-channel symmetry alone says nothing about actual Adam-plus-Eve optimization trajectories or practical harm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_THE_CLAIM_BY_DIRECT_DEFINITION_AND_ELEMENTARY_SPECIALIZATION",
+          "evidence": "Eq. (8) is symmetric in successive losses through both |f_t-f_(t-1)| and min{f_t,f_(t-1)}. Source Eqs. (6)–(8) define exact clipping, EMA and alpha feedback. This suffices to imply all submitted identities.",
+          "identifier_or_url": "arXiv:1611.01505; https://jkoushik.me/eve/",
+          "material_read": "Full author-hosted HTML paper, with close inspection of abstract, Introduction, Section 3.2 Eqs. 5–8, Section 3.3 and experimental context, including default parameter discussion.",
+          "method": "Read primary full-text author web edition, not only snippets; compared equations directly and derived both directions of the q normalization.",
+          "title": "Eve: A Gradient Based Optimization Method with Locally and Globally Adaptive Learning Rates",
+          "trigger": "Exact defining primary source for the SAME stabilized raw feedback, clipping, smoothing and global rate."
+        },
+        {
+          "assessment": "NOT_SAME_MODEL_AND_NOT_DECISIVE",
+          "evidence": "Stochastic OSGM uses out-of-sample quadratic proposal losses, not Eve’s successive minimum-gap stabilized feedback. No implication to the specific reciprocal identity was claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6/RESULT.md",
+          "material_read": "Complete RESULT.md (statement, derivations of feedback target and phase thresholds, restrictions, limitations and references).",
+          "method": "Read via authorized GitHub repository resource and compare feedback definitions.",
+          "title": "Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM",
+          "trigger": "One of the highest-related published mathematical results in the feedback/learning-rate semantic search."
+        },
+        {
+          "assessment": "SECONDARY_RESTATEMENT_OF_EVE_FORMULA_WITH_IMPLEMENTATION_VARIANTS",
+          "evidence": "The displayed numerator is an absolute adjacent-loss difference and denominator a minimum, reproducing the same pairwise exchange symmetry up to the article’s added epsilon and its different update description.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/13/13/2088",
+          "material_read": "Web-indexed section 2.2.8 on Eve, including displayed raw feedback and clipping; complete paper not inspected.",
+          "method": "Search-result section evidence only, not used to claim any whole-document noncoverage.",
+          "title": "On the Synergy of Optimizers and Activation Functions: A CNN Benchmarking Study",
+          "trigger": "Later accessible presentation of an Eve relative-loss rule, useful for aliases/implementation differences."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The objective-feedback quantity is genuinely important in Eve, and the reciprocal comparison could be a useful explanatory diagnostic. But the submitted exact fact adds only a change of variables to an explicitly symmetric 2016 definition, followed by the standard closed form of a constant-input exponential moving average and elementary clipping-boundary algebra. It supplies no new optimizer behavior theorem, motivated counterexample, unknown invariant or nontrivial boundary beyond the preimages of the source clip. Under the same value standard this is a routine normalization and source-rule restatement, not an independently valuable mathematical advance. The possible pedagogical insight is not denied.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Hayashi, Koushik and Neubig, Eve: A Gradient Based Optimization Method with Locally and Globally Adaptive Learning Rates, arXiv:1611.01505 (2016), author-hosted complete HTML https://jkoushik.me/eve/, Section 3.2 Equations (5)–(8) and Section 3.3",
+    "Resultary semantic search: Eve optimizer global learning rate clipping stabilized min objective gap reciprocal inverse gap ratio symmetry",
+    "Resultary semantic search: adaptive gradient Eve feedback objective loss increase decrease symmetric absolute difference minimum gap and geometric decay",
+    "Resultary semantic search: clipping thresholds and exact asymptotic learning rate for constant ratio loss sequence Eve optimizer",
+    "Resultary (published result): Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+    "Repository search: Eve global-feedback reciprocal within SCOPE-Science/SCOPE2026 (no indexed matching file returned)",
+    "On the Synergy of Optimizers and Activation Functions: A CNN Benchmarking Study, Mathematics 13 (2025), Section 2.2.8, https://www.mdpi.com/2227-7390/13/13/2088 (secondary formula presentation; not treated as an independent exact theorem)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The proved equality assumes the exact source-defined min-gap feedback, known global minimum, strictly positive gap ratios, c>1, beta3 in [0,1); other Eve implementations differ.",
+    "The theorem is an input-response identity and makes no claim about realizability or convergence of the full coupled optimizer.",
+    "Exact-rational finite tests are not proofs for all parameters; complete algebraic argument was checked independently.",
+    "The originality rejection is based on direct logical equivalence and simple specialization of the full source rule, not on a claim that the source paper writes the same formulas in q notation.",
+    "No publication-ready confidentiality sanitation was staged for the public metadata/review."
+  ],
+  "residual_risks": [
+    "The full author-hosted source is the decisive exact general definition. Its discussion does not explicitly print q->1/q as a standalone equation; coverage judgment rests on strict equation equivalence, not matching wording.",
+    "Implementations and later descriptions may change the denominator or add epsilon, so the audited equalities apply only to the exact paper definition with strictly positive gaps.",
+    "The feedback-channel symmetry alone says nothing about actual Adam-plus-Eve optimization trajectories or practical harm."
+  ],
+  "schema_version": 1
+}
