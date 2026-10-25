@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the exact certificate
+# Independent mathematical audit
 
-Extract `certificate.py` and `certificate_output.txt` from this finding's embedded file list without changing their bytes. Execute `python3 certificate.py` using Python 3 with only its standard library. The program ends by printing `CERTIFICATE_OK` and all seven earlier exact check values. Compare its stdout with `certificate_output.txt`.
+## correctness
 
-The proof in `RESULT.md` establishes that every squarefree three-prime candidate below the exhibited witness appears in the bounded prime-factor enumeration. `certificate.py` deterministically sieves primes, fully factors \(F(p)\) and \(F(u)\), checks all possible closing primes, and independently checks the three witness primes and the reciprocal-gcd sum. It uses integer arithmetic throughout.
+PASS
 
-The actual verified output is saved in `certificate_output.txt`. The script was executed directly from the packaged content and produced the exact expected output. Its check asserts the global product minimum only because the paper proof justifies the finite search boundary. No assertion concerns larger products or an unrestricted minimum over integers of every prime-support size.
+PASS. The grouping identity H(n)=(1/n)prod_{q^e||n}(q^(2e+1)+1)/(q+1) specializes to prod F(q)/(pqr). Since F(q)=q^2-q+1 ≡1 mod q, integrality gives each vertex an incoming edge; the minimal-counterexample descent on mutual divisibility of F excludes two-cycles, forcing a 3-cycle. Every smaller qualifying product <=N has smallest p^3<=N, first q|F(p), p*q*(p+1)<=N and last r|F(q), p<r<=N/(pq), F(r)≡0 mod p. Independent SymPy complete exact-factor scan yielded 7339 possible smallest primes, 1948 first edges, maximum intermediate q 19771363 and precisely one closing product N. Divisibility and exact H(N) verified. This is exhaustive by the cutoff argument, not unbounded experiment.
 
-Self-review covers the stated computation and its use in the proof. No independent audit has been carried out.
+## originality
+
+PASS
+
+PASS best of knowledge. De Koninck–Letendre supplies the multiplicative criterion, counting bound and cycle method; an earlier least-vertex result already obtains 349 and the same three primes, but does not imply minimal product: cycles beginning at larger p could have smaller q*r product. The new exhaustive product-bounded census eliminates that possibility. The displayed A317480 terms and published Resultary Phi_3 pair theorem do not imply this three-prime product minimum. Full preprint/older massive numerical catalogues could contain equivalent value; retained as residual risk.
+
+## value
+
+PASS
+
+PASS. Three distinct prime factors are the first nontrivial squarefree support admitting a directed 3-cycle (2-cycles impossible). The least integral H(pqr) is a motivated exact extremal invariant of a natural arithmetic set and requires a nontrivial globally exhaustive product sieve; it is not deduced from the earlier least-vertex cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
