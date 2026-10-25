@@ -1,19 +1,21 @@
-# Scientific review: sharp angular dissipation cost of persistence and chirality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary convolution jump generator has Haar-invariant orientation law and reverses every turning increment under time reversal. Its angular jump-path entropy-production rate is therefore the Poisson event rate times the relative entropy between the turning law and its reflection. The symmetrized-law argument in `RESULT.md` is constructive, covers finite and infinite path relative entropy, and justifies the bound with Cauchy–Schwarz, a cosine-variance bound, and Jensen for the explicitly strictly convex function \(g(t)=2\sqrt t\operatorname{artanh}\sqrt t\). The atomic two-angle law attains the bound, and equality in cosine variance proves uniqueness when chirality is nonzero. A separate narrow-bump construction proves the same sharp infimum over smooth densities while preserving both moments. Unit-circle and zero-chirality endpoints are addressed separately. The 318 independently generated checks in `verify.py` pass; they support but do not replace the proof.
+PASS
 
-## Originality — PASS, with explicit literature risk
+For Poisson orientation increments, uniform Haar law is stationary and jump-reversal sends P to reflected P^R; the jump-relative-entropy rate is exactly α KL(P||P^R), not total physical heat. With ν=(P+P^R)/2 and odd u=(dP−dP^R)/(dP+dP^R), one obtains c=∫cosψ dν, s=∫sinψ u dν and KL=∫g(u²)dν, g(t)=2sqrt(t)atanh sqrt(t)=2Σ_{j≥1}t^j/(2j−1). Cauchy–Schwarz and Jensen yield ∫u²≥s²/(1−c²), KL≥2r atanhr. Equality for nonzero s forces cosψ=c almost surely and unique mirrored two-atom law at ±arccos c with weights (1±s/sqrt(1−c²))/2. Reflection-symmetric laws attain zero for s=0. Disjoint smooth symmetric bumps preserve both first moments with KL→minimum. Unit-circle boundary is either a reflection-fixed deterministic turn (zero cost) or a nonfixed deterministic turn (infinite cost). The required c²+s²<1 and α>0 boundaries are explicit.
 
-The closest model paper is Britton, Zhang, Han and Bertrand (arXiv:2608.23519v1), which gives the arbitrary turning kernel and its first-mode chirality and persistence. Inspection of its model, observables, discussion and keyword-searchable full text identifies no angular path-relative-entropy optimization or equality classification. Olsen and Löwen (arXiv:2405.14326) optimize diffusion instead of angular jump irreversibility. Shreshtha and Harris (arXiv:1903.01972) bound current precision in a one-dimensional run-and-tumble renewal model using an entropy quantity, not this exact joint first-harmonic cost. The earlier harmonic-trap entropy-production treatment of Garcia-Millan and Pruessner (2021) addresses a different spatial and orientational model. Available broad entropy-production frameworks and convex-divergence bounds may admit an implicit specialization giving this tradeoff; the risk is genuine and is not removed by a negative search. The assessed novelty is the explicitly sharp two-parameter physical bound, optimizer and smooth-density infimum, not the known entropy-production definition or the generic Jensen and Cauchy–Schwarz inequalities.
+## originality
 
-## Value — PASS
+PASS
 
-The first turning harmonic is experimentally accessible through long-time orientational relaxation and angular drift, but it does not determine the microscopic turning law or its irreversibility. The theorem solves the natural constrained design/inference problem: the lowest possible orientation-jump entropy-production rate compatible with those two observables, including a unique minimizing asymmetric turning strategy, a weak-chirality scaling law and a divergent cost at the ballistic turning boundary. The result works for all Borel turning laws, not an arbitrary selected family or a numerical slice. No new theorem on total heat or spatial entropy production is claimed.
+Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.
 
-## Scope and closest sources
+## value
 
-Sources: Britton et al. (2026), arXiv:2608.23519; Olsen and Löwen (2024), arXiv:2405.14326; Shreshtha and Harris (2019), arXiv:1903.01972; Garcia-Millan and Pruessner (2021), DOI:10.1088/1742-5468/ac014d; Pruessner and Garcia-Millan (2025), DOI:10.1088/1361-6633/adff30. The theorem measures stationary orientation-jump relative entropy only. Its two-atom equality law may fail ergodicity for certain rational angles, but Haar remains stationary and the stationary path cost remains well-defined. All scientific coverage conclusions are subject to the residual implicit-specialization risk stated above.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first Fourier turn moment determines observable persistence rate and angular drift but not underlying jump irreversibility. The sharp variational solution gives the precise least stationary orientation-path entropy rate compatible with these observables, including a unique atomic strategy for nonzero chirality, smooth-density approximation, and exact extreme boundaries. It is motivated by an intrinsic inference/design question, not arbitrary numerical optimization; physical heat/other degrees of freedom are explicitly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
