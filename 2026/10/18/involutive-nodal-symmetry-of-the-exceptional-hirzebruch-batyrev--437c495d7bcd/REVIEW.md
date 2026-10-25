@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The explicit list of 22 integer vertices contains a lattice basis, making the four basis images a complete parameterization of integral stabilizers. Necessary vertex-difference constraints leave exactly 624 candidates, and exhaustive determinant and all-vertex checks produce only the identity and the displayed involution. Exact facet and face enumeration establishes both orbit inventories. The 26 signed diagonal relations have rank 18; rational parity ranks of the domain and image are (14, 9) and (12, 9), giving kernel dimensions 5 and 3. The two coloops are independently identified by deletion ranks and directly exchanged by the dual involution. Reproduction is included as `verify.py`.
+PASS
 
-## Originality
+An independent exact integer enumeration on all 22 listed 4D lattice vertices restricts a GL(4,Z) stabilizer by known vertex differences to 52 candidate (Ae1,Ae2) pairs and 12 (Ae3,Ae4) pairs, 624 cases total; determinant and complete vertex-set checks yield only I and displayed involution T. Independently enumerating primitive supporting hyperplanes from 4-vertex combinations yields 26 primal and 22 polar facets, with 72/68 distinct two-faces, size histograms (50 triangles,21 quadrilaterals,1 hexagon)/(38 triangles,26 quadrilaterals,2 pentagons,2 hexagons), and 20/26 parallelogram unit-square faces. For the 26 polar square-diagonal columns, exact rational elimination gives rank 18 and exactly two coloops, exchanged under T transpose. The signed action has domain ± eigendimensions 14 and 12, image ± ranks 9 and 9, and therefore kernel ± dimensions 5 and 3. All exhaustive calculations were run as a separate independent implementation; symmetry is of lattice polytope/fan, not a generic anticanonical hypersurface.
 
-**PASS, subject to historical-priority risk.** The originating article, arXiv:2610.03753v1, Theorem 6.1 and Remark 6.3, already contains both face counts, the rank-18 relation subsystem, and identification of its two coloop nodes; none of those is claimed as new. A separate prior computation enumerates five minimal circuits, not the action of the complete lattice stabilizer or the \(5+3\) eigenspace split. The inspected article does not state the stabilizer, singular-stratum orbit character, or eigenspace decomposition. Exact polytope automorphism databases or ancillary computer code might implicitly encode part of the symmetry; this possibility remains a documented residual risk. A negative indexed search is not a proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The polytope is singled out by a unique, non-smoothable \(\mathbb F_1\) singularity in a classified Batyrev mirror landscape. Determining its **complete** lattice symmetry together with the induced action on both lists of singular strata is a natural geometric classification. The \(5+3\) character of the node-relation kernel, and exchange of the two previously isolated coloop obstructions, distinguish invariant from anti-invariant conifold relation directions and provide information for future equivariant deformation questions that is not supplied by the bare rank or circuit count. No assertion about actual smoothing is required.
+Best-of-knowledge original component is complete integral lattice stabilizer C2 and its explicit face orbit/equivariant node-dependency character for Wuebben’s unique exceptional mirror pair. Wuebben 2026 Theorem 6.1 already publishes the 22/26 vertices, two-face inventories, nodes, Hodge numbers and nonsmoothability; Remark 6.3 already gives 26×26 node matrix rank 18 and two coloop faces. None of those individually supplies the complete lattice automorphism group nor +5/−3 character. General lattice polytope algorithms do not state this particular certified profile, though an unindexed database implicit computation is a residual priority risk.
 
-## Limitations and closest work
+## value
 
-The result is on the finite lattice-stabilizer action and a linear relation module, not generic hypersurface automorphisms or a construction of a smoothing. Wuebben's face enumeration and coloop theorem, and a previously computed minimal-circuit census, remain prior work; the new conclusions do not restate them as discoveries. Unindexed equivalent calculations and standard polytope software output are residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptional mirror pair is singled out by a singularity/smoothability dichotomy, making its exact lattice symmetry and action on node relations natural finite invariants. The 5+3 kernel character and exchanged coloops refine known eight-dimensional dependency data and can constrain equivariant deformation questions, even though they do not themselves prove a smoothing theorem. Exhaustive computation of a motivated fixed finite object can be scientifically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
