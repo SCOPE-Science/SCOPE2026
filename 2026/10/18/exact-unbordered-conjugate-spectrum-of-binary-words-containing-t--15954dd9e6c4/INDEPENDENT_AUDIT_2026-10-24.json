@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:55:37.649451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rotation with three 1 symbols is unbordered iff its first and last letters differ. For v=1 0^a 1 0^b 1 0^c, a direct border argument proves unbordered iff a<c, with the reversed companion lemma. Each inequality of cyclic consecutive zero gaps gives precisely one unbordered rotation, yielding U(w)=[a!=b]+[b!=c]+[c!=a] in {0,2,3}. Counting nonnegative gap triples summing n-3: one all-equal if 3|n and 3(floor((n-3)/2)+1-[3|n]) triples with exactly two equal. Marking one of three occurrences of 1 gives n/3 cyclic positions per gap triple, yielding C0=n[3|n]/3, C2=n(floor((n-3)/2)+1-[3|n]) and C3=binom(n,3)-C0-C2. Handles periodic all-equal and n=3. Independently enumerated direct proper-border tests on all 2380 three-one strings for n=3,...,16 and checked every formula; all-length proof is combinatorial, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holub–Müller result is broader in the set of words classified by two unbordered conjugates, but not a stated enumeration of their intersections with every weight-three stratum.",
+          "Clokie et al. Theorem 14 is expectation over all k^n words, not conditional on exactly three ones."
+        ],
+        "reasoning": "General existence and overall mean statements do not uniquely determine fixed-weight counts. A broader classification may imply a count after nontrivial enumeration; assessed novelty is the explicit derived distribution, not classification recognition itself.",
+        "searches": [
+          "Holub Müller Fully bordered words 2015 Theorem 2",
+          "Clokie Gabric Shallit 2019 Theorem 13 and Theorem 14",
+          "Harju Nowotka fixed-weight bordered primitive words"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, verify.py at source commit",
+        "arXiv:1504.02222",
+        "arXiv:1904.08187",
+        "DOI:10.1016/j.jcta.2004.07.009 (full text inaccessible)",
+        "Resultary binary word fixed-weight search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holub–Müller structurally describe binary words with two unbordered conjugates but do not give the three-one multiplicities.",
+          "Clokie et al. establish all allowed nuc counts and unconditioned expected values; conditioning on exactly three 1s does not follow from that expectation."
+        ],
+        "reasoning": "The fixed-composition distribution requires counting the constrained gap patterns, an additional calculation not already stated by cited general theorems.",
+        "searches": [
+          "arXiv:1504.02222 fully bordered words",
+          "arXiv:1904.08187 circularly squarefree unbordered conjugates",
+          "Harju Nowotka 2004 DOI:10.1016/j.jcta.2004.07.009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holub–Müller characterize all binary words with exactly two unbordered conjugates through inductive structure; they do not tabulate the multiplicities of exactly three-one words by length in the relevant sections.",
+          "Clokie et al. define nuc(w) as number of unbordered conjugates and prove maxima/existence/expectation, but the theorem concerns the full fixed-weight histogram."
+        ],
+        "reasoning": "Equivalent rotation/conjugacy wording was searched. A general structural recognition of two-unbordered words could in principle be specialized, but it does not directly supply all C0,C2,C3(n) without extra counting and periodic weighting.",
+        "searches": [
+          "binary words with three ones unbordered conjugates counts exactly two three gap lengths border correlation",
+          "Holub Müller arXiv:1504.02222",
+          "Clokie Gabric Shallit arXiv:1904.08187"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic related results concern deletion reconstruction, attractors, or binary run transitions, not this three-one census.",
+          "C0+C2+C3=binom(n,3) and the exhaustive n<=16 histogram were independently verified."
+        ],
+        "reasoning": "Targeted results include no matching table. This is limited search coverage and is not proof that no table exists in older combinatorics-on-words literature.",
+        "searches": [
+          "Resultary three-one word unbordered cyclic shifts exact spectrum",
+          "Harju Nowotka fixed weight border correlations",
+          "Clokie Gabric Shallit 2019 expected unbordered conjugates"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete fixed-weight-three histogram at every length, not for characterizing all binary words with two unbordered conjugates. Holub–Müller 2015 supplies a broader structural classification of words with exactly two conjugates; Clokie–Gabric–Shallit 2019 proves maximum/existence/expected-number statements without the fixed-three-one distribution in checked sections. Older fixed-weight border-correlation papers not fully accessible remain priority risks.",
+      "residual_risks": [
+        "Harju–Nowotka 2004/2005 primary fixed-weight results could contain equivalent three-one counts; these were not read in full.",
+        "The theorem counts indexed cyclic shift positions, not distinct strings; n divisible by 3 periodic exceptional C0 term must be respected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader characterization is known and credited; no explicit three-one length histogram located in inspected relevant results",
+          "evidence": "General recognition via inductive extensions versus exact C_j(n) for every n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.02222",
+          "material_read": "Abstract, definitions and central binary two-unbordered structural theorem with its argument (PDF text and relevant pages)",
+          "method": "open-access primary PDF full text/section inspection and screenshot",
+          "title": "Fully bordered words",
+          "trigger": "High-priority broader characterization of exactly two unbordered conjugates"
+        },
+        {
+          "assessment": "All-words existence and unconditioned expectation; no conditional all-length three-one count in read material",
+          "evidence": "Theorem 14 E[nuc]=n u_k(n)/k^n ranges over all k^n words, not fixed weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08187",
+          "material_read": "Original PDF Introduction and Sections 4-5 including Theorem 13 existence and Theorem 14 unconditional mean, conclusion",
+          "method": "primary 14-page open-access PDF, source text and screenshots (p2)",
+          "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+          "trigger": "High-priority all-binary count/expectation claim"
+        },
+        {
+          "assessment": "NOT EXCLUDED; contents not fully inspected",
+          "evidence": "Residual possible implication or prior exact count must remain named.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+          "material_read": "Bibliographic identification and citations in Clokie et al. and Holub–Müller; primary full text not obtained",
+          "method": "cross-reference and bibliographic sources only",
+          "title": "Border correlation of binary words",
+          "trigger": "Older exact fixed-weight border studies plausibly overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first binary sparse weight where a third unbordered rotation is possible admits a sharp, nontrivial trichotomy and explicit all-n counts. A natural restricted joint histogram can be useful for word-conjugacy enumeration even if the proof is elementary; it is not an arbitrary single-length slice or known table replay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet, exactly 3 ones, n>=3, indexed rotations rather than rotation equivalence or complement classes."
+  ],
+  "schema_version": 1
+}

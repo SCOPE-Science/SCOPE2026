@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-length proof reduces unbordered rotations to a comparison of two adjacent cyclic zero gaps and counts ordered triples, with proper handling of zero gaps and periodic strings. Direct exhaustive border tests on \(10{,}626\) three-one binary words of lengths \(3\) to \(23\) and independent gap counts through length \(120\) agree with the formulas. Finite tests are corroboration; the combinatorial lemmas establish the universal statement.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest broad comparison is Holub–Müller (arXiv:1504.02222), which inductively characterizes **all** binary words with exactly two unbordered conjugates; it does not state the explicit fixed-three-one multiplicities. Harju–Nowotka (2008, DOI 10.37236/916) count realizable border-correlation patterns rather than multiplicities of words in this fixed-weight class. Clokie–Gabric–Shallit (arXiv:1904.08187) derive maximum and expectation results without this distribution. The older 2004 border-correlation and 2005 fixed-weight papers were not accessible in full and may contain equivalent implications; no independence or final publication priority is claimed.
+PASS
 
-## Value — PASS
-The first sparse binary weight supporting three unbordered conjugates has a complete, natural, closed all-length spectrum with a transparent gap criterion. This gives every distribution stratum and shows concentration on three shifts. The result is restricted to exactly three ones, not an all-weight theorem.
+A rotation with three 1 symbols is unbordered iff its first and last letters differ. For v=1 0^a 1 0^b 1 0^c, a direct border argument proves unbordered iff a<c, with the reversed companion lemma. Each inequality of cyclic consecutive zero gaps gives precisely one unbordered rotation, yielding U(w)=[a!=b]+[b!=c]+[c!=a] in {0,2,3}. Counting nonnegative gap triples summing n-3: one all-equal if 3|n and 3(floor((n-3)/2)+1-[3|n]) triples with exactly two equal. Marking one of three occurrences of 1 gives n/3 cyclic positions per gap triple, yielding C0=n[3|n]/3, C2=n(floor((n-3)/2)+1-[3|n]) and C3=binom(n,3)-C0-C2. Handles periodic all-equal and n=3. Independently enumerated direct proper-border tests on all 2380 three-one strings for n=3,...,16 and checked every formula; all-length proof is combinatorial, not finite enumeration.
 
-## Limitations
-Broad fully bordered-word classification already covers the two-shift predicate; the new asserted contribution is the explicit all-length conditional distribution. The two older primary full texts remain unresolved bibliographic risk. Independent validation and audit have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete fixed-weight-three histogram at every length, not for characterizing all binary words with two unbordered conjugates. Holub–Müller 2015 supplies a broader structural classification of words with exactly two conjugates; Clokie–Gabric–Shallit 2019 proves maximum/existence/expected-number statements without the fixed-three-one distribution in checked sections. Older fixed-weight border-correlation papers not fully accessible remain priority risks.
+
+## value
+
+PASS
+
+The first binary sparse weight where a third unbordered rotation is possible admits a sharp, nontrivial trichotomy and explicit all-n counts. A natural restricted joint histogram can be useful for word-conjugacy enumeration even if the proof is elementary; it is not an arbitrary single-length slice or known table replay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
