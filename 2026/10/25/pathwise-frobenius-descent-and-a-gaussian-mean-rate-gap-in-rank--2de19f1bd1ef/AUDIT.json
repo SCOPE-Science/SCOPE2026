@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Full independent reconstruction: spectral formula N_q=lambda_q v_q v_q^T; Jensen T_q<=U_q from convex reciprocal profile; exponential tilt covariance signs give T_q,U_q nondecreasing and derivative 2T_q'(T_q-U_q)-2T_q U_q'<=0. Positive spectral support ensures strictness. Two-eigenvalue asymptotics use exact spectral weight ratios; the 2D Gaussian expectation follows from half-Cauchy density and two explicitly evaluated rational integrals; the monotonicity boundary uses exact fractions 200/197,65/53 and error 98/65>1. Standalone verifier passed 18,081 checks. Finite checks do not prove quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson–Kressner, arXiv:2209.11023, Algorithm 1 and PSD matrix-function error bounds; defines the power-Nyström input and focuses on probabilistic/relative error.",
+        "Persson–Meyer–Musco, arXiv:2311.14023, subspace-iteration remarks and algorithm-agnostic transfer; monotonic approximation error of A is not the transformed f(N_q) claim.",
+        "Gittens–Mahoney, arXiv:1303.1849, Nyström structural approximation results; not a scalar-transformed pathwise monotonicity theorem."
+      ],
+      "reasoning": "A broad error upper bound or a near-optimality transfer is not a logical monotonicity comparison of successive realized matrix-function approximants; an improved approximation to A is not automatically improved after applying nonlinear f. The exact 2-by-2 Gaussian mean formula and half exponent are not supplied by those general results.",
+      "searches": [
+        "funNyström rank-one power iteration pointwise monotonic Frobenius norm error for operator monotone f, harmonic Jensen convex",
+        "matrix functions Nyström power iterations samplewise Frobenius error decreases rank one with increasing q",
+        "funNystrom fixed Gaussian vector Frobenius error pathwise monotone operator monotone spectral function convex reciprocal power iteration",
+        "arXiv:2311.14023 near-optimality transfer",
+        "arXiv:2209.11023 Frobenius error bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.11023 full open preprint",
+      "arXiv:2311.14023 full open preprint",
+      "arXiv:1303.1849 open preprint",
+      "SIAM J Matrix Analysis 2023 DOI 10.1137/22M1523923 abstract and MSC",
+      "published-finding corpus semantic search results for actual queries in private envelope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Persson–Kressner, arXiv:2209.11023, Algorithm 1 and PSD matrix-function error bounds; defines the power-Nyström input and focuses on probabilistic/relative error.",
+        "Persson–Meyer–Musco, arXiv:2311.14023, subspace-iteration remarks and algorithm-agnostic transfer; monotonic approximation error of A is not the transformed f(N_q) claim."
+      ],
+      "reasoning": "Existing construction gives the same N_q, but its probabilistic norm bounds cannot imply a universal samplewise order without an extra comparison argument. The second paper transfers near-optimality from A to f(A) and remarks on A-only power improvement; neither yields the exact pathwise f(N_q) error inequality. No cited source implies the exact Gaussian mean rate. A future stronger universal monotonicity theorem could subsume these claims, so priority remains provisional.",
+      "searches": [
+        "funNyström rank-one power iteration pointwise monotonic Frobenius norm error for operator monotone f, harmonic Jensen convex",
+        "rank one Gaussian Nyström power iteration exact expected squared Frobenius error 2 by 2 diagonal spectrum a b formula",
+        "arXiv:2209.11023 Algorithm 1 and error analyses",
+        "arXiv:2311.14023 subspace iteration and monotone-operator statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Persson–Kressner, arXiv:2209.11023, Algorithm 1 and PSD matrix-function error bounds; defines the power-Nyström input and focuses on probabilistic/relative error.",
+        "Persson–Meyer–Musco, arXiv:2311.14023, subspace-iteration remarks and algorithm-agnostic transfer; monotonic approximation error of A is not the transformed f(N_q) claim."
+      ],
+      "reasoning": "Rank-one Nyström can be expressed as a harmonic Rayleigh scalar times a power-iterated unit vector, permitting the tilted-eigenvalue Jensen proof. The inspected source formulas provide the algorithm but do not state the exact resulting pathwise transformed Frobenius monotonicity or Gaussian expectation/rate separation. Querying aliases such as power iteration, single-column sketch, funNyström, harmonic mean and monotone matrix functions did not return an equivalent proved theorem.",
+      "searches": [
+        "funNyström rank-one power iteration pointwise monotonic Frobenius norm error for operator monotone f, harmonic Jensen convex",
+        "matrix functions Nyström power iterations samplewise Frobenius error decreases rank one with increasing q",
+        "funNystrom fixed Gaussian vector Frobenius error pathwise monotone operator monotone spectral function convex reciprocal power iteration",
+        "arXiv:2209.11023",
+        "arXiv:2311.14023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queried published-finding corpus for the two-dimensional Gaussian-Nyström expected Frobenius risk and spectral ratio; the closest retrieved records concern unrelated pivoting, spectral CG, or operator-theoretic questions.",
+        "The exact expectation derives from two recorded half-Cauchy integrals; no matching formula was found in inspected source sections."
+      ],
+      "reasoning": "This is a continuous Gaussian integral problem, not a finite tabulated invariant. Available search records do not constitute a complete mathematical literature index. No exact prior table or formula covering the same parameter range was identified.",
+      "searches": [
+        "rank one Gaussian Nyström power iteration exact expected squared Frobenius error 2 by 2 diagonal spectrum a b formula",
+        "two-dimensional Gaussian Nyström Frobenius expected error b squared closed form r sqrt(a/b)",
+        "Randomized low-rank approximation operator monotone matrix functions funNystrom finite rank eigenvalue trace bias log(I+A) square root Gaussian rank one exact risk and crossover"
+      ]
+    },
+    "rationale": "Compared the exact samplewise transformed Frobenius order and Gaussian mean exponent to full-text motivating funNyström paper, algorithm-agnostic transfer paper, and classical Nyström structural results. Their existing algorithm, A-only power decrease, and probabilistic bounds are expressly not re-claimed. published-finding corpus semantic and focused web searches found no dominating theorem; residual equivalence risk remains.",
+    "residual_risks": [
+      "Priority risk: a rank-one matrix-function power descent argument may exist in numerical linear algebra under a spectral-tilt or harmonic-Rayleigh alias.",
+      "The two-dimensional Cauchy-average formula may occur in less directly indexed sketch-distribution work.",
+      "published-finding corpus retrieval and accessible source coverage cannot certify global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the algorithm; does not establish the new rank-one pathwise squared Frobenius monotonicity or exact Gaussian mean rate in the inspected material.",
+        "evidence": "Power Nyström A^q Ω(Ω^T A^{2q-1}Ω)^†(A^q Ω)^T and probabilistic matrix-function error estimates.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+        "material_read": "Full accessible open preprint text: introduction, definition of power-Nyström Algorithm 1 and equation, Frobenius/nuclear/operator-norm analyses and discussion/appendices",
+        "method": "Read the open manuscript text and compare input sketch, successive power levels, quantifiers and expectation metrics",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Exact funNyström algorithm and probabilistic transformed-error guarantees"
+      },
+      {
+        "assessment": "Near-optimality transfer plus improvement of A approximation is not the present nonlinear f(N_q) monotonicity; no direct covering expected-rate formula located.",
+        "evidence": "Theorems transfer near-optimality for f(A) from algorithms producing good A approximations; subspace iteration discussion addresses A-error.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.14023",
+        "material_read": "Full accessible open preprint text: main theorems, subspace iteration section, monotonicity-related remark, examples and counterexamples",
+        "method": "Compared general near-optimality implications against transformed samplewise Frobenius error and exact 2D expected risk",
+        "title": "Algorithm-agnostic low-rank approximation of operator monotone matrix functions",
+        "trigger": "Plausibly stronger general error transfer and power-iteration improvements"
+      },
+      {
+        "assessment": "General Nyström bounds do not directly cover transformed rank-one power sequence or its exact Gaussian averaging gap.",
+        "evidence": "Structural Nyström approximation error guarantees, untransformed PSD matrices.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1849",
+        "material_read": "Accessible preprint sections on structural spectral/Frobenius Nyström approximation bounds and algorithms",
+        "method": "Compared object (PSD rank-one operator function), samplewise power error and Gaussian exact risks",
+        "title": "Revisiting the Nyström method for improved large-scale machine learning",
+        "trigger": "Classical strengthened Nyström and power iteration error inequalities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2de19f1b-d1ef-46d8-9c6a-5c4fe693781f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The rank-one funNyström method is literature-motivated and relevant to matrix-function approximation. A universal per-realization Frobenius descent theorem clarifies when extra power iterations are safe for nonlinear matrix functions; the sharp 2x2 Gaussian expected-error formula reveals a qualitative distinction (half the exponent) between almost-sure and expected convergence due to rare sketches. A nondecreasing counterexample gives a substantive functional boundary. No unsupported block-rank, spectral-norm, or finite-precision generalization is claimed.",
+    "status": "PASS"
+  }
+}
