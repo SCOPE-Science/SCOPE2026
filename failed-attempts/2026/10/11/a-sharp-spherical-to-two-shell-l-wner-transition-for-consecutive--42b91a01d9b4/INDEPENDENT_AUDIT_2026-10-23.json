@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:58:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integer-slab vertices are exactly binary vectors with weights a,...,b: perturb fractional coordinates, using integer endpoint sums when a slab bound is active. For an exchangeable binary vector with random weight K, mean mu, variance V and R=E[K(n-K)], its covariance is C=(V/n)H + R/(n(n-1))(I-H). Any vertex-supporting distribution with (x-m)^T C^{-1}(x-m)<=n for all vertices yields the unique minimum-volume ellipsoid { (x-m)^T(nC)^{-1}(x-m)<=1 } via the trace/determinant AM-GM certificate; equality forces both center and shape. When D=(n/2-a)(b-n/2)>=n/4, a mixture of extreme and central layers has mean n/2 and V=n/4, giving C=I/4 and all vertex contacts. Otherwise, optimize p(1-p)(A_a+p Delta)^(n-1) with A_k=k(n-k), Delta=A_b-A_a: strict log concavity gives the unique p in (0,1) and stationary polynomial A_a+(n Delta-2A_a)p-(n+1)Delta p^2=0. Stationarity makes the Mahalanobis orbit radii q(a)=q(b)=n; q(k)-n=eta(k-a)(k-b), eta=1/V-(n-1)/R. Reflecting if necessary to a+b<=n, the stationary identity (n-2mu)R=(n-a-b)(R-(n-1)V), together with strict concavity of log(VR^(n-1)) and its negative derivative at mu=n/2 when D<n/4, proves eta>0. Hence all interior allowed ranks lie strictly inside and exactly endpoints contact. The asserted principal axes, volume and balanced threshold follow directly. A new independent symbolic/bisection checker verified endpoint identities algebraically, 7,769 slabs and 81,583 layer inequalities for n=2..35, with 17,820 strict interior rank comparisons, and independently compared broad theorem chord candidates for 776 non-spherical slabs n<=19. These checks corroborate, not prove, the infinite statement. The n=2/simplex, a=0 or b=n, b=a+1, centered-slab and exact D=n/4 boundaries were examined.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General published theorem covers every full-dimensional S subset {0,...,n}, including rank gaps, and supplies all exact ellipsoid parameters and contact orbits for every interval S.",
+          "Its nonextremal example n=8,S={0,1,5} has contact ranks 1,5 while rank 0 lies inside, an example not covered by the assigned interval theorem.",
+          "By contrast, the capped-hypercube three-phase JOHN ellipsoid result concerns an inscribed ellipsoid and does not supply the Löwner conclusion."
+        ],
+        "reasoning": "The broader theorem strictly extends the submitted class. Its specialized moment-polygon test and optimizing extreme-chord formula cover the bound D=n/4 and exact two-shell anisotropy, without needing to literally print the simplified product threshold.",
+        "searches": [
+          "Resultary: spherical to two shell Löwner transition consecutive vertices unit sphere convex hull John Löwner ellipsoid exact threshold",
+          "Web: minimum volume enclosing ellipsoid 0-1 vectors fixed Hamming weights hypersimplex consecutive ranks D optimal design",
+          "GitHub full pinned RESULT.md: SCOPE2026 commit 14e0d82ee80055754484779fbefc4af697fc73f9, record 3c04f47dc8c3",
+          "Resultary published exact arbitrary rank-selected Boolean polytopes 3c04f47dc8c3"
+        ]
+      },
+      "checked_sources": [
+        "Read original assigned package RESULT.md, SLOGAN.txt, VERIFICATION.md, both independent verifier source files, metadata and historical review at Git tree e9b351ccd02f6d73a69c1cd5168425401c4c666e.",
+        "Read entire original pinned broad RESULT.md of 3c04f47dc8c3 at commit 14e0d82ee80055754484779fbefc4af697fc73f9; matched published mirror result.",
+        "Manecke, Sanyal, So (2020) published 14-page PDF DOI:10.37236/8457, sections 1–5.",
+        "Ferroni, McGinnis (2024 online / 2025 volume) Cambridge Core full HTML DOI:10.4153/S0008414X24000233.",
+        "Todd (2016) SIAM Chapter 2 abstract only DOI:10.1137/1.9781611974386.ch2.",
+        "Resultary search results for both exact rank-selected Boolean and consecutive slab ellipse findings; related capped cube JOHN ellipsoid result read full for invariant contrast."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S={a,...,b}, the upper boundary of C_S at mu=n/2 is y_top=(a+b)n/2-ab=n^2/4+D, while cube q has y=n^2/4+n/4; hence its upper test is exactly D>=n/4. For n>=2 the lower test with central consecutive integers is automatic whenever the interval straddles n/2.",
+          "Outside the cube case, the general theorem minimizes volume by maximizing det(nC) on candidate chords, and the present analytic derivative/positive-eta proof certifies extreme chord (a,b) as the maximizing candidate; its explicit parameters are the published general chord formulas.",
+          "Manecke–Sanyal–So (2020) defines exactly these S-hypersimplices and determines faces, edges, facets and monotone path polytopes, but not enclosing ellipsoids; Ferroni–McGinnis (2024/2025) studies Ehrhart and lattice volumes of prism slices, not Euclidean Löwner ellipsoids."
+        ],
+        "reasoning": "General rank-selected classification entails the exact specialization through direct moment-polygon arithmetic and the same covariance determinant root. Existing 2018–2025 combinatorial literature does not supply that implication, but the 2026 published stronger finding decisively does.",
+        "searches": [
+          "GitHub full pinned RESULT.md: SCOPE2026 commit 14e0d82ee80055754484779fbefc4af697fc73f9, record 3c04f47dc8c3",
+          "Resultary published exact arbitrary rank-selected Boolean polytopes 3c04f47dc8c3",
+          "Manecke–Sanyal–So 2020 primary journal PDF, DOI:10.37236/8457",
+          "Ferroni–McGinnis, Lattice points in slices of prisms, DOI:10.4153/S0008414X24000233"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned P_{n;a,b}=[0,1]^n intersect {a<=sum x_i<=b}=conv{v in {0,1}^n:|v| in S} for S={a,...,b}; same coordinate metric as published P_{n,S}.",
+          "Rank-selected theorem: moment polygon C_S=conv{(j,j^2):j in S}, cube moment q=(n/2,n(n+1)/4), otherwise optimize pairwise det(nC)=V(T/(n-1))^(n-1).",
+          "Published root equation A+(n Delta-2A)p-(n+1)Delta p^2=0 and eigenvalue shape V H+T/(n-1)(I-H) match assigned formulas identically on pair (a,b)."
+        ],
+        "reasoning": "This is identity of objects and optimization functional, not a mere similarity of names. The assigned two-phase ellipsoid is obtained by restricting the general rank-set theorem to a full interval, including equal-boundary and strict-contact cases.",
+        "searches": [
+          "Resultary: Löwner ellipsoid for convex hull of consecutive vertices of regular simplex or spherical sample and two-shell finite orbit sharp transition",
+          "Web: Löwner ellipsoid hypersimplex truncation boolean rank selected polytope exact shape 2026",
+          "GitHub full pinned RESULT.md: SCOPE2026 commit 14e0d82ee80055754484779fbefc4af697fc73f9, record 3c04f47dc8c3",
+          "Resultary published exact arbitrary rank-selected Boolean polytopes 3c04f47dc8c3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary index returned both the self record 42b91a01d9b4 and distinct published record 3c04f47dc8c3. The latter contains exact algebraic instructions for every S, not merely a numerical table.",
+          "General record 3c04f47dc8c3 gives explicit rational moment-polygon membership inequalities and a bounded list of quadratic equations from which the exact interval classification can be recovered."
+        ],
+        "reasoning": "This invariant is already computable exactly and structurally classified by the full theorem on rank-selected Boolean polytopes. Finite numerical test tables are not the reason for the rejection.",
+        "searches": [
+          "Resultary: Löwner ellipsoid for convex hull of consecutive vertices of regular simplex or spherical sample and two-shell finite orbit sharp transition",
+          "Resultary: spherical to two shell Löwner transition consecutive vertices unit sphere convex hull John Löwner ellipsoid exact threshold",
+          "GitHub full pinned RESULT.md: SCOPE2026 commit 14e0d82ee80055754484779fbefc4af697fc73f9, record 3c04f47dc8c3",
+          "Resultary published exact arbitrary rank-selected Boolean polytopes 3c04f47dc8c3"
+        ]
+      },
+      "rationale": "The published 2026-10-11 result Exact Löwner ellipsoids of arbitrary rank-selected Boolean polytopes (3c04f47dc8c3, original pinned RESULT.md blob 8cbcaeb068beaf0d279bb4d566017f346a00801e) already determines the unique ambient-Euclidean Löwner ellipsoid, center, squared semiaxes, volume and exact contact ranks for every full-dimensional rank set S. Taking S={a,a+1,...,b} gives precisely the present polytope. Its moment-polygon cube test specializes to (n/2-a)(b-n/2)>=n/4, and its candidate-pair determinant formula on the extreme pair is literally p(1-p)(A_a+p(A_b-A_a))^(n-1), with identical quadratic p equation and shape V H+R/(n-1)(I-H). The submitted positivity/factorization proof establishes that the extreme pair wins in the interval case, hence the rest of the submitted classification is a specialization of the published stronger procedure. This is scientific coverage, not an allegation of copied work: the submitted source commit 2026-10-11T13:08:56Z preceded the more general source commit 13:09:12Z by sixteen seconds and both were indexed at 13:31Z.",
+      "residual_risks": [
+        "Historical publication priority cannot be inferred from mathematical coverage alone: submitted source commit cb043a5f8995ad99f67c683ece8867406f4b36dc at 13:08:56Z precedes broad result source commit 14e0d82ee80055754484779fbefc4af697fc73f9 at 13:09:12Z, with both synchronized at 13:31Z. No copying claim is made.",
+        "Potential still earlier classical symmetric optimal-design treatment was not exhaustively searched; stronger published 2026 full-text coverage makes a FAIL decision independently of such inaccessible literature.",
+        "General rank-set theorem offers an exact finite candidate optimization; the present additional positivity argument is a useful explicit shortcut but is not a distinct result not already logically implied by that published theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERS the interval case, including exact parameters/contact count; broader strict nonconsecutive family.",
+          "evidence": [
+            "Pinned original blob 8cbcaeb068beaf0d279bb4d566017f346a00801e; source commit 14e0d82ee80055754484779fbefc4af697fc73f9 (2026-10-11 13:09:12Z).",
+            "Sections Finding, Steps 2–6: det(nC)=V(T/(n-1))^(n-1); q_square membership test; exact active rank pair and contact ranks."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/14e0d82ee80055754484779fbefc4af697fc73f9/2026/10/11/exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3/RESULT.md",
+          "material_read": "Full pinned RESULT.md: Finding, cube moment-polygon membership inequalities, all candidate-pair formulas, nonextremal example, proofs Steps 1–6, hypotheses and limitations; checked against published mirror full RESULT.md and SOURCE.json.",
+          "method": "Read-only GitHub fetch_file at original 2026-10-11 source commit; separately fetched published Resultary RESULT.md and SOURCE.json.",
+          "title": "Exact Löwner ellipsoids of arbitrary rank-selected Boolean polytopes",
+          "trigger": "Identical binary coordinate objects, all rank sets containing the assigned consecutive set; decisive possible dominating theorem"
+        },
+        {
+          "assessment": "Defines same object and vertex indexing, but reviewed theorems are combinatorial and do not themselves compute Löwner ellipsoids.",
+          "evidence": [
+            "Theorem 1 on edges; Theorem 8 on halfcube triangulations; Theorem 13 on monotone paths; PDF contains no ellipsoid discussion.",
+            "DOI:10.37236/8457, Electronic Journal of Combinatorics 27(3), #P3.16 (2020)."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v27i3p16/pdf/",
+          "material_read": "Full 14-page primary journal PDF via searchable page text, Section 1 definition, Sections 2–4 on edges, facets, triangulations, monotone paths, and Section 5 questions; inspected screenshots of pages 1, 3, 14.",
+          "method": "Lawfully open-access publisher PDF through web, with PDF screenshots and full-text section navigation.",
+          "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+          "trigger": "Original defining source of the same S-hypersimplex family and interval slabs"
+        },
+        {
+          "assessment": "Ehrhart/lattice-volume theorems are a different invariant; no exact Euclidean Löwner shape or contact theorem found in the inspected material.",
+          "evidence": [
+            "DOI:10.4153/S0008414X24000233; Theorem 1.1 Ehrhart positivity and Theorem 1.2 Ehrhart coefficients.",
+            "The article explicitly includes integer slabs a<=sum x_i<=b as fat prism slices but analyzes lattice enumeration."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/lattice-points-in-slices-of-prisms/BD4DAAE19B3FBECB840B658A189198ED",
+          "material_read": "Open-access publisher full HTML: introduction and fat-prism slab definition, main Theorems 1.1, 1.2, 1.4, 1.7, sections on Ehrhart and h-star formulas; searched ellipsoid terminology.",
+          "method": "Read accessible primary Cambridge Core article HTML and relevant theorem/proof sections.",
+          "title": "Lattice points in slices of prisms",
+          "trigger": "The same integer-coordinate slabs occur as fat prism slices; candidate alias under an affine lattice projection"
+        },
+        {
+          "assessment": "Provides background methodology; no whole-document noncoverage is inferred from abstract-only access.",
+          "evidence": [
+            "Todd (2016) Chapter 2 abstract describes theoretical minimum-volume ellipsoid optimization; not used to claim exact special-case priority."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611974386.ch2",
+          "material_read": "Publisher chapter abstract and bibliographic metadata only; full chapter not inspected.",
+          "method": "Read SIAM publicly accessible abstract.",
+          "title": "Minimum-Volume Ellipsoids: Theory and Algorithms, Chapter 2",
+          "trigger": "General minimum-volume ellipsoid and D-optimal-design equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Consecutive cardinality slabs are natural concrete 0–1 polytopes including truncated cubes and uniform-matroid independence bodies. The sharp D=n/4 spherical-versus-anisotropic transition gives an interpretable exact contact-orbit phase diagram, complete center and eigenaxis formulas in all dimensions, and a particularly simple balanced thickness threshold (b-a)^2=n. These data provide a useful benchmark for convex geometry and exact D-optimal-design calculations, rather than an arbitrary unmotivated small-instance invariant. Value does not restore originality: this class and all exact parameters are already determined by the stronger published rank-selected theorem. The claim is a useful specialization; it should not be accepted as a separate novel finding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Read original assigned package RESULT.md, SLOGAN.txt, VERIFICATION.md, both independent verifier source files, metadata and historical review at Git tree e9b351ccd02f6d73a69c1cd5168425401c4c666e.",
+    "Read entire original pinned broad RESULT.md of 3c04f47dc8c3 at commit 14e0d82ee80055754484779fbefc4af697fc73f9; matched published mirror result.",
+    "Manecke, Sanyal, So (2020) published 14-page PDF DOI:10.37236/8457, sections 1–5.",
+    "Ferroni, McGinnis (2024 online / 2025 volume) Cambridge Core full HTML DOI:10.4153/S0008414X24000233.",
+    "Todd (2016) SIAM Chapter 2 abstract only DOI:10.1137/1.9781611974386.ch2.",
+    "Resultary search results for both exact rank-selected Boolean and consecutive slab ellipse findings; related capped cube JOHN ellipsoid result read full for invariant contrast."
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Applies only to full-dimensional integer-endpoint cardinality slabs in the standard Euclidean metric; does not cover noninteger endpoints, rotated/affine distortions, other rank sets as an independently proved theorem, or John inellipsoids.",
+    "Independent numerical checks are finite, not proof; the analytic determinant–trace and strict eta>0 arguments prove the universal statement.",
+    "Originality rejection is implication-based against an independently published stronger 2026 finding; source timestamps 16 seconds apart prevent any claim about copying or first discovery.",
+    "Raw public metadata includes operational identifiers; without complete privacy-neutral guarded replacements the failed-package publication plan is not_ready. Scientific disposition remains final."
+  ],
+  "residual_risks": [
+    "Historical publication priority cannot be inferred from mathematical coverage alone: submitted source commit cb043a5f8995ad99f67c683ece8867406f4b36dc at 13:08:56Z precedes broad result source commit 14e0d82ee80055754484779fbefc4af697fc73f9 at 13:09:12Z, with both synchronized at 13:31Z. No copying claim is made.",
+    "Potential still earlier classical symmetric optimal-design treatment was not exhaustively searched; stronger published 2026 full-text coverage makes a FAIL decision independently of such inaccessible literature.",
+    "General rank-set theorem offers an exact finite candidate optimization; the present additional positivity argument is a useful explicit shortcut but is not a distinct result not already logically implied by that published theorem."
+  ],
+  "schema_version": 1
+}
