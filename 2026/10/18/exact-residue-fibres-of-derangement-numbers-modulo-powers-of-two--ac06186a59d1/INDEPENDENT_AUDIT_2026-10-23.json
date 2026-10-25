@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:44:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The falling-factorial 2-adic series F(x)=sum_j (-1)^j P_j(x) converges uniformly because products of j consecutive 2-adic integers have at least floor(j/2) factors of two; its derivative converges uniformly and the integral Taylor remainder gives F(x+h)-F(x)=hF'(x) modulo h^2. From F(x+1)=1-(x+1)F(x) and F'(0)=-sum_{m>=0}m! ≡2 mod4, parity branches have v2(F'(odd))=0, v2(F'(even))=1. For odd x and h divisible2 the linear term dominates; for same even x mod4 and h divisible4 it also dominates with +1 valuation. Hence H(t)=F(1+2t)/2 and G0/G2=(F(4t)-1)/8,(F(2+4t)-1)/8 are isometries Z2->Z2, thus finite quotient permutations and surjections, implying exactly one odd-index preimage for each even output and four even-index preimages for each target ≡1 mod8. Periodicity follows from 1-Lipschitz. Independently checked all 8184 integer index residues for k=3..12; unrestricted law is from the analytic argument. k=1,2 are explicit boundary cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miska proves periodicity and valuations of derangements, not the complete per-residue 2^k image and exact multiplicities.",
+          "Ulas Lemma 2.1 explicitly proves D_{2n}≡1 mod8 and D_{2n+1}≡2n mod8, determining the k3 base case."
+        ],
+        "reasoning": "The known congruences and period supply necessary ingredients; the exact general k branchwise 2-adic isometries add nontrivial metric rigidity beyond the quoted prior bounds.",
+        "searches": [
+          "arXiv:1508.01987, Miska Sections 4.1.1-4.1.3",
+          "arXiv:2012.04615 Theorems 4.3,4.5",
+          "Ulas 2023 Lemmas 2.1,2.2 and Theorem 2.3",
+          "Resultary semantic search: derangement numbers residues modulo 2^k exact multiplicities 2-adic image isometry"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2012.04615",
+        "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+        "https://arxiv.org/abs/1508.01987",
+        "https://oeis.org/A000166"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact distribution demands H, G0 and G2 induce bijections of every finite 2-adic quotient, not just 1-Lipschitz regularity.",
+          "Ulas provides universal mod8 and normalized valuation classes, which alone do not enumerate exact targets modulo arbitrarily large powers."
+        ],
+        "reasoning": "The source proof reconstructs branchwise derivative valuations and isometry, supplying the missing implication. An unindexed broader p-adic image theorem could subsume it; priority conclusion is best-of-knowledge with that risk explicitly named.",
+        "searches": [
+          "O'Desky--Richman arXiv:2012.04615, Theorems 4.3/4.5",
+          "Ulas doi/primary 2023 Fibonacci Quarterly 61, Lemma 2.1 and Theorem 2.3",
+          "Resultary semantic search: derangement numbers residues modulo 2^k exact multiplicities 2-adic image isometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Image/fibre classification is equivalently a push-forward Haar measure law for signed derangement 2-adic analytic interpolation restricted to three parity branches.",
+          "O'Desky--Richman proves 2-adic interpolation and Lipschitz-type metric bounds, but exact parity-branch derivative valuation and target multiplicity are stronger."
+        ],
+        "reasoning": "Prior 2-adic interpolation is credited as known. It does not alone imply *isometric equalities* or image-fibre counts. A general 2-adic measure-preserving dynamical result might imply after verifying derivative valuations, not merely by renaming.",
+        "searches": [
+          "Resultary semantic search: derangement numbers residues modulo 2^k exact multiplicities 2-adic image isometry",
+          "O'Desky--Richman arXiv:2012.04615 Theorems 4.3 and 4.5",
+          "Ulas Fibonacci Quarterly 61 (2023), Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ulas gives modulo-eight classification and detailed normalized D_n 2-adic valuations, not all target multiplicities for every k.",
+          "OEIS A000166 tabulates derangement integers; an entry of the sequence is not a residue-fibre table indexed by arbitrary exponent and target."
+        ],
+        "reasoning": "The full distribution for every modulus 2^k cannot be reconstructed from only first three binary digits or bare periods without the derivative-isometry argument. Known k3 table is credited.",
+        "searches": [
+          "Ulas 2023 Section 2, Lemma 2.1",
+          "OEIS A000166",
+          "Resultary semantic search: derangement numbers residues modulo 2^k exact multiplicities 2-adic image isometry"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS on the exact final claim after new Git-tree proof and computation reconstruction, Resultary semantic searches, checked primary theorem scopes and explicit source risks. Not a claim of comprehensive historical priority, external certification or entire-paper noncoverage where material was inaccessible. All known special-case antecedents are credited.",
+      "residual_risks": [
+        "An unindexed 2-adic measure-preserving or exact derangement-fibre theorem might imply the same image distribution, despite absence of an identified matching result.",
+        "Published low-bit formulas are covered and not claimed new. Finite tests k<=12 alone would not establish the full family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_INTERPOLATION_AND_LIPSCHITZ_NOT_EXACT_FIBRES",
+          "evidence": [
+            "The interpolation and 1-Lipschitz features are prior; exact parity-dependent derivative valuations and 3 branch surjections are the extra claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.04615",
+          "material_read": "full primary preprint PDF Theorems 4.3 and 4.5 and their scope, with page screenshot",
+          "method": "read relevant arXiv primary PDF theorems",
+          "title": "Derangements and the p-adic incomplete gamma function",
+          "trigger": "same falling-factorial p-adic interpolation and metric regularity"
+        },
+        {
+          "assessment": "COVERS_K3_AND_NORMALIZED_LOW_BINARY_DIGITS",
+          "evidence": [
+            "Lemma2.1 gives D_even≡1 mod8 and D_odd≡2n mod8; Theorem2.3 concerns D_n/2^valuation mod8, not all k per-target fibres."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+          "material_read": "9-page full primary PDF, pp.1-4 including Lemma 2.1, 2.2, Theorem 2.3 and relevant contextual introduction; page 3 screenshot",
+          "method": "read relevant text and inspected original theorem page image",
+          "title": "Representing generalized derangements as sums of three squares",
+          "trigger": "same D_n congruences and binary valuations"
+        },
+        {
+          "assessment": "NO_FULL_TEXT_NONCOVERAGE_CLAIM",
+          "evidence": [
+            "Known periodicity and valuations credited; not enough material independently read to exclude every possible fibre corollary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.01987",
+          "material_read": "Sections 4.1.1-4.1.3 as cited by source; full primary text not independently inspected this run",
+          "method": "bibliographic/contextual source comparison only",
+          "title": "Arithmetic properties of the sequence of derangements and its generalizations",
+          "trigger": "periodicity and valuations relevant to exact dyadic image"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Complete all-exponent images and exact residue multiplicities modulo 2^k for the classical derangement sequence are natural modular arithmetic invariants beyond the well-known recurrence, period and low-bit congruences. The stable five-eighths image proportion and distinct 1-vs-4 target multiplicities have a mathematically motivated 2-adic isometric structural explanation. This is a full infinite-family theorem, not arbitrarily selected small moduli; published modulo-eight base case is explicitly attributed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2012.04615",
+    "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+    "https://arxiv.org/abs/1508.01987",
+    "https://oeis.org/A000166"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single final claim was assessed under the same C/O/V bar; published ingredients credited.",
+    "Independent exact finite checks corroborate only their stated domains; unbounded statements follow mathematical arguments, not brute-force extrapolation.",
+    "No formal Lean proof, outside human attestation, unconditional novelty guarantee, or public publication is claimed."
+  ],
+  "residual_risks": [
+    "An unindexed 2-adic measure-preserving or exact derangement-fibre theorem might imply the same image distribution, despite absence of an identified matching result.",
+    "Published low-bit formulas are covered and not claimed new. Finite tests k<=12 alone would not establish the full family."
+  ],
+  "schema_version": 1
+}
