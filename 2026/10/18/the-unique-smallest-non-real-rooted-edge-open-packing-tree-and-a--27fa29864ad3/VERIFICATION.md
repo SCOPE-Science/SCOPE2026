@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,30 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_roots.py` from this directory. Python standard library alone is sufficient. It enumerates all selected-edge subsets on canonical representatives of every unlabeled tree of order at most six and checks the full edge-open-packing coefficient vector by direct conflicts between distinct selected edges. It checks the exact polynomial for every one-subdivided star with \(2\le d\le9\), as well as the strict Newton inequality for \(4\le d\le100\). It prints `VERIFICATION_ROOTS_OK` on success; retained output is in `verification_roots_output.txt`.
+## correctness
 
-The proof for unbounded broom size is the coefficient factorization and strict Newton inequality. The six-vertex minimality proof is a finite complete classification by tree isomorphism classes, not a partial sample. The verifier does not establish bibliographic priority, nor is this an independent mathematical audit.
+PASS
+
+Reconstructed the conflict relation: the subdivided edge is compatible with all edges; the terminal edge conflicts exactly with the d−1 center leaves, giving the stated factorization. For d=2,3 the factors are linear/quadratic with positive discriminants (5 for d=3). For d≥4, normalized Newton coefficients at k=2 violate log-concavity: 1 < (m+1)/m for m=d−1≥3. The polynomial of a forest factors by components, so a minimum non-real-rooted forest must contain a non-real-rooted tree component. The actual Git tree/blob identities were verified; an independent local reimplementation of the finite subset census reproduced all 14 tree cases through order six and the B4 factor/discriminant. The local copy was not byte-identical to the source script, so the exact package script itself is marked inspected rather than claimed executed byte-for-byte.
+
+## originality
+
+PASS
+
+The independence-polynomial formulation is equivalent and yields the exact factorization, but the inspected prior papers do not classify zeros of this edge-open-packing counting polynomial.
+
+Known general root criteria provide a proof method, not a dominating classification of the stated polynomial.
+
+No applicable published exact database/table was identified; the checked finite census is a local exhaustive certificate, not a novelty proof by search alone.
+
+The new claim is a counting-polynomial/root classification plus a minimal obstruction, strictly more than a scalar packing-number computation.
+
+## value
+
+PASS
+
+The result isolates a natural counting polynomial, proves a sharp parameter threshold for an infinite broom family, and identifies the first possible forest obstruction with a complete six-vertex classification. The exact obstruction is motivated by the contrast between matching-type real-rootedness phenomena and edge-open-packing counts; it is not merely a computed scalar invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,27 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The edge-conflict graph of a one-subdivided \(d\)-arm star has a star on \(d\) edges and one isolated vertex, which proves \(E_{B_d}(z)=(1+z)((1+z)^{d-1}+z)\). For \(d\le3\), the factors have explicitly real zeros. For every \(d\ge4\), Newton's necessary inequalities for the binomially normalized coefficient sequence fail strictly at index two, so the polynomial cannot be real-rooted. The six unlabeled trees of order six have the six exact polynomial factorizations displayed in RESULT.md; all trees of orders at most five have real-rooted polynomials, and products handle disconnected forests. Thus the first non-real-rooted forest has six vertices and a unique isomorphism class. The standalone verifier exhaustively implements edge-subset admissibility and checks all small-tree coefficients and the infinite-family obstruction for many parameters; the unrestricted threshold is proved algebraically rather than extrapolated.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+Reconstructed the conflict relation: the subdivided edge is compatible with all edges; the terminal edge conflicts exactly with the d−1 center leaves, giving the stated factorization. For d=2,3 the factors are linear/quadratic with positive discriminants (5 for d=3). For d≥4, normalized Newton coefficients at k=2 violate log-concavity: 1 < (m+1)/m for m=d−1≥3. The polynomial of a forest factors by components, so a minimum non-real-rooted forest must contain a non-real-rooted tree component. The actual Git tree/blob identities were verified; an independent local reimplementation of the finite subset census reproduced all 14 tree cases through order six and the B4 factor/discriminant. The local copy was not byte-identical to the source script, so the exact package script itself is marked inspected rather than claimed executed byte-for-byte.
 
-Chelladurai–Kalimuthu–Soundararajan (2022) introduced edge open packing and published bounds; Brešar–Samadi (arXiv:2403.00750v1, 2024), Section 3, studies extremal tree packings; Brešar–Dravec–Hedžet–Samadi (arXiv:2406.04020, 2024), Section 2, compares scalar induced-matching and edge-open-packing numbers. None of the inspected texts states a real-rootedness classification, let alone the globally unique six-vertex obstruction. Ordinary independence polynomials on stars contain the factorization implicitly, but do not on their own identify the edge-open-packing polynomial for brooms or prove uniqueness of the global smallest forest obstruction. General semiring-based monadic logic counting on bounded-treewidth graphs covers computation of the polynomial, not its real zeros or this sharp boundary. Search and literature inspection provide evidence, not proof of bibliographic uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Real-rootedness is a stronger global structural property than unimodality or log-concavity and is a natural comparison with real-rooted matching generating polynomials on forests. The theorem isolates the first possible acyclic failure exactly, proves the six-vertex obstruction is unique (rather than a single numerical counterexample), and derives a sharp threshold for every broom size via a uniform obstruction. Both the boundary classification and its analytic explanation are motivated by how local edge-conflict constraints affect zeros, not an arbitrary coefficient or isolated small example.
+The independence-polynomial formulation is equivalent and yields the exact factorization, but the inspected prior papers do not classify zeros of this edge-open-packing counting polynomial.
 
-## Limitations
+Known general root criteria provide a proof method, not a dominating classification of the stated polynomial.
 
-No assertion is made about the real-rootedness classification of larger arbitrary trees or unimodality. Independence polynomials of stars are classical; that auxiliary formula is not claimed as novel. An unindexed equivalent theorem might exist. Independent validation is still pending.
+No applicable published exact database/table was identified; the checked finite census is a local exhaustive certificate, not a novelty proof by search alone.
 
-Self-review: passed. Independent audit: not yet performed.
+The new claim is a counting-polynomial/root classification plus a minimal obstruction, strictly more than a scalar packing-number computation.
+
+## value
+
+PASS
+
+The result isolates a natural counting polynomial, proves a sharp parameter threshold for an infinite broom family, and identifies the first possible forest obstruction with a complete six-vertex classification. The exact obstruction is motivated by the contrast between matching-type real-rootedness phenomena and edge-open-packing counts; it is not merely a computed scalar invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
