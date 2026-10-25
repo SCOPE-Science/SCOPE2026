@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact Fourier aliasing of the Poisson kernel on an \\(N\\)-node grid gives a shifted \\(P_{r^N}\\) sample; Fourier orthogonality gives mean one and variance \\(2q^2/[m(1-q^2)]\\). Subcritical proof conditions on rare hits to an O(epsilon) arc and controls the tail expectation. At critical m epsilon -> lambda, a scaled Laplace integral converges by an integrable C/(1+x^2) bound to the homogeneous Poisson shot-noise functional, with Campbell moments 1 and 1/lambda. Above threshold, exact variance and bounded triangular-array summands give L2 convergence and a standard normal CLT. A bounded-subsequence argument proves necessity. The standalone VERIFIER.py was executed from its real package source path and passed 475 deterministic assertions; numerical tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goda–Kazashi–Suzuki, arXiv:2212.11476v1, concerns Gaussian-weighted real-line Sobolev classes with bounded integration complexity.",
+        "Bao–Hua–Lai–Zhang, arXiv:2305.05855, and af Klinteberg, arXiv:2304.11865, develop near-singular correction formulas rather than independently shifted uncorrected quadrature.",
+        "General Poisson shot-noise theory (Lund–McCormick–Xiao, Journal of Applied Probability 2016) studies shot-noise asymptotics but does not present this trapezoidal sampling threshold in the searchable abstract."
+      ],
+      "reasoning": "The fixed-function integration bounds of the randomized Gaussian-Sobolev paper cannot be applied uniformly to Poisson kernels whose derivatives blow up in the moving boundary limit. The near-singular source papers use different deterministic interpolatory correction schemes. General point-process limit results could prove steps of the theorem but do not automatically give the exact quadrature reparametrization, all three regimes, and the iff budget threshold. Remaining inaccessible sources represent priority risk.",
+      "searches": [
+        "\"Poisson kernel\" \"shifted trapezoidal\" \"variance\" random",
+        "\"near-singular\" \"random shifts\" trapezoidal rule \"variance\"",
+        "\"Poisson kernel\" \"Poisson point process\" \"trapezoidal rule\" randomized",
+        "\"Poisson kernel\" empirical average boundary approaching \"Poisson\" limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.11476v1",
+      "arxiv:2305.05855v1",
+      "arxiv:2304.11865v1",
+      "doi:10.1137/130932132 (partial material)",
+      "General shot-noise literature: Lund–McCormick–Xiao (2016), searchable abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier unshifted Möbius-transformed Cauchy-mixture trapezoidal result concerns exact mass, parity, and scale calibration; it invokes classical Poisson Fourier series but not independently averaged random phases or a critical distribution.",
+        "Related stochastic Rayleigh–Ritz beta-product convergence laws concern linear-operator subspace searches, not near-singular quadrature.",
+        "Goda et al. (2022), the closest randomized trapezoid source, prove fixed-class Gaussian-Sobolev RMSE, not the limiting distribution for the specific moving singularity.",
+        "Bao et al. (2023) and af Klinteberg (2023) remedy deterministic nearly singular integration by special quadrature correction, which does not imply the sampled fluctuation theorem for uncorrected independently shifted grids."
+      ],
+      "reasoning": "The prior Cauchy-mixture parity classification solves an unshifted scale-parameter calibration question, not a triangular-array random-sampling convergence question. Classical aliasing supplies only the first identity; elementary variance gives the high-budget side but not subcritical typical collapse or the critical non-Gaussian limit. The displayed full 3-regime statement is not a special case of the inspected comparison results.",
+      "searches": [
+        "\"shifted trapezoidal rule\" \"Poisson point process\" near singular limit",
+        "\"Poisson kernel\" random samples approaching boundary critical sample size distribution shot noise",
+        "\"Randomizing the trapezoidal rule\" Goda Kazashi Suzuki MSC 65D30"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical Fourier aliasing makes the shifted \\(N\\)-node Poisson grid identical in law to one \\(P_{r^N}(U)\\) sample, an equivalence explicitly incorporated into the analytical proof.",
+        "Trefethen–Weideman, DOI:10.1137/130932132, develops classical trapezoidal aliasing; arXiv:2212.11476 uses randomized trapezoidal rules for fixed Gaussian Sobolev integrands."
+      ],
+      "reasoning": "The reparametrization \\(q=r^N\\) reduces exact quadrature to the empirical mean of a Poisson approximate identity. But the required three-way triangular-array limit, with a Poisson shot-noise law and a sharp necessary-and-sufficient sample budget, is not identical to classical single-grid aliasing nor implied by fixed-integrand RMSE statements. Search did not identify a published equivalent; hidden alternative formulations remain possible.",
+      "searches": [
+        "randomly shifted trapezoidal rule Poisson kernel near boundary rare event failure shot noise Poisson point process critical sampling m(1-r^N)",
+        "stochastic shifted quadrature of Poisson kernel phase transition average independent shifts rare resonance inconsistent",
+        "trapezoidal quadrature near-singular Poisson kernel sharp variance exact 2q^2/(1-q^2) and independent shift budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest identified published mathematical records concern translated sampling of asymmetric two-sided exponential generators, positivity of Romberg quadrature weights, and phase aliasing of calibrated binned observations. They do not study moving Poisson-kernel quadrature.",
+        "No located published table lists the Poisson shot-noise scaling law for independently shifted moving-kernel quadrature."
+      ],
+      "reasoning": "The nearest indexed mathematical records treat different sampling objects or only finite deterministic bounds; none gives this exact limiting distribution and consistency threshold. Database absence is not proof of uniqueness.",
+      "searches": [
+        "uniform random shifts close evaluation quadrature critical Poisson point process shot noise limit",
+        "Trefethen Weideman exponentially convergent trapezoidal rule Poisson kernel random grid shift probability",
+        "arXiv 2212.11476 Goda Kazashi Suzuki randomized trapezoidal rule Gaussian Sobolev Poisson near singular"
+      ]
+    },
+    "rationale": "The original question is an independently randomized full-grid trapezoidal estimator in a moving near-boundary Poisson family; the claimed object is its exact zero/Poisson/Gaussian budget trichotomy. Classical Poisson aliasing, generic random shifting, near-singular deterministic corrections, and the general point-process machinery are acknowledged as prior. The inspected sources and the accessible preceding claims do not imply this specific joint statement. No global uniqueness or independent publication-priority certification is asserted.",
+    "residual_risks": [
+      "Equivalent special-case theorems may be expressed as near-boundary empirical Poisson-kernel approximate identities rather than randomized quadrature.",
+      "Full text of the classical broad trapezoidal survey and some specialized older probability literature could not be exhaustively inspected.",
+      "Searches and prior-claim partitioning cannot prove publication novelty; independent literature priority examination remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different function class and asymptotic question; the random-shift method is prior, but a Poisson-boundary three-regime distributional transition was not found in inspected passages.",
+        "evidence": "arXiv v1 posted 2022-12-22; theorem discusses optimal RMSE of randomized trapezoidal integration for Gaussian Sobolev functions.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.11476",
+        "material_read": "arXiv public HTML introduction, randomized quadrature algorithm, central lemma and theorem sections together with submission-history and article abstract",
+        "method": "Open full-text HTML and compare exact integrands, fixed Sobolev classes, randomization, rates, and statements against the moving Poisson boundary family",
+        "title": "Randomizing the trapezoidal rule gives the optimal RMSE rate in Gaussian Sobolev spaces",
+        "trigger": "closest randomized trapezoid theory; dated earliest qualifying public source"
+      },
+      {
+        "assessment": "Different estimator and goal; no matching sharp random-grid work threshold identified in material read.",
+        "evidence": "Bao–Hua–Lai–Zhang (2023) uses analytic singularity extraction and corrected trigonometric quadrature.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.05855",
+        "material_read": "arXiv lawful full HTML, its method/analysis and discussion of high-accuracy deterministic correction",
+        "method": "Compare singularity-swapping corrected interpolation quadrature with a random shift of the uncorrected Poisson grid",
+        "title": "Singularity swapping method for nearly singular integrals based on trapezoidal rule",
+        "trigger": "same numerical issue of near-boundary periodic integration"
+      },
+      {
+        "assessment": "Analyzes deterministic singularity correction, not the same probability law in the inspected discussion.",
+        "evidence": "af Klinteberg (2023), arXiv:2304.11865, spectral convergence of singularity-swap line quadrature.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.11865",
+        "material_read": "arXiv lawful HTML describing transformed singularity swap, quadrature and numerical experiments",
+        "method": "Compare exact nodes/weights and error statements with independent random re-shifting and the critical Poisson limit",
+        "title": "Singularity swap quadrature for nearly singular line integrals on closed curves in two dimensions",
+        "trigger": "another closely related periodic near-singular quadrature algorithm"
+      },
+      {
+        "assessment": "Classical aliasing is acknowledged as prior. Full text not sufficiently inspected to exclude a specialized moving-kernel randomized limit.",
+        "evidence": "Trefethen–Weideman, SIAM Review 56 (2014), classical exponentially convergent trapezoidal rule.",
+        "identifier_or_url": "https://doi.org/10.1137/130932132",
+        "material_read": "public metadata and excerpted searchable pages only; full publisher/hosted PDF not successfully retrieved",
+        "method": "Compare indexed subject and available excerpts; note exact insufficient full-text coverage",
+        "title": "The Exponentially Convergent Trapezoidal Rule",
+        "trigger": "foundational potentially broader Fourier-aliasing result that could subsume finite-grid facts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40e29c30-0ddc-4828-ba62-f201c6e8fc4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact moving-boundary Poisson kernel is an analytically motivated stress model for periodic near-singular quadrature. With independent random origin shifts, it gives a sharp necessary-and-sufficient total grid-evaluation budget \\(mN(1-r)\\to\\infty\\), and distinguishes unbiasedness from concentration by proving typical collapse below threshold. The critical parameter produces a non-Gaussian Poisson shot-noise law with explicit Laplace transform and variance, and the strong-budget regime has a verified CLT; these give actionable accuracy-planning and implementation benchmarks. This is not merely a textbook aliasing formula because the probability limit and iff cross-regime necessity require additional arguments.",
+    "status": "PASS"
+  }
+}
