@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three order-two poles give genus seven and geometric three-rank four by standard ramification and Deuring–Shafarevich calculations. Two distinct separable degree-three pencils on a genus-seven curve would give a birational image of bidegree three-three in a product of lines, with arithmetic genus four, so the deck quotient is intrinsically determined. Explicit centered local principal parts linearize the six-dimensional parameter action as permutation plus sign-twisted permutation. Vandermonde interpolation, Cramer's rule and a residual sign involution give an exact invariant-field equality and an explicit rational reconstruction. The embedded verifier checks the group actions, polynomial invariance and nonzero Jacobian symbolically in characteristic three. Boundary parameters are excluded as stated.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest source is Duque-Rosero–Lorenzo García–Malmskog–Scheidler, arXiv:2602.22435, Section 6.3, which explicitly does not finish the modular polynomial invariant-ring computation for three order-two poles in characteristic three. It does not state the six rational invariants or unmarked-moduli rationality theorem proved here. Pries–Zhu gives component counts and dimensions; earlier standard-form work and Reimers–Sezer's general modular separation techniques do not display this geometric six-coordinate reconstruction. Mathematical-record searches compared equivalent presentations and generic rationality claims without finding a stronger directly covering result. General invariant-field rationality machinery may imply the rationality part abstractly, and unindexed priority remains possible. The polynomial invariant ring is not asserted to be computed.
+PASS
 
-**Value — PASS.** This is a natural six-dimensional ramification-profile component singled out by a recent computational obstruction in modular invariant theory. A complete generic *function-field* description is strictly less than a full invariant-ring presentation but is a substantial moduli result: it proves rationality and gives six explicit algebraically independent polynomial quantities that reconstruct unmarked curves generically, while avoiding an unresolved high-degree modular ring computation. The reconstruction is suitable for explicit moduli and generic classification questions. It makes no claim about singular boundary quotients or other strata.
+Over algebraically closed characteristic 3 consider standard functions y³-y=sum_{p=∞,0,1}(A_p q_p(x)²+B_p q_p(x)), all A_p!=0 and q∞=x-1/2, q0=1/2-1/x, q1=-1/2-1/(x-1). Three poles of order 2 give via Riemann–Hurwitz 2g-2=-6+3*2*3=12 => g=7 and Deuring–Shafarevich p-rank 4. If two inequivalent separable degree-3 rational subfields existed in the genus-seven function field their compositum (degree prime) would give a birational (3,3) curve in P1×P1 of arithmetic genus 4, contradiction. Hence the Artin–Schreier quotient is intrinsic to unmarked curves. Normalizing three branch poles leaves Möbius S3 plus scalar F3*={±1}; any additive correction h(x) with a pole would yield a pole of order >=3 in h³-h, contradicting the normalized order-two right-hand sides, so h constant and absorbed. The centered q_p transform under odd permutations by a common negative sign. Thus A triple is permuted, B triple is signed-permuted, scalar -1 negates both. For V with rows (1,A_i,A_i²), interpolation determinants T_j=det(V with column j replaced by B), S3-fixed field is k(e1,e2,e3,T0,T1,T2), since unordered A roots and Cramer interpolation reconstruct B. The remaining involution negates e1,e3,T1 but fixes e2,T0,T2, so the fixed field is purely transcendental k(e2,T0,T2,e1²,e1e3,e1T1) on open A∞A0A1 det(V) e1!=0. Generic orbit reconstruction proves these invariants separate unmarked curve isomorphism classes and establish rationality of the six-dimensional moduli locus. Independent SymPy computation of the six-by-six Jacobian gives 2*prod_{i<j}(A_i-A_j)^3*(A0+A1+A2)^3, nonzero also mod3. The computation supports separable independence, not the genus/pencil or field-identification proof.
 
-**Related sources and limitations.** arXiv:2602.22435, Section 6.3; arXiv:2401.08843, introduction and Sections 2–4; arXiv:math/0609657, Sections 2–3; arXiv:2505.20895, abstract and generic separation. Searches did not establish absolute historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Artin–Schreier invariants paper specifically leaves the modular equal-three-double-pole invariant RING calculation unfinished; this claim instead gives full rational invariant FIELD and unmarked moduli reconstruction by six explicit quantities, not the stronger ring.
+
+## value
+
+PASS
+
+The three-double-pole characteristic-three locus is natural, dimension six, and already identified in primary literature as difficult for modular invariant-ring computation. A full birational field presentation with six algebraically independent polynomial invariants that generically reconstruct UNMARKED curves is a substantive natural moduli classification; it supplies rationality and usable explicit coordinates without falsely claiming to solve the harder ring problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
