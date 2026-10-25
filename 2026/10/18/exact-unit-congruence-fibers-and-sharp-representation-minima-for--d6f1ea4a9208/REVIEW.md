@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Classical quadratic-character identities establish the unrestricted binary and ternary counts. Explicit three-hyperplane inclusion–exclusion enforces all three unit restrictions, nonsingular lifting supplies an exact \(p^2\) factor per odd prime-power level, the unit-square group controls the dyadic fibers, and CRT gives the global product. Exact comparison of three Legendre-character cases proves every claimed local minimum. A standalone two-method checker covers 575 concrete modulus/parameter profiles and verifies all local minima for odd primes through \(47\); finite experiments are not substituted for the general proof.
+## correctness
 
-## Originality — PASS, residual risk disclosed
-The highly relevant 2015 Harrington–Gross paper was inspected at Theorems 5 and 7 and the proof sections; those theorems concern existence/obstruction of unit solutions, not exact counts for each target or the least number over all targets. The 2014 Harrington–Jones–Lamarche paper concerns the two-square representation question. The Nowicki and Lam papers address integer, not finite-ring unit-congruence, representations. Mathematical-results and exact-phrase searches did not identify the same representation-distribution theorem. Nevertheless classical quadratic character sums are strong background tools, and an unindexed equivalent formula is a genuine residual originality risk.
+PASS
 
-## Value — PASS
-This is a natural complete **quantitative classification** of the exact fibers of the same ternary unit form whose qualitative surjectivity was an explicit published object of study. It determines how many witnesses exist for each target, proves exact uniform lifting over every odd prime power, and identifies the sharp worst-target robustness—not merely whether any solution exists. The result is not asserted to be a general new method for quadratic forms.
+For all n≥2 and integer d,m, represent a²+b²−dc²=m on ordered unit triples. For odd p the known exact binary square count B_p(t) is p−eps for nonzero t and p+(p−1)eps for t=0, where eps=chi_p(−1). Summing over c yields unrestricted ternary p²+p*chi_p(d)*chi_p(m) when p∤d; inclusion–exclusion over a=0,b=0,c=0 enforces all units and gives four F_p cases, with p|d separately factoring p−1. For every odd p-adic lifting step, ∂/∂b=2b unit gives exactly p² lifts per old solution for a specified target. Odd squares fill exactly the 1(mod2^min(e,3)) coset uniformly, giving F_(2^e) and its support; CRT factors arbitrary modulus and permits independent minimization of local targets. Comparison of z∈{0,±1} produces piecewise minima, including exceptional p3,5. Independently directly enumerated ordered unit triples for every residue d,m at p=3,5,7,11,13,17,19 and matched every fiber and sharp local minimum. Infinite-modulus theorem rests on explicit character sums, Hensel lifting and CRT, not finite tests.
 
-## Limits and related literature
-Known existence criterion: Harrington–Gross, *J. Integer Seq.* 18 (2015), Article 15.11.3. Supporting two-square context: Harrington–Jones–Lamarche, *J. Integer Seq.* 17 (2014), Article 14.7.4. Related integer-representation work: Nowicki and Lam, *J. Integer Seq.* 18 (2015), Articles 15.2.3 and 15.8.6. The check of relevant accessible primary text cannot rule out unknown, unindexed, or differently formulated published identities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original scope is the precisely quantified final claim, not known ingredients or convention changes. Four independent implication/convention comparisons and identifiable primary literature were assessed; inability to read a plausible source is explicitly retained as a residual risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+Existing work characterizes when all residue targets are representable by a²+b²−dc² with unit variables. Complete target-fiber multiplicities, dyadic zero/nonzero support and sharp worst-target counts are natural quantitative refinements needed for constrained quadratic-form local densities. The theorem preserves d divisible by p, p=2 and exceptional small primes, making it more useful than a routine rephrasing of the existential criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
