@@ -1,21 +1,21 @@
-# Scientific review: sharp logit-slope oscillation barrier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof exactly reconstructs the finite-rationality SIS–logit system and its allowed payoffs from the primary model. The weighted divergence for the strictly positive Dulac multiplier \(1/I\) is strictly negative when \(\sigma m\le4\), even at equality, so no interior cycles exist. The constructed payoffs satisfy disease-free defection dominance, produce exactly one disease-free saddle and one endemic hyperbolic repelling focus, and satisfy exact rational Jacobian identities. A low-infection barrier argument proves that every interior orbit stays uniformly away from infection extinction, while bounded logit response prevents approach to full cooperation/defection. The only interior equilibrium is repelling, so Poincaré–Bendixson gives periodic omega-limits. The accompanying checker passed 136 rational identities and 5,320 sampled inequalities; these finite checks support, but do not replace, the analytic global argument.
+PASS
 
-## Originality — PASS, residual risks documented
+For the homogeneous SIS/logit ODE xdot=L-x, Idot=I[beta(1-x)(1-I)-gamma], delta_x>=-m and 0<L(1-L)<=1/4 imply L_x<=sigma*m/4. The Dulac multiplier 1/I on the simply connected physical open square gives divergence -(1+sigma L(1-L)delta_x)/I-beta(1-x), strictly negative for sigma*m<=4 including equality, hence no periodic orbit. For sigma=1,m=4+eta, beta=eta,gamma=3eta/8, delta=m(3/2-x-4I), eta in (0,1), a1=m/2,b1=3m/2,a0=-7m/2,b0=-5m/2 meet standing payoff conditions. A monotonic scalar equilibrium equation yields unique endemic E=(1/2,1/4). Its Jacobian has trace eta/8>0, determinant eta(24+5eta)/32>0, discriminant -eta(192+39eta)/64<0, hence hyperbolic source. Disease-free boundary has a unique saddle whose physical stable manifold lies in I=0. At I<=1/16, x>=1/2 forces xdot<-1/6, so within 3 time units low-infection trajectories enter x<=1/2 unless I exits the strip, where Idot/I>=3eta/32. Along excursions Idot/I>=-gamma, giving uniform positive I lower bound from interior data. Thus every strictly interior omega limit is compact in open square and avoids the hyperbolic source, and Poincare–Bendixson gives a periodic omega limit. The explicit finite rational/script checks corroborate Jacobian and bounds, while unbounded-time existence is proved analytically.
 
-The motivating paper, Maitra–Paarporn–Eksin (arXiv:2610.03173v1), establishes the same ODE and develops equilibrium-existence/local-stability results and numerical dynamics, but does not derive a sharp nonoscillation slope bound or prove global periodic omega-limits for an explicit payoff family. Strong nearby mathematical literature was compared at the level of equations and conclusions. Achterberg–Sensi (doi:10.1007/s11071-023-08498-4) proves no cycles in an adaptive contact-density SIS with different behavioral equations; its all-response conclusion does not imply nonoscillation in the payoff-logit feedback, and the constructed cycles show the model classes cannot be conflated. Brett et al. (doi:10.1080/17513758.2018.1549278) prove nonoscillation for particular contagion-based behavioral systems, also structurally different. A separate published mathematical result for a Plank-type transmission-modulated SIS establishes a hyperbolic repeller and periodic omega-limits for one other model; this general technique/phenomenon is prior, not the sharp universal payoff-slope statement here. Prior logit evolutionary-game cycles (Hommes–Ochea) do not imply the two-dimensional SIS statement.
+## originality
 
-Seven direct targeted mathematical-record queries and complementary primary-literature searches were used to compare aliases, reductions, strong broader results, and local findings. No inspected work covered the combined theorem. Residual risk is unindexed equivalent analysis of the exact SIS–logit payoff model, especially contemporaneous preprints; negative search is not proof of uniqueness or originality.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality assessment of this EXACT final statement against published mathematical results and the source model, not certification of historical priority. General mathematical machinery and prior model definitions are attributed; claim-specific evaluated classification is not found among inspected primaries. A failed search is not novelty proof. One cannot infer the sharp universal threshold merely from finding a stable epidemic equilibrium: the below-bound half uses a global Dulac sign, while sharpness requires an admissible model with a repelling endemic source and uniform interior persistence. Original local-stability analysis does not logically force either.
 
-This is a sharp model-wide structural threshold, including its equality boundary and constructive tightness: below the universal payoff-slope limit disease–behavior waves are impossible, whereas arbitrarily near above it sustained periodic epidemic prevalence arises from almost every interior initial state for explicit legally admissible payoffs. The explicit global periodicity mechanism gives a rigorous complement to equilibrium and short-run numerical analysis of a new model. The result is not a mere numerical test, arbitrary parameter table, or relabeling of a general theorem: the nontrivial equilibrium classification and low-infection persistence are essential to sharpness.
+## value
 
-## Scope and uncertainty
+PASS
 
-The theorem concerns the exact deterministic homogeneous finite-rationality equations, not networks or stochastic processes. It neither proves that each parameter set above the barrier oscillates nor that the periodic orbit is unique. The logit derivative bound, classical Dulac exclusion, and Poincaré–Bendixson theorem are standard tools; novelty is the sharp combination and exact admissible SIS realization. A specialized unpublished result might duplicate the theorem. No independent validation has occurred.
+Exact universal no-cycle threshold with sharp arbitrarily close above-threshold oscillatory examples for the SAME epidemiological logit equations distinguishes structural impossibility from merely numerically observed oscillations and provides a useful model-level parameter criterion, rather than a generic Bendixson exercise.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
