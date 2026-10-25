@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:54:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact 3-by-3 multiplication gives S^2=SK=KS=K^2=S and KSK^2=K^2; the Drazin definition is met with k=2. For W=H, v=1, Λ=K*, energy is ||K*f||^2; at f=(1,0,-1), it equals 1 while ||S*f||^2=2 and ||S||=sqrt2. The printed A/||S|| bound would require sqrt2<=1. Idempotence and Drazin imply KS=S and S*=S*K*, giving ||S*f||^2<=||S||^2||K*f||^2 and the universal A/||S||^2 guarantee. For arbitrary f=(x,y,z), ratio (|x|^2+|x+z|^2)/(2|x|^2)>=1/2 with equality z=-x, proving sharpness. The positive upper frame bound is B=||K||^2 and is unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.9 proves A/||S||^(2r+2) for general Drazin inverses.",
+          "Its proof, after specializing an idempotent, gives the valid improved A/||S||^2 but no counterexample or optimality certificate."
+        ],
+        "reasoning": "The bound is already suggested by the displayed general estimate; the sharp counterexample and precise falsification of Corollary 3.10 are the additional content.",
+        "searches": [
+          "K-g-fusion frames in Hilbert spaces theorem 3.9 general Drazin inverse",
+          "K frame Drazin inverse sharp universal lower bound"
+        ]
+      },
+      "checked_sources": [
+        "Huang--Yang, K-g-fusion frames in Hilbert spaces, Journal of Inequalities and Applications 2020:57, Definition 2.3, Definition 2.9, Theorem 3.9, Corollary 3.10; doi:10.1186/s13660-020-02320-0",
+        "Resultary exact-source semantic searches for idempotent Drazin K-g-fusion bounds and sharp squared norms (three targeted queries on this run)",
+        "Published Resultary sharp coefficient-combination theorem, full RESULT.md",
+        "Sadri--Ahmadi--Rahimi arXiv:1806.03595 abstract, foundational context",
+        "Huang--Zhu--Geng--Yu, Linear Algebra Appl. 436 (2012), reference context only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.9 is a weaker general bound and its proof gives the corrected norm-square inequality after idempotence; it does not give the same sharpness witness.",
+          "The separate coefficient-combination result concerns Huang--Yang Theorem 3.4(1), not Corollary 3.10."
+        ],
+        "reasoning": "The exact sharp counterexample is not a conclusion of the prior published statements reviewed, although the corrected inequality itself is a routine specialization of an existing proof.",
+        "searches": [
+          "Drazin inverse K g fusion lower bound exponent counterexample",
+          "sharp universal coefficient bound linear combinations in K-g-fusion frames"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang--Yang Corollary 3.10 states A/||S||; the squared-frame inequality uses ||(SKS^r)^*f||^2.",
+          "Under S^2=S and SK=KS=S, SKS^r=S and ||S^*f||^2<=||S||^2||K^*f||^2."
+        ],
+        "reasoning": "The equivalent statement is a sharp norm comparison for adjoint operators, not merely a changed exponent in a title.",
+        "searches": [
+          "\"Corollary 3.10\" \"K-g-fusion\" Drazin inverse",
+          "idempotent Drazin inverse K-g-fusion frame A norm S squared"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The openly available 2020 publication explicitly prints A/||S|| in Corollary 3.10.",
+          "No correction was identified in the checked indexed results."
+        ],
+        "reasoning": "An indexed corollary and its exact DOI, not a database of computed constants, are the appropriate exact-match sources; unsuccessful erratum searches do not establish absolute novelty.",
+        "searches": [
+          "doi:10.1186/s13660-020-02320-0 Corollary 3.10",
+          "\"K-g-fusion frames in Hilbert spaces\" erratum correction Drazin"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact published corollary is false. Its Theorem 3.9 proof implies the corrected inequality after idempotence but not the explicit counterexample or sharpness; the latter constitutes the surviving additional statement. Direct comparison with the full target source and another same-source published theorem found no prior full result. Residual priority risks noted.",
+      "residual_risks": [
+        "Huang--Yang Theorem 3.9 proof already yields the corrected norm-square inequality by immediate idempotent specialization; the contribution beyond this is a sharp counterexample to their printed stronger corollary.",
+        "Exact three-by-three sharpness witness could occur in unindexed errata, dissertations, or informal correspondence not found in this bounded search.",
+        "The 2018 foundational and 2012 inverse background works were not inspected in their complete primary full texts; no NOT_COVERING conclusion is made about their full contents.",
+        "The guarantee is universal norm-only; a particular family can have a better constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition gives the three Drazin identities; Theorem 3.9 establishes A/||S||^(2r+2), equation (3.16) implies a square-norm bound under idempotence, and Corollary 3.10 erroneously prints A/||S||. No same sharp witness appears there.",
+          "evidence": [
+            "Huang--Yang (2020), Definition 2.9",
+            "Theorem 3.9 and equation (3.16)",
+            "Corollary 3.10 (A/||S||)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-020-02320-0",
+          "material_read": "Open-access article in HTML: Definition 2.3 and 2.9, Theorem 3.9 and its displayed proof (3.16), Corollaries 3.10 and 3.11, nearby results and reference details.",
+          "method": "Full directly accessible published source, theorem/proof-level reading; lines 97-105, 189-205, 471-495.",
+          "title": "K-g-fusion frames in Hilbert spaces",
+          "trigger": "Exact published theorem/corollary challenged by the submitted result."
+        },
+        {
+          "assessment": "Addresses Huang--Yang Theorem 3.4(1) and linear-combination sharp constants. Does not analyze idempotent Drazin inverses, Corollary 3.10, or the specific 3-by-3 counterexample.",
+          "evidence": [
+            "Displayed linear-combination lower constant L=(sum_i |a_i|/sqrt(A_i))^(-2)",
+            "Its target is Theorem 3.4(1), not Corollary 3.10."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-universal-coefficient-bound-for-linear-combinations-in-k-g--464280bcadeb",
+          "material_read": "Entire accessible RESULT.md, including precise K_i assumptions, coefficient L, proof, sharpness example, verification, and limitations.",
+          "method": "GitHub full source-file read.",
+          "title": "Sharp universal coefficient bound for linear combinations in K-g-fusion frames",
+          "trigger": "Closest published result targeting a different theorem of the same 2020 paper."
+        },
+        {
+          "assessment": "Introduces K-g-fusion constructions, duals, and stability; no whole-document negative novelty conclusion is asserted from the abstract.",
+          "evidence": [
+            "arXiv:1806.03595 abstract: frame characterization, duals and perturbation framework."
+          ],
+          "identifier_or_url": "arXiv:1806.03595",
+          "material_read": "Accessible abstract and bibliographic information, not the whole primary article.",
+          "method": "Open arXiv abstract/index metadata.",
+          "title": "Construction of k-g-fusion frames and their duals in Hilbert spaces",
+          "trigger": "Foundational source defining the same frame class."
+        },
+        {
+          "assessment": "Provides inverse theory background; whether an unpublished explicit frame-bound correction exists here is not established.",
+          "evidence": [
+            "Huang--Yang Definition 2.9 cites reference [14]."
+          ],
+          "identifier_or_url": "Linear Algebra and its Applications 436 (2012), 3721-3735",
+          "material_read": "Bibliographic citation and its role in Huang--Yang Definition 2.9; no full-text negative comparison.",
+          "method": "Reference-list inspection of the relevant full-text 2020 source.",
+          "title": "Perturbation and expression for inner inverses in Banach spaces and its applications",
+          "trigger": "Background source cited by Huang--Yang for Drazin terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete published quantitative frame-preservation corollary is invalid. The sharp explicit example and norm-level correction give the exact universal constant compatible with its idempotence hypotheses; this matters for interpreting the lower bound in this specialized frame class. Although the proof uses elementary operator estimates, it corrects a definite nontrivial claim rather than an arbitrary tiny computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huang--Yang, K-g-fusion frames in Hilbert spaces, Journal of Inequalities and Applications 2020:57, Definition 2.3, Definition 2.9, Theorem 3.9, Corollary 3.10; doi:10.1186/s13660-020-02320-0",
+    "Resultary exact-source semantic searches for idempotent Drazin K-g-fusion bounds and sharp squared norms (three targeted queries on this run)",
+    "Published Resultary sharp coefficient-combination theorem, full RESULT.md",
+    "Sadri--Ahmadi--Rahimi arXiv:1806.03595 abstract, foundational context",
+    "Huang--Zhu--Geng--Yu, Linear Algebra Appl. 436 (2012), reference context only"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The source qualitative claim remains true; its particular lower bound does not.",
+    "The universal A/||S||^2 bound may be improved for particular frames.",
+    "No inaccessible-source claim of NOT_COVERING was made."
+  ],
+  "residual_risks": [
+    "Huang--Yang Theorem 3.9 proof already yields the corrected norm-square inequality by immediate idempotent specialization; the contribution beyond this is a sharp counterexample to their printed stronger corollary.",
+    "Exact three-by-three sharpness witness could occur in unindexed errata, dissertations, or informal correspondence not found in this bounded search.",
+    "The 2018 foundational and 2012 inverse background works were not inspected in their complete primary full texts; no NOT_COVERING conclusion is made about their full contents.",
+    "The guarantee is universal norm-only; a particular family can have a better constant."
+  ],
+  "schema_version": 1
+}
