@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projective flag-normalization proof covers every cubic having a smooth rational point, while cubics without one have no contributing tangents. The exact finite-field program exhausts all \(9^7\) normalized coefficient tuples and returns a universal maximum of 85 covered projective points; the independent example script verifies the attaining smooth cubic, its 16 tangent lines, and its six uncovered points. The elementary line/conic lower-degree argument and the known Hermitian quartic complete the minimum-degree proof. Risk: the all-cubic upper bound is computer-assisted; independent code or mathematical auditing is still desirable.
+## correctness
 
-## Originality — PASS
-Asgarli--Ghioca (arXiv:2302.13420), Question 1.5 and Example 3.1, supply the general question and the already-known Hermitian upper bound, but their Theorems 1.1--1.2 do not cover cubics over \(\mathbf F_9\). Their text does not contain the complete 85-point cubic extremum. Asgarli--Ghioca--Yip (arXiv:2208.13299) address ordinary point-blocking rather than the entire plane covered by tangents. Targeted literature and mathematical-record searches revealed no covering equivalent, but search cannot exclude unpublished or unindexed computations. The Hermitian curve and its tangent-filling property are expressly credited to prior work.
+PASS
 
-## Value — PASS
-The exact 85-point extremum is a sharp natural finite-plane invariant and provides the missing lower bound in the published minimum-degree question for the first odd nonprime square field. The all-cubic statement handles singular and reducible degenerations, and the explicit maximal example resolves a meaningful sharp boundary rather than an arbitrary coefficient slice.
+Any nonzero cubic with a smooth F9 point admits a projectivity mapping the point and tangent incident flag to ([0:1:0],Z=0); smoothness forces nonzero Y²Z coefficient, scaling to one, while Y³ and XY² vanish. The seven remaining cubic coefficients each range independently over F9, giving an EXHAUSTIVE 9^7=4,782,969 coefficient finite proof after this normal form, including all singular/reducible cubics with any rational smooth point; curves with none cover zero. Read and checked supplied C++ field arithmetic and incidence bitsets. In addition, an independently implemented C++ F9 field, all 91 projective points/line incidence, derivative tests, and full seven-loop enumeration reproduced MAX_COVER=85, FULL_COVERAGE=0 and witness (0,1,0,0,0,0,1). The separate source Python program proves the smooth witness has 16 tangent lines, six uncovered points, claimed histogram; the classical Hermitian q9 quartic fills the plane. Lines, smooth conics (55 tangent-union points), and degenerate conics do not fill. The arithmetic evidence is a genuine exhaustive finite F9 certificate, not sampling, contingent on the exact projective normalization and field implementation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Asgarli–Ghioca formulated the minimum-degree question and supplied the Hermitian F9 degree-four upper bound, but their small-degree nonexistence theorems have hypotheses inapplicable to q=9,d=3. The blocking-set paper addresses curve-points hitting every line, a different incidence predicate. Resultary and exact q9 tangent searches found no published all-cubic bound 85, though equivalent unpublished computational enumeration remains possible. The contribution is the *cubic obstruction*, not the known quartic construction.
+
+## value
+
+PASS
+
+The maximal tangent-union cardinality over all plane cubics on P²(F9) is a natural finite-geometric extremum answering the missing lower-degree case of a published tangent-filling question. Its exact 85 ceiling and attaining smooth cubic determine a meaningful sharp invariant and the first odd-square field minimum degree, even though no classification of all maximizers is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

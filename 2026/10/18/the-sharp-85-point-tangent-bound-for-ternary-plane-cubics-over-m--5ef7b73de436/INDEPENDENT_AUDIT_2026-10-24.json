@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:00:40.514731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Frozen verify_cubic.cpp and verify_examples.py",
+        "Independent C++ enumeration 4,782,969 coefficients using independently coded F9 arithmetic",
+        "Source line/conic and Hermitian witness arguments"
+      ],
+      "rationale": "Any nonzero cubic with a smooth F9 point admits a projectivity mapping the point and tangent incident flag to ([0:1:0],Z=0); smoothness forces nonzero Y²Z coefficient, scaling to one, while Y³ and XY² vanish. The seven remaining cubic coefficients each range independently over F9, giving an EXHAUSTIVE 9^7=4,782,969 coefficient finite proof after this normal form, including all singular/reducible cubics with any rational smooth point; curves with none cover zero. Read and checked supplied C++ field arithmetic and incidence bitsets. In addition, an independently implemented C++ F9 field, all 91 projective points/line incidence, derivative tests, and full seven-loop enumeration reproduced MAX_COVER=85, FULL_COVERAGE=0 and witness (0,1,0,0,0,0,1). The separate source Python program proves the smooth witness has 16 tangent lines, six uncovered points, claimed histogram; the classical Hermitian q9 quartic fills the plane. Lines, smooth conics (55 tangent-union points), and degenerate conics do not fill. The arithmetic evidence is a genuine exhaustive finite F9 certificate, not sampling, contingent on the exact projective normalization and field implementation.",
+      "residual_risks": [
+        "No claim for fields other than F9 or classification of all maximizing cubic projective orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing nonexistence bounds require characteristic/field assumptions unmet for q=9 cubic.",
+          "Existing Hermitian quartic construction is only an upper bound for minimum degree."
+        ],
+        "reasoning": "Neither theorem implies the all-cubic 85 maximum or the lower degree-three obstruction at F9.",
+        "searches": [
+          "Resultary query: tangent filling plane cubic F9 maximum rational projective points tangent lines degree minimum 85; top hit 2026/10/4/SCOPE-multiplicity-eight-transverse-thickening-on-the-common-kernel-fa--ea48a6b420ef (different Fano-scheme problem)",
+          "arXiv:2302.13420 Theorems 1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13420; Asgarli–Ghioca",
+        "arXiv:2208.13299; Asgarli–Ghioca–Yip",
+        "Resultary published-record semantic search: no returned statement dominates this specific claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known q=9 Hermitian quartic tangent covering gives minimal degree≤4, whereas the new cubic census gives ≥4.",
+          "q=9,d=3 lies outside reported obstruction hypotheses."
+        ],
+        "reasoning": "The published upper bound is correctly credited; the independent sharp lower bound and 85 extremum are not implied by the prior statements.",
+        "searches": [
+          "Resultary query: tangent filling plane cubic F9 maximum rational projective points tangent lines degree minimum 85; top hit 2026/10/4/SCOPE-multiplicity-eight-transverse-thickening-on-the-common-kernel-fa--ea48a6b420ef (different Fano-scheme problem)",
+          "arXiv:2302.13420 Question 1.5 Example 3.1 and Theorems 1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Min tangent-filling degree q=9 equals 4 iff no degree≤3 curve has full tangent union; cubic sharp max is 85/91.",
+          "Point blocking by curve rational points is not tangent-line union coverage."
+        ],
+        "reasoning": "Compared dual plane tangent line sets, projective flag normal forms and field-size specializations, rather than only tangent-filling terminology.",
+        "searches": [
+          "Resultary query: tangent filling plane cubic F9 maximum rational projective points tangent lines degree minimum 85; top hit 2026/10/4/SCOPE-multiplicity-eight-transverse-thickening-on-the-common-kernel-fa--ea48a6b420ef (different Fano-scheme problem)",
+          "arXiv:2302.13420 Question 1.5",
+          "arXiv:2208.13299 blocking sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected primary table enumerates all 9^7 F9 flag-normalized cubics or the 85 incidence histogram.",
+          "Nearest Resultary Fano-scheme multiplicity hit is a different geometry problem."
+        ],
+        "reasoning": "No dominating exact table found; unindexed computational literature remains a residual possibility.",
+        "searches": [
+          "Resultary query: tangent filling plane cubic F9 maximum rational projective points tangent lines degree minimum 85; top hit 2026/10/4/SCOPE-multiplicity-eight-transverse-thickening-on-the-common-kernel-fa--ea48a6b420ef (different Fano-scheme problem)",
+          "arXiv:2302.13420 Example 3.1",
+          "arXiv:2208.13299"
+        ]
+      },
+      "rationale": "Asgarli–Ghioca formulated the minimum-degree question and supplied the Hermitian F9 degree-four upper bound, but their small-degree nonexistence theorems have hypotheses inapplicable to q=9,d=3. The blocking-set paper addresses curve-points hitting every line, a different incidence predicate. Resultary and exact q9 tangent searches found no published all-cubic bound 85, though equivalent unpublished computational enumeration remains possible. The contribution is the *cubic obstruction*, not the known quartic construction.",
+      "residual_risks": [
+        "Potential unindexed historical or unpublished complete cubic F9 computer census.",
+        "Exhaustive enumerator correctness depends on flag normal form and exact F9 implementation; a second independent implementation reduces but does not eliminate risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hermitian degree-4 example already fills all points; published obstruction theorems do not apply to cubic over F9",
+          "evidence": "Question 1.5 asks minimal degree, Example 3.1 constructs degree sqrt(q)+1; Theorems 1.1–1.2 assumptions fail at q=9,d=3.",
+          "identifier_or_url": "arXiv:2302.13420; Asgarli–Ghioca",
+          "material_read": "Complete relevant primary PDF Introduction, Theorems 1.1–1.3, Question 1.5 and Example 3.1 with page images",
+          "method": "Read source theorem hypotheses and characteristic/field bounds, compare with q=9,d=3",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Direct source question on minimum tangent-filling degree and Hermitian example"
+        },
+        {
+          "assessment": "A blocking set of rational curve points is a different incidence problem; no inspected universal tangent-union maximum for cubics of F9",
+          "evidence": "Frobenius nonclassical and point blocking conditions do not give 85 tangent-coverage bound.",
+          "identifier_or_url": "arXiv:2208.13299; Asgarli–Ghioca–Yip",
+          "material_read": "Original primary text abstract, introduction and Frobenius geometry/blocking-set theorem context",
+          "method": "Compared point blocking versus union of tangent lines",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "Other finite plane incidence statement might imply tangent cover classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asgarli–Ghioca degree-minimization question",
+        "Sharp natural 85/91 tangent coverage count"
+      ],
+      "rationale": "The maximal tangent-union cardinality over all plane cubics on P²(F9) is a natural finite-geometric extremum answering the missing lower-degree case of a published tangent-filling question. Its exact 85 ceiling and attaining smooth cubic determine a meaningful sharp invariant and the first odd-square field minimum degree, even though no classification of all maximizers is claimed.",
+      "residual_risks": [
+        "Uses complete computational finite proof, not symbolic classification of maximizing orbits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for fields other than F9 or classification of all maximizing cubic projective orbits.",
+    "Potential unindexed historical or unpublished complete cubic F9 computer census.",
+    "Exhaustive enumerator correctness depends on flag normal form and exact F9 implementation; a second independent implementation reduces but does not eliminate risk.",
+    "Uses complete computational finite proof, not symbolic classification of maximizing orbits.",
+    "The Git connector does not expose a read-only tree listing; the full tree SHA was not independently recalculated. Inspected listed source files were read at the frozen commit."
+  ],
+  "schema_version": 1
+}
