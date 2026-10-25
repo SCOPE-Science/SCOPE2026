@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the weighted Hamming interaction projection theorem
+# Independent mathematical audit
 
-The proof is in `RESULT.md`. Its nonstandard steps are checked directly: the double-centering operator is idempotent with zero marginals; averaging any projection over the finite coordinate-permutation group cannot increase its norm; and equivariance forces the averaged projection to annihilate the two one-coordinate subspaces. No irreducibility theorem is assumed. Sharpness uses explicit 1-Lipschitz functions that attain each candidate edge difference. The contractive classification includes equal weights and the boundary ratios.
+## correctness
 
-`CHECK.py` performs an independent finite-dimensional primal-molecule/dual-Lipschitz linear-program check. For each of 144 combinations with coordinate counts from 2 to 5 and weights in {1,2,3}, it constructs the centering matrix, checks idempotence and marginal annihilation, and optimizes the Lipschitz dual objective over all coordinate edges. The maximum is compared to the formula with absolute tolerance 2e-8. Reproduce with `python CHECK.py` after installing `requirements.txt`.
+PASS
 
-All tested cases passed. Linear programs approximate finite optima numerically; they do not establish the theorem for every size or every positive real weight. The universal assertion relies on the elementary analytic proof. An independently performed audit or external certification is not asserted.
+Double centering R fixes exactly U and kills the row-only and column-only summands in the zero-total signed array space. For any P onto U, average conjugates under S_m x S_n; the equivariant image of row-constant or column-constant arrays must vanish because U has zero respective marginals, so the average is R and ||R||<=||P||. The adjoint on Lipschitz functions Q double-centers, and for each A-edge g(b)=f(a,b)-f(a',b), |g|<=alpha and range(g)<=2 min(alpha,beta); hence normalized Q edge difference <=2(n-1)min(alpha,beta)/(n alpha), with coordinate-dual bound. The source gives explicit two-row/one-column f attaining both bounds, proving the exact formula, including extreme weights. Algebraic casework yields the three sharp contractive regimes. Independently solved dual finite edge-Lipschitz linear programs for five m,n,alpha,beta cases, confirming R idempotency and formula. All-dimension proof is analytic and independent of finite LPs.
+
+## originality
+
+PASS
+
+The general symmetrization technique and group-equivariant projections are prior art (Cúth–Doucha), and Walsh projections on Hamming cubes exist, but no source inspected gives this exact weighted two-factor zero-marginal interaction subspace norm and complete regime, including norms >1. The target is a distinct isotypic/mixed tensor component, not the orbit quotient treated by the norm-one group-action projection theorem.
+
+## value
+
+PASS
+
+The exact best complementation constant of a canonical transportation-cost interaction subspace is a natural quantitative structural invariant; it sharply separates contractive from noncontractive weighted rectangles. It is stronger than exhibiting a bounded projection or simply applying a group averaging lemma, and supplies explicit witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

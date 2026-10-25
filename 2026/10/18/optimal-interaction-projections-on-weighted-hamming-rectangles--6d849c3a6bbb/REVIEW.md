@@ -1,11 +1,21 @@
-# Scientific review: optimal interaction projections on weighted Hamming rectangles
+# Independent mathematical audit
 
-**Correctness — PASS.** The target is the zero-marginal signed-array subspace in the transportation-cost norm of the weighted Cartesian product of two equilateral finite spaces. Double-centering is a projection onto it. Every projection averages, without norm increase, to the unique projection commuting with all row and column permutations: uniqueness follows because the interaction space has no nonzero vectors fixed by all permutations of either coordinate. The adjoint Lipschitz norm is bounded by sharp coordinate-edge difference estimates, and explicit functions attain both competing bounds. All boundary cases in the norm-one classification follow by comparison of the two terms. The packaged numerical linear-programming checker agrees for 144 parameter sets, but the universal proof is analytic.
+## correctness
 
-**Originality — PASS, with residual indexing risk.** Cúth and Doucha (arXiv:2104.11519v1, Lemma 3.2 and Corollary 4.6) provide the general group-averaging framework and norm-one projections onto group-fixed spaces, not the optimal projection onto a simultaneous zero-marginal interaction subspace. Ostrovska and Ostrovskii (arXiv:2112.02689v1) treat representations and metric embeddings of finite transportation-cost spaces, not this projection constant. Dilworth, Kutzarova and Ostrovskii (arXiv:1807.03814v1) use averaging in different graph-cycle spaces. Searches for double-centering, Cartesian metric products, ANOVA interactions and zero-marginal transport yielded no covering statement. An equivalent matrix-language result in literature not surfaced by these searches remains possible.
+PASS
 
-**Mathematical value — PASS.** Two-factor interaction subspaces are canonical in product decompositions. The theorem determines their precise relative projection constant for all alphabet sizes and all positive coordinate weights, and exposes a sharp phenomenon: metric anisotropy can make an interaction 1-complemented exactly when a factor is binary, while no weights work when both factors have size at least three. The classification and quantitative threshold are not implied by the mere existence of group averages.
+Double centering R fixes exactly U and kills the row-only and column-only summands in the zero-total signed array space. For any P onto U, average conjugates under S_m x S_n; the equivariant image of row-constant or column-constant arrays must vanish because U has zero respective marginals, so the average is R and ||R||<=||P||. The adjoint on Lipschitz functions Q double-centers, and for each A-edge g(b)=f(a,b)-f(a',b), |g|<=alpha and range(g)<=2 min(alpha,beta); hence normalized Q edge difference <=2(n-1)min(alpha,beta)/(n alpha), with coordinate-dual bound. The source gives explicit two-row/one-column f attaining both bounds, proving the exact formula, including extreme weights. Algebraic casework yields the three sharp contractive regimes. Independently solved dual finite edge-Lipschitz linear programs for five m,n,alpha,beta cases, confirming R idempotency and formula. All-dimension proof is analytic and independent of finite LPs.
 
-**Scope and limits.** Finite two-factor weighted Hamming products, real scalars, and transportation-cost norm only. Arbitrary factor metrics and higher-order interactions are not covered. Literature coverage is necessarily incomplete; no independent scientific audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general symmetrization technique and group-equivariant projections are prior art (Cúth–Doucha), and Walsh projections on Hamming cubes exist, but no source inspected gives this exact weighted two-factor zero-marginal interaction subspace norm and complete regime, including norms >1. The target is a distinct isotypic/mixed tensor component, not the orbit quotient treated by the norm-one group-action projection theorem.
+
+## value
+
+PASS
+
+The exact best complementation constant of a canonical transportation-cost interaction subspace is a natural quantitative structural invariant; it sharply separates contractive from noncontractive weighted rectangles. It is stronger than exhibiting a bounded projection or simply applying a group averaging lemma, and supplies explicit witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
