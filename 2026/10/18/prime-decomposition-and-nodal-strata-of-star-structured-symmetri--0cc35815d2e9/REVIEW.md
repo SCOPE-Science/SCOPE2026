@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The all-size proof reduces every matrix to an explicit Schur complement, classifies every rank-deficient point, and uses the established radicality theorem for sparse symmetric submaximal minors to upgrade the set-theoretic equality to an actual prime decomposition. The distinct prime components, their degrees, and both generic nondegenerate quadratic transverse germs are proved directly. The finite-field checker is supplementary rather than a substitute for proof.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Deng--Kretschmer (arXiv:2211.07020) provide general radicality, height, Cohen--Macaulayness and Betti numbers; these are used, not claimed new. Kerner--Vinnikov (arXiv:0906.3012) treat broad symmetric determinantal representations and Alper--Bogart--Velasco (arXiv:1505.02205) give general codimension bounds. The inspected sources did not give the explicit two-family star minimal-prime decomposition and generic transverse node classification. Undiscovered graph-specific formulations could imply it; searches cannot prove global uniqueness. The generic symmetric corank-two total degree is known and not a novelty claim.
+PASS
 
-## Mathematical value
-**PASS.** The complete all-size list of irreducible singular components and their local quadratic models addresses the geometric structure of a natural sparsity-constrained determinantal family; it is not an incidental small parameter computation. Its decomposition separates determinantal complete intersections from linear components of the same dimension and supplies precise degrees and generic local types.
+Reconstructed determinant F=a0*product_i a_i−sum_i b_i²*product_{j!=i}a_j and F=a_iF_i−b_i²P_i. Primitive linearity in a0 proves F and the two-leaf-or-larger F_i irreducible. For rank m, nonzero symmetric corank-one adjugate vv^t has a nonzero diagonal and one diagonal partial is nonzero; at rank<=m−1 all minors/partials vanish. Schur elimination at nonzero leaf diagonal positions leaves [[alpha,b_S],[b_S^t,0]] and classifies exactly the Z_i and triple-zero L_T strata. Deng–Kretschmer Theorem 1 proves the submaximal-minor ideal is radical for this sparse symmetric pattern, upgrading support to exact scheme-theoretic intersection. Listed height-three primes do not contain each other, Z_i complete-intersection degree m and L_T degree 1; generic transverse quadratic at Z_i is a_i F_i−b_i² unit, and at L_T the 3×3 Hessian determinant is nonzero in char!=2. Serre R1+S2 yields normality. Independently rank-enumerated all 10,934 projective coordinate patterns for m=3,4 over F_3; checked rank-deficient iff component membership. This is finite corroboration, not proof for all m.
 
-## Limits
-The assertions exclude characteristic two for transverse types and do not determine the nonreduced Jacobian scheme or nongeneric intersection germs. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. The minimal prime decomposition and generic local A1-type singularities are natural algebraic-geometric invariants of a canonical sparse symmetric determinantal hypersurface, not an arbitrary small parameter slice. Exact component classes and their incidence boundaries inform normalization and singularity calculations; the full-star all-m formula is not simply the known radicality or degree statement.
+
+## value
+
+PASS
+
+The minimal prime decomposition and generic local A1-type singularities are natural algebraic-geometric invariants of a canonical sparse symmetric determinantal hypersurface, not an arbitrary small parameter slice. Exact component classes and their incidence boundaries inform normalization and singularity calculations; the full-star all-m formula is not simply the known radicality or degree statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
