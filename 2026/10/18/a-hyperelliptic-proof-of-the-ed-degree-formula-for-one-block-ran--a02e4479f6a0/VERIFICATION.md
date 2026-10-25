@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical claim is \(\operatorname{EDdeg}(\mathcal S_{1,n-1})=6n-14\) for every integer \(n\ge4\), for the affine rank-two orthogonal-projector realization and generic complex symmetric data. The proof establishes a smooth spectral curve of genus \(n-2\), a rational critical-value map of degree \(2(n-2)\), and identifies all its generic ramification with genuine ED critical points after excluding isotropic and defective-eigenvalue boundary points.
+## correctness
 
-Run `python -m pip install -r requirements.txt` followed by `python check_spectral.py`. The checker constructs exact arrowhead-characteristic polynomials over the rationals for \(m=2,3,4,5,6,7\). It verifies their squarefree degree-\(2m+2\) hyperelliptic branch polynomials, squarefree degree-\(m\) finite-isotropic-pole polynomials, and nonzero slope at both eigenvalue-infinity corners. It prints the Riemann–Hurwitz values \(10,16,22,28,34,40\), ending in `SPECTRAL_SPECIALIZATION_CHECKS_OK`. The first three values agree with the source's numerical Table 1.
+PASS
 
-These finite computations cannot establish all \(m\), generic Morse transversality, or uniqueness relative to all literature. Those items are handled by the proof and the scientifically limited literature comparison respectively. No independent audit was performed.
+For each m>=2, generic symmetric data reduce the projector-objective critical problem to the spectral curve G(t,mu)=0 of bidegree (2,m+1). A smooth genus-m curve arises from an explicit arrowhead specialization with 2m+2 simple branch points. The critical-value function h=mu+alpha(t) has exactly 2m simple poles above t=±i and no poles at the two mu=infinity corners. Riemann--Hurwitz gives 2m-2+4m=6m-2 ramification. The proof also checks nonramification at excluded corners, at simple poles and spectral fold points; a generic smooth linear-Morse condition excludes other boundary losses. Independently checked arrowhead specializations m=2..5 with squarefree branch polynomials and the 6m−2 count; this finite check is not the all-m proof.
+
+## originality
+
+PASS
+
+An existing 2026 paper CONJECTURES exactly the 6m−2 family formula and verifies small tables; it does not prove the infinite ED-degree family. The proof via a spectral genus-m double cover, map degree 2m and boundary exclusion is an original resolution of that published special case, contingent on the stated generic smoothness and transversality.
+
+## value
+
+PASS
+
+A uniform proof of a stated infinite Schubert-variety ED-degree conjectural subfamily is mathematically significant: it supplies exact complex critical-point counts for a natural rank-two matroid stratum and a geometric spectral-curve mechanism rather than mere small numerical instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review — Schubert ED-degree theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula is an all-dimension theorem for the rank-two non-product Schubert incidence variety, not an extrapolation from three finite data points. The proof identifies the ED critical points with ramification of a genus-\(m\) spectral curve's degree-\(2m\) meromorphic critical-value map. Its central computations are the bidegree \((2,m+1)\), the \(2m+2\) simple hyperelliptic branch values in a real arrowhead specialization, the \(2m\) simple critical-value poles at isotropic line parameters, and Riemann–Hurwitz giving \(6m-2\). It excludes potential fictitious ramification at the two eigenvalue-infinity corners and the defective-eigenvector branch points. Generic linear-Morse transversality gives simple genuine smooth-locus critical points. Exact polynomial-gcd checks for \(m=2,\ldots,7\) and the source's ED numerical table corroborate the algebraic argument. Scope: generic complex symmetric data, projection embedding, \(m\ge2\); no assertion about all data or real counts.
+## correctness
 
-## Originality — PASS
-Friedman–Rosana–Sturmfels, arXiv:2601.22843v1, Conjecture 6.5, explicitly **conjectures** the more general two-index ED-degree formula. For \(\mathcal S_{1,n-1}\) its conjecture predicts the exact number \(6n-14\), and its finite computations confirm low dimensions; neither supplies the all-dimensional proof. Friedman–Hoşten–Rosana, arXiv:2610.02018v1, §6.1 Table 1, provides only numerical ED counts \(10,16,22\) at \(m=2,3,4\), and proves related GD-degree formulas, not this ED-degree theorem. Lai–Lim–Ye, arXiv:2502.10336, Corollary 4.5, covers product-like Schubert subfamilies and is inapplicable to the singular incidence variety \(\mathcal S_{1,n-1}\). Searches for the aliases, conjecture number, formula, and spectral-curve approach, together with earlier related research comparisons, revealed no identified prior infinite-family proof. A hidden proof in unindexed literature remains possible; that residual novelty risk does not erase the observed distinction between conjecture and theorem.
+PASS
 
-## Value — PASS
-Conjecture 6.5 is a motivated enumerative question about the complexity of Euclidean optimization over Schubert varieties. Proving its first infinite non-product family is mathematically consequential even though the numerical formula was already anticipated. The new spectral-curve mechanism explains the linear growth, including why naive intersections count boundary points and why exactly \(2m\) poles survive after cancellation. It also gives an explicit contrast to the previously determined constant GD degree \(2\). This is a full exact classification for a natural infinite geometric family, not an arbitrary finite calculation.
+For each m>=2, generic symmetric data reduce the projector-objective critical problem to the spectral curve G(t,mu)=0 of bidegree (2,m+1). A smooth genus-m curve arises from an explicit arrowhead specialization with 2m+2 simple branch points. The critical-value function h=mu+alpha(t) has exactly 2m simple poles above t=±i and no poles at the two mu=infinity corners. Riemann--Hurwitz gives 2m-2+4m=6m-2 ramification. The proof also checks nonramification at excluded corners, at simple poles and spectral fold points; a generic smooth linear-Morse condition excludes other boundary losses. Independently checked arrowhead specializations m=2..5 with squarefree branch polynomials and the 6m−2 count; this finite check is not the all-m proof.
 
-## Evidence and limitations
-Full original material inspected: arXiv:2601.22843v1 §6 and Conjecture 6.5 (including the displayed PDF formula); arXiv:2610.02018v1 §§6–7 and Table 1; arXiv:2502.10336v1 §4 and Corollary 4.5. Exact checker: `check_spectral.py` with dependencies in `requirements.txt`. The checker verifies special examples, not the infinite theorem itself. The proof requires genericity and does not cover two-index Conjecture 6.5 in general. Potential unindexed equivalent literature is the main residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An existing 2026 paper CONJECTURES exactly the 6m−2 family formula and verifies small tables; it does not prove the infinite ED-degree family. The proof via a spectral genus-m double cover, map degree 2m and boundary exclusion is an original resolution of that published special case, contingent on the stated generic smoothness and transversality.
+
+## value
+
+PASS
+
+A uniform proof of a stated infinite Schubert-variety ED-degree conjectural subfamily is mathematically significant: it supplies exact complex critical-point counts for a natural rank-two matroid stratum and a geometric spectral-curve mechanism rather than mere small numerical instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
