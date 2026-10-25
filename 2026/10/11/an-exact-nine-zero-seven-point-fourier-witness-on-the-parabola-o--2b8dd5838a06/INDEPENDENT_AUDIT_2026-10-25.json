@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T14:47:33.992857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 48404218316d2739114454b70ded89ba355f1dee",
+        "Frozen verify_parabola_seven_nine.py Git blob d8a17a4b1f5d27ec2c2facf31a65a040afa83d43",
+        "Frozen VERIFICATION.md Git blob 3afb254b7c02dc4684cf5248bad6c8b7fd461b7d",
+        "Independent integer 11-slot cyclic-exponent summation over all 121 pairs",
+        "Primary Li v1/v2 mathematical definitions"
+      ],
+      "rationale": "For p=11, the fixed R={0,1,2,3,4,5,7} has seven distinct elements. Each displayed length-10 integer row is nonzero; because Phi_11(t)=1+t+...+t^10 is the irreducible minimal polynomial of a primitive 11th root and has degree 10, each row represents a nonzero c_x in Z[zeta], so support is exactly seven. For every (a,b) in F_11^2 the polynomial P_{a,b}(t)=sum_x D_x(t)t^((a*x*x+b*x) mod 11) satisfies F(a,b)=P_{a,b}(zeta); F vanishes iff the remainder modulo Phi_11 is zero. Independently recomputed all 121 values WITHOUT running the submitted checker, accumulating integer coefficients by cyclic exponent shift in an 11-component vector and testing whether all 11 components were equal (the unique cyclotomic relation). Found exactly (0,4),(1,0),(1,1),(1,9),(6,6),(6,7),(6,9),(7,3),(9,9), and 112 nonzeros; for example remainder at (0,0) is (11,11,11,11,0,11,33,0,11,22), nonzero. The source verifier implements another exact 10-dimensional quotient algorithm, not a numerical floating-point approximation; checked its transformations but independently implemented a different test. This proves only the finite existence/lower bound M_{11}(7)>=9 for exact size 7; not optimality, a global 9-zero upper bound, or other primes.",
+      "residual_risks": [
+        "The submitted computation gives a single witness and does not certify an exhaustive search over all possible supports or the global exact maximum.",
+        "No correctness claim is made for the v1 upper bound ten; it is context, not a premise of this witness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li v1 Theorem 4.13 gives only the universal upper bound |Z|<=10 for exact support 7 and p>=11, with no nine-zero existence assertion; Remark 4.15 says sharpness at p=11 remains unknown.",
+          "Li v2 Theorem 1.2 gives |Z|<=p+2 floor(k/2)-2, hence <=15 when p=11,k=7, and Corollary 6.6 concerns even-support equality families.",
+          "Fiorentino–Weigert 2022 treats aggregate complete-MUB support and reports numerical non-saturation for primes through 19; inspected Section 4.4 does not assert an exact seven-support nine-zero state."
+        ],
+        "reasoning": "A bound from above cannot imply that a specified lower witness exists. General complete-MUB global optimizers or even-support constructions do not imply the odd exact-seven-support nine-zero instance. Earlier numerical nonexistence of states saturating a much stronger aggregate bound is compatible with this modest nine-zero construction.",
+        "searches": [
+          "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1 Theorem 4.13 and Remark 4.15",
+          "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2 Theorem 1.2 and Corollary 6.6",
+          "Vincenzo Fiorentino and Stefan Weigert, Uncertainty relations for the support of quantum states, J. Phys. A 55 (2022) 495305, https://eprints.whiterose.ac.uk/id/eprint/194248/7/Fiorentino_2022_J._Phys._A_Math._Theor._55_495305.pdf Sections 4.4–4.5",
+          "Resultary semantic search: finite field parabola seven atoms nine zero Fourier witness 11"
+        ]
+      },
+      "checked_sources": [
+        "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1",
+        "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2",
+        "Vincenzo Fiorentino and Stefan Weigert, Uncertainty relations for the support of quantum states, J. Phys. A 55 (2022) 495305, https://eprints.whiterose.ac.uk/id/eprint/194248/7/Fiorentino_2022_J._Phys._A_Math._Theor._55_495305.pdf",
+        "Resultary 2026/10/11/SCOPE-an-exact-nine-zero-seven-point-fourier-witness-on-the-parabola-o--2b8dd5838a06 [same assigned row, excluded from independent prior]",
+        "Resultary 2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f [different characteristic/support]",
+        "External targeted text searches for seven support nine zeros and MUB p11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A five-nonzero-coefficient example is not a seven-full-support example: exact support requires each of the seven coefficients to be nonzero.",
+          "The prior upper bound ten leaves room for witnesses with nine or ten zeros, but does not supply one.",
+          "The supplied seven cyclotomic coefficient polynomials are nonzero and their Fourier sum has exactly nine zeros by independent exhaustive exact reduction over all 121 input pairs."
+        ],
+        "reasoning": "Neither the earlier five-support witness, the general odd-support upper bounds, nor the total-MUB extremizer construction logically entails existence of this exact seven-support nine-zero witness. Its explicit vector with verified 121-point zero set is an additional concrete existence result. Residual risk remains from unindexed equivalent constructions or a more general rank-incidence classification.",
+        "searches": [
+          "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1 Proposition 4.11, Theorem 4.13, Remark 4.15",
+          "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2 Theorems 1.1/1.2",
+          "Fiorentino Weigert 2022 DOI:10.1088/1751-8121/aca9a4 Section 4.4",
+          "Resultary 2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier sum is, up to sign and normalization, a state with seven computational-basis components and precisely nine zero amplitudes among eleven quadratic MUB bases; Li v1 introduction and v2 equations (3), (4) explain that correspondence.",
+          "Li v1 Remark 4.15 expressly says the exact seven-point maximum at p=11 is not determined; its Proposition 4.11 gives a five-point six-zero example.",
+          "The Resultary exact-title hit with id 2026/10/11/SCOPE-an-exact-nine-zero-seven-point-fourier-witness-on-the-parabola-o--2b8dd5838a06 matches the assigned record itself and is not independent evidence of earlier priority."
+        ],
+        "reasoning": "Conjugation and Fourier-sign reversal identify the statement with a seven-coordinate MUB vector having nine other-basis forbidden outcomes; this is equivalent in content, not an additional result. Neither materially inspected Li version contains the exact nine-zero seven-support coefficient vector. The matching Resultary entry is the same assigned finding, excluded as independent prior coverage; no independently covering equivalent was located. Searches cannot establish absolute novelty.",
+        "searches": [
+          "Resultary semantic search: finite parabola F11 seven-point Fourier coefficient zero set at least nine zeros, sharp 7 support",
+          "Resultary semantic search: Dongwei Li p=11 seven support 9 10 zeros Fourier uncertainty MUB",
+          "web search: finite field parabola seven atoms nine zero Fourier witness 11",
+          "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1",
+          "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned identical nine-zero row; this is a mirror of the item being audited, not an independent database-priority hit.",
+          "Distinct close result 2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f concerns support five over F_7 and thus a different exact-support problem and characteristic.",
+          "Li v1 explicit coefficient table in Proposition 4.11 is for five points, with six zeros over F_11."
+        ],
+        "reasoning": "A matching independent seven-support F_11 nine-zero table or complete exact-support spectrum was not found in these concrete searches. The published identical Resultary entry must not be misclassified as external earlier work. Database non-detection remains only best-of-knowledge evidence, not proof of uniqueness.",
+        "searches": [
+          "Resultary semantic search: finite parabola F11 seven-point Fourier coefficient zero set at least nine zeros, sharp 7 support",
+          "Resultary semantic search: Dongwei Li p=11 seven support 9 10 zeros Fourier uncertainty MUB",
+          "Resultary semantic search: finite field parabola seven atoms nine zero Fourier witness 11",
+          "web search: parabola finite field 11 7 support nine zeros Fourier",
+          "web search: Fiorentino Weigert uncertainty relations prime dimension 11 support seven"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches to the explicit full-seven-support nine-zero coefficient witness over F_11, not the cyclotomic Fourier evaluation method or original source upper bounds. Independently recomputed the claim and compared the exact formula/implications with materially inspected Li v1 Section 4.1 (seven-support <=10, p=11 sharpness open), Li v2 (different weaker general odd upper estimate/global MUB), and Fiorentino–Weigert 2022 Section 4.4 (aggregate MUB non-saturation, not this construction). Three fresh Resultary semantic searches and targeted external searches returned the same assigned Resultary mirror but no separately sourced equivalent or stronger existence theorem. The five-support F_11 six-zero example is insufficient since exact seven support requires two additional nonzero coefficients. The upper bound ten does not give lower bound nine. This is a limited priority conclusion, not proof no other nine-zero witness exists.",
+      "residual_risks": [
+        "A not-yet-indexed or earlier equivalent coefficient witness may exist; zero search hits cannot prove absolute novelty.",
+        "The first-version ten-zero upper estimate was not independently checked and was not retained in the later revision; value/novelty assessments for this witness do not depend on that upper estimate being valid.",
+        "A general finite-parabola zero-incidence or matroid rank theorem might cover this witness implicitly; no such direct implication was located in the examined primary texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING exact seven-nonzero-support nine-zero existence; v1 establishes k=7 bound 10, and explicitly leaves sharp p=11 case open.",
+          "evidence": [
+            "Section 4.1 Proposition 4.11 displays five-support six-zero p=11 example; Theorem 4.13 states k=7 zeros<=10; Remark 4.15 states unknown exact maximum p=11."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.16030v1",
+          "material_read": "Primary full HTML introduction and zero definition, Section 4.1 Proposition 4.11 with explicit p=11 five-point coefficient construction, Theorem 4.13 and proof, Remarks 4.14–4.15, and relevant original preliminaries/implications.",
+          "method": "Read primary arXiv full-text HTML using page retrieval, find, and surrounding theorem/proof passages.",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "Exactly same Fourier phase ax^2+bx, prime p=11, support k=7; first-version stronger comparison result."
+        },
+        {
+          "assessment": "NOT COVERING explicit seven-support nine-zero F11 construction; v2 asserts general bound p+2 floor(k/2)-2 and focuses complete-MUB extremizers/even supports.",
+          "evidence": [
+            "Theorem 1.2: general bound p+2 floor(k/2)-2; relation-to-arXiv-version passage says it refocuses the original paper. No claimed exact seven-support witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.16030v2",
+          "material_read": "Primary full-text HTML abstract, introduction, explicit finite-parabola definition, Theorem 1.2, statement of relation to v1, and even-support extremizer coverage.",
+          "method": "Read revised primary HTML directly and searched its sections for odd/seven exact-support examples and hypotheses.",
+          "title": "Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases",
+          "trigger": "October 3 revision of the identical same-paper arXiv record; potential changed/superseding results."
+        },
+        {
+          "assessment": "NOT COVERING the precise nine-zero seven-support F11 witness. Its numerical search tests saturation of a much stronger aggregate lower bound and explicitly derives sharp support conclusions only through prime dimension seven.",
+          "evidence": [
+            "Section 4.4 searches for states with (d-1)/2 zeros in three MUB bases and reports none, not a nine-zero seven-coordinate state across all finite bases. Abstract says prime d<=7 sharp constructions."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/194248/7/Fiorentino_2022_J._Phys._A_Math._Theor._55_495305.pdf",
+          "material_read": "Original published PDF abstract/introduction, support formulation, Sections 4.3–4.5 (including pdf page 14 / article page 13), and aggregate lower-bound/numerical discussion; PDF page image inspected.",
+          "method": "Read PDF extracted primary text and visually inspected screenshots of pages 13–14 (0-based).",
+          "title": "Uncertainty relations for the support of quantum states",
+          "trigger": "Earlier primary work on exact support uncertainty across all complete MUBs, numerical tests up to p=19 including 11."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1 Remark 4.15; Proposition 4.11; Theorem 4.13",
+        "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2 Theorems 1.1/1.2",
+        "Vincenzo Fiorentino and Stefan Weigert, Uncertainty relations for the support of quantum states, J. Phys. A 55 (2022) 495305, https://eprints.whiterose.ac.uk/id/eprint/194248/7/Fiorentino_2022_J._Phys._A_Math._Theor._55_495305.pdf Section 4.4",
+        "Frozen RESULT.md and independently computed witness"
+      ],
+      "rationale": "The exact-support k=7, p=11 finite-parabola maximum is a natural unresolved numerical invariant explicitly identified by Li v1 Remark 4.15. A full-support nine-zero example is an exact self-contained lower-bound witness, not an arbitrary coordinate table for its own sake: it narrows the open candidate maximum from a generic 6-equation lower baseline to at least nine, and, conditional on the v1 bound <=10, confines it to nine or ten. It also translates to a seven-component state with nine forbidden outcomes in the standard quadratic MUB family. Full exhaustive 121-point integer evaluation certifies the specific fact independently of any unfinished global census; no general theorem or paper-sized contribution is required for this motivated finite invariant. It does not claim maximum nine, uniqueness, full support census, or extension to other fields.",
+      "residual_risks": [
+        "Only a lower-bound witness; proving whether ten is attainable remains open here.",
+        "The near-upper-bound interpretation relies on Li v1 Theorem 4.13 and must be qualified because v2 omitted that refinement.",
+        "An explicit bulky seven-coefficient instance without a broader structural explanation has narrower value than a full classification, although it settles a precise unknown existence question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dongwei Li, Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola, arXiv:2609.16030v1 (2026-09-11), https://arxiv.org/html/2609.16030v1",
+    "Dongwei Li, Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases, arXiv:2609.16030v2 (2026-10-03), https://arxiv.org/html/2609.16030v2",
+    "Vincenzo Fiorentino and Stefan Weigert, Uncertainty relations for the support of quantum states, J. Phys. A 55 (2022) 495305, https://eprints.whiterose.ac.uk/id/eprint/194248/7/Fiorentino_2022_J._Phys._A_Math._Theor._55_495305.pdf",
+    "Resultary search matching row 2026/10/11/SCOPE-an-exact-nine-zero-seven-point-fourier-witness-on-the-parabola-o--2b8dd5838a06 [excluded as independent]",
+    "Resultary different problem 2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f",
+    "All seven frozen repository files, blob identities in source_blob_shas"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only existence of a specific full-seven-support F11 vector with exactly 9 zeros is proved; optimality at 9 or 10 is not established.",
+    "The v1 upper bound ten is not independently re-proved and the revised v2 does not retain it.",
+    "A matching Resultary record is the same assigned claim, so it cannot count as external priority.",
+    "All seven source files were inspected but privacy-safe final administrative files were not generated; publication withheld."
+  ],
+  "residual_risks": [
+    "A not-yet-indexed or earlier equivalent coefficient witness may exist; zero search hits cannot prove absolute novelty.",
+    "The first-version ten-zero upper estimate was not independently checked and was not retained in the later revision; value/novelty assessments for this witness do not depend on that upper estimate being valid.",
+    "A general finite-parabola zero-incidence or matroid rank theorem might cover this witness implicitly; no such direct implication was located in the examined primary texts.",
+    "Only a lower-bound witness; proving whether ten is attainable remains open here.",
+    "The near-upper-bound interpretation relies on Li v1 Theorem 4.13 and must be qualified because v2 omitted that refinement.",
+    "An explicit bulky seven-coefficient instance without a broader structural explanation has narrower value than a full classification, although it settles a precise unknown existence question."
+  ],
+  "schema_version": 1
+}
