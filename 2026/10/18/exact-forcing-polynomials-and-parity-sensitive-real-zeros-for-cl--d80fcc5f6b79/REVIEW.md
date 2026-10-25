@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The local forcing rule has been reconstructed from the motivating definition. Peripheral vertices in smaller cliques cannot be forced by degree; two blanks in any largest clique obstruct each other; before the central vertex is coloured no peripheral blank can be forced. These establish a necessary-and-sufficient characterization, and the centre-coverage exclusion gives the precise enumerator. Every forcing seed has a unique full proper extension, justifying full-colouring counting without overcounting. The probability expression follows by weighted substitution. A monotonicity and derivative argument proves the parity-sensitive real-root classification, including the single complete-clique boundary. The standalone direct-rule checker classifies all 1,185,610 partial assignments over 16 finite instances with exact agreement. Finite tests do not replace the infinite proof.
+PASS
 
-## Originality
+From a proper seed, every peripheral vertex in a clique of size s<a has degree s<=q-2 and therefore can never acquire q-1 distinctly colored neighbors: it must be seeded. A maximum clique permits at most one blank. If the hub is blank, no peripheral blank is forced first, hence the hub must first see all a noncentral colors. These necessities suffice. Each completed seed has one full proper extension. Counting full colorings gives q(a!)^B U; the hub-covered and hub-blank contributions are z^(m+1)(z+a)^B and z^m(z+a)^B, with the unique globally omitted-color configurations subtracted as aV z^m. H(z)=(z+1)(z+a)^B-c has H prime derivative roots at -a and -(a+B)/(B+1), neither a root of H; sign and monotonicity show one real root if B even and two if B odd, with H(0)=0 solely for G=K_q. The complete graph gives q! z^(q-1)(z+q). Independent brute propagation on seven configurations (a=2 or 3, unequal peripheral orders included) matched every enumerator coefficient; e.g. (2,2) gives {2:24,3:96,4:60,5:12}. All-size proof rests on local argument, not brute enumeration.
 
-PASS under accessible-source and mathematical-record comparison, with residual priority risk. The closest source, Farr (2026, arXiv:2609.17108v1), covers the complete-graph specialization and generic local forcing, but not the noncomplete heterogeneous clique-bouquet polynomial or its real-root census in its inspected principal results, propositions and examples. Farr and Morgan (2024, arXiv:2406.15746v1) introduces partial-colouring polynomials and small cases, not this infinite family. Published results on complete multipartite forced colouring involve a different graph structure, while friendship-graph zero forcing uses a different local rule. The connected family intersection at a single complete clique is explicitly acknowledged as covered. No covering formula or broader result was found after semantic searches, but this does not prove global bibliographic priority.
+## originality
 
-## Value
+PASS
 
-PASS. This obtains the full coefficient distribution and exact forcing probability for arbitrarily many peripheral cliques of nonuniform orders. The central-hub colour-coverage obstruction couples otherwise independent cliques; the correction term records that global dependency and determines the exact minimum forcing-domain multiplicity. The parity-controlled real-root census adds a structural polynomial property not implied by a mere computation of the chromatic or forcing minimum number. This is a natural graph family containing friendship and windmill graphs, rather than an arbitrary finite slice.
+The complete-graph specialization is already in Farr. Farr and Morgan introduce related graph partial-colouring polynomials, but the present explicitly coupled hub-coverage correction for noncomplete clique bouquets and complete parity-dependent H(z) zero census were not located in examined material. Published complete multipartite chromatic forcing uses a different graph: a noncomplete bouquet is generally not multipartite. Published friendship-graph zero forcing uses a different update rule. Full recent Farr article could not be inspected and an implicit specialization remains a priority risk.
 
-## Closest literature and limitations
+## value
 
-The local forcing function was introduced and developed in arXiv:2609.17108v1 and related earlier work arXiv:2406.15746v1. The completed source inspection found complete-graph/small-order results but no theorem for noncomplete clique bouquets. The old small-order formulas are treated as covered; priority for the general family remains a risk pending independent bibliographic checking. The graph family assumes maximum peripheral clique size at least two and the palette of exactly \(q=a+1\) colours. Computational checks are finite, and there has been no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arbitrarily many heterogeneous cliques joined at one hub form a natural windmill/friendship generalization. The global hub-coverage event couples independent clique factors, and an exact polynomial captures all seed-domain multiplicities and forcing probabilities, while parity of largest cliques determines an entire nonzero real-root census. Not merely a minimum number or one small numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
