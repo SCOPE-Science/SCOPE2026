@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T06:54:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph-vertex/maximal-clique incidence structure of a connected block graph is a tree. For every clique, the selected set is none, singleton, or all, because an outside clique vertex may not have two selected neighbors. Conditioned on a parent vertex, selected state A and two unselected states B0/B1 (0 or 1 selected descendant neighbors) suffice; α=∏B0+∏A, β=∏(B0+B1), γ=∑_u A_u∏_{w≠u}B0_w are exhaustive disjoint block transitions. Parent vertex transitions A=x∏α, B0=∏β, B1=∑_Bγ_B∏_{C≠B}β_C count each legal labeling once by rooted-tree induction. Two-state product/sum accumulators cost O(total clique incidences)=O(n) arithmetic gates, independent of clique size; block decomposition O(n+e). Independent exhaustive subset enumeration agreed with reconstructed recurrences for 20 small glued-block graphs of <=11 vertices. Special one-vertex and bridge cases satisfy the same empty-product conventions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+          "General #P-completeness for split graphs from same primary source",
+          "Prior general graph-block factorization concepts (no identical counting theorem located)"
+        ],
+        "reasoning": "The primary study shows #P-hardness on split graphs and linear counting on trees/threshold graphs; it does not assert that entire unrestricted block-graph class has this O(n) weighted circuit.",
+        "searches": [
+          "Resultary semantic query: count weighted P3 convex vertex sets block graphs clique block cut tree polynomial time multivariate generating polynomial",
+          "Dourado et al arXiv:2603.04706, general chordal/split graph counting"
+        ]
+      },
+      "checked_sources": [
+        "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+        "General #P-completeness for split graphs from same primary source",
+        "Prior general graph-block factorization concepts (no identical counting theorem located)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+          "General #P-completeness for split graphs from same primary source",
+          "Prior general graph-block factorization concepts (no identical counting theorem located)"
+        ],
+        "reasoning": "Local none/one/all clique choices do not alone supply consistent cut-vertex neighbor accounting across arbitrarily many blocks, or multivariate O(n)-gate polynomial without the displayed dynamic programming recurrence.",
+        "searches": [
+          "Resultary semantic query: count weighted P3 convex vertex sets block graphs clique block cut tree polynomial time multivariate generating polynomial",
+          "Dourado tree and threshold graph theorems and clique restriction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+          "General #P-completeness for split graphs from same primary source",
+          "Prior general graph-block factorization concepts (no identical counting theorem located)"
+        ],
+        "reasoning": "The proposed weighted polynomial counts every legal subset by a three-state factor-graph message passing circuit on arbitrary clique block trees.",
+        "searches": [
+          "Resultary semantic query: count weighted P3 convex vertex sets block graphs clique block cut tree polynomial time multivariate generating polynomial",
+          "bootstrap/P3 path convexity; exterior-neighbor-at-most-one subsets; cut-vertex tree factor graph partition function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+          "General #P-completeness for split graphs from same primary source",
+          "Prior general graph-block factorization concepts (no identical counting theorem located)"
+        ],
+        "reasoning": "Found elementary clique restriction, not a complete arbitrary-depth weighted block graph circuit; no exact table dominating its all-size formula.",
+        "searches": [
+          "Resultary semantic query: count weighted P3 convex vertex sets block graphs clique block cut tree polynomial time multivariate generating polynomial",
+          "Dourado et al theorem tables and clique Section 4.3.1; Resultary block-graph convex set circuit query"
+        ]
+      },
+      "rationale": "Dourado--Grippo--Lin--Protti (2026) already give linear counting for trees and threshold graphs and an elementary none/one/all clique restriction. Neither alone yields this cut-vertex-compatible three-state multivariate polynomial circuit for every block graph with unbounded clique sizes and arbitrary incidence depth. The novel content is structural composition, not isolated clique restriction.",
+      "residual_risks": [
+        "Possible equivalent tree-factor or cut-vertex message-passing formulation under other terminology; Resultary lack of a hit is not proof.",
+        "Arithmetic gate and unit-operation complexity do not imply polynomial-size expanded multivariate output or bounded bit complexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides tree/threshold linear algorithms and none/one/all clique condition, not the full block-graph multivariate incidence-tree recurrence",
+          "evidence": "Theorems on tractable trees and threshold graphs; Section 4.3.1 uses clique 0/1/all restriction but its general algorithm enumerates clique colorings.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.04706",
+          "material_read": "Full-text primary PDF relevant Sections on trees, threshold graphs, clique-coloring restriction and general exact counting strategies; inspected pages including theorem statements and Section 4.3.1",
+          "method": "Open-access arXiv PDF, relevant pages read",
+          "title": "Counting P_3-convex sets in graphs",
+          "trigger": "Exact same P3-convex set counting problem and clique restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Block graphs form a natural clique-glued class beyond trees/threshold graphs; an exact multivariate weighted enumerator in O(|V|) gates handles arbitrary vertex weights and recovers count/cardinality statistics. The significant increase in graph domain and weighted output is a motivated algorithmic structural theorem, not a tiny finite instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dourado--Grippo--Lin--Protti, Counting P_3-convex sets in graphs, arXiv:2603.04706",
+    "General #P-completeness for split graphs from same primary source",
+    "Prior general graph-block factorization concepts (no identical counting theorem located)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite computational checks corroborate but do not prove uniform/infinite assertions.",
+    "Best-of-knowledge originality; absence of matching search results is not priority proof.",
+    "No GitHub or dispatcher writes; publication withheld pending public-file confidentiality sanitization."
+  ],
+  "residual_risks": [
+    "Possible equivalent tree-factor or cut-vertex message-passing formulation under other terminology; Resultary lack of a hit is not proof.",
+    "Arithmetic gate and unit-operation complexity do not imply polynomial-size expanded multivariate output or bounded bit complexity."
+  ],
+  "schema_version": 1
+}

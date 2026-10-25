@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run `python3 verify.py` from the directory containing the standalone script. It uses the standard library only, creates connected block graphs by explicitly gluing cliques along vertices, computes the exact coefficient vector by the recursive clique-incidence transfer, and independently iterates through every vertex subset testing whether each excluded vertex has at most one included neighbour.
+# Independent mathematical audit
 
-The script checks 1,816 test instances of order up to twelve, consisting of clique chains, deterministically seeded arbitrary gluings, and complete graphs. Duplicate isomorphic instances are not identified. It asserts exact equality of every polynomial coefficient for every instance. The observed output begins with `PASS: 1816 connected clique-block-tree cases; maximum n = 12`.
+## correctness
 
-Sample vectors in increasing degree: one triangle `[1, 3, 0, 1]`, two triangles sharing a vertex `[1, 5, 0, 2, 0, 1]`, three triangles in a chain `[1, 7, 4, 3, 0, 2, 0, 1]`, and a four-clique with three distinct pendant edges `[1, 7, 6, 1, 1, 3, 3, 1]`.
+PASS
 
-These are finite checks and cannot certify a theorem for arbitrarily large block graphs. The proof uses a disjoint, exhaustive recurrence over the block incidence tree. No independent audit has been performed.
+The graph-vertex/maximal-clique incidence structure of a connected block graph is a tree. For every clique, the selected set is none, singleton, or all, because an outside clique vertex may not have two selected neighbors. Conditioned on a parent vertex, selected state A and two unselected states B0/B1 (0 or 1 selected descendant neighbors) suffice; α=∏B0+∏A, β=∏(B0+B1), γ=∑_u A_u∏_{w≠u}B0_w are exhaustive disjoint block transitions. Parent vertex transitions A=x∏α, B0=∏β, B1=∑_Bγ_B∏_{C≠B}β_C count each legal labeling once by rooted-tree induction. Two-state product/sum accumulators cost O(total clique incidences)=O(n) arithmetic gates, independent of clique size; block decomposition O(n+e). Independent exhaustive subset enumeration agreed with reconstructed recurrences for 20 small glued-block graphs of <=11 vertices. Special one-vertex and bridge cases satisfy the same empty-product conventions.
+
+## originality
+
+PASS
+
+Dourado--Grippo--Lin--Protti (2026) already give linear counting for trees and threshold graphs and an elementary none/one/all clique restriction. Neither alone yields this cut-vertex-compatible three-state multivariate polynomial circuit for every block graph with unbounded clique sizes and arbitrary incidence depth. The novel content is structural composition, not isolated clique restriction.
+
+## value
+
+PASS
+
+Block graphs form a natural clique-glued class beyond trees/threshold graphs; an exact multivariate weighted enumerator in O(|V|) gates handles arbitrary vertex weights and recovers count/cardinality statistics. The significant increase in graph domain and weighted output is a motivated algorithmic structural theorem, not a tiny finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

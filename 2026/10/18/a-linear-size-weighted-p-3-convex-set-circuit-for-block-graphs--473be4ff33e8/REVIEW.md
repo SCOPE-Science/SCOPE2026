@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three boundary states are exhaustive because any unselected vertex with two already-selected descendant neighbours is irreparably invalid. In a clique block the selected intersection is empty, a singleton, or the whole block; conditioning on a parent vertex's colour yields the block messages, and the incidence tree gives unique nonoverlapping decomposition. The vertex and block recurrences are verified algebraically by disjoint case splitting. The standalone direct enumerator agrees on 1,816 generated block-graph instances of order at most twelve, including the one-vertex and complete-graph boundaries. The infinite-family claim follows from induction on the incidence tree, not from these finite checks.
+## correctness
 
-## Originality — PASS, with bibliographic residual risk
-Dourado–Grippo–Lin–Protti, arXiv:2603.04706v1 (March 5, 2026), Section 2.1/Theorem 3 and Section 3.2/Theorem 14 give algorithms for trees and threshold graphs, and Section 4.3.1 records the elementary clique restriction. Its inspected Sections 1–4 do not give the three-state weighted circuit on arbitrary block graphs, which have arbitrarily many overlapping clique blocks and unbounded clique size. The previously recorded one-subdivision formula applies to a bipartite graph family and does not cover triangle-containing block graphs. Published mathematical-record searches, aliases and semantic comparisons found no direct all-block-graph theorem; this is best-knowledge originality rather than proof of first discovery. Related older \(P_3\)-convexity papers on Carathéodory or hull numbers address different parameters. Unindexed or unpublished equivalent methods remain possible.
+PASS
 
-## Value — PASS
-Exact counting is \(\#\mathrm P\)-complete already for split graphs, so finding natural further tractable classes is motivated by current work. Block graphs include trees and arbitrarily complicated clique-cut incidence arrangements, with unbounded clique sizes and hence unbounded treewidth; a bounded-treewidth counting theorem alone does not give this unrestricted linear circuit. The theorem computes not just a number, but the full weighted subset enumerator succinctly. Triangle-block examples with identical clique-size multisets have different enumerators, showing that the recurrence captures arrangement information rather than only a known block-size product.
+The graph-vertex/maximal-clique incidence structure of a connected block graph is a tree. For every clique, the selected set is none, singleton, or all, because an outside clique vertex may not have two selected neighbors. Conditioned on a parent vertex, selected state A and two unselected states B0/B1 (0 or 1 selected descendant neighbors) suffice; α=∏B0+∏A, β=∏(B0+B1), γ=∑_u A_u∏_{w≠u}B0_w are exhaustive disjoint block transitions. Parent vertex transitions A=x∏α, B0=∏β, B1=∑_Bγ_B∏_{C≠B}β_C count each legal labeling once by rooted-tree induction. Two-state product/sum accumulators cost O(total clique incidences)=O(n) arithmetic gates, independent of clique size; block decomposition O(n+e). Independent exhaustive subset enumeration agreed with reconstructed recurrences for 20 small glued-block graphs of <=11 vertices. Special one-vertex and bridge cases satisfy the same empty-product conventions.
 
-## Limits and evidence
-Primary source: Dourado et al., *Counting \(P_3\)-convex sets in graphs*, arXiv:2603.04706v1. Direct verifier: `verify.py`. Full expanded multivariate output may be exponentially large; arithmetic-operation counts do not establish constant bit complexity. Bibliographic priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dourado--Grippo--Lin--Protti (2026) already give linear counting for trees and threshold graphs and an elementary none/one/all clique restriction. Neither alone yields this cut-vertex-compatible three-state multivariate polynomial circuit for every block graph with unbounded clique sizes and arbitrary incidence depth. The novel content is structural composition, not isolated clique restriction.
+
+## value
+
+PASS
+
+Block graphs form a natural clique-glued class beyond trees/threshold graphs; an exact multivariate weighted enumerator in O(|V|) gates handles arbitrary vertex weights and recovers count/cardinality statistics. The significant increase in graph domain and weighted output is a motivated algorithmic structural theorem, not a tiny finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
