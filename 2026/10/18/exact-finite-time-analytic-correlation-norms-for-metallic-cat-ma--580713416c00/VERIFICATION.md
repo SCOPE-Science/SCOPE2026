@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python3 checks.py` using Python 3 without third-party packages. The integer-only code checks the two matrix-power formulas and conjugate frequency cost for \(1\le s\le6\), \(1\le n\le7\), and each nonzero integer \(v\) in the square \([-9,9]^2\), verifying the four equality modes. The completed run reported exactly 15,456 passed assertions. These are finite diagnostics, not an exhaustive check over all integers.
+# Independent mathematical audit
 
-The infinite proof in `RESULT.md` relies instead on unimodular lattice substitution and a three-case sign inequality. The precise analytic domain, normalization, and interpretation as a two-observable operator norm matter. Neither an unweighted \(L^2\) norm nor a single-observable autocorrelation is asserted. Independent mathematical validation has not been carried out.
+## correctness
+
+PASS
+
+PASS: weighted-permutation norm reduction and complete sign/quadrant argument yield sharp exponent for all s,n; all four minimizer support modes and equality cases follow rigorously. Distinction from autocorrelation norm and theta in (0,1) validated.
+
+## originality
+
+PASS
+
+Existing Fourier-mixing literature and particularly Shchetka prove sharp double-exponential *rates* for analytic observables, including an overlapping cat family, while this theorem gives exact coefficient for every finite time and every s and all four maximizing Fourier inputs. The asymptotic rate does not specify exact all-time operator norms or equality sets.
+
+## value
+
+PASS
+
+Analytic correlation operator norm provides the sharp finite-lag envelope of mixing across normalized observables. Exact exponent and all extremal modes for a natural integer hyperbolic family improve rate estimates by supplying reusable time-by-time constants and equality witnesses; half-iterate integer sign argument is structural rather than numerical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
