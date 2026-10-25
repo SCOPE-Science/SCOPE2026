@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The argument computes an exact common null kernel as the annihilator of all mixed monomials. The positive exponential moment at \(m=1\) is sufficient for Fourier uniqueness; thus the boundary case is included. The subcritical oscillatory phase is \(\pi(2d+n)/2\) and cancels exactly according to angular parity; all monomial pairs are covered, not just diagonal entries. The angular map is quantitatively bounded below, so its range is closed. The finite checker is corroborative only.
+
+**Originality — PASS, subject to residual priority risk.** Tian's power-weight Berezin-product theorem distinguishes ordered parameters and commutativity, not symbol injectivity. Bommier-Hato supplies Lipschitz estimates for operator symbols; Grudsky–Vasilevski's Gaussian nonzero zero-operator symbols are not bounded and their bounded uniqueness result is consistent with the present threshold. Bdarneh's general radial-weight spectral formulas do not yield this sharp classification. Classical Stieltjes moment perturbations anticipate the radial sine identity, so that identity alone is not claimed as new. The surviving contribution is the exact all-dimensional \(L^\infty\) symbol-map threshold and a *closed nonradial infinite-dimensional kernel*. No exhaustive historical-priority claim is made, especially for abstract moment-density formulations.
+
+**Mathematical value — PASS.** The new theorem identifies the precise exponent at which Berezin/Toeplitz quantization loses observability of bounded symbols, in the same functional-calculus family where the recent product-rigidity problem is studied. The construction shows maximal practical information loss even within strictly positive bounded symbols, and its closed angular family goes far beyond one oscillatory example. The result does not require an unrelated downstream application to be meaningful.
+
+**Limitations and sources.** See `RESULT.md` References 1–6. General moment-problem technology is a genuine potential route to an older covering statement. No smoothness classification or complete nullspace theorem is asserted. Accessible original articles were inspected to distinguish exact implications, while the Lin–Lu–Zu item was accessible in abstract form only.
+
+Self-review: passed. Independent audit: not yet performed.
