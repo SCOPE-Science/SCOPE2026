@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T16:12:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "M. Rigo, P. Salimov, Another generalization of abelian equivalence: binomial complexity of infinite words, hdl:2268/178703, 2015 author manuscript; relevant definitions and main theorems",
+        "X.-T. Lü, J. Chen, Z.-X. Wen, W. Wu, On the abelian complexity of the Rudin–Shapiro sequence, arXiv:1606.06935 (2016); complete statement and relevant weight theorems",
+        "Lü et al, On the 2-binomial complexity of generalized Thue–Morse words, arXiv:2112.05347 (2021); main statements, distinct word family",
+        "Resultary semantic search on Rudin-Shapiro 2-binomial complexity and positional moments"
+      ],
+      "rationale": "From r_{2i}=r_i and r_{2i+1}=r_i xor (i mod 2), state 2r_i+(i mod 2) follows the stated 4-symbol length-2 morphism. The exact eight adjacent state pairs E all occur in phi^4(0) and are closed under substitution; for n<=2^h every length-n factor lies in an aligned pair of length-2^h substituted blocks and every candidate pair actually occurs, proving exhaustive factor language (not just a sampled prefix). For a binary length-n word, all scattered length<=2 subsequence counts are equivalent to (W,T): #10=W(n-1)-T-C(W,2), #01=W(n-W)-#10, and #00/#11 depend only on W. Direct independent digit-rule C++ computed every (W,T) profile over the 65536-letter certified prefix for each n=1..4096; all 4096 spectrum rows and 620 dyadic weight rows match pinned Git CSV FNV64 fingerprints and exact length counts (spectrum 4097 lines/93566 bytes, FNV64 09b6fe847a6d626e; dyadic 621 lines/7277 bytes, FNV64 fe746b168315eeeb). At n=4096 count=24783, weight range 1953..2143. An independent shorter Python check verified E closure and equivalence on all binary words of length 1..8. These computations are exhaustive because of the proved substitution factor cover; they do not imply an unclaimed asymptotic.",
+      "residual_risks": [
+        "Independent finite checks alone are not an all-size theorem; the unrestricted proof and normalization were read in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rigo–Salimov 2015 selected theorems on different morphic classes; Lü et al 2021 different generalized Thue–Morse automatic-word coding"
+        ],
+        "reasoning": "General definitional and structural results do not give this explicit Rudin–Shapiro table. The all-length factor-pair reduction follows here from the eight-state-pair cover, not a previously stated numeric all-length closed form.",
+        "searches": [
+          "2-binomial complexity automatic sequences Rigo Salimov morphic word theorem Rudin Shapiro",
+          "generalized Thue Morse 2-binomial periodic vs Rudin Shapiro"
+        ]
+      },
+      "checked_sources": [
+        "M. Rigo, P. Salimov, Another generalization of abelian equivalence: binomial complexity of infinite words, hdl:2268/178703, 2015 author manuscript; relevant definitions and main theorems",
+        "X.-T. Lü, J. Chen, Z.-X. Wen, W. Wu, On the abelian complexity of the Rudin–Shapiro sequence, arXiv:1606.06935 (2016); complete statement and relevant weight theorems",
+        "Lü et al, On the 2-binomial complexity of generalized Thue–Morse words, arXiv:2112.05347 (2021); main statements, distinct word family",
+        "Resultary semantic search on Rudin-Shapiro 2-binomial complexity and positional moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lü–Chen–Wen–Wu abelian complexity counts distinct W; pairs with equal W can have different T and hence different #10."
+        ],
+        "reasoning": "Knowing distinct weights or general definitions cannot imply counts of distinct ordered (W,T) pairs; extra enumeration and exhaustive cover supply new data and a universal evaluation method.",
+        "searches": [
+          "Rudin Shapiro abelian complexity theorem Lü 2016 compared to scattered 2-binomial classes",
+          "Rigo Salimov binomial complexity definitions and formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rigo–Salimov 2015 definitions; Lü et al 2016 same automatic word abelian complexity; exact W/T identity"
+        ],
+        "reasoning": "2-binomial fixed-length class is the pair (W,T), strictly finer than the abelian weight alone; 2-abelian contiguous-pair statistics are also not equivalent to scattered 01/10 counts.",
+        "searches": [
+          "Rudin Shapiro scattered-subsequence length-two complexity positional weighted 1 sum",
+          "Rudin Shapiro 2-binomial complexity automatic factors all lengths",
+          "Resultary semantic query Rudin Shapiro 2-binomial spectrum through length 4096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinned 4096-row spectrum.csv and 620-row dyadic_weights.csv verified independently; primary abelian complexity source supplies weights rather than position moments"
+        ],
+        "reasoning": "The exact dataset is central, not a claim about arbitrary truncation: length 4096 is a dyadic block cutoff with a proof that the 65536-letter prefix covers all factors. No older exact W/T table found in inspected works; an unindexed equivalent remains possible.",
+        "searches": [
+          "Rudin Shapiro exact 2 binomial complexity n 4096 table 24783 weight 1953 2143",
+          "Rudin Shapiro binomial equivalence finite tables all lengths"
+        ]
+      },
+      "rationale": "Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.",
+      "residual_risks": [
+        "An unindexed external automatic-sequence database or thesis may contain an identical W/T census.",
+        "The generalized Thue–Morse comparison uses accessible main HTML claims but was not page-by-page full PDF inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND: introduces invariant, does not present exact Rudin–Shapiro (W,T) spectrum table or eight-pair construction.",
+          "evidence": "Definition of binomial complexity and general families have no pinned 1..4096 census.",
+          "identifier_or_url": "hdl:2268/178703 / https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "material_read": "16-page accessible author PDF including definitions and theorems for Sturmian/Parikh-constant morphic words, and no Rudin–Shapiro statement in the readable text; visually checked p9.",
+          "method": "lawful OA full author manuscript PDF; page screenshot and text search",
+          "title": "Another generalization of abelian equivalence: binomial complexity of infinite words",
+          "trigger": "original binomial equivalence definitions potentially general morphic theorems"
+        },
+        {
+          "assessment": "NOT_COVERING 2-binomial class incidence: weights are only the W coordinate; distinct position moments T remain unresolved.",
+          "evidence": "Theorem focuses on Parikh/weight counts, not scattered 01/10 counts.",
+          "identifier_or_url": "arXiv:1606.06935",
+          "material_read": "Primary full PDF, key statements on abelian complexity and factors, inspected page 6.",
+          "method": "arXiv full-text PDF and screenshot",
+          "title": "On the abelian complexity of the Rudin–Shapiro sequence",
+          "trigger": "same word and finite factors, possible dominating invariant"
+        },
+        {
+          "assessment": "Different automatic family, no implication to binary Rudin–Shapiro 4096 table from read claims.",
+          "evidence": "The paper treats generalized Thue–Morse, not Rudin–Shapiro.",
+          "identifier_or_url": "arXiv:2112.05347",
+          "material_read": "Accessible HTML theorem statements and abstract; complete PDF not independently read.",
+          "method": "arXiv abstract/HTML main claims",
+          "title": "On the 2-binomial complexity of generalized Thue–Morse words",
+          "trigger": "same equivalence notion in automatic-word family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "M. Rigo, P. Salimov, Another generalization of abelian equivalence: binomial complexity of infinite words, hdl:2268/178703, 2015 author manuscript; relevant definitions and main theorems",
+        "X.-T. Lü, J. Chen, Z.-X. Wen, W. Wu, On the abelian complexity of the Rudin–Shapiro sequence, arXiv:1606.06935 (2016); complete statement and relevant weight theorems",
+        "Lü et al, On the 2-binomial complexity of generalized Thue–Morse words, arXiv:2112.05347 (2021); main statements, distinct word family",
+        "Resultary semantic search on Rudin-Shapiro 2-binomial complexity and positional moments"
+      ],
+      "rationale": "A complete exact 4096-length classification of the natural 2-binomial factor-complexity invariant for a classical automatic word, together with a reusable all-length eight-parent-block reduction and weight-resolved census, gives a reproducible finite reference and structural method. The cutoff has dyadic substitution motivation, not a random unmotivated slice. The result does not assert a closed formula beyond the cutoff.",
+      "residual_risks": [
+        "Future use of the exact invariant is a mathematically motivated possibility, not an asserted downstream theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "M. Rigo, P. Salimov, Another generalization of abelian equivalence: binomial complexity of infinite words, hdl:2268/178703, 2015 author manuscript; relevant definitions and main theorems",
+    "X.-T. Lü, J. Chen, Z.-X. Wen, W. Wu, On the abelian complexity of the Rudin–Shapiro sequence, arXiv:1606.06935 (2016); complete statement and relevant weight theorems",
+    "Lü et al, On the 2-binomial complexity of generalized Thue–Morse words, arXiv:2112.05347 (2021); main statements, distinct word family",
+    "Resultary semantic search on Rudin-Shapiro 2-binomial complexity and positional moments"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed external automatic-sequence database or thesis may contain an identical W/T census.",
+    "The generalized Thue–Morse comparison uses accessible main HTML claims but was not page-by-page full PDF inspected.",
+    "Pinned Git blobs were inspected; full Git source-tree SHA not independently reconstructed.",
+    "Public metadata contains private operational identifiers; any publication must await neutralized full-file replacements."
+  ],
+  "schema_version": 1
+}

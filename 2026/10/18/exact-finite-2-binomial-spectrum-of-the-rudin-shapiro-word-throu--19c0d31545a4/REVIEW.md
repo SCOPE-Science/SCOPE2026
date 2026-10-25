@@ -1,11 +1,21 @@
-# Review: exact 2-binomial spectrum of the Rudin–Shapiro word
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-state coding is derived from the binary digit recurrence, not guessed from a prefix. All eight neighboring states occur by the fourth substitution and form an invariant closed pair set. Each length-\(n\) factor, for \(n\le2^h\), is among the eight two-block windows of length \(2^{h+1}\); conversely every window occurs. The binary scattered-subsequence invariants are exactly weight and positional sum. These facts prove that the finite enumeration is exhaustive at every claimed length; the independent direct-digit implementation reproduces the entire table and all dyadic weights. Long finite prefixes or positive program logs alone do not establish any unbounded numerical law.
+## correctness
 
-**Originality — PASS against examined evidence.** Rigo–Salimov (2015) supplies the basic equivalence and general morphic results; Lü–Chen–Wen–Wu (2016) computes the Rudin–Shapiro **abelian** invariant, which projects away positional sums, and Lü et al (2021) treat generalized Thue–Morse 2-binomial complexity. published-finding corpus comparisons to adjacent-pair multispectra, related factor invariants, and string attractors do not imply these exact Rudin–Shapiro statistics. Search aliases included scattered-subsequence counts, positional moments, binomial equivalence, and exact dyadic-value strings. A previously unindexed equivalent table is a residual risk; search nonhits alone do not establish novelty.
+PASS
 
-**Mathematical value — PASS.** The data cover every length through the natural full dyadic substitution scale \(4096\), not selected illustrative lengths. The binomial refinement resolves \(24783\) classes at this length where the weight-only invariant resolves \(191\), and the weight-by-weight spectrum identifies where the extra information resides. An exact eight-pair reduction applies at every positive length, making the finite classification reproducible and a meaningful benchmark for future regularity results. This is not presented as a closed formula for arbitrary lengths.
+From r_{2i}=r_i and r_{2i+1}=r_i xor (i mod 2), state 2r_i+(i mod 2) follows the stated 4-symbol length-2 morphism. The exact eight adjacent state pairs E all occur in phi^4(0) and are closed under substitution; for n<=2^h every length-n factor lies in an aligned pair of length-2^h substituted blocks and every candidate pair actually occurs, proving exhaustive factor language (not just a sampled prefix). For a binary length-n word, all scattered length<=2 subsequence counts are equivalent to (W,T): #10=W(n-1)-T-C(W,2), #01=W(n-W)-#10, and #00/#11 depend only on W. Direct independent digit-rule C++ computed every (W,T) profile over the 65536-letter certified prefix for each n=1..4096; all 4096 spectrum rows and 620 dyadic weight rows match pinned Git CSV FNV64 fingerprints and exact length counts (spectrum 4097 lines/93566 bytes, FNV64 09b6fe847a6d626e; dyadic 621 lines/7277 bytes, FNV64 fe746b168315eeeb). At n=4096 count=24783, weight range 1953..2143. An independent shorter Python check verified E closure and equivalence on all binary words of length 1..8. These computations are exhaustive because of the proved substitution factor cover; they do not imply an unclaimed asymptotic.
 
-**Scope and limitations.** The numeric conclusion is a complete finite census only; no general closed-form or asymptotic is deduced. Independently published equivalent tables or inaccessible results remain possible. All proof and verification artifacts are included, but there is no independent human audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.
+
+## value
+
+PASS
+
+A complete exact 4096-length classification of the natural 2-binomial factor-complexity invariant for a classical automatic word, together with a reusable all-length eight-parent-block reduction and weight-resolved census, gives a reproducible finite reference and structural method. The cutoff has dyadic substitution motivation, not a random unmotivated slice. The result does not assert a closed formula beyond the cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

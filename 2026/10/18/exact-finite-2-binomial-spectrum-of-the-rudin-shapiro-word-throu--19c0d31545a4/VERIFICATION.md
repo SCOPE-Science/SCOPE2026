@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-The table is a complete classification only for positive integer lengths at most \(4096\). The all-length factor-cover formula is proved separately in `RESULT.md`.
+## correctness
 
-From a directory containing `enumerate.cpp`, `verify_independent.cpp`, `spectrum.csv` and `dyadic_weights.csv`, use a C++17 compiler:
+PASS
 
-```sh
-g++ -O2 -std=c++17 -Wall -Wextra -Werror enumerate.cpp -o enumerate
-./enumerate reproduced_spectrum.csv reproduced_dyadic_weights.csv
-cmp spectrum.csv reproduced_spectrum.csv
-cmp dyadic_weights.csv reproduced_dyadic_weights.csv
-g++ -O2 -std=c++17 -Wall -Wextra -Werror verify_independent.cpp -o verify_independent
-./verify_independent spectrum.csv dyadic_weights.csv
-```
+From r_{2i}=r_i and r_{2i+1}=r_i xor (i mod 2), state 2r_i+(i mod 2) follows the stated 4-symbol length-2 morphism. The exact eight adjacent state pairs E all occur in phi^4(0) and are closed under substitution; for n<=2^h every length-n factor lies in an aligned pair of length-2^h substituted blocks and every candidate pair actually occurs, proving exhaustive factor language (not just a sampled prefix). For a binary length-n word, all scattered length<=2 subsequence counts are equivalent to (W,T): #10=W(n-1)-T-C(W,2), #01=W(n-W)-#10, and #00/#11 depend only on W. Direct independent digit-rule C++ computed every (W,T) profile over the 65536-letter certified prefix for each n=1..4096; all 4096 spectrum rows and 620 dyadic weight rows match pinned Git CSV FNV64 fingerprints and exact length counts (spectrum 4097 lines/93566 bytes, FNV64 09b6fe847a6d626e; dyadic 621 lines/7277 bytes, FNV64 fe746b168315eeeb). At n=4096 count=24783, weight range 1953..2143. An independent shorter Python check verified E closure and equivalence on all binary words of length 1..8. These computations are exhaustive because of the proved substitution factor cover; they do not imply an unclaimed asymptotic.
 
-Executed checks: both executables compiled without warnings, both printed `VERIFY_OK`, the two regenerated CSV files agreed byte-for-byte with the supplied files, and all \(4096\) spectrum rows plus dyadic weight distributions were reproduced with different generation strategies. The first enumerator also checks the complete substitution pair set and base-two coding for the initial \(65536\) positions. These computational checks are attached to a mathematical exhaustive-factor proof, rather than being extrapolated from a sample.
+## originality
 
-The second executable is independent as an *algorithmic construction*, not as an external audit. There is no independent human review or infinite-length numeric inference. A recipient can rerun all checks without network services, external datasets or unpublished dependencies.
+PASS
+
+Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.
+
+## value
+
+PASS
+
+A complete exact 4096-length classification of the natural 2-binomial factor-complexity invariant for a classical automatic word, together with a reusable all-length eight-parent-block reduction and weight-resolved census, gives a reproducible finite reference and structural method. The cutoff has dyadic substitution motivation, not a random unmotivated slice. The result does not assert a closed formula beyond the cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
