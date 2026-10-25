@@ -1,0 +1,12 @@
+# Scientific review — prescribed-zero Hardy coefficient envelope
+
+## Correctness — PASS
+The asserted sharp coefficient is obtained without extrapolating finite tests. For each normalized \(f=IF\), the zero-free outer root \(G=F^{p/2}\) has \(H^2\)-norm one. Schwarz–Pick bounds \(|I'(0)|\), and Parseval bounds \(|G'(0)|\) given \(|G(0)|\); their combination gives the scalar function \(\Phi_{q,\rho}\). Its derivative has a unique sign change, proving the exact global maximum for every \(q>2\), \(\rho\in[0,1]\). Both equality cases and endpoint limits are proved by explicit analytic functions. Exact symbolic rational checks and numerical spot checks in `verify.py` corroborate formulas, but the infinite-dimensional inequality and optimizer uniqueness are proved analytically.
+
+## Originality — PASS with residual historical-priority risk
+Brevig–Søvik (arXiv:2610.21788v1), Sections 1–2, establishes that unconstrained extremizers for nonzero bounded functionals are outer; it does not determine sharp coefficient penalties under prescribed zeros or fixed inner modulus. Brevig–Grepstad–Instanes (arXiv:2011.07790; open full text, Section 4) solves a distinct interpolation condition \(f(0)=t\). Its formula conditions the full complex value, whereas our conditional invariant is \(|I(0)|\), and optimizing outer slope independently of the inner parameter gives a different unique solution. Brevig–Saksman (arXiv:1905.09547) gives the unrestricted first coefficient and related higher coefficient estimates, not the prescribed-zero profile. Actual semantic searches comparing parameters, reductions, and direct corollary implications yielded no equivalent indexed statement. The older fixed-value theory could furnish a route to independent rederivation, and earlier unindexed interpolation results remain a genuine priority risk. The new theorem makes no claim of independent external validation.
+
+## Value — PASS
+The location of a forced zero is a natural interpolation datum for Hardy spaces. The complete exact envelope \(\mathcal C_q(|a|)\) and equality classification give a sharp quantitative bridge from functions forced to vanish at the center, where the optimal first coefficient is one, to unconstrained outer extremizers. The endpoint multiplicity/order and sharp first-order boundary penalty are nontrivial; the result is a complete all-parameters classification, not an arbitrary finite example. No higher-order or stability theorem is implied.
+
+Self-review: passed. Independent audit: not yet performed.
