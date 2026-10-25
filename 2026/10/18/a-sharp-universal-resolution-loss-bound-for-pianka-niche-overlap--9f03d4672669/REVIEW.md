@@ -1,15 +1,21 @@
-# Scientific review: a sharp universal resolution-loss bound for Pianka niche overlap
+# Independent mathematical audit
 
-## Correctness — PASS
-The mathematical statement concerns all nonzero nonnegative resource-use vectors with at least three coordinates and one additive merger of two coordinates. The proof first bounds the unmerged and merged inner products using Cauchy–Schwarz and the monotonicity of vector norms under merging nonnegative entries. The outside-category dot product has a nonnegative coefficient in the overlap change, so replacing it by the maximal aligned value is a valid upper-bound reduction in arbitrary dimension. The remaining two-angle problem is bounded by a single function \(g(t)\); its derivative has one positive root, yielding the exact sharp constant. The proposed zero-support extremizer attains all inequalities, including the critical angle comparison. Endpoints (including zero merged components) are handled by continuous angle limits. The Schoener contrast follows from the triangle inequality. The standalone checker confirms the radical identity and tests nonnegative examples, but finite checks are not substituted for the analytic proof.
+## correctness
 
-## Originality — PASS with remaining uncertainty
-Pianka (1973), page 59 equation (5), gives the cosine-normalized niche-overlap statistic itself, which is acknowledged as known. Hurlbert (1978) and Abrams (1980) question interpretation of niche measures but do not in the accessible abstracts present a sharp one-category-amalgamation bound. Geange et al. (2010 first online) construct a different intersection-of-distributions niche overlap for categorical data. Pierotti et al. (2016 first online) explicitly discuss amalgamation as problematic in compositional-data analysis, yet their inspected mathematical results concern alternative indices, relative resource perturbations and subcomposition, not the universal sharp additive loss of the original Pianka cosine index under merging two entries. The checked EcoSimR routines compute Pianka and Czekanowski values but do not state this extremal resolution-loss constant. Searches for bin pooling, cosine coordinate aggregation, the radical constant and related constructions in published research records did not identify a statement implying the exact theorem. These negative results do not prove global novelty. An older or cross-disciplinary cosine-distortion theorem may imply the same bound; independent bibliographic review is outstanding.
+PASS
 
-## Mathematical value — PASS
-Resource-use classifications are frequently changed by pooling similar food or habitat categories. Quantifying the maximal possible downward distortion of a widely used niche-overlap index is therefore a motivated measurement-robustness problem, rather than an arbitrary invariant. The exact dimension-independent constant \(K\approx0.132514\), an attaining three-category example, and the asymmetric full-unit possible upward change give an interpretable, sharp error envelope for a single merge. The monotonic Schoener/Czekanowski contrast identifies which conclusions depend on index choice. This is a mathematical calibration of descriptive indices, not a measure of ecological competition, a claim about empirical sampling uncertainty, or a theorem for multiple simultaneous mergers.
+For nonzero p,q>=0 with m>=3 and exactly one additive merge of coordinates 1 and 2, break into merged-part lengths a,b and remaining lengths r,s; d=inner merged pieces<=ab, e=outside inner product<=rs. Since merge norms M_pM_q>= original norms L_pL_q, the coefficient of e in O_before-O_after is nonnegative, justifying replacing e by rs for an upper bound; replacing d by ab also upper bounds. Angles alpha,beta of original split and alpha’,beta’ of merged split obey f(alpha)<=alpha’<=alpha, f(beta)<=beta’<=beta with f(x)=atan(tan(x)/sqrt 2). The decrease is bounded by cos(alpha-beta)-cos(alpha-f(beta))<=sin(beta)-sin f(beta); calculus of g(t)=t/sqrt(1+t²)-t/sqrt(2+t²) gives sole maximum K=(1-2^(-1/3))sqrt(2-2^(2/3))=0.1325141267187. Explicit p=(0,0,1), q=(1,1,sqrt(2s)), s=(2-2^(2/3))/(2^(2/3)-1) attains K; other coordinates zeros. Disjoint merged supports can increase O by 1. Schoener overlap cannot decrease by triangle inequality after unit-sum normalization. Independent integer-grid 3-bin checks and direct constant arithmetic corroborated; real-domain assertion is analytic.
 
-## Closest literature and limitations
-The most direct original formula is Pianka (1973), *The Structure of Lizard Communities*, p. 59; the nearest explicit methodological discussion of category amalgamation is Pierotti et al. (2017), *The peril of proportions*. Geange et al. (2011) instead use density-intersection overlap. Full mathematical text of Hurlbert (1978), Abrams (1980) and Slobodchikoff–Schulz (1980) could not be inspected; their accessible descriptions were compared but not taken to exclude all covering results. A general nonnegative-vector angular-distortion theorem outside ecology may also be relevant. Neither external nor independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pianka 1973 invented the normalized cosine index; resolution sensitivity and compositional index alternatives are known in Hurlbert/Abrams and Pierotti et al. The scientific claim is a new one-merge dimension-independent sharp downward constant and explicit saturating example, not discovery of sensitivity. Pierotti et al. use compositional perturbations and subcomposition; no full-text theorem inspected applies to this cosine pooling map. Cross-disciplinary cosine-angle matrix-distortion literature could imply it and is the primary originality risk.
+
+## value
+
+PASS
+
+Pooling diet or habitat-use bins is a standard resolution choice; the exact worst-case loss of a widely used ecological overlap coefficient is a natural calibration invariant. Sharp one-sided 0.1325 loss versus possible +1 rise, together with the Schoener monotonic contrast, quantifies practical index dependence on taxonomy without claiming competition dynamics or sampling interpretation. m>=3 and all other bins arbitrary make it a meaningful universal result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
