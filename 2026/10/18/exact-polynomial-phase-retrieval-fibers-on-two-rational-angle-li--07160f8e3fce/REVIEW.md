@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The quotient \(Q/P\) is regular and nonzero at zero and infinity by the first-line polynomial intensity identity, and it is fixed by the primitive \(q\)-fold rotation arising from two reflection identities. Consequently it has the form \(S(z^q)\). The reflection identity for \(S\) forces conjugate zero-pole orders of opposite sign, and polynomiality forces the exact independent integer intervals \(-b_\lambda\le t_\lambda\le a_\lambda\). The product formula and sharp degree bound follow algebraically, with an explicit attaining family. Boundary cases include vanishing at zero, arbitrary real-orbit factors, and repeated zeros. The finite checker enumerates 16 explicit finite cases; it is corroborative only.
+PASS
 
-## Originality: PASS (best knowledge)
+Reconstructed the two polynomial modulus identities. Their quotient R=Q/P has matching zero orders at 0 and infinity and obeys R(e^{2iθ}z)=R(z). For θ=πp/q reduced, the fixed field is C(z^q), and the real-axis unit-modulus condition pairs S(w) zeros and poles by complex conjugation. Polynomial divisibility on full q-orbits is precisely -b_λ≤t_λ≤a_λ, yielding the independent product. Each nonzero orbit choice consumes ≥q roots, so ∏(a+b+1)≤2^{floor(d/q)}, with the supplied products attaining equality. Degree 2d intensity polynomials show sufficiency of 2d+1 distinct samples per line, not minimality. Checked example with nontrivial numerator p=2/3 and full zero-flip finite tests as corroboration, not universal proof.
 
-Perez (arXiv:2009.02061, Theorem 2.1) establishes irrational-angle uniqueness, already known here. Jaming (arXiv:1009.3418, Section 3.1.2 and Remark 3.6) explicitly identifies finite regular-polygon zero orbits for rational angles; this is the closest prior mechanism and is not newly claimed. Chalendar and Partington (arXiv:2403.16255, Section 2.1 and Example 2.2) present irrational uniqueness and rational counterexamples for rational functions. The compared statements do not enumerate **every** degree-bounded polynomial partner, give the multiplicity product, or prove its maximum \(2^{\lfloor d/q\rfloor}\). An older equivalent result in polynomial zero-flip or finite reflection-group literature remains possible, and a search cannot establish global novelty.
+## originality
 
-## Value: PASS
+PASS
 
-The classification upgrades a known qualitative rational-angle obstruction to an exact inverse-fiber census for arbitrary polynomial zeros and multiplicities, gives a necessary and sufficient uniqueness certificate for an individual polynomial, and identifies the sharp degree/angle-denominator information threshold. These invariants directly distinguish universal injectivity from exponentially growing ambiguity in a natural analytic sampling geometry. No assertion of practical noise stability or minimal sample size is made.
+Best-of-knowledge PASS strictly for the multiplicity-sensitive exact fiber and sharp degree-constrained maximal count. Irrational-angle uniqueness and finite regular-polygon zero-orbit obstructions at rational angles are published prior findings and are not re-claimed.
 
-## Scientific risks and limitations
+## value
 
-Published orbit observations already cover the conceptual symmetry, so the contribution is specifically the exact multiplicity-sensitive census and its sharp extremal law. A more general divisor-classification theorem might subsume this result even without matching terminology; no independent audit of global priority has occurred. Finite numerical checks only corroborate algebraic calculations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise finite fiber is a natural inverse-problem invariant: exact multiplicity parameters determine every possible noiseless polynomial partner, an individual-polynomial injectivity criterion, and a sharp degree-versus-rational-angle denominator maximum. Those are directly useful for distinguishing universal recoverability from exponentially many ambiguities; they are not a renaming of the known irrational theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

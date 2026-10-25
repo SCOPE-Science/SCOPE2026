@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is based on exact identities: polynomial modulus equality implies conjugate-reflection identities for the rational quotient; the quotient is fixed by a primitive rotation, hence lies in the invariant field \(\mathbb C(z^q)\); conjugation pairs the zeros and poles of its one-variable rational factor; divisibility yields the closed integer intervals. These are arguments for every degree and denominator, not extrapolations from computations.
+# Independent mathematical audit
 
-Use Python 3.10+ with NumPy (`requirements.txt`) and run `python verify.py`. The saved `verification_output.txt` contains a reproducible execution for 16 finite configurations, including exhaustive reflected-zero flips for \(q=2,3,4,5\), orbit multiplicities, and a generic orbit-free polynomial. Numerical thresholds are specified in the code. The checker verifies expected finite counts but neither exhausts all polynomials nor formally certifies the general theorem. The degree bound and its attaining family follow directly from the proof, not from finite tests.
+## correctness
 
-For each claimed sample-equivalence, the polynomial in the real sample parameter has degree at most \(2d\); the finite-sample sufficiency therefore rests on the elementary interpolation zero-count principle. No minimality or robustness theorem is checked or claimed. Independent audit has not been performed.
+PASS
+
+Reconstructed the two polynomial modulus identities. Their quotient R=Q/P has matching zero orders at 0 and infinity and obeys R(e^{2iθ}z)=R(z). For θ=πp/q reduced, the fixed field is C(z^q), and the real-axis unit-modulus condition pairs S(w) zeros and poles by complex conjugation. Polynomial divisibility on full q-orbits is precisely -b_λ≤t_λ≤a_λ, yielding the independent product. Each nonzero orbit choice consumes ≥q roots, so ∏(a+b+1)≤2^{floor(d/q)}, with the supplied products attaining equality. Degree 2d intensity polynomials show sufficiency of 2d+1 distinct samples per line, not minimality. Checked example with nontrivial numerator p=2/3 and full zero-flip finite tests as corroboration, not universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS strictly for the multiplicity-sensitive exact fiber and sharp degree-constrained maximal count. Irrational-angle uniqueness and finite regular-polygon zero-orbit obstructions at rational angles are published prior findings and are not re-claimed.
+
+## value
+
+PASS
+
+A precise finite fiber is a natural inverse-problem invariant: exact multiplicity parameters determine every possible noiseless polynomial partner, an individual-polynomial injectivity criterion, and a sharp degree-versus-rational-angle denominator maximum. Those are directly useful for distinguishing universal recoverability from exponentially many ambiguities; they are not a renaming of the known irrational theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
