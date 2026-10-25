@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T11:59:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+        "verify_q4_totalcut.py SHA 16ca3502dd26c71bfc06c88e971cfa6d05808472; certificate_q4_totalcut.json SHA 1dada6d4dde3198e437251a7211642e9310288ab"
+      ],
+      "rationale": "For Q4 with vertices 0..15 adjacent iff XOR has popcount one, independent sets and nonempty total k-cut faces are finite. Independently computed alpha(S) for all 65536 subsets by vertex include/exclude dynamic programming; separately enumerated every independent k-set, all complementary facets and every nonempty subface, obtaining EXACT matching face sets. Rebuilt vertex-by-vertex acyclic matchings and topologically sorted EVERY Hasse edge: at k=4,5,6,7,8 respectively nonempty face counts 58670,39958,17574,4526,510; matched pairs 29070,19510,8566,2238,254; oriented cover counts 447600,274624,103792,22368,2032. Critical cells are one 0-cell plus 529 8-cells, 937 6-cells, 441 4-cells, 49 2-cells, and finally two 0-cells. The full acyclicity gives precisely the asserted integral wedges/sphere S0 by discrete Morse, not mere homology. Inspected certificate_q4_totalcut.json enumerates all critical masks and digests for match pairs; independent checked numbers match. No infinite extrapolation is made.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record source 2026/10/18/higher-total-cut-complexes-of-the-boolean-four-cube--2216882e6bb9/RESULT.md, Git blob 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+          "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+          "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families",
+          "Carnero Bravo arXiv:2602.21427v3 primary PDF §5.4 Question 53",
+          "Resultary 2026/10/11 Q4 total-3-cut full RESULT.md blob 01b9c2c5c4a0ebf98e0e8daf42e7e0d6fb3607aa"
+        ],
+        "reasoning": "Carnero Bravo general product theorems in inspected §5.4 specifically address total 2-cut, and Question 53 requests k>=3 for products. Bayer et al. element-matching acyclicity theorem guarantees matching validity but not the new matching critical counts for Q4. Thus these broader frameworks do not imply the numbers without fresh finite calculation.",
+        "searches": [
+          "Resultary: total k cut complex 4-dimensional cube Q4 k=4 5 6 7 8 homotopy types",
+          "arXiv:2209.13503 total cut complexes Bayer et al theorem 7.5",
+          "arXiv:2602.21427v3 Carnero Bravo Section 5.4 Question 53 Cartesian products",
+          "Resultary 2026-10-11 Q4 total 3-cut 129 sphere wedge"
+        ]
+      },
+      "checked_sources": [
+        "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+        "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families",
+        "Carnero Bravo arXiv:2602.21427v3 primary PDF §5.4 Question 53",
+        "Resultary 2026/10/11 Q4 total-3-cut full RESULT.md blob 01b9c2c5c4a0ebf98e0e8daf42e7e0d6fb3607aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record source 2026/10/18/higher-total-cut-complexes-of-the-boolean-four-cube--2216882e6bb9/RESULT.md, Git blob 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+          "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+          "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families",
+          "Carnero Bravo arXiv:2602.21427v3 primary PDF §5.4 Question 53",
+          "Resultary 2026/10/11 Q4 total-3-cut full RESULT.md blob 01b9c2c5c4a0ebf98e0e8daf42e7e0d6fb3607aa"
+        ],
+        "reasoning": "The known k=3 Q4 wedge is not re-presented as new; k4..8 follow independently recomputed enumeration of their separate face sets and complete matchings. General Morse theorem itself is classic, the new thing is the exact critical-cell lists and five-stage homotopy classification.",
+        "searches": [
+          "Resultary: total k cut complex 4-dimensional cube Q4 k=4 5 6 7 8 homotopy types",
+          "arXiv:2209.13503 total cut complexes Bayer et al theorem 7.5",
+          "arXiv:2602.21427v3 Carnero Bravo Section 5.4 Question 53 Cartesian products",
+          "Resultary 2026-10-11 Q4 total 3-cut 129 sphere wedge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record source 2026/10/18/higher-total-cut-complexes-of-the-boolean-four-cube--2216882e6bb9/RESULT.md, Git blob 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+          "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+          "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families"
+        ],
+        "reasoning": "Definition by complements of independent k-sets equals alpha(V\\sigma)>=k; the independent-number DP and direct-facet route define identical complexes. The graph C4 square C4 is isomorphic to Q4, whereas rectangular grid P4 square P4 is NOT (24 vs 32 edges). No matching k>=4 table found under these aliases.",
+        "searches": [
+          "Resultary: total k cut complex 4-dimensional cube Q4 k=4 5 6 7 8 homotopy types",
+          "arXiv:2209.13503 total cut complexes Bayer et al theorem 7.5",
+          "arXiv:2602.21427v3 Carnero Bravo Section 5.4 Question 53 Cartesian products",
+          "Resultary 2026-10-11 Q4 total 3-cut 129 sphere wedge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record source 2026/10/18/higher-total-cut-complexes-of-the-boolean-four-cube--2216882e6bb9/RESULT.md, Git blob 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+          "verify_q4_totalcut.py SHA 16ca3502dd26c71bfc06c88e971cfa6d05808472; certificate_q4_totalcut.json SHA 1dada6d4dde3198e437251a7211642e9310288ab",
+          "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+          "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families"
+        ],
+        "reasoning": "Resultary Q4 total-3-cut 129 S10, full text examined, is an adjacent parameter k=3 and not a table for k=4..8. Published grid and square-sequence Betti tables refer to nonisomorphic graphs and do not dominate the five new counts.",
+        "searches": [
+          "Resultary: total k cut complex 4-dimensional cube Q4 k=4 5 6 7 8 homotopy types",
+          "arXiv:2209.13503 total cut complexes Bayer et al theorem 7.5",
+          "arXiv:2602.21427v3 Carnero Bravo Section 5.4 Question 53 Cartesian products",
+          "Resultary 2026-10-11 Q4 total 3-cut 129 sphere wedge"
+        ]
+      },
+      "rationale": "Bayer et al. introduce total k-cut complexes, matching theorem and some graph families; the 4-cube is neither rectangular planar grid P4 x P4 nor K_{m,n}. Published Q4 total-3-cut result fully covers k=3 ONLY and explicitly not k>=4. Carnero Bravo 2026 §5.4 Question 53 asks higher total k-cut types of Cartesian products K_{n_i}; its theorem covers 2-cut products and does not include Q4 at k>=4. Five successive k levels complete a mathematically natural higher-end of this fixed graph tower, not mechanical recomputation of a known k>=4 table.",
+      "residual_risks": [
+        "Unindexed high-k cube cut tables or unpublished precomputations could contain these exact five homotopy types, though the named recent product paper explicitly poses the broader question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General discrete Morse and stage matching foundation plus separate graph families, not this five-stage Q4 table.",
+          "evidence": [
+            "Bayer et al. appendix Theorem 7.5 sequence acyclic; Theorem 7.2 CW homotopy"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+          "material_read": "Full 25-page primary PDF accessible; definitions/family cases and appendix Theorems 7.2 and 7.5 plus grid conjecture/tables examined, not all pages word-for-word.",
+          "method": "lawful OA arXiv PDF text, screenshot page 23; theorem cross-check",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Original definition and staged acyclic element matching foundational theorem, with possible cube-related tables"
+        },
+        {
+          "assessment": "Leaves higher k Cartesian products open and treats k2 formula; Q4=K2^4 and k4..8 are new finite points in that direction.",
+          "evidence": [
+            "Carnero Bravo §5.4, Question 53"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21427",
+          "material_read": "33-page primary PDF; introduction and Section 5.4 pages 28–31 and Question 53 inspected with screenshots, other sections scanned for scope.",
+          "method": "arXiv OA PDF text and screenshots of pp.28–31",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Specifically asks homotopy for Cartesian products, potentially dominating this Q4 case"
+        },
+        {
+          "assessment": "Proves only k=3, 129 S10, plus group character; no theorem at k>=4.",
+          "evidence": [
+            "Resultary 2026-10-11 statement explicitly fixed k=3 and 64,670 faces"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-total-3-cut-complex-of-the-4-cube-a-129-sphere-wedge-and-its--ccb644c2e2a2/RESULT.md",
+          "material_read": "Complete RESULT.md and full independent enumerative Morse proof inspected.",
+          "method": "published result source blob SHA 01b9c2c5c4a0ebf98e0e8daf42e7e0d6fb3607aa",
+          "title": "The total 3-cut complex of the 4-cube: a 129-sphere wedge and its hyperoctahedral character",
+          "trigger": "Exact graph and adjacent k=3 parameter may subsume later stages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md SHA 58a8bf09c75bf0d5c83197d5160f48d4a481eb87",
+        "verify_q4_totalcut.py SHA 16ca3502dd26c71bfc06c88e971cfa6d05808472; certificate_q4_totalcut.json SHA 1dada6d4dde3198e437251a7211642e9310288ab",
+        "Independent Q4 full face-construction and Hasse topological-sort, 65536 masks",
+        "Bayer et al. arXiv:2209.13503 primary PDF Theorems 7.2,7.5 and treated graph families",
+        "Carnero Bravo arXiv:2602.21427v3 primary PDF §5.4 Question 53",
+        "Resultary 2026/10/11 Q4 total-3-cut full RESULT.md blob 01b9c2c5c4a0ebf98e0e8daf42e7e0d6fb3607aa"
+      ],
+      "rationale": "Q4 is the smallest four-factor binary Cartesian product at a natural open direction for total-cut complexes. The exact entire five-level high-k homotopy tower, including dimension drops and torsion-free integral wedge types, is a useful finite benchmark and nontrivial verified complete classification on a canonical graph; finite scope is mathematically natural, not automatically trivial or a stand-in for a general hypercube theorem.",
+      "residual_risks": [
+        "Unindexed high-k cube cut tables or unpublished precomputations could contain these exact five homotopy types, though the named recent product paper explicitly poses the broader question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Q4 only, k=4..8; no general n-dimensional cube result or equivariant characters at new levels."
+  ],
+  "schema_version": 1
+}
