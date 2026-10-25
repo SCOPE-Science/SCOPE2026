@@ -1,15 +1,21 @@
-# Review of the geometric-maximum infinite-divisibility cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives the exact zero-based geometric maximum CDF and probability masses, a rational generating function for two draws, and an explicit nonnegative summable compound-Poisson Lévy measure. For three or more draws, the exact logarithmic quadratic coefficient is negative because a polynomial inequality has a positive base case and a strictly positive induction increment. An elementary argument shows that every real convolution root of a nonnegative integer law with positive mass at zero must itself be nonnegative integer-valued; hence its quadratic Taylor coefficient cannot be negative. The packaged exact-rational checker returns 1,008 successful comparisons, serving only as finite corroboration of the universal proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-The 2023 discrete-order-statistic log-concavity theorem is not an infinite-divisibility or convolution-root classification. The exact family is also published under the names exponentiated geometric and DGE2/DGEII; those aliases were actively searched, and the closest accessible 2016 generalized-geometric article establishes only failure of infinite divisibility for certain other parameters. The 2020 Conway–Maxwell–Poisson classification is about a different probability-generating family. No mathematically equivalent cutoff or stronger covering theorem appeared in the completed database, published-result or examined full-text comparisons. This assessment is necessarily provisional: full text of the 2013 DGE2 and 2015 exponentiated-geometric original papers was not accessible, and an exact earlier classification under another alias remains a genuine risk. Search absence is not proof of uniqueness.
+PASS
 
-## Value — PASS
-This is a sharp complete classification over every sample size and every geometric parameter, not a numerical bound or a routine restatement of the generating function. It identifies a structural obstruction to arbitrary additive subdivision that persists despite log-concavity of the maximum, and the exceptional two-sample case receives a fully explicit compound-Poisson jump distribution. It is potentially useful in simulation, count-process embedding, and determining when geometric extreme statistics can arise as arbitrary convolution powers.
+Reconstructed exact CDF (1-q^(k+1))^n and p_k differences, n=1 geometric compound-Poisson intensities q^k/k, and n=2 exact G2(z)=(1-q)^2(1+qz)/((1-qz)(1-q^2z)). Its log expansion gives nonnegative summable jump rates [q^(2k)+(1+(-1)^(k-1))q^k]/k. For n>=3, coefficient z^2 of log G_n is -D_n/2 where D_n=(1+q)^(2n)+1-2(1+q+q^2)^n; verified D3=q^2(3+6q+3q^2-q^4)>0 and D_{n+1}=(1+q)^2 D_n+2q(1+q+q^2)^n-(2q+q^2)>0. For a nonnegative integer law with p0>0 any real iid convolution root is nonnegative integer supported, so for large convolution order its second pgf coefficient would be negative, impossible. Additional independent exact rational q,n checks corroborate algebra, not the real-q theorem.
 
-## Limits and status
-The theorem does not address noninteger exponentiation powers or heterogeneous geometric samples. A primary-model source from 2013 and an allied 2015 paper could not be compared in full because lawful accessible copies were unavailable; their abstracts describe distribution and compounding properties but do not independently resolve the exact cutoff. The 2016 broader-family paper has been inspected at its explicit non-infinite-divisibility example. Self-review cannot establish independent validity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+DGEII/discrete generalized exponential II and exponentiated geometric are aliases for this same maximum law at integer resilience: they were explicitly checked. The 2016 broader EGG paper presents a non-ID example in different noninteger parameters; the 2023 order-statistic theorem proves log-concavity, not additive infinite divisibility; max-geometric divisibility is a different convolution. No inspected result implies iff n<=2 with explicit n=2 Lévy rates. Original 2013 and 2015 primary full texts inaccessible and remain substantial priority risks; best-of-knowledge PASS, not proof of universal novelty.
+
+## value
+
+PASS
+
+The result gives a complete all-q threshold separating additive infinite divisibility and obstruction for naturally defined order statistics, and an explicit rare n=2 compound-Poisson law. Unlike mere distribution formulas or log-concavity preservation, it determines whether these maxima embed as arbitrary iid convolution sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
