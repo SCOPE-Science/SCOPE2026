@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:59:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed k, h_N/N tending to interior theta and alternating weights reindexed after deleting h+1,...,h+k, positivity of finite alternating reciprocal tails rules out poles. On every ordinary unit cell, D>=F(u)=1/[u(u+1)]+1/[(1-u)(2-u)] >=8/3, A<=u^-1+(1-u)^-1+2H_N; therefore Lebesgue quotient <=(3/4)logN+O(1) uniformly (singular nearest-node terms are absorbed into F). On the enlarged gap, p_N,q_N~N and the finite alternating sums converge uniformly to D_infty(s)=2int_0^1 t^{(k+1)/2-1} cosh(s log t)/(1+t)dt. This denominator has strict unique minimum at s=0 equal Delta_k, while A=2logN+O(1) at interior fixed s. Near either gap boundary nearest reciprocal term dominates and quotient/logN tends to 0. The midpoint yields matching liminf 2/Delta_k; compactness and strict integral minimum show *every* global maximizer localizes. Independent finite computations at N=10000 for k=1,2,3,5 give normalized midpoint values about 1.424,2.145,2.863,4.267 versus true constants 1.443,2.330,3.259,5.177; convergence is slow and these checks do not prove the limit. Digamma identity follows by alternating Hurwitz sum. The large k expansion is after the fixed-k N limit, not uniform in k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theorem gives upper bound (R+1)(1+2C log n); equidistant intact-grid result gives logarithmic scaling. Neither supplies the sharpened coefficient of a single fixed-sized deleted block."
+        ],
+        "reasoning": "A broader family under an upper bound does not dominate the new exact asymptotic; the proof needs special missing-cell denominator asymptotics.",
+        "searches": [
+          "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "Berrut barycentric rational interpolation equally spaced missing consecutive block Lebesgue constant logarithm coefficient maximum gap midpoint"
+        ]
+      },
+      "checked_sources": [
+        "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+        "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+        "https://doi.org/10.1016/j.jat.2013.01.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bos–De Marchi–Hormann–Sidon Thm2.2: Lambda<=c logn; deleted-block proof: Lambda/logN -> 2/Delta_k and midpoint convergence."
+        ],
+        "reasoning": "The first statement is consistent with but does not imply the second; its unspecified c and no maximizer theorem leave a genuine strengthening.",
+        "searches": [
+          "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+          "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "Berrut rational interpolant Lebesgue constant missing k consecutive interior nodes midpoint Delta digamma logarithmic amplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bos et al. (2013) Theorem 2.2 well-spaced nodes => Lambda<=c log n; general node-gap notation allows bounded gaps but theorem not exact midpoint/digamma law."
+        ],
+        "reasoning": "The general well-spaced framework includes the input class but is an O(logN) bound, not the precise constant 2/Delta_k and localization. The alternate alias is missing contiguous nodes, reindexed barycentric signs.",
+        "searches": [
+          "Berrut barycentric rational interpolation equally spaced missing consecutive block Lebesgue constant logarithm coefficient maximum gap midpoint",
+          "Berrut rational interpolant Lebesgue constant missing k consecutive interior nodes midpoint Delta digamma logarithmic amplification",
+          "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published paper examples treat equispaced, regular distributions, Chebyshev nodes; no deleted-k block midpoint table or exact digamma coefficient is among Theorem 2.2 and examples reviewed."
+        ],
+        "reasoning": "No exact finite-table lookup substitutes for the N->infinity asymptotic; the reported finite values are not treated as proof of novelty.",
+        "searches": [
+          "Berrut barycentric rational interpolation equally spaced missing consecutive block Lebesgue constant logarithm coefficient maximum gap midpoint",
+          "Berrut rational interpolant Lebesgue constant missing k consecutive interior nodes midpoint Delta digamma logarithmic amplification",
+          "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf"
+        ]
+      },
+      "rationale": "Bos–De Marchi–Hormann–Sidon prove O(log N) for well-spaced Berrut node families, which includes the fixed missing block with bounded adjacent gap ratio, but their Theorem 2.2 yields an unspecified bound rather than exact coefficient and maximizer localization. An author-hosted full primary paper was located and read (earlier assumed inaccessible), strengthening the actual comparison. No exact deleted-block constant was found in its central theorem or examples; this is best-of-knowledge, not a claim of exhaustive priority.",
+      "residual_risks": [
+        "The available author-hosted 2013 PDF was inspected after an earlier institutional access attempt failed with vpn_disconnected; no access workaround used.",
+        "Possibility of an unindexed exact deleted-node theorem or details outside inspected portions of the 2011 intact-grid preprint remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_LOGARITHMIC_ORDER_ONLY_NOT_EXACT_DELETED_BLOCK_FORMULA",
+          "evidence": [
+            "Theorem 2.2 is Lambda<=c ln n for well-spaced nodes; examples and theorem do not state 2/Delta_k or gap-midpoint localization."
+          ],
+          "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+          "material_read": "Thirteen-page author PDF: abstract; denominator decomposition; Definition 2.1, Theorem 2.2 and proof; sections 3-4 and examples/results",
+          "method": "Lawful author-hosted full PDF inspected (including page 3 screenshot)",
+          "title": "Bounding the Lebesgue constant for Berrut’s rational interpolant at general nodes",
+          "trigger": "Same interpolation operator, broader well-spaced node families, strongest priority challenge"
+        },
+        {
+          "assessment": "INTACT_GRID_NOT_DELETED_BLOCK",
+          "evidence": [
+            "Logarithmic intact-grid growth is the known predecessor, not k>=1 deleted-gap coefficient."
+          ],
+          "identifier_or_url": "https://www.math.unipd.it/~demarchi/papers/lebesgue2.pdf",
+          "material_read": "Abstract and publication metadata; author preprint bibliographic citation",
+          "method": "Accessible abstract; complete source not established",
+          "title": "On the Lebesgue constant of Berrut’s rational interpolant at equidistant nodes",
+          "trigger": "Potential prior exact asymptotic at intact nodes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Berrut interpolation is a natural pole-free data-interpolating method, and deleting one local sample block while retaining the endpoints is a practical stability perturbation. The exact amplification constant depends quantitatively on block length and singles out where the worst-case error concentrates; the localization is not available from general O(logN) well-spaced bounds. This is a reusable sharp stability invariant, not just a restatement of order-of-growth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k fixed, h_N/N interior, signs reindexed, cannot infer simultaneous k,N limit or node patterns beyond one consecutive block."
+  ],
+  "schema_version": 1
+}
