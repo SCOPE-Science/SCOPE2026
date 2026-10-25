@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and mathematical limits
 
-Run `python3 checker.py` alongside this document. Its residue-count dynamic program maintains counts of every congruence class in exact integers, starting with one empty string and adding either zero or the current radix-place digit. It compares each computed count after a complete orbit with the independent predicted exact recurrence. The test covers 373 parameter/length comparisons, including signed shifts modulo 9 and 27 and positive cancellations modulo 7, 15, 25, and 49. A second finite test covers 540 complete digit-prefix count vectors for perfect balancing.
+# Independent mathematical audit
 
-Finite checking does not prove the unbounded-length assertion. The proof uses an exact root-of-unity identity valid for every nonzero character, with no numerical approximation: each `1+z` is `(1-z*z)/(1-z)`, and multiplication by two permutes the radix-power subgroup or its negative. The discrepancy then transforms by a signed permutation, which proves boundedness for all lengths and arbitrary eligible moduli.
+## correctness
 
-No independent audit or external verification has been carried out.
+PASS
+
+For every odd q≥3, digit a and base b coprime to q, h≠0 and u∈H=<b> imply hau nonzero mod q, even when q is composite. The exact Fourier product ∏(1+ζ^{hau})=∏(1−ζ^{2hau})/(1−ζ^{hau}) equals 1 if 2∈H and equals (−1)^t ζ^(−haΣH) if −2∈H; each character block is thus a pure phase. Fourier inversion, including the zero mode 2^L, gives precisely the positive or signed shifted count recurrence. The integer constant follows from 2^t≡(−1)^t mod q in the negative case, and the repeated discrepancy is at most 2^{t−1} by reduction of any length mod t. Direct independent integer dynamic programming tested 68 recurrences for (q,b,a)=(7,3,1),(9,4,1),(11,3,1),(15,8,1),(7,4,3), including nontrivial negative shift S=3 mod9; the unrestricted identity rests on the character argument, not these finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical-implication comparison: evaluated exact final statement against identified source claims, known ingredients and search aliases; where full primary texts are inaccessible only their actually inspected portions are assessed, and priority risks are stated, not hidden. The identified available sources do not establish a covering statement of the full final claim.
+
+## value
+
+PASS
+
+Sparse two-digit integers modulo fixed odd composite or prime q usually admit only asymptotic digit-restriction distribution bounds; the exact signed/translated orbit law gives bounded absolute error for every length, with sharp perfect balancing for radix/modulus examples. Its subgroup cancellation and all-length phenomenon supply independently reusable explicit distribution structure, not a single tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

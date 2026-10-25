@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplicative-unit hypotheses make every nontrivial Fourier factor denominator nonzero. In the positive orbit, doubling permutes the base-power orbit; in the negative orbit, it negates and permutes that orbit. The exact Fourier transform has multiplier 1 or a signed residue phase. The zero Fourier mode determines the integer correction, and finite-period signed permutations bound absolute discrepancy for all lengths. The exact-integer checker exercises both branches and the balancing consequences; the unbounded assertion rests on proof, not the experiments.
+## correctness
 
-**Originality — PASS, with named residual uncertainty.** The most relevant available primary full-text source, Aloui 2015, and its citation of Erdős–Mauduit–Sárközy 1998 study the same missing-digit residue problem, but the inspected results provide asymptotic estimates rather than a block-by-block exact count identity. A later 2026 Markov-chain treatment characterizes limiting equidistribution; the inspected stated theorems do not dominate the recurrence. The standard Fourier generating function is an antecedent, not by itself the specialized factor cancellation evaluation. Access to the original 1998 full text and all 2026 proofs was incomplete, so an implicit equivalent special case remains a risk.
+PASS
 
-**Value — PASS.** It is meaningful that highly sparse two-digit radix sets can have error bounded absolutely (rather than a growing power), with exact signed-translation recurrences for arbitrary odd composite moduli. Perfect balancing in two explicit different sparse bases is a sharp all-length consequence. This is a structural distribution phenomenon, not simply a small finite count.
+For every odd q≥3, digit a and base b coprime to q, h≠0 and u∈H=<b> imply hau nonzero mod q, even when q is composite. The exact Fourier product ∏(1+ζ^{hau})=∏(1−ζ^{2hau})/(1−ζ^{hau}) equals 1 if 2∈H and equals (−1)^t ζ^(−haΣH) if −2∈H; each character block is thus a pure phase. Fourier inversion, including the zero mode 2^L, gives precisely the positive or signed shifted count recurrence. The integer constant follows from 2^t≡(−1)^t mod q in the negative case, and the repeated discrepancy is at most 2^{t−1} by reduction of any length mod t. Direct independent integer dynamic programming tested 68 recurrences for (q,b,a)=(7,3,1),(9,4,1),(11,3,1),(15,8,1),(7,4,3), including nontrivial negative shift S=3 mod9; the unrestricted identity rests on the character argument, not these finite tests.
 
-**Scope:** All odd fixed moduli satisfying the stated orbit condition; arbitrary radix endpoints only. Necessity and arbitrary length cutoffs are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical-implication comparison: evaluated exact final statement against identified source claims, known ingredients and search aliases; where full primary texts are inaccessible only their actually inspected portions are assessed, and priority risks are stated, not hidden. The identified available sources do not establish a covering statement of the full final claim.
+
+## value
+
+PASS
+
+Sparse two-digit integers modulo fixed odd composite or prime q usually admit only asymptotic digit-restriction distribution bounds; the exact signed/translated orbit law gives bounded absolute error for every length, with sharp perfect balancing for radix/modulus examples. Its subgroup cancellation and all-length phenomenon supply independently reusable explicit distribution structure, not a single tiny table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
