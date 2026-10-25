@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:48:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Stationary partial Fourier equations for the two-state linear switched diffusion yield f0=alpha f1/(beta+D k²) and f1=beta/(alpha+beta) exp[-Dk²/(2mu)](1+Dk²/beta)^(-alpha/(2mu)), establishing the normalized product characteristic function. Its symmetric LK density is [(a+1)e^-c|x|-e^-d|x|]/|x|>0 for every positive parameter, so all laws are infinitely divisible. Classical 1D class-L criterion asks monotonic h; h'(r)=-(a+1)c e^-cr+d e^-dr≤0 for all r iff (a+1)c≥d, equivalent β(4μ+α)≥4μ². At equality q=-h'≥0, symmetric compound-Poisson intensity 2a=α/μ, and Gaussian variance rate 2D/μ yield χ(k)=k(log φ)'; ordinary OU convolution recovers exact stationary marginal. Below boundary h increases near zero and no OU-Lévy stationary marginal can match. Equal-rate threshold is 2(sqrt2-1)μ. Independent exact symbolic derivative and positivity tests corroborate; the algebraic threshold is exact, not deduced from simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The canonical density nonincreasing iff class L is already a general theorem (Sato), but does not list model-specific β(4μ+α)≥4μ² or the q-bath.",
+          "Zhang/Wang states characteristic functions for Markov-switching OU, no inspected class-L parameter theorem."
+        ],
+        "reasoning": "General known pieces are prerequisites, not automatically prior statement of the physical two-rate sharp classification unless an earlier paper combines them.",
+        "searches": [
+          "Resultary: Markov switching harmonic trap Brownian stationary self-decomposability class L Levy OU stationary marginal two-rate threshold",
+          "https://doi.org/10.1080/03610918.2015.1132321",
+          "Sato 1999 Levy Processes and Infinitely Divisible Distributions"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/03610918.2015.1132321",
+        "https://arxiv.org/pdf/2104.00609",
+        "Sato 1999 Levy Processes and Infinitely Divisible Distributions",
+        "Resultary 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known transform, additional LK decomposition and monotonicity analysis are needed to deduce the physical inequality and positive jump density.",
+          "The reviewed paper explicitly disclaims Fourier-transform novelty, and claims neither temporal-path identity nor full-process OU representability."
+        ],
+        "reasoning": "If a literature result already applies Sato to this exact transform, novelty would fail; the located texts do not make that implication explicitly, so retain an identifiable priority risk.",
+        "searches": [
+          "Resultary: Markov switching harmonic trap Brownian stationary self-decomposability class L Levy OU stationary marginal two-rate threshold",
+          "https://arxiv.org/abs/2104.00609",
+          "https://doi.org/10.1080/03610918.2015.1132321",
+          "Sato 1999 criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general two-rate Fourier transform coincides with Zhang/Wang 2017 after switching/drift/diffusion normalization; this part is COVERED and not credited.",
+          "The audited claimed result is the canonical Lévy profile monotonicity and positive OU background driver, not transform derivation."
+        ],
+        "reasoning": "Searched self-decomposable, class L, stationary OU representation, Lévy bath, background driving process and hidden-switching diffusion aliases.",
+        "searches": [
+          "Resultary: Markov switching harmonic trap Brownian stationary self-decomposability class L Levy OU stationary marginal two-rate threshold",
+          "https://doi.org/10.1080/03610918.2015.1132321",
+          "https://arxiv.org/abs/2104.00609"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The new boundary is an analytic inequality for a four-parameter diffusion, not a lookup value.",
+          "Published Resultary class-L threshold uses Gaussian jump perturbed variance-gamma laws with a distinct canonical exponential profile."
+        ],
+        "reasoning": "Related precomputed self-decomposability thresholds for other distribution families do not constitute a table for this switching diffusion.",
+        "searches": [
+          "Resultary: Markov switching harmonic trap Brownian stationary self-decomposability class L Levy OU stationary marginal two-rate threshold",
+          "Resultary 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with significant scoped credit: Zhang/Wang 2017 Theorem 2.1(ii) already provides essentially the general stationary two-rate Fourier transform, and Santra/Das/Nath 2021 gives the equal-rate physical transform. Sato's canonical class-L criterion is classical. The claimed new result is ONLY the complete physical two-rate self-decomposability/ordinary Lévy-bath representability boundary and explicit background jump intensity/density, not the transform or canonical criterion. Inspected Zhang/Wang primary text does not state the monotonic-density boundary; different variance-gamma perturbation Resultary finding does not dominate these parameters. Alternate general Markov-switching OU decomposition literature remains a priority risk.",
+      "residual_risks": [
+        "The transform is already known; a less-obvious earlier self-decomposability classification in another Markov-modulated OU/distribution paper remains possible.",
+        "The class-L step is a short application of a general known criterion; mathematical value rests on the complete, physically meaningful sharp representability boundary and explicit driver."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS stationary characteristic function; inspected text does not state class-L transition",
+          "evidence": "Theorem 2.1(ii) yields equivalent Fourier product for one state drift zero; no class-L/nonincreasing Levy profile treatment found in inspected full text.",
+          "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+          "material_read": "Accessible primary full text rendered through ResearchGate, Theorem 2.1(ii) and surrounding model and distribution cases inspected",
+          "method": "Publicly available full text; equation-level comparison of parameters",
+          "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+          "trigger": "Exact same two-rate stationary transform, possible dominating prior work"
+        },
+        {
+          "assessment": "COVERS equal-rate characteristic function; does not in read material assert two-rate sharp class-L inequality",
+          "evidence": "Original investigates trap switching shapes and first passage, not class-L OU bath classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.00609",
+          "material_read": "Full original arXiv PDF with Fourier transform, first-passage and unequal-rate scope; visually inspected relevant PDF pages",
+          "method": "arXiv lawful OA PDF and visual-page inspection",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Original physical switching-trap model and equal-rate marginal"
+        },
+        {
+          "assessment": "General canonical criterion is known; not claimed new",
+          "evidence": "For symmetric LK density h(|x|)/|x|, self-decomposability iff h nonincreasing.",
+          "identifier_or_url": "Sato, CUP 1999, canonical class-L criterion",
+          "material_read": "Classical criterion as cited and used in checked source; entire book not independently read",
+          "method": "Theorem identification through mathematical statement and source citation",
+          "title": "Levy Processes and Infinitely Divisible Distributions",
+          "trigger": "Foundational theorem needed for proof"
+        },
+        {
+          "assessment": "Different infinitely divisible family, cannot assert original boundary follows",
+          "evidence": "Perturbed variance-gamma/Gaussian jump law is not the specified two-state intermittently confined Brownian stationary law.",
+          "identifier_or_url": "Resultary 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e",
+          "material_read": "Published result title, summary, and critical inequality scope",
+          "method": "Resultary semantic metadata",
+          "title": "Exact self-decomposability threshold for Gaussian compound-Poisson perturbations of symmetric variance-gamma laws",
+          "trigger": "Nearby published application of same mathematical criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Even if the transform and class-L test are individually established, their combination yields an exact sharp two-physical-rate phase diagram separating always-ID marginals from Lévy-driven OU-stationary-realizable marginals, with an explicit attainable bath and strict obstruction. This answers a motivated precise classification question about a natural intermittently confined diffusion, not just a decorative numerical evaluation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1080/03610918.2015.1132321",
+    "https://arxiv.org/pdf/2104.00609",
+    "Sato 1999 Levy Processes and Infinitely Divisible Distributions",
+    "Resultary 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only stationary one-time marginal can be matched by ordinary Lévy-driven OU; no process-level equivalence or autocorrelation identity.",
+    "Positive rates and common diffusivity assumed."
+  ],
+  "residual_risks": [
+    "The transform is already known; a less-obvious earlier self-decomposability classification in another Markov-modulated OU/distribution paper remains possible.",
+    "The class-L step is a short application of a general known criterion; mathematical value rests on the complete, physically meaningful sharp representability boundary and explicit driver."
+  ],
+  "schema_version": 1
+}

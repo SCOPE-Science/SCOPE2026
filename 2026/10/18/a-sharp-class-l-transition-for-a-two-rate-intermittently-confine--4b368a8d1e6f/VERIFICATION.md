@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` executed under Python with SciPy available. Its output was:
+## correctness
 
-`PASS: 112 exact rational moments / spectral quadrature / background-driving / boundary assertions`
+PASS
 
-The program uses five rational parameter quadruples and compares moments of orders zero through eight from exact stationary-generator recurrences to independent exact Taylor-series calculations of the Fourier transform. It checks direct numerical integration of the Lévy–Khintchine exponent, and the integrated OU background-driving exponent, at four sets of physical rates and four Fourier frequencies. It separately checks the sign boundary, critical equality, and recovery of the equal-switching formula published in the original physical paper.
+PASS: Stationary partial Fourier equations for the two-state linear switched diffusion yield f0=alpha f1/(beta+D k²) and f1=beta/(alpha+beta) exp[-Dk²/(2mu)](1+Dk²/beta)^(-alpha/(2mu)), establishing the normalized product characteristic function. Its symmetric LK density is [(a+1)e^-c|x|-e^-d|x|]/|x|>0 for every positive parameter, so all laws are infinitely divisible. Classical 1D class-L criterion asks monotonic h; h'(r)=-(a+1)c e^-cr+d e^-dr≤0 for all r iff (a+1)c≥d, equivalent β(4μ+α)≥4μ². At equality q=-h'≥0, symmetric compound-Poisson intensity 2a=α/μ, and Gaussian variance rate 2D/μ yield χ(k)=k(log φ)'; ordinary OU convolution recovers exact stationary marginal. Below boundary h increases near zero and no OU-Lévy stationary marginal can match. Equal-rate threshold is 2(sqrt2-1)μ. Independent exact symbolic derivative and positivity tests corroborate; the algebraic threshold is exact, not deduced from simulations.
 
-The mathematical proof does not rely on finite numerical checks. The quadrature assertions have finite floating-point tolerance and are not rigorous interval certificates. The generic class-\(L\) implication uses the classical canonical Lévy-density theorem; this is cited, not reproved from scratch. No independent audit has yet been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge with significant scoped credit: Zhang/Wang 2017 Theorem 2.1(ii) already provides essentially the general stationary two-rate Fourier transform, and Santra/Das/Nath 2021 gives the equal-rate physical transform. Sato's canonical class-L criterion is classical. The claimed new result is ONLY the complete physical two-rate self-decomposability/ordinary Lévy-bath representability boundary and explicit background jump intensity/density, not the transform or canonical criterion. Inspected Zhang/Wang primary text does not state the monotonic-density boundary; different variance-gamma perturbation Resultary finding does not dominate these parameters. Alternate general Markov-switching OU decomposition literature remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Even if the transform and class-L test are individually established, their combination yields an exact sharp two-physical-rate phase diagram separating always-ID marginals from Lévy-driven OU-stationary-realizable marginals, with an explicit attainable bath and strict obstruction. This answers a motivated precise classification question about a natural intermittently confined diffusion, not just a decorative numerical evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
