@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated model assumes two independent stationary Brownian walls with the same known diffusion constant and finite positive resetting rates. The bulk Fourier response is the exact published starting point, and its cosine integral reduces to an explicitly normalized geometric spatial covariance. Introducing \(y=\rho/(1-\rho^2)\) gives the two measured quantities \(S=y_1+y_2\) and \(T=h(y_1)+h(y_2)\). Strict positivity of \(h''\) proves the full feasible wedge, uniqueness of the unordered pair, and sharpness/nonattainment of its upper boundary. Explicit inverses map recovered positive \(y_i\) to positive finite rates. The equal-rate and infinite-rate boundaries and nonidentification from a lone variance are separately addressed. The 218 independent numerical checks cross-validate the normalized kernel, reconstruction, and finite-chain second-moment limit, without being treated as an all-parameter proof.
+PASS
 
-## Originality — PASS, subject to independent priority assessment
+The ORIGINAL Sarkar–Roy 2023 same mathematical model Section 4.2 Eq.(25) and Appendix B.2 Eq.(B.22) supply the bulk equal-time cosine-integral forward covariance; independent inspection of those formulae confirms the two reservoir contributions. The elementary Poisson-kernel integral converts each to K ρ(r)^(n+1)/(1-ρ(r)^2), with ρ=(sqrt(r²+Ω²)-r)/(sqrt(r²+Ω²)+r); in particular the original paper’s C0 temperature expression agrees after using a²=2Dk²/r. Write y=ρ/(1-ρ²)>0 and h(y)=(sqrt(1+4y²)-1)/2; then S=y1+y2, T=h(y1)+h(y2), h″>0. Parameterize y1,2=(S±δ)/2, δ∈[0,S): strict convexity yields monotone T from 2h(S/2) inclusive to h(S) exclusive. Inverting ρ=2y/(1+sqrt(1+4y²)), r=Ω(1-ρ)/(2sqrtρ) gives unique unordered finite rates, including equal-rate endpoint. Independence of C0 alone and quadratic non-Lipschitz conditioning at δ=0 follow directly. Independent numerical inversion and boundary checks used S=.25,1,3,9, several δ fractions; finite values are corroborative only.
 
-R. Sarkar and P. Roy, arXiv:2307.06127, Section 4.2 and Appendix B, give the same *forward* velocity correlations; their general physics, spectral kernel, and full forward covariance are not new. Full source material was inspected, including the spatial correlation formulas and discussion. The inspected text does not derive a two-observable inverse, its necessary-and-sufficient attainable set, or the equal-rate identifiability boundary. R. Sarkar, I. Santra and U. Basu, arXiv:2210.09035 and arXiv:2404.00615, consider related but distinct active reservoirs and do not visibly contain this exact inverse result. General two-atom moment/Prony theory is known; the substantive distinction is that the common, known diffusion strength locks the two amplitudes to their rates, allowing *two* covariances rather than extra free-amplitude measurements. Semantic database searches and broad literature searches revealed no equivalent statement, but non-detection is not a uniqueness proof. Residual risk: an already published convex-moment or linear-chain inverse specialization could cover the result implicitly.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating physical paper explicitly identifies spatial velocity covariance as a measurable signature of reservoir activity but solves the forward problem. Whether local bulk observations can recover wall-resetting parameters and reject impossible parameter pairs is a natural spectroscopy/identifiability question. The sharp two-number range, exact unlabelled uniqueness, equal-rate diagnostic, and square-root ill-conditioning characterize what can and cannot be inferred with a *minimal* local observable pair. The result is not a mere numerical reformulation of a hypergeometric formula: it produces an exact feasibility region and globally exhaustive inverse classification for a real physical model. No uniqueness of microscopic resetting among matched-covariance stochastic reservoirs is implied.
+Best-of-knowledge: The earlier forward formula is mathematically sufficient as data to derive the new inverse theorem with additional convexity reasoning; the audited novelty is the explicit complete injectivity/feasibility classification, not the known forward correlations. Source reading, explicit four comparisons and priority risks detailed below.
 
-## Closest literature and remaining limits
+## value
 
-The essential forward model and bulk kernel are prior in arXiv:2307.06127, Section 4.2 and Appendix B. arXiv:2210.09035 examines active boundary noise with different high-order statistics, while arXiv:2404.00615 uses an active Rubin bath. Alternative, more general inverse-moment results remain a plausible unruled-out priority source. All finite-chain and unknown-diffusivity extrapolations are excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp inverse-identifiability theorem based on just two **local** bulk velocity measurements is motivated by reservoir inference, with a complete feasible-statistic wedge, equality boundary, and quantitative ill-conditioning. It separates model-specific parameter identification from microscopic driving-law identification and is more than restating a forward correlation formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

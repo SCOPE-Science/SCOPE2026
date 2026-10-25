@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T03:02:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ORIGINAL Sarkar–Roy 2023 same mathematical model Section 4.2 Eq.(25) and Appendix B.2 Eq.(B.22) supply the bulk equal-time cosine-integral forward covariance; independent inspection of those formulae confirms the two reservoir contributions. The elementary Poisson-kernel integral converts each to K ρ(r)^(n+1)/(1-ρ(r)^2), with ρ=(sqrt(r²+Ω²)-r)/(sqrt(r²+Ω²)+r); in particular the original paper’s C0 temperature expression agrees after using a²=2Dk²/r. Write y=ρ/(1-ρ²)>0 and h(y)=(sqrt(1+4y²)-1)/2; then S=y1+y2, T=h(y1)+h(y2), h″>0. Parameterize y1,2=(S±δ)/2, δ∈[0,S): strict convexity yields monotone T from 2h(S/2) inclusive to h(S) exclusive. Inverting ρ=2y/(1+sqrt(1+4y²)), r=Ω(1-ρ)/(2sqrtρ) gives unique unordered finite rates, including equal-rate endpoint. Independence of C0 alone and quadratic non-Lipschitz conditioning at δ=0 follow directly. Independent numerical inversion and boundary checks used S=.25,1,3,9, several δ fractions; finite values are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarkar–Roy Section 4.2 Eq(25)/Appendix B.2 Eq(B.22) covers all forward C_n, with two wall reset rates.",
+          "Sarkar–Santra–Basu 2023 studies active Ornstein–Uhlenbeck, run-and-tumble and active-Brownian reservoirs; equal second-order forcing spectra need not identify the microscopic mechanism."
+        ],
+        "reasoning": "A full forward expression implicitly allows posing the inverse problem, but neither comparison gives the exact characterization and injectivity of (C0,C1) over all positive rate pairs; broad active-reservoir equivalence only limits physical identification.",
+        "searches": [
+          "harmonic chain Brownian resetting boundaries covariance inverse two reset rates nearest-neighbor bulk",
+          "Sarkar Roy 2023 complete author-uploaded full text",
+          "Sarkar Santra Basu PRE 2023 active boundary chains"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 5b9eb19f9908471b153cf2adf4378fbdbe7090ab",
+        "Sarkar–Roy 2023 original author-uploaded full-text primary Section4.2 and Appendix B.2",
+        "Sarkar–Santra–Basu 2023 PRE published abstract",
+        "Independent exact inversion algebra and numeric boundary checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published same mathematical model forward map indeed implies the given algebraic ρ reduction; it is explicitly acknowledged as prior.",
+          "The inverse statement requires setting y and proving strict monotonicity in the unknown rate imbalance while holding C0 fixed; the source does not discuss this inversion or sharp boundaries."
+        ],
+        "reasoning": "The earlier forward formula is mathematically sufficient as data to derive the new inverse theorem with additional convexity reasoning; the audited novelty is the explicit complete injectivity/feasibility classification, not the known forward correlations.",
+        "searches": [
+          "harmonic chain Brownian resetting boundaries covariance inverse two reset rates nearest-neighbor bulk",
+          "Sarkar Roy Eq(25), B.22, B.24 full text",
+          "Sarkar Santra Basu 2023 PRE abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair of observables is a two-atom positive moment problem with constrained amplitudes y, h(y); exchange of wall labels is unavoidable.",
+          "The original paper provides spatial correlation C_n forward as Fourier integral and hypergeometric function, not the two-moment inverse wedge."
+        ],
+        "reasoning": "General two-atom Prony theory usually requires more unconstrained moments; this specific constrained curve h(y) makes two moments sufficient by strict convexity, a model-specific inverse statement not directly supplied by the forward theorem.",
+        "searches": [
+          "harmonic chain Brownian resetting boundaries covariance inverse two reset rates nearest-neighbor bulk",
+          "Sarkar Roy 2023 arxiv:2307.06127 Section4.2 Appendix B.2",
+          "two-component Poisson-kernel moment inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sarkar–Roy Fig.6 plots numerical spatial covariance for a few fixed rates, not an exact full wedge of feasible C0,C1."
+        ],
+        "reasoning": "An all-positive-real-parameter feasible set, rather than a finite table, is established; no exact database/table or equivalent plotted two-rate inverse curve was found in inspected source.",
+        "searches": [
+          "harmonic chain Brownian resetting boundaries covariance inverse two reset rates nearest-neighbor bulk",
+          "Sarkar Roy Fig6 plotted bulk correlation",
+          "harmonic chain inverse two resetting rates feasible covariance wedge"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The earlier forward formula is mathematically sufficient as data to derive the new inverse theorem with additional convexity reasoning; the audited novelty is the explicit complete injectivity/feasibility classification, not the known forward correlations. Source reading, explicit four comparisons and priority risks detailed below.",
+      "residual_risks": [
+        "The forward map is published; identifying the sharp two-moment feasible wedge is a compact but distinct deduction. A general inverse moment theorem specialized to this constrained curve could already cover it.",
+        "Only the assumed fixed equal-known-D model is identifiable; another noise process with matching temporal second-order law cannot be excluded.",
+        "No finite-chain or sampling-error identifiability theorem follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FORWARD_COVARIANCES_NOT_INVERSE_WEDGE",
+          "evidence": [
+            "Eq.(25) and Appendix B.2 provide exact bulk cosine integrals and two wall contributions; no uniqueness-from-(C0,C1) or wedge is in inspected relevant equations."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/372313284_Stationary_state_of_harmonic_chains_driven_by_boundary_resetting",
+          "material_read": "Author-uploaded full research preprint transcribed in HTML: equations (1),(5),(23)–(27), Section 4.2 spatial correlations, Appendix B.2 equations (B.17)–(B.24), plus C0 Eq.(B.16)",
+          "method": "Public author-uploaded primary full-text transcription; original PDF link returned 403 and was not relied on",
+          "title": "Stationary state of harmonic chains driven by boundary resetting",
+          "trigger": "Identical microscopic harmonic chain with two resetting Brownian walls"
+        },
+        {
+          "assessment": "DIFFERENT_DRIVING_MODELS_LIMIT_INTERPRETATION",
+          "evidence": [
+            "OU and other reservoirs can share two-time covariance features; do not infer identification of resetting versus microscopic alternatives."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.107.014123",
+          "material_read": "Publisher article abstract and publication details, including explicit exponentially correlated driving and equal bulk kinetic temperature",
+          "method": "Publisher primary abstract, not full paper",
+          "title": "Stationary states of activity-driven harmonic chains",
+          "trigger": "Same class of boundary-driven harmonic chains with different force reservoirs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp inverse-identifiability theorem based on just two **local** bulk velocity measurements is motivated by reservoir inference, with a complete feasible-statistic wedge, equality boundary, and quantitative ill-conditioning. It separates model-specific parameter identification from microscopic driving-law identification and is more than restating a forward correlation formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 5b9eb19f9908471b153cf2adf4378fbdbe7090ab",
+    "Sarkar–Roy 2023 original author-uploaded full-text primary Section4.2 and Appendix B.2",
+    "Sarkar–Santra–Basu 2023 PRE published abstract",
+    "Independent exact inversion algebra and numeric boundary checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The forward map is published; identifying the sharp two-moment feasible wedge is a compact but distinct deduction. A general inverse moment theorem specialized to this constrained curve could already cover it.",
+    "Only the assumed fixed equal-known-D model is identifiable; another noise process with matching temporal second-order law cannot be excluded.",
+    "No finite-chain or sampling-error identifiability theorem follows."
+  ],
+  "residual_risks": [
+    "The forward map is published; identifying the sharp two-moment feasible wedge is a compact but distinct deduction. A general inverse moment theorem specialized to this constrained curve could already cover it.",
+    "Only the assumed fixed equal-known-D model is identifiable; another noise process with matching temporal second-order law cannot be excluded.",
+    "No finite-chain or sampling-error identifiability theorem follows."
+  ],
+  "schema_version": 1
+}

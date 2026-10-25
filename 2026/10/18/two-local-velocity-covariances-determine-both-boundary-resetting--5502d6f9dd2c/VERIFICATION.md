@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent executable `check.py` was run using Python, NumPy and SciPy; 218 numerical assertions passed. It evaluates the Fourier cosine kernel by numerical quadrature without invoking its closed-form transform; tests reconstruction after forward generation from distinct and equal rates across three independent mechanical parameter sets; tests strict/attained boundary cases; evaluates finite-chain covariance via a matrix Lyapunov equation for chain lengths \(22\) and \(40\); and checks convex boundary formulas. Finite-chain cross-checks use Gaussian colored wall surrogates *only for stationary covariances*, for which their matching two-time force kernel is sufficient.
+## correctness
 
-The all-parameter proof is analytic: the Fourier kernel is transformed to a geometric sequence, a strictly convex function gives a monotone rate-imbalance map for fixed measured variance, and explicit inverse formulas recover the rates. There is no claim of exhaustive numerical enumeration of positive real rates. The upper admissibility boundary corresponds to a rate tending to infinity; it is not attained by finite rates.
+PASS
 
-The available source comparison inspects arXiv:2307.06127v3, Section 4.2 and Appendix B; arXiv:2210.09035; and arXiv:2404.00615. Priority is unverified independently and the possibility of a stronger implicit general inverse-moment result remains. The result concerns ideal infinite-chain stationary covariances, with no finite-data performance guarantee.
+The ORIGINAL Sarkar–Roy 2023 same mathematical model Section 4.2 Eq.(25) and Appendix B.2 Eq.(B.22) supply the bulk equal-time cosine-integral forward covariance; independent inspection of those formulae confirms the two reservoir contributions. The elementary Poisson-kernel integral converts each to K ρ(r)^(n+1)/(1-ρ(r)^2), with ρ=(sqrt(r²+Ω²)-r)/(sqrt(r²+Ω²)+r); in particular the original paper’s C0 temperature expression agrees after using a²=2Dk²/r. Write y=ρ/(1-ρ²)>0 and h(y)=(sqrt(1+4y²)-1)/2; then S=y1+y2, T=h(y1)+h(y2), h″>0. Parameterize y1,2=(S±δ)/2, δ∈[0,S): strict convexity yields monotone T from 2h(S/2) inclusive to h(S) exclusive. Inverting ρ=2y/(1+sqrt(1+4y²)), r=Ω(1-ρ)/(2sqrtρ) gives unique unordered finite rates, including equal-rate endpoint. Independence of C0 alone and quadratic non-Lipschitz conditioning at δ=0 follow directly. Independent numerical inversion and boundary checks used S=.25,1,3,9, several δ fractions; finite values are corroborative only.
+
+## originality
+
+PASS
+
+Best-of-knowledge: The earlier forward formula is mathematically sufficient as data to derive the new inverse theorem with additional convexity reasoning; the audited novelty is the explicit complete injectivity/feasibility classification, not the known forward correlations. Source reading, explicit four comparisons and priority risks detailed below.
+
+## value
+
+PASS
+
+A sharp inverse-identifiability theorem based on just two **local** bulk velocity measurements is motivated by reservoir inference, with a complete feasible-statistic wedge, equality boundary, and quantitative ill-conditioning. It separates model-specific parameter identification from microscopic driving-law identification and is more than restating a forward correlation formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
