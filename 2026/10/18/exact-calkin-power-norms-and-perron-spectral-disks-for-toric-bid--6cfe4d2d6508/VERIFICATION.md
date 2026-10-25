@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic derivation is self-contained in `RESULT.md`: the monomial basis and weight identity give exact orthogonal columns, the gamma asymptotics and boundary-ray control justify the global maximization, and Perron–Frobenius estimates plus infinitely many weighted-shift chains give the Fredholm conclusions.
+## correctness
 
-Run the standalone numerical diagnostic with `python3 CHECK.py`. It checks 3,203 finite test cases and prints `PASS: 3203 finite diagnostic checks; no infinite-proof certification.` The samples cover several positive nonsingular exponent matrices, multiple Bergman exponents and the Hardy endpoint, iterated weights and the Fibonacci matrix identity.
+PASS
 
-The script tests only finitely many columns and powers. It does not by itself prove asymptotic uniformity, Calkin equalities, or the full essential spectrum. Those statements require the analytic proof and standard Perron and weighted-shift results. Independent audit has not been performed.
+The exact normalized monomial ratio is w_A(m,k)^2=hβ((Aν)_1)hβ((Aν)_2)/[hβ(m)hβ(k)], hβ(j)=Γ(β+2)Γ(j+1)/Γ(j+β+2). Nonsingular A gives orthogonal images of distinct columns. The essential norm is limsup of weights at escaping ν; gamma asymptotics make unbalanced rays vanish for δ>0 and on ratio t=m/k>0 minimize ((ut+v)(wt+s))/t, yielding (√(us)+√(vw))^-δ for B=A^n. Perron asymptotics give the exact essential radius ρ(A)^-δ and sharp Θ rate on the nonconstant subspace. Strict positivity gives |Aν|_1≥2|ν|_1, so lattice monomials decompose into infinitely many rooted one-sided A-orbits; shift weights approach ρ(A)^-δ, yielding an adjoint eigenvector on each chain for every interior λ, a non-Fredholm disk, and no spectrum outside by power bounds. The constant block adds eigenvalue 1; Hardy δ=0 has weights identically 1 and norm 1 for all powers. A separate independent finite low-degree moment/essential comparison for A=[[1,1],[1,2]] corroborated weights and boundary behavior, but spectral and infinite essential-norm claims rely on the proof.
+
+## originality
+
+PASS
+
+The class of toric monomial composition operators has a natural shift model, and classical Perron and shift theory is prior art. The all-power exact Calkin formula together with both Fredholm and ordinary spectra and the Hardy/Bergman dichotomy is not entailed by the accessible published boundedness/compactness results or indexed Resultary findings. Inaccessible full primary paper(s) and possible semigroup aliases are clear best-knowledge limitations.
+
+## value
+
+PASS
+
+For a natural nonlinear self-map family, this gives every Calkin power norm, full Fredholm spectrum and exact sharp convergence rate rather than binary bounded/compact information. The Hardy limit is a genuine spectral transition and the Fibonacci case supplies a closed benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
