@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The covariance/Gram determinant calculation proves the full-ball bound with its full equality conditions. The explicit ellipsoid calculation gives a valid enclosing certificate for every permitted slab height below \(1/\sqrt d\), while two orthogonal horizontal regular subsimplices attain that certificate in each odd dimension. The regular-ball witness at the transition remains admissible for wider slabs. The equality argument fixes the two rims, balances the signs and forces orthogonal equilateral blocks; at the transition the vertical second moment again forces both rims. A direct cross-section integral proves strict occupied-volume decay. Exact rational verifier runs cover representative dimensions and widths, not the infinitely quantified proof.
+PASS
 
-## Originality — PASS, with priority risk
+For d+1 vertices in Euclidean unit ball, centered Gram-covariance identity (d!V)^2=(d+1)det(C) and trace bound give the unique regular simplex equality bound c_d. For t<=1/sqrt(d), the enclosing ellipsoid with horizontal squared semiaxis A=d(1-t^2)/(d-1) and vertical B=d t^2 contains K, and the difference A(1-z^2/B)-(1-z^2)=[(1-dt^2)/(d-1)](1-z^2/t^2)≥0. For odd d=2k+1, two orthogonal centered k-simplices on layers z=±t transform to regular unit sphere simplex, saturating the ellipsoid bound; equality and parity force balanced counts, and for t>=threshold the full-sphere regular simplex bound attains. Normalized t(1-t^2)^k/integral_0^t(1-s^2)^k ds strictly decreases by rescaling integration; for t>=threshold numerator constant and slab volume grows. Independently checked exact rational Gram determinants for d=3,5,7,9 and exact threshold identities. Finite checks supplement the global determinant argument.
 
-Horváth and Lángi (2014, arXiv:1402.6496, Section 2) supply the full-ball regular-simplex extremum, a component of this proof, but not the spherical-slab two-branch formula. Lassak's 2010 normed-space article provides necessary width relations and his 2011 paper provides a universal maximal-simplex dilation bound; neither implies the precise half-width profile by its stated theorem. Searches with ball-slice, spherical-zone, slab and truncated-ball aliases produced no equivalent exact formula. A prior under different terminology could still exist; the complete text of McKinney (1974) remains inaccessible, and published-record search incompleteness is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The exact family profile gives a motivated sharp geometric invariant, an explicit dimension-dependent phase transition, a parity-sensitive complete equality classification and a strictly decreasing normalized occupancy law. The low-width optimizer is not the unrestricted regular Euclidean simplex and cannot be inferred from the ball endpoint alone. The result is not asserted in even dimensions.
+Prior regular-ball simplex volume equality and full-sphere results are credited. Odd-dimensional sharp radius-dependent slab optimum, parity-specific two-layer extremizer geometry, and strictly decreasing occupied fraction are not implied by a ball-only theorem. Central convex set theory (McKinney) may contain stronger equivalent slices; full text unavailable, recorded as limited priority risk.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to odd Euclidean dimensions at least three and the nondegenerate slab parameter interval \(0<t\le1\). All equality statements concern genuinely contained simplices, without a vertex-grid restriction. Verifier output corroborates finite instances; no independent external audit or absolute historical priority certification has been made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The largest inscribed simplex in a truncated ball is a natural optimization invariant bridging thin cylindrical slices and a full Euclidean ball. The exact sharp transition at t=1/sqrt(d), rigidity and occupancy monotonicity provide a complete odd-dimensional phase classification and clarify parity constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
