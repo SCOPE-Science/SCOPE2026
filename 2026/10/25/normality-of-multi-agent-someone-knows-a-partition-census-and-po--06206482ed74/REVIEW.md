@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The local normal-distribution characterization is proven using the finite-family least-member lemma and a two-letter countervaluation when no least member exists. The exact count is an inclusion–exclusion formula for singleton coverage by quotient partitions; the coverage hypothesis independently implies their meet is discrete, preventing overcounting. Under the growing-agent hypothesis the exact factorial moments of uncovered singleton points converge to those of a Poisson law. A union bound shows that a nondiscrete common refinement has negligible probability, giving the normality threshold. The classical consecutive Bell-number asymptotic is an explicit external input, not an unchecked numerical extrapolation. Direct exhaustive computation agrees with all displayed exact finite values through five labelled worlds for three agents.
+
+## Originality — PASS within inspected evidence
+Ding and Yang (2026, §5.1) provide general semantics and axiomatizations for someone-knows, not a complete labelled finite-frame census or its growing-agent normality probability. Ågotnes and Wáng (2021) exhibit failure of ordinary normality in general. Pittel (2000, Theorems 1–3) enumerates and analyzes independent partitions with discrete common refinement; this is strictly weaker than every refinement singleton being an agent information cell, so the random meet theorem does not imply the reported sharp singleton-covering transition. The two-agent case has a substantially simpler inclusion-comparability classification and does not yield the three-agent counts or growing-agent law. Exact-sequence searches and mathematical-record searches yielded no equivalent formula. The complete 2023 Ding–Liu–Wáng article was not accessible and remains a priority risk; similarity search cannot prove novelty.
+
+## Value — PASS
+A basic epistemic group operator is generally non-normal. The result identifies precisely when it becomes an ordinary S5 operator, classifies and enumerates all such finite multi-agent models for every dimension and finite group size, and discovers a sharp probabilistic phase transition as the number of independent agents grows. The rare-event mechanism is an exact singleton covering of all worlds, contrasting with the much earlier collapse of the meet to the discrete partition. These facts are natural semantic and enumerative questions, not arbitrary small-instance measurements.
+
+## Closest literature and limits
+The key references are Ding–Yang (arXiv:2603.26268v1), Ågotnes–Wáng (KR 2021), Pittel (Electronic Journal of Combinatorics 7, R5, 2000), and Ding–Liu–Wáng (Synthese 2023; accessible abstract only). The count applies to ordered tuples of uniform finite equivalence relations; the limit assumes independent uniformly sampled partitions and the stated critical-window scaling. The proof does not supply a uniform finite-size error bound. Older coverage processes and the inaccessible full 2023 paper may contain related formulations.
+
+Self-review: passed. Independent audit: not yet performed.
