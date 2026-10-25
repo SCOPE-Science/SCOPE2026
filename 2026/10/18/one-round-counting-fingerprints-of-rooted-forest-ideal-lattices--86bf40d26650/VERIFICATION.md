@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-`verify_width2.py` builds the directed cover lattice implicitly from ideals of every canonical width-at-most-two rooted forest of order 1–15. It computes lower and upper cover counts by independent bitmask checks against the analytical polynomial formulas, checks injectivity, fibre multiplicities, the first collision sizes, and 120 factorization identities. Run `python3 verify_width2.py`; see `verification_output.txt` for the actual run, which reports `VERIFY_OK` and 323 tested isomorphism classes. The script uses Python standard library only. The all-order theorem is established by closed-form algebra and canonical shape classification; enumeration is a cross-check, not an infinite proof. The verification does not assess literary novelty or independent publication priority.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Every width-two rooted forest is uniquely a chain, two separate chains, or a single rooted fork with a unary stem and two arms. The directed-ideal cover counts yield the displayed bivariate polynomials, whose x/y monomial patterns separate shapes; their coefficients recover arm sums and products. Setting x=1 gives B=1+n y+m y^2 and the exact multiplicative fibre formula; straightforward subtraction and coprimality yield the 2n−1 odd-compositeness characterization. Two-variable counting rank-two separation follows by counting vertices of each incoming/outgoing cover degree. Independently built parent-array bitmask enumerator checked 173 canonical types through n=12, both-degree fingerprints and fibre counts; it is a finite diagnostic only.
+
+## originality
+
+PASS
+
+Accepted novelty is the weaker paired lower/upper cover-degree fingerprint and exact one-sided width-two fibres, not the known general size/boundary polynomial or its y-only specialization.
+
+## value
+
+PASS
+
+Nontrivial structural rigidity for a very coarse locally defined invariant of distributive lattices, with exact collision fibres and an arithmetic infinite collision criterion; this naturally answers what one round of counting sees and what the one-sided shadow loses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

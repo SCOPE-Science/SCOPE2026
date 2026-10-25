@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A rooted forest of width at most two is a chain, two disjoint chains, or a single two-arm fork with a unary stem. The proof derives cover-degree polynomials for each type directly from ideal operations. Their coefficients reconstruct every shape parameter, while the one-sided specialization reduces the fibres to exact positive-integer factor conditions. The odd-factor theorem follows from a coprime linear Diophantine equation. Direct ideal enumeration across 323 canonical types and 120 arithmetic parameter instances matches the formulas. The proof, rather than the finite checks, establishes all orders.
+## correctness
 
-**Originality — PASS, qualified.** The closest inspected literature is Burghart's 2024 full text on complete rooted-subtree size/boundary polynomials, whose one-sided specialization is acknowledged as prior. Its all-tree recurrence provides the starting polynomial evaluation but does not establish injectivity of the *weaker paired cover-degree fingerprint*, the complete width-two fibres of the *one-variable* specialization, or the exact first and arithmetic collisions. Chaudhary and Gordon (1991) prove completeness of different greedoid polynomials. Related statements about width-two source posets and products of chains concern different structures or invariants. Searches for these equivalent forms in the accessible mathematical index and literature returned no decisive stronger coverage. Residual risk: a specialized earlier account of degree spectra for width-two forest ideal lattices may have been missed; independence and publication priority are unverified.
+PASS
 
-**Value — PASS.** The theorem supplies a complete positive reconstruction result for a low-information rank-one counting invariant on an infinite natural class, paired with a complete classification of precisely what one-sided counting loses. The width-two restriction is structural (two terminal elements, hence a canonical chain/fork decomposition), not an arbitrary finite cutoff. The first failures and the exact odd-divisor family distinguish it from an isolated easy counterexample, and the relative rank-two \(C^2\) identification statement gives a logical consequence.
+Every width-two rooted forest is uniquely a chain, two separate chains, or a single rooted fork with a unary stem and two arms. The directed-ideal cover counts yield the displayed bivariate polynomials, whose x/y monomial patterns separate shapes; their coefficients recover arm sums and products. Setting x=1 gives B=1+n y+m y^2 and the exact multiplicative fibre formula; straightforward subtraction and coprimality yield the 2n−1 odd-compositeness characterization. Two-variable counting rank-two separation follows by counting vertices of each incoming/outgoing cover degree. Independently built parent-array bitmask enumerator checked 173 canonical types through n=12, both-degree fingerprints and fibre counts; it is a finite diagnostic only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Accepted novelty is the weaker paired lower/upper cover-degree fingerprint and exact one-sided width-two fibres, not the known general size/boundary polynomial or its y-only specialization.
+
+## value
+
+PASS
+
+Nontrivial structural rigidity for a very coarse locally defined invariant of distributive lattices, with exact collision fibres and an arithmetic infinite collision criterion; this naturally answers what one round of counting sees and what the one-sided shadow loses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
