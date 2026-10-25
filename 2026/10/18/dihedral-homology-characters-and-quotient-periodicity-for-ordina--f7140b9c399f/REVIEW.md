@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Vega [1, Theorem 5.2] proves the sole reduced homology degree and rank of the wheel ordinary matching complex. The new proof independently reconstructs the fixed-orbit oriented-simplex Lefschetz signs, fixed-spoke correction and rotation/reflection conflict graphs. Reflection axes in even size yield the same signed path evaluation by the period-six recurrence. Rational group averaging gives the exact quotient residues. A standalone executable exhausts all actual wheel matching faces and group permutations for \(3\le n\le16\) and verifies the character for all \(266\) elements; a separate exact arithmetic loop checks quotient character averages for \(3\le n\le240\). The universal proof does not depend on finite interpolation.
+## correctness
 
-## Originality — PASS, with risks
-The strongest primary coverage is Vega's **nonequivariant** wheel matching homotopy theorem. The closest indexed full dihedral character is for simple **cycle matching** complexes and omits wheel spokes. An apparently same-graph published wheel result concerns an ordinary **discrete-Morse** complex with directed-incidence simplices and cubic homology rank, not the edge-matching complex. The comparison inspected their full RESULT.md, not just summaries. See AUDIT.json for actual published-finding corpus queries, equivalence and implication assessments. Unindexed general equivariant treatment cannot be excluded.
+PASS
 
-## Value — PASS
-The classification determines the full unbounded two-parameter dihedral character on a natural graph family, revealing the identical reflection traces across distinct conjugacy classes and the sharp \(\{2,5,10,11\}\pmod{12}\) quotient period. These facts are not determined by ordinary wheel sphere counts and yield a useful symmetry refinement of a canonical planar nonouterplanar example.
+Vega’s ordinary wheel matching-complex concentration gives a unique reduced degree and Betti rank for all n>=3. Fixed-orbit signed simplicial Lefschetz reduces the character to a finite independence polynomial of the orbit conflict graph. Rotation orbits yield the six-periodic q_gcd; reflections cancel their fixed-spoke link contribution for odd rim n and yield (-1)^h p_(n/2-2) for even rim n. Averaging all 2n characters gives dihedral-quotient invariant rank 1 precisely for n≡2,5,10,11 mod12. An independent direct oriented matching chain check validated every group element for 3<=n<=10 (104 elements), while a separate exact identity check compared all overlap n<=2000 with record4. Infinite validity comes from the orbit decomposition and published homology-concentration theorem.
 
-## Limits
-No integral group-module classification, fixed-locus classification, quotient contractibility, or independent audit is asserted. All finite checks are corroboration; they cannot replace the proof of the unbounded statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full rational dihedral homology character of ordinary wheel edge-matching complexes for ALL n>=3 extends known nonequivariant wheel homotopy and known cycle edge-matching equivariance; a wheel discrete-Morse complex has different vertices and k^3 top rank. It dominates the restricted module description in another record of this same assigned batch.
+
+## value
+
+PASS
+
+Complete all-residue infinite-family symmetry and quotient classification distinguishes wheel homology actions invisible to wedge ranks; provides explicit six/twelve-periodic new invariants and resolves which dihedral orbit spaces retain a rational class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

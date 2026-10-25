@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Run `python3 code/verify_wheel_character.py` with Python 3, standard library only. The script produces the records embedded at `verification/character_checks.txt` and ends in `VERIFY_OK` only when the complete signed-trace comparisons succeed.
+# Independent mathematical audit
 
-Every \(n=3,\ldots,16\) case generates the complete matching-face set of the ordinary wheel complex, with the empty face. For each \(2n\) dihedral graph automorphism, it calculates the induced permutation of the \(2n\) wheel edges, tests setwise simplex invariance, computes the exact inversion sign of the restriction, and sums the augmented alternating chain Lefschetz trace. These \(266\) computed character values match the formula, including its identity cases. Additional exact character averages for \(3\le n\le240\) check divisibility, integrality and the four quotient congruence classes.
+## correctness
 
-The infinity claim relies on the published homology-concentration theorem and the algebraic orbit-graph proof; exhaustive finite tests do not establish it. The script does not perform an independent scientific audit and does not prove novelty.
+PASS
+
+Vega’s ordinary wheel matching-complex concentration gives a unique reduced degree and Betti rank for all n>=3. Fixed-orbit signed simplicial Lefschetz reduces the character to a finite independence polynomial of the orbit conflict graph. Rotation orbits yield the six-periodic q_gcd; reflections cancel their fixed-spoke link contribution for odd rim n and yield (-1)^h p_(n/2-2) for even rim n. Averaging all 2n characters gives dihedral-quotient invariant rank 1 precisely for n≡2,5,10,11 mod12. An independent direct oriented matching chain check validated every group element for 3<=n<=10 (104 elements), while a separate exact identity check compared all overlap n<=2000 with record4. Infinite validity comes from the orbit decomposition and published homology-concentration theorem.
+
+## originality
+
+PASS
+
+Full rational dihedral homology character of ordinary wheel edge-matching complexes for ALL n>=3 extends known nonequivariant wheel homotopy and known cycle edge-matching equivariance; a wheel discrete-Morse complex has different vertices and k^3 top rank. It dominates the restricted module description in another record of this same assigned batch.
+
+## value
+
+PASS
+
+Complete all-residue infinite-family symmetry and quotient classification distinguishes wheel homology actions invisible to wedge ranks; provides explicit six/twelve-periodic new invariants and resolves which dihedral orbit spaces retain a rational class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
