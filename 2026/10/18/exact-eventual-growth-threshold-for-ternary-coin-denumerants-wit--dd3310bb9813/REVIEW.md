@@ -1,11 +1,21 @@
-# Review: exact eventual-growth threshold for ternary coin denumerants
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives an exact adjacent-difference formula for all indices and parameters, isolates the unique worst six-residue partial run, and determines both last non-increases in coprime cases and an infinite strict-decrease progression in noncoprime cases. Direct exact dynamic programming returns `VERIFY_OK 408502`; it supports but does not substitute for the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The relevant known theorem of Woods supplies qualitative eventual quasipolynomial growth; Ding investigates general restricted-representation growth; neither inspected theorem material states this exact sharp threshold. Published mathematical-record and prior-theorem comparisons found no covering formulation. An equivalent unstated consequence of general denumerant formulas cannot be ruled out. Related 2026 work by Komatsu, Hyun and Song was only available by abstract, and no full-text noncoverage claim is made for it.
+PASS
 
-**Mathematical value — PASS.** The claim computes the precise last local-growth obstruction for a natural full infinite one-parameter family of coin-counting functions and gives a contrasting infinite-descent arithmetic class. It resolves a natural quantitative refinement of eventual-monotonicity theory; it is not only a table recomputation.
+For all integers c≥1 and n≥0, the frozen proof derives Q(6h+j) for 2x+3y and its exact periodic adjacent difference e=(−1,1,0,0,0,1). With n=qc+r, the identity ΔP=1_{r=c−1}+Σ_{i=0}^q e(r+ic) handles the m=−1 endpoint. Coprime c≡±1 mod6 traverse one positive six-term block, and the only negative partial interval is a singleton at residue 0; at q=6 the final equality is n=7c−7 for c≡1 and n=7c−5 for c≡5 (c=1 special n=0). For gcd(c,6)>1, ΔP(6kc)=−1+kB_c<0 for all k≥0, with B_c<0. Independent DP checked all c=1..120 and n through 17c+18; these checks corroborate the complete modular proof.
 
-**Limitations.** The classification is for weights \(2,3,c\) and need not generalize to arbitrary triples. It does not enumerate every earlier plateau/decline. Independent mathematical verification is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General eventual quasi-polynomial and growth theory of denumerants (Woods 2020) does not in the inspected passages give the greatest adjacent non-increase for this specific family; Ding 2026 treats restricted partitions/additive complements, and Komatsu–Hyun–Song consider consecutive odd-weight semigroups. The sharp last plateau, congruence formula, and infinitely recurring descent obstruction are the asserted contribution; generating-function or eventual-growth facts are credited. Search aliases for restricted partition, coin-change, Frobenius semigroup; no exact covering parameterized cutoff found in material read. Risk: an elementary equivalent formula may be folklore.
+
+## value
+
+PASS
+
+(2,3,c) is the minimal coprime two-coin base augmented by one variable coin and gives a natural denumerant family. The exact last failure of strict growth is an independently useful sharp quasi-polynomial fluctuation threshold, stronger than generic eventual polynomial growth; the coprime/noncoprime dichotomy and equality boundary are mathematically motivated and may support exact coin-counting analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

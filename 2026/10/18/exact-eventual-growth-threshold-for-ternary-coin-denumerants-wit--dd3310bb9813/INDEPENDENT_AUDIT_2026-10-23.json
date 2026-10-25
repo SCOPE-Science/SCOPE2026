@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:14:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers c≥1 and n≥0, the frozen proof derives Q(6h+j) for 2x+3y and its exact periodic adjacent difference e=(−1,1,0,0,0,1). With n=qc+r, the identity ΔP=1_{r=c−1}+Σ_{i=0}^q e(r+ic) handles the m=−1 endpoint. Coprime c≡±1 mod6 traverse one positive six-term block, and the only negative partial interval is a singleton at residue 0; at q=6 the final equality is n=7c−7 for c≡1 and n=7c−5 for c≡5 (c=1 special n=0). For gcd(c,6)>1, ΔP(6kc)=−1+kB_c<0 for all k≥0, with B_c<0. Independent DP checked all c=1..120 and n through 17c+18; these checks corroborate the complete modular proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Woods arXiv:2011.00600 Theorem 1.8 and Proposition 1.19; inspected relevant pdf material"
+        ],
+        "reasoning": "Woods gives eventual quasi-polynomial structure and growth for general restricted partition functions; this predicts eventual positivity for appropriate coprime triples but does not by itself specify 7c−7/7c−5 or infinitely recurring descents at 6kc in the noncoprime case. The present statement supplies sharp signs, not merely eventual degree.",
+        "searches": [
+          "exact threshold strict monotonicity denumerant restricted partition function three coins 2 3 c greatest nonincrease",
+          "semigroup denumerant restricted partition 2 3 c",
+          "https://arxiv.org/pdf/2011.00600",
+          "https://arxiv.org/abs/2606.18027",
+          "https://arxiv.org/abs/2608.14053"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and artifacts/verify.py",
+        "Woods arXiv:2011.00600 relevant full-text sections",
+        "Ding arXiv:2606.18027 abstract",
+        "Komatsu–Hyun–Song arXiv:2608.14053 abstract",
+        "Resultary denumerant searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Woods arXiv:2011.00600 general quasipolynomial theorem; frozen RESULT.md Steps (1)–(2)"
+        ],
+        "reasoning": "The old generating-function description implies e-periodicity after decomposition. The last-index formula is a nontrivial sharp consequence of the location of the unique negative residue and its neighboring positives, not a stated corollary in the inspected broad primary theorem; a future discovery of that explicit sign lemma would defeat novelty.",
+        "searches": [
+          "exact threshold strict monotonicity denumerant restricted partition function three coins 2 3 c greatest nonincrease",
+          "semigroup denumerant restricted partition 2 3 c",
+          "https://arxiv.org/pdf/2011.00600",
+          "https://arxiv.org/abs/2606.18027",
+          "https://arxiv.org/abs/2608.14053"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "frozen RESULT.md exact equation (1), rational-denumerant generating function; Woods arXiv:2011.00600"
+        ],
+        "reasoning": "Using generating function 1/((1−z²)(1−z³)(1−z^c)), the adjacent difference is coefficient of (1−z) times that function; this reformulates the six-residue calculation. A general rational generating function alone gives no exact last nonincrease without sign analysis.",
+        "searches": [
+          "exact threshold strict monotonicity denumerant restricted partition function three coins 2 3 c greatest nonincrease",
+          "semigroup denumerant restricted partition 2 3 c",
+          "https://arxiv.org/pdf/2011.00600",
+          "https://arxiv.org/abs/2606.18027",
+          "https://arxiv.org/abs/2608.14053"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "frozen RESULT.md verification and dynamic-programming file; Resultary denumerant semantic queries"
+        ],
+        "reasoning": "The exact per-parameter final equality indices are not merely listed finite numerical counts: the proof covers every c with a six-residue argument. A hypothetical existing denumerant table could of course contain instances; no full all-c table was identified in searched sources.",
+        "searches": [
+          "exact threshold strict monotonicity denumerant restricted partition function three coins 2 3 c greatest nonincrease",
+          "semigroup denumerant restricted partition 2 3 c",
+          "https://arxiv.org/pdf/2011.00600",
+          "https://arxiv.org/abs/2606.18027",
+          "https://arxiv.org/abs/2608.14053"
+        ]
+      },
+      "rationale": "General eventual quasi-polynomial and growth theory of denumerants (Woods 2020) does not in the inspected passages give the greatest adjacent non-increase for this specific family; Ding 2026 treats restricted partitions/additive complements, and Komatsu–Hyun–Song consider consecutive odd-weight semigroups. The sharp last plateau, congruence formula, and infinitely recurring descent obstruction are the asserted contribution; generating-function or eventual-growth facts are credited. Search aliases for restricted partition, coin-change, Frobenius semigroup; no exact covering parameterized cutoff found in material read. Risk: an elementary equivalent formula may be folklore.",
+      "residual_risks": [
+        "Sharp coin denumerant cutoffs for fixed small base may be older folklore or buried in semigroup texts.",
+        "Search results and abstract-only secondary sources cannot rule out equivalent exact adjacent-sign statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general quasi-polynomial/eventual growth setting, but no sharp last local plateau of 2,3,c identified in inspected relevant material",
+          "evidence": [
+            "Theorem 1.8 and Proposition 1.19 give general restricted partition machinery",
+            "the present exact last sign index requires residue-specific argument"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.00600",
+          "material_read": "theorem statements on restricted partition functions, especially Theorem 1.8 and Proposition 1.19, with contextual introduction and relevant discussion",
+          "method": "lawful arXiv full-text PDF with page visualization",
+          "title": "The generalized Frobenius problem via restricted partition functions",
+          "trigger": "Potential general covering denumerant structure and monotonicity"
+        },
+        {
+          "assessment": "neighboring topic, no full-document noncoverage assertion",
+          "evidence": [
+            "restricted partitions/additive complements rather than explicit 2,3,c cutoff"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18027",
+          "material_read": "abstract/bibliographic and identified parameter regime; complete paper not read",
+          "method": "open arXiv discovery",
+          "title": "Restricted partition functions and additive complements",
+          "trigger": "2026 restricted-partition monotonicity context"
+        },
+        {
+          "assessment": "different arithmetic-progression semigroup family; not enough to imply this full theorem",
+          "evidence": [
+            "consecutive odd denomination family differs from (2,3,c)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14053",
+          "material_read": "title, abstract, bibliographic scope",
+          "method": "open arXiv discovery",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "potential exact denominator-family formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "(2,3,c) is the minimal coprime two-coin base augmented by one variable coin and gives a natural denumerant family. The exact last failure of strict growth is an independently useful sharp quasi-polynomial fluctuation threshold, stronger than generic eventual polynomial growth; the coprime/noncoprime dichotomy and equality boundary are mathematically motivated and may support exact coin-counting analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md and artifacts/verify.py",
+    "Woods arXiv:2011.00600 relevant full-text sections",
+    "Ding arXiv:2606.18027 abstract",
+    "Komatsu–Hyun–Song arXiv:2608.14053 abstract",
+    "Resultary denumerant searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sharp coin denumerant cutoffs for fixed small base may be older folklore or buried in semigroup texts.",
+    "Search results and abstract-only secondary sources cannot rule out equivalent exact adjacent-sign statements."
+  ],
+  "schema_version": 1
+}
