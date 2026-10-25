@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof reconstructs the series through exact digit lengths, proves uniform two-digit-prefix reciprocal bounds at every length \(k\ge4\), bounds the complete tail, and computes the three-digit defect up to a uniform additive constant after scaling. The identity \(s_b-g(b)=2Y_b/b^3-D_b-E_{45}-E_{67}+T_b\) is exact; the four scaled terms together give the advertised absolute bound \(4\), with no finite-to-infinite extrapolation. The standalone rational checker independently tested bases \(2\) through \(6\) and levels through \(7\); convergence and all-base truth follow from the analytic proof, not the checker.
+## correctness
 
-## Originality: PASS (best-knowledge, not priority certification)
-The exact-object 2019 paper's Theorem 4 establishes only \(O(\log b/b^3)\) error with a nonzero normalized limsup; Theorem 5 is an equivalent harmonic main-term estimate without the exact third-order coefficient. A complete reading of the relevant theorem/proof and comparisons with the 2018 preprint metadata, the 1981 original solution, the 2014 OEIS record and published-result searches did not locate the limit \(1\). The new assertion implies strictly stronger information: a convergent normalized error and bounded explicit recentering. The remaining risk is an equivalent, unindexed later refinement or alternative normalization not found in the available literature.
+PASS
 
-## Value: PASS
-The 2019 paper explicitly identifies the error's logarithmic scale as sharp yet determines only an \(\Omega_+\) limsup. The exact coefficient is the natural next invariant for the asymptotic expansion of the very same sum, distinguishes a limit from possible oscillations, and gives a uniform arithmetic centering bound. It answers a motivated gap for a classical reciprocal-series object rather than an arbitrary numerical slice. Optimization of the uniform constant is left open.
+Verified exact k=1 and 2 reciprocal blocks, the prefix sandwich Z_b/b^{floor(k/2)}<=S_{b,k}<=Y_b/b^{floor(k/2)} for k>=4, and three-digit deficit D_b=Y_b/b-S_{b,3}. The binomial-digit decomposition gives 0<=H_b-b^3D_b<2; the fourth/fifth and sixth/seventh deficits contribute <2 and <=1/2 after scaling, and the entire >=8-digit tail contributes <=2. The exact identity b^3(s_b-g(b))-(2Y_b-H_b)=(H_b-b^3D_b)-b^3E_45-b^3E_67+b^3T implies [-2.5,4], hence absolute <=4 for each integer b>=2. Since 2Y_b-H_b=log b+O(1), the normalized limit is 1. Independent exact-rational palindrome generation with a certified geometric tail checked b=2..8.
 
-## Literature and scope
-1981 Klauser/Shallit prove only fixed-base convergence. Phunphayap–Pongsriiam (2019) prove the weaker global-base error estimate. OEIS A244162 records the classical binary reciprocal sum, not this limit. No independent verification has taken place. The earliest exact-day public-source date used for archival eligibility is June 21, 2014, for the OEIS entry; the underlying published problem goes back to 1980.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact-object Phunphayap–Pongsriiam paper Theorem 4 uses the same harmonic main term g(b) but obtains merely a uniform 5 log b / b^3 error and a positive normalized limsup, while Theorem 5 is another main-term normalization with error O(log b/b^3). It does not identify an actual coefficient-one limit or bounded remainder recentered at 2Y-H. Shallit/Klauser earlier established convergence; OEIS A244162 gives a binary constant. The claimed new statement is strictly more precise for large base, best-knowledge subject to alternative unindexed refinements.
+
+## value
+
+PASS
+
+This directly resolves the sharp leading coefficient of the logarithmic error term isolated but not determined in the 2019 primary theorem, distinguishing merely nonzero limsup from a true limit. It gives a uniform arithmetic centering error and precise asymptotic expansion for a classical naturally parameterized reciprocal series, rather than a cosmetic O-bound change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

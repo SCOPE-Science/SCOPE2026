@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:08:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 40b6128c59b467d17a00aa5350f948b0fca65a96",
+        "independent_checks.py exact rational base-b mirror construction b=2..8, analytic >=8 tail enclosure",
+        "Phunphayap–Pongsriiam 2019 Theorems 4–5 definitions match g(b)"
+      ],
+      "rationale": "Verified exact k=1 and 2 reciprocal blocks, the prefix sandwich Z_b/b^{floor(k/2)}<=S_{b,k}<=Y_b/b^{floor(k/2)} for k>=4, and three-digit deficit D_b=Y_b/b-S_{b,3}. The binomial-digit decomposition gives 0<=H_b-b^3D_b<2; the fourth/fifth and sixth/seventh deficits contribute <2 and <=1/2 after scaling, and the entire >=8-digit tail contributes <=2. The exact identity b^3(s_b-g(b))-(2Y_b-H_b)=(H_b-b^3D_b)-b^3E_45-b^3E_67+b^3T implies [-2.5,4], hence absolute <=4 for each integer b>=2. Since 2Y_b-H_b=log b+O(1), the normalized limit is 1. Independent exact-rational palindrome generation with a certified geometric tail checked b=2..8.",
+      "residual_risks": [
+        "The coefficient is for base tending to infinity, not fixed-base digit length. Uniform constant 4 is not optimality claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known geometric tail and reciprocal block bounds",
+          "No exact centered residual in inspected theorems"
+        ],
+        "reasoning": "Known general reciprocal estimates do not dominate a sharp normalized asymptotic with bounded remainder.",
+        "searches": [
+          "reciprocal sums palindromes large base leading coefficient log b b cubed Phunphayap Pongsriiam",
+          "JIS 2019 Theorems 1 and 4–5"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf",
+        "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf",
+        "Resultary semantic query: reciprocal sums palindromes large base leading coefficient log b b cubed Phunphayap Pongsriiam"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 gives error O(log b/b^3) and limsup>0",
+          "New formula gives full limit 1 and |b^3(error)-(2Y-H)|<=4"
+        ],
+        "reasoning": "The prior scale and positive-limsup assertion are strict consequences of the new asymptotic but do not conversely imply its limit.",
+        "searches": [
+          "reciprocal sums palindromes large base leading coefficient log b b cubed Phunphayap Pongsriiam",
+          "JIS 2019 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same g(b) main term appears verbatim in 2019 paper",
+          "2019 statements provide only big-O and nonzero limsup"
+        ],
+        "reasoning": "Changing to other harmonic expansions from Theorem 5 does not itself supply the exact limit 1; it retains a logarithmic error.",
+        "searches": [
+          "reciprocal sums palindromes large base leading coefficient log b b cubed Phunphayap Pongsriiam",
+          "JIS 22 (2019) Theorem 4",
+          "JIS 22 (2019) Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS covers b=2 single constant, not varying b",
+          "Original Problem B-441 and its solution supply convergence"
+        ],
+        "reasoning": "A single base constant table cannot determine uniform base-growth coefficient. No exact multi-base table implying the limit found.",
+        "searches": [
+          "reciprocal sums palindromes large base leading coefficient log b b cubed Phunphayap Pongsriiam",
+          "OEIS A244162",
+          "Shallit 1980/Klauser 1981",
+          "JIS 2019"
+        ]
+      },
+      "rationale": "The exact-object Phunphayap–Pongsriiam paper Theorem 4 uses the same harmonic main term g(b) but obtains merely a uniform 5 log b / b^3 error and a positive normalized limsup, while Theorem 5 is another main-term normalization with error O(log b/b^3). It does not identify an actual coefficient-one limit or bounded remainder recentered at 2Y-H. Shallit/Klauser earlier established convergence; OEIS A244162 gives a binary constant. The claimed new statement is strictly more precise for large base, best-knowledge subject to alternative unindexed refinements.",
+      "residual_risks": [
+        "A differently centered asymptotic in another publication may encode coefficient one without writing this expression; bounded further literature survey cannot prove absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply the coefficient-one limit or bounded centered remainder",
+          "evidence": "Theorem 4: error 5 log b/b^3 and nonzero limsup; Theorem 5: 6 log b/b^3 error, no normalized limit.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Pongsriiam/pong32.pdf",
+          "material_read": "Full relevant Theorems 1, 4, 5 and their proofs/definitions, pp. 1, 5–8",
+          "method": "Primary journal lawful PDF text plus visual page screenshots",
+          "title": "Reciprocal Sum of Palindromes",
+          "trigger": "Identical sum and identical published g(b)"
+        },
+        {
+          "assessment": "Convergence result does not supply growing-base expansion",
+          "evidence": "1981 solution dates before sharp 2019 scale and concerned convergence.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/19-5/elementary19-5.pdf",
+          "material_read": "Bibliographic solution and convergence statement cited in later primary paper",
+          "method": "Historic primary bibliographic cross-reference, not a claim to full-text extraction",
+          "title": "Sum of Base-b Palindrome Reciprocals",
+          "trigger": "Earliest original reciprocal-series problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Phunphayap–Pongsriiam Theorem 4 names the scale log b/b^3 as sharp",
+        "Uniform explicit centered residual <=4 new exact control"
+      ],
+      "rationale": "This directly resolves the sharp leading coefficient of the logarithmic error term isolated but not determined in the 2019 primary theorem, distinguishing merely nonzero limsup from a true limit. It gives a uniform arithmetic centering error and precise asymptotic expansion for a classical naturally parameterized reciprocal series, rather than a cosmetic O-bound change.",
+      "residual_risks": [
+        "The constant 4 may improve; the result is asymptotic in base only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
