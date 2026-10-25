@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact 2D generalized-eigenvalue trace/determinant reduction yields P<0; factorized discriminant and endpoint values exhaust r, ell and t cases. The arcsine density integrates to the stated probability, and an exact positive derivative-sign identity proves a unique global maximizer. The 276 programmatic checks confirm computations but are not substituted for the analytic proof; domains and ties are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2203.07329v1, sections 2.1.2, 3.1, 3.3, theorem 5 (arxiv full HTML)",
+        "arXiv:1611.03220, regularized spectral approximation and preconditioning (arxiv full HTML)",
+        "arXiv:2302.07202, sketches in finite-precision least squares (arxiv full HTML)"
+      ],
+      "reasoning": "The source embedding theorem applies when the sketched regularized system has an appropriate spectral approximation; it is a one-sided condition-number bound and does not imply the exact event, its absence at smaller Gram gaps, or the unique finite maximizing ridge strength. Kernel-ridge and finite-precision sources treat different model assumptions, and their generality does not entail this particular exact distribution without a missing additional theorem.",
+      "searches": [
+        "one-row Tikhonov preconditioner condition number rank one sketch",
+        "randomized ridge regression preconditioning one row sketch condition number phase transition",
+        "rank one sketched ridge preconditioner regularization probability improvement versus identity 2x2 exact spectral threshold 3+2sqrt2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.07329v1",
+      "arXiv:1611.03220",
+      "arXiv:2302.07202",
+      "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2203.07329v1, sections 2.1.2, 3.1, 3.3, theorem 5 (arxiv full HTML)",
+        "arXiv:1611.03220, regularized spectral approximation and preconditioning (arxiv full HTML)",
+        "arXiv:2302.07202, sketches in finite-precision least squares (arxiv full HTML)"
+      ],
+      "reasoning": "Meier–Nakatsukasa: regularized sketch factor definition and embedding-based sufficient upper bounds; the present result: iff comparison to the original ridge-augmented condition number, exact probability and global optimum of that probability. The first does not imply the second without the nonstandard two-dimensional analysis supplied here. Avron–Clarkson–Woodruff: sufficient large-sketch spectral-equivalence results rather than exact undersampled probability. The finite-precision paper studies another target conclusion.",
+      "searches": [
+        "Meier Nakatsukasa randomized algorithms Tikhonov regularization 2022 low rank sketch exact condition number one row",
+        "rank one sketched ridge preconditioner regularization probability improvement versus identity 2x2 exact spectral threshold 3+2sqrt2",
+        "randomized Cholesky Tikhonov sketch one row conditioning"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2203.07329v1, sections 2.1.2, 3.1, 3.3, theorem 5 (arxiv full HTML)",
+        "Arcsine distribution appears here only after exact sign reduction; the searched literature had no identified equality-equivalent “only if r>3+2sqrt(2)” criterion.",
+        "arXiv:1611.03220, regularized spectral approximation and preconditioning (arxiv full HTML)"
+      ],
+      "reasoning": "The comparison is invariant under orthogonal change of coordinates and positive scalar normalization; the spectral factor is equivalent to the generalized eigenvalue matrix of two SPD normal matrices. This was compared to rank-one low-rank sketch and ridge-factor formulations, not only to the theorem title. The cited sufficiency bounds do not evaluate strict improvement probability relative to the original augmented matrix.",
+      "searches": [
+        "Exact 2 by 2 ridge Tikhonov sketch preconditioner condition-number improvement threshold for one-row unit-norm random sketch, stronger than unpreconditioned system, probability angular arcsine",
+        "For A=diag(sqrt(r),1) and isotropic one-row sketch sqrt(2)(cos theta,sin theta), condition-number improvement of preconditioned ridge least squares over unpreconditioned occurs with positive probability exactly when r>3+2sqrt(2); exact arcsine probability and unique optimal regularization.",
+        "Meier Nakatsukasa randomized algorithms Tikhonov regularization 2022 low rank sketch exact condition number one row",
+        "ridge rank-one sketch preconditioning improvement threshold condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published mathematical finding searches returned semantically nearby work on Kaczmarz, Richardson, and row-coherence, not this rank-one Tikhonov arcsine probability.",
+        "arXiv:2203.07329v1, sections 2.1.2, 3.1, 3.3, theorem 5 (arxiv full HTML)"
+      ],
+      "reasoning": "No exact tabulation, fixed-parameter table, or case study specifying the same normal matrices and full probability was located in actual searches; this absence is not a completeness certificate. The result is a continuous three-parameter classification, not a recomputation of a finite table.",
+      "searches": [
+        "For A=diag(sqrt(r),1) and isotropic one-row sketch sqrt(2)(cos theta,sin theta), condition-number improvement of preconditioned ridge least squares over unpreconditioned occurs with positive probability exactly when r>3+2sqrt(2); exact arcsine probability and unique optimal regularization.",
+        "preconditioner random rank one sketch condition number 3+2sqrt2",
+        "exact preconditioning probability isotropic rank one sketch Tikhonov condition number"
+      ]
+    },
+    "rationale": "The close partially sketched ridge source defines the same H and proves embedding-dependent condition-number bounds, but it does not imply a sharp impossible/possible Gram-gap threshold, an exact angular improvement law, or the unique optimal ridge strength at rank-one. Full primary texts on kernel-ridge preconditioning and numerical stability were inspected and compared by hypothesis and implication. Targeted published-index searches did not locate an equivalent; they do not prove uniqueness. Accessible own ledger prior claims concern different matrices and sketch ranks. Residual risk of unindexed or inaccessible equivalent results is acknowledged.",
+    "residual_risks": [
+      "Semantic search cannot rule out an unindexed equivalent formula.",
+      "Some related papers may contain auxiliary computations not discoverable through title/abstract searches.",
+      "Proved claim is model-specific; broader conditioning bounds elsewhere should not be conflated with exact event/probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines source object and supplies sufficient embedding bounds, but does not derive the exact planar one-row comparison probability or optimal ridge strength.",
+        "evidence": [
+          "arXiv:2203.07329v1, sections 2.1.2, 3.1, 3.3, theorem 5 (arxiv full HTML)",
+          "https://arxiv.org/html/2203.07329"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.07329",
+        "material_read": "Full arxiv text; introduction, algorithm definitions, §2.1.2, §3.1, §3.3 and theorem 5 proof context (sketch dimensions and embedding bounds).",
+        "method": "open-access arxiv full HTML, not solely snippets",
+        "title": "Randomized Algorithms for Tikhonov Regularization in Linear Least Squares",
+        "trigger": "Defines exactly the partially sketched ridge normal preconditioner."
+      },
+      {
+        "assessment": "Sufficient spectral-equivalence guarantees under sketch information assumptions; no exact 2D one-row angular event/optimal ridge probability.",
+        "evidence": [
+          "arXiv:1611.03220, regularized spectral approximation and preconditioning (arxiv full HTML)",
+          "https://arxiv.org/abs/1611.03220"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.03220",
+        "material_read": "Full arxiv text, spectral approximation and preconditioning arguments, §§3 and 6.",
+        "method": "open-access arxiv full text",
+        "title": "Faster Kernel Ridge Regression Using Sketching and Preconditioning",
+        "trigger": "Plausible stronger related guarantees for ridge sketch preconditioners."
+      },
+      {
+        "assessment": "Different precision regime and core theorem; no exact rank-deficient one-row ridge probability.",
+        "evidence": [
+          "arXiv:2302.07202, sketches in finite-precision least squares (arxiv full HTML)",
+          "https://arxiv.org/abs/2302.07202"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.07202",
+        "material_read": "Full arxiv text focusing on model and finite-precision numerical stability statements.",
+        "method": "open-access arxiv full text",
+        "title": "Are Sketch-and-Precondition Least Squares Solvers Numerically Stable?",
+        "trigger": "Potential stronger analysis of sketch-and-precondition stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "298abd44-9b56-4546-aa95-61d1c0db9d48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-row undersampled limit is a motivated extreme of an established regularized sketch preconditioner, and its unbiasedness does not ensure a conditioning benefit. The sharp 3+2sqrt(2) impossibility boundary, positive regularization onset, and uniquely optimal probability-maximizing ridge choice provide structural and decision-relevant information beyond a routine special case or finite experiment.",
+    "status": "PASS"
+  }
+}
