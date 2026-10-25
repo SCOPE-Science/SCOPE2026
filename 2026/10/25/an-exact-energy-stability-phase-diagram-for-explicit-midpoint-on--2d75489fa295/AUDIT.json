@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The complete 2x2 Q=I-R^TR minor computation is algebraically verified (Q22, Q12, det Q). g_t is strictly increasing since g_t prime=3(tx-2/3)^2+8/3. Signs at x=2/t and 4/(1+t) plus Q22 >=0 give the exact single interval for each t, including t=1 endpoint R=-I. Implicit differentiation gives the unique t=3/8 maximizer 8/3. Eigenvalue analysis yields the precise real-root and complex-root spectral intervals; comparison of their polynomials proves S>E outside t=1 and S/E~2^(-1/3)t^(1/3). The standalone verify.py passed exact polynomial checks; analytical argument, not numerical sampling, proves universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2201.06501 full-text energy-law results",
+        "arxiv:2308.05689v1 Theorems 0.2.1-0.2.4, Examples and proofs",
+        "arxiv:1912.11596 superviscosity correction full text"
+      ],
+      "reasoning": "General strong stability statements address sufficient/necessary properties over matrix classes or short steps; they do not imply numerical sharpness of the finite-step threshold for each t or determine the optimal t. Sun--Shu modifies the integrator and is not an unmodified midpoint theorem.",
+      "searches": [
+        "energy laws stability Runge Kutta linear seminegative problems Sun Wei Wu",
+        "strong stability explicit Runge Kutta hypocoercivity index semidissipative matrices Achleitner Arnold Jüngel",
+        "arXiv 2308.05689 Achleitner Arnold Jüngel midpoint 2x2 damped rotation exact contractivity optimal coupling",
+        "explicit RK2 midpoint semidissipative hypocoercivity norm contraction h threshold 8/3 omega sqrt(3/8)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.05689v1",
+      "arxiv:2310.19758v1",
+      "arxiv:2201.06501",
+      "arxiv:1912.11596",
+      "arxiv:1909.09971",
+      "published-finding corpus indexed comparisons including 2026/10/11/SCOPE-exact-l-p-contractivity-phase-diagram-for-planar-triangular-shea--6e17594aec7a",
+      "Own accessible fixed t=1 and oscillator-splitting scientific claims (no re-audit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2308.05689v1 paper full HTML read, including definitions/main theorems/examples",
+        "arxiv:2310.19758v1 full note",
+        "arxiv:2201.06501 full HTML relevant energy law sections",
+        "arxiv:1909.09971 full-text convex gradient contractivity, not skew-coupled case"
+      ],
+      "reasoning": "Original fixed-ratio t=1 exact threshold is known and not asserted new. The combined new parametric statement includes the unique maximum at t=3/8 and the asymptotically unbounded gap S/E, neither obtainable merely by specializing the literature short-step structural theorems or the previously fixed t=1 result.",
+      "searches": [
+        "Achleitner Arnold Jüngel 2023 strong stability explicit RK semidissipative order two",
+        "Sun Wei Wu 2022 energy laws Runge Kutta linear seminegative problems",
+        "explicit midpoint two-stage Runge Kutta exact Euclidean contractivity sharp stepsize damped rotating 2x2 matrix semi-dissipative L=[[-a,-b],[b,0]]",
+        "strong stability explicit midpoint damped oscillator hypo-coercive two-dimensional stability interval cubic singular values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2308.05689v1 main results and proofs on hypocoercivity index",
+        "arxiv:2310.19758v1 direct proof of local conditions",
+        "published-finding corpus ranked summaries for relevant semidissipative matrix and RK stability aliases"
+      ],
+      "reasoning": "Equivalent energy contractivity is Q=I-R^TR positive semidefinite. This exact PSD criterion is used to compare claims independent of the words midpoint or damped oscillator. No primary source examined gives the optimized t=3/8 or unbounded spectral-energy ratio.",
+      "searches": [
+        "explicit midpoint two-stage Runge Kutta exact Euclidean contractivity sharp stepsize damped rotating 2x2 matrix semi-dissipative L=[[-a,-b],[b,0]]",
+        "strong stability explicit midpoint damped oscillator hypo-coercive two-dimensional stability interval cubic singular values",
+        "orthogonal decay oscillatory two by two midpoint method sharp norm contraction boundary resonance",
+        "Runge Kutta 2 contractivity damped skew coupled matrix optimal time step 8/3 3/8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus similarity-ranked findings: 2026/10/11/...planar-triangular-shear--6e17594aec7a, 2026/9/19/...harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "accessible own findings 8f2a6942-795b-47b0-87dd-8040e6ccbd7f and df4a10e3-e118-4b80-8bee-639be4e905cb (scientific statements compared only)"
+      ],
+      "reasoning": "The closest own fixed-ratio result treats t=1 and RK orders 2,3,4; it cannot imply the full t continuum or unique t=3/8 optimizer. The splitting result uses exponential subflows and produces a different amplification map. Similarity-index hits use unrelated methods or different continuous-time matrix-norm comparisons; no exact matching tabulation was located.",
+      "searches": [
+        "arxiv:2308.05689 midpoint energy threshold matrix 2x2",
+        "hypocoercive oscillator RK2 norm amplification exact table parameter b/a",
+        "explicit RK2 midpoint semidissipative hypocoercivity norm contraction h threshold 8/3 omega sqrt(3/8)",
+        "energy monotonicity R(z)=1+z+z^2/2 matrix L=[[-a,-b],[b,0]] spectral stability discrepancy"
+      ]
+    },
+    "rationale": "Primary arXiv:2308.05689v1 gives local structural criteria for semidissipative RK stability, but not a closed exact full-step phase diagram in the oscillator coupling, its unique optimum t=3/8, or the spectral-versus-energy divergence. A prior fixed t=1 calculation is explicitly excluded from novelty. arXiv:2310.19758v1 similarly gives local conditions; arXiv:2201.06501 provides general energy estimates, not this optimization. Related split-step damped-oscillator and variable RK-order computations were compared by implications and do not subsume the new parametric optimization. Exact equivalence cannot be ruled out in unindexed literature.",
+    "residual_risks": [
+      "A not-indexed prior numerical-analysis source could contain the exact parameter optimization or equivalent finite-step PSD calculation.",
+      "The numerical scheme is widely studied, and a portion of the phase diagram may be implicit in broad matrix-norm literature; absence of a search hit does not establish global novelty.",
+      "The special t=1 RK2 energy threshold is explicitly covered by prior work and not claimed original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact variable-ratio RK2 energy frontier or unique parameter optimum/large-frequency spectral-energy asymptotics in read material",
+        "evidence": "Theorems 0.2.1-0.2.4 characterize structural and local strong stability; Example 1 involves a five-dimensional triangular matrix; introductory comparison distinguishes semidissipative from purely imaginary classes.",
+        "identifier_or_url": "https://arxiv.org/html/2308.05689v1",
+        "material_read": "Full public HTML, introduction, definitions, main results, illustrative examples and proofs including 0.4; searched midpoint and 2x2",
+        "method": "Full-text reading and targeted keyword/theorem comparison",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge--Kutta methods",
+        "trigger": "Same system class, strongest plausible general prior"
+      },
+      {
+        "assessment": "Local HC index conditions; no reported entire finite-step coupling phase diagram",
+        "evidence": "Abstract and main proof connect hypocoercivity index to sufficiently small-step stability.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.19758",
+        "material_read": "PDF and its theorem/direct-proof material, with page screenshot inspection",
+        "method": "Full text and statement-level comparison",
+        "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge--Kutta Methods",
+        "trigger": "Same author follow-up plausibly subsuming the exact instance"
+      },
+      {
+        "assessment": "General energy estimates do not supply the sharp explicitly optimized t family or exact spectral comparison",
+        "evidence": "Energy analysis of Runge--Kutta seminegative problems rather than specific parameter-optimized 2x2 midpoint formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.06501",
+        "material_read": "Accessible full HTML sections on energy laws, stability conditions, examples",
+        "method": "Read theorem statements, energy inequalities, their scopes",
+        "title": "On Energy Laws and Stability of Runge--Kutta Methods for Linear Seminegative Problems",
+        "trigger": "General energy-law results may imply Euclidean contractivity"
+      },
+      {
+        "assessment": "Different modified algorithms; not exact midpoint parameter phase diagram",
+        "evidence": "Superviscosity method changes the generator or update to restore strong stability.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.11596",
+        "material_read": "Accessible full paper including stabilization discussion",
+        "method": "Compared modified versus unmodified RK update",
+        "title": "Enforcing strong stability of explicit Runge--Kutta methods with superviscosity",
+        "trigger": "Classical obstruction and stabilization source"
+      },
+      {
+        "assessment": "The planar matrix has nonzero skew coupling and is not a convex gradient vector field; no implication to exact claimed sharp threshold",
+        "evidence": "Gradient flow setting excludes the non-symmetric skew component present whenever b>0.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.09971",
+        "material_read": "Accessible full source, definitions and gradient-system results",
+        "method": "Compare normal/symmetric gradient Jacobian vs nonnormal skew-damped L",
+        "title": "Contractivity of Runge--Kutta methods for convex gradient systems",
+        "trigger": "Possible stronger RK contractivity framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d75489f-a295-499f-8370-055f4707898a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A semidissipative hypocoercive ODE is physically energy-contracting, but the same explicit RK2 method admits a sharp nontrivial frequency-dependent energy-safe step. A unique optimal normalized skew-to-damping coupling at 3/8 permits the largest step 8/3; for stiff oscillatory coupling the eigenvalue-based RK allowance exceeds the physically energy-safe one by an arbitrarily large factor. These are structurally motivated and nontrivial numerical-stability design facts; a previously known single-ratio threshold cannot supply the family optimum or diverging spectral-energy gap.",
+    "status": "PASS"
+  }
+}
