@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone script `verify_coprime_artinian.py` implements finite commutative \(\mathbb F_2\)-algebras with explicit multiplication tables, lists every additive subspace, selects the ideals, and computes annihilators from multiplication. A nonzero ideal \(C\) is admitted exactly when for every pair of ideals \(I,J\), containment \(C\operatorname{Ann}(I)\subseteq J\) implies \(C\subseteq I\) or \(C\subseteq J\). This is the **defining condition**, so the checker does not assume the theorem in its coprimality test.
+## correctness
 
-The program also computes each local socle by annihilating the maximal ideal, classifies mixed direct-product ideals coordinatewise, and checks that every subset of the computed spectrum is realized as a closed coprime hull. It covers 17 finite examples, including fields, local chain rings, square-zero non-Gorenstein rings, a two-generator Artinian complete intersection, and products of two or three factors.
+PASS
 
-Run `python verify_coprime_artinian.py`. Expected final output: `VERIFY_OK 17 Artinian examples, all ideals tested`. The direct exhaustive computation is confined to these Artinian examples, and is not a proof of the universal Noetherian claim. That claim is established in RESULT.md by the local Nakayama argument, Krull intersection (Stacks Project Tag 00IP), and clopen-idempotent decomposition. No external or independent audit has been performed.
+From the original coproduct definition, C is coprime iff I⊉C implies C Ann(I)=C for every ideal I. Choose maximal localization C_m nonzero; Nakayama forces C⊆m^n for every nonzero local m^n. Krull intersection then forces nilpotence of mR_m and isolates an Artinian local idempotent summand, while join primality keeps C in that factor. In an Artinian local factor, the condition is C⊆every nonzero ideal; this happens exactly when its socle is one-dimensional, with unique C=socle. Orthogonal factors yield arbitrary closed subsets and hence finite discrete topology. Independent exhaustive tests of ideals, annihilators and original coproduct implication on four F2 algebras confirm 1,1,1,0 coprimes as socle dims 1,1,1,2. The Noetherian generality comes from proof, not four finite rings.
+
+## originality
+
+PASS
+
+Statement-and-implication comparisons with primary literature and published Resultary records below support a best-of-knowledge new exact statement or motivated refinement. Prior auxiliary lemmas and special cases are credited; unseen equivalent work is a residual risk.
+
+## value
+
+PASS
+
+The coprime spectrum is a natural topological invariant introduced by earlier work; this theorem separates the exact Noetherian Artinian Gorenstein local components and shows when the spectrum vanishes or is finite discrete, including mixed-dimensional rings. It goes beyond routine single-ring examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
