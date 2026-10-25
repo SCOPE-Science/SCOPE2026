@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Laguerre L² orthogonality gives the exact covariance 1/4 Li₂(|ρ|²). Stationarity yields the finite variance formula. The linear term integrates to 1/(4n) exactly by Parseval. After x=nθ substitution the nonlinear H=Li₂−identity has a uniform integrable second-order difference quotient, with O(x²(1+|log|x||)) near zero, O(x⁻²) for large x, and vanishing outside-domain tail; dominated convergence gives C/n+A/n³+o(n⁻³), with A>0. Exact finite n=1,2 cases and 21 independent checker assertions corroborate. No limiting distribution is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiro–Nishry (2021), section on zero-count fluctuations for Gaussian Taylor series, concerns disk zero counting rather than the boundary logarithmic mean for truncated equal-variance coefficients.",
+        "Choi–Mossinghoff (2011) studies unimodular coefficients, an alternate non-Gaussian model."
+      ],
+      "reasoning": "The prior Gaussian field covariance mechanism is broad, but the inspected zero-count conclusions do not supply the Fourier-window variance expansion here. The unimodular-model theorems neither dominate nor specialize to independent complex Gaussians.",
+      "searches": [
+        "Gaussian polynomial Mahler measure variance central limit covariance pair correlation logarithm abs Dirichlet kernel",
+        "Variance of integrated logarithmic modulus of random Fourier polynomials with independent standard circular complex Gaussian coefficients, exact inverse-n and inverse-n-cubed asymptotics",
+        "doi:10.2140/pjm.2011.252.31",
+        "doi:10.1112/jlms.12457"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.07156v1",
+      "doi:10.1112/jlms.12457",
+      "doi:10.2140/pjm.2011.252.31",
+      "Choi–Erdélyi (2014), source full PDF",
+      "semantic searches for Gaussian log-Mahler variance, sinc kernels, and dilogarithmic Dirichlet correlations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klurman–Lamzouri–Munsch (2023) give Fekete Mahler asymptotics driven by a non-Gaussian limiting process.",
+        "Kiro–Nishry (2021) provide a Gaussian logarithm kernel but study zero-count variance under analytic covariance growth.",
+        "Choi–Mossinghoff (2011) provide averages/concentration for unit-modulus coefficient polynomials."
+      ],
+      "reasoning": "None of the inspected theorem statements asserts the finite Gaussian variance identity and its sharp n^-3 correction; the covariance kernel is a key known ingredient which is here combined with exact Fourier Parseval and a second-order scaling argument. The result is not presented as a new Gaussian logarithm covariance formula.",
+      "searches": [
+        "arxiv:2306.07156v1",
+        "doi:10.1112/jlms.12457",
+        "doi:10.2140/pjm.2011.252.31",
+        "Sharp asymptotic variance of logarithmic Mahler measure of random complex Gaussian Kac polynomials with independent coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaussian logarithm covariance is the dilogarithm of squared correlation, used in Kiro–Nishry (2021).",
+        "The variance here is the arc-pair integral of that kernel with the normalized length-n Dirichlet correlation; the new term comes from subtracting the linear Parseval component."
+      ],
+      "reasoning": "Search targets include logarithmic Mahler measure, circle average, sinc kernel, and Gaussian log-potential linear statistics. The covariance formula itself is prior art, not the asserted novelty; a general covariance lemma without the specific asymptotic calculation does not imply its positive n^-3 coefficient without further analysis.",
+      "searches": [
+        "Sharp asymptotic variance of logarithmic Mahler measure of random complex Gaussian Kac polynomials with independent coefficients",
+        "Logarithmic circle average of random Gaussian trigonometric polynomials, dilogarithm covariance and sinc spectral constant",
+        "Dilogarithm covariance of logarithmic Gaussian amplitude with Dirichlet kernel, sharp 1/n variance coefficient for random trigonometric polynomials",
+        "arxiv:2306.07156v1",
+        "doi:10.1112/jlms.12457"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published research entries concern exact fourth-power norms for random unit-modulus coefficient polynomials and additive-frequency collision counts.",
+        "The present variance involves logarithmic modulus of independently Gaussian-weighted Fourier sums and positive dilogarithmic coefficients across all chaos orders."
+      ],
+      "reasoning": "No exact C/A table or finite-n logarithmic-Gaussian variance series was returned by the actual semantic database searches. The nearest published computations involve distinct distributions and power observables; no uniqueness is inferred from a partition or an unsuccessful search.",
+      "searches": [
+        "Log Mahler measure Gaussian Kac polynomial small-variance asymptotic with absence of second order n^-2 and sinc integral constant",
+        "Mahler measure logarithmic geometric mean random polynomial Gaussian variance",
+        "average Mahler measure Littlewood unimodular polynomial logarithmic fluctuation",
+        "2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+        "2026/10/11/SCOPE-random-phase-fourth-moment-variance-detects-the-non-sidon-relati--dcec63467712"
+      ]
+    },
+    "rationale": "The two-term finite-polynomial Gaussian logarithmic Mahler variance is not implied by the checked Fekete mean, unimodular mean/concentration, or analytic zero-count variance theorems. The Gaussian logarithmic covariance is acknowledged as classical. A search does not certify priority; risks are explicit.",
+    "residual_risks": [
+      "An unlocated treatment of Gaussian Kac logarithmic Mahler variance under stationary Gaussian-process spectral-statistics terminology could give equivalent coefficients.",
+      "A general Gaussian linear-statistics expansion may subsume the exact two-term formula even without matching wording.",
+      "The numerical estimates of C and A are not rigorously rounded interval certificates, although positivity and finite integrals are proved analytically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this Gaussian variance expansion; deterministic Fekete ensemble with character coefficients",
+        "evidence": [
+          "Fekete coefficient model uses Legendre symbols; Theorem 1.1 gives normalized Mahler mean/limit k0≈0.74083, not Gaussian-circle-average variance.",
+          "v1 was publicly posted 2023-06-12; 30C10 listed among primary MSC codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07156",
+        "material_read": "Introduction, Mahler-measure Theorem 1.1, Remarks 1.2–1.4, comparison with random Littlewood models, Section 6 analysis (accessible HTML)",
+        "method": "open-access full-text reading and statement/ensemble comparison",
+        "title": "L_q norms and Mahler measure of Fekete polynomials",
+        "trigger": "Focal 2023 source on polynomial Mahler measure and non-Gaussian limiting process"
+      },
+      {
+        "assessment": "KNOWN covariance ingredient, but NOT_COVERING this explicit finite-degree logarithmic Mahler second asymptotic term",
+        "evidence": [
+          "The statements address number of zeros in disks of Gaussian analytic functions; here the observable is the circular mean of log modulus for a finite Kac Gaussian polynomial.",
+          "The covariance ingredient is acknowledged and derived via Laguerre expansion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12457",
+        "material_read": "Introduction/theorem statements and appendix Gaussian logarithmic covariance formula, open-access full text",
+        "method": "full-text relevant section reading, object/function and kernel comparison",
+        "title": "Fluctuations for zeros of Gaussian Taylor series",
+        "trigger": "Most plausible broad Gaussian log-potential covariance and variance source"
+      },
+      {
+        "assessment": "NOT_COVERING different coefficient law and no sharp two-term log-variance",
+        "evidence": [
+          "Coefficient magnitudes are fixed at one, whereas the current model has Gaussian amplitudes and exact Gaussian covariance.",
+          "Concentration and mean results do not quantify C/n+A/n^3 for the Gaussian model."
+        ],
+        "identifier_or_url": "https://doi.org/10.2140/pjm.2011.252.31",
+        "material_read": "Abstract, theorems on averages and concentration, and relevant variance discussion in freely accessible article PDF",
+        "method": "read main statements and the relevant concentration proof",
+        "title": "Average Mahler’s measure and L_p norms of unimodular polynomials",
+        "trigger": "Possibly covering average/variance of Mahler measure for random unit-modulus coefficients"
+      },
+      {
+        "assessment": "NOT_COVERING distinct signed coefficients and mean asymptotic",
+        "evidence": [
+          "Independent sign coefficients rather than circular Gaussians.",
+          "Mahler measure average result does not contain the present variance correction."
+        ],
+        "identifier_or_url": "https://www.sfu.ca/~schoia/paper/meanmeasurelittlewood.pdf",
+        "material_read": "Abstract, first-page statement and relevant main theorem",
+        "method": "PDF inspected for random coefficient model and stated moment asymptotics",
+        "title": "Average Mahler’s measure and L_p norms of Littlewood polynomials",
+        "trigger": "Potential broad random polynomial Mahler measure result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d5fa733-eb8c-4f0c-a2c1-5b5f98cdd814",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The logarithmic Mahler measure is the log-geometric mean of the modulus and a classical zero-sensitive statistic. Its random Gaussian fluctuations have a natural 1/n scale; the result determines the leading and first nonzero higher asymptotic constants, and proves a nontrivial cancellation of the entire 1/n² correction. The positive n⁻³ coefficient distinguishes finite polynomial length from the limiting sinc-process approximation and provides a precise calibration benchmark rather than a routine expectation formula.",
+    "status": "PASS"
+  }
+}
