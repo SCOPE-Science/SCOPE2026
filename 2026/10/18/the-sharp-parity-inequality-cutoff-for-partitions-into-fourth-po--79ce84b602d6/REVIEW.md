@@ -1,21 +1,21 @@
-# Scientific review: strict parity for fourth-power partitions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact signed generating function factors into the distinct-subset product over \(2^\ell u^4\), with \(u\) odd and \(\ell=0\) or \(4\nmid\ell\). Cancellation is legitimate in formal power series, because every coefficient depends on finitely many factors. The ten-weight base certificate consists of exactly 64 integer intervals and covers \([145,661]\), but omits 144; the complete zero set below 145 follows from the same interval decomposition. All later selected weights have consecutive ratio at most two, by explicitly bridging each missing dyadic power. The interval-extension induction therefore proves all indices beyond 661, without extrapolating numerical tests.
+PASS
 
-The verifier reconstructs the 64 intervals from all 1,024 subsets and compares 2,049 signed and distinct-part coefficients from separate recurrences. No unproved asymptotic or computational extrapolation is used.
+Euler factor cancellation by odd core m=2^j u transforms (-1)^n(E4-O4) exactly into the distinct-subset generating series for W={2^ell u^4:u odd, ell=0 or 4 does not divide ell}; all coefficients nonnegative. The ten allowed weights 1,2,4,8,32,64,81,128,162,324 merge into eleven explicit intervals including [145,661], while all nonreachable n<145 equal 16..31,48..63,80,112,144. Independent signed Euler-factor and distinct-subset recurrences agree through 350 with A4(144)=0,A4(145)=1. Adding 512 then missing-power bridges with successive ratios 81/64,2,128/81 propagates the covered interval to infinity; finite checks alone would not do so.
 
-## Originality — PASS within inspected evidence
+## originality
 
-Ciolan's 2020 paper proves eventual strictness and an all-index nonnegative generating-function reformulation; its concluding discussion allows exceptional small equality cases. It neither supplies the exact fourth-power zero set nor the sharp threshold. The earlier squares-only paper concerns a different exponent. Specific mathematical-record and literature searches for the equality set, the cutoff 145, the equivalent subset-sum spectrum, and broader statements found no dominating theorem. Nearby mathematical-record hits concern unrelated Fourier moments, Waring-semigroup exceptions, or different partition statistics, and do not imply this coefficientwise sharp classification. The closest accessible historical result solves the square exponent, not the fourth-power exponent. Novelty cannot be inferred from absence of search hits alone: a hidden, unindexed equality table remains a residual risk.
+PASS
 
-## Mathematical value — PASS
+Ciolan proves positivity mechanisms and eventual parity inequalities, but the precise fourth-power exception set and least strict index 145 are not implied by an ineffective eventual assertion or square-power special case. The exact equality boundary is assessed, not the known general nonnegativity identity.
 
-The fourth-power case is the first even exponent beyond squares in Ciolan's established family of parity-bias problems. The result computes a natural and previously non-explicit sharp invariant, the last equality index, and classifies every exceptional index. The finite interval is supported by an unbounded structural induction, replacing asymptotic eventual strictness with an optimal all-index theorem. This is a substantive exact-boundary result, not a change of notation or a finite table standing alone.
+## value
 
-## Relationship and limitations
+PASS
 
-Primary source: A. Ciolan, *Equidistribution and inequalities for partitions into powers*, arXiv:2002.05682, first version 2020-02-13, sections 2, 3, and 8 and conclusion. The paper's general nonnegative sign mechanism is credited, not claimed new. The finite 35-equality classification and cutoff 145 are the new assertions. Other exponents are not classified, and independently published overlap cannot be categorically excluded.
+The exact strict-inequality onset and full exceptional set for a canonical fourth-power partition statistic are natural missing sharp information; the constructively propagating interval resolves all indices, not an arbitrary numerical window.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

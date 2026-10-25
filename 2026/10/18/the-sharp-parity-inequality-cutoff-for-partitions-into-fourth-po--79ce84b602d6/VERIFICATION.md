@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the fourth-power parity cutoff
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external dependencies. The script checks (i) all 1,024 subsets of the ten permitted base weights, (ii) the eleven exact merged components of 64 interval blocks, (iii) all 35 zero positions below 145 and coverage through 661, (iv) the first 2,049 coefficients of both a signed-partition recurrence and a separate distinct-subset recurrence, and (v) thirteen finite dyadic bridging scales. The checks passed when executed from the delivered package.
+## correctness
 
-The infinite proof does not follow from these tests. It follows from the formal generating-function product and from the stated ratio bound, which holds for every bridge scale \(r\geq3\) by the exact ratios \(81/64,2,128/81\), combined with the elementary interval-extension induction. The verifier is useful for reproducing finite certificates and for catching normalization or endpoint errors; it does not constitute independent mathematical validation.
+PASS
+
+Euler factor cancellation by odd core m=2^j u transforms (-1)^n(E4-O4) exactly into the distinct-subset generating series for W={2^ell u^4:u odd, ell=0 or 4 does not divide ell}; all coefficients nonnegative. The ten allowed weights 1,2,4,8,32,64,81,128,162,324 merge into eleven explicit intervals including [145,661], while all nonreachable n<145 equal 16..31,48..63,80,112,144. Independent signed Euler-factor and distinct-subset recurrences agree through 350 with A4(144)=0,A4(145)=1. Adding 512 then missing-power bridges with successive ratios 81/64,2,128/81 propagates the covered interval to infinity; finite checks alone would not do so.
+
+## originality
+
+PASS
+
+Ciolan proves positivity mechanisms and eventual parity inequalities, but the precise fourth-power exception set and least strict index 145 are not implied by an ineffective eventual assertion or square-power special case. The exact equality boundary is assessed, not the known general nonnegativity identity.
+
+## value
+
+PASS
+
+The exact strict-inequality onset and full exceptional set for a canonical fourth-power partition statistic are natural missing sharp information; the constructively propagating interval resolves all indices, not an arbitrary numerical window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
