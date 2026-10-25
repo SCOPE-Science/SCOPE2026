@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T11:52:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Huang--Yang, K-g-fusion frames in Hilbert spaces, J. Inequal. Appl. 2020:57, doi:10.1186/s13660-020-02320-0 (complete OA publisher HTML and 16-page PDF; particularly Definition 2.3, Lemma 2.10, Theorems 3.17, 3.18, p. 14-16)",
+        "Exact symbolic matrix calculation in Sympy",
+        "Frozen six Git blob identities; independent Git tree SHA recomputation"
+      ],
+      "evidence": [
+        "Primary Huang--Yang 2020 Definition 2.3, Theorems 3.17 and 3.18 verified in open publisher full text and visual PDF pages 15--16; displayed hypothesis uses c||f||, not c||K^*f||.",
+        "GitHub frozen RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json and VERIFICATION.md were read; all returned Git blob SHA-1 identities reproduce the exact assigned six-entry Git tree 39486b5ce008b39223ec8a85a07642a106230a1a.",
+        "Independent Sympy evaluation: (Phi-Lambda)^*(Phi-Lambda)=diag(0,delta^2); ker Phi=span{(-delta,1)}; ||K^*f_delta||^2=delta^2; printed lower-bound surplus=delta^2(1-delta)^2 >0 for 0<delta<1.",
+        "Huang--Yang Lemma 2.10 and Theorem 3.3(2) explicitly restrict pseudoinverse-based inversion to R(K); the repaired range-dependent argument uses this restricted domain only."
+      ],
+      "rationale": "The exact one-block complex Hilbert-space example meets the printed Definition 2.3 and every quantitative hypothesis of Huang--Yang Theorem 3.18. With K=P_{e1}, W_1=H, v_1=1, Lambda_1=K, Phi_1(x,y)=(x+delta*y,0), 0<delta<1, the unperturbed analysis energy equals ||K*f||^2=|x|^2 with A=B=1. The perturbation has exact ambient operator norm delta, so a=b=0,c=delta satisfies c/(1-a)<sqrt(A)/||K^dagger||=1. Yet f_delta=(-delta,1) belongs to ker Phi_1 while K*f_delta=(-delta,0) is nonzero; the asserted lower bound (1-delta)^2 delta^2>0 contradicts its zero right side. Sympy reconstructed the matrices and exact polynomial; no numerical extrapolation. Under W_j subset R(K), all analysis terms depend only on g=P_{R(K)}f, and the valid closed-range identity g=(K^dagger)^*K^*g establishes ||g||<=||K^dagger|| ||K^*g||. The perturbation triangle inequality then gives the repaired lower bound, while the usual upper triangle bound is unconditional.",
+      "residual_risks": [
+        "The W_j subset R(K) repair is sufficient and not claimed necessary.",
+        "The source theorem can remain correct under further hypotheses (e.g. K invertible); the counterexample refutes the unrestricted published closed-range statement.",
+        "No claim is made for perturbations with delta=0 or beyond the open range 0<delta<1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang--Yang Theorem 3.17 requires c||K^*f|| rather than c||f||; stronger control and therefore not an all-norm stability theorem.",
+          "Sadri et al arXiv:1806.03598v1 Theorems 4.5/4.6 deal with ordinary g-fusion frames, without the semidefinite K-g-frame lower condition.",
+          "Hua--Huang 2016 and Xiang 2020 are genuinely plausible higher-coverage sources, but their full stability theorem text was inaccessible in the tested routes and hence their detailed implications are not falsely asserted."
+        ],
+        "reasoning": "General frame perturbation with a full-norm lower bound does not dominate a noninjective K-frame because the reference analysis is permitted to vanish on ker(K^*). The checked full-text works establish related definitions/stronger error assumptions, not this exact source-theorem correction. Inaccessible plausible predecessors remain bounded historical-priority risks.",
+        "searches": [
+          "Resultary: counterexample to perturbation stability of K-g fusion frames under ambient norm for noninjective K closed range orthogonal projection kernel",
+          "Resultary: quantitative K frame perturbation theorem frame operator ker inclusion range K stability small norm",
+          "web: \"K-g-frames and stability of K-g-frames in Hilbert spaces\" Hua Huang 2016 pdf",
+          "web: \"Some new results on the construction and stability of K-g-frames\" Xiang pdf 2050034",
+          "arXiv:1806.03598v1, Sadri et al (full preprint)",
+          "doi:10.4134/JKMS.j150499 (abstract/full-text attempt)",
+          "doi:10.1142/S0219691320500344 (abstract/full-text attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Huang--Yang, K-g-fusion frames in Hilbert spaces, J. Inequal. Appl. 2020:57, doi:10.1186/s13660-020-02320-0 (complete OA publisher HTML and 16-page PDF; particularly Definition 2.3, Lemma 2.10, Theorems 3.17, 3.18, p. 14-16)",
+        "Sadri--Rahimlou--Ahmadi--Zarghami Farfar, Generalized fusion frames in Hilbert spaces, arXiv:1806.03598v1 (full 16-page primary preprint, relevant definitions and sections 2--4)",
+        "Hua--Huang, K-g-frames and stability of K-g-frames in Hilbert spaces, J. Korean Math. Soc. 53(6) (2016), 1331--1345, doi:10.4134/JKMS.j150499 (bibliography/abstract read; full PDF retrieval unsuccessful)",
+        "Xiang, Some new results on the construction and stability of K-g-frames in Hilbert spaces, Int. J. Wavelets Multiresolution Inf. Process. 18(5) (2020), 2050034, doi:10.1142/S0219691320500344 (abstract and available publisher snippet read; full text unavailable)",
+        "Resultary semantic searches of published findings: exact assigned entry and related but distinct K-g-fusion, continuous-frame, weaving, transformed-frame perturbation counterexamples; current exact match is the record under review, not independent prior art."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.17 has a stronger K*-scaled perturbation control. Theorem 3.18 asserts a weaker ambient-norm condition and is directly contradicted.",
+          "Resultary contraction threshold concerns a different continuous K-g-fusion perturbation theorem; adjoint-range failure concerns transformed frames; synthesis perturbation result concerns weaving. None has the same target hypotheses and conclusion.",
+          "Earlier ordinary g-fusion preprint does not contain a K semidefinite lower inequality in its main definition."
+        ],
+        "reasoning": "A stronger claim would cover this theorem-specific correction if it implied instability of noninjective K under arbitrary ambient perturbation and the same repaired bound. The inspected general frame statements and neighboring published results do not have that implication. A simple kernel-rotation principle explains the example and may be known; originality is assessed narrowly as correcting the exact 2020 theorem, not inventing that operator principle.",
+        "searches": [
+          "Resultary: counterexample to perturbation stability of K-g fusion frames under ambient norm for noninjective K closed range orthogonal projection kernel",
+          "Resultary: 2020 Huang Yang K-g-fusion frames Theorem 3.18 false Moore Penrose norm f perturbation",
+          "Resultary: quantitative K frame perturbation theorem frame operator ker inclusion range K stability small norm",
+          "Huang--Yang 2020 Theorems 3.17, 3.18 and Lemma 2.10",
+          "Resultary hits: a-contraction-counterexample-and-sharp-perturbation-threshold-fo--8f809fa73cc5; adjoint-range-failure-in-a-transformed-k-g-fusion-frame-theorem--bcd0a70fb348; arbitrarily-small-synthesis-perturbations-can-satisfy-propositio--02bd1d32fef7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K-g-fusion lower bound for the perturbed analysis T_Phi implies ker(T_Phi) subset ker(K^*); the explicit vector f_delta violates this necessary condition.",
+          "The ambient-norm assumption is an exact ||T_Lambda-T_Phi||<=delta operator norm control for a=b=0, not a K*-seminorm bound.",
+          "Huang--Yang Theorem 3.17 gives stability from K*-scaled errors and cannot be substituted for Theorem 3.18 when K* has kernel."
+        ],
+        "reasoning": "Kernel inclusion, semidefinite operator domination (T_Phi^*T_Phi >= A_prime KK^*) and the K*-seminorm formulations were compared directly. These are alternative tests for whether a frame lower bound survives, not published corrections of the named 2020 result. The counterexample violates their necessary condition with arbitrarily small ambient perturbation.",
+        "searches": [
+          "Resultary: counterexample to perturbation stability of K-g fusion frames under ambient norm for noninjective K closed range orthogonal projection kernel",
+          "Resultary: 2020 Huang Yang K-g-fusion frames Theorem 3.18 false Moore Penrose norm f perturbation",
+          "web: \"K-g-fusion frames in Hilbert spaces\" Huang Yang 2020 theorem 3.18 perturbation",
+          "web: \"K-g-fusion frames\" \"Theorem 3.18\" correction erratum",
+          "doi:10.1186/s13660-020-02320-0 Theorems 3.17/3.18 and Definition 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2020 Huang--Yang publisher original: Theorem 3.18 is the exact named assertion and its statement has the required ambient error and positivity condition.",
+          "Resultary first exact matching published entry is the assigned record itself, not independent earlier evidence.",
+          "The search returned source-specific adjacent works on different transformed, woven, controlled, and continuous frame theorems; no independently prior indexed source-specific erratum was located."
+        ],
+        "reasoning": "This is not a finite numerical table/invariant with an OEIS-style exact lookup. The relevant exact-database question is an existing theorem-specific correction or published matching counterexample, searched by DOI, author, numbered theorem, and operator phrasing; absence from indexes alone does not prove novelty.",
+        "searches": [
+          "Resultary: 2020 Huang Yang K-g-fusion frames Theorem 3.18 false Moore Penrose norm f perturbation",
+          "web: \"K-g-fusion frames\" \"Theorem 3.18\" correction erratum",
+          "web: \"10.1186/s13660-020-02320-0\" stability correction",
+          "Resultary semantic matching for source theorem and operator-kernel aliases"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-specific originality: no genuinely independent inspected source proves that Huang--Yang 2020 Theorem 3.18 fails for every arbitrarily small ambient-norm bound with noninjective closed-range K, nor establishes the stated W_j subset R(K) repair of that exact printed constant. The necessary kernel inclusion and Moore--Penrose projection identity are classical and not themselves claimed original. The target paper explicitly distinguishes its c||K^*f|| theorem from the false c||f|| theorem. A broader K-g-frame predecessor and Xiang correction paper remain unread at theorem level and are priority risks; their inaccessibility is neither proof of noncoverage nor automatic O-failure. Resultary exact match is assigned finding itself and does not constitute an independent prior.",
+      "residual_risks": [
+        "2016 Hua--Huang stability theorem full text could not be checked despite locating a PDF and two Oxford timeouts; it may contain an applicable general theorem.",
+        "2020 Xiang corrigendum-like K-g-frame paper full text was inaccessible (publisher 403 and Oxford VPN disconnected), and could contain closely related prior corrections.",
+        "An earlier unindexed erratum, thesis or note may give equivalent two-dimensional null-direction instability; failed indexed searches do not establish absence.",
+        "The range-subspace repair is sufficient but not a full classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.18 claims the lower bound using c||f|| and closed-range K alone; Theorem 3.17 instead controls c||K^*f||. Theorem 3.18 does not include a range-projection hypothesis. The counterexample violates its positive lower bound.",
+          "evidence": [
+            "Definition 2.3 (2.3): A||K^*f||^2 <= sum_j v_j^2||Lambda_j pi_Wj f||^2 <= B||f||^2.",
+            "Theorem 3.18 and page 15/16: 0<=c/(1-a)<sqrt(A)/||K^dagger||, difference <=a E_Lambda^1/2+b E_Phi^1/2+c||f||; printed lower frame bound ((1-a)sqrt(A)-c||K^dagger||)^2/(1+b)^2.",
+            "Theorem 3.17 (3.28) instead has c||K^*f||; Theorem 3.18 proof merely says it is similar to 3.17."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-020-02320-0",
+          "material_read": "Complete accessible publisher full text and 16-page source PDF; Definition 2.3, Lemma 2.10, Theorem 3.3(2), Theorems 3.17 and 3.18, complete Theorem 3.17 proof, Theorem 3.18 brief proof by reference; PDF pages 15 and 16 inspected visually.",
+          "method": "Publisher open-access HTML and web PDF text plus screenshots of page indexes 14 and 15.",
+          "title": "K-g-fusion frames in Hilbert spaces",
+          "trigger": "Exact published source of the theorem and its printed ambient-norm hypothesis."
+        },
+        {
+          "assessment": "The earlier work treats ordinary g-fusion frames and closed-range transport, not a K-g-fusion c||f|| perturbation theorem with noninjective K; neither its operator-range material nor its Theorem 4.6 implies the source-specific counterexample.",
+          "evidence": [
+            "Definition 4 uses Akf^2 lower bound, not A||K^*f||^2.",
+            "Theorem 4.5 characterizes ordinary g-fusion frame sequences and Theorem 4.6 concerns the closed-range property of transformed g-fusion frame sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1806.03598",
+          "material_read": "Full accessible 16-page preprint; definitions and Moore--Penrose preliminaries; sections 2--4, including Theorems 4.5 and 4.6 and their proofs; page indexes 0 and 13 visually inspected.",
+          "method": "Public arXiv PDF text and PDF page screenshots.",
+          "title": "Generalized fusion frames in Hilbert spaces",
+          "trigger": "Earlier primary full-text general g-fusion frame framework and possible domination of claimed stability/counterexample."
+        },
+        {
+          "assessment": "Highly plausible related stability results. Exact theorem implications could not be checked; no claim of whole-document noncoverage and no automatic originality failure from this source alone.",
+          "evidence": [
+            "2016 abstract explicitly promises several stability results for K-g-frames; full theorem text unavailable in this run."
+          ],
+          "identifier_or_url": "https://doi.org/10.4134/JKMS.j150499",
+          "material_read": "Journal publisher/KoreaScience metadata, abstract, date, references and bibliography; source PDF was located by search but full 15-page text was not obtained.",
+          "method": "Public journal bibliographic/abstract records and explicit failed full-PDF retrieval attempts; authorized Oxford access timed out (two same-source visits).",
+          "title": "K-g-frames and stability of K-g-frames in Hilbert spaces",
+          "trigger": "Same subject and author predecessor cited by Huang--Yang; potential hidden general stability or correction theorem."
+        },
+        {
+          "assessment": "Potentially relevant corrections, but K-g-frames rather than target K-g-fusion theorem; extent of the corrected statements cannot be settled from abstract. Preserve as priority risk, not as evidence of whole-document noncoverage.",
+          "evidence": [
+            "Abstract states correction of two corresponding construction results and a new Paley--Wiener-type K-g-frame stability theorem; no explicit Theorem 3.18 Huang--Yang comparison visible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219691320500344",
+          "material_read": "Publication record and complete accessible abstract, plus search-indexed publisher PDF introductory snippet; full journal article not read.",
+          "method": "Publisher search snippet and bibliographic records; publisher PDF refused access (403); separate authorized institutional attempt reported VPN disconnected, with no bypass.",
+          "title": "Some new results on the construction and stability of K-g-frames in Hilbert spaces",
+          "trigger": "2020 paper explicitly says it corrects two earlier K-g-frame results and improves a Paley--Wiener stability theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Huang--Yang, K-g-fusion frames in Hilbert spaces, J. Inequal. Appl. 2020:57, doi:10.1186/s13660-020-02320-0 (complete OA publisher HTML and 16-page PDF; particularly Definition 2.3, Lemma 2.10, Theorems 3.17, 3.18, p. 14-16)",
+        "Sadri--Rahimlou--Ahmadi--Zarghami Farfar, Generalized fusion frames in Hilbert spaces, arXiv:1806.03598v1 (full 16-page primary preprint, relevant definitions and sections 2--4)",
+        "Independent symbolic counterexample and range-projection proof"
+      ],
+      "rationale": "A source-specific correction to a published quantitative stability theorem is mathematically motivated: the assertion fails not only at a sharp constant but for every arbitrarily small c=delta>0, so no ambient operator-norm threshold of the printed form protects noninjective K when null directions may enter the perturbed analysis. A two-dimensional exact construction exposes a structural kernel-inclusion obstruction, and the W_j subset R(K) condition repairs the printed lower frame bound for the general closed-range problem. The Moore--Penrose identity and triangle estimate are standard, so value is credited to the precise theorem-level falsification plus valid scoped repair, not to novelty of the elementary linear algebra. No false claim of an optimal or necessary range restriction.",
+      "residual_risks": [
+        "The correction is narrow rather than a new general frame-theoretic theorem; novelty depends on the literature gaps documented under O.",
+        "No complete necessary-and-sufficient characterization of ambient perturbations; the proposed sufficient range condition is stronger than necessary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huang--Yang, K-g-fusion frames in Hilbert spaces, J. Inequal. Appl. 2020:57, doi:10.1186/s13660-020-02320-0 (complete OA publisher HTML and 16-page PDF; particularly Definition 2.3, Lemma 2.10, Theorems 3.17, 3.18, p. 14-16)",
+    "Sadri--Rahimlou--Ahmadi--Zarghami Farfar, Generalized fusion frames in Hilbert spaces, arXiv:1806.03598v1 (full 16-page primary preprint, relevant definitions and sections 2--4)",
+    "Hua--Huang, K-g-frames and stability of K-g-frames in Hilbert spaces, J. Korean Math. Soc. 53(6) (2016), 1331--1345, doi:10.4134/JKMS.j150499 (bibliography/abstract read; full PDF retrieval unsuccessful)",
+    "Xiang, Some new results on the construction and stability of K-g-frames in Hilbert spaces, Int. J. Wavelets Multiresolution Inf. Process. 18(5) (2020), 2050034, doi:10.1142/S0219691320500344 (abstract and available publisher snippet read; full text unavailable)",
+    "Resultary semantic searches of published findings: exact assigned entry and related but distinct K-g-fusion, continuous-frame, weaving, transformed-frame perturbation counterexamples; current exact match is the record under review, not independent prior art."
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem-specific counterexample is exact for any 0<delta<1 and K the rank-one orthogonal projection on C².",
+    "The repair is sufficient, not necessary, and does not solve the most general stability problem.",
+    "Historical priority is best-of-knowledge; two high-relevance papers were not read in full and their access failures are not interpreted as mathematical failure.",
+    "No GitHub write or publication and no independent human/Lean certification."
+  ]
+}

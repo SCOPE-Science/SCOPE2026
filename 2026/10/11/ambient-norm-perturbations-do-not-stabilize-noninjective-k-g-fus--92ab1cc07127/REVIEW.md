@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-block construction satisfies the source definition exactly. The unperturbed energy is
-\[
-\|K^*f\|^2,
-\]
-the perturbation norm is exactly \(\delta\), and \(K^\dagger=K\). Thus Theorem 3.18 accepts every \(0<\delta<1\). The vector
-\[
--\delta e_1+e_2
-\]
-has zero perturbed analysis energy but positive \(K^*\)-energy, contradicting the theorem's positive lower bound.
+## correctness
 
-The sufficient repair was also checked: if every fusion subspace lies in \(R(K)\), all analysis terms depend only on \(P_{R(K)}f\), where the Moore--Penrose estimate used by the source is valid.
+PASS
 
-## Originality
-PASS. The exact theorem, source-specific correction searches, ambient-norm and \(K^*\)-seminorm formulations, Moore--Penrose/range formulations, nearby stability literature, and the available current and prior scientific records were compared.
+The exact one-block complex Hilbert-space example meets the printed Definition 2.3 and every quantitative hypothesis of Huang--Yang Theorem 3.18. With K=P_{e1}, W_1=H, v_1=1, Lambda_1=K, Phi_1(x,y)=(x+delta*y,0), 0<delta<1, the unperturbed analysis energy equals ||K*f||^2=|x|^2 with A=B=1. The perturbation has exact ambient operator norm delta, so a=b=0,c=delta satisfies c/(1-a)<sqrt(A)/||K^dagger||=1. Yet f_delta=(-delta,1) belongs to ker Phi_1 while K*f_delta=(-delta,0) is nonzero; the asserted lower bound (1-delta)^2 delta^2>0 contradicts its zero right side. Sympy reconstructed the matrices and exact polynomial; no numerical extrapolation. Under W_j subset R(K), all analysis terms depend only on g=P_{R(K)}f, and the valid closed-range identity g=(K^dagger)^*K^*g establishes ||g||<=||K^dagger|| ||K^*g||. The perturbation triangle inequality then gives the repaired lower bound, while the usual upper triangle bound is unconditional.
 
-The closest valid statement is the target paper's Theorem 3.17, which uses a \(K^*\)-scaled error. A highly relevant 2016 predecessor was available only at bibliographic and abstract level through the checked public route, so it is retained as a residual risk rather than treated as noncovering evidence.
+## originality
 
-## Value
-PASS. This is a quantitative stability theorem, and the defect survives at arbitrarily small perturbation size. The counterfamily shows that no positive threshold based only on the printed ambient norm can control directions in \(R(K)^\perp\). The repair explains which geometric restriction restores the claimed constant.
+PASS
 
-## Closest literature and limitations
-The result does not claim that \(W_j\subseteq R(K)\) is necessary. A more flexible repair can require the analysis maps to annihilate \(R(K)^\perp\), or can use a perturbation term measured directly by \(\|K^*f\|\).
+Best-of-knowledge source-specific originality: no genuinely independent inspected source proves that Huang--Yang 2020 Theorem 3.18 fails for every arbitrarily small ambient-norm bound with noninjective closed-range K, nor establishes the stated W_j subset R(K) repair of that exact printed constant. The necessary kernel inclusion and Moore--Penrose projection identity are classical and not themselves claimed original. The target paper explicitly distinguishes its c||K^*f|| theorem from the false c||f|| theorem. A broader K-g-frame predecessor and Xiang correction paper remain unread at theorem level and are priority risks; their inaccessibility is neither proof of noncoverage nor automatic O-failure. Resultary exact match is assigned finding itself and does not constitute an independent prior.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A source-specific correction to a published quantitative stability theorem is mathematically motivated: the assertion fails not only at a sharp constant but for every arbitrarily small c=delta>0, so no ambient operator-norm threshold of the printed form protects noninjective K when null directions may enter the perturbed analysis. A two-dimensional exact construction exposes a structural kernel-inclusion obstruction, and the W_j subset R(K) condition repairs the printed lower frame bound for the general closed-range problem. The Moore--Penrose identity and triangle estimate are standard, so value is credited to the precise theorem-level falsification plus valid scoped repair, not to novelty of the elementary linear algebra. No false claim of an optimal or necessary range restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
