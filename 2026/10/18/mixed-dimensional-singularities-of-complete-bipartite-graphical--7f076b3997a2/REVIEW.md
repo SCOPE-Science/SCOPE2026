@@ -1,15 +1,21 @@
-# Scientific review: mixed-dimensional complete-bipartite graphical-zonotope singularities
+# Independent mathematical audit
 
-## Correctness — PASS
-The lattice convention is fixed as \(\mathbb Z^{m+2}/\mathbb Z(1,\ldots,1)\), and each cone is a directed graph order cone after contracting the zero-edge components. Its cover graph controls facet count and unimodularity; a tree gives an integral basis, while a cycle is nonsimplicial. In \(K_{2,m}\), the only cover cycles are four-cycles using both center blocks and two singleton leaves. Comparable centers yield a three-dimensional minimal diamond cone, and incomparable centers yield exactly the full-dimensional twin-center cones with no singular proper face. The resulting counts are \(2^{m-1}\binom m2\) and \(2^m\), respectively. The conifold, product-of-projective-lines and rank-one determinantal descriptions are derived by explicit unimodular coordinates and saturated semigroup generators. Finite exact enumeration through \(m=5\) corroborates the counts, without being used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risks
-Postnikov–Reiner–Williams (arXiv:math/0609184, Sections 3 and 5) provide the graphical-fan/poset dictionary and the global simplicity criterion. Grujić (arXiv:1604.06931, Sections 2 and 4–5) provides face-number formulas and the four-cycle example. Neither inspected result states the all-parameter non-pure singular-locus decomposition, its two types of components, or the Segre and conifold local charts. Targeted checks for equivalent normal-fan, complete-bipartite, Hasse-diagram, and determinantal formulations found no exact covering statement. Same-polytope metric invariants returned by indexed research are not stronger singularity statements. The possibility of an unindexed or differently phrased equivalent toric classification remains.
+PASS
 
-## Mathematical value — PASS
-This gives a complete geometric stratification for a canonical graph-zonotope family, where the graph is neither a tree nor complete. The singular locus is **non-pure**: positive-dimensional conifold strata coexist with isolated higher-dimensional Segre-cone singularities, and both families are counted by closed formulas in the natural parameter \(m\). The result distinguishes the normal-fan toric variety from the graph's edge-ring variety. Beyond detecting global nonsimplicity, it specifies orbit-closure types, exact local equations and a geometric description of the non-\(\mathbb Q\)-factorial support. It is not merely a face-number recomputation.
+For graphical zonotope normal fan of K_{2,m}, contracting equality edges yields connected ordered blocks and cones of dimension q-1. Primitive Hasse cover edges give a unimodular cone exactly for tree cover graphs. If centers comparable, minimal cover cycles are four-block A<i,j<B diamonds: two center order choices, choose i,j, assign other leaves to A or B, giving 2^{m-1}binom(m,2) 3-cones; transverse dual Hilbert basis gives uv-wz and star fan (P^1)^{m-2}. If centers incomparable, no leaf contracted, all m leaves independently above/below, giving 2^m full-dimensional minimal singular cones; dual semigroup e_i,e_i-e_s is 2xm rank-one Segre with multiplicity m. Independence of isolated points follows from smooth proper faces. Independently enumerated all weak-order sign cones and minimal singular cone dimensions: m=3 261 cones with 12 3-cones and 8 4-cones; m=4 1299 cones with 48 3-cones and 16 5-cones.
 
-## Boundaries and closest literature
-The statement is for \(m\ge3\), over any algebraically closed field, for the **normal-fan** toric variety. The case \(m=2\) is the four-cycle and has a different six-node geometry. The singular support is reduced; the full Jacobian singular scheme and all higher-order intersections are not asserted. Relevant primary literature: Postnikov–Reiner–Williams, *Faces of Generalized Permutohedra* (first public 2006-09-06); Grujić, *Counting Faces of Graphical Zonotopes* (first public 2016-04-23); Cox–Little–Schenck, *Toric Varieties* (2011) for standard toric criteria.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graphical zonotope simplicity and face-vector results are acknowledged prior tools. Neither inspected full primary text specifies the exact two families of minimal K_{2,m} singular cones, the nonpure singular-locus component isomorphisms or their different toric local models. Best-of-knowledge originality subject to unindexed toric combinatorics.
+
+## value
+
+PASS
+
+Complete-bipartite graphical zonotopes form a natural infinite toric family. An exhaustive nonpure singular-locus decomposition with exact numbers, dimensions, orbit-closure isomorphisms and transverse/full local rings is independent geometric information well beyond a global nonsimplicity or face-vector calculation. The Segre versus conifold distinction and non-Q-factorial support are structural, potentially reusable local models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

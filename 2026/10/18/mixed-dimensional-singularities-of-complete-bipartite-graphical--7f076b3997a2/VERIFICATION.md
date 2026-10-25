@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the complete-bipartite graphical-zonotope theorem
+# Independent mathematical audit
 
-The standalone script `verify_k2m.py` enumerates **all** edge-sign cones via weak orderings of the \(m+2\) vertices of \(K_{2,m}\), deduplicates sign vectors, computes equality-block contractions and exact cover relations, and tests which singular cones have no singular proper face. It is independent of any symbolic toric package and uses Python 3 standard-library integer operations only.
+## correctness
 
-Run with `python verify_k2m.py` from the directory containing this file. Observed exact output includes:
+PASS
 
-```
-m= 2  minimal_singular_cones= {3: 6} checked_total= 51
-m= 3  minimal_singular_cones= {3: 12, 4: 8} checked_total= 261
-m= 4  minimal_singular_cones= {3: 48, 5: 16} checked_total= 1299
-m= 5  minimal_singular_cones= {3: 160, 6: 32} checked_total= 6429
-VERIFY_OK
-```
+For graphical zonotope normal fan of K_{2,m}, contracting equality edges yields connected ordered blocks and cones of dimension q-1. Primitive Hasse cover edges give a unimodular cone exactly for tree cover graphs. If centers comparable, minimal cover cycles are four-block A<i,j<B diamonds: two center order choices, choose i,j, assign other leaves to A or B, giving 2^{m-1}binom(m,2) 3-cones; transverse dual Hilbert basis gives uv-wz and star fan (P^1)^{m-2}. If centers incomparable, no leaf contracted, all m leaves independently above/below, giving 2^m full-dimensional minimal singular cones; dual semigroup e_i,e_i-e_s is 2xm rank-one Segre with multiplicity m. Independence of isolated points follows from smooth proper faces. Independently enumerated all weak-order sign cones and minimal singular cone dimensions: m=3 261 cones with 12 3-cones and 8 4-cones; m=4 1299 cones with 48 3-cones and 16 5-cones.
 
-The total includes the zero cone. These finite computations do **not** prove the all-parameter statement; the proof in `RESULT.md` handles arbitrary \(m\ge3\). In particular the integral tree-incidence argument proves unimodularity, and the explicit dual semigroup decompositions prove the conifold and rank-one determinantal chart descriptions. There is no assertion of an independent review or external validation.
+## originality
+
+PASS
+
+General graphical zonotope simplicity and face-vector results are acknowledged prior tools. Neither inspected full primary text specifies the exact two families of minimal K_{2,m} singular cones, the nonpure singular-locus component isomorphisms or their different toric local models. Best-of-knowledge originality subject to unindexed toric combinatorics.
+
+## value
+
+PASS
+
+Complete-bipartite graphical zonotopes form a natural infinite toric family. An exhaustive nonpure singular-locus decomposition with exact numbers, dimensions, orbit-closure isomorphisms and transverse/full local rings is independent geometric information well beyond a global nonsimplicity or face-vector calculation. The Segre versus conifold distinction and non-Q-factorial support are structural, potentially reusable local models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
