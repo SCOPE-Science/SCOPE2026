@@ -1,39 +1,21 @@
-# Review of An infinite Kohn–Nirenberg tower with continuous hypersurface Green functions
+# Mathematical review — Kohn–Nirenberg Green-function tower
 
 ## Correctness
 
-PASS. The defining function has Levi entry
-\[
-m^2|z|^{2m-2}
-+
-\beta(2m-1)\operatorname{Re}z^{2m-2}
-+
-(m+1)^2|z|^{2m},
-\]
-which is positive for \(z\ne0\) throughout
-\[
-\beta<\frac{m^2}{2m-1}.
-\]
-The weak boundary set lies on a real one-dimensional circle, so the \(B\)-regularity criterion used in the primary source applies.
+PASS. For every integer $m\ge3$, $1<\beta<m^2/(2m-1)$ and $\lambda>0$, the computed Levi form of the defining function is positive away from $z=0$. The only possible weak boundary points form the circle $z=0$, $|w|=1$, whose two-dimensional Hausdorff measure vanishes. The polynomial domination gives a bounded domain, while the exact weighted real flow gives smoothness and connectivity. Its uniformly inward normal derivative extends to a sufficiently narrow complex sector with the displacement and depth estimates in the SID definition.
 
-The weighted real flow has exact boundary derivative at most \(-2m\). Compactness and holomorphic dependence preserve a uniform inward derivative in a narrow complex sector, giving the required depth and displacement estimates. The singular divisor escape is exactly
-\[
-(e^{-m\tau}-1)^2.
-\]
-The nonconvexifiability proof covers all possible leading degrees of a supporting holomorphic graph; at the resonant degree \(2m\), the negative directions have vanishing sum of their \(2m\)-th powers. The primary theorem then gives the stated Green continuity and truncation convergence.
+The pole $(w-1)^2-\lambda z^2$ is reduced, meets the domain and has its only singular point on the boundary at $(0,1)$. Along the weighted flow its value there is $(e^{-m\tau}-1)^2$, showing finite-order escape. A possible supporting holomorphic graph at that point is contradicted by the degree comparison with the leading Kohn–Nirenberg polynomial; at degree $2m$ the negative-direction root-of-unity sum cancels the holomorphic correction. This proves local nonconvexifiability. Dao–Nguyen–Tran's SID theorem then yields extended-real Green continuity and canonical truncation convergence. Rescaling the divisor equation, when needed to bound its supremum norm, changes the desingularized Green function and all truncations by a compatible additive constant.
 
 ## Originality
 
-PASS. The recent primary source supplies a single bounded weighted-degree-eight Kohn–Nirenberg model and explicitly asks for broad geometric classes of nonconvexifiable domains carrying the needed global holomorphic inward flow. It does not state the all-\(m\) family or the parameter interval above.
+PASS on a documented best-of-knowledge basis, with substantial prior art. Dao, Nguyen and Tran, *Continuity of pluricomplex Green functions with hypersurface poles on certain B-regular domains* (arXiv:2610.00909v1), prove the abstract SID continuity theorem and give one $m=4$ bounded Kohn–Nirenberg example. The claimed theorem extends the simultaneous bounded SID/divisor verification to all stated $m$ and $\beta$.
 
-The older hypersurface-Green theorem for strongly star-shaped domains treats finite unions of complex hyperplanes through the origin. The present translated crossing divisor is outside that scope. Generalized Kohn–Nirenberg literature studies convexifiability geometry but does not provide the Green-function continuity statement.
+The local Kohn–Nirenberg pseudoconvexity and absence of supporting surfaces for the coefficient window are **not** independently novel: the general $p,q$ result of Zhao, Han and Li (2013), stated in Hu et al., *Geometric Properties of a General Kohn–Nirenberg Domain in $\mathbb C^n$* (2025), specializes to $p=2m$, $q=2m-2$. Earlier work by Kolář treats local convexifiability. These sources have different scopes from the global bounded complex-sector deformation with continuous hypersurface Green functions. Nguyen's 2005 source and Calamai's 2014 bounded-domain paper were not fully available; their exact priority implications remain a documented risk. Lack of a search match is not proof of novelty.
 
-Searches under sectorial-deformation, weighted-flow, generalized Kohn–Nirenberg, and hypersurface-Green aliases found no statement implying the family claimed here.
+## Mathematical value
 
-## Value
+PASS. The cited Green-continuity paper explicitly asks for broad nonconvexifiable classes with a global inward holomorphic deformation. The construction supplies a complete and useful infinite finite-type family, with a nontrivial open anisotropy interval at each type, and checks the reduced singular divisor required for the Green theorem. No maximality of that interval, optimal deformation sector, or general classification of poles is asserted.
 
-PASS. The primary paper explicitly identifies the absence of broad nonconvexifiable classes with global inward holomorphic flows as an open geometric direction. The finding answers that direction by producing an infinite finite-type tower with a transparent parameter interval, a common weighted Euler mechanism, and a natural singular divisor family.
+## Scope and verification limits
 
-The construction is structurally reusable: its proof isolates two algebraic tests—weighted inwardness and a root-of-unity support obstruction—that can be checked in further weighted-homogeneous models.
-
-Same-model review: passed. Independent audit: not yet performed.
+The exact algebra and the implication from the published SID theorem were checked against the full specified mathematical package. The supporting analytical proof applies to every admitted integer and parameter, not only to example calculations. No new formal-proof or expert-attestation claim is made.
