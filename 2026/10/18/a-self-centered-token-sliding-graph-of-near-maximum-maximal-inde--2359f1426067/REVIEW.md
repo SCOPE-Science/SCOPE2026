@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs an invertible bipartition coordinate system, proves that maximality selects the complement of the three-point neighborhood, classifies the equality \(|N(B)|-|B|=2\) via cyclic complement gaps, derives every permissible one-edge slide, and proves the quotient \(\ell_1\) geodesic formula using width-preserving interleavings. The upper eccentricity bound is an exact two-lift comparison and the lower bound provides explicit target vertices for every source. The theorem includes all odd \(n\ge5\), including the boundary graph \(C_{10}\). All critical graph and distance statements agree with standalone exhaustions of the stated finite ranges, but the infinite result rests on the displayed proof rather than extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: For odd n>=5 the explicit even/odd relabeling sends each selected even E_s to odd neighbors O_{s-1},O_s,O_{s+1}. If B consists of selected odd indices, maximality forces A=Z_n\N(B) and cardinality n-2 forces |N(B)|-|B|=2. Circular gap contributions min(g_i,2) imply B is a single proper interval [a,a+b-1] of length 1<=b<=n-3; each such interval yields exactly one maximal independent set. Legal slides add or remove one endpoint, giving the n-by-(n-3) cyclic strip, n(n-3) states, 2n(n-4) edges, degrees 2/4, bipartite connectivity. Lift (a,b) to (L,R)=(a,a+b-1): edges alter one coordinate by a unit while maintaining valid width; monotone interleaving yields the exact L1 geodesic in the strip, modulo diagonal n-translation. The upper distance n from closest lifts and explicit opposite offset at adjacent width show every eccentricity exactly n. Independently enumerate original graph maximal independent sets, all legal slides and BFS for n=5,7,9: vertex counts 10,28,54, all eccentricity sets {5},{7},{9}, degrees n=7 {2:14,4:14}, n=9 {2:18,4:36}. Infinite assertion rests on interval and strip proofs, not enumeration.
 
-The exact number of states follows from an earlier graded independent-domination enumerator for Möbius ladders; it is **not** new and is not claimed new. This coefficient formula does not imply the adjacency graph or token-slide metric. Standard independent-set token sliding omits maximality and does not transfer exact distances to the maximal-only induced subgraph. The claw-free result of Bonsma–Kamiński–Wrochna has an inapplicable hypothesis (Möbius ladders contain induced claws). Minimum independent domination reconfiguration treats another layer. Möbius-ladder independence-complex topology does not identify this reconfiguration graph. An inspection of relevant primary publications and mathematical-record comparisons found no stronger covering statement. Residual risk: unindexed or inaccessible literature may state an equivalent interval-slide classification. This is a best-knowledge originality assessment, not a publication-priority guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The layer of size \(n-2\) is the natural largest nonmaximum independent-dominating layer in this odd-width family, directly below the missing \(n-1\) layer. It is mathematically natural to ask whether dominance-preserving local moves connect all these near-optimal feasible configurations. The answer is stronger than connectivity: a complete quotient-lattice geodesic metric and the unusual self-centered, nonregular property for infinitely many sizes. Exact distances provide sharp benchmarks for constrained sampling and reconfiguration, beyond enumeration of configurations.
+PASS best of knowledge: graded Möbius-ladder independent domination enumeration already implies vertex number n(n-3), so that number is not claimed new. Relevant token-sliding literature covers unrestricted independent sets, minimum independent dominating sets, or claw-free hosts. An odd Möbius ladder has induced claws and this move must preserve maximality and exact size. None inspected states the complete interval-slide graph, exact all-pair metric, or universal eccentricity n. Related homotopy of independence complexes has a different invariant.
 
-## Limits and sources
+## value
 
-The same claims have not been established for even ladder widths, other cardinalities, or token jumping. Finite tests independently verify the package implementations only over explicitly listed sizes. Relevant inspected publications: arXiv:1403.0359v1, arXiv:2203.16861, arXiv:2303.06299, arXiv:2608.30601; OEIS:A290608 provides ungraded counting context.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact shortest paths and self-centeredness are substantive structural invariants of a natural constrained reconfiguration graph, not routine enumeration. The connected nonregular self-centered infinite family (n odd >=7) and canonical geodesic formula are independently reusable in token-slide geometry and independent dominating set reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

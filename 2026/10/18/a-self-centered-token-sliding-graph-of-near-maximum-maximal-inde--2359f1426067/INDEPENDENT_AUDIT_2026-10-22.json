@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:00:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For odd n>=5 the explicit even/odd relabeling sends each selected even E_s to odd neighbors O_{s-1},O_s,O_{s+1}. If B consists of selected odd indices, maximality forces A=Z_n\\N(B) and cardinality n-2 forces |N(B)|-|B|=2. Circular gap contributions min(g_i,2) imply B is a single proper interval [a,a+b-1] of length 1<=b<=n-3; each such interval yields exactly one maximal independent set. Legal slides add or remove one endpoint, giving the n-by-(n-3) cyclic strip, n(n-3) states, 2n(n-4) edges, degrees 2/4, bipartite connectivity. Lift (a,b) to (L,R)=(a,a+b-1): edges alter one coordinate by a unit while maintaining valid width; monotone interleaving yields the exact L1 geodesic in the strip, modulo diagonal n-translation. The upper distance n from closest lifts and explicit opposite offset at adjacent width show every eccentricity exactly n. Independently enumerate original graph maximal independent sets, all legal slides and BFS for n=5,7,9: vertex counts 10,28,54, all eccentricity sets {5},{7},{9}, degrees n=7 {2:14,4:14}, n=9 {2:18,4:36}. Infinite assertion rests on interval and strip proofs, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsma et al claw-free hypotheses exclude the induced claw around each cubic ladder vertex; Avis–Hoang fixed-cardinality graph lacks mandatory maximality; Brewster et al use minimum independent domination, not n-2 near-maximum layer."
+        ],
+        "reasoning": "Neither broad algorithmic reachability nor an enumeration by layer determines this precise self-centered metric. No stronger reviewed theorem directly implies the endpoint isomorphism.",
+        "searches": [
+          "Bonsma Kaminski Wrochna Reconfiguring Independent Sets in Claw-Free Graphs 1403.0359",
+          "Avis Hoang On Reconfiguration Graphs of Independent Sets under Token Sliding 2203.16861",
+          "Brewster Mynhardt Teshima Reconfiguration of Minimum Independent Dominating Sets 2303.06299"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md blob 8d283f6acacf7e853e146f00673df7a7680da3f5",
+        "arXiv:1403.0359 primary PDF",
+        "arXiv:2608.30601 abstract",
+        "OEIS A290608",
+        "Resultary Möbius independent dominating token-sliding query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strip-geodesic formula min_q(|c-a+qn|+|c-a+d-b+qn|) requires the interval slide adjacency not supplied by graded counts or homotopy."
+        ],
+        "reasoning": "The previous enumerator gives n(n-3) only. Claw-free structural theorem does not apply; homotopy invariants of independence complexes do not determine slide edges or graph distances. Originality assigned to new structure and geodesic result, not count.",
+        "searches": [
+          "Bonsma claw free token sliding 1403.0359 text",
+          "Agarwal Basak Möbius ladder independence complex 2608.30601",
+          "graded independent dominating Möbius ladder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal independent sets are independent dominating sets; this graph is a fixed-cardinality token-sliding reconfiguration graph, not all independent configurations."
+        ],
+        "reasoning": "Translated to independent dominating reconfiguration, maximality-preserving token slides and cyclic interval-endpoint graph. These aliases were searched; existing graded counts explain n(n-3) but not adjacency or shortest paths.",
+        "searches": [
+          "Resultary: maximal independent dominating sets odd Möbius ladders token sliding reconfiguration graph distance self-centered",
+          "arXiv:1403.0359 claw-free token sliding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier graded independent domination coefficient n(n-3) expressly credited; OEIS covers aggregate counts but no edge metric, BFS or eccentricity table."
+        ],
+        "reasoning": "Known counting databases cover only the vertex count. The natural target is a complete graph/metric classification, not rediscovery of that count.",
+        "searches": [
+          "OEIS A290608 maximal independent sets Möbius ladders",
+          "graded independent domination Möbius ladder n(n-3)",
+          "Resultary Möbius token slide metric"
+        ]
+      },
+      "rationale": "PASS best of knowledge: graded Möbius-ladder independent domination enumeration already implies vertex number n(n-3), so that number is not claimed new. Relevant token-sliding literature covers unrestricted independent sets, minimum independent dominating sets, or claw-free hosts. An odd Möbius ladder has induced claws and this move must preserve maximality and exact size. None inspected states the complete interval-slide graph, exact all-pair metric, or universal eccentricity n. Related homotopy of independence complexes has a different invariant.",
+      "residual_risks": [
+        "An unindexed independent domination reconfiguration description could give the same cyclic strip metric.",
+        "Most cited secondary sources inspected at abstract level, except the highly relevant claw-free primary source.",
+        "Finite BFS checks end at n=9 and do not establish all odd n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "It applies to claw-free host graphs, while the odd Möbius ladder contains induced K_{1,3}; its stated theorems cannot be applied verbatim",
+          "evidence": "Title/hypothesis: independent set reconfiguration under token sliding on claw-free graphs.",
+          "identifier_or_url": "arXiv:1403.0359; https://arxiv.org/abs/1403.0359",
+          "material_read": "Full public arXiv PDF, abstract/introduction, host-class assumptions and token-sliding definitions",
+          "method": "Open arXiv PDF and page screenshot",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Closest token-sliding structural result"
+        },
+        {
+          "assessment": "Studies topology of independence/perfect-matching complexes, not maximality-preserving token slides or pairwise distances",
+          "evidence": "The objects match Möbius ladders but invariant is homotopy, not the submitted state-graph metric.",
+          "identifier_or_url": "arXiv:2608.30601",
+          "material_read": "Abstract and bibliographic summary, not complete article",
+          "method": "Open abstract/literature search",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complex of Möbius Ladder Graph",
+          "trigger": "Exact host graph with potentially related classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact shortest paths and self-centeredness are substantive structural invariants of a natural constrained reconfiguration graph, not routine enumeration. The connected nonregular self-centered infinite family (n odd >=7) and canonical geodesic formula are independently reusable in token-slide geometry and independent dominating set reconfiguration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git source RESULT.md blob 8d283f6acacf7e853e146f00673df7a7680da3f5",
+    "arXiv:1403.0359 primary PDF",
+    "arXiv:2608.30601 abstract",
+    "OEIS A290608",
+    "Resultary Möbius independent dominating token-sliding query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only odd Möbius ladders with maximal independent sets of cardinality n-2; not other sizes, even ladders or token jumping.",
+    "No assertion of unindexed literature exhaustiveness."
+  ],
+  "residual_risks": [
+    "An unindexed independent domination reconfiguration description could give the same cyclic strip metric.",
+    "Most cited secondary sources inspected at abstract level, except the highly relevant claw-free primary source.",
+    "Finite BFS checks end at n=9 and do not establish all odd n."
+  ],
+  "schema_version": 1
+}
