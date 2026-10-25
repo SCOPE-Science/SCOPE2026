@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact circumscribed-area formulas (including the triangle exception) agree with Lángi--Wang, Lemma 3.7. Three exceptional orders yield an exact equal-area arithmetic triple at indices 5, 6, 7, so logarithmic and subunit powers fail strictly; ordinary Dowker convexity gives every power at least one. For other finite orders, exhaustive strict rational interval certificates check all 426 irredundant inequalities, including the triangle cases. For all orders at least 16, the comparison with disk enclosures and strict convexity of the disk's logarithmic area sequence give a uniform gap. Weak log-Dowker implies every positive powered weak inequality by weighted AM--GM. The source's Theorem 1.9 transfers weak logarithmic convexity to log-honeycomb for the corresponding norm. The executable checker is supplementary to, and does not replace, the analytic reductions or published extremal-area theorem.
+## correctness
 
-## Originality
-PASS on the inspected source and searches, with bibliographic residual risk. The primary Lángi--Wang paper proves weak one-half-Dowker for all regular even polygons except the three exceptional orders and obtains the Euclidean log-honeycomb theorem; its smooth-boundary asymptotic log-Dowker result excludes polygonal boundaries. Its statements do not imply the weak logarithmic conclusion for infinitely many polygonal norms. Classical Dowker convexity implies only powers at least one. No exact full-exponent dichotomy or regular-polygon logarithmic honeycomb extension was located in the targeted literature comparisons. An equivalent result not indexed in the sources searched is possible; the complete later journal text was not independently inspected, although the complete lawful preprint version was.
+PASS
 
-## Mathematical value
-PASS. The source's weak powered-Dowker criterion singles out three exceptional regular-polygon orders and asks which normed-plane perimeter objectives are controlled. This result identifies the exact threshold for every regular even-gon, strengthens the power-one-half theorem to the logarithmic endpoint in all nonexceptional cases, and supplies a new family of normed-plane log-honeycomb inequalities. The sharp exceptional boundary is structurally meaningful rather than an arbitrary finite case study.
+The frozen RESULT.md defines A_k(n) as the minimum circumscribing n-gon area and the weighted secant at 6 for all integer 3<=m<6<n. The cited Lángi–Wang Lemma 3.7 formulas and monotonicity reduce each fixed k to finite comparisons through n=2k. For k=4,5,7, explicit symbolic triples A(5)+A(7)=2A(6) with strict spacing make strictly concave powers 0<alpha<1 and log fail, while Dowker convexity proves all alpha>=1. For other k<=15, the independently reproduced full 426 strict logarithmic comparisons, not a partial sample, are the finite component of the proof. For all k>=16, the analytic log convexity of d(x)=x tan(pi/x), the exact universal disk comparison d(n)<=A_k(n)<=sec(pi/(2k))^2 d(n), and the rational cutoff d(5)d(7)/d(6)^2>51/50>sec(pi/32)^4 cover infinitely many k. Weighted AM-GM promotes log to every positive power; the Lángi–Wang log-honeycomb implication transfers the outcome to normal convex unit-area tilings. k=2,3 follow from A(n)=A(6) for n>=6. Independent mpmath 65-digit comparison corroborated 426 finite inequalities and the disk cutoff, with no claim that numerical tests prove the infinite part.
 
-## Verification and remaining limitations
-The checker uses standard-library exact fractions and certified trig interval arithmetic; it does not prove uninspected literature originality or any extension to general nonsymmetric norms. Exceptional orders are not asserted to disprove geometric honeycomb optimality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing work derives the circumscribed-area formula and sharp weak 1/2-Dowker classification, but its half-power property does not logically yield the log endpoint. The frozen analytic/integer-certificate proof establishes a stronger exact all-exponent dichotomy and the consequential logarithmic honeycomb bound.
+
+## value
+
+PASS
+
+Substantive strengthening of a known powered-Dowker classification to the logarithmic endpoint, with a sharp exceptional-order dichotomy, bridges the exact regular-polygon area formula and a recognized open-strength tiling objective. The finite certificate is logically tied to a rigorous infinite-order cutoff, not an arbitrary sample. Exceptions are failures of a sufficient inequality, not asserted to be negative tiling examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

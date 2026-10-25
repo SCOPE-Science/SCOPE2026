@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:10:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, check.py, seven Git blob listings",
+        "arXiv:2406.10622 Lemma 3.7/Theorem 1.9",
+        "independent_checks.py R1 426 comparisons, exceptional k=4,5,7 and disk-ratio tests"
+      ],
+      "rationale": "The frozen RESULT.md defines A_k(n) as the minimum circumscribing n-gon area and the weighted secant at 6 for all integer 3<=m<6<n. The cited Lángi–Wang Lemma 3.7 formulas and monotonicity reduce each fixed k to finite comparisons through n=2k. For k=4,5,7, explicit symbolic triples A(5)+A(7)=2A(6) with strict spacing make strictly concave powers 0<alpha<1 and log fail, while Dowker convexity proves all alpha>=1. For other k<=15, the independently reproduced full 426 strict logarithmic comparisons, not a partial sample, are the finite component of the proof. For all k>=16, the analytic log convexity of d(x)=x tan(pi/x), the exact universal disk comparison d(n)<=A_k(n)<=sec(pi/(2k))^2 d(n), and the rational cutoff d(5)d(7)/d(6)^2>51/50>sec(pi/32)^4 cover infinitely many k. Weighted AM-GM promotes log to every positive power; the Lángi–Wang log-honeycomb implication transfers the outcome to normal convex unit-area tilings. k=2,3 follow from A(n)=A(6) for n>=6. Independent mpmath 65-digit comparison corroborated 426 finite inequalities and the disk cutoff, with no claim that numerical tests prove the infinite part.",
+      "residual_risks": [
+        "Checker finite arithmetic is not a substitute for k>=16 log-convexity or published tiling implication.",
+        "A claim of tiling nonoptimality at exceptional k would be invalid and is not made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dowker ordinary sequence convexity gives convex powered area for alpha>=1; Theorem 1.9 is a conditional log-honeycomb transfer, not an all-even-gon weak-log theorem."
+        ],
+        "reasoning": "Ordinary Dowker is weaker for alpha<1. The closest broader tiling theorem requires the weak log-Dowker premise, so it does not dominate the computed endpoint classification.",
+        "searches": [
+          "arXiv:2406.10622 Theorems 1.9 and 3.3",
+          "Dowker 1944 minimum circumscribed polygons",
+          "Resultary published-finding semantic search: weak logarithmic Dowker inequality regular centrally symmetric polygon circumscribed minimum area convex n-gons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.10622 Theorems 1.9/3.3, Lemma 3.7",
+        "Dowker (1944) cited in original Lángi–Wang PDF",
+        "Resultary above targeted weak Dowker semantic queries",
+        "Assigned RESULT.md and check.py Git blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing 1/2 exponent conclusion does not imply alpha->0 log convexity; the current theorem does imply the previously published alpha=1/2 result and satisfies the published sufficient log-honeycomb condition."
+        ],
+        "reasoning": "Implication runs from the new strong endpoint to prior half-power and from new established premise through known tiling implication, not inversely.",
+        "searches": [
+          "arXiv:2406.10622 Theorem 3.3 and Theorem 1.9",
+          "Dowker (1944)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lángi–Wang Theorem 3.3 states weak alpha=1/2 for nonexceptional k, Lemma 3.7 provides A_k(n). The log endpoint is the limit of normalized powers, not a formal consequence at fixed alpha=1/2."
+        ],
+        "reasoning": "Checked the equivalent comparison of convexity of n->log A_k(n) at 6 against published power-convexity: a Jensen inequality for sqrt(A) may hold while log(A) does not, so the paper’s sharp half-power statement does not settle this claim.",
+        "searches": [
+          "Resultary published-finding semantic search: powered Dowker weak log Dowker regular polygon honeycomb 2k exceptions 4 5 7",
+          "arXiv:2406.10622 Sections 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite area values are calculable from prior Lemma 3.7, but no published full log-convexity test for all k/m/n or power threshold table was located."
+        ],
+        "reasoning": "Existing circumscribed-area data are inputs, not the quantified inequalities at every m,n or the infinite k>=16 analytical cutoff. A failed database search alone is not proof of priority.",
+        "searches": [
+          "Resultary published-finding semantic search: powered Dowker weak log Dowker regular polygon honeycomb 2k exceptions 4 5 7",
+          "arXiv:2406.10622 Lemma 3.7"
+        ]
+      },
+      "rationale": "Existing work derives the circumscribed-area formula and sharp weak 1/2-Dowker classification, but its half-power property does not logically yield the log endpoint. The frozen analytic/integer-certificate proof establishes a stronger exact all-exponent dichotomy and the consequential logarithmic honeycomb bound.",
+      "residual_risks": [
+        "No exhaustive search of all historic normed-plane honeycomb literature; equivalent unindexed log-Dowker argument could predate these sources.",
+        "Published area formulas and all k<=15 exact tests are conditional on correct normalization of n=3 case; inspected formula/checker and compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses the same regular even-gon isoperimetrices and supplies necessary known facts but stops at sharp alpha=1/2 rather than classifying alpha=0.",
+          "evidence": "Theorem 3.3 weak 1/2 classification; Lemma 3.7 exact area formula; Theorem 1.9 log-honeycomb implication.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.10622",
+          "material_read": "Definitions 1.7–1.8, Theorems 1.9 and 3.3, Lemma 3.7 and surrounding proof and regular-polygon calculations; PDF pages inspected incl. figures",
+          "method": "Original lawful arXiv full-text PDF with page screenshots, not title snippets",
+          "title": "The Honeycomb Conjecture in normed planes and an alpha-convex variant of a theorem of Dowker",
+          "trigger": "Exact regular polygon formula, weak powered thresholds and log-honeycomb transfer"
+        },
+        {
+          "assessment": "Used only for ordinary A(n) convexity and not represented as an original article full-text inspection.",
+          "evidence": "A(n) is nonincreasing and convex, powering with alpha>=1 preserves convexity.",
+          "identifier_or_url": "Bull. AMS 50 (1944) 120–122",
+          "material_read": "Classical Dowker theorem statement as cited/reproved in the full Lángi–Wang source; original article not separately read in full",
+          "method": "Primary citation triangulated through inspected contemporary proof",
+          "title": "On minimum circumscribed polygons",
+          "trigger": "Classical base convexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2406.10622 Theorems 1.9/3.3",
+        "exact all-k comparison in assigned RESULT.md"
+      ],
+      "rationale": "Substantive strengthening of a known powered-Dowker classification to the logarithmic endpoint, with a sharp exceptional-order dichotomy, bridges the exact regular-polygon area formula and a recognized open-strength tiling objective. The finite certificate is logically tied to a rigorous infinite-order cutoff, not an arbitrary sample. Exceptions are failures of a sufficient inequality, not asserted to be negative tiling examples.",
+      "residual_risks": [
+        "Value is restricted to regular centrally symmetric polygonal normed planes; it is not a classification for arbitrary isoperimetrices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
