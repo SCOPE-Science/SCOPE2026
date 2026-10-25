@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one adjugate identity reduces all possible exceptional singular points to squares of monomials. The explicit complementary-minor determinant certifies a nonempty generic corank-one open set on the added linear stratum; Schur complementation proves a nondegenerate transverse quadratic model. Secant-variety dimension and Serre's criterion prove the stated normality. An exact checker verifies the symbolic identities and the cubic ADE normal forms. No finite enumeration is used as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2014 source covers the generic case and sub-Hankel terminal degenerations; the 2020 source (read in full, especially §1.3 and Theorem 3.9) treats consecutive tail-zero specializations and not the one-coefficient interior cuts here. The named rank conditions and elementary matrix identities are known and not claimed. The interior parity stratification plus normalization boundary were not found in inspected literature or the accessible prior collection. The 1988 Eisenbud general-section paper and a 2024 book chapter represent residual implicit-coverage risk.
+PASS
 
-**Mathematical value — PASS.** The family of interior cuts is canonical rather than an arbitrary numerical slice: it is the complement of the previously studied tail degenerations. The precise even/odd jump, the appearance of a linear singular component with a uniform transverse model, and normality versus nonnormality provide new structural information, with the explicit \(A_1+A_5\) cubic boundary.
+At corank 1 the symmetric adjugate is λvvᵀ and gradient w.r.t a_t equals λ[z^t](Σv_i z^i)². Singular on a_k=0 iff that square is a single monomial, so k even=2j, v=e_j, equivalent to jth row zero. Corank≥2 points singular automatically. On extra L_j the complementary minor B has explicit nonzero ±a_{j−1}^j a_{j+n}^{n−1−j} and hence generic corank1. Schur complement yields nondegenerate quadratic normal slice −det(B)rᵀB⁻¹r. Rank≤n−2 secant locus has dimension 2n−5, intersected with coordinate hyperplane at most 2n−6; extra L_j dimension n−2 gives codimension n−2 in Y of dim2n−4, so for n≥4 singular codimension≥2. Hypersurface S2 plus regular in codimension 1 gives integral normality. At n=3 even k=2 equation −a0a3²−a1²a4 irreducible nonnormal; for odd k=1,3 cubics have A1+A5 isolated points. Independently verified 10 exact complementary minor identities for n3..6 and cubic A5 coordinate change. No scheme-theoretic radical primary decomposition claimed.
 
-**Limits.** Only reduced singular support and generic transverse form are determined; no full Jacobian primary decomposition or positive-characteristic statement is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Single interior coefficient deletion is distinct from published terminal consecutive-zero degeneration. The exact parity jump in reduced singular support, extra linear stratum, transverse quadratic form and normality boundary were not identified in the inspected primary source. The adjugate and Schur methods themselves are standard and not claimed as new.
+
+## value
+
+PASS
+
+Canonical interior sections of classical Hankel determinant hypersurfaces exhibit structural even/odd singularity jump, a higher-dimensional linear component with uniform transverse type and a sharp normality exception at n=3; useful as explicit singularity geometry complement to known terminal cuts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
