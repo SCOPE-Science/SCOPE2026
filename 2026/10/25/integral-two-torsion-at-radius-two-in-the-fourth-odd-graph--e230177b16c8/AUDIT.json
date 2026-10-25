@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Each of the 35 vertices and 1211 nonempty faces is enumerated; all 280 free-face pairs are tested at time of deletion. The remaining signed 246-by-336 matrix is independently regenerated and its exact column Hermite normal form has determinant two and full rank; mod-two rank is 245. This proves integral H1=Z/2, H2=Z^90 and vanishing other reduced homology. The graph distance rule, girth six, connectedness and scale-three diameter are checked from BFS. No infinite-size extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamaszek Proposition 2.2 requires girth at least 3r+1=7 for radius r=2, but O4 has girth six.",
+        "Adamaszek Fact 2.1 gives first-homology surjectivity but not the target torsion group."
+      ],
+      "reasoning": "The closest broad graph-power theorem misses the boundary case; its hypotheses fail and the conclusion of collapse to the original graph would contradict the certified torsion. Existing other-graph Rips computations do not imply the 35-vertex Odd-graph result.",
+      "searches": [
+        "Adamaszek arxiv:1104.0433 Proposition 2.2 full primary PDF",
+        "published-finding corpus: Odd graph 35 triples Kneser KG(7,3) square clique complex girth six torsion topological homology",
+        "Web: Odd graph O4 KG(7,3) Vietoris Rips scale two integral homology torsion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1104.0433 (full primary PDF)",
+      "arxiv:1112.0410 (full primary PDF)",
+      "arxiv:2610.17394 (abstract only)",
+      "Paley-29 Rips integral-torsion result (other graph and scale)",
+      "Rook-graph neighborhood integral-homology result (different construction)",
+      "Grötzsch-graph graph-Cech torsion result (different complex)",
+      "Triangular-graph mod-two neighborhood-complex result (different graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The girth condition in the graph-power collapse theorem is violated by this precisely verified girth-six graph.",
+        "The Terwilliger algebra result determines adjacency-algebra structure, not a signed simplex boundary or integral torsion.",
+        "The rook-neighborhood and Paley-Rips sources use different graphs and/or different simplicial constructions, hence their torsion does not imply this statement."
+      ],
+      "reasoning": "Neither general graph-power facts nor association-scheme data determine the integral homology here; exact cellular calculations and the integer lattice index are additional nontrivial information.",
+      "searches": [
+        "arxiv:1104.0433 full text Fact 2.1 Proposition 2.2",
+        "arxiv:1112.0410 full text Theorem 3.5",
+        "published-finding corpus: Integral homology of rook graph neighborhood complex",
+        "published-finding corpus: The Paley-29 Rips complex has 29 Klein-bottle links and integral two-torsion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph-distance condition becomes pairwise triple intersections of size zero or two, verified by the all-pairs BFS in verify_odd4.py.",
+        "Kong--Lv--Wang explicitly define Odd graphs as disjointness graphs on middle-rank subsets but study a Terwilliger algebra, not simplicial homology."
+      ],
+      "reasoning": "The alternate set-family and graph-power descriptions are the same complex and were searched; no retrieved statement computes its integral chain homology. Independence complexes of KG(7,3) have edges when triples intersect at least once, so they are not equivalent to this clique complex.",
+      "searches": [
+        "published-finding corpus: Odd graph O4 KG(7,3) Vietoris Rips complex at graph distance 2 has homology H1=Z/2 and H2=Z^90 35 vertices 280 edges 56 maximal four simplices",
+        "published-finding corpus: Complex of 3-subsets of a seven element set with pairwise intersections of sizes zero or two integral simplicial homology",
+        "Web: KG(7,3) clique complex graph square",
+        "arxiv:1112.0410"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching indexed result or tabulated integral homology was returned for this vertex set and graph metric.",
+        "The full finite computation yields signed boundary HNF index exactly two, rather than a numerical Betti-table lookup."
+      ],
+      "reasoning": "The searches tested aliases and complete numerical fingerprints. No exact covering table was found; this is a limited negative search result, not proof of bibliographic uniqueness.",
+      "searches": [
+        "published-finding corpus: Odd graph O4 KG(7,3) Vietoris Rips complex at graph distance 2 has homology H1=Z/2 and H2=Z^90 35 vertices 280 edges 56 maximal four simplices",
+        "published-finding corpus: Flag complex of graph on 35 triples with adjacency disjoint or overlap in two points, f vector 35 280 560 280 56, torsion",
+        "Web: homotopy type squared odd graph O4 Kneser KG(7,3) clique complex torsion 90"
+      ]
+    },
+    "rationale": "The graph-power stability theorem fails its girth hypothesis here, and primary Odd-graph association algebra literature does not calculate integral Rips homology. Multiple direct published-finding corpus and external queries, including aliases and the f vector, found no stronger coverage. Residual unindexed equivalents are explicitly acknowledged.",
+    "residual_risks": [
+      "Possible unindexed literature giving homology of the same 35-vertex association-scheme flag complex in a different notation.",
+      "The recent Kneser-independence abstract was not treated as a full-text inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: girth bound requires seven for radius two; the fourth Odd graph has girth six. Fact 2.1 supplies only surjection used as an ingredient.",
+        "evidence": [
+          "Fact 2.1 surjectivity (PDF page 3).",
+          "Proposition 2.2 girth >=3r+1 (PDF page 3).",
+          "Cycle-power classification and stable-Kneser example are different objects."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+        "material_read": "Full 16-page parsed primary PDF: introduction, definitions, Sections 2--7 and references, with close visual reading of PDF page 3 (Proposition 2.2).",
+        "method": "ArXiv primary full text and displayed page image",
+        "title": "Clique complexes and graph powers",
+        "trigger": "General radius-two graph-power stability might subsume the claim"
+      },
+      {
+        "assessment": "NOT_COVERING: exact graph family, but it computes adjacency/Terwilliger algebras and basis, not clique-complex integral homology.",
+        "evidence": [
+          "Introduction defines O_(m+1) and discusses distance m.",
+          "Section 3 develops matrix algebra bases rather than simplicial chains."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.0410",
+        "material_read": "Seven-page primary PDF introduction, Odd-graph distance partition identities, Section 3 Terwilliger-algebra construction and its theorem, references; page 1 visually inspected.",
+        "method": "ArXiv full text, extracted sections, and first-page image",
+        "title": "The Terwilliger algebra of Odd graphs",
+        "trigger": "Explicit same graph family might contain a formula implying result"
+      },
+      {
+        "assessment": "Different object by explicit graph-edge criterion: an independence complex requires pairwise non-disjoint triples, whereas X requires intersection size 0 or 2. Potential uninspected connections remain a residual risk.",
+        "evidence": [
+          "Abstract explicitly states independence complexes of Kneser graphs, as opposed to graph-distance-two Rips complexes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.17394",
+        "material_read": "Public title and abstract only; no whole-document noncoverage inference made",
+        "method": "Original arXiv abstract inspected",
+        "title": "The rational homology of independence complexes of Kneser graphs on triples",
+        "trigger": "A new near-name match for KG(7,3) and homology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e230177b-16c8-4ce8-a9ea-994b2e2b297b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fourth Odd graph is a canonical 35-vertex distance-regular graph at the first unstable radius-two girth boundary (girth six versus general stability threshold seven). Its nontrivial integral two-torsion makes the Rips filtration depend on coefficient characteristic: a mod-two H1 bar extends to radius three and H2 dimension gains one. Neither its rational Betti numbers nor known large-girth graph-power theorems determine this phenomenon. This is a motivated exact finite benchmark, not an arbitrary induced subcomplex or routine parameter tweak.",
+    "status": "PASS"
+  }
+}
