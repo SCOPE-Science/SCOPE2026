@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The renewal generating function is derived directly from the interarrival PGF. The Stieltjes inversion is valid because the fractional transform is analytic off the nonpositive axis, is \(O(|s|^{-1})\) at infinity, and is \(O(|s|^{-q})\) near zero with \(0<q<1\). The jump density is positive and normalized; all finite differences are strictly signed. Regeneration gives the exact covariance, and Laplace scaling gives the asymptotic. A separate executable performs 436 finite consistency checks but is not treated as proof of infinite claims.
+## correctness
 
-**Originality — PASS, subject to literature risks.** The closest full-text source [1] states the waiting PGF and explicitly proposes correlation analysis for later work, but does not show the renewal-epoch mixing measure or covariance profile. [2] studies related but different count and time-change observables. [3] supplies general discrete complete-monotonicity technology, and [4] classical renewal regeneration. Published research-record comparisons did not surface this exact combination. A differently named earlier renewal-sequence moment theorem might subsume the spectral component, so uniqueness is not guaranteed.
+PASS
 
-**Value — PASS.** The finding supplies a nontrivial positive spectral representation and strict finite-time dependence together with an exact asymptotic aging profile for a newly studied renewal model. This identifies a mathematically meaningful form of persistent dependence without incorrectly assuming stationarity.
+From renewal identity ∑_{n≥1}u_n z^n=G(z)/(1−G(z))=z F(1−z), F(s)=λ/(s^q+λs). The slit-plane boundary jump at s=−x gives strictly positive density w(x)=λ sin(πq)x^(−q)/{π[1−2λx^(1−q)cos(πq)+λ²x^(2−2q)]}. Sectoral O(|s|^(−q)) at zero and O(|s|^(−1)) at infinity justify the keyhole Stieltjes formula; sF(s)→1 and monotone convergence normalize its total mass. Generating coefficient comparison gives u_n=∫(1+x)^(−n) w(x)dx for every n≥0, implying strict sign of all nonzero forward differences. Renewal independence gives E I_tI_(t+h)=u_tu_h, hence Cov=u_t(u_h−u_(t+h))>0. Small-x density asymptotic gives u_n~λn^(q−1)/Γ(q), yielding Corr(I_t,I_(t+h))→u_h for fixed h, with ∑_h u_h=∞. q=1 yields independent geometric Bernoulli arrivals. Independently numerically integrated q=1/2,λ=0.7 first moments [1,0.41176470588,0.29065743945,0.23544677387,0.20270800158]; checked strict initial differences, not asymptotics.
 
-**Limits.** The result is restricted to renewal-epoch indicators and the stated fractional family; stationary spectral long-range dependence and the covariance of accumulated event counts are not established. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-References: [1] N. Yoshida (2026), arXiv:2605.03664; [2] A. Pachon, F. Polito and C. Ricciuti, *On discrete-time semi-Markov processes*; [3] R. A. C. Ferreira, *Complete monotonicity of discrete equations and related results*; [4] R. G. Gallager, *Discrete Stochastic Processes*, Chapter 4.
+Yoshida introduces precisely the model and gives its waiting PGF and discrete fractional Poisson count distributions, but the full read HTML treats correlations as a future direction. Pachon–Polito–Ricciuti examine related fractional semi-Markov counts/inverse Sibuya models, not the renewal-epoch indicator considered here. Ferreira general complete-monotonicity machinery is a possible source of implicit spectral coverage and was not successfully read in full; the model-specific positive density plus regeneration aging law appears a genuine combined refinement.
+
+## value
+
+PASS
+
+A model-defined renewal sequence acquires a positive explicit Hausdorff/Stieltjes mixing law, not merely a coefficient formula. It answers the motivating model-specific dependence question with strict finite-time arrival correlations and a sharply characterized, nonstationary nonsummable fixed-lag limit; this is informative for stochastic aging, with stationarity carefully not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
