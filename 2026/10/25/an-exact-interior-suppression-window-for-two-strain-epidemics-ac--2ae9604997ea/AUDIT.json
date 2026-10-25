@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Poisson-thinning and offspring typing yield exact matrix M. Its Perron root follows by quadratic formula. For c != d, f second derivative h²q²/[h²(1-t)²+q²t²]^(3/2)>0, and endpoint derivatives -max(c,d), q-s give the iff strict interior criterion. Closed optimizer derives by tangency, checked algebraically and by finite program. Rational example det(I-M)=(-363 t²+308 t-29)/400; algebraic roots (14±sqrt109)/33 and symmetric positive-definite criterion certify the entire subcritical interval. At endpoints accessibility of the supercritical strain holds. Standalone verify.py passed 21,615 exact and sampled arithmetic assertions; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karlin reduction applies to separated fixed growth and stochastic mixing; with a=d and b=c the current model has q=sqrt(cd) <= (c+d)/2 and therefore never enters the strict interior regime.",
+        "published-finding corpus ID 2026/9/14/SCOPE021 has a coupled-SEIR patch-counterexample with E/I-churn, not two-strain mutation and layer budget.",
+        "arxiv:2406.16787 alternates SIS contact networks over time; here the layers coexist and mutation follows an individual transmission."
+      ],
+      "reasoning": "A stronger generic theorem on convex affine positive-matrix Perron roots might subsume the algebraic minimizer, but available comparisons did not find one explicitly giving the specialized epidemiological threshold and exact reentrant emergence window. We do not claim novelty of generic spectral convexity or Parrondo-like phenomena.",
+      "searches": [
+        "nonmonotone epidemic threshold mixing mutation matrices identity and swap layers exact optimal layer allocation",
+        "epidemic threshold mixing two transmission routes unique interior minimum square root 2x2 Perron root",
+        "spectral radius matrix convex combination diagonal and offdiagonal unique minimum mixing mutation",
+        "Karlin mixing theorem spectral radius convex combination identity permutation switching matrices genotype reproduction",
+        "mixing reduces growth rate spectral radius symmetrizable nonnegative 2x2 convex mixing two matrices epidemic",
+        "Karlin growth-mixing principle arxiv:1006.3147",
+        "Sejunti Taylor Masuda arxiv:2406.16787 Parrondo"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.05051 main material, earliest public 2022-10-10",
+      "doi:10.1073/pnas.2302245120 main version",
+      "doi:10.1038/srep21392 open main article",
+      "arxiv:1006.3147 abstract/record",
+      "arxiv:2406.16787 abstract/record",
+      "published-finding corpus semantic matches for actual queries recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sood et al. supply the general two-layer mutation spreading equations, from which one can specialize to the present two-by-two matrix, but no inspected statement asserts global convexity and the sharp iff condition under redistribution of a fixed total Poisson degree.",
+        "Min et al. prove different epidemic optimality based on layer switching of a contagion history, demonstrating nonmonotone spread is known but not proving the fixed-budget swapped-strain mutation criterion.",
+        "published-finding corpus SCOPE-neutral-strain-continua... examines two-virus delay rather than layer-dependent mutation; SCOPE-all-rate-growth-weighted-mutation-chemostat addresses reversible mutation and substrate monotonicity in chemostats."
+      ],
+      "reasoning": "The two-layer ancestor implies the formula for the spectral radius after elementary reduction; the claimed novel scientific step is evaluating its full global allocation phase diagram under extreme opposing mutation operations, with an exact reentrant extinction interval. This is a specialized quantitative new statement, not an assertion that general models never exhibited suppression before.",
+      "searches": [
+        "two-strain two-layer Poisson branching epidemic fixed contact budget mixing strain-preserving and strain-swapping layers interior minimum spectral radius reentrant extinction",
+        "nonmonotone epidemic threshold mixing mutation matrices identity and swap layers exact optimal layer allocation",
+        "epidemic threshold mixing two transmission routes unique interior minimum square root 2x2 Perron root",
+        "two strain epidemic contact layers spectral radius mixing optimal interior mixing mutation probability epidemic threshold",
+        "spectral radius matrix convex combination diagonal and offdiagonal unique minimum mixing mutation",
+        "Parrondo paradox mixing two supercritical branching processes yields subcritical 2x2 matrix",
+        "arxiv:2210.05051",
+        "doi:10.1038/srep21392"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equivalent next-generation spectral representation is R times the Perron root of a two-by-two affine nonnegative matrix M/R with diagonal c(1-t),d(1-t) and offdiagonal at,bt.",
+        "arxiv:2210.05051 Theorem 2 treats the general four-type Jacobian, but the inspected main theorem does not optimize over fixed total layer allocation.",
+        "doi:10.1038/srep21392 obtains nonmonotone spreading under layer-switching costs, not biological strain-switching by a layer."
+      ],
+      "reasoning": "The 4-by-4 Poisson Jacobian contracts to two strain types, so the paper is a strong model precursor, not a distinct object. The question is whether its general threshold formula implies the exact present minimizer classification explicitly; it does not state it in reviewed main material. The 2016 layer-switching mechanism is different in state space; it covers generic nonmonotonicity but does not supply this quantitative phase boundary.",
+      "searches": [
+        "two-strain two-layer Poisson branching epidemic fixed contact budget mixing strain-preserving and strain-swapping layers interior minimum spectral radius reentrant extinction",
+        "nonmonotone epidemic threshold mixing mutation matrices identity and swap layers exact optimal layer allocation",
+        "spectral radius matrix convex combination diagonal and offdiagonal unique minimum mixing mutation",
+        "Karlin mixing theorem spectral radius convex combination identity permutation switching matrices genotype reproduction",
+        "Sood et al. arxiv:2210.05051 main threshold sections",
+        "Min et al., Scientific Reports 6 21392 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched semantic research records 30 hits per mathematical query, notably epidemic spectral and two-strain mutation records."
+      ],
+      "reasoning": "The result is an infinite family theorem parameterized by four transmissibilities and total contacts plus an exact algebraic witness, not a tabulated finite graph census. No matching published database/table was identified by the recorded searches.",
+      "searches": [
+        "two-strain two-layer Poisson branching epidemic fixed contact budget mixing strain-preserving and strain-swapping layers interior minimum spectral radius reentrant extinction",
+        "nonmonotone epidemic threshold mixing mutation matrices identity and swap layers exact optimal layer allocation",
+        "epidemic threshold mixing two transmission routes unique interior minimum square root 2x2 Perron root"
+      ]
+    },
+    "rationale": "The verified contribution is not discovery of mutation-multilayer branching thresholds, generic strict convexity of spectral interpolations, or nonmonotone contact thresholds. It is a specialized sharp if-and-only-if interior layer-allocation condition q>(c+d)/2 for a fixed-contact-budget Poisson two-strain epidemic with identity versus swap mutation, including the exact optimizer and exact two-supercritical-layer/one-subcritical-mixture interval. Sood et al. give the multilayer branching framework; Min et al. demonstrate qualitatively nonmonotone spread from path-dependent layer switching. Inspected mathematical statements do not establish this precise identity/swap contact-budget phase classification. Accessible published published-finding corpus research records closest in spectral epidemic thresholds and mutation did not imply the specialized phase classification after statement/implication comparisons. Priority may still be affected by uninspected supplementary matter or a broad spectral interpolation result.",
+    "residual_risks": [
+      "A broad affine nonnegative two-by-two Perron optimization theorem might subsume the algebraic phase classification; not independently ruled out by a complete literature census.",
+      "Sood et al. supplementary appendix and some broad primary mathematical papers were not fully examined; novelty of precise mutation-specialized statement retains priority risk.",
+      "Existing nonmonotone thresholds and epidemic Parrondo effects are prior art, so no novelty claim is made for those generic ideas.",
+      "No independent scientific review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers branching-network model and threshold calculation, not identified to cover exact fixed-total-degree identity/swap optimizer classification; residual supplemental risk acknowledged",
+        "evidence": [
+          "arxiv:2210.05051 (first posted 2022-10-10), doi:10.1073/pnas.2302245120",
+          "Theorem 2 gives a four-type Jacobian; Poisson excess means reduce to ordinary means."
+        ],
+        "identifier_or_url": "arxiv:2210.05051; https://pmc.ncbi.nlm.nih.gov/articles/PMC10268263/",
+        "material_read": "Abstract, methods/model definitions, multilayer threshold theorem, Poisson layer discussion, case-study main results/conclusion; supplement not fully inspected",
+        "method": "Lawful open main article text and arXiv abstract/full-text excerpts; statements compared mathematically to matrix and allocation criterion",
+        "title": "Spreading Processes with Mutations over Multi-layer Networks",
+        "trigger": "Identical epidemic mechanism: multilayer two-strain mutations and Poisson threshold"
+      },
+      {
+        "assessment": "Documents earlier nonmonotone multiplex contagion spread, but prior/next layer dependent transmissibilities rather than biological strain mutations carried by a network layer",
+        "evidence": [
+          "doi:10.1038/srep21392, Scientific Reports 6 21392 (2016)",
+          "Previous/next contact-layer switching cost differs from strain identity/swap mutation."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep21392",
+        "material_read": "Full accessible main HTML sections on model, threshold equation, figures and conclusions; supplementary not independently retrieved",
+        "method": "Open publisher article, compare model variables and optimization mechanism",
+        "title": "Layer-switching cost and optimality in information spreading on multiplex networks",
+        "trigger": "Strong plausible overlap: optimizing a nonmonotonic multiplex transmission threshold"
+      },
+      {
+        "assessment": "Separated structure excludes strict interior regime under a=d,b=c; general spectral interpolation priority remains a limitation",
+        "evidence": [
+          "arxiv:1006.3147"
+        ],
+        "identifier_or_url": "arxiv:1006.3147",
+        "material_read": "Abstract and theorem scope description only; full text not inspected",
+        "method": "ArXiv summary, compare required separated growth-mixing structure",
+        "title": "Karlin Theory On Growth and Mixing Extended to Linear Differential Equations",
+        "trigger": "Potential general mixing theorem that might dominate the spectral result"
+      },
+      {
+        "assessment": "Prior epidemic paradox relates to temporal alternation, not simultaneous Poisson layer allocation with strain mutations",
+        "evidence": [
+          "arxiv:2406.16787"
+        ],
+        "identifier_or_url": "arxiv:2406.16787",
+        "material_read": "Abstract/model description only; full text not inspected",
+        "method": "Public preprint summary and model comparison",
+        "title": "A Parrondo paradox in susceptible-infectious-susceptible dynamics over periodic temporal networks",
+        "trigger": "Earlier epidemic suppression by mixing supercritical processes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ae96049-97ea-44c4-8969-a23df934776a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed total contact budget and two opposing mutation mechanisms are epidemiologically interpretable natural constraints. The theorem provides a sharp comparison between mutation geometric mean and preserving-layer arithmetic mean and an exact design/allocation criterion. The rational example proves a genuine epidemiological qualitative transition: each pure layer supercritical from an accessible initial strain, but many mixtures subcritical. This is not a routine relabeling, a mere numeric counterexample, or a generic assertion of known multiplex nonmonotonicity. The precise iff phase frontier and its extinction window are the motivated structural content.",
+    "status": "PASS"
+  }
+}
