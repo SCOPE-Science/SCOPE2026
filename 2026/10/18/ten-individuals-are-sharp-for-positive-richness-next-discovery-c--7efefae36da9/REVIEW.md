@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact covariance identity follows by conditioning the next discovery indicator on the existing sample, expressing missing species through hypergeometric absence events and expanding their joint moments. A complete integer-partition census, with a logically separate labeled-subset computation for every case, exhausts 590 profile-depth pairs through nine individuals. The ten-individual witnesses are independently reproduced, and exact conditional calculations establish the unbounded two-sign family.
+## correctness
 
-**Originality — PASS (best knowledge, residual risks noted).** Searches of the published mathematical record and relevant species-discovery, sample-coverage and rarefaction literature did not identify a dominating statement for the precise pair of random variables (cumulative richness and next-step discovery), the finite no-replacement design, the sharp ten-individual onset and the unbounded two-sign family. The closest published mathematical record instead concerns correlations between successive discovery indicators under iid sampling. Good–Toulmin and later rarefaction/coverage literature motivate the quantities without presenting this specific classification in accessible material. Because the full text of one historical source and the closest indexed mathematical record was inaccessible, a separately qualified originality check remains appropriate.
+PASS
 
-**Value — PASS.** Species richness and next-observation novelty are linked quantities in survey design and stopping rules. The sharp threshold identifies the smallest community where observing unusually high richness predicts *more*, rather than less, immediate opportunity for discovery; the same community necessarily exhibits the opposite dependence near census. This combines a natural complete finite classification with a transparent arbitrarily large construction, rather than an arbitrary profile-specific statistic. It does not predict a causal effect or a universally unique transition depth.
+Using unseen-species indicators Zi, the next-draw novel-species conditional expectation is (sum ai Zi)/(N-m). Exact hypergeometric avoidance probabilities yield the covariance identity as a pairwise indicator expansion. Independently enumerated every nondecreasing abundance partition and depth for N=2..10: all 590 cases for N<=9 are nonpositive; at N=10 only (4,1^6) at m=2 (1/450) and (5,1^5) at m=2 (1/324) are positive. Elementary conditioning for (t,1^s) yields formula (2) with sign t(s-3)-2(s-1); near census the covariance is -ts/(t+s)^2. Tested 6<=s<=23 and verified s>=6 positive symbolically from the displayed factor, so no finite extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Related published Resultary finding 2026/9/20 treats adjacent new-discovery indicators under iid draws; these are different variables and a different sampling design. Classical Good–Toulmin and Heck–van Belle–Simberloff address expected unseen richness and rarefaction variance, neither of which entails the specified joint covariance without a further identity. An exact existing finite-population sequential covariance theorem was not located.
+
+## value
+
+PASS
+
+Sequential biodiversity rarefaction is natural; the first positive dependence threshold and an explicit family showing opposite shallow-versus-deep signs sharpen intuition about the interaction between observed richness and the next discovery. This is a genuine joint-dependence fact, not merely an expectation or ordinary variance recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
