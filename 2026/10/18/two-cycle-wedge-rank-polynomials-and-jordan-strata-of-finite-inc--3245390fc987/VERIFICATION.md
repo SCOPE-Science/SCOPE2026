@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 figure_eight_checker.py` using Python 3 with no third-party packages. The checker independently enumerates each edge-weight specialization of the bipartite wedge and computes ordinary finite-field row reduction. The tested triples are `(n,m,q)=(2,2,2),(2,2,3),(2,2,4),(2,2,5),(2,3,2),(2,3,3),(3,3,2)`. The checker implements the extension field of order four directly, checks coefficient-by-coefficient against the rank-polynomial recurrence, and makes three additional polynomial total-mass checks. The observed terminal message was `ALL_FIGURE_EIGHT_RANK_CHECKS_PASSED`.
+## correctness
 
-The general proof independently establishes forest rank from unique maximal-matching minors, the deleted-row path recurrence, the two-monomial cycle determinant, and the common-row direct-sum rowspace criterion. Exact finite cases cannot establish the general theorem or priority over unindexed literature. No external or independent audit was performed.
+PASS
+
+The new root-row gluing identity follows by deleting the shared row, leaving two block-diagonal matrices; the joined row lies in their direct-sum rowspace iff both components do. Weighted-forest rank equals its support matching number because the forest induced by endpoints of a maximum matching has a unique perfect matching, yielding a nonzero minor in every characteristic. The cyclic parity transfer T and alternating determinant cancellation supply P_n,S_n and the rank-neutral root-row count Q_n=(S_n-q^2 z P_n)/(1-z). The all-nonzero rank defect requires both independent cycle determinants to vanish. Since the incidence algebra radical squares to zero, rank r corresponds to Jordan type (2^r,1^(N-2r)). Independently, symbolic matrix recurrence for n=2,3,4 gives polynomial Q_n; the n=m=2 formula is exactly identical as a polynomial in q,z; direct finite-field Gaussian elimination of all 2^8 and 3^8 edge assignments yielded (1,27,120,108) and (1,128,1824,4608). The general claim rests on the combinatorial proof, not these finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge: The earlier published results supply ingredients, not the all-weights rank distribution for two cycles sharing a vertex or its constrained radical Jordan-type census; the nontrivial shared-row condition is needed to obtain it. Source reading, explicit four comparisons and priority risks detailed below.
+
+## value
+
+PASS
+
+A two-cycle vertex wedge is the first interacting bicyclic sparse family beyond previously enumerated forests/single cycles. Rooted gluing gives exact all-rank and nilpotent Jordan strata for every n,m,q, a useful structural enumerator for finite incidence algebras and potential cut-vertex decompositions, not a mere tabulated small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

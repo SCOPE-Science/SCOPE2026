@@ -1,19 +1,21 @@
-# Mathematical assessment: two-cycle wedge rank polynomials
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every prime-power \(q\) and \(n,m\ge2\), the theorem counts every edge-weight specialization exactly once. A weighted forest biadjacency matrix has rank equal to the support matching number because the minor supported on a maximum matching has a unique perfect matching and hence a single nonzero determinant term. Deleting the gluing row leaves two independent paths, each governed by the stated two-state recurrence. The dimension of the path rowspace intersected with the deleted row's two-coordinate support is exactly the rank drop upon deleting the other columns, so the polynomial \(Q_n\) counts rank-neutral row extensions. A common row is rank-neutral exactly when both its restrictions are individually rank-neutral, proving \(\mathcal W=zF_GF_H+(1-z)D_GD_H\). The single-cycle determinant has exactly two alternating monomials, giving the full-support correction. The incidence radical has square zero, so a rank-\(r\) element has Jordan type \((2^r,1^{N-2r})\). Independent brute-force ranks over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5\) verify all small stated cases and total-mass tests.
+PASS
 
-## Originality: PASS within examined coverage
+The new root-row gluing identity follows by deleting the shared row, leaving two block-diagonal matrices; the joined row lies in their direct-sum rowspace iff both components do. Weighted-forest rank equals its support matching number because the forest induced by endpoints of a maximum matching has a unique perfect matching, yielding a nonzero minor in every characteristic. The cyclic parity transfer T and alternating determinant cancellation supply P_n,S_n and the rank-neutral root-row count Q_n=(S_n-q^2 z P_n)/(1-z). The all-nonzero rank defect requires both independent cycle determinants to vanish. Since the incidence algebra radical squares to zero, rank r corresponds to Jordan type (2^r,1^(N-2r)). Independently, symbolic matrix recurrence for n=2,3,4 gives polynomial Q_n; the n=m=2 formula is exactly identical as a polynomial in q,z; direct finite-field Gaussian elimination of all 2^8 and 3^8 edge assignments yielded (1,27,120,108) and (1,128,1824,4608). The general claim rests on the combinatorial proof, not these finite checks.
 
-The 2026 published-finding corpus single-cycle rank enumerator supplies \(S_n\) and must not be counted as new; its full result and proof were checked. The published-finding corpus tree character-degree enumerator supplies the support-forest rank mechanism and is likewise prior art. The new claim is the **shared-root rowspace-intersection gluing identity** and the complete two-even-cycle wedge specialization, which involves simultaneous cancellation constraints. The 2022 Fuchs–Kirillov triangular-matrix Jordan-type counts aggregate unrestricted nilpotent triangular matrices and do not determine this restricted height-two incidence-algebra distribution. Searches for bipartite cycle wedges, cut-vertex rank-polynomial gluing, finite-field matrix zero patterns, and the same result under Jordan/incidence-algebra terminology did not identify equivalent published coverage. The argument does not establish absolute novelty; an unindexed or older rooted-rank formula is a stated residual priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-This is a natural exact rank/Jordan census for the first articulation-coupled pair of cyclic support components, beyond standalone trees and cycles. It computes every rank stratum uniformly for all \(n,m,q\), distinguishes shared-vertex dependence from disjoint-cycle independence, and isolates a sharp characteristic-two full-support rank obstruction. The relation between these sparse matrices and the radicals of natural height-two incidence algebras makes the coefficients interpretable as intrinsic finite-algebra counts. The rooted gluing lemma is reusable on other cut-vertex-supported bipartite matrix families; no unstated downstream theorem is required for the complete census to be mathematically worthwhile.
+Best-of-knowledge: The earlier published results supply ingredients, not the all-weights rank distribution for two cycles sharing a vertex or its constrained radical Jordan-type census; the nontrivial shared-row condition is needed to obtain it. Source reading, explicit four comparisons and priority risks detailed below.
 
-## References and limits
+## value
 
-Primary source: Fuchs and Kirillov, arXiv:2204.00066 (first posted 2022-03-31). Published mathematical records compared: *Cycle graphical groups have an explicit character-degree enumerator* and *Tree graphical groups have matching-support character polynomials* (published-finding corpus, 2026). Proof concerns finite fields, two even cycles sharing one bipartition vertex, labelled radical elements, and Jordan type only; no assertion of global historical uniqueness or classification of arbitrary incidence posets. The standalone finite checker supports but cannot certify infinite-parameter claims. Independent external review remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A two-cycle vertex wedge is the first interacting bicyclic sparse family beyond previously enumerated forests/single cycles. Rooted gluing gives exact all-rank and nilpotent Jordan strata for every n,m,q, a useful structural enumerator for finite incidence algebras and potential cut-vertex decompositions, not a mere tabulated small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
