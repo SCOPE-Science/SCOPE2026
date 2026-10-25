@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T09:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f74798776b7dec378fee0b7862b7a1b040576403",
+        "artifacts/verify.py blob 3426c78fb9442d24c1f73dff7716bc389f2d1895",
+        "artifacts/verify_output.txt blob 651b1b4968b80590633fcd13302ea96fd5740555"
+      ],
+      "rationale": "The integral formula follows from Lagrange inversion for U=1+zU^p. For an off-diagonal pair p!=r and every prime ell>max(p,r), Lucas gives binom(p ell+r,ell)=p mod ell, while p ell+r is invertible mod ell; hence R(ell)-R(1)=p-r mod ell, contradicting Dold divisibility for any fixed multiplier. On the diagonal p=r=s>=2, a_n=binom(s(n+1),n)/(n+1), and for odd ell>2s Lucas gives a_ell=s and a_(2ell)=s(2s-1) modulo ell. The Möbius sum at 2ell is s(s-1)/2 mod ell, a fixed nonzero residue, again impossible for a fixed multiplier. At (1,1), the constant-one sequence is realized by a singleton. Denominators used modulo ell are explicitly invertible. The finite verifier is only a spot-check of these formulas; the proof is unrestricted.",
+      "residual_risks": [
+        "No formal proof-assistant certificate is claimed; the modular argument is a conventional mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polynomial-Dold result covers p=1, and Zhang covers specific classical sequences, but neither covers arbitrary p,r or the diagonal p=r>=2."
+        ],
+        "reasoning": "No inspected theorem dominates the complete two-parameter family. The Dold condition supplies the obstruction method but does not itself give the Raney residues.",
+        "searches": [
+          "arXiv:2007.04031v4, Lemma 2.2 and Dold divisibility framework",
+          "arXiv:2302.09454v2, Theorem 21 and proof",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search on Raney almost-realizability",
+        "arXiv:1501.07137 full PDF",
+        "arXiv:2007.04031v4 full PDF",
+        "arXiv:2302.09454v2 full PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang uses prime-index residues to exclude Catalan numbers; the Dold survey handles polynomial sequences. The diagonal twice-prime sum at 2ell is not stated for general Raney parameters in these inspected texts."
+        ],
+        "reasoning": "Prior work motivates the method and settles proper subfamilies, but does not imply the off-diagonal and nontrivial diagonal cases simultaneously.",
+        "searches": [
+          "arXiv:2007.04031v4, Lemma 2.2",
+          "arXiv:2302.09454v2, Theorem 21 and proof at prime indices",
+          "arXiv:1501.07137, §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beagley-Drube define the same R_{p,r}(n) and give tree/planar-embedding interpretations. Byszewski-Graff-Ward prove polynomial Dold sequences are constant. Zhang excludes the Catalan, Motzkin and large/small Schroder sequences."
+        ],
+        "reasoning": "The sequence identity is standard, but almost-realizability is a separate dynamical property. The polynomial p=1 subfamily and Catalan (2,1) case are known special cases; the full parameter classification is not an equivalent formulation of those results.",
+        "searches": [
+          "Resultary query: Raney numbers almost realizable classification positive integer parameters",
+          "arXiv:1501.07137, definition of Raney numbers and Theorem 1.1",
+          "arXiv:2007.04031v4, Lemma 2.2",
+          "arXiv:2302.09454v2, Theorem 21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned no exact Raney almost-realizability classification. The prior papers give enumerative interpretations and selected sequence classifications, not a parameter table."
+        ],
+        "reasoning": "The finite arithmetic grid is only corroboration and not a novelty table; the claimed classification follows from the general congruence proof.",
+        "searches": [
+          "Resultary query: Raney numbers almost realizable classification positive integer parameters",
+          "arXiv:1501.07137 full PDF",
+          "arXiv:2302.09454v2 full PDF"
+        ]
+      },
+      "rationale": "Raney numbers themselves and their combinatorial interpretations are classical. Earlier dynamics literature covers polynomial Dold sequences and specific Catalan/Motzkin/Schroder examples. The reviewed result classifies the entire positive-integer two-parameter Raney family, including the nonpolynomial diagonal obstruction; targeted Resultary search found no equivalent full classification.",
+      "residual_risks": [
+        "The polynomial p=1 and Catalan (2,1) subfamilies are covered by prior results and are not independently claimed new.",
+        "An unindexed general theorem about Raney sequences could exist; no such coverage was found in the targeted primary sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact sequence and gives combinatorial interpretations; no dynamical almost-realizability classification.",
+          "evidence": "The abstract and §1 define R_{p,r} and its tree/embedding interpretations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.07137",
+          "material_read": "Full 11-page PDF; definition and Theorem 1.1 inspected",
+          "method": "Primary full-text formula comparison",
+          "title": "Generalized Catalan Numbers and the Enumeration of Planar Embeddings",
+          "trigger": "Same two-parameter Raney numbers"
+        },
+        {
+          "assessment": "Covers the necessary divisibility criterion and proves polynomial Dold sequences are constant, settling p=1 as a subfamily but not the full Raney family.",
+          "evidence": "Lemma 2.2 states that a polynomial sequence satisfying the Dold condition must be constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.04031",
+          "material_read": "Full 38-page PDF; Dold divisibility and Lemma 2.2 on polynomial sequences inspected",
+          "method": "Primary full-text theorem comparison",
+          "title": "Dold sequences, periodic points, and dynamics",
+          "trigger": "Primary background for necessary Dold conditions"
+        },
+        {
+          "assessment": "Excludes Catalan, Motzkin and large/small Schroder sequences, but does not state the general Raney classification or the diagonal 2ell obstruction.",
+          "evidence": "Theorem 21 and its proof use prime-index residues for selected sequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.09454",
+          "material_read": "Full 25-page PDF; Theorem 21 and proof inspected",
+          "method": "Primary full-text theorem comparison",
+          "title": "Realizability of Some Combinatorial Sequences",
+          "trigger": "Closest recent prime-index obstruction for Catalan-like sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Beagley-Drube, arXiv:1501.07137",
+        "Byszewski-Graff-Ward, arXiv:2007.04031v4",
+        "Zhang, arXiv:2302.09454v2"
+      ],
+      "rationale": "The theorem gives a complete natural classification for a standard two-parameter family of generalized Catalan numbers under a meaningful dynamical constraint. The diagonal case requires a distinct twice-prime Möbius obstruction, so this is not just renaming the Catalan example or a routine finite computation.",
+      "residual_risks": [
+        "The result is a necessary-congruence exclusion plus one explicit realization; no broader positive dynamical construction is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive integers p,r, R_{p,r}(n)=r/(pn+r) binom(pn+r,n) is almost realizable as fixed-point counts up to a fixed positive multiplier if and only if (p,r)=(1,1).",
+  "limitations": [
+    "Positive integer p,r and n>=1 only; no shifted/subsequenced family or real parameters.",
+    "No general positive dynamical construction is claimed beyond the singleton exception."
+  ],
+  "residual_risks": [
+    "The polynomial p=1 and Catalan (2,1) subfamilies are covered by prior results and are not independently claimed new.",
+    "An unindexed general theorem about Raney sequences could exist; no such coverage was found in the targeted primary sources.",
+    "No formal proof-assistant certificate is claimed; the modular argument is a conventional mathematical proof."
+  ],
+  "schema_version": 1
+}

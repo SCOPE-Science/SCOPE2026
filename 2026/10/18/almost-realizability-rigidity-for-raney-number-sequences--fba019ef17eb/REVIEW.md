@@ -1,15 +1,21 @@
-# Scientific review: almost-realizability rigidity for Raney numbers
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain includes all positive integer parameters and all positive indices. Integrality is justified by the integral formal-power-series model and Lagrange inversion, and the exceptional \(p=r=1\) sequence has an explicit singleton realization. For \(p\ne r\), Lucas congruences and the prime-index Dold condition imply that every sufficiently large prime divides one fixed nonzero integer; for \(p=r=s\ge2\), the twice-prime-index Dold sum is congruent to the fixed nonzero integer \(s(s-1)/2\). All divisions modulo the chosen prime have explicitly invertible denominators. The conclusion is unrestricted; finite arithmetic checks are supporting evidence only.
+## correctness
 
-## Originality — PASS relative to compared statements
-Zhang [3] proves the non-almost-realizability of the unshifted Catalan sequence and two other named sequences, not the uniform family of all Raney numbers. The published treatment of ordinary Catalan prime congruences gives the method but not its diagonal obstruction. The Dold survey [2] includes a theorem for polynomial Dold sequences, which covers one already-known subfamily \(p=1\) but not all parameter pairs. Beagley--Drube [1] gives the Raney definition and combinatorial enumerations, not the Dold classification. Searches of these full primary texts, broader web indices, and a mathematical-results index found no statement implying the uniform classification. Equivalence in unindexed sources remains a residual risk.
+PASS
 
-## Value — PASS
-The Raney family is a standard natural two-parameter extension of Catalan sequences with plane-tree interpretations. Dynamical (almost) realizability is a recognized structural arithmetic question, and previously published classification addressed named examples, not this entire family. The exact if-and-only-if result identifies a unique admissible parameter point and, crucially, a distinct obstruction required on the infinite diagonal where the generic prime-index test is silent. This is an all-parameter structural classification, not just a finite computation or reformulation of a single known Catalan case.
+The integral formula follows from Lagrange inversion for U=1+zU^p. For an off-diagonal pair p!=r and every prime ell>max(p,r), Lucas gives binom(p ell+r,ell)=p mod ell, while p ell+r is invertible mod ell; hence R(ell)-R(1)=p-r mod ell, contradicting Dold divisibility for any fixed multiplier. On the diagonal p=r=s>=2, a_n=binom(s(n+1),n)/(n+1), and for odd ell>2s Lucas gives a_ell=s and a_(2ell)=s(2s-1) modulo ell. The Möbius sum at 2ell is s(s-1)/2 mod ell, a fixed nonzero residue, again impossible for a fixed multiplier. At (1,1), the constant-one sequence is realized by a singleton. Denominators used modulo ell are explicitly invertible. The finite verifier is only a spot-check of these formulas; the proof is unrestricted.
 
-## Scope and limitations
-This review is based on the stated elementary proof, a finite reproducible exact-integer checker, and inspected published sources [1–3]. It does not claim exhaustive knowledge of all unpublished or unindexed literature. The finite program cannot prove the infinite parameter assertion; the proof does. No independent validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Raney numbers themselves and their combinatorial interpretations are classical. Earlier dynamics literature covers polynomial Dold sequences and specific Catalan/Motzkin/Schroder examples. The reviewed result classifies the entire positive-integer two-parameter Raney family, including the nonpolynomial diagonal obstruction; targeted Resultary search found no equivalent full classification.
+
+## value
+
+PASS
+
+The theorem gives a complete natural classification for a standard two-parameter family of generalized Catalan numbers under a meaningful dynamical constraint. The diagonal case requires a distinct twice-prime Möbius obstruction, so this is not just renaming the Catalan example or a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
