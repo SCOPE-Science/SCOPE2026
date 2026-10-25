@@ -1,19 +1,21 @@
-# Scientific review: five-vertex symmetric-digraph multipath torsion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's quantifiers are finite: every loopless simple graph on at most five vertices, regarded as a symmetric digraph. The graph generator gives the standard 1, 2, 4, 11, 34 unlabeled isomorphism-type counts and examines every oriented arc subset of up to four arcs; the bound follows from directed-path forest acyclicity. The signed integer Smith calculations find one and only one torsion-bearing graph type; its boundary ranks are 13, 41 and 12, with one nonunit invariant 2 in the second boundary. The 65 pairs in the bundled certificate cover 130 of 140 faces and are acyclic under a complete sort of 336 face-poset covering relations. Integral Morse cancellation gives eight degree values \((0,0,0,-2,0,0,-2,0)\) against one loop, establishing \(\mathbb{RP}^2\vee\bigvee^7 S^2\), not merely a homology isomorphism. The two independently constructed face enumerations and the complete certificate provide reproducibility. Finite enumeration makes no claim beyond the stated domain.
+PASS
 
-## Originality — PASS, with a residual bibliographic risk
+Finite theorem: the five graph-order classes comprise exactly 1,2,4,11,34 unlabeled simple graphs. Independent exact code generated all 52 and evaluated every directed-linear-forest face and integer Smith boundary; only seven-edge triangular B3 (canonical mask 127) has torsion, with f=(14,54,60,12), SNF(d1)=1^13, SNF(d2)=1^40 2, SNF(d3)=1^12. Separately independently reconstructed the 140-face Morse complex: 65 distinct unit-pivot pair cancellations, 336 poset covers, complete topological acyclicity, critical cells (1,1,8) in dimensions (0,1,2), integer degree vector (0,0,0,-2,0,0,-2,0). Its two-cell degrees reduce over GL8(Z) to (2,0^7), yielding RP^2 wedge seven S^2, not merely identical homology. Scope strictly symmetric digraphs of simple graphs on <=5 ordinary vertices, not arbitrary digraphs or isolated RP2.
 
-The 2026 Caputi–Collari–Smith full text establishes homology/connectivity and open questions for symmetric *paths and polygons*, not the edge-sharing triangular book; it also acknowledges previously known torsion examples in other settings. The accessible 2023 Caputi–Collari–Di Trani full text poses a non-wedge realization question, not a book classification. The 2024 homotopy-family paper was checked in its full open postprint and treats different directed graph families. The 2026 directed-forest/chordality study has hypotheses not furnishing this exact cyclic example. Relevant indexed prior mathematical statements include a bidirected double-star, a complete bipartite family \(K_{2,n}\), a friendship graph with triangles sharing **a vertex**, and a bidirected wheel; none contains this claim by implication. An inaccessible or unindexed matching result remains possible: the evidence supports a best-knowledge PASS, not a proof that no one has published it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact threshold and uniqueness among all simple symmetric digraphs with at most five graph vertices are structurally meaningful: the seven-edge triangular book is the first object in this natural restricted category to acquire genuine two-torsion. The concrete \(\mathbb{RP}^2\) wedge summand furnishes a small, reproducible non-sphere-wedge benchmark closely connected to the realizability questions in the founding literature. Adding a single hub edge to \(K_{2,3}\) changes the integral topology, an observable boundary between similar graphs. The value rests on the sharp, naturally formulated minimal example and its complete integral homotopy, not on software or an invented universal classification.
+Best-of-knowledge statement-and-implication assessment against published results, primary texts and published mathematical records; negative search is not priority certification.
 
-## Remaining limits
+## value
 
-The theorem does not classify nonsymmetric orientations, order-six graphs or beyond, nor demonstrate an exact \(\mathbb{RP}^2\) without extra spheres. The exact Smith computation is independent of any external tabulation, but originality is limited by available literature. The review does not constitute external verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp minimum-order torsion threshold and explicit integral non-wedge homotopy type address a natural realization question for graph multipath complexes. The complete finite classification has natural graph-order cutoff and the added edge from K2,3 to the triangular book changes torsion. The exact RP2 plus spheres witness is independently useful, not a trivial reformulation of known unrestricted torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

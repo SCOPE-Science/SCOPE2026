@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The research object is the multipath simplicial complex of the symmetric digraph on \(K_2\vee\overline K_3\). Run the bundled scripts from their shared directory, with Python 3 and SymPy installed:
+## correctness
 
-```sh
-python verify_census.py
-python verify_homotopy.py
-```
+PASS
 
-`verify_census.py` independently enumerates every graph-isomorphism type on one through five graph vertices; its expected type totals are 1, 2, 4, 11 and 34. It independently enumerates all multipaths, constructs every integer simplicial boundary, computes Smith invariant factors and checks the unique torsion case, seven edges, 140 nonempty simplices, ranks 13, 41, 12 and one invariant factor 2. Its canonical graph mask is 127. Expected output is `census_output.txt`.
+Finite theorem: the five graph-order classes comprise exactly 1,2,4,11,34 unlabeled simple graphs. Independent exact code generated all 52 and evaluated every directed-linear-forest face and integer Smith boundary; only seven-edge triangular B3 (canonical mask 127) has torsion, with f=(14,54,60,12), SNF(d1)=1^13, SNF(d2)=1^40 2, SNF(d3)=1^12. Separately independently reconstructed the 140-face Morse complex: 65 distinct unit-pivot pair cancellations, 336 poset covers, complete topological acyclicity, critical cells (1,1,8) in dimensions (0,1,2), integer degree vector (0,0,0,-2,0,0,-2,0). Its two-cell degrees reduce over GL8(Z) to (2,0^7), yielding RP^2 wedge seven S^2, not merely identical homology. Scope strictly symmetric digraphs of simple graphs on <=5 ordinary vertices, not arbitrary digraphs or isolated RP2.
 
-`verify_homotopy.py` reconstructs the 140 faces without using the census enumerator; it checks the complete 65-pair list in `morse_certificate.json`, verifies an acyclic orientation of all 336 face-poset cover relations by topological sorting, performs exact unit-pivot integer cancellations and checks the residual attaching-degree vector against the sole critical one-cell. It checks the Morse differential squares to zero. Expected output is `homotopy_output.txt`.
+## originality
 
-The two-dimensional Morse CW model has one zero-cell, one one-cell and eight two-cells, attached with degrees \((0,0,0,-2,0,0,-2,0)\). The nonzero gcd of 2 and seven zero invariant directions give \(\mathbb{RP}^2\vee\bigvee^{7}S^2\). A Smith calculation alone would not justify that homotopy type; the complete acyclic matching plus degree calculation does. The finite exhaustive census proves uniqueness only within the stated small, symmetric, loopless simple-graph class, not an all-order or all-digraph claim.
+PASS
 
-Independent scientific audit has not been performed.
+Best-of-knowledge statement-and-implication assessment against published results, primary texts and published mathematical records; negative search is not priority certification.
+
+## value
+
+PASS
+
+A sharp minimum-order torsion threshold and explicit integral non-wedge homotopy type address a natural realization question for graph multipath complexes. The complete finite classification has natural graph-order cutoff and the added edge from K2,3 to the triangular book changes torsion. The exact RP2 plus spheres witness is independently useful, not a trivial reformulation of known unrestricted torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
