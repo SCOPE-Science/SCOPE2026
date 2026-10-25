@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:59:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Ewens insertion/differentiation proof and terminal binomial tail bound",
+        "verify.py exhaustive one-permutation cycle/record and Ewens checks",
+        "independent_checks.py exact enumeration S_n n=3..7"
+      ],
+      "rationale": "For one and the same uniform π∈S_n, n≥1, the Ewens tilt Pθ(π)∝θ^{C_n(π)} has d/dθ Pθ(I_{n,j}=1)|1=Cov(C_n,I_{n,j}). At size m=j the last-position record iff π(j)=j, an Ewens singleton probability θ/(θ+j−1). When inserting new value m into the cycle of an Ewens permutation, insertion after one of j−1 earlier sites destroys the record, after j forces the new max at j, after a later site or as singleton leaves it unchanged; this gives p_m=[(θ+m−1−j)p_{m−1}+1]/(θ+m−1). At θ=1 p=1/j, differentiated forcing terms cancel, p′_m=(m−j)p′_{m−1}/m. Iteration yields (j−1)/(j² binom(n,j)) exactly, with zero j=1 and n=1. Sum of independent marginal record/cycle Bernoulli variances is H_n−H_n^(2); isolating j=n and bounding binom(n,j)≥binom(n,2) for 2≤j≤n−2 shows covariance∼1/n and corr∼1/(n log n). Independent exact rational enumeration n=3..7 of both statistics on each permutation corroborates all positionwise identities. No Foata-transform identification is used.",
+      "residual_risks": [
+        "No finite check replaces the analytic proof; claims quantified as in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubach, Probability Theory and Related Fields 194 (2026), §1.1–1.2 and §2.3 introduction to record limit theorem",
+          "Kabluchko–Marynych arXiv:2105.11365 marginal Lah/Stirling and records"
+        ],
+        "reasoning": "Dubach studies conjugation-invariant permutations with conditioned cycle structures and records, chiefly asymptotic phase transitions (Theorem/§2.3), a broader distribution class but different asymptotic objective; inspected theorem does not give finite E[C I_{n,j}] in one uniform permutation. Kabluchko–Marynych gives Stirling record marginals in compositions, not same-permutation covariance.",
+        "searches": [
+          "Resultary semantic search: same permutation cycles number and left to right record at position covariance Ewens insertions (limit 12, 2026-10-22)"
+        ]
+      },
+      "checked_sources": [
+        "Gnedin arXiv:math/0611538 introduction",
+        "Dubach 2025 online/2026 volume, open full HTML relevant record sections",
+        "Kabluchko–Marynych arXiv:2105.11365 record marginal abstract",
+        "Resultary semantic search same permutation cycles number and left to right record at position covariance Ewens insertions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gnedin 2007 record-Ewens correspondence",
+          "Dubach 2025/2026 §2.3 high-record asymptotics",
+          "RESULT.md formula and terminal j=n contribution"
+        ],
+        "reasoning": "Cycle count and record count are marginally Stirling-distributed with variance H_n−H_n^(2), but matching marginals cannot determine even the sign of covariance for the same π. Gnedin bijective correspondence across models also does not imply the exact binomial positional factor. The asserted terminal dominance is stronger than variance/marginal statements; Dubach limit results do not contain the same finite formula in the inspected material.",
+        "searches": [
+          "Resultary semantic search: same permutation cycles number and left to right record at position covariance Ewens insertions (limit 12, 2026-10-22)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin Coherent random permutations with record statistics (2007), introduction/record-Ewens measure",
+          "RESULT.md derivative of same-permutation Ewens law"
+        ],
+        "reasoning": "The covariance equals the derivative of the positional Ewens record probability at θ=1, i.e. a cycle-weighted one-line record mixed moment. Classical Foata equidistribution maps cycles to records on a generally transformed permutation; it does not preserve the original pair (C(π),I_j(π)) or establish independence.",
+        "searches": [
+          "Resultary semantic search: same permutation cycles number and left to right record at position covariance Ewens insertions (limit 12, 2026-10-22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 linear-inversion-gap cycle covariance (non-prefix event)",
+          "Resultary 2026/10/4 bivariate record kill Stirling law (different model)"
+        ],
+        "reasoning": "Resultary record/cycle query retrieved inversion-gap cycle count and bivariate Pareto-record killed-count results; no table matching (j−1)/(j² binom(n,j)). Exact enumeration was a correctness diagnostic only, not a discovery of historical priority.",
+        "searches": [
+          "Resultary semantic search: same permutation cycles number and left to right record at position covariance Ewens insertions (limit 12, 2026-10-22)"
+        ]
+      },
+      "rationale": "The exact *same-permutation*, positionwise cycle-count/left-to-right-record covariance is distinct from equidistribution of marginal cycle and record counts under the Foata correspondence and from conjugation-invariant record limit laws. Best-of-knowledge primary-source comparison did not expose the finite formula, but older joint generating functions remain a risk.",
+      "residual_risks": [
+        "Older joint cycle/record bivariate generating functions or exact Ewens expectations may encode this positional formula implicitly.",
+        "Kabluchko–Marynych complete text not read; its stated objects and marginal direction do not themselves imply same-π covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distributional/bijective parallels, not this same-original-permutation positional mixed covariance in read parts.",
+          "evidence": [
+            "Intro of coherent random permutations, cycle-/record-marking context"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611538",
+          "material_read": "PDF introductory treatment and record-/cycle-weighted coherent distributions, screenshot selected page",
+          "method": "Web PDF text/screenshot",
+          "title": "Coherent random permutations with record statistics",
+          "trigger": "Same cycle and record combinatorics under Ewens laws"
+        },
+        {
+          "assessment": "Focuses asymptotic record counts by cycle class and fixed-point phase transitions; no exposed finite positionwise uniform cycle/record covariance in relevant text.",
+          "evidence": [
+            "Intro paragraphs on §2.3 and uniform/conjugation-invariant laws"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01449-7",
+          "material_read": "Open-access complete HTML introduction §§1.1–1.2, record overview §2.3 and theorem context",
+          "method": "Springer full article HTML relevant sections",
+          "title": "A geometric approach to conjugation-invariant random permutations",
+          "trigger": "Broader conjugation-invariant record results might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md all-j formula, asymptotic and common marginal variance"
+      ],
+      "rationale": "Two canonical but non-identical permutation statistics—disjoint cycles and one-line records—have the same marginals but subtle dependence. Exact positive positional covariance and its near-complete localization at the last index, together with 1/(n log n) correlation, answer a natural joint-statistics problem quantitatively; this is not a mere equidistribution restatement.",
+      "residual_risks": [
+        "Value depends on precisely stated natural object and invariant; no general downstream theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One uniform permutation, strict left-to-right maxima; nonuniform Ewens derivatives beyond θ=1 and joint limit laws excluded.",
+    "Off-terminal remainder O(log n/n²) suffices for first order, not full expansion."
+  ],
+  "schema_version": 1
+}

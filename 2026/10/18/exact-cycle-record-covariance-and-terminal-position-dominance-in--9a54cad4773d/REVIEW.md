@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For one uniform permutation, differentiating the normalized cycle-weighted Ewens measure at its uniform parameter gives covariance with cycle count. The precise insertion step partitions sites into those forcing a record, preventing it and leaving it unchanged. Differentiation cancels the inhomogeneous terms; the finite product gives the exact positionwise formula. Positivity, variance normalization, and terminal-position asymptotics follow without uncontrolled approximations. `verify.py` independently executes 1,720 exact assertions, including every permutation of each size from two through nine. These experiments corroborate but do not replace the proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with residual priority risk.** Kabluchko–Marynych (2021) establish the well-known marginal records/Stirling relation, not this same-permutation covariance. Gnedin (2007) explains that record-weighted and cycle-weighted Ewens distributions are linked by a bijection, which cannot directly identify joint statistics on the original permutation. Dubach (2025) gives marginal record asymptotics, not the finite cross moments. The closest published inversion–cycle covariance formula concerns different indicators and cannot imply the prefix-maximality covariance without further calculation. An equivalent historical joint generating-function formula could exist; its absence is not proved. No independence or external validation is claimed.
+PASS
 
-## Value
-**PASS.** The exact local/global dependence of two equally distributed yet different canonical permutation statistics is a motivated natural invariant. Every record position has positive or zero cycle covariance; the whole dependence is asymptotically concentrated at the last position, and the correlation decays at an explicit scale. These statements explain rather than merely re-label a classical marginal law.
+For one and the same uniform π∈S_n, n≥1, the Ewens tilt Pθ(π)∝θ^{C_n(π)} has d/dθ Pθ(I_{n,j}=1)|1=Cov(C_n,I_{n,j}). At size m=j the last-position record iff π(j)=j, an Ewens singleton probability θ/(θ+j−1). When inserting new value m into the cycle of an Ewens permutation, insertion after one of j−1 earlier sites destroys the record, after j forces the new max at j, after a later site or as singleton leaves it unchanged; this gives p_m=[(θ+m−1−j)p_{m−1}+1]/(θ+m−1). At θ=1 p=1/j, differentiated forcing terms cancel, p′_m=(m−j)p′_{m−1}/m. Iteration yields (j−1)/(j² binom(n,j)) exactly, with zero j=1 and n=1. Sum of independent marginal record/cycle Bernoulli variances is H_n−H_n^(2); isolating j=n and bounding binom(n,j)≥binom(n,2) for 2≤j≤n−2 shows covariance∼1/n and corr∼1/(n log n). Independent exact rational enumeration n=3..7 of both statistics on each permutation corroborates all positionwise identities. No Foata-transform identification is used.
 
-## Limitations and relevant sources
-The proof applies only to uniformly random permutations. The supporting source first appeared in May 2021. Closest inspected papers: Kabluchko–Marynych, arXiv:2105.11365; Gnedin, *Coherent random permutations with record statistics* (2007); Dubach, *A geometric approach to conjugation-invariant random permutations* (2025). Independent scholarly priority assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact *same-permutation*, positionwise cycle-count/left-to-right-record covariance is distinct from equidistribution of marginal cycle and record counts under the Foata correspondence and from conjugation-invariant record limit laws. Best-of-knowledge primary-source comparison did not expose the finite formula, but older joint generating functions remain a risk.
+
+## value
+
+PASS
+
+Two canonical but non-identical permutation statistics—disjoint cycles and one-line records—have the same marginals but subtle dependence. Exact positive positional covariance and its near-complete localization at the last index, together with 1/(n log n) correlation, answer a natural joint-statistics problem quantitatively; this is not a mere equidistribution restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
