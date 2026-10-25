@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T02:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 43fc8575ac04f703b11ec6dc6b255fbd93aba82d proof and exact 4x5 example",
+        "verify.py d16d4b9eeaa86871115665bf0f8941a2dac2dd6b independent DP signature enumerator",
+        "Separately implemented exhaustive enumeration of all 28 a+b<=8 connected sizes and exact survival-set matching for 4x5"
+      ],
+      "rationale": "Individual plant-loss Pr(L_i)=q^{d_i}; joint Pr(L_i∩L_j)=q^{d_i+d_j-c_ij} recover the labelled row degrees d_i and intersections c_ij for q in (0,1). For a<=3 plants these plus pollinator degree multiset determine counts of each exact nonempty pollinator neighborhood: triple-degree columns fix N_123; pair counts subtract triple; singleton counts subtract double/triple. Remaining guild sizes with a+b<=8 are finitely exhaustive: enumerate every nonzero row mask (2^b-1)^a, keep connected incidences, signature (d_i,c_ij,sorted col degrees), calculate rank-sum h_k=Σ_{|S|=k} matching(G[S]) by exact dynamic programming. Independently reimplemented the exhaustive finite test for all 28 guild-size splits a,b>=1 a+b<=8, including 4x4 connected matrix count 36317, 1986 signature groups, with identical h vectors in each signature. For 4x5 witness G rows (25,6,5,3), H rows (22,9,5,3), checks give equal signatures and h_G=(0,5,19,27,17,4), h_H=(0,5,20,30,20,4), matching(H[S])-matching(G[S]) exactly one for seven subsets, otherwise zero, so gap = q(1-q)^2(3-3q+q^2)>0. This is a finite exhaustive minimality certificate to eight total species and an explicit direct nine-vertex witness; it does not extrapolate to all larger networks.",
+      "residual_risks": [
+        "Coextinction requires independent uniform q of pollinators, plants static; not demographic extinction or real pollinator one-plant-lifetime constraint.",
+        "Sharp boundary is for total species a+b<=8; no uniqueness/full classification of nine-species counterexamples is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Memmott et al 2004 removal simulations count plants losing all connections; does not assign each surviving pollinator at most one served plant.",
+          "Bock & Rautenbach arxiv:1808.09650 describes static matching numbers achievable by degree sequences, not equality of all survival-state rank-sum profiles for matched pairwise coextinction laws."
+        ],
+        "reasoning": "A degree-sequence static matching theorem neither implies 4x5 common-neighborhood separation nor universal ≤8 pairwise data sufficiency; no dominating prior implication shown.",
+        "searches": [
+          "Resultary: Plant pollinator networks pairwise extinction statistics same but expected maximum matching different 4x5 nine species",
+          "Memmott Waser Price 2004 plant pollinator extinction",
+          "Bock Rautenbach 2018 matching number bipartite degree sequences"
+        ]
+      },
+      "checked_sources": [
+        "Memmott et al Proc R Soc B 271 (2004) primary PDF read",
+        "Bock & Rautenbach arXiv:1808.09650 primary PDF, Section 3 and Theorems 3.1–3.4",
+        "Devoto et al Ecology Letters 2012 accessible abstract",
+        "Resultary semantic search under ecological extinction and matching-reliability formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Memmott et al define secondary plant extinction as losing all pollinators; equivalence to row degrees and pair intersections is elementary but leaves higher Hall obstructions undetermined.",
+          "Prescribed bipartite degree-sequence matching-number extremal theory does not encode survivor-conditioned matching and pairwise plant extinction law equivalence."
+        ],
+        "reasoning": "From pairwise law data one can recover only first/second incidence intersections; general Hall matching depends on higher-order sets. Nine-species sharpness and pointwise dominance require new explicit census and witness; antecedents do not entail them.",
+        "searches": [
+          "doi:10.1098/rspb.2004.2909",
+          "arxiv:1808.09650",
+          "Resultary: Plant pollinator networks pairwise extinction statistics same but expected maximum matching different 4x5 nine species"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical first/second plant-loss probabilities for all q iff identical ordered d_i and pair c_ij, equivalently same diagonal/offdiagonal of BB^T for 0-1 incidence B; sorted column degrees additionally equal.",
+          "Expected maximum matching after independent pollinator removal is a rank generating/reliability polynomial of a transversal matroid, not determined by those second moments."
+        ],
+        "reasoning": "Searched both ecology and matroid rank-reliability formulations; explicit nine-species sharp counterexample not among retrieved prior statements.",
+        "searches": [
+          "Resultary: Plant pollinator networks pairwise extinction statistics same but expected maximum matching different 4x5 nine species",
+          "bipartite transversal matroid reliability rank polynomials pairwise common neighborhoods",
+          "pollinator coextinction maximum matching after random deletion identical degree intersection data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaust: for 4x4, 36,317 connected labeled matrices formed 1,986 pairwise-loss/column-degree signature groups, each consistent in h-vector.",
+          "Novel exact 4x5 witness signatures with seven strict surviving-pollinator subsets and polynomial q(1-q)^2(3-3q+q²)."
+        ],
+        "reasoning": "Known ecological empirical tables of plant persistence do not tabulate matching-rank h_k grouped by identical row-intersection signatures. Exhaustive threshold certificate is a natural minimal boundary not inferred from prior tables.",
+        "searches": [
+          "Resultary: Plant pollinator networks pairwise extinction statistics same but expected maximum matching different 4x5 nine species",
+          "matching rank reliability profiles bipartite 4 by 4 pairwise common neighbors exhaustive threshold"
+        ]
+      },
+      "rationale": "The result distinguishes topological plant loss marginals/pairs from an optimized post-removal bipartite matching rank function, and pins down an exact minimum nine-species obstruction. Memmott–Waser–Price (2004) analyses persistence of plants with at least one pollinator, not one-to-one matching capacity; Bock–Rautenbach studies static matching with prescribed degrees, not expected matroid rank under random deletion conditional on all pairwise loss data. Actual Resultary search did not return this separation; residual priority risk lies in transversal-matroid rank reliability/equivalent configuration matrices.",
+      "residual_risks": [
+        "An older transversal-matroid rank reliability example with identical second moments could imply or supersede the witness; search is not a priority proof.",
+        "Very small-graph exhaustive classification is implementation-sensitive but separately reproduced with independent matching DP and connectivity tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING matching-capacity invariant",
+          "evidence": "Plant persists if >=1 pollinator remains; no one-pollinator/one-plant optimized matching or all-pairs moment-identification theorem.",
+          "identifier_or_url": "https://www.bio.bris.ac.uk/research/community/article_PDF/Memmottetal2004.pdf",
+          "material_read": "Seven-page primary PDF abstract, methodology, results, Figure 2 and Discussion pp.1-6; secondary plant loss measured as lost neighbors",
+          "method": "Open full-text PDF read with page screenshot and original method comparison",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "Identical plant-pollinator deletion model, ecological origin"
+        },
+        {
+          "assessment": "NOT_COVERING the survival-conditional rank polynomial in inspected relevant sections",
+          "evidence": "Theorems 3.1–3.4 govern existence/interval of STATIC matching numbers over degree-sequence realizations; no pollinator deletions, pairwise row-intersection conditioning or 4x5 matching-reliability threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.09650",
+          "material_read": "Primary 14-page PDF opened; Introduction and Section 3 Theorems 3.1–3.4 read, including Gale–Ryser-style inequalities for matching numbers over degree-sequence realizations",
+          "method": "Primary full-text relevant sections, search and page screenshot of proof",
+          "title": "The matching number of tree and bipartite degree sequences",
+          "trigger": "Possible broad degree-sequence matching theorem"
+        },
+        {
+          "assessment": "CONTEXT, incomplete coverage check",
+          "evidence": "Network restoration framing but no exact small-graph 4x5 coextinction-versus-rank theorem in accessible material.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2012.01740.x",
+          "material_read": "Abstract and accessible metadata only",
+          "method": "Bibliographic primary abstract comparison",
+          "title": "Understanding and planning ecological restoration of plant–pollinator networks",
+          "trigger": "Functional complementarity/redundancy may motivate matching as service"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Memmott original extinction framework and direct rank-polynomial separation proof"
+      ],
+      "rationale": "The distinction between pairwise plant loss predictions and capacity-constrained service assignments is mathematically motivated: pair statistics measure incidences up to order two, whereas Hall/matching capacity responds to higher-order overlap. The nine-species minimal witness, exact positive gap for every q in (0,1), and pointwise dominance give a sharp identifiable boundary under a clearly stated idealized allocation model. It provides a natural negative identifiability theorem, not an arbitrary tiny graph fact.",
+      "residual_risks": [
+        "The one-pollinator/one-plant per period restriction is stylized and not an ecological empirical prediction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Purely topological binary connected bipartite networks with uniform independent pollinator removals.",
+    "One-to-one matching is a capacity model, not an actual one-visit-per-pollinator ecological law.",
+    "The minimal boundary is proven via exhaustive all-matrix check for sizes ≤8 and direct 9-species witness.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id operational identifiers. Their complete, semantically sanitized replacement public file contents, fresh blob guards and checked UTF-8 SHA-256 have not been prepared. Withhold publication despite completed scientific PASS; no public file operation was submitted."
+  ],
+  "schema_version": 1
+}
