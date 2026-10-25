@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-`verify.py` is a self-contained Python 3 standard-library script. Execute `python3 verify.py` in a directory containing the extracted code. The saved exact output is `verification_output.txt`.
+# Independent mathematical audit
 
-For each odd prime \(7\le P\le101\), the script generates the primes less than \(h=P-1\), constructs the exact CRT residue class modulo their product for every subset of \(U_h\), verifies the two endpoint gcds equal one, and directly computes all surviving interior positions using integer gcd. The set of positions \(i+1\) is tested against the selected subset; pairwise distinct residues are checked.
+## correctness
 
-The script tested 4,042 subset patterns at 23 prime anchors. A second implementation explicitly enumerates every residue modulo \(Q_h\) for \(h=6,10,12,16,18\) and checks the lower binomial count for every supported value.
+PASS
 
-The universal assertions are established by the written proof, not these finite tests. The prime-number-theorem step supplies unbounded numbers of toggleable primes; positive singular-series weights and convergence of the defining cumulative constants supply strictness. No claim of independent external validation is made.
+For even h=P−1 with P≥7 prime, CRT sets b≡2 mod p for toggled primes T⊂U_h={h/2<ℓ<h primes excluding divisors of h+2}, otherwise b≡1 mod p. At any p<h, both endpoints b,b+h remain units, by P=h+1 prime and the ℓ∤h+2 exclusion. An interior position m=i+1 is killed by an untoggled divisor if composite or prime ≤h/2. Large untoggled primes are killed at themselves; selected large primes survive all p, because for toggled p the even m=ℓ+1≤h cannot be divisible by odd p>h/2, and untoggled p≠ℓ does not divide ℓ. Hence rho_h(b_T)=|T| and distinct T give ≥binomial(t_h,k) admissible classes for each k, without gaps. PNT along prime P gives t_h unbounded; with pre-established finite positive series c_r and positive even-h singular terms, c_{r+1}−c_r≥Σ(h)binomial(t_h,r)/|A_h|>0 for each r≥1. Independently checked exact CRT classes and all selected subsets at P=7,11,13,17,19. Claim does not assert unconditional actual-prime-gap frequencies.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary local sieve/prime-gap search retrieved unrelated residue/census findings without the all-r exact-count construction; it is non-exhaustive. No negative search establishes absolute novelty.
+
+## value
+
+PASS
+
+The natural exact local rough-count distribution underlying the published prime-gap cumulative constants acquires full consecutive support on arbitrarily large intrinsic prime anchors, proving previously unestablished strict positivity of every adjacent difference c_{r+1}−c_r. Positivity of cumulative constants or zero-rough case alone cannot give strictly increasing entire sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
