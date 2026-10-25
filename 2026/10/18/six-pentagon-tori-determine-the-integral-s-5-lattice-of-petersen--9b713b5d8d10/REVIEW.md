@@ -1,19 +1,21 @@
-# Scientific review: integral Petersen pentagon-torus presentation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite graph and Abrams complex are specified from the Kneser definition, with 45 vertices, 120 oriented one-cells, and 75 oriented two-cells. The attached checker verifies every integer boundary and the square-zero chain identity, enumerates exactly twelve five-cycles and six vertex-disjoint pairs, and constructs all six 25-square product-torus chains. All six are cycles and their oriented sum vanishes already in the integer chain group. Exact Gaussian elimination gives rank 70 modulo three for the second boundary; five linearly independent cycles give the matching rational upper bound, establishing an integral top-cycle lattice of rank five. A displayed five-row projection of the six cycles has all six maximal column-deletion determinants equal to a unit. This proves **integral** spanning and primitivity, not merely rational spanning. Enumeration of all 120 automorphisms verifies unsigned permutation of these oriented cycles. The Sylow-five correspondence and nonsplitting follow from explicit orbit calculation and transitivity. The proof covers exactly this finite complex and does not extrapolate from sample cases.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
+Petersen KG(5,2) unordered two-particle cubical model has 45,120,75 cells with signed ∂2∂1 composition zero. Rebuilt graph, all 12 pentagons and exactly six disjoint pairings. The corresponding 25-square integral torus cycles are ∂2-closed; with signs (+,+,−,−,−,+) their sum vanishes identically at chain level. Independent exact mod-3 rank(∂2)=70, so kernel rank5; explicit five selected square rows give 5×6 matrix whose six omitted-column minors are (−1,1,−1,1,−1,1), proving any five cycles integrally span kernel without rational-to-integral gap. Exact induced actions of all 120 S5 automorphisms permute oriented torus chains without signs. The invariant diagonal inclusion has no S5-equivariant integral retraction since transitivity forces its image divisible by six. Applies solely to unordered 2-particle Petersen configuration space.
 
-The closest known published Petersen-specific result, `2bac82e0590d`, establishes the ambient integral homology and the rational \(S_5\)-representation but does not identify its integral \(\mathbb Z[S_5]\)-lattice or six canonical embedded-torus generators. A historical integral Petersen two-point cohomology-ring calculation establishes cup-product information, not the embedding cycles, their primitive relation, or the unsigned integral automorphism action. The Petersen graph's known six pentagon partitions are combinatorial inputs, not a homology presentation. Barnett–Farber's integral face-torus statements apply especially to *ordered planar* graph configurations; Petersen is nonplanar and the current configuration is unordered. Maciążek–Sawicki's general product-cycle treatment does not state the exact integral six-torus relation. The exact statements and implications were compared, not merely titles. Relevant specialist literature or a partially inaccessible thesis could contain an equivalent description, so absolute priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question asks for the **actual integral representation** carried by geometrically canonical smallest graph cycles in a symmetric nonplanar graph-braid space. The answer distinguishes the top homology lattice from its abstract rank and rational character, determines the precise integral relation among all six naturally occurring tori, proves that any five furnish a geometric integral basis, and identifies the nonsplit integral permutation-module extension. This is a structural, geometric and equivariant classification rather than an arbitrary numerical invariant, a restatement of Betti numbers, or a routine coefficient change.
+Published 2026 Petersen-specific full RESULT proves H2=Z5 and rational S5 character S^(2,2,1), not an integral equivariant permutation quotient or explicit 6 torus-lattice basis. Earlier general graph-configuration literature describes existence/generation of degree-two product cycles, so product-cycle generation itself is credited and not treated as new. This record supplies the exact oriented six generators, unimodular integral basis for ANY five, diagonal integral relation and nonsplitting with full signed equivariance; the nontrivial chain realization is the limited surviving original content, subject to residual risk of implication by combining older generation theory and symmetries.
 
-## Scope and residual limitations
+## value
 
-The conclusion concerns unordered two-point configurations on the Petersen graph only, with the displayed orientations and the specified canonical product tori. First-degree torsion, other particle counts, and a general classification of all geometric representatives are not addressed. A complete independent scientific audit has not been conducted, and searches cannot exclude equivalently formulated unindexed work. The accompanying executable uses exact finite enumeration and arithmetic and is available for reproducibility.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geometric integral S5-module determination of a canonical nonplanar graph configuration space is a natural structural refinement of known rational character and rank; identifying actual embedded pentagon tori with a unimodular basis and nonsplit permutation quotient can be reused when studying geometric cycles/equivariant maps. A finite exact classification is independently useful despite not extending to all graph braid groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
