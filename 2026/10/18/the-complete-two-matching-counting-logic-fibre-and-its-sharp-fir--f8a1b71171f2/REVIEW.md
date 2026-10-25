@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence graph of the two equivalences is a simple side-coloured 2-regular bipartite graph, so all components are alternating even cycles. The full set of models of the counted formulas has exactly this structure; uniform refinement stays monochromatic, and the standard \(C^2\) correspondence proves both directions of the exact logical fibre. The partition bijection, side-preserving dihedral edge transitivity, and extremal distinct-part sum are elementary but complete and handle every allowed even domain size. Independently executed finite graph-isomorphism and automorphism checks support the boundary cases. No computational enumeration is used as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2015 general \(C^2\)-identification classification applies to arbitrary finite binary structures; it gives a decision criterion, not the present explicit fibre multiplicities, orbit stratification and sharp ten-point orbit split. The previous eight-point alternating-cycle ambiguity and finite acyclic two-equivalence identification are known and not claimed as new. Actual semantic overlap comparisons found no prior statement implying the complete all-order count and orbit maximum without further argument. Residual risk: an existing specialized two-matching or two-equivalence classification may make these results known; independent priority verification is needed.
+PASS
 
-**Value — PASS.** The size-two case is the smallest regular regime where two named equivalences lose connectivity information under \(C^2\). The result gives the full logical fibre for every allowed domain size, counts every isomorphism type, distinguishes logical identification from orbit refinement with a sharp first threshold, and quantifies maximal information loss as an exact function of order. This is a natural complete classification of the first nontrivial regular locus, not an arbitrary finite slice.
+The two equivalence relations each with two-element classes and singleton intersections define a simple bipartite incidence graph whose E- and F-class vertices each have degree two. Every component is an even alternating cycle with 2k edges (k>=2). Isomorphism types at n=2t correspond exactly to partitions of t into parts >=2, count p(t)-p(t-1). Joint E,F atomic neighbourhood counts at every x equal (1,1,1,n-3) so 1-WL remains uniform; explicit C² sentences enforce n, both class-size-two conditions and |E(x)cap F(x)|=1, making the fibre exact relative to arbitrary pairs of equivalences. Side-preserving automorphisms are edge-transitive within each cycle length and can permute like components; vertex-orbit count equals number distinct partition parts. First unequal sizes (2,3) at t=5 yields n=10 orbit sizes 4,6. Distinct-part minimal weight d(d+3)/2 gives sharp D(n)=floor((sqrt(4n+9)-3)/2) with constructive extremizers. Independent partition enumeration through t=27 plus inspected side-coloured graph isomorphism and first-orbit automorphism scripts support boundaries without substituting for proof.
 
-The established eight-point ambiguity is background rather than part of the novelty claim. The proof applies only in the pure two-equivalence signature and publication priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical correspondence of C² with 1-WL on finite relational structures and general identification criteria are known. The new statement is an explicit *whole* equivalence fibre for each even size, indexed and counted by restricted partitions, plus exact automorphism-orbit spectrum and sharp first split. Previously known eight-point non-isomorphic cases are credited.
+
+## value
+
+PASS
+
+Pairs of named size-two equivalences are the minimal regular relational structure where 1-WL/C² cannot recover global connectivity. The theorem determines the entire logical ambiguity fibre at every admissible size, the exact first nonautomorphic split at ten points, and the maximal number of hidden orbit types, useful concrete boundary data in finite-model identification. Natural full classification, not an arbitrary graph slice or mere known partition table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

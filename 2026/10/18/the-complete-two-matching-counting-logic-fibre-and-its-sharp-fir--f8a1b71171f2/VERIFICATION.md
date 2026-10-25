@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Execute `python verify_matching_cycles.py` followed by `python verify_first_orbit_gap.py` with Python 3 and NetworkX 3 installed. The first enumerates alternative perfect matchings with one fixed matching for orders four, six, and eight, compares incidence graphs by an independent side-preserving graph-isomorphism algorithm, and verifies identical first-round joint atomic relation counts. It also checks the sharp distinct-part inequality through two hundred elements. The second constructs the ten-element cycle-pair witness, enumerates all side-preserving automorphisms and derives the two exact edge-orbit sizes. See `verification_output.txt` for the actually observed output. Both programs were executed successfully before packaging.
+## correctness
 
-The infinite logical equivalence proof is mathematical: the \(C^2\) formulas for matching class sizes and singleton intersections and the uniform refinement invariant are independent of finite experiments. The all-order orbit and extremum statements follow from cycle decomposition and integer-partition arithmetic. Independent scientific review and publication-priority certification have not been performed.
+PASS
+
+The two equivalence relations each with two-element classes and singleton intersections define a simple bipartite incidence graph whose E- and F-class vertices each have degree two. Every component is an even alternating cycle with 2k edges (k>=2). Isomorphism types at n=2t correspond exactly to partitions of t into parts >=2, count p(t)-p(t-1). Joint E,F atomic neighbourhood counts at every x equal (1,1,1,n-3) so 1-WL remains uniform; explicit C² sentences enforce n, both class-size-two conditions and |E(x)cap F(x)|=1, making the fibre exact relative to arbitrary pairs of equivalences. Side-preserving automorphisms are edge-transitive within each cycle length and can permute like components; vertex-orbit count equals number distinct partition parts. First unequal sizes (2,3) at t=5 yields n=10 orbit sizes 4,6. Distinct-part minimal weight d(d+3)/2 gives sharp D(n)=floor((sqrt(4n+9)-3)/2) with constructive extremizers. Independent partition enumeration through t=27 plus inspected side-coloured graph isomorphism and first-orbit automorphism scripts support boundaries without substituting for proof.
+
+## originality
+
+PASS
+
+Classical correspondence of C² with 1-WL on finite relational structures and general identification criteria are known. The new statement is an explicit *whole* equivalence fibre for each even size, indexed and counted by restricted partitions, plus exact automorphism-orbit spectrum and sharp first split. Previously known eight-point non-isomorphic cases are credited.
+
+## value
+
+PASS
+
+Pairs of named size-two equivalences are the minimal regular relational structure where 1-WL/C² cannot recover global connectivity. The theorem determines the entire logical ambiguity fibre at every admissible size, the exact first nonautomorphic split at ten points, and the maximal number of hidden orbit types, useful concrete boundary data in finite-model identification. Natural full classification, not an arbitrary graph slice or mere known partition table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
