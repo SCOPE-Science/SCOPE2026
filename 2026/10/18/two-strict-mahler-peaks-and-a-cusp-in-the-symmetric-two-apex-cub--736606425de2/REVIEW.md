@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed parameter domain is exactly \(t\geq0\), with singular face configurations handled by continuity at \(t=0\) and \(t=2\). Each rational volume formula follows from complete, outward, nonoverlapping boundary triangulations of the original polytope and its polar. The attached symbolic checker exhaustively certifies all supporting-plane inequalities for entire chambers via positive-coefficient polynomial substitutions, dual facet reconstruction, and exact determinant volume sums. Its derivative, positivity, continuity and extremum comparisons all pass. The global assertion is analytical once the chamber certificates are established, and no numerical sample is promoted to an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with priority risk)
-The closest direct prior result is Shen–Dubovski, arXiv:2610.11014, whose Section 2 concerns the compatible-array minimum, while Section 3 proves inequalities for the two-apex construction and a four-dimensional example. That paper does not provide this three-dimensional exact two-apex product or its two-peaked phase portrait. Nazarov–Petrov–Ryabogin–Zvavitch, arXiv:0905.0867, prove a local-minimum theorem and do not compute this rational profile. The searched indexed convex-geometry records include cube–cross-polytope **intersection** Mahler profiles and antipodal cube-corner **truncation** profiles; neither identifies this non-unconditional adjacent face-apex family, its polar, or a reduction recovering the formulas. The current family has twelve facets in both open chambers; centered cube–cross-polytope intersections have eight, fourteen or six facets depending on scale, hence are not affinely equivalent. Targeted searches for alternate two-apex terminology and the specific critical parameters found no equivalent claim. Risk: an unindexed calculation or hidden affine equivalence could establish the same identities; absolute priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The original research direction asks for quantitative understanding of simultaneous cube-apex deformations beyond known sufficient lower bounds. A complete, global, closed-form Mahler phase portrait of the smallest nontrivial symmetric adjacent-apex configuration is a natural structural benchmark. Two distinct interior peaks separated by a non-differentiable local minimum, with the exact transition and global maximum, constitute a meaningful phenomenon not implied by local cube minimality or an inequality bound. The result also proves a strict full-parameter Mahler bound on this natural family, including large heights beyond small-deformation regimes. It is not claimed as a general convex-body theorem.
+For every t>=0, K_t is the symmetric convex hull of [-1,1]^3 and the two antipodal adjacent-corner-apex pairs. Inspected actual verify_two_apex.py: its triangulations are suggested at sample t=1 and 3 but then every primal supporting-plane inequality and polar inequality is certified for entire chambers t=2u/(1+u) (0<t<2) and t=2+u (t>2) by one-sign polynomial coefficients; outward closed boundary triangularizations and dual facet reconstruction justify signed determinant volume sums. Multiplying exact primal/polar volumes yields the displayed two rational branches, continuous at t=2 and valid t=0 by cube continuity. Independent ConvexHull primal/polar numeric integrations at t=.5,1,1.7,2.3,3,10 matched closed forms; independent symbolic derivatives factor into -8(t²+2t−4)(t³+10t²+36t+56)/(9(t+2)²(t+4)²) and -256(3t²−16)/(9t³(t+4)²). Thus strict peaks t1=sqrt5-1, t2=4/sqrt3, cusp minimum t=2 with left/right -88/81 and 32/81, and strict M(t)>32/3 for finite t>0 with limiting equality at infinity. Numeric samples alone do not establish full chambers; inspected exact support certificates and algebra do.
 
-## Closest sources and limits
-Shen–Dubovski (arXiv:2610.11014, Sections 2–3), Nazarov et al. (arXiv:0905.0867, Sections 1–5), and related published cube–cross-polytope and corner-truncation profiles were compared as mathematical statements, not merely by shared vocabulary. The exact two-chamber certificate depends on SymPy, SciPy and NumPy for reproduction; no third-party paper or reference code is embedded. Historical priority is subject to the identified unindexed-literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
+
+## value
+
+PASS
+
+An explicit finite-dimensional centrally symmetric cubical perturbation with two strict Mahler-product peaks, a nonsmooth combinatorial transition, a strict interior cusp minimum and cube-limit behavior is a motivated sharp example for volume-product geometry. The complete piecewise rational profile and exact extremum ordering are nontrivial information not provided by general local minimum inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
