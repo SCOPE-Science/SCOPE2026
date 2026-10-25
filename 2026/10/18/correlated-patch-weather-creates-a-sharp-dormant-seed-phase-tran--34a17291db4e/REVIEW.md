@@ -1,11 +1,21 @@
-# Review of the correlated-weather dormant-reserve result
+# Independent mathematical audit
 
-**Correctness — PASS.** Finite-patch strict concavity is verified directly, the exact reciprocal first-order condition is obtained without unjustified endpoint differentiation, and conditional convex-order contraction proves a strictly decreasing dormant reserve. The limiting inverse-beta-moment criterion uses a conditional strong law and a strict concavity argument. For \(\alpha>1\), the sharp \(k^{-\alpha}\) coefficient follows from a zero-success decomposition and a binomial inverse-moment bound. The critical explicit law follows from an exact beta-binomial identity, not curve fitting. `verify_beta_dormancy.py` independently checks finite exact rational implications; no finite check certifies the asymptotic proof.
+## correctness
 
-**Originality — PASS with explicit literature-access risk.** Cohen (1966) already supplies the broad germination-bet-hedging objective and optimum principle; Klinkhamer et al. (1987) analyze correlated patch yields and dispersal and were inspected in full. Their lognormal approximate formulation does not state the exact beta-binomial inverse-moment criterion and Gamma-constant limit. Venable and Brown (1988) address very similar spatial correlation questions; their inaccessible full text leaves a meaningful possibility of equivalent coverage. The claim here is the **combined exact beta-mixture phase transition and asymptotic rate**, not general benefits of dormancy, risk spreading, or Jensen-convexity.
+PASS
 
-**Mathematical value — PASS.** The sharp threshold distinguishes a strictly positive residual optimal seed bank despite infinitely many destinations from a vanishing reserve whose polynomial order is set by the lower tail of shared environmental quality. Three explicitly solvable regimes, including a critical case with different scaling, make the distinction testable in precisely defined models. This is an exact tractable ecological question, not an arbitrary numeric parameter slice.
+The beta-binomial mass q_k=P(K_k=0)>0 forces L′(0+)=+infinity; strict L″<0 and B E(P)>s force a unique finite interior optimum. Conditional Bernoulli sample means decrease strictly in convex order, so their inverse response equations force h_(k+1)<h_k. Conditional LLN and bounded derivatives yield h_k down to maximizer of the beta-mixture limit. The endpoint derivative is r-1, r=(s/B)E(P^-1). For alpha>1,r<1, split E[1/R_k]=q_k/h_k+S_k; the k/(K+1) binomial bound gives conditional domination by C/P, hence S_k->r and q_k/h_k->1-r. Gamma ratio yields the stated sharp coefficient k^-alpha. Boundary h_k=2/(k+2) and arcsine limit 1/3 follow from explicit beta-binomial and arcsine identities. These arguments cover all alpha,beta>0 and k>=1 subject to stated B E(P)>s; no universal critical rate is claimed.
 
-**Risks and limitations.** The full Venable–Brown (1988) paper was not accessible for a decisive overlap comparison; Cohen (1966) and Valleriani (2006) were assessed from scholarly abstracts. This is a stylized scalar, globally pooled density-independent seed bank with iid annual common weather. No claim about finite-population extinction, stochastic environments with temporal dependence, or an unknown universal critical asymptotic is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cohen 1966 supplies standard log-growth bet hedging, and Klinkhamer et al. 1987 discuss linked dormancy/dispersal under correlated yields. Their framework does not directly state the submitted beta-binomial coefficient, exact phase criterion and finite-k monotonicity. The central Venable–Brown 1988 spatial-correlation paper was located only through abstract/metadata, not full text; arXiv and open-access searches were attempted, and authorized Oxford retrieval reported VPN disconnected. Its possible stronger equivalent result remains a serious residual originality risk, not an automatic failure.
+
+## value
+
+PASS
+
+Common latent environmental weather creates nonvanishing systematic risk despite many patches. The exact threshold in E(1/P) and alpha-dependent k^-alpha rate determine biologically meaningful limits of a natural optimizer, not an arbitrary numeric example; the r=1 closed-form example delineates a genuine transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
