@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact convolution formula is derived from factor-ball projection densities with the correct coarea normalization. For odd factor dimensions, integer exponents make the integrand polynomial; the finitely many affine integration endpoints establish piecewise polynomiality, and algebraic elimination produces one global polynomial equation for all cutoff volumes. For one even factor, integration against a semicircle weight has a nonzero inverse-sine coefficient, excluding algebraicity. For two even factors, local endpoint-collision expansion produces a nonzero logarithm at the internal knot. The equal-radius cancellation is treated independently one order higher and is nonzero because the half-integral exponents differ when the first power is odd. All hypotheses, branch cases, axial normals, and offset support endpoints are explicit. The standalone checker passes exact symbolic checks and supplementary high-precision integrations. Dependence on the standard Newton–Puiseux exclusion of logarithmic terms is made explicit.
+## correctness
 
-## Originality — PASS, with priority risk
-The first-public October 7, 2026 paper by Fish, Ryabogin, Sun, and Yaskin establishes rigidity under a uniform-in-direction finite-rank locally separable section profile, which is not implied by individual-direction algebraicity and is not satisfied by a generic product of odd-dimensional balls. Agranovsky's 2024 rigidity result and the 2022 survey concern smooth bodies or the general Arnold problem, not the explicit nonsmooth Cartesian-product parity classification. Available published-record and primary-literature comparisons found no statement that entails the all-parameter classification plus explicit even-even resonant logarithmic obstruction. The convolution formula and binomial calculus are classical, not independently claimed as discoveries. Residual risk: this classification or an equivalent beta-convolution computation may be implicit in unindexed older algebraic-integration or splines literature; no definitive historical priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete classification for a geometrically canonical nonpolyhedral two-factor family, not an arbitrary isolated parameter calculation. The existence of curved nonsmooth algebraically integrable convex bodies in every even ambient dimension at least four provides a sharp explanatory boundary for smoothness-based rigidity. Both nonalgebraicity mechanisms are constructive, and the equal-projected-radius cancellation introduces a genuine parity-sensitive singular-order transition relevant to exact Radon-transform regularity. The theorem is restricted to two Euclidean ball factors and fixed-direction profiles; no larger classification or smooth extension is claimed.
+Derived coarea-normalized pushforward densities kappa_(m-1) a^-m (a^2-v^2)^(m-1)/2 and similarly for n; their convolution yields the actual section-volume formula for unit normal. When both exponents p,q integers (both factor dimensions odd), expand polynomial integrand and evaluate at finitely many algebraic endpoints min(a,t+b), max(-a,t-b), giving finitely many algebraic branches and, by elimination of a^2=||xi_1||^2,b^2=||xi_2||^2, one joint polynomial relation for integrated cutoff volumes. If exactly one exponent is half-integer, monomial primitives contain arcsin of (t-a)/b; its polynomial coefficient is nonzero because its highest t term has integral of a strictly positive (1-w^2)^(k+1/2), so nonalgebraicity by infinite monodromy. If both exponents half-integers, colliding endpoints at internal knot t=a-b yield nonzero epsilon^j log|epsilon| via binomial(q,j), j=(m+n)/2; for a=b the two contributions cancel at odd j but the next even j+1 logarithm has coefficient proportional (q-p)j binom(q,j)/(j+1), nonzero since odd j forces p!=q. Independently checked exact symbolic normalized coefficients (m,n)=(2,2):2,(2,4):-pi/2,(4,4):-2pi^2/3, and the exact 3+3 convolution polynomial; inspected source verify.py quadrature/fits as finite corroboration only. Algebraic functions cannot develop these logarithms (Puiseux), and algebraic cutoff derivative would be algebraic section density, giving the obstruction. Singular-axis normals ab=0 are separately algebraic and do not alter the all-direction criterion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. Classical convolution of slice densities is known and not claimed novel. Neither uniform-separability rigidity nor smooth-ellipsoid results imply the product-specific iff parity and exact resonance coefficient; those require evaluating exponents and local monodromy.
+
+## value
+
+PASS
+
+Algebraic integrability of hyperplane slices is a central question in convex geometric tomography. This theorem provides a full parity classification for a canonical nonsmooth two-factor convex-body family and addresses a subtle equal-radius resonance that defeats a naive leading-log argument. It identifies explicit nonsmooth globally algebraic examples, not merely a genericity computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
