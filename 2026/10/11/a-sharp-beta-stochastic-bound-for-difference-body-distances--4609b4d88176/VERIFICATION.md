@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytic and valid for all integer dimensions \(d\ge2\); `verify.py` is a supplementary reproducibility check and not an exhaustive proof.
+## correctness
 
-Executed from this package using Python 3's standard library: `python3 verify.py`.
+PASS
 
-Actual output:
+The claim is for every compact full-dimensional convex K in R^d, integer d>=2, independent uniform X,Y, D=K-K and its whole-body Minkowski gauge, every 0<=t<=1 and every real moment power p>0. The covariogram g(z)=vol(K cap(K+z)) is the density V^2 f_{X-Y}(z), satisfies g(0)=V and vanishes on boundary(D), and g^(1/d) is concave by the Brunn--Minkowski overlap inclusion. On each ray normalized by R(theta)=rho_D(theta), h(r)=(g(r R theta)/V)^(1/d) is concave with h(0)=1,h(1)=0. The chord inequality h(r)/(1-r)>=h(s)/(1-s) for 0<=s<r<1 makes w_theta(r)=g(rRtheta)/(V(1-r)^d) nondecreasing (and >=1). Polar disintegration, including its R(theta)^d Jacobian, makes the conditional gauge-radius distribution the Beta(d,d+1) law tilted by w_theta. Chebyshev covariance with the decreasing indicator 1_{r<=t} proves F_T(t)<=I_t(d,d+1); finite positive radial normalization follows from bounded continuous g. Since the beta density is positive on (0,1), any nonconstant nondecreasing tilt makes this inequality strict at every interior t. Equality at one t forces each direction tilt to equal 1 a.e., hence everywhere by continuity; integrating g=V(1-gamma_D)^d gives vol(D)=binomial(2d,d)V, and classical Rogers--Shephard equality forces simplex. Conversely barycentric coordinates of a simplex give exact overlap V(1-gamma_D)^d, so T is beta for every simplex. The moment lower bound follows by integrating survival functions and the beta gamma ratio; strictness and the stated mean/variance follow. Endpoint t=0,1, nonsymmetric K and nonsmooth bodies require no extra assumptions. Independent code checked exact beta CDF and moments in d=1..30 (d=1 auxiliary), the 2D square gap I_t(2,3)-(2t-t^2)^2=2t^2(1-t)^2 at 99 rational interior points, and 120 independently evaluated linear increasing likelihood tilts. The finite tests are corroboration, not a substitute for unrestricted concavity, covariance, or Rogers--Shephard rigidity. The provided verify.py was inspected, not run as an opaque proof.
 
-```
-VERIFY_OK: exact beta normalization/moments in dimensions 1..40;
-exact planar-square CDF gap; 100000 seeded simplex Monte Carlo samples
-```
+## originality
 
-The checker verifies rational beta CDF normalization and first/second moments, and the simplex variance identity, in 40 dimensions. It verifies the polynomial identity for the planar square exactly. The simulated test draws barycentric uniform points in five dimensions (20,000 point pairs per dimension) and checks sample means against the exact beta means with a specified absolute tolerance. This simulation is diagnostic only; the strict stochastic comparison for arbitrary convex bodies relies on the fully stated concavity, conditional-likelihood-ratio and equality arguments in `RESULT.md`.
+PASS
 
-Critical mathematical boundaries: no numerical sample verifies a universal quantifier; the Rogers–Shephard equality case is used as a cited classical theorem rather than re-proved; older equivalent published statements might exist. Independent audit has not been performed.
+Best-of-knowledge PASS for the exact affine-invariant stochastic bound F_{gamma_{K-K}(X-Y)}(t)<=I_t(d,d+1) for all interior thresholds with equality at even one threshold iff K is a simplex, not for covariogram concavity, moment interpolation or Rogers--Shephard. Langharst--Roysdon 2022, Propositions 2.5–2.6, explicitly provide root concavity and simplex ray-affinity; Gardner--Zhang 1998 Theorem 5.5 (as reproduced in accessible Wang--Zhang 2014 and Haddad et al. 2025) provides the stronger directional family of radial-mean-body moment inclusions. Their stated conclusions do not identify the conditional beta likelihood ratio or yield the all-threshold CDF as a mechanical choice of p: all power-moment inequalities alone do not imply first-order stochastic domination. Langharst--Roysdon Lemma 3.2 and Theorem 3.4 compare weighted integrals with a projection-body outer radius, not the probability mass inside t(K-K) normalized by V^2. Horvath 2020 surveys inverse covariogram geometry, and Bonnet et al. 2021/Sinan Wang 2026 consider Euclidean point-pair distances with different normalization, not this intrinsic gauge. Three semantic Resultary queries located the exact *same record* and neighboring geometric results, not independent stronger coverage. The step from known concavity to the all-threshold stochastic order is short, a serious limitation on priority claims, but is an explicit mathematically motivated distributional strengthening absent from the inspected theorems. The entire Gardner--Zhang 1998 original could not be read after arXiv/OA attempts and Oxford reported VPN disconnected; its unseen text is not declared noncovering. Equivalent unindexed s-concave radial probability principles remain a real priority risk.
+
+## value
+
+PASS
+
+The intrinsic difference-body gauge of X-Y is a canonical affine-invariant statistic of two random points in a convex body. The finding gives an entire sharp stochastic envelope in every dimension, with nontrivial simplex-only equality at a single radius, and all positive power moments as consequences. It addresses a natural probabilistic facet of covariogram/radial-mean-body geometry rather than an arbitrary finite case or cosmetic parameter substitution. The planar square has an explicit strictly positive gap 2t^2(1-t)^2, showing meaningful sensitivity to nonsimplex shape. The proof is concise because it exploits a deep classical concavity lemma, but the result is a motivated precise distributional invariant and could be used as a benchmark for intrinsic pair distances. No generalization to Euclidean norm, nonconvex sets, or quantitative stability is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

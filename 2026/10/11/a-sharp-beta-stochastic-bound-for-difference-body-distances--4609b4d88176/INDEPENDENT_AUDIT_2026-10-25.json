@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T08:08:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md, §§1–5 and stated theorem; pinned SLOGAN.txt and verify.py inspected",
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477 Proposition 2.5 (covariogram concavity), Proposition 2.6 (simplex ray affinity)",
+        "https://link.springer.com/article/10.1186/1029-242X-2014-252 Theorem 1.C (Rogers--Shephard inequality and sharp simplex equality)",
+        "Independent checks: independent_checks.py; independent_checks_output.json"
+      ],
+      "rationale": "The claim is for every compact full-dimensional convex K in R^d, integer d>=2, independent uniform X,Y, D=K-K and its whole-body Minkowski gauge, every 0<=t<=1 and every real moment power p>0. The covariogram g(z)=vol(K cap(K+z)) is the density V^2 f_{X-Y}(z), satisfies g(0)=V and vanishes on boundary(D), and g^(1/d) is concave by the Brunn--Minkowski overlap inclusion. On each ray normalized by R(theta)=rho_D(theta), h(r)=(g(r R theta)/V)^(1/d) is concave with h(0)=1,h(1)=0. The chord inequality h(r)/(1-r)>=h(s)/(1-s) for 0<=s<r<1 makes w_theta(r)=g(rRtheta)/(V(1-r)^d) nondecreasing (and >=1). Polar disintegration, including its R(theta)^d Jacobian, makes the conditional gauge-radius distribution the Beta(d,d+1) law tilted by w_theta. Chebyshev covariance with the decreasing indicator 1_{r<=t} proves F_T(t)<=I_t(d,d+1); finite positive radial normalization follows from bounded continuous g. Since the beta density is positive on (0,1), any nonconstant nondecreasing tilt makes this inequality strict at every interior t. Equality at one t forces each direction tilt to equal 1 a.e., hence everywhere by continuity; integrating g=V(1-gamma_D)^d gives vol(D)=binomial(2d,d)V, and classical Rogers--Shephard equality forces simplex. Conversely barycentric coordinates of a simplex give exact overlap V(1-gamma_D)^d, so T is beta for every simplex. The moment lower bound follows by integrating survival functions and the beta gamma ratio; strictness and the stated mean/variance follow. Endpoint t=0,1, nonsymmetric K and nonsmooth bodies require no extra assumptions. Independent code checked exact beta CDF and moments in d=1..30 (d=1 auxiliary), the 2D square gap I_t(2,3)-(2t-t^2)^2=2t^2(1-t)^2 at 99 rational interior points, and 120 independently evaluated linear increasing likelihood tilts. The finite tests are corroboration, not a substitute for unrestricted concavity, covariance, or Rogers--Shephard rigidity. The provided verify.py was inspected, not run as an opaque proof.",
+      "residual_risks": [
+        "No finite sample or symbolic check proves the general Brunn--Minkowski or Rogers--Shephard geometric ingredients; these are cited classical theorems.",
+        "No claim is made for nonconvex K, dependent/nonuniform random points, Euclidean distances, or quantitative stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gardner--Zhang radial mean-body inclusions DK subset c_{d,q} R_q K subset c_{d,p} R_p K relate directional moments of chord length, with simplex equality.",
+          "Langharst--Roysdon Lemma 3.2 bounds integrals q(f) for concave f using a directional projection-body radius z(theta), not R(theta)=rho_{K-K}.",
+          "Haddad et al. extend radial mean-body inclusions to higher-order difference bodies but state geometric inclusions and integral inequalities."
+        ],
+        "reasoning": "These are substantially relevant and even stronger in some distinct geometric directions, but all-power-moment comparisons cannot on their own establish CDF order at every t, and the projection-body-normalized bounds do not specialize to the asserted probability law on t(K-K). The 1998 original might contain more than its reproduced theorem and remains a priority risk.",
+        "searches": [
+          "Web: Gardner Zhang 1998 Affine inequalities and radial mean bodies pdf",
+          "https://link.springer.com/article/10.1007/s00208-025-03271-x Theorem 1.2 / discussion of Gardner--Zhang Theorem 5.5",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477 Lemma 3.2 Theorem 3.4",
+          "https://link.springer.com/article/10.1186/1029-242X-2014-252 Theorems 1.A--1.C"
+        ]
+      },
+      "checked_sources": [
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477",
+        "https://link.springer.com/article/10.1186/1029-242X-2014-252",
+        "https://link.springer.com/article/10.1007/s00208-025-03271-x",
+        "https://link.springer.com/article/10.1007/s40598-020-00132-0",
+        "https://doi.org/10.1353/ajm.1998.0021 (original full text unavailable; secondary theorem reproduced)",
+        "https://arxiv.org/abs/2610.01916 (abstract only)",
+        "Resultary exact source ID 2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176 (same work)",
+        "Resultary related source ID 2026/9/18/SCOPE-bezout-coefficient-banach-mazur-stability--fed154962a93 (different stability theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known root-concavity statement is the exact key premise; normalizing rays by rho_{K-K} makes h(r)/(1-r) increasing and gives the missing all-threshold likelihood-ratio argument.",
+          "The sharp volume bound vol(K-K)<=binomial(2d,d)vol(K) has no radius parameter t, and hence does not alone imply mass comparison at t(K-K).",
+          "An inclusion of radial p-mean bodies gives moments of directional chord lengths, not direct stochastic domination of a different random variable."
+        ],
+        "reasoning": "The proposed bound is derivable with an additional elementary monotone-likelihood-ratio step from powerful prior geometric lemmas; those lemmas are not novel here. The inspected theorem conclusions do not explicitly entail the exact normalized stochastic CDF as a trivial parameter substitution, and there is no identified independent prior theorem already asserting that conclusion. Remaining general concave-density result risk is material.",
+        "searches": [
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477 Props. 2.5--2.6, Lemma 3.2 and Theorem 3.4",
+          "https://link.springer.com/article/10.1186/1029-242X-2014-252 Theorems 1.A--1.C",
+          "https://link.springer.com/article/10.1007/s00208-025-03271-x Theorem 1.2 and Eq.(20)",
+          "Web: pointwise radial 1/n concavity implies beta stochastic order convex body"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same statistic is expressible as P(X-Y in t(K-K)), normalized covariogram mass inside a scaled difference body, or random-pair distance in the norm with unit ball K-K.",
+          "Langharst--Roysdon Proposition 2.5 proves g_K^(1/d) is concave on DK, but does not state this normalized random-pair CDF.",
+          "Published Resultary exact title match is the assigned SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176 itself, not independent prior work."
+        ],
+        "reasoning": "Searched gauge norm, normalized covariogram, radial beta laws and s-concave profiles; evidence did not reveal a separate full probabilistic law. The inference from concavity is explicitly acknowledged, not obscured, and failed searches are not novelty certificates.",
+        "searches": [
+          "Resultary: sharp first-order stochastic dominance beta(d,d+1) for Minkowski gauge of difference of two iid uniform random points of convex body with equality simplex",
+          "Resultary: covariogram root concavity radial distribution difference-body normalized uniform pair distance simplex sharp beta law",
+          "Web: \"covariogram\" \"beta\" \"simplex\" stochastic dominance random difference gauge",
+          "Web: \"distance between two random points\" \"Minkowski\" \"simplex\"",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477 Proposition 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary contains one precise title match: this same assigned publication, and related Bézout stability / difference-body results with different assertions.",
+          "2014, 2022 and 2025 sources give symbolic geometric bounds, not an exact table or database of all-dimensional scaled-covariogram CDFs."
+        ],
+        "reasoning": "The claim is universal over every full-dimensional convex body and every radius, not a finite object census. No table found implies the all-radius inequality; numerical failure-to-match is not novelty proof.",
+        "searches": [
+          "Resultary published findings search Q1, Q2, Q3 (15 results each)",
+          "Web: \"Beta(n,n+1)\" \"difference body\"",
+          "Web: \"volume\" \"t(K-K)\" \"covariogram\" inequality simplex random",
+          "Web: difference body random points normalized Minkowski distance distribution simplex lower bound"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact affine-invariant stochastic bound F_{gamma_{K-K}(X-Y)}(t)<=I_t(d,d+1) for all interior thresholds with equality at even one threshold iff K is a simplex, not for covariogram concavity, moment interpolation or Rogers--Shephard. Langharst--Roysdon 2022, Propositions 2.5–2.6, explicitly provide root concavity and simplex ray-affinity; Gardner--Zhang 1998 Theorem 5.5 (as reproduced in accessible Wang--Zhang 2014 and Haddad et al. 2025) provides the stronger directional family of radial-mean-body moment inclusions. Their stated conclusions do not identify the conditional beta likelihood ratio or yield the all-threshold CDF as a mechanical choice of p: all power-moment inequalities alone do not imply first-order stochastic domination. Langharst--Roysdon Lemma 3.2 and Theorem 3.4 compare weighted integrals with a projection-body outer radius, not the probability mass inside t(K-K) normalized by V^2. Horvath 2020 surveys inverse covariogram geometry, and Bonnet et al. 2021/Sinan Wang 2026 consider Euclidean point-pair distances with different normalization, not this intrinsic gauge. Three semantic Resultary queries located the exact *same record* and neighboring geometric results, not independent stronger coverage. The step from known concavity to the all-threshold stochastic order is short, a serious limitation on priority claims, but is an explicit mathematically motivated distributional strengthening absent from the inspected theorems. The entire Gardner--Zhang 1998 original could not be read after arXiv/OA attempts and Oxford reported VPN disconnected; its unseen text is not declared noncovering. Equivalent unindexed s-concave radial probability principles remain a real priority risk.",
+      "residual_risks": [
+        "Gardner--Zhang 1998 full text inaccessible after OA search and authorized institutional VPN-disconnected result; potentially stronger unpublished details cannot be excluded.",
+        "An established general stochastic-order theorem for radial concave densities may already imply this as a corollary, even without exact gauge/beta terminology.",
+        "The distributional deduction from already-published covariogram concavity is short, so novelty is specifically the explicit all-threshold and equality formulation, not a new geometric lemma.",
+        "Full contemporary Wang 2026 manuscript was not accessible; its abstract uses a different Euclidean distance normalization and cannot establish whole-paper noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies essential concavity and rigidity premises, but the stated integral bounds use an outer projection-body scale rather than the intrinsic scaled difference-body CDF.",
+          "evidence": "Proposition 2.5: g_K^(1/d) concave on DK; Proposition 2.6: ray-affinity iff simplex; Lemma 3.2 gives weighted q(f) bound with z(theta); Theorem 3.4 is Zhang-type integral inequality.",
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477",
+          "material_read": "Full open journal HTML, specifically definitions; Section 2 Lemma 2.4 and Propositions 2.5–2.6; Section 3 Lemma 3.2 and Theorem 3.4 including proofs and equality conditions.",
+          "method": "Read exact hypotheses, normalized radii and displayed inequalities in complete journal HTML.",
+          "title": "General measure extensions of projection bodies",
+          "trigger": "Identical covariogram root-concavity and simplex ray-affinity; plausible stronger integral inequalities."
+        },
+        {
+          "assessment": "Provides distinct radial moment and volume bounds; cannot identify the all-radius CDF without a further comparison argument.",
+          "evidence": "Theorem 1.A DK subset c_{d,p}R_pK; Theorem 1.C vol(DK)<=binomial(2d,d)V with simplex equality; Theorems 1.1–1.3 are quermassintegral comparisons.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1029-242X-2014-252",
+          "material_read": "Full open HTML: introduction Theorems 1.A–1.C, Section 2 preliminaries, Section 3 consequences and proofs for radial p-mean body inclusions.",
+          "method": "Compared directional p-moment inclusions, quantifiers and equality with all-threshold random gauge CDF.",
+          "title": "Inequalities for dual quermassintegrals of the radial p th mean bodies",
+          "trigger": "Reproduces foundational Gardner--Zhang theorem and Rogers--Shephard sharp equality."
+        },
+        {
+          "assessment": "Higher-order geometry encompasses classical radial mean body inclusions but does not state the pairwise intrinsic-gauge beta stochastic order.",
+          "evidence": "Theorem 1.2 inclusions for R_p^m; Section 2.2 Eq.(20) restates Gardner--Zhang Theorem 5.5.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00208-025-03271-x",
+          "material_read": "Full open journal HTML: Introduction, Theorem 1.2, Section 2.2 definition and discussion of Eq.(20)/Gardner--Zhang Theorem 5.5, higher-order framing.",
+          "method": "Inspected parameter m=1 and corresponding p-moment body inclusions; checked meaning of all p versus all CDF thresholds.",
+          "title": "Affine isoperimetric inequalities for higher-order projection and centroid bodies",
+          "trigger": "Later higher-order result might dominate original via order m=1."
+        },
+        {
+          "assessment": "Survey identifies same objects but neither its quoted determination theorem nor its difference-body discussion gives a universal beta stochastic bound.",
+          "evidence": "Theorem 1 concerns uniqueness under translations/reflections; Section 2.1 defines DK support of covariogram, not the proposed distribution.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40598-020-00132-0",
+          "material_read": "Open journal HTML: introduction, Section 2, Theorem 1 and Section 2.1 difference body and Minkowski norm.",
+          "method": "Compared main theorem (covariogram inverse determination) with probability mass of scaled difference bodies.",
+          "title": "On Convex Bodies that are Characterizable by Volume Function",
+          "trigger": "Covariogram determination, difference-body and Minkowski norm aliases."
+        },
+        {
+          "assessment": "Historically plausible source; no entire-paper noncoverage inference. Its accessible reproduced theorem covers radial moment inclusions only; unseen material remains a priority risk.",
+          "evidence": "Wang--Zhang 2014 Theorem 1.A and Haddad et al. 2025 Eq.(20)/Theorem 5.5 discussion.",
+          "identifier_or_url": "https://doi.org/10.1353/ajm.1998.0021",
+          "material_read": "Original full text not obtained. Reproductions of its Theorem 5.5 / Theorem 1.A in 2014 and 2025 full open papers and bibliographic metadata were read.",
+          "method": "Searched same-paper arXiv/preprint and lawful open access; authorized Oxford institutional attempt returned vpn_disconnected (job_id f87cede4fdbdc23103d8587b007a1097); no bypass.",
+          "title": "Affine inequalities and radial mean bodies",
+          "trigger": "Foundational original with potentially more general moment inequalities or probabilistic consequences."
+        },
+        {
+          "assessment": "Abstract normalizes Euclidean |X-Y| by equal-volume-ball radius, whereas this claim uses gamma_{K-K}; insufficient full-text access to exclude indirect implications.",
+          "evidence": "Abstract defines D_K(rho)=P(|X-Y|/R_K<rho) and describes volume-functional Brunn--Minkowski inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01916",
+          "material_read": "Abstract and theorem-level description only, full text could not be fetched.",
+          "method": "Checked public arXiv abstract, attempted HTML and PDF; access returned DisabledError.",
+          "title": "A Brunn-Minkowski Theory for the Distribution of Random Pairs of Points in Convex Bodies",
+          "trigger": "Contemporary same random pair model; possible independent coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md finding/proof and assumptions",
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms.12477 covariogram and radial geometry",
+        "https://link.springer.com/article/10.1186/1029-242X-2014-252 radial mean bodies",
+        "independent_checks_output.json planar square exact gap"
+      ],
+      "rationale": "The intrinsic difference-body gauge of X-Y is a canonical affine-invariant statistic of two random points in a convex body. The finding gives an entire sharp stochastic envelope in every dimension, with nontrivial simplex-only equality at a single radius, and all positive power moments as consequences. It addresses a natural probabilistic facet of covariogram/radial-mean-body geometry rather than an arbitrary finite case or cosmetic parameter substitution. The planar square has an explicit strictly positive gap 2t^2(1-t)^2, showing meaningful sensitivity to nonsimplex shape. The proof is concise because it exploits a deep classical concavity lemma, but the result is a motivated precise distributional invariant and could be used as a benchmark for intrinsic pair distances. No generalization to Euclidean norm, nonconvex sets, or quantitative stability is claimed.",
+      "residual_risks": [
+        "The central proof depends on established geometric lemmas and is relatively short; publication significance may be modest.",
+        "No direct application or stability theorem beyond the stated stochastic and moment bounds is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All K must be compact full-dimensional convex and X,Y iid uniform; the gauge is relative to K-K, not Euclidean norm.",
+    "The geometry holds for d>=2, t in [0,1], p>0; no unnormalized Euclidean distance or quantitative stability extension.",
+    "Best-of-knowledge originality only; original Gardner--Zhang 1998 full text not obtained after authorized attempt, and broad s-concave radial order literature may contain equivalents.",
+    "Publication not ready because public-facing metadata and review contain internal identifiers or provenance and complete sanitized guarded replacements were not supplied."
+  ],
+  "schema_version": 1
+}
