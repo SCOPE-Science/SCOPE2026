@@ -1,19 +1,21 @@
-# Review: dimension-refined filiform subalgebra permutability
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The subalgebra classification is reconstructed from the central quotient, including the characteristic-two case. Every maximal subalgebra is an ideal, and all failure pairs have dimensions one or two. The counting steps separately establish the exact three failure types: line–line, line–plane (in both orders), and plane–plane. Exact polynomial simplification yields the claimed probability. A standalone complete RREF enumeration verified the dimension profile for the finite fields of orders 2, 3, 4, and 5. Those experiments corroborate but do not replace the symbolic proof.
+PASS
 
-## Originality
+Pinned RESULT.md 3335cf97ce26587493561660d7b5a598cc32512a classifies all subalgebras via central Z=Fw and Heisenberg quotient. Exactly P=q^3+q^2+q+1 lines, B=2q^2+q+1 planes (including q^2 graph planes Y_{a,b}), q+1 hyperplanes (all ideals) and 0,L, so N=q^3+3q^2+3q+5. Two lines fail unless their span is one of B subalgebra planes, giving P(P-1)-Bq(q+1). Distinct nonideal planes each have unique containing hyperplane, yielding (1,2) failures q^3(B-1). For (2,2), graph planes permute, only pairs of noncentral Z-containing planes on different projective lines through center fail, giving q^3(q+1). Sum yields claimed rational sd, characteristic-two alternating bracket valid. Independent exhaustive F2 RREF enumeration: 67 vector subspaces, 31 Lie subalgebras and failure cells 144,80,80,24; verifies q=2, not all q.
 
-**PASS, subject to the residual bibliographic risks.** Muhie, Otera and Russo (arXiv:2609.19086v1) study the same permutability degree but derive exact expressions for dimension-three Heisenberg and special-linear examples. Towers, Zuleta and Gutierrez (arXiv:2608.16575), Proposition 4.4, publish the complete subalgebra classification for the identical four-dimensional filiform algebra, which is expressly credited. Their comaximal adjacency asks whether the generated subalgebra equals the full algebra; it does not count ordered nonpermuting pairs. The new output is a dimension-refined incidence count, not a new subalgebra lattice. Indexed mathematical comparisons and accessible prior claims found no covering formula. Potential Lazard-correspondence overlap with older finite-group enumeration, and unindexed sources, remain limitations.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result supplies the exact natural subalgebra-permutability invariant for the first class-three four-dimensional nilpotent Lie type over every finite field, as well as an entire bivariate profile of failures by dimensions. It offers an explicit low-dimensional comparison point for recent random-subalgebra research and determines the large-field decay rate. It is an enumerative advance using previously known lattice data, not a statement about general filiform dimension.
+The full subalgebra count is already in Towers–Zuleta–Gutierrez and must NOT be presented as new. The claim concerns the distinct permutation-of-sums predicate, with a refined pair-size profile absent from inspected source summaries. A central-stabilized Heisenberg Resultary theorem has similar sd terminology but a nonisomorphic class-two algebra.
 
-## Closest literature and limitations
+## value
 
-The directly relevant literature is arXiv:2609.19086v1 (same probabilistic invariant in dimension three), arXiv:2608.16575 (the same algebra, subalgebra list, different graph predicate), and DOI 10.1155/jom/9921706 (same algebra, elementwise rather than subalgebra-wise commutativity). Literature indexing and full-text accessibility are incomplete; this review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact, dimension-refined incidence table for all subalgebra permutability failures of the smallest 3-step filiform Lie algebra captures how central extension changes lattice interaction; it supplies natural full statistics, not only N or an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
