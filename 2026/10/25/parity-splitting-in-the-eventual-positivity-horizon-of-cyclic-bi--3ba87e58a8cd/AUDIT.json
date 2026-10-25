@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "DFT eigenvalues 4sin²(pi*k/n) reconstruct the entire semigroup kernel. Weighted first-mode domination after scaled time 1/3000 makes the farthest-vertex entry strictly minimal and strictly increasing, ensuring a unique last negative crossing. A uniformly exponentially controlled Taylor expansion of the squared discrete dispersion gives the O(n^-4) remainder and both parity coefficients. The standard-library checker independently rebuilt small-cycle matrix exponentials and passed 1,425 assertions; no infinite conclusion is inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv:1511.09020, abstract and §6 applications: existence theory for eventual positivity, with no uniform graph refinement estimates.",
+        "Ferrero–Gazzola–Grunau, DOI:10.3934/dcds.2008.21.1129, published abstract: Euclidean biharmonic initial-value problems and local eventual positivity."
+      ],
+      "reasoning": "Any theorem covering all finite graph Laplacians with an explicit sharp eventual-positivity horizon would dominate this result, but the accessed general results specify qualitative spectral criteria. Existing matrix-semigroup positivity theorems imply eventual positivity of each fixed connected cycle but do not determine n^4 scaling, the limiting last zero, or opposite-parity second-order limits. Euclidean noncompact local-positivity statements use different spaces and do not imply this uniform finite-cycle law.",
+      "searches": [
+        "sharp spectral positivity cutoff of graph biharmonic semigroup on cycles and torus Fourier heat kernel",
+        "graph biharmonic heat kernel cycle C_n e^{-tL^2} eventual positivity",
+        "fourth order heat kernel on the torus positivity eventual sign antipodal theta"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1511.05294 (first public 2015-11-17)",
+      "https://arxiv.org/abs/1511.09020 (first public 2015-11-29)",
+      "https://doi.org/10.3934/dcds.2008.21.1129 (publisher abstract, May 2008)",
+      "Relevant published finite-spectrum positivity theorem (three-spectral-value barrier; summary-only comparison)",
+      "Published filtered Crank–Nicolson lattice-positivity note (summary-only comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv:1511.05294v1 §9 Theorem 9.1 addresses asymptotic positivity of matrix semigroups; it does not provide any quantitative last-negative-time formula.",
+        "ArXiv:1511.09020 Theorem 1.1 and its application discussion characterize eventual positive semigroups via the peripheral spectral projection; they provide no n-dependent sharp threshold.",
+        "The new Fourier expansion isolates the 1/(8n^2) spatial sampling defect for odd cycles, absent from the compared qualitative claims."
+      ],
+      "reasoning": "The newly claimed theorem entails three strictly stronger quantitative statements: a unique limiting antipodal root, an n^4 final recovery time with O(n^-2) normalized corrections, and a positive even/odd coefficient gap. None follows from the prior qualitative criteria alone without the new spectral and asymptotic analysis. Conversely this finding does not generalize those broader existence criteria.",
+      "searches": [
+        "eventually and asymptotically positive semigroups Banach lattices Daners Glück Kennedy 1511.05294",
+        "eventually positive semigroups of linear operators Daners Glück Kennedy 1511.09020",
+        "biharmonic heat periodic circle last negativity time asymptotics parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Daners, Glück, Kennedy, arXiv:1511.05294v1, Introduction and §9: qualitative Banach-lattice positivity conditions, not cycle-specific kernel sign zeros.",
+        "Daners, Glück, Kennedy, arXiv:1511.09020, Introduction and §6 application inventory: fourth-order semigroup examples but no nearest-antipode cyclic Fourier asymptotics."
+      ],
+      "reasoning": "Equivalent formulations include positivity of all entries of exp(-t L(C_n)^2), sign of the discrete cyclic fourth-order heat kernel, and the exact endpoint contractivity time for this mass-preserving symmetric semigroup. General eventual-positivity criteria establish existence for fixed n but do not yield the scaled root or either parity correction. The source inspection showed no relevant equivalent theorem.",
+      "searches": [
+        "eventual positivity horizon for fourth order heat on cycle graphs C_n scaling n^4 antipodal Fourier theta sum even odd parity split of positivity time",
+        "periodic discrete biharmonic heat kernel antipode positivity threshold correction to continuum scaling",
+        "biharmonic heat circle torus eventually positive sharp positivity time kernel fourth derivative Fourier series"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published three-spectral-value positivity barrier concerns self-adjoint semigroups with at most three spectral levels; sufficiently large cycles have more than three.",
+        "A published filtered Crank–Nicolson lattice positivity result studies a rational numerical propagator, not exp(-t L(C_n)^2).",
+        "Adjacent exact graph results treat biharmonic heat on complete bipartite, cocktail-party, triangular, and rook graphs or the pseudoinverse of a cycle Laplacian; those statements do not imply the present cycle-exponential threshold."
+      ],
+      "reasoning": "An exact numerical table for finite graph orders, if present, would not automatically imply the asserted parity limits; no matching table or published exact theorem was found in accessible records. The three-spectral-level barrier does not apply to sufficiently large cycles, where the Laplacian has more than three spectral levels. A positive Crank–Nicolson rational propagator is not the exponential of the squared cycle Laplacian.",
+      "searches": [
+        "finite cycle bi-Laplacian exponential eventually nonnegative threshold cycle fourth-order heat",
+        "cycle biharmonic heat n fourth positivity horizon even odd correction",
+        "cycle graph bi-Laplacian positivity threshold finite cycles fourth-order semigroup"
+      ]
+    },
+    "rationale": "Focused searches and inspected primary full-text semigroup theory did not identify any statement covering the quantitative cycle positivity horizon or parity-split n^-2 correction. Closest general papers establish eventual positivity qualitatively and cannot imply the coefficients without additional Fourier analysis. Several adjacent finite-graph results treat genuinely different graph families or operators. Specialized unindexed sources remain a bibliographic risk.",
+    "residual_risks": [
+      "Exhaustive historical priority is not established, particularly for unpublished periodic biharmonic-kernel calculations.",
+      "The 2008 Euclidean article was compared through its publisher abstract rather than the full text.",
+      "No independent mathematical or bibliographic audit has yet taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes qualitative spectral/asymptotic positivity; not the scaled cyclic graph horizon or parity coefficient.",
+        "evidence": "Theorems 1.1, 1.2, 9.1, 9.4 and surrounding proofs, arXiv:1511.05294.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1511.05294",
+        "material_read": "Accessible full-text HTML, Introduction and §9 on finite-dimensional semigroups and bi-Laplace resolvents; focused searches for cycle-specific claims throughout.",
+        "method": "Read detailed theorems, proof scope, relevant application material and keyword locations.",
+        "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+        "trigger": "The most directly relevant 2015 semigroup theory and explicit fourth-order applications."
+      },
+      {
+        "assessment": "Qualitative spectral criteria, no cycle-refinement or parity-specific horizon.",
+        "evidence": "Theorem 1.1 and its discussion of matrix exponential and fourth-order elliptic examples.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1511.09020",
+        "material_read": "Accessible full-text HTML, detailed Introduction and Theorem 1.1 and Section 6 application descriptions.",
+        "method": "Read main theorem and examine listed operator examples and claimed scope.",
+        "title": "Eventually Positive Semigroups of Linear Operators",
+        "trigger": "Potential stronger published uniform eventual positivity theorems and bi-Laplacian examples."
+      },
+      {
+        "assessment": "Concerns continuous Euclidean-domain Cauchy problems, not finite cyclic matrix semigroups or sharp n-dependent last-negative-time asymptotics. Full-text comparison remains outstanding.",
+        "evidence": "Publisher abstract identifies noncompact Cauchy problems and eventual local positivity, rather than cycle graph horizons.",
+        "identifier_or_url": "https://doi.org/10.3934/dcds.2008.21.1129",
+        "material_read": "Publisher article abstract and bibliographic metadata only, not full text.",
+        "method": "Scope comparison of stated equation, domain and quantitative conclusions.",
+        "title": "Decay and local eventual positivity for biharmonic parabolic equations",
+        "trigger": "Historical mathematical treatment of local positivity for fourth-order heat."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ba87e58-a8cd-4f71-a678-b10d243045fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The last negativity time for an entire infinite family of non-Markovian fourth-order graph diffusions is a natural semigroup stability invariant. Its sharp n^4 continuum scaling and separate even/odd n^-2 coefficients are motivated by spectral approximation and antipodal sampling geometry, rather than arbitrary graph tables. The strictly positive coefficient gap is a reproducible structural finite-mesh phenomenon.",
+    "status": "PASS"
+  }
+}
