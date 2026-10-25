@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and action are explicitly defined. All \(476186\) nonempty simplices are enumerated, a complete discrete-Morse matching is checked against \(3461400\) Hasse covers, and global acyclicity is proved by exhaustive topological sorting. This justifies that only rank-nine rational degree-eight homology survives (and recovers the previously published integral homotopy result). The signed orbit-conflict Lefschetz identity follows from invariant-face orientation signs and the augmented \((-1)\)-chain. Exactly \(720+720\) graph automorphisms are checked; class traces, irreducibility and the polarity eigenspace dimensions follow with no approximation. Limitation: this is a finite exact computation, not a symbolic infinite-family theorem.
+PASS
 
-## Originality — PASS, literature-bounded
+The duad/syntheme model has 15 duads, 15 synthemes, 45 incidences, with 720 color-preserving automorphisms S6 and one explicit color-swapping involution generating the order-1440 group. The inspected complete script computes 476186 independent nonempty faces, a 238088-pair acyclic Morse collapse over 3461400 Hasse relations, giving the already known 9-dimensional rational H8. The signed orbit-conflict Lefschetz formula is correct because selecting any whole vertex cycle contributes -1 to the augmented Euler trace; reduced H8 is even, so trace is negative of the conflict independence polynomial at -1. Independently enumerated 720 S6 elements and all 720 dual-swapping elements with a separate recursion; every formula comparison agreed: S6 character sign*(fixed_duads-fixed_letters), and outer cycle classes (2^15:36,-1),(4^6 2^3:180,-1),(8^3 4 2:360,+1),(10^3:144,-1). Norm 720 gives irreducibility and sign twist S^(4,2); 9-dimensional involution of trace -1 has eigenspaces 4 and 5. This is exhaustive finite topology and character computation, not a general graph theorem.
 
-The published full homotopy calculation for the same Tutte–Coxeter independence complex already yields \(\bigvee^9S^8\); no new contribution is claimed in that fact. Linusson–Shareshian–Welker's no-perfect-matching theorem treats a closely related Alexander-dual object, but its representation theorem gives an \(S_5\) restriction, while the full \(S_6\) prediction is explicitly conjectural in the inspected full text; it gives no action of the additional bipartition-exchanging incidence dualities. Tsukuda's general incidence-graph duality abstract does not provide a full automorphism character; its full text was not accessible. A separate published scale-three Rips homology representation uses this graph but concerns a distinct 256-dimensional module. Direct statement/implication comparisons and targeted indexed searches revealed no character computation of the specified nine-dimensional representation for all \(1440\) symmetries. Residual risk: equivalent work may exist under exceptional outer-automorphism or perfect-matching-complex terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exceptional outer automorphism of \(S_6\) has a canonical geometric model on this highly symmetric thirty-vertex graph. The known Betti number nine does not determine the module or how the 720 dualities act; these actions are a natural missing invariant. The exact irreducible Specht restriction, all four outer-coset trace types, and the 4/5 polarity eigenspace split give substantive finer equivariant topological information and a reproducible test case for incidence-duality comparisons. The contribution is not the generic Lefschetz identity, but its exact full-group evaluation and structural identification for the canonical object.
+The published same-object Tutte–Coxeter independence complex wedge^9 S^8 determines dimension, not the 1440-element action. Linusson–Shareshian–Welker math/0410345 was read in the lawful full PDF (Theorem 1.12 and Conjecture 1.13): it studies a related no-perfect-matching complex and gives an S5-restricted module, not this full color-swapping automorphism character. The scale-three Vietoris–Rips S6 calculation uses a distinct 256-dimensional H3 module. Tsukuda 2017 incidence-graph/Alexander-duality abstract is relevant but accessible full text was unavailable; that uncertainty is retained. No primary source read computes these four outer conjugacy-class traces. Best-of-knowledge originality PASS with explicit Tsukuda risk.
 
-## Closest sources and residual risks
+## value
 
-- Linusson–Shareshian–Welker, arXiv:math/0410345, Theorem 1.12, Conjecture 1.13, Question 1.14: closely related nonequivariant matching complex, partial subgroup representation; does not imply the full \(1440\)-element character.
-- Published exact Tutte–Coxeter independence-complex homotopy calculation: supplies the sphere-wedge premise only. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-tutte-coxeter-independence-complex-is-a-wedge-of-nine-eight--374e87ce82da
-- Tsukuda 2017, DOI:10.55016/ojs/cdm.v12i1.62277: full text inaccessible, hence unresolved potential specialized consequences; available abstract describes Alexander-dual homotopy equivalence, not a character table.
-- Published scale-three Tutte–Coxeter Rips \(S_6\) result: different homology complex and degree. https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-natural-s-6-homology-representation-of-the-scale-three-tutte--df31ab97e550
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptional S6 outer automorphism acts geometrically on duad–syntheme incidences; its rational H8 action is a canonical finer invariant not determined by nine spheres or the S6 subgroup. The explicit complete 1440-character, 9-dimensional irreducible restriction, four color-exchange classes and polarity 4/5 split are genuinely structural equivariant topology, not an arbitrary finite numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
