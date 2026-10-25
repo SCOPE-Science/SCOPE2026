@@ -1,0 +1,15 @@
+# Scientific assessment of two-target resetting optimum
+
+## Correctness — PASS
+
+For each of the two possible targets, the Brownian Laplace hitting transform and the exponential-reset renewal equation yield exact expressions for the expected time and every positive-discount transform. Convex endpoint interpolation strictly improves both moment transforms from every interior relocation point, including for degenerate target priors, and therefore excludes all interior mass from any optimizer. The remaining problem is globally one dimensional. Strict convexity gives the unique mean optimizer, exact prior transitions, and the closed-form interior minimum. Strict concavity of discounted success gives the unique optimizer for each discount; symmetry produces one law optimal for all discounts. A separate hyperbolic-cosine bound gives unique worst-target mean optimality. The finite verification script passed independent scalar, parameter, threshold, and exact-cycle simulation checks. Simulations are supporting evidence rather than infinite proof.
+
+## Originality — PASS, with qualifications
+
+Evans–Majumdar (arXiv:1107.4225, full text inspected) already derive arbitrary-reset-distribution mean-time formulas, including averaging over target priors. Those formulas are background, not new. Méndez–Flaquer-Galmés–Campos (arXiv:2401.01125, full text inspected) analyze randomized relocation with one known target and optimize rate or predetermined distribution widths; their formula is a related starting point, not the present globally optimized hidden two-target law. Julián-Salgado–Dagdug–Boyer (arXiv:2311.11897, full text inspected) consider fixed target and two reset points but optimize rate. García-Valladares et al. (arXiv:2305.14245, full text inspected) optimize the *rate profile*, not the relocations. Searched mathematical research records included binary prior, sharp threshold, endpoint resetting, all-discount and equivalence descriptions; none inspected covered the same optimization theorem. Finite-graph uniform-target relocation theorems do not imply this continuous interval result. The exact optimum could still have an unlocated equivalent derivation; source searching is not a uniqueness proof.
+
+## Mathematical value — PASS
+
+The question concerns a real operational decision when the single true target is not known before search and relocation is confined to a physical interval. Its exact answer classifies all possible reset distributions (including singular laws), gives two sharp thresholds separating a fully biased design from a split design, and settles a stronger full Laplace-transform criterion in the symmetric case, with an independent worst-case target guarantee. This is a natural solvable binary-prior case of an otherwise general infinite-dimensional design problem, not an arbitrary parameter slice or routine numerical increment. Limitations: fixed Poisson rate, symmetric two-point target prior support, no relocation costs, no stochastic-order or multidimensional theorem.
+
+Self-review: passed. Independent audit: not yet performed.
