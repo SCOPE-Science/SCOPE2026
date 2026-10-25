@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:57:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md and checker.py",
+        "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab, full RESULT.md",
+        "Resultary 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8, full RESULT.md",
+        "Padrol-Pilaud-Poullot arXiv:2111.12422 deformation cones",
+        "Chapoton-Pilaud arXiv:2201.06896 graphical zonotope shuffle"
+      ],
+      "rationale": "For each nontrivial vertex cut S with a=|S∩A|, b=|S∩B|, D=a(q-b)+b(p-a), the zonotope support in normal v_S=1_S-s/n*1 is D/2. Coarea/decomposition into cut normals establishes that all these inequalities characterize the whole zonotope, hence c+rB lies within iff |sum_{i in S}c_i|+r sqrt(s(n-s)/n)<=D/2 for every S. The centered optimum radius is min cut normalized support, already known in prior cut theorem. K_{p,q} Laplacian has spectral gap p, yielding D>=p s(n-s)/n. For n>=6 and 2<=s<=n-2, strict 2(n-2)>n^2/(n-1) excludes nonsingletons from radius equality; n=5 (2,3) and n=4 (2,2) are directly exhausted. Active opposite supporting inequalities force B coordinates zero for p<q (rank q); for p=q>=3 every coordinate zero; for (2,2) mixed equalities leave t(1,1,-1,-1). Other cuts are strict at origin, so for p<q full dimension p-1 survives, with exact beta_a=min_b slack inequalities. For p=2, maximizing (b+1)(q+1-b) gives T_q=q/2-sqrt(floor((q+2)^2/4)/(q+1)); binomial endpoint counts follow from its maximizing integers. K_{2,2} singleton bounds yield |t|<=1-sqrt(3)/2 and count eight endpoint oriented facets. Independently enumerated all cut ratios in 20 (p,q) cases with n<=11 using exact integer D^2(n-1)-p^2 s(n-s), confirming active singleton/mixed patterns and radial dimensions. General proof is spectral and uses strict inequalities, not extrapolation.",
+      "residual_risks": [
+        "Finite checks cannot establish all p,q.",
+        "Precise count of tangent facets relies on distinguishing complementary cut pairs and two orientations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior weighted-graph formula includes all K_{p,q} but only scalar inradius and existence of central Chebyshev center; deformation-cone paper classifies deformations."
+        ],
+        "reasoning": "The radius is already covered, and not counted as original. Neither stronger generality in weights for the scalar radius nor deformation parameters implies the full center polytope for K_{p,q}.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "Padrol-Pilaud-Poullot arXiv:2111.12422 Sections 1-2"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and checker.py",
+        "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab, full RESULT.md",
+        "Resultary 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8, full RESULT.md",
+        "Padrol-Pilaud-Poullot arXiv:2111.12422 deformation cones",
+        "Chapoton-Pilaud arXiv:2201.06896 graphical zonotope shuffle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The min-cut theorem implies the formula for r_{p,q}; the all-center result refines it by equality-normal rank and residual slack. The Löwner theorem optimizes volume rather than insphere radius."
+        ],
+        "reasoning": "Previous weighted inradius is a strict corollary of the current classification’s radius component but not the novel all-center/endpoint statements; outer ellipsoid is a dual-looking but nonequivalent extremal problem.",
+        "searches": [
+          "Published cut-expansion full RESULT.md",
+          "Published complete-bipartite Löwner full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior general cut ratio is exactly the same inradius normalization but states no classification of nonunique optimal centers."
+        ],
+        "reasoning": "The complete locus corresponds to the feasible centers in all pairwise cut constraints, not merely the minimum cut ratio. Inradius coincidence alone is not equivalence.",
+        "searches": [
+          "Resultary semantic: complete bipartite graph graphical zonotope Euclidean incenter locus maximal inscribed ball centers facet contacts",
+          "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Löwner contact count 2^p+2^q-2 concerns outer ellipsoid vertices; checker exhaustively validates finite K_{p,q} cuts."
+        ],
+        "reasoning": "No known exact table of inner center-locus dimensions and binomial endpoint facet counts is supplied by the outer ellipsoid result; computation only cross-checks bounded p,q.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8",
+          "pinned checker.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct full Chebyshev-center locus classification. The prior general weighted-graph cut theorem gives the inradius and ONE symmetry center, explicitly not all centers. The complete-bipartite Löwner result computes an enclosing ellipsoid and contact *vertices*, not inscribed Euclidean ball centers or contact facets. Deformation/shuffle studies concern combinatorics, not the exact incenter locus. No statement/implication among read sources determines the p-1/0/1 center-dimension phase or p=2 endpoint facets.",
+      "residual_risks": [
+        "Metric classifications of Chebyshev-center polytopes under other terminology may include this family; prior general cut-radius theorem is explicitly acknowledged.",
+        "The endpoint facet count is for exact unit-edge Euclidean realization, not arbitrary graph weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS radius ONLY; NOT_COVERING all centers",
+          "evidence": "Limitations explicitly state it does not characterize every Chebyshev center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "material_read": "Complete published RESULT.md: theorem/proof and Limitations",
+          "method": "Pinned public GitHub file read",
+          "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+          "trigger": "Same intrinsic Euclidean zonotope radius, stronger weights and graph family"
+        },
+        {
+          "assessment": "NOT_COVERING inball centers",
+          "evidence": "Shape Q=(pq/4)L, contact 2^p+2^q-2 *vertices* for minimal outer ellipsoid, not inner Euclidean ball facet contact.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8",
+          "material_read": "Full published RESULT.md: ellipsoid theorem, contact classification, proof, limitations",
+          "method": "Public GitHub file read",
+          "title": "Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+          "trigger": "Precisely same K_{p,q} zonotope family"
+        },
+        {
+          "assessment": "NOT_COVERING metric all-centers based on inspected material",
+          "evidence": "Subject of paper is deformation cone and normal fan, not distance-to-facets or Chebyshev loci.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+          "material_read": "Introduction, core definitions and description of Sections 1-2 and deformation-cone theorem",
+          "method": "ArXiv PDF opened, text searched, first page screenshot",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Standard graphical zonotope and possible dominating polytope theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md and checker.py",
+        "Resultary 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab, full RESULT.md",
+        "Resultary 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8, full RESULT.md",
+        "Padrol-Pilaud-Poullot arXiv:2111.12422 deformation cones",
+        "Chapoton-Pilaud arXiv:2201.06896 graphical zonotope shuffle"
+      ],
+      "rationale": "All optimal Euclidean centers of a natural graph-zonotope family form a nontrivial convex set, not determined by the known single inradius. The p<q vs balanced dimension transition and exceptional K2,2 interval, plus explicit exact center inequalities and parity-sensitive endpoint contact counts, expose a structural change in a canonical geometric optimization problem. The exact invariant and family are mathematically natural independent of any downstream theorem.",
+      "residual_risks": [
+        "Restricted to standard intrinsic metric; all-center classification may be known elsewhere as a general Chebyshev-center polytope result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
