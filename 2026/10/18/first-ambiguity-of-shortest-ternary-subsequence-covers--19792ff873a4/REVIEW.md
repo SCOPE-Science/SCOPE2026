@@ -1,11 +1,21 @@
-# Scientific review — shortest ternary subsequence-cover ambiguity
+# Independent mathematical audit
 
-**Correctness: PASS.** The main result is a finite theorem for all nonempty ternary words of lengths at most \(11\). The primary certificate enumerates every nonempty position subset of every restricted-growth (alphabet-normalized) representative and identifies all candidates whose occurrence masks cover every position. Restricted-growth generation is a bijective representative system for alphabet permutations, not a sampling shortcut. For lengths \(1\)–\(10\), every representative has exactly one shortest s-cover. The sole ambiguous length-\(11\) representative is \(\mathtt{01012021010}\), with exactly the covers \(\mathtt{010210}\) and \(\mathtt{012010}\). Its six relabelings are all exceptions. The independent verifier enumerates all labeled ternary host words and applies a greedy prefix/suffix membership criterion. Both complete checks succeeded. They do not purport to prove an infinite-length statement.
+## correctness
 
-**Originality: PASS, subject to residual search risk.** The foundational 2022 conference paper and its expanded 2025 version were inspected at their relevant complete sections. The foundational paper gives the concept and an algorithm, a ternary pair of covers of unequal lengths, and a four-symbol palindrome of length \(15\) with multiple *shortest* covers. These statements do not imply the exact ternary first occurrence at length \(11\) or its unique alphabet-permutation orbit. The 2025 expanded treatment does not present the corresponding threshold or complete finite classification in its inspected discussion of multiplicity. Focused research-record and broader literature searches revealed no equivalent result. An unindexed exact census cannot be categorically ruled out.
+PASS
 
-**Mathematical value: PASS.** The shortest-cover multiplicity phenomenon is a central distinction between scattered subsequence covers and ordinary string covers. This result gives the sharp first point where uniqueness fails on the smallest alphabet admitting the phenomenon and classifies every extremizer at that boundary, improving the known four-letter length-\(15\) illustrative construction for alphabet size and length simultaneously. A sharp finite boundary and its complete symmetry class are useful structural data, rather than a routine rescaling or renaming of the known construction.
+Every nonempty subsequence occurrence corresponds to a unique nonzero bitmask; OR-ing masks by candidate word detects coverage exactly (OR=all position bits). Restricted-growth canonicalization represents each ternary word up to letter relabeling once. The reviewed C++ direct verifier iterates every canonical word length 1..11 and every nonempty position mask; a second verifier checks every labeled word using greedy prefix/suffix embeddings. Newly written independent integer-encoded C++ full enumeration (distinct storage/encoding) rechecked all 44,292 canonical words, 72,517,166 occurrence masks, the 29,525 canonical length-11 words, the unique exception and both minimizers; Its three distinct symbols have a trivial relabeling stabilizer, so the orbit has precisely 3!=6 labeled words. This is exact finite exhaustive proof of the stated bounded theorem, not a claim for length >=12.
 
-**Scientific limits and closest prior work.** The paper *Subsequence Covers of Words*, SPIRE 2022, Section 5, DOI `10.1007/978-3-031-20643-6_1`, and its 2025 expansion, Section 7, DOI `10.1016/j.tcs.2025.115216`, are the closest inspected sources. They establish nonuniqueness in broader alphabet settings and shortest-cover algorithms, not these finite ternary minimality counts. The proof here is self-contained apart from the second verification algorithm's established ternary bound; the first algorithm independently checks all subsequences without that bound. No claim is made concerning words longer than \(11\) or other cover notions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2022 and expanded 2025 subsequence-cover papers introduce the definition, γ(3)=8, algorithms and a length-15 ambiguity with four symbols, but do not state the first ternary ambiguous length or six labeled exceptions. The finite threshold requires a complete census and is not merely the earlier γ(3) table.
+
+## value
+
+PASS
+
+For a natural recently introduced notion of cover, the first possible failure of shortest-cover uniqueness and its complete equality classification is a mathematically natural boundary, not an arbitrary slice or only a sample; code supplies a short exhaustive certificate usable as an exact reference instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

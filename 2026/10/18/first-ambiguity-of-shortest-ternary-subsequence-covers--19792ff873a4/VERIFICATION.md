@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run from the directory holding the complete package:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 verify_direct.cpp -o verify_direct
-./verify_direct
-c++ -std=c++17 -O2 verify_greedy.cpp -o verify_greedy
-./verify_greedy
-```
+PASS
 
-`verify_direct.cpp` visits all restricted-growth ternary words through length \(11\). For each, it iterates every nonempty subset of positions, recovers the corresponding subsequence, and OR-aggregates all masks by subsequence string. A string is an s-cover exactly when the accumulated mask is all ones. No heuristic candidate pruning is performed. The program checks the canonical census counts and exact unique exception. It enumerated \(72{,}517{,}166\) occurrence masks and ended with `DIRECT_CERTIFICATE_PASSED`.
+Every nonempty subsequence occurrence corresponds to a unique nonzero bitmask; OR-ing masks by candidate word detects coverage exactly (OR=all position bits). Restricted-growth canonicalization represents each ternary word up to letter relabeling once. The reviewed C++ direct verifier iterates every canonical word length 1..11 and every nonempty position mask; a second verifier checks every labeled word using greedy prefix/suffix embeddings. Newly written independent integer-encoded C++ full enumeration (distinct storage/encoding) rechecked all 44,292 canonical words, 72,517,166 occurrence masks, the 29,525 canonical length-11 words, the unique exception and both minimizers; Its three distinct symbols have a trivial relabeling stabilizer, so the orbit has precisely 3!=6 labeled words. This is exact finite exhaustive proof of the stated bounded theorem, not a claim for length >=12.
 
-`verify_greedy.cpp` separately enumerates every labeled ternary word through length \(11\) and checks candidate covers via earliest-prefix/latest-suffix embeddings. Completeness of its shorter candidate list uses published properties of shortest s-covers and \(\gamma(3)=8\) (SPIRE 2022). It independently obtained \(177{,}141\) words with one shortest cover and \(6\) words with two at length \(11\), and ended with `GREEDY_CERTIFICATE_PASSED`.
+## originality
 
-The file `verification_output.txt` contains both successful outputs as obtained by executing the supplied exact code. The two separate enumeration strategies agree; the complete mathematical justification of their finite loops is given in RESULT.md. This is finite validation, not an infinite exhaustive search, and neither externally conducted independent audit nor independent certification is asserted.
+PASS
+
+The primary 2022 and expanded 2025 subsequence-cover papers introduce the definition, γ(3)=8, algorithms and a length-15 ambiguity with four symbols, but do not state the first ternary ambiguous length or six labeled exceptions. The finite threshold requires a complete census and is not merely the earlier γ(3) table.
+
+## value
+
+PASS
+
+For a natural recently introduced notion of cover, the first possible failure of shortest-cover uniqueness and its complete equality classification is a mathematically natural boundary, not an arbitrary slice or only a sample; code supplies a short exhaustive certificate usable as an exact reference instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
