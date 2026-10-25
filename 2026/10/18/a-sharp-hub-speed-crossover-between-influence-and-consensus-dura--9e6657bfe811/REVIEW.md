@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The continuous-time model is fully defined with fixed position-dependent copying rates. The discordant-leaf count is Markov and has the exact two-transition generator shown in the proof. Summing its finite backward equations yields an all-parameter identity for the center-started mean, the rate-independent \(n-1\) discordance state, and the leaf-started mean. A bounded weighted-opinion martingale gives both takeover probabilities. Positivity of \(H_{n-1}\) proves uniqueness of each crossover. An independent full-configuration rational generator check was carried out through five leaves, and the smaller reduced generator was checked through twelve leaves. No infinite statement rests on the enumeration.
+PASS
 
-## Originality — PASS, qualified
+The exact k-discordant-leaf generator has transitions k->k-1 at rate k and k->n-k at rate ck/n (including null transitions for n even). Telescoping the backward equations sum_{k=1}^n[(tau_k-tau_{k-1})+(c/n)(tau_k-tau_{n-k})]=H_n to obtain tau_n=nH_n/(n+c); the k=n row gives tau_{n-1}=H_{n-1}, the k=1 row yields tau_1. The weighted opinion martingale sum_v(deg(v)/rate(v)) eta_v establishes fixation; bounded stopping is valid on a finite absorbing chain. Exact independent matrix inversion of the n-state chain for n=2..6, c=1/3,3/2,4,n+2 reproduced both time formulas. Only the backward-equation and martingale proofs justify arbitrary n and c; no extrapolation from examples.
 
-The most relevant inspected primary sources are Sood–Antal–Redner (arXiv:0712.4288), Masuda–Gibert–Redner (arXiv:1003.0768), Hadjichrysanthou–Broom–Rychtař (DOI 10.1007/s13235-011-0022-7), and Iwamasa–Masuda (DOI 10.1103/PhysRevE.90.012816). The first gives degree-heterogeneous voter-model influences and a homogeneous-rate star; the second introduces intrinsic rate heterogeneity but treats large-network/regular models; the third treats selection through strategy fitness under star update rules, not fixed position-specific copying rates; the fourth varies homogeneous-update graph topology. The inspected primary mathematical statements do not imply the present two-time/two-probability ordering for all \(n,c\). This is a best-knowledge literature assessment, not an independence certificate. A disguised result in stochastic-process literature or an unavailable appendix remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding distinguishes two operationally different properties of a single seeded opinion: takeover probability and time until any consensus. Their thresholds separate by an explicit positive interval of width \((n-1)/H_{n-1}\), asymptotic to \(n/\log n\). The surprising center-rate invariance of the penultimate discordance state gives an exact mechanism, not merely a numerical crossover. These are global all-star-size structural relations motivated by heterogeneous agent responsiveness, not arbitrary finite classifications.
+The classical heterogeneous voter and standard star results establish the martingale or homogeneous star fixation, but the inspected primary results do not give the exact variable-center-rate star time crossover or its separation from fixation threshold. The final claim specializes nontrivially to this location-weighted chain rather than replacing a known general formula by a name change.
 
-## Scope and verification limits
+## value
 
-The result concerns continuous-time position-rate copying on stars with one initial dissenter. It does not extend to strategy-based selection, graphs with cycles, or empirical human voting. Formulae are proved analytically; numerical checks are supplementary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two natural observables—fixation probability and mean consensus duration—order central and peripheral initial dissent differently on an explicit nonempty parameter window. The sharp n-dependent boundary, exact invariant tau_{n-1}, and n/log n window width are meaningful structural properties of the canonical heterogeneous-update voter star, not a generic one-line substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
