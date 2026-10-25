@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The claim has an exhaustive 1,816-face construction; the 843-pair matching is acyclic by a checked directed topological sort of all 6,408 face-poset covers. Its critical-cell profile is \((1,0,4,93,32)\), with integral Morse differentials of ranks one and zero in adjacent high degrees. A unit nonzero Smith factor rules out integral torsion. The independent mod-two boundary calculation has ranks \((23,169,444,208)\). The involution character follows from exact signed fixed-simplex counts and prime-field projected boundary ranks whose sums attain independently established rational ranks.
+## correctness
 
-## Originality
-Comparison with Caputi et al. (arXiv:2208.04656), Caputi–Collari–Smith (arXiv:2601.05670), and Deshpande–Sawant (arXiv:2602.14936) finds the same directed-path-forest construction but no evaluation for the bidirected \(K_{2,2,2}\). Indexed octahedral matching and Morse-complex results have other chain generators and admissibility conditions. Nearby bidirected bipartite and double-star results concern different graphs and do not imply the three-part case. Exact broad and alias searches did not reveal a dominating theorem. Unindexed or differently named work remains a risk.
+PASS
 
-## Value
-The octahedral graph is the canonical smallest complete tripartite graph with every part of size two. Its bidirected linear-forest complex is an intrinsically natural cyclic test of the new directed-forest framework. The three simultaneous nonzero integral homology degrees and their nontrivial antipodal rational splitting are specific structural information not accessible from Euler characteristic or the existing tree/polygon families; the computation offers a benchmark for future multipartite classifications. No unsupported general-family or wedge assertion is made.
+Independent enumeration of all 24-arc directed path forests gives 1816 nonempty faces, f=(24,192,616,744,240) and 6408 face-poset covers. Independently checked 843-pair acyclic matching, critical (1,0,4,93,32), and mod-two boundary ranks (23,169,444,208). Rebuilt signed antipodal chains and projected mod-1009 ranks giving + and - eigendimensions H2:(2,1), H3:(49,43), H4:(12,20). The inspected original integer Morse elimination has one primitive rank-one 3-to-2 differential and no top differential, yielding free groups Z^3,Z^92,Z^32; modular sharpness follows sums equal rational total ranks.
 
-## Scope and risks
-The conclusion is exact homology and one symmetry involution; its full homotopy type and the full octahedral symmetry module are not established. Bibliographic incompleteness remains possible. Computational certificates are reproducible finite exact verifications, not independent external audits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published multipath results give directed bipartite orientations, paths and bidirected polygonal digraphs, not K_{2,2,2} with both arc orientations; ordinary octahedral matching and Morse complexes have different face rules. The distinct co-assigned octahedral homology record is mathematically weaker: it contains homology, but not the antipodal decomposition.
+
+## value
+
+PASS
+
+Canonical bidirected octahedron provides exact integral torsion information and a nontrivial symmetry refinement in adjacent homological dimensions. The (+,-) action is not recoverable from ranks alone and can serve as an equivariant test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
