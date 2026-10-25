@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T05:00:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For <=4 odd distinct prime factors, sigma(n)/n <= (4/3)(6/5)(8/7)(12/11)=2304/1155<2; >=6 factors imply n>=255255>39585. Independently scanned every odd n<=39585 with SymPy exact factorization, extracted all 12 squarefree five-prime candidates, and checked all proper-divisor pairs. No qualifying n<39585; n=39585 has exactly (105,1365),(455,1015); sigma=80640. This proves the unbounded minimum because the structural bound makes this finite census exhaustive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aryan et al 2023 abstract restricts classification to 2^k p^i, i=1,2; OEIS tabulates unrestricted 2-near-perfect integers in increasing order."
+        ],
+        "reasoning": "The older unrestricted exact table is broader than the odd-squarefree minimum, regardless of the earlier narrow analytic theorem.",
+        "searches": [
+          "web: On 2-Near Perfect Numbers Aryan Madhavani Parikh odd squarefree 39585; near perfect number squarefree odd 39585",
+          "https://arxiv.org/abs/2310.01305",
+          "https://oeis.org/A341475/b341475.txt"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A341475 entry and full b-file https://oeis.org/A341475/b341475.txt",
+        "Aryan et al., On 2-Near Perfect Numbers, arXiv:2310.01305, abstract",
+        "Resultary search: Squarefree 2-near-perfect numbers with three prime factors (even 30 and 66)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full original claim: least odd squarefree 2-near-perfect integer = 39585; earlier b-file enumerates all such numbers through and beyond 39585 in increasing order."
+        ],
+        "reasoning": "Earlier comprehensive table plus routine parity/squarefree screening logically implies the submitted final minimum; structural support lower bound is elementary and insufficient to distinguish the claim.",
+        "searches": [
+          "web: On 2-Near Perfect Numbers Aryan Madhavani Parikh odd squarefree 39585; near perfect number squarefree odd 39585",
+          "https://oeis.org/A341475/b341475.txt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A341475 defines 2-near-perfect n by omitting two proper divisors; this matches sigma(n)=2n+d1+d2."
+        ],
+        "reasoning": "Identical divisor-sum property under sequence terminology; filtering by parity and squarefreeness gives the same target.",
+        "searches": [
+          "Resultary: least odd squarefree 2-near perfect 39585 two omitted divisors 5 prime factors",
+          "web: On 2-Near Perfect Numbers Aryan Madhavani Parikh odd squarefree 39585; near perfect number squarefree odd 39585",
+          "https://oeis.org/A341475"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A341475 b-file row 175 explicitly reads 175 39585; rows 1..174 are strictly smaller and the 2-near-perfect sequence members. Page lists b-file as a table covering 2000 terms; website update predates Oct 18 2026."
+        ],
+        "reasoning": "This is decisive preexisting exact numerical coverage: direct factoring of the earlier listed odd entries shows none squarefree, while 39585 is squarefree. A new proof of the tabulated minimum is not an original value.",
+        "searches": [
+          "https://oeis.org/A341475/b341475.txt",
+          "https://oeis.org/A341475"
+        ]
+      },
+      "rationale": "FAIL. OEIS A341475 is an older exact table of ALL 2-near-perfect numbers, and its linked b-file contains 39585 as term 175, with all smaller members explicit at indices 1..174. Screening these earlier entries for odd squarefreeness yields none; 39585 itself is odd squarefree. Thus the precise numerical minimum is already a direct consequence of the published table even without those category words in its title. The ancillary >=5 support bound is an immediate four-prime reciprocal-product bound and does not rescue the original numerical novelty.",
+      "residual_risks": [
+        "OEIS A341475 exact b-file is positive coverage, not a residual uncertainty; absence of the words odd squarefree on its main page is irrelevant.",
+        "A general study might offer a separate deeper classification, but none survives as an original theorem in the submitted final claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact earlier numerical table determines the least odd squarefree value",
+          "evidence": [
+            "b-file row 175=39585; row order increasing; earlier 174 entries contain no odd squarefree member."
+          ],
+          "identifier_or_url": "https://oeis.org/A341475/b341475.txt",
+          "material_read": "Full OEIS entry, sequence definition and b-file rows 1..175 including 175 39585",
+          "method": "Direct web text reading and comparison with independent exact factorization",
+          "title": "OEIS A341475: 2-near-perfect numbers; b-file table",
+          "trigger": "A possible exact database covering the minimization"
+        },
+        {
+          "assessment": "Two-prime-support family classification, not decisive; cannot claim full-document noncoverage",
+          "evidence": [
+            "Abstract states 2^k p^i, i=1,2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.01305",
+          "material_read": "Abstract only; attempted arxiv HTML and ar5iv full text inaccessible",
+          "method": "Indexed arxiv abstract and lawful mirror attempt",
+          "title": "On 2-Near Perfect Numbers (Aryan et al.)",
+          "trigger": "Closest named specialist classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. The natural minimum is arithmetically meaningful but was already determined in the existing comprehensive exact table. The remaining five-prime support observation is an elementary size bound, not an independently motivated structural classification or unknown exact invariant; the submitted package is therefore largely a known-table recomputation.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "OEIS A341475 entry and full b-file https://oeis.org/A341475/b341475.txt",
+    "Aryan et al., On 2-Near Perfect Numbers, arXiv:2310.01305, abstract",
+    "Resultary search: Squarefree 2-near-perfect numbers with three prime factors (even 30 and 66)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The claim is correct but fails originality and mathematical value because the preexisting OEIS exact table already implies the numerical minimum.",
+    "No revised independent valuable claim or complete repaired files were prepared.",
+    "Scientific disposition is independent of publication; not_ready with no public file operations."
+  ],
+  "residual_risks": [
+    "OEIS A341475 exact b-file is positive coverage, not a residual uncertainty; absence of the words odd squarefree on its main page is irrelevant.",
+    "A general study might offer a separate deeper classification, but none survives as an original theorem in the submitted final claim."
+  ],
+  "schema_version": 1
+}
