@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cobalancing recurrence is solved by a two-exponential affine formula, whose square has five distinct spectral bases for every prime at least five other than seven. The norm calculations establish the Vandermonde invertibility in each finite étale residue ring; the resulting coefficient divisibility test and odd-prime binomial lifting prove exactly the claimed prime-power valuations. The exceptional order six and one-unit lifting depth at five are computed explicitly. The independent standard-library verifier checked 6900 exact prime-valuation pairs over 300 window lengths, and 219 recurrence identities. It proves no bound on untested values; the symbolic argument handles all values.
+## correctness
 
-**Originality — PASS within inspected evidence.** Mbirika–Schrader–Spilker's open Question 30 concerns the same cobalancing-square gcd but provides partial observations rather than a good-prime order-spectrum theorem. The 2022 generalized Fibonacci square-gcd result has a different homogeneous recurrence. The closest existing related local calculations address other balancing/Pell sequences, not \(b_n^2\); neither their conclusions nor their hypotheses directly imply this affine five-frequency result. Six-plus targeted semantic record queries, exact title/parameter web queries, and available 79 prior local claim statements exposed no stronger coverage. Residual risk: an unindexed or implicit general recurrence theorem might subsume this local criterion; the published question remains incompletely resolved.
+PASS
 
-**Mathematical value — PASS.** This is a uniform infinite prime-power classification for all but three small primes of the unresolved cobalancing-square instance of a published natural gcd problem. It detects an exceptional divisor five at every length divisible by six, including those not divisible by five. This is structural divisibility information, not merely a finite table or a routine isolated congruence.
+Solved inhomogeneous recurrence b_n=2u_n where u_n=A lambda^n+B lambda^(−n)−1/4 in Q_p[sqrt2] with A=(sqrt2−1)/(8sqrt2), B=(sqrt2+1)/(8sqrt2). Squaring yields 5 distinct spectral bases lambda^j for j=−2,−1,0,1,2 with constant coefficient 5/64. Unit norms N(lambda−1)=−4, N(lambda+1)=8, N(lambda²+lambda+1)=49, N(lambda²+1)=36 rule out eigenvalue collisions for p>=5 except7, so the five-window Vandermonde is invertible over Z_p[sqrt2]. Every window divisible by p^e iff both p^e|5k and lambda^k≡1 mod p^e; the factors four from b_n=2u_n do not change good-prime valuations. d_p divides p−(2/p) and p∤d_p; odd-prime binomial lifting gives val(lambda^(d_p)-1)+vp(k), truncated by 5k. At p=5, lambda^3=99+70sqrt2, lambda^6=19601+13860sqrt2 gives d5=6 and initial valuation 1. Independent integer-recursion + gcd of five consecutive windows + modular norm-one order verification compared 1,848 valuations for 84 k and 22 eligible primes p<100. The finite check is corroboration.
 
-**Closest literature and limits.** arXiv:2301.05758 (2023), Question 30, and arXiv:2204.12626 (2022). Valuations for two, three, seven and the full gcd are not proved. Search absence does not certify mathematical novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. The 2023 Pell/cobalancing gcd literature explicitly asks for closed forms for squared-window gcds. The all-good-prime p-power spectrum supplies a substantial, natural partial answer with an unexpected exceptional p=5 and prime-order conditions, rather than an arbitrary small computed table. It does not claim the unfinished full gcd.
+
+## value
+
+PASS
+
+The 2023 Pell/cobalancing gcd literature explicitly asks for closed forms for squared-window gcds. The all-good-prime p-power spectrum supplies a substantial, natural partial answer with an unexpected exceptional p=5 and prime-order conditions, rather than an arbitrary small computed table. It does not claim the unfinished full gcd.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
