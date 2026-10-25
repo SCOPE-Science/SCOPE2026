@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified five-by-seven reduced incidence matrix has rank five whenever its columns carry positive path weights. Standard zonotope determinant-volume identities reduce the relevant volume and three projected volumes to four completely enumerated five-by-five minor sums. The full exact monomial dictionaries yield \(VW-PQ=16a^2b^2c^4\). The ratio is therefore above one for every positive triple; replacing \(a+b\) and \(ab\) makes strict balancing optimal, and a one-variable derivative proves the exact global maximum \(25/24\) and unique proportions \((a:b:c)=(1:1:2)\). The included checker independently enumerates the minors from the displayed matrix without numerical approximation. Risk: correctness depends on the explicitly fixed ambient Euclidean realization and projection normalization, which are fully specified.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Fradelizi et al., arXiv:2608.12681v1, Section 3.4, prove the single equal-weight instance \(28/27\) and tabulate absolute determinant *totals*, but do not give these three path-weight polynomials, a uniform positive-weight sign theorem, or the new sharp \(25/24\) extremizer. The nearest indexed four-dimensional zonotope phase-diagram note changes a generator's direction in a different matrix; its statement does not imply this five-dimensional theta-graph formula. Published inradius and width-variance calculations for graphical zonotopes concern other invariants. The general positive unimodular theorem is inapplicable because its augmented-matrix premise fails. Remaining uncertainty: an older or unindexed treatment of path-weighted projections could duplicate this calculation.
+PASS
 
-**Mathematical value — PASS.** The source's seven-edge graphical construction is extremal in generator count for the failure mechanism, so the stability of its failure under all positive within-path edge reweightings is a naturally motivated question. This calculation is not merely a second sample counterexample: it completely describes the two-dimensional projective weight moduli, proves the sign never changes despite large geometric deformations, and locates a unique sharp optimal weighting that gives a stronger violation than the original specimen. The numerical improvement is secondary to the exact robust classification. There is no claim of a sharp constant for arbitrary graphical zonotopes, non-path-constant weights, or moving projection directions.
+The zonotope maximal-minor volume identities for fixed reduced 5×7 incidence matrix and orthogonal u,v yield V,P,Q,W polynomial sums. Independent complete exact enumeration of all 21/35/35/35 minors verifies V=2abc^2(3a+3b+2c), P=12abc^2, Q=cH, W=2c(8ab+3ac+3bc), VW-PQ=16a^2b^2c^4. Consequently R=1+4abc/(3H)>1 throughout positive weights; writing s=a+b and ab<=s^2/4 strictly maximizes at a=b; with t=c/a, R-1=t/[3(t+2)^2], whose unique maximum 1/24 occurs at t=2.
 
-The proof is analytical after a fully exhaustible integer-coefficient calculation; the parameter-continuum statements are not inferred from testing finitely many weights. Full comparisons are limited to identified relevant sources and do not establish absolute priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
+
+## value
+
+PASS
+
+An exact sharp optimizer and universal strict projection-submodularity violation on the natural path-constant weight deformation of a published minimal theta-graph counterexample; the 25/24 boundary and unique proportions sharpen its fixed unweighted witness 28/27.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
