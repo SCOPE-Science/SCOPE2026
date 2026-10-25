@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact objects and all quantifiers. Unit pair-eligibility gives signed shortfall B=d-2a and goods Prop1 iff B<=2. Under greater-deficit-first allocation, any newly positive deficit r must combine two distinct prior components each with size >=2^(r-1) (r=1 base), giving 2^r component vertices. A forest with s edges has component size <=s+1. Binary adversary recursively joins marked r-1 deficient endpoints on disjoint trees of size 2^(r-1), always forcing the new loser to exactly r. This uses 2^r-1 edges, with forest-preserving padding for longer horizons. Therefore exact prefix minimax floor(log2(t+1)); at n<=7 no violation, whereas n=8,t=7 forces B=3. Exact dynamic minimax computations for all horizons on n=2..6 and explicit level-one-through-four constructions replay successfully from packaged checker.py. Finite enumeration does not substitute for the all-order inductive proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.08064v1, Theorem 4, Theorem 5, Appendix C.1",
+        "arXiv:2602.18098, abstract",
+        "arXiv:2111.06308v1, Lemma 5.6"
+      ],
+      "reasoning": "Arbitrary-eligibility O(log n)-approximate Prop1 does not imply exact Prop1 on forests. Offline Prop1 existence cannot ensure irrevocable every-prefix maintenance. A constant discrepancy orientation with path flips changes assignments and hence is inapplicable to the no-reassignment guarantee.",
+      "searches": [
+        "Online Fair Division under Eligibility Constraints theorem 4 theorem 5 forest greedy appendix C.1",
+        "Fair Orientations: Proportionality and Equitability 2026 online forest",
+        "eligibility-aware proportionality up to one good tree forests pair eligible edges eight agents seven goods greedy signed load"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.08064",
+      "https://arxiv.org/abs/2107.02318",
+      "https://arxiv.org/abs/2111.06308",
+      "https://arxiv.org/abs/2602.18098"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.08064v1 general alpha-Prop1 result and unrestricted greedy deficit failure",
+        "arXiv:2107.02318v1 logarithmic outdegree upper",
+        "arXiv:2111.06308v1 constant forest discrepancy with recourse"
+      ],
+      "reasoning": "Known forest outdegree control already implies a logarithmic signed-deficit upper, so it is not separately credited as novel. The accepted joint statement adds the exact adaptive lower matching the upper at each horizon and the consequent non-reassignable goods Prop1 feasibility/impossibility threshold. Unrestricted general-goods approximate claims and arbitrary-graph obstructions do not settle that restricted exact assertion; forest-with-recourse results are logically weaker regarding permanence of allocations.",
+      "searches": [
+        "arXiv:2610.08064v1 Section 4 and Appendix C.1",
+        "arXiv:2107.02318v1 first no-flips warmup",
+        "arXiv:2111.06308v1 Section 5.4",
+        "online irrevocable forest edge orientation exact maximum signed degree discrepancy floor log2 n greedy deficit endpoints adaptive binary merging"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2107.02318v1",
+        "arXiv:2111.06308v1"
+      ],
+      "reasoning": "The signed goods shortfall B=d-2a is algebraically outdegree minus indegree if edges are oriented from nonrecipient to recipient. The 2021 no-flip smaller-tree argument upper-bounds outdegree and thus B, but not the matching signed minimax adversary. Recourse-based signed discrepancy is a different control regime.",
+      "searches": [
+        "online irrevocable forest edge orientation exact maximum signed degree discrepancy floor log2 n greedy deficit endpoints adaptive binary merging",
+        "graph online balancing signed indegree outdegree forests no recourse logarithmic exact minmax orient endpoints",
+        "online edge orientation forest signed in-degree out-degree discrepancy no recourse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related mathematical records on oriented-tree reachability and static graph-join arboricity concern different graph invariants.",
+        "Related online pair-eligibility results about unrestricted allocation do not tabulate the forest-prefix minimax function."
+      ],
+      "reasoning": "Targeted public mathematical searches did not identify a table of exact forest-prefix positive-deficit minimax values or the eight-agent seven-good obstruction. Failed search is not a novelty proof. Previously established unrestricted pair-eligible thresholds do not imply the forest-specific guarantee or obstruction.",
+      "searches": [
+        "online irrevocable forest edge orientation exact maximum signed degree discrepancy floor log2 n greedy deficit endpoints adaptive binary merging",
+        "eligibility-aware proportionality up to one good tree forests pair eligible edges eight agents seven goods greedy signed load",
+        "online fair allocation pair eligible unit goods forest arrival tree greedy deficit n seven eight exact threshold log2 n"
+      ]
+    },
+    "rationale": "The accepted result is the combined all-horizon exact signed-deficit minimax and sharp forest-restricted eligibility-aware Prop1 frontier. Bender et al. already establish the related logarithmic no-recourse forest outdegree upper bound; we do not claim that weaker upper fact as new. Their outdegree tradeoff does not establish a matching signed-deficit lower bound or forest prefix Prop1 cutoff. Biburger et al. prove general approximate goods Prop1 and unrestricted negative behavior, not the forest equality. Gupta et al. permit recourse; Sun et al. are offline. Searches of public mathematical records and accessible prior same-area claims returned no statement implying the full theorem. Remaining folklore/completeness risks are explicit.",
+    "residual_risks": [
+      "A simple binary-component merging adversary may be implicit in older load-balancing or union-by-rank folklore not reached by searched texts; public search non-coverage is not a uniqueness proof.",
+      "One related 2026 offline orientation source was compared through its original abstract and citations, rather than all full-text pages.",
+      "No independent scientific or publication-priority validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General approximate Prop1 and multigraph/general-eligibility negative statements do not establish the exact acyclic two-endpoint minimax or forest fairness cutoff. Natural unscaled deficit greedy fails in general but is newly analyzed in forests here.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.08064",
+          "Section 2: proportional share/Prop1",
+          "Theorems 4 and 5; Appendix C.1"
+        ],
+        "identifier_or_url": "arXiv:2610.08064v1; https://arxiv.org/abs/2610.08064",
+        "material_read": "Introduction, model and Prop1 definitions in Section 2, all of Section 4 relevant to greedy goods and online lower bound, Appendix C.1 unrestricted greedy counterexample, related graph-orientation literature in Section 1.3",
+        "method": "Inspected freely readable original arXiv text and specific theorem statements and proof mechanisms",
+        "title": "Online Fair Division under Eligibility Constraints",
+        "trigger": "Exact same eligibility-aware goods proportionality notion and online irrevocable allocation"
+      },
+      {
+        "assessment": "The known no-flip outdegree upper bound implies a logarithmic upper bound on one-sided signed deficit and is properly credited as an antecedent; the exact signed-deficit adversarial lower bound and Prop1 seven/eight threshold are not statements of that paper.",
+        "evidence": [
+          "https://arxiv.org/abs/2107.02318",
+          "Introduction, first no-flip algorithm; combination-rank proof"
+        ],
+        "identifier_or_url": "arXiv:2107.02318v1; https://arxiv.org/abs/2107.02318",
+        "material_read": "Abstract, introduction and first two elementary algorithms in Section 1, related-work discussion, combination-rank discussion and proof in later sections",
+        "method": "Inspected freely readable original arXiv HTML and mathematical claim on orientation toward larger components",
+        "title": "Incremental Edge Orientation in Forests",
+        "trigger": "Graph orientation on incrementally growing forests and a no-flip doubling bound"
+      },
+      {
+        "assessment": "Forest constant-discrepancy guarantee relies on flipping previously oriented edges; it does not imply the exact no-recourse minimax or the irrevocable allocation fairness threshold.",
+        "evidence": [
+          "https://arxiv.org/abs/2111.06308",
+          "Section 5.4, Lemma 5.6"
+        ],
+        "identifier_or_url": "arXiv:2111.06308v1; https://arxiv.org/abs/2111.06308",
+        "material_read": "Abstract, edge-orientation definition, Sections 5.3 and 5.4 including forest path-local-search Lemma 5.6, Section 6 discussion",
+        "method": "Inspected freely readable original arXiv HTML with key forest-recursion and recourse assumptions",
+        "title": "Online Discrepancy with Recourse for Vectors and Graphs",
+        "trigger": "Same signed graph-discrepancy quantity and forest structure"
+      },
+      {
+        "assessment": "Describes offline existence and computational complexity, not adaptive online allocation; residual risk of uninspected details is recorded.",
+        "evidence": [
+          "https://arxiv.org/abs/2602.18098",
+          "https://arxiv.org/abs/2610.08064"
+        ],
+        "identifier_or_url": "arXiv:2602.18098; https://arxiv.org/abs/2602.18098",
+        "material_read": "Original arXiv abstract plus the original 2026 online-fairness paper Section 1.3 comparison of offline results",
+        "method": "Compared original public abstract and primary follow-up reference; complete original full-text unavailable in inspected mode",
+        "title": "Fair Orientations: Proportionality and Equitability",
+        "trigger": "Same offline relevance-constrained proportionality benchmark"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "235cde49-39ae-4390-aec8-a31f8e06376c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Acyclic pairwise eligibility is a mathematically natural restriction of a 2026 online fair-division model. Determining exactly when irrevocable goods assignments can maintain eligibility-aware Prop1 is operationally relevant. The all-order precise prefix minimax formula and sharp seven-agent feasible/eight-agent seven-good obstruction expose a structural boundary invisible in unrestricted multigraph theory; not merely a named finite example or a routine numerical census.",
+    "status": "PASS"
+  }
+}
