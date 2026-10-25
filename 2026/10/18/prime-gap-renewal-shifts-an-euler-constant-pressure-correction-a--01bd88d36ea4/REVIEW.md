@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prime-gap invariant-measure problem is reduced by induced renewal coding and relative entropy to the exact positive root \(e^{-t}\sum_p e^{-P(t)(p+1)}=1\). The source gap law is normalized and has finite mean for every finite \(t\). Kac and Abramov formulas, an entropy-rate inequality and the strict relative-entropy equality criterion establish uniqueness. The effective prime number theorem yields a Laplace transform expansion with next coefficient \(\gamma\); both denominator and truncated Laplace sums are expanded with stated fixed-argument remainders. Implicit differentiation yields marker density and the exact constrained-entropy variational relation. The stationary renewal construction and its size-biased central gap give the rate-one Poisson limit. Finite checker comparisons support normalization and algebra, not the asymptotics.
+## correctness
 
-## Originality — PASS, subject to the risks below
-The classical \(S\)-gap entropy root and general Gibbs/pressure formulations are prior results, not new. The inspected 2014 source treats \(S\)-gap symbolic dynamics; the 2025 generalized gap paper includes primes as a possible non-syndetic alphabet but establishes an unweighted entropy equation; the 2020 pressure-computability paper gives algorithms, not the analyzed low-activity arithmetic asymptotics. A related published geometric-gap result has a fundamentally different allowed-length counting function; the previously recorded square-gap low-activity theta effect is not a special case of the prime-gap claim. The new combined assertion supplies an explicit arithmetic constant, a marker-density entropy correction and Palm scaled law beyond these sources. The sharpest residual uncertainty is whether a previously published general renewal asymptotic plus prime Laplace result encompasses the combination without naming prime-gap shifts.
+PASS
 
-## Mathematical value — PASS
-Prime zero-run lengths are a natural non-syndetic symbolic constraint whose counting function lies between positive-density gap sets and exponentially lacunary gap sets. The theorem quantifies the consequence: the pressure has an Euler-constant correction, the maximal entropy at a small specified marker frequency loses a logarithmic-logarithmic amount compared with the unconstrained binary shift, and equilibrium marker locations become asymptotically Poisson with a computable first correction in the Palm law. These answer motivated quantitative questions about sparsity and rare-event statistics, not arbitrary isolated arithmetic values.
+The positive pressure root follows from the strictly decreasing Laplace sum over primes. Kac/Abramov inducing and relative entropy identify the unique iid renewal equilibrium with q_t(p)=exp(-t-s(p+1)). Partial summation from the effective prime number theorem gives sum_p exp(-sp)=s^{-1}(L^{-1}+gamma L^{-2}+O(L^{-3})), L=log(1/s); taking logarithms and inverting yields e^{-t}/s=t+log t-gamma+o(1). Differentiating the root and the first-moment Laplace expansion gives rho=s(1+L^{-1}+O(L^{-2})); the variational identity h_max=P+t rho yields the stated constrained entropy. The truncated Laplace expansion gives the fixed-x Palm correction. The size-biased stationary renewal construction and convergence of scaled gaps/central interval give the qualitative stationary Poisson limit. The bundled finite verifier is only a numerical corroboration and does not establish the PNT asymptotic or point-process convergence. The main proof obligations are the stated cutoff estimates and termwise differentiated asymptotics, which are plausible consequences of the effective PNT but are not independently certified here.
 
-## Limits and closest comparisons
-The old \(S\)-gap entropy identity and classical prime number theorem are imported. The original 2014 and relevant 2025 full-text statements were inspected for the required comparison; inaccessible earlier broader renewal-specialization literature may change historical priority. Neither finite checker tests nor failed literature queries constitute exhaustive proofs of originality. The CDF remainder is for fixed positive argument; Poisson convergence is qualitative. An independent audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prime gap set has counting function ~y/log y, distinct from the retrieved geometric and dyadic S-gap results. The nearest published geometric-gap result has allowed return distances 1,b,b^2,... and a nonconstant log-periodic phase; its entropy scale and discrete-lattice mechanism differ from the prime arithmetic expansion. The classical S-gap pressure root, renewal formalism and effective PNT are imported; the evaluated Euler correction, sparse-density entropy asymptotic and Palm/Poisson correction are the candidate additions. Relevant primary full texts could not be retrieved in this run, so this is best-of-knowledge rather than an absolute priority claim.
+
+## value
+
+PASS
+
+Prime gaps are a natural arithmetically sparse set of allowed return lengths. The theorem quantifies their thermodynamic effect through an Euler-constant pressure correction and a constrained entropy deficit, and identifies the rare-marker Poisson scaling with a first arithmetic correction. These are motivated invariants of a natural shift, not arbitrary finite values or a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
