@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the cubic root-sampling identities
 
-The proof has two logically separate derivations: root inner-product arithmetic diagonalizes the zonal degree-three evaluation Gram, and coefficientwise Laplacian equations independently characterize its image and polynomial nullspace. Both are symbolic in every integer \(n\ge4\).
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 standard library only. This enumerates every signed root for dimensions \(n=4,5,6,7,8,9,10,12\) and calculates the normalized degree-three kernel exactly using integer dot products. It verifies the second-moment root identity, every Gram entry of the two-projector decomposition, each coordinate eigenspace, exact rational inversion of a nontrivial odd sample vector, and the claimed rank by modular elimination. At \(n=10\) it also verifies exact vanishing of kernel entries away from antipodal coincidence. All eight cases passed on the supplied code.
+## correctness
 
-These calculations do not establish the theorem for untested dimensions. That conclusion follows from the full symbolic proof in RESULT.md. The cited earlier spherical-harmonic addition theorem is standard, but mathematical novelty still depends on whether an earlier source included the specialized type-\(D_n\) equality classification. The full 1977 association-scheme paper was not accessible for complete comparison.
+PASS
+
+For all integer n>=4 and 2n(n-1) normalized D_n roots, the degree-three normalized Gegenbauer kernel k_n(t)=((n+2)t^3-3t)/(n-1) follows from harmonicity and k_n(1)=1. Distinct roots have dot products in {0,+/-1/2}, and the sign-summed coordinate matrix satisfies X^T X=2(n-1)I; matching entries yields K=3(n+2)/(2(n-1))(P_odd-P_coord)+(n-4)^2/(2(n-1))P_coord. Eigenvalue multiplicities n(n-2),n and even nullity n(n-1) follow. For n>=5, coefficient parameters q_(i|j)=a_i+b_ji span all odd root data by solving (n-4)a_i=sum_{j!=i}q_(i|j); exactly squarefree cubics vanish. At n=4 the row-sum constraints remove n=4 coordinate modes, rank eight, and add four u_i(u_i^2-sum_{j!=i}u_j^2) kernel cubics. Eigenvalues coincide iff (n-4)^2=3(n+2), giving n=10 as the only n>=5. Independently checked exact full kernel matrix entry identities across n=4,5,6,7,10 with 24..180 signed roots, including n10 K=I-J; the algebraic proof, not finite dimensions, handles all n.
+
+## originality
+
+PASS
+
+Delsarte--Goethals--Seidel 1977 and Dai--Xu give spherical association schemes and zonal Gegenbauer kernels generally; applying them is classical and could yield much of the spectrum once D_n intersection numbers are substituted. Earlier 24-cell harmonic band calculations already imply cubic rank 8 at n=4, explicitly NOT new. Read relevant general 1977 primary formulas and compared to the special full n>=4 pure degree-three sample kernel; no explicit full closed form with two projectors, all-dimensional cubic nullspace, pseudoinverse interpolation and unique n=10 tight dimension was found in inspected material. Potential implicit association-scheme eigenmatrix specialization is a substantive priority risk and cannot be excluded merely because the n10 number is absent in abstracts.
+
+## value
+
+PASS
+
+The signed D_n root orbit is a canonical finite spherical configuration and harmonic cubic interpolation is an intrinsic inverse problem. The exact spectrum separates all odd-data interpolation from an n=4 obstruction, describes every invisible harmonic cubic and supplies a closed form minimum-norm interpolant, while identifying a unique perfectly conditioned n=10 frame. This structural all-dimensional classification and stability invariant is natural and nontrivial even though some spectral ingredients are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
