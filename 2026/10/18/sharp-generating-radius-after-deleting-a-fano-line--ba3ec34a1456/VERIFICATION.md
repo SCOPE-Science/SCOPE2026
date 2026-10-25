@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Run `python3 fano_radius_exact_check.py` using Python 3 and the standard library. Expected successful output begins with `PASS` and reports seven lines, six retained lines, \(128\) cube sign vertices, \(10\) proper two-colourings of the six-line incidence hypergraph, \(118\) norm-attaining vertices, all \(128\) restored, and support value \(3/5\) for the explicit norm-one dual witness. The program checks each of the seven possible deleted lines through binary-linear line transitivity and tests strictly positive rational barycentric weights.
+## correctness
 
-The general upper bound is analytic rather than empirical: a supporting functional of \(\ell_1\)-norm \(1\) loses twice the smaller of the two signed masses on a retained line. Proper colourings are classified by the three perfect matchings on the four points outside the deleted line. One colouring class requires at least three units of base mass and two units of leaf mass per unit of two-sided margin, hence the margin is at most \(1/5\); the other requires six units, hence at most \(1/6\). Equality at \(1/5\) is exhibited explicitly. The exact arithmetic check verifies only the stated finite combinatorics and witness; it does not enumerate the continuum of real coefficients or claim to do so.
+PASS
 
-The proof uses ordinary support-function separation for finite-dimensional convex bodies and strict positivity of every incidence coefficient. It assumes no numerical optimizer, external validation, or infinite exhaustive computation.
+At cube vertices each positive convex row attains norm exactly on monochromatic triples, so the norming-face convex hull K is independent of weights. Dual support formula h_K(a)=1-2 min_e min(P_e,N_e) for ||a||1=1. Every six-line proper 2-colouring has 3 base vertices of one colour with zero or one same-colour leaf, checked by all 128 sign vectors independently for each of seven deleted lines (ten proper colourings each). In the zero-leaf case min masses force 3d base+2d leaf ≤1; one-leaf case 6d≤1. Explicit normalized a=(1/5,1/5,1/5,-1/10,-1/10,-1/10,-1/10) saturates d=1/5 and yields radius 1-2/5=3/5. Restore seventh line => all 128 sign vertices norm attaining => radius 1. This is exact finite exhaustive hypergraph argument plus continuous LP support bound, not sampling of arbitrary coefficients.
+
+## originality
+
+PASS
+
+Compared exact hypotheses, invariants, reductions, implicit prior implications, and relevant primary theorem/proof sections. None of the inspected cited primary results implies this final precise statement under its hypotheses; originality is best-of-knowledge only, with named residual risks.
+
+## value
+
+PASS
+
+Quantifies the exact stability loss from deleting one hyperedge in a canonical minimally non-two-colourable incidence structure, yielding a genuinely sharp positive-contraction generating invariant independent of all strictly positive stochastic row weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

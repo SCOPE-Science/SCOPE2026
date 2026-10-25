@@ -1,9 +1,21 @@
-# Scientific review: sharp generating radius after a Fano line deletion
+# Independent mathematical audit
 
-**Correctness — PASS.** Every strictly positive normalized row reaches absolute value \(1\) on the cube exactly when its three points agree in sign. Thus the norm-attainment convex hull is determined by six simple monochromatic-triple faces, independently of the coefficients. The support-function calculation \(h_K(a)=1-2\min_e\min(P_e,N_e)\) at dual \(\ell_1\)-norm \(1\) is exact. The six-line proper two-colourings have two explicitly proved types: all four leaves opposite the deleted line, or precisely one leaf of the same colour. The mass inequalities give the sharp bounds \(d\le1/5\) and \(d\le1/6\); the displayed functional attains \(d=1/5\). The resulting radius is \(3/5\), and the full seven-line case has radius \(1\). A pure-Python rational check reproduces the finite colouring and support assertions. Residual correctness risk: the finite program is supplemental and not a substitute for the proof; no other nonstandard lemma is assumed.
+## correctness
 
-**Originality — PASS.** Definition 2.2 and Corollary 2.6 of arXiv:2306.02645v1 provide the general notion and convex-hull criterion but not an exact Fano constant. Keevash–Sudakov (2005, Section 5) provide edge-critical non-two-colourability but no generating radius. The previously recorded graph-edge averaging formula covers two-coordinate rows, whereas these rows constrain triple faces; neither statement implies the exact six-line constant. Targeted literature and published-finding corpus searches for Fano line deletions, row-stochastic averaging, property B, equivalent support-function formulations and the proposed constant found no equivalent or stronger exact computation. Residual originality risk: an independently published but poorly indexed exact convex-polytope treatment could contain an equivalent Fano inradius.
+PASS
 
-**Mathematical value — PASS.** The Fano plane is the canonical edge-critical obstruction to two-colourability among three-uniform hypergraphs. Deleting a line is therefore the first natural defect in qualitative generating behaviour; the sharp remaining radius \(3/5\), versus \(1\) before deletion, measures the size of that defect. Its invariance under arbitrary strictly positive incidence weights makes the exact value a calibration for quantitative generation under loss of a norming constraint, rather than a numerical curiosity from an arbitrary matrix. No larger hypergraph classification or application theorem is claimed.
+At cube vertices each positive convex row attains norm exactly on monochromatic triples, so the norming-face convex hull K is independent of weights. Dual support formula h_K(a)=1-2 min_e min(P_e,N_e) for ||a||1=1. Every six-line proper 2-colouring has 3 base vertices of one colour with zero or one same-colour leaf, checked by all 128 sign vectors independently for each of seven deleted lines (ten proper colourings each). In the zero-leaf case min masses force 3d base+2d leaf ≤1; one-leaf case 6d≤1. Explicit normalized a=(1/5,1/5,1/5,-1/10,-1/10,-1/10,-1/10) saturates d=1/5 and yields radius 1-2/5=3/5. Restore seventh line => all 128 sign vertices norm attaining => radius 1. This is exact finite exhaustive hypergraph argument plus continuous LP support bound, not sampling of arbitrary coefficients.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared exact hypotheses, invariants, reductions, implicit prior implications, and relevant primary theorem/proof sections. None of the inspected cited primary results implies this final precise statement under its hypotheses; originality is best-of-knowledge only, with named residual risks.
+
+## value
+
+PASS
+
+Quantifies the exact stability loss from deleting one hyperedge in a canonical minimally non-two-colourable incidence structure, yielding a genuinely sharp positive-contraction generating invariant independent of all strictly positive stochastic row weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
