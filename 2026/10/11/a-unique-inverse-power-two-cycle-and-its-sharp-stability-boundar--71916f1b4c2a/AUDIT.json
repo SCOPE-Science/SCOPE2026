@@ -1,106 +1,128 @@
 {
   "correctness": {
-    "rationale": "For every real p>1, a in (0,1), b>0, eliminating scale in two explicit cycle equations yields the necessary and sufficient ratio identity a=(r^p-r)/(r^(p+1)-1). Substitution r=e^(2t) reduces its positive branch to sinh((p-1)t)/sinh((p+1)t). The monotone function H(u)=u coth(u) proves the ratio strictly decreases from (p-1)/(p+1) to zero; hence unique orbit exactly below threshold. For p=2, sum/product eliminate the orbit points, yielding explicit roots and the exact second-iterate multiplier 9a^2+6a-2. Its increasing polynomial crosses -1 once at (sqrt(2)-1)/3 and remains below 1 before the cycle disappears. The checker passed 1804 sampled tests, not used as infinite proof. At both neutral boundaries no nonlinear stability conclusion is made.",
+    "rationale": "Direct substitution into the two orbit equations yields b=x^(p+1)(r-a)=x^(p+1)r^p(1-a r) and hence the necessary-and-sufficient ratio equation. Put r=e^(2t); R_p(t)=sinh((p-1)t)/sinh((p+1)t) is positive and strictly decreasing because u*coth(u) is strictly increasing (derivative numerator sinh(u)cosh(u)-u has derivative 2 sinh(u)^2>0). The endpoint limits are (p-1)/(p+1) and 0, proving exact existence and uniqueness for all real p>1. At p=2, symmetric sums P=aS^2/(1+a), b=a^2 S^3/(1+a) and discriminant yield the stated positive coordinates. The two-step multiplier is 9a^2+6a-2, crossing -1 at (sqrt(2)-1)/3, increasing to 1 as a->1/3. Hyperbolic attraction and repulsion follow from the standard one-dimensional derivative test. Boundary multipliers are correctly called neutral only; no nonlinear critical/global claim.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "No assertion of nonlinear stability at multiplier -1 or of any global basin, other period spectrum or full coupled economic system.",
+    "The mathematical proof is analytical; bounded tests do not certify uniqueness over a continuum.",
+    "An older unindexed scalar negative-power recurrence theorem might express the same result under a normalization of x and b.",
+    "The original 2026 existence proof could be sharpened by further analysis of G beyond its published argument; it does not explicitly supply the converse or exact p=2 multiplier.",
+    "A limited semantic and web search cannot establish historical priority, and some print monographs were not systematically read."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Le Van, Nguyen-Trong, Pham and Pham, arXiv:2610.01610v1, Proposition 5 pp. 18-19 and proof pp. 34-35, https://arxiv.org/pdf/2610.01610",
-        "Abdelrahman, Chatzarakis, Li and Moaaz, Advances in Difference Equations 2018:431, Sections 1, 3-4, https://doi.org/10.1186/s13662-018-1880-8",
-        "The 2018 paper assumes nonlinear f(u,v) homogeneous of degree zero, unlike positive b/x^p of degree -p in the state. Its Theorem 3.1 even excludes periods when the two lag parities agree, so its hypotheses are not met here."
+        "Le Van et al. Proposition 5(1) and Appendix A.2 establish existence using G′(1)>0, rather than a global classification of two-cycle roots.",
+        "Abdelrahman et al. Eq. (1.1) and Theorems 3.1-3.3 impose a degree-zero two-variable nonlinear function.",
+        "Standard fixed-point multiplier tests require this map-specific multiplier, not supplied in the inspected primary paper."
       ],
-      "reasoning": "Le Van et al. prove the existence direction under the same strict threshold, but not a necessity theorem, uniqueness, explicit cycle, or classification of multiplier stability. Abdelrahman et al. do give complete two-period criteria for their different degree-zero delayed family, not a stronger theorem entailing the present result. Standard local stability tests require the specific multiplier, computed here.",
+      "reasoning": "No inspected broader theorem dominates the complete claim: the same-map paper is strictly weaker as a stated mathematical result; the delay model excludes x^-p by homogeneity; the general multiplier theorem alone does not supply the multiplier polynomial.",
       "searches": [
-        "arxiv:2610.01610 negative elasticity gamma_a -2 two cycle stability",
-        "arXiv:2610.01610 exact uniqueness period two oscillation innovation reduced map a x + b x^gamma negative gamma and stability",
-        "On the difference equation x_{n+1}=ax_{n-l}+bx_{n-k}+f ( x_{n-l},x_{n-k} )"
+        "arXiv:2610.01610v1",
+        "doi:10.1186/s13662-018-1880-8"
       ]
     },
     "checked_sources": [
-      "Le Van, Nguyen-Trong, Pham and Pham, arXiv:2610.01610v1, Proposition 5 pp. 18-19 and proof pp. 34-35, https://arxiv.org/pdf/2610.01610",
-      "Abdelrahman, Chatzarakis, Li and Moaaz, Advances in Difference Equations 2018:431, Sections 1, 3-4, https://doi.org/10.1186/s13662-018-1880-8",
-      "MSC2020 classification, https://www.impan.pl/wydawnictwa/dla-autorow/msc2020.pdf (37E05, interval maps)"
+      "arXiv:2610.01610v1, PDF Proposition 5(1) and Appendix A.2",
+      "doi:10.1186/s13662-018-1880-8, published full text",
+      "https://personalpages.manchester.ac.uk/staff/yanghong.huang/ads/html/maps-fixed.html"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Le Van, Nguyen-Trong, Pham and Pham, arXiv:2610.01610v1, Proposition 5 pp. 18-19 and proof pp. 34-35, https://arxiv.org/pdf/2610.01610",
-        "Proposition 5, part 1, provides a conditional existence theorem. Its Appendix A.2 proves existence by an intermediate-value crossing and makes no claim about number or Floquet multiplier; its main text expressly says cycles may be repelling."
+        "The implication stated in Le Van et al. is (sufficient condition) implies (exists a period-two orbit). It does not yield (only if) or (unique) without additional mathematical argument.",
+        "The G(X) proof shows a nontrivial second root by intermediate value, not the number of second roots.",
+        "Abdelrahman et al. hypotheses fail for the negative-degree, one-state inverse-power summand."
       ],
-      "reasoning": "Known sufficient existence does not logically entail the converse, uniqueness, ratio/coordinate formulas, or the sharp stable-versus-repelling transition at (sqrt(2)-1)/3. Conversely the new theorem explicitly incorporates the previously published sufficient condition without presenting it as an original independent consequence.",
+      "reasoning": "The submitted monotone ratio proof adds quantifier strengthening (complete existence/uniqueness); the p=2 polynomial then determines an additional stability partition not entailed by an existence-only assertion. A short derivation from cited standard calculus is not itself the exact theorem found in published literature.",
       "searches": [
-        "From Balanced Growth to Innovation Cycles period two proposition uniqueness necessary condition stability",
-        "arXiv:2610.01610 exact uniqueness period two oscillation innovation reduced map a x + b x^gamma negative gamma and stability",
-        "two period cycle rational reciprocal map ax+b x^{-2} unique existence stability exact threshold"
+        "arXiv:2610.01610v1",
+        "doi:10.1186/s13662-018-1880-8"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Le Van, Nguyen-Trong, Pham and Pham, arXiv:2610.01610v1, Proposition 5 pp. 18-19 and proof pp. 34-35, https://arxiv.org/pdf/2610.01610",
-        "Direct cycle equations yield a(r^{p+1}-1)=r^p-r; the equivalent hyperbolic-sine ratio is absent from the inspected Proposition 5 proof and the degree-zero delayed-recurrence paper."
+        "The same map in arXiv:2610.01610v1 has exponent gamma_a=-p; substitution makes condition (24) equivalent to a<(p-1)/(p+1).",
+        "The submitted ratio equation a=(r^p-r)/(r^(p+1)-1) is equivalent to sinh((p-1)t)/sinh((p+1)t) for r=e^(2t), a formulation not established as a classification in the inspected primary proof."
       ],
-      "reasoning": "The source uses a one-dimensional scalar map x↦ax+bx^gamma and derives a sufficient condition for an additional f^2 fixed point. The present necessary-and-sufficient ratio equation plus strict monotonicity rules out other primitive two-cycles; its quadratic multiplier adds a new parameter boundary. Other displayed reciprocal maps retrieved in general difference-equation searches have nonmatching dependence on delayed variables.",
+      "reasoning": "The apparent same mathematical model prior result has the exact threshold as a sufficient condition but does not assert or prove necessity, uniqueness, explicit orbit or p=2 stability. Other searched aliases have distinct delayed or rational dependencies; self-match provides no independent priority evidence.",
       "searches": [
-        "two period cycle rational reciprocal map ax+b x^{-2} unique existence stability exact threshold",
-        "difference equations x_{n+1}=a x_n+b/x_n^p periodic solutions",
-        "hyperbolic sine monotone two cycle ratio r^p-r over r^(p+1)-1 threshold",
-        "inverse quadratic power growth map a*x + b/x^2 exact primitive period-two orbit multiplier 9a^2+6a-2 unique attractor bifurcation"
+        "arXiv:2610.01610v1",
+        "doi:10.1186/s13662-018-1880-8"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Public search results returned general interval-map and different rational/delayed difference-equation papers rather than a tabulated cycle or matching exact multiplier.",
-        "Le Van, Nguyen-Trong, Pham and Pham, arXiv:2610.01610v1, Proposition 5 pp. 18-19 and proof pp. 34-35, https://arxiv.org/pdf/2610.01610"
+        "The inspected arXiv:2610.01610v1 Proposition 5 and Appendix A.2 do not tabulate unique positive cycle coordinates or the p=2 multiplier.",
+        "The inspected degree-zero delayed-recurrence tables and examples in doi:10.1186/s13662-018-1880-8 concern other map families."
       ],
-      "reasoning": "No exact database/table of the present two-cycle and multiplier was found in the queried public literature and published-record index. This is strictly a documented search result, not an inference that all earlier literature is absent.",
+      "reasoning": "No exact prior database/table was identified in searches performed, but that is a bounded negative search and not a proof that no such table exists.",
       "searches": [
-        "\"a x + b/x^2\" \"period two\" cycle multiplier",
-        "\"x_{n+1}=a x_n+b/x_n^2\" two-cycle",
-        "a x + b/x^2 period cycle difference equation",
-        "inverse quadratic power growth map a*x + b/x^2 exact primitive period-two orbit multiplier 9a^2+6a-2 unique attractor bifurcation"
+        "arXiv:2610.01610v1",
+        "doi:10.1186/s13662-018-1880-8"
       ]
     },
-    "rationale": "The inspected source arXiv:2610.01610v1 establishes only sufficient two-cycle existence and expressly distinguishes existence from attraction; the new sharp converse, uniqueness, coordinates, and independent local-stability boundary are not implied by that statement. The closest studied older degree-zero delayed recurrence family is not a covering theorem. Public and published-record searches for equivalent inverse powers, ratio conditions and exact multiplier did not find covering content. Risk remains from unindexed older recurrence theory.",
+    "rationale": "Best-of-knowledge: the close 2026 primary result supplies only the sufficient existence half; the submitted ratio monotonicity proves necessity and uniqueness, and the explicit quadratic-inverse multiplier supplies a distinct exact stability threshold. Searched published mathematical records and older recurrence aliases yielded no independent dominating claim. This is not absolute priority certification.",
     "residual_risks": [
-      "Older or unindexed literature on one-dimensional inverse-power recursions may express the same multiplier under a conjugate scale normalization.",
-      "Neither semantic record search nor exact phrase search constitutes a comprehensive novelty certification."
+      "An older unindexed scalar negative-power recurrence theorem might express the same result under a normalization of x and b.",
+      "The original 2026 existence proof could be sharpened by further analysis of G beyond its published argument; it does not explicitly supply the converse or exact p=2 multiplier.",
+      "A limited semantic and web search cannot establish historical priority, and some print monographs were not systematically read."
     ],
     "source_inspections": [
       {
-        "assessment": "Covers the sufficient existence direction and reduction, not necessary existence, uniqueness, explicit quadratic-inverse coordinates, or two-step stability multiplier.",
+        "assessment": "The source proves nonexistence for -1<=gamma<0 and provides sufficient existence for gamma<-(1+a)/(1-a). This coincides with the submitted existence threshold but does not give the converse, uniqueness, orbit formulas, or a multiplier stability boundary.",
         "evidence": [
-          "Proposition 5(1) asserts if condition (24) then there exists a two-period cycle; Appendix A.2 uses the intermediate value theorem to construct one nonfixed point.",
-          "Introduction says existence need not mean attracting and warns about repelling cycles."
+          "PDF Proposition 5(1) states an implication from condition (24) to the existence of a two-period innovation cycle; no if-and-only-if or cardinality is asserted.",
+          "Appendix A.2 equations (55)-(58) define G(X), show G(1)=0, use G′(1)>0 to produce another root, and leave open uniqueness/necessity.",
+          "Introduction p.3 describes its cycle results as existence results and notes periodic orbits need not attract nearby trajectories."
         ],
         "identifier_or_url": "arXiv:2610.01610v1; https://arxiv.org/pdf/2610.01610",
-        "material_read": "Introduction and framework; Section 4.3 including equations (23)-(25), Proposition 5 and remarks; Appendix A.2 proof of Proposition 5 with functions G and X and associated existence argument (PDF pages 18-19, 34-35).",
-        "method": "Opened accessible arXiv full PDF, read mapped lines and relevant page image; compared theorem quantifiers, assumptions and proof implications.",
+        "material_read": "Introduction on attracting versus repelling innovation cycles, Section 4.3 including map (23), Proposition 5 pp.18-19, Appendix A.2 pp.33-35 including G(X), its derivative and existence proof; visually inspected PDF pages 18 and 34.",
+        "method": "Examined primary preprint theorem and original proof appendix.",
         "title": "From Balanced Growth to Innovation Cycles: A Solow-Type Semi-Endogenous Growth Model",
-        "trigger": "Same reduced map and two-cycle theorem; strongest plausible source of implicit coverage."
+        "trigger": "Exactly the same one-state reduced map g(x)=a x+b x^gamma with gamma=-p; apparent prior coverage."
       },
       {
-        "assessment": "Different class: f(u,v) homogeneous of degree zero in lagged variables, unlike x^-p of degree -p for positive p. Its results therefore do not imply the present classification.",
+        "assessment": "The nonlinear function f(u,v) must be homogeneous of degree zero in two lagged states. The assigned one-state negative-power term is degree -p, so the theorems do not contain this map. Ratio-type applications differ.",
         "evidence": [
-          "Equation (1.1) requires degree-zero nonlinear f in two arguments.",
-          "Theorems 3.1-3.3 partition lag parity and their examples use ratios of delayed states."
+          "Abstract and Eq. (1.1) impose degree-zero homogeneity.",
+          "Theorems 3.1-3.3 classify parity-dependent two-period solutions under that hypothesis.",
+          "Section 4 examples use two-lag ratios and exponential ratios, not b/x^p."
         ],
         "identifier_or_url": "doi:10.1186/s13662-018-1880-8; https://link.springer.com/article/10.1186/s13662-018-1880-8",
-        "material_read": "Full-text Sections 1, 3 and 4, including definitions, Theorems 3.1-3.3, concrete ratio examples and applications.",
-        "method": "Inspected open-access HTML theorem statements, hypotheses, proofs and example applications.",
+        "material_read": "Entire open-access HTML Sections 1 and 3 including Theorems 3.1-3.3 and proofs; Section 4 application classes and examples; model assumptions in Section 2.",
+        "method": "Examined complete open-access article text, theorems, proofs and applications.",
         "title": "On the difference equation x_(n+1)=a x_(n-l)+b x_(n-k)+f(x_(n-l),x_(n-k))",
-        "trigger": "Title and abstract claim general criteria for period-two solutions of nonlinear difference equations."
+        "trigger": "Period-two necessary-and-sufficient criteria in a broad-looking difference-equation title."
+      },
+      {
+        "assessment": "Provides the routine one-dimensional derivative test, not an exact solution of this inverse-power family.",
+        "evidence": [
+          "Period-p points are fixed points of f^p; local linearization uses its derivative."
+        ],
+        "identifier_or_url": "https://personalpages.manchester.ac.uk/staff/yanghong.huang/ads/html/maps-fixed.html",
+        "material_read": "Online definitions of periodic orbit, iterate fixed point and derivative linearization criterion.",
+        "method": "Compared standard teaching reference with the model-specific calculation.",
+        "title": "Maps: Fixed Points and Periodic Orbits, Applied Dynamical Systems lecture notes",
+        "trigger": "Background check of standard local multiplier method and least-period terminology."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": "The cycle ratio, monotonicity and p=2 multiplier were previously checked with a bounded diagnostic; its finite checks were not presented as an infinite proof.",
+    "originality": "The earlier assessment acknowledged that arXiv:2610.01610v1 supplies the existence sufficient condition and does not assert uniqueness or the exact multiplier.",
+    "value": "The earlier assessment motivated the gap between existence and stability of innovation cycles."
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "71916f1b-4c2a-443f-ae63-ddc52c09ebb0",
+  "scientific_scope": "Positive scalar map x_(n+1)=a*x_n+b/x_n^p for p>1, 0<a<1, b>0; p=2 stability boundary only.",
   "value": {
-    "rationale": "The motivating 2026 paper raises a mathematically natural gap between mere existence of an innovation cycle and its dynamical stability. The theorem determines the exact count and coordinates of positive period-two states for every inverse-power exponent p>1, then identifies an independent sharp stability boundary for the analytically tractable and physically interpretable inverse-square exponent. The distinction between repelling oscillations (0<a<(sqrt(2)-1)/3) and attracting oscillations ((sqrt(2)-1)/3<a<1/3) is a substantive dynamical classification, not a routine numerical gain or trivial parameter substitution. It does not claim global attraction, arbitrary period classification, or economics outside the reduced model.",
+    "rationale": "The map is the exact one-dimensional negative-knowledge-elasticity reduction studied in the 2026 innovation-cycle source. The source has an existence/stability distinction; the result determines the full number and positions of positive primitive two-cycles for all real powers p>1, and gives an independent exact attracting-versus-repelling boundary for the natural inverse-square exponent. Parameter b changes scale but not stability. This is a motivated natural complete period-two classification, not an arbitrary finite tabulation, although the proof is elementary and does not classify other periods or global dynamics.",
     "status": "PASS"
   }
 }
