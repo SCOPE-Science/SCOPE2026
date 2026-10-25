@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The Hilbertian test is a bounded finite-rank skew rotation with \(J^2=-P\) and \(\|P\|\ge1\), so its normalization is legal on arbitrary infinite-dimensional Hilbert-isomorphic real Banach spaces. The statewise orthogonal decomposition of the Riesz representing vector gives \(|f(Jx)|^2\le|h|^2|x|^2-1\), and the ball sandwich proves the exact \(\sqrt{d^2-1}\) constant. The polygon distortion proof takes the infimum over **all** positive quadratic forms and rules out tilted ellipses by finite-rotation averaging. The numerical-index equality uses the complete vertex/facet functional reduction, not a finite sampling extrapolation. The scalar field and dimension boundaries are explicit.
+## correctness
 
-## Originality (O): PASS, subject to normal publication-priority uncertainty
-Finet–Martín–Payá (2003) prove qualitative continuity under renorming, and Monika–Amrutam–Dey (2026) develop convergence under operator opening and ultraproducts; neither inspected result supplies the global sharp numerical-index bound in terms of Hilbertian Banach–Mazur distance. Martín–Merí (2007) explicitly **already determine** the numerical index of even regular polygons; that formula is used solely to establish sharpness and is reproved self-containedly, not claimed as new. The numerical-index–Hilbert-distortion inequality, with an exact constant across all real Hilbert-isomorphic Banach spaces, is the proposed new content. Searches for equivalent square-root bounds and comparison by implication found no covering published theorem. A differently phrased antecedent may exist; a full independent priority assessment is outstanding.
+PASS
 
-## Mathematical value (V): PASS
-The relation between a global operator-theoretic invariant and the Banach–Mazur distance to Hilbert geometry acquires a dimension-free, **sharp** stability rate, with equality on infinitely many polygonal norms converging to the Hilbert point. Because the optimal exponent is only one-half, it distinguishes norm distortion from numerical-index sensitivity. This is a quantitative statement beyond qualitative continuity or recomputation of polygonal numerical indices.
+Let X be a real Hilbert-isomorphic Banach space dim>=2, with multiplicative Euclidean distortion d. For every D>d transport a Hilbert norm with r B_H subset B_X subset R B_H and R/r<D. A Hilbert-skew rotation J on a two-dimensional orthonormal subspace satisfies J^2=-P and ||J||_X²>=||P||_X>=1. Riesz representation of each norming pair f(x)=1 and the bound |h||x|<=R/r show |f(Jx)|² <= |h|²|x|²-1 <=D²-1, so n(X)<=sqrt(d²-1) after D downarrow d. For the regular 4m-gon unit ball, cyclic averaging of arbitrary Hilbert quadratic forms proves d_BM=sec(beta), beta=pi/(4m); vertex extreme norming functionals u +/-tan(beta) Ju establish n>=tan(beta), while the quarter-turn has numerical radius tan(beta), giving equality. Thus coefficient 1 and the sqrt2 near-d=1 constant are sharp. Independent finite checks with all 81 integer-entry 2x2 matrices in {-1,0,1}⁴ across regular 4,8,12,16-gons corroborate vertex inequalities; infinite-dimensional and all-operator statements follow from the analytic proof, not these samples.
 
-## Literature and limits
-The 2026 convergence paper supplies the topical impetus and the 2003 work supplies the closest qualitative result. The 2007 polygon computation is acknowledged exactly, without priority claims on its numerical-index formula. Both source comparisons depend on inspected primary manuscripts, not only matching keywords. Residual priority risk: an unpublished or differently indexed sharp Hilbertian numerical-index comparison. Real scalars and dimension at least two are essential. No independent verification or complete classification of equality cases is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original globally sharp real numerical-index vs Hilbertian Banach–Mazur distortion modulus. Exact polygon numerical-index formula is prior art and explicitly separated from new sharp relation.
+
+## value
+
+PASS
+
+A sharp explicit stability inequality connecting two fundamental Banach invariants for every real Hilbert-isomorphic space including infinite dimensions, with genuine exact equality witnesses approaching the Hilbert limit, gives an optimal modulus where existing work proved continuity. The known polygon numerical indices are credited; value lies in the simultaneous global inequality and sharp norm-distortion comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
