@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formal object is the named crown graph \(K_2\times K_n\) for all \(n\ge2\), with total Roman feasibility defined by defense of every zero and a positive neighbor for every positive. The proof reduces both conditions to index-exclusion tests across the two layers, and exhausts all \(3\times3\) defender-count categories via seven disjoint terms. The single-index exceptional cases are explicitly handled; no symmetry division is used. The independent exhaustive checker evaluates all assignments for \(2\le n\le6\), matching every coefficient, and tests symbolic boundaries through \(n=30\). The infinite assertion rests on the uniform case analysis, not on the finite checks.
+## correctness
 
-## Originality — PASS (with residual bibliographic uncertainty)
-The 2020 direct-product paper's Theorem 10 and Corollary 11 cover the minimum total Roman weight, not the entire weight distribution. In particular, its optimal-weight classifications cannot determine labels far above the minimum. The 2022 study of minimal total Roman functions gives a general pointwise-minimality criterion, not an all-weight counting identity. Published complete-multipartite total Roman enumerators concern a class that does not contain the crown graph for \(n\ge3\); a published perfect Roman crown result uses a different condition. Targeted searches of mathematical records and public literature did not identify a theorem implying this identity, but coverage outside the indexed sources cannot be excluded.
+PASS
 
-## Value — PASS
-The crown family is a standard natural graph family and the direct product of two complete graphs; full weight enumerators refine extremal domination parameters and quantify all feasible guard assignments. Seven regime-specific contributions resolve every coefficient simultaneously, exposing the impact of the deleted matching and the exceptional small orders. The formula is a complete exact enumerator rather than a renamed minimum-value corollary or an arbitrary finite slice.
+For Cr_n=K2 x Kn with named layers and n>=2, a_i sees b_j iff j !=i. The total Roman conditions are: every zero has an opposite-layer label-two defender at a different index, and every positive has a positive opposite-layer neighbour at a different index. Disjointly partition assignments by counts of twos in A and B (0,1,>=2); after swapping layers the seven cases in RESULT.md give exactly F_n^2, 2 n z^2 Q_n(F_n-F_(n-1)), 2 U_n V_n, n z^4 Q_n^2, n(n-1)z^6(1+z)^(2n-4), 2n z^(n+2)Q_n and z^(2n), with Q,F,U,V as defined there. Each case necessity/sufficiency was checked against the local neighborhoods; no disjointness or zero-label defect found, including special n=2 where the graph is 2 K2. An independently written direct graph-neighborhood brute evaluator compared all 3^(2n) labelled functions and all coefficients to the 7-term formula for n=2..6: totals 16,259,3232,35769,371270 feasible functions, minima (4,1),(6,31),(6,48),(6,100),(6,180). Extraction gives n^2(n-1) optimal functions for n>=4 (not just the known minimum 6); no numerical finite check is claimed to establish the infinite formula, which follows from the exhaustive seven-case symbolic proof.
 
-The full count is not asserted for other graph products or other Roman variants. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The minimum total Roman domination number of K2 x Kn is established in published direct-product work. The new statement is the entire integer-weight enumerator, not ordinary Roman or Roman{2} variants, and it is not mechanically implied by known minimum weight alone. The Resultary complete-multipartite enumerator is a different graph family since Cr_n is not complete multipartite for n>=3.
+
+## value
+
+PASS
+
+Crown graphs form a classic natural direct-product family; enumerating every total Roman function by weight is a mathematically meaningful refinement of an established extremal domination invariant and gives exact multiplicities of every weight. The seven-case description works uniformly for arbitrary n and is neither a trivial minimum-value restatement nor a known complete-multipartite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
