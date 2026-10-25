@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:52:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob be8d2cb7f9bf557e575636b6157f0a105e544c13",
+        "frozen verify.py blob 9719292682c611d90a63b88b566a14656b8c9422",
+        "fresh independent brute subset enumeration 2026-10-24 UTC"
+      ],
+      "rationale": "For full-depth rooted trees with every nonleaf having at least two children, the three exact root states A (selected), B (omitted but dominated by a child), C (omitted and awaiting parent) yield a=1+Σmin(a_i,b_i,c_i), c=Σb_i, and B as an A/B child-selection minimum with at least one A. The induction checks the minimizing-state multiplicities, not just costs: remaining heights 1,2,0 modulo 3 give respectively unique A; unique B with a=b+1; and c<a=b=c+1, B with exactly d minimizers. Root C is infeasible. Thus h=3t+1 has unique D=∪L_3j, h=3t+2 unique D=∪L_{3j+1}, and h=3t≥3 has D=(∪L_{3j+2})∪{v}, v∈L_0∪L_1; h=0 is singleton. No uniform branching is assumed. Independent fresh all-subset enumeration matched exact minimizer families on 1 height-0, 2 height-1, 12 height-2 and 1 height-3 profiles of at most 15 vertices; source checker and its separate DP were read but not relied upon to prove all heights.",
+      "residual_risks": [
+        "Finite independent enumeration is small, particularly at height three; exact all-height conclusion rests on the induction and strict ≥2 child gaps.",
+        "Unequal leaf depths and unary internal nodes are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petr–Portier–Versteegen give general forest bounds on the number of minimum dominating sets, not full optimizer equality cases here. Livingston–Stout discuss fixed-arity complete trees and algorithms."
+        ],
+        "reasoning": "A general bound or per-instance tree DP is not a theorem selecting every optimum level in arbitrarily irregular fixed-depth branching. They remain prior context, not proven implication of this classification.",
+        "searches": [
+          "arXiv:2601.03485",
+          "arXiv:2206.13182",
+          "Resultary id: 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77",
+          "Resultary query: minimum dominating sets uniqueness number regular irregular rooted full level trees every internal degree two height mod 3 1+root children closed form"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.03485",
+        "arXiv:2206.13182",
+        "Livingston–Stout 1994 constant-time minimum dominating sets",
+        "Resultary semantic search of irregular tree dominion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Allagan complete binary result follows on setting all branching to two. This does not logically imply cases with variable child counts at different vertices."
+        ],
+        "reasoning": "The new quantification over every internal degree ≥2, with full exact min-set family, exceeds the binary special case and does not follow from the numeric forest bound alone.",
+        "searches": [
+          "Resultary id: 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77",
+          "Resultary query: minimum dominating sets uniqueness number regular irregular rooted full level trees every internal degree two height mod 3 1+root children closed form",
+          "arXiv:2601.03485",
+          "arXiv:2206.13182"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allagan et al., arXiv:2601.03485 Theorem 10 gives complete binary tree period-three multiplicities; Theorem 14 gives a general tree DP."
+        ],
+        "reasoning": "The binary case is a genuine specialization; no inspected statement gives the fixed-level optimizer family or root-degree-only multiplicity for all nonuniform full-depth trees. A general DP can compute an instance but does not by itself assert this exact structural theorem.",
+        "searches": [
+          "Resultary query: minimum dominating sets uniqueness number regular irregular rooted full level trees every internal degree two height mod 3 1+root children closed form",
+          "arXiv:2601.03485",
+          "arXiv:2206.13182",
+          "Resultary id: 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved published finding on super domination of one-leaf coronas concerns a different graph construction and stronger/different parameter; no exact same optimizer table appeared in the inspected Resultary hits."
+        ],
+        "reasoning": "No exact matching table was located in these searches; this is not an exhaustive database novelty certificate.",
+        "searches": [
+          "arXiv:2206.13182",
+          "Resultary id: 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77",
+          "Resultary query: minimum dominating sets uniqueness number regular irregular rooted full level trees every internal degree two height mod 3 1+root children closed form",
+          "arXiv:2601.03485"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete optimizer classification generalizing known period-three binary-tree counting to nonuniform full-depth branching, with a strict root choice dichotomy.",
+      "residual_risks": [
+        "Unindexed domination-polynomial/equality-case literature could already contain the same all-minimizer rigidity for level-full nonuniform branching.",
+        "A general dynamic-programming theorem may imply the result with additional derivation even though it does not explicitly state it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a binary special case, not the arbitrary irregular optimizer classification",
+          "evidence": "Theorem 10 and general DP theorem, specific binary branching and lack of nonuniform equality structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.03485",
+          "material_read": "Accessible full HTML including definitions, theorem on complete binary trees, general tree algorithm and pertinent proof sections",
+          "method": "Primary full-text theorem and proof comparison",
+          "title": "Four Dominion Growth Regimes in Trees: Forcing, Fibonacci Enumeration, Periodicity, and Stability",
+          "trigger": "Same domination count and period three in complete binary trees"
+        },
+        {
+          "assessment": "No identified formula choosing complete families of optimizers for this nonuniform full-depth family",
+          "evidence": "Forest-wide extremal bounds differ from constrained tree equalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13182",
+          "material_read": "Relevant theorem statements and general forest extremal bounds",
+          "method": "Primary paper theorem comparison",
+          "title": "On the number of minimum dominating sets and total dominating sets in forests",
+          "trigger": "General lower/upper extremal multiplicity problem"
+        },
+        {
+          "assessment": "No directly identified complete all-optimum formula on variable-arity full-depth trees",
+          "evidence": "Fixed-arity algorithmic focus.",
+          "identifier_or_url": "https://web.eecs.umich.edu/~qstout/abs/BR94dom.html",
+          "material_read": "Abstract and available description of constant-time fixed-arity computation",
+          "method": "Primary bibliographic/abstract inspection",
+          "title": "Constant Time Computation of Minimum Dominating Sets",
+          "trigger": "Complete regular trees and dynamic-programming algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Allagan et al. binary-tree period-three theorem",
+        "frozen RESULT.md full optimizer classification"
+      ],
+      "rationale": "The natural question is to classify all minimum dominating vertex sets, not just calculate γ(T). Universally forced every-third-level structure under arbitrarily irregular vertex degrees, with exact multiplicity depending solely on the root degree, is a meaningful structural rigidity fact and useful closed-form boundary for tree-domination enumeration; not a mere fixed-degree substitution.",
+      "residual_risks": [
+        "The structural assumptions are restrictive but mathematically motivated by synchronous depths; extending beyond them remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent enumeration is small, particularly at height three; exact all-height conclusion rests on the induction and strict ≥2 child gaps.",
+    "Unequal leaf depths and unary internal nodes are outside scope.",
+    "Unindexed domination-polynomial/equality-case literature could already contain the same all-minimizer rigidity for level-full nonuniform branching.",
+    "A general dynamic-programming theorem may imply the result with additional derivation even though it does not explicitly state it.",
+    "The structural assumptions are restrictive but mathematically motivated by synchronous depths; extending beyond them remains open.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id internal operational identifiers. No complete scientifically neutral sanitized replacement bytes with fresh exact Git blob guards and SHA-256 were prepared; withhold public import despite completed assessment."
+  ],
+  "schema_version": 1
+}

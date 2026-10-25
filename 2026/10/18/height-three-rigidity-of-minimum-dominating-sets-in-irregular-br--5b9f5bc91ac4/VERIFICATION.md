@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in this package directory using Python 3.10 or newer. The program requires only the standard library. It checks 313 small-tree instances with labelled vertices by direct enumeration of all vertex subsets, compares the **exact family of minimum dominating sets** with the theorem, and separately applies a root-status dynamic program. It then checks all 363 degree sequences with height between one and five and degrees two through four for spherically symmetric trees, and 425 further deterministic irregular trees up to height six with branching two or three. The recorded output was:
+## correctness
 
-```
-VERIFIED
-brute_full_minimizer_classifications 313
-all_spherical_branching_profiles 363
-irregular_branching_DP_instances 425
-total_instances 1101
-```
+PASS
 
-The mathematical argument in `RESULT.md` is the unrestricted proof: finite instances cannot establish the result for arbitrary height or branching. The DP verifier and small exhaustive checks are corroborative, not independent expert audits. All referenced files are embedded in this package.
+For full-depth rooted trees with every nonleaf having at least two children, the three exact root states A (selected), B (omitted but dominated by a child), C (omitted and awaiting parent) yield a=1+Σmin(a_i,b_i,c_i), c=Σb_i, and B as an A/B child-selection minimum with at least one A. The induction checks the minimizing-state multiplicities, not just costs: remaining heights 1,2,0 modulo 3 give respectively unique A; unique B with a=b+1; and c<a=b=c+1, B with exactly d minimizers. Root C is infeasible. Thus h=3t+1 has unique D=∪L_3j, h=3t+2 unique D=∪L_{3j+1}, and h=3t≥3 has D=(∪L_{3j+2})∪{v}, v∈L_0∪L_1; h=0 is singleton. No uniform branching is assumed. Independent fresh all-subset enumeration matched exact minimizer families on 1 height-0, 2 height-1, 12 height-2 and 1 height-3 profiles of at most 15 vertices; source checker and its separate DP were read but not relied upon to prove all heights.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete optimizer classification generalizing known period-three binary-tree counting to nonuniform full-depth branching, with a strict root choice dichotomy.
+
+## value
+
+PASS
+
+The natural question is to classify all minimum dominating vertex sets, not just calculate γ(T). Universally forced every-third-level structure under arbitrarily irregular vertex degrees, with exact multiplicity depending solely on the root degree, is a meaningful structural rigidity fact and useful closed-form boundary for tree-domination enumeration; not a mere fixed-degree substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
