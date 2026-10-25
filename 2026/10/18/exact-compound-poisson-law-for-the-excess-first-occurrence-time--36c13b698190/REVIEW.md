@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the exact prefix-state convention, establishes the nonabsorbing matrix's upper-Hessenberg structure including its superdiagonal, computes an explicit cofactor for the first-hitting-time generating function, shows spectral radius below one by the positive block-absorption probability, and applies a convergent trace expansion with termwise nonnegative coefficients. The normalization at one is derived from eventual absorption. The compound-Poisson representation and deterministic boundary are fully proved; finite exact-rational checker experiments are corroborative only.
+## correctness
 
-**Originality — PASS on inspected material.** The 2022 source derives first-run waiting-time recurrences, the 2014 source develops compound-Poisson approximations for *counts*, and Sankaran–Midhu (2010) gives exact Markov-embedding waiting-time algorithms without the universal infinitely-divisible conclusion. The 2022 arXiv HTML, relevant 2014 full article sections, and the full publicly posted 2010 article (including its main formulas and algorithm) were inspected. Keyword/semantic searches and available mathematical-research records found no direct broader assertion; uninspected older pattern generating-function sources retain a nonzero originality risk. Any classical all-word infinite-divisibility theorem under another name would subsume the claim; this is a residual originality risk, not a proof of uniqueness.
+PASS
 
-**Value — PASS.** A complete exact structural classification for arbitrary single patterns is substantially stronger than a recurrence for the repeated-success run and more informative than an approximation. It supplies explicit Lévy masses, a compound-Poisson simulation representation, all cumulants and the infinite-divisibility property for a natural stopping-time family, including overlapping and nonuniform-letter patterns. The restriction to a single target word is mathematically essential to the cofactor simplification; no extension to unions or Markov sources is asserted.
+The actual RESULT.md defines the nonabsorbing longest-prefix automaton A for an arbitrary word w, including borders and zero-probability irrelevant letters. Its upper-Hessenberg zero pattern and fixed one-step superdiagonal make the (0,m-1) inverse entry a triangular cofactor z^(m-1) times the product of the first m-1 letter probabilities. Thus E[z^(T-m)]=p_w/det(I-zA), including m=1. Every block of m letters hits the target with conditional probability at least p_w, so ||A^m||∞<=1-p_w and rho(A)<1. Normalization at z=1 gives det(I-A)=p_w, and -logdet(I-zA)=sum_k tr(A^k) z^k/k converges absolutely; all diagonal entries of A^k are nonnegative. This proves exact nonnegative finite Lévy intensity, not merely an approximate or finite-prefix law. When p_w=1 the process is deterministic zero. Kumulants via exponential moment analyticity are sums k^r nu_k. Inspected word_wait_checker.py constructs KMP automata, rational Newton identities and independent short-word enumeration; listed 498 word tests and 365 exhaustive short checks are supplemental, not a universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared the all-word exact infinite-divisibility statement, not the availability of a rational PGF alone. Sankaran–Midhu has full Markov embedding and hitting-law formulae, but not trace-positive logarithm or exact compound-Poisson all-word assertion in the inspected full sections. Johnson–Fu uses compound-Poisson approximation for counts of patterns, not the exact law for T_w-m. Oh–Park–Kim concerns success runs, a subfamily, and recurrence rather than infinite divisibility. Semantic research search gives nearby automata/renewal findings but no covering same stopping time. A historical unindexed all-word infinite-divisibility formulation remains a real risk, not ruled out by search failure.
+
+## value
+
+PASS
+
+The result is a structural exact law for the natural first-occurrence waiting time of every single word, including overlapping patterns and nonuniform sources; explicitly nonnegative matrix-trace jump measures and the complete cumulant family go materially beyond solving a rational recurrence. It explains a broad probabilistic property that may fail for multiple target words or dependent letters; the natural object and invariant are motivated before calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

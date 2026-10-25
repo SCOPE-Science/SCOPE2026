@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T08:53:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual RESULT.md defines the nonabsorbing longest-prefix automaton A for an arbitrary word w, including borders and zero-probability irrelevant letters. Its upper-Hessenberg zero pattern and fixed one-step superdiagonal make the (0,m-1) inverse entry a triangular cofactor z^(m-1) times the product of the first m-1 letter probabilities. Thus E[z^(T-m)]=p_w/det(I-zA), including m=1. Every block of m letters hits the target with conditional probability at least p_w, so ||A^m||∞<=1-p_w and rho(A)<1. Normalization at z=1 gives det(I-A)=p_w, and -logdet(I-zA)=sum_k tr(A^k) z^k/k converges absolutely; all diagonal entries of A^k are nonnegative. This proves exact nonnegative finite Lévy intensity, not merely an approximate or finite-prefix law. When p_w=1 the process is deterministic zero. Kumulants via exponential moment analyticity are sums k^r nu_k. Inspected word_wait_checker.py constructs KMP automata, rational Newton identities and independent short-word enumeration; listed 498 word tests and 365 exhaustive short checks are supplemental, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DOI:10.1186/2195-5832-1-5 treats pattern count approximations",
+          "arXiv:2210.08797 repeated success runs"
+        ],
+        "reasoning": "Count approximations cannot imply exact divisibility of first hit. Recurrences for a restricted word class also cannot prove a universal arbitrary-overlap word assertion.",
+        "searches": [
+          "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+          "Johnson Fu 2014 compound Poisson runs patterns",
+          "arXiv:2210.08797"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.spl.2010.08.004",
+        "https://doi.org/10.1186/2195-5832-1-5",
+        "https://arxiv.org/abs/2210.08797",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+        "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+        "Sankaran Midhu 2010 pattern waiting Markov chain",
+        "Guibas Odlyzko pattern generating function",
+        "Johnson Fu 2014 compound Poisson runs patterns",
+        "arXiv:2210.08797",
+        "Resultary ID 2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+        "Sankaran Midhu 2010 full accessible main text",
+        "Johnson Fu 2014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sankaran–Midhu computes pattern first-hit distributions by absorbing Markov chains",
+          "the new proof needs the special cofactor identity and positivity of tr(A^k) for every k"
+        ],
+        "reasoning": "A general absorbing Markov chain hitting law can fail compound-Poisson divisibility. Prior embeddings are useful ingredients but do not state or automatically imply the special universal jump-mass statement without new argument.",
+        "searches": [
+          "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+          "Sankaran Midhu 2010 full accessible main text",
+          "Johnson Fu 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DOI:10.1016/j.spl.2010.08.004 Markov embedded hitting PGF",
+          "RESULT.md det(I-zA) reciprocal and positive log-trace coefficients"
+        ],
+        "reasoning": "A classical overlap autocorrelation PGF could encode the same law after algebra. The criterion for true coverage is an all-word nonnegative expansion of log E[z^(T-m)], not a matching rational denominator. No such theorem found in material read; undiscovered algebraic reformulation remains possible.",
+        "searches": [
+          "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+          "Sankaran Midhu 2010 pattern waiting Markov chain",
+          "Guibas Odlyzko pattern generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched reset-word multiplicity and renewal subjects, not an exact all-word first-hit compound-Poisson distribution"
+        ],
+        "reasoning": "The claim is an infinite family structural property, not a missing numerical entry. Nearby automata tables and finite word frequencies do not encode positivity of every logarithmic coefficient.",
+        "searches": [
+          "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+          "Resultary ID 2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114"
+        ]
+      },
+      "rationale": "Compared the all-word exact infinite-divisibility statement, not the availability of a rational PGF alone. Sankaran–Midhu has full Markov embedding and hitting-law formulae, but not trace-positive logarithm or exact compound-Poisson all-word assertion in the inspected full sections. Johnson–Fu uses compound-Poisson approximation for counts of patterns, not the exact law for T_w-m. Oh–Park–Kim concerns success runs, a subfamily, and recurrence rather than infinite divisibility. Semantic research search gives nearby automata/renewal findings but no covering same stopping time. A historical unindexed all-word infinite-divisibility formulation remains a real risk, not ruled out by search failure.",
+      "residual_risks": [
+        "Earlier pattern autocorrelation/renewal papers may implicitly prove universal logarithmic coefficient positivity under terminology not located; the Fu–Chang historical corpus was not exhaustively read.",
+        "Computational checker remains bounded; the proof establishes the infinite claim independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Markov hitting algorithm, not an identified universal positive-trace Lévy decomposition",
+          "evidence": "Finite-state first-hit recurrences and expectation algorithm, 2010 paper",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2010.08.004",
+          "material_read": "Public author-posted article main sections 2–4 and appendix, including the Markov embedding and hitting calculations",
+          "method": "Read accessible full scientific text and checked statement/formulas",
+          "title": "On waiting time distributions for patterns in a sequence of multistate trials",
+          "trigger": "Exact multistate pattern first-occurrence model"
+        },
+        {
+          "assessment": "Approximates pattern counts, not an exact first-hit law",
+          "evidence": "Johnson–Fu 2014 title, count-approximation setting",
+          "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+          "material_read": "Article abstract and relevant probability approximation statements",
+          "method": "Read open article sections/abstract",
+          "title": "Approximating the distributions of runs and patterns",
+          "trigger": "Compound-Poisson terminology in related pattern literature"
+        },
+        {
+          "assessment": "Success-run recurrence does not assert all-word exact compound-Poisson jump measures",
+          "evidence": "Oh–Park–Kim 2022",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08797",
+          "material_read": "Relevant recurrence and PGF sections",
+          "method": "Read accessible arXiv exposition",
+          "title": "Recurrence algorithms of waiting time for the success run of length k",
+          "trigger": "Run waiting time restricted subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result is a structural exact law for the natural first-occurrence waiting time of every single word, including overlapping patterns and nonuniform sources; explicitly nonnegative matrix-trace jump measures and the complete cumulant family go materially beyond solving a rational recurrence. It explains a broad probabilistic property that may fail for multiple target words or dependent letters; the natural object and invariant are motivated before calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.spl.2010.08.004",
+    "https://doi.org/10.1186/2195-5832-1-5",
+    "https://arxiv.org/abs/2210.08797",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+    "exact compound Poisson infinite divisibility waiting time first occurrence word pattern automaton trace renewal probability generating function",
+    "Sankaran Midhu 2010 pattern waiting Markov chain",
+    "Guibas Odlyzko pattern generating function",
+    "Johnson Fu 2014 compound Poisson runs patterns",
+    "arXiv:2210.08797",
+    "Resultary ID 2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+    "Sankaran Midhu 2010 full accessible main text",
+    "Johnson Fu 2014"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single specified positive-probability finite word under iid finite alphabet; not arbitrary unions, Markov sources, or arbitrary phase-type laws.",
+    "No claim of expert/Lean verification or historical priority certification."
+  ],
+  "residual_risks": [
+    "Earlier pattern autocorrelation/renewal papers may implicitly prove universal logarithmic coefficient positivity under terminology not located; the Fu–Chang historical corpus was not exhaustively read.",
+    "Computational checker remains bounded; the proof establishes the infinite claim independently."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides Markov hitting algorithm, not an identified universal positive-trace Lévy decomposition",
+      "evidence": "Finite-state first-hit recurrences and expectation algorithm, 2010 paper",
+      "identifier_or_url": "https://doi.org/10.1016/j.spl.2010.08.004",
+      "material_read": "Public author-posted article main sections 2–4 and appendix, including the Markov embedding and hitting calculations",
+      "method": "Read accessible full scientific text and checked statement/formulas",
+      "title": "On waiting time distributions for patterns in a sequence of multistate trials",
+      "trigger": "Exact multistate pattern first-occurrence model"
+    },
+    {
+      "assessment": "Approximates pattern counts, not an exact first-hit law",
+      "evidence": "Johnson–Fu 2014 title, count-approximation setting",
+      "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+      "material_read": "Article abstract and relevant probability approximation statements",
+      "method": "Read open article sections/abstract",
+      "title": "Approximating the distributions of runs and patterns",
+      "trigger": "Compound-Poisson terminology in related pattern literature"
+    },
+    {
+      "assessment": "Success-run recurrence does not assert all-word exact compound-Poisson jump measures",
+      "evidence": "Oh–Park–Kim 2022",
+      "identifier_or_url": "https://arxiv.org/abs/2210.08797",
+      "material_read": "Relevant recurrence and PGF sections",
+      "method": "Read accessible arXiv exposition",
+      "title": "Recurrence algorithms of waiting time for the success run of length k",
+      "trigger": "Run waiting time restricted subfamily"
+    }
+  ]
+}
