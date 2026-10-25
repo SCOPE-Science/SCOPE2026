@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-cycle Fourier spectrum and last-reset renewal equation give an explicit stationary occupation function. A direct Green--Kubo covariance integration proves its squared-occupancy derivative identity. The reciprocal spectral sums determine the exact initial-response threshold, while a hyperbolic comparison with the infinite-line resolvent proves the globally strict envelope and its asymptotic sharpness. The full finite-state generator and resolvent agree in 30 independently constructed exact-rational cases; numerical tests do not replace the arbitrary-size algebra. The model fixes a rate-one clock on each neighboring edge and takes the long-time limit before size/reset limits.
+## correctness
 
-## Originality — PASS, best-knowledge comparison
-General resetting stationary-state and functional-moment machinery is prior work (Evans--Majumdar 2011; Méndez--Flaquer-Galmés--Pal 2024; Méndez--Flaquer-Galmés 2025). Ring resetting and graph local time have also been studied, for different observables (Grange 2021; Zatloukal 2020). The proposed original mathematical statement is narrower and nontrivial: the exact \(n=3\) versus \(n\geq4\) initial variance-response classification, the strict global \(4/(r+4)^2\) bound for every finite cycle, and the sharp \(3/2\) large-cycle enhancement. No equivalent complete statement was found in inspected source portions, recorded searches, or accessible historical claims. General renewal techniques might imply the basic variance identity; this is expressly not claimed to be a new general theorem. The unresolved possibility of older equivalent sharp cycle conclusions remains a literature risk. An arXiv ring-winding paper was visible at abstract level only, not full text.
+PASS
 
-## Mathematical value — PASS
-The origin occupation fraction becomes more likely as resetting grows, but its accumulated fluctuation noise responds in the opposite direction after four vertices. The exact minimal graph-size threshold and size-independent sharp envelope solve a natural fluctuation-optimization question, and the fifty-percent limiting gain is a quantitative benchmark. These are not an arbitrary isolated finite-table entry or a small numerical improvement. The theorem does not infer optimal first-passage behavior or uniqueness of finite-size maximizers.
+The last-reset resolvent gives stationary p_n(r)=r/n sum_{k=0}^{n-1}(r+lambda_k)^-1=tanh(t)coth(nt), lambda_k=4sin²(pi k/n), t=0.5 arcosh(1+r/2). Integrating stationary covariance by Green–Kubo and differentiating that renewal resolvent yields exact V_n=2 p_n p_n′=(p_n²)′=2p_n/n sum_{k>=1} lambda_k/(r+lambda_k)². Exact reciprocal spectral identities S_1=(n²-1)/12, S_2=(n^4+10n²-11)/720 give V_n(0)=(n²-1)/(6n²), V_n′(0+)=(n²-1)(n²-9)/(120n²). In n=3 V=4(r+1)/(r+3)^3 strictly decreases; n>=4 starts increasing and vanishes at infinity, so has an interior maximizer (uniqueness not claimed). Hyperbolic comparison shows (r/(r+4))′-V_n>0 by n sinh(2t)>2 tanh(nt), establishing strict envelope. At mesoscopic r=1/n, nt→∞ and V_n→1/4; no-reset variance→1/6, yielding factor 3/2. Independently solved exact stationary/Poisson finite-chain equations and compared with reset-free resolvent at five rational (n,r) pairs; verified mesoscopic values through n=4000. Finite data does not prove global envelope.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Evans–Majumdar established Poisson stochastic resetting; Méndez–Flaquer-Galmés 2025 treat general reset functionals and obtain general characteristic/moment formulas (read accessible complete arXiv HTML §§II–VI), with detailed application to Brownian/subdiffusive half-line occupation. Their techniques provide general tools, not the evaluated finite discrete-cycle threshold/envelope and 3/2 maximum. Grange studies Brownian ring winding numbers and Zatloukal no-reset graph local times; neither is the same observable. Historical equivalent specializations remain possible.
+
+## value
+
+PASS
+
+Time-integrated origin occupation is a fundamental dynamical fluctuation observable, distinct from monotone stationary occupancy or hitting-time performance. The exact minimum cycle length four for positive initial noise response, size-independent sharp upper bound and attainable 50-percent large-cycle gain provide an interpretable complete structural threshold and optimal benchmark, rather than an arbitrary finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

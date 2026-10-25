@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:52:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The last-reset resolvent gives stationary p_n(r)=r/n sum_{k=0}^{n-1}(r+lambda_k)^-1=tanh(t)coth(nt), lambda_k=4sin²(pi k/n), t=0.5 arcosh(1+r/2). Integrating stationary covariance by Green–Kubo and differentiating that renewal resolvent yields exact V_n=2 p_n p_n′=(p_n²)′=2p_n/n sum_{k>=1} lambda_k/(r+lambda_k)². Exact reciprocal spectral identities S_1=(n²-1)/12, S_2=(n^4+10n²-11)/720 give V_n(0)=(n²-1)/(6n²), V_n′(0+)=(n²-1)(n²-9)/(120n²). In n=3 V=4(r+1)/(r+3)^3 strictly decreases; n>=4 starts increasing and vanishes at infinity, so has an interior maximizer (uniqueness not claimed). Hyperbolic comparison shows (r/(r+4))′-V_n>0 by n sinh(2t)>2 tanh(nt), establishing strict envelope. At mesoscopic r=1/n, nt→∞ and V_n→1/4; no-reset variance→1/6, yielding factor 3/2. Independently solved exact stationary/Poisson finite-chain equations and compared with reset-free resolvent at five rational (n,r) pairs; verified mesoscopic values through n=4000. Finite data does not prove global envelope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Majumdar establishes renewal and reset stationary state machinery",
+          "Méndez–Flaquer-Galmés gives moment expressions for general reset functionals and half-occupation observables of Brownian/subdiffusive models",
+          "Grange: winding on a Brownian ring, Zatloukal: local time on graphs without resets"
+        ],
+        "reasoning": "A broad renewal formula can be specialized to a discrete cycle but does not constitute the evaluated sharp response threshold and asymptotic maximal gain. The alternative ring/local-time sources differ in process, observable or resetting condition. Full coverage of every historical special case is not guaranteed.",
+        "searches": [
+          "arXiv:1102.2704",
+          "arXiv:2507.05955 Sections III–V",
+          "arXiv:2111.15241",
+          "arXiv:2012.15399",
+          "Resultary semantic search (2026-10-24): continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+          "GitHub SCOPE2026 file search (2026-10-24): resetting occupation variance cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2507.05955",
+        "https://arxiv.org/abs/1102.2704",
+        "https://arxiv.org/abs/2111.15241",
+        "https://arxiv.org/abs/2012.15399",
+        "Resultary semantic query: continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+        "SCOPE2026 GitHub search: resetting occupation variance cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: general stochastic resetting and functional moment/occupation-time methods; Brownian ring winding statistics",
+          "New: discrete-cycle exact p_n, strict envelope 4/(r+4)², initial-response iff n>=4, max ratio→3/2"
+        ],
+        "reasoning": "Renewal and Feynman–Kac theory supplies background machinery and may give the first variance identity as a corollary, which is not claimed novel alone. The explicit cycle Fourier sum and sharp hyperbolic inequality require model-specific evaluation, and were not present as results in the inspected general sources.",
+        "searches": [
+          "arXiv:2507.05955 Sections III–V",
+          "arXiv:1102.2704",
+          "arXiv:2111.15241",
+          "Resultary semantic search (2026-10-24): continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+          "GitHub SCOPE2026 file search (2026-10-24): resetting occupation variance cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary occupation variance rate equals the derivative of the square of the stationary mass at reset target",
+          "Cycle spectral resolvent produces the exact global envelope"
+        ],
+        "reasoning": "Also phrase as additive-functional Green–Kubo variance, second stationary cumulant, renewal-reward fluctuations, or diagonal graph resolvent derivative. Generic reset functional methods imply the renewal representation but not automatically the sharp cycle-uniform inequality or n=4 response sign switch.",
+        "searches": [
+          "Resultary semantic search (2026-10-24): continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+          "GitHub SCOPE2026 file search (2026-10-24): resetting occupation variance cycle",
+          "arXiv:2507.05955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational finite generator tests for n=3..6 and mesoscopic spectral values to n=4000",
+          "No Resultary exact occupancy-noise cycle envelope table found; returned unrelated variance and restart problems"
+        ],
+        "reasoning": "The n>=3 bound and 3/2 asymptotic are universal, not a finite graph table. A finite-cycle closed resolvent is classical but the cross-size sharp fluctuation law is a distinct evaluated question.",
+        "searches": [
+          "Resultary semantic search (2026-10-24): continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+          "GitHub SCOPE2026 file search (2026-10-24): resetting occupation variance cycle"
+        ]
+      },
+      "rationale": "Evans–Majumdar established Poisson stochastic resetting; Méndez–Flaquer-Galmés 2025 treat general reset functionals and obtain general characteristic/moment formulas (read accessible complete arXiv HTML §§II–VI), with detailed application to Brownian/subdiffusive half-line occupation. Their techniques provide general tools, not the evaluated finite discrete-cycle threshold/envelope and 3/2 maximum. Grange studies Brownian ring winding numbers and Zatloukal no-reset graph local times; neither is the same observable. Historical equivalent specializations remain possible.",
+      "residual_risks": [
+        "A hidden earlier specialization of general reset functional formulas to discrete cycles might cover the same sharp constants without the same terminology.",
+        "The result only establishes existence, not uniqueness, of each finite n>=4 maximizing reset rate.",
+        "The 3/2 ratio is an n→infinity sharp supremum, not a finite-cycle equality, and the long-time limit is taken first."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General moment and renewal formulas are broader methods, but explicit applications and conclusions concern power-law reset laws/half-occupation, not this discrete-cycle 3/2 maximum or n>=4 sharp threshold",
+          "evidence": "§V studies half occupation time T+(t)=int theta(X_t) dt on an unbounded walk; §IV states general limit laws.",
+          "identifier_or_url": "https://arxiv.org/html/2507.05955",
+          "material_read": "Complete accessible arXiv HTML: §§II–III characteristic/moments, §IV general limiting laws, §V Brownian/subdiffusive half-occupation, §VI conclusion",
+          "method": "Read primary HTML and compared definitions/expressions with finite discrete-cycle additive functional",
+          "title": "Statistical properties of stochastic functionals under general resetting",
+          "trigger": "Potential general theorem dominating all occupation-time fluctuations under resetting"
+        },
+        {
+          "assessment": "Introduces resetting mechanics and steady states, not shown to cover the finite-cycle sharp occupation variance",
+          "evidence": "General renewal stationary state is duly credited.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+          "material_read": "Abstract and literature descriptions; full original text not read in this execution",
+          "method": "ArXiv abstract-level comparison",
+          "title": "Diffusion with Stochastic Resetting",
+          "trigger": "Foundational Poisson-reset renewal method"
+        },
+        {
+          "assessment": "Winding number is not origin occupation time; no whole-document exclusion claimed",
+          "evidence": "Ring observable is winding, not point occupation.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.15241",
+          "material_read": "Abstract and bibliographic description only; no complete full-text inspection",
+          "method": "ArXiv abstract",
+          "title": "Winding number of a Brownian particle on a ring under stochastic resetting",
+          "trigger": "Ring topology and resets could cover related asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Time-integrated origin occupation is a fundamental dynamical fluctuation observable, distinct from monotone stationary occupancy or hitting-time performance. The exact minimum cycle length four for positive initial noise response, size-independent sharp upper bound and attainable 50-percent large-cycle gain provide an interpretable complete structural threshold and optimal benchmark, rather than an arbitrary finite simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2507.05955",
+    "https://arxiv.org/abs/1102.2704",
+    "https://arxiv.org/abs/2111.15241",
+    "https://arxiv.org/abs/2012.15399",
+    "Resultary semantic query: continuous time random walk stochastic resetting on finite cycle occupation variance enhancement sharp upper bound 1/4 3/2",
+    "SCOPE2026 GitHub search: resetting occupation variance cycle"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetric rate-one nearest-neighbor random walk on C_n with rate-r resets to the observed origin, stationary long-time origin-occupation variance increases initially in r iff n>=4 (decreases for n=3), obeys V_n(r)<4/(r+4)^2<1/4, and optimal asymptotic enhancement over no resetting tends to 3/2 as n grows.",
+  "limitations": [
+    "A hidden earlier specialization of general reset functional formulas to discrete cycles might cover the same sharp constants without the same terminology.",
+    "The result only establishes existence, not uniqueness, of each finite n>=4 maximizing reset rate.",
+    "The 3/2 ratio is an n→infinity sharp supremum, not a finite-cycle equality, and the long-time limit is taken first."
+  ],
+  "residual_risks": [
+    "A hidden earlier specialization of general reset functional formulas to discrete cycles might cover the same sharp constants without the same terminology.",
+    "The result only establishes existence, not uniqueness, of each finite n>=4 maximizing reset rate.",
+    "The 3/2 ratio is an n→infinity sharp supremum, not a finite-cycle equality, and the long-time limit is taken first."
+  ],
+  "schema_version": 1
+}
