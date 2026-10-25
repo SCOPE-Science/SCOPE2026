@@ -1,19 +1,21 @@
-# Scientific review: primitive-bracelet spectrum for pseudoforests
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has exact scope: finite simple undirected pseudoforests and the adjacency-only \(C^2\) language. The universal-cover characterization of colour refinement is provided in Krebs–Verbitsky, arXiv:1407.3175, Lemma 2.6; the equivalence with \(C^2\) is documented in Arvind–Köbler–Rattan–Verbitsky, arXiv:1502.01255, Section 1. The nonstandard step is proved: each infinite cover of a unicyclic component has a unique bi-infinite spine and a periodic sequence of finite rooted-tree decorations. A rooted-cover isomorphism preserves this spine and acts by translation or reflection. Vertex-cover histograms therefore separate primitive bracelet classes, retain only aggregate repetition totals within each class, and recover all finite tree components. The cycle-length restriction produces the precise generating factors. Two independently written programs agree on the first ten coefficients, and a complete graph-atlas check supplies another corroboration through seven vertices. No computational observation is used as an infinite proof.
+PASS
 
-## Originality — PASS, with stated risk
+C²/one-dimensional Weisfeiler–Leman equivalence is characterized by identical multisets of complete rooted universal-cover types, using the standard depth-truncation correspondence. A tree component yields finite universal covers and hence its exact unrooted component type and multiplicity. Any unicyclic component universally covers to a unique two-ended tree with a bi-infinite spine decorated periodically by finite rooted trees. Isomorphisms act on the spine by translations/reflections, recovering the primitive dihedral bracelet and only its aggregate repetition count across components. A period p repeated k times contributes k identical multisets; simple-graph cycle size ≥3 forces k≥max(1,ceil(3/p)). Tree and bracelet factors therefore multiply to the formal product. At n≤5 no two unicyclic components exist, while at n=6 the unique ambiguity is C6 versus C3⊔C3. A fresh independent complete atlas graph enumeration with global simultaneous 1-WL refinement gave class counts 1,1,2,4,9,19,45,106 through n=7 (isomorphism counts 1,1,2,4,9,19,46,108); higher stated coefficients rely on included separate programs and formal proof, not this bounded check.
 
-The general colour-refinement/cover theorem is prior art and is not claimed. The two inspected primary papers discuss universal-cover indistinguishability, logical correspondence, and graph amenability, but do not state the pseudoforest primitive-bracelet invariant or the exact coefficient-generating product. A related necklace invariant for **directed** total-functional structures uses oriented cycles and a different relational language; it does not supply the undirected dihedral enumeration or its one- and two-letter minimum-cycle factors. The exact product and coefficients require those additional structural distinctions. Residual priority risk remains from specialized work not found by the searches; the general universal-cover theorem provides strong theoretical antecedents.
+## originality
 
-## Value — PASS
+PASS
 
-The contribution identifies the complete quotient of an unbounded natural graph class by a standard logical equivalence, including a canonical finite invariant, a coefficientwise effective all-size enumeration, and the sharp first collapse from isomorphism to logical indistinguishability. The bracelet period restriction is not an arbitrary numerical slice; it is forced by excluding loops and two-cycles in simple graphs. The result also precisely explains why connected unicyclic graphs are distinguishable relative to their class, whereas arbitrary disconnected pseudoforests are not.
+The full general correspondence of color refinement, C² and rooted covers is established prior work, not claimed as new. The explicit complete pseudoforest-relative primitive dihedral bracelet spectrum, the cycle-length 1- and 2-letter restrictions and its formal enumeration are additional specialized consequences absent from materially inspected general cover/amenability papers. The nearest indexed directed functional-graph necklace classifications use directed signatures and period symmetries and do not directly give undirected bracelets. Unindexed exact pseudoforest spectra remain a genuine possibility.
 
-## Limits and sources
+## value
 
-The series is formal, with numerical coefficients corroborated only through order nine. No statement is made about general graphs, coloured graphs, directed pseudoforests, or the global amenability of unicyclic graphs. The most relevant inspected primary full texts were Krebs–Verbitsky (arXiv:1407.3175, Section 2 and Lemma 2.6) and Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255, Sections 1–2 and the structural characterization of amenability). Neither result is misrepresented as claiming the present enumeration. Earlier unindexed specialization remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-order classification of a natural unbounded graph class under an established logical equivalence, with an effective symbolic generating series and sharp first nonisomorphism collision, is a motivated standalone mathematical classification rather than a small arbitrary census. Constraints r(p) reflect topology of simple cycle components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

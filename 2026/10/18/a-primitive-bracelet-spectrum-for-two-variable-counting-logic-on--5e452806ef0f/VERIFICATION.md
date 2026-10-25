@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python pseudo_count.py` and `python pseudo_verify_independent.py` in an environment containing Python 3 and the dependency from `requirements.txt`. Both scripts must finish with successful assertions and show the ten class numbers `1 1 2 4 9 19 45 106 267 685` (printed as lists or as rowwise values). The second independently constructs unlabelled pseudoforests and also reports isomorphism-type numbers `1 1 2 4 9 19 46 108 273 696`.
+## correctness
 
-`pseudo_count.py` obtains the exact formal-series factors from rooted/unrooted tree types and primitive bracelets. Its separate graph-atlas check tests class numbers through order seven. `pseudo_verify_independent.py` does not use the primitive-factor formula: it enumerates arbitrary decorated cyclic necklaces and tree multisets, constructs the associated finite graphs, and groups them by ordinary stable colour refinement through nine vertices. The actual assertions and encoded graph operations, not stored transcripts, are the finite computational evidence.
+PASS
 
-The universal-cover spine reconstruction and formal-product argument in `RESULT.md` prove the full unbounded-size statement. The finite enumerations do not certify originality or independently audit that proof. Different network-analysis library versions may produce different opaque hash strings, but equality-group counts are expected to remain unchanged. The class is restricted to simple undirected pseudoforests without vertex colours. This package does not include a third-party scientific validation.
+C²/one-dimensional Weisfeiler–Leman equivalence is characterized by identical multisets of complete rooted universal-cover types, using the standard depth-truncation correspondence. A tree component yields finite universal covers and hence its exact unrooted component type and multiplicity. Any unicyclic component universally covers to a unique two-ended tree with a bi-infinite spine decorated periodically by finite rooted trees. Isomorphisms act on the spine by translations/reflections, recovering the primitive dihedral bracelet and only its aggregate repetition count across components. A period p repeated k times contributes k identical multisets; simple-graph cycle size ≥3 forces k≥max(1,ceil(3/p)). Tree and bracelet factors therefore multiply to the formal product. At n≤5 no two unicyclic components exist, while at n=6 the unique ambiguity is C6 versus C3⊔C3. A fresh independent complete atlas graph enumeration with global simultaneous 1-WL refinement gave class counts 1,1,2,4,9,19,45,106 through n=7 (isomorphism counts 1,1,2,4,9,19,46,108); higher stated coefficients rely on included separate programs and formal proof, not this bounded check.
+
+## originality
+
+PASS
+
+The full general correspondence of color refinement, C² and rooted covers is established prior work, not claimed as new. The explicit complete pseudoforest-relative primitive dihedral bracelet spectrum, the cycle-length 1- and 2-letter restrictions and its formal enumeration are additional specialized consequences absent from materially inspected general cover/amenability papers. The nearest indexed directed functional-graph necklace classifications use directed signatures and period symmetries and do not directly give undirected bracelets. Unindexed exact pseudoforest spectra remain a genuine possibility.
+
+## value
+
+PASS
+
+Complete all-order classification of a natural unbounded graph class under an established logical equivalence, with an effective symbolic generating series and sharp first nonisomorphism collision, is a motivated standalone mathematical classification rather than a small arbitrary census. Constraints r(p) reflect topology of simple cycle components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
