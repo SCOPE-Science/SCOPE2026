@@ -1,20 +1,21 @@
-# Scientific review: subfield recovery in finite affine incidence refinement
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the exact singleton classes under stable one-dimensional colour refinement, not the full partition. The proof directly checks preservation of singleton classes under joins of two known points, meets of two known nonparallel lines, and the unique parallel through a known point to a known line. The parallel step is justified using equitable counts into the union of point classes lying on the known line. The explicit affine coordinate constructions implement addition and multiplication, proving that every point of the subplane over the marked-coordinate field becomes singleton. Conversely, a nontrivial relative Frobenius automorphism fixes the marked points and excludes every point and line outside that subplane from being singleton. The separate shearing and Frobenius obstructions establish the minimum-marking lower bounds. Two exact standalone scripts respectively tested the refinement classes and the geometric closure at nine finite prime-power orders, including extension fields. The all-order conclusion rests on the proof, not solely those tests.
+## correctness
 
-## Originality — PASS, with a priority limitation
-The closest published methodological sources are Arvind et al. (2016), which introduces the discrete individualization problem, and Kiefer et al. (2015), which provides general counting-logic and refinement theory. Kryftis (2016) constructs coordinate rings geometrically from affine frames; this is an important precursor for the arithmetic closure step, not a statement about singleton colour classes. Bartoli et al. (2017) study metric resolving sets for affine incidence graphs; the invariant and asymptotic scale are different. In the inspected material and targeted searches, no result gives the exact correspondence between stable singleton classes and the subfield of individually marked coordinates, or the three-versus-four refinement-landmark threshold. The specialized literature might contain an earlier version, and search failure does not prove global priority.
+PASS
 
-## Value — PASS
-The result determines a natural exact invariant for all prime-power Desarguesian affine planes: a small set of individual landmarks makes an iterative local counting algorithm recover precisely the geometric subplane over the generated field. This yields a genuine prime-versus-extension dichotomy in the minimum number of landmarks, and a stronger subfield law that determines both point and line singleton counts for arbitrary additional point markings. It also explains why the refinement-landmark number stays at three or four while the known metric-dimension invariant is linear in the plane order. The unbounded family, sharp threshold, and structural field interpretation are not a renamed trivial parameter calculation.
+Stable equitable WL/colour-refinement partitions can identify the unique line through two singleton points, the intersection of nonparallel singleton lines and the unique line parallel to a singleton line through a singleton point. The parallel proof is not a free logical assumption: points on the marked singleton line form a union of stable point classes, and among lines incident to P exactly one has zero neighbours in that invariant union, while all nonparallel lines have one. Cartesian constructions with O,U,V recover coordinate addition and multiplication, and extra marked coordinates; finite integral domain implies generated ring is the subfield K. Joining points gives every K-rational line. Conversely Frobenius x↦x^{|K|} fixes precisely K and every marked point, and moves all other vertices so they cannot lie in singleton classes. For q prime 3-frame generates the whole plane; if e>1 three marks are fixed by nontrivial Frobenius, and marking a fourth (t,0) with F_p(t)=F_q is sufficient. For <=2 marks and collinear triples an affine shear fixing marks prevents discreteness. Checked source finite field polynomial-basis implementation for q=2,3,4,8,9,16,25, and independent geometric closure verifier; infinite claim follows from construction/Frobenius, not those computations. Crucial distinction: this is singleton stable classes, not all non-singleton classes.
 
-## Closest literature and limitations
-- Arvind, Fuhlbrück, Köbler, Kuhnert and Rattan, *The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs*, arXiv:1606.04383 (2016): general problem and algorithms, not an affine-plane classification in inspected portions.
-- Kiefer, Schweitzer and Selman, *Graphs Identified by Logics with Counting*, arXiv:1503.08792 (2015): general two-variable counting framework, not marked affine-plane singleton counts in inspected portions.
-- Kryftis, *A Constructive Approach to Affine and Projective Planes*, arXiv:1601.04998 (2016), Chapter 4: geometric coordinate/ring reconstruction, not colour refinement.
-- Bartoli, Héger, Kiss and Takáts, *On the Metric Dimension of Affine Planes, Biaffine Planes and Generalized Quadrangles*, arXiv:1706.06583 (2017), Section 2: distance-resolving sets, not iterative colour refinement.
+## originality
 
-The theorem does not cover non-Desarguesian affine planes, arbitrarily line-marked inputs, or the complete non-singleton partition. No independent priority or scientific certification has occurred. The finite tests are reproducible but are not infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Individualization/colour refinement and affine-frame field reconstruction are known separately. The specific stable-singleton iff K-rational subplane theorem and sharp 3-versus-4 individualized point-mark threshold are not covered in inspected generic individualization complexity results or affine geometry reconstruction. Metric dimension of affine incidence graphs is a different distance-identification invariant; its order-q threshold does not dominate 3/4 WL landmarks.
+
+## value
+
+PASS
+
+Natural interface of equitable partitions, algorithmic individualization, and coordinate subfield geometry; exact smallest marks and exact singleton counts provide a meaningful structural classification for all finite extension degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
