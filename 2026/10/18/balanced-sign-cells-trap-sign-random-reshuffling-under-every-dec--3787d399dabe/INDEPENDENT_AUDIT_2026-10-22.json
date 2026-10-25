@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T16:05:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the fixed sign cell each coordinate has at most p positive and p negative component signs; every permutation prefix sum has absolute value at most p. Abel summation for an epoch with nonincreasing gamma bounds its displacement by p(gamma_nt-gamma_{n(t+1)}). Telescoping over all epochs gives total variation <=p gamma_0, and weighted within-epoch displacement <=p gamma_nt. The closed radius-2p gamma_0 ball stays in U, bootstrapping the assumption and proving convergence of *all* iterates, with endpoint distance <=p gamma_0; p=0 gives fixed trajectory. For f1=(x-5)^2/2, f2=(x+5)^2/2 at x0=2 and gamma0=1, the sign cell (-5,5) contains [0,4] and each limit lies in [1,3], hence |F'(limit)|>=1 and objective gap>=1/2. Uniform independent permutations give an absolutely convergent Rademacher series with harmonic variance pi^2/6-2 log2. Independently recomputed 40 harmonic increments and their variance 0.2586393863 toward 0.2586397057; finite checks corroborate but telescoping proves the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2310.15976, Algorithm 1 and Proposition 3.5",
+          "arxiv:2305.13187"
+        ],
+        "reasoning": "Same update and a strongly convex counterexample are prior art; their particular schedules do not dominate arbitrary nonincreasing vanishing steps and independently arbitrary epoch permutations. Corrected sign methods use different hypotheses.",
+        "searches": [
+          "Resultary semantic query: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2310.15976 Proposition 3.5 (2026 version), Qin–Liu–Xu",
+        "arxiv:2305.13187 Chzhen–Schechtman",
+        "arxiv:1802.04434 Bernstein et al.",
+        "Resultary semantic search: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qin–Liu–Xu Proposition 3.5 gives nonstationarity under a selected sequence",
+          "Abel bound p(gamma_nt-gamma_n(t+1)) gives all-schedule convergence",
+          "Rademacher variance depends on successive step differences"
+        ],
+        "reasoning": "The submitted theorem implies the known qualitative possibility of SignRR nonconvergence on this witness, but the reverse implication fails in general; one schedule cannot imply a universal quantification.",
+        "searches": [
+          "Resultary semantic query: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "sign stochastic approximation in a fixed sign cell",
+          "arxiv:2310.15976 Proposition 3.5"
+        ],
+        "reasoning": "The mechanism is a bounded-discrepancy/Dirichlet summation statement for balanced sign lists. Previously known SignRR nonconvergence is an alias at the qualitative level, but not the uniform all-order and all-schedule theorem.",
+        "searches": [
+          "Resultary semantic query: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table covers an infinite all-schedule pathwise assertion",
+          "explicit harmonic variance sum pi²/6−2log2"
+        ],
+        "reasoning": "A finite catalogue of gradient algorithms or one example cannot imply quantified trapping. No exact external database of such uniform-schedule laws was identified; lack of a hit alone is not novelty proof.",
+        "searches": [
+          "Resultary semantic query: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+        ]
+      },
+      "rationale": "PASS on the *quantified all-permutation and all-positive-nonincreasing-vanishing-stepsize trapping theorem* and its exact random-series law; qualitative smooth/strongly-convex SignRR nonconvergence was established earlier and is not new. Qin–Liu–Xu Proposition 3.5 already provides a strongly convex failure under one schedule; their result does not quantify every permutation/schedule or the harmonic limiting variance. Broader signSGD failures are known; no covering statement found in the inspected mathematical comparisons. An equivalent older cancellation/trapping theorem remains possible.",
+      "residual_risks": [
+        "Another stochastic approximation or discrepancy-control source could have the same balanced-sign trapping lemma",
+        "The qualitative strongly convex signRR counterexample already exists: novelty must exclude it",
+        "No claim for nonmonotone/adaptive step schedules or methods with error feedback."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS broad failure in strongly convex case for a particular schedule; does not prove all-permutation/all-vanishing-schedule trapping or harmonic random limit",
+          "evidence": "Proposition 3.5 gives a smooth strongly convex counterexample, but no uniform pathwise balanced-cell bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.15976",
+          "material_read": "Algorithm 1, Proposition 3.5 and relevant theorem/assumption comparison",
+          "method": "arXiv full-PDF relevant sections",
+          "title": "Convergence of Sign-based Random Reshuffling Algorithms for Nonconvex Optimization",
+          "trigger": "identical SignRR update with strongly convex nonconvergence"
+        },
+        {
+          "assessment": "covers qualitative warning, not the theorem for unscaled complete-epoch SignRR",
+          "evidence": "Different variance-reduced/noise-corrected method is analyzed.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.13187",
+          "material_read": "abstract and relevant algorithm/nonconvergence discussion",
+          "method": "arXiv public source",
+          "title": "SignSVRG: fixing SignSGD via variance reduction",
+          "trigger": "vanilla signSGD may fail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap is operationally meaningful: nonzero error terms or a single counterexample schedule do not establish robust failure under every diminishing schedule and every reshuffling order. The balanced-sign structural lemma supplies a portable failure criterion even under Robbins–Monro nonsummable square-summable steps, and the limiting variance isolates the randomized order effect. No larger performance theory is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2310.15976 Proposition 3.5 (2026 version), Qin–Liu–Xu",
+    "arxiv:2305.13187 Chzhen–Schechtman",
+    "arxiv:1802.04434 Bernstein et al.",
+    "Resultary semantic search: balanced sign gradient random reshuffling pathwise trapping nonstationary strongly convex diminishing stepsizes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Primary originality judgments are best-of-knowledge, not exhaustive global priority certification.",
+    "Finite independent checks do not replace the general analytic argument.",
+    "Another stochastic approximation or discrepancy-control source could have the same balanced-sign trapping lemma",
+    "The qualitative strongly convex signRR counterexample already exists: novelty must exclude it",
+    "No claim for nonmonotone/adaptive step schedules or methods with error feedback.",
+    "Publication withholding is a public-metadata confidentiality guard, not a failure of scientific C/O/V."
+  ],
+  "residual_risks": [
+    "Another stochastic approximation or discrepancy-control source could have the same balanced-sign trapping lemma",
+    "The qualitative strongly convex signRR counterexample already exists: novelty must exclude it",
+    "No claim for nonmonotone/adaptive step schedules or methods with error feedback."
+  ],
+  "schema_version": 1
+}

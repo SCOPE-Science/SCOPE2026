@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Coordinatewise sign balance forces every permutation prefix to have size at most the number of positive signs. Monotone-step Abel summation yields \(\|X_{t+1}-X_t\|_\infty\le p(\gamma_{nt}-\gamma_{n(t+1)})\); this telescopes and, together with the within-epoch bound, proves the invariant region and convergence of every iterate. The quadratic components have opposite constant signs on \((-5,5)\), their average has derivative \(x\), and \([0,4]\) is strictly inside the sign-constant interval. The harmonic variance identity follows by expanding squares and the classical Basel/alternating-harmonic sums. Independent path and exact-arithmetic tests in `verify.py` check finite identities; they are not the infinite-time proof.
+## correctness
 
-**Originality — PASS subject to residual literature risk.** Qin–Liu–Xu (arXiv:2310.15976) analyze the exact SignRR update but provide a bound with a nonvanishing conditional-variance term, not an all-permutation and all-decreasing-schedule trapping theorem or an exact random-limit law. Chzhen–Schechtman (arXiv:2305.13187) already observe the *general possibility* of signSGD nonconvergence, which is expressly excluded from the novelty claim; they prove results for a noise-corrected/variance-reduced algorithm instead. Bernstein et al. (arXiv:1802.04434) use with-replacement stochastic sign estimators. Semantic research-record and literature searches found no covering mathematical implication; this is evidence of no identified overlap, not proof of absolute novelty. Residual risk is an equivalent cancellation lemma in older stochastic-approximation literature.
+PASS
 
-**Value — PASS.** A nonzero error term in a rate upper bound does not show actual failure, much less failure for *all* decreasing Robbins–Monro-compliant steps and every reshuffle sequence. The trapping theorem supplies the missing structural mechanism and a minimal strongly convex test case. The exact random-series limit further distinguishes deterministic nonstationarity from random epoch-order effects and quantifies the surviving sampling variability.
+In the fixed sign cell each coordinate has at most p positive and p negative component signs; every permutation prefix sum has absolute value at most p. Abel summation for an epoch with nonincreasing gamma bounds its displacement by p(gamma_nt-gamma_{n(t+1)}). Telescoping over all epochs gives total variation <=p gamma_0, and weighted within-epoch displacement <=p gamma_nt. The closed radius-2p gamma_0 ball stays in U, bootstrapping the assumption and proving convergence of *all* iterates, with endpoint distance <=p gamma_0; p=0 gives fixed trajectory. For f1=(x-5)^2/2, f2=(x+5)^2/2 at x0=2 and gamma0=1, the sign cell (-5,5) contains [0,4] and each limit lies in [1,3], hence |F'(limit)|>=1 and objective gap>=1/2. Uniform independent permutations give an absolutely convergent Rademacher series with harmonic variance pi^2/6-2 log2. Independently recomputed 40 harmonic increments and their variance 0.2586393863 toward 0.2586397057; finite checks corroborate but telescoping proves the infinite result.
 
-Closest literature: Qin, Liu and Xu (2023) arXiv:2310.15976; Chzhen and Schechtman (2023) arXiv:2305.13187; Bernstein et al. (2018) arXiv:1802.04434. Scope excludes corrected sign estimators, nonmonotone schedules and cell escape. No claim is made that vanilla signSGD failure itself was previously unknown.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the *quantified all-permutation and all-positive-nonincreasing-vanishing-stepsize trapping theorem* and its exact random-series law; qualitative smooth/strongly-convex SignRR nonconvergence was established earlier and is not new. Qin–Liu–Xu Proposition 3.5 already provides a strongly convex failure under one schedule; their result does not quantify every permutation/schedule or the harmonic limiting variance. Broader signSGD failures are known; no covering statement found in the inspected mathematical comparisons. An equivalent older cancellation/trapping theorem remains possible.
+
+## value
+
+PASS
+
+The gap is operationally meaningful: nonzero error terms or a single counterexample schedule do not establish robust failure under every diminishing schedule and every reshuffling order. The balanced-sign structural lemma supplies a portable failure criterion even under Robbins–Monro nonsummable square-summable steps, and the limiting variance isolates the randomized order effect. No larger performance theory is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
