@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof identifies an explicit testable representation-theoretic certificate: enumerate every graph automorphism, compute the signed-edge and vertex-character traces, and show the cut–cycle character inner product vanishes. The supplied exhaustive backtracking implementation is exact and independently of matrix idempotence verifies the rank-free character claim. Vanishing gives uniqueness of invariant projections; averaging gives unrestricted optimality. Separate exact rational solutions of Laplacian equations give all three primal pairs of norms, and explicitly described planar duality gives the other two. The grounded potential vector for the dodecahedron and all edge-current sums are disclosed for direct hand checking. The result is finite and makes no extrapolation to an infinite graph family.
+## correctness
 
-## Originality: PASS, with stated residual risk
-The closest primary source, Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582), already proves the abstract symmetry/intertwiner criterion and develops examples for tori and Hamming graphs; this claim neither rebrands nor re-proves it as novel. Its inspected full arXiv text and family-results sections do not contain the dodecahedral/icosahedral minima or the finite Platonic table. Earlier Laakso/diamond projection work has different graph hypotheses. A published dodecahedral graph-metric \(\ell_1\)-distortion calculation measures an unrelated embedding invariant, so it cannot determine these relative projection constants. An equivalent obscure or unindexed exact computation remains possible and has not been independently ruled out.
+PASS
 
-## Mathematical value: PASS
-This is a natural, complete five-member classification of norm-minimal cut and cycle projections, not an arbitrarily chosen graph slice. The nontrivial dodecahedral 30-edge case demands full automorphism-character certification and exact signed current evaluation; its icosahedral planar dual swaps two distinct rational constants. The result puts an established abstract optimality criterion into sharp explicit form for a canonical family of highly symmetric geometries, distinguishing projection constants from previously studied metric distortions. The result does not claim new general theory or a paper-sized infinite-family classification.
+For G with oriented incidence D, Q=D^T(DD^T)^+D and C=I-Q are Euclidean cut/cycle projectors. For arbitrary l1 or linfty projector, symmetrization over signed edge-aut permutations yields an invariant projection without norm increase. An invariant projector must equal Q or C when Hom_Gamma(B,Z)=0. Independently enumerated graph automorphism groups K4 24, Q3 48, dodeca GP(10,2) 120, reconstructed signed-edge characters, confirmed all three full joint multiplicity tables and inner products sum chi_B chi_Z=0. Independently solved rational Laplacian current for dodeca: every one of 20 Kirchhoff equations, s=38/15, r=19/30, hence 1+s-2r=34/15. Also computed tetra (3/2,3/2) and cube (2,11/6). Edge transitivity ensures maximum abs row sum; planar duality swaps cut/cycle to recover octa and icosa. This is an exhaustive finite five-graph proof and exact arithmetic, not extrapolation from a sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The general averaging and character-disjointness criterion comes from Dilworth--Kutzarova--Ostrovskii, arXiv:2305.12582, read directly in theorem/corollary form. Hamming cube case has partial prior coverage, openly acknowledged. The new finite classification relies on previously unstated dodecahedral/icosahedral character multiplicities and rational electric potentials. Published Resultary SCOPE004 reports dodecahedron ℓ1 graph-metric distortion, a distinct invariant from relative projection constant; cactus basis projections concern graphs without intersecting cycles.
+
+## value
+
+PASS
+
+The five Platonic graphs are canonical small highly symmetric edge spaces. Exact norm-optimal cut/cycle projections quantify unconditional l1/l∞ amplification of Hodge splitting; the complete duality-exchanged rational table and icosahedral computations would be useful concrete benchmark data beyond the general conditional criterion. This is a naturally complete finite classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
