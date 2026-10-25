@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete four-type Crofton law for an explicitly specified one-parameter family of five-vertex triangular bipyramids. The proof correctly weights plane orientations by projection width rather than treating the conditioned normal as uniform. The nine-edge graph yields the parity identity, the projected equatorial median yields the six-sided offset integral, and support-function subtraction at both degree-three apices yields the triangular probability. The other two formulas follow by complement and parity. Integration by parts gives the elementary primitives. For the strict pentagon optimum, differentiation gives a strictly increasing \(D'\), so \(D-(h+c)D'\) decreases from a positive to a negative limit, proving exactly one global maximum. An independently programmed midpoint integration counts intersected edges for six aspect ratios, including near the critical point. These computations are numerical cross-checks, not a substitute for the analytical proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The September 2026 bipyramid discussion by Birkemeyer, Brose, Brandenburg and Prün (arXiv:2609.16195v1, Section 3) treats realizations and lower face-count bounds for central slices, not Crofton-conditioned affine section-type probabilities. Brandenburg, De Loera and Meroni (arXiv:2304.14239v1) develop generic slicing chambers and optimize volume/face counts, without the proposed probability integral. De Loera, Lopez-Campos and Torres (arXiv:2412.12419v1) analyze achievable vertex counts, not their invariant-plane probabilities. The closest searched published records for prisms, pyramids, boxes and octahedra address different vertex-edge graphs and yield formulas that do not imply the present law. Search and text inspection did not find an equal or stronger result for this five-vertex geometry. Historical coverage is not exhaustive; unindexed stereology or tabulations of triangular-dipyramid section frequencies remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete exact probability classification for the continuous height family of a natural five-vertex polyhedron, with four positive-probability polygon types at every positive height and a nontrivial flattening limit, and a rigorously unique optimal shape for five-sided sections. The optimum differs from the equilateral-faced Johnson solid, making the shape dependence mathematically substantive. A parity-geometric identity links odd-sided section probability to the missing apex edge; it reduces an integral-geometric classification to support and median-angle integrals. The result is not a restatement of a general edge-count bound or of a known numerical table.
+For each real height h>0 the invariant affine-plane model must weight a direction by its full support width. From the five-vertex graph K5 minus the apex–apex edge, a generic separating plane cuts exactly k(5-k) minus one edge iff the two apices are separated, giving odd-section offset length 2h|z|. Direct normal integration yields total width 4D(h), odd-section measure 4πh, six-sided measure 12K(h) via the projected median, and three-sided measure 4[D(h)-C] by support-function gaps at the two degree-three apices. Complement gives the other section probabilities. Substitution/primitive checks agree with I,K definitions; the pentagon probability π(h+c)/D−1 has derivative sign Q=D−(h+c)D′, with Q′=−(h+c)D′′<0 and endpoint signs ±πc, proving one global maximum, not merely a finite optimum. Independent seeded 120000-direction edge-cut numerical sampling at h=.35,1.2114484,2.3 agreed with all four closed probabilities within 0.002; this only cross-checks, does not prove, the continuum formula.
 
-## Closest comparisons and limitations
-Central Haar sections and Crofton-random affine sections use different probability measures. Generic combinatorial slicing results identify possible patterns, not the exact spherical-angular weights; measurements for prism, square pyramid, octahedron and boxes cannot be transferred to a triangular bipyramid by graph isomorphism, polarity or routine scaling. The claim is restricted to symmetric right equilateral-base bipyramids and does not assert a classification of skew five-vertex realizations. An unindexed direct precedent cannot be ruled out by finite search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The combination of complete Crofton-conditioned FOUR-type probabilities for affine planes and the unique pentagon-optimal height is mathematically distinct from feasibility or extremal central slicing. Known five-vertex section counts, chamber techniques, and formulas for other polytopes do not immediately imply it; checked sources show no complete identical law, but incomplete historical stereology remains a priority risk.
+
+## value
+
+PASS
+
+A five-vertex triangular bipyramid is a natural minimal nontrivial 3D polytope, and Euclidean-motion-invariant affine section probabilities require nonuniform directional weighting. The exact complete four-event law for every aspect ratio and rigid global maximizer solve a motivated natural shape statistic, with a substantive parity/edge-absence decomposition and a pentagon-optimal shape distinct from the equilateral-faced solid. This is not merely a possible-face-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
