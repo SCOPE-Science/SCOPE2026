@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The refresh projection identity gives the pair law exactly. The power-sum second derivative has a strict fixed sign, while the first derivative at independence is the Cauchy–Schwarz gap \(\alpha B_\alpha\). For subunit order and nonuniform marginals the endpoint derivative diverges negatively, forcing a unique interior maximum. The Shannon conclusion is an exact KL-divergence identity. Explicit Taylor expansion and the implicit-function theorem give the lag tail and the near-Shannon critical scale. The separate exact-matrix and finite numerical checks in `verify.py` passed 654 tests. Those tests do not certify the infinite statements; the analytic arguments supply their proof.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+P^t=r^t I+(1-r^t)1 pi^T since E^2=E. The stationary joint law Q_v=pi⊗pi+v Delta has Rényi power-sum derivative alpha sum Delta Q^{alpha-1} and second derivative alpha(alpha-1)sum Delta^2 Q^{alpha-2}, strict sign. Cauchy-Schwarz gives B_alpha=sum pi^{2alpha-1}-(sum pi^alpha)^2>=0, equality for non-Shannon alpha only under uniform pi. Curvature and endpoint derivative -infinity for alpha<1 nonuniform guarantee exactly one interior maximum. Shannon relative-entropy curvature and sum Delta^2/(pi_i pi_j)=n-1 establish quadratic deficit; Taylor/implicit function establish near-alpha=1 peak location and height. All strict integer-lag and eventual-overshoot conclusions follow via v=r^t.
 
-The most relevant source, Judd–Esposito, arXiv:2610.10860v1, introduces the same lag-pair effective support and a lag envelope but establishes sample-complexity converses rather than the stated entropy monotonicity phase diagram. Wolfer–Alquier, arXiv:2402.10506v5, provides Rényi-related entropic terms and two-state mixing calculations but not the strict overshoot, unique maximizer, or order-one critical scaling. General Rényi entropic non-subadditivity is known and is **not** claimed as original; the original target is the exact characterization within a reversible Markov semigroup and its sharp critical asymptotics. Searches for equivalent couplings, time-lag entropy and dominant general results found no direct coverage. Unindexed special cases or indirect earlier implications are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The effective-support factor is used as a statistical complexity parameter in recent average-mixing theory. This exact family proves why geometric decay of average mixing does not guarantee monotonicity of that factor and gives a complete uniform/nonuniform and Rényi-order classification. The critical coefficients quantify the vanishing overshoot and diverging optimal lag near Shannon order; these go beyond merely observing failure of subadditivity for an arbitrary joint distribution.
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
 
-## Scope and residual risks
+## value
 
-The theorem addresses only finite-state strictly positive refresh kernels. No inference is made about arbitrary Markov chains or every truncated lag envelope. The general prior landscape is broad, so a differently formulated result may remain unidentified. A source on the general structure of Rényi entropic inequalities was available at abstract level; its full text was not substantively examined, and its general feasibility statement is not asserted to be absent from the finding. The review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit well-mixing reversible Markov family displays a genuine critical Rényi-entropy order, where lagged effective pair support overshoots independence despite monotonically decreasing absolute regularity. Exact peak classification and near-Shannon scaling answer a motivated estimator diagnostic question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

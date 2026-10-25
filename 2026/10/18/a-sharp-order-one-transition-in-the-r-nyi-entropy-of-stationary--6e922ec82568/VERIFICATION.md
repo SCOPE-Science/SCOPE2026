@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-`verify.py` (Python standard library only) independently forms stationary transition matrices using exact rational arithmetic and compares \(P^t\) and \(Q_t\) against the projection formula for state counts two through five and horizons zero through six. It then checks selected entropy sequences for orders on both sides of one, numerically solves the asserted single-maximizer equation, tests the large-lag coefficients, and compares the near-Shannon asymptotic location and height with decreasing distances from order one.
+## correctness
 
-Reproduction: execute `python3 verify.py` from the extracted package directory. The reported result was `PASS 654 finite tests; analytic hypotheses and infinite statements require proof`. The example with \(\pi=(0.9,0.1)\), \(r=0.7\) had its largest sampled effective support at lag five, approximately \(2.605443373946\), exceeding its independence limit \(2.56\).
+PASS
 
-Finite tests do not establish a theorem for all state vectors, Rényi orders or lags. The sign arguments, uniqueness proof, endpoint divergence, exact entropy derivative, and implicit-function calculation in `RESULT.md` are the mathematical evidence for those quantifiers. The scope does not include general non-refresh kernels or a claim of independent verification.
+P^t=r^t I+(1-r^t)1 pi^T since E^2=E. The stationary joint law Q_v=pi⊗pi+v Delta has Rényi power-sum derivative alpha sum Delta Q^{alpha-1} and second derivative alpha(alpha-1)sum Delta^2 Q^{alpha-2}, strict sign. Cauchy-Schwarz gives B_alpha=sum pi^{2alpha-1}-(sum pi^alpha)^2>=0, equality for non-Shannon alpha only under uniform pi. Curvature and endpoint derivative -infinity for alpha<1 nonuniform guarantee exactly one interior maximum. Shannon relative-entropy curvature and sum Delta^2/(pi_i pi_j)=n-1 establish quadratic deficit; Taylor/implicit function establish near-alpha=1 peak location and height. All strict integer-lag and eventual-overshoot conclusions follow via v=r^t.
+
+## originality
+
+PASS
+
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
+
+## value
+
+PASS
+
+An explicit well-mixing reversible Markov family displays a genuine critical Rényi-entropy order, where lagged effective pair support overshoots independence despite monotonically decreasing absolute regularity. Exact peak classification and near-Shannon scaling answer a motivated estimator diagnostic question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
