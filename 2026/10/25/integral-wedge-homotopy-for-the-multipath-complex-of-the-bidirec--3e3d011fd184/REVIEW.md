@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The precise multipath face rule, maximum face cardinality, and all 714 faces are reconstructed. The explicit discrete Morse matching is checked acyclic on the complete Hasse diagram before and after each of four unique-gradient-path cancellations, yielding one critical point, nineteen critical three-cells, and twelve critical four-cells. The signed integral Morse boundary is computed on every critical generator and vanishes. The homotopy deduction additionally uses the Hurewicz isomorphism for the three-skeleton, not an unjustified inference from homology alone.
+
+**Originality — PASS on inspected evidence.** Caputi–Collari–Di Trani–Smith (arXiv:2208.04656) analyze a one-way complete bipartite orientation, which lacks the reverse arcs and directed two-cycles intrinsic to this example. Vrećica–Živaljević (arXiv:0710.5252) introduce general cycle-free chessboard objects, but do not calculate this six-by-six off-diagonal restriction's integral homotopy. Caputi–Collari–Di Trani (arXiv:2110.11206) discuss path-poset complexes generally. The nearby findings on multipath complexes of bidirected double stars and on the **different** discrete Morse matching complex of \(K_{3,3}\) do not imply this statement. Direct searches for symmetric/bidirected complete bipartite multipaths, exact ranks, and restricted cycle-free chessboards returned no covering statement. Possible unindexed equivalences remain a risk.
+
+**Value — PASS.** The smallest balanced three-regular bipartite graph is a natural symmetric test case for allowing both orientations in multipath complexes. The complete *integral homotopy type* exhibits simultaneous degree-three and degree-four spheres and makes explicit which information is lost by Euler-characteristic and purely field-homology treatments. Its two-dimensional directed cycles create a nontrivial distinction from the previously studied one-way biclique.
+
+**Scope and scientific limitations.** No larger-parameter extrapolation or minimality among arbitrary digraphs is claimed. The proof is finite and fully enumerable, with its required exact integer checks supplied in a standalone script. Independent external examination is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
