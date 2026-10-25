@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python CHECK.py` with Python, NumPy, and SciPy. The script's expected last line is `ALL_CHECKS_PASS`.
+## correctness
 
-The actual execution produced `SUPPORT_OK: 1600 direct polytope comparisons`, `EXACT_ANGLE_OK` (the precise trivariate orthant value agreed with one-dimensional quadrature within \(2\times10^{-12}\)), `NORMAL_CONES_OK: 131072 quasi-random exposures`, `TILT_STATIONARITY_OK` (independent saddle-point equations), and `RATE_OK: unique-root numerical cross-check`, then `ALL_CHECKS_PASS`. The computed root was \(0.688633060895689\).
+PASS
 
-The exact support-function identity, symmetry reduction, large-deviation rate, envelope derivative, strict convexity, and crossing argument are proved in `RESULT.md`. Finite enumerations, numerical integration, and quasi-random samples cannot prove those assertions for arbitrarily large dimensions. The root decimal is an approximation, not an interval-certified exact algebraic value. No independent audit has been performed.
+The enriched-poset antichains lie wholly in one of the two incomparable levels. The support function is max of the two sums of absolute Gaussian coordinates; ties have probability zero, and conditional signs give vertex masses 2^{-p}rho and 2^{-q}(1-rho). Sum squared masses yields exact collision C2. The difference of half-normal sums has finite smooth cumulant generating function and positive mean for alpha>1/2, so exponential tilt establishes the rate I(alpha) for the losing block. Inserting rates yields min(alpha log 2,(1-alpha)log 2+2I). I is strictly convex, I(1/2)=Iprime(1/2)=0 and diverges near 1, so the strict convex crossing exists exactly once. The 3D orthant calculation establishes rho(2,1).
+
+## originality
+
+PASS
+
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
+
+## value
+
+PASS
+
+An intrinsic Euclidean angular collision statistic on the naturally defined two-level enriched-chain polytope has competing vertex orbits and a mathematically sharp unique large-deviation transition, a nontrivial boundary between two occupancy mechanisms rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

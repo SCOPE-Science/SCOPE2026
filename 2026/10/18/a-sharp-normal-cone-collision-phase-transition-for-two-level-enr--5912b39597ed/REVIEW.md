@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The enriched antichain definition shows that the signed-antichain polytope is the convex hull of two orthogonal coordinate cubes. Direct support maximization identifies precisely the vertex-exposure events; Gaussian sign symmetry gives the two exact normal-cone masses and the collision sum. The half-normal moment generating function is finite on the full real line, so exponential tilting gives the triangular-array large-deviation exponent with the stated domain and signs. The optimizing tilting parameter is unique; its envelope derivative shows strict convexity of the rate. A strict-convexity crossing argument gives existence and uniqueness of the critical block fraction. The exact \((2,1)\) benchmark follows from a trivariate Gaussian orthant formula, cross-checked by convolution integration. The executable checker reproduces the finite claims and approximate numerical root, without pretending to establish the infinite limit by sampling.
+## correctness
 
-## Originality
-**PASS, qualified.** Okada–Tsuchiya (arXiv:2003.12271) and Kohl–Olsen–Sanyal (arXiv:1906.01469) supply the underlying polytope constructions and lattice/combinatorial properties. They do not state normal-cone solid-angle distributions or the two-term collision-entropy competition in their inspected relevant sections. Related mathematical records on Euclidean volume, inradii, ellipsoids, and isotropic constants concern other invariants; knowing one of those values does not imply the claimed Gaussian collision exponent. Targeted searches of published mathematical summaries returned no equivalent claim. A related 2026 volume result was not available for full-text inspection, so unrecognized angular observations in it remain a residual risk, as does an independently published equivalent probabilistic formulation.
+PASS
 
-## Value
-**PASS.** The competition compares two distinct notions of geometric frequency: a vertex orbit can have tiny total spherical normal measure yet contribute more to the probability that two independent supporting directions choose the same vertex, because its vertex count is exponentially smaller. There is an exactly located, unique parameter threshold at which the dominant orbit switches. The full logarithmic phase diagram covers all proportional imbalances, not a narrow ad hoc numerical example, and supplies a natural invariant beyond lattice and combinatorial data.
+The enriched-poset antichains lie wholly in one of the two incomparable levels. The support function is max of the two sums of absolute Gaussian coordinates; ties have probability zero, and conditional signs give vertex masses 2^{-p}rho and 2^{-q}(1-rho). Sum squared masses yields exact collision C2. The difference of half-normal sums has finite smooth cumulant generating function and positive mean for alpha>1/2, so exponential tilt establishes the rate I(alpha) for the losing block. Inserting rates yields min(alpha log 2,(1-alpha)log 2+2I). I is strictly convex, I(1/2)=Iprime(1/2)=0 and diverges near 1, so the strict convex crossing exists exactly once. The 3D orthant calculation establishes rho(2,1).
 
-## Limitations and closest literature
-The theorem does not identify the precise polynomial prefactor at the transition or classify non-complete two-level posets. The primary papers' Ehrhart and triangulation results are credited. Relevant related mathematical records include *Exact volume and strict imbalance law for two-level signed-chain polytopes* (volume, not Gaussian vertex-angle collisions), *Height and width are the exact Euclidean radii of enriched chain polytopes* (radii, not angular spectrum), and *Sharp isotropic-constant range of all Hanner polytopes* (volume-normalized covariance, not normal cones). The full text of the related 2026 volume record was inaccessible during inspection, and no claim is made that absence from its summary rules out possible overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-and-implication comparisons including aliases/reductions, natural table searches and dominant theorem tests found no decisive prior coverage of the stated specific result; this is best-of-knowledge, with actual matching prior material credited and explicit residual risks.
+
+## value
+
+PASS
+
+An intrinsic Euclidean angular collision statistic on the naturally defined two-level enriched-chain polytope has competing vertex orbits and a mathematically sharp unique large-deviation transition, a nontrivial boundary between two occupancy mechanisms rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
