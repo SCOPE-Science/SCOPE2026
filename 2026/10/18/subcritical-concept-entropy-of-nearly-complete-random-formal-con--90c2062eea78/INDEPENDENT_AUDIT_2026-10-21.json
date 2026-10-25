@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T00:50:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A concept (A,B) corresponds bijectively to a maximal independent set A union B in the bipartite complement, even when either side is empty, and m multiplies over components. For a fixed side-coloured tree with a+b=v vertices and colour-preserving automorphism group u, exact labelled component expectation is (n)_a(n)_b/u*(c/n)^(v-1)*(1-c/n)^(nv-ab-v+1); isolated left/right trees yield e^-c. Disjoint-embedding covariance is O(1/n), fixed type fluctuations O(n), so type counts/n converge L2. Every fixed cyclic component count is O(1) in expectation; a Poisson(d) with c<d<1 dominates binomial exploration for large n, providing exponential total-progeny tail and uniform large-component weighted bound <=2 log2 Ae^-eta K. Thus fixed-K L1 convergence passes to full series, establishing absolute convergence and L1/probability without mistaking expected C for log C. For v=2,3,4, side-coloured tree types give c e^-2c log2 + c²e^-3c log2 + c³e^-4c(log3+log2/3); expansion matches displayed cubic. Rooted (selected,already dominated,needs parent) DP m(T)=A+B is correct. Tested source verifier logic against mathematical definitions; unrestricted limit derives from analytic argument rather than enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakurai gives expectation formula in a different random formal-context distribution.",
+          "Drmota et al use uniform random tree/series-parallel structures and size enumeration of maximal independent sets; a different probability space and functional."
+        ],
+        "reasoning": "Existing random graph component laws could supply a general derivation, but the inspected specialized works do not state the given c/n near-complete context entropy nor low-c coefficient law; avoid overclaiming methodological novelty.",
+        "searches": [
+          "Sakurai arXiv:2101.11023 full paper",
+          "Drmota–Ramos–Requilé–Rué AofA 2018",
+          "Resultary entropy/tree series query"
+        ]
+      },
+      "checked_sources": [
+        "Sakurai 2021 arXiv:2101.11023 complete article",
+        "Felde Hanika Stumme 2020 MDPI null-model article",
+        "Drmota et al AofA 2018 accessible primary description",
+        "Resultary semantic entropy/component query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A superpolynomial expectation of C_n need not imply a typical exp(nF) lower bound or L1 of log C_n.",
+          "Averaging MIS over random trees is not equivalent to summing component frequencies of G_{n,n}(c/n) weighted by log MIS."
+        ],
+        "reasoning": "None of the read results logically implies the exact quenched limit with the given normalization, coloured-tree weights, convergence mode and cubic expansion. A sufficiently general additive-functional LLN in the wider literature remains possible.",
+        "searches": [
+          "Sakurai arXiv:2101.11023 sections 3-5",
+          "Felde–Hanika–Stumme 2020",
+          "Drmota et al AofA 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Formal concept = maximal all-one rectangle = maximal independent set in complement bipartite graph, with empty-side cases; for each realization C_n=m(H_n).",
+          "Sakurai derives expected concept counts, not the normalized random logarithm."
+        ],
+        "reasoning": "The complementary-graph translation is used, not claimed new. None of the inspected exact semantic equivalents calculates the subcritical quenched entropy rate.",
+        "searches": [
+          "Resultary search: number of formal concepts near-complete random formal contexts sparse complement bipartite maximal independent sets tree entropy",
+          "Sakurai arXiv:2101.11023",
+          "Felde et al 2020 Null Models for Formal Contexts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary strongest thematic hits concerned combinatorial/model-theoretic entropy on unrelated tree structures.",
+          "No inspected table yields c-dependent F(c) or its cubic expansion."
+        ],
+        "reasoning": "There is no expected exact enumerative database for a continuous parameter limit; compare analytic constants/tree coefficients instead of treating lack of an OEIS entry as proof.",
+        "searches": [
+          "Resultary query: number of formal concepts near-complete random formal contexts sparse complement bipartite maximal independent sets tree entropy",
+          "Sakurai arXiv:2101.11023 expectation tables"
+        ]
+      },
+      "rationale": "Semantic FCA graph correspondence is classical; component count and subcritical branching methods are standard. The assessed new mathematical statement is the quenched L1 limit and explicit coloured-tree entropy series/cubic law in nearly-complete independent-incidence contexts. Sakurai addresses expectation of concept counts in another regime; Felde/Hanika/Stumme treat generation/null models; Drmota et al enumerate maximal independent sets of uniformly sampled trees and other classes rather than logarithmic MIS counts in sparse balanced binomial bipartite graphs. Possible pre-existing general random-graph additive-component-functional law could imply the limit, so retain substantive priority caution rather than asserting exhaustive novelty.",
+      "residual_risks": [
+        "A general published LLN for logarithmic numbers of maximal independent sets in subcritical random bipartite graphs might specialize to F(c) without an identical formal-context title.",
+        "No supercritical or critical c>=1 case established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_EXPECTATION_REGIME",
+          "evidence": "Calculates E[C_n] for other incidence probabilities, not log C_n/n with 1-c/n; expectation and typical logarithm are not interchangeable.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.11023",
+          "material_read": "All seven pages including counting identities, distribution hypotheses, expected-concept formula and concluding comparisons",
+          "method": "Read full arXiv PDF text and first-page visual plus theorem pages",
+          "title": "On formal concepts of random formal contexts",
+          "trigger": "Same random formal concept object"
+        },
+        {
+          "assessment": "DOES_NOT_GIVE_TREE_ENTROPY_SERIES",
+          "evidence": "Framework for random formal-context generation, not coloured tree-component MIS log functional.",
+          "identifier_or_url": "https://doi.org/10.3390/info11030135",
+          "material_read": "Accessible primary article abstract, methods on Bernoulli/null context generation and model comparison",
+          "method": "Full public HTML article inspected by relevant section",
+          "title": "Null Models for Formal Contexts",
+          "trigger": "Nearly complete random context/null model potential coverage"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_GRAPH_DISTRIBUTION",
+          "evidence": "Uniform combinatorial classes and MIS enumeration; not subcritical G_n,n(c/n) component-weighted quenched rate.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2018.18",
+          "material_read": "Accessible abstract and enumerative graph-class setup",
+          "method": "Primary publicly accessible paper abstract and model/method portions; not full PDF",
+          "title": "Maximal Independent Sets and Maximal Matchings in Series-Parallel and Related Graph Classes",
+          "trigger": "Same maximal independent set statistic on trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural high-density FCA question: typical concept number can still grow exponentially. Exact L1 rate, effective convergent series, positive lower bound and low-density expansion identify the subcritical quantitative regime. The normalization (per n, not per 2n) and inclusion of empty extents/intents are essential useful boundaries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independent incidences 1-c/n, fixed 0<c<1, the number C_n of all formal concepts in a balanced n-by-n context satisfies log C_n/n -> F(c) in L1/in probability, F(c)=sum over side-preserving bipartite tree isomorphism types c^{v-1}e^{-cv}log m(T)/|Aut_bi(T)|; F>=ce^{-2c}log2 and F(c)=c log2 - c²log2 + c³(log3-2/3 log2)+O(c^4).",
+  "limitations": [
+    "Only 0<c<1 fixed, balanced contexts with independent incidences; normalization is n.",
+    "Finite FCA/MIS checks corroborate the exact correspondence but do not prove the L1 asymptotic.",
+    "No CLT, rate at c=1, c>1 or log E[C_n] claim."
+  ],
+  "schema_version": 1
+}

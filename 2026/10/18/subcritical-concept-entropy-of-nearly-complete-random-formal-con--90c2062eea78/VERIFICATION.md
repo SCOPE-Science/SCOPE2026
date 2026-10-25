@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The executable `verify_sparse_complement.py` is a dependency-free Python 3 script. Run it from the directory containing this file and the Python script using `python3 verify_sparse_complement.py`. It rederives formal concepts using Galois derivations and maximal independent sets by brute force; it does not reuse the analytic tree expression for these checks. Every incidence matrix on bipartitions of sizes from 1 through 4 with product at most 9 is examined (1,226 instances). The same script independently enumerates small colored bipartite trees and compares direct MIS enumeration with the three-state tree dynamic program; size-2/3/4 coefficient sums are checked. Expected output begins `VERIFY_OK: exact FCA/MIS identities 1226`.
+## correctness
 
-The asymptotic component-frequency concentration and exponential-tail control are proved in RESULT.md and are **not** certified by the finite computations. No external independent audit has been performed. Literature and previous-claim comparisons are scientific overlap checks, not mathematical certification.
+PASS
+
+A concept (A,B) corresponds bijectively to a maximal independent set A union B in the bipartite complement, even when either side is empty, and m multiplies over components. For a fixed side-coloured tree with a+b=v vertices and colour-preserving automorphism group u, exact labelled component expectation is (n)_a(n)_b/u*(c/n)^(v-1)*(1-c/n)^(nv-ab-v+1); isolated left/right trees yield e^-c. Disjoint-embedding covariance is O(1/n), fixed type fluctuations O(n), so type counts/n converge L2. Every fixed cyclic component count is O(1) in expectation; a Poisson(d) with c<d<1 dominates binomial exploration for large n, providing exponential total-progeny tail and uniform large-component weighted bound <=2 log2 Ae^-eta K. Thus fixed-K L1 convergence passes to full series, establishing absolute convergence and L1/probability without mistaking expected C for log C. For v=2,3,4, side-coloured tree types give c e^-2c log2 + c²e^-3c log2 + c³e^-4c(log3+log2/3); expansion matches displayed cubic. Rooted (selected,already dominated,needs parent) DP m(T)=A+B is correct. Tested source verifier logic against mathematical definitions; unrestricted limit derives from analytic argument rather than enumeration.
+
+## originality
+
+PASS
+
+Semantic FCA graph correspondence is classical; component count and subcritical branching methods are standard. The assessed new mathematical statement is the quenched L1 limit and explicit coloured-tree entropy series/cubic law in nearly-complete independent-incidence contexts. Sakurai addresses expectation of concept counts in another regime; Felde/Hanika/Stumme treat generation/null models; Drmota et al enumerate maximal independent sets of uniformly sampled trees and other classes rather than logarithmic MIS counts in sparse balanced binomial bipartite graphs. Possible pre-existing general random-graph additive-component-functional law could imply the limit, so retain substantive priority caution rather than asserting exhaustive novelty.
+
+## value
+
+PASS
+
+Natural high-density FCA question: typical concept number can still grow exponentially. Exact L1 rate, effective convergent series, positive lower bound and low-density expansion identify the subcritical quantitative regime. The normalization (per n, not per 2n) and inclusion of empty extents/intents are essential useful boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
