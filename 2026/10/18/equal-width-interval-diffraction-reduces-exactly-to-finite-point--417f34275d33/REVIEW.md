@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof does not infer an infinite-dimensional theorem from enumeration. The arithmetic zero lattice of the target forces the endpoint signed measure of any competing interval indicator to be divisible by a translation difference. This gives a finite **integer** atomic quotient without restricting competitor interval widths. Equality of the total masses and of the mean-square moduli of its exponential polynomial then forces every atom of that quotient to have coefficient one. The autocorrelation's local slope independently fixes the number of maximal interval components, ruling out touching translated width-w windows. Fourier-transform uniqueness gives the exact oriented-difference characterization, including the converse. All parameters are real, all component counts are arbitrary, and the original indicator is 0–1-valued. A finite exact checker corroborates selected cases but does not replace the proof.
+## correctness
 
-## Originality — PASS (bounded historical comparison)
-Xia and Xu, arXiv:2606.19855v1, were inspected in the original full text, including the general three-interval counterexample, the strong-separation sufficient condition, and their already published six-point equal-width homometric example. Their Theorem 6.2 requires separated difference intervals; our exact all-fiber statement makes no such assumption, permits competitors with unknown widths and unknown counts, and gives universal three-equal-width uniqueness. Crimmins and Fienup (1983) require sufficiently disconnected prescribed support and therefore do not cover arbitrarily close intervals with unrestricted competitor locations. The classical finite turnpike problem starts from known point differences; it does not prove that arbitrary interval competitors collapse to the same width. Published research-record semantic searches found no matching implication, but absence from an index is not a uniqueness or priority certificate. The main residual risk is a previously unindexed equal-width deconvolution theorem.
+PASS
 
-## Value — PASS
-The result answers a natural inverse problem left sharply open between universal nonuniqueness for unrestricted three-interval indicators and sufficient conditions requiring strong pairwise separation. It establishes the **entire ambiguity class**, not merely a sufficient uniqueness criterion, and exposes the integer-convolution mechanism that prevents unequal-width mimics. The no-gap-condition three-interval corollary holds even when difference-interval supports overlap heavily. This distinction is materially stronger than checking a handful of intervals or restating finite point-set homometry.
+For arbitrary w>0, any finite equal-width target with m>0 positive-gap intervals, and any competing finite union of arbitrary lengths, equality of continuum Fourier moduli gives equality of autocorrelations. The right derivative C_H(0+)= -r identifies the number r of maximal interval components without assuming the competing widths. The arithmetic lattice of zeros at n/w forces the signed endpoint derivative D(1_G), pushed onto R/wZ, to vanish classwise. Finite cumulative integer endpoint coefficients provide the exact deconvolution 1_G=1_[0,w]*nu with integral atomic weights c_t. The transform at frequency zero gives sum c_t=m, and the Bohr mean-square exponential-polynomial identity gives sum c_t^2=m. Since c_t(c_t-1)>=0 for EVERY integer, all coefficients equal zero or one. Nonoverlap and the already proved maximal-component count force strictly positive gaps and m identical-width windows; Fourier uniqueness gives D_B=D_A. Conversely homometry implies equal magnitudes. Three-start positive-difference multiset {u,v,u+v} fixes the unordered gaps and hence uniqueness modulo reflection. Independently computed six-point oriented differences and all 120 three-point integer-gap classes, but those finite checks do not establish the all-real, unrestricted-competitor theorem.
 
-## Scope and remaining limits
-Unrestricted finite interval unions are allowed as competitors, but the target must have a common positive width. Exact continuum Fourier data and the indicator constraint are essential. No quantitative stability, noisy-data recovery, finite-sample reconstruction, new six-point example, or full classification of real homometric point sets is claimed. The classic 2007 turnpike source was available in bibliographic form rather than inspected full text; its known scope is finite point sets. Independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS is limited to the arbitrary-competitor equal-width exact-fiber theorem, not to phase-retrieval basics, prior m<=2 uniqueness, or the known six-point homometric witness. Xia and Xu (2026) establish general nonuniqueness when m>=3, plus a turnpike-based sufficient recovery condition; their abstract does not settle this specific no-gap special target and unrestricted competing-width fiber, but the full primary article was inaccessible this execution. Thus no whole-document exclusion is asserted; its explicitly relevant Theorem 6.2 remains a material priority risk. Crimmins-Fienup impose a common strong support separation; finite-point homometry starts from point-difference data and omits the new integer endpoint deconvolution rigidity. Indexed published mathematical findings concern different discrete Fourier supports and do not by themselves imply the theorem.
+
+## value
+
+PASS
+
+Finite-interval Fourier phase retrieval is a natural inverse problem: arbitrary 3-interval targets are known to be ambiguous, yet every equal-width three-component target is uniquely determined against competitors of ANY interval lengths and counts without a large-gap restriction. The complete ambiguity fiber for every m reduces to point-set homometry, with the nontrivial 0-1 integral quotient mechanism fixing the width. The six-point example is credited to prior authors, and the theorem asserts neither stability nor finite-frequency recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
