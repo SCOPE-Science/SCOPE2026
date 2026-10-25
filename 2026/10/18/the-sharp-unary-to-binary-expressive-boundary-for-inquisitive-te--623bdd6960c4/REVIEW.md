@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Structural induction validates the precise monadic second-order translation for the source semantics, including subteams, weak quantifiers, and empty teams. A threshold-color game shows that all monadic second-order formulas over unary relational signatures are first-order equivalent, with the stated conservative finite cutoff. Classical Lyndon preservation on all structures and a nonempty-team literal translation establish the converse. Finite checker tests returned `UNARY_TEAM_VERIFY_OK` for 13,440 comparisons. The sharp two-variable obstruction is Theorem 3.6 of Kontinen and Ciardelli (2026), not a fresh unproved complexity assumption.
+## correctness
 
-**Originality: PASS (with residual risk).** The full accessible motivating manuscript was inspected, including its semantic clauses, two-variable witness, and conclusion; it does not classify the one-variable fragment or supply its exact converse. The closely related 2026 follow-up treats general compactness/axiomatizability and a different state-based setting; its monadic questions do not state the exact unary-team theorem. Monadic second-order elimination and Lyndon preservation are known, but their combination with the sharp 2026 binary obstruction gives the claimed exact boundary. No identical implication was located in indexed research-result searches; earlier weak intuitionistic dependence logic could contain equivalent terminology or special cases, so priority is not independently certified.
+PASS
 
-**Value: PASS.** A newly demonstrated failure of first-order expressivity for open team formulas creates the natural sharp-arity question. This result identifies the boundary exactly, gives the complete semantic first-order characterization rather than merely an upper bound, and yields effective finite-model tests for satisfiability and entailment. The boundary excludes higher-arity relations and function symbols and makes no claim to optimal complexity.
+For exactly one free team coordinate x and a fixed finite monadic background signature, source semantics for flat atoms, bottom, conjunction, inquisitive disjunction, implication over all subteams and weak constant quantifiers translate inductively to MSO with a unary R parameter. The monadic EF color-splitting lemma bounds each unary-color population at 2^q, yielding a constructive FO translation over finite and infinite structures and finite witness bound k+2^(r+1+q). Conversely all-structures Lyndon positivity for a downward persistent empty-team FO property produces an FO negative-R formula; translating ¬R(y) to the team flat ¬(x=y) on nonempty teams realizes it with weak quantifiers. Empty teams satisfy the target/property universally. Kontinen–Ciardelli Theorem 3.6 supplies a genuine two-variable non-FO binary team witness. Actual source differential checker tests 13440 cases but full proof rests on the induction/game/Lyndon theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published Kontinen–Ciardelli supplies general InqBT syntax/semantics, first-order power of sentences, and a two-variable non-first-order example; the specific exact one-free-variable FO characterization and decidability on arbitrary monadic vocabularies are not shown in compared source statements. Prior monadic MSO elimination and Lyndon are acknowledged ingredients, not new claims.
+
+## value
+
+PASS
+
+Pinpointing the arity-one/two expressive boundary, complete unary semantic characterization, constructive elimination and decidability is a natural model-theoretic fragment classification rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
