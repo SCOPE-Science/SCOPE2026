@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:52:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q=1-gamma, solving the killed simple-walk resolvent gives F(q)=E[q^T]=cosh(|N-2i|theta/2)/cosh(Ntheta/2), cosh theta=1/q. Restart renewal yields M=(1-F)/(gamma F), including reset time. For y=(1-gamma)^-1=1+z, A(y)/B(y) is the Chebyshev even/half-integer numerator ratio, and sign of M-Delta (Delta=i(N-i)) is W(z)=(1+z)(A-B)-Delta z B. Both constant and linear W coefficients vanish; its z^2 coefficient is Delta/24*[N^2-5(N-2i)^2+20]. Negative value gives a beneficial infinitesimal rate. To prove global necessity, coefficients of A,B are nonnegative, with recurrence c_j/c_(j-1)=(lambda^2-(j-1+s)^2)/(j(2j-1)); when the z^2 coefficient is >=0 the ratio a_k/b_k grows by at least U/V>=3 and the positivity threshold Q_k grows by at most 14/5, so every higher W coefficient is >=0, and the top one strictly positive. Thus M>Delta for all positive rates at nonnegative threshold. At gamma->1, F->0 and M->infinity, so benefit for small gamma entails interior minimum. Even/odd N and mu=s exceptional B=1 are handled explicitly. Independent exact polynomial coefficient checks for all N<=30 and all i confirmed the predicted coefficients and sign regimes; this finite evidence does not prove the universal inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Li–Huang obtains a general finite Markov-chain resolvent and lattice local derivative, which alone does not force global benefit sign.",
+          "Vega Coso 2026 papers analyze ruin/absorption probabilities with resetting, not the mean first absorption time global criterion under this protocol."
+        ],
+        "reasoning": "General formulas for expectation or absorption probability have wider parameter scope but do not themselves settle strict all-rate positivity of W(z), particularly equality and discrete +20 term. No stronger exact theorem was identified.",
+        "searches": [
+          "Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold",
+          "arxiv:2111.01330v1 §§IV–VI",
+          "arxiv:2102.00895v1 confined lattice restart",
+          "arxiv:2603.24803 gambler ruin reset probability"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2111.01330v1 §V equations (38)-(40) (primary PDF)",
+        "arxiv:2102.00895v1 (primary PDF)",
+        "arxiv:2603.24803 (abstract screening only)",
+        "arxiv:2605.00657 (abstract screening only)",
+        "Resultary semantic query: Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold",
+        "Frozen Git RESULT.md b4cdc86240d3f37d980efaacc36cdaccf36651e6; verify.py cd9d2de7353412c130e969fd9c8339dfee3abc4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published local criterion coincides numerically with the z^2 coefficient, yet general reset systems may have an advantageous intermediate rate despite local derivative no-benefit.",
+          "The new coefficient ratio Q_k and R_k induction turns the known sufficient sign into a necessary condition over all positive z."
+        ],
+        "reasoning": "The known local inequality is an antecedent, not logically the global converse; establishing coefficient positivity is an additional all-parameter proof. Finite enumeration alone would not supply the implication.",
+        "searches": [
+          "Chen–Li–Huang arxiv:2111.01330 equations (31), (38)-(40)",
+          "Bonomo–Pal arxiv:2102.00895 Eq (20)",
+          "Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Li–Huang 2021 derives the same quadratic threshold as a LOCAL sufficient condition for benefit, but not the equivalence for ALL reset rates.",
+          "Bonomo–Pal 2021 studies finite confined random walks using a restart/jump clock unlike a full-step consumed reset."
+        ],
+        "reasoning": "The old threshold expression is not claimed new. The new logical quantifier is the global converse and strict equality boundary. A necessary-and-sufficient criterion under an equivalent clock convention would cover it; none was found in the inspected sources.",
+        "searches": [
+          "Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold",
+          "Chen Li Huang 2021 finite lattice stochastic resetting Eq 38 40",
+          "gambler's ruin optimal resetting no local benefit global advantage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related outputs concern generic restart variance at fixed success probability and other hitting models, not the all-rate simple symmetric finite-interval global criterion.",
+          "Numerical phase plots in existing papers are not exact all-(N,i) proofs."
+        ],
+        "reasoning": "A finite table of sign thresholds is not equivalent to polynomial positivity for all integer N,i and all real gamma in (0,1). No prior table providing the exact full statement was located.",
+        "searches": [
+          "Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold",
+          "finite gambler's ruin resetting exact necessary sufficient N^2 - 5(N-2i)^2 +20",
+          "Resultary stochastic restart phase diagram and expected hitting time"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level originality is limited to the differentiated new result, with credited general tools, broader prior coverage, and recorded access risks. Existing first-derivative reset threshold does not logically establish the strict global converse.",
+      "residual_risks": [
+        "An equivalent Chebyshev polynomial positivity theorem could have been proved in an unrelated algebraic inequality literature and imply the global converse.",
+        "The 2026 gambler's ruin probability papers were screened by abstract but not inspected fully; their objective is different, so potential hidden mean-time statements are a minor residual risk.",
+        "Optimal positive rate uniqueness is not claimed, and neither drifting nor immediate-jump reset clocks are covered.",
+        "Polynomial checks N<=30 cannot replace the all-N coefficient-growth induction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS identical local sufficient threshold; does not identify the global all-rate converse in inspected material",
+          "evidence": "Equations (38)-(40) give threshold as a sufficient small-reset criterion, not all-gamma equivalence",
+          "identifier_or_url": "arxiv:2111.01330v1 (Chen, Li, Huang)",
+          "material_read": "Primary PDF renewal/resolvent derivation, §V lattice equations (38)-(40), discussions and conclusion",
+          "method": "Read full accessible primary PDF relevant sections and checked equations and timing conventions",
+          "title": "First passage in discrete-time absorbing Markov chains under stochastic resetting",
+          "trigger": "Closest exact finite walk with full-step resetting protocol and printed threshold"
+        },
+        {
+          "assessment": "Mechanism overlaps, but reset/jump protocol and all-rate theorem differ",
+          "evidence": "Restart interval followed by immediate step; displayed conditions are local and plotted numerically",
+          "identifier_or_url": "arxiv:2102.00895v1 (Bonomo, Pal)",
+          "material_read": "Primary PDF first passage renewal formulas, timing setup and confined lattice examples",
+          "method": "Read relevant full accessible primary PDF with screenshots to check restart clock",
+          "title": "First passage under restart for discrete space and time: application to one dimensional confined lattice random walks",
+          "trigger": "Finite confined lattice and restart optimization"
+        },
+        {
+          "assessment": "Targets ruin probabilities and reset-neutral distributions rather than the mean absorption time global benefit criterion",
+          "evidence": "Abstract explicitly describes ruin probability q_z(gamma) and multi-site reset distributions",
+          "identifier_or_url": "arxiv:2605.00657 (Vega Coso)",
+          "material_read": "Full arXiv abstract and formal stated target, full paper not read",
+          "method": "Compared title, abstract, and claimed random quantity only; did not infer whole-paper noncoverage",
+          "title": "Spectral Duality and Reset-Neutral Distributions in Random Walks with Multi-Site Geometric Resetting",
+          "trigger": "Later 2026 gambler's ruin resetting potential stronger result"
+        },
+        {
+          "assessment": "Study of resetting effect on ruin probability, not known to state present MFPT threshold",
+          "evidence": "Abstract centers on ruin probabilities and geometric invariance of state-space critical points",
+          "identifier_or_url": "arxiv:2603.24803 (Vega Coso)",
+          "material_read": "Full arXiv abstract only; full paper not read",
+          "method": "Compared claimed probability invariant versus expectation objective",
+          "title": "Critical Spectral Invariants in Random Walks with Geometric Resetting",
+          "trigger": "Same finite gambler's ruin and resetting rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact necessary-and-sufficient global criterion is a structural improvement over known infinitesimal-reset sufficiency: in a finite absorbing chain a local no-benefit test need not generally exclude an advantageous intermediate reset rate. The theorem proves this exclusion specifically for every symmetric nearest-neighbor gambler's ruin instance, including the zero-derivative boundary, resolving a natural protocol-sensitive phase diagram and a meaningful finite-size correction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2111.01330v1 §V equations (38)-(40) (primary PDF)",
+    "arxiv:2102.00895v1 (primary PDF)",
+    "arxiv:2603.24803 (abstract screening only)",
+    "arxiv:2605.00657 (abstract screening only)",
+    "Resultary semantic query: Finite symmetric gambler ruin stochastic resetting absorbing boundaries global beneficial reset iff coefficient of variation threshold",
+    "Frozen Git RESULT.md b4cdc86240d3f37d980efaacc36cdaccf36651e6; verify.py cd9d2de7353412c130e969fd9c8339dfee3abc4b"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetric simple gambler's ruin on {0,...,N}, started at i in 1..N-1, with resetting to i in lieu of a move and costing one whole step, some positive reset rate strictly reduces mean absorption time i(N-i) iff N^2-5(N-2i)^2+20<0; if >=0 every positive rate strictly worsens, including equality. The beneficial regime has an interior globally minimizing reset rate.",
+  "limitations": [
+    "An equivalent Chebyshev polynomial positivity theorem could have been proved in an unrelated algebraic inequality literature and imply the global converse.",
+    "The 2026 gambler's ruin probability papers were screened by abstract but not inspected fully; their objective is different, so potential hidden mean-time statements are a minor residual risk.",
+    "Optimal positive rate uniqueness is not claimed, and neither drifting nor immediate-jump reset clocks are covered.",
+    "Polynomial checks N<=30 cannot replace the all-N coefficient-growth induction."
+  ],
+  "residual_risks": [
+    "An equivalent Chebyshev polynomial positivity theorem could have been proved in an unrelated algebraic inequality literature and imply the global converse.",
+    "The 2026 gambler's ruin probability papers were screened by abstract but not inspected fully; their objective is different, so potential hidden mean-time statements are a minor residual risk.",
+    "Optimal positive rate uniqueness is not claimed, and neither drifting nor immediate-jump reset clocks are covered.",
+    "Polynomial checks N<=30 cannot replace the all-N coefficient-growth induction."
+  ],
+  "schema_version": 1
+}
