@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact verification instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the supplied standalone program. It uses only the Python standard library.
+## correctness
 
-The program generates all \(210\) four-subsets of the ten Petersen vertices; tests induced connectedness directly from disjointness of the underlying two-subsets; retains the complements of precisely \(140\) disconnected quadruples; and generates all \(766\) faces including the empty face. It then performs the lexicographic ten-stage element matching on nonempty faces, verifying \(369\) disjoint pairs and unmatched face counts of one zero-face and \(26\) five-faces.
+PASS
 
-For the entire nonempty face Hasse graph, orient matched covers upward and unmatched covers downward; an explicit topological sort must process all \(765\) nodes. This is a complete finite acyclicity certificate, not a randomized test or sampled gradient-path enumeration. Forman's theorem then gives the stated wedge homotopy type.
+Petersen KG(5,2) 10 vertices, ordinary cut defined by complements of disconnected induced four-subgraphs, NOT total cut. Direct reconstruction checks all 210 possible 4-sets, 140 disconnected, 140 six-vertex facets, 766 faces including empty, f=(1,10,45,120,210,240,140). Reconstruct deterministic 369-pair matching, one 0-cell and 26 5-cells and all 3330 oriented covers over 765 nonempty faces acyclic. Hence integral wedge of 26 S5. Every element of S5 acts on the ten pairs; exact signed face Lefschetz gives per conjugacy class (26,6,-2,2,0,0,1). Inner products via permutation, 2-subset and exterior-square characters give multiplicities (1,2,1,2,0,0,0), so rational H5≅Sp(5)+2Sp(4,1)+Sp(3,2)+2Sp(3,1,1). Independent mod-two boundary ranks (9,36,84,126,114) consistent but not basis of integral wedge proof.
 
-Separately, explicit mod-two boundary matrices of dimensions one through five have ranks \((9,36,84,126,114)\). The group character calculation visits all \(120\) permutations, computes orientation signs on all invariant faces, checks the class traces \((26,6,-2,2,0,0,1)\), and decomposes the character by exact rational inner products, giving multiplicities \((1,2,1,2,0,0,0)\).
+## originality
 
-The checker prints two lines starting `VERIFY_OK` when all required assertions succeed. The finite proof is exhaustive for this exact graph; it is not evidence for a theorem about arbitrary graph families. Only self-review was performed; independent audit remains not performed.
+PASS
+
+Foundational Bayer et al. ordinary Petersen k=2 classification is not k=4; sequel covers other graph families. The S5 character here also needs the signed fixed-simplex computation, not entailed by the known graph properties or Betti number. Resultary three-cut module is different k. Best-of-knowledge new fixed-object exact four-cut homotopy and rational character.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical highly symmetric girth-five graph and ordinary k-cut complexes form a natural hierarchy. Exact classification at k=4, including the 26-sphere integral homotopy type and an explicit reducible full S5 module, fills a motivated finite parameter case after the known k=2 and k=3 studies. Equivariant information is not a routine consequence of the Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

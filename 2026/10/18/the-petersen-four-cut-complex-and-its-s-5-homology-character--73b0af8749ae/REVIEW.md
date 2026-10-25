@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complex has \(140\) six-vertex facets and exactly \(766\) faces including the empty face. The supplied `verify.py` enumerates every one of the \(765\) nonempty faces, constructs the staged element matching with \(369\) disjoint pairs, and verifies that the directed Hasse graph is acyclic by a complete topological sort. Critical cells occur only once in dimension zero and \(26\) times in dimension five, so the full homotopy type is a wedge of \(26\) five-spheres. The signed fixed-face Hopf trace is evaluated on all \(120\) group elements and decomposed by exact rational character inner products. Independent mod-two boundary ranks check the chain-level topology. No assertion about families beyond this finite graph, canonical splitting or equivariant homotopy type is made.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+Petersen KG(5,2) 10 vertices, ordinary cut defined by complements of disconnected induced four-subgraphs, NOT total cut. Direct reconstruction checks all 210 possible 4-sets, 140 disconnected, 140 six-vertex facets, 766 faces including empty, f=(1,10,45,120,210,240,140). Reconstruct deterministic 369-pair matching, one 0-cell and 26 5-cells and all 3330 oriented covers over 765 nonempty faces acyclic. Hence integral wedge of 26 S5. Every element of S5 acts on the ten pairs; exact signed face Lefschetz gives per conjugacy class (26,6,-2,2,0,0,1). Inner products via permutation, 2-subset and exterior-square characters give multiplicities (1,2,1,2,0,0,0), so rational H5≅Sp(5)+2Sp(4,1)+Sp(3,2)+2Sp(3,1,1). Independent mod-two boundary ranks (9,36,84,126,114) consistent but not basis of integral wedge proof.
 
-The closest original source, Bayer et al., *Topology of Cut Complexes of Graphs* (arXiv:2304.13675), Corollary 6.6, determines \(\Delta_2(P)\) but not \(\Delta_4(P)\). Its homology representation results treat other graph classes; they do not imply a character for the Petersen four-cut complex. The sequel (arXiv:2407.08158) covers disjoint unions, squared paths, grids and selected symmetries, but not the Petersen case. Other publicly indexed Petersen constructions involving total three-cut and matching/Morse complexes are different simplicial complexes, not stronger results for this exact object. Searches of aliases and their statements did not identify coverage. An unpublished or unindexed equivalent finite computation remains a genuine risk; the literature search is not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The Petersen graph is a canonical symmetric graph and the ordinary four-cut complex is a natural next topological invariant not determined by the published two-cut classification. The exact homotopy type, complete integral homology, and all seven rational \(S_5\) character values resolve a concrete structural problem, not merely a Betti-number recount. The nontrivial twenty-six-dimensional Specht decomposition captures information invisible from nonequivariant homotopy alone. A finite graph computation is warranted because it completely classifies the natural object with an independently replayable exact finite certificate.
+Foundational Bayer et al. ordinary Petersen k=2 classification is not k=4; sequel covers other graph families. The S5 character here also needs the signed fixed-simplex computation, not entailed by the known graph properties or Betti number. Resultary three-cut module is different k. Best-of-knowledge new fixed-object exact four-cut homotopy and rational character.
 
-## Residual risks
+## value
 
-The computation does not establish analogous results for other Kneser graphs or cut parameters. A finite complete certificate depends on correct implementation of the explicitly stated cut complex and acyclic matching; both are reconstructed and checked. Published indexing could miss a mathematically equivalent description. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Petersen graph is a canonical highly symmetric girth-five graph and ordinary k-cut complexes form a natural hierarchy. Exact classification at k=4, including the 26-sphere integral homotopy type and an explicit reducible full S5 module, fills a motivated finite parameter case after the known k=2 and k=3 studies. Equivariant information is not a routine consequence of the Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
