@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The cone metric is explicitly identified from intrinsic face unfoldings. The double-distance area integral is reduced by a radial-angular layer-cake identity to an elementary one-dimensional integral; all constants, angular ranges, and normalization by squared surface area are tracked. The localization step uses compactness, finitely many disjoint vertex charts, and the fact that intrinsic edges are locally flat. The tetrahedral quotient calculation and independently evaluated quadrature corroborate the critical cone coefficient. The claim is restricted to a nonempty sufficiently small radius interval; no extrapolation is made.
+
+**Originality — PASS relative to the inspected corpus, with residual priority risk.** Searches of the mathematical-record database using intrinsic geodesic, cone-angle, flat-cone pair distance, quartic and tetrahedral aliases did not return the claimed statement. The nearest record concerning distance between two uniform planar-polygon points uses Euclidean interior distance, whereas the present metric is intrinsic on a closed polyhedral surface. Wenk--Cook's inspected results address shortest path algorithms, not an area-averaged distance distribution. Mathai--Moschopoulos--Pederzoli's accessible abstract addresses sampled Euclidean cube distances; its full text could not be verified. No absence-of-match inference is presented as proof of absolute novelty.
+
+**Mathematical value — PASS.** Short-range pair-distance statistics are natural intrinsic observables on closed piecewise-flat surfaces. The exact quartic law reveals a nonlinear aggregate of cone angles beyond the Gauss--Bonnet total angular deficit, distinguishing, for example, the regular tetrahedron and cube at equal area. An exact local coefficient for all convex polyhedra is more informative than a numerical special-case value.
+
+**Principal limitations.** The localization radius is not uniform across degenerating polyhedra. Only nondegenerate convex polyhedra and short intrinsic distances are covered. Exact historical priority and independent mathematical audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
