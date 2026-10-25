@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T14:58:51.024842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md graph-construction completeness lemma",
+        "recursive_census.py, atlas_census.py full exact enumeration and outputs",
+        "cross_check.py and witness_analysis.py",
+        "dh_independent.py independent graph-atlas recurrence and pointed isomorphism count",
+        "Git tree f46ae25f... 14 blobs"
+      ],
+      "rationale": "The exact finite domain is connected distance-hereditary graphs with at most eight vertices, each choice of one distinguished root. Bandelt–Mulder pendant/true-twin/false-twin characterization implies every such graph arises inductively from a singleton, and exhaustive graph-isomorphism deduplication gives layer cardinalities 1,1,2,6,18,73,308,1484. Two supplied independent strategies (constructive recursive generation and complete unlabeled graph atlas filtered by reverse removable vertices) use exact isomorphism and rooted orbit decisions; both give zero failures through n=7 and two unrooted types at n=8 each with a single bad root. Independently regenerated 1,484 eight-vertex types from 308 seven-vertex types and tested pointed colours vs pointed graph-isomorphism; exactly those two obstructions found. Explicit graphs K1 join (K3 ⊔ C4) and K1 join complement(K3 ⊔ C4) have unique dominating root, all seven other points identical 1-WL signatures, but root-stabilizer orbits of sizes 3 and 4: cell sizes 1,7 vs orbits 1,3,4, with 14 and 21 edges. Finite enumeration is exhaustive up to size8, not extrapolated above.",
+      "residual_risks": [
+        "NetworkX exact graph-isomorphism engine and implementation correctness are computational proof dependencies; not a formal proof object. Nothing claimed for graphs with n>=9 or multiple initial marks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gavrilyuk–Nedela–Ponomarenko prove WL dimension two for entire distance-hereditary family",
+          "Bandelt–Mulder constructive graph characterization supports the finite census"
+        ],
+        "reasoning": "Two-dimensional WL is strictly stronger/different than ordinary one-dimensional colour refinement with one marked vertex; its success does not imply the asserted sharp one-point orbit equality at <=7 or unique first failure at 8.",
+        "searches": [
+          "arXiv:2005.11766 Weisfeiler Leman dimension distance hereditary",
+          "arXiv:1502.01255 graph refinement orbit",
+          "arXiv:1608.01465 split decomposition enumerations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.11766 primary PDF",
+        "arXiv:1502.01255",
+        "arXiv:1608.01465",
+        "Bandelt–Mulder 1986 DOI",
+        "OEIS A277862",
+        "Resultary distance hereditary graph rooted color refinement individualized vertex automorphism orbits 8 vertices cone K3 C4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "WL dimension-two identification does not force equitable 1-WL cells to be automorphism orbits after one mark",
+          "Graph decomposition shows only how to generate models, not outcome of pointed 1-WL/orbit comparison"
+        ],
+        "reasoning": "The quantitative eight-vertex first failure and complete two-witness classification require extra exhaustive exact pointed tests absent from cited broad theorems, though related census data is known.",
+        "searches": [
+          "Gavrilyuk et al 2020 WL dimension two theorem",
+          "Arvind et al 2015 individualization and refinability",
+          "Bahrani Lumbroso arXiv:1608.01465 DH enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two cones over a seven-vertex regular graph decompose into distinct automorphism orbits while root individualisation leaves one equitable cell",
+          "Arvind et al study the distinction between colour refinement and orbit partitions generally"
+        ],
+        "reasoning": "The one-mark rooted colour-refinement orbit obstruction and unary C²-type ambiguity are equivalent formulations; general refinability/amenability concepts do not specify the sharp eight-vertex DH threshold.",
+        "searches": [
+          "distance hereditary graph rooted color refinement individualized vertex automorphism orbits 8 vertices cone K3 C4",
+          "Tinhofer refinable individualized rooted distance hereditary graph orbit partition counterexample",
+          "one-point counting logic vertex individualisation cone over regular non-vertex-transitive K3 C4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS connected DH graph counts include 1484 at n=8, matching source enumeration, but do not include counts of bad rooted types",
+          "Two separate exhaustive source implementations and independent census found 2 bad unrooted types, unique roots"
+        ],
+        "reasoning": "Known unlabeled graph enumeration alone does not imply the new rooted equitable-vs-orbit classification; a specialized indexed rooted refinement table could cover it but was not located.",
+        "searches": [
+          "Resultary distance hereditary graph rooted color refinement individualized vertex automorphism orbits 8 vertices cone K3 C4",
+          "OEIS A277862 connected unlabeled distance hereditary graph counts 1484",
+          "rooted distance hereditary 1WL automorphism orbit first 8 counterexample"
+        ]
+      },
+      "rationale": "Well-known distance-hereditary structure and counts, graph colour refinement and 2-dimensional WL identification do not state the exact first one-marked 1-WL-versus-rooted-orbits failure at n=8 and classify its two unique witnesses. The unrooted counts and decomposition are used as prior inputs, not rebranded novelty.",
+      "residual_risks": [
+        "A specialized preexisting exact pointed-refinement census through eight vertices may contain identical two-obstruction result; unindexed literature not exhaustively excluded.",
+        "Completeness is finite algorithmic with exact isomorphism checks, not a mechanically formally verified theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_STRENGTH 2-WL not 1-WL rooted orbit cutoff",
+          "evidence": "Main WL dimension-two identification cannot imply no 1-WL+one-root orbit split below 8",
+          "identifier_or_url": "arXiv:2005.11766",
+          "material_read": "Accessible full paper PDF: introduction, main dimension-two result and relevant graph constructions",
+          "method": "Lawful arXiv PDF plus page-image inspection",
+          "title": "The Weisfeiler–Leman dimension of distance-hereditary graphs",
+          "trigger": "Nearest broad structural theorem for same graph family and refinement"
+        },
+        {
+          "assessment": "Background refinement concept, no named DH pointed n=8 minimal classification",
+          "evidence": "Definitions of refinability, 1-WL stable cells, orbit partition",
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "Accessible primary paper introduction and colour-refinement definitions",
+          "method": "arXiv open text",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Foundational rooted individualization and orbit-refinement notions"
+        },
+        {
+          "assessment": "Known structural enumeration not rooted orbit discrepancy table",
+          "evidence": "Complete decomposition/graph counting are separate from pointed stable orbit equivalence",
+          "identifier_or_url": "arXiv:1608.01465",
+          "material_read": "Accessible arXiv source (enumeration methods and family counts cited)",
+          "method": "ArXiv open text",
+          "title": "Enumerations, Forbidden Subgraph Characterizations, and the Split-Decomposition",
+          "trigger": "Natural prior same hereditary family enumeration"
+        },
+        {
+          "assessment": "Structural lemma known; no priority claim for it",
+          "evidence": "Pendant and twin insertion characterization of DH graphs",
+          "identifier_or_url": "doi:10.1016/0095-8956(86)90043-2",
+          "material_read": "Cited structural theorem as used by two independent enumeration routines; historical full original article not read",
+          "method": "Primary DOI citation with construction independently implemented",
+          "title": "Distance-hereditary graphs",
+          "trigger": "Classical exact generation theorem prerequisite"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md explicit counterexamples",
+        "Gavrilyuk–Nedela–Ponomarenko motivation of WL on DH graphs"
+      ],
+      "rationale": "A sharp first failure size for individualised 1-WL to identify rooted automorphism orbits in distance-hereditary graphs is a natural informative boundary between symmetry and coarse local counting. The complete two-model classification (and unique roots) exhibits a structural regular-module mechanism and can serve as small counterexample basis; this finite complete and motivated classification is valuable without extending to n>=9.",
+      "residual_risks": [
+        "Only one root distinguished and n<=8; says nothing about whether larger obstructions are unique or nonexistent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "NetworkX exact graph-isomorphism engine and implementation correctness are computational proof dependencies; not a formal proof object. Nothing claimed for graphs with n>=9 or multiple initial marks.",
+    "A specialized preexisting exact pointed-refinement census through eight vertices may contain identical two-obstruction result; unindexed literature not exhaustively excluded.",
+    "Completeness is finite algorithmic with exact isomorphism checks, not a mechanically formally verified theorem.",
+    "Only one root distinguished and n<=8; says nothing about whether larger obstructions are unique or nonexistent."
+  ],
+  "schema_version": 1
+}

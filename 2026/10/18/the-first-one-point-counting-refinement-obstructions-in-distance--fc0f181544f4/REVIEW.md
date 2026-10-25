@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Completeness follows from the pendant/true-twin/false-twin constructive characterization of connected distance-hereditary graphs. Two independent exhaustive programs verify the entire order-eight census and all pointed roots by exact graph isomorphism; a separate witness proof establishes the exceptional partitions directly. The exact domain is finite and the verification is exhaustive, not a sample or an infinite conjecture.
+## correctness
 
-**Originality: PASS, with residual priority risk.** The closest general reference (Arvind et al., 2015) analyzes refinability and individualization but does not state the pointed distance-hereditary cutoff. Bahrani–Lumbroso provides structural enumeration methods, not orbit-refinement classification. Gavrilyuk–Nedela–Ponomarenko establishes two-dimensional WL identification, which does not imply the precise single-individualized one-dimensional result. Searches of relevant literature did not identify a covering statement. Specialized unlocated earlier finite classifications remain a possibility; priority is not independently certified.
+PASS
 
-**Value: PASS.** The sharp first obstruction and its complete two-model classification give a natural finite boundary between counting-logic unary types and true rooted graph symmetry in a decomposition-defined graph family. The two examples have a transparent regular-module explanation and show how an equitable seven-vertex cell can conceal differently sized rooted orbits. This is an exact natural classification, not an arbitrary parameter slice or mere numerical recomputation.
+The exact finite domain is connected distance-hereditary graphs with at most eight vertices, each choice of one distinguished root. Bandelt–Mulder pendant/true-twin/false-twin characterization implies every such graph arises inductively from a singleton, and exhaustive graph-isomorphism deduplication gives layer cardinalities 1,1,2,6,18,73,308,1484. Two supplied independent strategies (constructive recursive generation and complete unlabeled graph atlas filtered by reverse removable vertices) use exact isomorphism and rooted orbit decisions; both give zero failures through n=7 and two unrooted types at n=8 each with a single bad root. Independently regenerated 1,484 eight-vertex types from 308 seven-vertex types and tested pointed colours vs pointed graph-isomorphism; exactly those two obstructions found. Explicit graphs K1 join (K3 ⊔ C4) and K1 join complement(K3 ⊔ C4) have unique dominating root, all seven other points identical 1-WL signatures, but root-stabilizer orbits of sizes 3 and 4: cell sizes 1,7 vs orbits 1,3,4, with 14 and 21 edges. Finite enumeration is exhaustive up to size8, not extrapolated above.
 
-**Scientific limitations.** The complete enumeration stops at eight vertices. Software execution is not an independent formal proof certificate; its correctness is supported by two separate constructions, exact tests and a classical completeness theorem. Broader priority remains subject to outside expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Well-known distance-hereditary structure and counts, graph colour refinement and 2-dimensional WL identification do not state the exact first one-marked 1-WL-versus-rooted-orbits failure at n=8 and classify its two unique witnesses. The unrooted counts and decomposition are used as prior inputs, not rebranded novelty.
+
+## value
+
+PASS
+
+A sharp first failure size for individualised 1-WL to identify rooted automorphism orbits in distance-hereditary graphs is a natural informative boundary between symmetry and coarse local counting. The complete two-model classification (and unique roots) exhibits a structural regular-module mechanism and can serve as small counterexample basis; this finite complete and motivated classification is valuable without extending to n>=9.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
