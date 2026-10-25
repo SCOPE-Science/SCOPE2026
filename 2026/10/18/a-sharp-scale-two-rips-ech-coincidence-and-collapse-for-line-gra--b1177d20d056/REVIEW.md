@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The critical tree-midpoint lemma is proved for every face: a pair of disjoint edges selects a unique connector, while any third edge and two shortest line-graph paths use at most six original edges, which must form a tree when the girth is at least seven. A metric-tree midpoint calculation forces the third edge into the connector's closed line-graph neighborhood. This proves Rips/Čech identity, not just homology equality. The explicitly ordered unique-generator matching removes precisely the additional faces in literal free-face pairs. The flag-complex star-cover nerve is the original graph. The six-cycle produces the asserted sharp counterexample. The standalone program verified every face and collapse step for 1,467 graph instances; finite computation is corroboration only.
+PASS
 
-## Originality
+For G triangle/square/pentagon/hexagon-free, clique faces of L(G)^2 either are edge stars (then lie in any incident edge-neighborhood) or contain disjoint G-edges a,b. Such edges have a unique joining connector c, since two connectors would form a 3- or 4-cycle. For each other clique edge f, shortest L(G) walks a-to-f and b-to-f of length at most 2 plus a,c,b use <=6 G-edges. Connected and below girth 7, this is a tree. In its metric midpoint realization d(m_a,m_b)=2 with m_c their geodesic midpoint, and d(m_a,m_f),d(m_b,m_f)<=2 force d(m_c,m_f)<=1 by nearest-point projection, hence f meets c. Thus Rips2=Cech2 facewise for ALL graphs meeting girth bound. For every Čech face outside Y=Cl(L(G)), unique c and the toggling matching sigma<->sigma union {c}, processed in descending lower-face size, give genuinely free elementary face pairs; the proof checks all cofaces. The star-simplex cover nerve of Y is G, yielding the claimed simple-homotopy collapse and wedge rank. For C6, L(G)=C6; its square clique complex is boundary of octahedron S2 rather than scale1 S1, proving sharpness. Independent brute face enumerations confirm equality on paths, stars and cycles n<=13 and precisely two Rips-only triangular faces for C6; generality comes from the six-edge tree proof.
 
-**PASS, with residual literature risk.** The closest fully read preceding result is the scale-two Čech collapse of line graphs without triangles or squares (2026-10-11). Its unique-connector collapse is credited and reproduced, not presented as new. The new work identifies the potentially larger graph-distance-two Rips complex *with* that Čech nerve only under girth at least seven. This additional structural lemma does not follow from the prior Čech theorem, as witnessed by the six-cycle, where Čech has the old circle homotopy and Rips has sphere topology. Goyal, Shukla, and Singh's Corollary 3.4 gives the already-known scale-one clique topology, while Matsushita's Definition 1.1 and Theorem 1.5 address the closed-neighborhood framework and its fundamental group. Indexed published-finding corpus records and targeted primary-literature searches did not identify a dominating Rips counterpart; unindexed overlapping results remain possible. Specific search records and source inspections are in AUDIT.json.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result states an exact natural Rips persistence threshold for an infinite family with unbounded size, valence and cycle rank, and recovers every integral homotopy invariant through a constructive simplicial collapse. The boundary is mathematically informative: allowing a six-cycle can replace a persistent loop by a two-sphere. It distinguishes flag (Rips) thickening from neighborhood (Čech) thickening in a motivated graph class, rather than recomputing a known Čech theorem under another name.
+Qualified best-of-knowledge originality for the precise final theorem and its stated parameter domain. The four named implication comparisons discriminate known mathematical inputs from the sharp new increment; an unindexed equivalence remains possible. No: Rips2 includes all pairwise distance-two cliques and can exceed Čech2; the additional Helly lemma uses girth7. Only after proving exact equality can prior matching collapse be transferred.
 
-## Scope and residual risks
+## value
 
-The girth bound is uniform, not a characterization of all individual graphs where Rips and Čech agree. Continuous-center balls and larger distance scales are outside scope. Only representative finite computations were run; the argument proving the theorem is combinatorial and metric-tree exact. Literature search cannot exclude unknown equivalences in unindexed work, and independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graph-metric Rips and closed-neighborhood Čech complexes usually differ; an exact sharp girth condition ensuring full facewise coincidence and simple-homotopy stability for every branching line graph is a structural theorem. It materially upgrades the earlier Čech-only collapse, while C6 supplies a motivated sharp boundary. The result determines induced maps on every integral homotopy and homology group, not just finite sample Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
