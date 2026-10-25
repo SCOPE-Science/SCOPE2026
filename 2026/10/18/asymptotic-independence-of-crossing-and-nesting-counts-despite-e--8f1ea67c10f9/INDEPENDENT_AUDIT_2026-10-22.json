@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:58:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c4a402cc51a1be510e9291b2fe5a7200cb2bcf05",
+        "assigned verify.py blob a00f192c7c0e4cbc20ac63c31109b974b45a5ff8 (read, not executed)",
+        "independent SymPy integration of five conditional moments (all matched)",
+        "Paguyo arXiv:2104.01134 univariate CLT"
+      ],
+      "rationale": "Sorting endpoints of n iid continuously distributed chord pairs produces the uniform matching because each unlabeled matching has 2^n*n! label/orientation preimages. The crossing/nesting indicators form order-2 U-statistics of iid chords Z_i=(A_i,B_i). Conditional projections are p_C=2*(B-A)*(1-(B-A)) and p_N=(B-A)^2+2*A*(1-B). I independently integrated them with triangular density 2 and obtained E p_C=E p_N=1/3, E p_C^2=E p_N^2=2/15, E p_C*p_N=1/9; hence projection variances 1/45 and cross covariance zero. Shared-chord indicator pairs have covariances 1/45 (same type) or zero (mixed), while identical chord pairs have mixed covariance -1/9 and each type variance 2/9. Counting gives Var=n(n-1)(n+3)/45 and Cov=-n(n-1)/18 exactly. Hoeffding degenerate residual kernels have variance (8/45)*C(n,2)=O(n^2), negligible after n^(3/2), and the iid bivariate CLT with diagonal projection covariance proves joint Gaussian independence. All finite n>=2 formulas, n->infinity quantifier, and distinction from finite independence/TV are respected.",
+      "residual_risks": [
+        "Formal proof of the CLT is classical but the necessary non-degenerate projection/covariance conditions were reconstructed; finite matching enumerations by the package were not independently re-executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2006 bivariate generating functions encode every finite mixed moment, including finite covariance after algebra.",
+          "Paguyo main results concern the scalar number of crossings and simple chords, not a joint crossing/nesting CLT.",
+          "Baik–Jenkins studies the maximum size of mutually crossing/nesting families with GOE Tracy–Widom limits, not total counts."
+        ],
+        "reasoning": "Strong prior finite enumeration and other asymptotic statistics are real coverage, but neither automatically yields the specified two-coordinate Gaussian CLT. Different statistic called “crossing” cannot be conflated with total crossing pairs.",
+        "searches": [
+          "arXiv:math/0601081v1 Section 3 continued fraction for joint generating function",
+          "arXiv:2104.01134 main Theorem 1.1",
+          "arXiv:1111.0269 Baik Jenkins maximal crossing nesting"
+        ]
+      },
+      "checked_sources": [
+        "Kasraoui–Zeng arXiv:math/0601081v1 full HTML",
+        "Paguyo arXiv:2104.01134 full rendered paper",
+        "Baik–Jenkins arXiv:1111.0269 abstract",
+        "Féray arXiv:1605.03836 source references/abstract scope",
+        "Resultary semantic joint crossings nesting searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bivariate symmetry gives X and Y the same univariate law and a symmetric joint distribution but does not force their normalized limit to have independent coordinates.",
+          "An independent univariate Gaussian limit for X or Y and covariance tending to zero alone does not establish joint Gaussianity; the submitted Hoeffding vector argument supplies that missing implication."
+        ],
+        "reasoning": "The disclosed existing exact finite bivariate generating function reduces the novelty boundary. The asserted asymptotic independence is not a tautological corollary of mere marginal CLTs or asymptotic zero covariance without a joint limit proof.",
+        "searches": [
+          "Kasraoui–Zeng Corollary 1.5 and Proposition 3.8",
+          "Paguyo arXiv:2104.01134 Theorem 1.1",
+          "Féray arXiv:1605.03836 Section 6.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The total crossing and nesting statistics are degree-two U-statistics of independent chord endpoint pairs.",
+          "Kasraoui–Zeng Corollary 1.5 exchanges counts under an involution; it proves exact joint symmetry but does not state asymptotic Gaussian independence."
+        ],
+        "reasoning": "Recasting as U-statistics gives a standard CLT framework, but the zero off-diagonal first-projection covariance requires the explicit crossing/nesting polynomial calculation; a generic CLT does not supply it.",
+        "searches": [
+          "random chord diagram joint crossing nesting counts bivariate central limit theorem and limiting correlation 0",
+          "random chord matching crossing nesting joint central limit theorem asymptotic independence covariance",
+          "Kasraoui Zeng 2006 Corollary 1.5 matching crossing nesting symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite joint distribution is encoded in the 2006 two-variable generating-function formalism, so finite covariance is potentially covered rather than new.",
+          "No matching public mathematical-record entry was found in semantic hits; this search limitation does not demonstrate priority."
+        ],
+        "reasoning": "The exact finite moments are not the standalone priority contribution. A stored finite generating function does not itself state a standardized n->infinity independent-Gaussian limit and its nontrivial zero projection mechanism.",
+        "searches": [
+          "arXiv:math/0601081v1 Proposition 3.8 continued fraction for bivariate crossing nesting",
+          "Resultary query: random chord matching crossing nesting joint central limit theorem asymptotic independence covariance"
+        ]
+      },
+      "rationale": "Kasraoui–Zeng 2006 supplies exact two-variable generating functions and crossing/nesting equidistribution; these cover the entire finite joint counting law and could yield finite covariance by differentiation, so the latter is not asserted as independently new. The central claim instead proves joint standardized Gaussian convergence to independent normals and identifies orthogonality of the two one-chord projections. Paguyo and Féray establish crossing-only CLTs. Baik–Jenkins treat *maximal r-crossing and nesting sizes* (Tracy–Widom), mathematically different from total numbers of crossing/nesting chord pairs. No earlier total-count joint Gaussian independence theorem was identified in the inspected material; residual historical risk recorded.",
+      "residual_risks": [
+        "Older asymptotic analysis of the exact bivariate generating functions might already imply the same joint CLT; no priority certification or exhaustive historical proof search is claimed.",
+        "The finite covariance itself can be a derivative of the 2006 known generating function and is deliberately not represented as independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE_BIVARIATE_DISTRIBUTION_COVERED",
+          "evidence": "Corollary 1.5 establishes equality under exchanging crossing and nesting counts; continued-fraction expansions encode finite joint laws. No stated independent-Gaussian joint CLT in reviewed text.",
+          "identifier_or_url": "https://arxiv.org/html/math/0601081v1",
+          "material_read": "Full original HTML paper: Section 1 definitions/corollaries, Section 2 involution, Section 3 continued-fraction enumeration",
+          "method": "primary full HTML, arXiv",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "High-priority same statistics and exact bivariate distribution"
+        },
+        {
+          "assessment": "UNIVARIATE_CROSSING_ONLY",
+          "evidence": "The main quantitative CLT is for the number of crossings alone, while its other limit theorem addresses simple chords, not the joint total-nesting pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Full accessible arXiv rendered text, Section 1.1 Theorem 1.1 and proof/method sections",
+          "method": "primary arXiv full rendered HTML",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Natural possible prior Gaussian crossing theorem"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_STATISTIC",
+          "evidence": "Baik–Jenkins proves asymptotic independence of *maximal family sizes* and Tracy–Widom marginal limits, not counts of all crossing/nesting pairs; no whole-document noncoverage assertion is made.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.0269",
+          "material_read": "Original abstract and scholarly metadata; full body not read",
+          "method": "primary arXiv abstract",
+          "title": "Limiting distribution of maximal crossing and nesting of Poissonized random matchings",
+          "trigger": "Phrase “crossing/nesting asymptotic independence” could alias this result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kasraoui–Zeng natural bivariate pair",
+        "Paguyo scalar crossing CLT"
+      ],
+      "rationale": "Crossing and nesting are two canonical, structurally competing local statistics of perfect matchings; a strict negative finite covariance but independent joint Gaussian limit is a meaningful probabilistic phenomenon. The explicit zero mixed Hoeffding projection identifies why finite local competition disappears at the n^(3/2) global scale, and the exact 1/n finite correlation quantifies the crossover. This is a natural two-statistic asymptotic theorem, not merely a recomputation of a table.",
+      "residual_risks": [
+        "No convergence rate or stronger total-variation assertion is provided or needed for value of this exact joint limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is a best-of-knowledge conclusion based on actual literature inspection, not exhaustive priority certification.",
+    "No new public certificate or expert/Lean attestation created; unchanged source package science and external channels preserved.",
+    "All seven files in the assigned Git tree were read, but opaque repository checker scripts were not executed; separately stated bounded independent diagnostics do not replace infinite proofs.",
+    "The source tree snapshot is immutable and matched the seven-blob verified tree listing."
+  ],
+  "schema_version": 1
+}
