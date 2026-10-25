@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The game reduction is reconstructed directly from the individual three-valued costs for \(0<T<1\): insecure nodes at equilibrium form a maximal independent set, and a social optimum cannot leave an edge among insecure nodes. A three-edge matching and explicit three-vertex cover fix the optimum at three. Explicit case splits on hub membership give independent domination two before edge insertion and \(k+1\) afterward. The maximum-degree argument covers every connected graph on fewer than six vertices. Independent exhaustive subset computations, carried out through \(k=6\), agree with every value and with exhaustive small-order edge additions. The infinite-family theorem is proved symbolically; finite checks are not substituted for proof.
+## correctness
 
-## Originality — PASS (self-review)
-The 2014 source establishes the equilibrium characterization and broad bounds, but does not give a one-edge comparative-statics construction or minimum-order cutoff. The more directly relevant 2021 treatment supplies exact formulations for individual low-threshold graphs and closed results for stars and paths, but neither establishes the particular family linking one tree to a unicyclic augmentation with unchanged minimum Nash/social cost nor its unbounded worst-cost drop. The 2013 independent-domination survey supplies standard graph invariants and bounds, not this particular perturbation phenomenon. Xu’s 2013 survey covers independence bondage under edge *deletion*, not the increase of ordinary independent domination under one edge *addition*. The 2015 Kavitha–David paper does study adding an edge to a path, including a six-vertex support chord, but for equitable independent domination: its stricter notion can fail to exist in the chorded six-vertex example. This materially related example does not establish the ordinary invariant’s quantified unbounded increase or equilibrium-optimum separation. The earlier inoculation model uses component-size infection risk, so its conclusions do not logically cover the spectral-threshold game. Searches of synonyms (minimum maximal independent set, independent domination, vertex covers, epidemic containment, worst equilibrium, single-edge addition) did not retrieve an equivalent theorem. The strongest residual concerns are a previously published graph-theoretic equivalent under different terminology, an inaccessible technical-report extension to the 2014 paper, and a closely related 2018 follow-up whose full text was not located. Those risks warrant independent literature review but are not evidence of prior coverage.
+PASS
 
-## Value — PASS
-The result answers a motivated comparative-statics question: a contact is added, yet the worst selfish protection burden falls by an arbitrarily large amount, despite the centrally optimal burden staying fixed. It supplies an elementary complete construction, exact unbounded price-of-anarchy change, and sharp six-vertex onset. The network modification changes incentives rather than physical transmission rates. This is a meaningful structural boundary for security-investment games, not merely the recomputation of a small instance.
+For 0<T<1 an unsecured vertex is safe exactly when its unsecured component has no edges; NE unsecured sets are precisely maximal independent sets, and social optima leave maximum independent sets. Thus BestNE=n-alpha, WorstNE=n-i, Opt=n-alpha. For the two k-leaf hubs bridged at a1b1, a three-edge matching and explicit size-3 vertex cover prove alpha(G_k)=alpha(H_k)=2k-1, so opt/bestNE=3. Hubs form independent dominating set in tree G_k and no universal vertex exists, so i(G_k)=2. With added uv, case split on which hubs are in an independent dominating set forces >=k+1, attained by one hub plus all opposite leaves, so i(H_k)=k+1. n<=5 connected graph has i<=2; if i=1 universal persists; hence six-vertex sharpness. Independently enumerated all vertex subsets for k=2,3,4, confirming (alpha,i)=(3,2)->(3,3),(5,2)->(5,4),(7,2)->(7,5). Finite cases do not establish unbounded k.
 
-## Scientific limitations
-All claims are confined to the binary, homogeneous, low-threshold game and pure Nash equilibria. No empirical epidemic validation, equilibrium-selection dynamics, or independent external audit is claimed. The 2018 follow-up and cited extended technical report remain plausible but incompletely accessible comparison sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison identifies no prior theorem implying the final claim at its actual hypotheses; known overlap and residual bibliographic risks are recorded, not erased.
+
+## value
+
+PASS
+
+The addition of one contact to a connected tree produces an arbitrarily large decrease in worst pure-equilibrium protection burden with identical constant social optimum, with an exact six-vertex onset. This is a motivated and counterintuitive strategic comparative static explained by ordinary independent domination, not a trivial equilibrium restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
