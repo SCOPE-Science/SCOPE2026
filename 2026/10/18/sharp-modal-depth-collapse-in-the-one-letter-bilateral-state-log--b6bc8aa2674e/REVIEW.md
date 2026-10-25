@@ -1,9 +1,21 @@
-# Scientific review: one-letter bilateral modal-depth classification
+# Independent mathematical audit
 
-**Correctness.** The full semantics is encoded on four teams by support/antisupport masks and four explicit finite operations. Recursive closure gives exactly \(39\), \(64\), and \(66\) signatures for depths \(0\), \(1\), and \(2\). Two independently implemented semantic enumerations agree, the exhaustive node-derivation certificate supplies formula witnesses, and the last closed set is stable under every connective. Structural induction extends the verified finite-algebra computation to arbitrary formulas; membership tests are exhaustive, not random.
+## correctness
 
-**Originality.** The closest primary works address the semantic language, translation, support-property expressive completeness, or bicompleteness in relational-team models. The exact sharp depth filtration of *bilateral* one-letter BSL meanings is not stated in the materially inspected portions. The comparison includes the more general positive weak-ideal theorem and the distinct BSML bicompleteness theorem; neither is misrepresented as new. An older equivalent finite quotient under another terminology remains a genuine historical-priority risk.
+PASS
 
-**Value.** This is the complete free one-generator semantic algebra for a natural nonclassical logic, not an arbitrary sample of formulas. It gives a sharp quantitative answer to a language-expressivity question, separates positive and bilateral information, and isolates exactly two semantic classes requiring modal nesting at depth two. It provides a small exhaustive benchmark for proposed normal forms and translations, though no generalization to larger signatures is proved.
+All formulas over one Boolean propositional variable are faithfully encoded as pairs of support/antisupport masks on the four teams empty, {v0}, {v1}, {v0,v1}; operations follow literal BSL clauses: ¬ swaps pairs, ∧ intersects support and takes union-convolution of antisupport, split ∨ convolves support and intersects antisupport, and ◇ applies upward nonempty-subteam reachability to support without changing antisupport. From primitives (1,15),(14,1),(5,3), independently recomputed least full propositional closure L0 of 39 masks; adding one modal level yields L1=64, L2=66, and L2 is closed under all operations including ◇. Structural induction gives universal depth<=2 collapse; the two masks L2\L1 are exactly (10,12),(12,10), witnessed by ◇¬◇p and ◇¬◇¬p. A genuinely independent eight-bit implementation recovered 39,64,66,66 and closure, confirming finite exhaustive rather than bounded syntax search.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Complete paired support/antisupport depth grading of one-letter BSL with exact 66-element algebra; prior expressivity theorems do not quantify these finite-depth minimal ranks.
+
+## value
+
+PASS
+
+The finite one-generator bilateral algebra is a natural and canonical invariant of the exact semantics. Sharp modal-depth collapse, two explicit minimal-depth witnesses and exhaustive constructive coverage of 66 meanings refine expressivity in a way general completeness does not; finite does not make it arbitrary or valueless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
