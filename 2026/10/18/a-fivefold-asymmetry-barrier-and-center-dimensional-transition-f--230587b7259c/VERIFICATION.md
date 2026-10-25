@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python verify_cut_symmetry.py` with a standard Python 3 interpreter. It uses only standard-library `fractions.Fraction` and `itertools` and prints exactly two `VERIFY_OK` lines when all assertions pass.
+# Independent mathematical audit
 
-The finite checks exhaust the sixteen \(K_5\) cut vectors, sixteen pentagonal switchings, forty triangle switchings, exact left/right support extrema, all one hundred signed-normal Gram entries, and all thirty-two cut vectors of the strict six-vertex \(K_5\)-triangle two-clique-sum at two distinct feasible factor-five centers. The check independently confirms \(\sum q=80\) and full-rank Walsh orthogonality.
+## correctness
 
-The proof for all finite \(K_{3,3}\)-minor-free graphs instead uses the published full facet classification, the exact reflected-containment criterion, and projection monotonicity. Finite enumeration by itself does not certify the graph-wide theorem. Independent mathematical validation is not part of these checks.
+PASS
+
+For each of the 16 switched K5 pentagonal facets, a_W.x<=6-q with min=-q; independent exact rational Walsh check found sum_W q=80, sum_W a_W=0 and A^T A=16I_10. Reflection constraints sum to 0<=16(s-5), so s>=5; equality forces all K5 coordinates half. Facet classification of edge-maximal K3,3-minor-free H (Chimani et al Thm3.3) has only switched triangle/pentagon constraints; half vector realizes factor5 (triangles have factor3), and every optimum center obeys exactly the written triangle halfspaces plus K5 pinning. Strict triangle slack at the half vector is 1/6, establishing affine dimension equal to number of non-K5 edges. For nonmaximal G, coordinate projection from an edge-maximal supergraph and onto K5 copies proves the claimed s=5 and center pinning, without claiming full center dimension for nonmaximal G.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication assessment against published results, primary texts and published mathematical records; negative search is not priority certification.
+
+## value
+
+PASS
+
+A complete optimal-center locus and exact affine-dimension/uniqueness transition for non-edge-transitive graphs is a geometrically motivated refinement of cut-polytope asymmetry. It identifies which graph edges rigidly constrain optimal centers and which remain free, beyond a value for K5 alone. Uses nontrivial facet theory and Walsh rigidity, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
