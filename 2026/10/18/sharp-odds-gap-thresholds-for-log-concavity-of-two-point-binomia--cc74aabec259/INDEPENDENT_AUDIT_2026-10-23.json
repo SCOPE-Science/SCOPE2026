@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:53:22Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independently evaluated exact p=1/3,q=1/2,n=10,w=524288/583337 witness: r=2, Delta=1/2 and a_1²/(2 a_0 a_2)=80/81<1, while robust ordinary LC threshold is 44/25>1/2. Actual verify.py formula and witness inspected but its 1755 settings are supporting finite checks, not proof of all weights."
+      ],
+      "limitations": [
+        "Finite checker diagnostics do not substitute for analytic all-parameter proof."
+      ],
+      "rationale": "Write mass a_k=binom(n,k) A u^k (1+tr^k); exact neighboring ratio equals k(n-k)/((k+1)(n-k+1))*(1+Delta*z_k/(1+z_k)²). Substituting LC and ULC definitions gives sharp pointwise tests. The scalar z/(1+z)² maximizes at z=1 with value 1/4 and every index can reach z=1 by a weight 0<w<1, establishing necessity and sufficiency and equality. Max n-k occurs k=1; max k(n-k)=floor(n²/4). Log-concavity of continuous curvature profiles (strict negative second log derivatives) makes failure indices a consecutive block; endpoints n=2 checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Positive-sequence linear-combination LC sufficient synchronicity and ULC concentration address related general objects, but inspected statements give neither exact necessity nor the pair of uniform mixing-weight thresholds."
+        ],
+        "reasoning": "The robust LC condition can hold where classical synchronicity of the component binomial sequences fails; thus it is not a direct application of that sufficient condition.",
+        "searches": [
+          "Gross Mansour Tucker Wang arXiv:1407.6325 synchronicity combinations",
+          "Aravinda Marsiglietti Melbourne arXiv:2104.05054 ULC concentration"
+        ]
+      },
+      "checked_sources": [
+        "Kella Lopker arXiv:2202.10296 Section 6, PDF pp19-20",
+        "Gross Mansour Tucker Wang arXiv:1407.6325 Section 2 (source summary)",
+        "Aravinda Marsiglietti Melbourne arXiv:2104.05054 (source summary)",
+        "Resultary query log concavity ultra log concavity mixtures of two binomial distributions odds ratio threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results establish mixture model and abstract preservation criteria; new exact scalar ratio calculation makes a tight if-and-only-if classification for all weights."
+        ],
+        "reasoning": "Inclusion of ULC as a concentration hypothesis does not by itself give membership; an explicit optimizable curvature identity and worst-index argument are required.",
+        "searches": [
+          "Kella-Lopker arXiv:2202.10296 Section 6",
+          "Gross et al arXiv:1407.6325 Section 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mixture Y|W~Bin(n,W) is classical; the component odds ratio r is a complete curvature parameter for two-point W, not a statement in the cited mixed-binomial framework."
+        ],
+        "reasoning": "Checked binomial mixture vs Poisson-binomial vs compound binomial and ULC-normalized coefficients; unlike independent Bernoulli sums, latent two-point mixing induces positive correlations.",
+        "searches": [
+          "Resultary: log concavity ultra log concavity mixtures of two binomial distributions odds ratio threshold",
+          "Kella Löpker On Binomial Thinning and Mixing arXiv:2202.10296 Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n-dependent sharp formulas 4/(n-1) and 4(n+1)/floor(n²/4) and contiguous violating block were not located in inspected source statements."
+        ],
+        "reasoning": "A parameter sweep of n<=14 does not establish universal thresholds; proof explicitly optimizes z and integer index.",
+        "searches": [
+          "Kella Lopker binomial mixture classifications Section 6",
+          "Resultary semantic binomial mixtures ULC odds thresholds"
+        ]
+      },
+      "rationale": "Kella and Löpker treat general binomial mixing and thinning, not sharp two-atom LC/ULC odds gap membership. General concentration of known ULC laws, and synchronicity sufficient criteria for mixtures, do not settle necessary-and-sufficient thresholds. Search considered equivalent formulations using latent Bernoulli exchangeability and binomial coefficient normalization.",
+      "residual_risks": [
+        "An unindexed earlier exact shape theorem for exchangeable Bernoulli sums or bimodal binomial mixing may give the same odds-gap thresholds.",
+        "Sufficient synchronicity and ULC applications are not original ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general binomial mixtures, not identified sharp two-point-weight LC/ULC thresholds",
+          "evidence": "Section 6 studies mixing/thinning and membership, not inequalities Δ≤4/(n−1) or Δ≤4(n+1)/floor(n²/4) in inspected pages.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+          "material_read": "Full arXiv PDF opened; targeted close reading of Section 6 and adjacent pages 19-20, inspected via PDF screenshots",
+          "method": "arXiv PDF and page images",
+          "title": "On Binomial Thinning and Mixing",
+          "trigger": "Same conditional Bin(n,W) family, possibly stronger mixing theorems"
+        },
+        {
+          "assessment": "Different random variable (order statistics), not a latent two-point binomial mixture",
+          "evidence": "Discrete order statistics are derived from ranked observations rather than a Bin(n,W) latent-mixture count.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Accessible article bibliographic abstract",
+          "method": "Publisher/abstract reading",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Potential title alias for ULC discrete laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact robust shape thresholds and a single-band violation theorem for a canonical positively dependent exchangeable count family answer natural membership questions, enabling rigorous use of LC/ULC bounds without independence assumptions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kella Lopker arXiv:2202.10296 Section 6, PDF pp19-20",
+    "Gross Mansour Tucker Wang arXiv:1407.6325 Section 2 (source summary)",
+    "Aravinda Marsiglietti Melbourne arXiv:2104.05054 (source summary)",
+    "Resultary query log concavity ultra log concavity mixtures of two binomial distributions odds ratio threshold"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp odds-gap thresholds for log-concavity of two-point binomial mixtures",
+  "limitations": [
+    "Scientific claim assessed against exact frozen source tree and specific reviewed RESULT.md, checker and metadata blobs.",
+    "Previous self-review is not treated as independent science; public audit status remains unverified.",
+    "No published modification or external attestation is represented."
+  ],
+  "residual_risks": [
+    "An unindexed earlier exact shape theorem for exchangeable Bernoulli sums or bimodal binomial mixing may give the same odds-gap thresholds.",
+    "Sufficient synchronicity and ULC applications are not original ingredients."
+  ],
+  "schema_version": 1
+}

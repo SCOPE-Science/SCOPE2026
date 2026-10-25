@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone `verify.py` is executable with Python 3 and only its standard library: `python verify.py`. It reconstructs exact fractional binomial-mixture probabilities, checks normalization, both curvature implications and their analytic ratio factors for 1,755 rational parameter settings (12,285 interior indices), and verifies the strict fractional witness \(a_1^2/(2a_0a_2)=80/81\). The program prints `PASS` only after all assertions succeed.
+## correctness
 
-The general theorem is not certified by finite enumeration. Its proof uses the exact three-term ratio identity, the global elementary maximum \(z/(1+z)^2\le1/4\), the surjectivity of the strictly interior mixing weight onto each prescribed \(z_k>0\), and exact maxima over all interior indices. The consecutive-failure assertion follows from strict second logarithmic derivatives on the real interpolated index interval.
+PASS
 
-A prior-literature comparison and scientific correctness/originality/value review were performed for this result. Independent audit and independent validation are not performed. Residual uncertainty: an equivalent earlier result using other terminology could exist.
+Write mass a_k=binom(n,k) A u^k (1+tr^k); exact neighboring ratio equals k(n-k)/((k+1)(n-k+1))*(1+Delta*z_k/(1+z_k)²). Substituting LC and ULC definitions gives sharp pointwise tests. The scalar z/(1+z)² maximizes at z=1 with value 1/4 and every index can reach z=1 by a weight 0<w<1, establishing necessity and sufficiency and equality. Max n-k occurs k=1; max k(n-k)=floor(n²/4). Log-concavity of continuous curvature profiles (strict negative second log derivatives) makes failure indices a consecutive block; endpoints n=2 checked.
+
+## originality
+
+PASS
+
+Kella and Löpker treat general binomial mixing and thinning, not sharp two-atom LC/ULC odds gap membership. General concentration of known ULC laws, and synchronicity sufficient criteria for mixtures, do not settle necessary-and-sufficient thresholds. Search considered equivalent formulations using latent Bernoulli exchangeability and binomial coefficient normalization.
+
+## value
+
+PASS
+
+Exact robust shape thresholds and a single-band violation theorem for a canonical positively dependent exchangeable count family answer natural membership questions, enabling rigorous use of LC/ULC bounds without independence assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
