@@ -1,15 +1,21 @@
-# Review: a dimension-zero continuous arithmetic limit law
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact coefficient identity follows by expanding the Eisenstein series, and the normalization error is bounded by a constant times \(n^{-k}\). Fixed-prime valuation vectors converge by elementary congruence counting; absolute, uniform product-tail bounds prove the claimed weak convergence. For non-atomicity, disjoint blocks whose prime-harmonic sums are at least one have independently positive probability of exactly one exponent-one prime. Conditional on that event, the Euler-product difference is strictly decreasing with the unique active prime; its maximal conditional point mass tends to zero. For the dimension claim, low-information prime-exponent prefixes and zero-exponent gaps occur simultaneously with positive probability, and a tail zero-one argument gives infinitely many qualifying gaps almost surely. Their subexponential prefix count and rapidly decreasing Euler-product tail yield covers with arbitrarily small Hausdorff dimension. These steps do not rely on finite computation.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Lelièvre (2004, Lemma 2 and Corollary 1) already gives exactly the coefficient formula and prime-detection property. Craig, van Ittersum, and Ono (2024, Lemma 9) also provide this formula; Allen and Craig (arXiv:2609.32053v1, 2026) study its prime-interval consequences. They are not credited with, nor do they explicitly state in the inspected portions, the joint normalized limiting law, non-atomicity and zero-dimensional Borel carrier here. Erdős (1974) reports singularity for the related single-function law of \(\\(\sigma(n)/n\)\), but that does not directly imply non-atomicity or zero-dimensionality for a difference of correlated higher-power Euler products. Kane, Krishnamoorthy, and Lau (2025) classify prime-detecting forms rather than their normalized coefficient probability laws. No covering statement was identified through targeted mathematical-record and primary-literature searches. A general measure-theoretic theorem might imply this specialization without naming it; this is the principal residual originality risk.
+PASS
 
-## Value — PASS
-The natural scale \(n^{k+\ell}\) for the canonical prime-detecting coefficient produces a concrete limit law. Beyond existence, the proof identifies its sharply unusual geometric nature: the limit is continuous yet concentrated on a set of Hausdorff dimension zero. This describes typical normalized coefficients of a family recently studied for prime detection and separates the global statistical structure from the rare exact prime zeros. The result is a full infinite-family statement, not a finite sample or a restatement of the prime-detection identity.
+Reconstructed exact decomposition Z_{k,ell}=sigma_k(n)/n^k-sigma_ell(n)/n^ell+O(n^-k). Finite prime-exponent patterns have independent geometric limiting law by CRT, while tails of local factors are uniformly O(Y^(1-k)); hence joint weak convergence is valid. Atomlessness: finite disjoint harmonic-prime blocks have uniformly positive event probability of one V_p=1 and other V_q=0; conditional resulting values are distinct because k A x^(-k-1)>ell B x^(-ell-1) for x>=2 and A>=B; maximum single value chance is O(1/min block prime). For the Hausdorff carrier, E[-log P((V_p)_{p<=X})]=O(log X); finite low-surprisal prefixes independent of the absence of primes with nonzero V between X and X^(1/eps). Mertens gives absence probability tending eps>0; the limsup low-information event is finite-coordinate-change invariant and therefore a zero-one event with probability 1. There are <=X^(K+1) prefixes whose tails are within O(X^(-(k-1)/eps)), yielding carrier dimension <=eps(K+1)/(k-1), and eps->0. Independently verified exact arithmetic normalization and prime zeros for (3,5),(3,7),(5,7), n<=199; not a substitute for limit law.
 
-## Reproducibility and limitations
-The attached exact-arithmetic verifier checks \(3000\) coefficient instances and \(30\) selected strict-monotonicity comparisons; the output is `VERIFY_OK exact_coefficients=3000 monotonic_pairs=30`. It cannot certify the infinite limit or Hausdorff conclusion by enumeration. The theorem is restricted to fixed odd \(3\le k<\ell\), gives no convergence rate or complete topological-support description, and remains open to independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier authors established the prime-detecting coefficient construction and classical divisor-sum distributions; the correlated joint limit with atomless zero-dimensional full-measure carrier was not obtained from primary relevant theorem statements.
+
+## value
+
+PASS
+
+This supplies a precise limiting distribution and the unusually strong dimension-zero singularity of a natural prime-detecting Fourier coefficient family. Its full-measure Hausdorff dimension is a substantive arithmetic probabilistic invariant not implied by mere prime zero detection or ordinary singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
