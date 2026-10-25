@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:53:53.219855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-powers-of-two-gap-multiplicities-for-binary-palindromes--a1cd55f4c7e6/RESULT.md",
+        "GitHub tree SHA b618b2659415d83663013b4214e833ffbb32bb03",
+        "GitHub RESULT.md blob ea52389c9666f1b1de3afbafdfd9b4efb32f1a70",
+        "Independent bounded checks: /mnt/data/scope_worker03_delivery_20261020T1538Z/independent_checks.py"
+      ],
+      "rationale": "For k>=2, n and m positive binary palindromes with canonical digits and m-n=2^k, split into L(n)<=k, same-length addition, and one-digit overflow. In the short case, reflecting the set of one-bit positions in n and m repeatedly translates positive indices by a=k-L(n)+1; this forces a|k and an exact arithmetic progression of one bits, one for each divisor. In the same-length case the changed-bit carry interval is reflection invariant and must be a singleton {k}, giving L=2k+1 and a central zero-to-one toggle with 2^(k-1) choices. In the overflow case, reflecting the new top bit and the forced upper zeros, using k>=2, makes every intermediate bit of n zero; n=2^k+1 and m=2^(k+1)+1 is unique. The three length classes do not overlap; their counts give 2^(k-1)+tau(k)+1. Independent bounded enumeration reconstructed entire pair sets for k=2..5 and searched larger lengths; the proof handles all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JIS Theorem 12(i) lists precisely infinite binary gaps d=2 and d=2^r+2^(r−1), r>=2. The arithmetic-progression paper concerns long runs, a different statistic."
+        ],
+        "reasoning": "The prior infinite-gap characterization excludes pure powers 2^k for k>=2, but cannot imply their precise finite multiplicities. General arithmetic-progression extremal results do not settle the correlation count.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+          "P. Pongsriiam: Longest arithmetic progressions of palindromes (J. Number Theory 2021)"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/exact-powers-of-two-gap-multiplicities-for-binary-palindromes--a1cd55f4c7e6",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://doi.org/10.1016/j.jnt.2020.10.025",
+        "GitHub fixed-commit RESULT.md blob ea52389c9666f1b1de3afbafdfd9b4efb32f1a70",
+        "GitHub fixed-commit AUDIT.json blob ada52237e85afdb4607ada8a87471716e74d7e2c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 12 establishes pure power differences 2^k, k>=2, are finitely represented, while d=2 has infinitely many; the submitted exact formula is 2^(k-1)+tau(k)+1."
+        ],
+        "reasoning": "The submitted count implies finiteness and correct k>=2 boundary, not vice versa. Earlier results do not logically force the isolated overflow pair or the precise term tau(k).",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=10",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-like statistic is the correlation |P_2 ∩ (P_2−2^k)|; JIS uses finite/infinite gap representations."
+        ],
+        "reasoning": "The fixed-gap translate formulation is equivalent to the pair count, but qualitative finiteness for pure powers of two does not supply its three-family exact enumeration.",
+        "searches": [
+          "Resultary query: exact cardinality palindromic pairs difference b^k fixed base b binary classification divisor count (limit 12)",
+          "GitHub published Resultary code query: palindromic gap count",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "JIS Question 26 poses a finite multiplicity problem; no exact table for every k>=2 was located, and semantically ranked Resultary records addressed other palindrome/code counts."
+        ],
+        "reasoning": "A database listing counts for individual k would not by itself prove the universal three-family classification; no all-k formula appeared in the inspected primary theorem.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf#page=26",
+          "Resultary query: exact cardinality palindromic pairs difference b^k fixed base b binary classification divisor count (limit 12)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact theorem and implications, not title matching. The fixed-gap translate formulation is equivalent to the pair count, but qualitative finiteness for pure powers of two does not supply its three-family exact enumeration. The prior infinite-gap characterization excludes pure powers 2^k for k>=2, but cannot imply their precise finite multiplicities. General arithmetic-progression extremal results do not settle the correlation count. A database listing counts for individual k would not by itself prove the universal three-family classification; no all-k formula appeared in the inspected primary theorem. The submitted count implies finiteness and correct k>=2 boundary, not vice versa. Earlier results do not logically force the isolated overflow pair or the precise term tau(k).",
+      "residual_risks": [
+        "Unindexed short-interval pair-count formulas could duplicate the binary exact count.",
+        "The exceptional k=1 infinite family means extending the formula to k=1 is false."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finiteness for k>=2 and infinitude for k=1 covered; precise all-k cardinality and all pairs not given.",
+          "evidence": "Theorem 12(i) and Question 26.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+          "material_read": "Theorem 12(i) and its proof context around pp. 10–12, Question 26 around p. 26, definitions of finite representations.",
+          "method": "Published primary full-text PDF inspected with page images and text.",
+          "title": "Palindromes and Antipalindromes in Short Intervals",
+          "trigger": "Exact same binary palindrome difference problem and explicit finite/infinite separation."
+        },
+        {
+          "assessment": "Potentially related arithmetic spacing, not identified as exact two-term power-gap enumeration.",
+          "evidence": "Bibliographic cross-reference in JIS 2023.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2020.10.025",
+          "material_read": "Bibliographic description and stated problem class from the original package references; complete paper not represented as read.",
+          "method": "Reference cross-check; not used as a whole-document noncoverage assertion.",
+          "title": "Longest arithmetic progressions of palindromes",
+          "trigger": "Related finite-gap and palindrome spacing literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "https://doi.org/10.1016/j.jnt.2020.10.025"
+      ],
+      "rationale": "The binary gap family is the natural complement to the nonbinary analysis, and its extra carry-overflow pair is a genuine different structural phenomenon. It provides explicit multiplicities and a complete parametrization for all nontrivial pure powers in the finite-representation range of the JIS Question 26, resolving far more than a small numerical example.",
+      "residual_risks": [
+        "Unindexed short-interval pair-count formulas could duplicate the binary exact count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only pure powers 2^k for k>=2; not all fixed gaps.",
+    "Independent small-case checks are not mathematical priority certification.",
+    "Access and transport limitations are recorded separately from mathematical correctness, originality and value."
+  ],
+  "schema_version": 1
+}
