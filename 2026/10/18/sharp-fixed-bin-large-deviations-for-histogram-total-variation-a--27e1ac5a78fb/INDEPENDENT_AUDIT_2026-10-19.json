@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T15:06:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The total variation is max over 2^{n−1} sign-word linear scores. For z=e^theta>1, comparison of endpoint and sign-transition contributions proves alternating signs uniquely maximize the exponential score for odd n or with both signs for even n. Their cumulant log mgfs are the exact displayed Z_n formula, strictly convex with support maximum 2. Relative-entropy variational equality gives the unique corresponding tilted probability comb(s). Competing sign words have a strict mgf gap at theta_t, hence exponentially negligible tails by Chernoff. For winning scores, maximal lattice spans are 3 and offset −N for n=3, and span 1 offset −2N for n>=4; exponential change of measure plus the lattice local CLT gives h exp(−theta delta)/[(1−e^{−h theta})sqrt(2π Nv)] and the even/odd multiplicity K_n. Endpoint D=2N is exactly the interior path independent-support condition. Independently enumerated all sign words for n=3..11 at rational z=2 and recovered claimed maximizing patterns. Assumption: n,t fixed as N grows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirakhmedov addresses certain classes of multinomial statistics, primarily separable classes; adjacent absolute differences couple neighboring bins.",
+          "The Part 1 paper states first-moment formulas; Part 2 targets variance, not sharp fixed-bin tail as far as inspected summaries go."
+        ],
+        "reasoning": "Generic Sanov or Bahadur–Rao theory supplies tools but needs a separate exact sign-pattern saddlepoint and maximal lattice span to imply this instance-specific formula.",
+        "searches": [
+          "Mirakhmedov 2020 multinomial large deviations",
+          "Banić–Elezović arXiv:2610.13366 and 2610.17046"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: multinomial histogram total variation large deviation alternating comb lattice Bahadur Rao",
+        "Banić–Elezović 2026 arXiv:2610.13366 Part 1",
+        "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation arXiv:2606.01465",
+        "Banić–Elezović 2026 Part 2 variance arXiv:2610.17046"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expectation under uniform null concerns E[D_N] at central scale O(sqrt N), whereas the result concerns rare proportional deviations O(N).",
+          "Comb Test provides testing/calibration under the same ordered TV variable; sharp lattice prefactors are not established by the accessible abstract."
+        ],
+        "reasoning": "Neither published expectation nor an abstract-level claim of DP exact computation implies the fixed-t entropy minimizers and lattice-scale asymptotic; inaccessible primary full text is explicitly not judged NOT_COVERING.",
+        "searches": [
+          "Banić–Elezović expectation arXiv:2610.13366",
+          "Banić–Elezović Comb Test arXiv:2606.01465 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Comb Test uses the same adjacent-bin total-variation null statistic, though its public abstract emphasizes exact combinatorial/dynamic-programming distribution computation and calibration.",
+          "Sharp asymptotic tail can be formulated as finite-alphabet entropy contraction plus lattice saddlepoint."
+        ],
+        "reasoning": "Identity of statistic is acknowledged. Computation of finite exact null distribution does not per se provide claimed closed asymptotic rate and parity-sensitive coefficient; full article not read so mathematical implication remains a residual risk.",
+        "searches": [
+          "Banić–Elezović Comb Test arXiv:2606.01465 abstract",
+          "ordered total variation multinomial tail large deviation searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite multinomial null-distribution table or DP could in principle be used to numerically recover the tail for finite N.",
+          "Resultary returned multinomial mode and chaos results, not same strong asymptotic coefficient."
+        ],
+        "reasoning": "A known table of finite exact probabilities is not itself an explicit analytical asymptotic for all fixed n,t; full Comb Test tables were not read, so potential implicit coverage is retained.",
+        "searches": [
+          "Comb Test arXiv:2606.01465 null distribution/combinatorial DP description",
+          "Resultary multinomial search"
+        ]
+      },
+      "rationale": "The Banić–Elezović studies explicitly analyze expectation (2026) and a dynamic-programming Comb Test exact null distribution. Those are directly relevant to the same statistic, but an exact finite-N DP table or first moment does not alone yield the explicit fixed-n LD rate, all alternating entropy minimizers and lattice-prefactor formula. The full Comb Test paper remained unavailable (Oxford vpn_disconnected); this is a significant, explicitly bounded originality risk, not an automatic failure. Resultary searches retrieved mainly other multinomial modes and no claim with the same sharp tail and parity structure.",
+      "residual_risks": [
+        "Original Comb Test arXiv:2606.01465 full text not read; authorization status vpn_disconnected, possible implicit sharp tail asymptotics or tables remain.",
+        "Fixed n and fixed t in (0,2); thresholds near endpoints or joint growing-bin regime not uniform.",
+        "Finite sign-pattern checks cannot prove infinite-N local CLT; separate analytic proof supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Focus is moments, especially expected total variation; no claim about proportional upper-tail coefficient in inspected material",
+          "evidence": "Theorems on expectation under uniform multinomial model",
+          "identifier_or_url": "arXiv:2610.13366 (Banić, Elezović, 2026)",
+          "material_read": "Accessible full HTML, abstract, introduction and expectation theorem sections reviewed",
+          "method": "arXiv lawful OA HTML",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Same ordered histogram statistic"
+        },
+        {
+          "assessment": "No whole-document noncoverage judgment; significant priority risk specifically for exact null tails",
+          "evidence": "Abstract describes dynamic programming and empirical calibration",
+          "identifier_or_url": "arXiv:2606.01465 (Banić, Elezović, 2026)",
+          "material_read": "Abstract and bibliographic/preprint listing only; complete full text unavailable by lawful OA; Oxford returned vpn_disconnected",
+          "method": "arXiv metadata, OA search, Oxford authorized connection",
+          "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+          "trigger": "Potentially closest same statistic and rare-event testing context"
+        },
+        {
+          "assessment": "Generic separable statistics possible broader overlap; does not on available evidence solve the adjacent-bin sign optimization",
+          "evidence": "Paper title/abstract and independent bin-function context",
+          "identifier_or_url": "DOI:10.1051/ps/2020020 (Mirakhmedov, 2020)",
+          "material_read": "Bibliographic and indexed abstract/class description; original full theorem not inspected",
+          "method": "publisher metadata search",
+          "title": "The probabilities of large deviations for a certain class of statistics associated with multinomial distribution",
+          "trigger": "Potential generic large-deviation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a calibrated small-p tail law for a natural ordered-histogram discrepancy used in uniformity testing, including the exact exponential rate, √N prefactor, arithmetic oscillation and rare-event profile(s). These quantities have clear mathematical and statistical uses beyond moment formulas and simulated critical values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: multinomial histogram total variation large deviation alternating comb lattice Bahadur Rao",
+    "Banić–Elezović 2026 arXiv:2610.13366 Part 1",
+    "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation arXiv:2606.01465",
+    "Banić–Elezović 2026 Part 2 variance arXiv:2610.17046"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original Comb Test arXiv:2606.01465 full text not read; authorization status vpn_disconnected, possible implicit sharp tail asymptotics or tables remain.",
+    "Fixed n and fixed t in (0,2); thresholds near endpoints or joint growing-bin regime not uniform.",
+    "Finite sign-pattern checks cannot prove infinite-N local CLT; separate analytic proof supplied."
+  ],
+  "residual_risks": [
+    "Original Comb Test arXiv:2606.01465 full text not read; authorization status vpn_disconnected, possible implicit sharp tail asymptotics or tables remain.",
+    "Fixed n and fixed t in (0,2); thresholds near endpoints or joint growing-bin regime not uniform.",
+    "Finite sign-pattern checks cannot prove infinite-N local CLT; separate analytic proof supplied."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete sign-pattern maximum is proved by counting sign transitions and comparing explicit positive factorizations. The entropy minimizer follows from equality in the exponential variational inequality; the sharp asymptotic follows from a maximal-span lattice local central limit theorem after tilting, with all remaining sign patterns exponentially suppressed. The endpoint support classification and cardinality are proved combinatorially. The standalone checker passed 83,722 finite tests. The proof, not the finite experiments, establishes the infinite assertions.
+## correctness
 
-**Originality — PASS, with a documented access risk.** Targeted research-record queries for multinomial neighboring-bin total variation, alternating histogram contrast, and fixed-bin sharp large deviations did not surface an equivalent statement. The nearest first-moment article, arXiv:2610.13366v1, addresses expectations, while the earlier *Comb Test*, arXiv:2606.01465v1, reports exact-null dynamic programming in its accessible abstract; neither accessible source supplied the all-bin entropy-minimizer classification or a lattice-sensitive large-deviation coefficient. The full *Comb Test* article could not be inspected, so a potentially implicit equivalent treatment there remains a residual priority risk. General Sanov and Bahadur–Rao principles are not claimed as new.
+PASS
 
-**Mathematical value — PASS.** The statistic is specifically designed to detect neighboring-bin alternation; calibrating its extreme-tail false-positive probability is a natural missing quantitative question. An explicit sharp exponent plus prefactor, parity-dependent most-likely rare histograms, and the exact maximum-threshold regime provide interpretable noncentral calibration rather than a routine re-expression of a known expectation. The alternating-maximizer lemma is structural and applies uniformly over all fixed bin counts.
+The total variation is max over 2^{n−1} sign-word linear scores. For z=e^theta>1, comparison of endpoint and sign-transition contributions proves alternating signs uniquely maximize the exponential score for odd n or with both signs for even n. Their cumulant log mgfs are the exact displayed Z_n formula, strictly convex with support maximum 2. Relative-entropy variational equality gives the unique corresponding tilted probability comb(s). Competing sign words have a strict mgf gap at theta_t, hence exponentially negligible tails by Chernoff. For winning scores, maximal lattice spans are 3 and offset −N for n=3, and span 1 offset −2N for n>=4; exponential change of measure plus the lattice local CLT gives h exp(−theta delta)/[(1−e^{−h theta})sqrt(2π Nv)] and the even/odd multiplicity K_n. Endpoint D=2N is exactly the interior path independent-support condition. Independently enumerated all sign words for n=3..11 at rational z=2 and recovered claimed maximizing patterns. Assumption: n,t fixed as N grows.
 
-Limits: fixed bin dimension and fixed threshold in the strong asymptotic; no full simultaneous high-dimensional regime or finite-sample exact null distribution claimed. Primary prior full-text access is incomplete for the earlier *Comb Test*; full-text review of arXiv:2610.13366v1 did not find this specific upper-tail statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Banić–Elezović studies explicitly analyze expectation (2026) and a dynamic-programming Comb Test exact null distribution. Those are directly relevant to the same statistic, but an exact finite-N DP table or first moment does not alone yield the explicit fixed-n LD rate, all alternating entropy minimizers and lattice-prefactor formula. The full Comb Test paper remained unavailable (Oxford vpn_disconnected); this is a significant, explicitly bounded originality risk, not an automatic failure. Resultary searches retrieved mainly other multinomial modes and no claim with the same sharp tail and parity structure.
+
+## value
+
+PASS
+
+Gives a calibrated small-p tail law for a natural ordered-histogram discrepancy used in uniformity testing, including the exact exponential rate, √N prefactor, arithmetic oscillation and rare-event profile(s). These quantities have clear mathematical and statistical uses beyond moment formulas and simulated critical values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
