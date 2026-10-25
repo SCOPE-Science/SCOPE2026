@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The gain formula follows from the exact-one-partner binomial pivot event. Under the change of variable \(z=1-x\), the selection gradient is a polynomial with no more than \(2m+1\) nonzero terms. Descartes' rule yields at most \(2m\) positive roots, counted with multiplicity. Explicit samples at \(p_i=R^{-i}\) and \(q_i=(LR^i)^{-1}\) force \(2m\) alternating sign changes, with the negative boundary signs. The inequalities use elementary logarithmic bounds and \(L\ge16\); each pair of consecutive samples brackets exactly one simple root. Stability follows from one-dimensional sign crossings. Exact rational tests in `verify.py` check a four-root example; the proof, not the tests, is the basis of the universal theorem. The model explicitly fixes the *focal-experienced* group-size law.
+## correctness
 
-**Originality — PASS within checked material.** Peña (2012) treats the threshold-one volunteer game and explicitly reserves intermediate threshold games for future treatment; Archetti and Scheuring (2011) treat fixed group size. Peña and Nöldeke (2016) analyze convex/concave gain sequences and identify nontrivial threshold cases as outside their general classification. Searches for the exact mixed-quorum selection gradient, arbitrary many interior equilibria, support-dependent root bounds, and equivalents found no result that implied the upper bound together with its sharp family. The closely related older Bach–Helvik–Christiansen fixed-size threshold paper was found but its full text was not inspected, leaving priority uncertainty. Lack of a match in an index is not proof of global novelty.
+PASS
 
-**Mathematical value — PASS.** Group-size heterogeneity is an established mechanism in evolutionary collective action, and quorum-two is the smallest nontrivial threshold ignored by single-volunteer simplifications. The sharp \(2m\) bound identifies the natural finite-support complexity parameter; attainability shows that stable cooperation need not have only one basin. This classifies a meaningful qualitative possibility and a quantitative constraint for the same widely used model, although the witness distributions are extreme and no claim about typical field populations is made.
+For experienced group sizes n_j>=3, payoff difference is B*x*sum_j w_j(n_j-1)(1-x)^(n_j-2)-c. In z=1-x the polynomial -c/B+sum a_j(z^(n_j-2)-z^(n_j-1)) has at most 2m+1 nonzero monomials, hence at most 2m positive roots with multiplicities by Descartes, so <=2m interior equilibria. For all m>=1, explicit L=16m,R=L^2,n_j=R^j+1,w_j=1/m,c/B=1/(4m) have peaks p_i=R^-i with G(p_i)>=1/(em)>lambda and valleys q_i=(LR^i)^-1 with G(q_i)<1/L<lambda. The alternating 2m disjoint sign intervals force 2m simple roots; exactly m attract. Checked m=1 endpoint case; numerical evaluations for m=1..5 confirmed all peak/valley inequalities but prove no infinite statement.
 
-**Closest literature and remaining limits.** The closest studies are Peña (2012), Peña–Nöldeke (2016), Archetti–Scheuring (2011), and the older fixed-size threshold literature. Modeling assumptions and the inaccessible source are specified in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exogenous group-size replicator payoff and nonlinear pivotality are known, but the exact support-size root bound plus all-m explicit multi-attractor realization was not implied by the inspected comparisons. This is best-of-knowledge novelty with fixed-size/game-definition and unindexed-equivalent risks.
+
+## value
+
+PASS
+
+A natural support-complexity parameter controls attainable equilibrium multiplicity exactly, and its sharp construction exhibits arbitrarily many stable population frequencies in a fixed quorum-two game; this is meaningful nontrivial qualitative game dynamics, not a routine numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

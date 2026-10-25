@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical reproducibility
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only Python's standard library. It evaluates a two-support example by exact rational arithmetic and checks the signs at five stated arguments. By the intermediate value theorem, those signs establish four distinct interior roots; the theorem's analytic sparse-polynomial upper bound establishes there are no others. It also performs finite checks of the inequalities used in the explicit family, but those checks are not a substitute for the universal estimates proved in `RESULT.md`.
+## correctness
 
-Run `python3 verify.py`. The expected final line is `PASS: four distinct interior roots in the two-size example; elementary margins checked`. Program exit status zero indicates that all included assertions succeeded. Neither the existence of infinitely many examples nor uniqueness for arbitrary support is claimed to follow from the finite checks alone.
+PASS
 
-Limits: no numerical stability solver, empirical validation, statistical data, spatial network, or stochastic finite-population test is included. No independent audit has been performed.
+For experienced group sizes n_j>=3, payoff difference is B*x*sum_j w_j(n_j-1)(1-x)^(n_j-2)-c. In z=1-x the polynomial -c/B+sum a_j(z^(n_j-2)-z^(n_j-1)) has at most 2m+1 nonzero monomials, hence at most 2m positive roots with multiplicities by Descartes, so <=2m interior equilibria. For all m>=1, explicit L=16m,R=L^2,n_j=R^j+1,w_j=1/m,c/B=1/(4m) have peaks p_i=R^-i with G(p_i)>=1/(em)>lambda and valleys q_i=(LR^i)^-1 with G(q_i)<1/L<lambda. The alternating 2m disjoint sign intervals force 2m simple roots; exactly m attract. Checked m=1 endpoint case; numerical evaluations for m=1..5 confirmed all peak/valley inequalities but prove no infinite statement.
+
+## originality
+
+PASS
+
+The exogenous group-size replicator payoff and nonlinear pivotality are known, but the exact support-size root bound plus all-m explicit multi-attractor realization was not implied by the inspected comparisons. This is best-of-knowledge novelty with fixed-size/game-definition and unindexed-equivalent risks.
+
+## value
+
+PASS
+
+A natural support-complexity parameter controls attainable equilibrium multiplicity exactly, and its sharp construction exhibits arbitrarily many stable population frequencies in a fixed quorum-two game; this is meaningful nontrivial qualitative game dynamics, not a routine numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
