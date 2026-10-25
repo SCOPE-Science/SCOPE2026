@@ -1,15 +1,21 @@
-# Self-review: the first-degree Hardy exponent boundary layer
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Minimizing complex degree-one polynomial approximants is equivalent to a constrained quadratic residual. Strict convexity plus conjugation and coefficient reversal force a real reciprocal residual, reducing the full complex problem—not an ad hoc real restriction—to one scalar. The stationary equation has exactly one solution in \((1/4,1/2)\). Exact substitutions on the positive and negative sides of its sign change yield two gamma-integral endpoint constants, whose equality determines \(4p(1/2-a_p)=\log(4p)+o(1)\). A separate endpoint comparison yields the asymptotic optimal \(p\)-moment. These computations have been rederived and checked against the standalone quadrature diagnostics. The finite diagnostics are supportive, not an argument for infinite-exponent conclusions.
+## correctness
 
-## Originality
-**PASS, with residual search risk.** The closest direct predecessor is Centner's *Optimal Polynomial Approximants in \(L^p\)* (arXiv:2112.14002), Example 6.4: it explicitly examines this exact degree-one approximant and tabulates fixed even-exponent coefficients and roots. Consequently those fixed-exponent examples, the underlying variational framework, and existence/uniqueness are **prior work**. Section 6 does not supply the all-real-exponent stationary reduction or the logarithmic \(p\to\infty\) coefficient, root, and moment constants. Centner–Cheng–Felder (arXiv:2305.16068), Section 4, gives general fixed-exponent root bounds, not a sharp exponent-asymptotic for this fixed generator. Cheng–Felder (arXiv:2310.16010), Sections 3–4, gives coefficient iteration and norm duality at fixed exponent, not the same boundary-layer law. Mathematical-record searches for the generator, logarithmic rate, reverse Chebyshev formulation, and \(H^p\) approximants surfaced nearby but logically incomparable results, including multivariate Dirichlet thresholds and bidisk \(H^2\) degree asymptotics; none establishes the claimed \(p\)-asymptotic constants. The comparison is not an exhaustive guarantee against equivalent work outside accessible indexing.
+PASS
 
-## Value
-**PASS.** The canonical pole-generator \(1-z\) is the first nontrivial Hardy optimal-polynomial example whose roots were numerically tabulated in the motivating article. Determining *how* its exterior root reaches the unit circle as the Banach exponent grows answers a natural quantitative zero-stability question that the available fixed-exponent examples do not address. The logarithmic-over-linear rate, its constant \(4\), and the residual-moment prefactor follow from a nontrivial balance of algebraically small and exponentially small contributions at opposite ends of an arcsine integral. The fixed coefficientwise limiting residual has asymptotic \(p\)-moment twice the optimal leading value, so this boundary layer exhibits a genuinely noncommuting limit rather than just a small coefficient correction. This provides a precise analytic benchmark for nonlinear optimal projection under changing \(p\), not merely a reformulation of finite tables.
+For complex degree≤1 q and real p>1, map q to residual r=1−(1−z)q with r(1)=1. Strict convexity/coercivity and conjugation/reversal invariance force unique r=a+(1−2a)z+az², a real. Boundary absolute value |1−2a(1−cos θ)| reduces to strictly convex F_p(a) under arcsine measure. Derivative signs at a=1/4 and 1/2 give unique a_p in (1/4,1/2). Splitting derivative-balance integrals near s=0 and s=2, endpoint Laplace gives P~(2√(2π))^{-1}(bp)^{-3/2}, N~√(2/π)L^{p−1/2}/√(bp), b=2a, L=2b−1, hence L^{p−1/2}~1/(4bp), 4p(1/2−a_p)=log(4p)+o(1). Root w=1−1/a_p=−1−log(4p)/p+o(1/p); optimal p-th residual moment dominated by s=0 and ~1/√(2πp). Independently integrated 8192 arcsine nodes, solved 6 finite p roots through p=600, recovered published p=2,4 coefficients and p-th-moment asymptotic ratio→1. The o(1/p) constants derive analytically, not from finite quadrature.
 
-## Limitations and closest literature
-Only degree-one approximation for \(f(z)=1-z\) and real \(p>1\) is established; no assertion for higher degrees, arbitrary generators, universal zero-radius bounds, or higher-order remainder is made. The independent audit has not occurred. Direct primary comparisons: arXiv:2112.14002 (Example 6.4), arXiv:2305.16068 (Section 4), arXiv:2310.16010 (Sections 3–4).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Extends same-object finite-even-exponent examples of Centner to exact uniform all-real-p sharp asymptotics and an additional optimal residual moment constant. A simultaneously assigned narrower high-exponent record has exactly the same root-asymptotic but is implied by this stronger theorem; only THIS record contains the extra sharp p-th residual moment. Do not count the narrower record as independent supporting novelty.
+
+## value
+
+PASS
+
+A named open boundary-zero convergence phenomenon for the canonical Hardy optimal inverse is resolved quantitatively with logarithmic layer and exact constant; comparing the optimal residual to its limiting polynomial exposes noncommuting limits and a factor-two moment gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

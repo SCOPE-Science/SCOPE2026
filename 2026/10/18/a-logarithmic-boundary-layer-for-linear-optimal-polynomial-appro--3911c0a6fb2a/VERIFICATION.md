@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic verification consists of the reversible substitution \(r=1-(1-z)q\) with \(r(1)=1\), strict convexity of the normalized \(H^p\) objective, the conjugate-reversal symmetry, the scalar stationarity equation, and the two exact endpoint substitutions displayed in `RESULT.md`. The constants \(1/(2\sqrt{2\pi})\) and \(\sqrt{2/\pi}\) in the derivative balance give the factor \(4\) in the coefficient boundary layer; the positive endpoint of the objective gives \(1/\sqrt{2\pi}\). All limit statements are proved for arbitrary real \(p\to\infty\), not extrapolated from integer values.
+## correctness
 
-Run `python checks/check.py` from the package root to reproduce `checks/check_output.txt`. The standalone code needs only Python's standard library and evaluates the exact stationarity integral by midpoint quadrature in the angle coordinate, followed by bisection. The quadrature values are approximate; no arbitrary-precision enclosure, global symbolic certificate, or independent mathematical audit is claimed. Full source statements, assumptions and asymptotic proofs are contained in `RESULT.md`.
+PASS
+
+For complex degree≤1 q and real p>1, map q to residual r=1−(1−z)q with r(1)=1. Strict convexity/coercivity and conjugation/reversal invariance force unique r=a+(1−2a)z+az², a real. Boundary absolute value |1−2a(1−cos θ)| reduces to strictly convex F_p(a) under arcsine measure. Derivative signs at a=1/4 and 1/2 give unique a_p in (1/4,1/2). Splitting derivative-balance integrals near s=0 and s=2, endpoint Laplace gives P~(2√(2π))^{-1}(bp)^{-3/2}, N~√(2/π)L^{p−1/2}/√(bp), b=2a, L=2b−1, hence L^{p−1/2}~1/(4bp), 4p(1/2−a_p)=log(4p)+o(1). Root w=1−1/a_p=−1−log(4p)/p+o(1/p); optimal p-th residual moment dominated by s=0 and ~1/√(2πp). Independently integrated 8192 arcsine nodes, solved 6 finite p roots through p=600, recovered published p=2,4 coefficients and p-th-moment asymptotic ratio→1. The o(1/p) constants derive analytically, not from finite quadrature.
+
+## originality
+
+PASS
+
+Extends same-object finite-even-exponent examples of Centner to exact uniform all-real-p sharp asymptotics and an additional optimal residual moment constant. A simultaneously assigned narrower high-exponent record has exactly the same root-asymptotic but is implied by this stronger theorem; only THIS record contains the extra sharp p-th residual moment. Do not count the narrower record as independent supporting novelty.
+
+## value
+
+PASS
+
+A named open boundary-zero convergence phenomenon for the canonical Hardy optimal inverse is resolved quantitatively with logarithmic layer and exact constant; comparing the optimal residual to its limiting polynomial exposes noncommuting limits and a factor-two moment gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
