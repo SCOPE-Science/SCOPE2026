@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with only Python 3 standard-library modules. The verifier lists selected layer vectors and their exact labeled and unlabelled counts, then checks every ordered composition of total size at most seven (127 profiles) by direct enumeration of regressive, isotone, idempotent maps. Fixed subsets are independently compared to the singleton condition and the counts to both two-state recurrences. Direct bounded-sublattice enumeration independently checks the expansion-lattice bijection on small lattices. For selected profiles of at most seven points, all actual layer-permutation conjugacies are generated and their orbit counts compared with the unlabelled recurrence. For additional selected profiles of up to nine points, literal enumeration checks further nontrivial outputs.
+## correctness
 
-The exact intended final lines are:
+PASS
 
-```
-ALL LAYERED PROFILES THROUGH SEVEN VERTICES VERIFIED: 127
-DIRECT-LATTICE AGREEMENT OK
-DP AND FIXED-POINT BIJECTION OK
-ALL UNLABELED-ORBIT RECURRENCES AGREED, INCLUDING LITERAL GROUP ACTIONS
-```
+Reconstructed D=im(Box) as a bounded sublattice, Box as the largest D-below operator preserving joins by the strong hypothesis and preserving meets by maximality. Finite Birkhoff duality gives Box(U)=f^{-1}(U), with contractivity equivalent to f(x)<=x and idempotence to f^2=f. Each x has f(x)=greatest(S intersect down(x)), so all minimal A1 points are fixed; for each omitted x in layer j, highest lower occupied fixed layer must have exactly one point. This uniquely determines the map. The disjoint singleton/multiple top-layer transitions are n=1:(2s+m,0), n>=2:((n+1)s,(2^n-n-1)s+m) for labeled maps and (2s,(n-1)s+m) for level-permutation orbits. The uniform (1,m^t) formulas follow by geometric sums. I independently enumerated all 127 positive compositions of at most seven points, derived isotone idempotent counts without invoking the attached verifier, and matched the recurrence; finite enumeration only checks finite cases.
 
-The verifier uses finite cases only; the unrestricted finite profile claim follows from the mathematical proof, not from sampled computations. Independent external mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.
+
+## value
+
+PASS
+
+Strong subresiduation is an established algebraic-logical operation, while fixed finite distributive lattices over ordinal sums of antichains form an infinite natural family. The two-state recurrences compress exponential fixed-subset enumeration to O(h) arithmetic transitions and identify exact algebra-isomorphism orbit counts, beyond the known generic image-set criterion. This is a motivated complete census, not a claim that the generic retraction theorem or integer sequences are new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
