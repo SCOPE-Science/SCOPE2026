@@ -1,15 +1,21 @@
-# Scientific review: finite-chain modal Kleene operators
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is about the explicit equations (M), (Pos), and (Con), not an unstated additional modal convention. Meet preservation on a chain is equivalent to monotonicity; (Pos) reduces to the single median-output threshold; and the quantified (Con) clause forces the lower prefix to be constant whenever its maximum output is above the negative threshold. The converse implications are proved. The even/odd counts and top-preserving counts use independent weakly increasing tails, with hockey-stick summation in the plateau regime. Stirling's formula supplies the three limiting ratios. The executable checker evaluated the literal axioms, characterization and both enumerations on 174,908 candidate maps. Numerical agreement is corroboration, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS, with a specific access limitation
-The closest source is Celani, Menchón and Miguelez, *A Modal Expansion of Kleene Algebras via Twist Structures* (arXiv:2608.10937, first version 2026-08-11). Its accessible abstract states categorical representation and duality theorems; the available detailed overview reproduces the axioms, but neither accessible material states the chain two-regime classification, either exact count or the asymptotic. The original full text was inaccessible, so direct comparison against all of its contents remains a significant residual risk. Chajda–Länger–Paseka (arXiv:2111.00455) represent the underlying chains as Kleene lattices, with no modal self-map enumeration. Celani–Rivieccio (DOI:10.1007/s11225-023-10065-2) develop a nucleus on Heyting-style reducts; the additional closure axioms prevent that account from simply covering the present family. Searches for chain, Kleene, median/plateau, positivity/consistency, modal self-map and binomial count equivalents did not identify prior direct coverage; search absence alone is not proof of novelty.
+PASS
 
-## Value — PASS
-The new 2026 modal Kleene framework has a natural smallest nontrivial test class: every finite involutive chain, in both centered (odd) and noncentered (even) cases. The theorem gives a complete structural parametrization for this entire infinite family, distinguishes nonnormal versus top-preserving expansions with exact formulas, and quantifies how restrictive the two genuinely modal axioms are among all monotone operators. The parity-sensitive finite formulas but parity-independent asymptotic fraction provide a usable benchmark for subsequent work with modal triples, finite algebra catalogues and probabilistic sampling. It is not just a lone tiny-chain count.
+Checked explicit original (MK),(Pos),(Con) without assuming top preservation: on K_n={0,...,n-1} with ~x=n-1-x, binary meet preservation iff nondecreasing; Pos iff f(p)>=p for p=floor(n/2). Set c=floor((n-1)/2). For monotone f the Con inequality for x and t=z∧~z∈[0,c] reduces to either f(max(x,t))=f(x) or the raised value <=c, yielding the dichotomy f(c)<=c or constant prefix f(0)=...=f(c). Independently enumerated all maps n<=5 and all nondecreasing candidates n=6,7 directly against quantified axioms and formulas. Stars-and-bars gives T_{2h}=C(2h-1,h)^2+C(2h,h+1), T_{2h+1}=C(2h,h)^2+C(2h,h+1), n=1 exceptional T1=1; requiring f(n-1)=n-1 gives the corresponding U formulas. Central binomial asymptotics yield T_n~4^n/(2pi n), U_n~4^n/(4pi n). The all-n proof is symbolic, not inferred from checks.
 
-## Scope and residual risks
-The result is not asserted for non-chains, arbitrary Kleene algebra morphisms, extra closure axioms, or modal logics beyond the stated equations. A relevant original paper could not be inspected in full. As with any originality search, unindexed synonymous results may exist; no independence or external validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The highly relevant original Celani–Menchón–Miguelez August 2026 arXiv article is now accessible in full HTML: Definition 3.5 contains the identical three axioms; Theorems 3.7–3.12 develop categorical twist equivalence, Section 3.1 centered cases, Section 4 implication expansions, Section 5 topological duality. Inspected these sections and searched its full 917-line text for finite chain, enumeration and cardinality without identifying this plateau criterion or binomial census. The abstract, general representation and normal top-preserving subcategory do not logically supply the explicit finite-chain counts. Other Kleene construction/nucleus literature concerns different signatures. This is a bounded best-knowledge priority assessment, not an assertion of absence from any uninspected indexed literature.
+
+## value
+
+PASS
+
+Finite involutive chains are natural canonical carriers for algebraic semantics. This exact normal form separates low-output and prefix-constant regimes and counts ALL three-axiom modal operations and the top-preserving subclass in closed form, with meaningful asymptotic densities. It provides a precise census usable in testing/proving modal Kleene examples and is not mechanically a mere retelling of the general categorical representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and no external packages. For each \(1\le n\le6\), the checker enumerates all \(n^n\) functions on the involutive chain. For \(7\le n\le10\), it enumerates every nondecreasing function (all candidates that could meet (M)). It evaluates the original universally quantified (M), (Pos), and (Con) axioms directly and independently compares them with the monotonic/threshold/plateau characterization and the exact total and top-preserving formulas.
+## correctness
 
-The completed execution reported `EXHAUSTIVE_CHECK_OK`. Exact outputs for \(n=1,\ldots,10\) are total counts \(1,2,5,13,40,115,415,1281,4956,16086\) and top-preserving counts \(1,2,3,9,21,70,210,735,2485,8946\). All together the program evaluates 174,908 candidate functions. The proof in `RESULT.md`, rather than the finite computations, establishes the statements for unbounded chain sizes and the limiting density.
+PASS
 
-The historical relationship to Celani–Menchón–Miguelez is not independently validated: only the public abstract and a detailed secondary overview were accessible, not the full original manuscript. The relevant equations are restated explicitly in the result so that the mathematical statement is self-contained. No external audit has been performed.
+Checked explicit original (MK),(Pos),(Con) without assuming top preservation: on K_n={0,...,n-1} with ~x=n-1-x, binary meet preservation iff nondecreasing; Pos iff f(p)>=p for p=floor(n/2). Set c=floor((n-1)/2). For monotone f the Con inequality for x and t=z∧~z∈[0,c] reduces to either f(max(x,t))=f(x) or the raised value <=c, yielding the dichotomy f(c)<=c or constant prefix f(0)=...=f(c). Independently enumerated all maps n<=5 and all nondecreasing candidates n=6,7 directly against quantified axioms and formulas. Stars-and-bars gives T_{2h}=C(2h-1,h)^2+C(2h,h+1), T_{2h+1}=C(2h,h)^2+C(2h,h+1), n=1 exceptional T1=1; requiring f(n-1)=n-1 gives the corresponding U formulas. Central binomial asymptotics yield T_n~4^n/(2pi n), U_n~4^n/(4pi n). The all-n proof is symbolic, not inferred from checks.
+
+## originality
+
+PASS
+
+The highly relevant original Celani–Menchón–Miguelez August 2026 arXiv article is now accessible in full HTML: Definition 3.5 contains the identical three axioms; Theorems 3.7–3.12 develop categorical twist equivalence, Section 3.1 centered cases, Section 4 implication expansions, Section 5 topological duality. Inspected these sections and searched its full 917-line text for finite chain, enumeration and cardinality without identifying this plateau criterion or binomial census. The abstract, general representation and normal top-preserving subcategory do not logically supply the explicit finite-chain counts. Other Kleene construction/nucleus literature concerns different signatures. This is a bounded best-knowledge priority assessment, not an assertion of absence from any uninspected indexed literature.
+
+## value
+
+PASS
+
+Finite involutive chains are natural canonical carriers for algebraic semantics. This exact normal form separates low-output and prefix-constant regimes and counts ALL three-axiom modal operations and the top-preserving subclass in closed form, with meaningful asymptotic densities. It provides a precise census usable in testing/proving modal Kleene examples and is not mechanically a mere retelling of the general categorical representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
