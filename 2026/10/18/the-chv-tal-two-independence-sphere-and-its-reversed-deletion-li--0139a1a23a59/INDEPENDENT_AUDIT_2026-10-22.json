@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:03:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 57f85fbdde1cbcd319e6783dea68cf165b7c4a90",
+        "Pinned verify_morse.py and verify_homology_symmetry.py read and inspected",
+        "Private independent full DAG/face enumeration and signed r,s Lefschetz cross-check"
+      ],
+      "rationale": "The explicitly labeled 12-vertex 24-edge Chvátal graph has Ind_2 defined by maximum induced vertex degree <=1. Enumerating all 4095 nonempty masks gives 424 faces (f-vector 12,66,148,142,52,4). Independent recomputation of the exact face-poset pivot matchings checked all nonempty cover directions and DAG topological sorts: for K there are 211 matched pairs and only a vertex and 3-cell critical, proving K≃S3 integrally; D0 has 302 faces and critical (0,3), L0 121 and only (0); D2 305 and only (0), L2 118 and critical (0,2). The source gives actual legal elementary collapse pairs for L0 and D2, stronger than homology vanishing. Full graph automorphism enumeration yields D4 and the A (4 vertices)/B (8 vertices) orbits, transferring the representative data. The inclusion Dv ->K is homotopy equivalence for A by coning contractible Lv; for B contractible Dv gives K≃ΣLv. Independent exact signed Lefschetz calculations for r,s on all 424 faces produced nonempty traces 2 and 0, hence top H3 traces -1 and +1, matching (-1)^a. The verified acyclic Morse matching, not mod2 homology alone, establishes the integral homotopy types.",
+      "residual_risks": [
+        "Finite calculations support the structural proof; they are not a proof by sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande--Singh covers complete multipartite, fully whiskered, cycles, perfect rooted trees.",
+          "Sawant theorem concerns trees; Chvátal graph is triangle-free 4-regular with cycles."
+        ],
+        "reasoning": "None of these scope assumptions contains the specific Chvátal graph; no dominating family theorem found.",
+        "searches": [
+          "arXiv:2001.05448v2 Sections 3-5 complete families",
+          "arXiv:2605.25150 higher-independence of trees",
+          "Resultary query: Chvatal graph 2-independence sphere"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2001.05448v2",
+        "https://arxiv.org/abs/2605.25150",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-chv-tal-graph-independence-complex-and-its-vertex-deletion-d--676b14391238",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-equivariant-collapse-connecting-the-chv-tal-independence-and--3077dabdf181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ind(G) ⊂ Ind_2(G) is a proper inclusion, not a homotopy-equivalence assertion; none of the published S2, induced-neighborhood S2, or deletion data forces Ind_2(G)≃S3.",
+          "Ind_2 deletion/link reversed and character (-1)^a require new exact matching and signed Lefschetz calculations."
+        ],
+        "reasoning": "Explicit one-vertex extension and homological degree change prevent prior special case coverage via implication.",
+        "searches": [
+          "Two public Chvátal Resultary RESULT.md files read at full length",
+          "arXiv:2001.05448v2 theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind_2(G) is the 3-path-free complex: every induced connected component has <=2 vertices, equivalently maximum induced degree <=1.",
+          "Resultary Chvátal hits are for Ind_1(G) and open-neighborhood complex, not Ind_2(G)."
+        ],
+        "reasoning": "Compared r-independence/3-path-free aliases and exact graph labels. None of the retrieved named records supplies the claim as an equivalent formulation.",
+        "searches": [
+          "Resultary query: Chvatal graph 2-independence complex Ind_2 sphere S3 deletion link symmetry D4",
+          "Resultary query: two independence r=2 Chvatal graph deletion links D4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026/10/11/SCOPE-the-chv-tal-graph-independence-complex-and-its-vertex-deletion-d--676b14391238 RESULT.md fully read: Ind(G) ≃ S2 and A deletion collapsible, B deletion S2, the reverse of the current Ind2 pattern.",
+          "Resultary/2026/10/11/SCOPE-an-equivariant-collapse-connecting-the-chv-tal-independence-and--3077dabdf181 RESULT.md fully read: neighborhood ≃ S2 with top character (-1)^(a+b)."
+        ],
+        "reasoning": "Exact same graph does not equal same invariant: neither public table is an Ind_2 calculation and the homotopy groups differ.",
+        "searches": [
+          "Resultary Chvátal independence complex and deletion dichotomy id 676b14391238",
+          "Resultary Chvátal neighborhood equivariant collapse id 3077dabdf181"
+        ]
+      },
+      "rationale": "Prior complete Chvátal calculations address ordinary Ind(G)≃S² and open-neighborhood complexes, with different deletion/link orbits and a different 2-dimensional orientation character. Ind_2(G) strictly contains Ind(G), and that inclusion does not imply S³ or reversed orbitwise deletion/link homotopy. Published general higher-independence theorems classify other families (trees, cycles, complete multipartite), not this graph. Best-of-knowledge independent finite calculation original.",
+      "residual_risks": [
+        "An unindexed finite Chvátal Ind_2 certificate or alternate graph-numbering computation could cover the result.",
+        "The exact finite discrete-Morse gradient proofs were independently rechecked for all five representative complexes, but no formal theorem-prover attestation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary independence Ind_1(G) is S2, with orbit A deletion contractible and B deletion S2, unlike Ind_2 current case",
+          "evidence": "Theorem, proof section 2 and orbit table of published record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-chv-tal-graph-independence-complex-and-its-vertex-deletion-d--676b14391238",
+          "material_read": "Full RESULT.md including theorem, all representative critical-cell counts, relation to prior, proof and references",
+          "method": "Read exact published GitHub RESULT.md",
+          "title": "The Chvátal graph independence complex and its vertex-deletion dichotomy",
+          "trigger": "Exact labeled graph and orbitwise deletion/link; strongest potential same-object prior"
+        },
+        {
+          "assessment": "Identifies different complex and H2 character (-1)^(a+b), not H3 of Ind_2",
+          "evidence": "Proof of relative equivariant collapse and final character formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-equivariant-collapse-connecting-the-chv-tal-independence-and--3077dabdf181",
+          "material_read": "Full RESULT.md including open-neighborhood definition, 8 free-collapse pairs, dihedral character, proof and limitations",
+          "method": "Read exact published GitHub RESULT.md",
+          "title": "An equivariant collapse connecting the Chvátal independence and neighborhood complexes",
+          "trigger": "Same graph and full D4 representation"
+        },
+        {
+          "assessment": "Family results for multipartite, whiskered, cycles and rooted trees do not specialize to Chvátal graph",
+          "evidence": "Abstract and §§3-5 identify the hypotheses and target families.",
+          "identifier_or_url": "https://arxiv.org/html/2001.05448v2",
+          "material_read": "Full HTML text with abstract, definitions, sections 3-5 theorem statements, conclusion and bibliography",
+          "method": "Read public arXiv HTML",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Plausible general higher-independence theorem dominating finite graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2001.05448v2",
+        "https://arxiv.org/abs/2605.25150",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-chv-tal-graph-independence-complex-and-its-vertex-deletion-d--676b14391238",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-equivariant-collapse-connecting-the-chv-tal-independence-and--3077dabdf181"
+      ],
+      "rationale": "The smallest classical 4-regular triangle-free 4-chromatic graph is a natural benchmark for higher independence, and the exact S3 topology with *reversed* deletion–link dichotomy relative to Ind_1 is a motivated structural contrast. The integral dihedral sign character adds group-theoretic content; finite explicit classifications can stand alone.",
+      "residual_risks": [
+        "An unindexed finite Chvátal Ind_2 certificate or alternate graph-numbering computation could cover the result.",
+        "The exact finite discrete-Morse gradient proofs were independently rechecked for all five representative complexes, but no formal theorem-prover attestation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Precisely the labeled Chvátal graph, not all 4-regular or triangle-free graphs.",
+    "Homology character does not assert a strict equivariant S3 homeomorphism."
+  ],
+  "schema_version": 1
+}
