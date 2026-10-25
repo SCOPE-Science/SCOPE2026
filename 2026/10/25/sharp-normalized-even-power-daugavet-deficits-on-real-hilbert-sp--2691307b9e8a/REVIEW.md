@@ -1,0 +1,15 @@
+# Review of sharp normalized even-power Daugavet deficits
+
+## Correctness (PASS)
+The rank-one multiplication identity yields an exact two-dimensional triangular block for the even power, with positive trace even when the initial overlap is negative. Its determinant and Frobenius trace give the top singular value and thereby the exact norm deficit. At degree two, differentiation proves the unique maximizing overlap and a rationalized square identity proves global quadratic rigidity. For even high degrees, the rescaled deficit converges uniformly on compact boundary-layer intervals, while an exponential tail bound excludes escaping optimizers; the unique maximum of the limiting scalar profile gives the Lambert-function constant. Endpoints, zero overlap, dimension-two attainment and the arbitrary-dimensional identity complement are included. The supplementary finite numerical checks are explicitly not used as proofs.
+
+## Originality (PASS; residual priority risks below)
+The September 2026 primary article establishes the qualitative signed-square characterization, without any sharp Hilbert operator-norm deficit or power-asymptotic. The older rank-one functional calculus literature treats qualitative norm equalities, and the October 2026 public one-scale projection result proves a different qualitative reduction: its full result was read and does not supply the present constants. The other nearby rank-one Hilbert optimization study concerns Davis–Wielandt radii, not norm deficits, and its full result was read. Targeted searches for equivalent rank-one overlap singular norms, the particular square constant, higher-even-power gap and Lambert coefficient did not reveal a statement implying the full claim. A known generic two-by-two singular-value formula makes one step elementary but does not state or dominate the sharp all-even-power envelope, asymptotic law, and maximizer boundary layer. This remains a literature-based originality judgment, not a claim of absolute uniqueness.
+
+## Mathematical value (PASS)
+The recent rank-one-square Daugavet characterization naturally raises the size of the failure in a canonical uniformly convex space and how that failure changes when the testing power grows. The exact square obstruction and stability quantify the defect's geometry, while the universal high-even-degree law shows a nontrivial inverse-degree collapse despite a positive defect at every fixed even power. The Lambert constant and optimizer boundary-layer law measure the competition between a nearly idempotent operator and power suppression. These are parameter-complete sharp facts for a natural test class, not arbitrary finite table values.
+
+## Limits and closest coverage
+The result is restricted to normalized rank-one operators on real Hilbert spaces and even powers. The older qualitative sources and the public projection result are distinct in logical strength; none claims the quantitative maximization. A poorly indexed elementary two-by-two optimization or later revision could still establish priority, and independent examination is still needed.
+
+Self-review: passed. Independent audit: not yet performed.
