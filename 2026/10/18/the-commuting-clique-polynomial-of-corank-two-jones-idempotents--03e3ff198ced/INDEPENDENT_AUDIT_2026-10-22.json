@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:03:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob c62dbe383a8692212fcf0e566006f174032d1f69",
+        "Actual checked source verify.py inspected",
+        "Private independently written /mnt/data/jones_check_scope_worker02.py, all pair products and full cliques n=2..8"
+      ],
+      "rationale": "For n>=2 the Jones monoid rank-(n-2) diagrams are uniquely indexed by (i,j) adjacent cup/cap positions. Diagram multiplication retains rank n-2 exactly when intermediate |j-k|<=1; idempotents are d_ij with |i-j|<=1, 3n-5 elements, as the East--Gray lemma. For distinct idempotents equal commuting products cannot retain rank n-2 because top and bottom preserved cups/caps would force equality. If rank falls to n-4, disjointness of top and bottom pairs together with rank constraints imposes pairwise distance >=2 between all generator-support indices; conversely distant TL generators commute. Hence commuting subsets correspond bijectively to separated interval tiles of length 1 with weight z or length 2 with weight 2z. Splitting by first site gives P0=1,P1=1+z,P2=1+4z, Pm=P(m-1)+zP(m-2)+2zP(m-3), and numerator (1+zu+2zu^2). Counting compatible pairs gives K_n=1,4,9n²-66n+129 on the stated n ranges; tile spacing yields largest clique floor(n/2), multiplicity 1 for even n and (3n-1)/2 for odd n. Independently implemented literal planar pairing union-find multiplication, tested all idempotent pairs, commute criterion and full clique enumeration for 2<=n<=8, yielding P2=[1,4], P3=[1,7,1], P4=[1,10,7], P5=[1,13,22,1], etc. Verified recurrence and boundary cases; the symbolic interval bijection supplies all n.",
+      "residual_risks": [
+        "Finite calculations support the structural proof; they are not a proof by sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "East--Gray Lemma 9.8 identifies individual idempotents 3n-5, Theorem 9.9 counts minimal generating sets, distinct predicate from commutativity.",
+          "Dolinka papers concern total individual idempotent enumeration in planar diagram monoids, not chosen pairwise commuting subsets."
+        ],
+        "reasoning": "General individual-idempotent classification does not determine the missing commutation graph or its clique polynomial; the latter uses a new compatibility law.",
+        "searches": [
+          "East--Gray arXiv:1404.2359 Sections 9.3-9.4 full PDF",
+          "Dolinka et al arXiv:1507.04838 and 1408.2021 idempotent enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1404.2359",
+        "https://arxiv.org/abs/1507.04838",
+        "https://arxiv.org/abs/1408.2021",
+        "https://oeis.org/A225798"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known idempotent list is only the vertex set of the commuting graph. The explicit rank-drop criterion on products yields new edges and hence the clique polynomial, not implied by cardinality alone.",
+          "The recurrence follows after deriving the compatibility graph and is not claimed as an independently new general enumeration method."
+        ],
+        "reasoning": "Prior rank enumeration is credited as prerequisite; claim is a new natural invariant across all n, not substitution in a known semigroup formula.",
+        "searches": [
+          "East--Gray arXiv:1404.2359 Lemma 9.8, Theorem 9.9, sections 9.3-9.4",
+          "Actual Jones diagram pair composition checked n=2..8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A commuting clique equals an independent set in the noncommutation graph of 3n-5 idempotents, or a two-orientation weighted hard-core interval packing.",
+          "The resulting rational generating function is a standard recurrence expression but no preexisting exact Jones instance found."
+        ],
+        "reasoning": "Searched semigroup commuting bands, Temperley--Lieb idempotent cliques, interval gas and polynomial aliases; failed search is not novelty proof.",
+        "searches": [
+          "Resultary query: Jones monoid rank n-2 idempotents commute clique polynomial interval supports recurrence",
+          "Resultary query: Temperley Lieb Jones monoid idempotents pairwise commuting clique polynomial matching interval packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A225798 counts all Jones monoid idempotents rather than rank n-2 commuting cliques.",
+          "Resultary hit for unrelated graph and semigroup polynomial topics did not supply coefficient tables for this clique invariant."
+        ],
+        "reasoning": "Idempotent counts and unrelated domination polynomials are not exact tabulations of the defined commuting-clique polynomial.",
+        "searches": [
+          "OEIS A225798 count of all Jones idempotents",
+          "Resultary search Jones commuting clique polynomial idempotents"
+        ]
+      },
+      "rationale": "East--Gray 2014 Lemma 9.8 supplies the rank n-2 idempotent stratum as an input, not a novelty claim. Its Section 9.3/9.4 count ranks and minimal generating sets/ideals, not pairwise commuting families or the full clique polynomial. Dolinka et al count individual idempotents, distinct from clique compatibility. The exact interval tiling model could be expressible in hard-core or matching polynomial language, but no cited source gives the Jones-specific commutation criterion as a theorem; best-of-knowledge original.",
+      "residual_risks": [
+        "A general published trace-monoid/Temperley--Lieb commutation theorem might imply this weighted interval packing via a short reduction; investigated direct Jones sources but cannot guarantee bibliographic priority.",
+        "No general all-rank commuting-idempotent classification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly counts individual stratum idempotents and generating sets, not commuting-clique polynomials",
+          "evidence": "Lemma 9.8 rank n-2 idempotents; Theorem 9.9 and next pages generating sets; checked full-text for commute terminology.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.2359",
+          "material_read": "Full 50-page PDF retrieved; Lemma 9.8 and following Theorem 9.9 and rank/generating sections 9.3-9.4 material and adjacent pages inspected visually",
+          "method": "Read PDF text, navigated lemma and theorem, visually inspected PDF pages 38-39",
+          "title": "Diagram monoids and Graham--Houghton graphs: Idempotents and generating sets of ideals",
+          "trigger": "Exact rank n-2 Jones idempotent prior theorem and potential stronger coverage"
+        },
+        {
+          "assessment": "Individual idempotents only in material read; whole-document noncoverage is not asserted",
+          "evidence": "Abstract reports enumeration and generating functions for individual idempotents.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.04838",
+          "material_read": "Public abstract and bibliographic description (not complete article)",
+          "method": "Read public abstract",
+          "title": "Enumeration of idempotents in planar diagram monoids",
+          "trigger": "Broader idempotent enumeration potentially implying Jones case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1404.2359",
+        "https://arxiv.org/abs/1507.04838",
+        "https://arxiv.org/abs/1408.2021",
+        "https://oeis.org/A225798"
+      ],
+      "rationale": "Pairwise commuting idempotents constitute commutative bands and are natural algebraic data; the complete clique polynomial resolves sizes of compatible subfamilies and maximal commuting subfamilies in the first nontrivial rank stratum, sharpening a previously known count of individual idempotents. Natural exact structural classification across all n rather than arbitrary index slice.",
+      "residual_risks": [
+        "A general published trace-monoid/Temperley--Lieb commutation theorem might imply this weighted interval packing via a short reduction; investigated direct Jones sources but cannot guarantee bibliographic priority.",
+        "No general all-rank commuting-idempotent classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only rank n-2 idempotents, not all Jones idempotents or all generated subsemigroups.",
+    "Commuting cliques count subsets, ordered commuting pair formula allows equal pairs."
+  ],
+  "schema_version": 1
+}
