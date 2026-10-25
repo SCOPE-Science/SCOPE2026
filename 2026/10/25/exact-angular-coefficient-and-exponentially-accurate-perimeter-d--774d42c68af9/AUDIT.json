@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Normalized joint nearest-neighbor density gives an exact Beta(2,N-1) gap and independent uniform splitting proportion; homogeneous chord-defect integration yields the specified atanh angular function; side-occupancy union bound gives the explicit remainder for every N>=3. Seeded tests agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reitzner, Schütt, Werner, arXiv:1911.05917v3, Theorems 1.1–1.2, discuss facet counts and volume deficit; no claimed perimeter formula.",
+        "Har-Peled arXiv:1111.5340v1 pp.1–5 explicitly assumes interior-uniform sampling."
+      ],
+      "reasoning": "General convex-hull asymptotic theory does not, by the inspected claimed statements, include an explicit boundary-polygons perimeter coefficient or a finite-sample exponential remainder. Different sample laws and functionals prevent a direct corollary; the same arclength-boundary model in Reitzner et al. is checked directly.",
+      "searches": [
+        "Expectation perimeter of inscribed convex polygon sampled uniformly on polygonal boundary finite N, adjacent corner gaps",
+        "https://arxiv.org/html/1911.05917v3 Theorem 1.2 perimeter",
+        "https://arxiv.org/pdf/1111.5340 Lemma 2.4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1111.5340",
+      "https://arxiv.org/html/1911.05917v3",
+      "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+      "published-finding corpus published 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/1911.05917v3 includes a boundary-uniform hull model but provides theorem statements for facets and volume.",
+        "https://arxiv.org/pdf/1111.5340 studies interior-uniform hulls of planar polygons.",
+        "Schneider 1988 abstract is explicitly smooth-boundary with convergence rates, not polygonal corner coefficient."
+      ],
+      "reasoning": "The source with identical boundary sampling does not claim the new perimeter result. The older interior sample and smooth boundary hypotheses are not interchangeable with polygon-corner boundary samples; existing area-loss results do not imply expected missing perimeter.",
+      "searches": [
+        "https://arxiv.org/html/1911.05917v3 boundary polygon and perimeter",
+        "https://arxiv.org/pdf/1111.5340 area and perimeter",
+        "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x smooth convex boundary perimeter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published-finding corpus Gumbel record addresses Hausdorff error, not perimeter shortfall.",
+        "A previously recorded area-loss theorem concerns a second-order area wedge and inverse-square decay, in contrast to first-order perimeter loss.",
+        "https://arxiv.org/html/1911.05917v3, Theorems 1.1 and 1.2"
+      ],
+      "reasoning": "The closest inverse-square polygon-area mean is not an equivalent form of the logarithmic angular expression for perimeter. Small-arc-minus-chord length is homogeneous of degree one versus a bilinear area wedge of degree two; neither statement implies the other's coefficient.",
+      "searches": [
+        "Expected perimeter shortfall of random convex hull from N iid arclength uniform samples on boundary of any convex polygon; angular profile involving atanh sin(exterior angle/2) and exponential finite N remainder",
+        "Boundary sampled regular polygon random hull perimeter deficit asymptotic first-order 1/N exact log tan angle coefficient",
+        "random hull perimeter loss; normalized arclength sample; vertex-angle signature",
+        "published-finding corpus closest 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified published numerical table in the searched literature provides the general atanh angle formula.",
+        "The existing random-boundary-hull area mean is a different invariant and normalization."
+      ],
+      "reasoning": "The explicit coefficient is a function of all exterior angles and the perimeter, not a known enumerated polygon table; the small-N exceptions are retained explicitly rather than replaced by a finite numerical fit.",
+      "searches": [
+        "boundary convex hull perimeter mean exact formula table regular polygons",
+        "uniformly sampled polygon perimeter deficit 1/N",
+        "Boundary sampled regular polygon random hull perimeter deficit asymptotic first-order 1/N exact log tan angle coefficient"
+      ]
+    },
+    "rationale": "Inspected statements from a matching boundary random-polytope paper and an archived interior-uniform hull paper do not state or imply the explicit atanh turning-angle perimeter law; available smooth-boundary source addresses a different regularity class. Actual published-finding corpus comparisons found area, Hausdorff and other invariants rather than this perimeter formula. Residual historical literature risk is acknowledged.",
+    "residual_risks": [
+      "Schneider (1988) full text unavailable in the inspected material; its abstract specifies a smooth curve but earlier extensions to polygonal corners may exist.",
+      "The searches do not establish absolute absence of an equivalent historical derivation.",
+      "Finite numerical checks do not independently certify all analytic inequalities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different underlying measure: planar interior-uniform points; expected vertex complexity rather than boundary sampled perimeter",
+        "evidence": [
+          "https://arxiv.org/pdf/1111.5340",
+          "2011-11-22 arXiv v1 date"
+        ],
+        "identifier_or_url": "arXiv:1111.5340v1",
+        "material_read": "PDF pages 1–5, introduction, Lemma 2.1, Lemma 2.4, relevant statement and figures; first and fifth pages visually checked",
+        "method": "arXiv lawful open-access PDF and rendered pages",
+        "title": "On the Expected Complexity of Random Convex Hulls",
+        "trigger": "Archive geometry literature on hull approximation and Efron-type area arguments"
+      },
+      {
+        "assessment": "Matching sampling but its explicit theorems treat expected facets and missed volume rather than the exterior-angle perimeter coefficient",
+        "evidence": [
+          "https://arxiv.org/html/1911.05917v3",
+          "Theorem 1.1 and Theorem 1.2"
+        ],
+        "identifier_or_url": "arXiv:1911.05917v3",
+        "material_read": "Accessible full-text HTML: abstract, Section 1 and theorem statements 1.1–1.2, targeted n=2/perimeter searches and portions of proof and references",
+        "method": "arXiv lawful full-text HTML with targeted full-text searches",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Same arclength boundary sampling and potentially broader volume / intrinsic-volume comparison"
+      },
+      {
+        "assessment": "Smooth convex curve regime, unlike polygonal corners; residual risk retained because full text not inspected",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2818.1988.tb04682.x"
+        ],
+        "identifier_or_url": "DOI:10.1111/j.1365-2818.1988.tb04682.x",
+        "material_read": "Accessible publisher title, abstract and bibliographic summary only",
+        "method": "Publisher abstract; full text not obtained",
+        "title": "Random approximation of convex sets",
+        "trigger": "Historical random boundary sampling with perimeter convergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "774d42c6-8af9-416f-9b08-168b918baa9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The independent geometric length observable has a new explicit logarithmic exterior-angle coefficient, inverse-linear decay and finite-N exponential error for the whole class of fixed convex polygons. This cannot be obtained merely by substituting the known bilinear area-deficit formula.",
+    "status": "PASS"
+  }
+}
