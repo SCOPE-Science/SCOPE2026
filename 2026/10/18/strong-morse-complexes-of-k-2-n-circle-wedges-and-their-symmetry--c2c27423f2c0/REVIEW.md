@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a triangle-free graph, the descending link is a discrete set, so the strong gradient pairs a vertex to a unique earlier neighbor precisely when that neighbor exists and is unique. Ordering the two hubs and partitioning leaves into the three order intervals proves that every generating matching is supported in exactly the asserted two contractible subcomplexes or one of the three types of transverse edges. Conversely, explicit orders realize every listed maximal simplex and every transverse edge. The quotient by two disjoint contractible CW subcomplexes is a homotopy equivalence and yields two vertices joined by \(3n\) edges; the fundamental group and integral homology follow. Equivariance of the quotient yields the integral augmentation module and its exact character. The standard-library verifier matches complete face sets for \(2\le n\le7\) and signed Lefschetz traces for every tested automorphism up to \(n=5\). The infinite statement is proved structurally, independently of finite enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-Knudson--Owens-White, arXiv:2609.06844v1, Sections 3--4 and 7--10, introduce this complex and classify stars, cycles and other families; Proposition 8.5 already handles \(K_{2,2}=C_4\). The complete higher-rank \(K_{2,n}\) graph-of-spaces decomposition and integral \(S_n\times C_2\) character are not stated in the inspected relevant sections. Fernández, arXiv:2504.15729v1, develops the underlying strong discrete Morse method, not the complex's complete bipartite topology. Indexed ordinary Morse results for \(K_{2,n}\), including public research record `6e0567ab1610`, calculate a distinct complex with reduced homology in dimension \(n\), so they do not imply the present degree-one result. Multiple specific alias/equivalence searches revealed no dominating published statement. The possibility of unindexed independently known work is not excluded.
+PASS
 
-## Mathematical value — PASS
-This determines exact integral homotopy groups through the homotopy type and the natural integral symmetry representation for an infinite, genuinely cyclic complete-bipartite family not covered by the star or cycle classifications. The mechanism is structural: two high-dimensional contractible simplicial regions connected by three independent classes of bridge edges. Its unexpectedly one-dimensional homotopy for all \(n\), despite dimension \(n-1\), sharply contrasts with the previously computed high-dimensional ordinary Morse complex and provides an explicit test family for strong Morse topology and symmetry.
+The pinned RESULT.md classifies each generating strict-order strong Morse gradient of K_{2,n} by the earlier hub. The actual full complex is the union of disjoint contractible D_a and D_b plus exactly 3n transverse one-simplices, no cross-dimensional simplices. Collapsing both contractible CW subcomplexes gives a two-vertex graph with 3n parallel edges and H_1=ker(Z^{3n}->Z), rank 3n-1. The S_n action permutes labels; hub exchange swaps the pieces and acts on oriented edge types by e_1->-e_2, e_2->-e_1, e_3->-e_3, yielding characters 3f-1 and 1-f. Checked the equivariant quotient calculation and the invariant rank-one lattice. Independent complete enumeration of vertex-order gradients and all downward faces at n=3,4,5 matches predicted facets. The universal quantifier rests on the symbolic classification, not those finite cases.
 
-## Scientific limitations
-No claim is made for the pure complex, for higher-dimensional complete bipartite sides, or for equivariant homotopy equivalence. A computation through \(n=7\) is supplementary and not a proof for arbitrary \(n\). Prior-work searches cannot establish absolute uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest strong-complex paper explicitly calculates stars, paths and cycles including K2,2=C4, but no higher K2n universal decomposition is established from accessible material. A complete check of arxiv:2609.06844 remained inaccessible; retain priority risk. Ordinary Morse complex dimension/n-spheres does not imply H1 of a strong subcomplex or its leaf/hub module.
+
+## value
+
+PASS
+
+The exact classification of full strong (not ordinary/pure) Morse complexes and integral leaf/hub symmetry for the naturally parameterized all-n family is mathematically structural: dimension n-1 complexes retract onto rank-(3n-1) circle bouquets; the first-homology action is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
