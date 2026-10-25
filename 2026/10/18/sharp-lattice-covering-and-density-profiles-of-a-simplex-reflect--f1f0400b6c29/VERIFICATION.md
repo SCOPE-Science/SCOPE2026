@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-After extracting every embedded file into one directory, run `python verify_covering.py` with Python 3. The script requires only the standard library and prints `PASS: 6728 exact rational grid-point checks, eight exact area and reciprocity tests, and exact endpoint/deep-hole identities.`
+## correctness
 
-It verifies the stated polygon vertex representation and shoelace area, the reciprocal reflection law, deepest-hole certificates at rational parameters, and periodic gauge domination across eight finite rational grids. Every comparison uses `fractions.Fraction`, not floating-point rounding. The exact rational tests check the implementation and corroborate representative cases but do not exhaust the continuum. The exhaustive continuum proof is the covering partition and matching obstruction in `RESULT.md`, with its separately explained strict equality cases and analytic density derivative.
+PASS
 
-No independent audit has been performed. The source comparison is limited to publications and mathematical descriptions actually inspected; an earlier equivalent unlocated computation remains possible.
+A direct Minkowski-sum computation yields the hexagon -t<=u,v,u+v<=1 with t=lambda/(1-lambda), gauge max(u,v,u+v,-u/t,-v/t,-(u+v)/t). Four explicit translates of rK_t cover the unit square for 0<t<=1 with r=2/(1+2t); a diagonal hole (a,a), a=1/(1+2t), gives the sharp reverse inequality. Reflection K_t=-tK_{1/t} covers t>=1. Shoelace area and differentiation prove the exact U-shaped density; boundary slack checks classify deepest-hole bifurcation. Independent 8-parameter gauge tests on 141x141 grids with diagonal witnesses matched radius (grid sample values below or at claimed maxima).
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
+
+## value
+
+PASS
+
+Determines complete shape-parameter lattice covering and deepest-hole bifurcation for the canonical simplex-asymmetric-difference interpolation, beyond endpoint covering radii and abstract inequalities. The exact density optimum and hole locations are reproducible benchmarks in planar geometry of numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

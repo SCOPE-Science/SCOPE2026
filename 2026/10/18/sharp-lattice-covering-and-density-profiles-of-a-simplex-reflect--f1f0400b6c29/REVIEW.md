@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact six-facet representation of \(T+t(-T)\) gives an explicit gauge. A four-translate cover of the fundamental square proves the upper covering-radius bound, and the rational torus point \((a,a)\) provides a matching strict obstruction to smaller dilations. Reflection and homogeneity handle the full parameter interval. Exact shoelace area and differentiation establish the sharp density optimizer; equality analysis of the same four translates classifies the deepest holes. The checker made 6,728 finite exact-rational lattice-gauge comparisons; the continuum result does not depend on grid completeness.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating 2026 source develops general planar covering-radius Minkowski inequalities and an interpolation counterexample using parallelograms; its exact statements and computations do not produce the triangle-reflection profile. The older simplex covering-radius literature verifies a triangular endpoint but not the full two-triangle mixture. The closest published parallelogram interpolation has an inverse-radius tent with the opposite direction of monotonicity, while the separate simplex-reflection Mahler-product calculation concerns a different invariant. Searches for lattice triangle reflection Minkowski covering-radius formulas and published geometric-result comparisons did not locate an identical theorem. This is a best-knowledge priority assessment, not proof of uniqueness; a buried earlier geometric-number-theory treatment is the main remaining risk.
+PASS
 
-**Mathematical value — PASS.** The family continuously symmetrizes the simplest unimodular lattice triangle and tests how exact lattice covering efficiency changes under Minkowski addition. The result gives the full optimal fixed-lattice radius and density profiles, the uniquely efficient symmetric member, and an exact one-to-two bifurcation in deepest holes. These are structural covering assertions rather than a single endpoint calculation or an unmotivated finite table.
+A direct Minkowski-sum computation yields the hexagon -t<=u,v,u+v<=1 with t=lambda/(1-lambda), gauge max(u,v,u+v,-u/t,-v/t,-(u+v)/t). Four explicit translates of rK_t cover the unit square for 0<t<=1 with r=2/(1+2t); a diagonal hole (a,a), a=1/(1+2t), gives the sharp reverse inequality. Reflection K_t=-tK_{1/t} covers t>=1. Shoelace area and differentiation prove the exact U-shaped density; boundary slack checks classify deepest-hole bifurcation. Independent 8-parameter gauge tests on 141x141 grids with diagonal witnesses matched radius (grid sample values below or at claimed maxima).
 
-The result is specific to the fixed lattice and planar simplex-reflection family. Independent bibliographic and mathematical checks are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison against primary literature and Resultary; the genuinely distinct mathematical increment survives. Specific inaccessible full texts and historical-priority risks are recorded rather than counted as proof of novelty.
+
+## value
+
+PASS
+
+Determines complete shape-parameter lattice covering and deepest-hole bifurcation for the canonical simplex-asymmetric-difference interpolation, beyond endpoint covering radii and abstract inequalities. The exact density optimum and hole locations are reproducible benchmarks in planar geometry of numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
