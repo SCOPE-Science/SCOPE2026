@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a unique-palindrome occurrence center for every run and that at a given length at most one palindrome from any center exists. Disjoint run supports rule out a third answer at at most four runs and a fourth at five. If centers 2 and 4 overlap, equality of lengths forces either duplicate strings or a shorter unique middle palindrome \\(1 0^c1\\). A triple is therefore centered at runs 1,2,3 after symmetry. Explicit run-length constraints imply \\(b=d\\), \\(v=e+1\\), \\(c\\ge v\\), \\(v\\ge b+2\\), and hence \\(n\\ge7b+7\\ge14\\). Equality fixes a unique run composition. A separate check establishes three distinct length-\\(a\\) unique palindromes in every explicit parameter-family member and eliminates shorter unique answers. The verifier independently enumerates all 6944 words with at most five runs through length 14 for all intervals and checks 48 family members and 2400 additional intervals. All finite and symbolic obligations are explicitly separated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mieno and Funakoshi, arXiv:2204.07327 (2022), universal four-answer bound: proves a universal upper bound of four and an unrestricted sharp example; this weaker bound does not imply two or three for the low-run binary slice.",
+        "Watanabe et al., arXiv:1903.06290 (2019), run-length-encoded SUPS algorithms: linear-space RLE query algorithms with output-sensitive time, not formulae for sharp multiplicity stratified by run count.",
+        "Nakashima et al., arXiv:1608.05550 (2016), general SUPS queries: general optimal query complexity."
+      ],
+      "reasoning": "Even when the same objects and all query intervals are considered, global \\(\u0007lpha\\le4\\) does not imply \\(\u0007lpha\\le3\\) for five runs or \\(\u0007lpha\\le2\\) for four, nor the minimal 14-symbol witness. General SUPS algorithms enumerate outputs but do not mathematically force this sharp structural threshold. No inspected stronger all-binary or low-run theorem dominates this claim.",
+      "searches": [
+        "shortest unique palindromic substring queries maximum number three four binary strings with five runs minimal run count",
+        "SUPS multiplicity upper bound three for five constant runs binary words",
+        "shortest unique palindromic substring three SUPS binary five run words no more than three"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1903.06290",
+      "https://arxiv.org/abs/2204.07327",
+      "https://arxiv.org/abs/1608.05550",
+      "A Survey on Shortest Unique Substring Queries (2020), Section 6",
+      "Indexed mathematical record searches using exact SUPS terms and run-center aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Watanabe et al., arXiv:1903.06290 (2019), run-length-encoded SUPS algorithms: run-centered observations underpin the first proof step, but their results alone permit up to five centers at five runs and do not exclude pairs of answer centers using the shorter \\(1 0^c 1\\) obstacle.",
+        "Mieno and Funakoshi, arXiv:2204.07327 (2022), universal four-answer bound: all-string four-answer bound permits four in a five-run word and makes no shortest-length assertion.",
+        "Nakashima et al., arXiv:1608.05550 (2016), general SUPS queries: general output optimality has no implication for simultaneous answer count in a fixed-run subfamily."
+      ],
+      "reasoning": "The new argument excludes centers 2 and 4 as simultaneous shortest answers via a shorter unique palindrome spanning the central run, then forces the outer/adjacent/central pattern and the inequalities \\(v=e+1\\), \\(c\\ge v\\), \\(v\\ge b+2\\). Neither algorithmic enumeration, a general four-bound, nor recurrence of run-centered MUPSs entails these implications. The opposite implication holds only as a specialization: the global bound four remains compatible with three in this subset.",
+      "searches": [
+        "shortest unique palindromic substring queries maximum number three four binary strings with five runs minimal run count",
+        "SUPS multiplicity upper bound three for five constant runs binary words",
+        "minimal unique palindromic substring run centered four adjacent alternating runs",
+        "shortest unique palindromic substring three SUPS binary five run words no more than three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Watanabe et al., arXiv:1903.06290 (2019), run-length-encoded SUPS algorithms: mixed unique palindrome centers in run-length encoded strings and data-structure theorems, but no exact \\(r\\le5\\) multiplicity threshold in inspected text.",
+        "Mieno and Funakoshi, arXiv:2204.07327 (2022), universal four-answer bound: defines the same interval-query output count, proving a global bound four; discusses binary three-answer cases but not the five-run threshold.",
+        "Nakashima et al., arXiv:1608.05550 (2016), general SUPS queries: defines the same SUPS invariant but optimizes query time."
+      ],
+      "reasoning": "SUPS is also called shortest unique palindromic substring query, and center families can be indexed by maximal runs. All equivalent formulations sought refer to the number of positional answers, not the total number of SUPSs across all query points, nor shortest unique NON-palindromic substring counts. The run-restricted two/three bounds and sharp length fourteen are absent from the inspected results; generic algorithmic support alone does not imply them.",
+      "searches": [
+        "shortest unique palindromic substring queries maximum number three four binary strings with five runs minimal run count",
+        "three shortest unique palindromic substrings covering a position 0^a 1^b 0^c 1^d 0^e 14",
+        "SUPS multiplicity upper bound three for five constant runs binary words",
+        "minimal unique palindromic substring run centered four adjacent alternating runs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mieno and Funakoshi, arXiv:2204.07327 (2022), universal four-answer bound: the inspected examples include a binary three-answer word of more runs; no tabulation or constructive classification of shortest five-run witnesses.",
+        "Watanabe et al., arXiv:1903.06290 (2019), run-length-encoded SUPS algorithms: illustrative RLE examples do not enumerate all five-run binary SUPS multiplicities.",
+        "Inoue et al. as surveyed in A Survey on Shortest Unique Substring Queries (2020): counts of SUPS substrings across all queries are not counts of simultaneous minimal answers for one query."
+      ],
+      "reasoning": "This result is an infinite structural theorem plus a sharp first-length equality classification, not a recomputation of a known finite table. The verifier exhausts length at most fourteen, but the proof independently establishes the lower bound for all binary lengths and the infinite family. No exact database/table with a directly equivalent five-run threshold was located.",
+      "searches": [
+        "three shortest unique palindromic substrings covering a position 0^a 1^b 0^c 1^d 0^e 14",
+        "minimal unique palindromic substring run centered four adjacent alternating runs",
+        "minimal unique palindromic substrings alternating binary runs count exact"
+      ]
+    },
+    "rationale": "Three highly relevant primary texts were inspected with special attention to exact definitions and implication coverage. The previously known bound is four answers for all strings, and RLE SUPS algorithms do not imply the sharper low-run multiplicity hierarchy or first occurrence at length 14. Semantic searches for the same parameter, run-center equivalences and exact witness classification found no equivalent/dominating result. This supports an originality assessment relative to inspected material, while indexing gaps and inaccessible equivalences remain a real residual risk.",
+    "residual_risks": [
+      "A specialization of a stronger theorem may appear in inaccessible or unindexed SUPS literature; searches do not establish historical uniqueness.",
+      "The closest general algorithms could be specialized in unpublished work to recover the same thresholds; no such implication was found in inspected primary text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General run-centered uniqueness and algorithms; does not assert \\(\u0007lpha\\le3\\) for five runs, \\(\u0007lpha\\le2\\) for four runs, or the length-fourteen classification in inspected material.",
+        "evidence": [
+          "arXiv:1903.06290, first submitted 2019-03-14; Section 2.2 and sections concerning run-centered MUPS and SUPS queries."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.06290",
+        "material_read": "Public arXiv full-text sections on minimal unique palindromic factors, center-per-run property, and run-length-encoded interval-query algorithm; title, abstract, main theorem statements, and relevant definitions.",
+        "method": "Read accessible primary full-text HTML, checking structure and precise run-center/input-output implications against the present theorem.",
+        "title": "Fast Algorithms for the Shortest Unique Palindromic Substring Problem on Run-Length Encoded Strings",
+        "trigger": "Same run-length encoding and same SUPS interval-query invariant; highest plausibility of direct prior coverage."
+      },
+      {
+        "assessment": "Global bound four is weaker, and its reported three-answer binary example has more than five runs; no five-run threshold or minimum length in inspected text.",
+        "evidence": [
+          "arXiv:2204.07327, first submitted 2022-04-15; universal bound four, binary three-answer discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.07327",
+        "material_read": "Public arXiv full-text definitions, the sharp universal four-SUPS upper-bound statement, illustrative binary three-answer example and algorithmic consequences.",
+        "method": "Read accessible primary full-text HTML, including general bound and motivating examples; compare quantifiers and whether binary/runs are restricted.",
+        "title": "Data structures for computing unique palindromes in static and non-static strings",
+        "trigger": "Exact same SUPS output-count parameter, with general upper bound four."
+      },
+      {
+        "assessment": "General output-sensitive solution does not assert the present low-run sharp thresholds.",
+        "evidence": [
+          "arXiv:1608.05550, first submitted 2016-08-19; general optimal query algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.05550",
+        "material_read": "Public arXiv full-text definitions, MUPS/SUPS relationship, query-answer algorithm and main theorem statements.",
+        "method": "Read accessible primary full-text HTML, contrasting running-time results with per-interval output multiplicity and run-count constraints.",
+        "title": "Shortest unique palindromic substring queries in optimal time",
+        "trigger": "Foundational equivalent query definition and potential dominant general algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3513680a-544d-4984-86d2-74333998f162",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of simultaneous SUPS answers is an algorithmically meaningful natural invariant (it is the output parameter of known SUPS query data structures), and maximal constant runs are a standard compressed-string structural parameter. The theorem sharpens the global upper bound four to two and three on nontrivial infinite run-restricted classes, identifies the first run count at which three answers are possible, proves the exact first witness length and symmetry classification, and supplies an infinite two-parameter family; these are structural classification and tight boundary results, not arbitrary small numerical increments.",
+    "status": "PASS"
+  }
+}
