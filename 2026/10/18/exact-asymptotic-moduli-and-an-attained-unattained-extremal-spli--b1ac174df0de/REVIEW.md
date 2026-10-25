@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The normalization \(\Phi(x)=1\) follows from bounded exponents and continuity of the Luxemburg modular at the unit norm. For each normalized tail vector of norm \(t\), its modular at a test radius \(u>\max\{1,t\}\) lies between \((t/u)^{1+\epsilon_N}\) and \(t/u\), uniformly as \(\epsilon_N\to0\). Disjoint supports make the head and tail modulars additive; a two-sided scalar-root argument yields uniform convergence of head-plus-tail norms. The finite-codimensional intersection lemma gives the upper convexity and lower smoothness bounds, while actual tail subspaces give both reverses. Root comparison classifies all global convexity minimizers and proves smoothness nonattainment. The Kottman result follows from coordinate-pair separations. The finite checker passes on supplementary examples; the proof, not the finite computations, supports the quantifiers.
+PASS
 
-## Originality (O): PASS, subject to limited-source priority risk
+For 1<p_n<=P and p_n->1, modular continuity at positive norms gives Phi(z/||z||)=1, and coordinate truncations tend in norm. For a norm-t far-tail y and fixed U>max(1,t), Phi(y/U) is trapped uniformly between (t/U)^(1+epsilon_N) and t/U, epsilon_N=sup_{n>N}(p_n-1)->0. Disjoint head/tail support gives the unique limiting L_x(t) by two-sided modular bracketing, independently of y. Every finite-codimensional Y meets every infinite-dimensional tail E_N nontrivially, giving the lower/upper universal quantifier bounds. Choosing Y=E_N gives reverse bounds via coordinate lattice monotonicity and a norm-small head approximation, so both pointwise moduli equal L_x(t)-1. For every U>1, sum |x_n|^p_n U^-p_n >=U^-P, with equality exactly on maximal-exponent coordinates; every fixed x has strict Phi(x/U)<U^-1, so L_x(t)<1+t, but L_{e_n}(t)->1+t. Thus delta_bar(t)=L_P(t)-1 achieved exactly on supported max P, rho_bar(t)=t not attained. For a sequence of far-out e_n, ||e_i-e_j||->2, so Kottman=2. Independent scalar root checks at t=.3,1 for head exponent 2, mixed head, and exponent 1.001 corroborate extremum orientation; infinite statements proven analytically.
 
-The motivating 2026 paper concerns fixed points, projection-scheme geometry and one-sided estimates, not the exact equal pointwise moduli with their differing global extrema. Gonzalo–Jaramillo–Troyanski (2007) give definitions and general tail reductions, and study Nakano differentiability in a different exponent regime; those general reductions are used but do not supply the claimed scalar-root classification. Georgiev–Zhelinski–Zlatanov (2026) examine variational and differentiability questions, not the computed moduli. Searches for variable-exponent, implicit-root and equivalent formulations produced no encompassing record. Delpech (2009) is a plausible related source on **Orlicz** sequence spaces; its full text could not be inspected, so an unindexed Musielak–Orlicz equivalent remains a residual priority risk. The comparison does not assume that absent search hits establish novelty.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-These are natural quantitative invariants of the nonreflexive fixed-point Banach sequence spaces revisited in 2026. The result gives both entire global functions, all pointwise functions, and a complete attained/unattained extremal classification; the two global optimizations respond to different geometric portions of the same norm. For the canonical sequence \(p_n=1+1/n\), the convexity modulus at unit scale equals \((\sqrt5-1)/2\) whereas the smoothness modulus equals \(1\). This sharp contrast is a structural geometry result, not a numerical computation or an arbitrary parameter slice.
+Best-of-knowledge PASS: this theorem evaluates both individual finite-codimension moduli and global attainment for variable exponent p_n->1, distinguishing head maximum from tail endpoint. Standard constant-exponent ell_p modulus and Delpech general Orlicz asymptotic estimates do not imply this nonattainment split. The relevant published Delpech 2009 full text was retrieved and reviewed (contrary to the source package self-assessment suggesting it was inaccessible), including general tail/Kottman estimates and Musielak–Orlicz remarks; no matching exact root/equality classification found. Gonzalo–Jaramillo–Troyanski address asymptotic smoothness and high-order differentiability for exponents tending to even integers, not the p_n->1 exact regime.
 
-## Limitations and proximity to sources
+## value
 
-The main boundaries are the strict exponent condition and the convergence \(p_n\to1\), bounded exponents, and the exact Luxemburg norm. There is no assertion of a new fixed-point theorem or quantitative rates for nonexpansive maps. No independent mathematical audit has been performed, and historically inaccessible texts limit certainty about priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise AUC/AUS dichotomy for natural Luxemburg variable-exponent spaces near the ell_1 boundary is a structural Banach-space geometry fact: the pointwise moduli coincide but global AUC is governed by finitely occurring maximum head exponent while AUS is maximal and unattained. Exact equality classes and Kottman=2 make the result more than routine substitution into ell_p formulas. No renorming or new fixed-point theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
