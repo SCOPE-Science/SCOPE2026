@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly defines the ambient and intrinsic dimensions, fixes the vertex normalization, and covers every real scale including zero. Exact support functions give the nonnegative factorization \(\frac{s}{t}(p-t)^2\) for all orientations. All contact points are determined via equality normals; a finite, explicitly normalized simplex-and-signed-basis contact set has zero mean and covariance \(I_n/n\). Averaging arbitrary competing ellipsoid containment inequalities and applying AM–GM proves global volume minimality and rigidity without assuming competitors inherit symmetry. Implicit differentiation proves the stated strictly concave growth law. Exact rational checks in `verify.py` passed but are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+For K=s conv(v0,…,vk)+B₂ⁿ, with regular centered simplex {vi}⊂U, n>k≥2, the proposed t>0 solves nt²+(n−k)st=k; t≤sqrt(k/n). Let p=||P_U u|| for a unit direction. The actual support satisfies h_K(u)=1+s max_i〈vi,P_Uu〉≤1+sp, with equality precisely for projected normals pvi. The proposed ellipsoid with squared radii A=(1+st)(1+s/t), B=1+st has support gap A p²+B(1−p²)−(1+sp)²=(s/t)(p−t)²≥0; it contains K in all directions. Equality normals p=t and projected vi yield exactly (s+t)vi+sqrt(1−t²)w as contacts. The normalized contact squared U and U⊥ portions are k/n and (n−k)/n. Taking each vi with signed unit basis in U⊥ yields finite equal-weight isotropic normalized mean 0, covariance I_n/n. Any encompassing ellipsoid then obeys a trace inverse-square constraint and AM-GM forcing determinant ≥1 with equality only at identity, certifying global Löwner optimality without symmetry assumptions. Differentiating log κ_n A^{k/2}B^{(n−k)/2} along parameter t(s), stationary derivative eliminates t′ and gives k/(s+t) and negative second derivative, with s=0 and s→∞ correct limits. Independently checked support identity and contact norms over 330 triples, including six support directions each; these calculations are finite corroboration only.
 
-The starting 2005 algorithmic work on the convex hull of ellipsoids includes the input class but states approximation algorithms, not an explicit closed-form solution for rounded higher-dimensional regular simplices; full text was unavailable for inspection. The inspected 2007 paper solves truncated ellipsoidal cone/cylinder sections, not ball-parallel simplices. General Löwner contact criteria and the lower-rank two-ball special case are acknowledged. Searches for regular-simplex offsets, thickened simplices, and covering ellipsoids did not reveal a stronger exact formula, but unsuccessful searches are not proof of historical priority. A hidden earlier equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A unit-ball parallel body of a regular simplex is a canonical smoothly rounded convex body. The theorem solves its unrestricted extremal enclosing ellipsoid in all permitted intrinsic/ambient dimensions and all nonnegative simplex scales, identifies the complete positive-scale contact locus and a scale-independent dimensional splitting law, and establishes strict logarithmic concavity of the optimal volume. This is a natural structural classification, not a numerical or arbitrary-parameter table.
+General minimum-volume ellipsoid theory and algorithms for convex hulls of ellipsoids include K as input, but standard existence/approximation does not supply this exact family-specific formula and contact classification. Güler–Gürtuna Section 8 treats convex hulls of TWO parallel ellipsoidal sections, a different object from k+1≥3 ball centers of full simplex dimension. A possibly relevant full Yıldırım paper was inaccessible after open-access attempts; this is explicit priority risk, not proof of coverage or ground for automatic O rejection.
 
-## Limits
+## value
 
-Unequal balls, irregular center configurations, and non-Euclidean offsets are not covered. Independent verification and absolute historical-priority certification have not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Regular simplices thickened by Euclidean balls are a natural prototypical polytope parallel body, distinct from a line-segment capsule. The exact outer ellipse, complete continuous contact locus in each normal sphere, scale-independent k/n energy split and strictly concave log-volume growth are reusable extremal geometry facts inaccessible from a generic algorithmic approximation guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
