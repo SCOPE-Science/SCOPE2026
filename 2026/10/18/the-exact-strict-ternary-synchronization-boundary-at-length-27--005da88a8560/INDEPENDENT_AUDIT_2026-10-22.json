@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:03:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 2a8beb59b0e8bebeaf526caf70e2bf961615c5ce",
+        "Pinned verify.py and independent.py source read (strict threshold and normalization tested)",
+        "Private independently coded LCS DP/restricted-growth exhaustive enumeration /mnt/data/independent_check_scope_worker02.py"
+      ],
+      "rationale": "For ternary words the gap G(w) is minimum over every i<j<k of (k-i-2LCS(w[i:j],w[j:k]))/(k-i); strict G>1/8 is equivalent to 16LCS<7(k-i), including unequal adjacent block lengths. Relabel symbols in order of first appearance to a unique restricted-growth word. Prefix inheritance means the exhaustive recursion need test only interval triples with new right endpoint; the exact one-row LCS DP computes all such values without heuristics. Independently rebuilt this enumeration and reproduced the entire 28-entry level-count vector (1,1,2,3,5,7,10,13,14,18,17,17,16,15,12,11,10,9,9,10,11,10,9,9,10,11,1,0). Its sole canonical n=27 survivor is 012010212021012102010212012, hence six alphabet permutations, and no n=28 survivor. Independently exhaustively computed all 3276 triples for the witness with exact fractions; minimum 3/23 only at (0,12,23) and (4,15,27); no other length27 word can improve since it has G<=1/8. Prefix obstruction excludes every n>28. Inspected the second separately encoded squarefree candidate census over 5162 length27 and 6740 length28 words beginning 0; it provides additional independent exhaustive confirmation, not a bound on all untested infinite lengths.",
+      "residual_risks": [
+        "Finite calculations support the structural proof; they are not a proof by sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu et al give all-length ternary existence for epsilon=2001/2002 (gap 1/2002), not strict gap 1/8; Appendix E tabulates codebook suffix fibers, not all ternary words of length27.",
+          "Camungol--Rampersad equal-length adjacent repetitions do not imply the all-triplet inequality."
+        ],
+        "reasoning": "Known broader existence theorem at much weaker gap does not imply or contradict strong-gap finite last length 27.",
+        "searches": [
+          "Xu et al arXiv:2609.04122v2 Section 7 and Appendix E full text",
+          "Cheng et al arXiv:1803.03530",
+          "Camungol--Rampersad DOI:10.2140/involve.2016.9.657"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.04122v2",
+        "https://arxiv.org/abs/1803.03530",
+        "https://doi.org/10.2140/involve.2016.9.657"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An infinite weak ternary synchronization existence theorem does not forbid or prove length28 at strict gap 1/8.",
+          "Conditions on equal-length adjacent factors are only a subset of triples; cannot force the strict unequal-length last cutoff."
+        ],
+        "reasoning": "The complete restricted-growth recursion and n28 empty terminal level provide the new non-implied cutoff; exact maximizer is separately checked.",
+        "searches": [
+          "Xu et al 2026 Definition2.1 Sections4-7 and Appendix E",
+          "Cheng et al 2018 bound and Camungol--Rampersad equal-length setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Insertion-deletion distance |x|+|y|-2LCS makes G>1/8 equivalent to a strict 7/8-sync-string under epsilon=7/8.",
+          "The result allows unequal adjacent block lengths; overlap-free/squarefree and equal-length-only repetitions are weaker predicates."
+        ],
+        "reasoning": "Checked threshold conventions including strict versus weak and exact LCS equivalent form; no indexed exact n27 maximizer orbit surfaced.",
+        "searches": [
+          "Resultary query: ternary synchronization strings strict 7/8 gap length 27 maximum 3/23 finite exhaustive",
+          "Resultary query: strict ternary synchronization string epsilon=7/8 maximal length 27 exact LCS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xu Appendix E Lemmas E.1--E.9 verify inequalities and 54-uniform 952 triple suffix multiplicities, rather than 27/28 complete word census.",
+          "Resultary hits were unrelated ternary code/ranking and binary automaton enumerations."
+        ],
+        "reasoning": "Distinguished superficially matching number 27 in an unrelated appendix parameter from exact length27 word classification; no same table found.",
+        "searches": [
+          "Xu et al Appendix E exact ternary computations, arXiv:2609.04122v2",
+          "Resultary query: strict ternary 7/8 synchronization LCS n=27 table"
+        ]
+      },
+      "rationale": "Xu--Fu--Qiao--Tao 2026 establishes ternary synchronization strings with much smaller positive universal gap, and Appendix E exact rational tests concern a 54-uniform 952-codeword construction, not the sharp strict 1/8 last finite length. The 2018 alphabet bound and equal-length approximate repetition results do not classify unequal adjacent intervals at n=27. Resultary searches found no exact 27/28 finite strict-G boundary table; unindexed brute-force data could remain. Best-of-knowledge original under the stated exact finite parameter.",
+      "residual_risks": [
+        "A niche table of strict high-gap ternary words or a synonym for the normalized edit gap may be unindexed.",
+        "Exact finite enumeration is independently reconstructed and exhaustive by prefix recursion, not a replacement for unrelated asymptotic synchronization conjectures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-length existence with epsilon=2001/2002, finite computations on 54-uniform codebook, no complete n27/28 gap>1/8 result",
+          "evidence": "Abstract 2001/2002; Appendix E opening and Lemma E.3 suffix-fiber table; Section7 optimization discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2609.04122v2",
+          "material_read": "Public full HTML: abstract, Introduction/Definition2.1, Sections 4-7, Appendix E Lemmas E.1-E.9, references; searched 1/8 and 27",
+          "method": "Read arXiv full-text HTML, relevant sections and exact-calculation appendix",
+          "title": "Synchronization Strings over the Optimal Alphabet",
+          "trigger": "Most relevant contemporary three-alphabet primary source and exact-parameter appendix"
+        },
+        {
+          "assessment": "Four-symbol construction and binary obstruction are a distinct parameter claim; whole document noncoverage not asserted",
+          "evidence": "Abstract alphabet-size existence problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.03530",
+          "material_read": "Public abstract and bibliographic description (not full text)",
+          "method": "Read public abstract",
+          "title": "Synchronization Strings: Efficient and Fast Deterministic Constructions over Small Alphabets",
+          "trigger": "Earlier alphabet-size bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2609.04122v2",
+        "https://arxiv.org/abs/1803.03530",
+        "https://doi.org/10.2140/involve.2016.9.657"
+      ],
+      "rationale": "Determines a sharp, mathematically motivated high-gap finite frontier and all extremizers with an exact rational optimum, directly situated within the recently established ternary alphabet question. Exhaustive finite boundary is nontrivial because normalized LCS examines all unequal adjacent intervals and 3^27 words up to normalization; self-contained useful cutoff does not need a general asymptotic result.",
+      "residual_risks": [
+        "A niche table of strict high-gap ternary words or a synonym for the normalized edit gap may be unindexed.",
+        "Exact finite enumeration is independently reconstructed and exhaustive by prefix recursion, not a replacement for unrelated asymptotic synchronization conjectures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the strict 1/8 gap boundary and exact optimum at n27, not full epsilon phase diagram.",
+    "The prefix extension argument proves no valid longer words but does not settle the best uniform positive gap for infinite ternary synchronization strings."
+  ],
+  "schema_version": 1
+}

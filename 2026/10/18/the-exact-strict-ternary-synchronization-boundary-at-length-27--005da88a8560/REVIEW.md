@@ -1,11 +1,21 @@
-# Review of the finite ternary synchronization boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact restricted-growth prefix enumeration is exhaustive by order-of-first-appearance normalization and the endpoint-check recursion. The one-row LCS recurrence and strict integer threshold are derived in the proof, not inferred from numerical samples. A second independently coded search examines all square-free words beginning with the first symbol, without synchronization-based pruning, using a full two-dimensional LCS algorithm. Both searches yield exactly the same terminal classification. Exhaustive rational evaluation establishes the precise normalized gap at the six length-\(27\) extremizers. The monotonic prefix property extends the nonexistence result to all longer words.
+## correctness
 
-**Originality — PASS within examined evidence.** Xu et al. (2026, arXiv:2609.04122) establish existence of arbitrarily long ternary synchronization strings at a much smaller gap and explicitly leave gap optimization open; they do not give this exact length-\(27\) cutoff and its complete maximizing orbit. Cheng et al. (2018, arXiv:1803.03530) establish alphabet bounds, including binary impossibility and four-letter existence. Camungol and Rampersad (2016, DOI:10.2140/involve.2016.9.657) study adjacent equal-length approximate repetitions, not all unequal-length adjacent interval pairs. Searches for finite ternary strict \(7/8\) synchronization strings and equivalent LCS cutoff statements and comparisons with published computational records did not uncover a covering exact classification. Search absence does not prove novelty; hidden tables or equivalent definitions remain risks.
+PASS
 
-**Value — PASS.** The recent explicit open problem of optimizing the ternary synchronization gap gives the finite frontier mathematical context. This result pinpoints a concrete strong-gap obstruction for all lengths, determines the last admissible length and the exact best gap at that length, and classifies all extremizers. It is a reproducible, nontrivial exact finite cutoff rather than a generic numerical sample; it does not claim to settle the asymptotic open problem.
+For ternary words the gap G(w) is minimum over every i<j<k of (k-i-2LCS(w[i:j],w[j:k]))/(k-i); strict G>1/8 is equivalent to 16LCS<7(k-i), including unequal adjacent block lengths. Relabel symbols in order of first appearance to a unique restricted-growth word. Prefix inheritance means the exhaustive recursion need test only interval triples with new right endpoint; the exact one-row LCS DP computes all such values without heuristics. Independently rebuilt this enumeration and reproduced the entire 28-entry level-count vector (1,1,2,3,5,7,10,13,14,18,17,17,16,15,12,11,10,9,9,10,11,10,9,9,10,11,1,0). Its sole canonical n=27 survivor is 012010212021012102010212012, hence six alphabet permutations, and no n=28 survivor. Independently exhaustively computed all 3276 triples for the witness with exact fractions; minimum 3/23 only at (0,12,23) and (4,15,27); no other length27 word can improve since it has G<=1/8. Prefix obstruction excludes every n>28. Inspected the second separately encoded squarefree candidate census over 5162 length27 and 6740 length28 words beginning 0; it provides additional independent exhaustive confirmation, not a bound on all untested infinite lengths.
 
-**Limitations.** This is a specific strict-gap finite theorem, based on auditable exhaustive finite calculations plus a prefix argument. The related literature uses both strict and non-strict synchronization conventions. Unindexed exact finite tables and source coverage outside the inspected sections remain originality risks. No independent human audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu--Fu--Qiao--Tao 2026 establishes ternary synchronization strings with much smaller positive universal gap, and Appendix E exact rational tests concern a 54-uniform 952-codeword construction, not the sharp strict 1/8 last finite length. The 2018 alphabet bound and equal-length approximate repetition results do not classify unequal adjacent intervals at n=27. Resultary searches found no exact 27/28 finite strict-G boundary table; unindexed brute-force data could remain. Best-of-knowledge original under the stated exact finite parameter.
+
+## value
+
+PASS
+
+Determines a sharp, mathematically motivated high-gap finite frontier and all extremizers with an exact rational optimum, directly situated within the recently established ternary alphabet question. Exhaustive finite boundary is nontrivial because normalized LCS examines all unequal adjacent intervals and 3^27 words up to normalization; self-contained useful cutoff does not need a general asymptotic result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
