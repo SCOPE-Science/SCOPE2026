@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is quantified over algebraically closed fields of arbitrary characteristic and uses an exact projective complete-intersection presentation, not heuristic rank data. The four column coefficient vectors have all three-column determinants equal to units, giving the full Jacobian-minor ideal integrally. In every fixed-point chart, two remaining quadrics and the twelve cross-pair minors yield one nonzero common same-pair quadratic class, annihilated by the maximal ideal. Hence the local embedded nilradical has length exactly one. Away from the coordinate points, the transverse conifold equation gives a reduced Jacobian scheme. The length-eight exact sequence and both genera follow. The checker is independently executable from the package.
+## correctness
 
-**Originality — PASS, qualified.** Sturmfels–Sullivant give exactly these defining quadrics and the crosspolytope, and discuss nonsmoothness, but do not assert the Jacobian scheme's eight embedded point defects. The previously established cycle-cut toric theorem gives the *reduced* 24 lines, their intersections and generic nodes; those facts are not claimed as original here. The new statement concerns the *nonreduced Jacobian singular scheme*, its local length-one embedded nilradicals and the arithmetic genus 9. Targeted database and literature searches revealed no identical calculation, but unidentified broader binomial complete-intersection literature remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The four-cycle cut model is a fundamental explicitly presented toric statistical/phylogenetic variety. For this canonical singular complete intersection, knowing reduced orbit strata is insufficient to determine the Jacobian singular scheme, which governs the rank-drop subscheme and is relevant to deformation and singularity calculations. The exact nonreduced structure, eight localized embedded lengths and change of arithmetic genus are natural unknown invariants of this precise model, not an arbitrary coordinate slice or a mere smoothness test.
+The C4 cut ideal is the codimension-three complete intersection z1=z2=z3=z4 in eight homogeneous coordinates with zi=xi yi (Sturmfels–Sullivant Example 1.2). Jacobian derivative pair columns share one of four rank-3 vectors, and every three distinct index-group vectors have determinant +/-1 even in characteristic 2; exactly 32 degree-three maximal minors are all products from three distinct groups. Radical is the squarefree ideal (z1,z2,z3,z4)+minors, yielding 24 coordinate lines indexed by K_{2,2,2,2}. Away from eight coordinate points, local elimination is reduced along each line. At an affine chart of any coordinate point, the 12 two-by-two minors kill all cross-group quadratic monomials of six variables in three pairs, while 2 relations identify three same-pair products to one nonzero tau. Every local variable annihilates tau, so tau^2=0 and nilradical length1 at each of exactly eight vertices; no other nonreduced support. Direct determinant/multigrading checks reproduce 32 global cubic minors, 12 local minors, 24 lines and local Hilbert degree2 = seven. The normalization of 24 P1 components at eight 6-fold axial crossings gives chi_red=24-8*5=-16, genus17; adding eight square-zero skyscrapers increases chi to -8, genus9, degree remains24. Coefficient determinants are units over Z, ensuring arbitrary characteristic.
 
-The generic transverse geometry, reduced components and their incidence are prior. Only the embedded scheme and the resulting genus refinement are presented as new. Full published-text comparison is strongest for Sturmfels–Sullivant; future specialized literature could imply this case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sturmfels–Sullivant provide cut ideal and graph polytope, and existing cycle cut classifications describe reduced lines. The exact eight length-one nilpotents and singular-scheme arithmetic genus are additional data not implied by the cited reduced support. Similar Resultary discotope embedded-point example concerns a different algebraic variety.
+
+## value
+
+PASS
+
+Detects subtle eight-point embedded Jacobian scheme structure invisible from reduced singular-support classification and quantifies a genus shift 17 to 9 for a canonical toric cut variety. Scheme-theoretic singularities are a natural invariant and this calculation is substantive beyond a reduced variety census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
