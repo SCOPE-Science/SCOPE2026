@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` after extracting all associated artifacts into one directory. Standard Python 3 is sufficient; no third-party packages are used.
+# Independent mathematical audit
 
-The verifier constructs rook-graph adjacency and all-pairs shortest-path distances by breadth-first search. It classifies subsets by the graph-geodesic condition without using the claimed star-forest equivalence. For each valid subset, it directly attempts all one-vertex additions to test inclusion-maximality. It compares each GP and maximal-set polynomial coefficient with a separate exact recursive star-forest count and inclusion-exclusion/restricted-partition formula. These direct checks cover ten boards and exactly 370,512 vertex subsets. Forty-two further boards are checked symbolically for their maximal-support spectrum and the claimed leading coefficients. The emitted output is in `verification_output.txt` and terminates with `VERIFICATION_OK direct_boards=10 direct_subsets=370512 symbolic_boards=42`.
+## correctness
 
-This is reproducible finite evidence, not exhaustive verification of the infinite quantifiers. Infinite correctness relies on the structural five-step proof in `RESULT.md`. No independent scientific audit was performed.
+PASS
+
+Rook graph is the line graph of K_mn, diameter two when both factors ≥2. A selected triple on a geodesic corresponds to a length-three edge path, so GP edge sets are exactly bipartite star forests. The component species are isolated left/right vertices, isolated edge, and oriented center-stars of size≥2, yielding the stated exponential formula. Inclusion-maximal star forests either have no isolates or isolates only in one bipartition with exclusively opposite leaves in stars of degree≥2; restricted Stirling partitions count the latter. Spanning star forests yield every cardinality n..m+n-2 and opposite-side isolate family supplies size m. Independently enumerated all vertex subsets and true geodesic/maximality tests for boards 2×3,3×3,3×4, matching component recurrence and M coefficientwise (3×4 GP 1,12,66,148,117,12 and M=4z³+57z⁴+12z⁵).
+
+## originality
+
+PASS
+
+Previously published gp/lower-gp Cartesian complete-product results determine only extremal set sizes, not the EGF and restricted-partition corrections. Prior general-position polynomial paper treats other product families. No identical full rectangular-rook GP/maximal polynomial located in actual full-text comparisons and Resultary search; star-forest species counting is a plausible alternate prior equivalence and remains a risk.
+
+## value
+
+PASS
+
+The complete labeled star-forest polynomial and inclusion-maximal facet-count enumeration are natural combinatorial enumerators, with an unbounded gap of forbidden inclusion-maximal cardinalities. Explicit bipartite restricted partitions make this useful beyond an elementary extremal graph number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
