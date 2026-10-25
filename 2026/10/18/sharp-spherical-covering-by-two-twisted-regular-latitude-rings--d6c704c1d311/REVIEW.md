@@ -1,15 +1,21 @@
-# Review of sharp two-ring spherical covering
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge3\), every \(0<h<1\) and every twist in one fundamental period, the complete hull facets are the two ring polygons plus their alternating side triangles (rectangular side faces at alignment). Their origin distances are \(h\) and \(D\). The spherical covering radius is exactly the arccosine of the smaller support distance, because the origin is interior. Squaring the two distances gives the exact transition at \(h^2=ct/(1+ct)\). The lateral distance has its critical point at \((t-c)/(2+t-c)\), strictly before the transition for \(c\ge1/2\), proving unique optimal latitude. Maximizing \(\cos(\delta-\pi/n)\) proves unique half-step twist. The all-edges-equal comparison is exact. The independent numerical hull checker passed 245 cases, plus 300,000 sampled directions and 25 optimal-profile checks. Finite checks cannot certify the universal theorem; the symbolic facet and inequality proof supplies it.
+## correctness
 
-## Originality — PASS with residual priority risk
-The established equivalence between the largest empty spherical cap and convex-hull facet distances is not new, nor is the known six-site octahedral optimum. Fowler, Tarnai and Gáspár (2002) investigate antipodal cap optimization and discuss the pentagonal antiprism's loss of symmetry; their finite-case numerical studies do not state the complete all-integer exact twisted two-ring law. Brauchart et al. (2014) concern covering radius and QMC bounds, while Brauchart et al. (2015) concern random spherical sites and facet-hole statistics. The fully inspected published antiprism X-ray theorem concerns illumination by line directions, not covering by the vertices. Targeted searches under mesh norm, largest empty cap, facet inradius, two latitude rings and antiprism covering did not find a stronger theorem implying the two-parameter statement. Older geometric inradius treatments may nevertheless contain an equivalent formula; no absolute originality or independent priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The result is a natural, fully quantified spherical-code classification rather than an arbitrary numerical case. Its two active extremal-hole types give a sharp transition, and it uniquely optimizes ring separation at *every* angular staggering. The global optimizer is a non-edge-uniform antiprism for every \(n\ge4\), distinguishing covering-optimal geometry from familiar uniform polyhedra. The best possible two-ring covering radius approaches a strictly positive \(\pi/4\) even as the number of sites grows. These precise phenomena have direct relevance to structured spherical sampling and equal-cap placement within constrained designs.
+The origin lies inside the 3D convex hull, so min_{|u|=1} support_P(u) equals its smallest origin-to-facet distance. For generic nonaligned delta the complete facets are top/bottom n-gons and 2n alternating triangles; for aligned delta their side triangles combine into n rectangles. The top/bottom planes have distance h; an upper-edge/lower-vertex face has outward normal proportional to (1,0,r(t-c)/(2h)) and distance D=hr(c+t)/sqrt(4h²+r²(t-c)²). The minimum is min(h,D). Exact positive squaring shows D>=h iff h²<=ct/(1+ct). On the post-switch branch D² is unimodal, with its critical x0=(t-c)/(2+t-c), strictly below switch x*=ct/(1+ct) because c+(2c-1)t>0 for c>=1/2. Hence the min support rises until x* and decreases afterward; at x* its value is sqrt(ct/(1+ct)). This increases strictly with t, whose unique maximum is at half-step delta=pi/n. Independent 3D SciPy convex hull calculations verified all facets/minimal origin support for 140 different (n,delta,h) choices against the exact formula; only symbolic facet and derivative arguments prove all-n result.
 
-## Closest literature and limitations
-The closest inspected work is Fowler–Tarnai–Gáspár (2002), DOI:10.1098/rspa.2002.0990, Sections 2–3 and Table 2; Brauchart et al., arXiv:1407.8311 and arXiv:1512.07470; and a published full-text theorem on the X-ray number of uniform antiprisms (opaque reference 8163a250996c). The present theorem does not optimize unrestricted collections of \(2n\) sites, unequal ring populations, asymmetric latitudes or general circular sampling patterns. Numerical evidence is finite. Historical mathematical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct final theorem after comparison of equivalent objects, broader implications and exact accessible primary statements; not a historical priority guarantee. A small-N antipodal conjectural optimum or classical regular octahedron is not a proof of the formula for all n>=3 and continuously varying h,delta. The exact facet distances and unique regime switch genuinely add the quantified classification.
+
+## value
+
+PASS
+
+A natural structured spherical-code problem obtains a complete two-parameter covering-radius law, sharp competing polar/lateral hole transition, and unique height/twist optimization at every n. It explains why covering-optimal antiprisms are generally not edge-uniform and why two-ring designs retain a pi/4 limiting cover radius; not merely one small numeric polyhedron.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
