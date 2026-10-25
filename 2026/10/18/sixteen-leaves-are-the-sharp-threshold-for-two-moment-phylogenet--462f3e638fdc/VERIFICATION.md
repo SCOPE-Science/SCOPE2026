@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification evidence
+# Independent mathematical audit
 
-Run `python3 verify.py`, from this directory, with a standard Python 3 interpreter and no third-party dependencies. Compare its standard output with `CERTIFICATE.json`; the output uses sorted JSON keys and fixed indentation.
+## correctness
 
-The self-contained script generates all non-plane rooted full binary tree shapes through sixteen leaves by canonical root splits, constructs descendant leaf masks, and computes exact single-clade and two-clade-union histograms. It verifies one-to-one moment signatures through fifteen leaves and exactly one collision at sixteen leaves. It then enumerates all \(65536\) subsets of the two exceptional trees separately, checks equality of all first and second raw PD moments at all seventeen subset cardinalities, and verifies the exact two-leaf-sample binomial-third-moment totals \(5909\) and \(5910\). All arithmetic uses integer counts; the mathematical implication from integer signatures to complete moment curves is proved in `RESULT.md`.
+PASS
 
-A finite census proves only the finite threshold, while the unlimited-size construction has a separate combinatorial proof. Source inspection has not ruled out every possible earlier equivalent formulation, and independent external validation has not been performed.
+For each nonroot edge the indicator of being spanned by a size-k leaf sample is 1 minus its avoidance indicator. Summing and expanding pairs recovers the exact displayed first and second raw moments from clade-size counts a_s and pair-union counts b_s. Binomial coefficients in k=n-j form a triangular system with nonzero diagonal, so both moment profiles are equivalent to (a,b), with b_n set by the total edge-pair count. The independent canonical non-plane rooted-tree recursion enumerated all sizes 1..16 (10905 shapes at 16) and the independently coded bit-clade pair signatures had a single duplicate class at 16 and none below; that class is the stated nonisomorphic assortative/mixed pair. Independent two-leaf enumeration gave third binomial-moment sums 5909 and 5910, difference 1/120. Attaching a new root with an extra leaf keeps all old a,b entries and adds only universal clades, preserving collisions for n>16. Proved scope is unit-edge non-plane full binary shapes; no claim of uniqueness of larger-n collisions or weighted-tree identification. Finite exhaustive search is valid for exactly n<=16, not an infinite uniqueness proof.
+
+## originality
+
+PASS
+
+The old rarefaction theory supplies the forward expectation and variance formula; the new claim is the inverse identification cutoff from both full curves and the unique two-moment collision at 16. Existing subtree-size-multiset/OEIS data concern the one-curve a_s invariant, which mathematically does not determine b_s. Bounded semantically related searches including Resultary located no stronger published inversion theorem; this is best-of-knowledge priority with an uninspected related 2026 manuscript remaining a real risk.
+
+## value
+
+PASS
+
+Recovering rooted topology from observable uniform-rarefaction moments is a natural inverse question in phylogenetics. The sharp first failure, unique obstruction, third-moment separator and extension to every larger leaf count identify a nontrivial identifiability boundary; value is not from reproduction of old mean formulas or numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,22 +1,21 @@
-# Scientific review — phylogenetic rarefaction moment identifiability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Rooted phylogenetic diversity is the sum of inclusion indicators for exactly \(2n-2\) unit-length edges. Expanding its first two moments gives the stated histograms of descendant-clade sizes and pairwise descendant-union sizes. Triangular binomial inversion recovers every histogram entry, including the last pair count by its known total. The tree-generator recursion covers all non-plane rooted full binary shapes with no omissions, and exact signatures give zero duplicate excess through fifteen leaves and one pair among the 10,905 sixteen-leaf shapes. A separate exhaustive sample-subset implementation confirms identical means and variances at every depth for the witness, and detects the exact third-binomial-moment gap \(1/120\). Nonisomorphism and larger-size extension are proved directly. Limits: no claim for weighted trees, empirical finite-sample estimates, or collision uniqueness beyond sixteen leaves.
+PASS
 
-## Originality — PASS
+For each nonroot edge the indicator of being spanned by a size-k leaf sample is 1 minus its avoidance indicator. Summing and expanding pairs recovers the exact displayed first and second raw moments from clade-size counts a_s and pair-union counts b_s. Binomial coefficients in k=n-j form a triangular system with nonzero diagonal, so both moment profiles are equivalent to (a,b), with b_n set by the total edge-pair count. The independent canonical non-plane rooted-tree recursion enumerated all sizes 1..16 (10905 shapes at 16) and the independently coded bit-clade pair signatures had a single duplicate class at 16 and none below; that class is the stated nonisomorphic assortative/mixed pair. Independent two-leaf enumeration gave third binomial-moment sums 5909 and 5910, difference 1/120. Attaching a new root with an extra leaf keeps all old a,b entries and adds only universal clades, preserving collisions for n>16. Proved scope is unit-edge non-plane full binary shapes; no claim of uniqueness of larger-n collisions or weighted-tree identification. Finite exhaustive search is valid for exactly n<=16, not an infinite uniqueness proof.
 
-Nipperess–Matsen (arXiv:1208.6552, full accessible text) already proves the general rarefaction mean/variance formulas. Schwob (arXiv:2606.12129v1, Section 5.1, full accessible text) and OEIS A382440 already contain binary-tree subtree-size-multiset comparisons: they cover the **mean-only** fingerprint and earlier nonidentifiability, not the joint second-moment inversion and sharp sixteen-leaf collision. The closest prior result is mathematically compared, rather than treated as novel under different wording. Searches of relevant mathematical records and accessible previous findings found no implication that establishes the sixteen-leaf result. Residual risks include unpublished, obscure, or differently named paired-clade overlap invariants, so external bibliographic checking remains worthwhile; a failed database search does not by itself establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by the ecological use of full PD rarefaction expectation and variance curves as compressed biodiversity measurements. The exact lower threshold identifies when these statistics cease to distinguish phylogenetic branching shape, while the single smallest witness shows why matching the first two moments need not determine the full law. Exact restoration by one third-binomial-moment measurement and constructive ambiguity at arbitrarily large sizes explain which extra information can matter. The numerical threshold is a complete classification of a natural inverse invariant, not an arbitrarily selected small example. The scope deliberately fixes unit edge lengths and cannot directly predict performance on noisy or molecular-clock trees.
+The old rarefaction theory supplies the forward expectation and variance formula; the new claim is the inverse identification cutoff from both full curves and the unique two-moment collision at 16. Existing subtree-size-multiset/OEIS data concern the one-curve a_s invariant, which mathematically does not determine b_s. Bounded semantically related searches including Resultary located no stronger published inversion theorem; this is best-of-knowledge priority with an uninspected related 2026 manuscript remaining a real risk.
 
-## Closest literature and reproducibility
+## value
 
-- Nipperess & Matsen, 2012, arXiv:1208.6552: exact PD rarefaction moments, no proved shape-identifiability cutoff in the inspected full work.
-- Schwob, 2026, arXiv:2606.12129v1, Section 5.1: already-known subtree-size multisets, exchanges and their enumeration, no comparison of joint PD variances.
-- OEIS A382440: previously known mean-only equivalence class counts, used as an external exact cross-check.
-- See `verify.py` and `CERTIFICATE.json` for exhaustive unlabelled-tree enumeration and a separate full leaf-subset calculation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Recovering rooted topology from observable uniform-rarefaction moments is a natural inverse question in phylogenetics. The sharp first failure, unique obstruction, third-moment separator and extension to every larger leaf count identify a nontrivial identifiability boundary; value is not from reproduction of old mean formulas or numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
