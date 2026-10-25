@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Forcing ordered collections of disjoint cyclic boundary edges gives exact matching probabilities and removes noncrossing chords while preserving every remaining crossing. Counting matchings in the boundary cycle gives the coefficient, so the mixed factorial identity and complete bivariate polynomial are exact. The known crossing mean/variance and the first two factorial moments yield the covariance and precise correlation. An exponential bound on all simple-chord factorial moments justifies dominated convergence of joint Fourier–factorial transforms. Uniform matching enumeration through six chords independently verifies the exact identities; finite tests are not used as infinite proofs.
+## correctness
 
-**Originality — PASS on inspected evidence.** Paguyo's main results and full-text proofs address the crossing Gaussian limit and the simple-chord Poisson limit separately; neither marginal result entails joint independence. Acan addresses simple-chord marginal limits, and Cameron–Killpatrick and Young analyze linear rather than circular short chords. The new exact marked-crossing identity, negative finite-sample correlation, and joint independent Gaussian–Poisson limit were compared against those results and recorded mathematical searches, including published-results similarity searches. The strongest residual risk is a historical jointly marked crossing/short-chord generating function not located in the inspected sources; this review does not certify historical uniqueness.
+PASS
 
-**Value — PASS.** The theorem answers the natural joint-distribution question left unresolved by two established marginal asymptotics and gives an exact, nonzero finite-sample dependence law. The complete mixed factorial transform is useful for conditioning crossing counts on the number of local boundary chords. Its asymptotic independence is not a generic consequence of marginal convergence.
+Forced ordered disjoint boundary edges in C_{2n} number k!·(2n/(2n−k))binom(2n−k,k), occur with probability reciprocal of consecutive odd factors; they never cross remaining chords. Deletion leaves a uniform smaller cyclic matching, proving E[(S)_k f(X_n)]=a_{n,k} E[f(X_{n−k})] for all f. First mixed moments plus established crossing mean/variance give Cov(X,S)=−2n(n−1)/(3(2n−1)) and Corr=−√(5/(n+3)). E(S)_k≤2^k gives dominated expansion of mixed characteristic/PGF transforms; known crossing CLT yields independent N(0,1) and Poisson(1). Independently enumerated all labeled perfect matchings through n=6 (10,395 at n=6) and confirmed exact joint moments. Boundary n=2 and cyclic wraparound counted; finite enumeration not CLT proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Paguyo full primary work gives independent crossing Gaussian and simple-chord Poisson marginals. The all-test-functions factorial deletion transform is strictly stronger, and these marginals alone do not imply the new negative exact correlation or joint asymptotic independence. Resultary query did not identify a covering published claim; pre-Touchard–Riordan marked enumerations unexcluded. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Crossing and boundary-simple-chord statistics are canonical in random chord diagrams. An exact mixed factorial transform and independent Gaussian/Poisson joint limit supply an otherwise unavailable dependence classification, with exact finite-size negative correlation despite asymptotic independence; not just a marginal rederivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
