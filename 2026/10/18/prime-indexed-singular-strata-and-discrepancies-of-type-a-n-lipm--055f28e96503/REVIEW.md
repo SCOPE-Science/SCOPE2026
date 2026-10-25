@@ -1,14 +1,21 @@
-# Scientific review: prime-indexed strata of type-\(A_n\) Lipman toric varieties
+# Independent mathematical audit
 
-## Correctness — PASS
-The target is the saturated intersection-number semigroup \(C_n\mathbb Z^n\cap\mathbb Z_{\ge0}^n\), not a surface hypersurface. The determinant recurrence and congruence map establish the invariant-ring quotient without relying on a table. Fixed spaces for cyclic subgroup orders give the complete singular support; the absence of pseudoreflections at stabilizers is explicitly verified. The generic slice weights and dimensions follow from full residue-class multiplicity counts. Primitive toric rays and the class-group exact sequence establish the canonical index. Ambro's strictly-interior lattice formula, rather than a minimum of fractional ages alone, gives the closed-point minimal log discrepancy \(n/2\); the difference is essential when some group elements fix positive-dimensional subspaces. Terminality follows from the exact age sum. The bundled exact-arithmetic program returned `VERIFY_OK 45520` and is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with limitations
-The 2010 semigroup article proves the connection to finite quotient singularities and gives an \(A_2\) example, while the 2015 Gröbner-basis article concentrates on generators and squarefree initial ideals. Inspection of their relevant full-text portions found no all-rank formula for the prime-indexed singular irreducible components, the generic transverse \(\mu_p\) representations, the canonical index and the torus-fixed minimal log discrepancy taken together. Ambro (2006) gives a general toric minimal-log-discrepancy formula; the present arithmetic evaluation is a specialization, not a replacement of that result. Standard Chevalley–Shephard–Todd and cyclic quotient theory are essential and fully credited. The inaccessible 2007 weighted-graphs paper and uncatalogued general cyclic quotient computations remain originality risks, and independent literature verification is needed.
+PASS
 
-## Value — PASS
-The first computations of Hilbert bases for type-\(A_n\) Lipman semigroups become difficult as rank increases; the quotient congruence instead produces a uniform infinite-rank geometric classification. The singular-component count depends on the number of distinct prime factors of \(n+1\), the component dimensions detect the individual primes, while isolatedness, Gorenstein parity, terminality and the exact torus-fixed discrepancy vary by different arithmetic criteria. These are natural birational invariants and complete singularity-stratification data for the specific toric family, not a numerically chosen slice. The theorem neither claims a new general cyclic-quotient criterion nor attempts to reprove the classical root-surface singularity classification.
+The definition is the INTERSECTION-NUMBER semigroup C_n Z^n∩Z_nonnegative^n over C, not the original dimension-two Du Val singularity. The A_n Cartan determinant N=n+1 and weighted congruence phi(a)=sum i*a_i (mod N) have equal index and C_n columns in kernel, hence lattice equals kernel and X_n=A^n/mu_N weights 1..N-1. Stabilizer of order d fixes indices divisible by d, codimension N−N/d>=2; no pseudoreflections, so Chevalley–Shephard–Todd reduces singular support to prime-order fixed-image Z_p, irreducible incomparable components of dimension N/p−1. Generic stabilizer mu_p yields transverse weights j repeated N/p for j=1..p−1. Toric character-lattice class group Z/N and canonical character weight nN/2 give index 1 for even n, 2 for odd. For group element of order d the exact fractional age is (N−N/d)/2; all >=1, >1 iff n>=4. For center EXACTLY at origin, interior cocharacter lift adds N/d−1 zero residues and reaches (N+N/d)/2−1, minimized at d=N -> n/2; identity class contributes n. Independent exact calculations confirmed age/interior/terminal statements for 3<=N<=54. Distinction between closed-cone age and strict interior mld is essential.
 
-Closest literature: Şahin (2010), Kaya–Mete–Şahin (2015), Altınok–Tosun (2007, 2008), Ambro (2006), classical finite quotient smoothness. The 2007 article was accessible only through metadata and abstract, so it was not assessed as fully read. Full details, precise hypotheses and proof limits are in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A uniform explicit specialization of the known toric quotient and discrepancy criteria to type-A_n Lipman semigroup; prior semigroup invariant-ring representation and general Ambro/reid-Tai theory are fully credited. The arithmetic full singular-component profile with primes p|n+1, generic slice, canonical index and torus-fixed mld n/2 was not stated together in the materially inspected seminal semigroup and toric sources. Best-of-knowledge only: earlier weighted-graph paper and general cyclic quotient catalogues may cover these explicit calculations.
+
+## value
+
+PASS
+
+The coordinate-invariant toric family arising from all A_n root resolution graphs is natural, as are singular components, class groups, canonical index, terminality and closed-point mld. The theorem provides a uniform complete arithmetic singularity profile for every n>=2, with prime-divisor dependent component count/dimensions, generic quotient slices and exact strict-center discrepancy, instead of isolated table recomputations. It is a meaningful classification within a classical family even though general toric tools supply the abstract criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
