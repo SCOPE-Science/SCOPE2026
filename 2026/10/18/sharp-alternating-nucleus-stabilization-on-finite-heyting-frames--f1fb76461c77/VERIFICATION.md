@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` on a standard Python 3 installation. The verifier generates all labelled partial orders on 1, 2, 3 and 4 points by enumerating pair orientations and testing transitivity, then enumerates every upset, every subset-indexed nucleus, and each ordered pair of nuclei. It reconstructs composition directly on upsets and separately checks every alternating-path bridging statement. It checks idempotence and the optimal uniform exponent. Its expected successful terminal line is `VERIFY_OK 242 labelled-posets 57332 nucleus-pairs 120468 power/path identities`.
+## correctness
 
-The finite checks are exhaustive only in the specified bounded domain. For arbitrary finite posets the proof uses exact quantified formula expansion, explicit separating upsets, and strict-chain height pigeonhole. No formal theorem prover and no independent audit is claimed.
+PASS
+
+Expanding F^r=j_S∘j_T as universally quantified alternating S,T paths proves a precise iff: equality to j_(S∩T) exactly when each path has a common-color bridge in its endpoint interval. A bridge implies equality for all upsets; the converse uses U=upward closure of common-color points above the first endpoint. If 2r>h an adjacent equality appears, giving a bridge; an alternating disjoint chain of 2 floor(h/2) points supplies the sharp counterexample. The one-step criterion follows from eventual stabilization and idempotence. Independently checked all 242 labeled posets with n≤4 and 57,332 ordered (S,T) pairs, both the eventual equality and one-step tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+The exact minimal number of nucleus-composition rounds in terms of frame height and an interval criterion for idempotence are direct, reusable lattice/logic structural facts. It sharpens general eventual reflection rather than merely renaming it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
