@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:06:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<=N<2^(3m), split into three m-bit blocks x,y,w. Q divides N iff x+y+w in {0,Q,2Q,3Q}; zero excluded and 3Q gives unique all-ones triple. Complement exchanges Q and 2Q, changing weight d to 3m-d. Carry automaton for sum Q has transitions 0->0 count 3 weight1, 0->1 count1 weight3, 1->0 count1 weight0, 1->1 count3 weight2. Return paths: loops at 0 contribute m; any excursion of length L raises weight L-1, so A_m support m..2m-1, complemented support m+1..2m. Two-block analysis and k=2^m+2, 2^m+3 calculations establish least weight m+1. Trace=3z(1+z), det=8z^3 yields Cayley-Hamilton recurrence. Independent newly written enumeration and matrix multiplication agreed for all m=2..8 (87,891 total multipliers), including sharp boundaries and gap; finite test corroborative, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known sturdiness is a lower bound on nonzero multiple Hamming weight and existence of larger weights at unbounded multiples."
+        ],
+        "reasoning": "Minimum-weight and unbounded-weight theorems do not determine coefficient multiplicities at k<=2^(2m)+2^m+1; no dominating exact spectrum theorem established.",
+        "searches": [
+          "Clokie et al arXiv:2002.02731 Thm4, Thm5, Cor7",
+          "Stolarsky Acta Arith. 38 (1980) bibliography"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2002.02731",
+        "https://doi.org/10.4064/aa-38-2-117-128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A theorem ensuring s2(kQ)>=m gives no frequencies for m<d<=2m, nor finite gap (2m,3m)."
+        ],
+        "reasoning": "Present exact transfer formula is not a corollary of the stated sturdiness inequalities. Stolarsky full-text unavailable; no whole-paper noncoverage claim for it.",
+        "searches": [
+          "Clokie arXiv:2002.02731 Section 3, Theorems 4-9",
+          "Stolarsky 1980 DOI:10.4064/aa-38-2-117-128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q-divisibility of three m-bit blocks is x+y+w in {0,Q,2Q,3Q}; identified potential residue/carry formulation"
+        ],
+        "reasoning": "Finite-length cyclic block-code/three-summand formulations were compared. The inspected Mersenne sturdy formulation computes minima, not the three-block generating function.",
+        "searches": [
+          "Resultary: binary Hamming weight distribution three blocks multiples 2^m-1 carry transfer matrix Mersenne",
+          "Clokie arXiv:2002.02731 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent direct exhaustive histograms m=2..8 match transfer expression; no cited preexisting all-m table was identified."
+        ],
+        "reasoning": "Bounded histograms cannot constitute a published exact database or imply uniform m formula; examined matching numeric context without coverage.",
+        "searches": [
+          "Resultary: binary Hamming weight distribution three blocks multiples 2^m-1 carry transfer matrix Mersenne",
+          "Clokie arXiv:2002.02731 numerical examples"
+        ]
+      },
+      "rationale": "Clokie et al prove Mersenne sturdy minimum-weight bounds and arbitrary later higher-weight existence; neither entails the exact joint three-block weight enumerator, finite spectrum gap or first next-to-minimum multiplier. Stolarsky minimum-weight precedent is credited, not relabeled. Searches did not find an equivalent finite-cutoff classification; the 1980 Stolarsky full text was inaccessible, so residual historical risk persists.",
+      "residual_risks": [
+        "Stolarsky 1980 original full text inaccessible; equivalent three-block enumeration could be present.",
+        "A different additive-combinatorics/cyclic-code presentation could cover the transfer polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mersenne minimum-weight and eventual large weights covered, exact bounded three-block distribution not stated",
+          "evidence": "Section 3 distinguishes sturdy minimum from large higher weights; current proof supplies finite-window complete enumerator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.02731",
+          "material_read": "Full PDF, especially Section 3, Theorems 4-9 and Corollary 7",
+          "method": "read PDF text and rendered mathematical pages",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "Same Mersenne modulus and binary weight"
+        },
+        {
+          "assessment": "Access-limited; no claim that full paper lacks three-block result",
+          "evidence": "Cited by Elsholtz and Clokie for minimum-weight setting.",
+          "identifier_or_url": "https://doi.org/10.4064/aa-38-2-117-128",
+          "material_read": "Bibliographic record and later references only; original full text inaccessible",
+          "method": "bibliographic and secondary-source comparison",
+          "title": "Integers whose multiples have anomalous digital frequencies",
+          "trigger": "Classical binary digit frequency/minimum-weight precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Binary Hamming-weight spectra for multiples of Mersenne moduli are natural arithmetic-combinatorial invariants. An exact all-m finite-window enumerator and forbidden-weight interval provide nontrivial structure beyond known minimum weights, and a fixed 2-state recurrence enables analysis for arbitrary m.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2002.02731",
+    "https://doi.org/10.4064/aa-38-2-117-128"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Stolarsky 1980 original full text inaccessible; equivalent three-block enumeration could be present.",
+    "A different additive-combinatorics/cyclic-code presentation could cover the transfer polynomial.",
+    "Scientific assessment is best-of-knowledge, not mathematical proof certification or external attestation. Independent published-source priority cannot be guaranteed.",
+    "Publication is not_ready for package-wide provenance privacy clearance."
+  ],
+  "residual_risks": [
+    "Stolarsky 1980 original full text inaccessible; equivalent three-block enumeration could be present.",
+    "A different additive-combinatorics/cyclic-code presentation could cover the transfer polynomial."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the three-block Mersenne multiple spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is all integers \(m\ge2\). Three \(m\)-bit blocks reduce divisibility by \(2^m-1\) to four possible block sums; zero is excluded and the all-one case is treated separately. The other two sums are complementary, and a two-carry-state transfer matrix exactly enumerates one of them. Explicit carry excursions establish every attainable weight and exclude the gap. The first next-minimum multiplier follows from a complete two-block obstruction and two exact boundary calculations. Cayley–Hamilton proves the recurrence. An independent exact-arithmetic checker compares all \(87898\) multiples in the test intervals for \(m=1,\ldots,8\). Finite tests supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-Elsholtz (arXiv:1602.05974v1) treats low-weight multiples of primes and references the global minimum-weight phenomenon. Clokie et al. (arXiv:2002.02731v1), notably Theorem 4 and Section 3, address unrestricted multiple weights, minimum weights and decision algorithms, not the uniformly parameterized three-block polynomial or sharp finite-window gap. Searches on equivalent three-block carry enumeration and Mersenne Hamming-weight spectra in published-result records did not identify a covering claim. Stolarsky (1980) is a relevant inaccessible original and remains an explicit residual risk, not assumed absent or read. The published-source comparison does not amount to independent validation or an absolute novelty guarantee.
+PASS
 
-## Value — PASS
-The shortest nontrivial three-block window of multiples of \(2^m-1\) has a non-obvious **complete** weight spectrum with a long forbidden terminal interval, an explicit all-degree enumerator, exact boundary multiplicities, and the first occurrence of the next-to-minimal weight. This connects a classical digit-sparsity extremal problem to an explicit two-state carry combinatorics and is substantially stronger than recomputing minima or running a finite table.
+For 0<=N<2^(3m), split into three m-bit blocks x,y,w. Q divides N iff x+y+w in {0,Q,2Q,3Q}; zero excluded and 3Q gives unique all-ones triple. Complement exchanges Q and 2Q, changing weight d to 3m-d. Carry automaton for sum Q has transitions 0->0 count 3 weight1, 0->1 count1 weight3, 1->0 count1 weight0, 1->1 count3 weight2. Return paths: loops at 0 contribute m; any excursion of length L raises weight L-1, so A_m support m..2m-1, complemented support m+1..2m. Two-block analysis and k=2^m+2, 2^m+3 calculations establish least weight m+1. Trace=3z(1+z), det=8z^3 yields Cayley-Hamilton recurrence. Independent newly written enumeration and matrix multiplication agreed for all m=2..8 (87,891 total multipliers), including sharp boundaries and gap; finite test corroborative, not proof.
 
-## Scope and remaining risks
-The restriction \(m\ge2\) prevents overlap of the boundary-coefficient formulas at the degenerate length. The exclusion interval is a finite-cutoff statement. The full 1980 Stolarsky paper was not accessible, and obscurer equivalent formulations may exist. An independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Clokie et al prove Mersenne sturdy minimum-weight bounds and arbitrary later higher-weight existence; neither entails the exact joint three-block weight enumerator, finite spectrum gap or first next-to-minimum multiplier. Stolarsky minimum-weight precedent is credited, not relabeled. Searches did not find an equivalent finite-cutoff classification; the 1980 Stolarsky full text was inaccessible, so residual historical risk persists.
+
+## value
+
+PASS
+
+Binary Hamming-weight spectra for multiples of Mersenne moduli are natural arithmetic-combinatorial invariants. An exact all-m finite-window enumerator and forbidden-weight interval provide nontrivial structure beyond known minimum weights, and a fixed 2-state recurrence enables analysis for arbitrary m.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
