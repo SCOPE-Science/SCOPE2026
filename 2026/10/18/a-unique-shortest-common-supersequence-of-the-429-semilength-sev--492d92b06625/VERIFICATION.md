@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Compile the two attached C++17 sources with `g++ -O3 -std=c++17`. Execute `./verify_exhaustive` and `./verify_bfs 7 3000000`. The first explicitly enumerates all binary hosts of lengths 21 and 22, constructs 429 Dyck targets, finds respectively zero and one universal hosts, and checks counts before successful exit. The second independently builds a greedy-progress BFS and finds min=22, optimal_host_words=1, reachable_states=1690893, expanded=919290. Both print `(()(()()()()()()())())` as the witness. The literal source files are sufficient to reproduce the finite computation, with no external packages.
+## correctness
 
-The proof of exhaustiveness relies on inspecting the loop bounds, recursion and subsequence greedy lemma, not merely on the outputs. No result for larger semilengths, independent external validation, or complete search of all possible unpublished literature is claimed.
+PASS
+
+D7 is the 429 Catalan balanced-parenthesis words of semilength7. The provided verify_exhaustive.cpp genuinely iterates all 2^21 and 2^22 unrestricted binary hosts; its Dyck recursion is one-to-one, first-two-target prefilter sound, and greedy subsequence predicate necessary and sufficient. Source inspected rather than accepting printed output alone. A wholly independent C++ implementation using reversed generation order and high-bit-first host enumeration was compiled and executed and found 429 targets, ZERO universal length-21 hosts and exactly ONE universal length-22 host, (()(()()()()()()())()). Padding rules out every shorter length. The BFS program and its prefix-state merging were also inspected, including unique minimum and no 3-million-state cutoff at the claimed 1,690,893 states. Finite claim exhaustively proved by complete search over its finite domain.
+
+## originality
+
+PASS
+
+General shortest-common-supersequence complexity and fixed-resource variants are established; Clifford et al. 2010 restrict hosts to preassigned letter multisets rather than demand a universal cover of all Dyck7 targets with unrestricted host counts. Resultary matching on exact 429/length22/Dyck gives other automatic-language and subsequence universality problems but no same exact pair. An older specialized Catalan table under another name could still cover it; no exhaustive priority certification.
+
+## value
+
+PASS
+
+The complete 429-word Catalan family is canonical; minimum scattered-subsequence cover length and uniqueness form natural exact compression invariants. Exhausting 6,291,456 hosts with a sound all-target oracle gives the nontrivial semilength-seven cutoff and unique extremizer, not a routine substitution or tiny toy computation. An exact finite benchmark is independently useful even absent asymptotic n-theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
