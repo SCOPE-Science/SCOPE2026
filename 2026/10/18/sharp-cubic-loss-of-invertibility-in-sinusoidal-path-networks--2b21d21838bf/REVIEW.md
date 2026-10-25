@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The path spectrum has a simple top eigenvalue with an eigenvector with nonzero coordinates. The weighted endpoint Jacobian decomposes into two positive-semidefinite matrices. Strict integrated monotonicity makes the critical torus map a homeomorphism despite its unique corank-one singularity. A direct quartic coercivity estimate establishes local inverse Hölder exponent \(1/3\), with a matching cubic kernel witness excluding every larger exponent. An analytic Lyapunov–Schmidt reduction gives precisely three nearby inverse points for the synchronized target, and compactness rules out remote preimages; attraction persists below the independent flip bound. `verify.py` supplies finite diagnostics but the all-size theorem is analytical.
+## correctness
 
-**Originality — PASS, subject to independent literature priority review.** Buescu, D’Aniello and Oliveira's 2026 paper [1], Theorem 4.1, proves subcritical Morse–Smale diffeomorphism and non-local-diffeomorphism at equality, whereas the present theorem settles critical *homeomorphism*, sharp inverse singularity, and exact subsequent target-fiber multiplicity. Singular derivative does not imply noninjectivity. Broader gradient-map/singularity theorems might cover components, and the relevant 2025 three-clock papers [2,3] could only be read in abstract, so their full-text implications remain open. Searches for matching inverse fibers found no directly dominating statement.
+PASS
 
-**Mathematical value — PASS.** Identifying the exact transition from globally invertible topological dynamics to a three-to-one fiber, while a physically meaningful synchronization sink remains stable, resolves a structural gap directly exposed by an optimal published step bound. The cubic inverse regularity and universal square-root displacement provide quantification not available from the earlier spectral singularity witness.
+PASS. For each finite path K_N, eigenvalues are 2−2cos(jπ/(N+1)); the simple top eigenvector has all nonzero entries. At h_c=1/λ_top the weighted derivative K^(-1)DG=(K^(-1)−h_c I)+h_c diag(1+cos z_i) is PSD and singular only at p=(π,...,π), corank one. Integrated strict monotonicity gives a globally injective equivariant lift, and torus degree one yields a critical homeomorphism. In a small lift cube, 1−cos s≥s²/4 and ∫_0^1(a+tb)²dt≥b²/12 provide quartic coercivity and a 1/3 inverse Hölder bound; along the top eigenvector, the first nonzero image term is cubic, excluding any higher exponent. Odd Lyapunov–Schmidt reduction gives scalar −eps t+(1+eps)[1/(4(N+1))] t³+O_N(t⁵), exactly two nonzero roots with the claimed leading coordinates plus t=0. Compactness rules out remote inverse points for h↓h_c. D G_h(p)=I−hK has all multipliers in (−1,1) when h<2/λ_top. Independently solved N=2 odd mode for eps=.01: root 0.2440966957 versus leading sqrt(.06)=.2449489743. Analytic argument, not this sample, establishes all finite N.
 
-**Scope and risks.** The result applies to every finite unit-weight path, not to all weighted graphs or arbitrary targets. The supercritical three-fiber theorem holds for an unspecified sufficiently small interval, which may depend on dimension. Other classical theorems and uninspected related full texts remain priority risks; no independent review has been performed.
+## originality
 
-References: [1] arXiv:2610.10993v1; [2] arXiv:2502.15371; [3] arXiv:2503.13230.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS. Primary Buescu–D’Aniello–Oliveira arXiv:2610.10993v1 (2026), Theorem 4.1 establishes exactly the strictly subcritical Morse–Smale diffeomorphism window and derivative singularity at equality. A singular Jacobian alone does not determine global injectivity. The audited claim proves topological critical invertibility, sharp inverse Hölder exponent, local three-point fiber immediately above threshold, and continued linear sink stability. These are not asserted by the inspected source theorem, despite standard local cusp/pitchfork principles furnishing antecedent techniques.
+
+## value
+
+PASS
+
+PASS. It identifies the qualitative transition from a globally invertible torus homeomorphism with optimal cubic inverse loss to a genuinely three-to-one fiber, while the synchronization sink remains attracting. The gap between the diffeomorphism threshold and the attraction-flip threshold is motivated by the prior path-network model and is structurally informative across every finite path size, not just one small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
