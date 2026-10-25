@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:48:58Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Recomputed the 3×3 mass-weighted matrices and eigenspectral projectors for five independently selected mass/coupling examples, and symbolically differentiated the R=3 cubic to check 64/81. Inspected the source check_p3.py but did not treat its asserted 2,100 randomized outcomes as our own independent execution. Kronecker density supplies the general irrational assertion.",
+      "rationale": "The mass-normalized Jacobi Laplacian H has eigenvalues 0 and λ±=(S±sqrt(S²−4P))/2, distinct and positive for strictly positive masses/couplings. Spectral projector entries c0,c−,c+ follow from H_31=0 and (H²)_31=B, with c−<0<c0,c+. Their cosine combination A(t) attains absolute envelope C=2|c−| only at cos(ω−t)=−1, cos(ω+t)=1; the alternative negative extreme is strictly smaller since c0>0. Orthogonal eigenvector equality gives C≤1 with C=1 exactly for equal endpoint masses and couplings. Irrational frequency ratio R gives a nonattained supremum C² by torus density; rational coprime R=p/q parameterizes one periodic Chebyshev polynomial c0+c−T_q(x)+c+T_p(x), with equality to C only for p even, q odd. The prescribed critical points/endpoints give an exact compact maximization. In particular symmetric masses 24,6,24 with equal couplings yield R=3, amplitude 4/9−2x/3+2x³/9, max square 64/81.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weak-bridge paper gives the continuous limiting mass-weighted wave model and representative dynamics, not the asserted full all-real-parameter optimization.",
+          "Vaia’s alternating spectral parity implies the known symmetric exact-transfer subcase but not the generic asymmetric ceiling."
+        ],
+        "reasoning": "Published general results cover model reduction and constructed/symmetric perfect transfer; the comparison does not identify a theorem asserting best possible squared endpoint entry for all positive five parameters and all resonance classes.",
+        "searches": [
+          "Hosaka–Segawa weak-bridge wave reduction arXiv:2610.07768v1",
+          "Vaia 2020 all possible perfect Newton’s cradles",
+          "Schérer–Vinet–Zhedanov arXiv:2110.01042"
+        ]
+      },
+      "checked_sources": [
+        "Frozen seven-file Git tree 8cb6384ab5745a12fd40176d75ac729b60e191d8 at commit fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c; RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json and check_p3.py inspected",
+        "Resultary semantic query (five topic-specific searches) and primary literature sources as individually recorded in four originality checks and source_inspections",
+        "Independent separate arithmetic/finite checks described in axes.correctness.independent_verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduction identifies H and the propagator and is explicitly credited as prior.",
+          "The two-number parity for perfect symmetric transfer is already known; this audit does not claim its novelty."
+        ],
+        "reasoning": "The claimed additional implication is quantitative optimal amplitude under arbitrary asymmetry, including ceiling C<1, and exact rational resonance suppression. Basic matrix diagonalization/torus density are classical tools, not proprietary novelty.",
+        "searches": [
+          "Hosaka–Segawa arXiv:2610.07768 wave-reduction equations 4.12–4.13",
+          "Vaia arXiv:2008.01685 perfect mass-spring transfer",
+          "Classical Jacobi spectral projector and Kronecker theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly optimizes cos(t sqrt H), not the unitary e^(−itH); spectral-transfer theorems for the latter need additional implication analysis.",
+          "Vaia handles mirror-symmetric exact perfect transfer, a strictly narrower equal-parameter and exact-attainment subproblem."
+        ],
+        "reasoning": "The lower-dimensional wave chain is a physical model in prior work, but neither its derivation nor mirror-symmetric perfect transmission specifies asymmetric ceiling C² and the strict rational finite-polynomial optimum.",
+        "searches": [
+          "Resultary: three mass spring chain exact endpoint transfer cosine propagator irrational frequency ratio rational parity asymmetry supremum",
+          "Hosaka–Segawa arXiv:2610.07768",
+          "Vaia arXiv:2008.01685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked analogs include parity anomaly for spectral density in tightly connected ring chains, a distinct spectral statistic rather than wave endpoint transfer.",
+          "The exact cubic gap 64/81 is derived directly, not taken from a known transfer table."
+        ],
+        "reasoning": "No database/table with universal c± and p/q Chebyshev maxima was identified, and a finite table would not cover all real masses and couplings.",
+        "searches": [
+          "Resultary: weighted Jacobi three site endpoint wave transfer rational Chebyshev strict resonance numerical tables",
+          "Vaia 2020 resonance parity"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.",
+      "residual_risks": [
+        "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+        "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+        "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+        "Fixed rescaled-time weak-bridge reduction cannot be extrapolated uniformly to unbounded time for any fixed finite-weight quantum walk.",
+        "Broader all-parameter Jacobi three-mode transfer bounds may implicitly contain this corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_REDUCTION; NO_EQUAL_ALL_PARAMETER_MAXIMIZATION_IDENTIFIED",
+          "evidence": [
+            "Defines weighted continuous wave propagator in small-bridge limit; no full arbitrary-positive-mass/coupling Chebyshev optimum found in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07768",
+          "material_read": "Accessible rendered full-text manuscript, including model definitions, weak-bridge reduction and 3-component illustrative formulas, sections 3–4",
+          "method": "arXiv HTML full text and in-page equation comparisons",
+          "title": "Pulsation of quantum walk on finite graph",
+          "trigger": "Identical weak-bridge reduced weighted wave H and physically motivated endpoint observable"
+        },
+        {
+          "assessment": "PRIOR_SYMMETRIC_PERFECT_TRANSFER; FULL_READ_LIMITED",
+          "evidence": [
+            "Mirror symmetry and alternating spectral parity for perfect transfer predate the claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.01685",
+          "material_read": "Accessible abstract, cited parity/symmetry statements, and frozen-source prior comparison; complete original body not re-read this turn",
+          "method": "public arXiv catalog and related evidence",
+          "title": "Dispersionless pulse transport in mass-spring chains: All possible perfect Newton’s cradles",
+          "trigger": "Direct prior on exact perfect endpoint transmission in mass-spring chains"
+        },
+        {
+          "assessment": "PRIOR_CONSTRUCTED_FAMILIES; MATERIAL_LIMITED",
+          "evidence": [
+            "Not evidence of all-positive-parameter asymmetric sharp cosine envelope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.01042",
+          "material_read": "Abstract and frozen-source mathematical scope comparison only",
+          "method": "public bibliographic source",
+          "title": "A classical model for perfect transfer and fractional revival based on q-Racah polynomials",
+          "trigger": "Alternative full-chain perfect/fractional revival constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the physically derived three-site mass-weighted wave system, the best achievable endpoint fidelity is an intrinsic design invariant. An explicit all-parameter ceiling quantifies unavoidable losses from asymmetric mass/coupling; rational spectral locking either attains or strictly suppresses it, with a finite exact polynomial recipe and a concrete gap 17/81. The result provides a meaningful classification beyond known yes/no symmetric perfect transfer; it does not overclaim fixed-coupling discrete Grover transfer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen seven-file Git tree 8cb6384ab5745a12fd40176d75ac729b60e191d8 at commit fcd2de246ab57b2f9da6d01c0ec7868ef9e9580c; RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json and check_p3.py inspected",
+    "Resultary semantic query (five topic-specific searches) and primary literature sources as individually recorded in four originality checks and source_inspections",
+    "Independent separate arithmetic/finite checks described in axes.correctness.independent_verification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+    "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+    "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+    "Fixed rescaled-time weak-bridge reduction cannot be extrapolated uniformly to unbounded time for any fixed finite-weight quantum walk.",
+    "Broader all-parameter Jacobi three-mode transfer bounds may implicitly contain this corollary."
+  ],
+  "residual_risks": [
+    "No exhaustive global publication-priority guarantee: hidden equivalent terminology, nonindexed papers or stronger theorems are possible.",
+    "Numerical bounded checks do not establish infinite parameter ranges; the reconstructed proof and stated hypotheses carry unrestricted claims.",
+    "All public candidate packages contain confidential operational metadata in METADATA.json and AUDIT.json; no guarded complete privacy sanitization verified.",
+    "Fixed rescaled-time weak-bridge reduction cannot be extrapolated uniformly to unbounded time for any fixed finite-weight quantum walk.",
+    "Broader all-parameter Jacobi three-mode transfer bounds may implicitly contain this corollary."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two nonzero eigenvalues, the three endpoint spectral-projector entries and the entire cosine propagator are derived from the explicit weighted Jacobi matrix. The projector product inequality gives the universal sharp ceiling. Kronecker's torus theorem and reduced-integer parity prove attainment versus nonattainment, and Chebyshev polynomial compact optimization handles every rational ratio. Equality \(C=1\) is derived from the equality case of Cauchy–Schwarz and the eigenvector equations. A direct independent-matrix Python checker passed 2,100 randomized comparisons, nine rational exact global maxima, and explicit perfect, obstructed and irrational-limit examples. The proof, not those finite checks, establishes the infinite-parameter statement.
+PASS
 
-## Originality — PASS, with residual risk
+The mass-normalized Jacobi Laplacian H has eigenvalues 0 and λ±=(S±sqrt(S²−4P))/2, distinct and positive for strictly positive masses/couplings. Spectral projector entries c0,c−,c+ follow from H_31=0 and (H²)_31=B, with c−<0<c0,c+. Their cosine combination A(t) attains absolute envelope C=2|c−| only at cos(ω−t)=−1, cos(ω+t)=1; the alternative negative extreme is strictly smaller since c0>0. Orthogonal eigenvector equality gives C≤1 with C=1 exactly for equal endpoint masses and couplings. Irrational frequency ratio R gives a nonattained supremum C² by torus density; rational coprime R=p/q parameterizes one periodic Chebyshev polynomial c0+c−T_q(x)+c+T_p(x), with equality to C only for p even, q odd. The prescribed critical points/endpoints give an exact compact maximization. In particular symmetric masses 24,6,24 with equal couplings yield R=3, amplitude 4/9−2x/3+2x³/9, max square 64/81.
 
-The sharp **all-parameter optimal fidelity law** for arbitrary asymmetric three-vertex mass-weighted wave systems and the exact strict parity-obstruction calculation were not located in the primary literature examined. The 2026 weak-edge reduction itself is prior; Vaia (arXiv:2008.01685) already covers the mirror-symmetric perfect-transfer parity condition, and Schérer–Vinet–Zhedanov (arXiv:2110.01042) provide additional exact perfect-transfer chain constructions. These are not claimed anew. No inspected statement provides the full asymmetric sharp envelope plus all-rational Chebyshev maximum. Remaining risk: general almost-periodic transfer theory and elementary three-mode Jacobi spectral bounds may implicitly imply this result without using its explicit formulation, and some secondary literature may be unlocated.
+## originality
 
-## Value — PASS
+PASS
 
-The physical weak-edge reduction makes the full three-component optimization a motivated model-design problem. The result quantifies how asymmetry prevents arbitrarily accurate transfer, including an exact ceiling depending on the full physical parameters. It also distinguishes rational phase locking that realizes that ceiling from rational phase locking that permanently suppresses it, and supplies an implementable finite polynomial optimum in the latter regime. The exact gap \(1-64/81=17/81\) for a realizable integer-arc-count model shows a nontrivial operational obstruction absent from the known perfect-transfer design statements. No general quantum-walk uniform-in-coupling transfer claim is inferred.
+Best-of-knowledge originality after comparing the actual final theorem and mathematical implications against retrieved primary literature and relevant published SCOPE/Resultary findings. No identified prior statement supplies all claimed conclusions, while named prior model/technique/subcase results are explicitly credited. This is not exhaustive historical novelty proof.
 
-## Closest sources and risks
+## value
 
-Hosaka–Segawa (2026, arXiv:2610.07768v1): finite-time weak-bridge wave reduction and representative illustrations, not all-parameter endpoint response maximization. Vaia (2020, arXiv:2008.01685): all perfectly transmitting mirror-symmetric mass-spring chain design, including spectral parity; that known subcase is excluded from the originality assertion. Schérer–Vinet–Zhedanov (2021, arXiv:2110.01042): exact constructed perfect and fractional revivals, not arbitrary asymmetric sharp envelope. Fundamental limits are the fixed-rescaled-time small-coupling setting, lack of error control at arbitrarily long times for finite coupling, and possible implicit stronger general spectral theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the physically derived three-site mass-weighted wave system, the best achievable endpoint fidelity is an intrinsic design invariant. An explicit all-parameter ceiling quantifies unavoidable losses from asymmetric mass/coupling; rational spectral locking either attains or strictly suppresses it, with a finite exact polynomial recipe and a concrete gap 17/81. The result provides a meaningful classification beyond known yes/no symmetric perfect transfer; it does not overclaim fixed-coupling discrete Grover transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
