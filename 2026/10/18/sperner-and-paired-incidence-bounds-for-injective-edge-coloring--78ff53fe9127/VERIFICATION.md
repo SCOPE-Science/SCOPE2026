@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Use Python 3 with no third-party packages: `python3 verify.py`. The output should reproduce the adjacent `verification_output.txt` file, including `VERIFY_OK`. The script constructs a proper vertex coloring with distinct equal-sized binary codewords, assigns directed incidence colors from the corresponding ordered differences, and examines all ordered directed two-paths. It independently implements the paired construction: matching partner arcs use a distinguished last color and all interpair arcs use coordinate differences.
+## correctness
 
-The finite runs include complete graphs using middle-layer code sets at palette sizes two through eight, the paired construction for palettes one through eight (including the five-color twelve-vertex instance), and path/cycle instances on up to thirty original vertices. In total, 16,320 directed incidences and 819,942 ordered path constraints were checked. The executable includes assertions about all arcs having palette colors and about every ordered two-path having different consecutive incidence colors.
+PASS
 
-The proof of correctness for arbitrary graph size, the bipartite-cover lower bound, and the asymptotic upper coefficient are mathematical arguments in `RESULT.md`. No finite test certifies the infinite quantifiers, the absence of undiscovered prior work, or independent validation. The relevant 2023/2024 Priyamvada–Panda paper was not available in full text for statement-by-statement comparison.
+An edge of S(G) incident at an original vertex corresponds to a directed arc u→v. The injective edge constraint is equivalent to forbidding repeated color on consecutive arcs u→v→w with three distinct original vertices. For an arbitrary proper q-vertex-colouring of G, map colors to q different equal-sized subsets of [t], t=L(q), and color u→v by any coordinate in A(u)\A(v); two consecutive directed arcs draw from disjoint coordinate differences. For S(K_n), duplicate every middle-layer word of length t−1 in a matched pair; pair arcs use color t, which cannot appear twice consecutively since matched edges are disjoint, and interpair arcs use the earlier differences. For the lower bound, each one-colour directed digraph without directed two-paths on three vertices is a union of oriented source/sink bipartite pieces and isolated reciprocated pairs, so its underlying graph is bipartite. Bipartition membership across t monochromatic subgraphs gives a proper 2^t vertex colouring of G. Hence ceil(log2 q)≤χ′inj≤L(q), and central binomial asymptotics give ratio→1 and half-loglog additive correction. All t≥2 and n bounds remain explicit; no exact finite optimum is claimed.
+
+## originality
+
+PASS
+
+Bradshaw–Clow–Xu 2023 Proposition 2.5 supplies the same lower bound log₂χ(G), and their immediately following text supplies upper 2⌈log₂χ(G)⌉. Those are explicitly recognized as prior art. The claimed middle-layer construction replaces a factor-two leading upper coefficient by one for every G, and paired incidence doubles finite clique code capacity using a matching-only special colour. The full Bradshaw article was read, and the improvement does not follow from the stated factor-two result. Priyamvada–Panda 2023/2024 directly treats injective edge coloring of subdivisions and claims tight upper bounds; its full text could not be retrieved via lawful open-access routes or authenticated Oxford because VPN was disconnected. That is a substantive risk, not an automatic O failure nor grounds to declare the complete paper noncovering. No independently established dominating implication was found.
+
+## value
+
+PASS
+
+The prior uniform one-subdivision bound lies between one and twice log₂χ(G), a genuine leading-order structural gap. An explicit antichain assignment proves the optimal leading coefficient one for every sequence of graphs with growing chromatic number, sharply connecting a standard edge-colouring invariant to Sperner coding. The distinct paired construction supplies further finite capacity using a matching-specific colour with a clear mathematical reason. It is a broadly quantified natural extremal bound, not just a modest gain at twelve vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:54:05.046395Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md SHA 02377ac81d413e888adf5b30af1e758673cbef08; actual verify.py SHA 55b80bbdb7713d810b7a1c1b698b72d4b8c1597e; auxiliary output blob 5701c97cde586d9a707557e67e00b1cb412da854.",
+        "Independently generated paired K4/K6/K12/K20 one-subdivision color patterns for t=3,4,5,6 and directly compared 8,304 ordered 2-arc paths; no forbidden monochromatic path.",
+        "Source root Git SHA-1 cbb67323cf6758ad66ac3487e40ac2de497e2bcd independently reconstructed from all entry modes and hashes."
+      ],
+      "rationale": "An edge of S(G) incident at an original vertex corresponds to a directed arc u→v. The injective edge constraint is equivalent to forbidding repeated color on consecutive arcs u→v→w with three distinct original vertices. For an arbitrary proper q-vertex-colouring of G, map colors to q different equal-sized subsets of [t], t=L(q), and color u→v by any coordinate in A(u)\\A(v); two consecutive directed arcs draw from disjoint coordinate differences. For S(K_n), duplicate every middle-layer word of length t−1 in a matched pair; pair arcs use color t, which cannot appear twice consecutively since matched edges are disjoint, and interpair arcs use the earlier differences. For the lower bound, each one-colour directed digraph without directed two-paths on three vertices is a union of oriented source/sink bipartite pieces and isolated reciprocated pairs, so its underlying graph is bipartite. Bipartition membership across t monochromatic subgraphs gives a proper 2^t vertex colouring of G. Hence ceil(log2 q)≤χ′inj≤L(q), and central binomial asymptotics give ratio→1 and half-loglog additive correction. All t≥2 and n bounds remain explicit; no exact finite optimum is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bradshaw–Clow–Xu Proposition 2.5 and following remark yield log₂χ(G) lower and 2⌈log₂χ(G)⌉ upper on the exact subdivision class.",
+          "Priyamvada–Panda publication abstract claims tight injective edge-coloring bounds for standard operations including subdivision, with no full theorem accessible."
+        ],
+        "reasoning": "A result uniformly giving the central-binomial L(q) or stronger would dominate this claim; no accessible full stronger theorem was identified. The inaccessible subdivision study is the leading unresolved source inspection risk and was not declared noncovering.",
+        "searches": [
+          "Resultary semantic: injective edge colouring 1-subdivision chromatic number asymptotic log 2 Sperner antichain paired incidence",
+          "Resultary semantic: injective edge coloring subdivided graph chromatic number asymptotic Sperner middle layer",
+          "web: injective edge coloring subdivision chromatic number asymptotic Sperner codes",
+          "arXiv:2308.15654v1",
+          "doi:10.1142/S1793830923500416"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.15654v1",
+        "arXiv:1803.02152v1",
+        "doi:10.1142/S1793830923500416",
+        "arXiv:1907.09838",
+        "Resultary two search variants",
+        "independent paired directed-path verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published prior bound leaves factor 2 in the leading log₂χ(G) term; Sperner antichain code construction shows an all-graph upper coefficient 1.",
+          "The lower and middle-layer upper force χ′inj(S(G))/log₂χ(G)→1 for any q→∞, a conclusion not implied by bounds between 1 and 2."
+        ],
+        "reasoning": "The strict asymptotic gap closure requires a new upper construction, not merely an improved constant in a finite example. However, an inaccessible prior exact subdivision upper theorem might subsume it; absent that comparison, the conclusion is qualified best-of-knowledge.",
+        "searches": [
+          "Resultary semantic: injective edge colouring 1-subdivision chromatic number asymptotic log 2 Sperner antichain paired incidence",
+          "Resultary semantic: injective edge coloring subdivided graph chromatic number asymptotic Sperner middle layer",
+          "web: injective edge coloring subdivision chromatic number asymptotic Sperner codes",
+          "arXiv:2308.15654v1",
+          "doi:10.1142/S1793830923500416"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Injective edge colour classes on one-subdivisions are induced star forests; via directed incidence they are arc classes containing no monochromatic length-two directed path with distinct endpoints.",
+          "The upper bound is an incomparability-antichain set assignment, and the clique refinement duplicates subsets with a matching-only special colour."
+        ],
+        "reasoning": "Compared induced star arboricity, oriented chromatic number, set antichains/Sperner codes and binary bipartite covers. These are plausible aliases for the same parameter; the published source inspected does not present the middle-layer capacity or paired refinement.",
+        "searches": [
+          "Resultary semantic: injective edge colouring 1-subdivision chromatic number asymptotic log 2 Sperner antichain paired incidence",
+          "Resultary semantic: injective edge coloring subdivided graph chromatic number asymptotic Sperner middle layer",
+          "web: injective edge coloring subdivision chromatic number asymptotic Sperner codes",
+          "arXiv:2308.15654v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit paired bound t=5, n=12 exceeds middle-layer t=5 ordinary capacity 10 and is checked by every ordered 2-path on K12.",
+          "Known induced star arboricity and graph-product bounds are not explicit all-parameter exact indices for S(K_n); source itself claims only upper bounds."
+        ],
+        "reasoning": "The t=5 example is a witness to a principled matching-code improvement, not an exhaustive optimum or novel exact finite index. No tabulated stronger values were verified in the inaccessible plausible article.",
+        "searches": [
+          "Resultary semantic: injective edge colouring 1-subdivision chromatic number asymptotic log 2 Sperner antichain paired incidence",
+          "Resultary semantic: injective edge coloring subdivided graph chromatic number asymptotic Sperner middle layer",
+          "web: injective edge coloring subdivision chromatic number asymptotic Sperner codes",
+          "arXiv:1803.02152v1"
+        ]
+      },
+      "rationale": "Bradshaw–Clow–Xu 2023 Proposition 2.5 supplies the same lower bound log₂χ(G), and their immediately following text supplies upper 2⌈log₂χ(G)⌉. Those are explicitly recognized as prior art. The claimed middle-layer construction replaces a factor-two leading upper coefficient by one for every G, and paired incidence doubles finite clique code capacity using a matching-only special colour. The full Bradshaw article was read, and the improvement does not follow from the stated factor-two result. Priyamvada–Panda 2023/2024 directly treats injective edge coloring of subdivisions and claims tight upper bounds; its full text could not be retrieved via lawful open-access routes or authenticated Oxford because VPN was disconnected. That is a substantive risk, not an automatic O failure nor grounds to declare the complete paper noncovering. No independently established dominating implication was found.",
+      "residual_risks": [
+        "Prior Priyamvada–Panda paper explicitly includes subdivision injective edge color bounds; full statement-level comparison blocked by Oxford VPN and lawful OA unavailability.",
+        "General class covering results in induced star arboricity might yield the same middle-layer construction indirectly; searched indexed records did not provide the implication.",
+        "No exact χ′inj(S(K_n)) claimed at finite parameters; paired t=5 example is an upper bound only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Known log₂ q lower and factor-two upper, not central binomial upper or paired matching refinement.",
+          "identifier_or_url": "https://arxiv.org/html/2308.15654v1",
+          "material_read": "Full arXiv HTML, relevant preliminaries, induced star arboricity interpretation, Proposition 2.5 and immediate upper-bound remark, proof",
+          "method": "Read publication HTML including lines 168–178 and source proof; compared leading coefficient",
+          "title": "Injective Edge Colorings of Degenerate Graphs and the Oriented Chromatic Number",
+          "trigger": "Direct identical one-subdivision inequality"
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_SPECIFIC_BOUNDS",
+          "evidence": "The paper introduces induced-star-forest covering vocabulary and broad structural inequalities, but the inspected text does not state the t=L(q) or paired-clique construction bounds for one-subdivisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02152",
+          "material_read": "Accessible 13-page arXiv PDF, including the definitions of induced and weak induced star arboricities and their covering inequalities on page 2",
+          "method": "Read text extraction and visually inspected page 2; compared general covering invariants to the exact one-subdivision transfer bound",
+          "title": "Induced and Weak Induced Arboricities",
+          "trigger": "Equivalent star-forest covering invariant"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_STRONG_COVERAGE",
+          "evidence": "May already provide identical or dominating theorem, so no whole-document noncoverage claim; residual originality risk explicit.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793830923500416",
+          "material_read": "Publisher-linked bibliographic abstract identifying subdivision and tight bounds; full text inaccessible despite OA attempts",
+          "method": "Oxford authorized oxford_paper attempted after OA; vpn_disconnected job 1be6ea15ab681110d24f4df5df7d567e; no bypass",
+          "title": "Injective Edge Coloring of Some Standard Graph Products",
+          "trigger": "Highly relevant explicit subdivision operations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prior uniform one-subdivision bound lies between one and twice log₂χ(G), a genuine leading-order structural gap. An explicit antichain assignment proves the optimal leading coefficient one for every sequence of graphs with growing chromatic number, sharply connecting a standard edge-colouring invariant to Sperner coding. The distinct paired construction supplies further finite capacity using a matching-specific colour with a clear mathematical reason. It is a broadly quantified natural extremal bound, not just a modest gain at twelve vertices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exact finite chromatic index beyond stated lower/upper and paired upper bounds.",
+    "The full 2023/24 Priyamvada–Panda subdivision paper was not read; strong originality risk is retained.",
+    "No independent Lean or human expert certification.",
+    "Finite independent tests and source self-checks supplement rather than establish infinite quantified mathematical statements.",
+    "Originality is assessed by real source statement comparisons and retained uncertainty; an unsuccessful search is not a proof of novelty.",
+    "No Lean proof, human expert attestation, external certification or claim of scientific independence of tools.",
+    "A scientific PASS is separate from public transport permission; material privacy blocker forces not_ready."
+  ],
+  "schema_version": 1
+}

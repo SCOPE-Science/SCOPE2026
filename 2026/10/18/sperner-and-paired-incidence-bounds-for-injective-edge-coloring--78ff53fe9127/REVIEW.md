@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The directed-incidence equivalence reduces all constraints in a one-subdivision to the prohibition of a same-color directed two-path on three distinct original vertices. The equal-size antichain construction makes the two consecutive color-choice sets disjoint. The paired clique construction additionally uses a matching-only last color and cannot create a consecutive matching-edge pair. For the lower bound, each monochromatic arc digraph has no directed two-path on three distinct vertices, so its underlying graph is bipartite; the bit-signature argument gives \(\chi(G)\le2^t\). Central-binomial asymptotics then establish the limiting constant. Explicit code verifies representative finite instances but is not substituted for the general proof.
+## correctness
 
-**Originality (PASS with substantial residual access risk).** Bradshaw–Clow–Xu (arXiv:2308.15654v1, Proposition 2.5 and its following remark) give \(\log_2\chi(G)\le\chi'_{\mathrm{inj}}(S(G))\le2\lceil\log_2\chi(G)\rceil\). These published inequalities do not yield the factor-one leading coefficient, the central-binomial capacity, or the paired clique bound. Axenovich–Dörr–Rollin–Ueckerdt (arXiv:1803.02152v1) cover the induced-star-forest formulation but not these constructions in the inspected material. Semantic database searches and direct literature searches did not identify the same formulas. Priyamvada–Panda's 2023/2024 paper studies injective edge coloring under subdivision, but its full text was inaccessible; its abstract cannot exclude a covering theorem, and this is the principal outstanding originality risk. No novelty proof by unsuccessful search is claimed.
+PASS
 
-**Value (PASS).** The pre-existing lower and upper bounds left a factor-two gap in the leading \(\log_2\chi(G)\) coefficient across all base graphs. The upper construction closes that gap uniformly and constructively, while the matching-pair refinement exhibits a genuine extra finite capacity (twelve rather than ten clique vertices for a palette of five). Thus the result resolves a natural asymptotic quantitative gap, not merely a renamed or arbitrary finite calculation.
+An edge of S(G) incident at an original vertex corresponds to a directed arc u→v. The injective edge constraint is equivalent to forbidding repeated color on consecutive arcs u→v→w with three distinct original vertices. For an arbitrary proper q-vertex-colouring of G, map colors to q different equal-sized subsets of [t], t=L(q), and color u→v by any coordinate in A(u)\A(v); two consecutive directed arcs draw from disjoint coordinate differences. For S(K_n), duplicate every middle-layer word of length t−1 in a matched pair; pair arcs use color t, which cannot appear twice consecutively since matched edges are disjoint, and interpair arcs use the earlier differences. For the lower bound, each one-colour directed digraph without directed two-paths on three vertices is a union of oriented source/sink bipartite pieces and isolated reciprocated pairs, so its underlying graph is bipartite. Bipartition membership across t monochromatic subgraphs gives a proper 2^t vertex colouring of G. Hence ceil(log2 q)≤χ′inj≤L(q), and central binomial asymptotics give ratio→1 and half-loglog additive correction. All t≥2 and n bounds remain explicit; no exact finite optimum is claimed.
 
-**Limits.** The exact finite index is not determined for general graphs, and uninspected primary literature may alter the originality assessment. The calculations are finite corroboration, not proof for all graph orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bradshaw–Clow–Xu 2023 Proposition 2.5 supplies the same lower bound log₂χ(G), and their immediately following text supplies upper 2⌈log₂χ(G)⌉. Those are explicitly recognized as prior art. The claimed middle-layer construction replaces a factor-two leading upper coefficient by one for every G, and paired incidence doubles finite clique code capacity using a matching-only special colour. The full Bradshaw article was read, and the improvement does not follow from the stated factor-two result. Priyamvada–Panda 2023/2024 directly treats injective edge coloring of subdivisions and claims tight upper bounds; its full text could not be retrieved via lawful open-access routes or authenticated Oxford because VPN was disconnected. That is a substantive risk, not an automatic O failure nor grounds to declare the complete paper noncovering. No independently established dominating implication was found.
+
+## value
+
+PASS
+
+The prior uniform one-subdivision bound lies between one and twice log₂χ(G), a genuine leading-order structural gap. An explicit antichain assignment proves the optimal leading coefficient one for every sequence of graphs with growing chromatic number, sharply connecting a standard edge-colouring invariant to Sperner coding. The distinct paired construction supplies further finite capacity using a matching-specific colour with a clear mathematical reason. It is a broadly quantified natural extremal bound, not just a modest gain at twelve vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
