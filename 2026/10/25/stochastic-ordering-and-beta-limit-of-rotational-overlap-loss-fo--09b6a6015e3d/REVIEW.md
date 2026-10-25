@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+For each integer \(n\ge3\), the two sets of tangent normals alternate when the relative rotation is in the fundamental interval. Every tangent line is active and all gaps are below \(\pi\), justifying the exact overlap area formula from tangent lengths. The maximal area loss follows from its strict angular derivative and an elementary half-angle identity. The normalized area loss is a monotone product of tangent ratios of a single uniform random variable. Its inversion yields the complete CDF with exact endpoints and no omitted angular sectors. Strict convexity of \(z/\sin z\) on \((0,\pi)\) proves positivity of the derivative of the logarithmic quantile with respect to \(\pi/n\), hence strict stochastic ordering for every pair of successive orders, including the smallest \(n=3\). A uniform tangent-series remainder proves the beta limit and its second-order correction. The exact mean follows by direct integration. The independent polygon-clipping checker succeeded on 868 geometry comparisons, and verified distribution, ordering, and asymptotics numerically. Finite tests are not used as the infinite proof.
+
+## Originality: PASS relative to inspected records
+The nearest published published-finding corpus result studies expectation under many random copies and explicitly makes no stochastic-distribution or variance statement; even specializing to two regular copies cannot imply the full law or strict stochastic order. Buck–Siddon provide tangential polygon geometry based on fixed side lengths; O'Rourke–Zaimi study intersection vertex counts. The accessible 2014 Brazitikos–Stavrakakis abstract concerns general estimates for intersections of symmetric bodies, not this exact order-resolved distribution. Searches for aliases (normalized overlap area, symmetric-difference law, congruent regular polygon rotations, beta limit) returned no matching exact law. The full 2014 paper remained inaccessible and is a declared priority risk; absence of a hit does not prove novelty.
+
+## Value: PASS
+The normalized overlap loss is a natural rotation-registration observable for polygons approximating a circle. Building on previously known gap formulas, the theorem establishes a genuinely cross-order **strict stochastic comparison** showing that side-count refinement changes the entire distribution in one direction, and a nondegenerate universal beta limit with a sharp correction. These comparison and scaling statements answer meaningful geometric-probability questions and are not equivalent to the already known expectation or tangent-length identity.
+
+## Scope and risks
+One plausible general intersection-of-random-rotations paper was accessible only via abstract (author-hosted copy timed out and institutional access was disconnected), leaving a historical-priority risk, though no decisive coverage was found. The proof is self-contained for \(n\ge3\) and establishes no extension to nonregular shapes, translations, or nonuniform angles. The bundled finite checks support but do not certify the proof independently.
+
+Self-review: passed. Independent audit: not yet performed.
