@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T03:13:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statement is correct for spherical convex bodies on S² with minimum width 0<w<pi. The Freyer–Sagmeister sharp classification gives regular minimizing triangles for 0<w<=pi/2 and polars of spherical Reuleaux triangles for pi/2<w<pi. For acute w, spherical Pythagoras yields cos(s)=cos(w)cos(s/2); putting c=cos(w) and q=cos(s) solves q=(c²+c sqrt(c²+8))/4, and equilateral spherical cosine law plus spherical excess gives area 3 acos(q/(1+q))-pi. For obtuse w, put t=pi-w; the spherical polar identity gives area(U_t°)=2pi-per(U_t), with each of the three small-circle arcs of length sin(t)acos(cos(t)/(1+cos(t))). At the transition both branches give pi/2. One-sided differentiation gives 3/sqrt(2) and 3; their difference is positive. Independent symbolic calculations reproduced all four exact limits, and also checked the boundary limits M(w)->0 as w->0+ and M(w)->2pi as w->pi-. The source code verify.py was inspected as data, not blindly executed. The bounds 0<w<pi and the meaning of minimum spherical width are essential; nothing about smooth dependence of optimizer shapes is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fodor–Sagmeister 2026 gives a complete sharp perimeter profile for all 0<D<pi with extremizers, including the transition.",
+          "Freyer–Sagmeister 2024 gives the global isominwidth minimizer classification on both sides of pi/2 and the polar identity.",
+          "The r-ball-convex theorem imposes spherical r<pi/2 and w<=r; it alone does not cover the obtuse-width branch."
+        ],
+        "reasoning": "The later 2026 maximal-perimeter lemma states a strictly broader global result than the local one-sided derivative jump. The entire assessed profile follows from it; a derivative of an existing exact optimum requires no further geometric hypothesis, classification, or certificate.",
+        "searches": [
+          "arXiv:2606.02882v2 Lemma 4.2 maximum perimeter for all diameters D",
+          "arXiv:2411.11462v1 Theorems 1.1 and 1.3 and the polar identity",
+          "arXiv:2602.19300v2 Theorem 1.1 (different restricted r-ball-convex setting)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.11462v1 (Freyer–Sagmeister, 2024-11-18), https://arxiv.org/pdf/2411.11462",
+        "arXiv:2606.02882v2 (Fodor–Sagmeister, 2026-10-06), https://arxiv.org/pdf/2606.02882",
+        "arXiv:2602.19300v2 (Fodor–Robock–Sagmeister, 2026-06-25), https://arxiv.org/pdf/2602.19300",
+        "Resultary semantic index: 2026/10/11/SCOPE-a-first-order-cusp-in-the-spherical-p-l-minimum-area-profile--88bb19e2710b (same assessed finding; not an independent antecedent)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using D=pi-w, the prior identity M(w)=2pi-P(D) recovers both submitted branches exactly.",
+          "P_low(pi/2)=P_high(pi/2)=3pi/2, P_low'(pi/2)=3, P_high'(pi/2)=3/sqrt(2), yielding M(pi/2)=pi/2 and the same cusp.",
+          "Algebraically cos(2 asin[1/(2 cos(D/2))])=cos D/(1+cos D), and 1-2((sqrt(c²+8)-c)/4)^2=(c²+c sqrt(c²+8))/(4+c²+c sqrt(c²+8)); these are the two branch identities."
+        ],
+        "reasoning": "The full prior perimeter optimum already determines the entire scalar area optimum by polar duality and arithmetic. The submitted cusp is a direct textbook differentiation corollary, not an independently strengthened theorem. This defeats originality even though the particular derivative sentence is not written in the prior text.",
+        "searches": [
+          "Fodor–Sagmeister arXiv:2606.02882v2 Lemma 4.2 and p13 piecewise formula",
+          "Freyer–Sagmeister arXiv:2411.11462v1 Theorem 1.3; equation (12) and the pi/2 limiting discussion",
+          "SymPy independent differentiations of exact prior P(D) expression at D=pi/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spherical polar duality converts minimum area at minimum width w into maximum perimeter at diameter D=pi-w.",
+          "Fodor–Sagmeister, arXiv:2606.02882v2 p12 explicitly writes per(K)=2pi-area(K°), and p13 gives sharp P(D) in both regimes.",
+          "The Resultary match bearing the identical title is the very finding being assessed, not independent priority."
+        ],
+        "reasoning": "The two optimization problems have the same value function up to the exact affine change of variables M(w)=2pi-P(pi-w). Prior P(D) is not merely a vaguely similar function: its complete values and sharp regimes are exactly the assessed M(w).",
+        "searches": [
+          "Resultary semantic: spherical isominwidth Pal minimum area cusp derivative width pi/2 Freyer Sagmeister",
+          "web: spherical Pal isominwidth minimum area 90 degree derivative cusp first order w pi/2",
+          "source: arXiv:2606.02882v2 Lemma 4.2 and p13 proof of Lemma 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 primary source contains exact analytic formulas rather than a finite table: 6 sin D asin(1/(2cos(D/2))) and 6 acos((cos D+sqrt(cos²D+8))/4).",
+          "Differentiation of the two published expressions yields the exact submitted slope pair; direct SymPy differentiation independently confirmed the algebra."
+        ],
+        "reasoning": "There is no need for a numerical database or an independently indexed cusp table: the primary publication provides an exact complete function from which the tabulated derivative pair is routine. A failed exact-number search would not negate coverage.",
+        "searches": [
+          "Resultary semantic index top hit with same record identifier",
+          "arXiv:2606.02882v2 page 13 exact two-case perimeter expression",
+          "web exact pair: Freyer Sagmeister area regular spherical triangle Reuleaux perimeter pi/2 derivative slopes 3/sqrt 2"
+        ]
+      },
+      "rationale": "A decisive pre-assignment primary source was missed by the submitted self-review: Fodor and Sagmeister, arXiv:2606.02882v2 (dated 6 October 2026), Lemma 4.2 on page 12 and its explicit sharp extremal-perimeter formula on page 13. For a spherical convex body of diameter D, that lemma gives the exact maximum perimeter P(D), with Reuleaux-triangle extremizers for D<pi/2 and regular-triangle extremizers for D>=pi/2. The lemma itself states the polar duality per(K)=2pi-area(K°), so the assessed optimal-area function is identically M(w)=2pi-P(pi-w), with no new geometric inequality required. The explicit prior formulas are P(D)=6 sin(D) asin[1/(2 cos(D/2))] for D<pi/2, and P(D)=6 acos[(cos D+sqrt(cos²D+8))/4] for D>=pi/2. Differentiating at D=pi/2 yields P'_-(pi/2)=3 and P'_+(pi/2)=3/sqrt(2), and hence the assessed left/right M slopes are respectively 3/sqrt(2),3. Thus the complete exact function and the slope discontinuity are elementary reparametrized consequences of an earlier published stronger scalar extremal profile, not a separately original result; absence of the word cusp in the earlier paper does not avoid implication.",
+      "residual_risks": [
+        "No full historical census of all older 20th-century spherical-perimeter formulas was undertaken; not needed for a rejection grounded in decisive 2026 primary-source coverage.",
+        "The cited 2026 PDF is v2 dated 6 October 2026 and is later than the June v1 used in the submitted literature section; the review relies on actual v2 printed equations and checks their equivalence, not its title/abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global minimizing families and polar identity. Original theorem already fixes M(w) geometrically but the submitted slopes were not observed explicitly in the inspected passages.",
+          "evidence": "Theorem 1.1 regular triangle for w<=pi/2; Theorem 1.3 polar Reuleaux for w>pi/2; p15 area(K)=2pi-per(K°) and agreement at w downarrow pi/2.",
+          "identifier_or_url": "arXiv:2411.11462v1; https://arxiv.org/pdf/2411.11462",
+          "material_read": "PDF Theorems 1.1–1.4 on pp1–2, acute branch Section 3 on p6, Theorem 4.2 and Araújo identity on pp14–15, polar formula (12) and limiting-case paragraph on p15.",
+          "method": "Rendered PDF text and screenshot inspection on the cited pages.",
+          "title": "The isominwidth problem on the 2-sphere",
+          "trigger": "Original exact spherical minimizer theorem and its duality/polar definitions."
+        },
+        {
+          "assessment": "DECISIVE COVERAGE: a strictly stronger exact function Pmax(D) over both regimes gives the assessed M(w) and both derivatives by polar duality and elementary calculus.",
+          "evidence": "Lemma 4.2 states sharp spherical maximum-perimeter bound with equality for Reuleaux triangles if D<pi/2 and regular triangles if D>=pi/2; p13 explicitly states Pmax(D)=6 sin(D) asin[1/(2 cos(D/2))] below pi/2 and 6 acos[(cos D+sqrt(cos²D+8))/4] above; p12 explicitly invokes per(K)=2pi-area(K°).",
+          "identifier_or_url": "arXiv:2606.02882v2 (6 October 2026); https://arxiv.org/pdf/2606.02882",
+          "material_read": "Full-text PDF, introduction and theorem scope pp1–3, Lemma 4.2 on p12, and proof of Lemma 4.3 with explicit sharp spherical perimeter branches on p13; source dated 7 October 2026 on first page with v2 listed as 6 October 2026.",
+          "method": "Rendered PDF text and screenshots of pp2,12,13.",
+          "title": "Optimal stability of Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+          "trigger": "Highly relevant newer primary source studying the identical extremal problem and both sides of the spherical transition."
+        },
+        {
+          "assessment": "NOT A STANDALONE SOURCE FOR THE OBTUSE-WIDTH CUSP; its spherical width domain excludes the upper w>pi/2 branch. The coverage conclusion rests instead on the 2026-10-06 Lemma 4.2.",
+          "evidence": "Theorem 1.1 assumes spherical w<=r<pi/2, with r->pi/2 allowed as a limit.",
+          "identifier_or_url": "arXiv:2602.19300v2; https://arxiv.org/pdf/2602.19300",
+          "material_read": "PDF abstract, introduction, Theorem 1.1 and Theorem 1.2 on pp1–2, and stated r<pi/2 and w<=r restrictions.",
+          "method": "Rendered PDF text and screenshot p2.",
+          "title": "Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+          "trigger": "Potentially more general r-disk-triangle extremal theorem including spherical limit."
+        },
+        {
+          "assessment": "Same assessed research record; not counted as a distinct independent antecedent or scientific certification.",
+          "evidence": "Index summary states left slope 3/sqrt(2), right slope 3 at w=pi/2.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-first-order-cusp-in-the-spherical-p-l-minimum-area-profile--88bb19e2710b",
+          "material_read": "Indexed title, full short summary, identifier and source link; no distinct primary text inspected.",
+          "method": "Resultary semantic search.",
+          "title": "Resultary published finding — A first-order cusp in the spherical Pál minimum-area profile",
+          "trigger": "Top semantic index match for cusp and exact slopes."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Differentiability across the natural optimizer-regime transition is a motivated question, and an exact first-order cusp would be a legitimate structural boundary if it were not already determined by a published complete scalar profile. Here the 2026-10-06 Fodor–Sagmeister sharp maximal-perimeter profile is exactly equivalent to M(w) for all widths, by M(w)=2pi-Pmax(pi-w). Its derivative jump is obtained by differentiating two explicit elementary formulas at D=pi/2. The assessed submission supplies no new variational theorem, finite cutoff, stability bound, previously unknown independent invariant, or nontrivial analysis beyond this textbook calculation. The exact slopes are correct but a routine recomputation of an already published complete extremal function, so no separate scientific contribution survives.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2411.11462v1 (Freyer–Sagmeister, 2024-11-18), https://arxiv.org/pdf/2411.11462",
+    "arXiv:2606.02882v2 (Fodor–Sagmeister, 2026-10-06), https://arxiv.org/pdf/2606.02882",
+    "arXiv:2602.19300v2 (Fodor–Robock–Sagmeister, 2026-06-25), https://arxiv.org/pdf/2602.19300",
+    "Resultary semantic index: 2026/10/11/SCOPE-a-first-order-cusp-in-the-spherical-p-l-minimum-area-profile--88bb19e2710b (same assessed finding; not an independent antecedent)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "C is proved in the specified open width interval; no smooth variation of optimizer bodies is established.",
+    "O and V reject the unchanged claim for direct implication by a stronger exact function; absence of identical phrasing in source cannot rescue priority.",
+    "Export preparation was incomplete in the original submission; this administrative limitation does not change the scientific assessment.",
+    "A read-only lookup of the proposed failed destination returned 404 at the pinned commit; this is not an atomic destination-vacancy guarantee at future intake.",
+    "No GitHub writes, independent attestation claim, Lean status modification, source code execution or dispatcher closeout."
+  ],
+  "schema_version": 1
+}
