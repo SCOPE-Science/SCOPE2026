@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact joint tilted-binomial weights and decreasing adjacent ratios are elementary and are verified exhaustively at n<=6. Mode comparison uses u=W((n-1)p²)/p; uniform ratio expansions hold because u=o(n), u→∞ and p²u→0. Concentration follows geometric tails; three event-probability regimes follow a uniform upper bound, a critical Stirling/Laplace LDP, and concentration/small-second-moment arguments. Localization follows conditional edge independence and a union Chernoff bound. The checker ran 99 assertions; proof covers all n asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1203.0132v1 studies the largest chosen t-sparse vertex subset in G(n,p); it does not sample the random neighborhood of a fixed vertex.",
+        "arxiv:2312.09202v2 conditions the whole graph to be triangle-free and studies max-cut defect edges."
+      ],
+      "reasoning": "Global independence-number and global triangle-free-ensemble theorems have different conditioning sigma-fields and scales, and their stated conclusions do not imply an explicit single-root tilted-binomial law, a Lambert threshold or localization.",
+      "searches": [
+        "rare vertex with no triangle sparse Erdős Rényi graph conditional degree three regimes exponent alpha=1/2 local defect and degree localization",
+        "random graph sparse root triangles absent exact asymptotic P(no triangle at v) degree Lambert W and conditional degree LDP",
+        "arxiv:1203.0132v1 Theorem 1",
+        "arxiv:2312.09202v2 introduction and G(n,p) conditional discussion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0905.0972v1",
+      "arxiv:1203.0132v1",
+      "arxiv:1303.3388v1",
+      "arxiv:2312.09202v2",
+      "Wormald 1996 institutional abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2009 paper imposes upper-tail thresholds t>1 for rooted subgraph counts, while the new event sets rooted triangle count exactly to zero.",
+        "2013 paper uses random intersection graphs with nonvanishing clustering, not Erdos-Renyi independent edges.",
+        "Prior same-slot simpliciality result concerns a clique open neighborhood at p=1-c log n/n; the new claim concerns an independent open neighborhood at p=c n^{-alpha}."
+      ],
+      "reasoning": "No implication was found from the prior named theorems to the precise conditional degree mass, three-regime Lambert scale, critical degree LDP and localization. Different ensembles/events are not asserted independent of broader abstract LDP machinery.",
+      "searches": [
+        "Erdos Renyi conditioned vertex has no triangles degree Lambert W n^-1/2",
+        "degree distribution of triangle-free vertex conditional no triangles random graph",
+        "arxiv:0905.0972v1 Theorem 3.1 and Example 3.3",
+        "arxiv:1303.3388v1 Theorem 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No rooted triangle through v is equivalent to an empty induced graph on the open neighborhood of v.",
+        "arxiv:0905.0972v1 Theorem 3.1 bounds rooted copy-count upper tails, not zero-count conditioning or conditional degree."
+      ],
+      "reasoning": "Rooted triangle absence equals a root-neighborhood independence event. Prior rooted clique occurrence/upper-tail statements lack the conditional degree law and no-zero-event rate; complementing exchanges neighbors and nonneighbors, so it does not convert the prior simplicial-root result into this claim.",
+      "searches": [
+        "In Erdős Rényi G(n,p) a distinguished vertex belongs to no triangles (has an independent open neighborhood), conditional degree large-deviation phase transition p=c n^{-1/2}, degree suppression and localized triangle avoidance",
+        "rooted triangle-free vertex event G(n,p) degree conditional law independent neighborhood empty induced subgraph Lambert W critical scaling p n^{-1/2}",
+        "random graphs triangle free neighborhood conditional on vertex degree local clustering coefficient zero",
+        "arxiv:0905.0972v1 Section 3 / Example 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic hits in published mathematical research records chiefly concerned 3-hypergraph triangle-free envelopes, fixed graph topology, and graph component/triangle covariances, not conditional degree at an independent open neighborhood.",
+        "No exact lookup table/claimed complete census was used."
+      ],
+      "reasoning": "Neither exact formulas nor rate functions at these parameter ranges appeared among closest returned result IDs. A nonhit is not a proof of priority.",
+      "searches": [
+        "In Erdős Rényi G(n,p) a distinguished vertex belongs to no triangles (has an independent open neighborhood), conditional degree large-deviation phase transition p=c n^{-1/2}, degree suppression and localized triangle avoidance",
+        "rooted triangle-free vertex event G(n,p) degree conditional law independent neighborhood empty induced subgraph Lambert W critical scaling p n^{-1/2}",
+        "rare vertex with no triangle sparse Erdős Rényi graph conditional degree three regimes exponent alpha=1/2 local defect and degree localization",
+        "random graph sparse root triangles absent exact asymptotic P(no triangle at v) degree Lambert W and conditional degree LDP",
+        "random graphs triangle free neighborhood conditional on vertex degree local clustering coefficient zero"
+      ]
+    },
+    "rationale": "Directly inspected 2009 rooted-subgraph upper-tail theorem and rooted-clique example do not imply zero-rooted-triangle conditional degree LDP; 2012 global maximum sparse induced set, 2013 random intersection graph clustering, and 2023 global triangle-free ensemble are materially distinct objects and assertions. Semantic database queries for exact event, aliases and Lambert critical regime did not find direct coverage; earlier general tilt machinery remains a stated priority risk.",
+    "residual_risks": [
+      "Earlier general exponential-tilt/Gibbs-conditioning frameworks may imply the one-root degree law after specialization.",
+      "Wormald 1996 complete article was not obtained and only the abstract was inspected.",
+      "Semantic retrieval is incomplete and does not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING stated theorem (upper tails vs zero event), though rooted-subgraph machinery relevant",
+        "evidence": "Theorem 3.1 explicitly assumes t>1 and assesses Pr(X>=t EX); Example 3.3 considers rooted cliques.",
+        "identifier_or_url": "https://arxiv.org/html/0905.0972v1",
+        "material_read": "Full-text Section 3, Theorem 3.1, proof portions and Example 3.3; introduction",
+        "method": "arXiv lawful HTML",
+        "title": "Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs",
+        "trigger": "Closest rooted triangle count upper/lower tail framework"
+      },
+      {
+        "assessment": "NOT_COVERING stated theorem (maximal induced subset rather than fixed random root-neighborhood)",
+        "evidence": "Theorem 1 concerns maximum size of t-sparse induced subset, for p>n^{-1/3+epsilon}; no rooted conditional degree law.",
+        "identifier_or_url": "https://arxiv.org/pdf/1203.0132",
+        "material_read": "PDF pages 1-2, Theorem 1 and introduction",
+        "method": "arXiv preprint PDF text and page rendering",
+        "title": "Largest sparse subgraphs of random graphs",
+        "trigger": "Independent neighborhood is an induced sparse set"
+      },
+      {
+        "assessment": "NOT_COVERING due to random-intersection rather than independent-edge model",
+        "evidence": "Models G_s(n,m,P) have induced clustering mechanisms unlike Erdos-Renyi.",
+        "identifier_or_url": "https://arxiv.org/html/1303.3388v1",
+        "material_read": "Full-text introduction and Theorem 2.3 section",
+        "method": "arXiv lawful HTML",
+        "title": "Degree and clustering coefficient in sparse random intersection graphs",
+        "trigger": "Degree/local clustering dependence"
+      },
+      {
+        "assessment": "NOT_COVERING: event forbids all triangles globally, not only those incident to a fixed root",
+        "evidence": "Theorem discussion concerns G(n,p) conditioned on being triangle-free with max cut and global structural phases.",
+        "identifier_or_url": "https://arxiv.org/html/2312.09202v2",
+        "material_read": "Full-text introduction, main global-ensemble theorem descriptions and G(n,p) conditioning context",
+        "method": "arXiv HTML revised full text, original v1 date checked",
+        "title": "On the evolution of structure in triangle-free graphs",
+        "trigger": "Most plausible global triangle-free conditioned random graph results"
+      },
+      {
+        "assessment": "INCOMPLETE, global event is different but uninspected article may contain useful general lemmas",
+        "evidence": "Abstract gives asymptotic global Pr(G(n,p) triangle-free) when p=o(n^{-2/3}).",
+        "identifier_or_url": "https://research.monash.edu/en/publications/the-perturbation-method-and-triangle-free-random-graphs/",
+        "material_read": "Published abstract and source description only",
+        "method": "Institutional publication page",
+        "title": "The perturbation method and triangle-free random graphs",
+        "trigger": "Older global no-triangle probability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34c4060c-637a-4edc-94f1-6e603f0b4f39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zero rooted triangles is a natural local random-graph rarity. Its two competing mechanisms (degree suppression versus neighbor-edge suppression) switch exactly at p of order n^-1/2, with a Lambert-W critical law and full critical large-deviation rate. Global degrees outside the root stay typical. The result gives a qualitative structural phase change with a quantitatively exact event cost, not just a computed expectation or routine table row.",
+    "status": "PASS"
+  }
+}
