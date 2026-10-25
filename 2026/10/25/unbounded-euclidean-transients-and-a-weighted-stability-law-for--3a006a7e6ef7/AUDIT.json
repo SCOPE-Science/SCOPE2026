@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Starting with the exact published PartRosExp2 formula, multiplication by L and the entire phi_1 identity give LML^{-1}=exp(Y)C. Both factors contract in 2-norm for symmetric negative-semidefinite splits; equality holds precisely on the intersection of their kernels, yielding the exact spectral criterion. The explicit 2x2 E, M_t and t/8 norm limit are derived entrywise; B is fixed and A_t+B negative definite. The reverse-order method has independent norm bound 3+h||B||. The included checker proves symbolic witness equalities and performs 450 random numerical consistency trials, not substituted for the analytic universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dallerit et al. §4 explicitly assume simultaneous diagonalizability for linear stability and note that it misses coupling; the theorem requires noncommuting A,B.",
+        "Achleitner et al. describes energy versus Euclidean norm behavior abstractly, but neither an identical scheme nor fixed-operator-order contrast."
+      ],
+      "reasoning": "Stronger general dissipation/stability theorems could cover part of the proof (weighted contractivity), but an independent general result must also imply both this specific method identity and an unbounded one-step endpoint example with the exponentially handled block fixed. None of the inspected results does. Prior result on a FIMEX–Radau scalar stage-vector transient concerns a different method and stage-space rather than physical endpoint amplification.",
+      "searches": [
+        "noncommuting symmetric dissipative matrices exponential times Cayley transform spectrally stable energy transient growth",
+        "ROSEXP partitioned Rosenbrock exponential implicit exponential noncommuting Jacobians stability energy transient",
+        "noncommutative A-stability does not imply contractivity partitioned Rosenbrock exponential integrators 2023 2024",
+        "transient growth A stable splitting methods symmetric negative semidefinite operators Cayley sandwich"
+      ]
+    },
+    "checked_sources": [
+      "Dallerit et al., preprint DOI 10.21203/rs.3.rs-3101972/v1 (posted 2023-06-29)",
+      "Dallerit et al., published DOI 10.1007/s11075-023-01698-4, Table 1 and §4",
+      "Achleitner et al., DOI 10.13001/ela.2023.7531",
+      "Targeted semantic mathematical research records using aliases, exact named schemes, fixed-B amplification, Cayley product similarity",
+      "Targeted online searches for named method stability, noncommutativity, matrix energy, and stage ordering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original ROSEXP paper proves scalar-partition A-stability using e^{z_2}(2+z_1)/(2-z_1), which does not constrain matrix Euclidean norms for noncommuting operators.",
+        "Preceding endpoint instability report for exponential Euler concerns a different time integrator and an independent split-norm control condition; the preceding FIMEX–Radau report concerns stage-vector gain.",
+        "Achleitner et al. general hypocontractivity is compatible with but does not calculate this integrator’s similarity or reversed-order bound."
+      ],
+      "reasoning": "Neither scalar-product A-stability nor a generic Euclidean similarity bound implies that PartRosExp2 amplifies by t/8 with one fixed exponential block while PartExpRos2 remains bounded under the same stiffness variation. That comparison requires applying the exact published tableaux and computing the noncommuting witness. Conversely this theorem does not claim the generic theory of product contractions as original.",
+      "searches": [
+        "PartRosExp2 noncommuting negative semidefinite matrices unbounded Euclidean transient amplification Cayley exponential Rosenbrock",
+        "partially implicit exponential Rosenbrock rank-one commutator transient amplification 2023 Dallerit Buvoli Tokman",
+        "Second-order Rosenbrock-exponential methods for partitioned differential equations 2023 Dallerit Buvoli Tokman Gaudreault preprint",
+        "PartExpRos2 bounded as implicit stiffness goes to infinity while PartRosExp2 one-step energy amplification unbounded"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dallerit et al., definitive published Table 1, DOI 10.1007/s11075-023-01698-4: update is rational-then-exponential in an additive linear split; article §4 reduces to simultaneously diagonalizable scalar tests.",
+        "Achleitner–Arnold–Mehrmann, DOI 10.13001/ela.2023.7531: general contraction and similarity concepts, not the PartRosExp2 linear identity."
+      ],
+      "reasoning": "Compared the original PartRosExp2 tableau and the exact conjugacy LML^{-1}=exp(Y)C, as well as Cayley/product-similarity and energy-norm aliases. The generic fact that two contractions yield a contraction is prior theory; the noncommuting method-specific identity, kernel criterion and fixed-B unbounded physical endpoint norm are not stated by the inspected primary references. Literature and semantic searches did not identify an equivalent complete statement; lack of discovery is not a proof of novelty.",
+      "searches": [
+        "PartRosExp2 factorization (I-hA/2)^(-1) exp(hB)(I+hA/2) similarity transformed contractivity unbounded Euclidean one-step norm",
+        "noncommuting symmetric dissipative matrices exponential times Cayley transform spectrally stable energy transient growth",
+        "PartRosExp2 similar to Cayley exponential matrix",
+        "PartRosExp2 A-stability noncommutative matrix similarity Cayley transform transient energy stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Dallerit Table 1 lists algorithms, Table 2 scalar stability functions, not norm or spectral-radius tables for noncommuting real symmetric negative-semidefinite matrix pairs.",
+        "Checked mathematical-search hits include unrelated quadratic-gradient energy transients and finite-horizon FIMEX–Radau stage-vector norms; neither is an exact table for this PartRosExp2 family."
+      ],
+      "reasoning": "There is no identified database/tabulation of the exact witness M_t, the 1/8 growth constant, the all-dimensional kernel criterion or the reverse-order uniform bound. Absence of a matching table is not proof of novelty.",
+      "searches": [
+        "PartRosExp2 factorization (I-hA/2)^(-1) exp(hB)(I+hA/2) similarity transformed contractivity unbounded Euclidean one-step norm",
+        "PartExpRos2 bounded as implicit stiffness goes to infinity while PartRosExp2 one-step energy amplification unbounded",
+        "PartRosExp2 energy amplification table or exact 2x2 counterexample",
+        "partitioned Rosenbrock exponential method noncommuting matrices stiff dissipative transient amplification"
+      ]
+    },
+    "rationale": "Primary published ROSEXP Table 1 and complete §4 linear stability discussion inspected; no matrix-noncommuting contraction, kernel equivalence, unbounded physical endpoint family, or reversed-operator stiffness comparison found. Generic operator norm and similarity theory is acknowledged as prior. Semantic mathematical-record and online alias/coverage searches also checked; no covering claim identified. Residual risk that a more general operator-product result implies this particular comparison is explicitly retained.",
+    "residual_risks": [
+      "An equivalent consequence may exist in a specialized operator-product or splitting-theory source not identified in the bounded searches.",
+      "The June 2023 preprint tableau differs from the final published formula; all new computations use the unambiguous published tableau.",
+      "The theorem applies only to exact symmetric dissipative finite-dimensional linear splits; no statement of numerical accuracy on nonnormal PDE discretizations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Preprint predates the final published tableau and its printed PartRosExp2 row differs from the published formula. Its stability discussion assumes simultaneous diagonalizability and does not establish the present noncommuting result. The final published table defines the numerical map actually proved.",
+        "evidence": [
+          "Preprint front matter: Posted Date 2023-06-29 and DOI 10.21203/rs.3.rs-3101972/v1.",
+          "Preprint §§3–4, Table 1, §4 explicit simultaneous-diagonalizability assumption."
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-3101972/v1",
+        "material_read": "Title/posted-date front matter and complete methodology, Table 1 on page 7, stability Section 4 and conclusions, as rendered from the lawful public PDF",
+        "method": "Read full-text public preprint including method table and scalar stability hypotheses",
+        "title": "Second-order Rosenbrock-exponential (ROSEXP) methods for partitioned differential equations, original preprint",
+        "trigger": "Earliest source public date, method identity, competing or earlier formulation"
+      },
+      {
+        "assessment": "The exact new matrix formulas match published Table 1: rational inverse left of exp-average for first operator and right for reversed formula. Their scalar A-stability assumes simultaneously diagonalizable linear partitions; not a proof of noncommuting endpoint stability or uniform norm distortion. No matching matrix-level transient witness in the article.",
+        "evidence": [
+          "Published Table 1, PDF page 6; §4 states the simultaneous-diagonalizability assumption and its inability to capture coupling.",
+          "Published Table 2 has scalar stability function e^{z_2}(2+z_1)/(2-z_1)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-023-01698-4",
+        "material_read": "Complete published open-access article sections 1–6, Table 1, Table 2, proofs/discussion of scalar stability and numerical examples; direct inspection of published Table 1 PDF page 6",
+        "method": "Read online full text and published PDF with visual table inspection",
+        "title": "Second-order Rosenbrock-exponential (ROSEXP) methods for partitioned differential equations, version of record",
+        "trigger": "Closest originating full text, correct PartRosExp2 and PartExpRos2 tableaux, check for noncommutative matrix theorem"
+      },
+      {
+        "assessment": "Provides general analytic context for distinct spectral versus Euclidean contractivity, but does not specify PartRosExp2 or the fixed-B order-reversal counterexample.",
+        "evidence": [
+          "Achleitner–Arnold–Mehrmann (2023), general contraction versus spectral stability theory; no Rosenbrock-exponential method defined."
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/ela.2023.7531",
+        "material_read": "Full publicly accessible article introduction, general definitions of hypocontractivity and matrix/spectral stability, Cayley transform and discrete-time related material, later references and conclusions",
+        "method": "Read full text and searched text for Rosenbrock/time-integrator relation",
+        "title": "Hypocoercivity and hypocontractivity concepts for linear dynamical systems",
+        "trigger": "Potentially dominating general semigroup and contractivity/non-normal matrix theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a006a7e-6ef7-4f08-8d2d-027a9cf39818",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A-stable partitioned integrators are selected for stiff dissipative models. For the concrete published second-order pair, one orientation can have arbitrarily large one-step physical state amplification under increasing implicit stiffness while preserving exact weighted power contractivity and strict spectral stability; reversing only multiplication order avoids that unbounded stiffness sensitivity. This is a nontrivial and actionable method-choice boundary that is not a generic rephrasing of scalar A-stability or a small numerical gain. Scope is explicit and priority uncertainty remains.",
+    "status": "PASS"
+  }
+}
