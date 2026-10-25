@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
-The theorem has a full analytic proof in `RESULT.md`. The bulk Laplace factors satisfy the two telegraph backward equations, absorbing boundary, reset self-consistency and boundedness. Geometric renewal has strictly positive denominators because \(p\in(0,1)\), \(s>0\), and the excursion/wall transforms lie strictly below or at one. Its difference therefore has the exact sign of \(s(\vartheta-a_\kappa E)/(s+r a_\kappa E)\). For negative initial orientation, \(\vartheta=\exp(-t)\), \(E=\exp(-c\sinh t)\), and strict decrease of \(t/\sinh t\) gives the one-switch law; no count of finite sample points is used in its derivation.
 
-The accompanying `verify.py` was executed with Python 3 and passed 12,118 deterministic checks using only the standard library, including centered finite-difference residuals of both backward equations, numerical comparisons of exact rational identities, predicted sign regions and four explicit sign reversals. No Monte Carlo or finite enumeration is represented as an infinite proof. The published renewal formulas were independently reconstructed in the proof; earlier sources were compared for implications. This verification is not an independent external audit.
+# Independent mathematical audit
 
-Limitations: no claims about time-domain stochastic dominance except the proved absence of such an ordering in the crossing regime; no claims beyond the one-dimensional model or for protocols with unequal wall-time distributions.
+## correctness
+
+PASS
+
+The backward telegraph equations with bulk Poisson resets have bounded solutions F_-(x)=rf/u+(1-rf/u)e^(-Kx/v), F_+(x)=rf/u+theta(1-rf/u)e^(-Kx/v), where u=r+s, K=sqrt(u(u+2alpha)), theta=alpha/(u+alpha+K). Reset-state self-consistency gives f=u a_k E/(s+r a_k E) with a_- =1, a_+=theta and E=exp(-Kx0/v); the transform of immediate return from the wall is g=theta+(r/u)(1-theta)f. Geometric renewal gives the two terminal-absorption transforms p w f/[1-(1-p)w g] and p w f/[1-(1-p)w f]. All denominators are positive for s>0, so their difference has sign(g-f)=sign(theta-a_k E), with g-f=s(theta-a_k E)/(s+r a_k E). For initial + motion the sign is strictly positive; for initial - write t=arcosh(1+u/alpha), c=alpha x0/v: sign = sign(c sinh t-t). t/sinh t strictly decreases from 1 to 0, proving unique cutoff t_c, reset boundary r_c=alpha(cosh t_c-1) and the s-domain crossing r_c-r iff 0<r<r_c. With finite EW, derivative at s=0 gives mean-time difference (1-p)/(pr)*(1-theta_r/E_r). Independent calculations evaluated the exact renewal fractions and their factorized signs for both initial orientations at four discounts straddling a positive crossing, recovering [-,-,+,+] for the left orientation and all-positive for the right. The result concerns Laplace order, not stochastic dominance or general waiting-time means.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the specified final mathematical claim, not of standard foundations; see four direct scientific comparisons and material primary-source reading with residual risks.
+
+## value
+
+PASS
+
+The mean first-passage-time optimum and the whole Laplace-transform preference answer different physical questions. The exact one-switch law gives an operationally interpretable reversal between short-time-discounted and mean behavior, with explicit rate boundary independent of the wall holding-time distribution or absorption probability. This is a motivated sharp qualitative phase classification, not a mere change of symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
