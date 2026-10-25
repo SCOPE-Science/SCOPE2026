@@ -1,19 +1,21 @@
-# Scientific review: three-shell quadratic Walsh sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claimed domain is integer dimension \(n\ge4\), permutation-invariant strictly positive sampling on exactly three complete Hamming layers, and all characters of degree at most two. The key equivalence converts their entire Gram matrix to degree-four moments of the coordinate sum, using the triangular Krawtchouk basis. The division-of-polynomials argument proves that the two cubic orthogonality relations are both necessary and sufficient; positivity follows from evaluating squared Lagrange polynomials against the full-support binomial measure. This independently checks the potentially non-obvious positivity condition. The single-root discriminant enumerator is algebraically exhaustive, with the excluded zero denominator proved impossible. Endpoint, symmetric, interior, and Pell identities are derived symbolically. The first nonunique dimension is a finite claim, supported by two independent exact enumerators and actual standalone rational verification from the submitted paths, not by extrapolation. Further independent testing would be useful, but no material mathematical gap was found in the specified claims.
+PASS
 
-## Originality — PASS, best knowledge
+For n>=4, Walsh degree<=2 inner-product isometry under a measure uniform in each of three complete Hamming shells is equivalent to the binomial coordinate sum S matching moments of degrees 1..4. Moment values (0,n,0,3n²-2n), cubic Q(S) orthogonal to 1,S, and division of degree<=4 polynomials by Q yield exactly ab+ac+bc=-(3n-2) and abc=-n(a+b+c). The quadratic Lagrange cardinal polynomials give unique weights, each strictly positive by E_mu[L_j(S)^2]>0 since full binomial support has n+1>=5 atoms; rank3 moment Gram forbids at most two support shells. The u=b+c discriminant formula is necessary/sufficient for every integer first-node candidate a; a²=n cannot occur for n>=4. Direct algebra verifies pole, symmetric and nonpolar families, and Pell invariance from (s,r)=(14,8). Independent integer enumerations through n=250 (54 valid triples), independent two-node algorithm through n=125, and rational moment tests agree; finite exhaustive loop proves first multiple inversion-orbit dimension 65 after algebraic completeness of the enumerator, while Pell induction proves infinitely many coexistence dimensions.
 
-The first public eligible source, Bannai–Bannai–Tanaka–Zhu (2020-06-03), develops two-shell relative designs; inspected full text and theorem sections do not supply the full three-shell quadratic Walsh Parseval classification. Gavrilyuk–Suda–Vidali address unweighted tight binary strength-four orthogonal arrays; Carlet–Kiss–Nagy address unweighted binary orthogonal-array simplicity. The closest specific published overlap, *Square-dimension spectral resonances for quadratic-band Walsh concentration on Hamming shells*, calculates one-shell compression eigenvalues and an arithmetic square-dimension resonance. It does not give the weighted three-shell Gram identity, unique positive shell masses, enumeration, first multiple orbit, or Pell coexistence, and the spectral resonance alone does not logically imply them. The earlier linear-band two-shell classification requires only degree-two moments and does not subsume the four-moment problem here. Genuine remaining risk: a classical Krawtchouk/quadrature enumeration or a relative-design appendix under other terminology might contain an equivalent classification. A partially inaccessible related binary-design treatment cannot be assessed beyond its indexed statement; neither its mere inaccessibility nor search failure is treated as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is a natural exact Parseval sampling design problem for the complete quadratic Walsh band. Its positive three-shell minimum, all-dimension arithmetic decision rule, complete weight specification, and explicit first and infinite nonuniqueness phenomenon describe structural constraints beyond routine moment fitting. Unlike isolated small samples or arbitrary parameter slices, it classifies an infinite canonical family and identifies the first genuine ambiguity in shell geometry. These facts inform sparse-layer Fourier measurement design without claiming optimality among arbitrary point samplers.
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
 
-## Evidence and limitations
+## value
 
-The formal proof, reproducible `verify.py`, and its actual recorded output establish the precise scope described in `RESULT.md`. Verification in finite dimensions is not substituted for the infinite theorem. General Lagrange quadrature, binomial moments and single-shell Johnson decompositions are prior mathematical methods. No exhaustive search of every unindexed historical quadrature source is possible, and no independent verification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quadratic Walsh-band exact Parseval sampling is a natural cubature/orthogonal-design problem. Positivity without separate inequalities, an all-dimension integer-node decision procedure, the sharp first loss of uniqueness n=65, and infinitely many inequivalent complete-layer designs are substantive arithmetic constraints not provided by generic Gaussian quadrature alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the three-shell quadratic Walsh sampling classification
+# Independent mathematical audit
 
-The included `verify.py` was executed with a standard Python 3 interpreter; `verify_output.txt` records the actual successful program output. The checker uses integer arithmetic and exact rational fractions exclusively, without numerical tolerances or external libraries. It implements both pairwise candidate enumeration and the independent one-node discriminant algorithm proved exhaustive in the result. Both agree for every integer dimension from 4 through 250. For all 54 produced triples it verifies both cubic symmetric equations, positivity and normalization, four exact coordinate-sum moments, and zero expected Walsh characters of degrees 1 through 4.
+## correctness
 
-The separate degree-two Walsh Gram calculation checks all 740 ordered basis pairs in dimensions 5 and 6 directly from exact layer Krawtchouk sums. The complete finite arithmetic scan of dimensions 4 through 64 is the executable exhaustive certificate for the first multi-orbit dimension 65, not a numerical guess. Formula checks cover 100 endpoint parameters, 66 symmetric parameters, 33 nonpolar-family parameters and twenty exact Pell iterations. The checker prints `VERIFY_OK` on success.
+PASS
 
-Infinite-dimensional implications are established symbolically by the moment-orthogonality and interpolation proof, integer discriminant completeness, positivity as exact squared-polynomial integrals, and Pell recurrence invariance. The code does not independently certify whether an older mathematical article establishes an equivalent theorem; originality is addressed separately in the scientific review. No independent external audit has been performed.
+For n>=4, Walsh degree<=2 inner-product isometry under a measure uniform in each of three complete Hamming shells is equivalent to the binomial coordinate sum S matching moments of degrees 1..4. Moment values (0,n,0,3n²-2n), cubic Q(S) orthogonal to 1,S, and division of degree<=4 polynomials by Q yield exactly ab+ac+bc=-(3n-2) and abc=-n(a+b+c). The quadratic Lagrange cardinal polynomials give unique weights, each strictly positive by E_mu[L_j(S)^2]>0 since full binomial support has n+1>=5 atoms; rank3 moment Gram forbids at most two support shells. The u=b+c discriminant formula is necessary/sufficient for every integer first-node candidate a; a²=n cannot occur for n>=4. Direct algebra verifies pole, symmetric and nonpolar families, and Pell invariance from (s,r)=(14,8). Independent integer enumerations through n=250 (54 valid triples), independent two-node algorithm through n=125, and rational moment tests agree; finite exhaustive loop proves first multiple inversion-orbit dimension 65 after algebraic completeness of the enumerator, while Pell induction proves infinitely many coexistence dimensions.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison across named aliases, original statements and implications supports a distinct result; see four checks and residual risks.
+
+## value
+
+PASS
+
+Quadratic Walsh-band exact Parseval sampling is a natural cubature/orthogonal-design problem. Positivity without separate inequalities, an all-dimension integer-node decision procedure, the sharp first loss of uniqueness n=65, and infinitely many inequivalent complete-layer designs are substantive arithmetic constraints not provided by generic Gaussian quadrature alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
