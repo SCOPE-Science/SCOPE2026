@@ -1,0 +1,11 @@
+# Review of the pointed-permutation quandle automorphism formula
+
+**Correctness — PASS.** The defining operation is a quandle action by diagonal permutation conjugation. For each \(n\ge3\), transpositions appear as right-translation labels, so the inner group is the faithful \(S_n\)-action. The intrinsically defined subset of elements with identity right translation forces every automorphism to induce a natural permutation of labels. After removing that permutation, the automorphism preserves the permutation label and is equivariant. On a fiber of \(m\) fixed points, the full symmetric group \(S_m\) lies in the relevant centralizer, so equivariant permutations are trivial unless \(m=2\). Independent two-point flips classified by conjugacy class produce all remaining automorphisms and commute with the natural subgroup. The proof handles all \(n\ge3\), including cases without a two-point fiber. Finite checks are corroboration, not the proof.
+
+**Originality — PASS in self-review.** Kai's foundational action-quandle and fixed-point construction, ambient orbit classification and Cayley-type theorem are credited; those establish the setting but do not compute the full automorphism group of the fixed-point subquandle. Bardakov, Nasybullov and Singh give structural results for other quandle types and embeddings of extension automorphism subgroups, not the needed equality. The six-element instance is covered by the tables of Elhamdadi, MacQuarrie and Restrepo, while the uniform family beyond it and the independent extra involutions are not identified in the reviewed primary papers. A general unindexed augmented-quandle equivalence is a residual priority risk.
+
+**Value — PASS.** The family is a natural reduced factorial-size Cayley host for all quandles of a given cardinality, and its full symmetry group is an important invariant. A growing elementary abelian quotient of \(\operatorname{Aut}\) by \(\operatorname{Inn}\) is characterized exactly by conjugacy partitions, a phenomenon not captured by an orbit formula alone.
+
+Limitations: the theorem concerns the fixed-point subquandle, not the full action quandle; small-order table coverage is acknowledged; independent mathematical review has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
