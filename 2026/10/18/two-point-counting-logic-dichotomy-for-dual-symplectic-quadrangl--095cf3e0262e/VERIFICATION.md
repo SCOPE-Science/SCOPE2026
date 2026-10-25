@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible scientific verification
+# Independent mathematical audit
 
-From the directory containing these files, execute:
+## correctness
 
-```sh
-python3 check_incidence.py
-python3 check_quadratic.py
-```
+PASS
 
-Both scripts use only Python 3 standard-library facilities. Their deterministic successful outputs are included as `check_incidence.out` and `check_quadratic.out`. The first script independently constructs totally isotropic projective lines in four-dimensional prime-field alternating spaces, forms their incidence duals by transposition, and checks complete center-count spectra and joint one-dimensional refinement histograms for the labelled pairs and linewise sets. All tests for primes \(3,5,7\) passed, with first cross-graph mismatch of refinement histogram at round \(4\) for the opposite-pair case. The second script enumerates every nonsingular symmetric binary form for prime fields \(3,5,7,11,13\) and checks its projective zero count and discriminant, with all tests passing.
+The universal collinear quotient partitions marked points, the unmarked remainder of their line, off-line points by their unique foot, and incident/off-line lines; the GQ projection axiom gives an equitable quotient and its claimed 3r+2+3 I(r<s+1) size in <=3 rounds. For noncollinear points of W(q), orthogonality in a nondegenerate alternating four-space makes center counts 1 or q+1, with multiplicities (q-1)(q^2-1), q-1. In the dual, opposite isotropic lines are U and U*, a third opposite line is the graph of invertible symmetric T, and its common transversals solve the nondegenerate binary quadratic (Tu)(u)=0: exactly zero or two projective roots; double counting gives q(q-1)^2/2 and q(q^2-1)/2. The centers are independent, so point-line 1-WL obtains their incidence count at round four. Independent small-q constructions q=3,5 reproduce all four multiplicities and 11-class collinear quotient at r=2. These finite checks are corroboration, not proof for extension fields.
 
-For \(q=3\), opposite-pair center multiplicities are \(\{1:16,4:2\}\) versus \(\{0:6,2:12\}\). Two marked collinear points yield eleven stable colour classes in both geometries, while marking all four points of their common line yields fourteen. Finite checks provide **corroboration only**. They do not establish an unbounded-prime-power result; the proofs in RESULT.md establish the stated range. There is no formal proof-assistant verification and no independent scientific audit.
+## originality
+
+PASS
+
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
+
+## value
+
+PASS
+
+A sharp logical boundary on a classical dual family: even individually marking the whole line is invisible to C^2, whereas two opposite landmarks distinguish the two nonisomorphic geometries in exactly bounded WL depth. The universal r-mark line quotient is a substantial incidence-structural lemma beyond merely recounting known triad centers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

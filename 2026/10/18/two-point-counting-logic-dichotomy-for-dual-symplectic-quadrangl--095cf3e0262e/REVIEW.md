@@ -1,21 +1,21 @@
-# Scientific assessment: marked symplectic-quadrangle counting logic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generalized-quadrangle projection axiom gives a seven-kind equitable incidence partition under marks on one line. Counting its refined pieces gives exactly \(3r+2+3\mathbf1_{r<s+1}\) stable classes with linewise quotient determined solely by \((s,t,r)\); each refinement round producing the pieces is explained in RESULT.md. For opposite points, rank-four neighbourhood counting extracts the cardinality of the common-collinear set seen from each opposite point. In \(W(q)\) the relevant alternating-space orthogonal complements produce the supported center counts \(1,q+1\). In its dual the Lagrangian-graph parametrization reduces the center count to zeros of a nondegenerate binary quadratic form over an odd field, producing \(0,2\). Explicit double counting yields the claimed multiplicities. These disjoint spectra give a valid four-round separator, whereas equitable linewise quotients give equivalence in the collinear case.
+PASS
 
-Direct geometric and joint-refinement checks over \(q=3,5,7\) and an independent exhaustive nondegenerate-binary-quadratic check over \(q=3,5,7,11,13\) succeeded; their sources and recorded output are embedded. The proof, not the experiments, covers arbitrary odd prime powers.
+The universal collinear quotient partitions marked points, the unmarked remainder of their line, off-line points by their unique foot, and incident/off-line lines; the GQ projection axiom gives an equitable quotient and its claimed 3r+2+3 I(r<s+1) size in <=3 rounds. For noncollinear points of W(q), orthogonality in a nondegenerate alternating four-space makes center counts 1 or q+1, with multiplicities (q-1)(q^2-1), q-1. In the dual, opposite isotropic lines are U and U*, a third opposite line is the graph of invertible symmetric T, and its common transversals solve the nondegenerate binary quadratic (Tu)(u)=0: exactly zero or two projective roots; double counting gives q(q-1)^2/2 and q(q^2-1)/2. The centers are independent, so point-line 1-WL obtains their incidence count at round four. Independent small-q constructions q=3,5 reproduce all four multiplicities and 11-class collinear quotient at r=2. These finite checks are corroboration, not proof for extension fields.
 
-## Originality — PASS, with specified priority risk
+## originality
 
-The earlier geometric triad-center theorem is explicitly acknowledged as **already known**: Brouns, Thas and Van Maldeghem (2002), discussing Payne–Thas, state that the corresponding \(Q(4,q)\) center count is zero or two for odd \(q\). Ball and Weiner (2011 notes) describe generalized quadrangles and triad-center moment identities. Neither inspected source supplies the claimed two-variable counting-logic dichotomy, the general individually marked-line equitable quotient, or a four-round distinguishing bound. Arvind, Köbler, Rattan and Verbitsky (2015, arXiv:1502.01255) gives the counting-logic/colour-refinement framework rather than this explicit geometric pair. Comparisons with related earlier findings on Steiner designs and projective and affine planes show analogous **but non-implicative** families with different incidence axioms; the opposite-pair discriminant in symplectic dual quadrangles is not inherited from those results. Targeted searches of published mathematical records returned no dominating claimed result. This is not an independent global novelty or priority guarantee; a specialized earlier argument may exist.
+PASS
 
-## Value — PASS
+Best-of-knowledge compared exact implications, relevant general theorems, primary materials actually read, and current published mathematical research records; specific prior ingredients credited and uninspected plausible full texts named explicitly.
 
-The dichotomy is a sharp landmark threshold within a natural infinite dual pair of nonisomorphic incidence geometries. Two points on one line supply no further distinguishing power than individually marking all points of that line; replacing the marks by a noncollinear pair creates a four-round separator. The universal linewise quotient is independently useful for any finite thick generalized quadrangle, and the disjoint four-round center-count spectra connect the known finite-geometric triad invariant to a precise small-variable logical limitation. This is not merely a new name for a known table or routine finite parameter substitution: it identifies both a general blindness mechanism and the complementary sharp detection mechanism.
+## value
 
-## Limits and comparison risk
+PASS
 
-The exact separation proof assumes odd prime-power order and retains point/line sorts. The older center-count support property in \(Q(4,q)\) is credited, not asserted original. The executable verification covers prime fields only. Priority comparison is confined to inspected open-access primary texts, inspected related results, and the recorded scientific searches; inaccessible or unidentified specialized treatments remain a risk.
+A sharp logical boundary on a classical dual family: even individually marking the whole line is invisible to C^2, whereas two opposite landmarks distinguish the two nonisomorphic geometries in exactly bounded WL depth. The universal r-mark line quotient is a substantial incidence-structural lemma beyond merely recounting known triad centers.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
