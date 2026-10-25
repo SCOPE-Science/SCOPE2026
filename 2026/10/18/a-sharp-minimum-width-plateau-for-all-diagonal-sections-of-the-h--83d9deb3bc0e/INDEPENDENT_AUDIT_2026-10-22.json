@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:59:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonconstant sorted a, its permutahedron Q(a) has width in a sorted zero-sum normal u with increments delta_j>=0: u=sum delta_j v_j, and the rearrangement formula gives width=sum delta_j B_j. Triangle inequality bounds |u| <=sum delta_j |v_j|, so the least width is min_j B_j/|v_j|; distinct two-level v_j are strictly noncollinear, proving all minimizers are single-cut normals. The cube fixed-sum section vertices are coordinate permutations of (1^floor t, r,0...), with r=t-floor t; subset extrema give B_j=min(j,n-j,t,n-t) and |v_j|=sqrt(j(n-j)/n). Among j<=floor n/2 the two components j/sqrt(j(n-j)) and m/sqrt(j(n-j)) are respectively strictly increasing and decreasing, so all minimizing cuts are j=1 or j=floor n/2; comparing them gives formula min(sqrt(n/(n-1)),m sqrt(n/floor(n^2/4))), threshold tau=sqrt(floor(n^2/4)/(n-1)), central plateau, and exact minimizer orbits including coexistence at threshold. Independent exact rational support-width enumeration across n=4,5,8,9 with rational t reproduced candidate minima; n=4..89 tested threshold branch inequalities in reviewed checker. The argument, not finite sampling, proves real t and all n>=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Har-Peled–Robson addresses a simplex; Ang et al. NeurIPS 2021 projected capped simplex algorithm solves nearest-point projection, not intrinsic minimum width."
+        ],
+        "reasoning": "Neither is a dominating min-width theorem for all real t. Nearby Resultary capped-hypercube John ellipsoid is a distinct object and invariant.",
+        "searches": [
+          "minimum width diagonal hypersimplex cube section [0,1]^n sum coordinates t exact plateau two level normals",
+          "fixed-sum cube slice K_{n,t} width minimum t plateau staircase hypersimplex permutahedron",
+          "https://arxiv.org/pdf/2301.02616",
+          "https://papers.neurips.cc/paper/2021/file/52aaa62e71f829d41d74892a18a11d59-Paper.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.02616",
+        "https://papers.neurips.cc/paper/2021/file/52aaa62e71f829d41d74892a18a11d59-Paper.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-four-barriers-determine-the-exact-euclidean-inradius-of-consecut--375ec03ffc0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=1, formula gives width sqrt(n/floor(n²/4)), equivalent to the n-1-simplex width; the full real-t plateau is absent from this prior simplex calculation."
+        ],
+        "reasoning": "The submitted claim extends a known endpoint by a nontrivial continuous regime/normal-orbit transition, not a renamed previous simplex theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2301.02616",
+          "https://papers.neurips.cc/paper/2021/file/52aaa62e71f829d41d74892a18a11d59-Paper.pdf",
+          "fixed-sum cube slice K_{n,t} width minimum t plateau staircase hypersimplex permutahedron"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Har-Peled–Robson regular n-simplex width equals cube slice at t=1, with balanced two-level normals; these are one endpoint orbit."
+        ],
+        "reasoning": "Hypersimplex, permutahedron, uniform-matroid base polytope aliases were considered; finite integer t can be derived from the cut lemma, but no cited theorem supplies noninteger plateau boundary and every minimizer.",
+        "searches": [
+          "minimum width diagonal hypersimplex cube section [0,1]^n sum coordinates t exact plateau two level normals",
+          "fixed-sum cube slice K_{n,t} width minimum t plateau staircase hypersimplex permutahedron",
+          "https://arxiv.org/pdf/2301.02616"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search closest inradius of consecutive-layer S-hypersimplex, John ellipsoid of a capped solid cube, cube directional law; none is the thin fixed-sum cube section least width table."
+        ],
+        "reasoning": "Finite integer-rank hypersimplex values alone do not imply continuous real thresholds tau or equality-orbit classification.",
+        "searches": [
+          "minimum width diagonal hypersimplex cube section [0,1]^n sum coordinates t exact plateau two level normals",
+          "fixed-sum cube slice K_{n,t} width minimum t plateau staircase hypersimplex permutahedron"
+        ]
+      },
+      "rationale": "Har-Peled–Robson analyze the regular simplex (which is a t=1 cube section), whereas the claim determines every continuous t and sharp change in minimizing normal orbit. The classical rearrangement/cut lemma alone and capped-simplex projection methods do not provide this full phase portrait in cited work. The novelty is the exact all-t plateau and equality orbits, not two-level rearrangement itself.",
+      "residual_risks": [
+        "Classical permutahedral width formula may occur in unindexed geometry literature.",
+        "Distinct lower-dimensional t=integer cases are known and not themselves novel; originality rests on full continuous profile and equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SIMPLEX_ENDPOINT_ONLY",
+          "evidence": [
+            "Known width and balanced normals for the (n-1)-simplex, not all cube sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02616",
+          "material_read": "Entire 3-page arXiv PDF; Lemma 1.2, proof and equality-balanced two-level directions",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "On the Width of the Regular n-Simplex",
+          "trigger": "Exact t=1 boundary matches simplex"
+        },
+        {
+          "assessment": "DIFFERENT_EUCLIDEAN_PROJECTION_PROBLEM",
+          "evidence": [
+            "Algorithmic projection onto feasible set does not calculate intrinsic minimum directional width."
+          ],
+          "identifier_or_url": "https://papers.neurips.cc/paper/2021/file/52aaa62e71f829d41d74892a18a11d59-Paper.pdf",
+          "material_read": "Title, problem setup and optimization statement from accessible publication",
+          "method": "Bibliographic and paper-preview inspection",
+          "title": "Fast Projection onto the Capped Simplex with Applications to Sparse Regression in Bioinformatics",
+          "trigger": "Identical fixed-sum/capped cube set in neighboring literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-sum hypercube slice (generalized hypersimplex) is a canonical symmetric polytope arising in constrained allocation and geometry. Its *minimum* Euclidean width controls slenderness and conditioning; an explicit plateau and jump between balanced and singleton split normal directions is a sharp, natural geometric phase boundary not a gratuitous numeric slice. All real level parameters and equality-orbit classification make it useful beyond the known simplex endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=4, 0<t<n, induced Euclidean metric, no arbitrary norm or affine box width."
+  ],
+  "schema_version": 1
+}
