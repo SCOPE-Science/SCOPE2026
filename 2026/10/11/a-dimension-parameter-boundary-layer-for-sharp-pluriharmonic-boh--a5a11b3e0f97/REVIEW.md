@@ -1,78 +1,20 @@
-# Review of A dimension–parameter boundary layer for sharp pluriharmonic Bohr radii
+# Mathematical review: sharp pluriharmonic Bohr radius asymptotics
 
 ## Correctness
 
-PASS. The proof starts from the exact sharp-root equation in Theorem 4.1 of arXiv:2607.27272v1. After the substitutions
+**PASS.** For the normalized class and the sharp root from Majumder, Banerjee, Panja and Pramanik (arXiv:2607.27272v1), set \(x=nr\), \(\tau=n(1-\alpha)\), \(S(x)=-\log(1-x)-x\), and \(T_n=\log(1+1/n)-1/n\). The defining equation is \(x+2\tau S(x)=1+2\tau T_n\). Since \(\tau<n\), its right correction is uniformly \(O(1/n)\). Strict root monotonicity yields \(x\to\xi(\tau)\) for a finite limiting \(\tau\), with \(\xi(0)=1\). When \(\tau\to\infty\), \(x\to0\) and \(\tau x^2\to1\). For fixed \(a=1-\alpha\), matching the first two powers of \(n^{-1/2}\) and using the exact derivative proves
 \[
-x_n=n r_{n,\alpha_n},
-\qquad
-\tau_n=n(1-\alpha_n),
-\]
-the right logarithmic correction is
-\[
-O(n^{-1})
-\]
-uniformly over the admitted parameters.
-
-For bounded
-\[
-\tau_n,
-\]
-strict monotonicity gives convergence to the unique profile root. For
-\[
-\tau_n\to\infty,
-\]
-the root must tend to zero, and the quadratic expansion of
-\[
--\log(1-x)-x
-\]
-forces
-\[
-\tau_nx_n^2\to1.
-\]
-For fixed
-\[
-\alpha,
-\]
-Taylor matching gives the first two terms, and the exact root derivative converts the residual estimate into the stated
-\[
-O_\alpha(n^{-5/2})
-\]
-radius remainder.
-
-The bundled checker agrees with both the fixed-parameter and transition-profile predictions, but the proof does not depend on finite numerical sampling.
+r_{n,\alpha}=a^{-1/2}n^{-3/2}-\frac{5}{6a}n^{-2}+O_a(n^{-5/2}).\]
+The original source proves the sharpness of this root; these arguments establish its asymptotics. Independent high-precision roots and symbolic series coefficients corroborate the proof, without serving as an infinite-dimensional certificate.
 
 ## Originality
 
-PASS. The first public version of the lead source was inspected at its class definition, sharp Bohr theorem, monotone root function, sharpness witness, and dimension plot. It gives an exact implicit radius and displays only the first four dimensions; it does not state a high-dimensional law or the joint scaling variable
-\[
-n(1-\alpha).
-\]
+**PASS, best of knowledge.** The defining preprint's Theorem 4.1 and surrounding full-text discussion contain an exact sharp equation, a uniqueness proof, and plots for dimensions one through four, but not the dimension-dependent expansion or the crossover profile. The asymptotic analysis is a new conclusion drawn from that established premise. Das (arXiv:2303.14257) studies powered norm-based Bohr radii; Halder (arXiv:2601.12608) studies second vector-valued Bohr radii; and Bayart, Pellegrino and Seoane-Sepúlveda (arXiv:1310.2834) study the classical bounded-holomorphic polydisc radius. Their different hypotheses do not directly yield this normalized sharp-root asymptotic. A later preprint revision or unindexed equivalent result remains a priority risk.
 
-The classical polydisc Bohr-radius asymptotic and the recent vector-valued pluriharmonic Bohr-radius asymptotics use different function classes, norms, and radius definitions. They do not imply the accepted transition theorem.
+## Mathematical value
 
-Dedicated searches under exact-source, high-dimensional, inverse-three-halves, and endpoint-crossover formulations found no implication-equivalent statement.
+**PASS.** The classification identifies a crossover at \(1-\alpha\asymp n^{-1}\), a nonconstant limiting profile, and a sharp fixed-parameter second term. These characterize how an already-established sharp invariant depends on its two natural parameters. The required analysis is elementary implicit-root asymptotics, and its contribution should not be overstated as a new sharp-radius inequality.
 
-## Value
+## Scope
 
-PASS. Dimension and
-\[
-\alpha
-\]
-are the two defining parameters of the new class, while the source leaves their interaction encoded in an implicit sharp root. The accepted result identifies the exact crossover scale
-\[
-1-\alpha\asymp n^{-1},
-\]
-separates an
-\[
-n^{-3/2}
-\]
-fixed-parameter regime from an
-\[
-n^{-1}
-\]
-endpoint regime, and supplies both a nontrivial limiting profile and a second-order coefficient.
-
-This is structural information about the source's sharp invariant rather than a routine numerical refinement.
-
-Same-model review: passed. Independent audit: not yet performed.
+Integers \(n\ge1\) and parameters \(0<\alpha<1\). The fixed-parameter error is not uniform at \(\alpha\uparrow1\). No claim is made about the distinct classical holomorphic or powered vector-valued Bohr radii. No formal proof assistant verification or expert attestation is claimed.

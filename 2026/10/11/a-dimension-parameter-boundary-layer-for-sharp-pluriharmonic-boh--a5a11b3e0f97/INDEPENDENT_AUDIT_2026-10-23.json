@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:02:27Z",
+  "axes": {
+    "correctness": {
+      "checked_source_paths": [
+        "RESULT.md",
+        "SLOGAN.txt",
+        "VERIFICATION.md",
+        "verify_bohr_transition.py",
+        "verification_output.txt"
+      ],
+      "rationale": "The source Theorem 4.1 root is verified verbatim in the primary full-text section. Writing S(x)=-log(1-x)-x and T_n=log(1+1/n)-1/n gives x+2tau S(x)=1+2tau T_n. For n≥1 and 0<alpha<1, tau=n(1-alpha)<n and T_n=-1/(2n²)+O(n^-3), so 2tau T_n=O(1/n). F_tau(x)=x+2tau S(x) is increasing with derivative 1+2tau*x/(1-x)>0; for tau>0 it ranges from zero to infinity as x↑1. If tau_n→tau>0, monotone convergence of roots gives unique xi(tau); tau_n→0 forces x_n→1, including the endpoint x=1 only as a limit. If tau_n→infinity, x_n→0 and S(x)=x²/2+O(x³) imply tau_n x_n²→1. For fixed a=1-alpha, epsilon=n^-1/2, substitution x=A epsilon+B epsilon² yields aA²=1 and A+2aAB+(2a/3)A³=0; hence A=a^-1/2 and B=-5/(6a). A residual of O(epsilon²) divided by the exact derivative 1+2na*x/(1-x)=Theta(epsilon^-1) yields x error O(epsilon³), or radius error O_a(n^-5/2). The n=1/root positivity boundary is protected by T_n≥-1/(2n²), giving 1+2tau T_n>0. Independent symbolic series computation confirmed the vanishing epsilon coefficient and O(epsilon²) residual, and 60-digit bisection reproduced three scaling regimes. This is an asymptotic theorem only and does not re-prove the source sharpness from first principles.",
+      "scope": "Integer n≥1, 0<alpha_n<1; tau_n=n(1-alpha_n); finite tau≥0 or divergent tau; fixed alpha∈(0,1) has an alpha-dependent, nonuniform remainder; not a classical bounded-holomorphic Bohr radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Majumder et al. supply exactly the root, without any stated limit or second expansion coefficient.",
+          "Halder concerns vector-valued second Bohr radii on Reinhardt domains.",
+          "Das concerns p-powered norm radii on Hardy polydiscs or bounded Minkowski balls.",
+          "Bayart et al. concern bounded holomorphic unit-polydisc Bohr radius with sqrt(log n/n) scale."
+        ],
+        "reasoning": "These other statements do not dominate the present two-parameter root asymptotics because their target invariants are different. The exact root premise covers all finite n, alpha but does not separately establish the asymptotic classification as a claimed result; the new analysis adds genuine large-n information rather than an unrelated parameter specialization.",
+        "searches": [
+          "arXiv:2607.27272v1 full-source Theorem 4.1",
+          "arXiv:2601.12608 second Bohr radius",
+          "arXiv:2303.14257 p-powered Bohr radius",
+          "arXiv:1310.2834 classical n-polydisc radius",
+          "Resultary search: sharp pluriharmonic Bohr inequality dimension parameter boundary layer harmonic mappings unit ball coefficient radius high dimension",
+          "Resultary search: pluriharmonic polydisc sharp Bohr radius asymptotic dimension n alpha endpoint crossover n(1-alpha)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27272v1; https://www.researchgate.net/publication/410939401_Coefficient_estimates_and_Bohr_phenomenon_for_pluriharmonic_mappings_in_the_polydisc",
+        "arXiv:2601.12608 (Himadri Halder, 2026)",
+        "arXiv:2303.14257; Forum Mathematicum 36 (2024), 765–782 (Nilanjan Das)",
+        "arXiv:1310.2834; Advances in Mathematics 264 (2014), 726–746",
+        "Resultary searched distinct and identical SCOPE findings as described; identical self-entry excluded as prior art."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lead exact root can be written x+2tau[-log(1-x)-x]=1+2tau[log(1+1/n)-1/n].",
+          "Deriving the crossover requires the controlled error 2tau T_n=O(1/n) for tau<n, a monotone-profile limit for bounded tau and a quadratic regime for divergent tau.",
+          "The fixed-alpha second term -5/[6(1-alpha)] comes from balancing an x term against the cubic correction to S(x); it is not reported in the lead paper.",
+          "Comparator Bohr quantities have distinct normalization/domain/function-space assumptions."
+        ],
+        "reasoning": "The original sharp radius theorem is an essential premise, not an independently stronger asymptotic theorem that already states both scales. Although the new formula is derivable by conventional implicit asymptotics and not a new sharpness theorem, it supplies a parameter-dependent asymptotic classification that is absent from inspected prior statements.",
+        "searches": [
+          "arXiv:2607.27272v1 Theorem 4.1 equations (4.1)–(4.6)",
+          "arXiv:2601.12608 Halder second radius",
+          "arXiv:2303.14257 Das p-radius",
+          "arXiv:1310.2834 Bayart classical radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the exact published instance of this finding (self-entry, not independent prior art) but no distinct equivalent same-class asymptotic among targeted results.",
+          "The primary theorem gives a unique root, and Figure 2 plots n=1..4; an equivalent formulation would require the same normalized class and sharp-root asymptotic under x=nr and tau=n(1-alpha)."
+        ],
+        "reasoning": "Searches tested aliases such as normalized pluriharmonic sharp Bohr root, high-dimensional polydisc boundary distance radius, logarithmic implicit root, and endpoint profile; no separately published same-class asymptotic was identified. Absence of a result in these searches alone is not proof of novelty.",
+        "searches": [
+          "Resultary search: sharp pluriharmonic Bohr inequality dimension parameter boundary layer harmonic mappings unit ball coefficient radius high dimension",
+          "Resultary search: pluriharmonic polydisc sharp Bohr radius asymptotic dimension n alpha endpoint crossover n(1-alpha)",
+          "Resultary search: implicit logarithmic Bohr radius sharp root asymptotic n^-3/2 fixed alpha and 1/n phase transition",
+          "Resultary search: pluriharmonic radius coefficient estimates Majumder Banerjee Panja Pramanik second order dimension asymptotic",
+          "Web searches: 2607.27272 Bohr radius asymptotic dimension; n(1-alpha) Bohr radius pluriharmonic; n^-3/2 Bohr pluriharmonic; exact author names plus asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Figure 2 plots only dimensions n=1,2,3,4 and varies alpha.",
+          "The mathematical claim proves n→infinity asymptotics and all finite tau crossover limits, not a fixed finite sample.",
+          "Computed bisection checks are convergence diagnostics, not exhaustive classification."
+        ],
+        "reasoning": "No prior exact asymptotic table or formula matching the large-n coefficients or transition profile was identified. A small-n plot does not supply or imply the limiting expansion without analysis.",
+        "searches": [
+          "arXiv:2607.27272 section 4 Figures 1-2 dimensions one through four",
+          "Resultary self-entry and same-class asymptotic searches",
+          "sharp pluriharmonic Bohr radius dimension alpha table asymptotic"
+        ]
+      },
+      "rationale": "The original preprint establishes the sharp finite-n root and sharpness, not the double-scaling limit, crossover, or fixed-parameter second asymptotic coefficient. A rooted equation determines these consequences in principle, but the submitted theorem provides a new uniform-in-sequence regime classification and analytic two-term expansion, rather than a special-case restatement of the original sharp-root theorem. The other literature inspected studies demonstrably different Bohr radius definitions. This is a best-of-knowledge judgment, subject to the stated priority risks.",
+      "residual_risks": [
+        "The original July 2026 preprint may have an unindexed revision or follow-up containing the same asymptotic.",
+        "The present analysis derives asymptotics from an already-known exact root by elementary monotonicity and Taylor expansion; assessing the increment as distinct mathematical information involves a novelty/value boundary rather than priority certification.",
+        "Full texts of the less directly applicable Das/Halder comparisons were not inspected; conclusions about their whole papers are limited to precisely stated hypotheses in their primary abstracts.",
+        "The lead source’s full transcription was read at decisive statements and searched elsewhere for asymptotic language, but not every page was exhaustively read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PREMISE_NOT_ASYMPTOTIC: supplies the identical sharp-root identity and sharpness, and finite-dimensional plots for n=1,2,3,4; does not state the dimension/endpoint asymptotic expansion or the profile.",
+          "evidence": "Theorem 4.1 states nr+2n(1−α)Σ_{m≥2}(nr)^m/m=1+2n(1−α)Σ_{m≥2}(−1)^{m−1}/(mn^m); Figure 2 explicitly plots only n=1,2,3,4 (lines 3240–3278 and 3505–3533 of accessible transcription).",
+          "identifier_or_url": "arXiv:2607.27272v1; https://www.researchgate.net/publication/410939401_Coefficient_estimates_and_Bohr_phenomenon_for_pluriharmonic_mappings_in_the_polydisc",
+          "material_read": "Full-text HTML transcription: normalization and class discussion; section 4, Theorem 4.1 and its proof around equations (4.1)–(4.6), monotone root function, sharpness witness, and Figures 1–2. The remaining paper was searched for asymptotic statements, not exhaustively read page by page.",
+          "method": "Direct section-level reading of the publicly accessible complete ResearchGate text rendering, cross-checked with arXiv primary bibliographic record; arXiv HTML/PDF direct access was unavailable.",
+          "title": "Coefficient estimates and Bohr phenomenon for pluriharmonic mappings in the polydisc",
+          "trigger": "The primary source defining exactly the normalized pluriharmonic class and its sharp radius."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: second Bohr radius for bounded vector-valued pluriharmonic functions in complete Reinhardt domains, with local Banach-space invariants; not the present normalized sharp distance-to-image-boundary root.",
+          "evidence": "The abstract explicitly identifies the second Bohr radius and operator/vector-valued class; no direct implication to Theorem 4.1’s root is given at inspected scope.",
+          "identifier_or_url": "arXiv:2601.12608 (Himadri Halder, 2026)",
+          "material_read": "Primary arXiv abstract and alphaXiv primary-record abstract describing the second radius and hypotheses; full theorem text not obtained for this comparison.",
+          "method": "Direct primary arXiv and alphaXiv bibliographic/abstract inspection.",
+          "title": "On the second Bohr radius for vector valued pluriharmonic functions",
+          "trigger": "Recent high-dimensional pluriharmonic Bohr asymptotics with potential stronger coverage."
+        },
+        {
+          "assessment": "DIFFERENT_CLASS: p-powered bounded holomorphic Hardy-space functions or bounded pluriharmonic functions on Minkowski balls; no stated relation to the normalized class and sharp-root boundary in the assigned claim.",
+          "evidence": "The abstract defines K_n^p(F(R)) using norms of bounded/Hardy functions and a p-powered majorant, not the original source’s distance-to-image-boundary sharp radius.",
+          "identifier_or_url": "arXiv:2303.14257; Forum Mathematicum 36 (2024), 765–782 (Nilanjan Das)",
+          "material_read": "Primary arXiv abstract and institutional published-article abstract, with listed function spaces and domains; full paper not inspected.",
+          "method": "Direct primary-record and institutional publication-summary comparison.",
+          "title": "The p-Bohr radius for vector-valued holomorphic and pluriharmonic functions",
+          "trigger": "Published high-dimensional Bohr-radius asymptotics for pluriharmonic functions."
+        },
+        {
+          "assessment": "NONCOVERING_DIFFERENT_CLASS: classical unit-polydisc bounded holomorphic radius has sqrt(log n/n) scale and is not the assigned normalized pluriharmonic class radius.",
+          "evidence": "The primary abstract explicitly proves classical polydisc sqrt(log n/n) behavior, distinct from the formula n^{-3/2} for the present class.",
+          "identifier_or_url": "arXiv:1310.2834; Advances in Mathematics 264 (2014), 726–746",
+          "material_read": "Primary arXiv theorem-level abstract, authors and publication record; full manuscript not inspected.",
+          "method": "Direct arXiv primary record.",
+          "title": "The Bohr radius of the n-dimensional polydisk is equivalent to sqrt(log n/n)",
+          "trigger": "Canonical high-dimensional Bohr-radius result; possible nomenclature collision."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both dimension and alpha are intrinsic structural parameters of the normalized pluriharmonic family, and sharpness at finite dimension was already established without describing growth in n. The finding identifies a real change from n^-3/2 to n^-1, a nonconstant transition profile in the natural dimension-times-parameter window, and the exact first correction to the fixed-alpha law. Those statements answer motivated asymptotic questions for a sharp infinite-family invariant; they are not finite-table recomputation, although their derivation uses standard implicit-root asymptotics and the contribution is modest compared with the prior exact sharp-radius theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.27272v1; https://www.researchgate.net/publication/410939401_Coefficient_estimates_and_Bohr_phenomenon_for_pluriharmonic_mappings_in_the_polydisc",
+    "arXiv:2601.12608 (Himadri Halder, 2026)",
+    "arXiv:2303.14257; Forum Mathematicum 36 (2024), 765–782 (Nilanjan Das)",
+    "arXiv:1310.2834; Advances in Mathematics 264 (2014), 726–746",
+    "Resultary searched distinct and identical SCOPE findings as described; identical self-entry excluded as prior art."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The lead exact-root and sharpness theorem is an assumed published premise, independently checked at its statement.",
+    "The alpha-dependent error is not uniform at alpha→1.",
+    "Full manuscripts for comparator Halder, Das and Bayart were not inspected, since their primary summaries disclose different Bohr invariants.",
+    "Full-text search of lead source checked relevant sections rather than an exhaustive page-by-page rereading.",
+    "No formal proof assistant or expert attestation is claimed."
+  ],
+  "residual_risks": [
+    "The original July 2026 preprint may have an unindexed revision or follow-up containing the same asymptotic.",
+    "The present analysis derives asymptotics from an already-known exact root by elementary monotonicity and Taylor expansion; assessing the increment as distinct mathematical information involves a novelty/value boundary rather than priority certification.",
+    "Full texts of the less directly applicable Das/Halder comparisons were not inspected; conclusions about their whole papers are limited to precisely stated hypotheses in their primary abstracts.",
+    "The lead source’s full transcription was read at decisive statements and searched elsewhere for asymptotic language, but not every page was exhaustively read."
+  ],
+  "schema_version": 1
+}
