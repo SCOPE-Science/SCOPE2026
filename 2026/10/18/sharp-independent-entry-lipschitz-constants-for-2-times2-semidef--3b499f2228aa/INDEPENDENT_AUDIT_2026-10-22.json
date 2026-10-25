@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0c33169e9a3ff3b40a003368aca3aa1f020cd808",
+        "verify.py blob 763a8336d0564ec4e2bb651ffaa562b05f547f77",
+        "Independent oblique endpoint operator-norm grid audit"
+      ],
+      "rationale": "PASS. The domain is real symmetric 2x2 matrices, the nearest positive-semidefinite projection is Frobenius, and input/output norms on the three coordinates (a,c,b) count b once. The Frobenius-isometric transformation to a Lorentz cone yields the mixed-sector Jacobian affine in s=T/r. Its two endpoint matrices are the rank-one oblique projection vf^T and its complement, f^Tv=1, v=(t,1-t,q), f=(t,1-t,2q), q^2=t(1-t). Explicit 3x3 row/column absolute sums give the sharp 3/2 ℓ_1 and ℓ_∞ bounds; the two oblique complementary operators have equal Hilbert norms and squared norm (1-q^2)(1+2q^2)≤9/8. Convexity controls intermediate Jacobians, integration along generic segments and continuity handle switching boundaries. The offdiagonal scaling pair attains ℓ_1, and derivatives as s↑1 with q=1/2 give sharp remaining constants. Independent t-grid endpoint 3-norm calculations corroborated the matrices; the proof, not the sample grid, covers the continuum.",
+      "residual_risks": [
+        "No assertion for complex matrices, n>2, other p, or independent-entry-metric nearest projection.",
+        "Finite endpoint sampling is diagnostic; continuum relies on scalar inequalities and segment integration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro differentiability framework yields derivatives of matrix spectral functions, not all three sharp independent-coordinate operator norm optimizations.",
+          "Frobenius nonexpansivity supplies only nonsharp norm-equivalence upper bounds for the independent-coordinate norms."
+        ],
+        "reasoning": "The full spectral calculus is broader as machinery but does not by itself force 3/2, 3/(2 sqrt2), 3/2. The explicit maximization of endpoint projection matrices is needed.",
+        "searches": [
+          "positive semidefinite cone projection 2 by 2 symmetric matrices exact sharp induced Lipschitz l1 linfty independent off diagonal once Frobenius projection",
+          "Shapiro 2002 symmetric matrix function Fréchet derivatives",
+          "Sun and Sun 2002 PSD projection semismoothness"
+        ]
+      },
+      "checked_sources": [
+        "Shapiro 2002 https://optimization-online.org/2002/07/499/",
+        "Sun and Sun 2002 doi:10.1287/moor.27.1.150.342",
+        "Resultary query positive semidefinite cone projection 2 by 2 symmetric matrices exact sharp induced Lipschitz l1 linfty independent off diagonal once Frobenius projection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frobenius norm squares count offdiagonal twice; ℓ_{2,ind} squares count it once.",
+          "An endpoint Jacobian is vf^T or I-vf^T with sharp ℓ_{2,ind} norm squared 9/8."
+        ],
+        "reasoning": "General spectral projection formulas and derivative existence are used as known premises but need additional scalar global optimization and boundary sharpness to imply the claimed constants.",
+        "searches": [
+          "positive semidefinite cone projection 2 by 2 symmetric matrices exact sharp induced Lipschitz l1 linfty independent off diagonal once Frobenius projection",
+          "doi:10.1287/moor.27.1.150.342",
+          "https://optimization-online.org/2002/07/499/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PSD spectral positive part is conjugate, via a Frobenius isometry, to nearest-point projection onto a 3D Lorentz cone.",
+          "Independent-entry ℓ_p norms count offdiagonal once and are not preserved by the Lorentz transformation."
+        ],
+        "reasoning": "The map is equivalent but the normed Lipschitz problem is not a routine transfer of the standard Euclidean or Cartesian Lorentz projection bounds.",
+        "searches": [
+          "positive semidefinite cone projection 2 by 2 symmetric matrices exact sharp induced Lipschitz l1 linfty independent off diagonal once Frobenius projection",
+          "Sun & Sun 2002 doi:10.1287/moor.27.1.150.342",
+          "Shapiro 2002 https://optimization-online.org/2002/07/499/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary hits include planar cone projection in standard ℓ_p distance and unrelated spectral projection inequalities, not the precise three-number table."
+        ],
+        "reasoning": "This continuous nonlinear operator is not determined by a finite graph table. Search nonreturn is weak evidence only, not novelty proof.",
+        "searches": [
+          "positive semidefinite cone projection 2 by 2 symmetric matrices exact sharp induced Lipschitz l1 linfty independent off diagonal once Frobenius projection",
+          "Resultary semantic search for sharp 2x2 PSD independent-entry Lipschitz constants"
+        ]
+      },
+      "rationale": "PASS on best-of-knowledge: the sharp independent-entry Lipschitz triple is mathematically distinct from standard Frobenius spectral formulas and from standard-coordinate Lorentz projection norms. No examined prior statement implies all three best constants; possible older cross-norm spectral projection theorem remains a priority risk.",
+      "residual_risks": [
+        "Sun--Sun primary article not read in full in this run.",
+        "A historical exact non-Hilbert spectral-positive-part theorem with alternate coordinate weighting could cover the numbers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes differentiability theory, not an independently optimized triple of entry-coordinate Lipschitz norms",
+          "evidence": "Section 2 symmetric matrix spectral derivative formulas; explicit norm optimization absent from examined mathematical material.",
+          "identifier_or_url": "https://optimization-online.org/2002/07/499/",
+          "material_read": "Primary 2002 PDF introduction and section 2 including derivative formulas (2.7) and (2.8), plus mathematical page image",
+          "method": "Opened primary full PDF and inspected mathematically relevant proof material and a rendered page",
+          "title": "On Differentiability of Symmetric Matrix Valued Functions",
+          "trigger": "Spectral divided-difference calculus possibly contains the claimed sharp induced constants"
+        },
+        {
+          "assessment": "Established spectral projection and Frobenius properties; partial access does not justify whole-paper NOT_COVERING",
+          "evidence": "Known Frobenius metric and original PSD spectral-derivative premise; missing full text is a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.27.1.150.342",
+          "material_read": "Publication metadata and indexed spectral projection summary; complete article not read this run",
+          "method": "Primary bibliographic lookup and source RESULT citation crosscheck",
+          "title": "Semismooth Matrix-Valued Functions",
+          "trigger": "Canonical PSD spectral projection and nonexpansivity reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob 0c33169e9a3ff3b40a003368aca3aa1f020cd808",
+        "Independent statement-and-implication comparison documented in originality"
+      ],
+      "rationale": "PASS. Independent-entry metrics are the natural three free parameters of a symmetric 2x2 matrix, distinct from the Frobenius metric defining its cone projection. Determining sharp stability constants across ℓ_1, ℓ_2 and ℓ_∞ resolves a concrete norm-change sensitivity problem, with genuinely sharp boundary and attainment differences; it is neither textbook Frobenius nonexpansivity nor arbitrary rescaling.",
+      "residual_risks": [
+        "The new constant values are dimension-specific and do not imply higher-dimensional stability results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for complex matrices, n>2, other p, or independent-entry-metric nearest projection.",
+    "Finite endpoint sampling is diagnostic; continuum relies on scalar inequalities and segment integration.",
+    "Sun--Sun primary article not read in full in this run.",
+    "A historical exact non-Hilbert spectral-positive-part theorem with alternate coordinate weighting could cover the numbers.",
+    "The new constant values are dimension-specific and do not imply higher-dimensional stability results."
+  ],
+  "schema_version": 1
+}

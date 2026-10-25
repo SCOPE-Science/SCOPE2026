@@ -1,15 +1,21 @@
-# Scientific review: sharp independent-entry sensitivity of semidefinite projection
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain, projection metric, coordinate norms, and global quantifiers are fixed explicitly. The Frobenius orthogonal map turns the positive-semidefinite cone of symmetric two-by-two matrices into the three-dimensional Lorentz cone. Differentiating the mixed region yields a Jacobian affine in the signed radial ratio, so convexity of induced operator norms reduces its uniform bound to the two endpoint families. Those families are the oblique rank-one projector \(vf^{\mathsf T}\) and its complement, parametrized by \(t\in[0,1]\) and \(q=\sqrt{t(1-t)}\). Explicit absolute row/column sums yield the optimal \(\ell_1\) and \(\ell_\infty\) constants \(3/2\). The complementary Hilbert idempotent identity and \((1-q^2)(1+2q^2)\le9/8\) give \(3/(2\sqrt2)\) for the independent-entry Euclidean norm. Integrating derivatives on generic line segments and taking limits proves all-pairs inequalities. One exact finite pair attains the \(\ell_1\) constant; differentiable boundary approaches establish optimality of the other two. The standalone Python program replayed 15,731 assertions including exact rational formulas, Jacobians, and numerical stress tests; these tests corroborate rather than prove the continuum statements.
+## correctness
 
-## Originality — PASS (bounded historical search; residual risk)
-Sun and Sun's 2002 paper proves Frobenius nonexpansivity and develops the spectral positive-part projection and its generalized derivatives. Shapiro's 2002 paper gives symmetric matrix-function derivative formulas. Andreev's 2014 note documents equality of Hilbert norms for complementary oblique projections. Those established ingredients are credited. Their inspected statements do not give the exact independent-entry \(\ell_1\), \(\ell_2\), and \(\ell_\infty\) constants. Known exact constants for Lorentz-cone projection in standard Euclidean-coordinate \(\ell_p\) norms cannot be transferred directly because the Frobenius cone isometry does not preserve the three independent-entry norms. Scientific searches additionally included entrywise matrix positive-part sensitivity, equivalent cone norms, and projection matrix constants; no stronger covering statement was identified. A general historical matrix-function or non-Hilbert projection theorem might imply the claim, so universal priority is **not** asserted.
+PASS
 
-## Mathematical value — PASS
-The PSD projection is fundamental in finite-dimensional cone feasibility, spectral truncation, and matrix reconstruction. Measurement errors in the three distinct symmetric entries are naturally modeled with each entry counted once; this differs materially from Frobenius errors that count off-diagonal entries twice. The result is an exact global stability classification simultaneously for three natural coordinate norms, reveals an attained 50% amplification for the sum norm, and shows why Frobenius nonexpansivity does not control entrywise perturbations sharply. The proof provides a nontrivial structural reduction to an oblique projector family, not a one-instance computation. Dimension two is the smallest nonlinear PSD cone, making its sharp baseline mathematically natural.
+PASS. The domain is real symmetric 2x2 matrices, the nearest positive-semidefinite projection is Frobenius, and input/output norms on the three coordinates (a,c,b) count b once. The Frobenius-isometric transformation to a Lorentz cone yields the mixed-sector Jacobian affine in s=T/r. Its two endpoint matrices are the rank-one oblique projection vf^T and its complement, f^Tv=1, v=(t,1-t,q), f=(t,1-t,2q), q^2=t(1-t). Explicit 3x3 row/column absolute sums give the sharp 3/2 ℓ_1 and ℓ_∞ bounds; the two oblique complementary operators have equal Hilbert norms and squared norm (1-q^2)(1+2q^2)≤9/8. Convexity controls intermediate Jacobians, integration along generic segments and continuity handle switching boundaries. The offdiagonal scaling pair attains ℓ_1, and derivatives as s↑1 with q=1/2 give sharp remaining constants. Independent t-grid endpoint 3-norm calculations corroborated the matrices; the proof, not the sample grid, covers the continuum.
 
-## Closest literature and remaining limitations
-D. Sun and J. Sun (2002), *Semismooth Matrix-Valued Functions*, especially the positive-semidefinite projection and Frobenius nonexpansivity; A. Shapiro (2002), *On Differentiability of Symmetric Matrix Valued Functions*; R. Andreev (2014), *A Note on the Norm of Oblique Projections*. Full accessible scientific text was inspected. An equivalent special case of a more general normed-cone projection theorem remains a bibliographic risk. Infinite-dimensional, larger-matrix, complex Hermitian, and arbitrary-norm claims are excluded. Finite tests do not establish analytic bounds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-of-knowledge: the sharp independent-entry Lipschitz triple is mathematically distinct from standard Frobenius spectral formulas and from standard-coordinate Lorentz projection norms. No examined prior statement implies all three best constants; possible older cross-norm spectral projection theorem remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Independent-entry metrics are the natural three free parameters of a symmetric 2x2 matrix, distinct from the Frobenius metric defining its cone projection. Determining sharp stability constants across ℓ_1, ℓ_2 and ℓ_∞ resolves a concrete norm-change sensitivity problem, with genuinely sharp boundary and attainment differences; it is neither textbook Frobenius nonexpansivity nor arbitrary rescaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
