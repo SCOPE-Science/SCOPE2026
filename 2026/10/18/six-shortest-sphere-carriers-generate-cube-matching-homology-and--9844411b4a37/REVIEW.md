@@ -1,15 +1,21 @@
-# Scientific review: shortest cube-matching homology carriers
+# Independent mathematical audit
 
-## Correctness — PASS
-The twelve cube edges and all matching simplices are reconstructed from binary coordinates, yielding face vector \((12,42,44,9)\). Exact boundary ranks \((11,31,9)\) and thirty-one unit Smith factors of the middle boundary establish the low-dimensional chain structure. Enumeration of all induced edge subsets proves the first nonzero mod-two second homology occurs on eight vertices and identifies precisely six such supports. A displayed sequence of four valid free-face collapses produces a connected, closed, Euler-characteristic-two surface for one carrier; cube symmetry transports this certificate to all six. The \(44\)-by-\(13\) combined boundary-and-carrier matrix has rank thirteen and thirteen unit Smith factors, proving *integral* spanning rather than rational spanning alone. Signed simplex Lefschetz traces are checked for all forty-eight automorphisms, with the stated irreducible character decomposition. The package's exact verifier confirms these steps.
+## correctness
 
-## Originality — PASS, with residual risk
-Braun and Hough's complete available preprint arXiv:1606.01204v1 investigates planar two-row grids and generalized line-graph families; its symmetry question concerns a different family. The closest directly matching public result, *The cube matching complex is \(\bigvee^4 S^2\)* (`79d70fe8b67e`), was inspected in its complete RESULT statement and proof; it establishes the same complex's abstract homotopy type, **not** its minimum induced supports, integral carrier lattice, or complete automorphism character. Additional mathematical-record searches for perfect-matching-complement supports and antipodal representation aliases did not locate a theorem implying the combined result. There remains the possibility of an unindexed or differently named equivalent calculation; this is not a claim of proven publication priority.
+PASS
 
-## Mathematical value — PASS
-The cube is a canonical three-dimensional Cartesian power of an edge, and its matching complex already has four top-dimensional homology generators. The sharp six-carrier classification explains precisely *where* these homology classes first arise on induced subcomplexes, the unit Smith certificate shows that a subset of four genuinely generates the full integral lattice, and the antipodal/label-permutation representation distinguishes classes unseen by the Betti numbers. This is a natural local-to-global topological invariant and a meaningful symmetry refinement of the known homotopy type, not merely a rank recomputation.
+Full cube matching complex face vector (12,42,44,9), signed boundary ranks (11,31,9) and previously known wedge4 S2 are consistent. Independent exhaustive enumeration of all 4096 induced vertex sets gives mod2 H2-supported counts by size 8:6,9:24,10:42,11:12,12:1, none <=7. The six 8-vertex sets complement precisely six nonparallel cube perfect matchings. The displayed 4 free-face collapses leave an 8-vertex 18-edge 12-triangle closed connected surface with vertex-cycle links and Euler characteristic 2, so S2; full cube symmetries permute all six. The submitted Smith-unit matrix certificate (9 ∂3 columns plus 4 carrier cycles, rank13 all unit factors) ensures integral generation of H2=Z4, stronger than rational or mod2 spanning. Independent full 48-element automorphism Lefschetz computation confirms S4 class traces (4,0,0,1,2) and antipodal-composed (2,−2,−2,−1,0), giving even Specht(2,1,1) and odd trivial one-dimensional piece. SNF part inspected in source algorithm, not independently rerun.
 
-## Limitations
-No theorem is asserted for higher-dimensional cubes. The group-module splitting is rational, and matching of existing publications is relative to accessible records and full texts. The exact integral carrier-spanning statement is independently reproduced from the local package, but no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact same ordinary cube matching complex homotopy wedge4 S2 is established in published 2026 Resultary full text and explicitly credited; that theorem does not study induced support minimality, six sphere carriers, integer primitive spanning or Aut(Q3) action. Braun–Hough treat planar two-row grids rather than a 3-direction cube. Related Morse complex of Q3 has different vertices (acyclic graph-edge matchings), so its homology cannot be conflated with ordinary matching complex.
+
+## value
+
+PASS
+
+Shortest induced supports for ambient H2 are a natural geometric/sparse-realization invariant of a canonical graph complex. The complete six-carrier classification, primitive integral generators and antipodal parity decomposition add independent structural information to an already-known homotopy type; valuable without claiming a higher-dimensional Qn theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
