@@ -1,0 +1,15 @@
+# Scientific review: wedge-divisible trivectors
+
+## Correctness — PASS
+The exterior-factor argument forces the divisor-space dimension of each nonzero trivector to be \(0\), \(1\), or \(3\); the bivector-rank step holds even in characteristic two. The proper projective-line incidence proves closure and irreducibility. Its open unique-divisor stratum has a regular inverse, giving smoothness, dimension \(\binom n2\), and rationality. Tangent spaces at every nonzero decomposable point contain the strictly oversized space \(U\wedge\Lambda^2V\); the origin has full ambient tangent space. Gaussian-binomial fiber counts avoid double counting because rank-at-least-four bivectors yield unique divisor lines. Exterior perfect pairing verifies equal central wedge ranks in the six-generator differential. The complete \(2^{20}\)-element binary experiment and three prime-field homology checks agree with these independently derived formulas.
+
+## Originality — PASS, with explicitly retained risks
+The nonzero wedge-annihilator and decomposability criterion is established background in Ghorpade–Patil–Pillai, arXiv:0710.5161, and is not treated as new. Draisma–Shaw, arXiv:0909.5676, concern trilinear-form *contraction* singularities; this is distinct from exterior multiplication divisibility. Kaipa–Pillai, arXiv:1203.0290, classify finite-field orbit types in low dimensions; this could imply the six-dimensional example, so that example is not the originality anchor. The assessed claim is the unified arbitrary-dimensional reduced variety, its exact singular locus, and all-finite-field divisor-rank census. Multiple searches for direct or stronger equivalent statements did not identify domination, but terminology in classical alternating-form/subspace varieties remains a genuine priority risk. The cited sources and similarity results do not establish absolute uniqueness.
+
+## Value — PASS
+The locus \(\{\alpha:\exists\,0\ne v,\ v\wedge\alpha=0\}\) is intrinsic to any exterior algebra and is the precise rank-defect locus of a natural multiplication map. Its dimension, singular locus, and all-field point counts form an exact complete classification of these natural invariants for every \(n\ge6\); the singularity transition along decomposable tensors is structural rather than an arbitrary small-parameter census. The resulting homology distributions in dimension six illustrate direct uses but are not required to justify the geometric result.
+
+## Closest literature and limits
+See Ghorpade–Patil–Pillai (2007), Draisma–Shaw (2009), Kaipa–Pillai (2012), and related later work on exterior-algebra self-annihilating subspaces. Classical incidence resolutions and subspace-variety results may already imply portions of the geometry; any such implication would narrow publication priority. Finite computations support, but cannot replace, the general argument. Reduced geometry is distinguished from potentially nonreduced scheme structures, and independent mathematical validation is unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
