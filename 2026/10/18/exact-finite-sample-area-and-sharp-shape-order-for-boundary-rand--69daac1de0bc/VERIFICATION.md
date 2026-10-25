@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`; the executable `checker.py` uses Python 3 and NumPy. Run `python checker.py`. The checker evaluates the claimed mean area as (i) an exact multinomial occupancy sum, (ii) the exact inclusion–exclusion quotient, and (iii) the moment expansion of the three-uniform integral, using `fractions.Fraction`. It checks 75 triples of identities for sample sizes \(1\) through \(15\) and five rational probability vectors, including the limiting boundary vector. The sharp endpoint expressions are checked exactly for \(N=3,\ldots,24\) (22 integer sizes).
+## correctness
 
-An independent geometric numerical check samples points uniformly on the Euclidean perimeter of a \(3\)-\(4\)-\(5\) triangle, sorts by boundary coordinate and computes normalized hull area by the cyclic shoelace formula. At \(N=3,5,8,15\) there are 60,000 independent draws per sample size; the seeded experiment gives absolute mean deviations below five empirical standard errors. The general identities and strict extremizers are proved analytically. Sampling cannot prove infinite or uniform claims.
+PASS
 
-The empty-side occupancy cases, normalization by the original triangle area, strict triangle inequalities, and unattained limiting endpoint are explicit in the proof. Independent mathematical audit has not been performed.
+Condition on multinomial side-counts K. For each occupied side with k samples, expected omitted endpoint fractions are 1/(k+1). Complement to hull decomposes into disjoint vertex gaps if all three occupied; in two-side occupancy, direct shoelace yields 1-1/(k_i+1)-1/(k_j+1). This leads to one exact occupancy identity with indicators K_k>0. Using 1/(k+1)=int_0^1 t^k dt and multinomial PGF derives 1-B_m/[m(m-1)pqr], m=N+2. Triple forward-difference of t^m gives 1-N int_[0,1]^3(pu+qv+rw)^(N-1), no approximation. Strict convexity for N>=3 and averaging unequal weights proves this moment integral strictly Schur-convex; hence area strictly Schur-concave. Triangle normalized side vectors are majorized by (1/2,1/2,0), and in turn majorize (1/3,1/3,1/3), proving extrema and rigidity. Independent exact rational multinomial occupancy vs cubic moment integral checks matched in 42 cases at N=1..14 across three p,q,r triples; finite checks corroborate exact all-N proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Exact all-N area expectation for perimeter-uniform boundary sampling in any triangle, with strict Schur shape ordering and sharp equilateral/degenerate endpoints. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+Fixed-N perimeter-boundary random inscribed hulls of nonregular triangles are a natural finite-sample problem. Exact normalized area and complete triangle-shape optimization, including an unattained sharp degeneracy, add a nontrivial, interpretable finite-sample geometric extremal law beyond known asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

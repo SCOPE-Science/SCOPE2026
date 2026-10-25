@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on multinomial side-counts K. For each occupied side with k samples, expected omitted endpoint fractions are 1/(k+1). Complement to hull decomposes into disjoint vertex gaps if all three occupied; in two-side occupancy, direct shoelace yields 1-1/(k_i+1)-1/(k_j+1). This leads to one exact occupancy identity with indicators K_k>0. Using 1/(k+1)=int_0^1 t^k dt and multinomial PGF derives 1-B_m/[m(m-1)pqr], m=N+2. Triple forward-difference of t^m gives 1-N int_[0,1]^3(pu+qv+rw)^(N-1), no approximation. Strict convexity for N>=3 and averaging unequal weights proves this moment integral strictly Schur-convex; hence area strictly Schur-concave. Triangle normalized side vectors are majorized by (1/2,1/2,0), and in turn majorize (1/3,1/3,1/3), proving extrema and rigidity. Independent exact rational multinomial occupancy vs cubic moment integral checks matched in 42 cases at N=1..14 across three p,q,r triples; finite checks corroborate exact all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05917"
+        ],
+        "reasoning": "Reitzner–Schütt–Werner give general asymptotic boundary hull volume deficits for polytopes, including triangles in principle, but cannot determine the exact finite N rational law nor strict Schur ordering without extra calculations.",
+        "searches": [
+          "Resultary semantic search: expected area convex hull independent uniform boundary points triangle Schur concavity side lengths exact finite N",
+          "Primary sources: https://arxiv.org/abs/1911.05917"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05917",
+        "https://arxiv.org/abs/1804.11007",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1911.05917",
+          "https://arxiv.org/abs/1804.11007"
+        ],
+        "reasoning": "An asymptotic 1/N² deficit for fixed polygon might agree with the leading factor 1/(pqr), but does not imply complete finite-N closed form or sharp unique equilateral maximizer and limiting infimum.",
+        "searches": [
+          "Resultary semantic search: expected area convex hull independent uniform boundary points triangle Schur concavity side lengths exact finite N",
+          "Primary sources: https://arxiv.org/abs/1911.05917; https://arxiv.org/abs/1804.11007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1804.11007"
+        ],
+        "reasoning": "The triple-uniform positive-integral formula and multinomial side-count formula are equivalent by three forward differences. Maesumi fixes exactly one uniform point on each distinct side (k=(1,1,1)), not iid N-point perimeter sampling.",
+        "searches": [
+          "Resultary semantic search: expected area convex hull independent uniform boundary points triangle Schur concavity side lengths exact finite N",
+          "Primary sources: https://arxiv.org/abs/1804.11007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1804.11007"
+        ],
+        "reasoning": "The known expected area 1/4 for three points chosen one per triangle side is a conditional occupancy subcase, not the iid perimeter law. Numerical tables of triangles do not imply all N and arbitrary side ratios.",
+        "searches": [
+          "Resultary semantic search: expected area convex hull independent uniform boundary points triangle Schur concavity side lengths exact finite N",
+          "Primary sources: https://arxiv.org/abs/1804.11007"
+        ]
+      },
+      "rationale": "Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Exact all-N area expectation for perimeter-uniform boundary sampling in any triangle, with strict Schur shape ordering and sharp equilateral/degenerate endpoints. Unindexed-equivalent risk retained.",
+      "residual_risks": [
+        "Unindexed exact boundary hull area formulas for polygons may specialize to triangle and dominate the finite N identity; no novelty guarantee from search alone.",
+        "Strict Schur ordering is in normalized side-length space, not fixed-perimeter unnormalized area."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: asymptotic context, not an exact finite-N triangle area formula or strict shape ordering.",
+          "evidence": "A rate or asymptotic coefficient does not determine the rational N-dependent moment at every sample size.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Accessible full text, main theorems and proof assumptions about asymptotic simple-polytope expected missing volume",
+          "method": "Retrieved accessible author or journal full text; examined definitions, theorem statements and relevant proof/result sections (PDF pages visually inspected where applicable).",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same boundary-arc-length iid convex-hull model; possibly stronger all-N volume theorem"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING: the three-distinct-sides conditional expectation is known (1/4), but iid N-sampling over whole perimeter and shape optimization are distinct.",
+          "evidence": "The iid count vector varies multinomially and includes one-/two-side occupancy cases absent from the one-per-side model.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.11007",
+          "material_read": "Accessible full-text HTML, theorem on mean area of one randomly chosen point per side",
+          "method": "Retrieved accessible author or journal full text; examined definitions, theorem statements and relevant proof/result sections (PDF pages visually inspected where applicable).",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "Exact elementary triangle-area expectation from sampling facet points"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-N perimeter-boundary random inscribed hulls of nonregular triangles are a natural finite-sample problem. Exact normalized area and complete triangle-shape optimization, including an unattained sharp degeneracy, add a nontrivial, interpretable finite-sample geometric extremal law beyond known asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1911.05917",
+    "https://arxiv.org/abs/1804.11007",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N>=3, nondegenerate triangle, iid arclength boundary sampling; normalized Euclidean area.",
+    "Degenerate-side extremum is only approached, never attained; no area distribution or polygons >=4 sides."
+  ],
+  "residual_risks": [
+    "Unindexed exact boundary hull area formulas for polygons may specialize to triangle and dominate the finite N identity; no novelty guarantee from search alone.",
+    "Strict Schur ordering is in normalized side-length space, not fixed-perimeter unnormalized area."
+  ],
+  "schema_version": 1
+}
