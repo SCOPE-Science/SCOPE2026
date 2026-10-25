@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-Run `python3 petersen_edge_toric_check.py` under Python 3.10 or newer. The program uses only integers, exact rational arithmetic, and the Python standard library. Its terminal output ends with `VERIFY_OK` on success.
+## correctness
 
-The computation checks the full affine lattice via a unit minor; enumerates all 5,005 nine-vertex facet witnesses; obtains 25 distinct valid primitive facet inequalities; obtains 5,734 faces including empty and full via exact facet-mask intersections; determines every face's dimension and incident facet normals; verifies 4,087 simplicial cones have lattice-unit minors; and identifies 1,645 nonsimplicial cones, whose 115 minimal elements have exactly one primitive \(\pm1\) ray relation each. Classification frequencies are 60 for \((2,3)\), 45 for \((2,4)\), and 10 for \((3,3)\); the complete \(S_5\) orbit multisets are \((10,20,30)\), \((15,30)\), \((10)\). Every vertex's incident-facet count is 18.
+PASS
 
-The implication from saturated one-relation toric cones to rank-one determinantal cones and their Segre multiplicities is a mathematical argument detailed in `RESULT.md`, not itself tested by polynomial ideal arithmetic. The verification makes no assertion of independent auditing or of historical-literature completeness.
+The 15 Petersen graph edges yield a rank-nine lattice-full edge polytope. Exhaustive exact 9-vertex hyperplane witness enumeration in inspected source produces 25 facets and all 5734 faces; 1645 cones nonsimplicial, 4087 simplicial cones with unimodular minors. Independently reconstructed convex hull and facet masks give the same complete face vector and 115 maximal nonsimplicial faces; separate SymPy exact primitive-normal certificates find all 115 unit-rank minors and primitive ±1 ray relations with sign patterns (2,3)×60, (2,4)×45, (3,3)×10. Their saturated toric quotients are 2×3, 2×4, 3×3 rank-one Segre cones, degrees 3,4,6; only balanced 3×3 is Q-Gorenstein. Source group enumeration gives six S5 orbits and 15 singular torus-fixed points.
+
+## originality
+
+PASS
+
+Distinguished standard edge polytope from similarly named symmetric constructions and compared generic formulas with exact finite Petersen census and three determinantal transverse types.
+
+## value
+
+PASS
+
+The fixed Petersen edge-polytope is a canonical 3-regular highly symmetric graph polytope. An exact exhaustive reduced-singularity census, six S5 component orbits, three distinct Segre transverse types and multiplicities is a complete and reusable intrinsic algebraic-geometric invariant, not an arbitrary small polygon count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
