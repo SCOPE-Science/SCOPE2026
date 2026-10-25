@@ -1,0 +1,11 @@
+# Scientific review: rotation dispersion of scattered binary pairs
+
+**Correctness — PASS.** The proof derives the increment law, covariance/pair-distance identity, and the two sharp extremal inequalities with equality. Concavity over positive cyclic gap vectors yields the clustered upper extremizers; a residue-class lower bound plus a block variance decomposition yields the balanced lower extremizers. The stated mechanical construction attains the latter. The standalone enumeration code re-counts every rotation and verifies all equations and equality classes for 32,738 finite words, but the proof, not enumeration, establishes the all-length assertion.
+
+**Originality — PASS, with risk.** The most directly relevant source is Poovanandran–Simpson–Teh (arXiv:2110.14858, Theorem 4.11), which proves the circular average but not the variance or its extremizers. Vesti (arXiv:1501.00871) proves extremal majorization for base-2 *numeric* rotation orbits, a distinct observable; De Luca–Fici (arXiv:2211.09417) treats balanced and Christoffel words but not these scattered-pair rotation moments. Searches for equivalent formulations, inverse-pair cyclic statistics, and broad majorization were compared with published findings. Jenkinson's 2009 paper was available only through its abstract and second-hand theorem statement; a latent consequence of a more general majorization inequality remains a real residual risk. No independence or literature exhaustion is claimed.
+
+**Value — PASS.** The averaged binary circular Parikh count is known to discard all word-order information. A sharp second-moment invariant quantifies the maximal possible order dependence at any fixed composition and singles out canonical balanced versus single-block necklaces. Its exact arithmetic lower bound depends on the gcd of the composition, not just an asymptotic estimate, and the complete equality cases make it useful for analyzing how much information is lost by circular averaging.
+
+**Limits.** Only binary scattered \(01\), exact fixed letter composition, all positional rotations, and population variance are addressed. More detailed distributional identification and higher-pattern statistics remain outside scope; another equivalent theorem in unindexed literature cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.
