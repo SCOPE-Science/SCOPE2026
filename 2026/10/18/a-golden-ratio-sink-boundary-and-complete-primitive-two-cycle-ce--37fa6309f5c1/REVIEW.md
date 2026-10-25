@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** All primitive two-cycles reduce bijectively to real period-two pairs of the explicitly derived cubic \(g_t(w)=tw+w^3\), not to an assumed global scalar factor. Factoring the summed and subtracted equations gives one antipodal pair for \(t<-1\), then two additional pairs precisely for \(t<-2\). The two-step Jacobian at the antipodal pair is the square of a symmetry matrix with cubic \(\lambda^3-\lambda^2+2s\). Root factorization yields the exact golden-ratio crossing; the other cycles have exact two-step determinant \(4\), so they cannot attract. The SymPy verification program checked 164 exact identities and ten rational parameter representatives. The infinite-domain and boundary statements rest on the written proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Wang et al. (2023), doi:10.3390/sym15101879, introduce the three-dimensional parabolic map and analyze fixed points and numeric bifurcation diagrams. Sections 2.1 and 3.1 of their full available manuscript were compared with the present primitive-two statements. The searched source does not supply this map's complete period-two orbit count and transverse Floquet threshold. The earlier two-dimensional parabolic map of Meng, Bao and Xu (2011), doi:10.7498/aps.60.010504, is not the same map and has no three-dimensional monodromy. Published results on periodic orbits of Duffing, Bogdanov and Rulkov maps address different vector fields and do not directly imply this theorem. The scalar cubic reduction alone determines cycle positions but **does not** imply the three-dimensional sink boundary. An unindexed or broader earlier theorem could still cover portions; historical priority has not been independently established.
+PASS
 
-**Mathematical value — PASS.** A complete local period-two phase diagram is a natural structural complement to the originating numerical bifurcation study. The stable window ends at \(b(1-c)=-(3+\sqrt5)/4\), well before the two new cycles appear at \(b(1-c)=-2\); the determinant-four obstruction rules out stable competing primitive-two attractors. This separation of scalar two-cycle attraction from three-dimensional transverse instability is a model-specific phenomenon rather than a restatement of a textbook cubic map.
+Exact two-step coordinate equations reduce, without assuming global semiconjugacy, to scalar cubic U↔V with g_t(w)=tw+w^3 (t=b(1-c), κ=abc>0). For U≠V, difference imposes t+U²+UV+V²+1=0; sum either U+V=0 giving exactly one symmetric orbit for t<-1, or UV=-1, U²+V²=-t giving precisely two additional sign-distinct orbits only t<-2. For symmetric pair, D conjugates opposite y-sign Jacobians and return derivative=(DJ)^2, characteristic λ³−λ²+2s, 2s=r²(r+1); remaining quadratic roots have modulus squared=r(r+1), so sink exactly 0<s<(√5−1)/4, saddle with two unstable for s*<s<1 and repeller s>1, excluding nonhyperbolic boundaries. For asymmetric UV=-1, exact return determinant 4 precludes sinks. Fresh independent SymPy computation checked derivative identities and determinant. Boundary t=-1,-2 counts and nonhyperbolic limits respected; no global attractor or nonlinear bifurcation claimed.
 
-Limitations: The global real-space count is exact, but nonlinear behavior at nonhyperbolic boundaries, higher-period orbits, chaotic invariant sets, and the four-dimensional extension are not classified. A finite program is a diagnostic, not an infinite proof. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2023 model and its numerical bifurcation analysis are credited. The assessed new statement is the exact all-real primitive-two census and model-specific sharp golden-ratio transverse sink boundary, not the elementary cubic-period-two trick or fixed-point Jacobians. Priority is best-of-knowledge with incomplete full original-article access.
+
+## value
+
+PASS
+
+Exact primitive periodic orbit enumeration and a sharp stability transition give a predictive analytic boundary for a concrete published discrete dynamical system, and separate scalar cubic stability from transverse three-dimensional stability; it is more than numerical Lyapunov plotting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
