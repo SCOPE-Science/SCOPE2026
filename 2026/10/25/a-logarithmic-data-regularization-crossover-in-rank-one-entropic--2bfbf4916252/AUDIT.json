@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity and entropy derivative at zero prove existence and interior uniqueness. KKT yields exactly F(t)=b+lambda*t with F decreasing. Uniform t=O(log 1/lambda), t->infinity, and minimal-weight exponential asymptotics rigorously imply both data/regularization regimes. At b=0 Lambert W monotonicity gives an explicit relative remainder O(exp(-delta*W(B/lambda))) and exact equality when all coefficients agree. Shape and non-Lipschitz conclusions follow. CHECK.py tests 39 systems with KKT residuals <1e-70; finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barnfield et al. Theorem 6.2 assumes both regularization endpoints positive, and its quantitative bound diverges near zero; its Theorem 6.3 fixes total mass tau>0",
+        "Chuna et al. 2025 study physical inverse reconstructions and noise/prior regimes, not a dimension-free theorem entailing individual zero-data coefficient-exponent laws"
+      ],
+      "reasoning": "The closest general convergence and duality results cover the problem class but do not imply the explicit three-case joint-limit asymptotics. Fixed-mass limits cannot cover a solution whose optimal mass goes to zero. A generic implicit equation does not directly assert the quantitative boundary layer.",
+      "searches": [
+        "arxiv:2604.27154v1 Section 6 Theorems 6.2 and 6.3",
+        "arxiv:2511.06915v1 noiseless maximum entropy",
+        "arxiv:2501.01869 dual maximum entropy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.27154v1 (primary full PDF; relevant equations, Sections 2/6, conclusion and reference context inspected)",
+      "arxiv:2511.06915v1 (primary PDF relevant sections)",
+      "arxiv:2501.01869 (primary PDF relevant sections)",
+      "published-finding corpus records identified by actual queries in search objects",
+      "Prior scientific finding statements were compared for mathematical overlap; no matching rank-one entropy crossover claim identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Barnfield KKT gives exponential coordinates for any A, b, lambda; additional proof here isolates minimal a and compares lambda log(1/lambda) with b",
+        "Source Section 6 estimates perturbations for lambda>0 and fixed tau endpoint; Chuna noiseless limit uses different Bayesian-error quantities"
+      ],
+      "reasoning": "The original exponential KKT is a necessary premise, not an already explicit hierarchy. Proving t/L->1/alpha, the beta crossover, the positive-signal b-dominated scaling, and quantified Lambert correction is required to reach the claim; source fixed-tau theorem is inapplicable at vanishing total mass.",
+      "searches": [
+        "arxiv:2604.27154v1 equations (1.1), (1.5), Theorems 6.2-6.3",
+        "arxiv:2511.06915v1",
+        "published-finding corpus: zero data unnormalized relative entropy regularized least squares weighted rank one vanishing lambda Lambert W"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.27154v1 eq. (1.5) is implicit exponential KKT; source Section 6 is positive-lambda perturbation and fixed-mass endpoint",
+        "published-finding corpus exact search closest ID 2026/10/4/SCOPE-scalar-lasso-admm-has-an-exact-support-delay-but-no-finite-termi--ca65aabf419a is an l1 proximal method"
+      ],
+      "reasoning": "Converting the classical dual to a scalar root is known; searching exponential family, entropy dual, Lambert W, scale-shape, rank-one and zero-signal formulations did not reveal the simultaneous variable-mass crossover as a stated result. This is absence of identified coverage, not a uniqueness proof.",
+      "searches": [
+        "zero data unnormalized relative entropy regularized least squares weighted rank one vanishing lambda Lambert W scale asymptotic lambda log one over lambda sparse minimal forward coefficient",
+        "simultaneous vanishing signal and entropy regularization lambda crossover b divided by lambda log lambda coordinate power exponents a_i over min a_i",
+        "entropic least squares regularization scale shape dual Newton rank one minimum measurement weight asymptotic hierarchy varying data",
+        "web: entropy regularized least squares Lambert W zero data boundary asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top matching records SCOPE-scalar-lasso-admm-...-ca65aabf419a, SCOPE-exact-logarithmic-endpoint-law-...-a3dd7557422c, SCOPE-corrected-squared-soft-threshold-duals-...-b751cd0ca81f; scientific statements are about other objectives",
+        "Public bibliographic search for entropy rank-one inverse regularization and Lambda-log crossover returned no exact catalog/parameter table"
+      ],
+      "reasoning": "No exact numerical database or table of this one-measurement family was located. The exact result is symbolic and not a numeric benchmark recomputation.",
+      "searches": [
+        "Rank-one entropic least squares with vanishing regularization parameter lambda, zero right hand side, positive measurement weights, Lambert W, nonuniform polynomial logarithmic asymptotics, concentration on minimum coefficient and power law exponents",
+        "Maximum entropy positive inverse problems zero observations, entropy penalized nonnegative least squares asymptotic support weighted coefficients exponential tilting softmax boundary layers",
+        "Entropic inverse problems gamma convergence with entropy density x log x near zero and unequal positive coefficients exact lambda log lambda asymptotics",
+        "published-finding corpus published mathematical research search: entropy least squares logarithmic crossover"
+      ]
+    },
+    "rationale": "Compared exact theorem implications with the general KKT/perturbation/fixed-mass theory in the 2026 closest primary paper and two related 2025 full-text entropy inverse reconstruction papers; searched synonyms, scalar rank-one entropy, Lambert W, zero signal, joint lambda/data asymptotics and published records. No inspected primary result states or implies the full variable-mass beta crossover and coordinatewise exponents without new asymptotic work; classical duality remains a nonzero priority risk.",
+    "residual_risks": [
+      "Classical dual maximum-entropy literature including Decarreau et al. may contain implicit or explicit special-case asymptotics under different names; full text not available in this round.",
+      "Search-ranking limitations: no literature or database search certifies priority; unindexed notes or source appendices may contain equivalent claims.",
+      "The dual KKT reduction itself is standard, and no novelty is claimed for it or for Lambert W in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers underlying optimization framework and scalar implicit KKT as a specialization, but not the asserted joint vanishing-data crossover; Theorem 6.3 fixes total mass, excluding zero-total-mass boundary.",
+        "evidence": [
+          "arxiv:2604.27154v1, p.1 equations (1.1),(1.5), p.21-22 Theorems 6.2-6.3."
+        ],
+        "identifier_or_url": "arxiv:2604.27154v1 | https://arxiv.org/pdf/2604.27154",
+        "material_read": "Accessible primary 28-page PDF: abstract, introduction, equations (1.1) and (1.5), Sections 2 and 6 including Theorems 6.2 and 6.3, conclusion and reference context; not every page read exhaustively.",
+        "method": "Read and compare primary full-text PDF plus page images",
+        "title": "A Scale-Shape Dual Newton Method for Entropic Least Squares",
+        "trigger": "Exact variable-mass objective, KKT exponential recovery, Lambert W bounds and regularization-path results are closest to the claim"
+      },
+      {
+        "assessment": "Analyzes noiseless and prior limits for analytic continuation; its shown mathematical objects and regime are not the one-row positive-data boundary at lambda log lambda.",
+        "evidence": [
+          "arxiv:2511.06915v1 pp.1-3, formal noiseless limit and problem (2)."
+        ],
+        "identifier_or_url": "arxiv:2511.06915v1 | https://arxiv.org/pdf/2511.06915",
+        "material_read": "Full-text pages 1-3 and material on Bayesian-noise limit and mean squared error; figures/problem formulation",
+        "method": "Read primary open PDF and inspect rendered pages",
+        "title": "The noiseless limit and improved-prior limit of the maximum entropy method and their implications for the analytic continuation problem",
+        "trigger": "Potential stronger coverage for noise/regularization interplay"
+      },
+      {
+        "assessment": "Dual Newton recovery and numerical inverse problem; no explicit simultaneous b->0, lambda->0 rank-one coordinate exponent theorem in examined sections.",
+        "evidence": [
+          "arxiv:2501.01869, abstract and Sections 1-3."
+        ],
+        "identifier_or_url": "arxiv:2501.01869 | https://arxiv.org/pdf/2501.01869",
+        "material_read": "Accessible primary PDF: abstract, introductory formulations, selected algorithm/error-analysis sections and context; not exhaustively read throughout.",
+        "method": "Read primary open PDF and inspect rendered pages",
+        "title": "Dual formulation of the maximum entropy method applied to analytic continuation of quantum Monte Carlo data",
+        "trigger": "Prior entropic LS dual and inverse reconstruction algorithm"
+      },
+      {
+        "assessment": "Full text inaccessible at time of comparison; only abstract and bibliographic references were inspected. Classical exponential duality may cover part of the argument; no whole-document noncoverage conclusion is claimed.",
+        "evidence": [
+          "Decarreau, Hilhorst, Lemaréchal, and Navaza, SIAM J. Optim. 2(2), 173-197 (1992), abstract; full text not inspected."
+        ],
+        "identifier_or_url": "DOI:10.1137/0802010 | https://doi.org/10.1137/0802010",
+        "material_read": "Source identified from cited references and publicly available abstract only; full text not accessed",
+        "method": "Reference and bibliographic/abstract comparison, not whole-document negative claim",
+        "title": "Dual Methods in Entropy Maximization. Application to Some Problems in Crystallography",
+        "trigger": "General exponential duality could subsume special rank-one asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bfbf491-6252-4111-88e0-652d77d20b55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Joint small-data/small-regularization sensitivity in positive inverse reconstruction is materially different from fixed-signal or fixed-mass convergence. The scale lambda log(1/lambda) separates two different leading constants, and distinct forward weights create a full noninteger power hierarchy despite positive priors. This pinpoints continuation/underflow regimes and the loss of endpoint Lipschitz stability in a canonical one-measurement model, rather than merely calculating a generic scalar entropy minimizer.",
+    "status": "PASS"
+  }
+}
