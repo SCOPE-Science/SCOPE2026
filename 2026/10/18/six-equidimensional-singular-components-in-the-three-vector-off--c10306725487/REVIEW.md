@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(M\geq3\), the Jacobian-relation matrix gives an exhaustive classification: points of matrix rank at least two are smooth, while a rank-one point is singular exactly when one of its three coefficient scalars vanishes. The two resulting classes yield exactly three linear components and three irreducible isotropic Segre cones. Their dimensions and degrees follow from the Segre degree calculation. Explicit elimination and the nondegenerate transverse Hessian prove the generic ordinary-quadratic analytic normal form on every component. Independent finite symbolic spot checks in the accompanying program agree; they are not used as the general proof. The foundational integrality and complete-intersection statement is Xie's Theorem 1.1 in the range \(M\geq3\).
+## correctness
 
-## Originality — PASS with residual priority risk
-Xie's arXiv:2610.02585v1 Sections 1, 6–7, Casabella–Sammartano's arXiv:2512.25058v1 Sections 6–7, and Conca–Welker's arXiv:1801.07916 were materially compared by implications, not only titles. Xie's rationality/flatness bounds do not determine the support, degrees, or transverse normal forms of the singular locus. Casabella–Sammartano obtain component, smoothness, and factoriality criteria, including a detailed four-dimensional three-frame check, but do not state the six irreducible singular components with their all-dimensional degree or normal forms. Targeted mathematical literature and semantic database searches produced related results on other singular varieties, not an equivalent orthogonal-frame claim. A broad or unindexed stratification theorem might still imply part of the calculation, so absolute novelty is not certified.
+PASS
 
-## Mathematical value — PASS
-The three-vector case is the first positive-dimensional rational-singularity regime of the recently sharpened off-diagonal Gram family. Determining the complete reduced singular locus, its projective degree, and a uniform generic transverse singularity supplies intrinsic geometry not determined by integrality or rational-singularity thresholds. The result holds for every ambient dimension and separates six geometrically distinct degeneracy mechanisms. The exact Jacobian scheme, intersection-point normal forms, and resolutions remain outside its scope.
+For M>=3 over C, the three pairwise scalar products are a prime complete-intersection ideal (Casabella–Sammartano Theorems 1–2 give D_prime(3)=3, or Xie's strict M>2 theorem), hence dim=3M-3. A dependence of their Jacobian rows corresponds to nonzero hollow symmetric 3x3 Lambda with V Lambda=0. A nonzero hollow symmetric 3x3 has rank>=2, so rank(V)>=2 is smooth. If V=w(c1,c2,c3) has rank one, its dependency determinant is -2c1c2c3: singular precisely when some ci=0. Exactly one nonzero ci lies in one of three M-planes; two nonzero ci imply w is isotropic and give one of three irreducible rank-one Segre cones of dimension M. Their projective forms are P1 x Q^(M-2) under O(1,1); degree=2(M-1), giving reduced singular-locus degree 3+6(M-1)=6M-3. At generic linear-plane point solve two normal equations and retain a nondegenerate pairing on w-perp x w-perp; at generic isotropic cone solve two independent linear equations and retain nondegenerate pairing on w-perp x ker(ell). Formal Morse with parameters gives an ordinary quadratic hypersurface of 2M-2 variables times M smooth directions. I independently checked exact ranks 2 and 2M-2 at both representative component types for M=3,4,5. No conclusion about the scheme-theoretic Jacobian nilpotents or component intersections.
 
-## Relationship and limitations
-The closest primary sources are Xie (arXiv:2610.02585v1), Casabella–Sammartano (arXiv:2512.25058v1), and Conca–Welker (arXiv:1801.07916). The use of these works establishes existing algebraic background, but general search cannot certify uniqueness of the new statement. The accompanying finite calculations corroborate, rather than replace, the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general integrality, complete-intersection and stratification results are credited to Xie and Casabella–Sammartano. The final claim is instead an explicit all-M reduced singular-support decomposition into six fixed irreducible pieces, exact degrees and generic analytic A1-type transverse germs. Reviewed relevant original primary geometric statements rather than assuming absence from titles. In inspected Casabella–Sammartano §§3,5,6,7 the irreducible-component and smooth-point criterion does not state these six singular components with degrees and local normal forms. The precise extension may be implicitly deducible, but is not an identified corollary of a named previously proved theorem without the rank-one and Hessian analysis. Xie's full preprint PDF was not retrieved; its abstract establishes only the structural threshold and is recorded as a priority risk.
+
+## value
+
+PASS
+
+A complete reduced singular-locus census and a uniform local analytic singularity type are substantive structural invariants of a natural orthogonal-frame complete intersection, not a small point computation. The ordinary node transverse types determine the codimension and geometric severity of singularities for every M>=3; formulas distinguish reduced support from the potentially nonreduced Jacobian scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
