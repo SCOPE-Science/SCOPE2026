@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The theorem defines an exogenous stationary-marginal susceptibility path law and a deterministic closed SIR self-consistency equation. Mass balance reduces final infections to the endogenous pressure integral. Conditional Jensen applied to an independently sampled infection-pressure-weighted time controls the path integral between constant mean risk and a frozen draw from the marginal distribution. Convex final-size functions each cross zero exactly once, yielding the sandwich. Strictness hypotheses follow from strict convexity. The numerical program is only a finite illustration, not proof.
+
+**Originality — PASS, provisional.** The theorem is a final-size order across three naturally matched risk regimes; not a restatement of the separate homogeneous or permanent-risk final-size formulas. Berestycki et al. (2023), sections 2–5 and specifically Proposition 5 for zero diffusion, do not give this arbitrary-temporal-dependence frozen-versus-stationary-turnover sandwich. Their result compares the zero-diffusion model with SIR risk parameters. Tkachenko et al. (2021) examine dynamic activity, but no directly implying theorem was identified in the material accessible for comparison. A general Feynman–Kac comparison could subsume the proof, and some source text was unavailable; publication priority remains provisional.
+
+**Value — PASS.** The ordering is a structural, parameter-free benchmark for forecasts based on identical observed susceptibility marginals but unobserved temporal persistence. It applies even to arbitrarily correlated non-Markov paths and distinguishes total outbreak size from transient peaks without needing to estimate a mixing rate. The exact endpoints are models routinely used for calibration; neither numerics nor a downstream policy assertion is necessary for the inequality's utility.
+
+Main limitations: bounded exogenous risks, fixed stationary one-time risk distribution, homogeneous infectiousness and recovery, and closed SIR infection. The statement does not order transient epidemic curves or extend to endogenous behavior change. The review is not independent confirmation.
+
+Self-review: passed. Independent audit: not yet performed.
