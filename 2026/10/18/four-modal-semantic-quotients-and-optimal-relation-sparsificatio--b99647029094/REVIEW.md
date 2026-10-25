@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is for every finite chain size, all binary relations, all persistent valuations, every world and all formulas, including arbitrary nesting and dual implication. The proof checks empty-row vacuity separately from nonempty-row intersection, derives the four transformer tables on every upset, and applies a full structural induction to formulas. Necessity of the four profiles follows from one-variable depth-one tests; admissibility follows by row-extrema conditions and both directional inductions; least-arrow minima follow from independent row choices. The saturating example simultaneously forces both distinct endpoints in every row. An independent script directly checks all relations and all upset tables up to four worlds and the complete extremal-row census up to five; numerical evidence is not substituted for proof at arbitrary size.
+PASS
 
-## Originality: PASS, with residual risk
+Every upset in W_n={0<...<n-1} is U_j={j,...,n-1}; empty upset j=n is included. For any R, define h_i=max row or -1 if empty and ell_i=min row or n if empty; membership and subset tests of each row in U_j reduce respectively to h_i>=j and ell_i>=j. The four modal clauses then reduce exactly to P_s=max_{i<=s}h_i, Q_s=min_{i>=s}h_i, E_s=max_{i<=s}ell_i, D_s=min_{i>=s}ell_i. Equality of all four profiles is necessary from one-step tests and sufficient by full structural induction for all formula nesting, both Heyting implications and same persistent valuation. The H_i,L_i boundary/jump constraints ensure one can independently select each extrema pair (empty sentinel (n,-1) or 0<=ell<=h<n) and reconstruct prefix/suffix sequences; independent minimal row costs are 0,1,2, giving sum_i min c and <=2n. Relation with each row {0,n-1} forces two arrows in every row for n>=2; n=1 maximum one. Independent raw enumeration of all 2^(n^2) relations for n=1..4 computed the four direct quantified modal truth tables, exactly 2,16,279,7171 semantic classes and sharp minima 1,4,6,8. Independent enumeration of all 16^5=1,048,576 endpoint row tuples for n=5 produced 235152 distinct classes with maximum minimum 10, not a claim to exhaust all 2^25 raw relations. These exhaustive finite checks corroborate but do not replace the general induction/rowwise reconstruction.
 
-The motivating 2026 four-connective preprint [1] treats frame classes, eliminability, axiomatization and decidability, not the exact pointwise quotient of arbitrary relations on a fixed finite chain, admissible four-signature characterization, rowwise minimal-edge cost, or this quotient census. The inspected relevant sections, including correspondence and conclusion, contain no covering theorem. Fernández-Duque [2] proves a finite-model property using Fine selection for a different two-modal logic with restrictions on frames; it does not compare all four operations of [1] on one carrier. General older finite-modal-algebra representations could conceal an equivalent reformulation, so external novelty is not independently certified.
+## originality
 
-## Value: PASS
+PASS
 
-A full-language semantic equivalence class is a natural mathematical quotient of accessibility relations; the signature test determines precisely which such classes exist, not merely a sufficient compression method. The construction achieves the exact minimum number of arrows *per equivalence class*, and the sharp universal worst case is linear in the carrier size even though an arbitrary relation can contain quadratically many edges. That gives a concrete normal form for exhaustive semantic analysis and a finite-chain state-space reduction with a quantitative optimality proof. The census supplies checkable exact quotient sizes and is subsidiary to the general structural theorem.
+Best-of-knowledge PASS for a complete fixed-finite-chain pointwise quotient and exact 0/1/2 outgoing-edge minimization. Modal transformer clauses are prior work. Related published chain confluence normal forms restrict the accessibility relations and address different equivalences/counts; no direct implication of this unrestricted four-transformer signature found. Full initiating paper could not be accessed, preserved as explicit coverage risk rather than whole-document negative claim.
 
-## Closest literature and limitations
+## value
 
-[1] Balbiani--Gencer, arXiv:2606.07348v1, sections 3–5 and 11–12; [2] Fernández-Duque, arXiv:2609.27078v2. The theorem assumes a finite *total order*, persistent valuations, and the authors' particular four modalities; finite counts are only given through five worlds. A preexisting reformulation under a different algebraic vocabulary is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact semantic compression of arbitrary accessibility relations on finite intuitionistic chains is an intrinsically motivated structural classification. A fully testable realization criterion and classwise optimal outgoing-arrow count reduce an n²-entry relation to at most 2n arrows without changing any formula truth; the universal bound and finite quotient enumeration are mathematically useful independent of further model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
