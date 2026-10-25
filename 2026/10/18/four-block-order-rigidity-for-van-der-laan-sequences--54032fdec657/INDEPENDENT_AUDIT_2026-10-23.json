@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T20:46:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under a fixed rank permutation pi and inter-block weak order, the first two blocks of eight terms supply five consecutive Van der Laan four-window equalities E_s=0 and fifteen weak-rank, block-order and nonnegativity inequalities I_j<=0. The exact 23 certificate rows in certificates.json express x0+x1+x2+x3 as sum of nonnegative multiples of I_j plus rational multiples of E_s, for every nonidentity pi. A fresh independent BigInt rational-linear-form evaluator reconstructed every E_s/I_j from the permutations, checked unique coverage of all 23 nonidentity permutations, nonnegative inequality multipliers and all 23 coefficientwise identities with zero errors; hence the first block must be zero and the four-window condition propagates all subsequent terms to zero. For identity pi the hypotheses mean global monotonicity and force a_{n+3}=a_n+a_{n+1}, equivalently a_n=a_{n-2}+a_{n-3} for n>=4, with exactly 0<=u<=v<=w<=u+v; elementary induction preserves monotonicity. This certifies ALL infinite sequences with the stated fixed 4-block restriction, not merely sampled initial terms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nacin Proposition 3 classifies nondecreasing sequences and Propositions 5–7 plus conclusion treat fixed block sizes <=3."
+        ],
+        "reasoning": "No cited prior theorem covers all fixed length-four weak permutations with inter-block order; the newly supplied 23 exact linear certificates close that gap.",
+        "searches": [
+          "Van der Laan sequences fixed four block permutation ordered increasing blocks Nacin Padovan",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+        "https://oeis.org/A000931",
+        "frozen RESULT.md blob d7acb291d49dbf4293e8ed5372be99f6beebb245",
+        "frozen certificates.json blob 7da008f2e8f66c3367aa5b4430196b895ae83e0c",
+        "frozen verify.py blob 5106a1d0b3b879133b06a8ad20829a57006dcd4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that globally nondecreasing Van der Laan sequences satisfy Padovan recurrence cannot rule out arbitrary nonidentity fixed π-block patterns.",
+          "Nacin length-3 examples actually show nonmonotone patterns can survive at shorter block length."
+        ],
+        "reasoning": "The new sharp threshold depends on a universal two-block Farkas identity for each nonidentity permutation, not merely the previous increasing-sequence proposition.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+          "OEIS A000931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nacin defines Van der Laan sequences with each four-consecutive-term max equal sum of two minima; weak fixed block order has the same condition but extra rank constraints."
+        ],
+        "reasoning": "The Van der Laan/Padovan terminology is identified, and identity branch is explicitly known; the nonidentity length-4 rigidity is a genuinely separate inequality classification.",
+        "searches": [
+          "Van der Laan sequences fixed four block permutation ordered increasing blocks Nacin Padovan",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000931 includes Padovan examples; Resultary semantic results were unrelated to length-four Van der Laan block classification."
+        ],
+        "reasoning": "No exact four-block classification table was located. The 23 certificate rows are not a recomputation of a known table found by this search.",
+        "searches": [
+          "Van der Laan sequences fixed four block permutation ordered increasing blocks Nacin Padovan",
+          "Van der Laan sequences fixed four block permutation ordered increasing blocks Nacin Padovan"
+        ]
+      },
+      "rationale": "Nacin 2023 proves globally nondecreasing sequences (identity pattern) and nonmonotone fixed block order patterns only through length three. The new exclusion of all nonidentity four-block patterns is not stated or implied by Nacin's increasing-case theorem; without the 23 inequalities nonidentity sequences are not known to reduce to it.",
+      "residual_risks": [
+        "The 23 exact rational identities were independently replayed from actual certificate file; they are finite complete order-type proof, but do not classify sequences without fixed 4-block weak ordering.",
+        "Undiscovered earlier treatment of length-four ordered blocks is possible, notwithstanding the inspected Nacin primary paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDARY_BEFORE_LENGTH_FOUR",
+          "evidence": "Identity branch previously classified; complete disappearance of 23 nonidentity length-four patterns is additional.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+          "material_read": "Definition, Proposition 3 globally increasing classification, Propositions 5–7 on blocks <=3 and the concluding discussion",
+          "method": "Primary PDF full text opened; targeted theorems, sections and relevant pages examined",
+          "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers",
+          "trigger": "Same four-window condition and fixed block permutation classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completes the first unclassified block length after the established length-three order types, proving a sharp collapse of all 23 nonidentity weak rank patterns by finite exact rational certificates. The structural rigidity theorem is a natural, motivated boundary extension of the Van der Laan sequence classification, not a routine Padovan rebranding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+    "https://oeis.org/A000931",
+    "frozen RESULT.md blob d7acb291d49dbf4293e8ed5372be99f6beebb245",
+    "frozen certificates.json blob 7da008f2e8f66c3367aa5b4430196b895ae83e0c",
+    "frozen verify.py blob 5106a1d0b3b879133b06a8ad20829a57006dcd4c"
+  ],
+  "disposition": "passed",
+  "limitations": "Requires nonnegative entries, same weak π order in every block and each block at most all entries of the next. No variable-order or block length >4 claim.",
+  "residual_risks": [
+    "The 23 exact rational identities were independently replayed from actual certificate file; they are finite complete order-type proof, but do not classify sequences without fixed 4-block weak ordering.",
+    "Undiscovered earlier treatment of length-four ordered blocks is possible, notwithstanding the inspected Nacin primary paper."
+  ],
+  "schema_version": 1
+}

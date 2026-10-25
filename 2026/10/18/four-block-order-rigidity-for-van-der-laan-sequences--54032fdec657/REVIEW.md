@@ -1,19 +1,21 @@
-# Scientific review: four-block order rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is universal over all nonnegative integer sequences and all \(24\) permutations. For each nonidentity permutation, the complete two-block hypotheses give five exact window equalities and fifteen valid ordering/nonnegativity inequalities. The attached rational certificates reconstruct the sum of the first block as a nonnegative combination of those inequalities modulo the exact equalities. The verifier checked the coefficient identity for every case using exact rational arithmetic, not a floating-point feasibility result. Nonnegativity then forces a zero first block, and the sliding-window condition propagates zero forever. The identity pattern has an independent elementary equivalence to a monotone Padovan recurrence with precisely stated initial inequalities. A direct construction check passed for \(50\) initial triples.
+PASS
 
-## Originality — PASS within inspected evidence
+Under a fixed rank permutation pi and inter-block weak order, the first two blocks of eight terms supply five consecutive Van der Laan four-window equalities E_s=0 and fifteen weak-rank, block-order and nonnegativity inequalities I_j<=0. The exact 23 certificate rows in certificates.json express x0+x1+x2+x3 as sum of nonnegative multiples of I_j plus rational multiples of E_s, for every nonidentity pi. A fresh independent BigInt rational-linear-form evaluator reconstructed every E_s/I_j from the permutations, checked unique coverage of all 23 nonidentity permutations, nonnegative inequality multipliers and all 23 coefficientwise identities with zero errors; hence the first block must be zero and the four-window condition propagates all subsequent terms to zero. For identity pi the hypotheses mean global monotonicity and force a_{n+3}=a_n+a_{n+1}, equivalently a_n=a_{n-2}+a_{n-3} for n>=4, with exactly 0<=u<=v<=w<=u+v; elementary induction preserves monotonicity. This certifies ALL infinite sequences with the stated fixed 4-block restriction, not merely sampled initial terms.
 
-The closest primary source is Nacin's 2022-publicly-released Journal of Integer Sequences article, 23.1.2. Its actual PDF was read through the conclusion and references: Proposition 3 gives the monotone branch, and the three-block rank cases are addressed by Propositions 5–7. The concluding scope is explicitly permutations of degree three or less. The complete degree-four rigidity result, for all \(23\) nonidentity permutations with weak ties, is not stated or logically supplied by those conclusions. The OEIS A000931 record reports the underlying property, not this permutation classification. Actual specialized bibliographic and mathematical-result-index searches found no covering item. An equivalent theorem using different rank-order terminology may be absent from these sources; the search is not a proof of global originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first unresolved rank-pattern block length after the published size-three classification displays a qualitatively sharp change: the size-three Fibonacci-type nonmonotone families disappear at size four. The theorem completely classifies a natural infinite-sequence class rather than giving a finite numerical table or an isolated example. A two-block rational certificate reduces the infinite conclusion to a finite exhaustive structural test and provides a reusable exact method for nearby local-order recurrence problems.
+Nacin 2023 proves globally nondecreasing sequences (identity pattern) and nonmonotone fixed block order patterns only through length three. The new exclusion of all nonidentity four-block patterns is not stated or implied by Nacin's increasing-case theorem; without the 23 inequalities nonidentity sequences are not known to reduce to it.
 
-## Limitations and closest prior coverage
+## value
 
-The result does not address varying patterns, non-ordered blocks, or block sizes five and above. The already-known identity-pattern branch is explicitly credited to earlier Padovan recurrence work, not advanced as a separately novel contribution. Independent verification has not been performed, and the originality assessment is limited to accessible inspected literature and searched records.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Completes the first unclassified block length after the established length-three order types, proving a sharp collapse of all 23 nonidentity weak rank patterns by finite exact rational certificates. The structural rigidity theorem is a natural, motivated boundary extension of the Van der Laan sequence classification, not a routine Padovan rebranding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
