@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T07:59:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every nonempty face with at least two vertices, C4-freeness forces a unique common-neighbor center. For each center v and chosen r_v, descending-cardinality pairings (sigma,sigma union {r_v}) for sigma subset N(v)\\{r_v}, |sigma|>=2 have unique remaining coface: every other larger coface was paired earlier and none belongs to a second center. The residue is exactly the union of rooted stars, with 2e-n distinct edges. Graph paths in the neighborhood one-skeleton are exactly even-length G-walks up to repetitions, so connected nonbipartite G gives a connected spine and rank 2e-2n+1. Independent code rebuilt all 3610 qualifying labeled n<=6 graphs, rechecked 7916 roots and 19974 elementary collapses; further exact face-replay tests checked large degree friendship graphs with and without a leaf. The finite tests corroborate, but do not prove, the universal statement; the proof is analytic. The arbitrary-root quantifier, triangles, pendant vertices and minimal n=3 were all considered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite direct-collapse theorem covers every canonical bipartite double cover of the submitted graphs, so its domain dominates after a standard reduction.",
+          "The published high-girth neighborhood theorem 57f56ac6de4a uses the same descending-cardinality root pairings and already covers the minimum-degree-at-least-two, triangle-free subfamily.",
+          "The graph-like square-cycle theorem d8f86495e49d covers a different four-cycle-present family at the level of abstract homotopy, not the exact C4-free root-selection construction.",
+          "Kamibeppu 2008 Theorem 3 gives equivariant strong deformation retraction of the box complex to the double-cover graph in the C4-free case, but not this direct neighborhood simplicial-collapse model."
+        ],
+        "reasoning": "The canonical cover H is connected because G has an odd closed walk; a 4-cycle in H would project to four distinct original vertices forming a 4-cycle in G. All earlier bipartite assumptions therefore hold, including possible triangles and degree-one vertices in G. Thus broad prior coverage fully subsumes the target after reduction. The high-girth theorem supplies an additional direct-overlap check, but the bipartite theorem is decisive.",
+        "searches": [
+          "Resultary: nonbipartite girth at least five neighborhood complex homotopy wedge circles n edges",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-high-girth-neighborhood-complexes-collapse-to-explicit-graph-wed--57f56ac6de4a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d",
+          "Kamibeppu 2008 graphs without 4 cycles box complex theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-high-girth-neighborhood-complexes-collapse-to-explicit-graph-wed--57f56ac6de4a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d",
+        "Kamibeppu 2008 Theorem 3: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1578-13.pdf",
+        "Fujii-Kimura-Nozaki arXiv:2412.19039v2 Theorem 1.1: https://arxiv.org/pdf/2412.19039",
+        "Shukla arXiv:1802.04526v2 Theorem 2.1: https://arxiv.org/pdf/1802.04526",
+        "Kozlov arXiv:math/0503613v3: https://arxiv.org/pdf/math/0503613"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let H=G x K_2, X=V(G)x{0}, Y=V(G)x{1}. Then |X|=|Y|=n, |V(H)|=2n and |E(H)|=2e.",
+          "The map sigma subset V(G) -> sigma x {0} preserves the condition of having a common neighbor and is a simplicial isomorphism N(G) ~= K_X.",
+          "Choose for center (v,1) the root (r_v,0). The earlier bipartite theorem prescribes every pair (sigma x {0}, (sigma union {r_v}) x {0}) and yields E(T_X) = {{(r_v,0),(x,0)}: x in N_G(v)\\{r_v}}.",
+          "The bipartite theorem gives |E(T_X)|=|E(H)|-|Y|=2e-n and beta_1(T_X)=(2e-n)-n+1=2e-2n+1."
+        ],
+        "reasoning": "The entire final claim, including monotone elementary collapses, arbitrary roots, n original vertices, edge count, connectedness and wedge rank, is a direct specialization of a published bipartite root-spine theorem through a canonical cover. The original comparison that described bipartite and nonbipartite domains as disjoint overlooks this standard reduction. Thus O fails decisively, independent of the clarity of the submitted proof.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963",
+          "Fujii Kimura Nozaki arXiv:2412.19039 Theorem 1.1 and K2 case",
+          "Kamibeppu 2008 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full published RESULT.md for the bipartite theorem d724b42058da constructs, for every connected C4-free bipartite H=X sqcup Y and every root assignment r_y in N_H(y), the direct elementary collapse of K_X=N(H)|_X to the graph with edges {r_y,x}, x in N_H(y)\\{r_y}.",
+          "The full published RESULT.md for dd6b91667963 states the same exact root-selected K_X collapse and identifies its spine with a forest contraction.",
+          "For connected nonbipartite C4-free G, the canonical bipartite double cover H=G x K_2 is connected and C4-free; K_X under X=V(G)x{0} is simplicially identical to N(G)."
+        ],
+        "reasoning": "Apply either prior bipartite theorem to H=G x K_2. Assign r_(v,1)=(r_v,0) for each original center v. Then the prior K_X collapse is literally the prescribed collapse N(G) searrow T_r under the vertex bijection x <-> (x,0). This is an exact equivalent formulation, not merely a similar title or homotopy equivalence.",
+        "searches": [
+          "Resultary: neighborhood complex C4-free square-free graph simplicial elementary collapse root chosen star graph spine",
+          "Resultary: Lovasz neighborhood complex nonbipartite graph no 4-cycles direct strong deformation collapse onto graph on vertices",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary index returns both published exact universal bipartite spine constructions d724b42058da and dd6b91667963, not merely empirical cases or finite tables.",
+          "The submitted numerical circle rank is forced by the prior bipartite theorem applied to H: |E(H)|-|V(H)|+1=2e-2n+1."
+        ],
+        "reasoning": "This is a uniform structural claim rather than an unknown finite table. The exact published indexed theorem already generates every instance of the submitted formula, including every root choice, by the double-cover substitution; no uncovered exact database or table fact remains.",
+        "searches": [
+          "Resultary: neighborhood complex C4-free square-free graph simplicial elementary collapse root chosen star graph spine",
+          "Resultary: Kamibeppu box complex graphs without 4 cycles collapse neighborhood complex",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963"
+        ]
+      },
+      "rationale": "Decisive exact prior coverage: the published bipartite root-spine theorem applied to the connected C4-free canonical double cover G x K_2 yields the exact nonbipartite N(G) collapse on the original n labeled vertices with every prescribed root choice and the identical 2e-2n+1 circle count. Both full published bipartite RESULT.md proofs were inspected. The prior claim was incorrectly dismissed because the base graphs are in disjoint bipartite and nonbipartite classes; the canonical cover removes that apparent distinction.",
+      "residual_risks": [
+        "Exact publication times of multiple October 11 published-result records were not independently established; regardless of contemporaneous chronology, their publicly available theorem statement and proof mathematically imply the submitted final statement.",
+        "A different historical source could independently contain the same collapse; this cannot restore originality in view of the decisive identified covering result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_FULL_COVERAGE_VIA_DOUBLE_COVER",
+          "evidence": "Theorem K_X searrow T_X with arbitrary roots and |E(T_X)|=e_H-|Y|, plus both component ranks; substituting H=G x K_2 reproduces the assigned claim exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+          "material_read": "Entire published RESULT.md: finding, definitions, all proof paragraphs, verification, limitations and references",
+          "method": "Read published repository primary scientific text through GitHub fetch",
+          "title": "Explicit graph-spine collapses for square-free bipartite neighborhood complexes",
+          "trigger": "Exact root-parameterized direct collapse on square-free bipartite graphs; canonical double-cover reduction from assigned nonbipartite domain"
+        },
+        {
+          "assessment": "SECOND_DECISIVE_PRIOR_COVERAGE",
+          "evidence": "K_X collapses through pairs (sigma,sigma union {r_y}) onto root-selected graph and this graph is the contraction of the y-root forest; no hypothesis forbids the double-cover instance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963",
+          "material_read": "Entire published RESULT.md, including full constructive proof and graph minor argument",
+          "method": "Read published repository primary scientific text through GitHub fetch",
+          "title": "Explicit graph spines for neighborhood complexes of square-free bipartite graphs",
+          "trigger": "Independent same-domain published spine theorem with stronger forest-contraction identification"
+        },
+        {
+          "assessment": "SUBFAMILY_COVERAGE_AND_IDENTICAL_PROOF_TECHNIQUE",
+          "evidence": "Same descending-cardinality pair construction and 2m-n surviving edges for girth at least five and minimum degree two; covers a substantial subclass but is not needed for the full-coverage reduction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-high-girth-neighborhood-complexes-collapse-to-explicit-graph-wed--57f56ac6de4a",
+          "material_read": "Entire published RESULT.md, particularly proof, assumptions, and limitations",
+          "method": "Read published repository primary scientific text through GitHub fetch",
+          "title": "High-girth neighborhood complexes collapse to explicit graph wedges",
+          "trigger": "Direct proof with almost identical local collapse pairs and circle-rank formula"
+        },
+        {
+          "assessment": "ABSTRACT_HOMOTOPY_NEARBY_NOT_DIRECT_ROOT_SPINE",
+          "evidence": "Requires at least one four-cycle and gives a comparison-complex collapse; not the decisive direct C4-free original-vertex collapse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d",
+          "material_read": "Entire published RESULT.md, particularly k>=1 hypothesis, good-cover nerve proof, and limitations",
+          "method": "Read published repository primary scientific text through GitHub fetch",
+          "title": "Graph-like neighborhood complexes with edge-disjoint four-cycles",
+          "trigger": "Potential stronger graph-like homotopy theorem, includes nonbipartite graphs and gives rank after cycle fillings"
+        },
+        {
+          "assessment": "KNOWN_HOMOTOPY_COVERAGE_NOT_REQUIRED_FOR_NOVELTY_REJECTION",
+          "evidence": "Theorem 3 strong Z2 deformation retract B(G) to its double-cover graph; does not directly state a root-parametrized elementary collapse from N(G) itself.",
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1578-13.pdf",
+          "material_read": "All four pages of the accessible 2008 RIMS version, including Lemmas 1-2, Theorems 3-4 and proof of the box-complex deformation",
+          "method": "Open-access primary PDF read with page screenshots of pages 68-69; the separate Tsukuba journal PDF returned 429",
+          "title": "Homotopy type of the box complexes of graphs without 4-cycles",
+          "trigger": "Closest historical source in precisely the C4-free graph domain"
+        },
+        {
+          "assessment": "ABSTRACT_HOMOTOPY_PRIOR",
+          "evidence": "Theorems 1.1-1.2 and page 3 identify Hom(K2,H) with N(H) up to homotopy and HxK2, but do not state the precise direct root-spine collapse.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.19039",
+          "material_read": "Theorem 1.1 and 1.2, introduction and discussion of Hom(K2,H), Kamibeppu and categorical double covers, and outline of proof sections",
+          "method": "Open arXiv full PDF; read relevant pages 1-3, targeted search, and inspect theorem-page screenshot",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Primary full-text square-free Hom(K2,G) homotopy theorem and identification with neighborhoods"
+        },
+        {
+          "assessment": "DEGREE_RESTRICTED_NEARBY_PRIOR",
+          "evidence": "Theorem 2.1 shows point or circle-wedge components for max-degree-at-most-three graphs; not the general root-selected T_r, though the overlap includes small degree cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04526",
+          "material_read": "Theorem 2.1, definitions, section 4 proof for maximum degree three, and relevant collapse cases",
+          "method": "Open arXiv full PDF; inspect theorem and proof pages with text and screenshot",
+          "title": "Homotopy Type of the Neighborhood Complexes of Graphs of Maximal Degree at most 3 and 4-Regular Circulant Graphs",
+          "trigger": "Published direct neighborhood-complex collapses and bound on degree"
+        },
+        {
+          "assessment": "GENERAL_SIMPLE_HOMOTOPY_NOT_DIRECT_COLLAPSE",
+          "evidence": "General formal deformation uses collapses and expansions between complexes; does not assert collapse-only to the specified root-selected T_r.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503613",
+          "material_read": "Abstract, introduction and description of formal deformation between N(G) and Hom(K2,G)",
+          "method": "Open arXiv full PDF and inspect introduction screenshot",
+          "title": "Simple homotopy types of Hom-complexes, neighborhood complexes, Lovasz complexes, and atom crosscut complexes",
+          "trigger": "Could prior simple homotopy equivalence imply direct neighborhood collapse?"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The direct root-selected graph spine is a natural and useful structural object, but every mathematical assertion and its monotone collapse certificate is already delivered by the published square-free bipartite spine theorem after the routine canonical bipartite-double-cover substitution. The proposed nonbipartite presentation adds no independent structural lemma, new exact invariant, counterexample, boundary classification or non-implied classification. Its graph counts and wedge rank are immediate substitutions |V(H)|=2n, |E(H)|=2e. Thus correctness and the general utility of the inherited construction do not establish a distinct valuable research contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spine-collapses-for-square-free-bipartite-neighbo--d724b42058da",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-explicit-graph-spines-for-neighborhood-complexes-of-square-free--dd6b91667963",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-high-girth-neighborhood-complexes-collapse-to-explicit-graph-wed--57f56ac6de4a",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d",
+    "Kamibeppu 2008 Theorem 3: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1578-13.pdf",
+    "Fujii-Kimura-Nozaki arXiv:2412.19039v2 Theorem 1.1: https://arxiv.org/pdf/2412.19039",
+    "Shukla arXiv:1802.04526v2 Theorem 2.1: https://arxiv.org/pdf/1802.04526",
+    "Kozlov arXiv:math/0503613v3: https://arxiv.org/pdf/math/0503613"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The result is correct only for finite connected simple nonbipartite C4-free graphs, n>=3; no claim for C4-containing graphs.",
+    "The finite verifier is corroboration, not proof of arbitrary-vertex cases.",
+    "The prior bipartite theorem plus canonical double cover is decisive mathematical coverage; O FAIL is not an allegation of copying or authorship misconduct.",
+    "No GitHub or dispatcher write was performed; publication and relocation are not ready."
+  ],
+  "residual_risks": [
+    "Exact publication times of multiple October 11 published-result records were not independently established; regardless of contemporaneous chronology, their publicly available theorem statement and proof mathematically imply the submitted final statement.",
+    "A different historical source could independently contain the same collapse; this cannot restore originality in view of the decisive identified covering result."
+  ],
+  "schema_version": 1
+}
