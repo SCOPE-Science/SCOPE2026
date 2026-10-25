@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For any four nonnegative zero gaps, palindromic scattered subsequences are partitioned by their zero, one, two or three occurrences of symbol one. A union of the first/third pair rectangle and at most one excess rectangle gives the two-one term, with full intersection control. Three-one palindromes form an independent integer rectangle, and one-one palindromes form the union of three nested initial intervals. The restricted symmetric-source maximum is obtained by a strictly concave quadratic with uniquely closest admissible integer vertex. The exact checker freshly validates 1,820 candidate-enumeration cases and 7,315 independent interval-DP cases, and the unique symmetric maximizer for 101 half-gap sums; these checks corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "C. Guo, J. Shallit, A. M. Shur (2015), arXiv:1503.09112, proof sections on cyclic palindromes, products of palindromes and contiguous-factor richness; subject is not palindromic scattered-subsequence distinctness.",
+        "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 studies shortest absent subsequences of unrestricted binary strings, which is a different statistic.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6 studies distinct closed contiguous factors, not scattered palindromic subsequences."
+      ],
+      "reasoning": "No found all-weight or broader alphabet theorem gives an exact palindrome-subsequence count from only the four zero gaps. The all-subsequence aggregate statistic cannot recover the palindromic subcount: examples with gap vectors (0,0,3,2) and (0,4,0,1) each have total 48 but palindromic totals 14 and 15.",
+      "searches": [
+        "published-finding corpus: Distinct palindromic subsequences of constant-weight binary strings with three ones exact extremal maximum and minimizers",
+        "published-finding corpus: Palindromic subsequence counting four zero-gap parameters formula exact sparse",
+        "Web: maximum number of distinct palindromic subsequences fixed number ones extremal binary words",
+        "Web: \"distinct palindromic subsequences\" 2012 2013 2014 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1503.09112",
+      "https://www.rahmannlab.de/research/subseqcomb.html",
+      "https://pure.qub.ac.uk/en/publications/algorithms-for-subsequence-combinatorics/",
+      "doi:10.1016/j.tcs.2008.08.035",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b",
+      "published-finding corpus: 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6",
+      "Own ledger UUID 097533a2-8bc0-4e02-b628-510a220144e1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 097533a2-8bc0-4e02-b628-510a220144e1 concerns the maximum number of ALL distinct scattered subsequences for words of weight three, rather than counting palindromic strings or optimizers within symmetric sources.",
+        "An independently computed nonimplication witness: gaps (0,0,3,2) and (0,4,0,1) both yield 48 total distinct subsequences but yield 14 versus 15 palindromic subsequences.",
+        "Elzinga et al. 2008 author research-page description enumerates unconstrained subsequences and other subsequence classes, not the displayed exact gap formula; full-text verification is a residual risk."
+      ],
+      "reasoning": "A maximum over total scattered-subsequence counts is a different quantity and does not imply a palindrome-restricted maximum or the exact count at each gap quadruple. The inspected 2015 palindrome constructions use contiguous factors or whole-word products, not this scattered enumeration.",
+      "searches": [
+        "Own accessible ledger: 2026-10_week3__private research ledger__p0001_g000036.jsonl, claims/UUIDs only",
+        "published-finding corpus: Binary words 2015 subsequence automata maximal fixed-weight distinct subsequences per length",
+        "Web: Elzinga Rahmann Wang Algorithms for subsequence combinatorics 2008 pdf full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1503.09112 complete accessible HTML has sections on conjugates of palindromes, palindromic pairs, rich words, and antipalindromes; no scattered-subsequence enumeration statement (find for subsequence yielded no match).",
+        "Nearest published-finding corpus hit for the exact sparse-palindromic search: 2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b, concerning duplication/deletion codes, not distinct subsequence words.",
+        "Nearest general subsequence published source: Elzinga, Rahmann, Wang, TCS 409(3), 2008, doi:10.1016/j.tcs.2008.08.035, methods for distinct subsequences, not an explicit three-one palindromic count in available overview."
+      ],
+      "reasoning": "A general dynamic program can calculate a given count, but does not state or immediately imply the four-gap closed identity and the unique restricted extremizer. None of the inspected named statements has the same object, quantifiers, or formula.",
+      "searches": [
+        "published-finding corpus: Exact number of distinct palindromic scattered subsequences of a binary word containing exactly three ones and arbitrary intervening zero blocks",
+        "published-finding corpus: Closed-form palindromic subsequence count for sparse binary words zeros gaps 0^a 1 0^b 1 0^c 1 0^d",
+        "Web: \"palindromic subsequences\" \"three ones\" binary",
+        "Web: \"distinct palindromic subsequences\" \"Hamming weight\" extremal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching table/formula identified in returned search results; searches did surface generic algorithm exercises on distinct palindromic subsequences.",
+        "The checked 1,820 gap quadruples and 7,315 DP cases were freshly computed from package checker.py, not copied from a published table."
+      ],
+      "reasoning": "Finite counts alone would not imply the all-parameter identity. No accessed primary table or database supplies this four-variable law or palindrome-source unique optimizer. Absence from searches is evidence-limited, not proof of absolute novelty.",
+      "searches": [
+        "published-finding corpus: Exact number of distinct palindromic scattered subsequences of a binary word containing exactly three ones and arbitrary intervening zero blocks",
+        "Web: \"palindromic subsequences\" \"three\" \"ones\" \"binary\" formula",
+        "Web: \"palindromic subsequences\" \"sparse\" \"word\" enumeration"
+      ]
+    },
+    "rationale": "Semantic comparison against accessible own prior claims, published research-record search and primary 2015 full text shows a distinct all-parameter palindrome-scattered count with symmetric-word optimum, not derivable from the prior full distinct-subsequence maximum or from contiguous-palindromic factor theorems. No matching indexed formula was identified; priority remains conditional on unindexed literature and unavailable 2008 full text.",
+    "residual_risks": [
+      "Full paper for Elzinga–Rahmann–Wang (2008) was not inspected; available abstract and author overview do not guarantee absence of special formula in appendices.",
+      "Unindexed fixed-content palindromic subsequence results might predate this statement; negative search does not prove priority.",
+      "Independent external mathematical assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies contiguous palindromic factors, whole-word palindromic pairs and rich-word growth. It does not cover a count of distinct palindromic scattered subsequences from fixed-content three-one words.",
+        "evidence": [
+          "Sections 1–5 described at https://arxiv.org/abs/1503.09112; Section 3 counts palindromic pairs and Section 4 counts rich words, no subsequence count.",
+          "arXiv first posted 2015-03-31."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.09112",
+        "material_read": "Full accessible arXiv HTML article, including introduction/definitions, conjugate-palindrome theorem, section 3 palindromic-pair counts, section 4 rich-word complexity and section 5 antipalindromes; find for subsequence returned no matches.",
+        "method": "arXiv full-text HTML inspection and exact-term find for subsequence",
+        "title": "On the Combinatorics of Palindromes and Antipalindromes",
+        "trigger": "2015 foundational palindromic words and palindromic pairs could potentially cover the same palindromic count"
+      },
+      {
+        "assessment": "Available descriptions list general distinct-subsequence and common-subsequence algorithms. A specific three-one palindrome-constrained gap formula is not reported in read material; full-text coverage remains uncertain.",
+        "evidence": [
+          "Author overview lists six enumerative topics and identifies publication on 28 December 2008.",
+          "The University of Belfast abstract explicitly describes counting distinct subsequences but does not mention distinct palindromic subsequences."
+        ],
+        "identifier_or_url": "doi:10.1016/j.tcs.2008.08.035",
+        "material_read": "Author lab research overview, bibliographic metadata, publisher and institutional abstracts. Complete paper text not retrieved.",
+        "method": "https://www.rahmannlab.de/research/subseqcomb.html and https://pure.qub.ac.uk/en/publications/algorithms-for-subsequence-combinatorics/",
+        "title": "Algorithms for Subsequence Combinatorics",
+        "trigger": "Broader exact subsequence counting algorithms may imply the special case computationally"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fb9dc58-5778-4cd7-81e5-87ca8314fdfc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three-marker sparse words are a natural first class where palindromic scattered subsequences of every one-count occur, and their precise gap dependence is not encoded by the all-subsequence total. The constant-time exact identity identifies the sole nontrivial overlap correction and all boundary cases; it simultaneously yields a nontrivial unique all-length extremal classification among palindromic source words. This structural result is more than a finite table or naive parameter substitution. No unrestricted optimum is claimed.",
+    "status": "PASS"
+  }
+}
