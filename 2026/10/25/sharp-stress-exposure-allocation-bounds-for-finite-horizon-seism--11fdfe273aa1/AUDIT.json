@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The normalized Dieterich state equation with constant normal stress integrates exactly to the positive kernel \\(D(t)=1+a^{-1}\\int_0^t e^{u/a+s(u)}\\,du\\); cumulative expected events equal \\(ra\\log D(t)\\). Maximization of the weighted exponential functional uses a strict endpoint chord and strictly increasing bathtub rearrangement; minimizing it uses strict pointwise convexity and the unique budget-compatible clamped affine profile. Integration of the three pieces reproduces both claimed count bounds, including all boundary plateau cases. Exact ODE composition and kernel quadrature agree on 600 randomized feasible protocols; the analytic inequalities, not finite checks, establish the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Candela et al. (2022), section 2.6, optimizes cumulative injected fluid volume subject to a rate cap and physical coupled transport; this neither fixes integrated stress nor seeks sharp cumulative-count extrema.",
+        "Heimisson and Segall (2018), section 2.2 and section 5, provide a general exact count functional, not its sharp budgeted infimum and supremum.",
+        "The 2026 arXiv work A Control Framework for Induced Seismicity Mitigation in Groningen Gas Reservoir studies a feedback flow-rate controller and a spatial diffusion model, rather than the given integral-budget extremal problem."
+      ],
+      "reasoning": "A more general arbitrary-stressing solution is available for evaluating any fixed stress path but does not, as stated, contain a theorem optimizing all such paths at equal exposure. Injection control and feedback designs impose different controls and objectives and are not stronger solutions of this variational problem. Generic convex optimization principles remain background tools and an acknowledged residual equivalence risk.",
+      "searches": [
+        "Dieterich 1994 2018 Heimisson Segall seismicity cumulants optimization fixed-stress histories induced earthquake activity temporal loading",
+        "optimal earthquake triggering integral log sum exponential stress control, late bang bang maximum and decreasing clipped affine minimum, seismicity hazard scheduling",
+        "seismicity Dieterich optimum stressing history cumulative events constrained integrated stress",
+        "doi:10.3389/feart.2022.1053951, section 2.6"
+      ]
+    },
+    "checked_sources": [
+      "Dieterich 1994 doi:10.1029/93JB02581 (abstract only; full text not obtained)",
+      "Ziv 2003 doi:10.1029/2002JB002318 (publisher full-text sections 2.2 and related model discussion)",
+      "Heimisson and Segall 2018 doi:10.1029/2018JB015656 (full text, Eq. 18 PDF page 5 visual)",
+      "Candela et al. 2022 doi:10.3389/feart.2022.1053951 (full text, section 2.6)",
+      "A Control Framework for Induced Seismicity Mitigation in Groningen Gas Reservoir (arXiv:2604.26802v1, abstract and modeling section)",
+      "MSC2020 86A15 official classification of seismology/earthquakes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 Eq. (18) is explicitly credited as a starting point and reconstructed from the state ODE; it gives a weighted exponential integral.",
+        "The new upper bound requires a strict chord inequality followed by a monotone-weight bathtub theorem, while its lower bound requires unique convex Lagrangian pointwise minimizers and the exact clipped-quadratic budget law.",
+        "The 2003 pulse is one fixed prescribed history; it neither optimizes its placement among all admissible histories nor derives the ramp-minimum law."
+      ],
+      "reasoning": "An arbitrary-stress *evaluation formula* implies the objective functional after algebra, but published evaluation and fixed-pulse results do not state sharp extrema for an imposed time-integrated stress budget. The present proof supplies the missing optimality and uniqueness comparisons. A mathematical result elsewhere that explicitly optimizes increasing-weight exponential moments under identical box and integral constraints would dominate upon substitution; that possibility remains an explicitly documented originality risk.",
+      "searches": [
+        "doi:10.1029/93JB02581; original state law and stress steps, publisher abstract",
+        "doi:10.1029/2002JB002318; section 2.2 boxcar stress pulse",
+        "doi:10.1029/2018JB015656; cumulative events Eq. (18) and constitutive Eq. (20)",
+        "doi:10.3389/feart.2022.1053951; section 2.6 constrained optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heimisson and Segall (2018), Eq. (18), derives cumulative counts from an arbitrary temporal stress kernel; Eq. (20) derives the rate and Appendix A checks the original seismicity-state ODE.",
+        "Ziv (2003), section 2.2, evolves the Dieterich state through a finite rectangular stress pulse but does not compare all equal-exposure histories.",
+        "The state-variable and integral representations were proved equivalent in the current work rather than treated as distinct findings."
+      ],
+      "reasoning": "The candidate is identical whether written as a state ODE, exponential-kernel event-count functional, or log-cumulative rate formula. The full historical treatments inspected explain those representations but do not state either optimal bounded-history profile under a fixed stress-time integral. This is a constrained variational theorem, not a claim that the general constitutive kernel itself is new.",
+      "searches": [
+        "Dieterich rate and state seismicity two stress steps permutation order total events aftershock analytic",
+        "Dieterich seismicity rate total number events finite time optimal stress pulse timing maximize cumulative seismicity stressing history",
+        "Sharp optimal temporal stressing perturbation schedules in Dieterich 1994 rate and state seismicity constitutive model under fixed integrated stress, minimizing and maximizing cumulative earthquake count",
+        "doi:10.1029/2018JB015656, equations (18), (20), Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published literature results inspected contain stress-step response graphs, integral formulas and numerical injection optimization, but no exact two-envelope stress-time budget table.",
+        "The illustrative dimensionless values are recomputed directly from closed formulas and checked by the local exact-state propagation script."
+      ],
+      "reasoning": "No indexed table or published exact stress-time envelope matching the control variables, normalization and objective was found. This negative retrieval result is not used as a proof of uniqueness or universal novelty. The value lies in the all-parameter theorem, not in recomputing a tabulated number.",
+      "searches": [
+        "Maximum minimum cumulative induced earthquake counts over bounded shear stress histories with fixed stress-time budget, Dieterich law rearrangement inequality",
+        "Dieterich rate-and-state seismicity optimal control stress trajectory maximize earthquakes finite time budget",
+        "rate state seismicity seismic hazard optimal temporal stress perturbation schedule exponential integral cumulative earthquakes"
+      ]
+    },
+    "rationale": "The original model and arbitrary-stress integral are explicitly acknowledged; the independently derived novel content is a sharp all-history fixed-stress-exposure variational characterization with a late bang-bang maximizer, clipped affine minimizer, exact budget multiplier equation, and unique extremizers. Full-text checks of the closest model and injection-optimization papers do not state or subsume that conclusion. Residual risks of inaccessible 1994 full text and generic convex-allocation aliases remain disclosed, so this is a self-review, not an independent novelty certification.",
+    "residual_risks": [
+      "Dieterich 1994 full text inaccessible after bounded attempts, so a mathematically equivalent passage there cannot be completely excluded.",
+      "An exact box- and integral-constrained optimizer of weighted exponentials could appear under generic convex optimization or load-shaping vocabulary and would dominate after reduction.",
+      "Literature and research-record searches are finite and not proof of universal novelty.",
+      "The stress-time budget is a modeling assumption, not equivalent to real reservoir flow or injection-volume constraints; 2022 and 2026 operational-control literature addresses a different feasible set.",
+      "Results concern expected event counts of a homogeneous constitutive model; they do not certify empirical earthquake-risk reduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes constitutive seismicity-rate model, not sufficient by itself for a decisive whole-paper exclusion of an optimal-stress variant",
+        "evidence": [
+          "Publisher describes earthquake nucleation rates under stress-step changes and arbitrary stressing histories; DOI 10.1029/93JB02581."
+        ],
+        "identifier_or_url": "doi:10.1029/93JB02581",
+        "material_read": "Publisher abstract, bibliographic first-publication date 1994-02-10, available summaries of model scope; full article not accessible",
+        "method": "Publisher HTML abstract; open-access PDF request attempted and timed out; institutional-paper retrieval reported VPN disconnected",
+        "title": "A constitutive law for rate of earthquake production and its application to earthquake clustering",
+        "trigger": "Earliest primary model and source-date anchor"
+      },
+      {
+        "assessment": "Prescribed stress pulse and after-pulse rate behavior, without extremal fixed-integrated-stress comparison",
+        "evidence": [
+          "Section 2.2 Eq. (7)-(8) and Figure 1 concern the response to one boxcar pulse.",
+          "Publisher article dated 2003-10-22."
+        ],
+        "identifier_or_url": "doi:10.1029/2002JB002318",
+        "material_read": "Full-text HTML: model and stress pulse derivations in section 2.2, downstream model discussion and conclusions",
+        "method": "Read publisher full text and compare its fixed boxcar stress-response equations to all-history optimization statements",
+        "title": "Foreshocks, aftershocks, and remote triggering in quasi-static fault models",
+        "trigger": "Stress-pulse ordering and nonlinear transient seismicity"
+      },
+      {
+        "assessment": "This paper already proves the exact general count integral; the new contribution is not that integral but its unique constrained extrema and stress-budget equation",
+        "evidence": [
+          "Equation (18) states the logarithmic expected-count integral for an arbitrary source stress kernel.",
+          "Section 5 lists cumulative count and rate under arbitrary histories among the main results; no fixed-stress-exposure extremal theorem appears."
+        ],
+        "identifier_or_url": "doi:10.1029/2018JB015656",
+        "material_read": "Full publisher HTML: section 2.2 Eqs. (18)-(21), assumptions in sections 3 and 4, conclusion; Stanford open-access PDF page 5 inspected including actual formula",
+        "method": "Full text plus visual reading of equation (18) on actual publisher-paper PDF page 5",
+        "title": "Constitutive Law for Earthquake Production Based on Rate-and-State Friction: Dieterich 1994 Revisited",
+        "trigger": "Possible stronger arbitrary-history cumulative-count formula"
+      },
+      {
+        "assessment": "Controls well injection to maximize fluid volume subject to a seismicity-rate cap; no exact stress-time budget cumulative-count envelope",
+        "evidence": [
+          "Section 2.6 formulates well-injection-rate optimization and employs numerical StoSAG gradient estimation."
+        ],
+        "identifier_or_url": "doi:10.3389/feart.2022.1053951",
+        "material_read": "Full-text methods for seismicity coupling and optimization: sections 2.4 to 2.6, conclusion discussion",
+        "method": "Publisher open-access full text; compare input controls, budget, and objective",
+        "title": "A physics-informed optimization workflow to manage injection while constraining induced seismicity: The Oklahoma case",
+        "trigger": "Plausible broader constrained-control seismicity result"
+      },
+      {
+        "assessment": "Feedback control of reservoir well fluxes under physical diffusion model; not the exact fixed stress-integral extremal theorem",
+        "evidence": [
+          "Introduction identifies well-rate feedback and saturation; model equations couple pore-pressure rate to earthquake rate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.26802v1",
+        "material_read": "Abstract, introduction, governing seismicity dynamics and controller statement",
+        "method": "Open arXiv HTML, examine objectives and constitutive equations (5)-(7)",
+        "title": "A Control Framework for Induced Seismicity Mitigation in Groningen Gas Reservoir",
+        "trigger": "Contemporary potential dominating seismicity-rate optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11fdfe27-3aa1-4eaf-b55f-aa85abfdb0d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact envelopes are a motivated finite-horizon stress-response question in seismicity forecasting: equal maximum stress and equal stress-time exposure do not determine the number of expected earthquake nucleations. The theorem gives unique worst and best temporal profiles and closed event-count bounds, replacing an uncontrolled schedule search by an analytic characterization. At \\(a=r=1\\), \\(T=2\\), \\(H=1.5\\), and \\(B=2\\), expected counts span approximately 2.76977 to 3.27086 compared with baseline 2, a nonnegligible difference even at identical stress exposure. This is a physical-model mathematical envelope, not a field-ready operational design.",
+    "status": "PASS"
+  }
+}
