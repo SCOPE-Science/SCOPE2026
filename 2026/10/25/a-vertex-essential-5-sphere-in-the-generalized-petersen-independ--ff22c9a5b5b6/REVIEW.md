@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The ordinary independence complex is defined with explicit modular edges; all faces and Hasse relations are reconstructed exhaustively from those edges. An acyclic augmented matching on 2461 faces has exactly one unmatched five-face and a matched empty face; removing the latter pair produces a two-critical-cell discrete-Morse model \(S^5\). Two further acyclic matchings produce 938 and 936 actual simplicial collapses of the two representative vertex deletions. The outer and inner rotational orbits exhaust all eighteen deletions. The reduced Lefschetz calculations give \(+1\) for the dihedral rotation and \(-1\) for reflection on integral fifth homology. The packaged script checks every count and directed-cycle condition, not merely sampled faces.
+
+**Originality — PASS, with residual risk.** Barmak's arXiv:1007.0418, read in relevant original sections, gives the broader suspension theorem for triangle-free graphs, but does not fix the homotopy type or vertex-deletion profile here. Fox–Gera–Stănică's thirteen-page 2012 original paper was inspected and covers independence numbers, including \(\alpha(GP(9,2))=7\), but not homotopy, deletion collapses or the dihedral homology action. Searches for the exact graph and equivalent formulations across accessible mathematical records did not identify a covering result. A priori equivalent unpublished or unindexed calculations remain possible.
+
+**Mathematical value — PASS.** The result identifies a natural eighteen-vertex member of a classical cubic graph family whose global sphere homology vanishes after deleting any single graph vertex, a sharp support-rigidity property not determined by the prior maximum-independent-set formula. The full sign-versus-trivial dihedral orientation action gives an additional structural invariant. It makes no unsupported claim of family-wide generality.
+
+Self-review: passed. Independent audit: not yet performed.
