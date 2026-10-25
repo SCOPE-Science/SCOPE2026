@@ -1,0 +1,9 @@
+# Scientific evaluation
+
+**Correctness — PASS.** Automorphism averaging reduces every real-linear extension to a one-parameter family without increasing norm. The exact Kantorovich–Rubinstein tree-flow formula supplies the norm of each output-edge functional. Two dual witness affine lower bounds intersect at the proposed parameter, where direct positive-mass calculation establishes attainment. The proof explicitly handles arbitrary real coefficients, both types of tree edges, both parameters at their lower boundaries, and finite-dimensional norms modulo constants. Exact-rational checks on 49 parameter pairs and 1470 edge functionals independently corroborate the identities; neither finite enumeration nor numerical linear programming substitutes for the proof.
+
+**Originality — PASS, with residual bibliographic uncertainty.** Fefferman–Klartag (arXiv:2301.13792v1) treat the finite-Sobolev-exponent tree extension problem and explicitly leave the infinite endpoint outside their theorem. Bruè–Di Marino–Stra (arXiv:1801.07533v1) provide general Lipschitz random-projection extension operators without this exact tree trace constant. Known one-point star extension questions do not imply simultaneous extension at all internal depth-two vertices. Equivalently formulated exact older finite-tree formulas may be unindexed, and searches do not prove worldwide uniqueness.
+
+**Mathematical value — PASS.** The exact two-parameter all-operator optimum is a nontrivial endpoint benchmark for simultaneous extension on branching tree metrics. The threshold \((m-2)(k-1)=4\) and unattained sharp uniform bound \(8/3\) distinguish it from a routine chosen-kernel norm calculation. The result is deliberately restricted to depth two rather than overstating any general endpoint solution.
+
+Self-review: passed. Independent audit: not yet performed.
