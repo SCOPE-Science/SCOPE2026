@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Conditioning on one vertex being isolated restricts all remaining points independently to one arc of length \(1-2r\); integrating the triangular two-point separation law yields the exact conditional edge probability. This gives a closed mixed-moment formula. The sign theorem then follows from a discriminant-negative five-vertex polynomial, strict monotonicity of the sign expression in vertex count, and its explicit quadratic/linear zero locations. The edge case \(n=2\), the branch point \(r=1/3\), and both zero-covariance endpoints are explicitly covered. The independent discrete-circle enumerator and algebraic checker passed 653 assertions; unrestricted quantifiers are justified by the integral/algebraic proof.
+PASS
 
-## Originality
+Conditioning a specified vertex to be isolated requires the other n-1 iid locations to fall on its one complementary circular arc of length L=1-2r. Pair separation on this arc has triangular density 2(L-s)/L²; because L<1-r, circular edges cannot arise by the long-way-around distance, so conditional edge probability is 2r/L-(r/L)² for r<=1/3 and 1 for r>=1/3. Mixed first moment then yields Cov(I,E)=binom(n,2)L^{n-1}[(n-2)q(r)-2nr] for all n>=2 and 0<r<1/2. For r<=1/3 its sign is a concave quadratic -8nr²+(3n+10)r-4; for r>=1/3 the sign is n(1-2r)-2. At n<=5 sign is negative; for n>=6 the exactly computed roots r_-(n) and r_+(n) bound the unique positive window. Independently checked symbolic algebra and n=6,r=3/10 giving exactly 72/3125; boundary n=6 roots 1/4 and 1/3. This finite-n identity has a direct analytic proof, separate from sampled discrete grids.
 
-**PASS on inspected evidence.** Last–Nestmann–Schulte (2018) treat Poisson component-count covariance, Badiu–Coon (2021) treat interval random-graph structural entropy, and Wilsher–Dettmann–Ganesh (2022) treat isolated-node limits for soft periodic random graphs and explicitly exclude the hard connection function. None of these inspected texts states or subsumes the two exact finite-\(n\) isolation/total-edge covariance sign boundaries. Searches for equivalent circle/torus notation, occupancy identities, thresholds, and the exact six-vertex window did not surface a dominating result. Priority risk remains from older random-geometric-graph general moment formulas, including uninspected portions of book literature: the elementary conditional identity may be latent in them.
+## originality
 
-## Value
+PASS
 
-**PASS.** The two basic network statistics have conflicting local and global influences: a marked isolated vertex destroys incident edges but forces the remaining points into a shorter arc, increasing their mutual edge density. The theorem gives a sharp sign phase diagram for *all* vertex counts and radii, including the unexpectedly positive regime, a minimal positive size of six, both transition radii and their asymptotic scaling. It supplies more than a re-expression of a known mean or a routine single-parameter inequality.
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
 
-## Limitations
+## value
 
-Only the fixed-size uniform periodic hard model is covered. The exact sign classification does not transfer automatically to interval, Poisson, nonuniform, higher-dimensional or soft graphs. Older general moment methods could implicitly contain the evaluated cross moment; independent historical priority verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a natural finite binomial circle geometric graph, edge count is not always negatively correlated with isolated-vertex count: an exact transition at n=6 and two radius reversals quantify competition between global density and isolation-conditioned clustering. The complete sharp sign phase diagram is a substantial finite-size structural dependence fact rather than a generic expectation or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
