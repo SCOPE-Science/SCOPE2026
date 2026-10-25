@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-field model uses irreducibility of \(t^2-2\) over \(\mathbb F_5\). The attached full certificate and standalone verifier independently enumerate all \(515\) faces, check \(225\) distinct matched incidences and all \(1425\) Hasse covers, and verify that the resulting directed graph is acyclic. Exactly one critical vertex and \(64\) critical two-cells give the integral sphere wedge by discrete Morse theory; independent mod-two boundary ranks agree. The translation trace follows from complete characterization of invariant faces under elements of order five, not numerical interpolation. Rational character orthogonality gives all multiplicities. Armstrong's orbit-space theorem applies because the covering complex is simply connected and two fixed-point translations generate the acting group. Quotient rational homology follows from averaging after subdivision.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic uncertainty
-The closest source, Cioabă–Mim (arXiv:2606.27328, §§3.2–3.6), already gives the rank \(64\) for the same Latin-square-graph clique complex, over all coefficient fields, but not its fundamental group, integral sphere-wedge homotopy, translation character, rational representation, or orbit-space fundamental group. Their results do not imply simple connectivity from homology alone. Cioabă–Guo–Ji–Mim (arXiv:2508.05871, §§5–6) give first-cohomology and spectral results for strongly regular graphs including Paley-25; no equivalent homotopy or translation character is given. Targeted published mathematical-record searches found analogous results for other graphs, not a dominating result for this graph and action. Search incompleteness and unindexed work remain risks.
+PASS
 
-## Mathematical value — PASS
-The Paley graph of order \(25\) is a natural finite-field strongly regular graph and an order-five Latin-square graph, directly connected to the 2026 full homology classification. Upgrading its homology to an integral homotopy equivalence is a genuine stronger invariant, and a complete translation character and simply connected geometric orbit quotient provide motivated symmetry-sensitive information not implied by the known Betti numbers. The precise quantity \(64\) is a previously known homology rank and is not presented as new by itself.
+Independently implemented F25 ring arithmetic and nonzero squares: 25 vertices, 12 neighbors per vertex; enumerated 515 clique faces with counts (25,150,250,75,15). Independently generated two distinct deterministic ordered-vertex Morse matchings (numeric and x-first), each leaves one critical vertex and 64 critical 2-cells, and checked global Hasse acyclicity on all 1,425 incidences; yields integral ∨64 S². Independently computed mod2 boundary ranks (24,126,60,15). For each of 25 translations counted signed invariant simplices and recovered traces (64,4×12,−1×12); Fourier character equations give multiplicities 3 on square line directions, 2 on nonsquare, four trivial. Two independent square-direction translations fix barycenters of translated 5-cliques, generate T; by Armstrong fundamental group of quotient is trivial; finite-group averaging gives rational invariant H2=Q4. No claimed integral quotient-homology splitting.
 
-## Limitations
-The integral orbit-space homology and integral representation lattice are not claimed; neither is any arbitrary-order Paley/Latin-square homotopy theorem. The scientific review is not independent validation. Sources and residual originality risks are detailed in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cioabă–Mim arXiv:2606.27328 already determines rank H2=64 over every coefficient field for the Latin-square graph of order five, which is explicitly credited. The new integral homotopy wedge, complete rational translation module, and simply connected geometric quotient are not determined by that homology rank alone; Resultary topical searches produced no matching same-object translation computation. Cioabă–Guo–Ji–Mim treat spectral/first-cohomology properties. Full text of the closest 2026 prior manuscript could not be retrieved and possible hidden homotopy results remain a material priority risk.
+
+## value
+
+PASS
+
+The 25-vertex Paley graph is a canonical finite-field strongly regular/Latin-square graph. Integral homotopy is stronger than previously tabulated homology, and the exact additive character plus nonfree quotient π1/H2 are structurally motivated equivariant invariants. The result provides a reproducible model for symmetry of flag complexes, not only a single Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
