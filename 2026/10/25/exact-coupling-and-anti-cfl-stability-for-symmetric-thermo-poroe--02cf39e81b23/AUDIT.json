@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Equation (5.4) is specialized explicitly in RESULT.md. Sum/difference modal separation yields characteristic factors \\(P_s(z)=(1+t)z^2-(1-K)z-K\\), \\(P_q(z)=(1+t)z^2-(1-c)z-c\\) and one zero root, with \\(K=2d^2-c>-1\\). The three real-quadratic Schur inequalities are \\(t>0\\), \\(2+t-2K>0\\), \\(1+t+K>0\\) for the symmetric factor; q has \\(K=c<1\\). Thus strict stability iff \\(hb>4d^2-2-2c\\), equality has \\(z=-1\\), and smaller positive steps have \\(z<-1\\). Exact continuous modal masses are \\(1+K\\) and \\(1+c\\). Constant-history root expansions prove first-order convergence for \\(K<1\\); the parity formula at \\(K=1\\) proves the endpoint; \\(K>1\\) has nonzero \\(O(h)\\) excitation of a root tending to \\(-K<-1\\), hence fixed-time divergence. An actual SymPy characteristic-factorization assertion and numerical mode tests were executed from the attached verify.py and recorded as verify_output.txt. These computations are checks, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altmann–Maier, arXiv:2104.10092v2, introduction and Section 2 pp. 1–5: a two-field pressure/displacement scheme with weak-coupling assumption; no temperature/cross-storage recurrence.",
+        "Chen–Cui–Zhou, arXiv:2509.06480, Section 3 steps (3.2)–(3.4) and Theorem 3.2: pressure then temperature then mechanics with separate stabilization, not the same (5.4) map.",
+        "Altmann–Maier–Schmeck 2026 §5.4 gives the same target scheme, but Theorem 5.4 states a one-sided sufficient condition."
+      ],
+      "reasoning": "General stability/convergence theorems for other decouplings do not dominate this exact scalar scheme: the temporal coupling matrices and memory terms differ. The two-field predecessor removes the antisymmetric thermal mode entirely. A general Schur theorem supplies the elementary test, but not the derived amplification factor or sharp physical-parameter boundary.",
+      "searches": [
+        "thermo poroelasticity fully decoupled semi-explicit scalar Fourier stability coupling exact sharp",
+        "semi explicit poroelasticity 2021 weak coupling sharp necessary sufficient stability scalar discretization",
+        "thermo-poroelasticity decoupling weak coupling sufficient condition exact scalar spectral stability condition",
+        "arxiv 2509.06480 sequential symmetric interior penalty thermo-poroelasticity stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.14149v1, Section 5.4, equation (5.4), Theorem 5.4, and Section 6.4 (full relevant primary material)",
+      "arXiv:2104.10092v2, two-field model/Assumption 2.3 (primary PDF pp. 1–5)",
+      "arXiv:2509.06480, Section 3 and theorem 3.2 (primary full text)",
+      "Relevant semantic research-index search hits on two-step stability and splitting (nearest titles inspected, none with the target equation)",
+      "Web literature search results for scalar thermo-poroelastic semi-explicit exact stability and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 5.4: \\(\\omega_{\\mathrm{FD}}=(C_d^2+C_{\\widetilde d}^2+c_a\\widehat c_0)/(c_a\\min(c_0,\\widetilde c_0))\\leq1\\) plus inf–sup restriction \\(\\min(c_d^2,c_{\\widetilde d}^2)>C_a\\widehat c_0\\).",
+        "Under \\(A=C=\\widetilde C=1\\), \\(D=\\widetilde D=d\\), \\(\\widehat C=c\\), the sufficient bound reads \\(2d^2+c\\leq1\\) and additional hypothesis \\(d^2>c\\).",
+        "Exact result: unconditional stability iff \\(2d^2\\leq1+c\\); at \\(c=1/2,\\ d^2=3/5\\) the original sufficient bound fails and its inf–sup hypothesis holds."
+      ],
+      "reasoning": "A sufficient condition for all step sizes cannot imply necessity or the opposite small/large-step behavior. The new classification strictly enlarges the verified stable region and proves instability beyond its own boundary. Its finite-time consistency statement is established by mode asymptotics rather than attributed to the prior sufficient theorem.",
+      "searches": [
+        "\"Semi-explicit time discretization for linear thermo-poroelasticity\" Theorem 5.4 weak coupling omegaFD",
+        "Altmann Maier Schmeck 2026 semi explicit fully decoupled exact scalar spectrum stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Altmann–Maier–Schmeck, arXiv:2603.14149v1, equation (5.4), pp. 15–16: explicit two-step triangular formulation; theorem 5.4 p. 17: sufficient bounds; section 6.4 pp. 22–23: empirical classification only.",
+        "The present symmetric/antisymmetric decomposition reduces this exact scheme to distinct two-step scalar quadratics; the source does not state the corresponding necessary-and-sufficient Schur inequalities."
+      ],
+      "reasoning": "Pressure–temperature sum/difference and elimination of the lagged displacement are the equivalent formulations tested. Unlike the sufficient energy bound, the resulting exact symmetric factor gives a time-step-dependent threshold and an anti-CFL branch. The primary paper contains a numerical comparison but not this analytic phase portrait.",
+      "searches": [
+        "Altmann Maier Schmeck 2026 semi-explicit fully decoupled thermo poroelasticity scheme (5.4) scalar symmetric modes exact Schur stability threshold cross thermal coupling",
+        "\"Semi-explicit time discretization for linear thermo-poroelasticity\" stability threshold Schur",
+        "scalar fully decoupled two-step thermo poroelastic scheme exact coupling threshold symmetric antisymmetric characteristic roots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.14149v1, Fig. 6.5, p. 23: colored empirical green/yellow/red regions for a distinct 3-by-3 toy matrix, not a symbolic scalar threshold.",
+        "Relevant semantic-index returns concerned other two-step numerical schemes and no matching thermo-poroelastic five-state characteristic factorization. These non-hits are not treated as proof of uniqueness."
+      ],
+      "reasoning": "The source figure does not tabulate the proposed exact scalar threshold, and the paper does not present its closed-form equality or step-size bifurcation. A genuinely exact identical entry was not located in the searched results; this is a limited negative search, not a novelty certificate.",
+      "searches": [
+        "Altmann Maier Schmeck 2026 weak coupling condition scalar example eigenvalue symmetric mode",
+        "2026 2603.14149 thermo poroelasticity eq 5.4 exact sharp stability 2 d squared less than 1 plus thermal cross coefficient",
+        "two-step M-F-H linear thermo-poroelastic semi-explicit pressure temperature discretization eigenvalues characteristic polynomial stability anti-CFL step lower bound"
+      ]
+    },
+    "rationale": "The closest full-text primary source proves a sufficient weak-coupling estimate and reports numerical stability regions, not the exact scalar necessary-and-sufficient boundary or reverse step restriction. The 2021 two-field predecessor and 2025 stabilized sequential DG algorithm do not imply the displayed exact recurrence classification. Targeted semantic-index and web searches did not uncover dominating equivalences; residual unindexed-prior risk is disclosed rather than denied.",
+    "residual_risks": [
+      "Classical Schur and linear multistep stability methods may yield the scalar classification by an unindexed textbook exercise or working note; the standard root criterion itself is not new.",
+      "No assertion is made about other normalization conventions or noncommuting finite-element matrices; source numerical Figure 6.5 uses a different 3-by-3 toy matrix.",
+      "Searches cannot guarantee absence of unindexed or inaccessible equivalent derivations; the available primary target and two relevant predecessor/neighbor texts were compared materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same discrete scheme and equal-coupling numerical experiments; analytic result in paper is sufficient only and numerical plots do not give the new scalar exact threshold.",
+        "evidence": [
+          "eq. (5.4), page 15",
+          "Thm 5.4, page 17",
+          "§6.4 and Fig 6.5, pages 22–23"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.14149 (arXiv:2603.14149v1)",
+        "material_read": "PDF abstract, model and parameter definitions, equation (4.2), full Section 5.4 containing equation (5.4) and Theorem 5.4, and Section 6.4 with both figures",
+        "method": "Primary PDF page text and actual page images, including pp. 11, 15, 17, 22, 23",
+        "title": "Semi-explicit time discretization for linear thermo-poroelasticity",
+        "trigger": "Exact source of the fully decoupled scheme, its coupling theorem and sharpness diagrams"
+      },
+      {
+        "assessment": "Two-field pressure–mechanics system without the temperature storage cross term or five-dimensional amplification map.",
+        "evidence": [
+          "Introduction and two-field model, pages 1–4",
+          "weak coupling Assumption 2.3, page 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.10092 (arXiv:2104.10092v2)",
+        "material_read": "PDF introduction, model, equations (2.1)–(2.4) and Assumption 2.3 pp. 1–5",
+        "method": "Primary PDF textual examination plus page-5 image",
+        "title": "A decoupling and linearizing discretization for weakly coupled poroelasticity with nonlinear permeability",
+        "trigger": "Parent semi-explicit time-lagging construction; possible earlier generic bound"
+      },
+      {
+        "assessment": "Different stabilized pressure–temperature–mechanics DG algorithm, not an implication for the unstabilized lagged-mechanics map in source (5.4).",
+        "evidence": [
+          "Section 3 step ordering and γ stabilization",
+          "Theorem 3.2 conditional bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.06480 (arXiv:2509.06480)",
+        "material_read": "Accessible primary HTML introduction, Section 3 equations (3.2)–(3.4), stabilization discussion and Theorem 3.2",
+        "method": "Primary full-text HTML inspected directly",
+        "title": "Sequential symmetric interior penalty discontinuous Galerkin method for fully coupled quasi-static thermo-poroelasticity problems",
+        "trigger": "Potential stronger related sequential three-field stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02cf39e8-1b23-4367-a235-6fbed6a1cf14",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact classification resolves a mathematically motivated gap emphasized by the source numerical sharpness study. It identifies a nontrivial signed cross-coupling cancellation: stability is governed by \\(2d^2\\leq1+c\\) instead of the sufficient \\(2d^2+c\\leq1\\), with an entire physically coercive stable range missed by the theorem (notably \\(c\\geq1/3\\) under its additional scalar inf–sup hypothesis). Beyond the threshold, increasing the step size actually restores strict Schur stability, a structural anti-CFL effect. The boundary first-order convergence proof distinguishes numerical stability at positive steps from the limiting root -1. This is useful as an exact benchmark for tri-field lagging, although it does not establish general PDE convergence.",
+    "status": "PASS"
+  }
+}
