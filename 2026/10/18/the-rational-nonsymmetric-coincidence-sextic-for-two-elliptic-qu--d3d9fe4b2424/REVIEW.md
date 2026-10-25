@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The hypotheses define smooth genus-three curves and nonsingular displayed elliptic quotient curves. Direct binary-quartic invariant calculations prove the two explicit \(j\)-invariant formulas with denominators nonzero on the full stated domain. Clearing denominators factors exactly as \(4(a+b)\) times the residual polynomial. A birational transformation makes the residual a polynomial of bidegree \((4,4)\); its \(z\)-parametrization has four distinct fourth-root conjugate images over a generic \(u\), proving irreducibility and rationality of the whole residual curve. Boundary-factor arguments close the locus. The packaged executable verifier checked identities, inverse changes of variables, and the smooth nonsymmetric witness; finite examples are not used as a proof of global irreducibility.
+## correctness
 
-**Originality: PASS, qualified by priority risks.** Borówka--Shatsila, Proposition 4.3 and Remark 4.7, give these exact quotient equations and the already-known \(a+b=0\) sufficient condition. They do not supply the complete necessary-and-sufficient equality locus or the additional irreducible rational component. The general \(C_2^3\) split-Jacobian table of Lombardo et al. does not address equality of these marked factors. Shaska's serious nearby result determines isomorphism of a different pair of **degree-four** elliptic subcovers in a \((2,4,4)\)-split construction, not equality of these two marked **degree-two** quotients. Auffarth--Borówka covers complementary elliptic-cover degrees. Searches of indexed mathematical records under exact parameters, aliases and the full equality statement did not yield an implication-dominating result. An unindexed or re-marked older result, and alterations in a later journal article, remain risks.
+PASS
 
-**Value: PASS.** The quotient-pair isomorphism locus is a canonical marked-modular invariant relevant to repeated elliptic Jacobian factors and Prym constructions. The result turns a single symmetry sufficiency example into an exact divisor classification, proves the new component is rational, and produces a concrete smooth nonsymmetric genus-three example with repeated complex-multiplication elliptic factors. It does not assert an unproved global moduli or Prym-fiber consequence.
+For smooth a≠b, a,b≠±2, A=(a−2)(b−2), B=(a+2)(b+2), D=(a−b)^2 are nonzero. Direct classical quartic invariant formulas give j(E−)=16(D+16A)^3/(D² A) and j(E+)=16(D+16B)^3/(D² B). Equality factors as 4(a+b)[D³−768DAB−4096AB(A+B)], and the bracket equals −F(a+b,ab), hence exhaustive iff. The birational ratio variables u=(a−2)/(b−2),v=(a+2)/(b+2) yield a primitive bidegree-(4,4) residual K. Parametrization u=z⁴,v=((z+i)/(z−i))⁴ has four different conjugate v values over generic u, establishing K irreducible and C(u,v)=C(z); no coordinate boundary contributes a component. An independently recomputed symbolic factor and the exact s=4, p=−92/9 CM witness corroborate. Elliptic quotient decomposition follows independent involution eigenspaces; nonintegral j(E0)=−8000/81 excludes CM/isogeny to j=1728. This does not imply every genus-three Jacobian with repeated factors lies in the family.
 
-No independent mathematical review or certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original Borówka–Shatsila Proposition 4.3 gives the precise quotients, and Remark 4.7 gives s=0 sufficiency only. Shaska studies a different marked degree-four quotient pair and its five genus-zero components; Lombardo et al. give splitting models without the exact marked equal-j equation. Searches including exact quartic parameters and polynomial aliases gave no dominating published/resultary statement. Best-of-knowledge only; later journal edition and hidden moduli relabeling could alter priority.
+
+## value
+
+PASS
+
+The exact equality divisor of two natural degree-two elliptic quotients is a moduli invariant motivated by Prym geometry and repeated elliptic factors. The result extends a known symmetry line by an irreducible rational nonsymmetric sextic, gives complete if-and-only-if conditions and a rational parametrization and smooth distinct-isogeny witness, more than merely computing a known invariant at examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

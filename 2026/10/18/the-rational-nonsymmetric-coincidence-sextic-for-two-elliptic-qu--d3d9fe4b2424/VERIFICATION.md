@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with an installation of SymPy. The checker recomputes the two quotient binary-quartic invariants, fully verifies the cleared equality polynomial and its expansion in symmetric variables, derives the symmetric-Jacobi quartic invariant \(J_*(r)\), verifies the bidegree-four residual polynomial and the complex rational parametrization, checks its four generically distinct fourth-root images, and tests the birational inverse. It also verifies the smooth nonsymmetric specialization \(a=2+8\sqrt2/3\), \(b=2-8\sqrt2/3\) and the three exact \(j\)-values.
+## correctness
 
-The expected terminal line is `VERIFY_OK: quartic j formulas; complete coincidence factorization; bidegree-(4,4) off-diagonal relation; birational parametrization; smooth nonsymmetric witness`.
+PASS
 
-The checker is exact symbolic arithmetic; it is not an independent proof assistant or external audit. The field-degree and no-boundary-component arguments in RESULT.md supply the general irreducibility/completeness proofs. No test asserts all possible global moduli equivalences or an unrestricted priority claim.
+For smooth a≠b, a,b≠±2, A=(a−2)(b−2), B=(a+2)(b+2), D=(a−b)^2 are nonzero. Direct classical quartic invariant formulas give j(E−)=16(D+16A)^3/(D² A) and j(E+)=16(D+16B)^3/(D² B). Equality factors as 4(a+b)[D³−768DAB−4096AB(A+B)], and the bracket equals −F(a+b,ab), hence exhaustive iff. The birational ratio variables u=(a−2)/(b−2),v=(a+2)/(b+2) yield a primitive bidegree-(4,4) residual K. Parametrization u=z⁴,v=((z+i)/(z−i))⁴ has four different conjugate v values over generic u, establishing K irreducible and C(u,v)=C(z); no coordinate boundary contributes a component. An independently recomputed symbolic factor and the exact s=4, p=−92/9 CM witness corroborate. Elliptic quotient decomposition follows independent involution eigenspaces; nonintegral j(E0)=−8000/81 excludes CM/isogeny to j=1728. This does not imply every genus-three Jacobian with repeated factors lies in the family.
+
+## originality
+
+PASS
+
+Original Borówka–Shatsila Proposition 4.3 gives the precise quotients, and Remark 4.7 gives s=0 sufficiency only. Shaska studies a different marked degree-four quotient pair and its five genus-zero components; Lombardo et al. give splitting models without the exact marked equal-j equation. Searches including exact quartic parameters and polynomial aliases gave no dominating published/resultary statement. Best-of-knowledge only; later journal edition and hidden moduli relabeling could alter priority.
+
+## value
+
+PASS
+
+The exact equality divisor of two natural degree-two elliptic quotients is a moduli invariant motivated by Prym geometry and repeated elliptic factors. The result extends a known symmetry line by an irreducible rational nonsymmetric sextic, gives complete if-and-only-if conditions and a rational parametrization and smooth distinct-isogeny witness, more than merely computing a known invariant at examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
