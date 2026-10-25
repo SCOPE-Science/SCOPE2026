@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof independently reconstructs the selected original clique, demonstrates that every subdivision choice is forced, and checks every original vertex's domination via the necessary-and-sufficient obstruction \(N_G(v)=A\). The double-count correction in the exponent is exact. The empty-clique, isolated-vertex, and complete-graph boundary cases are included. Independent exhaustive enumeration of 1,043 labeled base graphs (through five vertices, restricted to at most seven edges at order five) agrees with the polynomial; this is a check, not an infinite certificate.
+## correctness
 
-**Originality: PASS, with material residual risk.** The 2026 initiating work states numerical bounds and formulas in its publicly accessible abstract; the reviewed statement is a whole-polynomial all-set classification for arbitrary graphs. A prior triangle-free-base result covers only cliques of size at most two; it does not imply the unrestricted formula for bases containing triangles. Published work on higher iterates determines numerical parameters in a different regime. Searches for 'independent domination polynomial central graphs', 'maximal independent sets central graph cliques polynomial', and their bijective variants found no covering statement. The initiating full manuscript was inaccessible: an unobserved comparable result there is a material residual risk, and search failure is not proof of uniqueness.
+PASS
 
-**Value: PASS.** The bijection reduces maximal-independent-set enumeration on a graph with \(n+m\) vertices to the much smaller, structurally identifiable family of cliques of the original graph, with a single exact neighborhood exclusion. It yields every cardinality coefficient, a bounded-clique-number polynomial-time algorithm, and exact optimizer multiplicities on complete graphs. These are structural and algorithmic results beyond a numerical domination bound, and they apply to arbitrary finite simple base graphs rather than an arbitrary finite slice.
+Reconstructed the entire-set bijection: independent original vertices form a clique A of G; subdivision vertices are forced exactly for edges disjoint from A; an omitted original vertex v is undominated exactly if N_G(v)=A. Thus admissible cliques index all maximal independent sets, with exponent |A|+m-sum_A degree+binom(|A|,2). The n=1 and K_n boundary cases, empty clique, isolated vertices, and degree-count normalization are consistent. Independent direct graph construction and independent-domination subset enumeration matched the formula for every labeled simple graph on n<=4 (75 graphs). Finite checks corroborate, not prove, the arbitrary-graph bijection.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete cardinality-generating polynomial on arbitrary simple base graphs, rather than only minimum independent domination numbers. The 2026 prior Theorem 2.1 contains a closely related minimizing clique construction and P_G(A) obstruction, so the new all-set enumeration is a natural but non-identical strengthening; its structural ingredients are explicitly credited.
+
+## value
+
+PASS
+
+The independent-domination polynomial is a natural invariant recording all minimal-independent dominating sets, distinct from the previously known minimum. A closed clique-indexed formula for arbitrary central graphs and bounded clique-number polynomial algorithm allow extraction of all sizes and optimum multiplicities; counting minimal sets is independently useful even if underlying structural reasoning is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
