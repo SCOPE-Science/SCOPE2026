@@ -1,15 +1,21 @@
-# Scientific review: antipodal torsion action of the icosahedral matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed integral simplicial chains are reconstructed exhaustively from thirty graph edges, with \(5888\) augmented faces. An explicit sequence of \(2911\) exact unit cancellations leaves one degree-four cell mapping into \(65\) degree-three cells with boundary-column gcd \(3\). This proves the asserted integral homology, without interpreting modular ranks as integer invariant factors. Independent antipodal even/odd subcomplex ranks in characteristic three give fourth homology dimensions \(0\) and \(1\); equivariant universal coefficients transfer the negative involution action to order-three integral torsion. A separate calculation in characteristic five establishes the rational split \(40+24\). Enumeration of all \(120\) automorphisms and the order-\(60\) commutator subgroup establishes the complete torsion character. The standalone verifier reconstructs all finite objects and checks every named invariant.
+## correctness
 
-## Originality — PASS, with stated residual risk
-The closest same-object public finding establishes only the underlying integral homotopy type. Full-text comparison finds no automorphism action in its result or proof. The archival Engström paper concerns connectivity of claw-free independence complexes. Shareshian–Wachs concern matching complexes of complete graphs and chessboard complexes; the outerplanar matching-complex paper is nonequivariant. The abstract Moore-space decomposition does not select an antipodal sign, and none of those results implies the two rational parity multiplicities. Searches used the aliases matching complex, line-graph independence complex, Moore-space torsion, icosahedral and antipodal action. Equivalent unindexed calculations remain possible.
+PASS
 
-## Mathematical value — PASS
-This is the full automorphism action on the unique integral torsion class in a natural torsion-bearing matching complex of a canonical planar graph, together with the central symmetry split on rational homology. The negative torsion action is not a normalization convention: it obstructs a nonzero globally invariant torsion class, distinguishes the two possible involution actions on the Moore-space homology, and exhibits different free and torsion behavior under the same geometric symmetry. The precise invariant is dictated by the exceptional torsion class and the graph's canonical antipode, not an arbitrary graph slice. The result does not claim a whole-family classification or the full free integral module.
+The ordinary matching complex of the explicit 12-vertex 30-edge icosahedral graph has matching face vector (30,315,1400,2535,1482,125), plus augmented empty cell. Independent exact sparse integer cancellation of its boundary complex finds 2911 pivots of coefficient ±1 and leaves 65 degree-three cells and one degree-four cell; its one boundary column has 35 nonzero entries with gcd 3, proving reduced H3=Z^64⊕Z/3 and vanishing elsewhere. Independent signed antipodal-involution chain decomposition over F3 yields dimension C4=741 in each parity, (rank d4,rank d5)=(686,55) in plus and (670,70) in minus, giving H4 parity 0,1. Naturality of universal coefficients identifies H4(F3)=Tor(H3(Z),F3), so inversion is -1 on unique Z/3. Over F5, rank recomputation gives rational H3 parity 40,24 (no 5-primary torsion). Independently enumerated Aut(I) has order 120, its commutator subgroup size 60 excludes antipode, so torsion character factors through G/G′=C2 and is nontrivial. These are exact finite exhaustive computations, not mere logged verifier success. Integer units imply genuine chain homotopy equivalences; rational action is not claimed for whole G.
 
-## Related literature and limits
-Engström, arXiv:math/0512420 (2005); Shareshian–Wachs, arXiv:math/0409054 (2004); Bayer–Jelić Milutinović–Vega, arXiv:2411.04601 (2024); *Three-torsion in the icosahedral matching complex: a planar counterexample* (2026-10-11, public result ID `28565ad1ea1a`). The last is the closest object-level result; it was read in full. An equivalent symmetry calculation outside accessible indexed sources is the main originality limitation. Finite computation and self-review are not independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.
+
+## value
+
+PASS
+
+The canonical planar icosahedral graph is a natural, small example carrying exceptional 3-torsion in matching homology. Its graph antipode has a geometrically meaningful action; proving torsion is odd while most rational H3 is even identifies a genuine distinction invisible to nonequivariant Betti numbers and rules out a globally invariant torsion generator. The exact complete torsion character on Aut(I) is a mathematically motivated representation invariant, not a random finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

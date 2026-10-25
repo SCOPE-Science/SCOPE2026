@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite evidence
+# Independent mathematical audit
 
-Run `python3 verify_icosahedral_torsion.py` with Python 3.9 or later. No third-party Python package, internet connection, external file, or cached computation is needed. A successful run ends with `ICOSAHEDRAL_TORSION_ACTION_PASS` and prints the checked counts.
+## correctness
 
-The program constructs the explicit twelve-vertex graph and enumerates all \(5888\) augmented matching faces. The simplicial integral boundary uses alternating signs from lexicographic edge order. It checks all original consecutive boundary compositions and then uses only unit \(\pm1\) boundary pivots in an exact algebraic chain cancellation. The final reduced chain groups have \(65\) generators in degree three and one in degree four, whose boundary has nonzero gcd \(3\). Since every pivot is a unit, this is an integral chain-homotopy calculation, not an extrapolation from tests modulo primes.
+PASS
 
-It independently finds the antipode from graph distance, enumerates all \(120\) graph automorphisms, checks that all their commutators comprise a subgroup of size \(60\), and computes the induced signed action on matching chains. Over \(\mathbb F_3\), the antipodal even/odd degree-four chain dimensions and ranks \((741,686,55)\) and \((741,670,70)\) yield homology dimensions \(0\) and \(1\); the latter corresponds naturally to the order-three integral torsion by universal coefficients. Over \(\mathbb F_5\), the third-homology eigenspace dimensions are \(40\) and \(24\), equal to rational dimensions because no five-torsion occurs and the involution has order two.
+The ordinary matching complex of the explicit 12-vertex 30-edge icosahedral graph has matching face vector (30,315,1400,2535,1482,125), plus augmented empty cell. Independent exact sparse integer cancellation of its boundary complex finds 2911 pivots of coefficient ±1 and leaves 65 degree-three cells and one degree-four cell; its one boundary column has 35 nonzero entries with gcd 3, proving reduced H3=Z^64⊕Z/3 and vanishing elsewhere. Independent signed antipodal-involution chain decomposition over F3 yields dimension C4=741 in each parity, (rank d4,rank d5)=(686,55) in plus and (670,70) in minus, giving H4 parity 0,1. Naturality of universal coefficients identifies H4(F3)=Tor(H3(Z),F3), so inversion is -1 on unique Z/3. Over F5, rank recomputation gives rational H3 parity 40,24 (no 5-primary torsion). Independently enumerated Aut(I) has order 120, its commutator subgroup size 60 excludes antipode, so torsion character factors through G/G′=C2 and is nontrivial. These are exact finite exhaustive computations, not mere logged verifier success. Integer units imply genuine chain homotopy equivalences; rational action is not claimed for whole G.
 
-Every asserted finite result is recomputed from the source script. The scientific conclusion additionally invokes standard integral unit cancellation, naturality of the universal coefficient sequence, and the fact that a homomorphism to an abelian group annihilates commutators. No theorem-prover certification or independent audit is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.
+
+## value
+
+PASS
+
+The canonical planar icosahedral graph is a natural, small example carrying exceptional 3-torsion in matching homology. Its graph antipode has a geometrically meaningful action; proving torsion is odd while most rational H3 is even identifies a genuine distinction invisible to nonequivariant Betti numbers and rules out a globally invariant torsion generator. The exact complete torsion character on Aut(I) is a mathematically motivated representation invariant, not a random finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
