@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T09:09:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/the-first-entropy-gap-for-boolean-subset-sum-covers-of-finite-ab--6368096f69c8/RESULT.md",
+        "2026/10/18/the-first-entropy-gap-for-boolean-subset-sum-covers-of-finite-ab--6368096f69c8/verify_binary_cover.py",
+        "/mnt/data/scope_worker_08_20261024T0854_delivery/audit08_independent_checks_output.json"
+      ],
+      "rationale": "For a finite abelian H, lambda(H) is minimum length of a sequence, repetitions allowed, with all 0/1 subsums equal H; 2^k>=|H| gives the entropy bound. Binary powers in each invariant cyclic factor give sum ceil(log2 d_j) entries. An exact partition-based enumeration of the 38 abelian isomorphism types of orders 2..25 shows this matches ceil(log2|H|) except C5xC5 at 25. For C5^2 every spanning five-term sequence can choose a basis among its terms and normalize it to e1,e2: all 25^3 remaining triples (with repetitions) are exhausted by the recurrence S <- S union (S+v); maximum size 24, attained by 480 ordered normalized triples. Independent full 53130 five-subset census found exactly 1920 extremizers, partitioned by all 480 GL2 matrices into 6 orbits of sizes 120,120,240,480,480,480. Six explicit vectors with duplicate coordinate entries cover all 25 points; thus lambda(C5^2)=6. An independent checker rebuilt the normalized exhaustive search, subset census and linear orbits, agreeing exactly.",
+      "residual_risks": [
+        "The maximum24, full orbit count and first exception are exact computer-assisted enumerations; all finite cases have been exhaustively covered by shown normalization, not extrapolated from a small sample.",
+        "The claim does not cover group orders greater than 25 or affine rather than linear classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yip use A+A or A-A pairwise representation functions; their main results are for products G^n as n grows."
+        ],
+        "reasoning": "Pairwise two-sum coverage is a different quantified operation from full {0,1}^k-subset coverage; its general product theorem is not a stronger covering theorem for this finite invariant.",
+        "searches": [
+          "arXiv:2509.24034 Theorem 1.5",
+          "finite abelian group subset sums sequence minimal number elements cover group elementary abelian 5 x 5 length 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.24034",
+        "arXiv:2610.04678",
+        "Erdős–Rényi (1965)",
+        "Resultary semantic search: finite abelian group subset sums sequence minimal number elements cover group elementary abelian 5 x 5 length 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 0/1 sequence length k bounds total possible subsums by 2^k. Classical probabilistic existence and asymptotic group-product statements do not constrain exact five-term noncoverage or determine all maximizers in F5^2."
+        ],
+        "reasoning": "The first exception follows from group enumeration and normalized rank-2 search; these are not logical corollaries of an asymptotic existence bound.",
+        "searches": [
+          "finite abelian group subset sums sequence minimal number elements cover group elementary abelian 5 x 5 length 6",
+          "Erdős–Rényi probabilistic group covering",
+          "arXiv:2509.24034 Section 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Erdős–Rényi style problem is coverage by Boolean subset sums; Hughes studies asymptotically few primes covering unit groups for almost all moduli, with (1/log2+o(1))log Q primes."
+        ],
+        "reasoning": "The shared subset-sum vocabulary denotes the same operation, but the asymptotic probabilistic bounds do not assert that every five-term sequence misses a vector in the fixed group F5^2.",
+        "searches": [
+          "finite abelian group subset sums sequence minimal number elements cover group elementary abelian 5 x 5 length 6",
+          "Erdős–Rényi 1965 Probabilistic methods in group theory",
+          "arXiv:2610.04678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary full Li–Yip text defines different basis invariants; retrieved Hughes abstract focuses asymptotic prime product covers. No located exact table lists 1920 or six GL2 orbit sizes."
+        ],
+        "reasoning": "Absence of a retrieved table is a priority limitation rather than proof that no small finite classification was ever recorded.",
+        "searches": [
+          "finite abelian group subset sums sequence minimal number elements cover group elementary abelian 5 x 5 length 6",
+          "arXiv:2610.04678",
+          "arXiv:2509.24034"
+        ]
+      },
+      "rationale": "Erdős–Rényi and Hughes study Boolean subset-sum/product coverage asymptotically, whereas the present theorem is a first exact finite obstruction with complete GL2 classes. Li–Yip analyze pairwise sums/differences from a set, not sums of arbitrary subcollections of a sequence. No compared stated theorem entails a maximum of 24 from five vectors in F5^2 or the exact six-orbit classification.",
+      "residual_risks": [
+        "An old or unpublished exact 25-point five-subsum classification might subsume the reported finite counts.",
+        "Hughes 2026 full text was not accessible (arXiv PDF/HTML failed and authorized VPN disconnected); no claim is made about unread text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not the 0/1 multi-subsum sequence invariant",
+          "evidence": "Definition uses r_{A+A}(x) or r_{A-A}(x) with two selected entries, not epsilon_i subset sums of k sequence positions.",
+          "identifier_or_url": "arXiv:2509.24034",
+          "material_read": "19-page complete available PDF; definitions Section 1 and main Theorem 1.5 plus main body",
+          "method": "read PDF text and screenshots of pp1,4",
+          "title": "Generalized Additive Bases and Difference Bases for Cartesian Product of Finite Abelian Groups",
+          "trigger": "plausible same finite abelian group covering problem"
+        },
+        {
+          "assessment": "coverage undetermined for unread full body, with precise residual risk",
+          "evidence": "Abstract establishes asymptotically optimal covering of units with (1/log 2+o(1))log Q small primes for almost all q<=Q; no finite F5^2 assertion in accessible abstract.",
+          "identifier_or_url": "arXiv:2610.04678",
+          "material_read": "Title and full abstract; arXiv PDF/HTML unavailable, lawful OA search only produced abstracts; authorized full-text route reported VPN disconnected",
+          "method": "read arXiv abstract, attempted arXiv PDF/HTML, searched lawful OA, and authorized institutional tool once",
+          "title": "Few small primes suffice to cover unit groups",
+          "trigger": "uses Boolean subset products and a finite abelian group coverage lemma"
+        },
+        {
+          "assessment": "foundational relevant formulation; no whole-document exclusion asserted",
+          "evidence": "The paper studies probabilistic coverage of finite abelian groups, providing the general motivating framework.",
+          "identifier_or_url": "Erdős–Rényi (1965)",
+          "material_read": "Accessible title, bibliographic description and abstract/summary; full proof not independently read",
+          "method": "web bibliographic/abstract search",
+          "title": "Probabilistic methods in group theory",
+          "trigger": "foundational Boolean subsum covering formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/the-first-entropy-gap-for-boolean-subset-sum-covers-of-finite-ab--6368096f69c8/RESULT.md",
+        "arXiv:2509.24034",
+        "arXiv:2610.04678",
+        "Erdős–Rényi (1965)"
+      ],
+      "rationale": "The first failure of the entropy-optimal Boolean subset-sum cover is a canonical finite threshold in an established coverage invariant; determining minimal length six plus maximal deficiency, exact extremizers and GL2 classes is a complete mathematically motivated classification, not an arbitrary slice of cases.",
+      "residual_risks": [
+        "This is a narrow finite result; usefulness lies in the first obstruction and exact extremal classification rather than a new asymptotic covering theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
