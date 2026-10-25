@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-With Python 3 standard library, from the directory containing these attachments run:
+## correctness
 
-```sh
-python3 verify_square_bouquet.py
-python3 check_collapse.py
-```
+PASS
 
-The outputs are stored verbatim in `verify_square_bouquet.out` and `check_collapse.out`. The first program independently constructs the strong matchings from all vertex orderings, without assuming the join-and-cone decomposition. It separately builds the proposed local factors and checks equality of every generated face for one, two, and three petals; it also computes all mod-two boundary ranks.
+For unfilled bouquet B_p of p four-cycles sharing one hub, unique earlier neighbor in a total vertex order is exactly the strong-filtration incidence-atom criterion in dimension one. Re-enumerated 24 local orders: the six non-hub incidence atoms generate exactly a hexagon L=C6 (13 including empty faces), the hub-earlier local class U is a 4-vertex path (8 faces), and hub-between local classes Wa,Wc each have three isolated points (4 faces). Independently enumerated all 7! vertex orders for p=2 and obtained 296 nonempty faces. The all-p full complex equals Z_p=L_1*...*L_p plus distinct-apex cones whose bases T_i=Wa or Wc join a U_j for any other petal j. For p≥2 each base simplicially collapses; lifting a collapse of base to its cone relative to base removes each new apex without disturbing the join Z_p, yielding a simplicial collapse to (C6)^{*p}≅S^{2p−1}. At p=1 the 8-vertex,12-edge graph has first Betti 5 (wedge five circles). The submitted check_collapse.py independently enumerates free-face pairs for p2,p3; finite tests cross-check, not replace general relative-collapse proof.
 
-For the one-petal complex it reconstructs 8 vertices, 12 edges, and first Betti number 5. For two petals it reconstructs 296 nonempty faces and reduced mod-two Betti number 1 in degree 3. For three petals it reconstructs 3,732 nonempty faces and reduced mod-two Betti number 1 in degree 5. The second program checks the entire 64-pair elementary simplicial collapse for two petals and the entire 768-pair collapse for three petals, ending **exactly** at their respective six-cycle joins. Every removed codimension-one face is verified to have a unique remaining coface.
+## originality
 
-These calculations are exhaustive within the three enumerated finite cases but are **not** an exhaustive proof for unbounded numbers of petals or an integral classification on their own. The general proof is the explicit local order classification and relative-cone collapse in `RESULT.md`, which holds uniformly for every integer \(p\ge2\). The six-cycle join is a PL sphere; thus its homotopy and integral homology follow without inferring integral torsion-freeness from mod-two computations. Independent audit is not performed.
+PASS
+
+Best-of-knowledge originality for the explicit connected one-point-union collapse; published full-strong-complex work focuses on basic families, while Dutch windmill computations are for different ordinary complexes. The highly relevant full Knudson/Owens-White primary PDF was not retrievable, so priority is qualified, not guaranteed.
+
+## value
+
+PASS
+
+A clean infinite family of connected one-point bouquets exhibits a genuine stabilization discontinuity: B1 has wedge of five circles, while every Bp≥2 has the simple-homotopy type of a single (2p−1)-sphere. The relative simplicial-collapse mechanism for hub-rooted atoms is reusable for decomposition of filtration-induced complexes, not a mere numeric tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
