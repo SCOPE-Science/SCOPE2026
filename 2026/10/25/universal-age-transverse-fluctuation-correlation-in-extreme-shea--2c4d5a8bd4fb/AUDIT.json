@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The stationary renewal identity gives A~Exp(r) and an exact bivariate Gaussian free excursion. The covariance expressions follow by integrating independent Brownian covariances. The positive-X tail integral has a unique nondegenerate saddle at a sqrt(x) with curvature 4r/a; uniform Gaussian tail bounds give the sharp marginal prefactor and Gaussian age fluctuations. Gaussian path regression plus uniform residual maximal bounds gives the polynomial paths. Endpoint regression yields independent Gaussian residual variance Da/2 and age-induced contribution Da/4, giving total 3Da/4 and correlation -sgn(gamma)/sqrt(3). Standalone reproducibility code passed 177 kernel and quadrature assertions; finite tests are not used to prove the infinite threshold limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 complete-reset random-acceleration treatment provides a general integral formula and marginal asymptotics; it does not present the random reset-age posterior or the bivariate central limit.",
+        "Meerson 2023 conditions on a small first-passage functional and enforces a first-passage boundary, rather than a large stationary endpoint sampled at a Poisson age."
+      ],
+      "reasoning": "The known exact mixture formula strongly reduces the technical distance to the result but is not an already proved joint Gaussian limit. No checked broader theorem was found that dominates the precise posterior correlation; residual priority risk is retained.",
+      "searches": [
+        "Poisson renewal Gaussian random acceleration process large deviation conditional age saddle joint conditional velocity",
+        "linear shear diffusion Poisson resetting rare large longitudinal displacement conditional last reset age transverse coordinate Gaussian fluctuations",
+        "site:arxiv.org random acceleration under complete resetting stationary joint distribution",
+        "arXiv:2302.04029 optimal fluctuation path first passage"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.10333v1 (2024-10-14)",
+      "arXiv:2007.05576v1 (2020-07-10)",
+      "arXiv:2302.04029 (2023-02-08)",
+      "published mathematical research semantic-index searches (three exact queries reproduced in check objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abdoli–Olsen–Löwen 2024 Eq. (5) gives the stationary renewal kernel, Eqs. (11)–(14) the spatial covariances, and Appendix A the Gaussian propagator.",
+        "Singh 2020 Eq. (21) gives the stretched-exponential stationary marginal tail. His joint stationary distribution is an integral over renewal ages, but the age is integrated out.",
+        "Meerson 2023 Eq. (27) gives the complementary cubic in a first-passage problem, covering the isolated geometric profile up to affine complementation."
+      ],
+      "reasoning": "These antecedents make the stationary model, projection machinery, marginal tail and deterministic cubic clear. They do not directly provide the jointly normalized posterior random age and transverse endpoint fluctuations, whose correlation -sgn(gamma)/sqrt(3) requires combining the age-saddle variance with the independent conditional transverse variance. No novelty is claimed for subsumed components.",
+      "searches": [
+        "arXiv:2410.10333v1 shear-driven diffusion stochastic resetting 2024",
+        "arXiv:2007.05576v1 complete random acceleration resetting 2020",
+        "arXiv:2302.04029 random acceleration first passage optimal path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singh 2020 Sec. 3.1 gives an exact stationary (position,velocity) mixture and a marginal tail; source Eq. (21) explicitly covers the stretched-exponential tail for the integrated-Brownian submodel.",
+        "Meerson 2023 Sec. III B Eq. (27) gives the complementary cubic fixed-duration optimal bridge 1-3u^2/2+u^3/2."
+      ],
+      "reasoning": "The isolated tail and cubic path are treated as prior-implied and excluded from the originality claim. The novel target is the stochastic reset-age-conditioned bivariate central limit law and its universal signed correlation, which neither compared statement presents or implies without deriving an additional posterior age saddle and endpoint regression.",
+      "searches": [
+        "random acceleration process resetting extreme position conditional velocity and age correlation",
+        "random acceleration stochastic resetting conditioned large displacement optimal path cubic parabolic",
+        "arXiv:2007.05576 stationary joint position velocity density complete resetting",
+        "arXiv:2302.04029 first-passage optimal path cubic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical finding records returned no same-object conditional Gaussian age/endpoint law among their closest semantic matches.",
+        "Singh 2020 explicitly tabulates a stationary marginal tail, which is treated as prior rather than novel."
+      ],
+      "reasoning": "No matching exact conditional-correlation value or table was found. Negative search outcomes do not prove uniqueness; the inferential comparison is to the inspected full primary statements and their immediate implications.",
+      "searches": [
+        "stationary integrated Brownian motion resetting extreme displacement conditional reset interval bivariate Gaussian",
+        "shear flow stochastic resetting stretched exponential tail x 1/2 2024 2025",
+        "random acceleration process resetting extreme position conditional velocity and age correlation"
+      ]
+    },
+    "rationale": "Against available primary full texts and searches, no previously established result was found providing the joint stationary Poisson-reset age and transverse endpoint CLT with parameter-free correlation magnitude 1/sqrt(3). The source 2024 shear-reset article covers the exact model, Gaussian propagator and steady-state moments. Singh 2020 already covers the integrated-Brownian reset stationary density and its stretched-exponential marginal tail. Meerson 2023 already obtains the complementary cubic optimal bridge in a different first-passage setting. Neither isolated tail nor cubic is credited as new. Existing mixture formulas could imply the result after additional analysis, so independent scholarly priority review remains necessary.",
+    "residual_risks": [
+      "Known renewal-mixture and Gaussian regression machinery may make the asserted limit a latent consequence of a more general Gaussian-mixture conditional theorem not located in this review.",
+      "The isolated stretched-exponential tail and complementary cubic are covered by older random-acceleration work and are not credited independently.",
+      "Priority has not been independently audited. No finite-threshold error bound, no uniformity near zero shear, and no sample-based inference claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_NONCOVERING_FOR_JOINT_AGE_ENDPOINT_CLT",
+        "evidence": "Eqs. (2)–(6), (11)–(16), (45)–(56), and discussion emphasize steady-state density/moments, not a posterior reset-age or extreme-excursion path CLT.",
+        "identifier_or_url": "https://arxiv.org/html/2410.10333v1",
+        "material_read": "Full open HTML scientific sections II–V and appendices A–C, including stationary renewal formula, spatial moments, propagator and perturbative density",
+        "method": "Direct reading and comparison to conditioned entire-path and age–endpoint statement",
+        "title": "Shear-Driven Diffusion with Stochastic Resetting",
+        "trigger": "Same planar shear-and-simultaneous-reset model"
+      },
+      {
+        "assessment": "COVERS_MARGINAL_TAIL_BUT_NOT_JOINT_AGE_ENDPOINT_LIMIT",
+        "evidence": "Complete-reset stationary joint mixture, Sec. 3.1; Eq. (21) sharp stretched-exponential marginal, Appendix A derivation. No conditional backward age Gaussian law or its cross-coordinate correlation is asserted.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.05576",
+        "material_read": "Full-text sections through the stationary joint and marginal distributions, Sec. 3.1 and Appendix A, and inspected remaining section topics and relevant PDF pages",
+        "method": "Direct PDF text and equation/figure-page inspection, including Eq. (21)",
+        "title": "Random acceleration process under stochastic resetting",
+        "trigger": "Under complete resetting, shear-advection longitudinal coordinates have a dominant integrated-Brownian component"
+      },
+      {
+        "assessment": "COVERS_COMPLEMENTARY_CUBIC_NOT_POSTERIOR_AGE_ENDPOINT_CLT",
+        "evidence": "First-passage boundary and small first-passage functional, Sec. II; complementary cubic optimal path in Eq. (27); no Poisson stationary age posterior.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.04029",
+        "material_read": "PDF introductory constraints, Secs. II–IV including Eq. (27) and the discussion of general optimal paths",
+        "method": "Direct PDF section reading and visual first-page inspection",
+        "title": "Geometrical optics of first-passage functionals of random acceleration",
+        "trigger": "Potentially equivalent cubic optimal rare path"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c4d5a8b-d4fb-4c6b-bcc9-3f623352c341",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A rare longitudinal excursion has a nontrivial time history: its backward age fluctuates on x^(1/4), its transverse endpoint is a different Gaussian fluctuation, and their signed correlation approaches a nonobvious universal magnitude 1/sqrt(3), while the conditioned full trajectory has specified geometry. This provides a physically interpretable cross-coordinate rare-event benchmark beyond mean/variance/skewness measurements in the motivating shear-reset model. The precise value is motivated by indirect estimation of the reset-free residence history from spatial observations. It does not depend on a claim that routine marginal tails or Gaussian-bridge polynomials are new.",
+    "status": "PASS"
+  }
+}
