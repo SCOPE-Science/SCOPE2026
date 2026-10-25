@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The normalized polar representation is explicit, and sorted-coordinate linear optimization gives \(h_{\Sigma_d}(g)=\max_k S_k/(k+1)\) without assuming an asymptotic fact. Its positive-root formulation \(\sum_i(|g_i|-H)_+=H\) determines both the support value and exposed rank. The half-normal excess moments are integrated explicitly and the root equation fixes its deterministic centering. A multivariate triangular-array central limit theorem, coupled with a uniform local empirical-tail count estimate, gives the width/rank Gaussian limit and covariance matrix \(\begin{pmatrix}2&-1\\-1&1\end{pmatrix}\). Gaussian radial normalization is negligible at that scale. The finite checker independently solves linear programs, evaluates quadratures, and checks identities. The proof distinguishes the asymptotic theorem from numerical diagnostics.
+
+## Originality — PASS, with identified limits
+Black–De Loera's 2021 signohedron work includes the cube–crosspolytope-polar realization and its signed-support vertex formula: neither is claimed as new. A closely related mathematical record concerns exact inradius, circumradius, and radial shells of the same canonical body; its accessible description does not state directional-width fluctuations or normal-cone rank probabilities. The assessed claim is the **joint Gaussian limit for spherical width and exposed rank** with exact tail-defined centering and explicit covariance, plus logarithmic typical support. Searches of equivalent norm, top-order-statistic, and graphical-polytope formulations revealed no direct covering statement. Originality remains subject to unexamined equivalent theorems in empirical-tail-process or norm-duality literature and a related record whose full text was not accessible.
+
+## Mathematical value — PASS
+Canonical signohedra have exponentially many vertices, whereas typical exposed vertices have only logarithmically many nonzero coordinates. The result identifies the precise fluctuation scale and a nontrivial negative correlation between two intrinsic Euclidean observables: width and exposed support rank. The full joint covariance cannot be read directly from the known face vector or radial shell spectrum, and the exact result provides a natural geometric example of threshold-driven mesoscopic Gaussian fluctuations.
+
+## Literature comparison and limitations
+The primary geometric input is A. E. Black and J. A. De Loera, *Monotone Paths on Cross-Polytopes*, arXiv:2102.01237 (first publicly submitted 2021-02-02), especially Theorem 1.1 and the polar realization in Section 3. Related recorded results on canonical signohedra describe tangency/radial shells, not the evaluated probability law. General classical Gaussian tails and central limit theorems underlie the proof; no novelty is asserted for those tools. The finding applies only to the specified standard Euclidean polar realization. No finite-dimensional exact normality, optimal convergence rate, or finer mean-width expansion is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
