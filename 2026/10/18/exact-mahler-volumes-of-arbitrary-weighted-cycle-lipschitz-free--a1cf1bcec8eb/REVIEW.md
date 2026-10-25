@@ -1,12 +1,21 @@
-# Scientific review: weighted-cycle Mahler volumes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposition covers all integers \(n\ge3\) and all positive edge lengths. The reduced incidence determinant and the unique cycle relation give the primal facet-simplex sum in the generic case. A symmetric perturbation with limiting half-weights handles every simultaneous signed-perimeter resonance. The polar calculation is an exact box-slice convolution, evaluated using inclusion-exclusion. The uniform-cycle asymptotic uses the central binomial estimate and a standard local central limit theorem, with all scaling factors displayed in RESULT.md. Eleven independently constructed primal/polar hull calculations agree with the formulas by exact rational determinant checks. Residual risk: the numerical hull triangulation is corroboration rather than proof; the analytic facet decomposition and convolution supply the proof.
+## correctness
 
-## Originality — PASS
-The closest works are Jevtić–Timotijević–Živaljević (arXiv:1812.00397), which proves a generic *combinatorial* facet/Bier-sphere classification; Aliaga–Pernecká (arXiv:1810.11278), which characterizes extreme molecules; and Alexander–Fradelizi–García-Lirola–Zvavitch (arXiv:1911.10642), which computes the equilateral volume product and studies extremal conditions. The exact two-volume calculation over *every* weighted cycle, the half-weight extension at all resonances, and the normalized unit-cycle asymptotic are not stated by those primary works. Relevant mathematical records and targeted literature searches found no result implying the whole statement, but unindexed equivalent evaluations remain possible.
+PASS
 
-## Value — PASS
-The Mahler product is a coordinate-invariant quantitative parameter of finite-dimensional Banach-space unit balls. The theorem evaluates it on the complete natural family of positive-weight cycles, not a hand-picked instance: it yields a closed formula, resolves the behavior on combinatorial change walls, and determines the nontrivial limit \(2\sqrt3/\pi\) relative to the cross-polytope benchmark. These conclusions require both the primal facet-volume calculation and the separate polar convolution; prior combinatorial classifications do not themselves supply the evaluated invariant. The result does not establish the Mahler conjecture in general.
+For a cycle with n>=3 strictly positive lengths a_i, the n signed normalized edge vectors span the dimension n-1 rooted zero-sum edge space and have sole circuit relation sum a_i v_i=0. Generic facet cones are indexed by one omitted edge and signs satisfying |sum_{j!=i}sigma_j a_j|<a_i; determinants are 1/prod_{j!=i}a_j. Every resonance is recovered by continuous symmetric perturbation of finite sign equalities, giving exactly 1/2 boundary weights even at multiple ties. Polar rooted increments form a box clipped by sum u_i, whose density at zero is the inclusion-exclusion truncated-power formula. Uniform weights reduce via balanced binomial count; a local central limit theorem plus central binomial asymptotic gives normalized 2sqrt(3)/pi. Independently calculated unit-cycle primal and polar exact rational volumes n=3..7 and inspected rational-hull verification source. Finite hull checks do not establish generic-to-resonant or asymptotic statements; analytic proof does.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The earlier weighted-cycle Bier-sphere classification supplies facet combinatorics and generic sign tests, but not the determinant-weighted primal sum paired with the sliced-box polar volume, including resonant weights and large-n limit. The known general finite-Lipschitz-free Mahler bounds do not give these evaluations.
+
+## value
+
+PASS
+
+The exact Mahler product of every positively weighted cycle is a natural continuous family of graph metric convex bodies. The facet/resonance and sliced-box formulas reveal metric dependence not available from a combinatorial face lattice; even a single resonant-case invariant is mathematically motivated, and the unit-weight asymptotic is additional structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python check_cycle.py` with Python 3, NumPy, and SciPy installed. The file includes eleven specified rational edge-length lists of sizes 3 through 6. It constructs primal signed edge-molecule points and dual feasible-gradient intersection vertices, uses convex-hull triangulations, and evaluates simplex determinants with rational arithmetic. It then checks both formula volumes separately against the resulting triangulated volumes and prints `ALL EXACT WEIGHTED CYCLE MAHLER TESTS PASSED` when every comparison succeeds.
+# Independent mathematical audit
 
-This confirms eleven finite test cases. It does not establish the formulas in arbitrary dimension, does not rely on a rigorous exact-predicate hull algorithm, and is not an independent scientific audit. The general proof, including the simultaneous-resonance limit and uniform-cycle asymptotic, is presented in RESULT.md.
+## correctness
+
+PASS
+
+For a cycle with n>=3 strictly positive lengths a_i, the n signed normalized edge vectors span the dimension n-1 rooted zero-sum edge space and have sole circuit relation sum a_i v_i=0. Generic facet cones are indexed by one omitted edge and signs satisfying |sum_{j!=i}sigma_j a_j|<a_i; determinants are 1/prod_{j!=i}a_j. Every resonance is recovered by continuous symmetric perturbation of finite sign equalities, giving exactly 1/2 boundary weights even at multiple ties. Polar rooted increments form a box clipped by sum u_i, whose density at zero is the inclusion-exclusion truncated-power formula. Uniform weights reduce via balanced binomial count; a local central limit theorem plus central binomial asymptotic gives normalized 2sqrt(3)/pi. Independently calculated unit-cycle primal and polar exact rational volumes n=3..7 and inspected rational-hull verification source. Finite hull checks do not establish generic-to-resonant or asymptotic statements; analytic proof does.
+
+## originality
+
+PASS
+
+The earlier weighted-cycle Bier-sphere classification supplies facet combinatorics and generic sign tests, but not the determinant-weighted primal sum paired with the sliced-box polar volume, including resonant weights and large-n limit. The known general finite-Lipschitz-free Mahler bounds do not give these evaluations.
+
+## value
+
+PASS
+
+The exact Mahler product of every positively weighted cycle is a natural continuous family of graph metric convex bodies. The facet/resonance and sliced-box formulas reveal metric dependence not available from a combinatorial face lattice; even a single resonant-case invariant is mathematically motivated, and the unit-weight asymptotic is additional structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
