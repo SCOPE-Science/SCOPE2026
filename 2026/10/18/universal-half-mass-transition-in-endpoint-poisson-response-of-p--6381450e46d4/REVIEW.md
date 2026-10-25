@@ -1,12 +1,21 @@
-# Self-review of a sharp endpoint Poisson response theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The head-to-path exact Poisson identity is derived by summing Kirchhoff currents and imposing global zero mean. Its head correction has an explicit spectral-gap estimate. The remaining finite optimization is the exact dual distance of a coefficient vector to constants in \(\ell^1\), and the Riemann comparison is uniform in the optimizing median. The atom of weight \(\lambda\) produces a median switch at \(1/2\) and the displayed piecewise cubic. The clique specialization follows from \(L_{K_m}=mI-J\), and the two factor-four limits follow with a bounded finite-clique error. Reconstructing the proof also fixes what is *not* claimed: no global maximum over output vertices and no uniform limit for slow-mixing heads. The supplied standalone finite checker (not an independent scientific audit) passed 2,271 exact-rational and continuum-consistency comparisons.
+## correctness
 
-## Originality — PASS within examined evidence
-The published Green-function and hitting-time results of Beveridge (arXiv:1505.06989v1), Palacios–Gómez–Del Río (DOI:10.1155/2014/852481), and Jonasson (2000 lollipop commute-time extremality) were compared by mathematical implication. General Green formulas do not by themselves supply the balanced-input median optimization, the uniform gapped-head estimate, or the half-mass cubic law. Published findings about pineapple-graph curvature and complete-multipartite graph quantities concern different operators/invariants, not the pointwise sharp Poisson-response norm. The full article text of Jonasson and of Belardo–Petecki was not available in the inspected material; their respective abstracts address commute time and spectral determination, not the stated norm. Historical priority remains provisional: earlier norm and median formulations under another name are possible.
+PASS
 
-## Value — PASS
-Bounded balanced load → maximal pendant voltage is a natural exact stability question for diffusion networks. A path connected by one cut edge to a rapidly mixing head exhibits a universal response shape independent of head topology, with a sharp forcing-pattern change at 50% head mass, a jump in the second derivative of the stability profile, and a quantitative finite-graph error bound. The exact clique formula makes the theorem reproducible without spectral calculation and yields a macroscopic factor-four comparison. These are structural results rather than isolated finite-table values.
+For mean-zero f, bridge current equals F=sum_H f=−sum_path f, path differences satisfy u(j)−u(j−1)=sum_{k≥j}f(k). On H, write u=a+v, v=L_H^dagger(f_H−F 1_o), and impose global mean zero to derive exactly u(p)=sum_{k=1}^p b_k f(k)+(m/N)v(o), b_k=[mk+k(k−1)/2]/N. The spectral gap gives |v(o)|≤(m+√m)/γ. Optimizing the reduced linear functional over the zero-sum unit cube is rigorously the minimum ℓ1 deviation from a constant, thus T0=min_c(m|c|+sum|b_k−c|). Riemann scaling B_λ(x)=λx+x²/2 with coefficient/Riemann error ≤1/N yields continuous median profile: an atom of mass λ at zero drives a switch when λ=1/2, giving the two explicitly integrated cubics and one-sided Φ′′ values −1,0. For clique H=K_m the Green head term produces exact coefficients −1/N repeated m−1, 0, and b_k; median identity follows. Independent SciPy pseudoinverse/median comparisons for (m,p)=(2,1),(2,3),(3,3),(5,4),(8,2) agree to numerical precision. General uniform limit holds for γ bounded below; no full-matrix operator norm asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Palacios–Gómez–Del Río 2014 derives hitting time identities via electric voltages, including cut-edge formulas; Beveridge 2015/2016 derives Green kernel entries from hitting times; Jonasson proves extremal lollipop commute times. These classical identities do not evaluate the sharp balanced ℓ∞ mean-zero forcing at the tip or its atom-induced half-mass cubic phase transition, nor give quantitative head-gap uniform bounds. The exact median duality is standard convex optimization and is credited; its graph-specific coefficient formula and universal phase profile are the assessed contribution.
+
+## value
+
+PASS
+
+Bounded-source Poisson response of graph Laplacians is a natural stability/amplification invariant. The sharp tip profile for any uniformly gapped head, the nonsmooth second-derivative half-mass transition and factor-four endpoint amplification are precise reusable facts for Green operators on lollipop-style graphs, not arbitrary numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

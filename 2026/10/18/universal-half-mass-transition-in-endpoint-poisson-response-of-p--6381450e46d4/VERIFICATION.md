@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-`verify.py` uses only the Python 3 standard library. It constructs full finite Laplacian matrices and their exact rational pseudoinverses, then checks the finite clique formula and the head-reduction coefficients. It independently enumerates all zero-sum cube vertices in the small tested dimensions to confirm that the optimized linear functional equals the median formula. It also checks the stated gap bound for path, cycle, star and clique heads, the exact uniform continuum approximation over several mesh sizes, and the limiting clique regimes. The reviewed run passed 2,271 comparisons.
+# Independent mathematical audit
 
-To repeat, place `verify.py` next to this document and run `python verify.py`. For each graph, the zero-sum forcing domain consists of vectors with all coordinates between \(-1\) and \(1\); the graph Laplacian has unit conductances and the solution is normalized to zero vertex mean. The finite script cannot establish an infinite-family assertion or a literature-priority claim; both remain matters of mathematical proof and source inspection, respectively.
+## correctness
+
+PASS
+
+For mean-zero f, bridge current equals F=sum_H f=−sum_path f, path differences satisfy u(j)−u(j−1)=sum_{k≥j}f(k). On H, write u=a+v, v=L_H^dagger(f_H−F 1_o), and impose global mean zero to derive exactly u(p)=sum_{k=1}^p b_k f(k)+(m/N)v(o), b_k=[mk+k(k−1)/2]/N. The spectral gap gives |v(o)|≤(m+√m)/γ. Optimizing the reduced linear functional over the zero-sum unit cube is rigorously the minimum ℓ1 deviation from a constant, thus T0=min_c(m|c|+sum|b_k−c|). Riemann scaling B_λ(x)=λx+x²/2 with coefficient/Riemann error ≤1/N yields continuous median profile: an atom of mass λ at zero drives a switch when λ=1/2, giving the two explicitly integrated cubics and one-sided Φ′′ values −1,0. For clique H=K_m the Green head term produces exact coefficients −1/N repeated m−1, 0, and b_k; median identity follows. Independent SciPy pseudoinverse/median comparisons for (m,p)=(2,1),(2,3),(3,3),(5,4),(8,2) agree to numerical precision. General uniform limit holds for γ bounded below; no full-matrix operator norm asserted.
+
+## originality
+
+PASS
+
+Palacios–Gómez–Del Río 2014 derives hitting time identities via electric voltages, including cut-edge formulas; Beveridge 2015/2016 derives Green kernel entries from hitting times; Jonasson proves extremal lollipop commute times. These classical identities do not evaluate the sharp balanced ℓ∞ mean-zero forcing at the tip or its atom-induced half-mass cubic phase transition, nor give quantitative head-gap uniform bounds. The exact median duality is standard convex optimization and is credited; its graph-specific coefficient formula and universal phase profile are the assessed contribution.
+
+## value
+
+PASS
+
+Bounded-source Poisson response of graph Laplacians is a natural stability/amplification invariant. The sharp tip profile for any uniformly gapped head, the nonsmooth second-derivative half-mass transition and factor-four endpoint amplification are precise reusable facts for Green operators on lollipop-style graphs, not arbitrary numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
