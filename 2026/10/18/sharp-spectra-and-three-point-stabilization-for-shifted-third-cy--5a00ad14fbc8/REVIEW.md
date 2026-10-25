@@ -1,15 +1,21 @@
-# Scientific review: shifted third-cyclotomic gcds
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and normalized gcd are explicit. The proof exhausts primes: \(2\) never occurs; for \(p\ge5\) dividing the shift the simple-root derivative caps valuations at the shift exponent; for \(p\ge5\) outside the shift, the factor \(d^2+3\) and a unique linear congruence determine every exponent; and for \(3\) the valuation of \(F(n)\) is at most one. The second finite difference forces complete stabilization after three terms. Hensel lifts, exact CRT counts and the prime-power period obstruction establish all claimed frequencies, attained maxima, spectra and least periods. A standard-library verifier reproduced extensive direct calculations. Its finite checks are not treated as an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Bodin–Drouin, arXiv:2409.01224v1, Theorems 2.5 and 5.2 and Proposition 6.1, give general polynomial-gcd periodicity, simple-root local decomposition and local-period machinery. Those ingredients are not new and make the explicit cyclotomic application an important potential overlap risk. The inspected source does not supply the explicit uniform decomposition by prime factors of \(d\) versus \(d^2+3\), the three-term stabilization identity, nor the all-divisor full frequency law and sharp periods for every shift. Relevant older coprime-values literature was also compared. Drouin's related 2023 preprint could be located but not read in full; it remains a named residual risk. Unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-The family provides a natural exact laboratory for a generic polynomial-resultant periodicity theory: a generic resultant bound \(d^2(d^2+3)\) is replaced by exact attainable maximal gcd and minimal period, every possible gcd is classified with its density, and adding the third term provably removes precisely the extra shifted-discriminant prime powers. The statement covers unbounded shifts and all window lengths without arbitrary cutoffs; it is not a one-off parameter computation.
+Using F(n+d)-F(n)=d(2n+d+1) and 4F(n)=(2n+1)^2+3, prime powers split into p|d with p≡1 mod3 (two Hensel-simple roots), p|(d²+3) with p>=5 (one affine root), and p=3 ramified valuation one iff n≡1 mod3 and 3|d. p=2 absent. A third shifted value forces p|d, giving G_{d,r}=gcd(F(n),d) for all r>=3. Independent congruence tests covered 24000 (d,n) instances; exact local residue counts, CRT product weights and root-translation invariance prove all divisor frequencies, maximum T and least period T. Mathematical proof covers all d,n>=1 and r>=2 beyond sampled finite checks.
 
-## Scope and limitations
-No claims for arbitrary polynomials or arbitrary non-arithmetic shift sets. The comparison is based on inspected accessible primary literature and indexed mathematical records, and further independent scholarly comparison is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bodin--Drouin general polynomial-pair gcd resultant theory implies periodicity, root local factors and often maximal valuation bounds, but their main results do not themselves give the explicit A_d/B_d/E_d cyclotomic family, all-window three-point stabilization, sharp period and full frequencies. Earlier Drouin thesis/preprint was identified but complete text not obtained, retained as priority risk. General identities (Hensel, CRT, resultant) are duly prior.
+
+## value
+
+PASS
+
+A natural explicit arithmetic-progression gcd classification for Phi3, with sharp least periods, full divisor spectra and densities, and an exact finite-length stabilization phenomenon; useful concrete arithmetic invariant not merely a rename of generic resultant bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

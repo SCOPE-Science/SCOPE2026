@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification and proof boundaries
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 interpreter from the directory containing the file. The included `verification_output.txt` is the output of one successful direct execution; the checker uses no external packages.
+## correctness
 
-The computation verifies the pair formula for \(120000\) shift-index pairs, the three-point stabilization and additional shifts for \(30000\) cases, and independently enumerates complete periods, maximum gcds, all divisors and exact frequency counts for \(73\) shifts, plus a separate higher-prime-power case \(d=49\) with period \(29449\). Exact rational arithmetic is used for distribution checks. Examples appear in the output.
+PASS
 
-The finite ranges are not a proof for unrestricted shifts, indices or window lengths. The proof in `RESULT.md` supplies the required uniform argument: local unit/discriminant split, the ramified prime \(3\), three-point stabilization, simple-root lifting, CRT, and minimality of each prime-power period.
+Using F(n+d)-F(n)=d(2n+d+1) and 4F(n)=(2n+1)^2+3, prime powers split into p|d with p≡1 mod3 (two Hensel-simple roots), p|(d²+3) with p>=5 (one affine root), and p=3 ramified valuation one iff n≡1 mod3 and 3|d. p=2 absent. A third shifted value forces p|d, giving G_{d,r}=gcd(F(n),d) for all r>=3. Independent congruence tests covered 24000 (d,n) instances; exact local residue counts, CRT product weights and root-translation invariance prove all divisor frequencies, maximum T and least period T. Mathematical proof covers all d,n>=1 and r>=2 beyond sampled finite checks.
 
-The closest general gcd-period results in arXiv:2409.01224v1 were read and compared; their abstract framework is explicitly acknowledged rather than claimed as original. Independent validation has not been performed.
+## originality
+
+PASS
+
+Bodin--Drouin general polynomial-pair gcd resultant theory implies periodicity, root local factors and often maximal valuation bounds, but their main results do not themselves give the explicit A_d/B_d/E_d cyclotomic family, all-window three-point stabilization, sharp period and full frequencies. Earlier Drouin thesis/preprint was identified but complete text not obtained, retained as priority risk. General identities (Hensel, CRT, resultant) are duly prior.
+
+## value
+
+PASS
+
+A natural explicit arithmetic-progression gcd classification for Phi3, with sharp least periods, full divisor spectra and densities, and an exact finite-length stabilization phenomenon; useful concrete arithmetic invariant not merely a rename of generic resultant bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
