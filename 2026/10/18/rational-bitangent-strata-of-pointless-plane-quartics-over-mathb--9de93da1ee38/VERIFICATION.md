@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational reproducibility
 
-From this artifact directory, run `python code/q7_survey.py`, `python code/q7_independent.py`, and `python code/weil_pair_check.py`. Python 3 and SymPy are required for the first two scripts. Inputs are in `data/q7_models.txt` and do not require access to any external network. Full deterministic expected standard output is in the three `data/*_output.txt` files. The first two programs check all 32 classes and all 57 rational projective lines; the second proves geometric smoothness over the algebraic closure using Gröbner bases on three charts. The last program independently constructs explicit finite fields and confirms that the two selected D4-labeled curves both have 0, 60 and 384 points over the first three extensions.
+# Independent mathematical audit
 
-The published catalog is used for class completeness, nonisomorphism and rational automorphism labels; those external classification theorems are not reconstructed here. The computations provide exact finite arithmetic, not a claim of independent external validation. Self-review passed; independent audit was not performed.
+## correctness
+
+PASS
+
+The bitangency criterion is an iff: a binary quartic on a rational line has all even geometric zero multiplicities iff it is a nonzero F_7 scalar times a quadratic square. Exactly 57 rational lines and 32 published model equations define a finite exhaustive census. Inspected both source implementations: five-value degree-four interpolation/square signatures and independent polynomial factor exponent plus infinity parity with Gröbner smoothness on all affine charts. Independently evaluated both D4 witness curves: b(C4)=4 and b(C8)=8 with precisely the asserted normalized line normals and no F_7 points. Full 32-vector histogram matches stored dual-code outputs, but was not independently executed in this run; source algebra and finite exhaustive algorithm support the complete claim, conditional on Faber–Grantham–Howe input classification. The shared Weil comparison uses F7, F49, F343 point counts/Newton identities; numerical Weil pair was not recomputed independently here.
+
+## originality
+
+PASS
+
+The original classification provides 32 model equations but not the computed arithmetic bitangent frequency; exact equivalences and the broader theta/Weil work were compared. This is a qualified best-of-knowledge pass, not an absence-of-prior guarantee.
+
+## value
+
+PASS
+
+Exact finite-field bitangent stratification of 32 canonical pointless genus-three quartics is a natural arithmetic moduli invariant not determined by Weil or rational-automorphism labels; the b=4/b=8 equal-coarse-invariant witness makes the refinement mathematically informative rather than arbitrary recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
