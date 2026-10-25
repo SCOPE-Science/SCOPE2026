@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T07:05:08Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md d84430e030bc3dd73276f29915ebe5f046175fd4; verify.py 60bdfdede41e89d444ef2e57ac65661cd1f0a0d8",
+        "Independent exhaustive exact Prüfer enumeration for n=4,5,6, checking conditional means and Cov(D,L)=0",
+        "Direct convergence proof h(K)→P/e−1_{P>0} and exact two-box vacancy covariance matches numerator/denominator constant (e−2)/e²."
+      ],
+      "limitations": [
+        "Stochastic dominance valley is between successive conditional degrees only, not a total order of all degrees; asymptotic concerns one marked degree and η², not Pearson correlation squared."
+      ],
+      "rationale": "Uniform Cayley trees correspond bijectively to m=n−2 iid Prüfer letters. Marked degree K=D−1 counts occurrences of label1; conditional on K=k the other m−k letters are iid in q=n−1 labels. Therefore L|K=k=E_{q,m−k}+1_{k=0} with exact Stirling occupancy pmf and mean 1_{k=0}+q((q−1)/q)^{m−k}. One common ball-addition coupling shows strict first-order stochastic decrease from degree1 to degree2, then strict increase for every later degree up to n−1; not a total order between degree1 and higher states. Exchangeability and deterministic sum degrees=2(n−1) give Cov(D,L)=0. Poisson(1) limit K and uniform fourth moment control give numerator Var(E[L|D])→e^-1−2e^-2>0; exact vacancy-pair variance gives Var(L)/n→same constant; hence n eta²→1. Independently exhaustively enumerated all Prüfer words n=4,5,6, verifying exact conditional means and covariance; inspected verify.py which extends rational conditional pmfs n≤8 and finite tails n<20. Finite checks do not prove the n→infinity limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ekhad–Zeilberger general degree-restricted enumerators can specialize to many exact conditional counting coefficients and derive global leaf variance.",
+          "Known binomial marked-degree law by itself does not state strict stochastic valley or calculate Var(E[L|D])/Var(L) with sharp n multiplier."
+        ],
+        "reasoning": "No located stronger prior simultaneously establishes sign-changing conditional stochastic domination and sharp η² scale. Broader enumeration can be used to derive, but implication requires an additional nontrivial conditional coupling and asymptotic calculation.",
+        "searches": [
+          "Ekhad–Zeilberger arXiv:2201.07326 Theorem/main enumerator",
+          "Prüfer classical correspondence",
+          "Resultary Cayley marked degree-distance versus recursive tree degree-leaves"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.07326",
+        "https://arxiv.org/abs/2205.06625",
+        "Resultary: uniform labeled Cayley trees conditional leaves marked vertex degree stochastic valley zero covariance correlation ratio n eta squared asymptotic",
+        "Classical Prüfer (1918) encoding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global leaf variance constant e^-1−2e^-2 appears in Ekhad–Zeilberger and is acknowledged prior.",
+          "The exact zero Cov(D,L) follows degree-sum determinism; only conditional first-order valley plus nonlinear correlation-ratio asymptotic resolve a distinct dependence question."
+        ],
+        "reasoning": "Prior moment calculations do not alone force stochastic upper-tail inequalities: the ball-addition coupling and Poisson nonlinear predictor are additional proofs. A broad generating function could still make this a straightforward corollary, retained as novelty risk.",
+        "searches": [
+          "arXiv:2201.07326 covariance/degree-count enumerations",
+          "Classical Prüfer occupancy equations",
+          "Resultary two related tree probability records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marked degree conditional leaf count is a mixed occupancy law; conditional pmf is mechanically implied by classical Prüfer sequence sampling.",
+          "The stochastic valley and correlation ratio concern conditional distribution order and nonlinear explained variance, not just factorial moments of total leaves."
+        ],
+        "reasoning": "Classical occupancy reformulation explicitly credited; do not assert new conditional Stirling counts. The audited scientific claim combines distributional ordering and nonlinear asymptotic not in basic occupancy law as a stated theorem.",
+        "searches": [
+          "Resultary: uniform labeled Cayley trees conditional leaves marked vertex degree stochastic valley zero covariance correlation ratio n eta squared asymptotic",
+          "Prüfer code empty-box occupancy distribution",
+          "Ekhad–Zeilberger arXiv:2201.07326 degree-restriction counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Recursive tree covariance record has a different nonuniform distribution and nonzero limit 1/2; not the uniform Cayley model.",
+          "Cayley degree-distance regression is another statistic (distance) and does not imply leaf-count conditional valley."
+        ],
+        "reasoning": "No exact indexed table of this conditional stochastic valley and n eta²=1 found; nonappearance is only best-knowledge support.",
+        "searches": [
+          "Resultary: uniform labeled Cayley trees conditional leaves marked vertex degree stochastic valley zero covariance correlation ratio n eta squared asymptotic",
+          "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "Resultary 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+        ]
+      },
+      "rationale": "Prüfer conditional occupancy law and degree-count moments are classical and must not be relabeled new. The identifiable contribution surviving prior enumeration is the strict sign-changing stochastic ordering across marked degrees together with a sharp nonlinear regression correlation-ratio scale despite exactly zero covariance.",
+      "residual_risks": [
+        "An older occupancy multivariate theorem may have the stochastic comparisons or η² asymptotic as an explicit special case.",
+        "The conditional pmf itself and zero covariance are elementary/classically implied and are not accepted as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline counts, variance and moments; no inspected theorem states marked-degree conditional strict stochastic valley or n eta²=1.",
+          "evidence": [
+            "Global leaf variance asymptotic e^-1−2e^-2 is shared known input, not novel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.07326",
+          "material_read": "Accessible primary PDF abstract, introduction, degree-restricted enumeration method and global leaf mean/variance calculations",
+          "method": "ArXiv full-text PDF and theorem-page screenshot; substantive result reading",
+          "title": "Automated Counting and Statistical Analysis of Labeled Trees with Degree Restrictions",
+          "trigger": "Direct stronger enumerator for uniform labeled tree degree counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Strict coupling across each admissible marked degree and Poisson(1) asymptotic",
+        "Natural Cayley tree and number of leaves; classical zero covariance alone conceals nonlinear regression"
+      ],
+      "limitations": [
+        "Narrow uniform Cayley model, single marked degree, no statement for recursive tree or full degree-profile prediction."
+      ],
+      "rationale": "A natural dependence question that linear correlation misses is answered exactly: the marked degree has a strict conditional leaf-count stochastic valley at degree two and a nonzero yet asymptotically small 1/n nonlinear explained variance. This sign change and sharp scale clarify what a single degree can predict from a global leaf count; neither a generic occupancy count nor a tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

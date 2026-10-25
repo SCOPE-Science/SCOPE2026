@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The Prüfer bijection identifies the exact conditional distribution as uniform occupancy with or without the marked leaf. A common occupancy coupling proves all asserted strict stochastic comparisons; degree-sum conservation establishes zero covariance; uniform fourth-moment control of the marked occupancy and exact empty-indicator variance prove the sharp asymptotic. The included independent finite enumeration and rational law comparisons provide 2842 additional assertions; they do not establish the infinite limit.
+## correctness
 
-**Originality (PASS, with residual uncertainty).** The complete Ekhad–Zeilberger degree-count paper, arXiv:2201.07326, establishes general generating functions and leaf-count asymptotics, but its stated theorems do not furnish a strict first-order conditional marked-degree stochastic valley or the \(1/n\) nonlinear explained-variance constant. This does not deny that its general enumeration can derive the underlying joint counts. The inspected Olsson paper addresses isomorphism conditioning rather than this prediction task. Related searchable prior records distinguish random recursive trees and degree–distance covariance, not the present Cayley marked-degree/leaf law. A hidden equivalent corollary in classical occupancy or degree-enumeration literature is a genuine remaining priority risk.
+PASS
 
-**Value (PASS).** It is mathematically substantive that an exactly zero-covariance local statistic nonetheless strictly separates global leaf laws, with a unique stochastic minimum at the next degree. The exact optimal nonlinear prediction fraction and its constant resolve how much the marked degree can teach about global tree structure as the tree grows; the result supplies a complete natural conditional classification, not an arbitrary parameter slice.
+Uniform Cayley trees correspond bijectively to m=n−2 iid Prüfer letters. Marked degree K=D−1 counts occurrences of label1; conditional on K=k the other m−k letters are iid in q=n−1 labels. Therefore L|K=k=E_{q,m−k}+1_{k=0} with exact Stirling occupancy pmf and mean 1_{k=0}+q((q−1)/q)^{m−k}. One common ball-addition coupling shows strict first-order stochastic decrease from degree1 to degree2, then strict increase for every later degree up to n−1; not a total order between degree1 and higher states. Exchangeability and deterministic sum degrees=2(n−1) give Cov(D,L)=0. Poisson(1) limit K and uniform fourth moment control give numerator Var(E[L|D])→e^-1−2e^-2>0; exact vacancy-pair variance gives Var(L)/n→same constant; hence n eta²→1. Independently exhaustively enumerated all Prüfer words n=4,5,6, verifying exact conditional means and covariance; inspected verify.py which extends rational conditional pmfs n≤8 and finite tails n<20. Finite checks do not prove the n→infinity limit.
 
-**Scientific limits.** The claim is for uniform labeled Cayley trees, not recursive trees. It does not assert an unproved global total ordering of all conditional laws; no independent audit or historical-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prüfer conditional occupancy law and degree-count moments are classical and must not be relabeled new. The identifiable contribution surviving prior enumeration is the strict sign-changing stochastic ordering across marked degrees together with a sharp nonlinear regression correlation-ratio scale despite exactly zero covariance.
+
+## value
+
+PASS
+
+A natural dependence question that linear correlation misses is answered exactly: the marked degree has a strict conditional leaf-count stochastic valley at degree two and a nonzero yet asymptotically small 1/n nonlinear explained variance. This sign change and sharp scale clarify what a single degree can predict from a global leaf count; neither a generic occupancy count nor a tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
