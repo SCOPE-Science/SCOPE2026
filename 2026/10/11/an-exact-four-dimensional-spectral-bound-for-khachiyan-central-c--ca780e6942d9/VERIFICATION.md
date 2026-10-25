@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source proves, in dimension four,
-\[
-\det A\le U_1(\alpha),
-\qquad
-\det A\le U_2(\alpha),
-\]
-with
-\[
-U_1(\alpha)=
-\alpha\left(\frac{4-f_1(\alpha)}{3}\right)^6,
-\qquad
-U_2(\alpha)=
-\alpha\left(\frac{4-f_2(\alpha)}{3}\right)^{12}.
-\]
+# Independent mathematical audit
 
-The crossing condition \(U_1=U_2\) is equivalent to
-\[
-(4-f_2)^2=3(4-f_1).
-\]
-Eliminating the radicals gives the degree-eight polynomial \(P\) printed in RESULT.md. The checker uses an exact rational Sturm sequence and verifies that \(P\) has one root in \((0,1)\), with
-\[
-0.523194<\alpha_*<0.523195.
-\]
+## correctness
 
-The source proves that \(f_j(e^x)\) is convex. Therefore \(\log U_j(e^x)\) is concave on the feasible positive-base domain.
+PASS
 
-For the first branch,
-\[
-D_1(\alpha)>0
-\iff
-49\alpha^3+224\alpha^2+192\alpha-256<0.
-\]
-The checker verifies the right-hand side is negative at \(0.523195\), hence at the crossing.
+Normalized John ellipsoid B_2^4 and candidate a+AB_2^4 imply alpha=lambda_min(A) in (0,1] (det A<=1). The primary source (Theorem 1.1, Eq.5.1) gives det A<=U1(alpha),U2(alpha) for every feasible center-excluding candidate; its rank-one matrix premise was checked structurally: bb^T<=A^2, negative fractional powers reverse Loewner order, trace differentiation and integration yield the scalar lower increment. For alpha in (0,1], all logarithmic bases are positive. Independently eliminated the unsquared U1=U2 relation to exactly P/268435456 and the D2 stationary relation to alpha^3*Q/16; rational Sturm root counts give exactly one P root in (0,1), bracketed by 0.523194 and 0.523195, and one Q root in (0,1), bracketed by 0.5165 and 0.5166. Exact rational signs and D2(1/2)=3/175>0, D2(1)<0, plus D1-positive cubic prove D1(alpha*)>0 and D2(alpha*)<0. Since f_j(e^x) are convex, log Uj(e^x) are concave; thus U1 increases throughout (0,alpha*] and U2 decreases throughout [alpha*,1]. The pointwise minimum therefore has unique global maximum at the crossing, C4=0.81623940332041060897589..., below sqrt(e)/2. The n=4 explicit cone witness gives 4*sqrt(3)/9. Finite high-precision bisection serves display only; exact resultants/root counts and analytic concavity establish the global theorem.
 
-For the second branch, every zero of its logarithmic derivative in \((0,1)\) is a zero of the degree-nine polynomial \(Q\) printed in RESULT.md. The checker proves by Sturm's theorem that \(Q\) has exactly one root in \((0,1)\), lying in
-\[
-(0.5165,0.5166).
-\]
-The exact endpoint signs
-\[
-D_2(1/2)=\frac{3}{175}>0
-\]
-and \(D_2(1)<0\) show that this is the unique derivative zero. Since it lies below \(\alpha_*\), the second branch is decreasing at and after the crossing.
+## originality
 
-These facts prove
-\[
-\max_{0<\alpha\le1}\min\{U_1(\alpha),U_2(\alpha)\}
-=
-U_1(\alpha_*)=U_2(\alpha_*).
-\]
+PASS
 
-High-precision bisection of the original unsquared crossing equation gives the display values
-\[
-\alpha_*=0.5231942870027930993\ldots,
-\qquad
-C_4=0.8162394033204106090\ldots .
-\]
-The decimal computation is not used for the proof.
+Best-of-knowledge new evaluated scalar spectral certificate, rather than a new geometric inequality: the full-text 2026 source already gives the stronger pointwise pair for arbitrary n and alpha, so the four-dimensional inequality is mathematically a consequence once the nontrivial maximization is supplied. It neither states nor evaluates the exact 4D crossing root/envelope maximum, and explicitly does not claim a fixed-dimension optimum in Section 5.1. The submitted new part is the exact global 4D minimax of the two published functions (degree-eight crossing elimination, degree-nine derivative elimination, exact root counts, concavity), not those functions themselves. The published circular half-cone result gives the opposite, lower-witness direction only. A matching published indexed hit is a mirror of the assessed record, not earlier independent priority. This is a qualified originality PASS, not a claim that the universal 4D bound is logically independent of the published pointwise inequalities.
 
-The lower bound
-\[
-4\sqrt3/9
-\]
-comes directly from the source's explicit dimension-four circular-cone ellipsoid. The theorem does not certify that the lower or upper endpoint is the true value of the four-dimensional extremal constant.
+## value
+
+PASS
+
+The maximum John-ellipsoid volume after a central cut is a natural invariant in fixed-dimensional convex geometry and ellipsoid cutting-plane algorithms. The general n-dependent bounds of Zhou–Zou–Liu leave concrete fixed-dimensional quality-of-cut benchmarks unevaluated; n=4 gives a genuinely active two-constraint crossing at a nontrivial algebraic alpha* (rather than a bare parameter substitution), with an exact determinant guarantee and comparison to the canonical cone. An explicit universal improvement 0.8243606... to 0.8162394... is modest but mathematically motivated, and the root-isolation/crossing geometry can guide more refined four-dimensional estimates. A full solution of the fixed-dimensional extremal problem is NOT claimed or required for an independently useful exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

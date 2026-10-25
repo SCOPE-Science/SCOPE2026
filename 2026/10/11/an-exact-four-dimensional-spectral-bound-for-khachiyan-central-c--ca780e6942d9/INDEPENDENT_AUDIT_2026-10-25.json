@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T13:54:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 §§2–6, including rank-one lemma and §5.1, 6.4",
+        "Pinned RESULT.md blob f28ed0325f4aaa22943b8890cbe1fa0c41a52475",
+        "Pinned verify.py blob 455ed453dd920be96ea9443174e60cb7fcbdc9d1",
+        "Independent symbolic resultant, exact rational Sturm and high-precision crossing checks: independent_spectral_check.py / independent_spectral_results.json"
+      ],
+      "rationale": "Normalized John ellipsoid B_2^4 and candidate a+AB_2^4 imply alpha=lambda_min(A) in (0,1] (det A<=1). The primary source (Theorem 1.1, Eq.5.1) gives det A<=U1(alpha),U2(alpha) for every feasible center-excluding candidate; its rank-one matrix premise was checked structurally: bb^T<=A^2, negative fractional powers reverse Loewner order, trace differentiation and integration yield the scalar lower increment. For alpha in (0,1], all logarithmic bases are positive. Independently eliminated the unsquared U1=U2 relation to exactly P/268435456 and the D2 stationary relation to alpha^3*Q/16; rational Sturm root counts give exactly one P root in (0,1), bracketed by 0.523194 and 0.523195, and one Q root in (0,1), bracketed by 0.5165 and 0.5166. Exact rational signs and D2(1/2)=3/175>0, D2(1)<0, plus D1-positive cubic prove D1(alpha*)>0 and D2(alpha*)<0. Since f_j(e^x) are convex, log Uj(e^x) are concave; thus U1 increases throughout (0,alpha*] and U2 decreases throughout [alpha*,1]. The pointwise minimum therefore has unique global maximum at the crossing, C4=0.81623940332041060897589..., below sqrt(e)/2. The n=4 explicit cone witness gives 4*sqrt(3)/9. Finite high-precision bisection serves display only; exact resultants/root counts and analytic concavity establish the global theorem.",
+      "residual_risks": [
+        "The universal 4D upper bound is conditional on the validity of Zhou–Zou–Liu's independently published directional spectral inequalities, which were read and reconstructed, not re-formalized in this execution.",
+        "The optimized spectral-envelope constant is not proved geometrically sharp: the gap to 4*sqrt(3)/9 remains.",
+        "The checker does not formally verify all prior source lemmas or the unbounded family of convex bodies by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 Theorem 1.1 gives dimension-free sqrt(e)/2, numerically weaker for n=4; Eq. (5.1) is stronger pointwise in alpha and logically implies the present bound after solving the scalar minimax.",
+          "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb optimizes the ellipsoid in one explicit cone, not arbitrary K and H."
+        ],
+        "reasoning": "The pointwise arbitrary-n primary estimate dominates as an input, so no novelty is asserted for the spectral estimate. The exact global n=4 envelope evaluation is the addition; the earlier circular-cone theorem addresses an exact lower example and cannot supply the universal upper C4. Other general John ellipsoid facts do not evaluate this pair of nested radical functions.",
+        "searches": [
+          "Web: Khachiyan ellipsoid conjecture dimension four central cut upper bound spectral inequality 2026",
+          "Resultary semantic query: Khachiyan central cut fixed dimension exact John ellipsoid circular half cone convex body dimension four spectral estimate"
+        ]
+      },
+      "checked_sources": [
+        "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447",
+        "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+        "Resultary published mathematical records (two actual 25-hit semantic searches)",
+        "Web numerical-fingerprint and exact-parameter searches (October 25, 2026)",
+        "Independent symbolic resultant, exact rational Sturm and high-precision crossing checks: independent_spectral_check.py / independent_spectral_results.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 Eq. (5.1) det A <= alpha*((n-f_j(alpha))/(n-1))^(2^j(n-1)), j=1,2. It explicitly says bounds useful for prescribed dimension without asserting optimization determines the true best constant.",
+          "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 §6.4 optimizes dimension-free exponentials Rj at alpha=1/2, not dimension-four algebraic Uj.",
+          "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb exact for K_n^- only and explicitly declines all-body extremality."
+        ],
+        "reasoning": "The source pointwise formula plus this proof implies the four-dimensional upper certificate; the new global algebraic optimizer is not given simply by n=4 substitution (its active crossing is at alpha≈0.523194, distinct from 1/2). The result is a new exact evaluation of an inherited envelope, not a new independent spectral lemma and not the exact value of c4. This distinction limits, but does not eliminate, the originality of the completed minimax computation.",
+        "searches": [
+          "Full article arXiv:2609.28447v1 Section 5.1 exact estimate and Section 6.4 joint concavity",
+          "Full published Resultary half-cone RESULT.md",
+          "Web: Khachiyan central cut fixed dimension exact John ellipsoid circular half cone convex body dimension four spectral estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the exact matching result at its own 2026/10/11 mirror and a distinct 2026/10/04 half-cone result; no third equivalent optimized bound in the targeted returned hits.",
+          "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 §§5.1, 6.4 gives unoptimized n-dependent pair and the dimension-free scalar optimum, respectively; not this 4D root."
+        ],
+        "reasoning": "An equivalent four-dimensional statement would need the universally quantified central-cut bound C4 <= 0.816239403... or an exact evaluation of max_alpha min(U1,U2) for n=4. Neither was located outside the mirror. Negative search alone does not establish priority; the mathematical comparison with the actual formula is decisive.",
+        "searches": [
+          "Resultary semantic query: Khachiyan ellipsoid conjecture four dimensions central hyperplane cut John ellipsoid optimal upper bound from Zhou Zou Liu two spectral estimates f1 f2 0.816239403 crossing 0.523194",
+          "Web: \"0.816239403\" Khachiyan ellipsoid 4 dimension",
+          "Web: \"0.816239\" ellipsoid Khachiyan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact match was the assessed record replicated in Resultary (same research finding, not prior).",
+          "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb provides 1/2*(n/(n-1))^((n-1)/2) for the cone only.",
+          "Search results on decimal fingerprints were non-mathematical false positives; no previously published exact value was verified."
+        ],
+        "reasoning": "No independent published table of the 4D spectral-envelope optimum was identified. The source itself supplies functions from which the value is calculable, which limits the originality claim; a failed numerical search is not a proof no table exists.",
+        "searches": [
+          "Resultary exact published-record searches through two targeted semantic queries with 25 results each",
+          "Web: exact fingerprints 0.816239403, 0.523194287 and name Khachiyan",
+          "Web: convex body maximum inscribed ellipsoid central cut dimension dependent constants 4 3 Khachiyan"
+        ]
+      },
+      "rationale": "Best-of-knowledge new evaluated scalar spectral certificate, rather than a new geometric inequality: the full-text 2026 source already gives the stronger pointwise pair for arbitrary n and alpha, so the four-dimensional inequality is mathematically a consequence once the nontrivial maximization is supplied. It neither states nor evaluates the exact 4D crossing root/envelope maximum, and explicitly does not claim a fixed-dimension optimum in Section 5.1. The submitted new part is the exact global 4D minimax of the two published functions (degree-eight crossing elimination, degree-nine derivative elimination, exact root counts, concavity), not those functions themselves. The published circular half-cone result gives the opposite, lower-witness direction only. A matching published indexed hit is a mirror of the assessed record, not earlier independent priority. This is a qualified originality PASS, not a claim that the universal 4D bound is logically independent of the published pointwise inequalities.",
+      "residual_risks": [
+        "The new inequality follows from published stronger pointwise parameter bounds plus an exact nontrivial one-variable computation; scope of novelty is ONLY the evaluated algebraic certificate.",
+        "The 1988/1990 historical Khachiyan sources were not read end-to-end; comparison of their weaker historical constants uses the recent primary paper.",
+        "An unindexed contemporary dimension-specific optimization or equivalent algebraic evaluation could still exist.",
+        "No global sharpness is claimed for c4; the upper and lower endpoints differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_AND_PARTIAL_IMPLICATION: supplies universal n-dependent pointwise bounds and log-convexity, but does not evaluate the particular n=4 minimax or establish true fixed-dimensional c4.",
+          "evidence": [
+            "Eq. (5.1) in §5.1 gives the exact input; §6.4 proves f_j(e^x) convex; §3 and §6.3 prove the directional rank-one premise; §4 and §6.5 give lower cone; §5.1 declines fixed-dimension true optimality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.28447",
+          "material_read": "arXiv article full-text HTML sections 1–3 (John normalization, center exclusion, trace constraints, rank-one directional estimate), 4 (cone), 5.1–5.2 (finite-dimensional estimates), 6.1–6.5 (supporting proofs), 7 (historical and competing problems).",
+          "method": "Read primary full-text HTML article and displayed equations, not merely abstract or snippets; PDF download endpoint was inaccessible and no PDF claim is made.",
+          "title": "A Spectral Proof of Khachiyan's Ellipsoid Conjecture",
+          "trigger": "Primary full-text source for both universal and dimension-dependent determinant inequalities, central-cut definitions and cone lower bound."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: exact ratio for K_n^- gives lower bound on c4, not a universal upper estimate or the U1/U2 crossing maximum.",
+          "evidence": [
+            "Its theorem gives w(K_n^-)/w(K_n)=1/2*(n/(n-1))^((n-1)/2) only for circular cone K_n; explicit limitations exclude universal fixed-dimensional extremality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+          "material_read": "Complete published RESULT.md including finding, assumptions, symmetry reduction, derivative proof, limitations and references, plus SLOGAN.txt and METADATA.json.",
+          "method": "Retrieved and read pinned published files through the GitHub connector.",
+          "title": "Exact John ellipsoid of the Khachiyan half-cone",
+          "trigger": "Most relevant same-problem published finding with exact dimension-dependent ratio."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447 §§1,5.1,5.2,7.2",
+        "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+        "Independent symbolic resultant, exact rational Sturm and high-precision crossing checks: independent_spectral_check.py / independent_spectral_results.json"
+      ],
+      "rationale": "The maximum John-ellipsoid volume after a central cut is a natural invariant in fixed-dimensional convex geometry and ellipsoid cutting-plane algorithms. The general n-dependent bounds of Zhou–Zou–Liu leave concrete fixed-dimensional quality-of-cut benchmarks unevaluated; n=4 gives a genuinely active two-constraint crossing at a nontrivial algebraic alpha* (rather than a bare parameter substitution), with an exact determinant guarantee and comparison to the canonical cone. An explicit universal improvement 0.8243606... to 0.8162394... is modest but mathematically motivated, and the root-isolation/crossing geometry can guide more refined four-dimensional estimates. A full solution of the fixed-dimensional extremal problem is NOT claimed or required for an independently useful exact benchmark.",
+      "residual_risks": [
+        "The improvement is quantitative and modest, not the true c4; stronger geometric inequalities may dominate this exact two-bound benchmark.",
+        "This is a specifically dimension-four calculation, not an all-n closed solution; value lies in exact low-dimensional bound and active-certificate transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhou Longfei, Haijun Zou, Tianhao Liu, A Spectral Proof of Khachiyan's Ellipsoid Conjecture, arXiv:2609.28447v1 (23 September 2026), https://arxiv.org/abs/2609.28447",
+    "Exact John ellipsoid of the Khachiyan half-cone, Resultary published 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+    "Independent symbolic resultant, exact rational Sturm and high-precision crossing checks: independent_spectral_check.py / independent_spectral_results.json",
+    "Seven source file blobs pinned at 6c379935c2e469fc18959fc6c387e31328c64bcf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claim brackets c4 but does not determine its exact value.",
+    "C4 is exact only as the max of the two earlier spectral certificates.",
+    "The full-text primary source was read via the available arXiv HTML representation, not via downloaded PDF.",
+    "No GitHub modifications, dispatcher closeout or independent external attestation was made."
+  ],
+  "residual_risks": [
+    "The universal 4D upper bound is conditional on the validity of Zhou–Zou–Liu's independently published directional spectral inequalities, which were read and reconstructed, not re-formalized in this execution.",
+    "The optimized spectral-envelope constant is not proved geometrically sharp: the gap to 4*sqrt(3)/9 remains.",
+    "The checker does not formally verify all prior source lemmas or the unbounded family of convex bodies by itself.",
+    "The new inequality follows from published stronger pointwise parameter bounds plus an exact nontrivial one-variable computation; scope of novelty is ONLY the evaluated algebraic certificate.",
+    "The 1988/1990 historical Khachiyan sources were not read end-to-end; comparison of their weaker historical constants uses the recent primary paper.",
+    "An unindexed contemporary dimension-specific optimization or equivalent algebraic evaluation could still exist.",
+    "No global sharpness is claimed for c4; the upper and lower endpoints differ.",
+    "The improvement is quantitative and modest, not the true c4; stronger geometric inequalities may dominate this exact two-bound benchmark.",
+    "This is a specifically dimension-four calculation, not an all-n closed solution; value lies in exact low-dimensional bound and active-certificate transition."
+  ],
+  "schema_version": 1
+}
