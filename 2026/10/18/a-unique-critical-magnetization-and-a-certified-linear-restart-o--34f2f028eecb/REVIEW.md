@@ -1,19 +1,21 @@
-# Scientific review: voter-diffusion reset onset
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Green-operator moment recursion supplies analytic Taylor coefficients and finite exponential moments. The uniqueness proof hinges on the exact sign-change structure of \(K'(m)=\operatorname{artanh}(m)[5-4m\operatorname{artanh}(m)]\), not an enumeration. Exact fixed-point integer interval arithmetic with analytically bounded tails verifies the narrow root bracket, positive second restart coefficient, and positive finite local slope. The conclusion is carefully restricted to a local stationary minimizer branch, not a global optimizer or an unproved finite-population transfer.
+PASS
 
-## Originality
+For the killed diffusion generator (1-m²)d²/dm² on (-1,1), the Poisson-restart mean R=(1−Phi)/(r Phi) yields Taylor R=U+(U²−M2/2)r+(U³−U M2+M3/6)r²+O(r³). Green recursion Mj″=−j Mj-1/(1−m²) and U=−((1+m)/2)log((1+m)/2)−((1−m)/2)log((1−m)/2) fix normalization. K(m)=(1−m²)F″ has K′=atanh(m)(5−4m atanh(m)) and one sign change, yielding one interior F root and specified slope sign. Read exact outward fixed-point verifier, N=2048 coefficient/tail certificate: 0.63058<mc<0.63062, B(mc)>0 with 0.003668<B<0.003730 and Fprime<0; IFT gives unique local positive branch with 33.56<C<35.22. Independently computed high precision moments yielded mc=0.630597352283602, B=0.003699181773373, C=34.38614511478. NO global optimizer or uniform discrete-voter finite-N claim; generic Landau linear exponent not new.
 
-PASS under inspected-source and recovered-record comparisons, with a material general-theory qualification. Argany Herrera et al. (arXiv:2609.39858, sections on all-to-all voter first-passage properties) provide the reset model, report numerical critical magnetization, and expressly leave the scaling derivation open. Pal and Prasad's 2019 *Landau-like expansion* (arXiv:1904.07590, sections on second-order restart transitions and moment coefficients) already gives the generic exponent-one mechanism. The distinctive mathematical statement here is the unique critical location for the specific Wright–Fisher voter diffusion, a certified positive quadratic coefficient, and the resulting explicit local slope. An inaccessible full examination of earlier interval-restart literature remains a historical-priority risk. No broad novelty is attributed to the general restart expansion.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The concrete model-specific transition and its certified slope analytically sharpen a current paper's numerical \(\approx0.630\) threshold and address its stated open scaling problem. The uniqueness proof and certified nondegeneracy distinguish the result from simply invoking a known generic exponent. It provides a quantitative benchmark for voter consensus under rare system-wide resets. It is not a statement about global rate optimization.
+The empirical critical magnetization near 0.630 from the 2026 exogenous-events work and generic Landau weak-reset linear onset from Pal–Prasad 2019 are prior. The assessed new theorem is model-specific uniqueness of the F zero, sign of actual quadratic coefficient and certified coefficient range for the local restart branch. Full same mathematical model 2026 manuscript was inaccessible after OA routes, leaving a material priority risk; the arXiv abstract alone cannot prove noncoverage.
 
-## Limitations
+## value
 
-The continuum scaling and local nature of the optimum are essential. Historical-priority risk persists for broader first-passage and Wright–Fisher restart literature. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An independently defined sharp onset point in a stochastic consensus diffusion and its local critical coefficient control whether weak resets help or hurt, and rigorously resolve a quantitative phase boundary only numerically suggested earlier. The finite concentration of the root and explicit stability coefficient are useful even without global restart optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
