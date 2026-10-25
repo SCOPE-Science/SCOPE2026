@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact result is for the ordinary matching complex of the explicitly labeled twelve-vertex Frucht graph, with induced supports on matching-complex vertices (graph edges). The proof supplies a sharp flag-support lemma, an exhaustive four-path-factor classification, the complete signed cellular boundaries and integral unit-pivot reductions, and the finite set of 87 primitive inclusion classes. Their rank-twenty unimodular span agrees with the calculated integral third homology. The two standalone programs in this package were executed successfully. The modular program is corroborative only; the integral statements use integer elimination.
+PASS
 
-## Originality — PASS (bibliographic uncertainty retained)
+The Frucht graph is defined by its exact sorted list of 18 edges on 12 vertices, and the ordinary matching complex K=M(F)=Ind(L(F)) has one vertex per graph edge. It is flag, and any induced support carrying nonzero reduced H_d has ≥2d+2 vertices by the minimal-support vertex-link exact sequence and the cone obstruction; equality forces the boundary of the (d+1)-cross-polytope. For d=3 the minimum is 8. Equality carriers in a matching complex correspond exactly to four pairs of incident graph edges with disjoint vertex supports, i.e. four vertex-disjoint P3 paths covering all 12 vertices. The 36 incident-edge pairs yield exactly 87 4-path packings; independent enumeration reproduced 87. The exact f-vector (18,117,333,397,152,8) and boundary ranks (17,100,233,144,8) were independently reconstructed over F2,F3,F5,F101 and source-provided arbitrary-integer ±1-pivot eliminations inspected. The quotient calculation gives free reduced H3=Z20 with other reduced homology zero and no integral torsion because all pivots are integral units. Each octahedral fundamental cycle is an oriented join of four 0-cycles with 16 signed tetrahedra. Their reductions mod im ∂4 each have primitive coordinate gcd and the 87 classes yield 20 additional unit pivots, an integral basis obtained by 20 source-verified unit pivots. Independent modular augmented rank tests give increment 20 over each of F2,F3,F5,F101, corroborating but not replacing integral primality. The finite object is exhaustively computable; no extension to infinite graph classes is claimed.
 
-The prior theorem that the matching complex of four disjoint two-edge paths is an octahedral sphere is *not* new; nor are matching-complex methods or the Frucht graph itself. The material novel here is the complete 87-carrier count, the exact images under their inclusions into the connected Frucht matching complex, their primitiveness, and their integral-generation basis. The Frucht independence complex and the Franklin graph matching complex concern different objects. The closest full primary source, Bayer–Goeckner–Jelić Milutinović on manifold matching complexes, was inspected at the relevant definitions and theorems and does not determine these ambient inclusion maps. Archival sources by Björner et al. and Jonsson were compared at available metadata/abstract level; their inaccessible full PDFs remain a concrete residual literature risk. Targeted mathematical-record and literature searches found no equivalent directly covering claim. Absence from a search is not proof of publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Frucht graph tests local-to-global integral homology generation without symmetry reductions. The 87 minimum induced octahedral spheres correspond to natural spanning path-packings and generate a rank-twenty integral lattice, a conclusion genuinely stronger than rational spanning or the ambient Betti number. The selected twenty give a reproducible integral basis. No conjecture about other graphs or homotopy wedge type is claimed.
+The standard M(4P3)=S3 cross-polytope fact is explicitly prior, and classical matching/chessboard connectivity does not calculate the Frucht ambient homology map. Frucht independence-complex reports use Ind(F), not Ind(L(F)); Franklin graph and other 12-vertex cubic matching complexes are distinct. The new conclusion is not merely that an octahedral support exists: it is the exact 87 carrier census, primitive inclusion images and integral rank-20 generation. Historical separate-graph tables could be latent risk but no covering result identified.
 
-## Limits
+## value
 
-Computations are finite and exact for the specified graph. No statement beyond ordinary homology and the stated induced inclusions follows. Source access and the possibility of unindexed equivalent work remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frucht graph is the canonical smallest asymmetric cubic graph, a natural finite test object with no symmetry to trivialize cycles. The minimal induced-homology support and explicit integral generating set distinguish local sphere carriers from ambient chain topology; primitivity and full integral span are not routine deductions from the graph size or face vector. Exact finite classification is independently useful without demanding a new theorem over all graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
