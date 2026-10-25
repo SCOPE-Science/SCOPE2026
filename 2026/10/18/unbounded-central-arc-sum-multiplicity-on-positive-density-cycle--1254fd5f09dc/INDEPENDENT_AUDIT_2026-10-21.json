@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T04:53:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each h, PNT supplies 2h distinct odd primes d_i,e_i in fixed proportion intervals with 3/4<e_i/d_i<4/5. CRT chooses k with d_i|k and e_i|(4k+1), giving full k progression modulo P=product d_ie_i. Set n=4k, u_i=2ke_i/d_i even, v_i=d_i(4k+1)/e_i odd, and u_iv_i=n(n+1)/2. Thus endpoints (v-u+1)/2,(v+u-1)/2 are integers, interior to [1,n] by ratio bounds for sufficiently large k; their interval sum is half the total. Different ratios yield h distinct lengths <n/2 and their complementary wrapping arcs >n/2 yield 2h distinct arcs. Progression n=4k mod 4P has density 1/(4P). With primes at X=h(log h)^2, P<=(1.01X)^(2h), representative k in [P,2P), log n<=(2+o(1))h log h; hence quantitative limsup >=1. Independently checked (d,e,k)=(17,13,68): n=272, arc [127,230] length104 and its complement have target sum18564. Source code checks finite examples only; quantified proof invokes PNT/CRT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper studies missing values and graph/chord completion on the fixed 1..n labeling.",
+          "The other optimizes fixed-length window ranges across variable permutations, unlike all-length central multiplicity for fixed order."
+        ],
+        "reasoning": "Published closest problem descriptions differ in quantified invariant, but the exact same-object 2026 full text was inaccessible: treat its potential additional multiplicity sections as residual risk, do not declare full-paper noncoverage.",
+        "searches": [
+          "Marotti-Needleman 2026 arXiv:2610.08889v1 abstract",
+          "Yang-Zhang Mathematics 14(2026) article 1252",
+          "Resultary semantic cycle-sum query"
+        ]
+      },
+      "checked_sources": [
+        "Marotti–Needleman, Consecutive Cycle Sums, arXiv:2610.08889 (abstract only, full-text inaccessible)",
+        "Yang–Zhang, Mathematics 14 (2026) article 1252",
+        "Classical prime number theorem, Chinese remainder theorem, divisor representation of consecutive integer sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed construction proves a constrained cyclic claim via CRT prime-pair ratios; arbitrary consecutive-integer sums need not satisfy endpoints and cannot themselves yield this positive-density result.",
+          "Missing values or edge-completion bounds do not entail high middle-value multiplicity."
+        ],
+        "reasoning": "No inspected theorem directly implies the new quantitative progressions. The nearest exact same-object full text is inaccessible, so a specific unresolved bibliographic priority risk is retained rather than asserting unqualified novelty.",
+        "searches": [
+          "Marotti–Needleman, Consecutive Cycle Sums, arXiv:2610.08889",
+          "Yang–Zhang, Mathematics 14 (2026), 1252",
+          "Classical unrestricted interval divisor characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical divisor representation counts unrestricted consecutive intervals, without endpoint <=n or cyclic complement distinctness.",
+          "Marotti–Needleman abstract treats full coverage of consecutive-cycle sums and added chords."
+        ],
+        "reasoning": "Aliases: cyclic interval sums, circular subarray sums, triangular-number halving, bounded consecutive-integer representations. A general sumset-incompleteness theorem does not logically imply unbounded multiplicity at one central target.",
+        "searches": [
+          "Resultary semantic: number of contiguous consecutive cyclic arcs with sum half total labels 1 through n central sum unbounded positive density",
+          "Marotti-Needleman arXiv:2610.08889",
+          "Classical consecutive-integer representation/divisor criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database table with positive-density threshold families or the normalized limsup coefficient was identified.",
+          "Explicit 272-cycle checked by independent integer arithmetic, not database reproduction."
+        ],
+        "reasoning": "Known lists of consecutive-sum representations may encode individual n counts, but the theorem is a quantified lower-density and asymptotic statement not implied by a finite table.",
+        "searches": [
+          "Resultary exact cycle central multiplicity query",
+          "Marotti-Needleman arXiv:2610.08889 bibliography/abstract",
+          "Small direct cycle enumeration from inspected verify.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.",
+      "residual_risks": [
+        "Marotti–Needleman 2026 same-object primary paper is particularly relevant but full text inaccessible, so its interior sections could contain broader or equivalent central multiplicity statements.",
+        "General divisor-distribution results may imply stronger lower bounds under a non-obvious bounded-arc reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED; cannot rule out that an interior section also studies central multiplicities",
+          "evidence": [
+            "Abstract establishes non-completeness for n>=8 and added-chord sum coverage, not explicit multiplicity asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08889",
+          "material_read": "ArXiv abstract and bibliographic scope only; complete article/appendices NOT read due inaccessible lawful routes",
+          "method": "ArXiv page/HTML/PDF access attempted, authorized Oxford returned disconnected VPN",
+          "title": "Consecutive Cycle Sums",
+          "trigger": "Exact same consecutively labeled cycle and consecutive sums; high priority primary source"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: optimized permutation and fixed window length",
+          "evidence": [
+            "Its extremal variable is the circular ordering and fixed window sum range, unlike fixed 1..n and any proper arc length."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14081252",
+          "material_read": "Article scope, abstract and relevant fixed-window claims, not asserted full text",
+          "method": "Published journal abstract/material",
+          "title": "Optimal Range of k-Consecutive Sums on a Circle for n=2k+1 and n=k^2+1",
+          "trigger": "Related cyclic consecutive sums under moving windows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-total arc target is fixed by complement symmetry in the consecutive-label cycle and is a canonical invariant of the existing cycle-sum question. Showing its multiplicity unbounded on a positive-density arithmetic progression and an explicit limsup rate provides an arithmetically meaningful counterpoint to known global sum-incompleteness, not an arbitrary slice. The proof supplies infinite progressions rather than a single numerical witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For cyclically consecutive proper arcs of consecutively labeled cycles 1..n whose sum equals half the total n(n+1)/4, every prescribed multiplicity threshold 2h occurs for all sufficiently large lengths in an explicit positive-density residue class n modulo 4P; moreover limsup M(n)loglog(n)/log(n)>=1.",
+  "limitations": [
+    "Positive density separately for each fixed h; no uniform density as h increases.",
+    "Limsup lower bound only; no matching upper bound or claim for all cycle lengths.",
+    "Preprint on exactly the same labeled cycles could not be inspected in full, preserving priority risk."
+  ],
+  "schema_version": 1
+}
