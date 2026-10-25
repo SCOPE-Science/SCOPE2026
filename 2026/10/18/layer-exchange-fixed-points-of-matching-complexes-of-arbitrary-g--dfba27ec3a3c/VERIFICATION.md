@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 prism_fixed_point_verifier.py` from this directory using Python 3 (standard library only). Compare standard output byte-for-byte with `prism_fixed_point_verification_output.txt`.
+## correctness
 
-The standalone checker generates all 76 labeled graphs on zero through four vertices to test the generic recursive matching. Its primary theorem is stated for at least one vertex, but the checker also tests the empty graph as an internal recursion base case. Each enumerated graph is tested via (i) a direct two-layer prism edge-orbit matching criterion, (ii) an independent fully whiskered matching enumeration, (iii) partner involution and Hasse cover checks, (iv) a directed global topological sort checking acyclicity, and (v) exact equality of critical simplex sets and perfect matchings of the original graph. Six larger complete examples are checked without the orbit enumeration step. The output prints 3,822 total Hasse-cover comparisons for the exhaustive small-graph sweep, and ends with `VERIFY_OK`.
+PASS
 
-Finite tests do not certify all finite graphs. Universality follows from the partition-by-pivot argument and induction in RESULT.md. The verifier does not determine homotopy types of the *entire* ordinary prism matching complexes, and it does not perform an independent scientific audit.
+On each prism edge orbit, a two-horizontal-edge pair represents an original edge and a fixed rung represents its private whisker. Compatibility is exactly matching in W(G), and unused rungs extend every invariant simplex to a perfect prism matching. For the global Morse matching, fix core original-edge set S; leaf choices at vertices not covered by S form a simplex and toggle the smallest available leaf, except the empty-to-single-leaf pair in the empty core fiber. Downward edges can remove core edges but upward matched edges cannot add them, so acyclic; precisely core perfect matchings survive, plus one chosen whisker vertex. The resulting CW wedge has p(G) cells in dimension |V|/2-1, with correct k=1 discrete-S0 convention and n odd/isolated cases. Independently enumerated all 75 nonempty labeled graphs up to four vertices; stored verifier claims 76 including empty graph, with larger test cases. No finite check replaces the all-graph proof.
+
+## originality
+
+PASS
+
+The all-finite-graph fixed-orbit PL identification, equality of ordinary/perfect-matching fixed loci, and integral Morse wedge p(G) formula extend well beyond the circular ladder. The full Sep 2026 Agarwal-Basak manuscript concerns nonequivariant complexes for specific ladders. Whiskered forests and two-matching results do not provide this arbitrary-prism fixed-locus theorem. Best-of-knowledge PASS; broad unindexed whiskered-matching equivalences remain a priority risk.
+
+## value
+
+PASS
+
+The correspondence between a prism-symmetry fixed space and fully whiskered matching complex is a uniform structural theorem valid for all finite simple graphs, including isolates and disconnected cases. Perfect-matching count p(G) gives a complete and potentially nontrivial exact integral homotopy invariant; cannot be inferred from nonequivariant prism Betti numbers. The theorem is a motivated generalization beyond a specialized ladder census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
