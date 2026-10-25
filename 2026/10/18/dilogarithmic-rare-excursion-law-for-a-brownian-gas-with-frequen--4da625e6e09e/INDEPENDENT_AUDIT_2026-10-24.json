@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:50:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual pinned RESULT.md 2f33e5a4dd749cb4c22bcf63381e28b7d2c4799e, the backwards independent exponential clock gaps give stationary Gaussian variance V_s=(2Ds/lambda) sum_{j>=0}(1-s)^{2j} Z_j. Conditioning yields the exact scaled log-MGF -s sum log(1-t q_s^j) with t=(D/lambda)||theta||^2<1. Riemann convergence gives Li_2(t)/2; its steep boundary gradient makes tilts attain all z and yields exponential tightness and full LDP. Radial dual criticality gives c=y^2/(1-e^-y) and theta.z=y; strict decreasing Hprime=1/[2w(t)] gives multi-particle gap and orthant continuity. Limit N,k fixed, not uniform. Independently checked finite-s MGF convergence, H against numerical Legendre dual and c-boundary asymptotics; finite checks not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stationary density in arXiv:2412.15626 treats partial resetting including Brownian motion but its accessible Lemma 2.27 holds the contraction fixed; arXiv:2602.21635 develops a Kramers–Moyal diffusion approximation at fixed scale."
+        ],
+        "reasoning": "Broader model classes differ from this sharp joint weak-limit quantifier. Existing generic LDP techniques explain the Legendre transform mechanism but not this particular evaluated dilogarithm and strict collective rate.",
+        "searches": [
+          "Grzywny Palmowski Szczypkowski Trojan stationary states for stable processes with partial resetting Lemma 2.27",
+          "Galla 2026 diffusion approximation frequent weak resetting supplementary multiple walkers"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and tree/blob IDs",
+        "Galla arXiv:2602.21635v1 full HTML and S2",
+        "Grzywny et al arXiv:2412.15626 Lemma 2.27",
+        "Biroli et al arXiv:2406.08387 summary",
+        "Resultary semantic query on Brownian common reset LDP"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galla describes shared extrinsic fluctuation correlations; Grzywny fixed-reset-tail theorem has a different limit order; the audited rate follows from exact scaled cumulant convergence and a steep Legendre transform."
+        ],
+        "reasoning": "A fixed-scale diffusion approximation would produce quadratic Gaussian exponent c/2 but cannot imply H(c)<c/2 for general c. Prior fixed-contraction tails lack uniform s-control, so not a demonstrated prior implication.",
+        "searches": [
+          "Galla 2602.21635 supplement S2 equations for shared noise",
+          "Grzywny et al 2412.15626 Lemma 2.27",
+          "Biroli et al 2406.08387 resetting by rescaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galla arXiv:2602.21635v1 main text and supplement S2 treats Gaussian diffusion approximation and reset-induced particle dependence, not the exact far-tail LDP; Grzywny et al arXiv:2412.15626 Lemma 2.27 gives stationary tail asymptotic for a fixed contraction."
+        ],
+        "reasoning": "Shared reset clocks, partial-reset stationary laws and the Gaussian mixture are aliases; the claim instead varies both contraction and rate with s, then sends observations to L/sqrt(s). A fixed-contraction tail formula does not automatically establish the required uniform double limit.",
+        "searches": [
+          "Resultary: Brownian gas common partial resetting frequent weak contraction dilogarithm large deviation stationary radial rate",
+          "web: Galla 2602.21635 stationary multi-walker rare deviation weak reset",
+          "web: stationary partial resetting stable process Grzywny 2412.15626"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results checked for exact H(c)=y-Li_2(1-e^-y)/2 and kH(c)-H(kc); no matching exact table emerged. 2406.08387 studies one-particle partial rescaling stationary profiles."
+        ],
+        "reasoning": "The object is a continuous-parameter LDP rate, not a finite database; matching a one-particle rescaling distribution alone cannot settle the simultaneous many-coordinate rate.",
+        "searches": [
+          "Resultary dilogarithm Brownian rare excursion reset joint tail",
+          "Biroli Feld Hartmann Majumdar Schehr resetting by rescaling 2406.08387"
+        ]
+      },
+      "rationale": "The precise simultaneous weak-rate/contraction plus x~s^-1/2 LDP and explicit Li_2 radial rate is not stated in the inspected principal sources. The stationary Gaussian mixture and product Laplace transform themselves are not claimed as new. Priority remains best of knowledge.",
+      "residual_risks": [
+        "A hidden uniform asymptotic corollary from the full one-particle exact-rescaling literature has not been excluded; abstract alone not an exclusion.",
+        "Exponential tilt LDP is finite-dimensional at fixed N only; no growing-N assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_exact_LDP",
+          "evidence": [
+            "The main equations obtain a Kramers–Moyal diffusion approximation and supplement S2 analyzes shared-noise multiple walkers; not an exact s^-1 large-deviation rate at X~s^-1/2."
+          ],
+          "identifier_or_url": "arXiv:2602.21635v1",
+          "material_read": "Full arXiv HTML main paper and supplemental S2 multi-particle dynamics, stationary diffusion and correlation sections; read rather than just downloaded",
+          "method": "Full HTML scientific comparison",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "self-review, weak frequent common reset clock"
+        },
+        {
+          "assessment": "NO_DOUBLE_LIMIT_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "The contraction factor is fixed in the cited tail asymptotic, unlike q_s=(1-s)^2 coupled to speed 1/s."
+          ],
+          "identifier_or_url": "arXiv:2412.15626",
+          "material_read": "Abstract, density framework, and Lemma 2.27 fixed-contraction radial-tail section around PDF page 21; screenshot inspected",
+          "method": "Primary PDF text and page screenshot",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "same rescaling resets and stationary tails"
+        },
+        {
+          "assessment": "RESIDUAL_RISK",
+          "evidence": [
+            "Its one-particle exact stationarity precedes this result; possible asymptotic reparameterization not ruled out without full reading."
+          ],
+          "identifier_or_url": "arXiv:2406.08387",
+          "material_read": "Abstract and publicly available source descriptions; complete theorem-by-theorem text not independently compared this run",
+          "method": "Accessible abstract/source comparison",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "same 1D Brownian multiplier and exact stationarity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural weak common resetting has a Gaussian fixed-scale limit but the joint far tail is non-Gaussian; explicit strictly concave dilogarithmic rate characterizes rare collective extremes and the precise cost of shared rather than independent clocks, potentially reusable for multi-particle extreme-event risk.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and tree/blob IDs",
+    "Galla arXiv:2602.21635v1 full HTML and S2",
+    "Grzywny et al arXiv:2412.15626 Lemma 2.27",
+    "Biroli et al arXiv:2406.08387 summary",
+    "Resultary semantic query on Brownian common reset LDP"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed Brownian particle number N and fixed D,lambda>0 with common Poisson rate lambda/s and contraction 1-s, sqrt(s)X_stationary obeys a full good LDP at speed 1/s with radial rate H(lambda||z||^2/D), where y^2/(1-exp(-y))=c and H(c)=y-Li_2(1-exp(-y))/2; joint k-orthant exponent is -H(k lambda L^2/D); strict concavity separates common resets from independent resets.",
+  "limitations": [
+    "A hidden uniform asymptotic corollary from the full one-particle exact-rescaling literature has not been excluded; abstract alone not an exclusion.",
+    "Exponential tilt LDP is finite-dimensional at fixed N only; no growing-N assertion."
+  ],
+  "residual_risks": [
+    "A hidden uniform asymptotic corollary from the full one-particle exact-rescaling literature has not been excluded; abstract alone not an exclusion.",
+    "Exponential tilt LDP is finite-dimensional at fixed N only; no growing-N assertion."
+  ],
+  "schema_version": 1
+}

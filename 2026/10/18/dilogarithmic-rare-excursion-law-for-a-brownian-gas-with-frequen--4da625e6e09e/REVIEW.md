@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact stationary Gaussian mixture follows by Poisson backward gaps and synchronous contraction. Its product Laplace transform yields the finite-parameter scaled cumulant series, whose Riemann-sum limit is the dilogarithm. Interior exponential tilts, Gaussian conditional moments, Chernoff exponential tightness, and compact coverings establish a full good large-deviation principle without an unwarranted assumption of convergence at the MGF boundary. A radial Legendre calculation yields the exact scalar parametrization and the strict concavity required for the common-versus-independent clock comparison. The separately executable finite-s cumulant and Legendre computations agree.
+## correctness
 
-**Originality — PASS, with residual risk.** The most relevant general paper is Grzywny et al., arXiv:2412.15626v1, including their multidimensional stationary density and fixed-contraction radial asymptotic (Lemma 2.27). These facts imply fixed-contraction tail statements, so none are offered as new. The present result instead takes contraction \(1-s\to1\), reset rate \(\lambda/s\to\infty\), and positions of order \(s^{-1/2}\), deriving a nontrivial rate not supplied by the fixed-parameter asymptotic; no uniformity statement in the earlier lemma bridges this regime. Galla's arXiv:2602.21635v1 treats the matching weak-reset model and its Gaussian diffusion approximation but not the exact coupled rare-tail rate; Biroli et al. treat one-particle rescaling and de Mauro et al. treat multi-particle full resetting. Prior research claims on stationary moments and full-reset excursion exponents do not state or imply this dilogarithmic scaling law without fresh asymptotic analysis. A general large-deviation treatment could still implicitly yield the same formula and remains a residual novelty risk.
+PASS
 
-**Value — PASS.** The theorem resolves a natural physical distinction: a common weak-reset environment disappears from ordinary fixed-scale Gaussian statistics but remains visible at an exponentially precise rare-excursion scale. Its closed rate function yields a strict asymptotic separation of common versus independent reset clocks, giving a concrete quantitative boundary of the central Gaussian description across every fixed particle count. This is a whole-vector good large-deviation principle, not a numerical special case.
+From actual pinned RESULT.md 2f33e5a4dd749cb4c22bcf63381e28b7d2c4799e, the backwards independent exponential clock gaps give stationary Gaussian variance V_s=(2Ds/lambda) sum_{j>=0}(1-s)^{2j} Z_j. Conditioning yields the exact scaled log-MGF -s sum log(1-t q_s^j) with t=(D/lambda)||theta||^2<1. Riemann convergence gives Li_2(t)/2; its steep boundary gradient makes tilts attain all z and yields exponential tightness and full LDP. Radial dual criticality gives c=y^2/(1-e^-y) and theta.z=y; strict decreasing Hprime=1/[2w(t)] gives multi-particle gap and orthant continuity. Limit N,k fixed, not uniform. Independently checked finite-s MGF convergence, H against numerical Legendre dual and c-boundary asymptotics; finite checks not an infinite proof.
 
-The proof is restricted to independent Brownian drivers, identical contraction and common Poisson resetting, with fixed dimensions. The references do not establish novelty against every unpublished or inaccessible result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise simultaneous weak-rate/contraction plus x~s^-1/2 LDP and explicit Li_2 radial rate is not stated in the inspected principal sources. The stationary Gaussian mixture and product Laplace transform themselves are not claimed as new. Priority remains best of knowledge.
+
+## value
+
+PASS
+
+Natural weak common resetting has a Gaussian fixed-scale limit but the joint far tail is non-Gaussian; explicit strictly concave dilogarithmic rate characterizes rare collective extremes and the precise cost of shared rather than independent clocks, potentially reusable for multi-particle extreme-event risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
