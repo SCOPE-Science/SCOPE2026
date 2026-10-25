@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each voter the strict-copy attacker score is the quadratic integral of the squared relative-rank coordinate. Three-draw self-play fixes the minimax bound at 1/3 and makes all supported scores tight. Positive definite Hessian implies uniqueness. If strict Condorcet winner B is excluded, pure A and pure C fail because B beats either in more than half the votes; positive A,C support forces t=3(u+m)-1 and the exact remaining B-score inequality. Conversely that inequality gives all three scores <=1/3. Direct substitutions establish the three symmetric branches and their exact transition values 1/3 and 4/9; proof handles all finite electorate sizes, not just tested rational grid. Exact script output: 10788 and 1866 comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shah Lemma 9 implies uniqueness on every finite election; it dominates only the uniqueness sublemma.",
+        "Shah Lemma 10 at N=2,r=1/2 gives exactly the p=4/9 endpoint, while varying arbitrary u,v,m,n and both transitions is outside the construction.",
+        "Cai establishes global distortion bound 7/3 for k=2 but does not give the exact Condorcet-exclusion region."
+      ],
+      "reasoning": "The novel main iff theorem strictly extends the recognized endpoint: it gives the full semialgebraic region in a three-dimensional single-peaked profile simplex. General distortion bounds and uniqueness do not imply the exact exclusion criterion. The original lower-bound endpoint itself is explicitly subsumed.",
+      "searches": [
+        "Stable 2-lottery 3 candidates single-peaked symmetric electorate exact support phase transitions one third four ninths",
+        "metric distortion stable 2 lottery single peaked Condorcet winner",
+        "arxiv:2608.29308v2 Lemmas 9 and 10",
+        "arxiv:2609.08259v1 Theorem 3 and Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.08259v1",
+      "arxiv:2608.29308v2",
+      "arxiv:2505.13630 (abstract only)",
+      "Brandt et al., doi:10.1177/09516298221122104",
+      "published-finding corpus semantic searches listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shah uniqueness Lemma 9 already proves any two stable k=2 lotteries coincide.",
+        "Shah lower-bound Lemma 10 with N=2,r=1/2,mu=1/3,phi(r)=1/4 gives z=1/9, hence 8/9 middle and 1/9 center-first rankings: p=4/9, an exact prior implication.",
+        "Cai supplies stability inequalities but does not classify the iff parameter region or both changes of support."
+      ],
+      "reasoning": "The accepted claim excludes general uniqueness and any independent priority for the 18-voter endpoint. It asserts a new necessary-and-sufficient inequality for arbitrary single-peaked voter types and sharp full symmetric phase classification. Shah Lemma 10 gives a single tuned profile and does not cover neighboring parameters by logical implication. Broader historical coverage cannot be ruled out by searched snippets alone.",
+      "searches": [
+        "arxiv:2608.29308v2 Appendix C.1 Lemmas 9-10",
+        "stable two lottery three candidate single peaked Condorcet winner excluded exact polynomial region four rankings",
+        "randomized committee stability three alternatives majority winner zero support 1/3 4/9",
+        "arxiv:2609.08259v1 Section 3, Section 5 and Appendix A",
+        "\"stable 2-lottery\" \"Condorcet winner\" excluded; \"stable lottery\" \"single peaked\" Condorcet winner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai et al. define independently sampled stable k-lotteries with attacker-win ceiling 1/(k+1); Shah gives equivalent integrated-rank scores.",
+        "No searched published-finding corpus item supplied the explicit three-candidate, four-ranking exclusion inequality."
+      ],
+      "reasoning": "The independent-draw convention is an equivalent formulation of k=2 stable lottery, and a random-size stable lottery with D deterministically 2 is identical. General uniqueness follows already from Shah and is not part of the novel contribution. The explicit excluded-Condorcet parameter domain is a further calculation, not an alias for uniqueness.",
+      "searches": [
+        "stable two lottery three candidate single peaked Condorcet winner excluded exact polynomial region four rankings",
+        "stable lottery Condorcet winner excluded two draw majority central alternative",
+        "arxiv:2609.08259v1 Definition 2 and Equation 5",
+        "arxiv:2608.29308v2 Appendix C.1 Lemma 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus IDs: 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952 concerns serial dictatorship allocations, not the stable two-draw voting game.",
+        "2026/10/4/SCOPE-complete-minimal-boundary-reinforcement-census-for-three-candida--f64982d2830a concerns maximin reinforcement, not stable-lottery support."
+      ],
+      "reasoning": "Searches compared the mathematical output and not merely titles. No listed database table was a closed-form iff classification for the current game. Unsearched synonyms/older sources remain a priority risk.",
+      "searches": [
+        "stable two lottery three candidate single peaked Condorcet winner excluded exact polynomial region four rankings",
+        "randomized committee stability three alternatives majority winner zero support 1/3 4/9",
+        "stable lottery Condorcet winner excluded two draw majority central alternative",
+        "published-finding corpus semantic retrieval of stable two-lottery and related Condorcet claims (50-100 returned)"
+      ]
+    },
+    "rationale": "The newly claimed arbitrary single-peaked three-candidate iff Condorcet-exclusion region and full two-transition symmetric support law are not entailed by the general existence/score theorem of Cai et al. or the general uniqueness Lemma 9 of Shah. Crucially Shah Lemma 10 ALREADY IMPLIES the exact p=4/9 endpoint profile through N=2,r=1/2,z=1/9; that isolated endpoint and uniqueness are credited and are NOT independent originality claims. Shah Lemma 10 is a tuned lower-bound construction, not an all-four-type iff classification. published-finding corpus near hits concern other voting rules/lottery types; failed search is not a novelty proof. Priority risk for earlier equivalent presentations remains.",
+    "residual_risks": [
+      "Full text of all possible 2025 and older stable-lottery antecedents was not exhaustively inspected; equivalent statements under other vocabulary may exist.",
+      "Shah Lemma 10 already implies the symmetric p=4/9 example, so novelty of the main iff classification must not be confused with priority for that example.",
+      "published-finding corpus semantic retrieval is not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model match and general results, but not exact single-peaked four-type Condorcet-exclusion region or two-transition formula",
+        "evidence": [
+          "arxiv:2609.08259v1, Definition 2, Theorem 3, Section 5 and Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.08259v1",
+        "material_read": "Definition 2; equilibrium score theorem and stationarity, Section 5, and matching-lower-bound Appendix A passages",
+        "method": "Read arXiv full-text HTML and targeted sections, compared the objects, score inequalities and lower-bound family",
+        "title": "Stable Voting Rules on the Edge of Optimal Metric Distortion",
+        "trigger": "Primary 2026 emergence of independently sampled stable k-lotteries and exact distortion bounds"
+      },
+      {
+        "assessment": "Decisively subsumes uniqueness and the specific p=4/9 boundary example; does not prove the full iff or both phase transitions",
+        "evidence": [
+          "arxiv:2608.29308v2, Appendix C.1 Lemmas 9-10; z=(1/3-1/4)/(1-1/4)=1/9"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.29308v2",
+        "material_read": "Appendix C.1 including Lemmas 9, 10 and their proof; earlier integrated-rank formula",
+        "method": "Read arXiv full-text HTML, derive explicit N=2,r=1/2 specialization and compare implications",
+        "title": "Improving Randomized Metric Distortion to 2.1441",
+        "trigger": "Potentially stronger random-size stable-lottery uniqueness and lower-bound profiles"
+      },
+      {
+        "assessment": "Different rules; maximal lottery is Condorcet-consistent and does not imply the k=2 exclusion classification",
+        "evidence": [
+          "Brandt, Matthäus and Saile, 2022, definitions and rule list"
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/09516298221122104",
+        "material_read": "Available article text describing Condorcet winner paradoxes, rule list, and maximin or maximal-lottery comparisons",
+        "method": "Read accessible article text and compared its finite winner rules to random independent draw game",
+        "title": "Minimal voting paradoxes",
+        "trigger": "Potential published classification of Condorcet winner paradoxes on small voting profiles"
+      },
+      {
+        "assessment": "Cannot rule out a hidden equivalent special-domain characterization",
+        "evidence": [
+          "arxiv:2505.13630 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.13630",
+        "material_read": "Abstract level only; no full-text implication comparison asserted",
+        "method": "Bounded arXiv open-access discovery; no sufficient full-text material obtained",
+        "title": "Metric Distortion for Tournament Voting and Beyond",
+        "trigger": "2025 predecessor potentially covering stable lottery constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10a294de-ce8f-411b-b25b-d1fbc479c057",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact necessary-and-sufficient exclusion region for a strict Condorcet winner is a natural structural invariant of an influential two-draw randomized voting rule under the canonical single-peaked preference restriction. The general criterion depends on the four ranking frequencies and identifies a robust open exclusion region (e.g. p=9/20), and its symmetric cross-section has two distinct sharp support changes at p=1/3 and p=4/9. This distinguishes two-draw stability from pairwise-majority responsiveness beyond the previously implicit single tuned boundary witness; it is a genuine complete classification on a motivated preference domain, not a grid calculation or a restatement of existing uniqueness.",
+    "status": "PASS"
+  }
+}
