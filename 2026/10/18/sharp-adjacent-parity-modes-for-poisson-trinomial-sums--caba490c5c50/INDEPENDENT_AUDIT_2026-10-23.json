@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T04:51:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H=2 sum X_i, F(w)=product(L_i+T_i w+W_i w^2)=P(w^2)+w Q(w^2). If all weights positive, each quadratic has roots strictly in left half-plane and the phase arg F(iy) increases strictly from 0 to n*pi. Thus the negative zeros of P and Q are simple and strictly alternate. Positive partial-fraction decomposition Q/P=sum_j c_j/(z+a_j) and strict Newton coefficient log-concavity of P/(z+a_j) give p_(k+1)/p_k > q_(k+1)/q_k > p_(k+2)/p_(k+1) for all interior indices, forcing all P and Q mode pairs to occupy neighboring half-grid points. For boundary weights, approximate by positive triples and pass to weak cross-multiplied inequalities; coefficients remain real-rooted with consecutive supports and at most two adjacent modal indices. The only configurations that could produce a 5/2 mode gap contradict one of the weak inequalities, so all separations <=3/2. The n=2 witness (0,1/4,3/4),(1/2,0,1/2) yields F=(2w+6w^2+2w^3+6w^4)/16 and cross-parity mode separation 3/2. Cases with one impossible conditioning event are rightly excluded. Infinite n and continuous parameter intervals follow algebraically, not by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hermite-Biehler proves P,Q real negative interlacing when F stable; Newton proves log-concavity.",
+          "Neither generic statement alone reports that all pairs of integer/half-integer conditional modes are adjacent under positive weights nor boundary best 3/2."
+        ],
+        "reasoning": "The positive-residue ratio sandwich plus boundary tie exclusion is a nontrivial inference; older broader tools credited, no demonstrated dominating published modal theorem.",
+        "searches": [
+          "Poisson trinomial distribution modes conditioned integer half integer parity adjacent bound 1/2 3/2",
+          "Gnedin arXiv:2408.06477 Cross Modality",
+          "Classical Hermite-Biehler interlacing and Newton coefficient inequalities"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.09019v1",
+        "https://arxiv.org/html/2408.06477v1",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/sharp-adjacent-parity-modes-for-poisson-trinomial-sums--caba490c5c50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate Darroch-type near-mean mode estimates can give <=5/2 but do not force paired interlacing inequalities.",
+          "The source conditional Poisson-binomial structure does not mathematically imply uniform half-unit adjacency without new cross-comparison."
+        ],
+        "reasoning": "New coefficient-ratio proof rules out gap patterns left open by prior independent conditional-mode bounds.",
+        "searches": [
+          "Poisson trinomial distribution modes conditioned integer half integer parity adjacent bound 1/2 3/2",
+          "arXiv:2603.09019 Theorem 1 Proposition 3",
+          "arXiv:2408.06477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Broadie-Petkova conditional parity distributions are the same integer/half-integer conditional modes; source bound <=5/2.",
+          "Here strict positivity gives exact distance 1/2 for *every* mode-pair, and zeros permit exact worst-case 3/2."
+        ],
+        "reasoning": "The new result strengthens an identical object rather than just renaming a mode-to-mean bound.",
+        "searches": [
+          "Poisson trinomial distribution modes conditioned integer half integer parity adjacent bound 1/2 3/2",
+          "Broadie Petkova arXiv:2603.09019 Section 3 Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published generic bound <=5/2, not sharp and no detailed extremizer for improved best constant.",
+          "Full exact two-summand polynomial yields tight distance 3/2; verified mode sets integer {1,2}, half {1/2,3/2}."
+        ],
+        "reasoning": "A compact exact witness is substantively new relative to known coarse range, not recomputation of an existing 3/2 table.",
+        "searches": [
+          "Poisson trinomial distribution modes conditioned integer half integer parity adjacent bound 1/2 3/2",
+          "Broadie Petkova arXiv:2603.09019 Proposition 3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Broadie-Petkova (2026) study the same parity-conditioned trinomial sum and prove only a universal 5/2 separation by separate mean bounds. The stronger joint strict ratio sandwich, interior exact 1/2, global sharp 3/2 plus example are not stated there. Classical Hermite-Biehler and Newton interlacing are prior tools and do not themselves state the new modal consequence; Gnedin treats extended Bernoulli cross-modality rather than this pair of parity laws.",
+      "residual_risks": [
+        "Possibility that existing classical total-positivity mode-comparison theorems give a shorter equivalent derivation, not excluded by named sources.",
+        "The interior 1/2 bound assumes strictly positive L,T,W for every trial; boundaries can realize 3/2.",
+        "No claim for unconditional modes or all other distributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precursor establishes Poisson-binomial parity and <=5/2; no sharp interior adjacency or <=3/2 found in inspected full text",
+          "evidence": [
+            "Theorem 1 even/odd conditional Poisson-binomial; Proposition 3 5/2 mode gap"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.09019v1",
+          "material_read": "Full available Sections 2-3, Theorem 1, Proposition 3, proofs including 5/2 bound",
+          "method": "arXiv HTML primary full-text reading",
+          "title": "On the structure of the Poisson trinomial distribution",
+          "trigger": "Exact same random sum and conditional parity-mode question"
+        },
+        {
+          "assessment": "Different extended Bernoulli family and modal-likelihood relation, not the parity-conditional trinomial pair",
+          "evidence": [
+            "Gnedin extended binomial cross modality and Darroch-related results"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.06477v1",
+          "material_read": "Full accessible arXiv manuscript reviewed for definition and main cross-modality results",
+          "method": "arXiv HTML full-text reading",
+          "title": "Cross Modality of the Extended Binomial Sums",
+          "trigger": "Potential broad modal interlacing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp universal adjacent parity-conditional mode separation significantly improves the published 5/2 bound, with a stronger rigid interior result and an exact boundary extremizer. This is a structural, all heterogeneous-trial theorem useful for rank/threshold comparisons of Poisson trinomial sums, not a routine Poisson-binomial mode bound applied twice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.09019v1",
+    "https://arxiv.org/html/2408.06477v1",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/sharp-adjacent-parity-modes-for-poisson-trinomial-sums--caba490c5c50"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Both parity conditioning events must have positive mass.",
+    "Boundary allows zero trial probabilities and cannot guarantee half-unit adjacency."
+  ],
+  "residual_risks": [
+    "Possibility that existing classical total-positivity mode-comparison theorems give a shorter equivalent derivation, not excluded by named sources.",
+    "The interior 1/2 bound assumes strictly positive L,T,W for every trial; boundaries can realize 3/2.",
+    "No claim for unconditional modes or all other distributions."
+  ],
+  "schema_version": 1
+}
