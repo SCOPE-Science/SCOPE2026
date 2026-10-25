@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T21:52:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/RESULT.md",
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/VERIFICATION.md",
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/verify_graph.py",
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/verify_quotient.py",
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/AUDIT.json",
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/REVIEW.md"
+      ],
+      "rationale": "Root-stabilizer automorphisms preserve clique-vs-cycle Cartesian directions by triangle counts for m>=3 and square counts for m=2, giving exactly A_d=(cycle distance d, clique coordinate 0), B_d=(distance d, remaining clique coords), d=0..floor(n/2). At refinement round t, the root-colour induced signatures determine rooted walk counts w_0..w_t by induction. A_k and B_(k-1) are the only competing orbit types at root distance k; their shortest-walk counts differ (k versus one, or even antipodal two), except the distance-one collision, which splits at t=2 if m>=3 from length-two counts and at t=3 if m=2 (length-three counts 6 vs 7). For n>=6, D>=3 is enough; n=5,m=2 needs t=3. All vertices beyond t hops of a singled-out root in the (m+1)-regular graph have the same color at round t, and B_D versus A_D remain unsplit at t=D-1, proving optimality. Independently rebuilt direct refinement on 65 parameter pairs n=5..17,m=2..6 and confirmed exact orbit cells and stabilization depth; source 392 vertex and 864 quotient finite tests corroborate rather than prove all n,m.",
+      "residual_risks": [
+        "Only one root initially individualized in C_n□K_m, n>=5, m>=2, synchronous 1-WL with old colors retained; result is within-graph orbit recovery, not graph isomorphism identification.",
+        "The lower-bound uniform-distance wavefront induction requires graph regularity and the exact initial coloring; arbitrary root markings are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arvind et al characterize graph-class recognition and isomorphism-relevant colour refinement notions, not an exact C_n□K_m root-depth formula. Kiefer–McKay study general extremal iteration counts and special slow families."
+        ],
+        "reasoning": "No inspected general theorem yields R=floor(n/2) with exactly one C5□K2 exception as a direct corollary.",
+        "searches": [
+          "arXiv:1502.01255 v3 hierarchical graph refinement and compactness",
+          "Kiefer McKay arXiv:2005.10182 iteration number",
+          "Resultary: cycle clique product color refinement orbit exact"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1502.01255v3",
+        "https://arxiv.org/abs/2005.10182",
+        "Resultary indexed semantic search on exact object/parameter/claim under appropriate aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known principle that color refinement is coarser than orbit partition is used to bound stable cells. Its converse for these root-marked products, and exact stabilization time, require new walk-count separation."
+        ],
+        "reasoning": "The orbit-preservation principle and global upper bounds do not imply the distinct orbit splitting by D or special (n,m)=(5,2) boundary; proof supplies a concrete separation argument.",
+        "searches": [
+          "arXiv:1502.01255 definitions of refinability and colour refinement",
+          "arXiv:2005.10182 iteration number statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_n□K_m is a clique-cylinder graph; when m=2 it is a circular ladder. Under a fixed singleton root, stable equitable cells compared against the automorphism stabilizer orbits."
+        ],
+        "reasoning": "General equitable partitions, walk-count equivalence and refinability are known tools; a rooted product exact per-round partition and exceptional stabilization formula is more specialized data not directly given by the terminology.",
+        "searches": [
+          "Resultary: color refinement rooted cartesian product cycle clique C_n square K_m iteration depth",
+          "Arvind et al arXiv:1502.01255 labelled colour refinement, refinability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby indexed C_n□K_m findings are graph-metric Rips/Čech or neighborhood-complex invariants, not 1-WL stabilization; no exact root-depth table identified."
+        ],
+        "reasoning": "New exact all-n,m classification is not a re-report of a known tabulation. Negative search alone cannot certify priority.",
+        "searches": [
+          "Resultary: cycle clique cylinder rooted WL stabilization orbit partition",
+          "arXiv:2005.10182 graphs attaining large colour refinement rounds"
+        ]
+      },
+      "rationale": "The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.",
+      "residual_risks": [
+        "Specialized earlier work on color refinement of individualized Cartesian products or circular ladders could imply same exact formula but was not located.",
+        "Kiefer–McKay full text was not completely reread during this run; do not infer complete paper noncoverage from abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic refinability/compactness discussion; exact rooted two-factor cycle–clique depth not entailed by inspected statements.",
+          "evidence": [
+            "arXiv:1502.01255v3 Introduction and general graph hierarchy"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+          "material_read": "Primary full arXiv HTML abstract, introduction and formulation of the amenable/refinable graph-property hierarchy, with methods and theorem headings reviewed",
+          "method": "Read original HTML and compare invariants/quantifiers",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Foundational orbit-refinement result"
+        },
+        {
+          "assessment": "Studies maximal iteration numbers for n-vertex graphs; exact root-stabilizer orbit rounds for C_n□K_m not established by accessible material.",
+          "evidence": [
+            "arXiv:2005.10182 abstract and bibliographic record"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.10182",
+          "material_read": "Original arXiv bibliographic abstract and theorem-level overview only; attempted HTML version inaccessible",
+          "method": "Source scope compared, no claim of entire-paper exclusion",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Closest general colour-refinement stabilization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-rooted-colour-refinement-depth-of-cycle-clique-cartesian-p--407aa7f7ab20/RESULT.md",
+        "https://arxiv.org/html/1502.01255v3",
+        "https://arxiv.org/abs/2005.10182"
+      ],
+      "rationale": "Gives a sharp, nontrivial exact time-to-stabilization and complete orbit partition for a natural two-parameter graph family, distinguishing cyclic radius from full marked-root eccentricity and identifying an exceptional pentagonal prism. This is a motivated structural invariant of standard graph-isomorphism refinement, not an unmotivated sample count.",
+      "residual_risks": [
+        "Does not show isomorphism identification against nonisomorphic external graphs or characterize products with noncomplete second factor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one root initially individualized in C_n□K_m, n>=5, m>=2, synchronous 1-WL with old colors retained; result is within-graph orbit recovery, not graph isomorphism identification.",
+    "The lower-bound uniform-distance wavefront induction requires graph regularity and the exact initial coloring; arbitrary root markings are excluded.",
+    "Specialized earlier work on color refinement of individualized Cartesian products or circular ladders could imply same exact formula but was not located.",
+    "Kiefer–McKay full text was not completely reread during this run; do not infer complete paper noncoverage from abstract.",
+    "Does not show isomorphism identification against nonisomorphic external graphs or characterize products with noncomplete second factor.",
+    "Frozen public-facing AUDIT.json and METADATA.json retain private operational scope_run_id identifiers. Actual complete neutral sanitization edits with content bytes, exact blob guards and content SHA-256 have not been prepared, so no public publication permitted despite full scientific PASS."
+  ],
+  "schema_version": 1
+}

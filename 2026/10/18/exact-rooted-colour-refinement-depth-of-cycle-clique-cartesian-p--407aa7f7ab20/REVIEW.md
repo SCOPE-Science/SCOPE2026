@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph automorphisms are proved to preserve the two Cartesian edge directions by triangle counts (clique order at least three) or square counts (clique order two); the induced group gives exactly two orbit types at each cyclic distance. Synchronous counting refinement determines all rooted walk counts through the current round. Distances and shortest-walk multiplicities separate all root-orbits by the cyclic radius except for a two-vertex complete factor, where the residual distance-one collision is separated by three-walk counts. Regular-graph wavefront locality supplies a strict lower bound at one round earlier. For the pentagonal prism the remaining collision persists through round two and separates in round three. Two independently organized finite computational replays corroborate the formula; the infinite result is proved, not inferred from enumeration.
+## correctness
 
-**Originality — PASS, qualified.** A 2015 foundational treatment of refinability defines the orbit-partition target and a 2020 iteration-number study gives extremal graph families, but neither provides this exact rooted cycle–clique formula. A public research index search for cycle–clique Cartesian products located work on topological and graph-metric complexes rather than on rooted counting refinement. Related results on rooted powers of cycles and products of complete graphs concern different adjacency relations; neither implies the mixed product's exact depth. A previously unlocated product-specific refinement theorem remains a material priority risk.
+PASS
 
-**Value — PASS.** This gives the exact stabilization depth and full stable partition on an infinite, natural, two-parameter family interpolating between circular ladders and clique-fibre cylindrical graphs. The equality between the round count and cyclic radius for all \(n\ge6\), despite marked-vertex eccentricity one larger, is explained by a concrete shortest-walk multiplicity mechanism; the pentagonal-prism exception records the first failure of the generic bound. The precise facts support refinability analysis and iteration-depth benchmarks rather than arbitrary numerical slices.
+Root-stabilizer automorphisms preserve clique-vs-cycle Cartesian directions by triangle counts for m>=3 and square counts for m=2, giving exactly A_d=(cycle distance d, clique coordinate 0), B_d=(distance d, remaining clique coords), d=0..floor(n/2). At refinement round t, the root-colour induced signatures determine rooted walk counts w_0..w_t by induction. A_k and B_(k-1) are the only competing orbit types at root distance k; their shortest-walk counts differ (k versus one, or even antipodal two), except the distance-one collision, which splits at t=2 if m>=3 from length-two counts and at t=3 if m=2 (length-three counts 6 vs 7). For n>=6, D>=3 is enough; n=5,m=2 needs t=3. All vertices beyond t hops of a singled-out root in the (m+1)-regular graph have the same color at round t, and B_D versus A_D remain unsplit at t=D-1, proving optimality. Independently rebuilt direct refinement on 65 parameter pairs n=5..17,m=2..6 and confirmed exact orbit cells and stabilization depth; source 392 vertex and 864 quotient finite tests corroborate rather than prove all n,m.
 
-The scope is finite simple undirected cycle–clique products with one marked vertex; no claim of general graph identification is made. Earlier specialized priority and external scientific validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.
+
+## value
+
+PASS
+
+Gives a sharp, nontrivial exact time-to-stabilization and complete orbit partition for a natural two-parameter graph family, distinguishing cyclic radius from full marked-root eccentricity and identifying an exceptional pentagonal prism. This is a motivated structural invariant of standard graph-isomorphism refinement, not an unmotivated sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
