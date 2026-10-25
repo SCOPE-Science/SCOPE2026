@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reconstructs the aperiodic power-law renewal age as a beta limit, obtains the coin-specific unreset speed distribution by a Fourier group-velocity pushforward, and applies exact renewal conditioning to yield the independent beta–Konno product. The central singularity and front coefficient follow from explicitly evaluated integrals, with all endpoint restrictions stated. The second moment reproduces the established renewal-MSD coefficient. The included verification program passes 18 analytic and finite-position checks, without pretending that finite experiments prove a weak limit.
+
+**Originality — PASS (best-knowledge).** Das (arXiv:2609.08973v1) already derives the model, renewal decomposition, fixed-site limits, and mean-squared displacement; Štefaňák et al. (arXiv:1405.7146) already derive unreset three-state weak velocities. The classical Dynkin–Lamperti age law is also antecedent. The claim is the *full* power-law restarted ballistic density with explicit cusp and three-regime front classification, not those building blocks. Publisher studies of ballistic Lévy walks treat accumulating flights, rather than repeatedly reset-to-origin trajectories. Searches in accessible prior records, publication literature, and available earlier claims did not identify an equivalent result. A broader unlocated theorem could imply portions of the claim; publication-wide priority and independent review are not certified.
+
+**Value — PASS.** The spatial density answers a transport question left unresolved by existing fixed-site and mean-square asymptotics: whether the observed wavefront peaks or fades. The change at \(s=3/2\) is a sharp, parameter-complete qualitative distinction with exact amplitudes, suitable for direct spatial distributions and future finite-time investigations. The singular-origin and front exponents are related but different physical features.
+
+**Limitations.** The weak law is for fixed positive loop weight, exponent strictly between one and two, complete independent resets, and the flat-band-dark preparation. It does not imply pointwise finite-lattice density convergence, path limits, or behavior at marginal exponents. There is a residual undiscovered-literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
