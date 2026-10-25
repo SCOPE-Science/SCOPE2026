@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The killed-diffusion boundary-value equations give exact first and second moments. The independent regenerative identity for a geometric number of cycles yields the sticky-reset moments. At the unique equal-mean waiting time their difference reduces to the asserted exact affine expression in waiting variance. The included `verify.py` checks these identities in SymPy and independently rederives them by Laplace series, with twelve rational numerical specializations. Conditions are D>0, 0<x<L, iid independent W with finite variance; no higher-dimensional or infinite-variance inference is made.
+## correctness
 
-## Originality (O) — PASS with residual access risk
-Targeted semantic and literature searches checked the boundary-triggered reset protocol, mean-neutral variance comparisons, refractory periods, and equivalent first-passage transform formulations. The closest primary source is Chen and Bressloff (arXiv:2609.31085v1), whose accessible abstract describes two-dimensional small-target MFPT and renewal methods, not this exact one-dimensional equal-MFPT variance boundary. The 2024 refractory-time theory has spontaneous rather than boundary-triggered resets. The 2026 run-and-tumble sticky-*target* and active-OU finite-interval protocols differ as well. No inspected abstract or retrieved scientific claim supplies the exact universal coefficient-of-variation threshold. The principal 2026 source full text was inaccessible, so implicit coverage by general transform formulas cannot be excluded; absence of a retrieved match is not asserted to prove uniqueness.
+PASS
 
-## Value (V) — PASS
-The sharp universal waiting-law variability criterion identifies whether a boundary-triggered protocol makes absorption time more or less predictable even when mean completion times are exactly equal. It distinguishes deterministic, exponential and critical gamma holding laws, and answers a natural second-moment question motivated by competing reflecting and sticky-reset boundaries.
+For killed excursions E from (0,L), the Dirichlet ODEs D u=-1, D h=-x/L, D u2=-2u yield u=x(L-x)/(2D), h=E[E 1_{exit L}]=x(L^2-x^2)/(6DL), and u2=x(L-x)(L^2+Lx-x^2)/(12D^2). Reflected moments solve Dirichlet at 0 and Neumann at L. Renewal recursion T=E+J(W+Tprime) with P(J)=q=x/L gives mS=(u+q tau)/(1-q); this matches reflected mR=x(2L-x)/(2D) iff tau=(L-x)^2/(2D). Squaring the renewal identity gives MS=(u2+2h(tau+mS)+q(tau^2+v+2tau mS))/(1-q). At tau*, squared means cancel and symbolic simplification leaves x/(L-x)(v-2tau*^2/3). Independent SymPy substitutions exactly verified both mean equality and polynomial variance identity for symbolic positive x,L,D,v; representative deterministic, exponential and shape-3/2 Gamma holding laws realize both signs/equality. All parameter quantifiers and iid finite-second-moment assumptions matter; these are algebraic proof checks, not time-series simulations.
 
-## Closest literature and limits
-Chen and Bressloff, *2D target search with boundary-induced resetting* (2026); García-Valladares et al., *Stochastic resetting with refractory periods* (2024); Bressloff and Linn, *Renewal theory for a run-and-tumble particle...* (2026); Georgiou et al., *Persistence, resetting, and first-passage times...* (2026). Only abstracts/metadata were accessible for the most relevant 2026 source, creating an explicit residual risk of implicit prior coverage. The result is one-dimensional and for iid finite-variance waiting.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen-Bressloff (2026) model non-target boundary-triggered resetting with waits and comparison to reflecting walls in a 2D small-interior-target domain, but accessible abstract emphasizes MFPT, not a 1D all-wait-law mean-neutral variance transition. The full primary body could not be inspected, as open access attempts and authorized Oxford access failed with vpn_disconnected. García-Valladares et al. treat random spontaneous reset and refractory periods, a different trigger; Bressloff-Linn treat an active run-and-tumble particle with a sticky target. These works furnish renewal methodology, not a demonstrated statement with the same coefficients and geometry.
+
+## value
+
+PASS
+
+Comparing protocols at equal mean passage time removes trivial speed advantages and reveals a sharp, dimensionless waiting-law volatility boundary. The exact sqrt(2/3) coefficient-of-variation cutoff distinguishes deterministic, exponential, and Gamma waiting protocols without reliance on their higher moments. This is a natural second-order search-performance invariant, not merely recomputing the MFPT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
