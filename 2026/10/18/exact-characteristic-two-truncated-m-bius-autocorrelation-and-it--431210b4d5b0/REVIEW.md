@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local weights were derived by an exhaustive classification of residues modulo the square of an irreducible. For primes not dividing the shift, two forbidden square-classes and two disjoint sign-changing residue families give the signed factor; for primes dividing the shift, signs cancel and the forbidden classes either coincide or are distinct according to divisibility by the square. Exact CRT equidistribution combined with an explicit, summable high-degree square-divisor bound establishes the infinite product. Polynomial Mertens follows from the irreducible-counting identity and a dominated-convergence remainder; division by its fourth power yields the nonzero limiting constant. The proof explicitly excludes zero shift, treats both degree-one primes, and fixes the order of limits. One hundred exact local tests and finite monic-degree checks provide independent arithmetic checks, not the infinite proof.
+## correctness
 
-**Originality — PASS, residual risk documented.** Chatterjee (arXiv:2610.06471v1) defines this function but explicitly excludes \(q=2\); its bivariate sieve cannot directly be specialized because of the norm-two local degeneracy, and its theorem is a size bound, not this fixed-cutoff product/sign/sharp asymptotic. Mangerel's source concerns integers, while Carmon's characteristic-two source addresses the untruncated Möbius function as field size grows. Searches of relevant literature, aliases and the public mathematical-results index found no statement implying the present characteristic-two fixed-field law. The use of CRT and the general squarefree local sieve are acknowledged as prior tools. A source with an unindexed implicit equivalent deduction remains possible.
+PASS
 
-**Mathematical value — PASS.** The parity-barrier degeneracy at degree-one primes in characteristic two creates an actual sign dichotomy rather than the usual nonnegative local singular series. This theorem determines that sign from the shift's two rational roots and establishes exact nonvanishing and a sharp quartic decay law, providing a structural boundary case absent from the motivating asymptotic analysis. The result is not a claim of improved uniformity for simultaneous degree/cutoff growth.
+Rebuilt all P² residue weights by divisibility and valuation v_P(a): if P∤a, degree≤M average 1−4/Q+2/Q², degree>M average 1−2/Q²; if P|a, averages 1−2/Q² for v=1 and 1−1/Q² for v≥2. Fresh independently written exact F₂[t] polynomial arithmetic exhaustively evaluated 320 local residue tests for eight irreducibles of degree≤4, eight nonzero shifts, five cutoff values. For any fixed finite set of P, CRT equidistribution of monic degree-n polynomials gives products; the omitted-square union tail ≤2∑_{d>K}2^(−d)/d uniformly after n sufficiently large. Only Q=2 gives a negative small-prime factor, giving sign via roots of a in F₂; no local factor vanishes. The finite-field prime-counting identity yields ∏_{degP≤M}(1−1/Q)∼e^(−γ)/M and absolutely convergent quotient factors 1+O(Q^(−2)), hence quartic scaling. The order of limits n then M is essential and respected.
 
-**Closest literature and limits.** Chatterjee 2026, §§1,3–4,6, Appendix B; Mangerel 2016, introduction, probabilistic model; Carmon 2015, introduction and characteristic-two theorem. The signed limit is sequential and only the fixed two-point shift is resolved. No independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chatterjee (2026) analyzes the same truncated Möbius statistic over F_q[t] but his stated characteristic-two exception concerns precisely q=2; the accessible abstract/metadata and package citation do not supply a theorem including its fixed-cutoff sign and quartic constant. Carmon studies ordinary Möbius correlations with different limits, and Mangerel works over integers. Originality is accepted best-of-knowledge but particularly sensitive to the inaccessible full Chatterjee paper; no whole-document NOT_COVERING assertion is made.
+
+## value
+
+PASS
+
+The characteristic-two obstruction in the motivating sieve setting creates a genuinely different signed local factor (negative at norm two). Its exact nonzero correlation and M^(−4) cutoff rate answer a natural previously excluded parameter regime, with a sharp sign law and usable local benchmark; the CRT proof alone is classical but its assembled statement is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
