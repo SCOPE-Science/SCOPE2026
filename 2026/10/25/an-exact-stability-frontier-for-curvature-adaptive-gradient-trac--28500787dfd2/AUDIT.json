@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For scalar quadratics the local gradient-difference ratio is exactly h_i, so the specified initialization fixes alpha_i=q/h_i. The tracking invariant and complete averaging give the stated second-order recurrence. The real quadratic Jury conditions are necessary and sufficient; verify.py checks the exact characteristic polynomial and two rational points below/above the two stability branches.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AdGT Theorem 2 requires a sufficient bound alpha_max < alpha_bar; Appendix C derives it from a three-error contraction matrix.",
+        "Qu and Li analyze a gradient-tracking method with a common fixed stepsize and provide sufficient network-dependent conditions.",
+        "Neither inspected statement gives a necessary-and-sufficient stability boundary for D=q diag(1/h_1,1/h_2) under W=11^T/2."
+      ],
+      "reasoning": "The general sufficient theorems may guarantee stability in a subset of the exact stable region, but they do not imply the sharp boundary or its two regimes. The new claim is intentionally restricted rather than presented as a generalization to all networks.",
+      "searches": [
+        "arXiv:2504.15196v5, Theorem 2 and Appendix C",
+        "arXiv:1605.07112, Section II-B and Theorem 1",
+        "graph-specific stability threshold heterogeneous local stepsizes gradient tracking quadratic consensus optimization"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/abs/2504.15196",
+        "role": "Primary algorithm and sufficient-convergence theorem; first public date 2025-04-21.",
+        "title": "AdGT: Decentralized Gradient Tracking with Adaptive Per-Agent Stepsizes"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/abs/1605.07112",
+        "role": "Classical gradient-tracking analysis with common fixed stepsize.",
+        "title": "Harnessing Smoothness to Accelerate Distributed Optimization"
+      },
+      {
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "role": "Closest indexed record; summary only.",
+        "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source's theorem is sufficient and depends on a generic error-recursion contraction; it does not state a necessary-and-sufficient threshold for the specified two-agent specialization.",
+        "The classical source uses a common fixed eta rather than per-agent reciprocal-curvature steps.",
+        "The closest indexed record's stated object is homogeneous curvature with common-step tuning."
+      ],
+      "reasoning": "The recurrence is derived directly from the source update and the invariant. The exact stability condition follows from the quadratic Jury test, so it is not merely a rewording or corollary of the cited sufficient conditions.",
+      "searches": [
+        "arXiv:2504.15196v5, equations (10), (15)-(16), Theorem 2, Appendix C",
+        "arXiv:1605.07112, equations (2)-(3), Theorem 1, Lemma 2",
+        "2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The AdGT source defines alpha_i^{k+1}=min{1/(2 gamma L_{f_i}^k), sqrt(1+theta_i^k) alpha_i^k}; on a scalar quadratic L_{f_i}^k=h_i for nonzero changes.",
+        "The exact recurrence is e_{k+1}=(1-q)e_k-q xi e_{k-1}, with xi=(h_1-h_2)^2/(4 h_1 h_2)."
+      ],
+      "reasoning": "The scalar recurrence and its Schur boundary are equivalent formulations of the same claim. No searched result stated this exact heterogeneous two-agent formula.",
+      "searches": [
+        "two-agent adaptive gradient tracking exact stability heterogeneous quadratic curvatures stepsizes inverse local curvature complete averaging",
+        "exact Schur stability boundary two agent gradient tracking heterogeneous step sizes local quadratic Hessians",
+        "arXiv:2504.15196v5, Algorithm 1 and equations (10), (15)-(16)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result: 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6, whose returned summary states a homogeneous scalar-quadratic, common-step graph-tuning result.",
+        "Other nearby indexed stability-frontier records concern stochastic PAGE/SVRG or unrelated adaptive optimizers, not the AdGT two-agent recurrence."
+      ],
+      "reasoning": "The searches found no direct match for the exact inverse-curvature two-agent formula. Search non-exhaustiveness is not treated as proof of novelty; the positive comparison is the mathematical difference from the closest identified results.",
+      "searches": [
+        "two-agent adaptive gradient tracking exact stability heterogeneous quadratic curvatures stepsizes inverse local curvature complete averaging",
+        "exact Schur stability boundary two agent gradient tracking heterogeneous step sizes local quadratic Hessians",
+        "parameter-free decentralized adaptive primal dual gradient tracking local min consensus two agent quadratic exact eigenvalues",
+        "AdGT adaptive per-agent stepsizes two agent quadratic gradient tracking exact stability boundary"
+      ]
+    },
+    "rationale": "The result is a sharp necessary-and-sufficient stability frontier for a specific heterogeneous reciprocal-curvature specialization. The inspected primary source gives a general sufficient bound but does not state this exact recurrence or frontier; the closest indexed graph-specific result is homogeneous/common-step and therefore does not cover the same claim.",
+    "residual_risks": [
+      "The closest indexed homogeneous-step record was available only as a summary, so a full-text statement-level comparison remains incomplete; its stated object is different from the claim.",
+      "The result is limited to the specified two-agent complete-averaging model; no inference is made for larger graphs or other adaptive variants.",
+      "A non-indexed paper or differently named equivalent may exist; the search supports a scoped originality assessment, not a proof of universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies a sufficient general-network bound but does not state the exact two-agent heterogeneous-curvature stability frontier.",
+        "evidence": "Theorem 2 assumes alpha_max below a graph- and problem-dependent alpha_bar; Appendix C obtains contraction from a three-error matrix.",
+        "identifier_or_url": "https://arxiv.org/abs/2504.15196",
+        "material_read": "Relevant full-text sections covering the update and local-gradient stepsize rule (equations (10), (15)-(16)), the main convergence theorem, numerical setup, and Appendix C proof of the generic sufficient condition.",
+        "method": "Specialized the exact update to two scalar quadratics and complete averaging; derived the tracker invariant and the reduced recurrence.",
+        "title": "AdGT: Decentralized Gradient Tracking with Adaptive Per-Agent Stepsizes",
+        "trigger": "Primary algorithm source for the adaptive per-agent update."
+      },
+      {
+        "assessment": "Related gradient-tracking theory, but it does not imply the claimed heterogeneous two-agent recurrence or its sharp threshold.",
+        "evidence": "The source uses one scalar eta for all agents and a sufficient bound depending on the consensus spectral parameter.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.07112",
+        "material_read": "Full-text sections describing the algorithm equations (2)-(3), Theorem 1, and the explicit sufficient stepsize bound in Lemma 2.",
+        "method": "Compared the update's common fixed stepsize and graph-dependent sufficient bound with the heterogeneous reciprocal-curvature steps in the claim.",
+        "title": "Harnessing Smoothness to Accelerate Distributed Optimization",
+        "trigger": "Classical gradient-tracking comparison."
+      },
+      {
+        "assessment": "The summary indicates a homogeneous scalar-quadratic, common-step tuning result, not the heterogeneous inverse-curvature AdGT specialization.",
+        "evidence": "The returned summary explicitly describes homogeneous distributed gradient tracking and a fixed-graph optimum.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "material_read": "Search-result summary only; full text not inspected.",
+        "method": "Compared stated object, homogeneity assumptions, and stepsize structure.",
+        "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+        "trigger": "Closest indexed mathematical result from the overlap search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28500787-dfd2-4227-b394-a4f9dc5c8151",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold is a natural minimal-network benchmark for an algorithm whose purpose is to use different local stepsizes. It quantifies when inverse-curvature adaptation remains stable and distinguishes two mathematically different boundary mechanisms: a root at -1 for mild mismatch and a unit-circle pair for larger mismatch. This is useful for calibrating the source's conservative sufficient safety-factor bound.",
+    "status": "PASS"
+  }
+}
