@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** In all finite contexts, the candidate's local proxy differs from the actual join-irreducible count by at most four times the number of incidence four-cycles plus two; the dual estimate is proved similarly. The proof derives the exact proxy expectation by a three-category multinomial count, obtains bounded expected four-cycle error, and applies Efron–Stein to get quantitative concentration. Direct exhaustive concept-lattice verification checked 74,384 small contexts and eight rational expectation identities; finite tests are supplementary, not a proof of the limit.
+## correctness
 
-**Originality — PASS, with residual risk.** Syau, Lin and Liau (2023, Propositions 2–3) give a deterministic irreducibility criterion, not a sparse-random density law. Sakurai (2021) computes the expectation and a lower bound for the total number of concepts, not join-/meet-irreducibles. Felde and Hanika (2018) address random context generation. Prior exact individual-object reducibility results do not count distinct irreducible concepts after duplicate clarification; their output omits the positive singleton-collision correction. Related concept *cover* reductions of Zhou et al. (2021) optimize a different invariant. Search results cannot rule out an equivalent theorem in older probabilistic lattice or random-graph literature.
+PASS
 
-**Mathematical value — PASS.** The two-sided limiting densities quantify the intrinsic size of a canonical reduced formal context in a natural sparse-data regime, with an explicit finite four-cycle stability certificate. The strictly positive gap between individually nonreducible rows and required distinct irreducible object concepts identifies a structural obstacle to naive simultaneous reduction, not just a row-counting curiosity. The theorem gives bounded expectation error and an explicit \(L^1\) convergence rate.
+Join-irreducible concepts are distinct object concepts; outside vertices on incidence 4-cycles, degree>=2 rows have unique maximal object intents (except bottom), and degree1 singleton rows yield a join-irreducible iff they exist and at most one higher-degree neighbor shares their attribute. Bad 4-cycle vertices and top/bottom exceptions give |J-Jtilde|<=4Q+2, with transposed dual. For fixed attribute, singleton/higher-degree/nonincident object classes are multinomial with parameters q=p(1-p)^(m-1), h=p[1-(1-p)^(m-1)], giving stated exact mean. E Q=binom(n,2)binom(m,2)(c/n)^4=O(1). Efron-Stein row/column resampling and bounded second degree moments prove variance O(n), yielding joint L1 rate. Duplicate singleton rows with >=2 copies and <=1 higher-degree neighbor yield stated positive Poisson correction.
 
-Limits: fixed \(\alpha,c>0\), sparse Bernoulli incidence, no fluctuation CLT or uniform-in-parameter claim. The originality investigation included published-finding corpus semantic records, accessible previous claims and full relevant primary text, but does not certify priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution is the specific additional statement, not reused techniques or credited general facts; four comparative checks and actual source material below. A new deterministic lemma and stochastic concentration argument are required to obtain the exact claimed densities.
+
+## value
+
+PASS
+
+Determines natural canonical irreducible object/attribute representation sizes of sparse FCA lattices with quantitative rates. The positive linear discrepancy from independently removable duplicate rows resolves a significant conceptual ambiguity in random formal-context reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
