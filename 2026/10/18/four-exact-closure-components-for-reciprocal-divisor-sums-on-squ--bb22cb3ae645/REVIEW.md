@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the sum of reciprocal squares of all divisors of a **squarefree positive integer**. Every value factors as a product of \(1+p^{-2}\) over a finite set of primes. For the prime tail \(p\ge5\), the logarithmic weights obey strict tail domination: seven small-prime cases have individually checked positive rational-product certificates; all primes \(p\ge29\) obey the analytic inequality from Nagura's \(6/5\) prime-interval theorem. The infinite binary-subsums lemma is stated and proved; finite subsums are dense in their complete interval. Euler products give \(R=54/(5\pi^2)\), and independent inclusions of \(2\) and \(3\) yield exactly four intervals. Archimedean rational bounds show \(1<R<10/9\), which forces strict gaps. The same finite certificates were regenerated from the packaged standard-library checker. Numerical samples are only corroboration, not a substitute for infinite proof.
+## correctness
 
-## Originality — PASS, with stated literature risk
-Defant's July 2015 article on restricted generalized divisor functions proves a threshold for connectedness and explicitly formulates the component-count problem. The new claim determines the full closure and **exactly four** components at the first integer exponent beyond that threshold. The closest publicly available unitary-divisor-range classification at the same exponent gives exactly two components of a *larger and different range* allowing positive prime powers. Its prime-tail analysis does not establish squarefree tail dominance, and its two-component theorem does not imply the current four-component identity. Papers treating the unrestricted ordinary divisor function are likewise noncovering by themselves. The published published-finding corpus semantic index and exact-title/parameter web searches returned no equivalent squarefree four-interval formula. The original Defant article was available as author-uploaded searchable text; its definitions, density theorem, and full open-problem section were inspected, and a published unitary-range proof was read in full. Other related full texts remain partly inaccessible. Consequently, possible unindexed or implicit stronger coverage is a residual risk, not a proved absence.
+PASS
 
-## Value — PASS
-This is a complete, naturally parametrized instance of a stated number-theoretic component-count question: the exactly four intervals, their explicit endpoints involving \(\pi\), and the three true gaps are all determined by an infinite theorem. The proof explains the arithmetic mechanism (a gap-free tail with two exceptional small primes). The result does not claim an interval of exponent parameters, a general component classification, or a bound for unrestricted divisor sums. A natural exact component count and gap structure, not a routine numerical table, motivates the calculation.
+The claim restricts n to squarefree positive integers and uses F(n)=sum_{d|n}d^{-2}=prod_{p|n}(1+p^{-2}); this is not the unrestricted ordinary or unitary divisor range. For primes q>=5, the log weights w_p=log(1+p^{-2}) satisfy w_p<sum_{q>p}w_q: independently recomputed exact rational finite product inequalities for p=5,7,11,13,17,19,23; for p>=29 Nagura supplies q_i<(6/5)^i p, then sum log(1+q^{-2})>25/[11(p^2+1)]>p^{-2}>log(1+p^{-2}). The explicit greedy infinite binary-subsum lemma therefore gives all log values in [0,sum_{p>=5}w_p], and finite products are dense, hence the prime tail interval [1,R] with R=prod_{p>=5}(1+p^{-2})=54/(5*pi^2). Independent omission/inclusion of primes 2,3 multiplies by 1,10/9,5/4,25/18. Strict Archimedean pi bounds prove 1<R<10/9<9/8, so all four scaled intervals are disjoint and exhaust the closure. This is a complete infinite argument depending on the known Nagura theorem; finite squarefree samples in checker.py are not accepted as the infinite proof. The disconnectedness is topological closure, not realized values pointwise.
 
-## Literature and scientific limitations
-Primary: C. Defant, *On the Density of Ranges of Generalized Divisor Functions with Restricted Domains*, arXiv:1507.02663 (first posted July 9, 2015); *Uniform Distribution Theory* 10 (2015), 19–33. For the required infinite prime-gap input: J. Nagura, *On the Interval Containing at Least One Prime Number*, *Proceedings of the Japan Academy* 28 (1952), 177–181. Nearby but different arithmetic settings: Defant, *Ranges of Unitary Divisor Functions*, arXiv:1507.02654, and Sanna, *On the Closure of the Image of the Generalized Divisor Function*, DOI:10.1515/udt-2017-0016. The proof requires Nagura's published theorem; the finite checker cannot independently re-prove it. Originality remains qualified by possible incompletely accessible prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Colin Defant 2015 studies the same restricted generalized divisor function, explicitly poses the classification of the number of closure components, and proves threshold connectedness but not a four-interval r=2 k=1 statement in inspected relevant sections. Carlo Sanna 2017 complete open 14-page primary article was newly inspected: its Theorem 1.1 and r=2 table are for unrestricted sigma_-2(N+) with THREE intervals and prime power factors; its concluding section only conjectures adapting to other multiplicative functions, so this theorem does not force the FOUR squarefree components. An existing unitary-divisor r=2 two-interval result also permits all prime powers. Best-of-knowledge the exact squarefree four-component classification survives, with priority uncertainty.
+
+## value
+
+PASS
+
+The squarefree divisor-function restriction is a natural domain singled out by Defant’s work. The exact number four and three explicit gaps at exponent r=2 provide a complete answer for a motivated component-count instance, with a general prime-tail mechanism explaining why precisely primes 2 and 3 split the closure. This is neither a finite sample nor an arbitrary cosmetic variant of unrestricted three-component tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

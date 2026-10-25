@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:49:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 757120b7ba6aaf55812d363787aba1539e1ae784",
+        "Inspected checker.py 14140a559479eaf07cce06d95785e7857058a346",
+        "Independent Python Fraction recomputation of all seven finite-prime tail products",
+        "Nagura 1952, DOI:10.3792/pja/1195570997"
+      ],
+      "rationale": "The claim restricts n to squarefree positive integers and uses F(n)=sum_{d|n}d^{-2}=prod_{p|n}(1+p^{-2}); this is not the unrestricted ordinary or unitary divisor range. For primes q>=5, the log weights w_p=log(1+p^{-2}) satisfy w_p<sum_{q>p}w_q: independently recomputed exact rational finite product inequalities for p=5,7,11,13,17,19,23; for p>=29 Nagura supplies q_i<(6/5)^i p, then sum log(1+q^{-2})>25/[11(p^2+1)]>p^{-2}>log(1+p^{-2}). The explicit greedy infinite binary-subsum lemma therefore gives all log values in [0,sum_{p>=5}w_p], and finite products are dense, hence the prime tail interval [1,R] with R=prod_{p>=5}(1+p^{-2})=54/(5*pi^2). Independent omission/inclusion of primes 2,3 multiplies by 1,10/9,5/4,25/18. Strict Archimedean pi bounds prove 1<R<10/9<9/8, so all four scaled intervals are disjoint and exhaust the closure. This is a complete infinite argument depending on the known Nagura theorem; finite squarefree samples in checker.py are not accepted as the infinite proof. The disconnectedness is topological closure, not realized values pointwise.",
+      "residual_risks": [
+        "The proof uses Nagura’s classical prime-between-x-and-6x/5 theorem for all real x>=25.",
+        "It proves exactly a closure, not that each continuum point is attained by finite squarefree integer n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanna uses local factors sigma_-r(p^a)=1+p^-r+...+p^-ar with unrestricted a, leading at r=2 to [1,pi^2/9]∪[10/9,pi^2/8]∪[5/4,pi^2/6].",
+          "Squarefree only allows a=0,1; an unrestricted three-component result does not determine a restricted subset’s number of components."
+        ],
+        "reasoning": "Even a general finite-union theorem for sigma_-r on all n does not imply a restricted four-component formula; Sanna’s §6 says generalizing methods to other multiplicative functions is possible future work, not a proved inclusion theorem.",
+        "searches": [
+          "Sanna 2017 complete OA paper, Theorem 1.1, §§2–5 and §6",
+          "Defant arXiv:1507.02663 density theorem",
+          "Resultary record: exactly two components for unitary divisor range at t=-2"
+        ]
+      },
+      "checked_sources": [
+        "Defant, arXiv:1507.02663, relevant sections and full open question",
+        "Sanna, DOI:10.1515/udt-2017-0016 complete OA primary paper, relevant theorems and proof",
+        "Nagura, DOI:10.3792/pja/1195570997 prime short-interval theorem",
+        "Resultary unitary and alternating exact component comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defant threshold and open component-count question do not determine exact k=1,r=2 intervals.",
+          "Unrestricted (three components) and unitary (two components) superranges may fill several gaps of a squarefree subset; neither theorem implies the subset has four."
+        ],
+        "reasoning": "The new proof needs the stronger squarefree tail no-gap estimate and separate small-prime cases; cannot be inferred by setting the parameter r=2 in unrestricted Sanna.",
+        "searches": [
+          "Defant arXiv:1507.02663 same restricted function",
+          "Sanna DOI:10.1515/udt-2017-0016 and its exact unrestricted r=2 example",
+          "Resultary unitary divisor two-component record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant defines sigma_{-r,k} with k=1 meaning squarefree, and §3 asks for exact interval-component counts.",
+          "Sanna 2017 theorem at r=2 has exactly THREE intervals for unrestricted n, not four for squarefree n."
+        ],
+        "reasoning": "Equivalent formulations include the finite products of (1+p^{-2}), sigma_{-2,1}, and four connected components. Neither inspected source states the full squarefree four-interval identity.",
+        "searches": [
+          "Resultary semantic search: closure image squarefree reciprocal divisor sum sigma minus two four connected intervals",
+          "arXiv:1507.02663 (Defant restricted divisor functions)",
+          "DOI:10.1515/udt-2017-0016 (Sanna unrestricted)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published unrestricted table has endpoints involving pi^2, differing from squarefree tail R=54/(5*pi^2).",
+          "Related indexed unitary and alternating divisor records have two components; their Euler factors differ."
+        ],
+        "reasoning": "The whole 14-page Sanna paper has been inspected at theorem/proof and examples including §5; it does not tabulate the proposed restricted four intervals. A full database-equivalent result remains possible elsewhere.",
+        "searches": [
+          "Sanna 2017 §5 exact r=2 three-interval table",
+          "Resultary semantic query for squarefree reciprocal-square four-component closure",
+          "Defant arXiv:1507.02663 §3"
+        ]
+      },
+      "rationale": "Colin Defant 2015 studies the same restricted generalized divisor function, explicitly poses the classification of the number of closure components, and proves threshold connectedness but not a four-interval r=2 k=1 statement in inspected relevant sections. Carlo Sanna 2017 complete open 14-page primary article was newly inspected: its Theorem 1.1 and r=2 table are for unrestricted sigma_-2(N+) with THREE intervals and prime power factors; its concluding section only conjectures adapting to other multiplicative functions, so this theorem does not force the FOUR squarefree components. An existing unitary-divisor r=2 two-interval result also permits all prime powers. Best-of-knowledge the exact squarefree four-component classification survives, with priority uncertainty.",
+      "residual_risks": [
+        "An unindexed or differently worded squarefree-specific formula may exist; queries and inspected tables do not prove priority.",
+        "A different generalized multiplicative function theorem outside the inspected primary sources may imply the squarefree special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The checked density theorem and stated open problem do not give four exact squarefree r=2 intervals",
+          "evidence": "Definition k=1 squarefree; §3 component-count question",
+          "identifier_or_url": "arXiv:1507.02663",
+          "material_read": "Primary full available document: definitions §1, connectedness theorem/argument in §2 and complete §3 statement posing interval-count classifications; relevant page screenshot",
+          "method": "Open arXiv PDF text and figure/page inspection",
+          "title": "On the Density of Ranges of Generalized Divisor Functions with Restricted Domains",
+          "trigger": "Exact restricted divisor-function family and component-count open problem"
+        },
+        {
+          "assessment": "Unrestricted n r=2 table gives three intervals; no squarefree four-interval result; extension to other multiplicative functions posed in §6 rather than proved",
+          "evidence": "Theorem 1.1 and §5 [1,pi²/9],[10/9,pi²/8],[5/4,pi²/6]; §6 possible generalizations",
+          "identifier_or_url": "DOI:10.1515/udt-2017-0016; https://cervantes.erdospublish.org/archive/2017/udt.2017.12.issue-2/UDT.2017.2.00006/On_the_Closure_of_the_Image_of_the_Generalized_Divisor_Function.pdf",
+          "material_read": "Entire 14-page open-access journal PDF available; read statement and proofs/definitions in §§1–3, exact r=2 three-interval classification in §5, and generalization discussion in §6; selected pages rendered visually",
+          "method": "OA primary PDF full text and screenshot examination",
+          "title": "On the Closure of the Image of the Generalized Divisor Function",
+          "trigger": "Same reciprocal exponent, apparent stronger full-domain closure method and table"
+        },
+        {
+          "assessment": "Supplies a known prime-gap input, not a four-interval divisor-sum classification",
+          "evidence": "Prime short interval 1.2x for x>=25",
+          "identifier_or_url": "DOI:10.3792/pja/1195570997; Nagura 1952",
+          "material_read": "Classical x<q<6x/5 for x>=25 statement and threshold as cited in source; relevant opening/closing page material",
+          "method": "Primary mathematical theorem statement cross-check",
+          "title": "On the Interval Containing at Least One Prime Number",
+          "trigger": "Key infinite-prime-tail domination input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Defant, arXiv:1507.02663, relevant sections and full open question",
+        "Sanna, DOI:10.1515/udt-2017-0016 complete OA primary paper, relevant theorems and proof"
+      ],
+      "rationale": "The squarefree divisor-function restriction is a natural domain singled out by Defant’s work. The exact number four and three explicit gaps at exponent r=2 provide a complete answer for a motivated component-count instance, with a general prime-tail mechanism explaining why precisely primes 2 and 3 split the closure. This is neither a finite sample nor an arbitrary cosmetic variant of unrestricted three-component tables.",
+      "residual_risks": [
+        "The theorem does not classify exponents other than two or unrestricted/divisor-unitary domains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Both the prime-gap theorem and standard Euler products are cited mathematical inputs; finite checker alone does not establish them.",
+    "Squarefree component count differs sharply from the prior unrestricted r=2 three intervals.",
+    "Frozen public AUDIT.json and METADATA.json both retain scope_run_id internal operational identifiers. No complete safe public replacement bytes with exact blob guards and SHA-256 were prepared. Publication therefore withheld independently of scientific verdict."
+  ],
+  "schema_version": 1
+}
