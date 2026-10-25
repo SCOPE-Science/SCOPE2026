@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T21:52:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Checked the operator acts on monomial z^beta w^b as rho^b (N+b)/(N+b+k) z^beta w^(b+k), with N=|beta|; normalized target monomials are distinct, so the singular values are exactly their weight ratios (rather than merely comparable). Reconstructed the Fubini/Beta monomial squared norm pi^n beta!/(b+1) Gamma(1+(b+1)/m)/Gamma(N+n+(b+1)/m). Fixed-b gamma quotient yields sigma_{N,b}~rho^b A_b N^{-k/(2m)} and multiplicity binom(N+n-2,n-2), giving p*=2m(n-1)/k and coefficient (n-1)!^{-1}sum_b rho^{b p*}A_b^{p*}. The uniform gamma ratio bound C rho^b(1+b)^a(1+N)^(-a) ensures a summable degree-by-degree counting envelope for every fixed rho<1; rho=0 leaves b=0 only. A_b^{p*}~m^{-(n-1)}b^{n-1}, and standard Abelian series asymptotics give (1-rho)^n L ->m^{-(n-1)}p*^{-n}; this order of limits is essential. At rho=1, fixed N and b->infty makes singular weight tend to 1 on orthogonal columns, giving essential norm=norm=1; rho<1 compact, converges strongly but distance always 1. Independent numerical checks recomputed 16 exact gamma/singular-value specializations (n=m=k=2, b=0,1,3,9 and N=1,5,30,100), and the closed constant L=1/[2(1-rho²)^2] at rho=0,.2,.5,.8; all agree to floating precision. These finite numerical checks corroborate but do not prove the Weyl law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dong–Xu original full HTML includes general Carleson boundedness/Schatten criteria in §§3-4 and an explicit fully collapsed ellipsoid model §3.3 with only power-order singular-value decay; no exact rho-series Weyl constant or endpoint-pole theorem was identified in the materially read full HTML.",
+          "Theorem 9.14/Proposition 9.15 of the separate work concern positive quasi-radial Toeplitz spectral laws, not these companion singular values."
+        ],
+        "reasoning": "General Schatten characterization and comparable singular-value orders do not imply the exact limit t^{p*}N(t) or the contraction-collapse pole. A universal general monomial-multiplier Weyl theorem could imply the result after substantial specialization; no such dominating statement was confirmed.",
+        "searches": [
+          "https://arxiv.org/abs/2609.27584",
+          "https://arxiv.org/abs/2609.23653",
+          "generalized Volterra companion Bergman ellipsoid partial contraction Weyl singular values asymptotic weak Schatten precise coefficient"
+        ]
+      },
+      "checked_sources": [
+        "Frozen exact RESULT.md and all metadata/review/verification files; monomial gamma and endpoint proof reconstruction",
+        "Independent n=m=k=2 16 numerical singular-values and four rho coefficient checks",
+        "Dong–Xu arXiv:2609.27584 substantial full HTML §§3.3-4.3",
+        "Dong–Xu arXiv:2609.23653 full primary PDF §9.3",
+        "Resultary 12 semantic hits for exact rho Weyl law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original same-object paper §3.3 at rho=0 proves threshold and order, but does not display rho in the transverse monomial coefficient.",
+          "For 0<rho<1 an infinite weighted sum over b creates L(rho), whose Abelian divergence is absent at rho=0; the endpoint noncompactness follows from b->infty and is not a corollary of a compact-range theorem."
+        ],
+        "reasoning": "The collapsed baseline is covered, the exact all-rho weak Weyl constant/critical residue and endpoint pole are additional statements. This is PASS subject to a possible broader generic multiplier theorem and to complete equation comparability in rendered HTML.",
+        "searches": [
+          "https://arxiv.org/abs/2609.27584",
+          "https://arxiv.org/abs/2609.23653",
+          "generalized Volterra companion Bergman ellipsoid partial contraction Weyl singular values asymptotic weak Schatten precise coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong–Xu §3.3 treats the same ellipsoid with collapsed map (z,0), g=w^k and proves power decay/threshold; this is rho=0 (and the exponent) of the present family.",
+          "Dong–Xu different 2609.23653 §9.3 treats quasi-radial positive Toeplitz operators, not derivative-on-input Volterra companions."
+        ],
+        "reasoning": "The orthogonal-monomial formula gives a genuine diagonal singular spectrum; equivalence to a positive weighted Toeplitz multiplier is possible at the level of T*T, but the cited positive quasi-radial Toeplitz spectral constants lack this rho-dependent monomial symbol and do not directly yield its Weyl coefficient/pole.",
+        "searches": [
+          "generalized Volterra companion Bergman ellipsoid partial contraction Weyl singular values asymptotic weak Schatten precise coefficient",
+          "https://arxiv.org/abs/2609.27584",
+          "https://arxiv.org/abs/2609.23653"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns different Hardy/Cesàro operators, weighted integration, Fock shifts and Bergman Toeplitz spectra; none has the specified partial-contraction Bergman ellipsoid coefficient.",
+          "The special case rho=0 threshold is in original Dong–Xu §3.3 and is expressly credited as prior."
+        ],
+        "reasoning": "The new parameter-dependent constant is an analytic series, not a known table value identified by exact database search; no-match is not proof of priority.",
+        "searches": [
+          "generalized Volterra companion Bergman ellipsoid partial contraction Weyl singular values asymptotic weak Schatten precise coefficient",
+          "Resultary 12 semantic hits including exact singular-value coefficient of generalized Cesàro operators"
+        ]
+      },
+      "rationale": "The searched primary statements were compared for mathematical implication, with prior scalar/global ingredients explicitly credited. A best-of-knowledge PASS attaches only to the incremental claim and retains genuine residual risks, not to any global proof of historical priority.",
+      "residual_risks": [
+        "A general exact spectral theorem for diagonally weighted Bergman monomial multipliers or related Toeplitz T*T may imply the result and remains a bibliographic priority risk.",
+        "The public arXiv HTML omits rendered portions of some equations; the original source was materially inspected by section and prose but a PDF rendering was unavailable in this run.",
+        "Asymptotic limits are iterated (first t↓0 at fixed rho, then rho↑1), no uniform two-parameter scaling claimed.",
+        "Finite-numeric checks cannot establish the counting law in infinitely many transverse degrees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original rho=0 model, the exponent and Schatten threshold; in inspected text does not state the continuum rho Weyl constant and order-n pole.",
+          "evidence": [
+            "September 23 2026 paper: §3.3 uses phi(z,w)=(z,0), g=w^k; monomial multiplicity ~N^{n-2} and power order j^{-k/(2m(n-1))}; §4.3 covers compact-range exponential decay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27584",
+          "material_read": "Substantial full arXiv HTML, including Introduction, §3.3 example lines 604-616, §4.1-4.3 companion criteria and compact-range proposition; HTML text occasionally omits displayed math, so checked textual theorem/derivation and limitations.",
+          "method": "Directly opened original arXiv full HTML and inspected exact relevant statements; Oxford worker reported unavailable, but HTML full article was accessible.",
+          "title": "Generalized Volterra Companion Operators on Bergman Spaces over Convex Domains of Finite Type",
+          "trigger": "Same precise operator, domain and symbol"
+        },
+        {
+          "assessment": "Exact positive Toeplitz spectral asymptotics are not the present derivative-on-input companions; transfer would require a new explicit operator identification.",
+          "evidence": [
+            "Theorem 9.14/Proposition 9.15 address quasi-radial Toeplitz eigenvalues rather than partial-contraction companion singular values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.23653",
+          "material_read": "Accessible full PDF and original Section 9.3 Theorem 9.14/Proposition 9.15, with selected PDF page screenshots and theorem statement inspection.",
+          "method": "Read primary full-text theorem and positivity/quasi-radial hypotheses.",
+          "title": "Absolutely Summing Operators on Bergman Spaces over Convex Domains of Finite Type",
+          "trigger": "Closest companion-family spectral generalization for positive Toeplitz objects"
+        },
+        {
+          "assessment": "Fock-space generalized Volterra companions have different monomial geometry from finite-type Bergman ellipsoids.",
+          "evidence": [
+            "Mengestie 2015 arXiv works with Fock spaces, not the current ellipsoid and rho-dependent coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.03536",
+          "material_read": "Original title/abstract and referenced venue/domain scope, not the entire primary article.",
+          "method": "Bibliographic and mathematical-domain comparison.",
+          "title": "Schatten Class Generalized Volterra Companion Integral Operators",
+          "trigger": "Terminological same operator type and Schatten conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The partially collapsed self-map retains full boundary tangency in the z directions, so relatively compact composition-range exponential spectral estimates do not apply; its exact gamma-series Weyl coefficient yields information substantially sharper than Schatten-membership thresholds. The precise nth-order blowup as transverse contraction vanishes quantifies a natural compact-to-noncompact transition, with a closed checkable type-four dimension-two benchmark and a logarithmic critical singular-value residue. These are analytically motivated spectral invariants, not parameter relabeling or a tiny numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen exact RESULT.md and all metadata/review/verification files; monomial gamma and endpoint proof reconstruction",
+    "Independent n=m=k=2 16 numerical singular-values and four rho coefficient checks",
+    "Dong–Xu arXiv:2609.27584 substantial full HTML §§3.3-4.3",
+    "Dong–Xu arXiv:2609.23653 full primary PDF §9.3",
+    "Resultary 12 semantic hits for exact rho Weyl law"
+  ],
+  "disposition": "passed",
+  "limitations": "n,m>=2, k>=1, fixed 0<=rho<1 for compact spectral asymptotic, unweighted Hilbert Bergman ellipsoid and monomial symbol; endpoint rho=1 separately noncompact, no uniform t-rho double limit or noncommutative trace identification asserted.",
+  "residual_risks": [
+    "A general exact spectral theorem for diagonally weighted Bergman monomial multipliers or related Toeplitz T*T may imply the result and remains a bibliographic priority risk.",
+    "The public arXiv HTML omits rendered portions of some equations; the original source was materially inspected by section and prose but a PDF rendering was unavailable in this run.",
+    "Asymptotic limits are iterated (first t↓0 at fixed rho, then rho↑1), no uniform two-parameter scaling claimed.",
+    "Finite-numeric checks cannot establish the counting law in infinitely many transverse degrees."
+  ],
+  "schema_version": 1
+}

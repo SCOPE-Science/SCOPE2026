@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full singular spectrum follows from exact monomial normalization and the radial derivative; the disjoint target monomial images give a genuine orthogonal singular-value representation. A fixed-transverse-degree counting argument with exact binomial multiplicities, followed by a uniform summable gamma-quotient majorant, proves the full Weyl constant. An Abelian power-series calculation gives the endpoint coefficient; an orthogonal-sequence argument gives essential norm and strong-but-not-norm convergence. The checker tests special cases and finite cutoffs but is not relied on as an infinite proof.
+## correctness
 
-**Originality — PASS under the inspected-source comparison, with residual risks.** The directly motivating Dong–Xu companion paper treats the fully collapsed map and its exponent/threshold, not the exact Weyl series for all partial transverse contractions or the endpoint pole. Dong–Xu's separate positive-Toeplitz spectral theorem is a relevant broader methodological comparison, but its object and hypotheses are different and do not directly imply this companion coefficient. Mengestie's Fock-space companion theorem likewise does not cover the finite-type ellipsoid. Direct comparison with relevant mathematical statements identified no controlling equivalent claim. A universal monomial multiplier counting theorem could still subsume the result; no absolute publication priority is claimed.
+PASS
 
-**Value — PASS.** The map contracts only the transverse variable and retains boundary contact in tangential directions, so the usual relatively-compact-range exponential singular-value estimates cannot apply. The closed Weyl coefficient and its sharp dimension-dependent divergence quantify a natural transition from compact weak-Schatten decay to a noncompact operator. The explicit two-dimensional type-four formula gives a checkable benchmark and a nontrivial endpoint behavior not furnished by a mere Schatten-membership test.
+PASS: Checked the operator acts on monomial z^beta w^b as rho^b (N+b)/(N+b+k) z^beta w^(b+k), with N=|beta|; normalized target monomials are distinct, so the singular values are exactly their weight ratios (rather than merely comparable). Reconstructed the Fubini/Beta monomial squared norm pi^n beta!/(b+1) Gamma(1+(b+1)/m)/Gamma(N+n+(b+1)/m). Fixed-b gamma quotient yields sigma_{N,b}~rho^b A_b N^{-k/(2m)} and multiplicity binom(N+n-2,n-2), giving p*=2m(n-1)/k and coefficient (n-1)!^{-1}sum_b rho^{b p*}A_b^{p*}. The uniform gamma ratio bound C rho^b(1+b)^a(1+N)^(-a) ensures a summable degree-by-degree counting envelope for every fixed rho<1; rho=0 leaves b=0 only. A_b^{p*}~m^{-(n-1)}b^{n-1}, and standard Abelian series asymptotics give (1-rho)^n L ->m^{-(n-1)}p*^{-n}; this order of limits is essential. At rho=1, fixed N and b->infty makes singular weight tend to 1 on orthogonal columns, giving essential norm=norm=1; rho<1 compact, converges strongly but distance always 1. Independent numerical checks recomputed 16 exact gamma/singular-value specializations (n=m=k=2, b=0,1,3,9 and N=1,5,30,100), and the closed constant L=1/[2(1-rho²)^2] at rho=0,.2,.5,.8; all agree to floating precision. These finite numerical checks corroborate but do not prove the Weyl law.
 
-**Closest literature and limitations.** Dong and Xu, arXiv:2609.27584v1 (Section 3.3, collapsed projection); Dong and Xu, arXiv:2609.23653v1 (Theorem 9.14 and Proposition 9.15, positive Toeplitz spectra); Mengestie, arXiv:1507.03536v1 (Fock spaces). The result is confined to the stated ellipsoid and symbol family. General monomial spectral asymptotics and the full content of some associated weighted-composition literature remain possible priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The searched primary statements were compared for mathematical implication, with prior scalar/global ingredients explicitly credited. A best-of-knowledge PASS attaches only to the incremental claim and retains genuine residual risks, not to any global proof of historical priority.
+
+## value
+
+PASS
+
+PASS: The partially collapsed self-map retains full boundary tangency in the z directions, so relatively compact composition-range exponential spectral estimates do not apply; its exact gamma-series Weyl coefficient yields information substantially sharper than Schatten-membership thresholds. The precise nth-order blowup as transverse contraction vanishes quantifies a natural compact-to-noncompact transition, with a closed checkable type-four dimension-two benchmark and a logarithmic critical singular-value residue. These are analytically motivated spectral invariants, not parameter relabeling or a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
