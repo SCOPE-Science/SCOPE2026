@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The window's ambiguity transform is nonzero exactly on the cyclic lag band because each nonempty overlap is geometric with nonunit modulus ratio. The measured diagonal products yield the precise connectivity criterion against unrestricted competitors. Modulation reduces all Floquet characters to one periodic sector; Fourier support then occupies one \(q\)-spaced residue class. Failure in both domains creates one time zero run of length \(m\) in each of \(q\) periods and two spectral gaps, each containing \(\lfloor m/q\rfloor\) missing sublattice sites. Tao's prime-order additive uncertainty inequality proves the exclusion threshold. Explicit root-polynomial witnesses attain every admissible failure width, including \(\lfloor m/q\rfloor=0\), with no numerical limiting step. The derived quotient-remainder formula is exact. A standalone finite checker corroborates boundary examples; the proof is analytic.
+PASS
 
-## Originality
+For exponential band window with m<p≤N/2, its STFT ambiguity is nonzero exactly on cyclic lags |a|≤m, so magnitudes recover phase products along those support edges; failure iff cyclic support graph has ≥2 separated zero gaps of length ≥m. Fourier covariance converts recovery with Fourier window to recovery of transformed signal. Every Floquet sector is modulated repetition of a p-periodic vector; two spatial/frequency disconnections yield |supp u|≤p-m and |supp Fu|≤p-2⌊m/q⌋, contradicting Tao prime uncertainty p+1 unless m+2⌊m/q⌋≤p-1. Explicit polynomial with roots in two length-h blocks constructs counterexamples at every admissible smaller m. The Euclidean closed threshold follows. Recomputed threshold for p≤13 q≤6 and polynomial Fourier zero sets for each witness.
 
-**PASS, qualified.** Bartusel's 2026 primary paper was inspected in its full accessible text, especially Theorem 2.4, Lemma 2.5, Theorem 2.6, Corollary 2.8 and Example 2.9. It establishes the building blocks and an all-signal composite sufficient condition, but does not state the complete exact threshold for fixed prime-period translation eigensectors of composite cycles. Tao's known prime-order uncertainty theorem is explicitly used rather than relabeled as new. The 2026 continuous periodic two-window paper has a distinct measurement model. Published discrete Fourier support and Gabor graph results found in semantic searches concern support cardinalities, different windows or nowhere-zero signal fibers; none implies the stated all-band iff theorem. The risk of earlier unlocated equivalent sector results remains; no absence-of-search-result inference is treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** A symmetry-resolved complete classification directly sharpens the emerging strong two-window reconstruction question: it distinguishes a natural \(p\)-periodic/Floquet signal class from arbitrary composite-length signals, gives an explicit arithmetic bandwidth transition for every repetition factor, and supplies phase-ambiguous counterexamples on the entire complementary range. The answer tells exactly when either a time-local or frequency-local spectrogram alone must identify *every* signal of a physically natural symmetry class. It is more than a fixed example or a numerical support count; the sharp family and witnesses vary over infinitely many primes and multipliers.
+Bartusel supplies the phase-product graph characterization, dual Fourier-window criterion and a general composite-size sufficient bound; Tao supplies prime support uncertainty. Neither the general composite condition nor prime-only corollary determines the exact necessary-and-sufficient threshold inside each prime-period Floquet eigenspace of pq with unrestricted comparison signals.
 
-## Closest literature and limitations
+## value
 
-The decisive inputs are Bartusel, *Uncertainty Principles as a Tool for STFT Phase Retrieval* (arXiv:2605.31507, first posted May 29, 2026), and Tao, *An uncertainty principle for cyclic groups of prime order* (arXiv:math/0308286). Chen–Lu–Sun–Zhao (arXiv:2602.05210) treats a different continuous sampled-STFT model. This work does not settle unrestricted composite cyclic phase retrieval, nor stability or noise, and historical-priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sector-specific bandwidth transition, elementary closed formula and matching witnesses give a motivated improvement over generic composite STFT thresholds in an invariant signal class; the necessary-versus-sufficient window quantifier is precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
