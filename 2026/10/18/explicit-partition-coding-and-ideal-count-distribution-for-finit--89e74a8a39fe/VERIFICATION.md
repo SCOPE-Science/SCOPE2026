@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof checks
 
-Run `python3 verify.py` using Python 3's standard library. It prints `VERIFY_OK` only after the following tests complete:
+# Independent mathematical audit
 
-- All partitions of sets with zero through seven labels are decoded into operations satisfying the unit, separation, order, and cycloid identities; the decoder-to-encoder round trip and injectivity are checked for every partition.
-- The number of non-unit invariant elements equals the number of blocks, and the counts by block number agree with independent Stirling-number dynamic programming for each input size from one through eight.
-- For each input size at most five, a separate brute-force search of the raw L identities enumerates every permitted multiplication matrix and checks setwise equality with the partition images.
-- For each input size at most six, every nonempty proper subset is tested against all four defining ideal axioms; the number of ideals matches the partition block count.
+## correctness
 
-These exhaustive checks are finite and do not substitute for the proof on every size. For arbitrary size, the crucial scientific premises are the unique-extension lemma and the finite-chain decomposition in Dietzel–Menchón–Vendramin, Proposition 4.4 and Theorem 4.5, and the invariant/ideal bijection of Properzi–Qin, Theorem 4.3. All three were inspected in the primary source text. The code includes the decoder, encoder, direct operation enumeration, invariant check, and independent ideal test. No external verification or independence certification is asserted.
+PASS
+
+Reconstructed the recursive block-deletion encoding on S_n=[1,n-1]. For any block B containing n-1, C=S_n\B, m=|C|+1, recursively construct the top m-element algebra, adjoin x_m as a new smallest invariant, and use strictly increasing row-output indices b in B\{n-1} in the UNIQUE published extension formula. Inverting via the maximal non-unit invariant m, its strict row-output set A and compressed top algebra proves a bijection for all n by induction. Every appended block adds exactly one non-unit invariant; Properzi–Qin Theorem 4.3 makes its upper-set a distinct proper nonempty ideal. Thus the ideal histogram is S(n-1,k), including n=1 and k=0. The source verify.py actual recursion, L-cycloid check, direct raw-table comparison n<=5, ideal-axiom subset enumeration n<=6 and partition tests n<=8 were read; these bounded scripts are corroboration, not the universal proof. Essential published hypotheses and extension lemma were checked in Dietzel–Menchón–Vendramin Prop4.4/Theorem4.5 and ideal theorem in Properzi–Qin.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the fully specified inverse partition code and resulting Stirling ideal distribution, not for the established Bell B_(n-1) count, chain extension/decomposition, or the known ideal/invariant classification. Published Problem4.6 explicitly asks for a partition code but prints the inconsistent n labels; this resolves the cardinality-consistent n-1-label question only. Rump is plausible inaccessible overlap; recorded rather than assumed disproven.
+
+## value
+
+PASS
+
+A natural explicit coding addresses a published combinatorial enumeration problem and refines the classification by a structurally meaningful algebraic invariant: number of proper ideals, with full Stirling law. Researchers can reconstruct multiplication tables and separate ideal strata; this is not an arbitrary statistic or a retelling of the known Bell count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

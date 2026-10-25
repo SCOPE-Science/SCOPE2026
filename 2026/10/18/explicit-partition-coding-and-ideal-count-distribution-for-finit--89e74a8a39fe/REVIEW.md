@@ -1,15 +1,21 @@
-# Review of explicit partition coding and ideal-count distribution
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof supplies a deterministic forward and inverse code on each fixed chain, applies the precise admissible-choice and uniqueness hypotheses of Dietzel–Menchón–Vendramin, Proposition 4.4 and Theorem 4.5, and derives the proper-ideal count from Properzi–Qin, Theorem 4.3. For each partition the distinguished block containing the maximum label determines the size of the recursively smaller chain and all successive extension parameters. Conversely the smallest non-unit invariant and its strictly decreasing row values uniquely reconstruct that block. The induction proves universality, not just a finite pattern. The independent direct exhaustive program verifies the entire list of L-operations for at most five points and checks ideal axioms on at most six points. The proof, not those tests, gives the all-size result.
+## correctness
 
-## Originality — PASS, with bounded residual risk
-The 2022 source proves the total Bell-number count and a unique recursive decomposition into a smaller L-algebra and a subset; its Problem 4.6 expressly asks for an explicit partition bijection. The new construction maps that decomposition to the canonical block containing the greatest partition label, with explicit decoding and its inverse. The later 2025 source characterizes proper ideals by invariant elements but does not state the block-graded enumeration. Thus the code, and its direct compatibility with the ideal statistic, are the precise contribution; neither the Bell count nor the ideal characterization alone is claimed. Searches for equivalent codings and Stirling-by-ideals distributions did not reveal matching statements. Residual risks: this coding is a simple combination of published bijective decompositions; one related article by Rump (2022) on prime factorization could not be read beyond the abstract, and might include an equivalent encoding. These risks do not establish a known equivalent.
+PASS
 
-## Mathematical value — PASS
-An algorithmic bijection addresses the natural explicit-coding question posed by the original enumeration paper. Tracking a structurally meaningful invariant—the size of the proper-ideal lattice—gives the exact Stirling refinement for all finite sizes and a reproducible example generator stratified by ideal count. This is not an arbitrary small-size census or merely a re-expression of Bell totals; it gives an explicit reconstructible classification and an interpretable exact distribution. Its value is bounded because the difficult extension and ideal theorems are prior work.
+Reconstructed the recursive block-deletion encoding on S_n=[1,n-1]. For any block B containing n-1, C=S_n\B, m=|C|+1, recursively construct the top m-element algebra, adjoin x_m as a new smallest invariant, and use strictly increasing row-output indices b in B\{n-1} in the UNIQUE published extension formula. Inverting via the maximal non-unit invariant m, its strict row-output set A and compressed top algebra proves a bijection for all n by induction. Every appended block adds exactly one non-unit invariant; Properzi–Qin Theorem 4.3 makes its upper-set a distinct proper nonempty ideal. Thus the ideal histogram is S(n-1,k), including n=1 and k=0. The source verify.py actual recursion, L-cycloid check, direct raw-table comparison n<=5, ideal-axiom subset enumeration n<=6 and partition tests n<=8 were read; these bounded scripts are corroboration, not the universal proof. Essential published hypotheses and extension lemma were checked in Dietzel–Menchón–Vendramin Prop4.4/Theorem4.5 and ideal theorem in Properzi–Qin.
 
-## Closest literature and scientific limits
-Dietzel–Menchón–Vendramin, *On the enumeration of finite L-algebras* (arXiv:2206.04955, Section 4); Properzi–Qin, *L-algebras and their ideals* (arXiv:2512.08579, Section 4); and Rump, *Linear L-Algebras and Prime Factorization* (doi:10.1007/s11225-022-10018-1; only its abstract was accessible). The original printed Problem 4.6 asks for partitions of one too many labels; the stated theorem uses the cardinality-correct domain. An independent external literature or proof audit has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the fully specified inverse partition code and resulting Stirling ideal distribution, not for the established Bell B_(n-1) count, chain extension/decomposition, or the known ideal/invariant classification. Published Problem4.6 explicitly asks for a partition code but prints the inconsistent n labels; this resolves the cardinality-consistent n-1-label question only. Rump is plausible inaccessible overlap; recorded rather than assumed disproven.
+
+## value
+
+PASS
+
+A natural explicit coding addresses a published combinatorial enumeration problem and refines the classification by a structurally meaningful algebraic invariant: number of proper ideals, with full Stirling law. Researchers can reconstruct multiplication tables and separate ideal strata; this is not an arbitrary statistic or a retelling of the known Bell count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
