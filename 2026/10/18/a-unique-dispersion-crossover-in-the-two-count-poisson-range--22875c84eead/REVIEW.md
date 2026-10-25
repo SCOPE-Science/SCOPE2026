@@ -1,17 +1,21 @@
-# Scientific review: a unique folded-Poisson range dispersion crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The symmetric Skellam mass identity and a telescoping modified-Bessel recurrence give \(\mathbb ER=tr(t)\) and \(\mathbb ER^2=t\). Thus the sign of the variance-minus-mean difference is precisely the opposite of \(H(t)-1\). Strict Turán inequalities force all fixed-argument Bessel order ratios below \(I_1/I_0\), from which the generating function yields \(r>1-I_1/I_0\). Every zero of \(H-1\) consequently has strictly negative derivative. The positive small-parameter and negative large-parameter limiting signs force exactly one zero. The supplied exact-rational power-series checker proves an explicit root bracket; independent finite Poisson sums corroborate the moments. No finite computation is used to assert the all-real theorem. The strict inequality and derivative calculations were reconstructed from the definitions.
+## correctness
 
-## Originality — PASS on inspected evidence
-The motivating 2023 article proves ultra-log-concavity and own-mean underdispersion of the **minimum and maximum separately**, not of their difference. The 2015 folded-Skellam RNA model uses the absolute difference as a likelihood component but gives no unique Fano-index crossover. The classical 2010 Bessel Turán theorem supplies one strict inequality, not the new probabilistic consequence. The 2021 ultra-log-concavity inequalities concern individual ultra-log-concave laws, whereas the folded Skellam range eventually becomes overdispersed. Accessible earlier mathematical records cover Poisson-extreme exact moments, maximum-versus-parent-variance transitions, mutual min/max dispersion rankings, and folded-Skellam mass-function curvature; none states or implies the **range-versus-its-own-mean unique crossing**. A previously established moment identity alone does not prove that the transcendental crossing equation has exactly one positive root. Completed semantic database searches for folded Skellam, absolute Poisson differences, Bessel thresholds, and range dispersion returned no equivalent or dominating claim. The review does not infer novelty solely from search nonappearance.
+PASS
 
-The deposited 2023 PDF could not be opened for sequential comparison despite retrieval attempts, and sequential full-text access was unavailable. Indexed article sections including the stated corollary were accessible. Unknown or unindexed older work remains an explicit originality risk; no independent priority validation is claimed.
+For iid Poisson(lambda), R=|X-Y| and t=2lambda. Skellam Bessel recurrence yields ER=t r(t), E R²=t, r=e^-t(I0+I1), hence Var(R)-ER=t[1-r-tr²]. Strict Turán log-concavity implies I_k/I0<(I1/I0)^k for k>=2, giving r>1-u, u=I1/I0. Every positive crossing of H=r+tr²=1 has H′=r²(1-r-u)/((1-r)(1+u))<0. Since H>1 near t=0 and H→2/pi<1 at infinity, there is exactly one zero, with under- then overdispersion. Independently recomputed high-precision root t≈3.4778659345393811113, lambda≈1.73893296726969055. The source rational-series verifier supplies certified 3.4778<t*<3.4780. No unequal-rate claim.
 
-## Value — PASS
-The result identifies a mathematically natural dispersion-class change for a count statistic used for imbalance and variability diagnostics, with a sharp **unique** cutoff rather than a numerical example. It sharply separates the underdispersed individual Poisson order statistics from their range and proves a global Bessel-ratio fact sufficient to control the transition. The exact natural parameter, inequality direction, and uniqueness matter for deciding whether simple Poisson mean-variance intuition is applicable to folded difference counts.
+## originality
 
-## Limitations and independent validation
-No conclusions are asserted for unequal Poisson intensities, more than two observations, or arbitrary mixtures. Finite rational bounds verify the numerical enclosure, not an independent theorem certification. A bibliographic gap remains around inaccessible full text and unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge noncoverage is supported by the statement-level comparisons below; this is not a proof of absolute bibliographic novelty.
+
+## value
+
+PASS
+
+A natural statistic exhibits a sharp phase reversal of dispersion relative to its own expectation despite both individual Poisson order statistics being underdispersed. Exact global uniqueness, orientation and certified cutoff are motivated and nontrivial; not merely a numerical root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

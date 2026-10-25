@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:53:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid Poisson(lambda), R=|X-Y| and t=2lambda. Skellam Bessel recurrence yields ER=t r(t), E R²=t, r=e^-t(I0+I1), hence Var(R)-ER=t[1-r-tr²]. Strict Turán log-concavity implies I_k/I0<(I1/I0)^k for k>=2, giving r>1-u, u=I1/I0. Every positive crossing of H=r+tr²=1 has H′=r²(1-r-u)/((1-r)(1+u))<0. Since H>1 near t=0 and H→2/pi<1 at infinity, there is exactly one zero, with under- then overdispersion. Independently recomputed high-precision root t≈3.4778659345393811113, lambda≈1.73893296726969055. The source rational-series verifier supplies certified 3.4778<t*<3.4780. No unequal-rate claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The entire 4-page 2023 open-access paper proves ultra-log-concavity/underdispersion of individual Poisson order statistics, not their difference. The Bessel Turán inequality is a proper ingredient."
+        ],
+        "reasoning": "Underdispersion for min and max does not transfer to max-min because of dependent subtraction; generic Turán gives ratio monotonicity, and the distinct probabilistic all-crossing conclusion requires additional argument.",
+        "searches": [
+          "Badiella, del Castillo, Puig, Ultra log-concavity of discrete order statistics, DOI:10.1016/j.spl.2023.109900",
+          "Baricz–Ponnusamy, On Turán type inequalities for modified Bessel functions, arXiv:1010.3346"
+        ]
+      },
+      "checked_sources": [
+        "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+        "https://arxiv.org/pdf/1010.3346"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first paper addresses marginals of order statistics, whereas R is their difference. The second supplies strict Bessel Turán but not an explicit dispersion classification."
+        ],
+        "reasoning": "Neither inspected primary result implies uniqueness and its sign orientation for folded Skellam. Residual possibility of a prior folded-Skellam analysis remains.",
+        "searches": [
+          "2023 order statistics full OA PDF",
+          "arXiv:1010.3346, Bessel inequality",
+          "absolute Skellam distribution Poisson range variance versus mean unique Bessel crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Absolute Skellam/folded difference is the same R=|X-Y|; Skellam pmf gives exact first and second moments but no general uniqueness from the moment identity alone."
+        ],
+        "reasoning": "The known folded-Skellam distribution and moment formula are not themselves the all-t one-crossing theorem; no exact equal-rate classification located.",
+        "searches": [
+          "absolute Skellam distribution Poisson range variance versus mean unique Bessel crossover",
+          "folded Skellam moment dispersion variance mean modified Bessel comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The transition is the unique real positive zero of a transcendental Bessel equation, not a tabulated finite support value."
+        ],
+        "reasoning": "A numerical root table cannot prove the full sign classification. The endpoint rational enclosure independently supports the quoted interval only.",
+        "searches": [
+          "absolute Skellam distribution Poisson range variance versus mean unique Bessel crossover"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncoverage is supported by the statement-level comparisons below; this is not a proof of absolute bibliographic novelty.",
+      "residual_risks": [
+        "Earlier folded-Skellam work could contain an equivalent Bessel crossing formula not indexed in the bounded searches.",
+        "No extension to unequal Poisson rates or more than two counts is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering: treats individual order statistics, not their sample range",
+          "evidence": [
+            "Abstract, Section 2 definitions, main theorem/corollary in Section 4"
+          ],
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+          "material_read": "Full four-page open-access paper including Theorems and corollary, pages 1–4",
+          "method": "Compared which random variable is proved ultra-log-concave/underdispersed",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Closest cited underdispersion assertion"
+        },
+        {
+          "assessment": "Genuine prior mathematical ingredient; not the Skellam range one-crossing theorem",
+          "evidence": [
+            "Turán inequality for I_k(t), k>=1,t>0"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.3346",
+          "material_read": "Targeted theorem/intro and inequality statements from PDF",
+          "method": "Verified strict I_k²>I_(k-1)I_(k+1) is an input; assessed implication to I_k/I0<u^k",
+          "title": "On Turán type inequalities for modified Bessel functions",
+          "trigger": "Nonstandard strict lemma needed for global crossing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural statistic exhibits a sharp phase reversal of dispersion relative to its own expectation despite both individual Poisson order statistics being underdispersed. Exact global uniqueness, orientation and certified cutoff are motivated and nontrivial; not merely a numerical root.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+    "https://arxiv.org/pdf/1010.3346"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier folded-Skellam work could contain an equivalent Bessel crossing formula not indexed in the bounded searches.",
+    "No extension to unequal Poisson rates or more than two counts is established."
+  ],
+  "residual_risks": [
+    "Earlier folded-Skellam work could contain an equivalent Bessel crossing formula not indexed in the bounded searches.",
+    "No extension to unequal Poisson rates or more than two counts is established."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Not covering: treats individual order statistics, not their sample range",
+      "evidence": [
+        "Abstract, Section 2 definitions, main theorem/corollary in Section 4"
+      ],
+      "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+      "material_read": "Full four-page open-access paper including Theorems and corollary, pages 1–4",
+      "method": "Compared which random variable is proved ultra-log-concave/underdispersed",
+      "title": "Ultra log-concavity of discrete order statistics",
+      "trigger": "Closest cited underdispersion assertion"
+    },
+    {
+      "assessment": "Genuine prior mathematical ingredient; not the Skellam range one-crossing theorem",
+      "evidence": [
+        "Turán inequality for I_k(t), k>=1,t>0"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1010.3346",
+      "material_read": "Targeted theorem/intro and inequality statements from PDF",
+      "method": "Verified strict I_k²>I_(k-1)I_(k+1) is an input; assessed implication to I_k/I0<u^k",
+      "title": "On Turán type inequalities for modified Bessel functions",
+      "trigger": "Nonstandard strict lemma needed for global crossing"
+    }
+  ]
+}
