@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
-The source file `verify_overlap_context.py` uses only the Python standard library. Run `python verify_overlap_context.py` to independently compute the finite Galois closures and the explicit candidate classes. It enumerates all starting attribute subsets for \(n=3,4,5,6\), then constructs neighborhood intersections and compares the eleven shape classes for \(3\le n\le9\). It tests the cardinality formula and the third-edge closedness invariant used to recover the underlying line graph.
+# Independent mathematical audit
 
-Observed terminal output:
+## correctness
 
-```
-CASE n=3 concepts=1 exhaustive_initials=8 PASS
-CASE n=4 concepts=64 exhaustive_initials=64 PASS
-CASE n=5 concepts=187 exhaustive_initials=1024 PASS
-CASE n=6 concepts=448 exhaustive_initials=32768 PASS
-CASE n=7 concepts=926 exhaustive_initials=0 PASS
-CASE n=8 concepts=1718 exhaustive_initials=0 PASS
-CASE n=9 concepts=2939 exhaustive_initials=0 PASS
-VERIFY_OK generated_concepts=6283 exhaustive_initial_sets=33864 line_graph_pair_witnesses=1368 n=3..9 direct_classification=PASS automorphism_invariants=PASS
-```
+PASS
 
-**Limits:** Exhaustive computations cover the indicated finite parameter ranges only. The proof's structural dichotomy, enumeration and graph-reconstruction steps establish the infinite theorem; the script does not certify all \(n\). No external independent audit is claimed.
+For the symmetric reflexive overlap relation P, the identity P³=P means closed intents are precisely polarity images. Every pairwise-intersecting family of K_n edges either lies in a star or is a triangle, yielding a star/unions variant; when a disjoint edge pair is present the polar is contained in the four cross edges of a 4-cycle and every subset is realized by opposite-edge blockers. These cases give exactly the listed eleven shapes and the formula 2+2C(n,2)+C(C(n,2),2)+C(n,3)+15C(n,4)+n+nC(n−1,2). For n=4 all 2^6 edge subsets close, so the lattice is Boolean with S6 automorphisms. For n>=5 the number of third closed edges paired with intersecting vs disjoint edges is respectively 2n−5 vs 4, recovering the line graph, maximal stars, and S_n. The explicit modularity counterexample X={01,02}, Y={34}, Z=S0 proves nonmodularity for n>=5. Independently exhausted n=4,5,6 closures and checked all counts. These are exact for all n, with finite checks supplementary.
+
+## originality
+
+PASS
+
+The hypergraph/FCA representation is already established (Rawson et al.) and generic polarity algorithms are prior. The mathematically distinct assessed result is complete explicit closed intents and automorphism/modularity transition for the reflexive line graph of K_n. The inspected full 2023 primary paper does not give this specialization; alias and stronger-general-result searches found no decisive implication.
+
+## value
+
+PASS
+
+The reflexive line-graph concept lattice of K_n is a canonical symmetric incidence structure; identifying every closed intent, polynomial growth, full automorphism group and the Boolean-to-nonmodular transition is a substantial natural structural classification, not a routine application of an algorithm to a few small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
