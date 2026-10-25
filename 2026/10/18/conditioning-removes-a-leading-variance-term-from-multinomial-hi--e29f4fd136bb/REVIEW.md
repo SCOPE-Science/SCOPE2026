@@ -1,11 +1,21 @@
-# Scientific review — multinomial histogram roughness variance
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-total multinomial law admits an explicitly derived first-order correction to independent Poisson marginals for two, three, and four cells. Diagonal and adjacent-edge covariance limits are ordinary Poisson expectations, whereas every disjoint pair has covariance \(-c^2/(\lambda n)+o(1/n)\). There are order \(n^2\) such pairs, producing an order-\(n\) negative variance correction. A Hoeffding decomposition proves the remaining coefficient strictly positive. Separate small- and large-load expansions follow from Poisson power series and absolute correlated-Gaussian moments. The included standard-library verifier passed 175 finite checks; finite runs do not prove the limits.
+## correctness
 
-**Originality — PASS, qualified by access.** The nearest identified literature is Banić and Elezović's 2026 expectation study of the same multinomial statistic (arXiv:2610.13366) and their earlier Comb Test work (arXiv:2606.01465). The latter computes the finite null law by a dynamic program, a strictly broader source of finite moments, but does not in its accessible abstract provide the joint growing-bin, fixed-load analytic variance coefficient, the global conditioning correction, or its sparse/dense profile. Accessible related research on multinomial modes and histogram statistics addresses different quantities. The current result's fixed-load variance asymptotic is not a restatement of the expectation formula or of fixed-category large deviations. A mathematically equivalent limit buried in inaccessible primary full text remains a real risk; no stronger claim of exhaustive novelty verification is made.
+PASS
 
-**Mathematical value — PASS.** Histogram roughness is an actively investigated goodness-of-fit and smoothness statistic. Its variance, not just its expectation, determines uncertainty calibration. A Poisson proxy makes the leading error **in the same order as the variance** because the fixed total couples \(\Theta(n^2)\) distant edge pairs. The closed coefficient and its \(4\lambda^2\) sparse scaling identify precisely the occupancy regime where a naive independent-count variance estimate fails. This is an all-positive-load continuum of natural invariants, not an arbitrary finite slice or a generic re-evaluation of a known table.
+For k=2,3,4 fixed cells, multinomial masses relative to independent Pois(lambda_n) satisfy an O(1/n) correction A_k(total;lambda_n); the stated truncation s<=L log n and exponential tails justify exchange with polynomially bounded |count differences| moments. Adjacent edge variance/covariance tends to 2lambda-m^2 and h-m^2; disjoint edge covariances multiply by n and tend to -c^2/lambda via the global total constraint. Correct disjoint pair multiplicity yields the displayed V, which independent finite-Poisson truncation recomputed at loads .005,.02,.1,.3,1,3,10,70. The Hoeffding projection g=m+H(A)+H(B)+K(A,B) decomposes V as Var(K)+4[Var(H)-Cov(H,A)^2/lambda] and shows strict positivity because |a-b| is not separable (mixed 0/1 cross-difference -2). Sparse and Gaussian-dense expansions were independently checked for scaling, with the analytic Poisson series and Gaussian kernel providing nonfinite justification.
 
-**Closest literature and limits.** Primary articles are arXiv:2610.13366, arXiv:2606.01465, and arXiv:2012.11574. Only accessible abstracts were available for these sources during inspection; the primary full-text comparison remains qualified. The result does not assert a conditional central limit theorem, nonuniform-bin extension, confidence bands, or finite-\(n\) error bounds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Banić–Elezović Part 2 (arXiv:2610.17046v1, 12 Oct 2026) is a HIGHLY relevant primary paper on EXACTLY the same statistic and variance. Its abstract, Introduction §1 and Synthesis §§7-8 explicitly restrict all asymptotics to FIXED n as N→infty; their Var(D)/N=alpha(n)-beta(n)/N+gamma(n)/N^2+o(N^-2) is not uniform when n,N grow proportionally (authors say accurate for N≫n). Their exact decomposition is acknowledged prior coverage of the general covariance partition; it does not itself give a proved uniform finite-load Poisson coefficient, cancellation of lambda-linear terms, or lambda endpoints. The previous Part1 gives expectations; Comb Test gives finite null law by dynamic programming. The precise new proportional-load regime has genuinely different limits, though any unindexed extension by these authors is a priority risk.
+
+## value
+
+PASS
+
+A sharp analytic variance coefficient under the natural growing-bin proportional-occupancy regime changes how one calibrates total variation of fixed-sample histograms; the non-negligible negative conditioning correction and complete sparse/dense crossover supply useful probability and statistical information not captured by fixed-bin N→infty asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
