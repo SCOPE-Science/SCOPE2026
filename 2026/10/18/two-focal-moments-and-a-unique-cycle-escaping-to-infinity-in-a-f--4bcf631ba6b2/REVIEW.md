@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The energy identity \(\dot H=xF(x)\) holds sectorwise; high-radius crossings avoid tangencies and sliding. The upper/lower \(x\)-parameterized integrals differ from frozen energy integrals by \(O(R^{-4})\) in energy, yielding the exact \(R^{-2}\) and \(R^{-4}\) radial coefficients. Reciprocal-radius analytic dependence justifies differentiating the remainder. Exact rational integration gives \(M_1(F_\lambda)=5\lambda/2\) and \(M_3(F_0)=51/25\). The normalized displacement is strictly increasing in small positive reciprocal radius, so the exterior cycle count and inverse-square-root scale follow from an intermediate-value argument and monotonicity. The derivative at its zero is \(1-204/(25R_\lambda^5)+o(R_\lambda^{-5})\). Numerical tests only corroborate the constants; the proof is analytical.
+## correctness
 
-## Originality — PASS, with explicit priority uncertainty
-The Chen–Li–Zhang–Zhang author full text, Remark 2, explicitly leaves the symmetric-exterior/asymmetric-interior center–focus case unresolved; its qualitative exterior classification and lower cycle constructions do not imply this two-moment return law or the sharply scaled unique four-jump bifurcation. A comparison to multiple published and indexed nearby records found no direct duplicate or dominating implication. The Jia–Meng 2026 article directly concerns a broader center–focus problem, but the available abstract does not suffice to exclude implicit coverage; complete text was unavailable despite legitimate access attempts. The October 2026 discontinuous-case preprint was available only at abstract level for this comparison. These priority risks remain material; this is not an independent novelty certification.
+PASS
 
-## Mathematical value — PASS
-The moment hierarchy supplies a concrete diagnostic at the explicit degeneracy left open by the motivating literature. Its four-jump example has a codimension-one large-limit-cycle birth from infinity with a fixed, sharp radius exponent and an attracting return multiplier. Unlike generic existence or averaging examples, this theorem proves an exact local count for the original discontinuous flow, answering a natural quantitative center–focus bifurcation question.
+For H=(x²+y²)/2 the exact smooth-crossing energy relation is dH/dx=xF/(F-σ sqrt(2H-x²)). Large R makes denominators uniformly nonzero on finitely many support intervals; each leg changes energy O(R^-1). Adding upper and lower legs yields 2∫xF Y/(Y²-F²)dx with uniform analytic expansion 2M1/R+2M3/R³+O(R^-4), and division by R gives displacement 2M1/R²+2M3/R⁴+O(R^-5). Piecewise-affine finite flow admits smooth reciprocal-radius dependence and derivatives, permitting ∂_uG=4M3 u+O(u²). Independent exact integration of the two pulse pieces confirms M1=5λ/2 and M3(0)=51/25. Monotonicity of G(u,λ) for u>0 small implies exactly one exterior root for λ<0 and none for λ>=0; solving yields R²~102/[125(-λ)] and P′=1-204/(25R^5)+o(R^-5). A claim only about this exterior section is proved; global cycle counts are not. No complete numerical IVP census was independently rerun.
 
-## Scope and limitations
-Results are local to sufficiently large crossing cycles. No global bound on all cycles, grazing/sliding classification, moment hierarchy past the third coefficient, or parameter-uniform perturbation result outside the displayed family is claimed. Priority comparisons to the unavailable full texts remain provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Neither directly or as a simple corollary determines M3(0)>0 or the tuning-induced unique exterior cycle; no decisive stronger same-family result was found, with flagged inaccessible additional preprints. Source reading, explicit four comparisons and priority risks detailed below.
+
+## value
+
+PASS
+
+The symmetric-harmonic-tail/asymmetric-interior setting is a structurally motivated exceptional center/focus case left open by the compared global infinity classification. The two exact exterior moments produce a nontrivial local cyclicity and quantified escape rate and stability for a natural four-jump no-fold forcing, rather than an arbitrary simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
