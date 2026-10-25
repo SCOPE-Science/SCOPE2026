@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Complete proof of lattice membership by interval bracketing and exact bijective signed-composition count (RESULT.md Eqns (1)--(3)), then exact degree-(\\(n-1\\)) Newton interpolation. verify.py enumerates every 252 canonical classes, strictly checks all coefficients, independently recomputes 503 counts via coordinate DP, and matches the published (3,7) benchmark. The CSV is an exact complete finite certificate, not an infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferroni, arXiv:1911.10146: a single hypersimplex is Ehrhart positive.",
+        "Jochemko--Ravichandran, DOI:10.1112/mtk.12122 §4.1: generalized permutahedra have nonnegative *linear* Ehrhart coefficient.",
+        "Li--St. Dizier arXiv:2608.00377 §4: an exact enumeration of one two-hypersimplex sum of ambient dimension 14."
+      ],
+      "reasoning": "Hypersimplex positivity is not stable under Minkowski sums, as the source itself shows. Nonnegativity of the linear coefficient leaves quadratic and higher coefficients undecided. None of these stronger-class results implies strict positivity for all coefficients through dimension 12 or an exhaustive list of first-failure pairs.",
+      "searches": [
+        "Sharp minimum dimension for Ehrhart non-positivity of a Minkowski sum of two hypersimplices, all sums positive through dimension 12, five exceptions dimension 13",
+        "All two-hypersimplex Minkowski sums in ambient n<=13 have positive Ehrhart coefficients; exhaustive 252 rank pair cases",
+        "DOI:10.1112/mtk.12122 Section 4.1 Theorem 4.5",
+        "arXiv:1911.10146 abstract and mathematical results",
+        "arXiv:2608.00377v2 full text"
+      ]
+    },
+    "checked_sources": [
+      "Li and St. Dizier, arXiv:2608.00377v2, full text §§1--5",
+      "Ferroni, arXiv:1911.10146, hypersimplex Ehrhart positivity",
+      "Jochemko and Ravichandran, DOI:10.1112/mtk.12122, full text and §§1,4.1",
+      "Thematically adjacent published mathematical literature on h*-log-concavity of lattice-segment products and weighted-projective reflexive simplices (neither states a higher-coefficient classification for two hypersimplex sums)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.00377v2 §3 proves nonpositivity for just Δ3,14+Δ7,14; no lower-ambient-dimension exhaustive proof or five-orbit classification is asserted.",
+        "arXiv:2608.00377v2 §1 says “smallest degree”, referring to coefficient degree 2, not smallest ambient dimension.",
+        "Jochemko--Ravichandran Theorem 4.5 covers the nonnegative linear coefficient but not all higher coefficients."
+      ],
+      "reasoning": "Prior counterexample implies only that a failure exists in dimension 13; it does not show it is first in this family nor identify all first-failure orbits. The current exhaustive rational-coefficient certificate supplies the missing global finite-range comparisons. The technical idea of signed-coordinate counts is substantially related to published §4 and is not presented as independently originated.",
+      "searches": [
+        "arXiv:2608.00377v2 §§1,3,4 and its exact Ehrhart polynomial",
+        "arXiv:1911.10146 Theorem hypersimplex Ehrhart positivity",
+        "DOI:10.1112/mtk.12122 Theorem 4.5 and Corollary 4.8",
+        "Sharp minimum dimension for Ehrhart non-positivity of a Minkowski sum of two hypersimplices, all sums positive through dimension 12, five exceptions dimension 13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li--St. Dizier, arXiv:2608.00377v2 §3: their Schubitope is the permutahedron of a 2/1/0 vector, equal to Δ3,14+Δ7,14.",
+        "The canonical pairs here are the corresponding 2/1/0 permutation polytopes; swapping summands and complementing ranks preserve Ehrhart polynomials."
+      ],
+      "reasoning": "Equivalence to orbit-permutahedra and two-column Schubitopes was explicitly checked. The published (3,7) orbit is covered and credited, but the four additional first-failure orbits plus the exhaustive lower-dimension positivity statement are not consequences of that one explicit example. Search did not identify a covering alternative-name classification.",
+      "searches": [
+        "Schubitope Minkowski sum two hypersimplices Ehrhart negative quadratic coefficient smallest dimension sharp classification",
+        "Minkowski sum of two hypersimplices Ehrhart polynomial all parameters negative coefficients",
+        "Delta_3,14 plus Delta_9,14 has negative quadratic Ehrhart coefficient -2743/118800",
+        "\"permutations of (2 repeated k,1 repeated m,0 repeated l)\" Ehrhart coefficients",
+        "arXiv:2608.00377 §3--§4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source [1] prints a complete polynomial only for Δ3,14+Δ7,14, matching the (3,7) row of the present certificate.",
+        "No indexed exact table covering all 252 normalized rank pairs was returned in the actual specified searches; this is limited search evidence, not proof of absence."
+      ],
+      "reasoning": "The exact published one-row benchmark is subsumed and is not claimed as new. No indexed database of all two-hypersimplex Ehrhart coefficients through n=14 was found. A differently indexed or unpublished table remains a residual risk.",
+      "searches": [
+        "Delta_3,14 plus Delta_9,14 has negative quadratic Ehrhart coefficient -2743/118800",
+        "All two-hypersimplex Minkowski sums in ambient n<=13 have positive Ehrhart coefficients; exhaustive 252 rank pair cases",
+        "\"two hypersimplices\" \"dimension 13\" Ehrhart positivity",
+        "Schubitope Minkowski sum two hypersimplices Ehrhart negative quadratic coefficient smallest dimension sharp classification",
+        "Delta_3,14 plus Delta_9,14 has negative quadratic Ehrhart coefficient -2743/118800"
+      ]
+    },
+    "rationale": "Published Li--St. Dizier (arXiv:2608.00377 §3--4) explicitly covers one of the five (\\(n=14\\)) exceptions and motivates the counting method; Ferroni covers single hypersimplices; Jochemko--Ravichandran covers only linear coefficients for generalized permutahedra. The new conclusions are the exhaustive strict positivity of all rank pairs for ambient \\(n\\le13\\) and exactly five nonpositive symmetry classes at the sharp first failure \\(n=14\\). Actual searches and full-text implication comparisons are recorded; priority remains provisional.",
+    "residual_risks": [
+      "Earlier equivalently formulated two-hypersimplex or 2/1/0-permutahedron exact tables could exist outside inspected sources and search coverage.",
+      "The counting method is closely adapted to the published specific-example proof; novelty rests only on exhaustive cutoff and five-orbit classification, not the existence of one nonpositive Schubitope.",
+      "No independent scientific or historical-priority audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the (3,7) case and much of the counting setup, but does not prove the lower-dimension cutoff or classify all 49 first-failure classes.",
+        "evidence": [
+          "arXiv:2608.00377v2 §3, [t²]=-687323/79200 for Δ3,14+Δ7,14",
+          "arXiv:2608.00377v2 §4, translated-coordinate positive-part count"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.00377v2",
+        "material_read": "Full HTML text including Sections 1--5, the specific 14-coordinate counterexample, its explicit polynomial and the counting construction of §4; accessible PDF pp. 3--4 examined to confirm example and normalization",
+        "method": "Compared exact object, rank pair, quadratic coefficient, conclusions and finite-dimension quantifiers",
+        "title": "Schubitopes are not Ehrhart positive",
+        "trigger": "Direct source on the identical two-hypersimplex family and its initially published exception"
+      },
+      {
+        "assessment": "Only factorwise positivity; does not cover mixed sums.",
+        "evidence": [
+          "Ferroni arXiv:1911.10146, hypersimplex positivity assertion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.10146",
+        "material_read": "Accessible manuscript/abstract and the primary positivity assertions concerning each hypersimplex",
+        "method": "Checked whether stated hypotheses extend from one hypersimplex to arbitrary two-summand Minkowski sums",
+        "title": "Hypersimplices are Ehrhart Positive",
+        "trigger": "Could provide a positivity implication for hypersimplex summands"
+      },
+      {
+        "assessment": "Proves linear-coefficient nonnegativity, not positivity of every coefficient of these two-summand polytopes.",
+        "evidence": [
+          "Jochemko--Ravichandran, Mathematika 68 (2022), Theorem 4.5: linear Ehrhart coefficient of every generalized permutahedron nonnegative"
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/mtk.12122",
+        "material_read": "Full open-access article introduction and §4.1, especially Theorem 4.5 and Corollary 4.8",
+        "method": "Compared quantified positive coefficients with the higher coefficients in the new claim",
+        "title": "Generalized permutahedra: Minkowski linear functionals and Ehrhart positivity",
+        "trigger": "Strongest plausible general generalized-permutahedron positivity coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6d2559b-3703-4817-8828-29ac87ab7a55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies the exact first possible dimension for nonpositivity within a natural two-summand family and completely describes the \\(5/49\\) first-failure configurations, including all negative degree locations. This resolves a motivated structural gap following a recent counterexample, exceeds a new numerical witness and provides a reusable exact 252-polynomial benchmark. No extension to general Schubitopes is claimed.",
+    "status": "PASS"
+  }
+}
