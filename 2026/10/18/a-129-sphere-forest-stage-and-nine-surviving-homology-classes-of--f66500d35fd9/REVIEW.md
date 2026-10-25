@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All \(65,536\) vertex subsets are enumerated by explicit predicate, with a separate depth-first-search oracle. Signed integer elimination of all seven nontrivial source boundaries leaves zero residual matrices with exclusively unit pivots, proving the entire integral homology and not merely its finite-field ranks. Inclusion is computed on actual six-cycle representatives modulo target seven-boundaries. Euler characteristic and universal coefficients justify the rational target and inclusion statements. The sphere-wedge homotopy conclusion follows from the full two-skeleton and Whitehead's theorem. Reproducibility sources and two independently generated logs are included.
+PASS
 
-## Originality
+The theorem is explicitly restricted to Q4 and A=F_2(Q4) versus B=F_infinity(Q4). From the actual 10-blob package, independently enumerated all 2^16 induced subgraphs using the exact cycle/degree predicates, obtaining A face vector (16,120,560,1732,3552,4616,3392,922) and B (16,120,560,1796,4080,6488,6848,4090,1008,8). A separately implemented sparse SIGNED integer unit-pivot elimination returned ranks (15,105,455,1277,2275,2341,922) with zero residual in every boundary, certifying unit Smith factors and integral Htilde_6(A)=Z^129 and no other reduced integral homology; independent GF2 ranks for B were (15,105,455,1341,2739,3749,3090,1000,8). Mod-two inclusion on independently constructed actual cycles modulo B boundaries has rank 9; Euler characteristic + mod-two bound forces rational B rank9, and absence of 2-primary torsion in the target degree, together with free H6(A), makes the rational map surjective, kernel120. Full 2-skeleton implies simply-connected, and homological Whitehead plus Hurewicz yields wedge^129 S6; no inference about integral B or higher-dimensional hypercubes. Source verify.py reconstructs boundaries and integration; independently implemented checkers were executed, not just its logs.
 
-**PASS, subject to an unindexed-literature risk.** The defining forest-filtration paper arXiv:2307.13271 (2023) was inspected in its introduction, definitions and full relevant families/product sections. Its Section 4.2.2 gives Cartesian path-prism and categorical complete-graph products, not the Cartesian four-cube at degree two or its persistence map. Other published work on bounded-degree induced forests concerns extremal cardinalities, not topology. Previously recorded four-cube independence, cut, Čech and Rips results involve different complexes. These are statement-and-implication comparisons, not numerical or title comparisons. Accessible primary-text and search limitations remain disclosed in the structured audit.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The filtration introduced in the source has little explicitly calculated intermediate-degree topology outside special graph families. The four-cube is the first nontrivial 16-vertex binary Cartesian cube with nontrivial forbidden induced cycles and vertices of degree four. The exact high-dimensional integral wedge decomposition and a rank-nine surviving image furnish a nontrivial persistence calculation; neither follows from maximum induced forest size or the already-known independence-complex stage. The exact natural invariant is independently useful as a benchmark for forest-complex calculations.
+Best-of-knowledge originality: degree-two vertex-forest stage and degree-six persistence map on Q4 are not implied by the inspected 2023 defining forest-filtration paper; exact-equal multiplicity 129 in a published 4-cube total-cut result concerns S10 and a different face predicate.
 
-## Limits
+## value
 
-No arbitrary-dimensional cube theorem, complete terminal integral homotopy type, or odd-primary torsion classification is claimed. The numerical coincidence with an unrelated 129-sphere cut complex does not yield an implication between the definitions. No independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intermediate degree-two induced-forest filtration on the canonical 16-vertex hypercube is a natural transition from independence constraints toward unrestricted induced forests; it is not an arbitrary graph parameter slice. The integral wedge^129 S6 and nine surviving sixth-homology classes furnish an exact nontrivial persistence benchmark, distinguishing degree constraints from connectivity and mere maximum induced forest order. The exact finite invariant is independently useful for developing graph-forest filtration methods even without a full Q_n classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
