@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The exact spectral calculation in `RESULT.md` gives all normal and tangent directions, not just a discretization. Its curvature-radius positivity establishes the full sharp convexity interval. The Schur inequality and its equality analysis identify the six axial and twelve face-diagonal endpoint degeneracies. A direct two-dimensional tangent restriction computes the characteristic polynomial; support-coordinate integration reduces the three-dimensional volume formula to normalized spherical monomial moments.
+## correctness
 
-Run `python3 verify_quartic.py` with Python 3 and its standard library. The executable recomputes exact rational moments and the volume polynomial, verifies the endpoint rank classes and exact polynomial identities, and checks 12000 independently constructed random orthonormal pairs against the derived curvature form. It reports `ALL_CUBIC_HARMONIC_CHECKS_OK` when every check passes. The checker was executed successfully from the packaged source files. Random finite tests do not establish a global continuum result or historical priority; these are supplied, as far as established, by the analytical proof and documented literature comparisons.
+PASS
 
-This is a self-review only. No independent validation or certification has been performed.
+For Y=Σu_i⁴−3/5 the covariant tangent Hessian plus YI equals Q(u,v)=12Σu_i²v_i²−3Σu_i⁴−3/5. The global minimum -18/5 occurs at axes; diagonal-restriction eigenvalues s±sqrt(s²−3r) yield Q±=18s−18/5±12sqrt(s²−3r). A Schur inequality shows Q+≤39/10 with equality exactly at two-equal-nonzero squared-coordinate normals. Thus I+epsilon Q is semidefinite iff epsilon∈[-10/39,5/18]. Convexity of positive even homogeneous extension gives a full-dimensional support function; positive interior curvature and exactly six rank-zero axial normals at positive endpoint/twelve rank-one face-diagonals at negative endpoint. C¹ nonzero support implies singleton exposed faces even at endpoints. Independently computed Dirichlet(1/2,1/2,1/2) spherical averages EY=0, EtrA=0, EdetA=-48/175, E(YtrA)=-96/175, E(YdetA)=52224/125125. This reproduces volume 4π/3[1-144epsilon²/175+52224epsilon³/125125] and exact endpoint ratios 2654675/2827539 and 229975/243243. Global extrema are proved by inequalities, not sampled tests.
+
+## originality
+
+PASS
+
+The degree-four even octahedral harmonic requires a specific two-dimensional tangent eigenvalue optimization and cubic volume integration. Groemer gives general support-perturbation differential criteria and spherical harmonic approximation, while Miracle-Sole treats Wulff construction; neither accessible statement supplies these exact thresholds, endpoint rank loci, or this volume cubic. A published separate odd cubic constant-width family (h=1+epsilon u1u2u3) differs in parity/degree and does not imply the values. Groemer full text was not materially inspected; prior exact quartic special cases remain a risk.
+
+## value
+
+PASS
+
+The first nonconstant even cubic-symmetry spherical harmonic is a canonical smooth deformation of the ball, and exact admissible amplitude interval, singular curvature strata and volume are concrete reusable benchmarks in support-function perturbation and Wulff geometry. The sharp endpoint geometry adds substance beyond simply evaluating a polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

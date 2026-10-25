@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The convexity criterion is the positive-semidefiniteness of the spherical curvature-radius matrix for the homogeneous support extension. Direct geodesic differentiation produces its full quadratic form. The global minimum of the perturbing eigenvalues is \(-18/5\), with equality at all six axial normals. The maximum is \(39/10\), with equality precisely at twelve face-diagonal normals: the characteristic equation of the restricted diagonal quadratic form and Schur's cubic inequality give a nonnegative rational polynomial certificate over every point of the squared-coordinate simplex. Thus the support-function range and exact endpoint rank losses follow with all directions and endpoints included. A positive, differentiable even support function gives a full-dimensional strictly convex body, including at the semidefinite endpoints. Standard support-coordinate integration and exact sphere even moments give the stated cubic volume and rational endpoint ratios. The standalone checker reproduces algebraic identities, endpoint types and 12000 tangent tests; the proof, rather than the finite checks, covers the continuum.
+PASS
 
-## Originality — PASS relative to inspected sources
+For Y=Σu_i⁴−3/5 the covariant tangent Hessian plus YI equals Q(u,v)=12Σu_i²v_i²−3Σu_i⁴−3/5. The global minimum -18/5 occurs at axes; diagonal-restriction eigenvalues s±sqrt(s²−3r) yield Q±=18s−18/5±12sqrt(s²−3r). A Schur inequality shows Q+≤39/10 with equality exactly at two-equal-nonzero squared-coordinate normals. Thus I+epsilon Q is semidefinite iff epsilon∈[-10/39,5/18]. Convexity of positive even homogeneous extension gives a full-dimensional support function; positive interior curvature and exactly six rank-zero axial normals at positive endpoint/twelve rank-one face-diagonals at negative endpoint. C¹ nonzero support implies singleton exposed faces even at endpoints. Independently computed Dirichlet(1/2,1/2,1/2) spherical averages EY=0, EtrA=0, EdetA=-48/175, E(YtrA)=-96/175, E(YdetA)=52224/125125. This reproduces volume 4π/3[1-144epsilon²/175+52224epsilon³/125125] and exact endpoint ratios 2654675/2827539 and 229975/243243. Global extrema are proved by inequalities, not sampled tests.
 
-The general Wulff construction is classical, and an older support-function perturbation paper gives generic derivative criteria. Those results explain the framework but do not provide the exact global extrema for this even octahedral degree-four mode. Closest accessible statements on odd degree-three, constant-width support perturbations have different parity and harmonic degree, and their known sharp parameters do not imply either endpoint here. Results on polyhedral fourth-moment tensors are also not convexity or volume laws for this support family. The mathematical comparison includes the possibility of an equivalent cubic crystal-anisotropy formulation and finds no inspected stronger statement from which these two exact thresholds, all equality normals and cubic volume coefficient follow. Full-text access to the older broad perturbation paper was unavailable; historical priority is therefore provisional, not proved from search absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the canonical lowest nonconstant even octahedral spherical-harmonic deformation of the ball. Determining precisely when its positive homogeneous extension remains convex is a natural question in Wulff-shape geometry. The two sharp amplitude endpoints have geometrically different rank-loss loci (six rank-zero axes versus twelve rank-one face diagonals), while the exact volume response quantifies asymmetry of the two allowed deformations. This is a complete, independently meaningful one-parameter classification, not an arbitrary finite sample or a routine sign test.
+The degree-four even octahedral harmonic requires a specific two-dimensional tangent eigenvalue optimization and cubic volume integration. Groemer gives general support-perturbation differential criteria and spherical harmonic approximation, while Miracle-Sole treats Wulff construction; neither accessible statement supplies these exact thresholds, endpoint rank loci, or this volume cubic. A published separate odd cubic constant-width family (h=1+epsilon u1u2u3) differs in parity/degree and does not imply the values. Groemer full text was not materially inspected; prior exact quartic special cases remain a risk.
 
-## Residual limitations
+## value
 
-The family does not include higher harmonic modes, arbitrary mixtures, or all cubic-symmetry bodies. The endpoints remain strictly convex and the reported rank losses do not mean planar facets. Definitive priority beyond inspected mathematical texts is unresolved, and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nonconstant even cubic-symmetry spherical harmonic is a canonical smooth deformation of the ball, and exact admissible amplitude interval, singular curvature strata and volume are concrete reusable benchmarks in support-function perturbation and Wulff geometry. The sharp endpoint geometry adds substance beyond simply evaluating a polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
