@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical contact test is an exact square criterion for line sections; the smoothness test is equivalent to surjectivity of a degree-seven multiplication map with target dimension 36. The finite projective group acts via explicit generators, and all 7,174,453 normalized coefficient vectors are covered by 1,557 orbits. Their 805 smooth orbits contribute 4,099,680 equations, and independent Gröbner-basis checks reproduce each orbit representative's smoothness state. Independently generated line bases, binary restrictions and a projective permutation-group computation reproduce all 805 refined bitangent counts and the stabilizer order of the unique 312-equation maximum orbit. The finite computation proves only the specified finite-domain theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+The finite theorem is explicitly limited to normalized homogeneous ternary quartic equations over F3 and PGL3(F3) orbits. A rational line cut of the curve has even divisor 2P+2Q or 4P precisely when its nonzero binary quartic restriction is a scalar square of a rational binary quadratic; discriminant b²−ac distinguishes nine proper (nonzero) and four repeated-root projective squares. Geometric smoothness is equivalent to rank 36 of the S4^3→S7 gradient-multiplication matrix because the homogeneous partial derivatives are a degree-three regular sequence with quotient top degree 6; Euler degree 4 invertible mod3 eliminates F separately. Source make_tables.py generates group action, thirteen line restrictions, and gradient matrices; census.cpp explores all normalized forms by four elementary PGL3(F3) generators, classifies all 1,557 projective orbits totaling 7,174,453 forms, with 805 smooth orbits/4,099,680 smooth forms. The 1,557 archived orbits.csv rows were independently reaggregated and match all these totals; its unique r+h≥10 row is code 78805, size 312, (r,h)=(9,1), one rational point. Fresh independently implemented line-square restriction arithmetic for F=X⁴+2X³Z+2X²Y²+XZ³+Y⁴ reproduces exactly nine proper bitangents, one hyperflex, and one rational point. This is a finite exact algorithmic proof contingent on the inspected coefficient-action and smoothness algorithms; the full 7.17-million-form orbit traversal was inspected but not rerun in this turn, and the source independent Gröbner tests were not rerun.
 
-Bergvall's arXiv:2211.12855, Theorem 4.1 and Table 1, is a strong quantitative source: it provides Frobenius-class counts of degree-two del Pezzo surfaces and, through their 28 exceptional bitangents, likely subsumes the unrefined rational-bitangent frequency distribution over F3. That weaker distribution is not asserted as original. The accepted refinement explicitly separates proper two-contact lines from hyperflex lines and identifies the unique projective orbit realizing nine proper contacts plus one hyperflex. Frobenius permutations and marked-level-two moduli counts in Bergvall's 2022 and 2023 articles do not directly determine this geometric contact-type subdivision or the concrete orbit representative. Markwig–Payne–Shaw's tropical valuation setting and Costa–Harvey–Sutherland's rational-point enumeration likewise do not cover the joint contact-type table. Literature and research-record searches did not surface an equivalent result, but cannot prove uniqueness: an unindexed or unpublished finite-field contact census remains the principal risk.
+## originality
 
-## Value — PASS
+PASS
 
-An arithmetic theta-characteristic count records rational bitangent lines, but does not tell whether a rational bitangent has two distinct geometric contacts or one quadruple contact. That distinction is a natural ramification/Weierstrass invariant of the canonical genus-three embedding. The new joint distribution and exceptional 312-equation projective orbit with the exact 9+1 split describe the hyperflex locus and rational contact geometry within the small-field moduli population. The unique orbit and its incidence configuration are mathematical structural information, not a renamed or arbitrary parameter slice. No additional general theorem for other finite fields is claimed.
+Best-of-knowledge originality attaches specifically to contact-type resolved F3 joint spectrum and unique 312-form projective maximum orbit, not to Frobenius unrefined rational-bitangent counts already studied.
 
-## Boundaries and closest prior literature
+## value
 
-The F3 full census is computationally exhaustive but not independently audited. Bergvall's 2022 quantitative Frobenius classification is specifically credited as prior coverage of unrefined numbers; one should not present the plain 'maximum ten rational bitangents' as independently original. An inaccessible or unindexed earlier refinement could preempt priority. Full primary statements and actual comparisons are encoded in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The proper-versus-hyperflex distinction is a natural Weierstrass contact invariant for canonical genus-three plane quartics. Complete F3 rational contact joint distribution, number of orbits, and the single maximizing orbit are exact, reproducible finite arithmetic-geometry data useful in studying small-field moduli and ramification; no larger-field theorem is required for this motivated complete finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

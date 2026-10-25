@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T00:52:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob b992b86deaac2de9c1bd15f94c641256a1dc303c",
+        "frozen census.cpp blob 34e49ef1da9ff3d514c6c8c89f7ab5a96b7de182",
+        "frozen make_tables.py blob 54b2e35e7b792e22cd4bacf444e4aa054f9789e0",
+        "frozen orbits.csv blob a170b6705c07099712e47a9d4ba41569fce64ed1, 1557 rows reaggregated",
+        "frozen independent_groebner.py and verify_independent.py inspected",
+        "fresh independent F3 bitangent and rational point check for code 78805"
+      ],
+      "rationale": "The finite theorem is explicitly limited to normalized homogeneous ternary quartic equations over F3 and PGL3(F3) orbits. A rational line cut of the curve has even divisor 2P+2Q or 4P precisely when its nonzero binary quartic restriction is a scalar square of a rational binary quadratic; discriminant b²−ac distinguishes nine proper (nonzero) and four repeated-root projective squares. Geometric smoothness is equivalent to rank 36 of the S4^3→S7 gradient-multiplication matrix because the homogeneous partial derivatives are a degree-three regular sequence with quotient top degree 6; Euler degree 4 invertible mod3 eliminates F separately. Source make_tables.py generates group action, thirteen line restrictions, and gradient matrices; census.cpp explores all normalized forms by four elementary PGL3(F3) generators, classifies all 1,557 projective orbits totaling 7,174,453 forms, with 805 smooth orbits/4,099,680 smooth forms. The 1,557 archived orbits.csv rows were independently reaggregated and match all these totals; its unique r+h≥10 row is code 78805, size 312, (r,h)=(9,1), one rational point. Fresh independently implemented line-square restriction arithmetic for F=X⁴+2X³Z+2X²Y²+XZ³+Y⁴ reproduces exactly nine proper bitangents, one hyperflex, and one rational point. This is a finite exact algorithmic proof contingent on the inspected coefficient-action and smoothness algorithms; the full 7.17-million-form orbit traversal was inspected but not rerun in this turn, and the source independent Gröbner tests were not rerun.",
+      "residual_risks": [
+        "Finite exhaustive claim relies on correctness of the full coefficient-graph orbit traversal and its tables; not formally verified or independently rerun at full scale this turn.",
+        "The classification concerns only F3, only rational lines; contact points may lie in extensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergvall 2022 gives substantial prior coverage of unrefined rational-bitangent distributions. Bergvall 2023 §2.2 and Corollary 4.6 treat proper/hyperflex distinctions and marked moduli but the inspected statements do not furnish the full 17-cell equation/orbit joint (r,h) table over F3 or the displayed unique orbit representative."
+        ],
+        "reasoning": "The claim explicitly excludes the unrefined rational-bitangent count as new. Marked moduli counting could constrain hyperflex marginal data, but not clearly imply a projective orbit and incidence classification without further calculation.",
+        "searches": [
+          "Resultary query: finite plane quartics F3 hyperflex rational bitangents joint spectrum",
+          "web query: F3 plane quartics hyperflex 9 rational bitangents 1 hyperflex quartics orbit count 312",
+          "arXiv:2211.12855",
+          "DOI:10.1007/s40879-023-00711-3",
+          "Resultary query: finite field F3 smooth plane quartic rational proper bitangent hyperflex joint distribution 9 proper 1 hyperflex 805 projective orbits"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.12855 Theorem 4.1/Table 1",
+        "DOI:10.1007/s40879-023-00711-3 §2.2/Cor 4.6",
+        "arXiv:2207.01305",
+        "Resultary and web searches for F3 hyperflex-refined rational bitangent tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frobenius action on the 28 odd theta characteristics is an action on line classes; contact divisor multiplicities of individual lines require additional geometry. The example quartic has 9 proper+1 hyperflex among ten rational lines."
+        ],
+        "reasoning": "The unrefined total may follow from earlier arithmetic data, but the joint refinement and single orbit with explicit representative are not supplied by those action counts alone.",
+        "searches": [
+          "arXiv:2211.12855",
+          "DOI:10.1007/s40879-023-00711-3",
+          "Resultary query: finite field F3 smooth plane quartic rational proper bitangent hyperflex joint distribution 9 proper 1 hyperflex 805 projective orbits",
+          "Resultary query: finite plane quartics F3 hyperflex rational bitangents joint spectrum",
+          "web query: F3 plane quartics hyperflex 9 rational bitangents 1 hyperflex quartics orbit count 312"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bergvall 2022 arXiv:2211.12855 Theorem 4.1/Table 1 counts Frobenius classes of degree-two del Pezzo surfaces; this governs permutation of twenty-eight bitangent characteristics. Bergvall 2023 describes proper versus hyperflex contact geometry."
+        ],
+        "reasoning": "Frobenius permutation data count rational bitangent lines but do not alone distinguish a rational line with two double contacts from one with a quadruple contact; the exact joint (r,h) table is a finer geometric invariant.",
+        "searches": [
+          "Resultary query: finite field F3 smooth plane quartic rational proper bitangent hyperflex joint distribution 9 proper 1 hyperflex 805 projective orbits",
+          "Resultary query: finite plane quartics F3 hyperflex rational bitangents joint spectrum",
+          "web query: F3 plane quartics hyperflex 9 rational bitangents 1 hyperflex quartics orbit count 312",
+          "arXiv:2211.12855",
+          "DOI:10.1007/s40879-023-00711-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The archive orbits.csv in the assigned source gives 17 joint bins, 805 smooth PGL3 orbits and one 312-equation maximum orbit. Related prior Frobenius count tables are not contact-type cross tabs."
+        ],
+        "reasoning": "No exact preexisting (proper,hyperflex) F3 table was identified from inspected literature and Resultary, but searches are not exhaustive.",
+        "searches": [
+          "web query: F3 plane quartics hyperflex 9 rational bitangents 1 hyperflex quartics orbit count 312",
+          "arXiv:2211.12855",
+          "DOI:10.1007/s40879-023-00711-3",
+          "Resultary query: finite field F3 smooth plane quartic rational proper bitangent hyperflex joint distribution 9 proper 1 hyperflex 805 projective orbits",
+          "Resultary query: finite plane quartics F3 hyperflex rational bitangents joint spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches specifically to contact-type resolved F3 joint spectrum and unique 312-form projective maximum orbit, not to Frobenius unrefined rational-bitangent counts already studied.",
+      "residual_risks": [
+        "A previously unpublished or unindexed F3 theta-characteristic/contact-type census could cover the 17-cell table or unique extremizer orbit.",
+        "Known Frobenius and marked-moduli arithmetic may imply marginal counts after further work; no standalone novelty claim is made for unrefined total rational bitangents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of unrefined count, no direct geometric (r,h) cross-tab identified",
+          "evidence": "Conjugacy classes encode bitangent Galois action, not quadruple versus 2+2 contact multiplicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.12855",
+          "material_read": "Primary full PDF, especially Theorem 4.1 and Table 1 and relevant proof/definitions",
+          "method": "Full-text PDF theorem/table comparison",
+          "title": "Frobenius actions on Del Pezzo surfaces of degree 2",
+          "trigger": "F3 bitangent Frobenius spectra, potential stronger coverage"
+        },
+        {
+          "assessment": "Contains geometry of proper bitangents/hyperflex and marked-moduli counts; the exact F3 17-bin equation and PGL3 orbit table is not in the inspected results",
+          "evidence": "The inspected corollary addresses marked structure counts rather than a jointly resolved rational contact-type partition of all quartic equations.",
+          "identifier_or_url": "https://doi.org/10.1007/s40879-023-00711-3",
+          "material_read": "Accessible primary full article, inspected §2.2 and Corollary 4.6 plus relevant count statements",
+          "method": "Full-text HTML primary mathematical comparison",
+          "title": "Arithmetic and topology of classical structures associated with plane quartics",
+          "trigger": "Uses proper/hyperflex and counts moduli"
+        },
+        {
+          "assessment": "Different tropical/valued-field invariant from finite F3 joint contact census",
+          "evidence": "Tropical bitangent rationality does not imply F3 projective orbit table.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.01305",
+          "material_read": "Abstract and introductory scope (tropical valued-field geometry)",
+          "method": "Primary abstract/overview inspection; not asserted as complete paper read",
+          "title": "Bitangents to plane quartics via tropical geometry: rationality, A1-enumeration, and real signed count",
+          "trigger": "Same bitangent noun and rationality theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bergvall 2022/2023 relevant arithmetic and hyperflex geometry",
+        "frozen RESULTS joint table and extremizer witness"
+      ],
+      "rationale": "The proper-versus-hyperflex distinction is a natural Weierstrass contact invariant for canonical genus-three plane quartics. Complete F3 rational contact joint distribution, number of orbits, and the single maximizing orbit are exact, reproducible finite arithmetic-geometry data useful in studying small-field moduli and ramification; no larger-field theorem is required for this motivated complete finite census.",
+      "residual_risks": [
+        "Geometric classification requires exact finite exhaustive computation, not a conceptual uniform-family formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive claim relies on correctness of the full coefficient-graph orbit traversal and its tables; not formally verified or independently rerun at full scale this turn.",
+    "The classification concerns only F3, only rational lines; contact points may lie in extensions.",
+    "A previously unpublished or unindexed F3 theta-characteristic/contact-type census could cover the 17-cell table or unique extremizer orbit.",
+    "Known Frobenius and marked-moduli arithmetic may imply marginal counts after further work; no standalone novelty claim is made for unrefined total rational bitangents.",
+    "Geometric classification requires exact finite exhaustive computation, not a conceptual uniform-family formula.",
+    "Frozen public AUDIT.json and METADATA.json each contain scope_run_id internal operational identifiers. No complete scientifically neutral sanitized replacement bytes with fresh exact Git blob guards and SHA-256 were prepared; withhold public import despite completed assessment."
+  ],
+  "schema_version": 1
+}
