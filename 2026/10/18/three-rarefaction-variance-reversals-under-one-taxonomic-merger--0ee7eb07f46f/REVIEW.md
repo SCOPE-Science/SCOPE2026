@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypergeometric covariance formula follows from the inclusion indicators and ordinary indicator identities. The positive-partition recurrence and unordered-pair reduction cover all possible original profiles and single mergers with \(N\le16\), up to taxon relabeling. Exact rational sign comparisons cover all integers \(m=2,\ldots,N-1\). An independent generating-function method reconstructs the full distribution and matches every moment. The only triple-reversal row is reproduced by the standalone program and complete CSV certificate; there is no extrapolation to larger communities.
+PASS
 
-## Originality — PASS (best-knowledge)
+For uniform size-m without-replacement rarefaction, I_i=1_{taxon i seen} gives absence q_i=C(N-a_i,m)/C(N,m) and joint absence q_ij=C(N-a_i-a_j,m)/C(N,m), so variance is Σq_i(1-q_i)+2Σ(q_ij−q_iq_j) exactly. Every possible positive abundance multiset N<=16 is one integer partition; every pair of taxa up to relabeling is one unordered value-pair. A standalone independent implementation using sympy integer partitions and Fraction was run, enumerating 3380 distinct merger types, verifying zero with >=3 strict adjacent flips for N<16 and exactly one at N=16. Its unique witness is eight singletons, 2,6 merged by (1,2), with 14 exact rational differences and flips m4→5,7→8,14→15 matching the source; 3380-row source CSV parsed and exact unique hit independently corroborated. The source verifier additionally constructs full richness generating distributions; source and certificate contents were inspected, not taken as proof by an exit-code alone. Complete finite enumeration is sufficient precisely because the theorem only asserts N<=16.
 
-The closest sources are the rarefaction moments of Heck, van Belle, and Simberloff (1975), taxonomic-scale comparison considerations of Gotelli and Colwell (2001), and the phylogenetic generalization of Nipperess and Matsen (2013). They provide the general variance formula or motivate scale dependence, not the exact minimum-census classification of three alternating signs under one merger. Related finite variance-crossing results for abundance-balancing transfers involve a different transformation, retaining the same number of taxa and redistributing individuals, so their lower bounds do not imply the taxonomic-merger theorem. A relevant earlier full text (Heck et al. 1975) remained inaccessible; an unlocated equivalent result remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Changing taxonomic resolution is an intrinsic operation in biodiversity monitoring. Expected rarefied richness can only decrease under coarsening, but the **direction of its sampling variance change** may reverse three times as sampling depth changes. The exact first possible census and unique profile/merger classify a natural nonmonotonicity threshold; the phenomenon is not inferred from the classical formula without the finite classification. This cautions against assuming a uniform change in uncertainty after taxonomic pooling. It is a mathematical sampling-model finding, not an empirical confidence-interval prescription.
+Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.
 
-## Residual risks
+## value
 
-The complete historical literature, particularly any equivalent occupancy-polynomial formulation of taxonomic coarsening, has not undergone independent bibliographic audit. The 1975 article was inspected at the abstract/metadata level only. The bound concerns strict adjacent sign reversals and sample sizes through the full original census; zeros do not count. No conclusion is claimed for larger censuses, repeated mergers or nonuniform sampling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Taxonomic pooling is a natural operation in community biodiversity measurement. Its expected richness decreases but the direction of sampling variance can reverse three times with sample depth; the exact minimal population size and unique witness classify the onset of this non-monotonic phenomenon. The 3380-case classification yields an independently useful exact fact for future analyses of taxonomic aggregation and uncertainty, not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

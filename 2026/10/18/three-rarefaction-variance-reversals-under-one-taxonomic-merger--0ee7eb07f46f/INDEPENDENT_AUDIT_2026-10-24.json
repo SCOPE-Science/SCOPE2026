@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T10:55:03.426784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md hypergeometric moment equation (1)",
+        "taxon_merger_census.csv 3380 unique rows",
+        "independent exact SymPy-partitions/Fraction census /mnt/data/private_independent_checks_1041.py",
+        "verify_taxon_merger_three_reversals.py distribution cross-check"
+      ],
+      "rationale": "For uniform size-m without-replacement rarefaction, I_i=1_{taxon i seen} gives absence q_i=C(N-a_i,m)/C(N,m) and joint absence q_ij=C(N-a_i-a_j,m)/C(N,m), so variance is Σq_i(1-q_i)+2Σ(q_ij−q_iq_j) exactly. Every possible positive abundance multiset N<=16 is one integer partition; every pair of taxa up to relabeling is one unordered value-pair. A standalone independent implementation using sympy integer partitions and Fraction was run, enumerating 3380 distinct merger types, verifying zero with >=3 strict adjacent flips for N<16 and exactly one at N=16. Its unique witness is eight singletons, 2,6 merged by (1,2), with 14 exact rational differences and flips m4→5,7→8,14→15 matching the source; 3380-row source CSV parsed and exact unique hit independently corroborated. The source verifier additionally constructs full richness generating distributions; source and certificate contents were inspected, not taken as proof by an exit-code alone. Complete finite enumeration is sufficient precisely because the theorem only asserts N<=16.",
+      "residual_risks": [
+        "No assertion for N>16, nonuniform probabilities, empirical uncertainty or repeated mergers. Strict adjacent reversal excludes zeros; m=1 or N has zero richness variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heck–van Belle–Simberloff provide general hypergeometric moments and Nipperess–Matsen give general phylogenetic diversity variance (richness is star-tree specialization); both produce computable moments, not a theorem about exactly 3 sign switches and first N16 for a constrained two-taxon merge."
+        ],
+        "reasoning": "A general variance formula does imply that finite counts are algorithmically calculable, but not this enumerated threshold without the actual exhaustive finite classification. No weak claim that the covariance identity is novel.",
+        "searches": [
+          "doi:10.2307/1934716 rarefaction variance",
+          "arxiv:1208.6552 phylogenetic diversity variance",
+          "rarefaction species richness variance taxon merging crossing reversals difference integer population sample size 16"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.2307/1934716",
+        "doi:10.1046/j.1461-0248.2001.00230.x",
+        "arxiv:1208.6552",
+        "Resultary hit 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "Resultary hit 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expectation cannot increase under merger, but variance can increase or decrease; general expectation crossings and stochastic covariance identities do not force three alternating variance signs."
+        ],
+        "reasoning": "The novelty is a sharp finite lower boundary under exactly one merger, not the moment identities or a general probabilistic impossibility result.",
+        "searches": [
+          "doi:10.1046/j.1461-0248.2001.00230.x species richness comparison taxonomic resolution",
+          "arxiv:1208.6552 rarefaction variance",
+          "rarefaction species richness variance taxon merging crossing reversals difference integer population sample size 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indicator-covariance and probability generating functions are equivalent ways to calculate rarefied variance, but neither by itself supplies the sharp first three-reversal partition census under a merger."
+        ],
+        "reasoning": "Searched under taxonomic aggregation, coarsening, richness moment, sampling without replacement and occupancy variance terminology, not just the submitted title.",
+        "searches": [
+          "rarefaction species richness variance taxon merging crossing reversals difference integer population sample size 16",
+          "variance difference rarefaction single species pooling zero crossings",
+          "arxiv:1208.6552 rarefaction star phylogenetic diversity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This package has a complete 3380-row merger census over N<=16; no checked prior table encodes the same merge-constrained first-occurrence statistics."
+        ],
+        "reasoning": "A known exact table would dominate the result even without a theorem title. Primary bibliographies and topical databases did not yield it; that is a best-knowledge statement.",
+        "searches": [
+          "taxonomic merger rarefaction variance sign reversals N=16 profile 1 1 2 6",
+          "rarefaction species richness variance taxon merging crossing reversals difference integer population sample size 16"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication search and material inspection distinguish previously established premises and general frameworks from the additional exact theorem; remaining priority risks are explicit rather than treated as negative proof.",
+      "residual_risks": [
+        "The full 1975 original paper was not read, and a specialized unpublished taxonomic-coarsening occupancy polynomial table may conceivably imply the same N16 threshold. All finite enumerations are only for the specified finite domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies general moment formulas, no identified constrained-taxonomic-merger sign-reversal census.",
+          "evidence": "Main PD variance formulas, richness specialization",
+          "identifier_or_url": "arxiv:1208.6552",
+          "material_read": "Accessible full journal/open article, expectation/variance formulas and reduction to star-tree species-richness case.",
+          "method": "Lawful open-access full text and theorem sections",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "General higher-order rarefaction variance could dominate special richness case"
+        },
+        {
+          "assessment": "Explains sampling-depth comparison but no verified variance merger threshold.",
+          "evidence": "Richness sample-size dependence and taxonomic scale",
+          "identifier_or_url": "doi:10.1046/j.1461-0248.2001.00230.x",
+          "material_read": "Accessible bibliographic abstract and topical passages; not full article line-by-line.",
+          "method": "Publisher abstract/indexed passages",
+          "title": "Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness",
+          "trigger": "Taxonomic grouping and rarefaction comparisons"
+        },
+        {
+          "assessment": "Known indicator moments not claimed original; undecidable whether hidden specialized merger discussion exists.",
+          "evidence": "Classical exact rarefaction variance formula",
+          "identifier_or_url": "doi:10.2307/1934716",
+          "material_read": "Publisher abstract and bibliographic material, not complete 1975 primary full text.",
+          "method": "Abstract/metadata; full text not obtained",
+          "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+          "trigger": "Foundational same rarefaction variance identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ecological rarefaction moments and taxonomic coarsening",
+        "The exact first-occurrence uniqueness witness through N16"
+      ],
+      "rationale": "Taxonomic pooling is a natural operation in community biodiversity measurement. Its expected richness decreases but the direction of sampling variance can reverse three times with sample depth; the exact minimal population size and unique witness classify the onset of this non-monotonic phenomenon. The 3380-case classification yields an independently useful exact fact for future analyses of taxonomic aggregation and uncertainty, not an arbitrary unmotivated finite slice.",
+      "residual_risks": [
+        "Does not imply a general bound beyond N16 or real ecological sampling confidence-interval prescriptions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion for N>16, nonuniform probabilities, empirical uncertainty or repeated mergers. Strict adjacent reversal excludes zeros; m=1 or N has zero richness variance.",
+    "The full 1975 original paper was not read, and a specialized unpublished taxonomic-coarsening occupancy polynomial table may conceivably imply the same N16 threshold. All finite enumerations are only for the specified finite domain.",
+    "Does not imply a general bound beyond N16 or real ecological sampling confidence-interval prescriptions."
+  ],
+  "schema_version": 1
+}
