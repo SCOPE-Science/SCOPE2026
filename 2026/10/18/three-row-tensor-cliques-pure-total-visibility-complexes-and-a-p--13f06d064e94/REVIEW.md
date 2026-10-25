@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The diameter-two witness classification is exhaustive: distinct vertices are nonadjacent precisely when they share exactly one coordinate. Same-column pairs impose at least two omitted cells in every row; same-row pairs impose union size at least three on every other-row pair. This yields the exact row-support characterization, disjoint four-case counting, and the purity argument via deletion from an oversized omitted support. The critical-window law follows from independent row-binomial limits and a negligible duplicate-support event. The packaged C++17 checker independently builds all common neighborhoods and confirms all \(299520\) vertex subsets for \(3\le n\le6\), including all inclusion-maximal sets; its finite tests do not prove the infinite theorem.
+## correctness
 
-## Originality — PASS, qualified
-The strongest inspected comparison is Cicerone–Di Stefano–Klavžar–Yero (arXiv:2401.02373, Theorem 2.2): it determines only the maximum total-visibility number for \(K_m\times K_n\) with \(m,n\ge5\), explicitly excluding the three-row case and giving no all-size polynomial. The 2023 foundational product paper treats lexicographic and Cartesian products; the inspected 2024/2025 polynomial work has generic frameworks or counts *ordinary* mutual visibility. Previously available results on tensor-clique general position, Roman domination or power domination use different feasibility rules. No published mathematical-record hit contained the present classification or enumerator. There remains residual risk of unindexed equivalent work; absence of a database match alone is not novelty proof.
+PASS
 
-## Value — PASS
-This resolves an excluded natural boundary of direct-product visibility, derives all coefficients rather than a scalar extremum, proves every inclusion-maximal set is maximum, counts all such sets, and identifies the exact random near-complete occupancy window. The width-three two-omission-per-row obstruction is a structural change from the four-omission extremal geometry of the established large-width case.
+All nonedges of K3×Kn, n≥3, have distance two and their common neighbours require omitted witnesses. Same-column pairs force each row complement size≥2; same-row pairs force any two row-complement unions size≥3, equivalent to unequal 2-element supports. Binomial counting over support sizes gives the exact four-term T_n(z), all maximal sets have 3 distinct 2-subsets yielding facets size 3n−6. Bin(n,λ/n) per-row omissions converge to Poisson(λ), while duplicate exact two-support probability O(n^-2); hence the stated independent Bernoulli limit. Independent full adjacency-pair enumeration matched all 512,4096,32768 vertex subsets and facets for n=3..5.
 
-## Scope and priority limits
-Results apply to the direct/tensor product, not Cartesian product; do not conflate ordinary mutual visibility with the stronger total variant. Full priority is not guaranteed by bounded literature inspection. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same exact total-visibility definition and product checked against cited primary results. K3 is excluded from the known high-dimensional extremum, and prior general polynomial descriptions do not directly yield the full K3 enumerator or random critical window.
+
+## value
+
+PASS
+
+The natural total-visibility simplicial complex of a direct product gets its exact f-enumerator, purity and facets, and the independent site-percolation law identifies a Poisson transition. Each is a reusable invariant of K3 tensor Kn beyond a single maximum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

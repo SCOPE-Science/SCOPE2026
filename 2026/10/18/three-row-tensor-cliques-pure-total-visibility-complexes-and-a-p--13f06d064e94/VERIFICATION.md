@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The program `check_total_visibility_K3Kn.cpp` builds the direct-product adjacency from scratch, determines each pair's common neighbors, and for every \(n=3,4,5,6\) enumerates all subsets. It tests the required unobstructed common neighbor for **every** nonadjacent pair; it does not call the row-support criterion to decide feasibility. It independently builds polynomial coefficients and checks all inclusion-maximal configurations. All checks passed for \(299520\) examined subsets (\(200653\) valid sets) with \(3576\) observed facets in aggregate. Output is supplied in `verification_output.txt`.
+## correctness
 
-Build with a C++17 compiler:
+PASS
 
-```sh
-c++ -std=c++17 -O2 -Wall -Wextra -pedantic check_total_visibility_K3Kn.cpp -o check_total_visibility_K3Kn
-./check_total_visibility_K3Kn
-```
+All nonedges of K3×Kn, n≥3, have distance two and their common neighbours require omitted witnesses. Same-column pairs force each row complement size≥2; same-row pairs force any two row-complement unions size≥3, equivalent to unequal 2-element supports. Binomial counting over support sizes gives the exact four-term T_n(z), all maximal sets have 3 distinct 2-subsets yielding facets size 3n−6. Bin(n,λ/n) per-row omissions converge to Poisson(λ), while duplicate exact two-support probability O(n^-2); hence the stated independent Bernoulli limit. Independent full adjacency-pair enumeration matched all 512,4096,32768 vertex subsets and facets for n=3..5.
 
-The code is a finite experiment, not an infinite certificate. The exact all-size formula and facet result follow from common-neighbor geometry and a disjoint count. The probability limit follows from analytic binomial-to-Poisson convergence and explicit bounds, not a Monte Carlo run. No independent audit has been performed.
+## originality
+
+PASS
+
+Same exact total-visibility definition and product checked against cited primary results. K3 is excluded from the known high-dimensional extremum, and prior general polynomial descriptions do not directly yield the full K3 enumerator or random critical window.
+
+## value
+
+PASS
+
+The natural total-visibility simplicial complex of a direct product gets its exact f-enumerator, purity and facets, and the independent site-percolation law identifies a Poisson transition. Each is a reusable invariant of K3 tensor Kn beyond a single maximum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
