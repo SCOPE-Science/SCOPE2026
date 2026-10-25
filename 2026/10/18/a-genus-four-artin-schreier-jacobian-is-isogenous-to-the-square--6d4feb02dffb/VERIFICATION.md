@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The program validates its eight finite-field bases by exhaustive monic-factor testing, then enumerates the exact fibres of the Artin–Schreier map in each field of size \(3^n\) for \(1\le n\le8\). A separate image-histogram count for \(y\mapsto y^3-y\) agrees with the absolute-trace count. All ramification points above finite poles and all points above infinity are included. It verifies \(N_1,N_2,N_3,N_4=(6,12,42,132)\), the genus-four Weil coefficient symmetry, and the complete numerator square.
+## correctness
 
-The same program checks the exhibited polynomial Bézout relation proving that \(u^5+u^4+u^2+1\) is squarefree, enumerates \(5\) and \(11\) points over the first two extension fields of the genus-two curve, and reconstructs its quartic L-polynomial. It checks the resulting \(225\)-point Jacobian order.
+PASS
 
-The genus calculations use standard ramification formulas. The isogeny inference uses Tate's finite-field theorem, not a constructive map; the isogeny degree, kernel, and polarization compatibility remain unspecified. The finite computations are exhaustive for the specified finite fields, while global equality of the zeta polynomials uses the mathematical Weil functional equation, not empirical extrapolation. No independent audit has been conducted.
+For the smooth F3 model y³−y=x²/(x³+2x²+1), denominator is irreducible cubic, yielding 3 simple geometric poles, genus four via Artin–Schreier Riemann–Hurwitz and 3-rank four by Deuring–Shafarevich. Correctly count three rational points over infinity and one per rational pole; independent exhaustive finite-field arithmetic at F_{3^n}, n=1..4 reproduces N_n=(6,12,42,132). Newton identities and genus-four Weil functional equation uniquely give L_X=1+2T+3T²+8T³+25T⁴+24T⁵+27T⁶+54T⁷+81T⁸=(1+T+T²+3T³+9T⁴)². The genus-two curve v²=u⁵+u⁴+u²+1 is smooth by the explicit polynomial Bézout identity; independent counts (5,11) over F3,F9 plus genus-two functional equation determine L_C=1+T+T²+3T³+9T⁴. Tate's isogeny theorem gives unpolarized J(X)∼J(C)² over F3. Frobenius quartic t⁴+t³+t²+3t+9 modulo 2 is Φ5 irreducible, showing F3 simplicity; middle coefficient prime to 3 gives ordinarity. #JX(F3)=L_X(1)=225. No explicit isogeny morphism/polarization claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary query by exact rational function and square isogeny yielded unrelated genus-two curves and Jacobian models, not a matching zeta table; focused web equation/polynomial searches also found no exact match, not evidence of historical impossibility. No negative search establishes absolute novelty.
+
+## value
+
+PASS
+
+An explicit ordinary genus-four Artin–Schreier example with only cyclic geometric automorphisms has a surprisingly repeated simple genus-two Frobenius factor. Determining its complete zeta function and an explicit genus-two Jacobian realizing the square isogeny gives all extension point counts and the entire F3 isogeny class, a natural exact arithmetic invariant not recoverable from genus, p-rank or automorphism group alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

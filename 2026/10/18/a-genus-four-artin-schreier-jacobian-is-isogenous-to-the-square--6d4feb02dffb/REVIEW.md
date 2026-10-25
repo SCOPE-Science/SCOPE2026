@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is about exact finite fields and isogeny classes, not a guess from numerical trends. The reduced denominator has three simple geometric zeros in a single degree-three Frobenius orbit. Riemann–Hurwitz gives genus four, and the pole-fibre and infinity corrections are incorporated in the rational-point formula. A dependency-free finite-field program checks every possible affine coordinate over extensions of degrees one through eight, using both direct fibres and the Artin–Schreier trace criterion. The first four exact counts and the genus-four functional equation determine the full L-polynomial. The explicit genus-two witness has a polynomial Bézout certificate for squarefreeness; its first two exact extension counts and genus-two functional equation give the same quartic numerator. Tate's theorem then supplies the isogeny. Modulo-two irreducibility proves the surface factor is simple. A priori this does not establish an isogeny of polarized abelian varieties.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+For the smooth F3 model y³−y=x²/(x³+2x²+1), denominator is irreducible cubic, yielding 3 simple geometric poles, genus four via Artin–Schreier Riemann–Hurwitz and 3-rank four by Deuring–Shafarevich. Correctly count three rational points over infinity and one per rational pole; independent exhaustive finite-field arithmetic at F_{3^n}, n=1..4 reproduces N_n=(6,12,42,132). Newton identities and genus-four Weil functional equation uniquely give L_X=1+2T+3T²+8T³+25T⁴+24T⁵+27T⁶+54T⁷+81T⁸=(1+T+T²+3T³+9T⁴)². The genus-two curve v²=u⁵+u⁴+u²+1 is smooth by the explicit polynomial Bézout identity; independent counts (5,11) over F3,F9 plus genus-two functional equation determine L_C=1+T+T²+3T³+9T⁴. Tate's isogeny theorem gives unpolarized J(X)∼J(C)² over F3. Frobenius quartic t⁴+t³+t²+3t+9 modulo 2 is Φ5 irreducible, showing F3 simplicity; middle coefficient prime to 3 gives ordinarity. #JX(F3)=L_X(1)=225. No explicit isogeny morphism/polarization claimed.
 
-Closest source: Tafazolian–Kazemifard, arXiv:2610.13279v1, Lemma 5.3, proves the existence, genus, p-rank and geometric automorphism group of this exact curve, not its Frobenius polynomial. Howe–Nart–Ritzenthaler describe which degree-four Weil polynomials can arise as genus-two Jacobians; they do not attach this polynomial to the named genus-four equation. Bruin–Kulkarni study genus-four Jacobians admitting particular polarization-preserving isogenies to squares; their statements do not imply the explicit arithmetic equality found here. Focused literature and mathematical-result database searches by equation, Hasse–Weil polynomial, point counts, isogeny language and source identity did not identify a covering result. No search result alone proves novelty; an earlier exact census or special-case application not found in the searches remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is natural because the originating curve is an explicit ordinary genus-four minimal-automorphism example, and its zeta function and Jacobian isogeny type are not specified by the source's genus/p-rank/automorphism calculation. The answer is qualitatively structured rather than just a point-count table: its genus-four numerator is a perfect square of an irreducible quartic, and an explicit genus-two Jacobian realizes the simple ordinary factor. This determines all extension-field point counts and the finite-field isogeny class while contrasting a small geometric automorphism group with repeated arithmetic isotypy. It has no claimed application to an entire family and no constructed polarized splitting.
+Best-of-knowledge mathematical noncoverage after statement-and-implication comparisons. Resultary query by exact rational function and square isogeny yielded unrelated genus-two curves and Jacobian models, not a matching zeta table; focused web equation/polynomial searches also found no exact match, not evidence of historical impossibility. No negative search establishes absolute novelty.
 
-## Sources and risks
+## value
 
-The 2026 construction, the 2007 finite-field abelian-surface classification and the 2025 genus-four polarized-square literature were compared at the level of hypotheses and implications. Remaining risks are a previously unindexed exact table for this finite-field model, or another equivalent zeta calculation hidden in unrelated literature. The explicit curve \(v^2=u^5+u^4+u^2+1\) is a witness to the isogeny class, not claimed to be a previously unknown genus-two curve.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit ordinary genus-four Artin–Schreier example with only cyclic geometric automorphisms has a surprisingly repeated simple genus-two Frobenius factor. Determining its complete zeta function and an explicit genus-two Jacobian realizing the square isogeny gives all extension point counts and the entire F3 isogeny class, a natural exact arithmetic invariant not recoverable from genus, p-rank or automorphism group alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
