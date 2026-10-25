@@ -1,11 +1,21 @@
-# Review of the isotropic Plücker quadric singular strata
+# Independent mathematical audit
 
-**Correctness — PASS.** The determinant identity, equality of full Jacobian and cofactor ideals, radical-incidence stratification, transverse Gram deformation, and orthogonal-Grassmann component classification prove the complete statement. The exact-arithmetic verifier confirms the local identities in six representative chart sizes and verifies all dimension formula cases in its documented finite range. Numerical checks do not substitute for the universal proof.
+## correctness
 
-**Originality — PASS, with qualification.** The 2026 Friedman–Hoşten–Rosana paper proves a singular-ideal formula and only a dimension-dependent upper bound for general \(k\); the precise all-\(k\) codimension, orbit strata, local \(A_1\) structure and exceptional components are not stated. Classical orthogonal-degeneracy geometry supplies known ingredients, and the complete claim may have an unindexed implicit precedent. A published record concerning a squared-Grassmannian sign quotient addresses a different variety. Priority is not independently certified.
+PASS
 
-**Value — PASS.** A uniform exact codimension and component/singularity classification sharpens the structural understanding of a geometrically natural quadric section appearing in Euclidean-distance optimization. No assertion is made about arbitrary model ED-generality merely from the codimension calculation.
+For 2<=k<=n-2 over C, Cauchy–Binet identifies Σ p_I² with det(AA^T). On chart A=[I B], d(det G)/d b_ij=2(adj(G)B)_ij; adj(G)=det G I−adj(G)BB^T shows equality of the Jacobian ideal (det G and derivatives) with entries of adj(G), not merely equality of radicals. Thus singular locus scheme has rad dimension >=2. For exact rad dimension r, choose isotropic R in OGr(r,n), dimension r(n-r)-r(r+1)/2, and a nondegenerate (k-r)-plane in R^perp/R, dimension (k-r)(n-k-r); total Grassmann codim r(r+1)/2, hence 3 at r=2. Deformation of symmetric restricted Gram is submersive in normal coordinates and Schur complement yields transverse det Sym_2=ac-b² A1, plus higher-radical degeneration to r2. OGr(2,n) irreducible for n>=5; n4,k2 splits into two P1 components. Source SymPy script independently inspected and dimension arithmetic rechecked for n<=11; universal argument is symbolic.
 
-**Closest literature and limits.** Friedman–Hoşten–Rosana, arXiv:2610.02018v1, Section 2; standard orthogonal Grassmannian dimension formulae. Full historical coverage of classical degeneracy theory was not achieved. Higher-radical transverse classifications and arbitrary quadratic sections are outside the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Friedman–Hoşten–Rosana 2026 explicitly identifies related singular ideals (Prop 2.4), gives codimension upper bound binom(k+1,2) (Theorem 2.3), and exact codimension three for k=2 (Corollary 2.5). The result strengthens that to every interior k,n and adds all radical strata, A1 local analytic model, and component classification. A separate Resultary squared-Grassmannian singularity classification addresses a coordinate-sign quotient, not this Plücker quadric. Best-of-knowledge PASS with classical orthogonal-degeneracy implication risk.
+
+## value
+
+PASS
+
+The sharp uniform singular codimension and transverse type across every interior Grassmannian directly describe geometry of a canonical quadric section arising in Euclidean-distance optimization; the exceptional component split is a natural boundary classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
