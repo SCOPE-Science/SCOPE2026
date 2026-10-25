@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python check.py` with NumPy and SymPy. The checker verifies all 12 cube edges, 24 rhombic edges and 12 exact four-vertex rhombic facets, the three strict endpoint-sign possibilities for every paired edge, hundreds of nondegenerate exact-integer sample normals and four rational stretch choices, second-derivative algebra and 150,000 independent normals at each of four diagonal aspect ratios. The expected final output begins with four `GEOMETRY_CHECK` lines and ends with `CHECK_OK`.
+## correctness
 
-The proof of the all-affine identity is the local per-edge sign bijection in `RESULT.md`. Random checks are only sanity checks. The Lagrange multiplier argument establishes all-positive-triple optimization; symbolic differentiation supports the Taylor coefficient. Neither a finite computation nor an inaccessible source was construed as exhaustive mathematical or bibliographic proof.
+PASS
+
+For each of 12 cube edges, its endpoints and two rhombic-dodecahedron axial-corner edges contribute exactly one plane crossing for a generic normal, as shown by three sign possibilities. Every rhombic edge belongs to exactly one such pair, establishing N_C+N_R=12; replacing the normal by T^T u proves affine-matched pointwise identity. A generic cube central cut has 4 or 6 vertices, hence its rhombic partner has 8 or 6. A Haar great-circle separation probability equals the angle between endpoint rays divided by pi, and summing 24 edges yields P_R(6)=(4/pi) sum_i arcsin(a_i/sqrt(sum a^2))-2 for diagonal T. Maximizing sum arcsin x_i on positive unit octant gives only critical x_i=1/sqrt(3), with boundary value pi/2, and logarithmic Taylor expansion yields coefficient 1/(pi sqrt(2)). Independently checked integer-normal edge crossings and exact symbolic Hessian; no finite sampling was used as proof.
+
+## originality
+
+PASS
+
+The single-body box Haar hexagon law and cubical optimizer are explicitly previously known, not novel. The surviving distinction is the pointwise twelve-edge complement under every COMMON invertible affine map, transporting box events to a different polytope and deriving its sharp logarithmic Hessian. Full prior record checked; no implication alone gives new incidence identity.
+
+## value
+
+PASS
+
+A same-normal edgewise combinatorial correspondence between two classical nonisomorphic polytopes is a structural geometric identity, giving the entire Haar section type law of an affine rhombic dodecahedron and exact stability of the symmetric extremizer; the result is useful beyond merely recomputing the known box probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
