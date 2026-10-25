@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an exact invariant cover of every stage from degree two onward, identifies its intersection as the complete bipartite one-skeleton, calculates the two cover pieces via simplex skeleton chain complexes, and applies the natural integral Mayer–Vietoris sequence. This reconstructs the stage-two short exact sequence and the surviving degree-two maps, while retaining all group actions. Stage zero and stage one follow from a separate relative-chain calculation. Exterior-power lattice identifications require no rationalization; a rational split is invoked only for the stage-two character. The finite signed-chain code agrees over primes 2, 3, and 5 and with all small-case symmetry traces, but the infinite proof does not rest on it.
+## correctness
 
-## Originality — PASS, with residual risk
-Carnero Bravo, arXiv:2307.13271, Theorem 33 gives the stagewise nonequivariant homotopy types of the same filtered complexes, which are explicitly credited. Its inspected statement and proof do not identify inclusion-induced maps, permanent/ephemeral classes, symmetric-group lattices, or the equivariant stage-two extension. Zuffi's full thesis treats the induced acyclic complex as a possible graph complex but uses edge-order filtrations rather than bounded induced degree. Topic and equivalent-formulation searches of research records and primary literature did not identify the claimed combined persistence and equivariant result. Novelty cannot be guaranteed from indexing alone; a derivation elsewhere under different terminology remains a risk.
+PASS
 
-## Mathematical value — PASS
-The complete bipartite family is the natural exact-test case of the published forest filtration. Distinguishing an integer-valued class that survives forever from transient same-degree classes requires inclusion maps, not the stagewise Betti numbers alone. Canonical representation lattices record the symmetry of births, deaths, and the essential classes across all sizes and degrees. The integral nonspecified extension class is stated as a limitation, rather than incorrectly promoted to an equivariant splitting.
+The definitions force mixed simplices either to have exactly one vertex on A or one on B and at most d on the opposite side, because any induced K_{2,2} is cyclic. At d>=2 cover by X_d = Delta_A plus B-cones on sk_{d-1}Delta_A and Y_d analog; intersection is the literal 1-complex K_{a,b}. For the two covers the skeleton’s augmented boundary contraction kernel is wedge^d U; this gives Hd(X_d)=P_B tensor wedge^d U_A, and the analogous Y term, with no other positive homology. H1(K_{a,b}) is the row/column-sum-zero lattice U_A tensor U_B. Natural integral Mayer–Vietoris yields at d=2 the short exact sequence with T2 and W; for d>=3 the H2 connecting map to W is an isomorphism and Hd=T_d; the inclusion maps and torsion-freeness follow. Stage 1 relative to Delta_A disjoint Delta_B has ab cross-edge generators mapped to the same H0 generator, giving ker augmentation; F0 has reduced H0=Z. Exterior-power trace from det(1+t sigma|U) gives rational characters. Independently reconstructed full simplicial mod3 boundary ranks for K_{2,2}, K_{2,3}, K_{3,3}, K_{3,4} at all stages, consistent with the universal argument; this bounded check does NOT establish all parameters. The stage-two equivariant extension is not asserted to split integrally and part swapping for a=b is excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The analysis must distinguish the prior full stagewise homotopy types of F_d(Kab) in Carnero Bravo (Theorem 34 current arXiv rendering; package refers to 33) from new natural persistence maps and S_a x S_b lattice structure. None of the retrieved Resultary analogs identifies the same induced-forest filtration with those natural equivariant maps. This is a bounded best-of-knowledge scientific judgment: an unsuccessful search cannot prove absolute priority.
+
+## value
+
+PASS
+
+The integral side-preserving equivariant persistence for an infinite bipartite family isolates persistent rectangle two-cycles from transient skeleton classes; it is a structural computation useful for equivariant graph-filtration comparisons, not merely known stagewise Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
