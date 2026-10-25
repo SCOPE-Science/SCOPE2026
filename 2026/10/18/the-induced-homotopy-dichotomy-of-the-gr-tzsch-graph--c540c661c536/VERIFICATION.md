@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The supplied `verify.py` requires the adjacent `certificate.json` and only the Python standard library. Running `python3 verify.py` verifies the complete graph and face enumeration, seven elementary-collapse certificates, manifold conditions on the remaining sphere triangulation, all 2,048 subset-containment cases, the full dihedral automorphism action, and each signed simplicial Lefschetz trace. The arithmetic and combinatorics are exact. The local verifier returned:
+# Independent mathematical audit
 
-```
-VERIFY_OK GROTzSCH_INDEPENDENCE F_VECTOR_11_35_40_15_1
-SEVEN_EXPLICIT_COLLAPSE_CERTIFICATES VERIFIED CLOSED_SPHERE_9_21_14
-FIVE_MINIMAL_9_VERTEX_S2_CARRIERS BAD_MAXIMAL_CONTRACTIBLE_11
-ALL_2048_INDUCED_SETS CLASSIFIED GOOD_SIZES_9_5_10_5_11_1
-FULL_D5_CHARACTER ROTATIONS_POSITIVE REFLECTIONS_NEGATIVE
-```
+## correctness
 
-The proof of the integral sphere homotopy type is the explicit sequence of elementary collapses and the verified closed connected surface of Euler characteristic two. The nullhomotopy assertions use factorization through the eleven contractible induced supersets. The computation neither extrapolates to larger Mycielskians nor establishes publication priority or an independent audit.
+PASS
+
+Independently regenerated all 11 vertices and 20 edges of µ(C5), its 102 nonempty independent faces (vector 11,35,40,15,1), and checked the classification for all 2^11−1=2047 nonempty W, with five nine-vertex cores, five ten-vertex supersets and the full 11-set. Directly fetched certificate Git blob 068acf4065d0b93272fb351a26f451a230a096fb and independently replayed all seven exact ordered collapse sequences: ambient→core 27 pairs, core→sphere 2, root deletion→point 45, original deletion→point 41, two twin deletion→core 11 each, nonconsecutive triple→point 25; every removal was a free codimension-one face with unique maximal coface and expected remainder. The resulting (9,21,14) surface has connected cyclic links and χ=2, hence S². All bad sets lie within one of contractible deletion or nonconsecutive-triple supersets, so inclusions factor nullhomotopically. D5 sign obtained by signed fixed-simplex Lefschetz as in source. No claim that the bad induced subcomplexes themselves are contractible.
+
+## originality
+
+PASS
+
+Ambient sphere is known via Goyal–Shukla–Singh and Carnero Bravo generalized Mycielski independence-complex suspension theorems. Those results are nonequivariant about full Ind(µ(C5)) and do not determine the actual inclusions K[W]→K, minimal homotopy-equivalence carriers or null-carrier classification. Published Resultary Grötzsch matching complex uses a different simplicial functor.
+
+## value
+
+PASS
+
+The Grötzsch graph is the smallest triangle-free 4-chromatic graph. The exact minimal nine-vertex witnesses needed to preserve its known S² topology, and complete induced-inclusion dichotomy, are a natural localized-to-global topological classification not implied by the known ambient sphere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
