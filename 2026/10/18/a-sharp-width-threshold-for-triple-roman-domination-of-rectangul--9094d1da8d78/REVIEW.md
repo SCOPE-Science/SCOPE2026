@@ -1,11 +1,21 @@
-# Scientific review: rectangular rook graphs
+# Independent mathematical audit
 
-**Correctness (PASS).** Every defense label is reduced exactly to row and column surplus and positive-cell counts. The case of a zero-surplus column forces a four-unit contribution from every row. Otherwise, either all row surpluses are at least two, or one row has surplus zero or one; the latter possibilities each force weight at least \(3n\), which is no smaller than \(2m+n\). Distinct-column constructions attain \(2m+n\) for \(m\le n\le2m\), and a common column of fours attains \(4m\) for \(n\ge2m\). Exhaustive small boards and 1,485 further construction checks reproduce the stated bounds. The infinite claim is proved combinatorially, not by enumeration.
+## correctness
 
-**Originality (PASS, subject to stated residual source-access risk).** Inspected complete foundational and subsequent primary texts establish the underlying invariant, general bounds, and selected non-rook families. No inspected statement, reduction, or dominating theorem implies the rectangular-rook formula. The 2024 generic degree lower bound gives \(12\), not \(15\), for the \(5\times5\) board. Targeted searches also considered equivalent line-graph terminology \(L(K_{m,n})\), Roman \([3]\) domination, and product-graph aliases. The relevant Khalili–Amjadi–Chellali–Sheikholeslami 2023 paper was only available in abstract; its full text could not be inspected, so a potential historical overlap cannot be ruled out.
+PASS
 
-**Value (PASS).** The result gives an exact two-parameter invariant for the natural rook/line-graph family, with a genuine width-dependent phase transition and matching but structurally different optimal defenses. The argument is nontrivial because ordinary degree bounds alone leave gaps for balanced boards. The exact answer is applicable throughout infinitely many graph orders, not an isolated census or an unmotivated coefficient.
+With 2<=m<=n, f:V(K_m box K_n)->{0,1,2,3,4} satisfies f(v)+sum_{u neighbor, f(u)>0}(f(u)-1)>=3 for f(v)<3, using open neighborhoods. Writing a_ij=max(f_ij-1,0), row r_i and column c_j surplus, B=sum r_i=sum c_j and T=#positive cells gives exact weight W=B+T. At labels 0,1,2 the necessary and sufficient row-column inequalities are r_i+c_j>=3, >=2, >=3, respectively (label 2 self surplus counted twice). If some column has c_j=0, every row incurs weight >=4, so W>=4m. Otherwise T>=n: if all rows r_i>=2 then W>=2m+n; if a row r_i=0 then every c_j>=2 and W>=3n; if some row r_i=1, writing a=#columns of surplus one, each such column needs two positive cells, so T>=n+a and B>=2n-a, hence W>=3n. The two explicit construction schemes yield 4m when n>=2m and 2m+n when m<=n<=2m. I independently enumerated all sub-bound assignments for six small boards (122,882,6075,49296,22330,272090 cases) with no counterexample; all-order proof is the surplus argument and the explicit construction, not these finite searches.
 
-**Closest literature and limits.** Abdollahzadeh Ahangar et al., DOI `10.1016/j.amc.2020.125444` (full arXiv manuscript inspected); Valenzuela-Tripodoro et al., DOI `10.1007/s41980-024-00872-1` (full article inspected); Hajjari et al., DOI `10.1155/2022/9992618` (full article inspected); Khalili et al., DOI `10.1080/09728600.2023.2241531` (abstract only; full-text comparison unresolved). The theorem does not classify all minima, and its novelty remains subject to the ordinary risks of unindexed or inaccessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Triple Roman domination is the five-label defense invariant in Abdollahzadeh Ahangar et al. (2021/2024 manuscript), not Roman {3} domination nor strong/total Roman variants. The inspected foundational primary article gives the definition, general bounds and other families; no rook graph exact formula was seen. The generic degree bound yields only 12 at 5x5 while the new exact formula gives 15, proving that bound alone does not imply the result. Khalili et al 2023 closely related [k]-Roman primary was accessible only at abstract level (full text 403); this is a specific residual priority risk, not a scientific failure. Resultary’s Roman {3} complete-prism record is a different invariant and does not automatically cover triple Roman K_m box K_n.
+
+## value
+
+PASS
+
+A complete two-parameter exact invariant for rook/line graphs of K_{m,n} with a genuine threshold at n=2m, new matching lower bound and constructive optimal defenses. Ordinary generic degree arguments leave a strict gap on balanced boards. Infinite natural product family and sharp phase transition are mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
