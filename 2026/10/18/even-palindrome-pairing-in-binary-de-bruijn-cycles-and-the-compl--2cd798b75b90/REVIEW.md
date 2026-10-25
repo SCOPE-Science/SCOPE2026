@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph argument applies to every binary order at least two: every Euler tour creates a local incoming-to-outgoing permutation, and the binary fixed-point count at any palindromic vertex is zero or two. The constant-vertex case is forced to be a swap because otherwise it isolates a self-loop edge. The order-five multiplicities are exhaustively certified by all 65536 local pairings, with an independently implemented Euler-tour enumeration, and all four computed profiles sum to 2048. The finite certificate is not used to infer the all-order statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary literature provides successor-rule and Eulerian constructions [1], reflection-quotient constructions [2], general palindrome-generation observations [3], and reverse-complement symmetric examples [4]. The inspected passages do not state the all-order binary even-pairing theorem together with the exact order-five four-way joint spectrum. An earlier order-three general-alphabet count and an order-four palindrome expectation do not imply the order-five joint distribution; the previous order-five longest-palindrome classification does not determine exact membership of length-six palindrome pairs. Search misses alone are not proof of novelty. The possibility of an independently discovered equivalent under another terminology is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The length immediately beyond the de Bruijn order is the first factor length whose full occurrence spectrum is not already prescribed by universality. The all-order binary pairing law constrains this entire boundary by an exact involutive mechanism; the four-state order-five census resolves dependence between its two nonconstant palindrome centers, not merely a maximum or a scalar expected count. This is a natural exact finite invariant combined with a structural theorem covering every binary order, useful as a baseline for higher-order palindrome-spectrum questions.
+For every n>=2 binary de Bruijn Euler tour, the two in-edges at a (n-1)-word v pair bijectively with its two out-edges. Palindromes of length n+1 centered on palindromic v are precisely fixed points of this binary permutation; it has zero or two. Constant v must use a swap, otherwise the constant n-bit edge is an isolated one-cycle, impossible for the unique Euler tour. Thus each nonconstant palindrome center contributes both 0v0 and 1v1 or neither, giving an even count bounded by 2(2^ceil((n-1)/2)-2). At order five the only possible pairs are A={001100,101101} and C={010010,110011}. Exhaustive independent enumeration of all 2^16=65536 local successor bijection choices, testing exactly one 32-cycle, reproduces the full profile histogram empty:768, A-only:512, C-only:512, both:256, total 2048. Pair-indicator covariance equals 256/2048-(768/2048)^2=-1/64. This finite exhaustive test proves only order-five multiplicities; the all-order pairing follows separately from the Euler tour argument.
 
-## Limitations
-No sharp universal upper bound or complete higher-order count distribution is proved. Literature equivalence outside inspected/indexed material remains possible. The result and reproducibility checker have not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Euler-tour de Bruijn representation and count of 2048 order-five cycles are classical. Anisiu et al. discuss palindromic subwords of de Bruijn constructions and general palindrome bounds; inspected passages do not provide the fixed-cycle local binary pair law plus the complete four-set order-five distribution. Successor-rule, unoriented and reverse-complement primary sources address different invariants or selected cycles. Existing order-three, order-four expectation and order-five longest-palindrome results do not imply this joint membership spectrum; residual priority risk remains.
+
+## value
+
+PASS
+
+Length n+1 is the first factor length whose occurrence is not forced by de Bruijn universality. The binary Euler-transition involution gives a general structural constraint, while the complete order-five census quantifies nonindependence of two natural palindrome-center events. The result is an exact self-contained natural spectrum, not an arbitrary slice or a known count recited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

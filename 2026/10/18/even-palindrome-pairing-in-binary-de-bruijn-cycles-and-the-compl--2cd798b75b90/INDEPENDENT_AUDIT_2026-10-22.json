@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T10:02:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2 binary de Bruijn Euler tour, the two in-edges at a (n-1)-word v pair bijectively with its two out-edges. Palindromes of length n+1 centered on palindromic v are precisely fixed points of this binary permutation; it has zero or two. Constant v must use a swap, otherwise the constant n-bit edge is an isolated one-cycle, impossible for the unique Euler tour. Thus each nonconstant palindrome center contributes both 0v0 and 1v1 or neither, giving an even count bounded by 2(2^ceil((n-1)/2)-2). At order five the only possible pairs are A={001100,101101} and C={010010,110011}. Exhaustive independent enumeration of all 2^16=65536 local successor bijection choices, testing exactly one 32-cycle, reproduces the full profile histogram empty:768, A-only:512, C-only:512, both:256, total 2048. Pair-indicator covariance equals 256/2048-(768/2048)^2=-1/64. This finite exhaustive test proves only order-five multiplicities; the all-order pairing follows separately from the Euler tour argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Ezerman–Ke–Wang, arXiv:1911.06670, construct many successor-rule tours; Chang–Wang, arXiv:2408.01794, select reverse-complement-symmetric odd-order tours; Burris–Motta–Shipman, arXiv:1608.08480, change universality using reverse-equivalence."
+        ],
+        "reasoning": "These sources discuss more general construction techniques or a different quotient, not a theorem classifying all 2048 labelled-binary order-five rotation classes by their four exact palindrome subsets.",
+        "searches": [
+          "binary de Bruijn cycles palindromic factors length n plus one local Euler transition pairing exact order five distribution",
+          "Anisiu properties of palindromes de Bruijn 2006 construction",
+          "unoriented variation de Bruijn sequences palindromic factors"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 0c4111343b355402538ca4b8ea1af2c98006a9c8",
+        "Inspected check_palindromes.py blob 7b3d635f6e3d8e730a89d750e358df3279e3319a",
+        "Anisiu–Anisiu–Kása (2006), ICTP original full-text article",
+        "arXiv:1911.06670",
+        "arXiv:1608.08480",
+        "arXiv:2408.01794",
+        "Earlier SCOPE order-three/order-four/longest-palindrome comparators as described in frozen AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The selected-family constructions do not enumerate all rotation classes.",
+          "Anisiu’s general palindrome occurrence and construction results do not imply correlations of the two nonconstant length-four centers in all order-five de Bruijn cycles."
+        ],
+        "reasoning": "A prior stronger theorem must assign joint probabilities of which n+1 palindromic factors occur in arbitrary binary order-five de Bruijn cycles, not merely count total cycles or provide a single example.",
+        "searches": [
+          "arxiv:1911.06670 de Bruijn successor rules",
+          "arxiv:2408.01794 reversal complement cyclic binary de Bruijn",
+          "binary de Bruijn cycles palindromic factors length n plus one local Euler transition pairing exact order five distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Euler tours and vertex successor bijections are standard; the new assertion is that fixed-point palindromes occur in forced 2-pairs.",
+          "Anisiu–Anisiu–Kása 2006, Properties of palindromes in finite words, constructs palindromes from de Bruijn words but inspected results do not quantify the joint four-set distribution across every order-five tour."
+        ],
+        "reasoning": "Equivalent language includes edge-local Euler transition permutation, fixed-point pairings, palindromic (n+1)-factor spectrum and de Bruijn conjugacy classes. These are considered explicitly, not merely name/title matches.",
+        "searches": [
+          "binary de Bruijn cycles palindromic factors length n plus one local Euler transition pairing exact order five distribution",
+          "order-five de Bruijn palindromic six factors 2048 cycles four spectra 768 512 256",
+          "de Bruijn successor permutation fixed points palindromic factor pairing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source check_palindromes.py at blob 7b3d635f6e3d8e730a89d750e358df3279e3319a traverses all 65536 pairings and independently Euler-tours; a separately written local enumeration matched the exact histogram.",
+          "Related order-five *longest* palindrome tables do not determine presence/absence of length-six words."
+        ],
+        "reasoning": "The four-class order-five joint table is more informative than an expected palindrome count or longest palindrome histogram. Actual published-archive searches yielded no equivalent specific table; misses are not guarantees.",
+        "searches": [
+          "order-five de Bruijn palindromic six factors 2048 cycles four spectra 768 512 256",
+          "order-five de Bruijn length-six palindromes profile 768 512 512 256"
+        ]
+      },
+      "rationale": "The Euler-tour de Bruijn representation and count of 2048 order-five cycles are classical. Anisiu et al. discuss palindromic subwords of de Bruijn constructions and general palindrome bounds; inspected passages do not provide the fixed-cycle local binary pair law plus the complete four-set order-five distribution. Successor-rule, unoriented and reverse-complement primary sources address different invariants or selected cycles. Existing order-three, order-four expectation and order-five longest-palindrome results do not imply this joint membership spectrum; residual priority risk remains.",
+      "residual_risks": [
+        "Unindexed recreational-combinatorics literature might contain an equivalent order-five palindrome table.",
+        "Higher-order sharpness and complete distribution are explicitly NOT proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected results concern palindrome existence/construction and general complexity, not the binary order-five joint four-profile census.",
+          "evidence": "Anisiu, Anisiu, Kása (2006), Section 2, Props 2–3",
+          "identifier_or_url": "https://ictp.acad.ro/properties-of-palindromes-in-finite-words/",
+          "material_read": "Available full article HTML, de Bruijn-related constructions and Section 2 Propositions 2–3",
+          "method": "Lawful open-access full-text HTML; inspected relevant original propositions",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Directly studies palindrome patterns arising from de Bruijn words"
+        },
+        {
+          "assessment": "Generates selected tours; inspected results do not classify all rotations by length-six palindrome occurrence.",
+          "evidence": "arXiv:1911.06670, introductory and construction sections",
+          "identifier_or_url": "https://arxiv.org/abs/1911.06670",
+          "material_read": "Open-access primary PDF, Introduction and successor-rule construction",
+          "method": "Primary OA PDF with first-page screenshot; mathematical methods inspected",
+          "title": "New Successor Rules to Efficiently Produce Exponentially Many Binary de Bruijn Sequences",
+          "trigger": "Same de Bruijn cycle object, potential all-cycle successor theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length n+1 is the first factor length whose occurrence is not forced by de Bruijn universality. The binary Euler-transition involution gives a general structural constraint, while the complete order-five census quantifies nonindependence of two natural palindrome-center events. The result is an exact self-contained natural spectrum, not an arbitrary slice or a known count recited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 0c4111343b355402538ca4b8ea1af2c98006a9c8",
+    "Inspected check_palindromes.py blob 7b3d635f6e3d8e730a89d750e358df3279e3319a",
+    "Anisiu–Anisiu–Kása (2006), ICTP original full-text article",
+    "arXiv:1911.06670",
+    "arXiv:1608.08480",
+    "arXiv:2408.01794",
+    "Earlier SCOPE order-three/order-four/longest-palindrome comparators as described in frozen AUDIT.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=2 all-order even-pairing only; complete joint-spectrum enumeration is exclusively n=5.",
+    "Rotation classes not quotient by reversal or complement.",
+    "Finite exhaustive computation does not certify untested higher-order distributions."
+  ],
+  "residual_risks": [
+    "Unindexed recreational-combinatorics literature might contain an equivalent order-five palindrome table.",
+    "Higher-order sharpness and complete distribution are explicitly NOT proved."
+  ],
+  "schema_version": 1
+}
