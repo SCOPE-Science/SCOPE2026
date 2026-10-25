@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T11:08:23.248784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/html/2609.19029",
+        "https://arxiv.org/html/2610.03426v1",
+        "Git tree 5d977d9cddf790a0514cfd01218c29a8237f72d0 at 6c379935c2e469fc18959fc6c387e31328c64bcf/RESULT.md"
+      ],
+      "rationale": "Reconstructed all exact quantifiers and normalizations from RESULT.md. The base U is continuous, compactly supported on [0,2/e], increasing with U(t)=1/log(e/t) on (0,1/e], and decreases linearly afterward; range [0,1/2]. On monotone arcs any continuous locally Lipschitz nondecreasing Phi gives an absolutely continuous composition of total variation 2 Phi(1/2), hence W1,1. For O(U), the |a|<=2r section has length 4r and m_U<=U(3r), producing kappa int_{r>ce^{-1/kappa}}dr/r<=C; away from the tip, a>2r has m_U<=2r G(a), G in L1 with near-zero bound C/[a log(e/a)^2], giving 2||G||1; large radii satisfy m_U<=||U||1/r and center support length at most 2r+2/e, yielding bounded kappa log(1/kappa). Chen et al Lemma 2.5 gives D(U)<infinity for the identical gamma=-1 normalization. If M=sup Phi(s)/s is finite, |Phi'|<=KM near zero and local Lipschitzness away from zero imply a global Lip constant L, hence D(Phi(U))<=L D(U) and O(Phi(U))<=2L O(U). If the envelope is unbounded, choose s_n downarrow0 with Phi(s_n)/s_n to infinity, x_s=e exp(-1/s), lambda_s=Phi(s)/2. Integration over x in (x_s,delta) and y in (-x,0) gives lambda_s D-level integral at least Phi(s)/4 log(delta/x_s). For 8x_s<r<r0 and |a|<r/4, negative and positive fixed subintervals each have length r/4 and force m_f>=Phi(s)/64; with kappa_s=Phi(s)/128 one gets at least Phi(s)/256 log(r0/(8x_s)). Both diverge along s_n and levels go to zero. For Phi(s)=s^alpha log(e/s)^(-beta), sPhi'/Phi=alpha+beta/log(e/s), and the exact bounded-envelope boundary is alpha>1 or alpha=1,beta>=0. Finite test samples are not needed.",
+      "residual_risks": [
+        "C uses Chen--Yang--Yuan--Zhang Lemma 2.5 as a proved external base-cusp fact; independent audit checked the actual lemma and correct normalization but does not reprove every detail of its 2026 source.",
+        "The Phi derivative-envelope condition is needed for the sufficiency implication; no analogous equivalence is claimed without it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BSVY Theorem 1.1(c) gives generic failure at p=1, -1<=gamma<0, with a universal lower liminf inequality, not a criterion on regular log-cusp compositions.",
+          "Chen et al Theorems 1.2 and 1.4 concern Hardy--Sobolev strict embedding and nonnormability, while Lemma 2.5 supplies only the base-cusp BSVY estimate.",
+          "Frank Theorem 3 is BV necessity; Proposition 4 gives a W1,1 counterexample with divergent mean weak test, but neither proves the positive log-cusp border.",
+          "The Resultary strict Sobolev--BV separation theorem classifies a strict space inclusion and a Cantor witness, not these two tests on the proposed compositions."
+        ],
+        "reasoning": "All broader prior conclusions concern ambient function-space comparisons or generic failure. They do not mathematically entail the target simultaneous finiteness equivalence on this structured infinite-dimensional class. No hidden larger-domain theorem giving both criteria was located in the inspected full texts.",
+        "searches": [
+          "Primary: Brezis--Seeger--Van Schaftingen--Yung, Anal. PDE 17 (2024), Theorem 1.1(c)",
+          "Primary: Chen--Yang--Yuan--Zhang, arXiv:2609.19029v1, equation (2.1), Lemma 2.5, Lemma 3.10",
+          "Primary: Frank, arXiv:2610.03426v1, Section 3 and Proposition 4",
+          "Published finding: Resultary/2026, 2026/9/18 strict Sobolev--BV BSVY separation, RESULT.md",
+          "Resultary semantic: weak endpoint mean oscillation over balls for one-sided logarithmic cusp U(x)=1/log(e/x), p=1, finite distribution and logarithmic envelope profile"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.19029",
+        "https://arxiv.org/html/2610.03426v1",
+        "https://arxiv.org/pdf/2109.02930",
+        "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-strict-sobolev-bv-separation-bsvy-endpoint--120b7d9616a9/RESULT.md",
+        "Resultary semantic searches: weak endpoint mean oscillation over balls for one-sided logarithmic cusp U(x)=1/log(e/x), p=1, finite distribution and logarithmic envelope profile; exceptional BSVY gamma=-1 seminorm difference quotient for nonlinear monotone compositions of log cusp, exact if and only if Phi(s)/s bounded; Frank weak mean oscillation logarithmic cusp powers loglog alpha=1 beta threshold necessary sufficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen et al establish D(U)<infinity, and their Lemma 3.10 exposes log-coordinate weak-L1 behavior, but do not prove O(U)<infinity.",
+          "Frank demonstrates O(g)=infinity for 0<alpha<1, but does not cover alpha=1 or general Phi monotone compositions.",
+          "The audited statement additionally proves both necessity implications, the shared upper bound for all admissible Phi and the two-parameter loglog cutoff."
+        ],
+        "reasoning": "Adding the previous BSVY base example to Frank's negative example does not imply the missing positive O(U) estimate or the iff result for every regular outer profile. The present argument requires its own near-tip/off-tip/large-scale integration and quantitative cross-cusp lower bounds. Only best-of-knowledge priority is claimed.",
+        "searches": [
+          "Primary: Chen--Yang--Yuan--Zhang, arXiv:2609.19029v1, equation (2.1), Lemma 2.5, Lemma 3.10",
+          "Primary: Frank, arXiv:2610.03426v1, Section 3 and Proposition 4",
+          "Primary: Brezis--Seeger--Van Schaftingen--Yung, Anal. PDE 17 (2024), Theorem 1.1(c)",
+          "Published result: Resultary/2026, 2026/9/18 strict Sobolev--BV BSVY separation, RESULT.md",
+          "Resultary semantic: weak endpoint mean oscillation over balls for one-sided logarithmic cusp U(x)=1/log(e/x), p=1, finite distribution and logarithmic envelope profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The BSVY N=1 gamma=-1 condition is exactly lambda times the exceptional |x-y|^{-2} pair-level measure, not the usual first-order difference quotient (Chen et al definition and Lemma 2.5).",
+          "Chen et al Lemma 3.10 rewrites the positive/negative cross region as a weak-L1 distribution in log x; it is a partial BSVY mechanism but contains no ball-oscillation bound.",
+          "Frank Section 3 uses the same absolute mean-deviation m_f and da dr/r^2 at p=1; Proposition 4 tests powers 0<alpha<1 but not the common regular-outer-envelope equivalence."
+        ],
+        "reasoning": "Log-coordinate weak L1, exceptional BSVY and Frank mean oscillation are the important aliases. An exact positive statement for both tests and a necessary/sufficient Phi(s)/s envelope is not supplied by the inspected log-coordinate decomposition, single-cusp bound or the subcritical negative example. No nontrivial equivalence for all W1,1 is asserted.",
+        "searches": [
+          "Resultary semantic: exceptional BSVY gamma=-1 seminorm difference quotient for nonlinear monotone compositions of log cusp, exact if and only if Phi(s)/s bounded",
+          "Resultary semantic: Frank weak mean oscillation logarithmic cusp powers loglog alpha=1 beta threshold necessary sufficient",
+          "Primary: Chen--Yang--Yuan--Zhang, arXiv:2609.19029v1, equation (2.1), Lemma 2.5, Lemma 3.10",
+          "Primary: Frank, arXiv:2610.03426v1, Section 3 and Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen et al equation (2.1) and Lemma 2.5 present one specific cusp, not a table of arbitrary admissible outer profiles.",
+          "Frank Proposition 4 covers a particular subcritical alpha<1 family, and contains no alpha=1 loglog classification.",
+          "The exact Resultary hit is the SAME research record being assessed, excluded as independent precedent."
+        ],
+        "reasoning": "This is an infinite-dimensional analytic membership theorem, not a finite database invariant. The known individual examples and the self-indexed record do not constitute an independent exhaustive table or implication.",
+        "searches": [
+          "Resultary semantic: Frank weak mean oscillation logarithmic cusp powers loglog alpha=1 beta threshold necessary sufficient",
+          "Resultary semantic: exceptional BSVY gamma=-1 seminorm difference quotient for nonlinear monotone compositions of log cusp, exact if and only if Phi(s)/s bounded",
+          "Primary example: Chen--Yang--Yuan--Zhang, arXiv:2609.19029v1, equation (2.1), Lemma 2.5, Lemma 3.10",
+          "Primary power construction: Frank, arXiv:2610.03426v1, Section 3 and Proposition 4"
+        ]
+      },
+      "rationale": "Fresh comparisons of exact hypotheses, dual log-coordinate formulations, stronger ambient theorems, the same published mathematical record and complete primary proofs do not identify an independent implication proving both target iff tests. Chen et al supply only one BSVY base cusp, Frank a subcritical mean-oscillation counterexample, and the BSVY theorem generic endpoint pathology; the separate O(U) proof and regular Phi iff are the nontrivial added content.",
+      "residual_risks": [
+        "An earlier unindexed characterization of mean oscillation on one-sided monotone logarithmic cusps may imply the envelope criterion; search nonmatches do not establish historical priority.",
+        "The 2022/2024 antecedent of Frank's oscillation theorem was considered through the detailed 2026 source and its references rather than separately inspected in full; potential older overlapping specialized result remains a priority risk.",
+        "The result concerns only one-dimensional nonnegative Phi-composed canonical cusps under the derivative regularity assumption; no global W1,1 equivalence follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides D(U) exactly with the correct weak norm; no two-functional criterion, O(U) upper estimate, or monotone-outer-profile phase diagram.",
+          "evidence": [
+            "equation (2.1): U(t) piecewise logarithmic with same support and maximum 1/2",
+            "Lemma 2.5: finite gamma=-1 BSVY value; equations (2.3)-(2.8) prove the bound",
+            "Lemma 3.10 equations (3.8)-(3.11): partial BSVY log-coordinate decomposition"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.19029",
+          "material_read": "Full arXiv HTML mathematical introduction, definitions and Theorems 1.2/1.4, full equation (2.1) and Lemma 2.5 proof, and Section 3 Lemma 3.10 with log-coordinate transformation.",
+          "method": "Direct full-text arXiv HTML paragraph and equation inspection, including Lemma 2.5 proof lines 184-240 and Lemma 3.10 proof lines 527-547.",
+          "title": "On Two Questions by Brezis et al Concerning the Critical Difference Quotient Characterization of First-Order Sobolev Spaces",
+          "trigger": "Identical source logarithmic cusp and exceptional gamma=-1 BSVY membership lemma"
+        },
+        {
+          "assessment": "Shows BV necessity and divergence for subcritical one-sided log-power cusps alpha<1, not boundedness of the alpha=1 cusp nor a shared iff with BSVY for monotone Phi.",
+          "evidence": [
+            "Section 1 defines m_f and measure da dr/r^(p+1)",
+            "Theorem 3 (p=1) shows BV from finite liminf",
+            "Proposition 4, formulas (19)-(21), establishes divergence for 0<alpha<1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03426v1",
+          "material_read": "Full arXiv HTML introduction/definitions, Theorems 1 and 3, complete Section 3 including Proposition 4 and all proof steps and references.",
+          "method": "Direct arXiv HTML full-text inspection, particularly lines 213-317.",
+          "title": "Another characterization of homogeneous first-order Sobolev spaces",
+          "trigger": "Same weak ball mean-oscillation quantity at p=1 and potentially dominating endpoint results"
+        },
+        {
+          "assessment": "Proves generic exceptional endpoint failure and a lower liminf bound; does not imply profile-specific positive finite weak seminorms or Frank mean oscillation.",
+          "evidence": [
+            "Theorem 1.1(c), p. 3, for p=1 and -1<=gamma<0",
+            "Definition of dnu_gamma and E_lambda, gamma on p. 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.02930",
+          "material_read": "Open arXiv PDF abstract, definitions and full Theorem 1.1, exception and remarks on pages 1-3; visually checked PDF page 3.",
+          "method": "Full published foundational source at relevant mathematical sections; arXiv PDF text plus page screenshot.",
+          "title": "Families of functionals representing Sobolev norms",
+          "trigger": "Foundational BSVY theorem could provide stronger endpoint coverage"
+        },
+        {
+          "assessment": "Strict inclusion of spaces and jump-to-Cantor witness; no determination of both weak tests for outer compositions of the logarithmic cusp.",
+          "evidence": [
+            "strict containment W^{1,1}(gamma) subsetneq BV(gamma) for -1<=gamma<0",
+            "the theorem states it does not give an intrinsic characterization of the BV(gamma) class"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-strict-sobolev-bv-separation-bsvy-endpoint--120b7d9616a9/RESULT.md",
+          "material_read": "Complete published RESULT.md, including exact theorem, one-dimensional Cantor construction, higher-dimensional tensor lifting, proof and scope.",
+          "method": "Read full GitHub Resultary primary mathematical statement via read-only connector.",
+          "title": "Strict Sobolev--BV separation for exceptional BSVY spaces",
+          "trigger": "Closest independently published Resultary result in the exceptional BSVY range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2609.19029",
+        "https://arxiv.org/html/2610.03426v1",
+        "https://arxiv.org/pdf/2109.02930"
+      ],
+      "rationale": "The two weak endpoint functionals are meaningful competing derivative-free tests which fail as universal W1,1 membership criteria at p=1. Restricting to an explicitly established one-sided logarithmic cusp and admissible monotone outer profiles asks a natural sharper question: precisely which continuous W1,1 profiles pass both tests? The common if-and-only-if envelope is an infinite-dimensional membership classification, backed by independent upper and lower mechanisms, and its sharp loglog threshold at alpha=1 is a natural boundary. The result is more than a rephrasing of the known single U example or a negative subcritical counterexample. It neither claims a new universal characterization nor optimal constants.",
+      "residual_risks": [
+        "This is a deliberately restricted profile classification, not a general endpoint theorem; the precise boundary is motivated by the prior critical and subcritical examples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C uses Chen--Yang--Yuan--Zhang Lemma 2.5 as a proved external base-cusp fact; independent audit checked the actual lemma and correct normalization but does not reprove every detail of its 2026 source.",
+    "All bounds are for the canonical one-sided compactly supported logarithmic cusp on R; the conclusion does not generalize to arbitrary Sobolev or BV functions, dimensions >1, gamma!=-1, or nonmonotone outer profiles.",
+    "The Phi derivative-envelope condition is needed for the sufficiency implication; no analogous equivalence is claimed without it.",
+    "Originality is best-of-knowledge after direct full-text primary inspections and semantic searches; older unindexed endpoint literature may have equivalent statements.",
+    "No formal Lean proof or external expert attestation was performed. The available verification file states those channels were not performed."
+  ],
+  "schema_version": 1
+}
