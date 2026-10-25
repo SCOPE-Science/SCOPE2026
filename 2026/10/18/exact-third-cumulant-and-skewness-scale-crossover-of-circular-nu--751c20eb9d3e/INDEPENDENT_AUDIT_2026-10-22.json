@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T12:00:38.612607Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e/verify.py"
+      ],
+      "evidence": [
+        "Pinned RESULT.md blob 8e2143bfb2e09791527abd6e50bc3a3536ef5a42",
+        "Pinned verify.py blob b8961959ebe972bc5e9f963e1965c2e7cedb4afe",
+        "Independently reconstructed symbolic/finite diagnostics from actual displayed source equations; see rationale."
+      ],
+      "rationale": "For n>=2 independent uniform points on a circle and 0<s<=1/3, overlap of circular arcs has Y_ij=(s-D_ij)_+. Deterministic expansion gives V_n=ns-n²s²+2 sum_{i<j}Y_ij. Center h_ij=Y_ij-s² is conditionally mean zero in either endpoint. In E(sum h)^3, any three-edge multigraph having a vertex of degree1 vanishes, leaving a triply repeated edge (binomial(n,2) choices) and a triangle (6 binomial(n,3) ordered choices). E[h^3]=s⁴/2-2s⁵+2s⁶; for triangle, integrate quadrant products at s<=1/3: equal-sign contribution 11/30*s⁵ and opposite-sign 11/60*s⁵, totaling 11/20*s⁵; centered triangle E=11/20*s⁵-s⁶. Independent SymPy exact double integrals reproduced 11/30,11/60,11/20; direct algebra with multiplicities gives κ3=2n(n-1)s⁴[(1-2s)²+(n-2)(11s/5-4s²)]. Pair orthogonality gives κ2=(4/3)n(n-1)s³(1-3s/2). The bracket is positive on 0<s<=1/3, and asymptotic substitution yields stated ns->0,τ,∞ constants without asserting a CLT. The s<=1/3 condition excludes positive-measure triple winding, and n=2 removes triangle terms.",
+      "residual_risks": [
+        "The exact third moment is not a central limit theorem; skewness can fail to vanish if n²s stays bounded. Triple-winding configuration at s>1/3 is outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.11687 Sec 6",
+          "Jammalamadaka–Penrose (2000) Sec 3 bibliographic comparison"
+        ],
+        "reasoning": "Aistleitner–Hörmann–Manskova give exact expectation and second moment and study asymptotic distributional behavior for various scales; their moment bound is not an evaluated exact third cumulant for all n,s<=1/3. Classical close-pair Poisson results cover a sparse limit but cannot force the finite-n polynomial.",
+        "searches": [
+          "Resultary: number variance V_N(s) uniform torus exact third moment cumulant triangular edges skewness",
+          "Primary search: exact third cumulant number variance uniform random circle Aistleitner arxiv:2610.11687"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.11687v1",
+        "https://doi.org/10.1239/AAP/1013540023",
+        "Resultary: number variance V_N(s) uniform torus exact third moment cumulant triangular edges skewness",
+        "Primary search: exact third cumulant number variance uniform random circle Aistleitner arxiv:2610.11687"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2610.11687 Lemma 10",
+          "Jammalamadaka–Penrose 2000"
+        ],
+        "reasoning": "The existing first/second-moment law algebraically cannot determine third centered moment; a generic U-statistic cumulant identity reduces the problem to a triangle expectation but does not imply 11s⁵/20, its positivity regime, nor the ns crossover without new geometric integration.",
+        "searches": [
+          "Resultary: number variance V_N(s) uniform torus exact third moment cumulant triangular edges skewness",
+          "Primary search: exact third cumulant number variance uniform random circle Aistleitner arxiv:2610.11687"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.11687 Lemma 10 Eq(17)",
+          "standard degenerate U-statistic cumulants"
+        ],
+        "reasoning": "Circular number variance equals a degenerate symmetric pair U-statistic plus a constant; this is equivalent to short interpoint-distance kernel sums but differs from raw binomial arc counts at one fixed origin. Schematic Hoeffding/diagram formalism does not supply its numerical triangle integral.",
+        "searches": [
+          "Resultary: number variance V_N(s) uniform torus exact third moment cumulant triangular edges skewness",
+          "Primary search: exact third cumulant number variance uniform random circle Aistleitner arxiv:2610.11687"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search number variance third cumulant",
+          "arXiv:2610.11687 Eq(17)"
+        ],
+        "reasoning": "No known table is asserted for the continuously varying window s and arbitrary n. Resultary semantic searches for exact circle number variance third cumulant and triangular kernels returned no covering table; the evaluated value 11/20 comes from a transparent exact double integral.",
+        "searches": [
+          "Resultary: number variance V_N(s) uniform torus exact third moment cumulant triangular edges skewness",
+          "Primary search: exact third cumulant number variance uniform random circle Aistleitner arxiv:2610.11687"
+        ]
+      },
+      "rationale": "Aistleitner–Hörmann–Manskova analyze the exact same torus number variance and give expectation/variance plus leading microscopic results, but not third cumulant or full finite-n skewness crossover. Degenerate U-statistic combinatorics is standard, but exact circle triangle integral and resulting all-n third moment are not established by that general framework alone.",
+      "residual_risks": [
+        "Best-of-knowledge search is not an exhaustive novelty guarantee; unindexed stronger or equivalent treatments could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves exact variance but not claimed third centered moment or ns crossover",
+          "evidence": [
+            "Section 6, Lemma 10, displayed Eq (17)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.11687v1",
+          "material_read": "Accessible full arXiv HTML read around the mathematical definition, Lemma 10, Equation (17) and Section 6 with context through conclusions; no third-cumulant theorem located",
+          "method": "Primary complete HTML material and section-specific reading",
+          "title": "On the asymptotic behavior of the number variance of random points on the unit torus",
+          "trigger": "Exact same random circle statistic, potential direct coverage"
+        },
+        {
+          "assessment": "Leading pair-process limits do not alone cover evaluated finite-n triangle cumulant; possible priority risk for asymptotic piece",
+          "evidence": [
+            "Published pairwise Poisson limit context"
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/AAP/1013540023",
+          "material_read": "Bibliographic and reported Sec 3 result/summary compared; full mathematical paper not materially read in this run",
+          "method": "Publisher metadata and theorem-level contextual comparison",
+          "title": "Poisson limits for pairwise and area interaction point processes",
+          "trigger": "General short-distance pair Poisson limit may dominate sparse scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e/RESULT.md",
+        "https://arxiv.org/html/2610.11687v1",
+        "https://doi.org/10.1239/AAP/1013540023"
+      ],
+      "rationale": "The exact non-Gaussian third cumulant and all-n sign, together with the sharp transition at window width n^-1 between repeated-edge and triangle mechanisms, are natural higher-moment refinements for an actively studied number-variance statistic. This is neither a trivial moment derived from variance nor an arbitrary discrete slice.",
+      "residual_risks": [
+        "Skewness behavior alone proves no CLT or convergence rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

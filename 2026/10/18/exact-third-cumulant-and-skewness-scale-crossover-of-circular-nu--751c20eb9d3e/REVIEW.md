@@ -1,9 +1,21 @@
-# Assessment of the exact third-cumulant finding
+# Independent mathematical audit
 
-**Correctness.** The pair-kernel representation is an identity for circular intervals of length at most one-half. The centered kernel is conditionally mean zero. A three-edge connected diagram survives only when it is a triangle, while three repeated edges contribute the other term; other diagrams have a singly occurring vertex. For windows at most one-third the triangle integral is an ordinary nonwrapping convolution; its independently evaluated quadrant components are \(11/30\) and \(11/60\). The exact polynomial, positivity, variance and all three skewness asymptotics follow. Symbolic, rational and numerical checks were executed successfully. No distributional central limit theorem is inferred.
+## correctness
 
-**Originality.** The Oct 2026 number-variance paper is directly relevant and was inspected throughout the introduction, results and microscopic proof. Its existing first-two-moment formulae are not claimed. Earlier rescaled interpoint-distance Poisson limits were checked, including Jammalamadaka–Penrose's Theorem 3.1: these do not furnish the exact finite-size third cumulant and its triangle coefficient. Published record searches did not locate the precise closed form. General diagram expansions or unlocated older calculations remain residual priority risks.
+PASS
 
-**Value.** The third standardized moment is the first quantity that detects the skew/asymmetry absent from the existing variance. Its exact finite-sample sign and the change of dominant combinatorial diagrams at the natural \(s\asymp1/n\) spacing scale quantify when Gaussian-looking variance alone is misleading. This is a sharp natural invariant, not an arbitrary numerical slice. The theorem applies to all sample sizes and a full geometrically meaningful interval-width domain.
+For n>=2 independent uniform points on a circle and 0<s<=1/3, overlap of circular arcs has Y_ij=(s-D_ij)_+. Deterministic expansion gives V_n=ns-n²s²+2 sum_{i<j}Y_ij. Center h_ij=Y_ij-s² is conditionally mean zero in either endpoint. In E(sum h)^3, any three-edge multigraph having a vertex of degree1 vanishes, leaving a triply repeated edge (binomial(n,2) choices) and a triangle (6 binomial(n,3) ordered choices). E[h^3]=s⁴/2-2s⁵+2s⁶; for triangle, integrate quadrant products at s<=1/3: equal-sign contribution 11/30*s⁵ and opposite-sign 11/60*s⁵, totaling 11/20*s⁵; centered triangle E=11/20*s⁵-s⁶. Independent SymPy exact double integrals reproduced 11/30,11/60,11/20; direct algebra with multiplicities gives κ3=2n(n-1)s⁴[(1-2s)²+(n-2)(11s/5-4s²)]. Pair orthogonality gives κ2=(4/3)n(n-1)s³(1-3s/2). The bracket is positive on 0<s<=1/3, and asymptotic substitution yields stated ns->0,τ,∞ constants without asserting a CLT. The s<=1/3 condition excludes positive-measure triple winding, and n=2 removes triangle terms.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Aistleitner–Hörmann–Manskova analyze the exact same torus number variance and give expectation/variance plus leading microscopic results, but not third cumulant or full finite-n skewness crossover. Degenerate U-statistic combinatorics is standard, but exact circle triangle integral and resulting all-n third moment are not established by that general framework alone.
+
+## value
+
+PASS
+
+The exact non-Gaussian third cumulant and all-n sign, together with the sharp transition at window width n^-1 between repeated-edge and triangle mechanisms, are natural higher-moment refinements for an actively studied number-variance statistic. This is neither a trivial moment derived from variance nor an arbitrary discrete slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
