@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem distinguishes nilpotence of the original map's pointwise Jacobian from its polynomially conjugate reduced map. Trace, principal minors, and determinant all vanish for the displayed general Jacobian. Direct polynomial substitution establishes the exact conjugacy. For affine defining polynomials, scaling reduces every real orbit of period dividing four to a four-term recurrence. The three derived identities force vanishing of all its terms because the alternative requires \(S^2=1/2\) and simultaneously \((1+S)A^2=-1/4\). For the quadratic example, a unique real algebraic root defines coefficients satisfying four exact interpolation identities, and four distinct successive states are verified by exact quotient-ring arithmetic. The proof, not finite sampling, excludes all affine four-cycles.
+## correctness
 
-## Originality — PASS with stated priority risk
-The 2022 arXiv primary text, especially Section 3 and its concluding question concerning periods at least four, was compared at the level of implications. Its no-two theorem and existence of three- and five-cycles neither entail the no-four theorem nor the explicit quadratic four-cycle. Chamberland's lawful full paper was examined for the same family and period-four discussion: its introduction's four-cycle belongs to a different rational planar system; its nilpotent-map results address two- and three-cycles, with a special-case uniqueness claim for a three-cycle. Searches using the source names, period-four aliases, reduced quadratic recurrence, and polynomial-degree threshold did not find equivalent or stronger published coverage. The later journal article's full text was not available for inspection, and independent priority research remains necessary.
+PASS
 
-## Value — PASS
-This is a structural answer to a specific motivating open question asking how to analyze periods at least four for nilpotent polynomial systems. An all-parameter exclusion for the affine defining class, paired with an explicit primitive four-cycle at the immediately next polynomial degree, identifies a natural sharp complexity boundary rather than an arbitrary numerical instance. The boundary concerns a precise family and parameter \(\deg P\), with no assertion that all higher degrees or all nilpotent maps have the same periodic behavior.
+For P∈R[u], alpha≠0 and nu∈R, the displayed DN has characteristic polynomial s³ identically (independently symbolically checked), hence pointwise nilpotence. The given polynomial automorphism Phi is invertible and conjugates N exactly to G(X,Y,Z)=(P(Y)-P(Z),Z,alpha(P(Y)-P(Z))²+nu). For P(u)=pu+q, p≠0, lambda=alpha p²≠0 scales the last two coordinates to T(r,s)=(s,(r-s)²). If T⁴ fixes a point, its four entries a,b,c,d satisfy A=S(B−A), B=S(A+B), S=−2AB with A=a−c,B=b−d,S=a+c−b−d; independent polynomial identities confirmed. A=B=0 forces zero; otherwise determinant requires S²=1/2 while (1+S)A²=−1/4, impossible over R, so only the fixed point remains. For quadratic P(u)=t²u(sigma−u)/4 with t∈(1,2) the unique cubic root t³−t²−2=0 and sigma=t²+(t−1)², all four specified interpolation identities and G transitions hold exactly modulo the cubic, verified independently. Third coordinates 0,1,t²,(t−1)² are distinct. Thus the univariate degree threshold is precisely 2 in the stated subfamily; finite computation is corroboration of exact identities, not proof of the affine universal quantifier.
 
-## Limits and prior literature
-The 2022 source and Chamberland's 2006 article are cited for their established fixed-, two-, and three-cycle results. The 2024/2025 published revision of the source, accessible by abstract only, is an unresolved priority risk. Independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the 2022 primary preprint defines the same family and explicitly asks for analytical higher-period results. Its proven no-2 and existence-of-3 and affine-5 facts neither imply the universal affine no-4 result nor construct the quadratic four-cycle; Chamberland treats a different planar recurrence. Structured checks compared conjugacies, broader theorems, exact data and mathematical implications. A published Resultary same-record entry is not an independent antecedent. The updated journal full text remains an unresolved priority risk but accessible primary results do not decisively cover the claim.
+
+## value
+
+PASS
+
+The first not-settled higher period m=4 in the named nilpotent-Jacobian family has a natural model-complexity invariant: minimal degree of its defining univariate polynomial. An all-real-parameter affine obstruction and explicit first possible quadratic realization constitute a sharp structural degree boundary, not a mere sample orbit or textbook transformation. It answers the motivating prior question in a nontrivial bounded direction while explicitly not solving other periods or whole nilpotent-map classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
