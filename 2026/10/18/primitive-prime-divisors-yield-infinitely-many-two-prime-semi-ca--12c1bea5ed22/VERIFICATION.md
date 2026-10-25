@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-The theorem is established by the four proof steps in `RESULT.md`: the semiprime reduction, the classical Bang–Zsigmondy primitive prime divisor theorem with its exceptions checked, injectivity plus the prime number theorem, and the standard exclusion of Carmichael semiprimes. For all primes \(p\ge5\), the primitivity order \(p-1\) divides \(q-1\), and the two base congruences then follow.
+## correctness
 
-Run `python3 check.py` with Python 3 standard library only. Its reference output is `certificate_stdout.txt`. The certificate uses deterministic trial division for primality of each displayed example, modular multiplication to check multiplicative orders, a complete sieve for primes below \(100000\), and an exhaustive loop over all \(23313\) squarefree semiprimes not exceeding \(100000\). It verifies seven witness pairs, direct congruence-versus-reduced-congruence equivalence on this complete finite range, and the first sixteen OEIS A294169 entries. The count \(52\) in this finite range is corroborative only.
+PASS
 
-The code does not prove the infinite theorem or the external classical theorems. There is no independent mathematical audit or external certification. Historical coverage of potential prior proofs is incomplete.
+For n=pq (p<q distinct primes), checking all four positive divisors reduces exactly, by CRT and Fermat, to q|p^(p−1)−1 and p|q^(q−1)−1. Bang–Zsigmondy for (p,1,h=p−1) has no exceptional case for p≥5, so a primitive q has ord_q(p)=p−1, p−1|(q−1), q>p; Fermat supplies the second condition. Taking one q per p gives distinct products because p is always the smaller factor; pq<p^p. For Y=floor(log X/loglog X), Y log Y<log X and the prime number theorem yield S₂(X)≥π(Y)−2 and stated liminf at least one. Two-prime Korselt divisibility excludes every constructed n from ordinary Carmichael numbers. Independent code checked all 5,047 distinct semiprimes <=20,000 (25 satisfying) by the original and reduced criteria and several order witnesses. The finite checks do not certify Zsigmondy, the PNT, or the infinite conclusion.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
+
+## value
+
+PASS
+
+Answers an explicitly recorded infinitude question for the mathematically natural class of divisor-base semiprimes, supplies a uniform construction with any prescribed smaller p≥5 and an explicit lower-order counting bound. The known semiprime test and Zsigmondy are credited as premises; the value is their nontrivial bridge yielding a new infinite family and quantitative consequence. The lower bound is weak and is not a global asymptotic or effective least q algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

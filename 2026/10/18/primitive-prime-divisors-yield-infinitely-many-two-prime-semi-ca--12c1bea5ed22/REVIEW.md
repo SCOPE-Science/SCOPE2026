@@ -1,19 +1,21 @@
-# Scientific review: primitive-divisor construction for semi-Carmichael semiprimes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each prime \(p\ge5\), the exponent \(h=p-1\ge4\) avoids both exceptions in the classical Bang–Zsigmondy theorem for \(p^h-1\). A primitive prime factor \(q\) has \(\operatorname{ord}_q(p)=p-1\); this order divides \(q-1\). Because \(q\ne p\) and \(q\equiv1\pmod{p-1}\), it satisfies \(q>p\). The two exact congruences defining a semi-Carmichael semiprime reduce to \(p^{p-1}\equiv1\pmod q\) and \(q^{q-1}\equiv1\pmod p\). The first follows by construction, the second from Fermat's theorem. A distinct smaller prime factor supplies injectivity. Moreover \(pq<p^p\), and the prime number theorem implies the stated explicit liminf at least one. No finite experiment is used as an infinite proof. The attached finite certificate checks seven example pairs and independently compares original and reduced tests for all 23,313 distinct-prime semiprimes not exceeding 100,000.
+PASS
 
-## Originality — PASS, with residual risk
+For n=pq (p<q distinct primes), checking all four positive divisors reduces exactly, by CRT and Fermat, to q|p^(p−1)−1 and p|q^(q−1)−1. Bang–Zsigmondy for (p,1,h=p−1) has no exceptional case for p≥5, so a primitive q has ord_q(p)=p−1, p−1|(q−1), q>p; Fermat supplies the second condition. Taking one q per p gives distinct products because p is always the smaller factor; pq<p^p. For Y=floor(log X/loglog X), Y log Y<log X and the prime number theorem yield S₂(X)≥π(Y)−2 and stated liminf at least one. Two-prime Korselt divisibility excludes every constructed n from ordinary Carmichael numbers. Independent code checked all 5,047 distinct semiprimes <=20,000 (25 satisfying) by the original and reduced criteria and several order witnesses. The finite checks do not certify Zsigmondy, the PNT, or the infinite conclusion.
 
-The full relevant Section 5 of López, *Idempotence in Carmichael and Giuga numbers and its application to the Agoh–Giuga conjecture* (arXiv:2610.09129v1, 2026-10-06), defines semi-Carmichael integers and supplies properties and examples, but does not establish semiprime infinitude, universal smaller-prime support, or the quantitative lower bound. OEIS A294169 (2018) explicitly asks whether infinitely many of precisely the equivalent semiprimes exist; it already records the congruence criterion and first terms, so those are expressly not claimed as new. The classical Zsigmondy theorem furnishes a primitive divisor but does not itself state the semi-Carmichael connection. Published mathematical-result index searches for the combined property, equivalents, prime-order construction, and OEIS identifier returned no result with the theorem; closest hits concern different classes (weak Carmichael, Novák, Duffinian). This is not an assertion that index coverage is exhaustive, and there remains the possibility of a previously unindexed or implicitly equivalent construction. An independent originality assessment has not been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction resolves the explicit natural infinitude question in OEIS A294169, strengthening mere existence to every prime \(p\ge5\) as the least factor and a rigorous counting lower bound \(S_2(X)\gg\log X/(\log\log X)^2\). The object is an arithmetic family defined in primary number-theoretic literature, not an arbitrary computational slice. The proof connects a classical primitive-divisor theorem to simultaneous modular restrictions in an unexpected but precise manner.
+Best-of-knowledge comparison against genuinely read primary material and identified published mathematical records. Earlier definitions, known subcases and broad general results are credited. Inaccessible plausible full text is a material priority risk, not an automatic failure; unsuccessful database search is not a novelty proof.
 
-## Closest literature and limitations
+## value
 
-López (2026), Definition 5.8 and Proposition 5.9, introduces the semi-Carmichael name and necessary properties; OEIS A294169 presents the older, equivalent two-prime problem and its open infinitude question. Bang–Zsigmondy supplies existence of primitive prime factors, and the prime number theorem supplies only the weak quantitative bound. The current evidence supports novelty to the extent searchable; old but not indexed results may exist. No claim is made about asymptotic density or an algorithm with guaranteed polynomial runtime.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Answers an explicitly recorded infinitude question for the mathematically natural class of divisor-base semiprimes, supplies a uniform construction with any prescribed smaller p≥5 and an explicit lower-order counting bound. The known semiprime test and Zsigmondy are credited as premises; the value is their nontrivial bridge yielding a new infinite family and quantitative consequence. The lower bound is weak and is not a global asymptotic or effective least q algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
