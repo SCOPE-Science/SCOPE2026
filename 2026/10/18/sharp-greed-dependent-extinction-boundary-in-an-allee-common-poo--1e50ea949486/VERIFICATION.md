@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The theorem is proved analytically by a saddle stable-manifold construction, invariant moving barriers, global convergence of the resource/strategy dynamics, parameter comparison for the invariant graph equation, and a scalar differential inequality yielding a uniform rate bound.
+## correctness
 
-Run `python verify_boundary.py` in a Python 3 standard-library environment. The deterministic program integrates the graph in the logit strategy coordinate, compares numerical phase-plane outcomes, and checks 60 seeded admissible parameter pairs, greed-ordering, and the claimed quantitative bound. For the source parameter tuple it returns a threshold approximately \(0.23295910703656\) at initial cooperator frequency \(1/2\), versus linear interpolation \(0.24017936572844\). These numerical tests support, but cannot replace, the infinite-dimensional quantification over all parameter tuples and initial states in the proof.
+PASS
 
-Scientific limits: strictly bistable parameter range and deterministic well-mixed dynamics only. No formal proof assistant, external certification, or independent audit is claimed.
+The precisely specified planar polynomial resource/replicator flow has two frozen Allee roots r_±(x) with r_−′=−Δ/λ(x)<0, λ(x)≥λ0. The saddle (r_−(0),0) has unstable resource eigenvalue Tr_−(0)λ0 and stable cooperator eigenvalue −wr_−(0). Its stable branch solves h′=−(T/w)g(h,x)/[x(1−x)], with slope h′(0)=−TΔ/(w+Tλ0). The invariant scalar graph has barriers r_−(x)<h(x)<r_−(0); on lower contact h′=0 and r_−′<0, while upper contact has h′<0. Continuation to x=1 follows boundedness and logarithmic blowup otherwise; h(1)=r_−(1). Monotonic x for positive R, Barbalat on finite resource integral and scalar asymptotic sign-crossing give only 0,r_−(0),r_+(0) limits; uniqueness of scalar phase trajectories and the saddle stable manifold separate their basins. Comparison of different k=T/w yields strict h increases with w. For z=h−r_−, the differential comparison z′≤−4Tλ0 z/w+Δ/λ0 proves explicit uniform O(w) bound. Independently integrated the separator with SciPy solve_ivp at A=1/10,c=1/2,d=3/2,T=2,w=1, x=.5: h=0.23295910703649278 vs r_−(x)=0.2298437881283576; re-derived barrier and signs symbolically. Numerical values do not certify continuum claims.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the nonlinear exact global basin separator and its strict w-dependence and uniform slow-greed bound, beyond the same-source qualitative bistability and straight-line interpolation. The source system itself and bistable fixed points are not new.
+
+## value
+
+PASS
+
+The separatrix is the operationally relevant survival/extinction threshold in a natural Allee common-resource system: the source substitutes a linear approximation. Showing the exact dividing stable manifold, its strict greed-rate ordering and a uniform slow-greed error bound corrects a meaningful phase-diagram ambiguity and yields quantitative parameter guidance; far from textbook root-finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
