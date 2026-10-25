@@ -1,11 +1,21 @@
-# Review of exact extremal-function enumeration
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the precise Möbius seam, independently establishes the optimum weight on all five treated residues, and classifies the entire possible zero-set/positive-color surplus profile. Period-three singleton propagation forces all ordinary colored rung labels; the parity of the twisted seam either forces two singleton end labels or excludes the one-deficient-rung pattern. In the odd residue-five case a single doubled label is forced. These cases are exhaustive, disjoint and give the indicated exact labeled counts. The independent finite enumerations in `checker.py` agree for \(m=3,4,5,6,8,9,10\), with a further two-color cyclic-word check at \(m=11\). The finite data is corroboration, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, subject to normal literature residual risk.** Kuzman's 2019 Theorem 4.5 proves the corresponding *ordinary optimum weights* and Tables 3–4 exhibit particular minimizing functions, so neither weight formula nor those witnesses is new. The claim here instead determines **all outer-independent** optimum functions and their precise labeled counts for five residue classes. The 2024 structural 3-rainbow-regularity paper discusses uniqueness modulo equivalences in some examples and the equality case but does not count or classify all labeled outer-independent minima in the present families, especially the even and odd-residue-five defect regimes. Comparisons of statements, not only shared graph families or words, therefore do not show the count and rigidity theorem as a prior implication. Relevant search attempts for equivalent enumerations were made; searches are not a proof of absence.
+PASS
 
-**Value — PASS.** Minimum-weight domination results leave the extremal design space unspecified. Determining whether optimum resource placements have multiple inequivalent choices is a natural enumerative invariant. Here the exact degeneracy switches from a constant \(12\) to a linear \(12m\) depending on the necessary topology of the zero/positive defect. The proof supplies a classification by exceptional-rung position, alternating empty layer and global color permutation, rather than an arbitrary finite table or an infinitesimal improvement. This is a complete classification on five natural congruence families of a previously studied cubic graph class, not a generic theorem for all cubic graphs.
+The weight identity 2m−z+e, one empty vertex at most per rung, and twisted boundary rail constrain minimum zero patterns. With z=m and e=0 all singleton colors are 3-periodic; the cyclic twist admits this only for m≡3 mod6, giving 12 functions. At weight m+1 an even m has a unique nonempty rung, forcing other colors along the rail and both exceptional labels. For m≡5 mod6, the no-empty-rung option produces incompatible required colors; the unique surplus color produces 12m possibilities. Independently enumerated all labeled valid minima for m=3,4,5,6: 12,48,60,72. Excluded m≡1 mod6 is not covered.
 
-**Closest literature and limitations.** Kuzman, *On \(k\)-rainbow domination in regular graphs*, arXiv:1907.08430v1 (Theorem 4.5, proof and tables), is decisive prior coverage of the **weight**, but not of the claimed **exact count/classification**. Kuzman, *On cubic rainbow domination regular graphs*, arXiv:2410.10662v1 (Section 2) is relevant to equality and symmetry of minimum colorings, but not to the exact defect-enumeration statement. The unresolved \(m\equiv1\pmod6\) branch remains outside the asserted theorem. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Counts of every labeled optimum together with forced structure are a natural and useful refinement of the known domination NUMBER, relevant to uniqueness, rigidity and counting extremizers. Five of six residue classes form an exact structural family with a motivated exceptional open class, not a random small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

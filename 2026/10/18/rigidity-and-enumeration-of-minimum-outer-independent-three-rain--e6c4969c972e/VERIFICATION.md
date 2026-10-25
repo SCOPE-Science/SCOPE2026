@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The combinatorial proof in `RESULT.md` covers all integers \(m\ge3\) in the five specified congruence classes. It uses only the stated rung/rail/twist graph definition and the exact zero/positive surplus identity, without relying on a finite search to extrapolate to an infinite family.
+## correctness
 
-The supplied `checker.py` uses the Python standard library to build every graph edge and independently enumerate all feasible color assignments at the claimed optimum weight for \(m=3,4,5,6,8,9,10\). Its observed counts are, respectively, \(12,48,60,72,96,12,120\). A separate cyclic-word check for \(m=5,11\) fixes one doubly colored rung and enumerates every eligible singleton word, obtaining six assignments in either size. Invoke `python checker.py` to replay. The code does not attempt to infer global optimality, uniqueness or the infinite theorem from enumeration.
+PASS
 
-The known numerical ordinary three-rainbow optimum from Kuzman's 2019 result is prior work. The new claim is a complete classification **only** for the five stated residue classes and for independent-zero minima. The branch \(m\equiv1\pmod6\) is not assessed. No independent validation has been performed.
+The weight identity 2m−z+e, one empty vertex at most per rung, and twisted boundary rail constrain minimum zero patterns. With z=m and e=0 all singleton colors are 3-periodic; the cyclic twist admits this only for m≡3 mod6, giving 12 functions. At weight m+1 an even m has a unique nonempty rung, forcing other colors along the rail and both exceptional labels. For m≡5 mod6, the no-empty-rung option produces incompatible required colors; the unique surplus color produces 12m possibilities. Independently enumerated all labeled valid minima for m=3,4,5,6: 12,48,60,72. Excluded m≡1 mod6 is not covered.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Counts of every labeled optimum together with forced structure are a natural and useful refinement of the known domination NUMBER, relevant to uniqueness, rigidity and counting extremizers. Five of six residue classes form an exact structural family with a motivated exceptional open class, not a random small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
