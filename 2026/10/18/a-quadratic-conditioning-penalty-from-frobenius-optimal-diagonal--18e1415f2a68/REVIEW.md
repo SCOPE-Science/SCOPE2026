@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A positive-definite quadratic in the squared diagonal factors has one positive stationary point, which establishes the global Frobenius optimum without numerical optimization assumptions. Two original eigenvectors with identical diagonal-scaled norms certify the lower bound on condition number and characterize equality. The invariant two-dimensional spectral block yields the exact eigenvalue ratio, and the asymptotic follows by direct nonzero leading terms. The dimension-two equality case is calculated explicitly. The accompanying finite checks validate formulas but are not used to infer universal quantifiers.
+## correctness
 
-## Originality
-PASS under best-knowledge bibliographic comparison. Brarda et al. (arXiv:2606.22742) present the Frobenius congruence baseline and a spectral alternative but do not establish this globally optimized SPD-star example or the exact squared singular-limit coefficient. Qu et al. (arXiv:2209.00809) already develop optimal diagonal conditioning methods; Vandebril et al. (2005) establish tridiagonal unit-diagonal condition optimality, and Xu et al. (2012) document worsening of conditioning under different one-sided diagonal Frobenius-style preconditioning. These cover the general motivation or components, **not** the combined theorem about global Frobenius optimality, a sharp dimension boundary and a quadratic deterioration constant. Published mathematical-record and previous claim comparisons identified no equivalent; inaccessible/unindexed earlier specialized matrix-scaling calculations remain a real risk.
+PASS
 
-## Mathematical value
-PASS. The 2026 spectral-value-selection work explicitly uses this Frobenius congruence objective as a baseline, while numerical SPD examples show relatively modest differences. The fully solved family proves a stronger structural distinction: optimally decreasing that actual loss can lead to a preconditioned SPD matrix that is quadratically more ill-conditioned than its already optimally diagonally scaled input. The threshold in dimension and precise coefficient make the diagnostic reproducible rather than an arbitrary numerical counterexample. This is a matrix-model result, not a universal claim about solver iteration counts.
+For any d≥1 and 0<ρ<1 the SPD star A has eigenvalues 1−ρ,1+ρ,1^(d−1). Writing diagonal squared scales x=g0² and y_i=g_i² makes F=(x−1)²+Σ(y_i−1)²+(2ρ²/d)xΣy_i. Hessian Schur complement 1−ρ^4/d>0 gives unique positive minimum a=(1−ρ²)/(1−ρ⁴/d), b=(1−ρ²/d)/(1−ρ⁴/d), with b>a for d≥2. The extremal eigenvectors w±=(1,±1_d/√d)/√2 share z=w±^T G^(−2)w±; Rayleigh quotient gives κ(GAG)≥(1+ρ)/(1−ρ), equality implies G²w+ collinear with w+ and therefore scalar diagonal G. Frobenius minimizer nonscalar at d≥2 strictly worsens κ. The 2×2 {center,leaf-mean} block has determinant ab(1−ρ²), λ+=1+o(1), while a~d(1−ρ²)/(d−1), b→1 for d≥2, hence κ_F~(d−1)/(d(1−ρ²)²) and κ_F/κ_A²→(d−1)/(16d). At d=1, a=b scalar and penalty vanishes. Independent SymPy verified stationary equations symbolically, eigenvalues and asymptotic coefficients, plus d=1,2,5 sample numerical checks near ρ=.999 showing quadratic ratios .0316255 at d=2 vs target .03125, .05037535 at d=5 vs target .05. This is a rigorous direct proof with diagnostic finite checks only.
 
-## Scope and limitations
-Real SPD stars, positive diagonal congruence, exact arithmetic, fixed integer dimension followed by a singular correlation limit. The proof is analytical; the numerical checker provides only finite reproducibility checks. Independent external validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Frobenius-residual preconditioning and diagonal-condition-number optimization are well studied, but the precise normalized SPD star all-d parameter family is solved globally for Frobenius scaling and compared exactly to scalar-unique condition-number optimization. The limiting quadratic distortion with constant (d−1)/(16d), strictness and dimension boundary were not identified in the materially inspected sources; no claim is made that diagonal scaling itself or qualitative Frobenius-vs-spectral tension is new.
+
+## value
+
+PASS
+
+A diagonally scalable SPD star is a natural minimal graph-based preconditioning test bed. The closed-form unique Frobenius optimum exhibits a severe, sharp κ² degradation despite strictly reducing Frobenius loss, a concrete conditioning caution directly relevant to surrogate-objective design. Dimension d=1 contrast and exact leading constant make it substantive rather than a generic warning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

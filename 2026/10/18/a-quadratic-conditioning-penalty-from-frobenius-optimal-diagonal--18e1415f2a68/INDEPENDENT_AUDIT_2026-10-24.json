@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:55:42.435919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any d≥1 and 0<ρ<1 the SPD star A has eigenvalues 1−ρ,1+ρ,1^(d−1). Writing diagonal squared scales x=g0² and y_i=g_i² makes F=(x−1)²+Σ(y_i−1)²+(2ρ²/d)xΣy_i. Hessian Schur complement 1−ρ^4/d>0 gives unique positive minimum a=(1−ρ²)/(1−ρ⁴/d), b=(1−ρ²/d)/(1−ρ⁴/d), with b>a for d≥2. The extremal eigenvectors w±=(1,±1_d/√d)/√2 share z=w±^T G^(−2)w±; Rayleigh quotient gives κ(GAG)≥(1+ρ)/(1−ρ), equality implies G²w+ collinear with w+ and therefore scalar diagonal G. Frobenius minimizer nonscalar at d≥2 strictly worsens κ. The 2×2 {center,leaf-mean} block has determinant ab(1−ρ²), λ+=1+o(1), while a~d(1−ρ²)/(d−1), b→1 for d≥2, hence κ_F~(d−1)/(d(1−ρ²)²) and κ_F/κ_A²→(d−1)/(16d). At d=1, a=b scalar and penalty vanishes. Independent SymPy verified stationary equations symbolically, eigenvalues and asymptotic coefficients, plus d=1,2,5 sample numerical checks near ρ=.999 showing quadratic ratios .0316255 at d=2 vs target .03125, .05037535 at d=5 vs target .05. This is a rigorous direct proof with diagnostic finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu et al address minimization of condition number over diagonal preconditioners in general, so condition-number optimization itself is prior art.",
+          "The star proof derives uniqueness of scalar optimum by special eigenvector Rayleigh tests and compares a different objective minimizer."
+        ],
+        "reasoning": "General diagonal κ-optimality theory may cover the scalar condition-minimizer subclaim, but does not determine the unique Frobenius residual minimizer or the singular κ² penalty without an additional matrix-family calculation.",
+        "searches": [
+          "optimal Frobenius diagonal congruence scaling star positive definite condition number squared blowup",
+          "Qu Gao Hinder Ye Zhou Optimal Diagonal Preconditioning arXiv 2209.00809"
+        ]
+      },
+      "checked_sources": [
+        "Brarda–Xu–Kalantzis–Li–Xi arXiv:2606.22742, full-text inspected portions",
+        "Qu–Gao–Hinder–Ye–Zhou arXiv:2209.00809",
+        "Vandebril–Golub–Van Barel 2005 unit-diagonal SPD scaling",
+        "Xu–Tang–Remis–Leus (2012), one-sided diagonal-preconditioning warning",
+        "Resultary targeted search optimal Frobenius diagonal congruence scaling star positive definite condition number squared blowup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brarda et al show spectrum/residual mismatch in factored sparse inverse comparisons, but the special explicit d≥2 star κ_F~κ_0² constant is not stated in their inspected introduction and sections 2/5.",
+          "Vandebril et al 2005 study SPD tridiagonal/semiseparable unit-diagonal scaling; this is conceptually related but does not directly imply the Frobenius-vs-κ ratio law over all d."
+        ],
+        "reasoning": "Previously known generic optimization goal tension and 3×3 condition-scaling observations are credited; neither is a proof that the exact star singular penalty formula is covered.",
+        "searches": [
+          "Brarda et al 2026 spectral optimization factored sparse approximate inverse Frobenius 2606.22742",
+          "optimal Frobenius diagonal congruence scaling star positive definite condition number squared blowup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brarda et al optimize factored approximate inverse support and contrast eigenvalue and Frobenius residual objectives; they do not state the exact complete star congruence minimizer and squared condition penalty in inspected sections."
+        ],
+        "reasoning": "A Frobenius congruence residual is a close conceptual alias of sparse approximate-inverse objective, but the scalar star all-d calculation is not automatically contained in a qualitative mismatch observation.",
+        "searches": [
+          "optimal Frobenius diagonal congruence scaling star positive definite condition number squared blowup",
+          "Brarda Xu Kalantzis Li Xi Factored Sparse Approximate Inverse Preconditioning via Spectral Optimization arXiv 2606.22742"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary nearest hits address different iterative and preconditioning thresholds; none gives a table or closed form for the A_(d,ρ) Frobenius optimum and exact penalty constant."
+        ],
+        "reasoning": "An all-d, continuum-in-ρ formula is not a finite lookup table. No exact prior formula found in targeted checks, without interpreting this as comprehensive priority proof.",
+        "searches": [
+          "optimal Frobenius diagonal congruence scaling star positive definite condition number squared blowup",
+          "Resultary Frobenius star preconditioning quadratic condition blowup"
+        ]
+      },
+      "rationale": "Frobenius-residual preconditioning and diagonal-condition-number optimization are well studied, but the precise normalized SPD star all-d parameter family is solved globally for Frobenius scaling and compared exactly to scalar-unique condition-number optimization. The limiting quadratic distortion with constant (d−1)/(16d), strictness and dimension boundary were not identified in the materially inspected sources; no claim is made that diagonal scaling itself or qualitative Frobenius-vs-spectral tension is new.",
+      "residual_risks": [
+        "An older special-case diagonal congruence calculation for exactly this star parameterization might have been omitted from search indexes.",
+        "No claim for arbitrary SPD matrices, asymmetric scaling, one-sided SPAI, or Krylov wall-clock performance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING specific star asymptotic in inspected material",
+          "evidence": [
+            "The source focuses factor sparsity/eigenvalue optimization, not an exact d-star F-optimum unique scalar condition minimizer and (d−1)/(16d) constant."
+          ],
+          "identifier_or_url": "arXiv:2606.22742; https://arxiv.org/abs/2606.22742",
+          "material_read": "Full-text arXiv PDF: introduction, mathematical formulation of Frobenius and spectral objectives and experiments/discussion in sections 2 and 5",
+          "method": "Open-access PDF material reading and screenshot page verification",
+          "title": "F. Brarda, T. Xu, V. Kalantzis, R. P. Li, Y. Xi, Factored Sparse Approximate Inverse Preconditioning via Spectral Optimization",
+          "trigger": "Same Frobenius residual versus spectral objective comparison"
+        },
+        {
+          "assessment": "GENERAL_PRIOR_ART; exact F-optimum comparison not established",
+          "evidence": [
+            "Optimizing κ diagonally is established prior work; the objective minimized in the new problem is ||GAG−I||_F²."
+          ],
+          "identifier_or_url": "arXiv:2209.00809",
+          "material_read": "ArXiv metadata and stated general optimization scope; no claim of full-text theorem-by-theorem read",
+          "method": "ArXiv search and scope comparison",
+          "title": "Z. Qu, W. Gao, O. Hinder, Y. Ye, Z. Zhou, Optimal Diagonal Preconditioning",
+          "trigger": "Potentially dominating diagonal condition-number optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A diagonally scalable SPD star is a natural minimal graph-based preconditioning test bed. The closed-form unique Frobenius optimum exhibits a severe, sharp κ² degradation despite strictly reducing Frobenius loss, a concrete conditioning caution directly relevant to surrogate-objective design. Dimension d=1 contrast and exact leading constant make it substantive rather than a generic warning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older special-case diagonal congruence calculation for exactly this star parameterization might have been omitted from search indexes.",
+    "No claim for arbitrary SPD matrices, asymmetric scaling, one-sided SPAI, or Krylov wall-clock performance.",
+    "Best-of-knowledge scientific originality, not an independent Lean/expert formal certification.",
+    "No public edit, no data publication and no status synchronization are being asserted."
+  ],
+  "schema_version": 1
+}
