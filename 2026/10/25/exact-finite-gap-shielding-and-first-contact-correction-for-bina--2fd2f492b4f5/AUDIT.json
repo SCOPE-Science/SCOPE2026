@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The finite-state Markov matrices and geometric tail are exact. The identity A0^h=H+(z/2)^h E is verified algebraically; B E B vanishes at degree zero with upper-left coefficient -z/8. Thus only h=r-1 affects coefficients through degree r, by precisely -2^(-2r) per gap; multiple corrections have strictly greater degree. Negative-binomial expansion and Kummer give the assertion. Exact rational checker tests 264 configurations including all boundary profiles in finite grids; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.25899, Theorem 1.1 and Section 9: extremal asymptotics and infinite one-block isolated-zero model",
+        "arXiv:2411.07779, Sections 5–6: at most two finite one-blocks and infinite-block limit formulas"
+      ],
+      "reasoning": "Fixed-weight extremal asymptotics do not determine this exact per-configuration low-carry law. Infinite one-blocks separated by isolated zeros are the reverse bit-block geometry from isolated ones separated by long zero blocks. General matrix recurrences allow derivation of this family but no inspected theorem gives the exact shielding boundary.",
+      "searches": [
+        "arXiv:2608.25899 fixed Hamming weight theorem and extended isolated-zero model",
+        "arXiv:2411.07779 section 5, section 6 infinite block structure"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25899",
+      "arXiv:2411.07779",
+      "arXiv:1509.08623",
+      "arXiv:2005.07167",
+      "arXiv:2606.23398 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cheng gives asymptotic infimum over all shifts of fixed Hamming weight, not a sparse-family pointwise formula",
+        "Sobolewski–Spiegelhofer provide matrices and infinite-block continuity; Drmota et al. give a universal finite recurrence, neither with the displayed first-contact theorem"
+      ],
+      "reasoning": "The claimed exact formula is compatible with, but not stated or forced as an explicit parameter classification by, the inspected asymptotic theorems. The general recurrence implies it only after a new coefficient-truncation computation. The nontrivial implication risk is that this computation may already be recorded elsewhere.",
+      "searches": [
+        "arXiv:2608.25899 Theorems 1.1, 1.2; arXiv:2411.07779 extended matrices; arXiv:1509.08623 Theorems 1.1, 1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2411.07779, Section 2: full correlation generating matrices and extended block construction",
+        "arXiv:1509.08623, Lemma 2.1: general two-adic digit-difference recurrence"
+      ],
+      "reasoning": "The equivalent binomial-valuation statement counts binary carries in n+t; one may encode it using the published general recurrence. Inspected statements did not exhibit the arbitrary-rank finite-spacing cutoff or the exact number-of-boundary-gaps defect. Algebraic encodability alone is not a published explicit equivalent family formula.",
+      "searches": [
+        "Cusick density c_t isolated ones separated by many zeros exact central binomial; arXiv:2411.07779",
+        "low carry count for shifted binary digit sums negative binomial sparse bit positions; arXiv:1509.08623"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1509.08623, Section 2 Table 1 presents selected low shifts, and Lemma 2.1 computes arbitrary fixed shifts",
+        "No inspected published table parametrizes all ranks r and arbitrary gaps >=r by q"
+      ],
+      "reasoning": "Finite tables/algorithms supply sample values or a procedure, not the all-rank invariant formula with q as the sole gap statistic in the low-carry range.",
+      "searches": [
+        "cusick exact c_t shifts sparse isolated bits central binomial sequence table",
+        "Drmota Kauers Spiegelhofer table of delta(k,t) arXiv:1509.08623"
+      ]
+    },
+    "rationale": "Inspected primary theorems and related mathematical-result searches identify no explicit all-rank first-contact formula for separated binary digits; general algorithms give computational access but do not state the uniform low-carry law with exact q correction. The breadth of existing recurrences and inaccessible earlier first-exit full text are acknowledged risks.",
+    "residual_risks": [
+      "Universal recurrences may conceal the exact formula as an unindexed corollary.",
+      "The full text of arXiv:2606.23398 was inaccessible; its detailed special cases were not compared.",
+      "Other publications or tables may have an equivalent boundary law under carry/valuation terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "the pointwise finite sparse gap formula and q correction were not located in inspected claims",
+        "evidence": "Theorem 1.1 gives fixed-weight extremal asymptotic; Section 9 uses infinite one-blocks separated by isolated zeros",
+        "identifier_or_url": "arXiv:2608.25899",
+        "material_read": "full-text abstract, introduction, theorem and corollary statements, Sections 4, 7, 8, 9 relevant passages",
+        "method": "arXiv open full PDF and page-image inspection",
+        "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+        "trigger": "same density, same Hamming-weight parameter"
+      },
+      {
+        "assessment": "general matrix tool covers computation; no explicit finite sparse plateau or first-contact defect observed",
+        "evidence": "Section 2 Equation (5) gives general matrices; Section 6 treats extended infinite one-block models",
+        "identifier_or_url": "arXiv:2411.07779",
+        "material_read": "full-text abstract and Introduction; Sections 2.1, 2.2 and relevant Sections 5–6 statements and proofs",
+        "method": "arXiv full PDF pages and text search with page screenshot",
+        "title": "Decomposing the sum-of-digits correlation measure",
+        "trigger": "exact bivariate matrix formula and infinite digit-block limits could dominate claim"
+      },
+      {
+        "assessment": "generic exact recurrence and alternating-bit asymptotics found, not claimed parametric finite-gap first-contact formula",
+        "evidence": "Lemma 2.1 and Theorems 1.1–1.2",
+        "identifier_or_url": "arXiv:1509.08623",
+        "material_read": "full PDF abstract, Introduction, main theorem statements, Section 2 recurrence and small table",
+        "method": "arXiv full PDF opened and inspected",
+        "title": "On a conjecture of Cusick concerning the sum of digits of n and n+t",
+        "trigger": "foundational all-shift recurrence could contain an equivalent parameter statement"
+      },
+      {
+        "assessment": "no inspected direct exact finite-gap formula",
+        "evidence": "general distributional and cumulant analysis",
+        "identifier_or_url": "arXiv:2005.07167",
+        "material_read": "introduction and recurrence material from accessible full HTML",
+        "method": "full-text HTML inspected",
+        "title": "The binary digits of n+t",
+        "trigger": "higher-order digit-sum correlation analysis with same transitions"
+      },
+      {
+        "assessment": "not judged NOT_COVERING from abstract; retained as explicit priority risk",
+        "evidence": "public abstract advertises uniform lower bound and first-exit representation, no explicit sparse finite-gap formula",
+        "identifier_or_url": "arXiv:2606.23398",
+        "material_read": "publicly indexed abstract and high-level overview only; full text access failed",
+        "method": "attempted lawful arXiv PDF and HTML, inspected public abstract",
+        "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+        "trigger": "same fixed-weight density; possibility of a hidden exact sparse special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fd2f492-b4f5-4cc7-8742-768ae851feda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an infinite-rank exact layer-by-layer carry distribution in the natural sparse-digit regime and identifies the sharp finite separation threshold and first nonzero interaction defect. This directly resolves the motivated structural question of when low-carry statistics decouple, beyond isolated numerical calculations or direct renaming of a known fixed-parameter formula.",
+    "status": "PASS"
+  }
+}
