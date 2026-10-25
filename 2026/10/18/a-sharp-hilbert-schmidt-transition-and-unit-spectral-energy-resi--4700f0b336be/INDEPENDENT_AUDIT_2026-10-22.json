@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T04:49:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the weighted Bergman domain, exact normalized monomials have norms squared q_α(n)=∫_0^1 t^n[log(e/(1-t))]^αdt, while codomain A² monomial norm squared is 1/(m+1). The coefficient matrix is T_{mn}=1/[(m+n+1)√((m+1)q_α(n))], so ∑_{mn}|T_{mn}|²=∑_n J_n/q_α(n), with J_0=ζ(3) and J_n=∑_{k>=1}1/[k(k+n)²]. Exact partial fractions yield J_n=H_n/n²-(ζ(2)-H_n^(2))/n for n>=1. Uniform Laplace substitution u=n(1-t) shows q_α(n)=(log n)^α/n*(1+O(1/log n)) for α∈[2,3], and fixed-real-α leading asymptotic also holds. Harmonic expansion gives J_n=(log n+γ-1)/n²+O(n^-3), hence J_n/q_α(n)~1/[n(log n)^(α-1)]; sum converges iff α>2, directly constructing unique HS extension. Uniform error bound O(1/[n(log n)^α]) at α∈[2,3] makes the model-series residue exact: (α-2)∑_{n>=3}1/[n(log n)^(1+α-2)]→1. Initial terms and summed errors are uniformly bounded, so the squared HS norm residue equals 1. Fresh independently computed rational partial fractions and finite tails for n=1,2,3,7,20,100 passed, supporting but not proving infinite series and uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Compactness phase diagram for α>2 is established and explicitly excluded from novelty.",
+          "Exact essential norm 2 and Fredholm circle at α=2 are about Calkin class and are consistent with H not HS at α2.",
+          "The critical normalized model is HS-perturbation-equivalent, which does not control absolute S2 size of H or unit pole above 2."
+        ],
+        "reasoning": "Prior more general operator-theory descriptions do not imply exact HS trace/residue simply from boundedness/compactness; a general Schatten theorem covering the same logarithmic weight could still affect O.",
+        "searches": [
+          "Norrbo arXiv 2610.00252 mapping threshold",
+          "Resultary: Compactness phase transition for logarithmic Hilbert matrix endpoint, full RESULT.md",
+          "Resultary: Exact essential norm at logarithmic Bergman endpoint, full RESULT.md",
+          "Resultary: Hilbert–Schmidt Copson model and Fredholm circle, full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00252",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-compactness-phase-transition-for-the-logarithmic-hilbert-matrix--a9d8a0e8b341",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-essential-norm-at-the-logarithmic-bergman-endpoint--5c93039df7cd",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compact inclusion A²_log^α→A²_log^2 and endpoint boundedness prove compactness but cannot establish ∑ singular values squared finite.",
+          "HS equivalence of normalized critical H with model A only says H−A∈S2, while A itself is noncompact.",
+          "The harmonic exact J_n expression and Laplace uniform alpha-expansion are absent from inspected Resultary results."
+        ],
+        "reasoning": "No inspected published statement implies S2 iff α>2 with exact squared-norm trace and unit residue, though the inaccessible original Norrbo text and broad Schatten literature remain risks.",
+        "searches": [
+          "Full Resultary compactness phase transition RESULT.md SHA ba6b76287d8d8a8d59baf25b8cda6d5b38f95acb",
+          "Full Resultary exact essential norm RESULT.md SHA dac5a2a122a33a82bde59f860fed8d264323037a",
+          "Full Resultary Copson HS model RESULT.md SHA baab4a49694fbea452699499d5cf83dfb055592e",
+          "Norrbo 2610.00252 accessible abstract only"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original T_mn Hilbert-matrix coefficient and qα(n) monomial moments match the setup in the endpoint literature.",
+          "Related Copson published record states an S2 *difference* between normalized critical matrix and triangular/continuous model, not S2 of H itself."
+        ],
+        "reasoning": "A compact-equivalent model at the critical α=2 is not equivalent to S2 membership of the original operator at α>2; no retrieved equal statement of trace/residue.",
+        "searches": [
+          "Resultary semantic search Hilbert logarithm Bergman Schatten S2 trace pole α=2",
+          "Norrbo Hilbert matrix into Bergman arXiv:2610.00252",
+          "Resultary 2026/10/11 published Hilbert compactness, essential-norm and Copson equivalence records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table giving qα-weighted ∑_n J_n/qα(n) or boundary residue was located; existing tables concern essential/operator norms or a different class."
+        ],
+        "reasoning": "This continuous α spectral-energy and limiting constant is not naturally a finite database/table problem; prior named operator-class results were checked.",
+        "searches": [
+          "Resultary direct title/semantic lookup: logarithmic Hilbert matrix Hilbert-Schmidt alpha two trace residue",
+          "Published critical Hilbert operator spectral/essential norm corpus"
+        ]
+      },
+      "rationale": "The mapping threshold and endpoint compactness classification are prior results. Resultary complete published reports give compactness for α>2, essential norm 2 at α=2, and an HS perturbation of a normalized endpoint Copson model; none implies the original Hilbert matrix is in S2 for every α>2 or gives its trace and unit pole. Norrbo primary paper is most relevant to the mapping threshold but only its bibliographic/abstract material was accessible in this run; the full article was blocked by disconnected institutional VPN. The sharp trace and residue are thus original on a documented best-of-knowledge basis, with a real risk from general operator ideal theorems.",
+      "residual_risks": [
+        "The most relevant Norrbo full primary article inaccessible after open-access/arXiv and authorized institutional attempts failed; no whole-document noncoverage claimed.",
+        "A general Schatten-class theorem or unindexed exact harmonic trace identity might cover the present normalized S2 result; checked Resultary math does not.",
+        "Exact unit residue depends on exact normalized area and logarithmic weight; rescaling changes the coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible primary source inaccessible in full. Available abstract supplies mapping threshold, not sufficient for whole-document NOT_COVERING; retained as material originality risk",
+          "evidence": [
+            "arXiv:2610.00252 abstract, Oxford vpn_disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00252",
+          "material_read": "arXiv bibliographic record and abstract only; full PDF/HTML and lawful OA retrieval failed, Oxford institutional retrieval returned vpn_disconnected",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "The Hilbert matrix operator into the Bergman space",
+          "trigger": "Same map, weight, α=2 threshold and possible stronger theorem"
+        },
+        {
+          "assessment": "Establishes compactness exactly α>2, not Hilbert–Schmidt membership or trace/residue; mathematical hypotheses align",
+          "evidence": [
+            "RESULT.md blob ba6b76287d8d8a8d59baf25b8cda6d5b38f95acb"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-compactness-phase-transition-for-the-logarithmic-hilbert-matrix--a9d8a0e8b341",
+          "material_read": "Complete Resultary published RESULT.md read",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "Compactness phase transition for the logarithmic Hilbert matrix endpoint",
+          "trigger": "Same exact operator on same weighted scale"
+        },
+        {
+          "assessment": "Proves essential norm 2 at α=2 and HS perturbation reduction, not full S2 trace on α>2",
+          "evidence": [
+            "RESULT.md blob dac5a2a122a33a82bde59f860fed8d264323037a"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-essential-norm-at-the-logarithmic-bergman-endpoint--5c93039df7cd",
+          "material_read": "Complete RESULT.md read",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "Exact essential norm at logarithmic Bergman endpoint",
+          "trigger": "Same critical α=2 map, potential hidden Schatten implication"
+        },
+        {
+          "assessment": "Critical normalized operator has HS *difference* to Copson model, whose norm/essential spectrum is nontrivial; this does not cover the claimed S2 of H above α=2",
+          "evidence": [
+            "RESULT.md blob baab4a49694fbea452699499d5cf83dfb055592e"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a",
+          "material_read": "Complete RESULT.md read",
+          "method": "Compared the actual mathematical objects, hypotheses, quantities and logical implications in the material read, not just titles.",
+          "title": "Hilbert–Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+          "trigger": "Potential confusion of an HS equivalence with original operator HS membership"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical quadratic spectral energy Tr(H*H) is a natural invariant of a nontrivial sharp Bergman mapping family; compactness alone never entails Hilbert–Schmidt membership. The exact harmonic trace identity and critical unit residue measure a meaningful ideal-strengthening and blow-up at the same mapped endpoint, not a gratuitous narrow numerical recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.00252",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-compactness-phase-transition-for-the-logarithmic-hilbert-matrix--a9d8a0e8b341",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-essential-norm-at-the-logarithmic-bergman-endpoint--5c93039df7cd",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real alpha, exact logarithmic weight and 1/pi area; only Schatten exponent 2 and specified map to A²; no all-p ideal classification or point/essential spectrum."
+  ],
+  "residual_risks": [
+    "The most relevant Norrbo full primary article inaccessible after open-access/arXiv and authorized institutional attempts failed; no whole-document noncoverage claimed.",
+    "A general Schatten-class theorem or unindexed exact harmonic trace identity might cover the present normalized S2 result; checked Resultary math does not.",
+    "Exact unit residue depends on exact normalized area and logarithmic weight; rescaling changes the coefficient."
+  ],
+  "schema_version": 1
+}
