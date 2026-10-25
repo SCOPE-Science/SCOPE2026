@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact parity-with-carry transition, distinct residual functions via explicit Thue–Morse aperiodicity proof, exhaustive disjoint depth decomposition, correct last-level exceptions and sharp attaining shifts. Independent state reachability and DFAO partition refinement tested c<16384 and c<=512, respectively; no infinite deduction from computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source gives a general bound m(n+c) for LSD, not exact per-shift counts.",
+        "The explicit Thue–Morse Theorems 19–20 concern MSD-first; Fibonacci paper proves different-word statements."
+      ],
+      "reasoning": "Neither generic state-count upper bound nor a different orientation can entail the piecewise exact lower and upper digits of the minimal LSD-first DFAO.",
+      "searches": [
+        "arXiv:2512.10017v5 Theorem 19 Theorem 20 §4",
+        "arXiv:2603.18858v1 Introduction Section 3",
+        "Zantema Bosma shifted k-automatic LSD bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2512.10017v5",
+      "https://arxiv.org/html/2603.18858v1",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p12",
+      "published-finding corpus semantic research index",
+      "Accessible current-week and preceding-week claim ledgers (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moradi et al. Thm19–20: minimal shifted Thue–Morse state complexity with msd-first input grows at least as c^.694 infinitely often, whereas present LSD complexity is O(log c).",
+        "The two historical local claims concern MSD shifts on special parameter families, not LSD states.",
+        "Charlier paper gives automata for mT+r, not output t(n+c)."
+      ],
+      "reasoning": "A generic O(log c) upper bound is strictly weaker; both orientations compute the same sequence but have different Myhill–Nerode right residuals. Stronger MSD lower bounds do not imply LSD exact formulas. None of compared published statements subsumes the claim.",
+      "searches": [
+        "arXiv:2512.10017v5 Thm19 Thm20 and §4",
+        "arXiv:2603.18858v1 Introduction",
+        "arXiv:2512.10017 Remark 18",
+        "published-finding corpus: least-significant-digit-first shifted Thue-Morse word t(n+c) exact minimal DFAO state count binary digit length log c distinct residual parity carry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "LSD-first shift output is equivalently shifted 2-kernel cardinality; canonical residuals are the distinct maps n↦t(n+j)⊕s.",
+        "Known shifted Thue–Morse theorem is explicit about MSD-first input, so no same-object same-orientation identification."
+      ],
+      "reasoning": "Minimizing the paired residual automaton is precisely minimization of the LSD-first shifted 2-kernel; searched this phrase and binary carry/shift formulations. No published matched formula found, although search incompleteness remains.",
+      "searches": [
+        "Thue Morse shifted sequence least significant digit first minimal DFAO state complexity exact formula kernel additive offset 2-automatic",
+        "shift of Thue Morse t(n+c) LSD first automata exact number states",
+        "Thue Morse shift offset c 2-kernel size floor ceil binary carries",
+        "arXiv:2512.10017 §4.2",
+        "arXiv:2603.18858 introduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2512.10017 §4.2 explicitly associates OEIS A382296 with **MSD-first** shift counts.",
+        "published-finding corpus closest result about Thue–Morse attractors does not count LSD-first residual DFAOs."
+      ],
+      "reasoning": "Neither the cited OEIS table nor the accessible records give the target exact LSD counts; code here independently checks all shifts through 16383.",
+      "searches": [
+        "least-significant-digit-first shifted Thue-Morse word t(n+c) exact minimal DFAO state count binary digit length log c distinct residual parity carry",
+        "Thue Morse shift state complexity OEIS A382296"
+      ]
+    },
+    "rationale": "Compared actual primary text of Moradi–Rampersad–Shallit 2025 (MSD-specific Thue–Morse theorem and generic LSD upper bound), Moradi–Popoli–Shallit–Vukusic 2026 (different Fibonacci/Zeckendorf shifts), Charlier et al. 2021 (different set transform), four targeted published-finding corpus queries and two related historical MSD claims. Exact LSD per-shift formula not found; residual indexing risk disclosed.",
+    "residual_risks": [
+      "Search engine and semantic-index absence does not establish priority; an equivalent characterization of translated Thue–Morse sequences may be unindexed.",
+      "The Charlier–Cisternino–Massuir full text was not inspected; original abstract and an explicit comparison in Moradi et al. support different-object assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact LSD-first shift formula; Theorems 19–20 explicitly MSD-first, upper/lower bounds rather than claimed exact count",
+        "evidence": [
+          "§4 general LSD bound and distinct input orientation",
+          "§4.2 Thm 19–20 explicitly msd-first",
+          "Remark 18 explains different mT+r language"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+        "material_read": "Full online HTML: §1 definitions, §4 general LSD shift bound, §4.2 Theorems 14,19,20, Remark 18, references",
+        "method": "Read searchable author HTML, compared input orientation, object, quantifiers and coverage",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Directly treats Thue–Morse shift state complexity, both orientations discussed"
+      },
+      {
+        "assessment": "Concerns Fibonacci automatic word with Zeckendorf input, not binary Thue–Morse shift formula",
+        "evidence": [
+          "Introduction notes logarithmic generic base-k LSD transducer and distinguishes msd and lsd",
+          "Abstract limits target to Fibonacci word"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Full author HTML introduction, definitions, LSD-first and MSD-first section statements and concluding scope",
+        "method": "Read primary HTML, compare target automatic word and input system",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Same state-complexity invariant and LSD-first shift question"
+      },
+      {
+        "assessment": "Transforms selected set by multiplication and translation; not the inverse-translation characteristic sequence t(n+c)",
+        "evidence": [
+          "Abstract target is mT+r for positive m and 0<=r<m",
+          "Moradi et al. 2026 Remark 18 distinguishes transformation from direct output subword automata"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p12",
+        "material_read": "Journal abstract and scope; independently described as different operation in Moradi et al. 2026 Remark 18",
+        "method": "Compared mathematical transformation mT+r versus output t(n+c); full text not materially inspected",
+        "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+        "trigger": "Potentially stronger covering paper with same language family and state complexity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11fc25e0-cd30-4ac2-b210-3be276da1e9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact formula for the natural minimal-state invariant across every shift and an attained digit-length envelope refine known O(log c) LSD bounds and quantify a pronounced reading-direction separation from MSD shift complexity. No downstream theorem required: it resolves the motivated infinite natural classification.",
+    "status": "PASS"
+  }
+}
