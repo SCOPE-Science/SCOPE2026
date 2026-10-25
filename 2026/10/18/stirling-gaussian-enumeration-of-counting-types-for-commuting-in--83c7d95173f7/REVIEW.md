@@ -1,23 +1,21 @@
-# Scientific review: exact enumeration of commuting-involution counting types
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed exact classification was reconstructed from the labelled \(\mathbb F_2^k\)-orbit normal form. The central definability observation uses only two variable symbols to test equality of the images of two named generators, and a direct counting-type induction shows that *all* two-variable counting formulas depend only on the resulting signature multiplicities. The counting series follow from one geometric factor per subgroup for isomorphism and one per signature for logical equivalence. Every set partition of \(\{0,\ldots,k\}\) is realizable by distinct nonzero generator images over a vector space of the minimum required dimension. The rank-at-most-two kernel reconstruction gives the seven-vertex threshold; the three-generator subgroup list isolates the unique size-eight pair. Explicit maps establish nonisomorphism and a three-variable separator.
+PASS
 
-The three standalone calculations match subgroup counts, Stirling/Gaussian multiplicities, finite generating-series coefficients, and actual binary-relation pair types. The all-parameter claim is established by the proof rather than by the bounded computations.
+PASS: A commuting involutive family is a labelled F_2^k-set, whose transitive orbits are G/H with independent component multiplicities. Atomic two-variable pair-type counts and their vertex-signature partitions are determined by N_tau, and equal N_tau give a stable counting-bisimulation; conversely each N_tau is definable with C^2 counting. The minimum orbit size realizing a signature with r nonidentity blocks is 2^ceil(log2(r+1)); repetitions fill all multiples, giving the Stirling product. Distinct subgroup signatures cannot arise for quotient dimension <=2, proving the 7-vertex cutoff. Independent enumeration of the 16 subgroups of F_2^3 and orbit-multiset partition series reproduced I_3(8)=611, C_3(8)=610, precisely one class of two isotypes.
 
-## Originality — PASS (same-model, literature-limited)
+## originality
 
-A pre-existing exact two-variable signature criterion for arbitrary commuting permutations, which includes commuting involutions as a special case, is acknowledged as background rather than counted as novel. The closest published primary treatments are Kopczyński and Tan, *Regular graphs and the spectra of two-variable logic with counting* (arXiv:1304.0829), and Kiefer, Schweitzer and Selman, *Graphs Identified by Logics with Counting* (arXiv:1503.08792). Their results provide general frameworks for \(\mathsf C^2\) spectra and identification and already encompass general regular edge-colored relation structures. However, the inspected statements and relevant proof passages do not provide the specific map from commuting-involution subgroup orbits to equality signatures, the closed Stirling/Gaussian enumeration of those logical classes, or the sharp and unique eight-point collision. Cai, Fürer and Immerman's general lower-bound theory likewise does not supply these specialized exact invariants. The mathematical contribution under review is the closed Stirling/Gaussian enumeration, the all-size one/two-generator equality of the two counts and the unique three-generator eight-point ambiguity. The logical equivalence criterion and classical group-action decomposition are premises, not originality claims.
+PASS
 
-A residual priority risk remains: specialized work on finite elementary abelian permutation actions, matchings, and counting logic may express the same invariant through a different terminology. Relative identification must not be confused with identification against all binary-relation structures.
+PASS (best-of-knowledge): The orbit classification is classical G-set theory and two-variable types are an equitable-coloring/2-WL invariant; these are credited. The inspected general theory does not provide the two closed products for named commuting involutions or unique eight-vertex collision. Broader coverage and exact table checks find no known proof of this final specialized classification. Residual priority risks are separately documented; unsuccessful searches do not prove novelty.
 
-## Value — PASS
+## value
 
-The exact number of logical observation types and isomorphism types, uniformly for arbitrarily many named commuting involutions, provides a natural quantitative measure of the limits of two-variable counting logic on a classic finite group-action family. The formula answers an infinite sequence of nontrivial enumeration questions and gives an optimal size threshold plus complete minimal obstruction for the first three-generator case. The sharp cube-versus-two-components example explains exactly why a third variable detects information not retained by local counting. These facts are not merely a rephrasing of the abstract semilinearity theorem and do not depend on a hypothetical downstream theorem.
+PASS
 
-## Limits
+PASS: The exact number of relational two-variable counting types versus genuine isotypes is an intrinsically meaningful model-theoretic invariant for commuting permutation structures. The Gaussian/Stirling product and sharp first failure of identification distinguish logical power from isomorphism, not a mere parameter substitution.
 
-The structures are relational, with named binary permutation graphs, and commutativity is an assumption. The findings are within-class equivalence/identification statements. Computations are finite checks and do not prove infinite assertions. Priority has not been independently established, and no independent scientific audit has been completed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

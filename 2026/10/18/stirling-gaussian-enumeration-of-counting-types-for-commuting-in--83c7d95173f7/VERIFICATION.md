@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proof scope
+# Independent mathematical audit
 
-The mathematical theorem and full proof are in `RESULT.md`. The code verifies finite instances of its structural lemmas and enumeration formulas. All scripts use Python 3 standard-library modules only and are intended to be executed from a directory containing all three programs.
+## correctness
 
-Execute `python3 verify_subgroups.py`, `python3 verify_series.py`, and `python3 verify_witness.py`. The complete successful outputs are in `verify_subgroups.out`, `verify_series.out`, and `verify_witness.out`. A successful subgroup check ends with `VERIFY_SUBGROUPS_OK`, the series check ends with `VERIFY_SERIES_OK`, and the explicit-witness check ends with `VERIFY_WITNESS_OK`.
+PASS
 
-`verify_subgroups.py` independently generates every subgroup for one through three generators. It constructs every orbit-multiset type through twelve vertices for the first two cases and through eight vertices for the three-generator case, computes the local equality signature histogram and verifies the exact first collision. It additionally checks rank-at-most-two kernel reconstruction through six generators.
+PASS: A commuting involutive family is a labelled F_2^k-set, whose transitive orbits are G/H with independent component multiplicities. Atomic two-variable pair-type counts and their vertex-signature partitions are determined by N_tau, and equal N_tau give a stable counting-bisimulation; conversely each N_tau is definable with C^2 counting. The minimum orbit size realizing a signature with r nonidentity blocks is 2^ceil(log2(r+1)); repetitions fill all multiples, giving the Stirling product. Distinct subgroup signatures cannot arise for quotient dimension <=2, proving the 7-vertex cutoff. Independent enumeration of the 16 subgroups of F_2^3 and orbit-multiset partition series reproduced I_3(8)=611, C_3(8)=610, precisely one class of two isotypes.
 
-`verify_series.py` compares independent Gaussian-coefficient counts of subgroup indices and Stirling-number counts of local signature classes with direct subspace calculations through four generators. It also checks all coefficients through eight vertices of the isomorphism and two-variable-equivalence generating series by direct enumeration for one, two, and three named involutions.
+## originality
 
-`verify_witness.py` tests total bijections, involutivity, commutativity, orbits, relational atomic pair types and the separating three-variable sentence for both eight-element structures. It extends the pair to four through seven named involutions using additional identity maps.
+PASS
 
-The full proof is mathematical. Finite enumeration checks do not certify all parameter values, a running script does not certify originality, and the recorded review is not an independent audit.
+PASS (best-of-knowledge): The orbit classification is classical G-set theory and two-variable types are an equitable-coloring/2-WL invariant; these are credited. The inspected general theory does not provide the two closed products for named commuting involutions or unique eight-vertex collision. Broader coverage and exact table checks find no known proof of this final specialized classification. Residual priority risks are separately documented; unsuccessful searches do not prove novelty.
+
+## value
+
+PASS
+
+PASS: The exact number of relational two-variable counting types versus genuine isotypes is an intrinsically meaningful model-theoretic invariant for commuting permutation structures. The Gaussian/Stirling product and sharp first failure of identification distinguish logical power from isomorphism, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
