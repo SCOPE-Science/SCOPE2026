@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md and verifier",
+        "Independent private wheel-matrix and asymptotic diagnostic",
+        "General weighted graph orthogonal Hodge projection identity"
+      ],
+      "evidence": [
+        "Actual RESULT.md blob a7f276af8123b86779c16d7bbd22c37fcc91af34: Fourier Green inversion, exact spoke/rim row sums, unique transition t*_m=3/4+4*3^(-m)+O(m9^(-m)), hyperbolic optimization.",
+        "Independent matrix inversions of B(I+tC^TC)^-1 B^T for m=3..9 and t in {.02,.75,2,10} agreed with both exact row sums to numerical precision, including projector idempotence.",
+        "Independent asymptotic checks at m=100,1000,10000 gave m(3−R(t(log m)))−2log m respectively 2.07938, 2.02162, 2.00404, consistent with limiting 2; not a proof of the asymptotic.",
+        "Inspected verify.py blob bcf3483a5a1020a6bedb0648fd9ae52302a50da2; it uses rational √t choices and exact Gaussian elimination for m≤11, with bounded asymptotic tests; proof is analytic."
+      ],
+      "rationale": "PASS. Grounding the hub gives B=[I_m;√t C] with cyclic difference C and A=I+t C^T C; P=B A^-1 B^T. The cyclic positive Green inverse has g_j=(q^j+q^(m-j))/(sqrt(1+4t)(1−q^m)). Its first differences are unimodal and the rim/rim block tCGC^T=I−G, yielding exact absolute row sums S=1+2√t(g0−g_floor(m/2)) and R=2(1−g0)+2√t(g0−g_floor(m/2)). As g0 strictly decreases from 1 to 1/m, the spoke/rim switch occurs exactly once. The hyperbolic x=m asinh((2√t)^-1) form proves finite strict ceiling <3 and matching lower/upper defect asymptotic 3−sup_t||P||=(2log m+2+o(1))/m; any optimizers satisfy x=log m+o(1), hence t~m²/(4(log m)²).",
+      "residual_risks": [
+        "The optimizer t_m is not proven unique for all finite m; theorem correctly states every maximizer has the asymptotic scale for large m.",
+        "The O(m9^-m) transition remainder is derived by a local Taylor argument, not numerical evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang et al. describe graph Helmholtz/Hodge orthogonal decomposition and least-squares ranking for general graphs.",
+          "Kassel--Wu describe transfer current kernels, and Lyons develops determinantal measures; none of the inspected statements specializes to a sharp wheel infinity norm or optimizes rim contrast."
+        ],
+        "reasoning": "Broad abstract machinery supplies P=BA^-1B^T, not the piecewise absolute row geometry and the sharp 3−(2log m+2)/m law. Generality of frameworks is not itself mathematical implication of these constants.",
+        "searches": [
+          "Statistical ranking and combinatorial Hodge theory arxiv:0811.1067",
+          "Transfer current and pattern fields in spanning trees arxiv:1312.2946",
+          "Lyons determinantal probability measures transfer currents"
+        ]
+      },
+      "checked_sources": [
+        "Full published wheel Löwner-ellipsoid result",
+        "Jiang et al arXiv:0811.1067",
+        "Kassel--Wu arXiv:1312.2946",
+        "Lyons PMIHES 98 (2003) bibliographic transfer-current context",
+        "Resultary cactus coordinate projection result (different projection)",
+        "Resultary searches wheel graph weighted hub rim Hodge cut projection infinity norm conductance asymptotic logarithmic optimization; generalized theta graph Hodge cut projection norm exact wheel graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full published wheel ellipsoid RESULT.md optimizes the determinant of a weighted Laplacian/covering ellipsoid and gives t_m→2 with deficit 18*2^-m.",
+          "The audited claim optimizes ℓ∞ absolute row sums of a Green-derived projector and gives diverging t_m~m²/[4(log m)²]."
+        ],
+        "reasoning": "The two wheel optimizers are asymptotically disjoint, proving the known result cannot imply this maximizing-conductance statement by renaming t. General transfer currents do not evaluate the signed absolute row sums, let alone prove the log m boundary layer.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+          "arXiv:0811.1067 HodgeRank",
+          "arXiv:1312.2946 transfer-current"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted least-squares gradient projection is the graph Hodge cut projector / transfer-current matrix; Jiang--Lim--Yao--Ye and Kassel--Wu provide that broad framework.",
+          "The exact Green matrix on the cycle with a hub is a cyclic resolvent, and its individual entries can be derived from Fourier analysis; the maximal weighted spoke-versus-rim absolute row sums and all-t optimization remain extra statements."
+        ],
+        "reasoning": "The exact row-sum ℓ∞ norm and logarithmic contrast optimization are not equivalent to the mere projection-kernel identity or the ℓ2 norm=1; finite conductance optimization yields new structural content.",
+        "searches": [
+          "wheel graph weighted hub rim Hodge cut projection infinity norm conductance asymptotic logarithmic optimization",
+          "generalized theta graph Hodge cut projection norm exact wheel graph",
+          "weighted wheel graph transfer current matrix ℓ infinity maximum norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest exact same wheel is the published symmetric-edge-polytope enclosing ellipsoid result with t_m→2, a different functional.",
+          "Related cactus coordinate suppression projection norms concern spanning-tree basis maps in transportation spaces, not orthogonal weighted Hodge projections."
+        ],
+        "reasoning": "No checked exact wheel Hodge norm table/formula covers the stated branch switch and boundary layer. Agreement of graph topology or optimization variable t does not make invariants equivalent.",
+        "searches": [
+          "wheel graph weighted hub rim Hodge cut projection infinity norm conductance asymptotic logarithmic optimization",
+          "generalized theta graph Hodge cut projection norm exact wheel graph",
+          "Resultary wheel Löwner ellipsoid conductance t_m stabilization"
+        ]
+      },
+      "rationale": "PASS by exact-object comparison. The same wheel graph family has a published Löwner-ellipsoid weight optimization, but its determinant criterion and t→2 exponentially are different from the canonical Hodge projector maximum-row-sum and t→∞ logarithmic boundary layer. Standard Hodge/transfer-current identity alone does not imply this singular optimal scale.",
+      "residual_risks": [
+        "An unindexed electrical-network source could already provide exact weighted wheel row norms under transfer-current terminology.",
+        "Full text of every general transfer-current paper was not independently read, so absolute priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME GRAPH, MATHEMATICALLY DIFFERENT functional and asymptotic",
+          "evidence": "Löwner t_m→2 exponentially; Hodge ℓ∞-optimal conductance diverges quadratically/logarithmically.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+          "material_read": "Complete published RESULT.md including determinant optimization, edge-root contact theorem, Fourier spectral proof and t_m asymptotic",
+          "method": "Read whole published GitHub RESULT.md",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+          "trigger": "Identical wheel and adjustable rim/spoke weight ratio"
+        },
+        {
+          "assessment": "GENERAL TOOL, no wheel endpoint norms in material read",
+          "evidence": "L2 projection and graph Laplacian are foundational, but not sharp ℓ∞ conductance profile.",
+          "identifier_or_url": "arXiv:0811.1067; DOI:10.1007/s10107-010-0419-x",
+          "material_read": "Paper abstract and accessible article overview defining least-squares Hodge/Helmholtz decomposition, cyclic and gradient components",
+          "method": "Publisher accessible content and indexed arXiv theorem summary",
+          "title": "Statistical ranking and combinatorial Hodge theory",
+          "trigger": "General graph-edge gradient projection potentially dominant"
+        },
+        {
+          "assessment": "FRAMEWORK, not established covering specialization",
+          "evidence": "Transfer-current kernel is source of projection identity; the wheel-specific row signs and m/log m optimizer remain additional calculations.",
+          "identifier_or_url": "arXiv:1312.2946",
+          "material_read": "Accessible abstract/summary and mathematical context; full PDF not read this run",
+          "method": "ArXiv/publisher indexed statement comparison",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Canonical transfer-current projection representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Energy-normalized HodgeRank interpretation",
+        "Exact signed Green row structure and transition",
+        "Distinct published wheel ellipsoid optimization and independently checked asymptotic"
+      ],
+      "rationale": "PASS. Weighted wheel Hodge projections are a natural graph-statistical noise-amplification model. Their exact ℓ∞ sensitivity, rigorous spoke-to-rim switch and logarithmically tuned near-3 supremum identify a nontrivial finite-size tradeoff and an optimal conductance scale; these are independent of the familiar ℓ2 projection identity and useful for robust edge-flow reconstructions.",
+      "residual_risks": [
+        "Only symmetric spoke and symmetric rim conductances are optimized; no arbitrary-weight wheel norm formula claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

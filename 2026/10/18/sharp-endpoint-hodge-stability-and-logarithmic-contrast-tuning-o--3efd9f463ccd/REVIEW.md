@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the energy-normalized edge domain and derives the two sharp projection row sums from an exact cyclic Green matrix. Its Fourier monotonicity proves the spoke/rim threshold. A hyperbolic reparametrization and a uniformly minimized scalar lower bound establish the logarithmic optimal contrast. Independent exact rational matrix comparisons and numerical asymptotic checks passed 16,896 assertions. They supplement rather than prove the infinite statements.
+## correctness
 
-**Originality — PASS within inspected evidence.** Jiang et al. and Kassel–Wu establish the general Hodge/transfer-current framework, but not the wheel sharp endpoint constants. Full published results on wheel edge-polytope Löwner ellipsoids and cactus transportation basis projections were inspected: the former optimizes determinant with bounded ratio tending to 2; the latter is not an orthogonal gradient projector and concerns a different graph class. A related generalized-theta projection result is for unweighted multi-path graphs and does not imply the present weighted-wheel formulas. Equivalent older electrical-network formulations remain a residual priority risk.
+PASS
 
-**Value — PASS.** The sharp bounded-error constant answers a natural stability question for least-squares edge flows. The unique extremizing edge-type transition and the optimal contrast scale proportional to squared wheel size divided by squared logarithm supply quantitative structure absent from Hilbert-space norm-one projection theory.
+PASS. Grounding the hub gives B=[I_m;√t C] with cyclic difference C and A=I+t C^T C; P=B A^-1 B^T. The cyclic positive Green inverse has g_j=(q^j+q^(m-j))/(sqrt(1+4t)(1−q^m)). Its first differences are unimodal and the rim/rim block tCGC^T=I−G, yielding exact absolute row sums S=1+2√t(g0−g_floor(m/2)) and R=2(1−g0)+2√t(g0−g_floor(m/2)). As g0 strictly decreases from 1 to 1/m, the spoke/rim switch occurs exactly once. The hyperbolic x=m asinh((2√t)^-1) form proves finite strict ceiling <3 and matching lower/upper defect asymptotic 3−sup_t||P||=(2log m+2+o(1))/m; any optimizers satisfy x=log m+o(1), hence t~m²/(4(log m)²).
 
-**Limitations.** All spokes have common conductance one, all rim edges have common positive conductance, and the coordinatewise norm is energy normalized. Finite-size optimizer uniqueness is not established. A separate historical-priority and mathematical audit remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS by exact-object comparison. The same wheel graph family has a published Löwner-ellipsoid weight optimization, but its determinant criterion and t→2 exponentially are different from the canonical Hodge projector maximum-row-sum and t→∞ logarithmic boundary layer. Standard Hodge/transfer-current identity alone does not imply this singular optimal scale.
+
+## value
+
+PASS
+
+PASS. Weighted wheel Hodge projections are a natural graph-statistical noise-amplification model. Their exact ℓ∞ sensitivity, rigorous spoke-to-rim switch and logarithmically tuned near-3 supremum identify a nontrivial finite-size tradeoff and an optimal conductance scale; these are independent of the familiar ℓ2 projection identity and useful for robust edge-flow reconstructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
