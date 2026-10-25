@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:44:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The definition as inversion graphs of every permutation in S_n is exhaustive; exact graph isomorphism groups presentation duplicates, and simultaneous un-hashed 1-WL refinement for 2n rounds computes C^2 equivalence on each fixed n-vertex class. I read RESULT.md and verify_permutation.py at the assigned Git tree, including global per-round key interning and exact NetworkX isomorphism. Separately enumerated every one of the n! presentations for all n<=8 and independently recovered (p_n,q_n)=(1,1),(2,2),(4,4),(11,11),(33,33),(142,140),(776,770),(5699,5654), including exactly two six-vertex doubletons, six seven-vertex doubletons, and 38 doubles, two triples and one quadruple at eight vertices. This is a complete bounded proof, NOT a theorem about n>8. Two-n rounds suffice for stabilization across a pair via a disjoint union of at most 2n vertices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo, Gavrilyuk and Ponomarenko give an 18-dimensional WL upper bound for permutation graphs."
+        ],
+        "reasoning": "High-dimensional identification does not determine when one-dimensional refinement first fails or the 1-WL quotient cardinalities; not a dominating numerical table.",
+        "searches": [
+          "Resultary semantic: permutation graphs on eight vertices one-dimensional Weisfeiler Leman C2 counting logic equivalence class table distinguishing permutation graphs",
+          "https://arxiv.org/pdf/2305.15861"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1502.01255v3",
+        "https://arxiv.org/pdf/2305.15861",
+        "https://oeis.org/A123448",
+        "assigned Git RESULT.md blob ef0a620e4e07e0ccf314db53bcde08c90a188b68",
+        "assigned Git verify_permutation.py blob 4fff7d2e416fd9c20c527aea313eedd04ad92768"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known C^2=1-WL correspondence; known 18-WL bound; known p_n raw counts."
+        ],
+        "reasoning": "None of these implications supplies 38/two/one logical non-singleton distribution. The new finite census follows from a further exhaustive computation, not immediately from the previously reported p_n values.",
+        "searches": [
+          "Resultary semantic: permutation graphs on eight vertices one-dimensional Weisfeiler Leman C2 counting logic equivalence class table distinguishing permutation graphs",
+          "https://arxiv.org/html/1502.01255v3",
+          "https://arxiv.org/pdf/2305.15861",
+          "https://oeis.org/A123448"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al. prove ordinary 1-WL equivalence coincides with C^2-equivalence on graphs."
+        ],
+        "reasoning": "The equivalence is used as prior machinery, not new; their theorem does not enumerate isomorphism-class multiplicities within permutation graphs through eight vertices.",
+        "searches": [
+          "Resultary semantic: permutation graphs on eight vertices one-dimensional Weisfeiler Leman C2 counting logic equivalence class table distinguishing permutation graphs",
+          "https://arxiv.org/html/1502.01255v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A123448 and the graph catalog provide the raw p_n series, including 5699 at n=8; source distinguishes that table explicitly."
+        ],
+        "reasoning": "Raw isomorphism enumeration alone cannot imply q_n or the multiplicity profile. No matched exact C^2 table found in targeted searches; not proof of absence elsewhere.",
+        "searches": [
+          "Resultary semantic: permutation graphs on eight vertices one-dimensional Weisfeiler Leman C2 counting logic equivalence class table distinguishing permutation graphs",
+          "https://oeis.org/A123448",
+          "https://www.jaist.ac.jp/~uehara/graphs/"
+        ]
+      },
+      "rationale": "PASS best of knowledge: raw permutation-graph isomorphism counts and C^2=colour-refinement correspondence are known. Arvind et al. supply that equivalence and related obstruction theory; Guo–Gavrilyuk–Ponomarenko prove an 18-dimensional upper bound rather than this one-dimensional eight-vertex quotient. Neither inspected source or the targeted published-record search yields the complete (p_n,q_n) multiplicity distribution. The claimed contribution is the precise finite quotient and sharp first obstruction; avoid claiming the classical raw counts or basic WL theorem.",
+      "residual_risks": [
+        "An earlier specialist WL quotient tabulation might exist under different terminology or outside indexed literature.",
+        "Bounded computation assumes correctness of standard exact graph-isomorphism implementation, although separate independent enumeration corroborates every output."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_ONLY",
+          "evidence": "Provides general equivalence, not the finite permutation-graph table.",
+          "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+          "material_read": "Theorem statements and discussion identifying colour refinement with two-variable counting logic and the amenable/regular obstruction discussion",
+          "method": "full arXiv HTML inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "C^2/colour refinement equivalence, possible general obstruction theorem"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Eighteen-dimensional bound does not entail one-dimensional eight-vertex quotient counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.15861",
+          "material_read": "Title, abstract, main theorem and PDF theorem context, including its 18-dimensional WL bound",
+          "method": "PDF text inspection with page screenshot",
+          "title": "On the Weisfeiler–Leman Dimension of Permutation Graphs",
+          "trigger": "Potential dominating WL identification statement for permutation graphs"
+        },
+        {
+          "assessment": "RAW_COUNTS_ONLY",
+          "evidence": "Raw sequence 1,2,4,11,33,142,776,5699, not q_n.",
+          "identifier_or_url": "https://oeis.org/A123448",
+          "material_read": "Permutation-graph isomorphism counting sequence and relevant entries through eight",
+          "method": "online sequence inspection",
+          "title": "OEIS A123448",
+          "trigger": "Possible exact finite database coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp smallest obstruction to C^2 identification within a natural well-studied hereditary graph class is a mathematically motivated model-theoretic boundary. The complete distribution of equivalence-class multiplicities through eight vertices goes beyond a routine restatement of pre-existing graph counts and supplies exact finite benchmarks for colour refinement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1502.01255v3",
+    "https://arxiv.org/pdf/2305.15861",
+    "https://oeis.org/A123448",
+    "assigned Git RESULT.md blob ef0a620e4e07e0ccf314db53bcde08c90a188b68",
+    "assigned Git verify_permutation.py blob 4fff7d2e416fd9c20c527aea313eedd04ad92768"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All conclusions stop at graph order eight; no extrapolation.",
+    "The independent code reimplements the finite classification but not a formal proof of the exact graph-isomorphism software."
+  ],
+  "residual_risks": [
+    "An earlier specialist WL quotient tabulation might exist under different terminology or outside indexed literature.",
+    "Bounded computation assumes correctness of standard exact graph-isomorphism implementation, although separate independent enumeration corroborates every output."
+  ],
+  "schema_version": 1
+}
