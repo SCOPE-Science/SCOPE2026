@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:10:00.064760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2, h=2^k-1, a binary [h,h-k,3] Hamming perfect code has a weight-three word, so its two parity classes have equal size 2^(h-k-1). Same-parity distinct codewords have distance >=4, hence their closed radius-one balls form induced h-stars. Alternating parity with the passive-fiber parity prevents cross-fiber endpoint adjacencies; the selected edge count is h*2^(d-k-1) for all d>=h, giving Q9>=224. For Q5 an independent exact maximum-clique search in the 80-edge compatibility graph, anchored at one edge by edge-transitivity, found maximum 12 and 12 anchored maximizers, hence 80 total; every optimizer is one of the 80 separately constructed 4x3-edge-star packings. Correctness does not assert Q9 optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al. §5.1 Table 1 lists Q5 lower bound 10, Q9 lower bound 153; their exact hypercube theorem concerns power-of-two dimensions.",
+          "Das–Santra 2026 treat algorithmic classes rather than a new all-dimensional hypercube formula."
+        ],
+        "reasoning": "Generic product bounds and exact powers-of-two results do not imply the Q5 exact census or parity-lift Q9>=224; the named algorithmic graph classes do not state these values.",
+        "searches": [
+          "arxiv:2406.04020 §5.1 Theorem 5.10 powers of two hypercubes",
+          "arxiv:2610.02275 edge open packing AT-free chordal convex bipartite"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2406.04020v2",
+        "https://arxiv.org/abs/2610.02275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A binary radius-one perfect-code packing supplies disjoint stars in one cube dimension; the independent parity-split fiber argument additionally excludes all cross-fiber edges.",
+          "Published Q9>=153 is logically weaker than the constructed 224-edge witness."
+        ],
+        "reasoning": "Existing general Hamming-code facts are prerequisite ingredients, but do not automatically imply the claimed cross-fiber parity construction and exact Q5 optimizer count without its further argument.",
+        "searches": [
+          "Brešar et al 2024 Proposition 5.9 and Theorem 5.10",
+          "Hamming perfect binary code parity class induced star packing Q5 Q9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Dravec–Hedžet–Samadi 2024 §5.1 defines edge-open packings via induced stars.",
+          "Triangle-free Q_d gives pairwise edge compatibility iff selected edges share a vertex or their endpoint sets have no cube-cross edge."
+        ],
+        "reasoning": "Matched the precise edge-open packing notion and the stronger induced-star-forest formulation, not only terminology; the equivalence supplies the certificate encoding, not the claimed extremal sizes.",
+        "searches": [
+          "hypercube edge open packing induced star forest Hamming code parity lift",
+          "Resultary: edge open packing hypercube exact Q5 12 Hamming parity perfect codes edge-open stars Q9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest displayed hypercube table gives lower bound 10 at Q5 and 153 at Q9, not exact Q5=12 nor 80 optimizers."
+        ],
+        "reasoning": "No inspected numerical table determines the target extremal family; this is bounded noncoverage, not proof of universal priority.",
+        "searches": [
+          "Brešar et al 2024 Table 1 hypercube edge-open packing Q5 Q9",
+          "hypercube Q5 edge-open packing optimal subsets 80 count"
+        ]
+      },
+      "rationale": "The lower bound and exact Q5 optimizer census go beyond cited hypercube data; an improved lower bound alone is not an equality formula for general dimensions. Literature and published-result searches did not reveal a prior theorem implying the complete Q5 count or this parity-lift construction. Originality is best-of-knowledge, not certified priority.",
+      "residual_risks": [
+        "Possible unindexed explicit hypercube packing or Q5 exhaustive classification; finite Q5 optimum has an algorithmic rather than solver-free structural upper bound.",
+        "The construction supplies a lower bound only outside Q5; in particular it does not determine rho_e^o(Q9)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS older bounds and general definitions; DOES NOT state Q5=12, Q9>=224, or Q5 optimizer census in material inspected",
+          "evidence": [
+            "§5.1 table Q5>=10, Q9>=153; Theorem 5.10 deals power-of-two dimensions"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+          "material_read": "Full available HTML, especially §5.1, Table 1, Proposition 5.9 and Theorem 5.10",
+          "method": "Primary full-text HTML reading",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Same edge-open packing invariant and Q5,Q9 tables"
+        },
+        {
+          "assessment": "Algorithmic graph classes and proof obligations differ; complete-text priority remains residual risk",
+          "evidence": [
+            "arXiv:2610.02275 abstract describes AT-free, chordal, convex bipartite classes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02275",
+          "material_read": "Bibliographic abstract and graph-class statement; not used as full-text noncoverage",
+          "method": "Abstract-level comparison",
+          "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+          "trigger": "Possible broader counting algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Edge-open-packing number is a standard graph invariant; improving the published Q5 and Q9 bounds and completely classifying an odd-dimensional cube extremal family is an independently useful exact combinatorial fact. The induced-star parity mechanism is a nontrivial structural construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2406.04020v2",
+    "https://arxiv.org/abs/2610.02275"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Possible unindexed explicit hypercube packing or Q5 exhaustive classification; finite Q5 optimum has an algorithmic rather than solver-free structural upper bound.",
+    "The construction supplies a lower bound only outside Q5; in particular it does not determine rho_e^o(Q9)."
+  ],
+  "schema_version": 1
+}

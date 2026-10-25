@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The infinite claim follows from the explicit binary Hamming parity-check matrix with one copy of every nonzero column. Its code has exactly \(2^{h-k}\) words and pairwise minimum distance at least three; radius-one balls are disjoint and exhaust \(2^h\) vertices. A weight-three codeword guarantees equal even and odd halves, and equal parity improves mutual center distance to at least four. The corresponding full neighborhood stars are induced-disjoint within fibers. Opposite parity in adjacent fibers means their occupied vertex supports are disjoint, ruling out every cross-fiber edge. Counting fibers, centers, and spoke edges gives the stated lower bound for every admitted integer dimension.
+PASS
 
-The exact claim for \(Q_5\) has a finite exhaustive certificate. Cube-edge compatibility is defined directly using binary adjacency. The bitset clique branch-and-bound pruning is justified by greedy proper vertex colorings, because a clique uses at most one vertex from each color class. The anchored maximum is twelve; a distinct increasing-index enumerator counts exactly twelve anchored maximizers. Cube edge-transitivity and double counting give eighty global maximizers. An independent explicit eighty-member family gives the matching constructive classification. The search source and recorded outputs are supplied; this is an exact computational proof for \(Q_5\), not an inference from a few samples.
+For k>=2, h=2^k-1, a binary [h,h-k,3] Hamming perfect code has a weight-three word, so its two parity classes have equal size 2^(h-k-1). Same-parity distinct codewords have distance >=4, hence their closed radius-one balls form induced h-stars. Alternating parity with the passive-fiber parity prevents cross-fiber endpoint adjacencies; the selected edge count is h*2^(d-k-1) for all d>=h, giving Q9>=224. For Q5 an independent exact maximum-clique search in the 80-edge compatibility graph, anchored at one edge by edge-transitivity, found maximum 12 and 12 anchored maximizers, hence 80 total; every optimizer is one of the 80 separately constructed 4x3-edge-star packings. Correctness does not assert Q9 optimality.
 
-## Originality (PASS, with priority risk)
+## originality
 
-The exact closest full-text source is Brešar–Dravec–Hedžet–Samadi, arXiv:2406.04020v2, Section 5.1. Its Table 1 explicitly records \(\rho_e^{\mathrm{o}}(Q_5)\ge10\), and it derives only \(\rho_e^{\mathrm{o}}(Q_9)\ge153\) from its present methods. Its Theorem 5.10 gives equality in power-of-two dimensions, but does not imply either the exact five-cube classification or the new nine-cube construction. Proposition 5.9 and Corollary 5.8 connect distance packings and EOP lower bounds, but do not supply the parity-lift across arbitrary spare coordinates. The complete accessible 2026 paper by Das–Santra, arXiv:2610.02275v1, treats edge-open-packing algorithms in other graph classes; it neither states nor entails this construction or exact census. The known equivalence to induced star forests was explicitly searched, not treated as a novelty argument. Relevant mathematical-record searches also returned no overlapping claim. Searches cannot guarantee publication priority; additional obscure or unindexed results may exist.
+PASS
 
-## Value (PASS)
+The lower bound and exact Q5 optimizer census go beyond cited hypercube data; an improved lower bound alone is not an equality formula for general dimensions. Literature and published-result searches did not reveal a prior theorem implying the complete Q5 count or this parity-lift construction. Originality is best-of-knowledge, not certified priority.
 
-The five-cube was an explicit unresolved lower-bound entry in a published study: the exact value twelve, exact eighty optimal subsets, and single-orbit structural classification close this natural concrete instance. The parity-split Hamming construction provides an entire infinite family of feasible induced-star forests, explaining an interaction between error-correcting perfect codes and Cartesian graph products. At nine dimensions its constructive lower bound improves the published value \(153\) to \(224\), a nontrivial step toward the known general upper bound \(256\). Both the exact finite gap closure and the infinite method give reusable mathematical information, rather than an arbitrary parameter slice.
+## value
 
-## Literature and remaining limits
+PASS
 
-- B. Brešar et al., *Induced matching vs edge open packing: trees and product graphs*, arXiv:2406.04020v2, especially Section 5.1, Table 1 and Theorem 5.10.
-- G. K. Das and K. Santra, *Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs*, arXiv:2610.02275v1 (first posted 2026-10-01), complete accessible mathematical text.
+Edge-open-packing number is a standard graph invariant; improving the published Q5 and Q9 bounds and completely classifying an odd-dimensional cube extremal family is an independently useful exact combinatorial fact. The induced-star parity mechanism is a nontrivial structural construction.
 
-The five-cube upper bound depends on a fully disclosed exact search; it is not claimed to follow solely from the infinite Hamming construction. Higher-dimensional bounds may not be optimal; bibliographic coverage may be incomplete. Independent audit has not occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
