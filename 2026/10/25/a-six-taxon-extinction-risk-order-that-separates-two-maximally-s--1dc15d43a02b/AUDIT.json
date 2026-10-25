@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For each nonroot edge the extinction event is that all descendant tips are extinct; independent and common-shock probabilities are \\(q^s\\) and q, so linearity gives Delta=theta((n-2)q-sum \\(q^s\\)). Exhaustively enumerating six rooted binary shapes by root partitions yields the six four-term clade polynomials. Each of the five consecutive polynomial gaps factors into positive powers of q and 1-q on (0,1). E and F have exactly two leaves at depth 2 and four at depth 3 and differ in clade sum by \\(q^2(1-q)^2\\). The fringe graft changes no outside descendant size and therefore changes Delta by exactly -theta \\(q^2(1-q)^2\\). The accompanying standard-library verifier independently generated six shapes and checked all 64 extinction subsets over 72 shape/parameter combinations with exact rational arithmetic; this corroborates but is not relied on for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faller–Steel uses a more general trait-dependent correlated-extinction construction but proves its qualitative correlated-versus-independent direction; no all-six-topology ranking or graft statement was found in its read discussion of expected PD loss.",
+        "Split sizes and extremal tree shapes (2019), doi:10.1016/j.aam.2018.12.004, focuses on unrooted min-side split-size functionals for fixed degree sequence."
+      ],
+      "reasoning": "Greater model breadth is not greater statement coverage: a general sign theorem does not order distinct phylogenetic topologies; an unrooted split-size functional does not directly imply this directed clade polynomial and depth-preserving replacement. Broader all-size rooted extremal results were not found, but cannot be categorically excluded.",
+      "searches": [
+        "sum of extinction probabilities q to descendant clade sizes rooted phylogenetic tree optimal shape",
+        "rooted phylogenetic tree sum over clades q to number descendants minimize maximize phylogenetic diversity extinction shape",
+        "phylogenetic diversity expected loss extreme rooted tree shape independently extinct same probability tree topology"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0911.3441v1",
+      "arXiv:1801.10418",
+      "doi:10.1007/s00026-021-00539-2",
+      "doi:10.1016/j.aam.2018.12.004",
+      "doi:10.1093/sysbio/syy030 (abstract only)",
+      "doi:10.1371/journal.pone.0023528 (abstract and model summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0911.3441 sections on expected PD and correlated extinction: broad sign comparison; explicit shape ranking not stated in material examined.",
+        "arXiv:1801.10418 and Annals of Combinatorics 2021 Theorem 2: minimal Sackin index classification and Fig. 2 tied six-leaf examples, but no expected-loss comparison.",
+        "doi:10.1093/sysbio/syy030 abstract: random ranked trees with three diversification/extinction parameters and simulations; no explicit common-shock mixture formula in available abstract."
+      ],
+      "reasoning": "The new inequality Delta_E-Delta_F=theta \\(q^2(1-q)^2\\) cannot be deduced from the earlier qualitative Delta>=0 inequality or the equality of the two Sackin indices alone. Its polynomial proof simultaneously rules out the equal-depth invariant as a sufficient descriptor. Different extinction mechanisms in prior models prevent direct parameter substitution into an existing numerical result.",
+      "searches": [
+        "correlated species extinction matched marginals tree shape excess loss graft Sackin balance",
+        "rooted phylogenetic tree sum over clades q to number descendants minimize maximize phylogenetic diversity extinction shape",
+        "\"phylogenetic diversity\" \"Sackin\" \"extinction\" \"six\" \"shape\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Faller–Steel, arXiv:0911.3441, establishes higher expected PD loss in correlated trait-linked models, not the ordering among the six unit-edge tree shapes for the common-shock mixture.",
+        "Fischer, arXiv:1801.10418, demonstrates two six-tip Sackin minima with common leaf-depth profile and no PD expectation theorem.",
+        "Maliet–Gascuel–Lambert (2018), doi:10.1093/sysbio/syy030, models ranked random-tree shapes, but full text unavailable."
+      ],
+      "reasoning": "Identical Sackin depths do not imply identical clade-size generating polynomials. The factor \\(q^2(1-q)^2\\) is a new objective-specific comparison rather than a paraphrase of a tree-balance index or the expected-loss inequality. The unavailable related 2018 paper is an explicit residual risk.",
+      "searches": [
+        "rooted phylogenetic diversity expected loss six leaf tree shapes catastrophe extinction 2+4 3+3 Sackin index",
+        "correlated species extinction matched marginals tree shape excess loss graft Sackin balance",
+        "\"phylogenetic diversity\" \"Sackin\" \"extinction\" \"six\" \"shape\"",
+        "\"Ranked Tree Shapes, Nonrandom Extinctions\" pdf arxiv"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The six non-plane binary shapes were explicitly enumerated and compared in the proof and verify.py.",
+        "Fischer 2021 Fig. 2 gives the n=6 Sackin tie, not an extinction-loss table.",
+        "Queries of mathematical published-finding records did not surface a matching six-tip q-polynomial loss ranking."
+      ],
+      "reasoning": "The known six-leaf shapes and their Sackin values do not record the different invariant studied here. In particular the q-polynomial table and every-q strict order are not equivalent to numerical indices or a classification of shapes. No exact table with the claimed excess function was located; failed retrieval is not a uniqueness proof.",
+      "searches": [
+        "rooted phylogenetic diversity expected loss six leaf tree shapes catastrophe extinction 2+4 3+3 Sackin index",
+        "phylogenetic diversity extinction model shared shock mixture six taxa all tree topologies",
+        "balanced six taxon trees 3+3 versus 2+4 extinction correlation \\(q^2(1-q)^2\\)"
+      ]
+    },
+    "rationale": "The claim is neither the previously established qualitative greater loss from correlated extinction nor the previously known existence of two six-tip Sackin-minimal trees. It is a complete strictly ordered six-topology extinction-excess comparison for a precisely specified exchangeable catastrophe model, a factored separation of the two equal-depth topologies, and a local improvement that works within arbitrarily large trees. Full relevant text of Faller and Steel and Fischer was compared by objective and implication; a directly relevant 2018 ranked-tree paper could only be compared at abstract level and remains a stated risk.",
+    "residual_risks": [
+      "A highly relevant 2018 ranked-tree extinction full text was inaccessible; no claim of a whole-document exclusion is made.",
+      "Potential generic rooted-clade functional extremal results or earlier exact enumerations might imply this specific six-tip ranking even without identical language.",
+      "Bibliographic searches and a local record comparison cannot prove global novelty or independent scientific validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides motivation and known global nonnegative excess but does not visibly rank all six topology shapes or give the present graft principle.",
+        "evidence": [
+          "arXiv:0911.3441v1 (18 November 2009)",
+          "SIAM J. Discrete Math. 26 (2012), 472–481, doi:10.1137/090776743"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0911.3441",
+        "material_read": "Abstract, model definitions, edgewise expected PD arguments, section 3 and theorem discussion",
+        "method": "Lawful open arXiv preprint, parsed full document and page-level inspection",
+        "title": "Trait-dependent extinction leads to greater expected biodiversity loss",
+        "trigger": "Foundational correlated-versus-independent extinction expected PD theorem"
+      },
+      {
+        "assessment": "Proves exactly two rooted six-tip Sackin minima of index 16, a known premise; no PD loss or common-shock model comparison.",
+        "evidence": [
+          "arXiv:1801.10418",
+          "Annals of Combinatorics 25 (2021), 515–541"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00026-021-00539-2",
+        "material_read": "Complete accessible manuscript page, Theorem 2 and proof, Fig. 2, discussion",
+        "method": "Open-access full HTML and comparison with the arXiv bibliographic record",
+        "title": "Extremal values of the Sackin tree balance index",
+        "trigger": "Two six-leaf trees tied at the minimum Sackin index"
+      },
+      {
+        "assessment": "Uses unrooted smaller-side split statistics under degree constraints, not oriented descendent clade sizes \\(q^s\\); no direct implication of the claim identified.",
+        "evidence": [
+          "Advances in Applied Mathematics 104 (2019), 135–164"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2018.12.004",
+        "material_read": "Accessible article full HTML including abstract, introduction, extremal formulation, conclusions",
+        "method": "Full online article in text form",
+        "title": "Split sizes and extremal tree shapes",
+        "trigger": "Possible broader extremal theorem for all phylogenetic tree shapes"
+      },
+      {
+        "assessment": "Simulates a three-parameter ranked-tree random extinction model, conceptually distinct from the explicitly defined common-shock law, but missing full text prevents complete coverage exclusion.",
+        "evidence": [
+          "Systematic Biology 67 (2018), 1025–1040, doi:10.1093/sysbio/syy030",
+          "Abstract describes simulation and dependence on beta, alpha, eta, not this six-tip analytic ranking"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/sysbio/syy030",
+        "material_read": "Bibliographic information and abstract only, not the full scientific document",
+        "method": "Publisher preview and open-access/preprint search; full article inaccessible",
+        "title": "Ranked Tree Shapes, Nonrandom Extinctions, and the Loss of Phylogenetic Diversity",
+        "trigger": "Direct same-area work combining tree balance and nonrandom PD loss"
+      },
+      {
+        "assessment": "Reports simulation across tree-size and trait-clustering regimes; does not establish the all-q six-shape common-shock comparison in material read.",
+        "evidence": [
+          "PLOS ONE 6 (2011), e23528"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0023528",
+        "material_read": "Accessible article abstract and methodology summary",
+        "method": "Open-access article landing page",
+        "title": "Phylogenetically Clustered Extinction Risks Do Not Substantially Prune the Tree of Life",
+        "trigger": "Related conservation motivation for shape sensitivity under extinction correlations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1dc15d43-a02b-4889-adca-d332182e33d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Correlated extinction can destroy clades as units; expected phylogenetic diversity loss is an established conservation objective. The exact first six-tip ordering identifies the two distinct equal-Sackin-balance arrangements and their universally strict penalty difference, not an arbitrary numerical tree slice. The depth-preserving six-fringe graft propagates the invariant distinction to trees of unrestricted size, demonstrating a general structural inadequacy of leaf depth as an extinction-risk proxy while keeping the species level depths fixed. It is a motivated mathematical boundary and a reusable local improvement; it does not assert empirical policy benefit.",
+    "status": "PASS"
+  }
+}
