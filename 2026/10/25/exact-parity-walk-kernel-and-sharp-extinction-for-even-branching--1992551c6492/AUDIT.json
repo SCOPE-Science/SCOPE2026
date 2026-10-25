@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "An exact formal-series inverse of I+zA is constructed columnwise by z^distance S_(LCA-depth). The three exhaustive vertex cases (off-spine, proper ancestor, target) follow from even child parity and S_r+z^2 S_(r-1)=1. Uniqueness of the formal inverse proves every adjacency-power coefficient for all trees and all times. The highest coefficient gives A^(2h)=ell ell^T nonzero and A^(2h+1)=0; the nonzero deepest-level parity functional has exactly half of all inputs. The standalone program checks exhaustive small shapes and nonuniform larger samples, not as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The first paper concerns infinite regular rooted tree shifts and automata, and the second studies finite Cayley-tree rule reversibility/entropy with a different root branching and one-step invertibility. Neither supplies a theorem for all finite even-branching shapes and all adjacency powers."
+      ],
+      "reasoning": "General finite-field cellular automata machinery permits a matrix update description but does not entail the explicit all-times LCA-resolvent identity or sharp last-step half-fraction without new structural argument.",
+      "searches": [
+        "arxiv:1205.6785",
+        "arxiv:1211.7362",
+        "rooted tree nilpotent adjacency over F2 even number of children proof"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1205.6785, full-text regular-rooted-tree automata",
+      "arxiv:1211.7362, full-text revised Cayley-tree entropy/reversibility paper",
+      "General adjacency-power/walk interpretation in graph theory (classical background; no all-times cancellation theorem identified)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Regular rooted-tree shift surjectivity is not the same operator as a finite symmetric neighbour-XOR tree adjacency matrix, and one-step CA reversibility/entropy does not imply all powers of that operator. Characteristic-two parity dynamics on distance-two Boolean cubes or complete multipartite graphs has different graph families, so those formulas cannot specialize to arbitrary even-branching rooted trees."
+      ],
+      "reasoning": "The strongest checked results do not quantify over the same finite trees and cannot imply the coefficientwise all-walk parity statement; in particular they do not provide the nonzero outer product at exact depth 2h and half-input sharpness.",
+      "searches": [
+        "arxiv:1205.6785",
+        "arxiv:1211.7362",
+        "binary parity synchronous dynamics perfect full binary tree adjacency nilpotent Jordan blocks extinction time 2h+1 over F2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The kernel is equivalently a formula for parity of length-t walks, the matrix resolvent (I+zA)^(-1), and exact powers A^t on a finite tree. The inspected 2012 regular-rooted-tree automata paper instead studies sofic tree shifts and surjectivity for infinite regular-rooted-tree local rules."
+      ],
+      "reasoning": "Neither a renamed walk-generating series nor an LCA reformulation of the checked source states the parity identity; the proof uses the even-child cancellation separately from general walk-counting.",
+      "searches": [
+        "binary tree adjacency powers modulo two explicit walk parity lowest common ancestor",
+        "GF(2) adjacency powers even branched rooted tree tree walk length parity formula",
+        "arxiv:1205.6785"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source inspected provides an exact table or database for all finite even-branching rooted trees indexed by two vertex depths, lowest-common-ancestor depth and time. The claimed result covers infinitely many arbitrary shapes, not a finite-table extrapolation."
+      ],
+      "reasoning": "A finite graph table of eigenvalues, walks or nilpotency cannot imply this universal kernel without the cancellation theorem. Nonappearance in searches alone does not prove priority.",
+      "searches": [
+        "parity walks even tree each vertex even number children GF2 nilpotent adjacency matrix",
+        "binary tree adjacency powers modulo two explicit walk parity lowest common ancestor"
+      ]
+    },
+    "rationale": "Published tree-automata sources address infinite regular rooted-tree shifts, surjectivity, entropy, or one-step reversibility, without the claimed all-time finite undirected tree adjacency kernel. Searches for parity of rooted-tree walks, characteristic-two adjacency powers, LCA formulas, and even branching found no equivalent theorem; this supports bounded originality only, not an assertion of uniqueness. Results about binary parity dynamics on cubes and multipartite graphs apply to different adjacency operators and do not imply this formula.",
+    "residual_risks": [
+      "Historical uniqueness cannot be guaranteed against unindexed older characteristic-two tree spectra, matching-polynomial or graph-walk literature.",
+      "The 2012 original and 2017 revision of the Cayley-tree paper may differ; only the available full revision was directly inspected.",
+      "The result does not extend to arbitrary rooted trees or update rules, even though the witness two-vertex path excludes such an extension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinct: infinite regular rooted-tree shifts, soficity and surjectivity; no statement determining the finite parity-walk kernel, sharp extinction index or last-step distribution.",
+        "evidence": "The paper models tree configurations through a rooted monoid and discusses sofic tree shifts and cellular automaton surjectivity; our theorem instead solves (I+zA)^(-1) for finite undirected adjacency.",
+        "identifier_or_url": "https://arxiv.org/abs/1205.6785",
+        "material_read": "Openly accessible full-text paper, including definitions and theorems concerning regular rooted-tree shifts and automata.",
+        "method": "Read theorem and main-section mathematical statements and compare their state spaces, local rule, and quantifiers to finite undirected adjacency powers.",
+        "title": "Cellular automata on regular rooted trees",
+        "trigger": "Older rooted-tree cellular-automaton literature plausibly covering parity rules."
+      },
+      {
+        "assessment": "Not equivalent: different branching conventions and reversibility/entropy results, no universal even-child LCA formal resolvent; risk remains from revisions and other papers.",
+        "evidence": "Its focus is characteristic/entropy and one-step reversibility, whereas the finding proves the coefficient of every power of a finite tree adjacency operator.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.7362",
+        "material_read": "Open-access 13-page paper, using a 2017 revised full-text version of a 2012 preprint, with governing rule matrices, entropy and reversibility sections.",
+        "method": "Read full-text mathematical definitions, calculations and propositions; compare root degrees, update coefficients, one-step versus all-iterate statements.",
+        "title": "The entropy and reversibility of cellular automata on Cayley tree",
+        "trigger": "Cayley-tree additive automata and their finite adjacency matrices are a plausible stronger source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1992551c-6492-4380-8e9b-21b5dde945a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-time pairwise walk parity identity on arbitrarily shaped finite even-branching trees is a structural solution to a natural finite-field dynamics question, much stronger than a small graph census or routine eigenvalue calculation. It proves an exact nilpotency index growing linearly with height, an explicit rank-one penultimate update and a universal half-of-all-initial-states sharp survival fraction. The formula is unexpectedly independent of all even branching multiplicities, hence useful as a complete propagation and extinction law and as a check on finite graph parity dynamics.",
+    "status": "PASS"
+  }
+}
