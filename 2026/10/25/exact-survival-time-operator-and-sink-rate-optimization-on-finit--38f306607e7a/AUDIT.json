@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All eigenvalues of L strictly decay by rank-one dissipation plus path connectivity. Explicit parity-wise Hermitian Q is directly verified entrywise to solve L*Q+QL=-I, hence equals the convergent survivor norm integral. This covers arbitrary initial density matrices, all N>=2, positive J and loss, both boundaries, and the optimizing derivative. Independent SciPy Lyapunov solves, propagation quadratures and 1,309 deterministic assertions passed; finite checks do not serve as the all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang et al. explicitly state the rest of their analysis mainly initializes at the first site; their later middle-site study derives three-site and asymptotic dephasing statements.",
+        "Riberi studies the half-line resolvent and the total absorption probability, where finite-path certainty of eventual absorption does not hold."
+      ],
+      "reasoning": "An exact general arbitrary-initial-density-matrix finite-path integrated survival matrix would dominate this result, but the examined materials do not exhibit such a matrix. Generic resolvent or Lyapunov formulas leave a nontrivial explicit inversion; possible unexamined stronger literature is a material residual risk.",
+      "searches": [
+        "exact survival-time operator Q matrix Lindblad boundary sink homogeneous finite quantum tight binding path Qij parity off diagonal arbitrary initial coherent superposition",
+        "all injection site boundary absorber optimal loss strength independent of total number of sites quantum transport",
+        "arxiv:1706.09524v1 entire Sections II-V",
+        "arxiv:2605.08056v4 analytic solution and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.08056v4 (full HTML)",
+      "arxiv:1706.09524v1 (full PDF text and relevant page images)",
+      "PhysRevA.68.012302 publisher abstract (full text unavailable)",
+      "published-finding corpus semantic search for finite-path sink and survival-time matrix (specific query strings recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (17) is exactly recovered by m=N after reversing the orientation of the path.",
+        "Equation (33) at gamma=0 is recovered at N=3,m=2.",
+        "The matrix witness gives phase-sensitive off-diagonal mean-lifetime contributions, which are not determined by those diagonal special cases."
+      ],
+      "reasoning": "Neither finite diagonal special case has a stated theorem for arbitrary N, interior m, or coherent initial superpositions. The novelty claim is limited to that broader explicit expression and its corresponding optimizer, and does not claim the known examples.",
+      "searches": [
+        "finite path dissipative hopping chain quantum mean absorption time from arbitrary localized injection site phase coherent initial condition closed formula length loss rate",
+        "all injection site boundary absorber optimal loss strength independent of total number of sites quantum transport",
+        "finite open quantum chain single dissipative boundary sink lifetime optimal loss rate Omega sqrt[m/(m-1)] independent of chain length",
+        "arxiv:1706.09524v1 page 5 equation 17 and page 13 equation 33"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Riberi describes a semi-infinite boundary Lindblad sink, not a finite-size Lyapunov lifetime matrix.",
+        "Zhang et al. give the clean end-to-end mean in equation (17) and three-site middle initial state in equation (33)."
+      ],
+      "reasoning": "The general Lyapunov identity applies to arbitrary finite absorbing quantum walks, but using it alone does not determine the explicit entries. The two cited special cases agree with diagonal entries at m=N and (N,m)=(3,2); the full matrix and arbitrary interior m do not follow as stated propositions from those cases.",
+      "searches": [
+        "exact survival-time operator Q matrix Lindblad boundary sink homogeneous finite quantum tight binding path Qij parity off diagonal arbitrary initial coherent superposition",
+        "finite path dissipative hopping chain quantum mean absorption time from arbitrary localized injection site phase coherent initial condition closed formula length loss rate",
+        "arxiv:2605.08056v4 sections 2-5 and appendix D",
+        "arxiv:1706.09524v1 equations 17, 33"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published results include specific terminal and three-site mean-time values but no all-N all-initial-state entry table identified.",
+        "The cited published-finding corpus top hits concern average mixing, high-energy metric quantum graphs, and projective detection on a fully connected graph."
+      ],
+      "reasoning": "No exact general matrix was identified in checked sources or accessible existing findings; failed searches do not establish absence elsewhere.",
+      "searches": [
+        "finite path dissipative hopping chain quantum mean absorption time from arbitrary localized injection site phase coherent initial condition closed formula length loss rate",
+        "finite path continuous-time tight-binding coherent quantum walk single end boundary Lindblad absorber mean absorption lifetime formula m(N+1-m)/kappa + kappa(m-1)(N+1-m)/Omega^2",
+        "published-finding corpus semantic search: exact survival-time operator Q matrix Lindblad boundary sink homogeneous finite quantum tight binding path Qij parity off diagonal arbitrary initial coherent superposition",
+        "arxiv:1706.09524v1 equations 17, 33"
+      ]
+    },
+    "rationale": "The complete finite-path Lyapunov solution for all initial coherences and interior-site length-independent optimizer is distinct from Riberi’s semi-infinite propagator and from Zhang et al.’s known end-to-end N-site and middle-of-three-site special cases. No dominating all-site explicit matrix found in published-finding corpus or examined primary papers. The substantial residual possibility of implicit coverage by broader Lyapunov/quantum transport theory remains and independent priority assessment is needed.",
+    "residual_risks": [
+      "A nontrivial all-state formula may be implicit in a more general exact coherent transport or first-passage theorem not retrieved.",
+      "The full text of the 2003 discrete-time absorbing quantum walk article was not inspected; its absorption protocol is different.",
+      "The inference of publication priority is provisional and not an independent literature certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same physical sink and semi-infinite propagator, not finite-path integrated lifetime operator.",
+        "evidence": [
+          "Sections 2-3 explicitly define a semi-infinite lattice and rank-one loss; Sec. 4 gives total absorption probability by integrals."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.08056v4",
+        "material_read": "Abstract, Sections 1-5, appendix descriptions, and absorption asymptotics",
+        "method": "Direct full HTML text inspection including displayed equations 1-21 and scope",
+        "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+        "trigger": "Exact same Lindblad boundary-sink dynamics but on the semi-infinite path"
+      },
+      {
+        "assessment": "Prior work directly covers m=N for every N and N=3,m=2. No complete all-site-and-coherence mean-lifetime operator was located.",
+        "evidence": [
+          "Equation (17) exactly matches the far-end-start mean; Eq. (33) at zero dephasing matches three-site central start."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.09524",
+        "material_read": "Full 16-page arXiv v1 text and displayed equations, including pages 5 and 13",
+        "method": "Read text and source-PDF page images of equations (17) and (33); compare the physical operator and localized initial conditions",
+        "title": "Optimal Dephasing for Ballistic Energy Transfer in Disordered Linear Chains",
+        "trigger": "Finite coherent path and terminal sink; potential stronger exact mean-time result"
+      },
+      {
+        "assessment": "Discrete-time Hadamard walks, with different absorption protocol; not decisive prior for continuous Lindblad path.",
+        "evidence": [
+          "Abstract states Hadamard walks on line and hypercube rather than autonomous continuous sink."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.68.012302",
+        "material_read": "Publisher abstract and publication metadata only",
+        "method": "Search-result abstract comparison; full paper not obtained",
+        "title": "Analysis of absorbing times of quantum walks",
+        "trigger": "Broad title about quantum walk absorbing times"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38f30660-7e7a-48c9-bc1a-835796d3fda3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Explicit full mean-time operator resolves phase-dependent transport as well as every injection site, not merely a routine special case of an endpoint time. It gives a natural exact physical design rule: for fixed injection m>=2, optimal sink coupling is independent of how many additional sites the coherent excitation may explore. The known endpoint formula alone cannot determine this for interior sites or coherent superpositions; this is experimentally relevant to site-selective excitation and dissipation engineering.",
+    "status": "PASS"
+  }
+}
