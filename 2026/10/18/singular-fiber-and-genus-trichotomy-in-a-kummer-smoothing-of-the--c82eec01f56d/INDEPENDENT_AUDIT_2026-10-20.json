@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T23:51:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The power map [x:y:z]->[x^m:y^m:z^m] is etale of degree m^2 on the torus, and the quotient cubic has h(a,b)=(a-b)(b-1)(1-a)/(ab). Exact derivatives factor as -(a^2-b)(b-1)/(a^2 b), -(a-1)(a-b^2)/(a b^2), so the only torus critical parameters are 0 and two roots of lambda^2+27. At the two nonzero values the affine Hessian determinant reduces to -9; every lifted singularity is a node. The 3 coordinate vertices are ordinary m-fold by tangent cone y^m-z^m, and other boundary intersections are smooth. For nonzero lambda, valuations of X/Z and Y/Z at [0:1:1], [1:0:1] form independent rows mod m; their Kummer classes give degree m^2 and geometric integrality. Plane arithmetic genus minus 3*binom(m,2) and optional m^2 nodes yields both genus formulas. Independent SymPy computation reconstructed the Groebner eliminant lambda(lambda^2+27), nonzero nodal Hessian -9, and m=2 genera 7 and 3. The symbolic/Kummer proof, not F13 examples, establishes the full theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those theorems relate a line arrangement and degree-m pencil to resonance/characteristic varieties; neither supplies lambda^2+27 exceptional cubic discriminant and m^2-node genus jump for the new 3m family."
+        ],
+        "reasoning": "General Kummer covering theory is an input and does not identify branch-critical parameters or all singularity types without the explicit critical calculations.",
+        "searches": [
+          "Ceva Fermat line arrangement smoothing (X-Y)(Y-Z)(Z-X)-lambda XYZ genus node singular fibers",
+          "Ceva Kummer cover Fermat arrangement one-term smoothing genus m squared nodes exceptional lambda",
+          "Dimca 2006 Theorem 4.1",
+          "Falk–Yuzvinsky 2007 multinet theory"
+        ]
+      },
+      "checked_sources": [
+        "Falk–Yuzvinsky, arXiv:math/0603166 (original full-text selected sections)",
+        "Dimca, arXiv:math/0606442 (original full-text introduction/pencil sections)",
+        "Resultary searches: Ceva Fermat line arrangement smoothing (X-Y)(Y-Z)(Z-X)-lambda XYZ genus node singular fibers; Ceva Kummer cover Fermat arrangement one-term smoothing genus m squared nodes exceptional lambda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree-m multinet pencil statements do not imply genus of degree-3m monomial smoothing. New quotient cubic critical-point elimination plus Kummer-valuation argument supply the exact claimed conclusions."
+        ],
+        "reasoning": "Same line arrangement is not logical coverage of all its deformations; the current exceptional lambda^2+27 equation and genus formula must be proved separately.",
+        "searches": [
+          "Falk–Yuzvinsky arXiv:math/0603166 sections on Ceva nets",
+          "Dimca arXiv:math/0606442 introduction and pencil results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard Fermat pencil has members of degree m; this submitted polynomial has degree 3m and a monomial perturbation lambda (xyz)^m."
+        ],
+        "reasoning": "Distinguished resonance pencils, Fermat–Ceva arrangements and Kummer base changes by degree and the actual pair of generating forms, not titles or arrangement resemblance.",
+        "searches": [
+          "Ceva Fermat line arrangement smoothing (X-Y)(Y-Z)(Z-X)-lambda XYZ genus node singular fibers",
+          "Ceva Kummer cover Fermat arrangement one-term smoothing genus m squared nodes exceptional lambda",
+          "Falk–Yuzvinsky arXiv:math/0603166 Fermat pencil",
+          "Dimca arXiv:math/0606442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For each m the exact two nonzero critical values and two different normalization genera are derived from quotient cubic; no previously inspected table provides them."
+        ],
+        "reasoning": "The classical lambda=0 arrangement incidence is known, but the complete finite-parameter discriminant and genus trichotomy is different. No exhaustive historical-table coverage is claimed.",
+        "searches": [
+          "Ceva Fermat line arrangement smoothing (X-Y)(Y-Z)(Z-X)-lambda XYZ genus node singular fibers",
+          "Ceva Kummer cover Fermat arrangement one-term smoothing genus m squared nodes exceptional lambda",
+          "Resultary Kummer Ceva Fermat multinet comparisons"
+        ]
+      },
+      "rationale": "Falk–Yuzvinsky original primary full-text pages on the Fermat–Ceva multinet study the classical degree-m pencil and arrangement resonance, not this degree-3m pencil involving a lambda (xyz)^m smoothing. Dimca original preprint treats line-arrangement characteristic/resonance varieties and special pencil multiplicity; its primary introduction/pencil theorems differ in statement. Resultary searches found no same Kummer finite-parameter genus trichotomy. The classical Ceva 3m-line baseline is credited, not novel by itself.",
+      "residual_risks": [
+        "A study of this exact deformation under a different Ceva/Hesse cubic guise may exist outside retrieved titles.",
+        "Genus and singular support concern geometric normalization only, not arithmetic fields of the nodes or stable reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Degree-m pencil of Fermat fibers/arrangement resonance; not the submitted degree-3m (xyz)^m smoothing or genus trichotomy.",
+          "evidence": "The source identifies the multinet arrangement and three degree-m line-product fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603166",
+          "material_read": "Accessible original 20-page PDF: introductory statements, Ceva/Fermat multinet examples and pages 7 and 13 image material",
+          "method": "Read PDF text and inspected page images of relevant multinet and pencil sections",
+          "title": "Multinets, resonance varieties, and pencils of plane curves",
+          "trigger": "Exact Fermat–Ceva arrangement and potentially same pencil"
+        },
+        {
+          "assessment": "Its central results concern pencil-associated local-system characteristic loci and fiber multiplicities, not this explicit Kummer smoothing critical discriminant.",
+          "evidence": "Theorem 4.1 describes geometry of associated pencils; introduction emphasizes characteristic varieties rather than the lambda^2+27 smoothing.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0606442",
+          "material_read": "Accessible original PDF introduction pp.1–4, arrangement-pencil definitions and stated Theorem 4.1/section summary",
+          "method": "Read original PDF text on geometric pencils, resonance and character varieties",
+          "title": "Pencils of plane curves and characteristic varieties",
+          "trigger": "Arrangement pencil, possible singular-fiber classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural explicit one-term smoothing of a standard 3m-line arrangement has a complete singular-parameter and geometric-genus jump law for every m, including irreducibility despite Kummer branching; the m^2 node correction is useful for normalization families and discriminants. Exact boundary and exceptional fiber regimes make this a meaningful structural classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m>=2, characteristic-zero algebraically closed k and finite lambda, the degree-3m Ceva polynomial (x^m-y^m)(y^m-z^m)(z^m-x^m)-lambda (xyz)^m has at lambda=0 a 3m-line arrangement with m^2 torus triple points and 3 coordinate m-fold points; lambda nonzero is integral with three m-fold vertices and genus 3m^2-3m+1 except at the two lambda^2+27=0 parameters, which have m^2 extra ordinary nodes and genus 2m^2-3m+1. Infinity is an excluded nonreduced fiber.",
+  "limitations": [
+    "m>=2 and char0 algebraically closed fields; finite lambda only.",
+    "No nonreduced Jacobian or stable reduction at infinity.",
+    "No arithmetic fields of definition of individual nodes asserted."
+  ],
+  "schema_version": 1
+}
