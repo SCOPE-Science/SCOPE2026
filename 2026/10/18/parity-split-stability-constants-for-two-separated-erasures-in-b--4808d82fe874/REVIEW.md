@@ -1,11 +1,21 @@
-# Scientific review: parity-split stability with two separated erasures
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof supplies the exact reindexed alternating denominator in both doubled grid gaps; establishes strict convexity and unique gap minimizers; bounds all normal unit cells below the leading gap coefficient; and derives parity ordering with sharp spacing asymptotics. The 244 deterministic tests check finite reindexing, denominator identities and numerical constants, but are not relied upon to prove infinite limits.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The inspected 2011 complete-grid primary source and 2013 general well-spaced-node source yield logarithmic growth, but not the explicit two-hole phase coefficient, its odd/even ordering or maximizer localization. An earlier consecutive-block formula uses a different single-gap geometry, so it does not imply the claim. The 2016 sharp equidistant-grid article remained inaccessible in complete form, and analogous results in unindexed literature remain possible.
+PASS
 
-**Value — PASS.** Missing nonadjacent samples occur naturally in rational interpolation. Exact leading Lebesgue amplification and worst-location identification materially improve general logarithmic stability estimates. The sign-alternating, inverse-square interaction of two defects is a structural finding, not a routine coefficient recalculation.
+For two deleted interior nodes with fixed separation h≥2 and *reindexed* alternating barycentric signs, the signed denominator in either length-two gap is the limit F_h(t)=πcsc(πt)−1/t−(−1)^h/(t−h)−2Σ_{j=1}^{h−1}(−1)^j/(t−j). Its magnitude reduces by reciprocal-tail pairing to D_h(t)=B(t)+(−1)^h I(h−t), positive and strictly convex, attaining unique d_h at t_h∈(−1,1). Each exceptional gap contributes numerator 2logN+O(1); ordinary cells satisfy L≤2+H_N and have log coefficient at most one, while the two gaps have coefficient C_h=2/d_h>1. Endpoint boundary layers vanish as competitors. The integral I(p) is strictly positive decreasing, yielding even C_h rising toward 1/log2 from below and odd decreasing from above. I(h)=1/(2h²)+O(h^−3), I'(h)=−h^−3+O(h^−4), B''(0)=3ζ(3), giving C_h=1/log2−(−1)^h/[4(log2)^2h²]+O(h^−3), t_h=(−1)^{h+1}/[3ζ(3)h³]+O(h^−4). Independent high precision numerical minimization agrees with displayed C2≈1.334642697, C3≈1.500180056, C4≈1.411794833, C5≈1.463423475, and sign/ordering. Numerical values do not prove the limiting/convexity claims; proof uses alternating rational tails and inequalities.
 
-Closest inspected literature: Bos–De Marchi–Hormann (2011), Bos–De Marchi–Hormann–Sidon (2013), Hormann (2014), and the abstract of Ibrahimoglu–Cuyt (2016). The fixed-separation and uniform-grid hypotheses are essential to the result as stated; no global historical uniqueness claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical intact-grid and general well-spaced-grid papers supply O(log N) scale but not two separated erasures' sharp coefficient or distinct two-gap localization. Consecutive deletions form one longer gap and are not equivalent to h≥2; its exact constants do not imply even/odd separation law. Intact exact coefficient literature is distinct. Priority uncertainty persists because the full 2016 sharp-bound article and all obscure scattered-data variants have not been read.
+
+## value
+
+PASS
+
+Two missing samples in stable rational interpolation are a natural defect configuration. Exact leading operator-norm growth and location of worst amplification improve qualitative logarithmic bounds; parity-modulated pair interaction, sharp inverse-square tail and inverse-cube extremizer displacement are a meaningful structural defect law, not a routine rescale of intact grid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

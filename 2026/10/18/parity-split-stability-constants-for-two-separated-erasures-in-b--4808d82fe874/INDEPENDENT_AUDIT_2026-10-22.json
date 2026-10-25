@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T14:54:04.354333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two deleted interior nodes with fixed separation h≥2 and *reindexed* alternating barycentric signs, the signed denominator in either length-two gap is the limit F_h(t)=πcsc(πt)−1/t−(−1)^h/(t−h)−2Σ_{j=1}^{h−1}(−1)^j/(t−j). Its magnitude reduces by reciprocal-tail pairing to D_h(t)=B(t)+(−1)^h I(h−t), positive and strictly convex, attaining unique d_h at t_h∈(−1,1). Each exceptional gap contributes numerator 2logN+O(1); ordinary cells satisfy L≤2+H_N and have log coefficient at most one, while the two gaps have coefficient C_h=2/d_h>1. Endpoint boundary layers vanish as competitors. The integral I(p) is strictly positive decreasing, yielding even C_h rising toward 1/log2 from below and odd decreasing from above. I(h)=1/(2h²)+O(h^−3), I'(h)=−h^−3+O(h^−4), B''(0)=3ζ(3), giving C_h=1/log2−(−1)^h/[4(log2)^2h²]+O(h^−3), t_h=(−1)^{h+1}/[3ζ(3)h³]+O(h^−4). Independent high precision numerical minimization agrees with displayed C2≈1.334642697, C3≈1.500180056, C4≈1.411794833, C5≈1.463423475, and sign/ordering. Numerical values do not prove the limiting/convexity claims; proof uses alternating rational tails and inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 of 2013 general nodes paper supplies logarithmic Lebesgue upper bound for well-spaced nodes, not sharp coefficient. Fixed-two-erasure grids lie in that broader bounded-spacing family."
+        ],
+        "reasoning": "Broader logarithmic scale is covered. Sharp C_h, maximum point locations, and h→∞ parity correction are stronger exact invariant statements not implied by the theorem's order bound.",
+        "searches": [
+          "Resultary_Search.query.3: Two deleted separated equispaced nodes Berrut rational interpolation reindexed barycentric alternating weights exact Lebesgue constant logarithmic coefficient parity separation",
+          "Bos-DeMarchi-Hormann-Sidon:2013"
+        ]
+      },
+      "checked_sources": [
+        "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+        "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+        "https://doi.org/10.1080/10586458.2015.1072862"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 studies unperturbed equidistant Berrut; 2013 proves log bounds for general nodes; 2016 describes sharp complete-grid constants (full text unavailable)."
+        ],
+        "reasoning": "O(logN) general bounds imply only scale, not leading 2/d_h or parity ordering. Complete grid constant cannot be substituted after two weights/sign jumps; the full 2016 source remains an explicitly limited comparison.",
+        "searches": [
+          "Resultary_Search.query.3: Two deleted separated equispaced nodes Berrut rational interpolation reindexed barycentric alternating weights exact Lebesgue constant logarithmic coefficient parity separation",
+          "Bos-DeMarchi-Hormann:2011",
+          "Bos-DeMarchi-Hormann-Sidon:2013",
+          "Ibrahimoglu-Cuyt:2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical barycentric Lebesgue norms and intact-grid sharp bounds involve complete equispaced nodes; current weights are reindexed after erasures, changing signed denominator. h=1 consecutive-block geometry differs from h≥2."
+        ],
+        "reasoning": "Neither an intact-node leading constant nor a consecutive erasure block can determine two separated anomalous gaps, minimizing D_h, or parity alternation in h.",
+        "searches": [
+          "Resultary_Search.query.3: Two deleted separated equispaced nodes Berrut rational interpolation reindexed barycentric alternating weights exact Lebesgue constant logarithmic coefficient parity separation",
+          "Bos-DeMarchi-Hormann:2011",
+          "Ibrahimoglu-Cuyt:2016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No corresponding exact (C_h,t_h) table found in targeted semantically indexed records; source's numerical examples agree with independent minimizations."
+        ],
+        "reasoning": "An unlocated coefficient table is not novelty proof. Unlike intact-grid tables, exact h≥2 erasure constants are a distinct operator norm.",
+        "searches": [
+          "Resultary_Search.query.3: Two deleted separated equispaced nodes Berrut rational interpolation reindexed barycentric alternating weights exact Lebesgue constant logarithmic coefficient parity separation",
+          "Resultary:Berrut two erased nodes exact constants",
+          "Bos-DeMarchi-Hormann:2011"
+        ]
+      },
+      "rationale": "Classical intact-grid and general well-spaced-grid papers supply O(log N) scale but not two separated erasures' sharp coefficient or distinct two-gap localization. Consecutive deletions form one longer gap and are not equivalent to h≥2; its exact constants do not imply even/odd separation law. Intact exact coefficient literature is distinct. Priority uncertainty persists because the full 2016 sharp-bound article and all obscure scattered-data variants have not been read.",
+      "residual_risks": [
+        "Full 2016 Ibrahimoglu–Cuyt primary text was inaccessible; inaccessible source alone does not cause scientific failure, but exact possible hidden corollaries remain a genuine risk.",
+        "Finite N with deletion positions near grid boundaries is excluded; fixed h then N→∞ not uniform jointly growing h.",
+        "Source checker mixes exact sign identities and floating point approximations, which are corroboration only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTACT_GRID_LOG_GROWTH_NOT_TWO_HOLE_COEFFICIENT",
+          "evidence": "Intact equally spaced Berrut nodes have logarithmic Lebesgue growth and explicit bounds; no deletion separation parameter h.",
+          "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+          "material_read": "Full 7-page lawful author-hosted PDF obtained, text and theorem statements inspected including introduction and main bound, with visual PDF screenshot",
+          "method": "Author-hosted PDF textual/visual inspection",
+          "title": "On the Lebesgue constant of Berrut's rational interpolant at equidistant nodes",
+          "trigger": "Exact equidistant Berrut baseline"
+        },
+        {
+          "assessment": "COVERS_LOG_SCALE_ONLY_NOT_SHARP_ERASURE_LAW",
+          "evidence": "Theorem 2.2 bounds order for well-spaced nodes but does not yield sharp coefficient nor double gap optimizer.",
+          "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+          "material_read": "Author-hosted full 13-page PDF obtained; theorem and hypotheses, discussion on qualitative upper bounds, and relevant sections inspected with visual screenshot",
+          "method": "Author-hosted PDF textual/visual inspection",
+          "title": "Bounding the Lebesgue constant for Berrut's rational interpolant at general nodes",
+          "trigger": "General well-spaced-node theorem could dominate defect result"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_PRIORITY_RISK",
+          "evidence": "Article's specified setting is equidistant full nodes; cannot certify whole-paper noncoverage without reading its full text.",
+          "identifier_or_url": "https://doi.org/10.1080/10586458.2015.1072862",
+          "material_read": "Publisher abstract and bibliographic text inspected; lawful full text not obtained",
+          "method": "Publisher abstract only, OA attempt unsuccessful",
+          "title": "Sharp Bounds for Lebesgue Constants of Barycentric Rational Interpolation at Equidistant Points",
+          "trigger": "Most plausible precise sharp-constant prior article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two missing samples in stable rational interpolation are a natural defect configuration. Exact leading operator-norm growth and location of worst amplification improve qualitative logarithmic bounds; parity-modulated pair interaction, sharp inverse-square tail and inverse-cube extremizer displacement are a meaningful structural defect law, not a routine rescale of intact grid.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+    "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+    "https://doi.org/10.1080/10586458.2015.1072862"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integer spacing h≥2; deletions proportional interior; barycentric alternating weights reindexed on retained nodes.",
+    "Asymptotic N→∞ first; h→∞ expansion refers to the resulting fixed-h coefficients."
+  ],
+  "residual_risks": [
+    "Full 2016 Ibrahimoglu–Cuyt primary text was inaccessible; inaccessible source alone does not cause scientific failure, but exact possible hidden corollaries remain a genuine risk.",
+    "Finite N with deletion positions near grid boundaries is excluded; fixed h then N→∞ not uniform jointly growing h.",
+    "Source checker mixes exact sign identities and floating point approximations, which are corroboration only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "INTACT_GRID_LOG_GROWTH_NOT_TWO_HOLE_COEFFICIENT",
+      "evidence": "Intact equally spaced Berrut nodes have logarithmic Lebesgue growth and explicit bounds; no deletion separation parameter h.",
+      "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2011.OTL.pdf",
+      "material_read": "Full 7-page lawful author-hosted PDF obtained, text and theorem statements inspected including introduction and main bound, with visual PDF screenshot",
+      "method": "Author-hosted PDF textual/visual inspection",
+      "title": "On the Lebesgue constant of Berrut's rational interpolant at equidistant nodes",
+      "trigger": "Exact equidistant Berrut baseline"
+    },
+    {
+      "assessment": "COVERS_LOG_SCALE_ONLY_NOT_SHARP_ERASURE_LAW",
+      "evidence": "Theorem 2.2 bounds order for well-spaced nodes but does not yield sharp coefficient nor double gap optimizer.",
+      "identifier_or_url": "https://www.inf.usi.ch/hormann/papers/Bos.2013.BTL.pdf",
+      "material_read": "Author-hosted full 13-page PDF obtained; theorem and hypotheses, discussion on qualitative upper bounds, and relevant sections inspected with visual screenshot",
+      "method": "Author-hosted PDF textual/visual inspection",
+      "title": "Bounding the Lebesgue constant for Berrut's rational interpolant at general nodes",
+      "trigger": "General well-spaced-node theorem could dominate defect result"
+    },
+    {
+      "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_PRIORITY_RISK",
+      "evidence": "Article's specified setting is equidistant full nodes; cannot certify whole-paper noncoverage without reading its full text.",
+      "identifier_or_url": "https://doi.org/10.1080/10586458.2015.1072862",
+      "material_read": "Publisher abstract and bibliographic text inspected; lawful full text not obtained",
+      "method": "Publisher abstract only, OA attempt unsuccessful",
+      "title": "Sharp Bounds for Lebesgue Constants of Barycentric Rational Interpolation at Equidistant Points",
+      "trigger": "Most plausible precise sharp-constant prior article"
+    }
+  ]
+}
