@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T03:53:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the regime n→∞,r→∞,n/r!→λ in (0,∞), each increasing or decreasing consecutive r-window event has probability 1/r!. Signed overlapping windows at separation d (1≤d<r) of the same orientation have probability 1/(r+d)!; opposite orientations with ≥2 shared positions are impossible and with one shared observation have probability 1/[(2r−1)((r−1)!)²]. Hence the expected total number of overlapping event pairs is O(n/(r!r)+nr/(r!)²)=o(1). Split the i.i.d. rank model into disjoint blocks b=⌊n^(1/3)⌋, with r≪b≪√n: discarded boundary events are o(1), each independent block has asymptotically at most one marked rare event, and its marked categorical Laplace factors yield two independent spatial Poisson processes with intensity λdt. Descent indicators are 1-dependent with variance1/4 and adjacent covariance−1/12, giving Var(D_n)=(n+1)/12. Removing block boundaries costs o_p(√n); bounded block sums satisfy Lindeberg and give N(0,1/12). Within each block the rare-event Laplace factor and normalized descent characteristic factor have covariance ≤4|t| b p_j/√n; summing gives o(1), proving joint Poisson/Gaussian factorization, not merely marginal limits. The exact finite covariance identities are consistent with independence only asymptotically. The proof applies to uniformly random permutations/equivalent ranks of i.i.d. atomless observations, not general dependent data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classic scan-statistics and Chen–Stein bounds address overlapping local patterns; Chryssaphinou–Vaggelatou 2001 is particularly plausible broader precursor."
+        ],
+        "reasoning": "General Poisson approximation machinery could be adapted to marked processes, but the literature abstracts available do not establish an existing theorem implying the full three-component spatial/normal limit. The inaccessible complete 2001 source remains an explicit risk.",
+        "searches": [
+          "joint Poisson point process increasing decreasing consecutive permutation runs asymptotic independence Gaussian number descents",
+          "compound Poisson long increasing sequences Chryssaphinou Vaggelatou 2001 pdf",
+          "Janson Nakamura Zeilberger fixed consecutive pattern Gaussian asymptotic 2013",
+          "Classic scan-statistics and Chen–Stein bounds address overlapping local patterns; Chryssaphinou–Vaggelatou 2001 is particularly plausible broader precursor."
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1239/jap/996986755",
+        "https://arxiv.org/abs/1312.3955",
+        "https://alexamarioarei.github.io/Research/docs/SPSR2015.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chryssaphinou–Vaggelatou DOI:10.1239/jap/996986755; Janson–Nakamura–Zeilberger arXiv:1312.3955; Csáki–Földes 1996."
+        ],
+        "reasoning": "The known single-color rare-run law and ordinary global descent CLT together do not imply a joint law or independence. Here the independent-block covariance estimate b/√n supplies the missing implication. An existing general multivariate scan approximation might imply it; not demonstrated by read material.",
+        "searches": [
+          "joint Poisson point process increasing decreasing consecutive permutation runs asymptotic independence Gaussian number descents",
+          "compound Poisson long increasing sequences Chryssaphinou Vaggelatou 2001 pdf",
+          "Janson Nakamura Zeilberger fixed consecutive pattern Gaussian asymptotic 2013",
+          "Chryssaphinou–Vaggelatou DOI:10.1239/jap/996986755; Janson–Nakamura–Zeilberger arXiv:1312.3955; Csáki–Földes 1996."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chryssaphinou–Vaggelatou 2001 has compound Poisson approximation for long increasing sequences; Janson–Nakamura–Zeilberger 2013 treats Gaussian statistics of fixed-length patterns."
+        ],
+        "reasoning": "Neither is an inspected statement of two spatial signed Poisson processes jointly independent of global √n-rescaled descents. A scalar/no-event approximation loses spatial marks and local-global coupling.",
+        "searches": [
+          "joint Poisson point process increasing decreasing consecutive permutation runs asymptotic independence Gaussian number descents",
+          "compound Poisson long increasing sequences Chryssaphinou Vaggelatou 2001 pdf",
+          "Janson Nakamura Zeilberger fixed consecutive pattern Gaussian asymptotic 2013",
+          "Chryssaphinou–Vaggelatou 2001 has compound Poisson approximation for long increasing sequences; Janson–Nakamura–Zeilberger 2013 treats Gaussian statistics of fixed-length patterns."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query for long monotone runs with Gaussian descents yielded unrelated fixed-point/descent dependence and permutation rare-event results, not the present joint marked factorial-window law."
+        ],
+        "reasoning": "Exact scalar run-count or descent tables cannot certify asymptotic independent spatial marked processes. Failed database search is not novelty proof.",
+        "searches": [
+          "joint Poisson point process increasing decreasing consecutive permutation runs asymptotic independence Gaussian number descents",
+          "compound Poisson long increasing sequences Chryssaphinou Vaggelatou 2001 pdf",
+          "Janson Nakamura Zeilberger fixed consecutive pattern Gaussian asymptotic 2013",
+          "Resultary query for long monotone runs with Gaussian descents yielded unrelated fixed-point/descent dependence and permutation rare-event results, not the present joint marked factorial-window law."
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.",
+      "residual_risks": [
+        "Chryssaphinou–Vaggelatou full text inaccessible: institutional Oxford request blocked by disconnected VPN; potential unobserved multivariate/spatial extension remains priority risk.",
+        "No quantitative joint convergence rates, nonuniform permutations, ties, or fixed r covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes compound Poisson approximation for increasing runs, plausibly extends scalar coverage; no complete text for a decisive conclusion about joint signed spatial Gaussian limit. Oxford retrieval returned VPN disconnected, not bypassed.",
+          "evidence": "2001 J. Appl. Prob. 38, pp449–463, DOI 10.1239/jap/996986755; inspected abstracts, not entire paper.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/996986755",
+          "material_read": "Journal publisher abstract and lawful OA bibliographic descriptions; complete text unavailable",
+          "method": "Publisher and lawful OA search, followed by authorized institutional request",
+          "title": "Compound Poisson approximation for long increasing sequences",
+          "trigger": "same rare long monotone consecutive windows, potential broader coverage"
+        },
+        {
+          "assessment": "Fixed-length classical-pattern count Gaussian regime does not cover r→∞ rare monotone consecutive block Poisson limit.",
+          "evidence": "Classical pattern lengths fixed; current r→∞ with n/r!→λ and marked spatial process.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.3955",
+          "material_read": "Public abstract and mathematical scope of fixed-size classical patterns",
+          "method": "arXiv source description inspection",
+          "title": "On the asymptotic statistics of the number of occurrences of multiple permutation patterns",
+          "trigger": "possible joint Gaussian/Eulerian pattern theorem"
+        },
+        {
+          "assessment": "Scalar longest-run approximation provides comparison, not reported joint colored spatial/Gaussian limit.",
+          "evidence": "Run count/no-event scalar focus in target prior discussion.",
+          "identifier_or_url": "https://alexamarioarei.github.io/Research/docs/SPSR2015.pdf",
+          "material_read": "Conference slides and cited approximation scope",
+          "method": "Primary research presentation source review",
+          "title": "Approximations for the length of the longest monotone run in a sequence of i.i.d. random variables",
+          "trigger": "direct scalar longest-run ancestor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A marked two-color Poisson point-process limit together with an asymptotically independent global Gaussian Eulerian statistic captures a natural rare-event/local-global decoupling not represented by classic scalar longest-run or descent-only limits. The factorial rare-window regime gives a motivated threshold and answers a natural joint distribution question, including the no-long-run probability times Gaussian CDF.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1239/jap/996986755",
+    "https://arxiv.org/abs/1312.3955",
+    "https://alexamarioarei.github.io/Research/docs/SPSR2015.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Chryssaphinou–Vaggelatou full text inaccessible: institutional Oxford request blocked by disconnected VPN; potential unobserved multivariate/spatial extension remains priority risk.",
+    "No quantitative joint convergence rates, nonuniform permutations, ties, or fixed r covered."
+  ],
+  "residual_risks": [
+    "Chryssaphinou–Vaggelatou full text inaccessible: institutional Oxford request blocked by disconnected VPN; potential unobserved multivariate/spatial extension remains priority risk.",
+    "No quantitative joint convergence rates, nonuniform permutations, ties, or fixed r covered."
+  ],
+  "schema_version": 1
+}

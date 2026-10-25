@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact domain (uniform permutations, growing consecutive windows, and \(n/r!\to\lambda\in(0,\infty)\)), determines every compatible overlap case, bounds exceptional overlapping or cross-block windows, and applies independent-block Poisson convergence and a Lindeberg Gaussian descent limit. Explicit mixed-block characteristic-function control gives actual joint independence, not just zero covariance. The finite covariance identities follow from conditioned boundary comparisons; every required boundary case was checked. `verify.py` exactly enumerates 46,232 permutations in orders 2–8 and 414,990 configurations for pair overlaps, for 160 rational assertions. Finite computation supports the identities, not the infinite limit.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+In the regime n→∞,r→∞,n/r!→λ in (0,∞), each increasing or decreasing consecutive r-window event has probability 1/r!. Signed overlapping windows at separation d (1≤d<r) of the same orientation have probability 1/(r+d)!; opposite orientations with ≥2 shared positions are impossible and with one shared observation have probability 1/[(2r−1)((r−1)!)²]. Hence the expected total number of overlapping event pairs is O(n/(r!r)+nr/(r!)²)=o(1). Split the i.i.d. rank model into disjoint blocks b=⌊n^(1/3)⌋, with r≪b≪√n: discarded boundary events are o(1), each independent block has asymptotically at most one marked rare event, and its marked categorical Laplace factors yield two independent spatial Poisson processes with intensity λdt. Descent indicators are 1-dependent with variance1/4 and adjacent covariance−1/12, giving Var(D_n)=(n+1)/12. Removing block boundaries costs o_p(√n); bounded block sums satisfy Lindeberg and give N(0,1/12). Within each block the rare-event Laplace factor and normalized descent characteristic factor have covariance ≤4|t| b p_j/√n; summing gives o(1), proving joint Poisson/Gaussian factorization, not merely marginal limits. The exact finite covariance identities are consistent with independence only asymptotically. The proof applies to uniformly random permutations/equivalent ranks of i.i.d. atomless observations, not general dependent data.
 
-Csáki–Földes (1996) and Amárioarei (2015) treat maximal monotone runs; Chryssaphinou–Vaggelatou (2001) concerns long-increasing-run compound Poisson approximation. Janson–Nakamura–Zeilberger (2013) proves joint Gaussian fixed-pattern results; Johnson–Fu (2014) develops run-count approximations. The accepted theorem adds simultaneous signed *spatial* Poisson convergence together with independent global Gaussian descents, a statement not implied by the visible scalar or fixed-length results. The older 2001 paper and complete 1996 text were not accessible for full inspection; general historical coverage remains possible, and novelty is not asserted as externally certified.
+## originality
 
-## Value — PASS
+PASS
 
-Long increasing/decreasing streaks are motivated extremes of ordered data, while descents are a global distribution-free measure of permutation roughness. Their joint marked-spatial and Gaussian law is a natural multiscale characterization, retaining locations and two competing signs rather than merely the maximum streak length. The finite nonzero covariance identities show why joint independence requires proof.
+Best-of-knowledge original contribution assessed at statement/implication level against actual named published results, a relevant Resultary search and primary material; inaccessible plausible full text is recorded as risk rather than proof of novelty.
 
-## Limits and sources
+## value
 
-Uniform independent relative ranks, factorial rare-event sequences, weak convergence only; no finite-sample joint error rate or nonuniform-permutation universality is claimed. Primary sources and precise reading limitations are enumerated in the references and structured audit. The earliest precisely verified preprint day used is 2013-12-13, not a fabricated publication date for older journal papers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A marked two-color Poisson point-process limit together with an asymptotically independent global Gaussian Eulerian statistic captures a natural rare-event/local-global decoupling not represented by classic scalar longest-run or descent-only limits. The factorial rare-window regime gives a motivated threshold and answers a natural joint distribution question, including the no-long-run probability times Gaussian CDF.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
