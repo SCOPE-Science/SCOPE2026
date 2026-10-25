@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The update is \(2(I+hL/2)^{-1}-I\), so an inverse irreducible \(M\)-matrix ensures off-diagonal positivity. Graph-edge Loewner ordering proves the complete-graph lower bound for each resolvent diagonal. The integral equality argument establishes that a vertex attains the bound exactly when it is universal. The complete-graph diagonal crosses one half exactly at \(h=2/(N-2)\), and continuity gives the strict converse. The universal-vertex Schur complement independently matches this value. The \(N=2\) boundary is treated separately. Exact rational verification tests 830 cases, not a proof by enumeration.
+
+**Originality: PASS under a best-knowledge comparison, with recorded risk.** The known general return-resolvent criterion for Crank–Nicolson on finite reversible chains is not claimed new. The additional all-connected-graph sharp N-only bound with an **if-and-only-if universal-vertex equality class** is not stated in the accessible summary. The full indexed return-law record could not be inspected; this remains an unresolved overlap risk, not an assertion of noncoverage. The inspected Higueras–Roldán paper treats Dirichlet 1D heat-grid positivity; von Daniels–Hinze–Vierling treat parabolic optimal-control timestepping. Own accessible claims and published-finding corpus semantic searches found no exact characterization. Independent priority assessment remains needed.
+
+**Value: PASS.** A uniform sharp step restriction is useful for structure-preserving second-order integration when only graph order is known. The result identifies every network attaining the worst-case restriction, and shows a full topological-insensitivity law at any universal vertex, rather than only evaluating a few symmetric graphs. It also distinguishes numerical positivity from unconditional scalar stability.
+
+**Limitations.** Only single-step entrywise nonnegativity for unweighted, simple, connected undirected graphs is asserted; individual thresholds for graphs without universal vertices are not computed. The result does not certify accuracy or scientific priority beyond the documented comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
