@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:12:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The period-doubling fixed point has t_j=1-(nu_2(j+1) mod 2); occurrences of its prefix of length 2^n-1 are exactly B*k with t_k=1 and B=2^{n-1}, yielding return lengths B or 2B. For each dyadic offset D=2^r and n>=r+2, the number of D-steps per return is even, all but the last prefix-coordinate sums vanish, and the last is 1 by block-parity identity. Thus the return cocycle is exactly addition of e_{D-1} for every return. An explicitly recurrent reference bilateral point gives orbit-closure intersection with its fibre exactly {u,u+e_{D-1}}. The minimality/closure and uniform constant fibre-rank arguments partition all 2^D preimages into 2^{D-1} minimal sets each of rank 2. Independent direct-word enumeration tested 9286 return intervals for D=4,8,16. The all-r theorem uses the valuation and return-cocycle proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang–Jäger arXiv:2609.01140 Thm 1.7 and Props 4.9–4.10 establish nonminimality for long odd block codes and a finite-rank decomposition.",
+          "The same paper's Lemma 4.11 yields constant cardinality of fibres over points in a minimal component."
+        ],
+        "reasoning": "Qualitative finite splitting and constant rank do not imply component count 2^{D-1} or rank 2; the return identity identifying the subgroup of order two is the additional content.",
+        "searches": [
+          "Kang Jaeger On lifts of strictly ergodic subshifts by permutative sliding block codes arxiv 2609.01140",
+          "minimal components finite permutation extension Toeplitz period doubling dyadic"
+        ]
+      },
+      "checked_sources": [
+        "Kang and Jäger arXiv:2609.01140 full HTML Theorem1.7 Propositions4.9–4.10 Lemma4.11",
+        "Resultary 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kang–Jäger prove nonminimality of length>=5 and uniform rank property but do not fix the return subgroup order for these dyadic offsets.",
+          "Three-block difference map eta_2 is a different finite-to-one factor than eta_4, eta_8, etc; eta_{2^r}=(I+sigma)^{2^r}."
+        ],
+        "reasoning": "Prior results allow many possible numbers of components/ranks. The new cocycle calculation determines the exact subgroup order two, so the claim is not implied by either prior statement alone.",
+        "searches": [
+          "Kang Jaeger 2026 Theorem 1.7 Proposition 4.9 4.10 Lemma 4.11",
+          "Resultary three block period doubling lift 2026/10/11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dyadic difference eta_{2^r} is (I+sigma)^{2^r} mod2 and is a finite permutation extension with 2^{2^r} total preimages per base point.",
+          "Resultary 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 describes offset-two difference over Z/kappa."
+        ],
+        "reasoning": "Equivalent terms are finite skew-product lifting, odometer group extension, minimal-component rank and return-cocycle subgroup. Offset-two decomposition does not automatically give the return subgroup after repeated binary lift compositions.",
+        "searches": [
+          "period doubling substitution dyadic difference block code lifts 2^r minimal components fibre rank",
+          "permutative sliding block code period doubling Toeplitz odometer fibre orbit return cocycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published exact three-block component law gives two binary components, distinct from length five (eight components) and length nine (128 components).",
+          "An all-r dyadic component table is not present among the closely matched indexed findings."
+        ],
+        "reasoning": "A table for only D=2 is a boundary example, not an exhaustive classification for D=2^r with r>=2. No known exact large-D table was found in the actual search.",
+        "searches": [
+          "period doubling substitution dyadic difference block code lifts 2^r minimal components fibre rank",
+          "period doubling five block lift eight minimal components nine block 128"
+        ]
+      },
+      "rationale": "Kang and Jäger's accessible full arXiv paper proves these odd-block binary lifts are nonminimal and that finite permutative lifts decompose into finite minimal components of constant fibre ranks, but it does not supply the exact dyadic component numbers or rank two in the inspected theorem and proposition statements. The Resultary 2026 three-block formula concerns offset two, whereas this is all dyadic D>=4; taking repeated inverse images requires controlling a new return-permutation subgroup. Risk: a prior Toeplitz or odometer finite-extension theorem could encode the same count indirectly.",
+      "residual_risks": [
+        "An equivalent earlier Toeplitz/odometer finite-group skew-product calculation may encode dyadic counts under other terminology.",
+        "The proof covers binary alphabet dyadic D=2^r, r>=2 only; not arbitrary offsets or larger alphabet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR_NOT_EXACT_COUNT",
+          "evidence": "The theorem identifies nonminimality and finite splitting; the inspected statements do not calculate the return cocycle image for D=2^r or assert exactly 2^{D-1} components.",
+          "identifier_or_url": "Kang and Jäger arXiv:2609.01140v1 (2026-09-01), https://arxiv.org/html/2609.01140",
+          "material_read": "Accessible full arXiv HTML, including introduction, Theorem 1.7, Propositions 4.9–4.10, and Lemma 4.11 and their surrounding proofs",
+          "method": "Compared qualitative nonminimality and constant fibre-rank statements to exact dyadic count",
+          "title": "On lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "Same substitution and precise long odd-block lift model"
+        },
+        {
+          "assessment": "OFFSET_TWO_ONLY",
+          "evidence": "It classifies a three-block (D=2) difference code over Z/kappa; the present theorem begins D=4 and uses a distinct dyadic return analysis.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+          "material_read": "Published Resultary result title/precise abstract summary, not the full linked manuscript",
+          "method": "Matched block length and coefficient alphabet; checked limit of scope",
+          "title": "Exact component and fibre-rank law for the three-block period-doubling lift",
+          "trigger": "Natural same-substitution binary offset-two special comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact number and uniform fibre rank of minimal components are the canonical missing decomposition invariants after the known nonminimality theorem. The exponential 2^{2^r-1} count and explicit two-point fibre partition give a natural complete infinite-family classification, rather than an arbitrary finite sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent earlier Toeplitz/odometer finite-group skew-product calculation may encode dyadic counts under other terminology.",
+    "The proof covers binary alphabet dyadic D=2^r, r>=2 only; not arbitrary offsets or larger alphabet."
+  ],
+  "schema_version": 1
+}

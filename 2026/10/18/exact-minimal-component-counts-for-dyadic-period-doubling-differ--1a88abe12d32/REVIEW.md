@@ -1,11 +1,21 @@
-# Scientific review: dyadic period-doubling difference lifts
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact \(2\)-adic characterization of the substitution fixed point classifies every occurrence of each nested return marker. For each offset \(D=2^r\) and level \(n\ge r+2\), both permitted first returns translate the entire \(D\)-letter prefix by exactly the final unit vector. A bilateral reference point supplies limits of arbitrarily long returns, and a minimal-subset argument identifies each two-point fibre orbit with a complete minimal component. Uniform prefix separation proves constant fibre rank and exhausts all \(2^D\) points in every fibre. The separate exact binary checker verifies 20,106 finite return intervals, but no infinite assertion is based solely on these checks.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The closest primary study, Kang--Jäger (arXiv:2609.01140v1), establishes nonminimality for odd block lengths at least five and proves general finite-component structure; neither result determines their counts or common ranks. The closest published mathematical record computes those invariants for the **three-block** difference lift and varying alphabet modulus, not for the dyadic offset family with block lengths at least five. The algebraic factorization of iterated binary differences does not transfer component classifications under repeated inverse images. Searches for the dyadic family, its smallest examples, cocycle formulation, and odometer aliases returned no matching claim. Risk remains that a broader theorem on finite group extensions of Toeplitz systems implicitly evaluates the same exact family.
+PASS
 
-**Value — PASS.** This is a complete quantitative classification across a natural infinite parameter family singled out by the binary substitution's dyadic structure. The least case resolves the first odd-block-length nonminimal example left uncounted by the recent paper, and the general result exhibits a sharply growing number \(2^{2^r-1}\) of minimal components while their fibre rank remains exactly two. These counts characterize the splitting mechanism rather than merely repeating the qualitative nonminimality theorem.
+The period-doubling fixed point has t_j=1-(nu_2(j+1) mod 2); occurrences of its prefix of length 2^n-1 are exactly B*k with t_k=1 and B=2^{n-1}, yielding return lengths B or 2B. For each dyadic offset D=2^r and n>=r+2, the number of D-steps per return is even, all but the last prefix-coordinate sums vanish, and the last is 1 by block-parity identity. Thus the return cocycle is exactly addition of e_{D-1} for every return. An explicitly recurrent reference bilateral point gives orbit-closure intersection with its fibre exactly {u,u+e_{D-1}}. The minimality/closure and uniform constant fibre-rank arguments partition all 2^D preimages into 2^{D-1} minimal sets each of rank 2. Independent direct-word enumeration tested 9286 return intervals for D=4,8,16. The all-r theorem uses the valuation and return-cocycle proof.
 
-**Scope and limits.** The claim is for binary alphabet and offsets that are powers of two; no classification for other offsets or moduli is proposed. The full-text comparison addresses the relevant stated theorems of the motivating paper and the closest public mathematical result; an equivalent classical odometer formulation remains a background novelty risk. Independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kang and Jäger's accessible full arXiv paper proves these odd-block binary lifts are nonminimal and that finite permutative lifts decompose into finite minimal components of constant fibre ranks, but it does not supply the exact dyadic component numbers or rank two in the inspected theorem and proposition statements. The Resultary 2026 three-block formula concerns offset two, whereas this is all dyadic D>=4; taking repeated inverse images requires controlling a new return-permutation subgroup. Risk: a prior Toeplitz or odometer finite-extension theorem could encode the same count indirectly.
+
+## value
+
+PASS
+
+Exact number and uniform fibre rank of minimal components are the canonical missing decomposition invariants after the known nonminimality theorem. The exponential 2^{2^r-1} count and explicit two-point fibre partition give a natural complete infinite-family classification, rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
