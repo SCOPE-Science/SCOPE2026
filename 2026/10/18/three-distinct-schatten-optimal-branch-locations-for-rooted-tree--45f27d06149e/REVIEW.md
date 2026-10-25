@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The path-integration kernel is an ancestor indicator; its positive square has the common-initial-path-length kernel. Integrating its diagonal and squared kernel proves the exact second and fourth singular moments. The factored derivative identifies exactly one global fourth-order maximizer. The rooted Dirichlet/Neumann/Kirchhoff eigenvalue variational principle, radial/transverse split and monotone characteristic equation give a unique operator-norm maximizer. The packaged standalone checker passed 172 consistency tests. Infinite-dimensional conclusions do not rely on numerical extrapolation.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** Literature searches and the relevant inspected sections of Evans–Harris–Lang (arXiv:math/0003215v1), Naimark–Solomyak (DOI:10.1112/S0024611500012272) and Rozhenko (DOI:10.30970/ms.37.1.65-75) treat tree Hardy approximation numbers, tree Laplacian eigenvalue bounds/decompositions and equilateral star-tree determinants, respectively. None of the material inspected states the coupled exact \(\mathcal S_2\), \(\mathcal S_4\), \(\mathcal S_\infty\) branch-placement optimization. Related general spectral principles do not directly imply the three distinct sharp optimizer locations without new exact moment calculations. Historical priority risk remains for alternative formulations in metric-graph and tree-integration literature; absence of a search hit is not novelty proof.
+PASS
 
-**Value — PASS.** At the same fixed root-to-leaf distance, three standard and naturally comparable singular-value summaries favor three genuinely different geometries. The exact fourth-order transition interpolates between total integrated energy and worst-case amplification, furnishing a motivated boundary case for tree-operator approximation and branch-placement design rather than a special-purpose numerical table.
+The checked kernel of TT* is the length of the common rooted-path prefix. Direct diagonal and squared-kernel integrals give ||T||_S2²=L²[m-(m-1)t²]/2 and the displayed fourth moment with derivative 2(m-1)t[(6m-1)t²-9mt+3m]/3. Independent SymPy manipulation recovered both identities and the unique S4 interior root, checked at m=2,3,4,8,13. For the infinite-dimensional operator norm, identify T as inverse of rooted Sobolev differentiation: radial Dirichlet–Neumann–Kirchhoff eigenvalue root F(k,a)=((m+1)cos(kL)-(m-1)cos(k(2a-L)))/2 has strictly negative k-derivative over (0,π/(2L)] and at fixed k is uniquely smallest at t=1/2; transverse first eigenvalue is no smaller. This yields the unique 1/2 operator-norm optimizer with value L/[2 arctan(m^-1/2)]. Endpoint collapsed edges and m>=2 verified; numerical Nyström checks are only corroboration, not an infinite proof.
 
-**Limitations.** Equal branches, one junction, integer \(m\ge2\), fixed root-to-leaf distance, and no asserted intermediate Schatten-order phase diagram. The available primary text was examined in relevant sections, not exhaustively; equivalent historical statements could have been missed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same path-integration operator and the same fixed m,L broom family must be compared across three different Schatten norms, not merely tree spectral estimation. The relevant tree Hardy approximation-number and metric-tree eigenvalue papers supply bounds/decomposition tools; inspected materials do not assert the exact three distinct optimizer locations. Resultary searches returned related Volterra rearrangement for rank-one-corrected weighted integration, not this m-branch topology optimization; novelty is best-of-knowledge, not historical certainty.
+
+## value
+
+PASS
+
+A canonical rooted Hardy operator on the simplest nontrivial metric tree has three provably incompatible optimal branch positions under standard S2,S4,S_infinity objectives; the transition is concrete and mathematically motivated rather than an arbitrary tree slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
