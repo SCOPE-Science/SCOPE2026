@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the cuboctahedral matching-complex character
+# Independent mathematical audit
 
-Run `python3 verify_cuboctahedral_character.py` using Python 3.10 or later. No external packages or nonlocal data files are needed.
+## correctness
 
-The checker constructs the twelve cube edges and twenty-four cuboctahedral edges, enumerates all \(2649\) augmented matchings and verifies the complete size distribution. It runs the reversed-edge-index discrete-Morse algorithm, certifies \(1296\) pairs and exactly \(57\) critical size-four faces, and topologically sorts the entire \(9960\)-arrow augmented Hasse directed graph. This proves acyclicity and gives the integral reduced chain model with one free group of rank \(57\) in dimension three.
+PASS
 
-It enumerates the complete group of \(48\) signed cube-coordinate permutations and verifies that they yield distinct permutations of the complex vertices. For every group element, it calculates the rational third-homology trace in two independent ways: (1) direct inspection of each invariant oriented face, including its orientation sign, and (2) an orbit-by-orbit alternating sum over unions of disjoint edge orbits. Both agree for all forty-eight elements. The ten conjugacy-class traces, class sizes, two central projection characters, the exact \(S_4\) multiplicities, central eigenspace dimensions, and invariant dimension are then checked.
+For C=L(Q3), direct cube-edge intersections form cuboctahedron with 12 vertices/24 edges. Independent enumeration of ordinary matchings confirmed the augmented f-vector (1,24,204,744,1116,528,32). Independent reverse-toggle Morse reconstruction gave 1296 disjoint unit pairs and precisely 57 critical degree-three cells, and a complete topological sort of 9960 directed Hasse relations over all 2649 augmented faces proved acyclicity, giving torsion-free reduced H3 rank57, no other reduced groups. All 48 signed coordinate cube automorphisms were explicitly rebuilt; for each, independently computed exact signed fixed-face sums and obtained the ten class traces S4 types (1^4),(2,1,1),(2,2),(3,1),(4): even (57,1,13,-3,-5), central parity-odd (11,3,-1,-1,-3). The signed orbit formula was separately inspected in supplied verifier. Splitting central sign gives S4 characters (34,2,6,-2,-4) and (23,-1,7,-1,-1); exact S4 inner products produce multiplicities (1,2,5,2,5) and (1,2,2,2,4), one full-group invariant, center +34/-23. Parity is translation parity not determinant; verified group convention. Finite proof only for this graph.
 
-Expected final line: `VERIFY_OK`. This is a complete finite certificate for the **specific** labeled cuboctahedral graph; it does not supply an integral representation-lattice classification, a higher-cube theorem, or an independent external audit.
+## originality
+
+PASS
+
+Published full cuboctahedral matching wedge^57 S3 determines the H3 rank, but not the action of its 48 automorphisms. Published full symmetry module on the cuboctahedral two-particle configuration space concerns a different space (H1=14 H2=43); similarly an octahedral graph matching character concerns 6-vertex octahedral graph, not 12-vertex cuboctahedral graph. Engström claw-free connectivity framework and Bayer–Jelić Milutinović–Vega outerplanar matching theorem (inapplicable because 24>2*12-3) supply no irreducible decomposition here. The five-category primary comparison and semantic search found no equivalent 48-character table; no claim of exhaustive priority.
+
+## value
+
+PASS
+
+The cuboctahedral graph is the standard rectification/line graph of a cube with natural order-48 symmetry. Its 57-dimensional matching homology is large enough to conceal distinct modules; a 34/23 central eigenspace split and one global invariant line are meaningful exact geometric structural invariants, refining the known sphere-wedge homotopy. The graph and invariant are canonical, not an arbitrary finite parameter selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

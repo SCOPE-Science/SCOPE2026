@@ -1,15 +1,21 @@
-# Scientific review: cuboctahedral matching-complex character
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph \(C=L(Q_3)\), edge labels, induced automorphisms, and the central \(C_2\)-splitting are fully specified. Exhaustive face enumeration gives \(2649\) augmented faces and the face vector \((1,24,204,744,1116,528,32)\). The reversed-pivot augmented discrete-Morse matching contains \(1296\) unit-coefficient pairs, leaving precisely \(57\) critical three-simplices; an exact topological sort traverses all \(2649\) nodes of its \(9960\)-arrow directed Hasse diagram. Algebraic cancellation consequently proves the integral reduced homology \(\mathbb Z^{57}\) in degree three and zero elsewhere. Two independent character calculations—the signed fixed-face sum and the orbit-compressed alternating sum—agree for every one of the \(48\) group elements. Exact rational character inner products give all ten irreducible multiplicities, the center eigenspace dimensions and the unique full-group invariant. The supplied checker was executed from the scientific package.
+## correctness
 
-## Originality — PASS, with residual risk
-The same-object published full result *The cuboctahedral matching complex is a wedge of \(57\) three-spheres* establishes nonequivariant homotopy and integrality but does not determine the action of automorphisms; its full `RESULT.md` and `REVIEW.md` were read. This claim is genuinely more informative than that homotopy statement: it identifies forty-eight induced actions up to their rational characters and the irreducible decomposition. Engström's full 2005 claw-free connectivity paper provides general topology but no character. Bayer--Jelić Milutinović--Vega's outerplanar theorem excludes the nonouterplanar cuboctahedron. A published cuboctahedral **two-particle** symmetry calculation concerns a different space with Betti numbers \(14,43\); a full-group **octahedral matching** calculation concerns a different graph and homology degree. Their complete `RESULT.md` statements were read. Direct public-record searches for cuboctahedral matching, the double line graph of the cube, central antipodal action, exact character values and representation aliases did not identify equivalent or stronger coverage. Literature search cannot rule out unindexed work.
+PASS
 
-## Value — PASS
-The cuboctahedron is the canonical quartic rectification of the cube and a nonouterplanar polyhedral graph. Identifying the complete automorphism representation on its large, nontrivial matching-complex homology refines the exact sphere-wedge theorem in a natural manner. The \(34+23\) splitting and existence of exactly one globally invariant line provide distinct geometric symmetry information unavailable from the rank \(57\) alone. This is a motivated structural finite invariant, not a claim based only on the ease of computation or an arbitrary graph slice. It does not settle a family-wide conjecture or classify the integral equivariant lattice.
+For C=L(Q3), direct cube-edge intersections form cuboctahedron with 12 vertices/24 edges. Independent enumeration of ordinary matchings confirmed the augmented f-vector (1,24,204,744,1116,528,32). Independent reverse-toggle Morse reconstruction gave 1296 disjoint unit pairs and precisely 57 critical degree-three cells, and a complete topological sort of 9960 directed Hasse relations over all 2649 augmented faces proved acyclicity, giving torsion-free reduced H3 rank57, no other reduced groups. All 48 signed coordinate cube automorphisms were explicitly rebuilt; for each, independently computed exact signed fixed-face sums and obtained the ten class traces S4 types (1^4),(2,1,1),(2,2),(3,1),(4): even (57,1,13,-3,-5), central parity-odd (11,3,-1,-1,-3). The signed orbit formula was separately inspected in supplied verifier. Splitting central sign gives S4 characters (34,2,6,-2,-4) and (23,-1,7,-1,-1); exact S4 inner products produce multiplicities (1,2,5,2,5) and (1,2,2,2,4), one full-group invariant, center +34/-23. Parity is translation parity not determinant; verified group convention. Finite proof only for this graph.
 
-## Sources and remaining uncertainty
-Compared complete scientific statements of Engström, arXiv:math/0512420v1; Bayer--Jelić Milutinović--Vega, arXiv:2411.04601; and the three published records on cuboctahedral matching, cuboctahedral two-particle configurations and octahedral matching symmetry identified in RESULT.md. Full bibliographic exhaustion and independent experimental replication outside the included checker are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published full cuboctahedral matching wedge^57 S3 determines the H3 rank, but not the action of its 48 automorphisms. Published full symmetry module on the cuboctahedral two-particle configuration space concerns a different space (H1=14 H2=43); similarly an octahedral graph matching character concerns 6-vertex octahedral graph, not 12-vertex cuboctahedral graph. Engström claw-free connectivity framework and Bayer–Jelić Milutinović–Vega outerplanar matching theorem (inapplicable because 24>2*12-3) supply no irreducible decomposition here. The five-category primary comparison and semantic search found no equivalent 48-character table; no claim of exhaustive priority.
+
+## value
+
+PASS
+
+The cuboctahedral graph is the standard rectification/line graph of a cube with natural order-48 symmetry. Its 57-dimensional matching homology is large enough to conceal distinct modules; a 34/23 central eigenspace split and one global invariant line are meaningful exact geometric structural invariants, refining the known sphere-wedge homotopy. The graph and invariant are canonical, not an arbitrary finite parameter selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
