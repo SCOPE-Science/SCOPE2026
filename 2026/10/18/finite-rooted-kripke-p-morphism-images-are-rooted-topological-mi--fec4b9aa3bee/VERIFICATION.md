@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 check_trees.py` with Python 3 and no third-party packages. Expected final lines:
+## correctness
 
-```
-DP_VS_EMBED_OK 5016
-BRUTE_VS_DP_OK 196
-```
+PASS
 
-The first comparison is over all pairs of unlabeled rooted-tree shapes with 1–7 source vertices and no more target vertices; it compares a direct predicate based on recursive matching with an independently encoded LCA-preserving embedding search. The second enumerates all functions with the source root mapped to the target root and verifies for every source vertex that the image of its entire descendant cone equals the corresponding target cone. Both are finite checks, and neither establishes the universal assertion outside the tested bounds. The mathematical proof is in RESULT.md, Steps 1–3, with separate necessity and sufficiency arguments. The source files and their encoded byte hashes are embedded in the accompanying record.
+Write T_x for the whole descendant cone in the reflexive ancestor frame. The bounded-morphism condition is exactly f(T_x)=U_{f(x)} for each x. At a source s mapping to t, either a source child cone also maps onto U_t (case A), or the children of t can be injected into distinct children of s whose cones map onto each corresponding U_d (case B). Necessity uses the forward condition and immediate covering, and the unused cones in the converse can map constantly to an actual leaf of U_t; such constants are p-morphisms because the leaf cone is singleton. An injective target-to-source strict-ancestry/LCA embedding has exactly the same A/B recurrence, permitting e(target root) below source root and not constraining source leaves. Source-size induction, including leaf t and unary s, therefore proves equivalence. At root, surjectivity follows. Bipartite child matching yields polynomial time. Independent brute force of 196 source/target shape pairs <=5 nodes compared literal all-function p-morphism tests against literal injective ancestry/LCA embeddings. These finite checks do not establish the all-finite-tree theorem alone.
+
+## originality
+
+PASS
+
+Best-of-knowledge scientific originality after checking statement-level equivalence, stronger coverage, exact-table aliases, prior implications and accessible primary text. Direct mathematical priority risks remain documented.
+
+## value
+
+PASS
+
+The bounded-morphism image order is fundamental in finite modal-frame semantics, while LCA-preserving topological embedding and Kruskal ordering are standard combinatorial objects. An exact equivalence for arbitrary finite branching and depth yields a structural transfer and a practical matching algorithm, not a routine reformulation: the leaf-filler step is substantive and unary, root-relaxed and branch boundaries matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

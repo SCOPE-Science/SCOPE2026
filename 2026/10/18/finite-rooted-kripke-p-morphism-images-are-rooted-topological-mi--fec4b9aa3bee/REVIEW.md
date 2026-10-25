@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**C — PASS.** The claimed equivalence is stated for finite nonempty rooted trees, with ancestor accessibility reflexive and transitive. At each pair of source/target cones, the bounded-morphism predicate satisfies the two-branch recursion (one source child maps to the same target root, or source children are matched injectively to every immediate target child). Both sufficiency constructions place spare source branches constantly at a target leaf; hence back is preserved even there. The least-common-ancestor-preserving embedding predicate satisfies exactly the same recursion, and induction on the source-subtree order proves equivalence with the correct leaf boundary. The algorithm is a direct finite DP over states with polynomial bipartite matching. The provided standard-library checker compared all 5,016 rooted-tree type pairs of source size at most 7 against an independently expressed embedding test, plus all 196 pairs at source size at most 5 against direct function enumeration. These experiments support, but do not replace, the general proof.
+## correctness
 
-**O — PASS, with explicit bibliographic uncertainty.** Statement-level comparison with Endriss's 2003 thesis (PDF pp. 62–71: relation-specific *bidirectional* p-morphisms and preservation of tree structure), Bodirsky–Piguet arXiv:1002.1557v1 (full HTML: leaf-preserving topological embeddings of binary plane trees and Ramsey conclusion), 2015 S4 semantics (finite/infinite distinction; no finite iff), and Chopra–Pakhomov arXiv:2602.09830v2 (full HTML Def. 3.5: embedding and Kruskal order, not bounded morphisms) did not find the present finite arbitrary-tree biconditional. Previous published mathematical findings and semantic searches were compared, including a three-level counting theorem, a layered weak-order counting theorem, and a distinct all-order-preserving-maps theorem. These neither assert nor imply the unrestricted rooted-tree existence characterization. Residual risk: an obscure older p-morphism/topological-minor equivalence may have escaped database and full-text search; no global novelty certification is asserted.
+PASS
 
-**V — PASS.** The question is a natural structural identification of a modal-logic quotient operation, not a bespoke finite count. The result describes *all* finite rooted tree pairs, turns an apparently many-to-one back-and-forth map existence problem into an exact injective minor test and polynomial decision procedure, and imports Kruskal well-quasi-ordering. The sharp ternary-star obstruction in every finite binary tree distinguishes the finite statement from the classical infinite-binary-tree quotient phenomenon. This is a substantive structural boundary with downstream logical use rather than a mere notation change.
+Write T_x for the whole descendant cone in the reflexive ancestor frame. The bounded-morphism condition is exactly f(T_x)=U_{f(x)} for each x. At a source s mapping to t, either a source child cone also maps onto U_t (case A), or the children of t can be injected into distinct children of s whose cones map onto each corresponding U_d (case B). Necessity uses the forward condition and immediate covering, and the unused cones in the converse can map constantly to an actual leaf of U_t; such constants are p-morphisms because the leaf cone is singleton. An injective target-to-source strict-ancestry/LCA embedding has exactly the same A/B recurrence, permitting e(target root) below source root and not constraining source leaves. Source-size induction, including leaf t and unary s, therefore proves equivalence. At root, surjectivity follows. Bipartite child matching yields polynomial time. Independent brute force of 196 source/target shape pairs <=5 nodes compared literal all-function p-morphism tests against literal injective ancestry/LCA embeddings. These finite checks do not establish the all-finite-tree theorem alone.
 
-No proposition about labeled frames, multiple modalities, or infinite trees is claimed. No independent audit or external replication has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scientific originality after checking statement-level equivalence, stronger coverage, exact-table aliases, prior implications and accessible primary text. Direct mathematical priority risks remain documented.
+
+## value
+
+PASS
+
+The bounded-morphism image order is fundamental in finite modal-frame semantics, while LCA-preserving topological embedding and Kruskal ordering are standard combinatorial objects. An exact equivalence for arbitrary finite branching and depth yields a structural transfer and a practical matching algorithm, not a routine reformulation: the leaf-filler step is substantive and unary, root-relaxed and branch boundaries matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
