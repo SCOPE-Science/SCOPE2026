@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every normal-cone winner assignment corresponds to a uniquely exposed vertex. Directed comparison cycles are the only feasibility obstructions. The valley deletion argument makes the prohibited assignments exactly one clockwise and one counterclockwise orientation per corresponding independent sign set; transfer traces evaluate the resulting vertex count for all integers \(n\ge4\). Hypergraphic cover relations prove the nonsimple witness for every \(n\ge5\), and the dimension-four case is exhausted by all 24 orders. The packaged checker independently confirms the cycle criterion for \(4\le n\le12\), full vertex and cover counts for \(4\le n\le8\), and the explicit witness for \(5\le n\le40\). The infinite conclusion depends on the written proof, not extrapolation.
+## correctness
 
-## Originality — PASS with residual risks
-Benedetti–Bergeron–Machacek, arXiv:1712.08848, provide the general hypergraphic acyclicity and Hasse-cover criteria. Padrol–Pilaud–Poullot, arXiv:2111.12422, provide the general geometric deformation framework. Pešović–Stojadinović, arXiv:2209.12053, provide this 2-graph-polytope construction and a general f-polynomial specialization. Gélinas–Yang, arXiv:2605.03913, study cyclic hypergraphic-poset lattice structure. These theories do not state the explicit Pell–Lucas cyclic evaluation and the sharp dimension-four simplicity cutoff. The general f-polynomial can in principle calculate instances, so the distinction is exact closed-form evaluation and structural obstruction identification, not general computability. Alternative terminology and unindexed tables are a residual literature risk.
+PASS
 
-## Value — PASS
-The closed vertex-count formula and normal-fan simplicity transition are natural, exact invariants of a connected, all-dimensional family between two standard polytope constructions. The pair of forbidden orientation types gives a substantive combinatorial explanation of the subtraction of Lucas numbers. This is not arbitrary parameter slicing or a finite-only observation.
+For integer n>=4, Q_n is a Minkowski sum of n cycle edges and n cyclic triples in sum-coordinate hyperplane dimension n-1, since the edge segments span its tangent hyperplane. Any generic normal exposes a unique winner on each summand, and distinct feasible winner assignments map injectively to vertices by the standard sum of strict maximizing inequalities. Edge comparisons give a cyclic binary sign word s. Triple winner is forced except at each valley (-,+), where either neighboring coordinate may win, yielding 2^v formal assignments. Orient cycle comparisons and one chord across each valley. Feasibility is equivalent to DAG via topological ordering. Valleys are not adjacent, have only outward cycle arrows and no incident chords; removing them yields a directed multicycle, even in n=4 two-vertex parallel-chord case. Exactly one clockwise cycle occurs when minus positions are independent, and analogously for plus positions/counterclockwise; opposite obstructions cannot occur in the same complete chord assignment. Hence forbidden count 2L_n and all formal choices trace [[1,2],[1,1]]^n yielding Pell–Lucas trace. The n=4 24 order cases have 20 distinct winner assignments, all three-cover normals, independently checked. For n>=5 the explicit cyclic order w=(0,1,...,n-3,n-1,n-2) yields covers 0<1<...<n-2 plus 1<n-1<n-2, exactly n covers for a dimension n-1 polytope, proving nonsimplicity via the established Hasse-cover criterion. No unproved infinite inference is drawn from bounded numerical experiments.
 
-## Scientific limits
-The theorem covers exactly unit-weight cyclic edge and length-three simplices, integer dimensions \(n\ge4\). No full face-vector or cohomological statement follows. The review does not constitute independent validation or exhaustive literature certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with a real derivational-coverage qualification. Pešović–Stojadinović define the exact equivalent cycle 2-graph-polytope (up to a singleton translation) and their general f-polynomial specialization can evaluate its vertex number for each n, so the object and in-principle enumeration are not new. Their inspected formula (3) and examples do not give the uniform closed Pell–Lucas trace, the two explicit directed-cycle subtraction classes, or the iff n=4 simplicity boundary. Benedetti–Bergeron–Machacek already prove the general acyclic-orientation/normal-cone and forest-cover criteria used here; the proof applies those criteria nontrivially to this cyclic family. Padrol–Pilaud–Poullot give the deformation framework and Gélinas–Yang the cyclic hypergraphic-poset lattice criterion, not this f0 evaluation. Originality is limited to the evaluated family-specific all-dimensional pair of conclusions and combinatorial derivation, not general frameworks, transfer matrices or independent set counts. Stronger implicit deduction/unindexed tables remain priority risks; failed queries are not proof of novelty.
+
+## value
+
+PASS
+
+The object is a natural cycle instance of second graph polytopes interpolating between graphical zonotopes and graph associahedra. The number of vertices and simplicity are canonical global and local combinatorial invariants. The exact all-dimensional difference of two distinct classic transfer traces is not a trivial count of a fixed-size table: it identifies the only two cyclic feasibility obstructions and a sharp transition to nonsimple normal cones already in dimension five. These provide a reusable worked structural classification for cyclic interval hypergraphic polytopes; no downstream theorem or paper-length discovery is required. Not claiming novelty of the general cycle, general orientation criterion, or independent-set recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

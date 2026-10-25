@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:46:31Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Independent implementation of sign-word valley/chord DAG test for n=4..11: raw formal choices 34,82,198,478,1154,2786,6726,16238; forbidden counts 14,22,36,58,94,152,246,398; all match Pell and twice Lucas recurrences; n=4 two-vertex cyclic parallel case included.",
+        "Independent full permutation/winner-vector/poset reachability computation for n=4..7: f0=20,60,162,420 and covers multiplicities {3:20}, {4:50,5:10}, {5:96,6:66}, {6:182,7:238}.",
+        "Source proof supplies exact all-n acyclicity characterization, transfer-matrix derivation and witness. Benedetti–Bergeron–Machacek Theorem 3.2 independently confirms cover/forest equivalence.",
+        "Seven actual source-file blob IDs obtained at frozen commit and canonical Git tree recomputed equal to assigned c9b2e81fb6a78f25fb3bec23ab136bc1d9a2b295."
+      ],
+      "limitations": [
+        "Bounded independent enumerations prove only tested n; unrestricted statement rests on structural valley-deletion, trace and cover proofs.",
+        "Simplicity classification is for the unit-weight edge+triple sum and n>=4, not arbitrary weighted hypergraphs or the full f-vector.",
+        "No Lean/expert attestation; VERIFICATION.md explicitly marks those channels not_performed."
+      ],
+      "rationale": "For integer n>=4, Q_n is a Minkowski sum of n cycle edges and n cyclic triples in sum-coordinate hyperplane dimension n-1, since the edge segments span its tangent hyperplane. Any generic normal exposes a unique winner on each summand, and distinct feasible winner assignments map injectively to vertices by the standard sum of strict maximizing inequalities. Edge comparisons give a cyclic binary sign word s. Triple winner is forced except at each valley (-,+), where either neighboring coordinate may win, yielding 2^v formal assignments. Orient cycle comparisons and one chord across each valley. Feasibility is equivalent to DAG via topological ordering. Valleys are not adjacent, have only outward cycle arrows and no incident chords; removing them yields a directed multicycle, even in n=4 two-vertex parallel-chord case. Exactly one clockwise cycle occurs when minus positions are independent, and analogously for plus positions/counterclockwise; opposite obstructions cannot occur in the same complete chord assignment. Hence forbidden count 2L_n and all formal choices trace [[1,2],[1,1]]^n yielding Pell–Lucas trace. The n=4 24 order cases have 20 distinct winner assignments, all three-cover normals, independently checked. For n>=5 the explicit cyclic order w=(0,1,...,n-3,n-1,n-2) yields covers 0<1<...<n-2 plus 1<n-1<n-2, exactly n covers for a dimension n-1 polytope, proving nonsimplicity via the established Hasse-cover criterion. No unproved infinite inference is drawn from bounded numerical experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pešović–Stojadinović general formula f(Q_{G,m},q)=(-1)^n ps_1(Ψ^m_{-q}(G^1))(-1) covers every graph including cycles and produces f-vectors algorithmically; not a literal closed evaluation.",
+          "Benedetti–Bergeron–Machacek 2019 Theorem 3.2: PG simple iff every orientation Hasse diagram is a forest; the n=4/n>=5 specialization still requires separate witness and enumeration.",
+          "Padrol–Pilaud–Poullot 2022 Theorem 2.6 describes the deformation cone, not f0 for this particular chosen sum or its individual vertex degree profile."
+        ],
+        "reasoning": "The general f-polynomial formula implies computability of the number for each n and is genuine broader coverage of that task; no priority is claimed for finite algorithms. An explicit Binet-type all-n expression with a canonical obstruction bijection is a stronger evaluated assertion not automatically obtained without new combinatorial simplification. The general simplicity characterization likewise only supplies a criterion, not the family-specific cutoff. The two results are evaluated together rather than claimed as new general theories.",
+        "searches": [
+          "arxiv:2209.12053 formula (3) principal specialization of m-graph-polytopes f-polynomial",
+          "arxiv:1712.08848 Theorem 2.18 and Theorem 3.2 Hasse-cover forest criterion",
+          "arxiv:2111.12422 Theorems 2.5 and 2.6 deformation cone",
+          "arxiv:2605.03913 Theorem A cyclic interval hypergraphic lattice criterion",
+          "web query: hypergraphic polytope cycle edges three consecutive intervals number vertices 20 60 162 420"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search 3 actual queries, 2026-10-25 UTC; exact assigned record nearest, other hits topically different",
+        "Pešović–Stojadinović arxiv:2209.12053, Definition 2.1/formula (3)/Section 4, full accessible ResearchGate author preprint",
+        "Benedetti–Bergeron–Machacek arxiv:1712.08848, Theorems 2.18 and 3.2, primary PDF",
+        "Padrol–Pilaud–Poullot arxiv:2111.12422, graphical deformation cone Theorem 2.6, primary PDF",
+        "Gélinas–Yang arxiv:2605.03913, cyclic interval lattice Theorem A, primary PDF",
+        "Exact-sequence/OEIS-style and independent-set terminology web searches, 2026-10-25 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general 2-graph-polytopes enumerator can determine f(Q_{C_n,2},q), but its displayed formula does not evaluate the trace (1+sqrt2)^n+(1-sqrt2)^n-2L_n or identify isolated sign-word obstruction classes.",
+          "Prior hypergraph simplicity theorem turns the problem into checking every orientation Hasse diagram; the submitted family-specific proof constructs n-cover witness for each n>=5 and uses exact n=4 enumeration.",
+          "Cyclic interval poset lattice criterion has a different output invariant; latticehood neither determines number of vertices nor proves simplicity of all vertex cones."
+        ],
+        "reasoning": "Derivationally the claimed theorem is an explicit, nontrivial specialization of known constructions and normal-fan criteria, not a new overarching enumeration theorem. General computability is covered by prior, while its closed trace and all-n iff simplicity statement were not located as already established consequences stated or supplied without additional proof in the actual inspected works. Strong implicit coverage remains a documented material risk.",
+        "searches": [
+          "Pešović–Stojadinović 2023 full accessible author preprint via https://www.researchgate.net/publication/363858831_Between_graphical_zonotope_and_graph-associahedron",
+          "Benedetti–Bergeron–Machacek arxiv:1712.08848 Theorems 2.18 and 3.2",
+          "Padrol–Pilaud–Poullot arxiv:2111.12422 Theorem 2.6",
+          "Gélinas–Yang arxiv:2605.03913 Theorem A",
+          "web query: \"hypergraphic polytope\" \"Lucas numbers\" vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pešović–Stojadinović Definition 2.1: Q_{G,m} sums simplices on connected induced vertex sets of size at most m+1; for G=C_n,m=2 this differs from the assigned edge+triple sum only by singleton translation.",
+          "For n>=4 connected induced 3-sets of a cycle are exactly cyclic triples; hence both statements concern the same polytopes and invariants.",
+          "Resultary nearest hit 2026/10/11/SCOPE-a-pell-lucas-vertex-law-and-a-simplicity-cutoff-for-cyclic-three--402774cb80ae is the exact assigned result, not independent previous coverage.",
+          "Gélinas–Yang arXiv:2605.03913 Theorem A characterizes latticehood of cyclic interval hypergraphic posets, not their vertex counts and normal-cone simplicity."
+        ],
+        "reasoning": "Equivalent labels include cyclic interval hypergraphic polytope with lengths 2 and 3, the second graph polytope Q(C_n,2), and a clique-supported deformation of the squared-cycle graphical zonotope. Matching the identical object is essential; after doing so, inspected prior theorems do not state the closed uniform Pell-minus-Lucas count and sharp simplicity cutoff. The underlying cycle and hypergraph structures are already known.",
+        "searches": [
+          "Resultary semantic query: cyclic edge and length-three simplex Minkowski sum Pell Lucas vertices simple polytope C_n intermediate graph polytopes",
+          "Resultary semantic query: cyclic 2-graph polytope vertices Pell Lucas Lucas graph associahedron",
+          "web query: Pešović Stojadinović Between graphical zonotope and graph associahedron cyclic graph second graph polytope number of vertices 2 graph cycle formula Pell Lucas 2022",
+          "web query: cyclic intervals hypergraphic polytope vertex count Pell Lucas cycle edges triples",
+          "arxiv:2209.12053 Definition 2.1",
+          "arxiv:2605.03913 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted indexed and OEIS-style sequence searches did not surface an independently published table indexed by this specific cycle 2-graph polytope.",
+          "Source RESULT.md begins 20,60,162,420,1060,2634; independent exact direct winner-vector enumeration yields 20,60,162,420 for n=4..7 and orientation enumeration extends to 15840 at n=11.",
+          "The general 2022 specialization remains an exact source of individual table values; this exact database comparison cannot claim the counts themselves were mathematically impossible before."
+        ],
+        "reasoning": "No same-object, same-invariant exact pre-existing table was identified by actual sequence and source searches; this is a bounded search result, not a novelty certificate. The meaningful possible preemption is the 2022 universal f-polynomial machinery or an unindexed cycle-specific consequence, not unrelated OEIS numerical matches.",
+        "searches": [
+          "web query: \"20, 60, 162, 420, 1060, 2634\" polytope",
+          "web query: oeis \"20,60,162,420,1060\"",
+          "web query: \"Pell\" \"Lucas\" \"hypergraphic\" polytope",
+          "web query: \"2-graph polytope\" \"cycle\" number vertices",
+          "web query: cyclic length 3 hypergraph polytope 20 60 162 420 1060",
+          "Resultary nearest hit exact same result"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with a real derivational-coverage qualification. Pešović–Stojadinović define the exact equivalent cycle 2-graph-polytope (up to a singleton translation) and their general f-polynomial specialization can evaluate its vertex number for each n, so the object and in-principle enumeration are not new. Their inspected formula (3) and examples do not give the uniform closed Pell–Lucas trace, the two explicit directed-cycle subtraction classes, or the iff n=4 simplicity boundary. Benedetti–Bergeron–Machacek already prove the general acyclic-orientation/normal-cone and forest-cover criteria used here; the proof applies those criteria nontrivially to this cyclic family. Padrol–Pilaud–Poullot give the deformation framework and Gélinas–Yang the cyclic hypergraphic-poset lattice criterion, not this f0 evaluation. Originality is limited to the evaluated family-specific all-dimensional pair of conclusions and combinatorial derivation, not general frameworks, transfer matrices or independent set counts. Stronger implicit deduction/unindexed tables remain priority risks; failed queries are not proof of novelty.",
+      "residual_risks": [
+        "The 2022 general f-polynomial specialization determines f0 for Q(C_n,2) in principle; specialists may regard the all-n evaluation as a routine specialization rather than a priority-independent theorem.",
+        "An unindexed polytope sequence table, thesis or earlier transfer-matrix derivation under hypergraph or generalized permutohedron terminology may already display the Pell–Lucas result.",
+        "No complete enumeration of every paper/appendix and no external priority certification; inspected primary texts and search coverage are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exactly the equivalent family by its definition and general f-vector calculation; no displayed all-cycle Pell–Lucas trace, two obstruction classes, or n=4-only simplicity cutoff. Derivational priority risk explicitly retained.",
+          "evidence": [
+            "Definition 2.1 Q_{Γ,m}=sum over connected induced subsets size<=m+1.",
+            "Equation (3) f(Q_{Γ,m},q)=(-1)^n ps_1(Ψ^m_{-q}(Γ^1))(-1).",
+            "Example 3.4 and Section 4 focus on L_4 path and general H-posets, not the target cyclic closed count."
+          ],
+          "identifier_or_url": "arxiv:2209.12053; https://www.researchgate.net/publication/363858831_Between_graphical_zonotope_and_graph-associahedron",
+          "material_read": "Accessible author-preprint full text on ResearchGate, including Definition 2.1 at manuscript page 3, formula (3) and subsequent line-graph examples around pages 7–9, and Section 4 hypergraphic orientations and posets.",
+          "method": "Read open HTML-transcribed full preprint, checked definition, enumerator/f-polynomial specialization, examples and conclusion.",
+          "title": "Between graphical zonotope and graph-associahedron",
+          "trigger": "Exactly equivalent second graph polytope Q(C_n,2); universal enumerator could dominate claimed f0 result."
+        },
+        {
+          "assessment": "Establishes general correspondence and forest iff-simple theorem explicitly used in assigned proof, but does not identify family-specific vertex trace or n=4-only simplicity boundary.",
+          "evidence": [
+            "Theorem 2.18 identifies normal fan cones with acyclic hypergraph orientations.",
+            "Theorem 3.2 states PG simple iff every acyclic orientation has a forest Hasse diagram; requires separate family-specific enumeration."
+          ],
+          "identifier_or_url": "arxiv:1712.08848; https://arxiv.org/pdf/1712.08848",
+          "material_read": "Open primary PDF, introduction, Sections 2–3 relevant parts, Theorem 2.18 (PDF page 11), Lemma 3.1 and Theorem 3.2 (PDF page 17), and following families; Theorem 3.2 page inspected visually.",
+          "method": "arXiv primary PDF extracted text and direct screenshot of page index 16; compared exact theorem quantifiers to cycle proof.",
+          "title": "Hypergraphic polytopes: combinatorial properties and antipode",
+          "trigger": "Original face/orientation correspondence and possibly preemptive complete simplicity criterion."
+        },
+        {
+          "assessment": "Provides general clique simplex and deformation cone framework and exact inequalities for a cone of deformations, not the vertex census/simplicity of the particular Q_n.",
+          "evidence": [
+            "Theorem 2.6 irredundant facet description of DC(Z_G).",
+            "Abstract states clique simplices give deformation cone basis; not an n-parametric vertex enumeration."
+          ],
+          "identifier_or_url": "arxiv:2111.12422; https://arxiv.org/pdf/2111.12422",
+          "material_read": "Open arXiv PDF introduction and Theorems 2.5–2.6 near manuscript pages 7–9, definitions of deformation and simplicial type cones; title and abstract page inspected visually.",
+          "method": "Primary PDF parsed text and page index 0 screenshot; compared graph deformation cone invariants to individual sum face invariants.",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Could supply a more general graph-power deformation theorem implying the exact f0 or simplicity result."
+        },
+        {
+          "assessment": "Characterizes latticehood of hypergraphic posets for cyclic interval hypergraphs; does not state an explicit vertex number or normal-fan simplicity cutoff for the length<=3 family.",
+          "evidence": [
+            "Theorem A imposes intersection-closure and hugging-quadruple fixes over every restriction as a lattice criterion.",
+            "Final Section 6 constructs joins/meets of acyclic orientations, a different invariant from f0(Q_n)."
+          ],
+          "identifier_or_url": "arxiv:2605.03913; https://arxiv.org/pdf/2605.03913",
+          "material_read": "Open arXiv full PDF text, introduction and Theorem A (PDF page 2), poset/source-sequence framework, final Section 6 join/meet description; page index 1 inspected visually.",
+          "method": "Primary PDF parsed text with screenshots of theorem page; compared latticehood and oriented 1-skeleton with face counts and cone simplicity.",
+          "title": "Lattice characterization of cyclic interval hypergraphic posets",
+          "trigger": "Most object-specific recent literature on cyclic-interval hypergraphs; possible stronger combinatorial coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural dimension-(n-1) family Q(C_n,2), independent of arbitrary parameter slices.",
+        "Obstructions proved via cyclic sign words and independent sets; f0 grows as (1+sqrt2)^n with exact Lucas correction.",
+        "Sharp all-n simplicity threshold at n=4, contrasting all n>=5, is an independent global geometry classification."
+      ],
+      "limitations": [
+        "General f-vector, face lattice classification and arbitrary coefficient deformations remain outside scope.",
+        "Mathematical motivation is explicit evaluation of established geometric invariants, not a claimed application."
+      ],
+      "rationale": "The object is a natural cycle instance of second graph polytopes interpolating between graphical zonotopes and graph associahedra. The number of vertices and simplicity are canonical global and local combinatorial invariants. The exact all-dimensional difference of two distinct classic transfer traces is not a trivial count of a fixed-size table: it identifies the only two cyclic feasibility obstructions and a sharp transition to nonsimple normal cones already in dimension five. These provide a reusable worked structural classification for cyclic interval hypergraphic polytopes; no downstream theorem or paper-length discovery is required. Not claiming novelty of the general cycle, general orientation criterion, or independent-set recurrence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic search 3 actual queries, 2026-10-25 UTC; exact assigned record nearest, other hits topically different",
+    "Pešović–Stojadinović arxiv:2209.12053, Definition 2.1/formula (3)/Section 4, full accessible ResearchGate author preprint",
+    "Benedetti–Bergeron–Machacek arxiv:1712.08848, Theorems 2.18 and 3.2, primary PDF",
+    "Padrol–Pilaud–Poullot arxiv:2111.12422, graphical deformation cone Theorem 2.6, primary PDF",
+    "Gélinas–Yang arxiv:2605.03913, cyclic interval lattice Theorem A, primary PDF",
+    "Exact-sequence/OEIS-style and independent-set terminology web searches, 2026-10-25 UTC"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One final claim only; C/O/V PASS is a best-of-knowledge assessment, not a priority or formal-proof certificate.",
+    "Actual mathematical source files preserved unmodified; no GitHub writes or dispatcher upload.",
+    "Seven frozen scientific/public files inspected, confidentiality in two JSON files requires neutralization for public import."
+  ],
+  "residual_risks": [
+    "The 2022 general f-polynomial specialization determines f0 for Q(C_n,2) in principle; specialists may regard the all-n evaluation as a routine specialization rather than a priority-independent theorem.",
+    "An unindexed polytope sequence table, thesis or earlier transfer-matrix derivation under hypergraph or generalized permutohedron terminology may already display the Pell–Lucas result.",
+    "No complete enumeration of every paper/appendix and no external priority certification; inspected primary texts and search coverage are bounded.",
+    "Potential confidentiality in METADATA.json/AUDIT.json and process-specific status in REVIEW/VERIFICATION prevent safe publication until public files are sanitized and cross-file checks reproduced."
+  ],
+  "schema_version": 1
+}
