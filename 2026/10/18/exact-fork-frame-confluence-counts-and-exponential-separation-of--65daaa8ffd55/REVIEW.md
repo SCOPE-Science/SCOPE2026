@@ -1,11 +1,21 @@
-# Scientific review: fork-frame confluence enumeration
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem fixes the exact domain: a distinguished least world, labelled incomparable leaves, arbitrary (possibly nonreflexive, nontransitive) modal edges. The nonidentity comparison cases reduce FC and BC to three explicit row/coverage rules. Every sum is then derived by a disjoint root-row split and inclusion-exclusion. The asymptotic estimate controls the nonempty root-to-leaf block separately. Direct quantified-axiom enumeration agrees with both formulas for all relations on one-, two- and three-leaf forks, and an independent row-state dynamic count agrees for one through six leaves. Finite calculations are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The FIK and IK semantic conditions are prior results. The 2024 foundational FIK paper establishes the frame conditions and develops completeness and proof theory; the 2026 Gao–Olivetti paper addresses a shallow calculus and an EXPSPACE upper bound. De Groot–Shillito–Clouston investigate general frame correspondences. The closest public mathematical enumeration found concerns intuitionistic **chains**, not forks; a stronger-hypothesis transitive-fork classification does not determine the unrestricted numbers. Targeted searches for the two exact numerical sequences and for fork confluence counts found no equivalent formula. This is not a mathematical proof of novelty. A differently named or unindexed formula may exist; the accessible publications and searches are not an exhaustive bibliography.
+PASS
 
-**Value — PASS.** The natural question is quantitative separation of the two established intuitionistic modal frame conditions when information branches. A complete normal form for all unrestricted relations gives exact counts for every branching degree, while the nontrivial sharp asymptotic shows a loss of one binary degree of freedom per additional leaf. It is an infinite-family classification directly about the semantic difference between FIK and IK, not an arbitrary finite recomputation.
+On a rooted fork the only proper order comparisons are o<=a for each leaf a. Universal FC means each root-arrow oRb to a leaf must repeat in every leaf row, while a root loop requires every leaf row nonempty. Universal BC means a leaf-to-root arrow forces that leaf row to contain all leaves, and a root loop requires the union of root/leaf leaf-successors to cover the leaves. Splitting by root loop e and root outgoing leaf set J gives exact F_k and I_k inclusion-exclusion formulas. For k large, zero-J cases give F_k=2*2^(k(k+1))(1+O(k2^-k)), I_k=2*2^(k*k)(1+O(k2^-k)), while j>=1 is negligible, proving 2^k I_k/F_k -> 1. Independently checked all 2^((k+1)^2) arbitrary labelled relations for k=1,2,3 against quantified FC and BC, obtaining (11,9),(185,81),(10943,2043), precisely the formulas; k=6,10,14 normalized ratios tend 1.
 
-**Scientific limitations.** Labels are retained; there is no isomorphism quotient. Reflexivity/transitivity variants, taller orders, complexity lower bounds and a frame-definability theorem are not claimed. Full external bibliographic coverage is impossible to guarantee, and no independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+FC and BC are foundational FIK/IK semantic conditions and not new. Published exact FIK and KI relation censuses for finite CHAINS concern totally ordered worlds rather than forks with incomparable leaves; their row monotonicity reduces differently. The present exact normal form and asymptotic exponential ratio for unrestricted labelled fork frames were not found as a corollary of the general logical axioms or chain counting formulas.
+
+## value
+
+PASS
+
+A fork is the first natural branching information order; its unrestricted modal relation census directly measures the quantitative gap between forward and backward confluence. Explicit all-k labelled formulas and asymptotic 2^-k separation provide structural semantics, not a small finite catalog.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

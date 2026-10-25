@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:00:46.881427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a rooted fork the only proper order comparisons are o<=a for each leaf a. Universal FC means each root-arrow oRb to a leaf must repeat in every leaf row, while a root loop requires every leaf row nonempty. Universal BC means a leaf-to-root arrow forces that leaf row to contain all leaves, and a root loop requires the union of root/leaf leaf-successors to cover the leaves. Splitting by root loop e and root outgoing leaf set J gives exact F_k and I_k inclusion-exclusion formulas. For k large, zero-J cases give F_k=2*2^(k(k+1))(1+O(k2^-k)), I_k=2*2^(k*k)(1+O(k2^-k)), while j>=1 is negligible, proving 2^k I_k/F_k -> 1. Independently checked all 2^((k+1)^2) arbitrary labelled relations for k=1,2,3 against quantified FC and BC, obtaining (11,9),(185,81),(10943,2043), precisely the formulas; k=6,10,14 normalized ratios tend 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balbiani et al., The Intuitionistic Modal Logic of Forward Confluence, arXiv:2309.06309, defining frame conditions",
+          "Resultary 2026-10-04 Endpoint normal form and exact census for finite-chain KI frames, id df6301f11b97",
+          "Resultary 2026-10-04 Gaussian-binomial census of FIK relations on finite chains, id 75c9508e987d"
+        ],
+        "reasoning": "Known chain census is not a direct general theorem determining fork numbers because chain comparability precludes incomparable leaves, the key branching constraints.",
+        "searches": [
+          "Resultary: intuitionistic modal logic forward backward confluence fork Kripke frames counts",
+          "FIK IK forward backward confluence fork posets enumerate all relations",
+          "Resultary: chain FIK Gaussian-binomial frame counts"
+        ]
+      },
+      "checked_sources": [
+        "Balbiani et al., The Intuitionistic Modal Logic of Forward Confluence, arXiv:2309.06309, defining frame conditions",
+        "Resultary 2026-10-04 Endpoint normal form and exact census for finite-chain KI frames, id df6301f11b97",
+        "Resultary 2026-10-04 Gaussian-binomial census of FIK relations on finite chains, id 75c9508e987d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balbiani et al., The Intuitionistic Modal Logic of Forward Confluence, arXiv:2309.06309, defining frame conditions",
+          "Resultary 2026-10-04 Endpoint normal form and exact census for finite-chain KI frames, id df6301f11b97",
+          "Resultary 2026-10-04 Gaussian-binomial census of FIK relations on finite chains, id 75c9508e987d"
+        ],
+        "reasoning": "The chain Gaussian-binomial enumeration cannot specialize to the incomparable-leaf fork; counting the latter requires a new row-state case split and inclusion-exclusion.",
+        "searches": [
+          "Resultary: intuitionistic modal logic forward backward confluence fork Kripke frames counts",
+          "FIK IK forward backward confluence fork posets enumerate all relations",
+          "Resultary: chain FIK Gaussian-binomial frame counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balbiani et al., The Intuitionistic Modal Logic of Forward Confluence, arXiv:2309.06309, defining frame conditions",
+          "Resultary 2026-10-04 Endpoint normal form and exact census for finite-chain KI frames, id df6301f11b97",
+          "Resultary 2026-10-04 Gaussian-binomial census of FIK relations on finite chains, id 75c9508e987d"
+        ],
+        "reasoning": "FIK FC and IK BC frame conditions are definitions inherited from bi-relational intuitionistic modal semantics; fork enumeration must honor unrestricted binary relations, not S4 or transitive forks.",
+        "searches": [
+          "Resultary: intuitionistic modal logic forward backward confluence fork Kripke frames counts",
+          "FIK IK forward backward confluence fork posets enumerate all relations",
+          "Resultary: chain FIK Gaussian-binomial frame counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balbiani et al., The Intuitionistic Modal Logic of Forward Confluence, arXiv:2309.06309, defining frame conditions",
+          "Resultary 2026-10-04 Endpoint normal form and exact census for finite-chain KI frames, id df6301f11b97",
+          "Resultary 2026-10-04 Gaussian-binomial census of FIK relations on finite chains, id 75c9508e987d"
+        ],
+        "reasoning": "Small fork counts 11,185,10943 are finite checks but no exact all-k sequence/table with the asymptotic ratio was found in the identified published-record searches.",
+        "searches": [
+          "Resultary: intuitionistic modal logic forward backward confluence fork Kripke frames counts",
+          "FIK IK forward backward confluence fork posets enumerate all relations",
+          "Resultary: chain FIK Gaussian-binomial frame counts"
+        ]
+      },
+      "rationale": "FC and BC are foundational FIK/IK semantic conditions and not new. Published exact FIK and KI relation censuses for finite CHAINS concern totally ordered worlds rather than forks with incomparable leaves; their row monotonicity reduces differently. The present exact normal form and asymptotic exponential ratio for unrestricted labelled fork frames were not found as a corollary of the general logical axioms or chain counting formulas.",
+      "residual_risks": [
+        "Other bi-relational logics may encode these same fork conditions under alternative FS/IK terminology; exhaustive priority unproved.",
+        "Reflexive/transitive frames, unlabeled isomorphism counts and taller posets are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Frames studied semantically, no matching labelled fork census in inspected material",
+          "evidence": "Its quantifier condition exactly supplies the present FC premise; the counting claim is additional.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.06309",
+          "material_read": "Accessible full PDF portions covering confluence definitions, principal semantics and motivation",
+          "method": "Public full-text PDF read and page inspection",
+          "title": "The Intuitionistic Modal Logic of Forward Confluence",
+          "trigger": "Primary semantics source defines FC on bi-relational frames"
+        },
+        {
+          "assessment": "Totally ordered chain not interchangeable with fork",
+          "evidence": "Its n-world counts 2,7,80,... are for chains, whereas fork k=1 already has 2-world (11,9) under this definition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97",
+          "material_read": "Published Resultary title and mathematical summary; not full RESULT.md",
+          "method": "Semantic-record comparison",
+          "title": "Endpoint normal form and exact census for finite-chain KI frames",
+          "trigger": "Potential general case implying fork count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fork is the first natural branching information order; its unrestricted modal relation census directly measures the quantitative gap between forward and backward confluence. Explicit all-k labelled formulas and asymptotic 2^-k separation provide structural semantics, not a small finite catalog.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other bi-relational logics may encode these same fork conditions under alternative FS/IK terminology; exhaustive priority unproved.",
+    "Reflexive/transitive frames, unlabeled isomorphism counts and taller posets are not claimed.",
+    "Finite corroboration does not prove the infinite claims; no Lean or external expert certification asserted.",
+    "No GitHub write, publication or approved research row arises from this assessment."
+  ],
+  "schema_version": 1
+}

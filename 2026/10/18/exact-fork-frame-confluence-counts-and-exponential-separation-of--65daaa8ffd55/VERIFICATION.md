@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof checks
 
-The standalone `check.py` uses Python 3 and the standard library only. Execute `python3 check.py`. The first test examines the original three- and four-quantifier confluence statements for every possible binary relation on a rooted fork with one, two, or three leaves: respectively 16, 512, and 65536 relations, totalling 66064. The second test constructs each candidate leaf-row bitmask directly and counts allowed row sequences by a union-mask dynamic program. It checks the exact formulas independently for one through six leaves.
+# Independent mathematical audit
 
-The executable returned these pairs of FIK and IK counts: for one leaf 11 and 9; for two leaves 185 and 81; for three leaves 10943 and 2043; for four leaves 2547617 and 197529; for five leaves 2423359871 and 83847459; for six leaves 9451444403585 and 154721901201.
+## correctness
 
-The proof in `RESULT.md`, not these tests, establishes the row equivalences and all-parameter counting identities. The direct exhaustive test does not cover seven or more leaves. The dynamic count has no bearing on uniqueness in other poset families. No independent external audit has been performed.
+PASS
+
+On a rooted fork the only proper order comparisons are o<=a for each leaf a. Universal FC means each root-arrow oRb to a leaf must repeat in every leaf row, while a root loop requires every leaf row nonempty. Universal BC means a leaf-to-root arrow forces that leaf row to contain all leaves, and a root loop requires the union of root/leaf leaf-successors to cover the leaves. Splitting by root loop e and root outgoing leaf set J gives exact F_k and I_k inclusion-exclusion formulas. For k large, zero-J cases give F_k=2*2^(k(k+1))(1+O(k2^-k)), I_k=2*2^(k*k)(1+O(k2^-k)), while j>=1 is negligible, proving 2^k I_k/F_k -> 1. Independently checked all 2^((k+1)^2) arbitrary labelled relations for k=1,2,3 against quantified FC and BC, obtaining (11,9),(185,81),(10943,2043), precisely the formulas; k=6,10,14 normalized ratios tend 1.
+
+## originality
+
+PASS
+
+FC and BC are foundational FIK/IK semantic conditions and not new. Published exact FIK and KI relation censuses for finite CHAINS concern totally ordered worlds rather than forks with incomparable leaves; their row monotonicity reduces differently. The present exact normal form and asymptotic exponential ratio for unrestricted labelled fork frames were not found as a corollary of the general logical axioms or chain counting formulas.
+
+## value
+
+PASS
+
+A fork is the first natural branching information order; its unrestricted modal relation census directly measures the quantitative gap between forward and backward confluence. Explicit all-k labelled formulas and asymptotic 2^-k separation provide structural semantics, not a small finite catalog.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
