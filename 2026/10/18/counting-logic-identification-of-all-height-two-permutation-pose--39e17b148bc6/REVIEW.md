@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The enumeration is exhaustive because every dimension-two poset has a two-order permutation representation and height at most two is equivalent to avoiding an increasing triple. The recursive Catalan generator is reversible. Exact global palette updates and full matrix isomorphism searches within each fingerprint bucket certify all 4,502 types at size ten and all smaller sizes. Independent direct-permutation generation checks through size eight. This is an exhaustive finite result and claims nothing at larger sizes.
+## correctness
 
-**Originality — PASS (qualified).** Published research on permutation posets, counting refinement, and comparability-graph automorphisms supplies underlying representations or methodology but does not establish the exact relative identification cutoff at ten. The scientific searches and implication comparisons did not find a covering claim. An unindexed earlier finite census or specialized classification could still subsume this finding; absence from a search does not constitute uniqueness proof.
+PASS
 
-**Value — PASS.** Exact logical identification thresholds inside naturally constrained finite orders are structural benchmarks: the cutoff covers all 4,502 isomorphism classes at ten points, rather than a hand-picked example or a routine parameter increase. It gives a reusable complete reference range for attempts to locate the smallest pair of dimension-two, height-two posets indistinguishable by two-variable counting logic. The first possible failure is therefore beyond ten; whether one exists remains open here.
+Every dimension<=2 poset has a two-order realizer and is encoded by a permutation; height<=2 exactly means no increasing subsequence of length three (123 avoidance). Catalan insertion of successive maxima is exhaustive and reversible. The frozen verifier produces common-palette directed predecessor/successor 1-WL fingerprints after n rounds, groups all 123-avoiders, and compares every same-fingerprint representative via exact colour-restricted bijection backtracking preserving the full directed strict-order matrix. Isomorphic objects necessarily have identical fingerprints, and successful backtracking makes all objects within each signature group isomorphic. Independently rebuilt the generator, common-palette iterations and exact backtracking for every n=1..10: Catalan counts culminated in 16,796 n=10 representations, 4,502 groups, with type counts (1,2,4,9,21,55,151,447,1389,4502). This exhausts the finite theorem, not larger sizes or a least collision.
 
-The closest literature is Cooper--Kirkpatrick (arXiv:1409.4368), Arvind et al. (arXiv:1502.01255), and Klavík--Zeman (arXiv:1506.05064). Neither full generality nor publication novelty has independent certification. The result is restricted to full strict-order relations and cardinalities at most ten.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pattern-poset and WL methodological literature motivates the representation and counting refinement but no accessed theorem states that two-variable counting logic identifies every height-two dimension-two poset to size ten. Caution: the exact numerical sequence 1,2,4,9,21,55,151,447,1389,4502 appears as OEIS A005217 for unit interval graph isomorphism counts; numerical values by themselves therefore cannot be claimed novel. The submitted additional question is the C^2-identification/structural fingerprint property, not mere counting. An unrecognized combinatorial bijection to known counting-logic classes or specialist exhaustive census remains a material risk.
+
+## value
+
+PASS
+
+Exhaustively separates 4,502 ten-point isomorphism types of a natural poset class by a cheap model-theoretic invariant, yielding a reproducible full cutoff and benchmark for counting logic, rather than an arbitrary single-instance calculation. No claim of general theorem for n>10.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

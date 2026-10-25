@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:19:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/counting-logic-identification-of-all-height-two-permutation-pose--39e17b148bc6/RESULT.md",
+        "RESULT.md blob f95a20219f260799bef5e350b5f9ee90deb7b533",
+        "verify_posets.py blob 686371302f3e5fa76845c748eab7e9e7fc503249",
+        "verify_generator.py blob a653007bae8280692b072dfb27b967db9313fdd1",
+        "METADATA.json blob 94022ec9ce3b5ccb93043b13e8d092285b0144f2"
+      ],
+      "rationale": "Every dimension<=2 poset has a two-order realizer and is encoded by a permutation; height<=2 exactly means no increasing subsequence of length three (123 avoidance). Catalan insertion of successive maxima is exhaustive and reversible. The frozen verifier produces common-palette directed predecessor/successor 1-WL fingerprints after n rounds, groups all 123-avoiders, and compares every same-fingerprint representative via exact colour-restricted bijection backtracking preserving the full directed strict-order matrix. Isomorphic objects necessarily have identical fingerprints, and successful backtracking makes all objects within each signature group isomorphic. Independently rebuilt the generator, common-palette iterations and exact backtracking for every n=1..10: Catalan counts culminated in 16,796 n=10 representations, 4,502 groups, with type counts (1,2,4,9,21,55,151,447,1389,4502). This exhausts the finite theorem, not larger sizes or a least collision.",
+      "residual_risks": [
+        "Finite computer-assisted exhaustive proof relies on faithful permutation generator, matrix encoding and complete backtracking; source and independent reconstruction agree.",
+        "The theorem proves no sharp first-failure size beyond 10."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cooper–Kirkpatrick studies counting poset/permutation patterns; Arvind et al. studies colour refinement for general undirected graphs."
+        ],
+        "reasoning": "Neither accessed source theorem gives the exact n<=10 directed C^2 identification cutoff; general color-refinement machinery does not itself imply separation on this family.",
+        "searches": [
+          "Cooper Kirkpatrick 2014 permutation posets pattern arxiv:1409.4368",
+          "Arvind Kobler Rattan Verbitsky color refinement compactness arxiv:1502.01255",
+          "Ponomarenko Ryabov WL bipartite graphs arxiv:2006.01678"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search for height-two permutation poset C2 identification (12 hits, no exact coverage)",
+        "Cooper–Kirkpatrick arxiv:1409.4368",
+        "Arvind et al. arxiv:1502.01255",
+        "OEIS A005217 exact sequence coincidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independently verified result is: for n<=10 and height<=2/dimension<=2, equal stable directed count colours entail poset isomorphism."
+        ],
+        "reasoning": "Known WL characterization of C^2 equates the question to color refinement, but not its affirmative answer for this finite natural class. Prior general graph inequalities do not imply the claimed sharp finite bound.",
+        "searches": [
+          "arxiv:1409.4368 poset permutation patterns",
+          "arxiv:1502.01255 graph color refinement C2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The asserted equivalence is between common-palette 1-WL directed order fingerprints and C^2 identification.",
+          "OEIS A005217 lists the exact same numerical sequence under a different class label."
+        ],
+        "reasoning": "Same count sequence does not imply the counting-logic identification theorem; check whether stronger bijections/classifications make it a corollary is an explicit remaining risk.",
+        "searches": [
+          "Color refinement C2 identifies all height two dimension two permutation posets through ten points enumeration 4502",
+          "color refinement directed permutation posets C2 distinguish dimension two height two",
+          "OEIS A005217 1 2 4 9 21 55 151 447 1389 4502"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A005217 has the same numeric sequence as the poset isomorphism counts, but under unit interval graph counts."
+        ],
+        "reasoning": "Numeric enumeration is not independently novel and should be credited/compared. The final claim is an exact finite C^2 identification property requiring cross-signature isomorphism proof, which a count table alone cannot establish.",
+        "searches": [
+          "OEIS A005217 sequence 1 2 4 9 21 55 151 447 1389 4502",
+          "number unlabeled height two dimension two posets 4502 n10"
+        ]
+      },
+      "rationale": "Pattern-poset and WL methodological literature motivates the representation and counting refinement but no accessed theorem states that two-variable counting logic identifies every height-two dimension-two poset to size ten. Caution: the exact numerical sequence 1,2,4,9,21,55,151,447,1389,4502 appears as OEIS A005217 for unit interval graph isomorphism counts; numerical values by themselves therefore cannot be claimed novel. The submitted additional question is the C^2-identification/structural fingerprint property, not mere counting. An unrecognized combinatorial bijection to known counting-logic classes or specialist exhaustive census remains a material risk.",
+      "residual_risks": [
+        "Exact number table is already known under the unit-interval graph interpretation; no numerical novelty is claimed.",
+        "A stronger class equivalence or finite WL classification in specialist combinatorics literature may cover the property."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Natural representation known; no read C2 finite cutoff",
+          "evidence": "Posets of order dimension two and permutation patterns",
+          "identifier_or_url": "arxiv:1409.4368",
+          "material_read": "Abstract and selected theorem descriptions concerning permutation pattern/poset counting; full article not verified read",
+          "method": "arXiv search and abstract",
+          "title": "The Complexity of Counting Poset and Permutation Patterns",
+          "trigger": "Exact permutation-poset family and potential enumeration"
+        },
+        {
+          "assessment": "Generic graph refinement foundation does not itself imply finite permutation-poset identification",
+          "evidence": "Arvind–Köbler–Rattan–Verbitsky 2015",
+          "identifier_or_url": "arxiv:1502.01255",
+          "material_read": "Abstract and indexed graph refinement claims; whole paper not verified read",
+          "method": "arXiv index",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "C2/color refinement equivalence and possible broad theorem"
+        },
+        {
+          "assessment": "Numbers match, priority of numeric enumeration not claimed",
+          "evidence": "1,2,4,9,21,55,151,447,1389,4502",
+          "identifier_or_url": "https://oeis.org/A005217",
+          "material_read": "Sequence display and named enumerated graph class",
+          "method": "OEIS public table",
+          "title": "OEIS A005217",
+          "trigger": "Unexpected exact numerical sequence overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary search for height-two permutation poset C2 identification (12 hits, no exact coverage)",
+        "Cooper–Kirkpatrick arxiv:1409.4368",
+        "Arvind et al. arxiv:1502.01255",
+        "OEIS A005217 exact sequence coincidence"
+      ],
+      "rationale": "Exhaustively separates 4,502 ten-point isomorphism types of a natural poset class by a cheap model-theoretic invariant, yielding a reproducible full cutoff and benchmark for counting logic, rather than an arbitrary single-instance calculation. No claim of general theorem for n>10.",
+      "residual_risks": [
+        "The boundary n=10 is a computational cutoff rather than known first failure; extension is open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary search for height-two permutation poset C2 identification (12 hits, no exact coverage)",
+    "Cooper–Kirkpatrick arxiv:1409.4368",
+    "Arvind et al. arxiv:1502.01255",
+    "OEIS A005217 exact sequence coincidence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite computer-assisted exhaustive proof relies on faithful permutation generator, matrix encoding and complete backtracking; source and independent reconstruction agree.",
+    "The theorem proves no sharp first-failure size beyond 10.",
+    "Exact number table is already known under the unit-interval graph interpretation; no numerical novelty is claimed.",
+    "A stronger class equivalence or finite WL classification in specialist combinatorics literature may cover the property.",
+    "The boundary n=10 is a computational cutoff rather than known first failure; extension is open.",
+    "Git tree object not independently enumerated; assigned tree SHA retained only as returned identity.",
+    "Metadata contains operational provenance; withheld from publication pending guarded sanitization."
+  ],
+  "schema_version": 1
+}
