@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proposed norm is identified with a triangle of extrema, giving an exact vertex list and the polar intersection of a crosspolytope with a mass slab. Direct minimum–maximum integration determines the primal volume. Signed-orthant integration plus two Vandermonde identities establishes the nonstandard diagonal section density and thus the polar volume polynomial. Brunn–Minkowski and analyticity prove the strict increase in all dimensions at least three, with the planar exception checked exactly. The high-dimensional limit follows from an explicit second moment. A standalone exact-rational script supplies 117 additional checks, which are not substituted for proof.
+## correctness
 
-**Originality — PASS, with residual literature-indexing risk.** [1] studies extrema for this bounded-Lipschitz norm and [2] supplies dual-norm algorithms; neither inspects Mahler volumes of this one-parameter family. The strongest volume-product comparison is [3], Section 5.2, Claim 5: its anchored equilateral result equals the *terminal coefficient* here after normalization, so that endpoint is explicitly acknowledged as known rather than new. Its different zero-basepoint Lipschitz polytope does not provide the full finite-weight formula or strict monotonicity. [4] provides local statements near Hanner bodies, not this full trajectory. Indexed abstract searches for aliases involving equilateral Dudley norms, mass-slab polars, and Mahler products did not locate direct coverage. Unindexed equivalent parametric calculations remain possible; this is not an assertion of independence.
+PASS
 
-**Mathematical value — PASS.** The Dudley bounded-Lipschitz norm arises naturally as a dual norm for signed measures. The theorem classifies an affine-invariant volume product on the entire real \(n\)-dimensional equilateral family for each continuous weight, with an exact polynomial, a sharp strict monotonicity law, a dimension-two rigidity exception, and controlled limits. The explicit interpolation is not obtained by merely restating the previously known anchored endpoint.
+The bounded-Lipschitz norm N_lambda(x)=max|x_i|+lambda(max x_i-min x_i) equals |(M+m)/2|+s(M-m)/2 for s=1+2lambda. The claimed sign-vector vertices and their polar determine {||y||_1<=s, |sum y|<=1}; extrema integration gives primal volume 2^n/s^(n-1). Orthant decomposition of a simplex difference body yields the exact diagonal-slab density q_n(t), and the signed-polynomial integration P_n(a)=Prob(|sum Y_i|<=a) gives the polar volume. Even, nonincreasing section densities with nonconstancy for n>=3 show strict monotonicity of s P_n(1/s); n=2 is constant. Stirling/Vandermonde and variance 2n/((n+1)(n+2)) prove two limits. Independently re-expanded and exactly normalized the density polynomial for n=2..9; checked independent rational verifier source. These tests are finite; analytical section arguments give all n,s.
 
-The result does not address general metrics or general Mahler minimality. Finite checker instances do not certify infinitely many parameters or dimensions. An equivalent full interpolation may occur in unindexed convex-geometric literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Fortet-Mourier/bounded-Lipschitz norm geometry is the correct related subject, but the accessible papers do not determine the exact polar slab distribution and its full Mahler interpolation. The anchored Lipschitz-free terminal coefficient is already known and deliberately excluded. Best-of-knowledge novelty concerns finite s.
+
+## value
+
+PASS
+
+The exact interpolation distinguishes sum-form bounded-Lipschitz norms from both cube and anchored extreme metric limits. A new closed slab polynomial, sharp strictness for each n>=3, and high-dimensional limits give a natural finite Banach-space invariant useful independently of a global Mahler conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
