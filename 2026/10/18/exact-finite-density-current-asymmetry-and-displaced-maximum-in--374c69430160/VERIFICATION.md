@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python check_transport.py` with the Python standard library. On the packaged source this executes 852 exact rational assertions across five ring/capacity choices, four rational deformations, two bias parameters, and all interior particle-number sectors, plus grand-canonical identities. It also verifies the exact finite-state master equation and normalized net current for each canonical sector.
+## correctness
 
-The script prints the finite check count, a pair of complementary-sector currents, and a peak density. Finite exact computations corroborate but cannot exhaust the infinite parameter domain. The analytic proof separately covers all stated rates, capacities and particle counts. No independent audit or formal proof-assistant certification has been performed.
+PASS
+
+PASS: stationary-law normalization is consistent up to n-dependent constant; coefficient and reciprocal-unimodality proof establishes the precise current formula and strict parameter-uniform sign including t=1 and n=N/2 equality; grand-canonical unique peak follows from elementary derivative.
+
+## originality
+
+PASS
+
+The source model/product stationary weights and particle-hole distribution symmetry are due to Ayyer and Misra, but the derived finite-sector *currents* are not invariant under complement. The strictly signed current-difference law and displaced grand-canonical maximizing density add nontrivial nonequilibrium information to stationary weights.
+
+## value
+
+PASS
+
+Stationary complement symmetry often tempts false symmetry inference for transport. The exact sign, sharp equality loci, and displaced maximum classify measurable nonequilibrium flux for a natural solvable exclusion model in all finite particle-number sectors; useful beyond merely rediscovering stationary distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
