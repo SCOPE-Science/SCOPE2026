@@ -1,19 +1,21 @@
-# Scientific review: exact restart-moment frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified algorithm and output loss are those of the Gaussian best-of-trials orthogonal RJD method. The proof derives the eigenvector rotation from the actual Gaussian matrix pencil, computes both off-diagonal Frobenius residuals without linearization, and obtains the exact minimum-order-statistic law. An elementary arctangent integral gives the one-trial identity. Uniform Taylor control gives the two-trial logarithmic asymptotic with its coefficient. Dominated convergence is valid only for three or more trials; for three, integration by parts yields the exact constant. The global optimum \(2\varepsilon^2\) is independently found by minimizing over all planar orthogonal rotations. The standalone exact-rational checker, explicit numerical eigenbasis reconstruction and quadrature reproduce the identities; neither finite tests nor numerical integration are used to assert the infinite-parameter theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+For A=diag(1,-1) and B=eps[[0,1],[1,0]], explicit orthogonal rotation yields loss 2 sin²(2alpha)+2 eps² cos²(2alpha), minimized at 2eps². The eigenbasis of the Gaussian pencil has loss 2eps²/(cos²theta+eps² sin²theta), theta uniform unsigned Gaussian angle. Monotonicity maps best of L trials to the minimum order statistic with density 2L/pi (1-2theta/pi)^(L-1). The exact expectation follows. T=tan(theta) gives E[L1]=2eps; the endpoint u=pi/2-theta has a uniform O(1) comparison for L2 to integral u/(u²+eps²), yielding 16/pi² eps² log(1/eps). The L>=3 rescaled integrand is dominated by u^(L-3), integrable; L=3 integrates to 48 log2/pi². Thus precisely three trials are necessary and sufficient for bounded expected squared-loss/optimum ratio on THIS matrix family, not across all algorithms or families. Independently evaluated quadrature at eps 0.1, 0.02 and 0.005 corroborates divergent L1/L2 ratios and finite L3 ratio; source rational and eigenbasis code was inspected without relying on its success marker.
 
-He and Kressner's arXiv:2212.07248, Algorithm 1 is the exact preexisting algorithm and loss, and Theorems 6 and 8 give probabilistic upper bounds. Section 3.4 explicitly predicts and observes the \(L\)-dependent tail exponent. These results make the sufficiency of three trials for bounded mean-square error inferable from tail integration and do not count as new here. The inspected main results, analysis and experiments do not give the exact two-by-two loss distribution, the leading one-/two-/three-trial expectation constants, or a proved two-trial logarithmic lower obstruction for a fixed simple pair. The random congruence-diagonalization paper arXiv:2402.16557 considers a different transformation; the joint-eigenvalue paper arXiv:2409.00500 derives different Rayleigh-quotient error guarantees. Published mathematical searches for equivalent orders of Cauchy-ratio singularities, near-commuting random diagonalization and restart-moment thresholds did not identify a covering exact theorem. Such an equivalent formulation may nevertheless exist outside the inspected material, and independent priority validation is outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The squared-residual expectation is a meaningful numerical accuracy metric but cannot be read directly from high-probability statements at the mean-square scale. The explicit smallest-dimensional near-commuting example proves that two independent restarts are inadequate for a constant-factor expected squared loss despite asymptotically small input perturbations, while three suffice, and gives exact leading constants. This provides a quantitative stress test and a tight example explaining the relationship between the published tail phenomenon and expected solver quality. The result is not a theorem about all RJD inputs, other sampling rules, deflation, floating-point arithmetic or runtime.
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.
 
-## Evidence and remaining limitations
+## value
 
-Primary source: He--Kressner, *Randomized Joint Diagonalization of Symmetric Matrices*, arXiv:2212.07248, Algorithm 1, Theorems 6 and 8, Section 3.4. Related full text: arXiv:2402.16557 and arXiv:2409.00500. Reproducibility: `verify.py` (standard-library-only exact rational tests and deterministic integration). The full theorem is supported by the written proof and not certified by independent formal or expert review. The possibility of equivalent results in uninspected specialized literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The trial count required to control mean-square residual of a published randomized eigendecomposition method is a naturally motivated robustness boundary. Exact 2x2 witness distinguishes one-trial inverse-linear, two-trial logarithmic degradation and three-trial constant-factor risk with matching sharp constants, providing a rigorous benchmark that general tail upper bounds alone do not furnish. It is not an arbitrary parameter substitution or a purported solver-independent lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

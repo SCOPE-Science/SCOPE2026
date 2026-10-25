@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T21:52:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/RESULT.md",
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/VERIFICATION.md",
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/verify.py",
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/AUDIT.json",
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/REVIEW.md"
+      ],
+      "rationale": "For A=diag(1,-1) and B=eps[[0,1],[1,0]], explicit orthogonal rotation yields loss 2 sin²(2alpha)+2 eps² cos²(2alpha), minimized at 2eps². The eigenbasis of the Gaussian pencil has loss 2eps²/(cos²theta+eps² sin²theta), theta uniform unsigned Gaussian angle. Monotonicity maps best of L trials to the minimum order statistic with density 2L/pi (1-2theta/pi)^(L-1). The exact expectation follows. T=tan(theta) gives E[L1]=2eps; the endpoint u=pi/2-theta has a uniform O(1) comparison for L2 to integral u/(u²+eps²), yielding 16/pi² eps² log(1/eps). The L>=3 rescaled integrand is dominated by u^(L-3), integrable; L=3 integrates to 48 log2/pi². Thus precisely three trials are necessary and sufficient for bounded expected squared-loss/optimum ratio on THIS matrix family, not across all algorithms or families. Independently evaluated quadrature at eps 0.1, 0.02 and 0.005 corroborates divergent L1/L2 ratios and finite L3 ratio; source rational and eigenbasis code was inspected without relying on its success marker.",
+      "residual_risks": [
+        "The conclusion is for a specific real 2x2 Gaussian best-of-L orthogonal eigenbasis algorithm and expected SQUARED off-diagonal Frobenius loss, not unsquared error, all instances, floating-point computation or optimal general restart complexity.",
+        "Independent numerical integration checks finite eps only; the logarithmic boundary and dominated-convergence proof are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Kressner prove O(eps) error at high probability with L-th power tails, which already supports qualitative moment upper bounds by integration. The 2024 congruence method uses generally nonorthogonal transformations."
+        ],
+        "reasoning": "The general RJD probability result does NOT mathematically yield the matching two-trial logarithmic lower bound or the exact constants for this fixed witness. Any three-trial qualitative sufficiency inferred from it is explicitly credited, not advertised as independent.",
+        "searches": [
+          "arXiv:2212.07248 Theorems 6 and 8 Sections 3.2-3.4",
+          "arXiv:2402.16557 randomized diagonalization by congruence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2212.07248",
+        "https://arxiv.org/html/2402.16557v2",
+        "Resultary indexed semantic search on exact object/parameter/claim under appropriate aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High-probability tail upper estimates allow mean-square sufficiency at adequate trial count; full explicit min-uniform-angle law, necessity of L>=3 and L1/L2 leading coefficients are stronger for the fixed family."
+        ],
+        "reasoning": "The prior algorithms and bounds do not imply this exact one-family lower and sharp moment characterization without additional analytical work; the result is not a new algorithm.",
+        "searches": [
+          "arXiv:2212.07248 Theorems 6,8 and §3.4",
+          "arXiv:2402.16557 and arXiv:2409.00500 comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He and Kressner specify the same Gaussian combination, orthogonal eigenspace and squared off-diagonal loss; section 3.4 measures trial-dependent failure probability, not the exact angular moment law."
+        ],
+        "reasoning": "The algorithmic setup is prior and is not presented as new. Specializing to the explicit Pauli-like A and eps B reduces expected loss to an order-statistic integral; the exact distribution and lower rates are not in the inspected algorithm statement.",
+        "searches": [
+          "Resultary: randomized joint diagonalization exact two by two expected loss multiple restarts He Kressner",
+          "arXiv:2212.07248, Algorithm 1 and formula (1.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected table/plot uses a random n=10, d=5 example and probability-vs-threshold slopes, not the exact 2x2 expected loss coefficients."
+        ],
+        "reasoning": "No directly matching exact finite symbolic table was identified. This bounded negative search cannot prove absolute novelty.",
+        "searches": [
+          "Resultary search: randomized joint diagonalization two by two Gaussian restart expected error logarithm",
+          "He–Kressner arXiv:2212.07248 Section 3.4 numerical failure-frequency plot"
+        ]
+      },
+      "rationale": "The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.",
+      "residual_risks": [
+        "A previously unidentified explicit order-statistic calculation for the same two-dimensional perturbation could be equivalent.",
+        "Original He–Kressner failure exponent and ensuing qualitative upper expectations are prior work and must be attributed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Procedure and tail-power prediction known; exact 2x2 witness moment formulas not stated in inspected mathematical development.",
+          "evidence": [
+            "Algorithm 1; equation (1.2); Theorem 8; Section 3.4 observed failure exponent L"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.07248",
+          "material_read": "Algorithm 1, loss (1.2), Theorem 8, Section 3.4 and surrounding derivations from accessible complete arXiv rendered manuscript",
+          "method": "Direct primary HTML text reading, contrasted PDF pages in the same primary manuscript",
+          "title": "Randomized Joint Diagonalization of Symmetric Matrices",
+          "trigger": "Identical procedure and objective"
+        },
+        {
+          "assessment": "Congruence diagonalization is not best-of-L orthogonal Frobenius joint loss; no covering moment formula identified.",
+          "evidence": [
+            "Sections 1-3, generalized eigenvalue-congruence method"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.16557v2",
+          "material_read": "Accessible arXiv full-text introduction, transformation model and Section 3 generalized-pencil analysis",
+          "method": "Compare transformation class and output loss",
+          "title": "A randomized algorithm for simultaneously diagonalizing symmetric matrices by congruence",
+          "trigger": "Potential stronger randomized matrix-pair theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-restart-moment-frontier-for-two-by-two-randomized-joint-di--0b473a2a4655/RESULT.md",
+        "https://arxiv.org/abs/2212.07248",
+        "https://arxiv.org/html/2402.16557v2"
+      ],
+      "rationale": "The trial count required to control mean-square residual of a published randomized eigendecomposition method is a naturally motivated robustness boundary. Exact 2x2 witness distinguishes one-trial inverse-linear, two-trial logarithmic degradation and three-trial constant-factor risk with matching sharp constants, providing a rigorous benchmark that general tail upper bounds alone do not furnish. It is not an arbitrary parameter substitution or a purported solver-independent lower bound.",
+      "residual_risks": [
+        "Only a smallest-dimensional stress test for the named algorithm; no general solver runtime or floating-point guarantees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The conclusion is for a specific real 2x2 Gaussian best-of-L orthogonal eigenbasis algorithm and expected SQUARED off-diagonal Frobenius loss, not unsquared error, all instances, floating-point computation or optimal general restart complexity.",
+    "Independent numerical integration checks finite eps only; the logarithmic boundary and dominated-convergence proof are analytic.",
+    "A previously unidentified explicit order-statistic calculation for the same two-dimensional perturbation could be equivalent.",
+    "Original He–Kressner failure exponent and ensuing qualitative upper expectations are prior work and must be attributed.",
+    "Only a smallest-dimensional stress test for the named algorithm; no general solver runtime or floating-point guarantees.",
+    "Frozen public-facing AUDIT.json and METADATA.json retain private operational scope_run_id identifiers. Actual complete neutral sanitization edits with content bytes, exact blob guards and content SHA-256 have not been prepared, so no public publication permitted despite full scientific PASS."
+  ],
+  "schema_version": 1
+}

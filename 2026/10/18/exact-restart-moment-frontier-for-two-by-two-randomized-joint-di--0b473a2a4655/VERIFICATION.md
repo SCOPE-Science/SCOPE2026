@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-by-two RJD restart-moment calculation
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3; no third-party packages or data files are required. Successful output begins with `VERIFY_OK` and includes the number of independently checked rational instances.
+## correctness
 
-The checker verifies the exact two-matrix eigenbasis loss equality for 2,100 rational parameter/coefficient combinations, independently reconstructs 1,872 explicit eigenbases and checks their directly measured matrix residuals, and checks that ranking coefficients by the unsigned Gaussian angle agrees with ranking by the computed loss. Deterministic Simpson integration tests the exact single-trial expectation against \(2\varepsilon\) at four nonzero choices of \(\varepsilon\) and compares the third-trial limit integral with \(48\log2/\pi^2\).
+PASS
 
-These are finite algebra and quadrature checks; they do not certify the uniform asymptotic error in the two-trial logarithmic law, the order-statistic distribution, or the dominance argument for arbitrary integers \(L\ge3\). Those steps are justified analytically in `RESULT.md`. Eigenvalues are assumed computed exactly and numerical floating-point effects are outside the result.
+For A=diag(1,-1) and B=eps[[0,1],[1,0]], explicit orthogonal rotation yields loss 2 sin²(2alpha)+2 eps² cos²(2alpha), minimized at 2eps². The eigenbasis of the Gaussian pencil has loss 2eps²/(cos²theta+eps² sin²theta), theta uniform unsigned Gaussian angle. Monotonicity maps best of L trials to the minimum order statistic with density 2L/pi (1-2theta/pi)^(L-1). The exact expectation follows. T=tan(theta) gives E[L1]=2eps; the endpoint u=pi/2-theta has a uniform O(1) comparison for L2 to integral u/(u²+eps²), yielding 16/pi² eps² log(1/eps). The L>=3 rescaled integrand is dominated by u^(L-3), integrable; L=3 integrates to 48 log2/pi². Thus precisely three trials are necessary and sufficient for bounded expected squared-loss/optimum ratio on THIS matrix family, not across all algorithms or families. Independently evaluated quadrature at eps 0.1, 0.02 and 0.005 corroborates divergent L1/L2 ratios and finite L3 ratio; source rational and eigenbasis code was inspected without relying on its success marker.
 
-No independent audit, proof assistant certification, or external validation has been performed.
+## originality
+
+PASS
+
+The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.
+
+## value
+
+PASS
+
+The trial count required to control mean-square residual of a published randomized eigendecomposition method is a naturally motivated robustness boundary. Exact 2x2 witness distinguishes one-trial inverse-linear, two-trial logarithmic degradation and three-trial constant-factor risk with matching sharp constants, providing a rigorous benchmark that general tail upper bounds alone do not furnish. It is not an arbitrary parameter substitution or a purported solver-independent lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
