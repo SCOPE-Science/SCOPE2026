@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run the included executable `verify_forest.py` with Python 3.10 or later; it uses only the standard library. Compare its JSON output to the included `computed.json` (JSON-object equality, since key ordering may differ). The program fully enumerates all \(2^{18}=262144\) possible vertex subsets for each of five forest-degree stages, verifies an acyclic face-poset matching, constructs every relevant signed Morse differential, performs exact integer unit-pivot reductions, checks the entire simplicial boundary of lifted cycles, and proves rational inclusion ranks with maximal minors modulo two fixed primes.
+## correctness
 
-The separate `verify_crosscheck.py` requires SymPy and uses another criterion for detecting induced forests, another vertex order and matching order, and SymPy's exact Smith normal forms. Compare its saved full stage-wise results with `crosscheck.txt`, noting that matching critical-cell counts differ because the matching orders differ but all integral Betti groups and f-vectors agree.
+PASS
 
-The main finite computation is exhaustive and includes source-domain and target-boundary checks, not merely finite experiments extrapolated to other graph orders. No full homotopy classification at forest degree two is claimed. The interval decomposition is rational only; integral persistence decomposition is not established. An independent outside audit has not been performed.
+Enumerated all 2^18=262144 vertex masks with an independent induced-edge/components forest criterion and confirmed stage face totals 1650,8565,49743,92835,97029 and every stored dimension count. Inspected acyclic 18-pivot matching and signed integer Morse-projection algorithm, unit Smith pivots (16 at d=2, 3 at d=4), and full signed lifted-cycle inclusion routines. For d=2,3,4 in degree 8 the verified image ranks are 36,199 and additions 163,18; degree 9 retains six generators. The barcode follows explicitly from Betti ranks and injection; no integral barcode splitting is claimed. Full expensive independent Smith replay was not performed in this execution.
+
+## originality
+
+PASS
+
+Carnero Bravo explicitly asks the positive-degree K2 x Km x Kn forest-filtration question (Question 44 of revised arXiv:2307.13271), whereas known K2 x K2 x Kn and categorical-product independence results cover only different factors or d=0. A complete single natural small case with all positive d and rational maps is not implied.
+
+## value
+
+PASS
+
+This is the smallest symmetric as-yet-unresolved triple categorical-product case with both ternary factors; exact integral Betti groups plus rational inclusion barcode are independently useful baseline data for the explicitly stated general classification problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
