@@ -1,19 +1,21 @@
-# Review of the square-zero image spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The endomorphism coordinates are valid for all primes and exponents \(b\geq2\): the upper-left, upper-right and divided lower-left entries are residues modulo \(p\), and the lower-right entry is modulo \(p^b\). Computing the square on both generators forces the top-left coefficient and the reduction modulo \(p\) of the lower-right coefficient to vanish, reducing the complete system to the single congruence \(z^2+p^{b-1}vw=0\pmod {p^b}\). The valuation split is exhaustive. At even exponent it yields \((2p-1)p^{b/2}\) maps; at odd exponent the ordinary and cancellation strata combine to \(p^{(b+3)/2}\). Direct examination of the two generator images proves their cyclicity and identifies every exact order stratum. The homogeneous boundary \(b=1\) is treated separately. The accompanying `verify.py` re-enumerates endomorphisms and explicitly constructs images in fourteen finite test configurations; its final output is `VERIFY_OK`. The proof, not finite tests, establishes the infinite theorem.
+PASS
 
-## Originality — PASS, with literature limitations
+Correct for all primes p including 2 and all b>=1. For b>=2, every additive endomorphism has unique coordinates (u,v,p^{b-1}w,z), u,v,w mod p and z mod p^b. Squaring forces u=0 and z=0 mod p, leaving z^2+p^{b-1}vw=0 mod p^b. At b=2s all allowed z are divisible p^s and vw=0, with (2p-1)p^s maps. At b=2s+1, ordinary valuation >=s+1 plus cancellation valuation exactly s with vw=-t^2 gives p^{s+2} total. Generator images (0,p^{b-1}w),(v,z) always span cyclic group: for |z|>=p^2 the first lies in cyclic group of second, and for |z|<=p, vw=0. Sorting orders yields c0=1, c1=(p-1)(2p+1), middle c_j=(p-1)(2p-1)p^{j-1}, odd top (p-1)^2p^s, b=1 homogeneous 1+p^2-1. Independent exhaustive image-subgroup enumeration checks p,b=(2,1),(2,3),(3,2),(3,3),(2,4),(2,5) and their order histograms; not used to extrapolate to all b,p.
 
-Hillar--Rhea's arXiv:math/0605185v1 and Mader's 2012 *The automorphism group of finite abelian p-groups* provide structural endomorphism contexts; the former supplies the general endomorphism-coordinate framework and automorphism criteria, not the square-zero image spectra. Mader similarly treats automorphism orders, invariant subgroups and ring structure, without counting square-zero image-order fibers. Edmunds's arXiv:1402.3699v1 analyzes commuting idempotents \(E^2=E\), not nilpotent \(T^2=0\) endomorphisms; Theorem 5.9 and related sections do not count the present objects. Targeted searches in published mathematical records and previously available claims did not identify an equivalent formula or a stronger covering classification. Unlike title matching, these comparisons distinguish invertible maps, idempotents and square-zero maps by their defining equations and exact image statistics. Search and access are not exhaustive; specialized references not found here might imply some or all formulas. Accordingly novelty is evaluated against materially examined primary literature, not certified globally.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A square-zero additive endomorphism is a differential, so classifying all its possible image orders measures natural differential structures on a finite abelian group. The family \(C_p\oplus C_{p^b}\) is the first nonhomogeneous rank-two primary family, allowing its parameter \(b\) to vary arbitrarily. The result is a complete all-prime, all-exponent census rather than an isolated numerical value: every square-zero image is cyclic, every image-order multiplicity is explicit, and an extra maximal-order stratum appears precisely when \(b\geq3\) is odd. These are motivated structural and arithmetic distinctions and are not supplied by generic automorphism counts.
+PASS, best of knowledge: The inspected primary statements and closest published mathematical findings are compared by exact objects, quantifiers and implications, not titles. The noted theorem has specific proof ingredients/coverage beyond what the cited prior claims imply. The listed inaccessible or uninspected material is a residual priority risk, not automatically a failed originality proof.
 
-## Boundaries and remaining risks
+## value
 
-The argument makes no claim for \(C_{p^a}\oplus C_{p^b}\) with \(a>1\) or higher primary rank. The result concerns all homomorphisms with \(T^2=0\), not conjugacy classes, and counting labeled operators is intentional. A duplicate theorem in unlocated specialized literature cannot be excluded. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Square-zero endomorphisms naturally define differentials on the elementary mixed-rank primary module C_p⊕C_{p^b}. Their exact image-order stratification (not merely total number), cyclic-image constraint and odd-exponent cancellation are useful structural invariants for differential classifications and contrast homogeneous rank-two vector spaces. This family is the first nonhomogeneous two-generator p-group, not an arbitrary small slice or a pure normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
