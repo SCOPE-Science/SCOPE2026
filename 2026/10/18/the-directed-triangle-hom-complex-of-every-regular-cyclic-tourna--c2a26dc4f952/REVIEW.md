@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the complete face-poset map from the directed triangle Hom complex to the cyclic interval complex. For every face, its upper fiber has an explicit chain of comparable monotone maps ending at one cell; all edge-compatibility conditions are checked using the common cyclic in/out neighborhoods. The dual finite-poset fiber theorem then transfers the homotopy type. The cyclic interval complex is the nerve of a good cover of a circle by overlapping arcs shorter than a semicircle. This is a proof for each integer \(m\ge2\), not an extrapolation from computation. Exact brute-force checks independently confirm the critical local identities for orders 5–15 and mod-prime cellular homology for orders 5–13.
+## correctness
 
-## Originality — PASS
-Dochtermann–Singh's published full text, §§2.4, 5, and 7 (arXiv:2108.10948), defines the exact directed multihomomorphism functor, classifies transitive-tournament cases, and frames nontransitive tournament Hom topology as a research direction. Their displayed seven-vertex Hom example is not an all-parameter theorem. The closest published exact computational result classifies \(\operatorname{Hom}(\overrightarrow C_3,R_9)\) alone, explicitly excluding a family claim. Its singleton parameter is subsumed by the present theorem, not conversely. Published cyclic-tournament directed-flag and path-homology claims concern different topological constructions and do not imply the Hom-complex classification. Direct scholarly literature and indexed semantic searches revealed no stronger covering family theorem. Residual risk: unindexed equivalent work.
+PASS
 
-## Mathematical value — PASS
-A natural family of nontransitive regular tournaments, with Hom complexes of unbounded cellular dimensions, has a uniform low-dimensional homotopy classification by a new explicit interval-fiber reduction. It answers a motivated infinite subfamily of the tournament-directed-Hom topology problem, strengthens a previously known exact order-nine case, and supplies a reusable geometric description of the fiber and nerve rather than a routine parameter substitution.
+For every m≥2 the ordered directed Hom face poset consists of compatible nonempty triples (A,B,C) with A→B→C→A. Projection to A lands in the complex N of subsets lying in an m-vertex cyclic interval; the unique enclosing minimal clockwise arc [s,t] determines exact common permitted B=[t+1,s+m] and C=[t-m,s-1] modulo 2m+1. The upper fiber contracts via (A,B,C)≥(S,B,C)≤(S,B∪{s+m},C)≥(S,{s+m},C)≤(S,{s+m},W), all terms valid because b*=s+m points to every allowed C. Quillen A dual gives |Hom|≃N. The length-m open arcs (i-m+1/2,i+1/2) form a good cover of the length-(2m+1) circle; their nonempty intersections are connected arcs containing integer points, with nerve N. Thus Hom≃S1 for all m≥2; m=1 has three points and is correctly excluded. Inspected complete verify_fibers.py and verify_chains.py; bounded m tests check identities only, not proof of the infinite family.
 
-## Limitations
-Only the oriented triangle as source and the canonical regular cyclic tournament family as target are covered. The proof does not determine the equivariant homotopy action of source rotations or arbitrary tournament Hom complexes. Literature coverage cannot rule out unindexed prior equivalent statements. Verification scripts are finite checks; the infinite assertion rests on the mathematical proof, and an independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The nearest same-functor publication establishes the theory and unrelated cases; the indexed R9 result covers just one instance. The explicit all-m upper-fiber and good-cover argument supplies an unbounded family result not implied by those sources.
+
+## value
+
+PASS
+
+PASS: Nontransitive regular cyclic tournaments are a canonical natural infinite family, directed triangle Hom complexes are motivated by the established reconfiguration/homotopy theory, and their dimensions grow with m. The uniform topological S1 classification and explicit contractible-fiber/nerve model resolve an open-looking family far beyond the known R9 instance; it is substantive, not an arbitrary finite benchmark or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

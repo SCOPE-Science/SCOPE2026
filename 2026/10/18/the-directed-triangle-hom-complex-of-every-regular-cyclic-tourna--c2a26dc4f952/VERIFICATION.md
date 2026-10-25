@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification guide
+# Independent mathematical audit
 
-The proof is the uniform poset-fiber contraction and good-cover nerve argument in `RESULT.md`. No executable computation is needed to establish the full infinite family, but two separate finite verification programs stress-test the key statements.
+## correctness
 
-Run `python3 verify_fibers.py` to exhaustively enumerate every nonempty subset of the cyclic tournament vertex sets of orders 5, 7, 9, 11, 13, and 15. For each subset the program compares Hom upper-fiber nonemptiness with arc containment, checks the exact intersections of in- and out-neighborhoods, and verifies the distinguished vertex dominates all permissible third-coordinate vertices. Successful output terminates with `FIBER_CONTRACTION_CHECK_OK`.
+PASS
 
-Run `python3 verify_chains.py` to enumerate all directed multihomomorphism cells at orders 5, 7, 9, 11, and 13 and to compute ranks of signed cellular boundaries over the prime field with 1000003 elements. The program checks Betti ranks 1 in dimensions 0 and 1 and 0 in all other dimensions. Successful output terminates with `HOM_CELLULAR_CHAIN_CHECK_OK`. The complete observed output of both programs is `check_output.txt`.
+For every m≥2 the ordered directed Hom face poset consists of compatible nonempty triples (A,B,C) with A→B→C→A. Projection to A lands in the complex N of subsets lying in an m-vertex cyclic interval; the unique enclosing minimal clockwise arc [s,t] determines exact common permitted B=[t+1,s+m] and C=[t-m,s-1] modulo 2m+1. The upper fiber contracts via (A,B,C)≥(S,B,C)≤(S,B∪{s+m},C)≥(S,{s+m},C)≤(S,{s+m},W), all terms valid because b*=s+m points to every allowed C. Quillen A dual gives |Hom|≃N. The length-m open arcs (i-m+1/2,i+1/2) form a good cover of the length-(2m+1) circle; their nonempty intersections are connected arcs containing integer points, with nerve N. Thus Hom≃S1 for all m≥2; m=1 has three points and is correctly excluded. Inspected complete verify_fibers.py and verify_chains.py; bounded m tests check identities only, not proof of the infinite family.
 
-Both programs use Python 3.10 or newer without third-party libraries. These finite checks do not independently prove the infinite family, rule out torsion in arbitrary additional cases, or constitute an independent audit. The proof of integral homotopy equivalence is the explicit finite-poset fiber theorem applied uniformly in the parameter.
+## originality
+
+PASS
+
+PASS (best knowledge): The nearest same-functor publication establishes the theory and unrelated cases; the indexed R9 result covers just one instance. The explicit all-m upper-fiber and good-cover argument supplies an unbounded family result not implied by those sources.
+
+## value
+
+PASS
+
+PASS: Nontransitive regular cyclic tournaments are a canonical natural infinite family, directed triangle Hom complexes are motivated by the established reconfiguration/homotopy theory, and their dimensions grow with m. The uniform topological S1 classification and explicit contractible-fiber/nerve model resolve an open-looking family far beyond the known R9 instance; it is substantive, not an arbitrary finite benchmark or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
