@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The beta-binomial formula, the two-leaf discrete second-difference identity and the exact positive-factor ratio give a valid necessity-and-sufficiency argument for all stated sizes and positive parameters. The edge thresholds are proved separately, and strictness at violated inequalities is established by the unvaccinated base set. Exact-arithmetic tests of 1,260 finite configurations and direct infection-assignment enumeration reproduced the formulas. These tests do not substitute for the symbolic proof.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** The examined material on epidemic contact removal (Enns et al. 2011), household heterogeneity (House et al. 2012), and log-submodularity of independent Poisson-binomial reliability tails (Han et al. 2016/2018) does not establish the correlated Beta-mixture, full-powerset, raw-tail cutoff. In particular, the conditional independent bound cannot be averaged to give this exact correlation penalty without further proof. Search under the aliases beta-binomial tail trial-count curvature and shared-infectiousness submodularity did not identify an equivalent classification. The complete Enns paper could not be examined, and an overlooked reliability result is possible; failed searches do not certify worldwide uniqueness.
+PASS
 
-**Mathematical value — PASS.** The classification supplies a natural sharp threshold for when additional pre-exposure vaccinations have diminishing marginal effect on preventing secondary-infection overload, with a fixed-mean parameter example where varying positive correlation alone changes the sign. Mean cases prevented remain modular. Its use is in coverage-response modeling; perfectly exchangeable leaves make within-star site selection trivial, so no algorithmic advantage is claimed for choosing among those identical leaves. The one-generation Beta-mixture assumptions limit direct real-world interpretations.
+Condition on shared P: with n=d-|S|-2 unvaccinated other leaves, second vaccination difference equals -E[P^2(Pr(Bin(n,P)=r-2)-Pr(Bin(n,P)=r-1))]. Beta integration gives A_n and C_n with ratio C_n/A_n=((n-r+2)/(r-1))*((alpha+r)/(beta+n-r+1)). The resulting condition L(n)>=(0) is affine decreasing slope -(alpha+1), hence worst at n=d-2 and exactly reduces to (r-1)beta-(d-r)alpha >= d-1. For n=r-2 the sign is strictly negative, for n<r-2 zero. At r=1 the sign is positive for all pair choices; at r=d it is nonpositive. Independent exact rational Beta moments reconstruct for d=5,r=3,mu=1/4: correlation rho=1/6,1/5,1/3 gives respectively second differences -195/57344,0,3/256 and criterion lhs 1,0,-2, confirming strict sign reversal at the predicted boundary. Interpolating real parameters is justified algebraically by positivity of Gamma/Beta moments, not by finite grids.
 
-**Literature and scientific limitations.** The original 2011 link-removal study is only compared at the abstract level; the 2012 household heterogeneity paper and the relevant main results of the 2016/2018 Poisson-binomial analysis were read. The theorem does not cover multi-generation contagion, heterogeneous leaf susceptibility, or non-Beta mixing distributions. Independent external examination has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The criterion is a particular discrete-concavity characterization of Beta-binomial overload tail as the number of susceptible leaves varies. The prior independent Poisson-binomial reliability/log-submodularity work and disease-network mitigation studies do not entail it after a correlated Beta mixture. No matching exact prior threshold was identified in targeted Resultary/literature searches, subject to known primary-access limits.
+
+## value
+
+PASS
+
+An exact necessary-and-sufficient correlation threshold for diminishing vaccine returns is a motivated structural property of a natural exchangeable outbreak model. It quantifies a genuine sign flip even at constant expected infections prevented, rather than just an expected-case modularity calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

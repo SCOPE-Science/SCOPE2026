@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:19:59.775630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md df5e79c0145aa62804071910cfbcd6b9df82d6d7 and verification/beta_star_verify.py b5322b450fbe607add40b021e6cefde008526879",
+        "Independent exact fractional beta-binomial moment and vaccine-interaction checks audit_math_evidence_13.json"
+      ],
+      "rationale": "Condition on shared P: with n=d-|S|-2 unvaccinated other leaves, second vaccination difference equals -E[P^2(Pr(Bin(n,P)=r-2)-Pr(Bin(n,P)=r-1))]. Beta integration gives A_n and C_n with ratio C_n/A_n=((n-r+2)/(r-1))*((alpha+r)/(beta+n-r+1)). The resulting condition L(n)>=(0) is affine decreasing slope -(alpha+1), hence worst at n=d-2 and exactly reduces to (r-1)beta-(d-r)alpha >= d-1. For n=r-2 the sign is strictly negative, for n<r-2 zero. At r=1 the sign is positive for all pair choices; at r=d it is nonpositive. Independent exact rational Beta moments reconstruct for d=5,r=3,mu=1/4: correlation rho=1/6,1/5,1/3 gives respectively second differences -195/57344,0,3/256 and criterion lhs 1,0,-2, confirming strict sign reversal at the predicted boundary. Interpolating real parameters is justified algebraically by positivity of Gamma/Beta moments, not by finite grids.",
+      "residual_risks": [
+        "Applies only to exchangeable one-generation transmissions with one shared Beta P; neither multi-generation epidemic nor heterogeneous dependence is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Independent Poisson-binomial log-submodularity and heterogeneous household infectiousness are broader modeling topics but do not establish the same Beta-binomial powerset curvature iff law."
+        ],
+        "reasoning": "Mixing P makes Bernoulli indicators correlated, so conditioning on P and then averaging does not preserve a fixed independent-law curvature classification.",
+        "searches": [
+          "Han–Huang–Luo 2016/2018 DOI 10.1109/TNET.2018.2846569",
+          "House et al. 2012 DOI 10.1186/1741-7015-10-117"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1186/1741-7015-10-117",
+        "https://doi.org/10.1016/j.mbs.2011.11.006",
+        "https://doi.org/10.1109/TNET.2018.2846569",
+        "Resultary semantic: beta binomial tail probability submodularity vaccination exchangeable correlated Bernoulli threshold",
+        "Han–Huang–Luo 2016/2018 DOI 10.1109/TNET.2018.2846569",
+        "Resultary semantic beta-binomial vaccine overload submodularity",
+        "House et al. 2012 BMC Medicine 10:117"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "House develops estimation of variable household transmission; Enns considers link removal; neither is a proof that a universal vaccine-overload benefit is submodular under the specified Beta mixture."
+        ],
+        "reasoning": "Independent reliability properties are insufficient to deduce this correlated second-difference sign. No inspected prior theorem logically forces the sharp mean-plus-correlation threshold.",
+        "searches": [
+          "House et al. 2012 BMC Medicine 10:117",
+          "Enns–Mounzer–Brandeau DOI 10.1016/j.mbs.2011.11.006",
+          "Han–Huang–Luo independent tail works"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B(S) depends only on |S| and beta-binomial survival probabilities; powerset submodularity is exactly concavity of coverage response or convexity of the corresponding tail sequence."
+        ],
+        "reasoning": "Searched the equivalent tail-difference and reliability wording, not merely epidemiology; no matching exact threshold identified.",
+        "searches": [
+          "Resultary semantic: beta binomial tail probability submodularity vaccination exchangeable correlated Bernoulli threshold",
+          "Beta-binomial discrete concavity of tail under trial-count perturbation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact second differences change sign -195/57344,0,3/256 at correlations 1/6,1/5,1/3 while mean remains fixed."
+        ],
+        "reasoning": "Finite examples locate an informative boundary but only monotonic L(n) proof gives all d,r,alpha,beta; no exact prior table or same if-and-only-if found.",
+        "searches": [
+          "Resultary semantic beta-binomial vaccine overload submodularity",
+          "Independent three exact boundary examples d=5,r=3,mu=1/4"
+        ]
+      },
+      "rationale": "The criterion is a particular discrete-concavity characterization of Beta-binomial overload tail as the number of susceptible leaves varies. The prior independent Poisson-binomial reliability/log-submodularity work and disease-network mitigation studies do not entail it after a correlated Beta mixture. No matching exact prior threshold was identified in targeted Resultary/literature searches, subject to known primary-access limits.",
+      "residual_risks": [
+        "A prior reliability-theory result about discrete concavity of Beta-binomial upper tails as trial number changes could be equivalent and remain unindexed or in inaccessible full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model heterogeneity background only in material read",
+          "evidence": "Addresses transmission estimation, not exact Beta-binomial coverage curvature under vaccination.",
+          "identifier_or_url": "https://doi.org/10.1186/1741-7015-10-117",
+          "material_read": "Accessible full journal HTML and method/model sections concerning household transmissibility, rather than a vaccination submodularity theorem",
+          "method": "Full-text HTML targeted reading",
+          "title": "Estimation of outbreak severity and transmissibility: Influenza A(H1N1)pdm09 in households",
+          "trigger": "Common-infectiousness heterogeneity precedent"
+        },
+        {
+          "assessment": "Different intervention and objective; inaccessible full body remains residual risk",
+          "evidence": "Partitions contact edges for epidemic mitigation rather than star overload tail differences of a correlated Beta mixture.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2011.11.006",
+          "material_read": "Bibliography and abstract/model summary, not entire article",
+          "method": "Abstract and title comparison",
+          "title": "Optimal link removal for epidemic mitigation: a two-way partitioning approach",
+          "trigger": "Candidate broader network prevention result"
+        },
+        {
+          "assessment": "Cannot infer whole-document noncoverage, but described model is independent trial reliability",
+          "evidence": "Independent Poisson-binomial log-submodular surrogates need not imply exact Beta-mixture submodularity.",
+          "identifier_or_url": "https://doi.org/10.1109/TNET.2018.2846569",
+          "material_read": "Abstract/title and cited independent Poisson-binomial-surrogate comparison, not complete primary article",
+          "method": "Targeted related-work comparison",
+          "title": "Quality-aware pricing for mobile crowdsensing",
+          "trigger": "Potential reliability/log-submodularity theory under independent trials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen scientific RESULT.md blob df5e79c0145aa62804071910cfbcd6b9df82d6d7",
+        "Actual source tree cee17d65aac65894e31bc5d897cfeef17d970e64",
+        "Independent finite certificate audit_math_evidence_13.json"
+      ],
+      "rationale": "An exact necessary-and-sufficient correlation threshold for diminishing vaccine returns is a motivated structural property of a natural exchangeable outbreak model. It quantifies a genuine sign flip even at constant expected infections prevented, rather than just an expected-case modularity calculation.",
+      "residual_risks": [
+        "Only one-generation stars, homogeneous leaves, pre-exposure perfect vaccination, Beta common-risk mixture; no causal population-level vaccine efficacy claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a single-infectiousness Beta(alpha,beta) mixture with homogeneous leaf exposures, outbreak-overload vaccination benefit on a d-leaf star is submodular iff r=d or (2<=r<=d-1 and (r-1)beta-(d-r)alpha>=d-1), and never when r=1; equivalently correlation/mean condition mu+rho/(1-rho)<=(r-1)/(d-1).",
+  "limitations": [
+    "Applies only to exchangeable one-generation transmissions with one shared Beta P; neither multi-generation epidemic nor heterogeneous dependence is covered.",
+    "A prior reliability-theory result about discrete concavity of Beta-binomial upper tails as trial number changes could be equivalent and remain unindexed or in inaccessible full text.",
+    "Only one-generation stars, homogeneous leaves, pre-exposure perfect vaccination, Beta common-risk mixture; no causal population-level vaccine efficacy claims.",
+    "Historical gap around lost 12 UTC claim response remains preserved; signed sequence checkpoint is not scientific validation.",
+    "Publication blocked because operational provenance is contained in potentially public metadata; full safety/guarded sanitization withheld."
+  ],
+  "schema_version": 1
+}
