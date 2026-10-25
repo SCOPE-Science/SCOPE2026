@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:51:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read actual check.py and RESULT.md at the assigned commit; check.py uses mpmath precision 70 and tests finite Gram and theta series, not Fredholm spectrum.",
+        "Independently recomputed b=2 endpoint values θ4²≈2.3744848010797371e-5, θ3²≈9.06472028366994, in science_checks.json."
+      ],
+      "limitations": [
+        "The result classifies only positive essential spectrum and this geometric atomic family; no zero essential spectrum determination."
+      ],
+      "rationale": "For each atom s_j=1/2+δb^(-j), ||(n^(-s_j))||²=ζ(1+2δb^(-j))~b^j/(2δ). Thus summing weighted rank-one trace norms converges for β>1; for β<1 a single weighted rank-one norm blows up and finite truncations prove no bounded form. At β=1 the column Gram is 2δ b^(-(j+k)/2) ζ(1+δ(b^(-j)+b^(-k))) = sech((j-k)log(b)/2)+E_jk. Boundedness of ζ(1+t)-1/t on the relevant compact interval gives sum_jk |E_jk|<∞ and trace-class E. The ℓ¹ Toeplitz convolution symbol F(θ) has essential spectrum its connected range, via far-supported plane-wave Weyl sequences; classical Jacobi dn Fourier series identifies min θ4(0,b^-1/2)² and max θ3(0,b^-1/2)². MM* and M*M have same strictly positive essential spectrum by polar decomposition. Essential norm is upper endpoint. No claim about zero, isolated eigenvalues.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chavan Theorem 4.1 assumes continuous positive monotone density with finite value at 0 and produces [0,η(0+)π] essential spectrum; the current µ is purely atomic with a strictly positive band lower bound.",
+          "Perfekt–Pushnitski establishes general moment and nonnegativity tools; the nearby Ma–Lu–Zu 2026 text was inaccessible beyond abstract."
+        ],
+        "reasoning": "Theorem 4.1 cannot dominate this atomic spectrum because its measure hypotheses fail. Critical geometric sampling plus Toeplitz identification is additional work; the unread recent preprint is named as risk.",
+        "searches": [
+          "Chavan–Sahu–Sinha Helson matrices induced by measures arxiv:2407.04124v2, Theorem 4.1",
+          "Perfekt–Pushnitski arxiv:1611.03772",
+          "Ma–Lu–Zu arxiv:2610.12252v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2407.04124v2",
+        "https://arxiv.org/abs/2610.12252",
+        "https://arxiv.org/abs/1611.03772",
+        "https://dlmf.nist.gov/22.11",
+        "https://dlmf.nist.gov/22.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chavan Section 4 concerns smooth density scattering perturbations; no geometric discrete atoms or positive theta essential interval.",
+          "Eigenvalue asymptotics for compactly damped Helson matrices do not automatically imply a noncompact essential band at zero damping."
+        ],
+        "reasoning": "Trace-class/compactness characterizations and theta identities are used but insufficient to infer the sharp borderline band without constructing this exact Gram kernel and showing compact remainder.",
+        "searches": [
+          "Helson matrices induced by measures arxiv:2407.04124v2, Theorem 4.1 and Section 3 examples",
+          "A Helson matrix with explicit eigenvalue asymptotics arxiv:1707.01279 [bibliographic search]",
+          "NIST DLMF Jacobi Fourier formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The critical Gram is half-line Toeplitz with c_h=sech(|h|log b/2), plus trace class; its symbol is Jacobi dn.",
+          "Chavan–Sahu–Sinha 2026 version treats Laplace Helson matrices and ac essential spectra for weighted Lebesgue densities, not these singular geometric atoms."
+        ],
+        "reasoning": "Potential equivalent formulations include geometric Helson interpolation Carleson and Toeplitz-symbol spectra; explicit interval with named b and theta functions was not found in inspected primary statements.",
+        "searches": [
+          "Resultary query: Helson multiplicative Hankel positive geometric atomic measure critical exponent Toeplitz sech essential spectrum theta function",
+          "arxiv:2407.04124v2 full HTML, Sections 2-4",
+          "arxiv:2610.12252 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF supplies the classical theta/dn Fourier identities but not a Helson matrix spectrum.",
+          "The endpoints are a continuous function of b>1 and cannot be settled by numerical spectral tables."
+        ],
+        "reasoning": "A general special-function identity is prior machinery; the exact data object is spectral rather than a finite table.",
+        "searches": [
+          "Resultary exact theta Helson matrix essential spectrum search",
+          "NIST DLMF 22.2,22.11 Jacobi dn theta identity"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to this explicit atomic measure at the critical no-damping endpoint. General Helson scattering/boundedness literature and classical Toeplitz Jacobi tools do not directly state this particular theta interval. The inaccessible very recent moment-representation preprint and broader sampling theory are material prior-coverage risks.",
+      "residual_risks": [
+        "Ma–Lu–Zu 2026 arxiv full text not available; institutional VPN disconnected; specific theorem overlap not ruled out.",
+        "An older atomic sampling/Toeplitz result in Helson literature may give equivalent band under another normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover specific discrete geometric atoms; Theorem 4.1 has continuous monotone density hypotheses and essential band [0,η(0+)π]",
+          "evidence": [
+            "Theorem 4.1, lines 335–351; Section 2 measure definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04124v2",
+          "material_read": "Full accessible HTML, Sections 1–4 incl. Definition 2.4, Examples 3, Theorem 4.1 and Section 4 scattering discussion",
+          "method": "Checked measure hypotheses (weighted Lebesgue vs geometric atomic), Fredholm spectral conclusion and whether example is same",
+          "title": "Helson matrices induced by measures",
+          "trigger": "Primary paper same operator class and essential spectra"
+        },
+        {
+          "assessment": "Potentially overlapping recent source; full text cannot be declared not covering",
+          "evidence": [
+            "2026-10-08 posting; institutional message vpn_disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12252",
+          "material_read": "Abstract/bibliography only. ArXiv/OA full text attempts unsuccessful; Oxford authorization reported VPN disconnected, not bypassed",
+          "method": "Compared only accessible scope statement, not full theorem list",
+          "title": "Unbounded Helson Forms with a Moment Representation",
+          "trigger": "Very recent motivating Helson measure and moment-theory paper"
+        },
+        {
+          "assessment": "General criteria related, without direct theta band in inspected material",
+          "evidence": [
+            "Moment problems, positivity, boundedness and finite rank"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.03772",
+          "material_read": "Abstract, accessible summary and bibliographic theorem scope only",
+          "method": "Compared generic moment positivity/boundedness with explicit interval",
+          "title": "On Helson matrices: moment problems, non-negativity, boundedness, and finite rank",
+          "trigger": "Historical Helson moment matrix criteria"
+        },
+        {
+          "assessment": "Provides exact special function tool, not Helson application",
+          "evidence": [
+            "DLMF formulas 22.2.2, 22.11.3"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/22.11",
+          "material_read": "Formula identifiers §§22.2 and 22.11 cited and compared; no claim to derive new identities",
+          "method": "Apply known Jacobi dn Fourier expansion and theta normalization",
+          "title": "NIST Digital Library of Mathematical Functions, Jacobi elliptic functions",
+          "trigger": "Classical Fourier series determining theta bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Explicit b dependence and δ universality isolate the effect of geometric atom spacing."
+      ],
+      "rationale": "A sharp trace-class/bounded-noncompact/unbounded transition for a motivated geometrically atomic moment family, with the entire positive critical essential band computed as explicit theta-function endpoints, is an intrinsically useful operator-theoretic spectral invariant. The exact operator formula is beyond generic boundedness or a single numerical example.",
+      "residual_risks": [
+        "No complete description of zero or point spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2407.04124v2",
+    "https://arxiv.org/abs/2610.12252",
+    "https://arxiv.org/abs/1611.03772",
+    "https://dlmf.nist.gov/22.11",
+    "https://dlmf.nist.gov/22.2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result classifies only positive essential spectrum and this geometric atomic family; no zero essential spectrum determination."
+  ],
+  "residual_risks": [
+    "Ma–Lu–Zu 2026 arxiv full text not available; institutional VPN disconnected; specific theorem overlap not ruled out.",
+    "An older atomic sampling/Toeplitz result in Helson literature may give equivalent band under another normalization."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Does not cover specific discrete geometric atoms; Theorem 4.1 has continuous monotone density hypotheses and essential band [0,η(0+)π]",
+      "evidence": [
+        "Theorem 4.1, lines 335–351; Section 2 measure definition"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2407.04124v2",
+      "material_read": "Full accessible HTML, Sections 1–4 incl. Definition 2.4, Examples 3, Theorem 4.1 and Section 4 scattering discussion",
+      "method": "Checked measure hypotheses (weighted Lebesgue vs geometric atomic), Fredholm spectral conclusion and whether example is same",
+      "title": "Helson matrices induced by measures",
+      "trigger": "Primary paper same operator class and essential spectra"
+    },
+    {
+      "assessment": "Potentially overlapping recent source; full text cannot be declared not covering",
+      "evidence": [
+        "2026-10-08 posting; institutional message vpn_disconnected"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.12252",
+      "material_read": "Abstract/bibliography only. ArXiv/OA full text attempts unsuccessful; Oxford authorization reported VPN disconnected, not bypassed",
+      "method": "Compared only accessible scope statement, not full theorem list",
+      "title": "Unbounded Helson Forms with a Moment Representation",
+      "trigger": "Very recent motivating Helson measure and moment-theory paper"
+    },
+    {
+      "assessment": "General criteria related, without direct theta band in inspected material",
+      "evidence": [
+        "Moment problems, positivity, boundedness and finite rank"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1611.03772",
+      "material_read": "Abstract, accessible summary and bibliographic theorem scope only",
+      "method": "Compared generic moment positivity/boundedness with explicit interval",
+      "title": "On Helson matrices: moment problems, non-negativity, boundedness, and finite rank",
+      "trigger": "Historical Helson moment matrix criteria"
+    },
+    {
+      "assessment": "Provides exact special function tool, not Helson application",
+      "evidence": [
+        "DLMF formulas 22.2.2, 22.11.3"
+      ],
+      "identifier_or_url": "https://dlmf.nist.gov/22.11",
+      "material_read": "Formula identifiers §§22.2 and 22.11 cited and compared; no claim to derive new identities",
+      "method": "Apply known Jacobi dn Fourier expansion and theta normalization",
+      "title": "NIST Digital Library of Mathematical Functions, Jacobi elliptic functions",
+      "trigger": "Classical Fourier series determining theta bounds"
+    }
+  ]
+}
