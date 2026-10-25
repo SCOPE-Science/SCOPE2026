@@ -1,21 +1,21 @@
-# Review of minimum super dominating sets in short-arm spiders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(a+b\geq3\), the proof treats all finite choices of black/white membership on arms of length two or three. With a black hub, the only possible one-black long arm is WWB and requires the hub to have precisely one white neighbor. With a white hub, every long arm requires at least two blacks and the hub must have a BBW or BBB arm (or a BB short arm). These statements are proved directly from the private-neighbor definition, not inferred from experiments. The resulting sharp lower bounds are matched by explicitly classified constructions. The four disjoint classes count to the formulas in RESULT.md. The accompanying executable independently reconstructs the underlying graphs and checks all minimum sets for 24 small profiles, then checks many larger constructed configurations.
+PASS
 
-## Originality — PASS, with residual risks
+For a+b>=3, classify B(selected)/W(unselected) along each short or long arm using the requirement that each white vertex have a black witness with exactly one white neighbor. With black hub, allowed two-arm BW/WB/BB and three-arm BBW/BWB/WBB/WWB/BBB; the only one-black long pattern WWB consumes the hub as unique white-neighbor witness and can occur once. Equality in size a+2b (b>=1) requires one WWB and all other long arms BBW/BWB plus all short arms BW, giving b*2^(b-1). With white hub, equality uses all short arms WB, all long arms BBW/BWB/WBB, at least one BBW to witness the center, giving 3^b-2^b. For b=0 black hub gives 2^a, white hub gives a, each of size a+1. Count invariant of a for b>=1 and exact boundary a+b>=3 follow. Independent all-subset witness-condition enumeration verified (a,b)=(3,0),(0,3),(2,1),(1,2),(2,2),(3,1), with respective (gamma,count) (4,11),(6,31),(4,2),(5,9),(6,9),(5,2). General tree gamma_sp(T)=order-matching is credited, not claimed novel.
 
-The nearest full-text article on super-domination enumeration (Ghanbari, Jäger, Lehtilä, 2022/2024, arXiv:2209.01795, §§6–7) counts minimum sets in paths, cycles, friendship graphs and a few other families, and proposes enumerating minimum sets in trees as a question. Bujtás, Ghanbari and Klavžar (2023, arXiv:2302.08862, Theorem 3.1) settle the *numerical value* of super domination for every tree via maximum matchings; that known theorem subsumes the minimum-cardinality part here but does not enumerate the sets or imply their exact multiplicity by itself. A published result on one-leaf coronas is not applicable because the spiders here have no leaf adjacent to the hub, whereas coronas require a private leaf at each base vertex. Searches for spider/starlike-tree enumeration, exact formula aliases, polynomial coefficients and the two arm-length parameters found no covering statement. Mere absence from search results is not a proof of uniqueness.
+## originality
 
-A relevant 2024 work of Kaidash, *Super Domination Polynomial of a Graph* (DOI 10.1007/978-3-031-73365-9_6), gives formulas for unnamed families in its accessible abstract. The full chapter could not be read; there remains a genuine possibility of a previously known special coefficient. This is an identified bibliographic risk, not a claim of negative full-text evidence.
+PASS
 
-## Value — PASS
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimum super dominating sets spiders arms length two three enumeration). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
 
-Counting all optima in trees is a directly stated research direction of the 2022 enumeration paper. The two-/three-edge spider family is a natural labeled two-parameter subclass of trees, not an arbitrary numerical slice. The result yields a complete structural classification and explains the nonobvious phenomenon that the number of minimum configurations ceases to depend on the number of length-two arms as soon as one length-three arm is present. It separates the known minimum numerical invariant from previously unaccounted multiplicity and supplies a reusable local-arm method for longer subdivisions.
+## value
 
-## Boundaries
+PASS
 
-The theorem does not address length-one or length-four-plus arms, general tree enumeration, or all coefficients of the super domination polynomial. Its theoretical correctness depends on the explicit case analysis in RESULT.md, not on the finite verification runs. Unindexed prior results and the inaccessible 2024 chapter remain limitations.
+The number of minimum sets, unlike their minimum size, is a natural structural invariant of finite spiders and an explicitly proposed enumeration problem for trees. The surprising independence from short-arm count for b>=1 is explained by a complete local private-neighbor classification, not mechanical restatement of a known matching formula.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

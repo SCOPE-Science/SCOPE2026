@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:45:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a+b>=3, classify B(selected)/W(unselected) along each short or long arm using the requirement that each white vertex have a black witness with exactly one white neighbor. With black hub, allowed two-arm BW/WB/BB and three-arm BBW/BWB/WBB/WWB/BBB; the only one-black long pattern WWB consumes the hub as unique white-neighbor witness and can occur once. Equality in size a+2b (b>=1) requires one WWB and all other long arms BBW/BWB plus all short arms BW, giving b*2^(b-1). With white hub, equality uses all short arms WB, all long arms BBW/BWB/WBB, at least one BBW to witness the center, giving 3^b-2^b. For b=0 black hub gives 2^a, white hub gives a, each of size a+1. Count invariant of a for b>=1 and exact boundary a+b>=3 follow. Independent all-subset witness-condition enumeration verified (a,b)=(3,0),(0,3),(2,1),(1,2),(2,2),(3,1), with respective (gamma,count) (4,11),(6,31),(4,2),(5,9),(6,9),(5,2). General tree gamma_sp(T)=order-matching is credited, not claimed novel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bujtás et al. prove gamma_sp(T)=|V|-nu(T) for all trees. Ghanbari et al. enumerate minimum super dominating sets on paths/cycles/friendship graphs."
+        ],
+        "reasoning": "General matching value covers the gamma formula but not multiplicity; path and friendship set counts are different families, with degree>=3 excluding path and tree property excluding friendship.",
+        "searches": [
+          "minimum super dominating sets spiders arms length two three enumeration",
+          "arXiv:2302.08862 Theorem 3.1",
+          "arXiv:2209.01795"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.01795",
+        "https://arxiv.org/abs/2302.08862",
+        "https://doi.org/10.1007/978-3-031-73365-9_6",
+        "https://sciact.math.nsc.ru/public/article/5672/en"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching formula fixes only minimum cardinality a+2b or a+1, while even equal-matching-number trees can have different numbers of minimum super dominating sets."
+        ],
+        "reasoning": "The new enumerator and equality cases cannot be deduced from gamma alone; e.g. b>=1 count varies with b but not a, requiring local witness analysis.",
+        "searches": [
+          "arXiv:2302.08862",
+          "arXiv:2209.01795"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Super domination is defined by a selected private-neighbor witness, not ordinary domination or power domination. The general tree size formula arises via maximum matching."
+        ],
+        "reasoning": "The exact multiplier 3^b-2^b+b*2^(b-1), the b=0 term 2^a+a and full optimizer patterns are not supplied by the general size theorem.",
+        "searches": [
+          "minimum super dominating sets spiders arms length two three enumeration",
+          "arXiv:2209.01795",
+          "arXiv:2302.08862"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kaidash (2024) introduces the full super-domination polynomial and mentions formulas for some graph families in abstract; the full chapter could not be accessed, so its family list is unknown."
+        ],
+        "reasoning": "No fabricated NOT_COVERING claim: this directly relevant incomplete primary comparison remains a residual priority risk; the result is provisionally original by best of knowledge after broader sources and searches.",
+        "searches": [
+          "minimum super dominating sets spiders arms length two three enumeration",
+          "DOI:10.1007/978-3-031-73365-9_6",
+          "Resultary search: minimum super dominating sets spiders arms length two three enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimum super dominating sets spiders arms length two three enumeration). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.",
+      "residual_risks": [
+        "Kaidash 2024 chapter is a plausible source of a stronger coefficient formula; full text unavailable due disconnected Oxford VPN. The access limitation is not affirmative novelty evidence.",
+        "A general enumeration theorem for all spiders might dominate this formula but was not located; no categorical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PATH_CYCLE_FRIENDSHIP_NOT_THIS_SPIDER",
+          "evidence": "The paper explicitly treats minimum-super-domination-set counts for paths/cycles/friendship, with proposed tree enumeration problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01795",
+          "material_read": "Primary arXiv full-text, graph-class definitions, enumeration sections and closing open tree-count questions (including relevant rendered PDF page).",
+          "method": "Full arXiv paper/sections inspected",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "most relevant published minimum-set counts"
+        },
+        {
+          "assessment": "COVERS_MINIMUM_SIZE_ONLY",
+          "evidence": "gamma_sp(T)=|V|-nu(T), not general number of minimum sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.08862",
+          "material_read": "Primary theorem 3.1 and relevant text, including rendered PDF theorem page.",
+          "method": "Primary PDF and rendered theorem page",
+          "title": "Computational complexity aspects of super domination",
+          "trigger": "general tree theorem potential implication"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract says explicit super-domination polynomials for some families but does not identify whether short-arm spiders occur; cannot assess whole chapter as non-covering.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-73365-9_6",
+          "material_read": "Author/publisher/CRIS abstract, bibliographic description and lawful discovery; not full theorem text. Arxiv and lawful OA full text unavailable, authenticated institutional request returned vpn_disconnected.",
+          "method": "Lawful abstract and attempted authorized institutional retrieval",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "potential published stronger coefficient polynomial for family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of minimum sets, unlike their minimum size, is a natural structural invariant of finite spiders and an explicitly proposed enumeration problem for trees. The surprising independence from short-arm count for b>=1 is explained by a complete local private-neighbor classification, not mechanical restatement of a known matching formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2209.01795",
+    "https://arxiv.org/abs/2302.08862",
+    "https://doi.org/10.1007/978-3-031-73365-9_6",
+    "https://sciact.math.nsc.ru/public/article/5672/en",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/minimum-super-dominating-sets-in-spiders-with-two-and-three-edge--acd7a3e1ecbd/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only actual finite cases listed under correctness were re-enumerated; infinite claims rely on the independently reconstructed package proof, not the finite checks.",
+    "No publication changes have been made; operational fields must be removed before publication.",
+    "Originality assessment is best-of-knowledge, with genuine prior-literature risks separately retained."
+  ],
+  "residual_risks": [
+    "Kaidash 2024 chapter is a plausible source of a stronger coefficient formula; full text unavailable due disconnected Oxford VPN. The access limitation is not affirmative novelty evidence.",
+    "A general enumeration theorem for all spiders might dominate this formula but was not located; no categorical priority certificate."
+  ],
+  "schema_version": 1
+}
