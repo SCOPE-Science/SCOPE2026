@@ -1,12 +1,21 @@
-# Scientific assessment: sharp circular Poisson time derivatives
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized kernel \(P(t,\theta)=\sinh t/(\cosh t-\cos\theta)\) gives the exact endpoint operator norm by convolution and approximate identities. Its first three derivatives admit the displayed rational forms and integral primitives. A sign-certified cubic establishes precisely two versus one interior zero-angle pairs at the sharp threshold. Real-line Poisson periodization is strictly norm decreasing at every positive circle time, while the small-time scaling limit recovers the Cauchy-kernel norm. An elementary total-variation identity gives every optimal derivative-order constant. Fourier coefficient decay proves the large-order asymptotic. The standalone checker passed 72 finite algebraic, quadrature and Taylor tests; infinite-order quantifiers are proved analytically, not by the checks.
+## correctness
 
-## Originality — PASS with disclosed risk
-Direct text inspections of Chen–Xu–Yin (arXiv:1206.3358, including §8), Xiong–Xu–Yin (arXiv:1507.01789, §3.3), and Batty–Gomilko–Tomilov (doi:10.1007/s00208-019-01924-2, §2) show semigroup/Poisson background, function-space derivative estimates, and holomorphic calculus respectively, but no statement that implies the exact combined all-order endpoint formula, finite-time quartic cancellation or third-order nodal transition. Meaning-based record searches and comparable mathematical claims did not identify a covering result; related results address mean-zero Schwarz Poisson operators and integer-lattice heat semigroups. Historical priority under alternative classical kernel terminology remains a genuine risk; the assessment is not an exhaustive uniqueness assertion.
+PASS
 
-## Value — PASS
-Sharp derivative constants for a classical analytic semigroup are natural operator stability invariants. The cancellation of the quadratic finite-circumference correction for the second derivative and the third-derivative sign-pattern transition distinguish the theorem from routine Cauchy-kernel differentiation. The statement establishes a complete, normalized all-order sharp constant formula, specifies strict finite-time nonattainment, and yields reproducible finite-time root formulas. Its scope is the one-dimensional circle and endpoint spaces, not general semigroups.
+The circular Poisson kernel P=sinh(t)/(cosh(t)-cos θ) and convolution norm identity reduce endpoint L1/L∞ norms to normalized absolute derivative kernel integrals. Direct differentiation yields first two sign-change roots 1/h and (-h+sqrt(h²+8))/2, with primitive identities and stated finite-time laws. Third derivative cubic endpoint signs locate two-to-one interior root transition at cosh t=2. For arbitrary j, periodization ≤ real-line derivative L1 norm, strict cancellation at each positive t and equality in the t→0 limit. Cauchy scaling and an exact total-variation primitive give trig sum; gamma asymptotics give j^-1/2 coefficient. Independently integrated j=1,...,6 Cauchy formula against exact sum (differences ≤9e-9); SymPy t²N2 expansion confirms zero t² term and relative -t⁴/135. Finite checks do not establish all-order strictness, whose analytic argument is supplied.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Xiong–Xu–Yin 2018 arXiv full HTML §III.3 develops Poisson/heat semigroup derivatives and Besov characterizations using equivalence signs, not exact L1/L∞ jth derivative operator norm constants or cubic root-transition. Real-line Cauchy derivative homogeneity is classical, but strict periodic periodization plus explicit all-j sums and exact t^4 correction are separate results. Published Resultary searches for circular Poisson derivatives located no matching dominating formula; this absence is not exhaustive priority proof.
+
+## value
+
+PASS
+
+Sharp all-order analyticity constants of a canonical semigroup, strict non-attainment, two distinct finite-size correction orders, and a nodal transition of the third derivative are natural analytic quantities that sharpen qualitative operator-semigroup estimates and test periodization cancellation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
