@@ -1,0 +1,43 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T09:02:40.305899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact source conditioning gives nD=2+sum_{r<=a}p^r+sum_{r<=c}p^r+sum_{r=1}^{b-1}(p^r+p^{b-r}-p^b), where a+b+c=n-1, a,c>=0, b>=1. Difference on moving a>0 one step outward equals p^b(1+b(1-p))-p^a; H(a,b)=p^{b-a}(1+b(1-p)) grows strictly with a and decreases with b, so its least permissible value is g_n=p^{n-3}(1+(n-2)(1-p)). For g_n>1 every outward move improves; at equality only the final one-step moves tie; for g_n<1 moving endpoint inward improves. g_n has unique interior peak at p=1-(n-2)^(-2) above one and hence unique interior root, with p=1 also a boundary root. Taylor expansion at p=1-y/(n-2)^2 proves the constant 2 limit. Separately exhaustively enumerated percolated edges, every source and every sentinel pair for n=4..8 and p=1/4,1/2,3/4,9/10 with rational arithmetic: all formulas matched. The finite test does not prove arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Newman arXiv:cond-mat/0205009 Sections II–III",
+        "Holme arXiv:1708.06456 discovery time objective",
+        "Christakis–Fowler arXiv:1004.4792 (friend lead-time background)",
+        "Resultary 12-ranked semantic search",
+        "Exact frozen RESULT.md and independent per-edge/exhaustive n<=8 enumerator"
+      ],
+      "rationale": "Newman establishes percolation representation and Holme studies epidemic sensor importance using discovery time; neither gives this exact unconditional detection probability placement threshold for all n. The exchange argument isolates a new sharp near-certain-transmission crossover and scaling.",
+      "residual_risks": [
+        "Older network reliability or path coverage literature may express the same exchange identity under another observable name.",
+        "Below p_n the theorem does not classify the interior optimum; the claim correctly limits itself to endpoints being suboptimal."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The non-obvious fact that endpoint placement becomes uniquely optimal only in a sharply quantified near-certain-transmission window is a natural finite-network sensor-placement phase boundary. The exact exchange law and 2/(n-2)^2 scale are useful beyond a small numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Newman arXiv:cond-mat/0205009 Sections II–III",
+    "Holme arXiv:1708.06456 discovery time objective",
+    "Christakis–Fowler arXiv:1004.4792 (friend lead-time background)",
+    "Resultary 12-ranked semantic search",
+    "Exact frozen RESULT.md and independent per-edge/exhaustive n<=8 enumerator"
+  ],
+  "disposition": "passed",
+  "limitations": "Single uniform seed, homogeneous independent undirected bond percolation, two perfect sentinels, path only; objective eventual detection, not expected detection time.",
+  "residual_risks": [
+    "Older network reliability or path coverage literature may express the same exchange identity under another observable name.",
+    "Below p_n the theorem does not classify the interior optimum; the claim correctly limits itself to endpoints being suboptimal."
+  ],
+  "schema_version": 1
+}

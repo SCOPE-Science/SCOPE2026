@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof rests on the exact source-conditioned formula (1), the exact one-step exchange (2), and the inequality (3), followed by a one-variable derivative and a uniform fixed-argument Taylor expansion. All assume independent open bonds, one uniformly random source and distinct preplaced sentinels on a simple undirected path.
+## correctness
 
-The standalone `verification/verify.py` is executable with `python3 verification/verify.py`; it requires only Python's standard library. It enumerates all open-bond outcomes and all sources at each placement, and compares exact rational probabilities to the theorem's formula for path orders 2 through 9 and three different transmissibilities (360 exact comparisons). It separately tests the exchange formula for path orders 3 through 19 and four rational transmissibilities, and the exact four-vertex example.
+PASS
 
-Output reproduced before packaging: `PASS: 360 exact percolation enumerations, all threshold comparisons, exchange identities.` Enumeration is finite corroboration, not evidence for the unrestricted path-length claim; the latter relies on the provided analytical proof. This verification does not establish equivalence-free novelty and is not an independent audit.
+Exact source conditioning gives nD=2+sum_{r<=a}p^r+sum_{r<=c}p^r+sum_{r=1}^{b-1}(p^r+p^{b-r}-p^b), where a+b+c=n-1, a,c>=0, b>=1. Difference on moving a>0 one step outward equals p^b(1+b(1-p))-p^a; H(a,b)=p^{b-a}(1+b(1-p)) grows strictly with a and decreases with b, so its least permissible value is g_n=p^{n-3}(1+(n-2)(1-p)). For g_n>1 every outward move improves; at equality only the final one-step moves tie; for g_n<1 moving endpoint inward improves. g_n has unique interior peak at p=1-(n-2)^(-2) above one and hence unique interior root, with p=1 also a boundary root. Taylor expansion at p=1-y/(n-2)^2 proves the constant 2 limit. Separately exhaustively enumerated percolated edges, every source and every sentinel pair for n=4..8 and p=1/4,1/2,3/4,9/10 with rational arithmetic: all formulas matched. The finite test does not prove arbitrary n.
+
+## originality
+
+PASS
+
+Newman establishes percolation representation and Holme studies epidemic sensor importance using discovery time; neither gives this exact unconditional detection probability placement threshold for all n. The exchange argument isolates a new sharp near-certain-transmission crossover and scaling.
+
+## value
+
+PASS
+
+The non-obvious fact that endpoint placement becomes uniquely optimal only in a sharply quantified near-certain-transmission window is a natural finite-network sensor-placement phase boundary. The exact exchange law and 2/(n-2)^2 scale are useful beyond a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

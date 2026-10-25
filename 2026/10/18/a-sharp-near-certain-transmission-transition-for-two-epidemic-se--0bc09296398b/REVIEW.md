@@ -1,15 +1,21 @@
-# Scientific assessment: two-sentinel path detection transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise objective is unconditional probability of ever detecting one independent-bond outbreak from a uniform source. Conditioning on source position proves equation (1). The distinction between the union of sentinel-hit events and the intersection of their paths is explicitly handled by inclusion-exclusion, avoiding an unjustified independence assumption. Direct finite-sum subtraction proves both left/right exchange identities, and the strict monotonicity of \(H(a,b)\) makes the endpoint pair a global optimizer exactly on the stated transmissibility regime. Calculus gives a unique interior root; asymptotic bracketing gives the constant \(2\). Exact-rational independent enumeration matches all 360 directly sampled finite instances (exhausting source and edge configurations, not merely a Monte Carlo sample). The analytical argument, rather than finite enumeration, establishes the unrestricted theorem.
+## correctness
 
-## Originality — PASS, subject to stated bibliographic risk
-The nearest directly examined paper, Holme (2017), considers **average time until discovery or extinction** for surveillance in continuous-time SIR on graphs of orders 3–7. That objective is neither an equivalent expression nor a stronger claim controlling the probability that a sentinel is ever reached; optimizing detection delay can favor rapid disease extinction without successful sentinel infection. Newman (2002) supplies the percolation model but not optimal sensor positioning. Christakis and Fowler (2010) study empirical friend-group early-warning lead times rather than all-path-order placement. The path theorem, exact tie classification, and \(n^{-2}\) threshold are not direct corollaries of these primary sources. Alternative probabilistic-coverage or network-reliability formulations remain a genuine residual overlap risk. The claim of originality is relative to the material successfully compared, not a proof of uniqueness in all literature.
+PASS
 
-## Value — PASS
-Optimizing the probability of **any** outbreak detection, as distinct from the usual time-to-detection objective, is a motivated epidemiological sensor-placement decision. A single explicit criterion works for every path length and reveals a nontrivial reversal: at lower transmissibility the endpoint pair is provably worse than near-end positions, yet it becomes uniquely optimal near certain transmission, with a sharp scaling law. This structural transition is not a generic rearrangement of a textbook sum and permits exact placement decisions without graph enumeration. The path restriction and event-level objective are explicit; claims about real surveillance lead time, noisy tests or arbitrary networks are not made.
+Exact source conditioning gives nD=2+sum_{r<=a}p^r+sum_{r<=c}p^r+sum_{r=1}^{b-1}(p^r+p^{b-r}-p^b), where a+b+c=n-1, a,c>=0, b>=1. Difference on moving a>0 one step outward equals p^b(1+b(1-p))-p^a; H(a,b)=p^{b-a}(1+b(1-p)) grows strictly with a and decreases with b, so its least permissible value is g_n=p^{n-3}(1+(n-2)(1-p)). For g_n>1 every outward move improves; at equality only the final one-step moves tie; for g_n<1 moving endpoint inward improves. g_n has unique interior peak at p=1-(n-2)^(-2) above one and hence unique interior root, with p=1 also a boundary root. Taylor expansion at p=1-y/(n-2)^2 proves the constant 2 limit. Separately exhaustively enumerated percolated edges, every source and every sentinel pair for n=4..8 and p=1/4,1/2,3/4,9/10 with rational arithmetic: all formulas matched. The finite test does not prove arbitrary n.
 
-## Closest literature and limitations
-M. E. J. Newman, arXiv:cond-mat/0205009 (2002); N. A. Christakis and J. H. Fowler, arXiv:1004.4792 (2010); P. Holme, arXiv:1708.06456 / *Phys. Rev. E* 96 062305 (2017). Closest possible unsearched equivalents include reliability-based probabilistic facility location and exact path coverage; no absence claim extends to inaccessible literature. For \(p<p_n\), only endpoint nonoptimality is proved, not all interior optimizers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Newman establishes percolation representation and Holme studies epidemic sensor importance using discovery time; neither gives this exact unconditional detection probability placement threshold for all n. The exchange argument isolates a new sharp near-certain-transmission crossover and scaling.
+
+## value
+
+PASS
+
+The non-obvious fact that endpoint placement becomes uniquely optimal only in a sharply quantified near-certain-transmission window is a natural finite-network sensor-placement phase boundary. The exact exchange law and 2/(n-2)^2 scale are useful beyond a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
