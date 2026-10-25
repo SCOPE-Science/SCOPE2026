@@ -1,12 +1,21 @@
-# Review of the dyadic Mersenne-row Narayana classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The binomial-product formula holds as an identity of rational numbers and each factor lies in the ring of 2-adic integers. Its modulus-\(2^s\) reduction discards precisely terms with index not divisible by \(2^{r-s+1}\). The cancellation of the binomial signs against the inverse of \(2^r-1\) is exact. Distinct block interiors and their sole interblock transitions partition the \(2^r-1\) entries, proving all stated multiplicities. The modulus-16 values follow from seven explicit modular factors. An independent integer-formula checker passed 56,780 entries; the unrestricted assertion is proved algebraically rather than inferred experimentally.
+## correctness
 
-## Originality — PASS, with recorded literature risk
-Bóna–Sagan (arXiv:math/0505382; entire short paper inspected) gives divisibility and the parity behavior of Mersenne rows, but neither a general modulus-\(2^s\) residue census nor the four-residue, exceptional-position law modulo sixteen. The 2013 article on fast binomial coefficients modulo powers of two concerns computing individual coefficients and does not specify Narayana row histograms. Searches of related binomial/Narayana congruences and publicly indexed findings did not identify an equivalent uniform classification. These negative searches alone do not establish novelty. An unindexed generalization could imply the result; the 2006 Eu–Liu–Yeh combinatorial-congruence paper could not be fully inspected, though its accessible abstract addresses different sequences.
+PASS
 
-## Value — PASS
-Mersenne rows are the canonical all-odd rows of the Narayana triangle from the classical parity theorem. Resolving their higher dyadic behavior is a natural next invariant; unlike a list of sampled residues, the result gives a uniform finite-state product law at every precision, an exact formula for every multiplicity, and a striking four-residue rigidity at modulus sixteen with completely identified exceptional positions. This is a natural complete classification, not an arbitrary numerical slice. Scope is restricted to Mersenne row indices and \(r\ge s\), with no claim for other moduli or general rows.
+For all r>=s>=2 with n=2^r−1, t=2^{r−s+1}, B=2^{s−1}, M=2^s, use binom(n,k)=(-1)^k product_{j=1}^k(1−2^r/j) in Z_2. Every j not divisible by t has v2(2^r/j)>=s so its factor is 1 mod M. The only nontrivial j=mt,1<=m<B, yield w_m=1−2^{s−1−v2(m)} oddpart(m)^−1 mod M; cumulative F_j. Since n^−1=−1 mod M, Narayana(n,k)=n^−1 binom(n,k)binom(n,k+1) reduces to adjacent F_floor(k/t)F_floor((k+1)/t). Each of B blocks has t−1 interior positions with squared F, and there are B−1 boundaries F_{m−1}F_m; last terminal k=n excluded, giving exact total Bt−1. Directly computed w=(9,13,9,15,9,5,9) mod16, F=(1,9,5,13,3,11,7,15), squared (1,1,9,9,9,9,1,1), boundaries (9,13,1,7,1,13,9): hence precisely 1 and 9 each 2^{r−1}−2, 13 twice at k=2t−1,6t−1, and 7 once at k=4t−1. Independently recomputed actual binomial Narayana integers and residues for r=2..9, s<=min(r,6), each target; infinite r,s covered algebraically.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bóna–Sagan 2005 proves prime divisibility of Narayana numbers and in particular oddness for these Mersenne rows. Andreica 2013 supplies modular binomial computation algorithms, not a uniform complete row-residue spectrum. The exact finite-factor all-r,s histogram and locations of the sparse mod-16 exceptions are additional structure. Eu–Liu–Yeh 2006 is a plausible combinatorial congruence source; only abstract material was accessible, and authorized Oxford request returned vpn_disconnected. Best-of-knowledge PASS retains this risk instead of asserting absence of overlap from unavailable full text.
+
+## value
+
+PASS
+
+Narayana rows are natural enumerative objects; classifying all residues and their exact multiplicities at arbitrary fixed binary precision is a meaningful self-contained full classification, not just a few values. The exceptionally sparse mod-16 values have precise index locations, providing usable refined information far beyond parity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T19:10:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/18/exact-dyadic-residue-spectra-of-narayana-numbers-in-mersenne-row--c391e761b117/RESULT.md Git blob 14eac123572299c72eb5a354001972d6c376f450 tree 400310a278c65c9d90b5f96a75ee214aa5a0e68a",
+        "Inspected original 2026/10/18/exact-dyadic-residue-spectra-of-narayana-numbers-in-mersenne-row--c391e761b117/verify.py Git blob 2af52670eacc372f5d7628f5ebdaaf4b74b297da",
+        "Independent arithmetic checks /mnt/data/scope_worker_08_20261023T1854_delivery/independent_checks.py with checked output independent_checks_output.txt"
+      ],
+      "rationale": "For all r>=s>=2 with n=2^r−1, t=2^{r−s+1}, B=2^{s−1}, M=2^s, use binom(n,k)=(-1)^k product_{j=1}^k(1−2^r/j) in Z_2. Every j not divisible by t has v2(2^r/j)>=s so its factor is 1 mod M. The only nontrivial j=mt,1<=m<B, yield w_m=1−2^{s−1−v2(m)} oddpart(m)^−1 mod M; cumulative F_j. Since n^−1=−1 mod M, Narayana(n,k)=n^−1 binom(n,k)binom(n,k+1) reduces to adjacent F_floor(k/t)F_floor((k+1)/t). Each of B blocks has t−1 interior positions with squared F, and there are B−1 boundaries F_{m−1}F_m; last terminal k=n excluded, giving exact total Bt−1. Directly computed w=(9,13,9,15,9,5,9) mod16, F=(1,9,5,13,3,11,7,15), squared (1,1,9,9,9,9,1,1), boundaries (9,13,1,7,1,13,9): hence precisely 1 and 9 each 2^{r−1}−2, 13 twice at k=2t−1,6t−1, and 7 once at k=4t−1. Independently recomputed actual binomial Narayana integers and residues for r=2..9, s<=min(r,6), each target; infinite r,s covered algebraically.",
+      "residual_risks": [
+        "Indices are zero-based 0<=k<n and require r>=s>=2; no arbitrary row, modulus or positions are asserted.",
+        "Computational check is bounded, but all-precision factor reduction is symbolic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna–Sagan criterion is mod primes only; Andreica evaluates individual binomial residues algorithmically, without reported all-row Narayana multiplicities; Eu–Liu–Yeh abstract describes combinatorial congruences but full text inaccessible."
+        ],
+        "reasoning": "These sources do not establish stronger statement with the same row and modulo-2^s implications in inspected portions; inaccessible source remains explicit risk.",
+        "searches": [
+          "Bóna–Sagan arxiv:math/0505382",
+          "Andreica 2013 modulo powers of 2 algorithm",
+          "Eu, Liu, Yeh 2006 DOI 10.1111/j.1467-9590.2006.00337.x"
+        ]
+      },
+      "checked_sources": [
+        "Bóna–Sagan 2005 arxiv:math/0505382",
+        "Andreica 2013 DOI 10.1155/2013/751358",
+        "Eu–Liu–Yeh 2006 DOI 10.1111/j.1467-9590.2006.00337.x (abstract only)",
+        "OEIS Narayana parity entries",
+        "Resultary search exact query: Narayana Mersenne 2^r -1 row mod 16 multiplicities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results imply individual modular computability or 2-adic unitness, not the asserted explicit independent-of-r factor table plus exceptional positions."
+        ],
+        "reasoning": "An extra valuation-of-product argument and block transition census is essential; plausible unavailable 2006 source is a remaining priority uncertainty.",
+        "searches": [
+          "Bóna–Sagan 2005 full arxiv material",
+          "Andreica 2013 full online article",
+          "Eu–Liu–Yeh abstract only"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Narayana definition is binomial product / n; Bóna–Sagan prime divisibility implies all odd in these rows but not which four residues mod16 occur."
+        ],
+        "reasoning": "Higher-precision row histograms are not simply restatements of parity; the factor-prefix representation is derived from the old binomial formula.",
+        "searches": [
+          "Bóna and Sagan arxiv:math/0505382",
+          "Andreica DOI 10.1155/2013/751358",
+          "Resultary search exact query: Narayana Mersenne 2^r -1 row mod 16 multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Parity database records all-odd behavior but not four specific mod-16 multiplicities or uniform F_j prefix finite-depth spectrum."
+        ],
+        "reasoning": "The precise locations and counts of residues 7,13 are nontrivial finer data beyond known parity tables.",
+        "searches": [
+          "OEIS parity Narayana rows",
+          "Resultary search exact query: Narayana Mersenne 2^r -1 row mod 16 multiplicities"
+        ]
+      },
+      "rationale": "Bóna–Sagan 2005 proves prime divisibility of Narayana numbers and in particular oddness for these Mersenne rows. Andreica 2013 supplies modular binomial computation algorithms, not a uniform complete row-residue spectrum. The exact finite-factor all-r,s histogram and locations of the sparse mod-16 exceptions are additional structure. Eu–Liu–Yeh 2006 is a plausible combinatorial congruence source; only abstract material was accessible, and authorized Oxford request returned vpn_disconnected. Best-of-knowledge PASS retains this risk instead of asserting absence of overlap from unavailable full text.",
+      "residual_risks": [
+        "Full text of Eu–Liu–Yeh 2006 could not be obtained through lawful OA/arxiv or authorized Oxford owing to VPN disconnection; possible overlap unverified.",
+        "No statement for non-Mersenne rows or odd-prime-power moduli."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARITY_ONLY",
+          "evidence": "Prime dividing criterion includes the Mersenne parity implication, no mod-16 exact row histogram.",
+          "identifier_or_url": "arxiv:math/0505382",
+          "material_read": "complete short primary arxiv full-text rendering and prime-divisibility theorem statements",
+          "method": "lawful OA arxiv HTML",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "exact Narayana objects and Mersenne-row parity"
+        },
+        {
+          "assessment": "POINTWISE_COMPUTABILITY_ONLY",
+          "evidence": "Computes individual binomial modular residues but does not assert uniform Narayana entire-row 2^s multiplicity classification.",
+          "identifier_or_url": "DOI:10.1155/2013/751358",
+          "material_read": "full accessible publisher HTML, methods and theorem scope",
+          "method": "lawful open publisher text",
+          "title": "A Fast Algorithm for Computing Binomial Coefficients Modulo Powers of Two",
+          "trigger": "higher dyadic precision exact algorithms might imply classification"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_UNDETERMINED",
+          "evidence": "Abstract lists related combinatorial congruences, no evidence sufficient to exclude an implicit relevant theorem.",
+          "identifier_or_url": "DOI:10.1111/j.1467-9590.2006.00337.x",
+          "material_read": "title, bibliographic data and publisher abstract only; no full text could be read",
+          "method": "OA/arxiv unsuccessful; Oxford authorized access returned vpn_disconnected; no retry or bypass",
+          "title": "On the Congruences of Some Combinatorial Numbers",
+          "trigger": "plausible broader combinatorial congruence article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 14eac123572299c72eb5a354001972d6c376f450 and independently checked mathematical reasoning",
+        "Bóna–Sagan 2005 arxiv:math/0505382",
+        "Andreica 2013 DOI 10.1155/2013/751358",
+        "Eu–Liu–Yeh 2006 DOI 10.1111/j.1467-9590.2006.00337.x (abstract only)",
+        "OEIS Narayana parity entries"
+      ],
+      "rationale": "Narayana rows are natural enumerative objects; classifying all residues and their exact multiplicities at arbitrary fixed binary precision is a meaningful self-contained full classification, not just a few values. The exceptionally sparse mod-16 values have precise index locations, providing usable refined information far beyond parity.",
+      "residual_risks": [
+        "A broad algorithm could compute each residue, but it does not eliminate the value of the uniform finite-factor classification and closed counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
