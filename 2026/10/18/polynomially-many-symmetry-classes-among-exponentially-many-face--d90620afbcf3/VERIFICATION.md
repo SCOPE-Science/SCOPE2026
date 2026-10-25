@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification of the mixed-theta orbit theorem
 
-Execute `python3 verify_theta.py` with a standard Python 3 installation. The script uses only `itertools`, `collections`, and `math` from the standard library and performs exact integer calculations. It must terminate with `ALL EXACT MIXED-THETA CHECKS PASSED`.
+# Independent mathematical audit
 
-It constructs each graph from two poles, one two-edge path, and \(m\) three-edge paths. For \(m=2,3,4\), it enumerates all assignments of edge increments \(-1,0,1\) on an arbitrary fixed spanning tree, reconstructs every integer-valued potential normalized at the first pole, tests every remaining graph edge, and checks that the tight-edge graph is connected and spanning. This exhaustive method does not presuppose the three-class theorem or that the chosen tree is tight. From this potential set, it independently computes complete symmetry orbits using arm transpositions, pole reversal, and central inversion. It compares the **entire class-tagged orbit-size multiset**, not just the orbit count, to the formula. For \(m=5\), it independently enumerates all facet potentials and tight-edge distributions (but does not compute the symmetry orbits).
+## correctness
 
-The exact passing outputs are \((126,23)\), \((594,48)\), \((3078,94)\) for the facet/orbit counts at \(m=2,3,4\), and \(17010\) facets at \(m=5\). The tight-edge histograms are respectively \(\{6:90,7:36\}\), \(\{8:486,10:108\}\), \(\{10:2754,13:324\}\), and \(\{12:16038,16:972\}\). These are fully exhaustive **finite** checks; the general \(m\) theorem follows from the combinatorial proof in `RESULT.md`. No independent external audit is claimed.
+PASS
+
+Higashitani–Jochemko–Michałek tight-edge criterion reduces facets to integer 1-Lipschitz potentials with connected spanning nonzero-edge graph. Short arm enforces pole difference Δ=0,±1,±2; on long arms admissible words number 6 (Δ0) or 3 (other Δ) and short-arm patterns 2,1,2. S_m permutes long arms, pole swapping and global sign yield explicit letter involutions. Burnside counts six-color multisets with two fixed letters+two swaps (fixed H_m), three-color multisets with outer-color swap (fixed floor(m/2)+1), and short-branch Δ±1 classes with no further multiset identification. Multinomial orbit sizes sum to known total. Independently built color-multiset orbit representatives (not checker source) for m=2,3,4 and found class counts (13,4,6),(32,6,10),(70,9,15): 23,48,94, matching formula. Analytical count proves all m; finite verification is not general proof.
+
+## originality
+
+PASS
+
+Braun–Bruegge 2023 Section4 Proposition 4.6 of 29-page primary paper gives *aggregate facets* for mixed-parity path bundles, including total 2·6^m+6·3^m. Higashitani et al 2018 facet potential criterion and Chen–Davis–Korchevskaia facet graph constructions are prior. These do not determine graph-automorphism-plus-sign orbit classes, explicit multiplicities, or polynomial asymptotic, absent a separately established orbit theorem. A Resultary semantic query returned no same object among inspected top hits. Unindexed orbit census remains possible.
+
+## value
+
+PASS
+
+Exact symmetry-classification of a canonical family of finite-dimensional graph transportation polytopes separates exponentially many facets into O(m^5) types and gives orbit multiplicity; that is a natural and reusable equivariant classification, not just recomputing known total facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

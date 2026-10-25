@@ -1,19 +1,21 @@
-# Review of the mixed-theta facet-orbit theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every integer \(m\ge2\), the connected tight-edge criterion forces precisely the three endpoint-difference classes \(\Delta=0\), \(|\Delta|=2\), and \(|\Delta|=1\). The proof lists all local path words, proves their sufficiency, determines the complete graph automorphism action, and applies Burnside's lemma on six- and three-color multisets. The orbit-size formulas account for every facet. An independent exhaustive potential generator and actual-orbit enumeration agree for \(m=2,3,4\); a further full facet enumeration agrees at \(m=5\). These finite checks corroborate, but do not replace, the analytic proof for all \(m\).
+PASS
 
-## Originality
+Higashitani–Jochemko–Michałek tight-edge criterion reduces facets to integer 1-Lipschitz potentials with connected spanning nonzero-edge graph. Short arm enforces pole difference Δ=0,±1,±2; on long arms admissible words number 6 (Δ0) or 3 (other Δ) and short-arm patterns 2,1,2. S_m permutes long arms, pole swapping and global sign yield explicit letter involutions. Burnside counts six-color multisets with two fixed letters+two swaps (fixed H_m), three-color multisets with outer-color swap (fixed floor(m/2)+1), and short-branch Δ±1 classes with no further multiset identification. Multinomial orbit sizes sum to known total. Independently built color-multiset orbit representatives (not checker source) for m=2,3,4 and found class counts (13,4,6),(32,6,10),(70,9,15): 23,48,94, matching formula. Analytical count proves all m; finite verification is not general proof.
 
-**PASS, subject to residual literature risk.** The general facet criterion is due to Higashitani--Jochemko--Michałek, and Braun--Bruegge's Proposition 4.6 **already implies the total facet count** \(2\cdot6^m+6\cdot3^m\) for the exact graph family treated here. That count and the immediate two-type incidence split are not presented as new. The inspected primary texts and targeted scholarly-record searches did not disclose the asserted closed formula for orbits under \(\operatorname{Aut}(G_m)\times\{\pm1\}\), the three explicit multiset identifications, or their individual orbit sizes. The broader path-bundle enumeration does not itself enumerate group orbits, although it supplies starting data from which a further symmetry analysis is possible. Hidden tables or unindexed equivalent treatments remain a meaningful risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** One length-two arm and repeated length-three arms give the simplest highly symmetric mixed-parity path bundle without a direct edge between the poles. This family has both simplex and nonsimplex facets, and its already-known exponentially large facet census hides a nontrivial polynomial number of natural symmetry types. The theorem provides a complete closed orbit classification in every dimension, including stabilizer-recoverable orbit multiplicities and a precise asymptotic law; it is not a changed parameter in an aggregate-count formula.
+Braun–Bruegge 2023 Section4 Proposition 4.6 of 29-page primary paper gives *aggregate facets* for mixed-parity path bundles, including total 2·6^m+6·3^m. Higashitani et al 2018 facet potential criterion and Chen–Davis–Korchevskaia facet graph constructions are prior. These do not determine graph-automorphism-plus-sign orbit classes, explicit multiplicities, or polynomial asymptotic, absent a separately established orbit theorem. A Resultary semantic query returned no same object among inspected top hits. Unindexed orbit census remains possible.
 
-## Scope and limitations
+## value
 
-The result concerns real graph-metric transportation balls for \(m\ge2\) and the explicitly stated automorphism-plus-negation action, not every possible linear isometry. Independent external validation has not been performed. Published general methods and unindexed exact-object classifications are possible sources of prior implicit or explicit coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact symmetry-classification of a canonical family of finite-dimensional graph transportation polytopes separates exponentially many facets into O(m^5) types and gives orbit multiplicity; that is a natural and reusable equivariant classification, not just recomputing known total facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
