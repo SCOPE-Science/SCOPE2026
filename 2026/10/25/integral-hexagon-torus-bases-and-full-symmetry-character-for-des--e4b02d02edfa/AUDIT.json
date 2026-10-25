@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The equivariant finite deleted-product model is supported by Barnett–Farber [1]. The standalone verifier constructs all 190, 540, and 375 cells and both signed boundaries; verifies D1 D2=0; enumerates all 20 hexagons and 70 disjoint pairs; checks D2 times every torus chain is zero; establishes rank(D2)=340 using an exact F101 rank lower bound and a 35-column unit minor; proves integral saturation by the determinant -1; checks a separate determinant +1 on the 10-orbit; and computes exact Smith factors (339 unit, one 2). The program independently checks all 375 chain coordinates for the full S5×C2 representatives before extracting character traces and irreducible multiplicities. No extrapolation to other graphs is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "An–Knudsen [3], Theorem 1.1 is explicitly for planar graphs, and Example 6.8 gives a nonplanar obstruction in a different graph.",
+        "Farber–Hanbury [2], Proposition 2 identifies homology through an intersection-map kernel but does not characterize minimum-length geometric torus generators for this graph.",
+        "Other published calculations explicitly address Petersen and dodecahedral two-particle configuration spaces, not the nonplanar Desargues incidence graph."
+      ],
+      "reasoning": "A general computational method or Betti-number formula does not by itself cover the explicit orbit-selected primitive lattice and full group character. Planarity-dependent generator theorems are inapplicable. No stronger checked result was found that forces the exact Desargues conclusion as a special case.",
+      "searches": [
+        "An Knudsen second homology graph braid groups geometric generators planar 2020",
+        "graph braid two particles generalized Petersen GP(10,3) Desargues symmetric torus homology",
+        "arxiv:2008.10371v1 Theorem 1.1 Example 6.8",
+        "arxiv:1005.2300v1 Proposition 2 and Corollary 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0903.2180v1 (model and planar graph results)",
+      "arxiv:1005.2300v1 (nonplanar intersection form)",
+      "arxiv:2008.10371v1 (planar toric generator theorem)",
+      "Accessible graph-structure references for Desargues incidence graph, generalized Petersen presentation and automorphism group",
+      "Published summaries of Petersen and dodecahedral two-particle representation computations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proof here requires an explicit -1 determinant on 35 shortest product classes within one 60-element orbit and a +1 determinant on the other 10-element orbit.",
+        "The complete central-complement and S5 character includes 14 trace values and seven Specht constituents with specified central signs.",
+        "The older intersection-form results provide a cellular way to calculate these facts, not their stated specializations; An–Knudsen requires planarity."
+      ],
+      "reasoning": "The claim is not merely the previously known ability to compute graph configuration homology: it fixes a canonical graph, determines its exact shortest geometric-generator orbit decomposition and an integral basis, and supplies the full automorphism representation. Those outputs do not follow by a formal corollary from the compared statements. A future discovered stronger specialized theorem could alter this assessment.",
+      "searches": [
+        "arxiv:0903.2180v1 Lemma 1.1 Theorem 7.3",
+        "arxiv:1005.2300v1 Proposition 2 Corollary 3",
+        "arxiv:2008.10371v1 Theorem 1.1 Example 6.8",
+        "bipartite double Petersen graph two-particle deleted symmetric product H2 torus basis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Desargues graph is the two-/three-subset incidence graph and GP(10,3), checked by explicit graph isomorphism in verify.py.",
+        "Barnett–Farber [1] works with the ordered deleted product and supplies the equivariant finite model, not a shortest-cycle orbit lattice.",
+        "Farber–Hanbury [2] describes the ordered second homology as the kernel of the general intersection form; no Desargues-specific orbit or character appears in the inspected sections."
+      ],
+      "reasoning": "The unordered quotient and signed torus classes used here are natural equivalents of two-point graph-braid homology, but neither general model nor the Petersen double-cover relationship states a thirty-five-column unimodular hexagon-torus basis or an S5×C2 character. The graph covering need not map collision-free pairs to collision-free pairs, so no immediate pullback carries the Petersen computation to this one.",
+      "searches": [
+        "Desargues graph graph braid group two particles configuration space homology genus",
+        "bipartite double Petersen graph two-particle deleted symmetric product H2 torus basis",
+        "graph braid configuration spaces Desargues graph 2 particles hexagon torus integral lattice 35",
+        "arxiv:0903.2180v1",
+        "arxiv:1005.2300v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible graph-property tables identify 20 vertices, 30 edges, girth six and automorphism order 240, but not the asserted two-particle homology classes.",
+        "Targeted searches retrieved unrelated calculations of hexagon cycles and other graph configuration-space modules rather than an exact 70-pair, 60/10-orbit lattice table."
+      ],
+      "reasoning": "The standard graph census data alone do not give the 375-by-70 cellular product matrix, its unimodular 60-orbit minor, or the fourteen character values. A matching exact table was not located; this negative search is treated as limited evidence, not uniqueness proof.",
+      "searches": [
+        "Desargues graph disjoint hexagon cycle pairs configuration H2 35 60 generators 10 orbit",
+        "20-vertex Desargues Levi graph two point configuration 70 disjoint hexagon tori orbits 60 and 10 primitive lattice integral basis",
+        "Desargues graph S5 x C2 action unordered two-particle graph braid second homology 35 dimensional Specht irreducible decomposition (3,1,1) (2,2,1)"
+      ]
+    },
+    "rationale": "The proposed sixty-orbit integral basis and complete second-homology action of the Desargues incidence graph are not specified or implied by the inspected Barnett–Farber, Farber–Hanbury and An–Knudsen theorems. General graph-braid intersection machinery provides the chain model, while the new shortest-orbit integer minors and character calculation require graph-specific facts. Related Petersen and dodecahedral calculations concern distinct graphs and do not imply the claimed configuration-space module. Targeted semantic and mathematical-equivalence searches returned no directly covering theorem; residual indexing risk remains.",
+    "residual_risks": [
+      "A specialized unindexed computation or inaccessible graph-braid monograph could already describe the same Desargues orbit lattice or character.",
+      "General intersection-form machinery may admit additional consequences not worked out explicitly in the inspected passages.",
+      "No external expert, independent formal audit, or publication-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general chain-model equivalence and planar techniques; does not give the Desargues orbit basis or full character.",
+        "evidence": [
+          "Lemma 1.1 and its discussion, manuscript pages 2–4",
+          "Opening planar-domain theorem and references to graph cycle intersection method."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0903.2180",
+        "material_read": "Initial sections and Lemma 1.1, including full description of 0-, 1- and 2-cells and displayed equivariant deformation retraction; examined PDF page image of page 3.",
+        "method": "Full-text PDF reading and page-image inspection.",
+        "title": "Topology of Configuration Space of Two Particles on a Graph, I",
+        "trigger": "Need the exact finite deleted-product model and assess prior generator results."
+      },
+      {
+        "assessment": "Gives kernel-of-intersection and general Betti formulas, but not natural shortest-hexagon lattice generators or the S5×C2 action.",
+        "evidence": [
+          "Proposition 2 describes H2 as an intersection-form kernel",
+          "Corollary 3 computes ranks given intersection data."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.2300",
+        "material_read": "Sections 1–3 through Proposition 2, Corollary 3, and Theorem 7; inspected actual PDF page 2.",
+        "method": "Full-text theorem and proof reading, with page-image inspection.",
+        "title": "Topology of Configuration Space of Two Particles on a Graph, II",
+        "trigger": "Potentially stronger nonplanar homology and mature-graph coverage."
+      },
+      {
+        "assessment": "Its toric/theta generator theorem explicitly assumes planarity; the specified nonplanar exception is not the Desargues graph. The theorem does not cover this orbit-selected integral basis.",
+        "evidence": [
+          "Theorem 1.1 requires a planar graph",
+          "Example 6.8 shows the hypothesis cannot be dropped."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.10371",
+        "material_read": "Introduction, Theorem 1.1, stated open questions, and Section 6.1 including Example 6.8 with its nonplanar example.",
+        "method": "Full-text PDF search and direct reading of the theorem, example and implications.",
+        "title": "On the Second Homology of Planar Graph Braid Groups",
+        "trigger": "Possible general toric-generation theorem that could subsume the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4b02d02-edfa-45bb-936a-1720b7b2d785",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a canonical highly symmetric nonplanar graph for which shortest geometric 2-torus classes are natural but not guaranteed to generate degree-two homology. The dichotomy of torus orbits (60 versus 10), the explicit integral generating orbit with a unimodular certificate, the primitive proper rank-ten orbit, and the complete rational automorphism character provide distinct structural information beyond Betti numbers and general algorithms. These precise geometric-generator and symmetry invariants have plausible reuse in comparisons of graph braid groups and integral topological generators.",
+    "status": "PASS"
+  }
+}
