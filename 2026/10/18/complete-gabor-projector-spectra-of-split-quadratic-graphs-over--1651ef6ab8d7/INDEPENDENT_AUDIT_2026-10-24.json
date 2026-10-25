@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:50:46Z",
+  "axes": {
+    "correctness": {
+      "independent_verification": "Independent exact ambiguity enumeration over additive groups F2 and F3 (without running source Python) recovered Gram spectra: (q,r)=(2,2), D=32, eigenvalues 32:1, 8:60, 2:256, 0:707; (2,1), D=8, 8:1,2:28,0:35; (3,1), D=27, 27:1,3:162,1:216,0:350. r=1 probes consistency only, not a theorem extension. For q=3,r=1 the two q bands coalesce and multiplicities were correctly combined. The full all-field/all-r result comes from the exact character derivation; full package checks/verify_graph.py was read but its larger q=4,5 data not independently rerun.",
+      "rationale": "The Weyl operators give an orthonormal matrix basis and diagonalize the full rank-one projector orbit Gram with eigenvalues D|A(h,eta)|². For the graph z=x·y, the support intersection after shift (a,b,c) is the hyperplane a·y+b·x=c-a·b. Additive character orthogonality reduces all w≠0 coefficients to a single q-term quadratic sum with coefficient a·b and linear coefficient wd+u·a+v·b. Its magnitude is q or 0 over characteristic two (trace makes s² linear), but sqrt(q) for odd field with a·b≠0. Separating w=0, graph zero pair, a·b=0 and a·b≠0 yields B=q^(2r-1)+(q-1)q^(r-1), the exact odd four-band and even three-band eigenvalue multiplicities and nullities, plus asymptotic rank fraction. The proof respects q prime powers, r≥2, projectors of unit-normalized indicator and unweighted Hilbert-Schmidt normalization. It makes NO universal pure-state phase retrieval claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem on general finite Gabor windows provides a method but does not imply exact graph-specific zeros without an additional finite-field analysis.",
+          "Hyperbolic shell assumes q odd, r>=2, Q=1 in 2r dimensions; graph is Q=z in 2r+1 and admits q even, with extra spectral bands."
+        ],
+        "reasoning": "Broader method applies to the family, but determining its full rank/eigenvalue multiplicities requires actual algebra and is not a restatement. A different shape of quadratic support is not a special case of the shell theorem.",
+        "searches": [
+          "Goldberger–Kang–Okoudjou arXiv:2106.01509 full mathematical Theorem 1/2",
+          "Resultary 2026/10/11/SCOPE-exact-gabor-tomography-rank-for-hyperbolic-quadratic-shells-over--b9e240edb677"
+        ]
+      },
+      "checked_sources": [
+        "Goldberger, Kang, Okoudjou, arXiv:2106.01509, primary PDF theorem pages",
+        "Published shell b9e240edb677 full RESULT.md",
+        "Iosevich–Koh–Lewko arXiv:1712.05549, abstract only",
+        "Frozen graph RESULT.md and checks/verify_graph.py",
+        "Independent rational Gram histogram q2r1, q2r2, q3r1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weyl-projection spectral diagonalization is explicitly credited to general prior framework.",
+          "The shell theorem requires a quadratic LEVEL SET rather than graph and excludes characteristic two.",
+          "Fourier restriction on paraboloids gives estimates, not Gabor projector full eigenhistograms."
+        ],
+        "reasoning": "Neither the general Weyl theorem nor the shell rank theorem alone implies the q/r-dependent four and three eigenspectra; the translated intersection and quadratic character count supply missing nontrivial specialization.",
+        "searches": [
+          "Primary Goldberger et al. 2106.01509",
+          "Published shell theorem b9e240edb677 complete RESULT.md",
+          "Primary Iosevich–Koh–Lewko 1712.05549 finite-field restriction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General Weyl ambiguity diagonalization gives eigenvalue D|A|² but no graph-specific histogram.",
+          "The shell result addresses an indicator of Q(x,y)=1 in F_q^(2r), different from graph of Q in F_q^(2r+1)."
+        ],
+        "reasoning": "Searched ambiguity Fourier transforms, Gabor POVM, time-frequency projectors and tomography aliases. The diagonalization is a known tool; computing every spectral band by translated-graph overlap is the new comparison target.",
+        "searches": [
+          "Resultary semantic query: Gabor rank one projector Gram spectrum ambiguity split quadratic graph z=x dot y finite fields finite Gabor POVM",
+          "Goldberger Kang Okoudjou arXiv:2106.01509 finite Gabor POVM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary entries show explicit Gabor rank and shell kernels, but not the split graph z=x·y four-band/three-band table.",
+          "The independent histogram confirms at (q,r)=(2,2) the rank is 317/1024, not the shell even-field inapplicable formula."
+        ],
+        "reasoning": "This is a natural matrix-analysis spectral invariant. Existing dimension-specific Gabor tabulations and operator rank bounds are not exact database matches without the same window/ambient group.",
+        "searches": [
+          "Resultary exact quadratic-graph projector eigenvalue q^(2r-1) B",
+          "Resultary indexed Gabor rank spectra / shell b9e240edb677 / one-coordinate cyclic Gabor 4ad1eba7465a"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. Neither the general Weyl theorem nor the shell rank theorem alone implies the q/r-dependent four and three eigenspectra; the translated intersection and quadratic character count supply missing nontrivial specialization.",
+      "residual_risks": [
+        "General result already implies formula after working out a nontrivial quadratic sum, so attribution must credit the Weyl diagonalization; an older window-specific calculation might be unindexed.",
+        "Finite independent re-enumeration covers only prime fields q2,3 and r1,2; q4 prime-power source verifier read but not independently replayed.",
+        "Linear operator rank must not be called generic pure-state phase retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_COVERING but GRAPH_TABLE_NOT_COVERED: general diagonalization explicitly prior; no split-quadratic graph q/r multiplicity theorem in material read",
+          "evidence": [
+            "General Gram diagonalization has eigenvalue d times squared ambiguity, independent of a chosen window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "Primary 21-page PDF, theorem statement and proof setup around its general Weyl/Fourier eigenvalues, p.3 screenshot and adjacent text",
+          "method": "Read primary PDF pages and screenshot the relevant theorem",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Identical Weyl projector-Gram mechanism"
+        },
+        {
+          "assessment": "NOT_COVERING different support and q parity: indicator Q=1 for odd q only",
+          "evidence": [
+            "Shell in F_q^(2r); this graph in F_q^(2r+1) and all q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-gabor-tomography-rank-for-hyperbolic-quadratic-shells-over--b9e240edb677",
+          "material_read": "Complete published RESULT.md through exact Weyl ambiguity zeros, quadratic level sets, counting and limitations",
+          "method": "Read whole GitHub scientific document",
+          "title": "Exact Gabor tomography rank for hyperbolic quadratic shells over odd finite fields",
+          "trigger": "Highly similar finite-field quadratic Gabor rank"
+        },
+        {
+          "assessment": "PRIOR_CONTEXT_ONLY; no whole-document noncoverage claim",
+          "evidence": [
+            "Studies restriction estimates rather than time-frequency projector Gram spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.05549",
+          "material_read": "Paper title/abstract and cited scope; full primary document not materially inspected",
+          "method": "Public primary abstract/search results",
+          "title": "Finite field restriction estimates for the paraboloid in high even dimensions",
+          "trigger": "Same split quadratic form in finite-field restriction setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides exact full eigenvalues and multiplicities—not merely rank—for a canonical high-dimensional quadratic-graph Gabor window, including a sharp characteristic-two versus odd-characteristic collapse and different limiting identifiable fractions. The different positive/zero singular modes matter for informational completeness and conditioning. The exact parameter family is mathematically motivated and not mechanically listed in the general Weyl theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goldberger, Kang, Okoudjou, arXiv:2106.01509, primary PDF theorem pages",
+    "Published shell b9e240edb677 full RESULT.md",
+    "Iosevich–Koh–Lewko arXiv:1712.05549, abstract only",
+    "Frozen graph RESULT.md and checks/verify_graph.py",
+    "Independent rational Gram histogram q2r1, q2r2, q3r1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly the hypotheses and normalization of frozen RESULT.md, no extrapolation to other objects or parameter regimes.",
+    "Finite independent checks corroborate bounded parameters only, not infinite-family theorems; proof reconstruction is the actual support for unrestricted claims.",
+    "General result already implies formula after working out a nontrivial quadratic sum, so attribution must credit the Weyl diagonalization; an older window-specific calculation might be unindexed.",
+    "Finite independent re-enumeration covers only prime fields q2,3 and r1,2; q4 prime-power source verifier read but not independently replayed.",
+    "Linear operator rank must not be called generic pure-state phase retrieval."
+  ],
+  "residual_risks": [
+    "General result already implies formula after working out a nontrivial quadratic sum, so attribution must credit the Weyl diagonalization; an older window-specific calculation might be unindexed.",
+    "Finite independent re-enumeration covers only prime fields q2,3 and r1,2; q4 prime-power source verifier read but not independently replayed.",
+    "Linear operator rank must not be called generic pure-state phase retrieval."
+  ],
+  "schema_version": 1
+}

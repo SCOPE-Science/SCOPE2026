@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph/translate overlap is exactly one affine linear equation in the \(2r\) free graph coordinates. Summing the field characters yields the displayed one-variable quadratic Gauss sum. In odd characteristic its size is \(\sqrt q\) when the quadratic coefficient is nonzero; in characteristic two it becomes an additive character and has size \(0\) or \(q\). The vanishing and nonvanishing counts, the all-zero-shift case, and the normalization of the finite-abelian Weyl transform were separately reconstructed. Direct finite-field enumeration agrees with every computed multiplicity; an independent binary-projector Gram diagonalization reproduces eigenvalues \(0,2,8\). These tests corroborate rather than replace the proof.
+PASS
 
-## Originality — PASS, subject to bibliographic limits
+The Weyl operators give an orthonormal matrix basis and diagonalize the full rank-one projector orbit Gram with eigenvalues D|A(h,eta)|². For the graph z=x·y, the support intersection after shift (a,b,c) is the hyperplane a·y+b·x=c-a·b. Additive character orthogonality reduces all w≠0 coefficients to a single q-term quadratic sum with coefficient a·b and linear coefficient wd+u·a+v·b. Its magnitude is q or 0 over characteristic two (trace makes s² linear), but sqrt(q) for odd field with a·b≠0. Separating w=0, graph zero pair, a·b=0 and a·b≠0 yields B=q^(2r-1)+(q-1)q^(r-1), the exact odd four-band and even three-band eigenvalue multiplicities and nullities, plus asymptotic rank fraction. The proof respects q prime powers, r≥2, projectors of unit-normalized indicator and unweighted Hilbert-Schmidt normalization. It makes NO universal pure-state phase retrieval claim.
 
-Goldberger, Kang and Okoudjou establish the general Gabor Gram-eigenvalue mechanism, not the full specialization to the split quadratic graph or its characteristic-dependent multiplicities. Iosevich, Koh and Lewko develop finite-field paraboloid extension estimates, without classifying Gabor projector eigenvalues. The closest directly comparable full text classifies indicator windows on quadratic *level-one shells* in even-dimensional ambient groups; its hypotheses do not cover the graph \(z=x\cdot y\) in an odd-dimensional ambient group, and its zero-test and rank formulas are different. An undiscovered equivalent graph or chirp-window computation remains possible; this is best-knowledge originality, not independently certified priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The split graph is the canonical hyperbolic paraboloid in finite-field restriction analysis, and the full Weyl orbit is a natural measurement design. The exact four-level/three-level spectrum determines all linear singular values and zero modes, not merely a noninjectivity witness or asymptotic estimate. The characteristic-dependent rank fractions quantify a substantial difference in identifiable operator-space directions. The work neither solves nonlinear phase retrieval nor arbitrary-weight window optimization.
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. Neither the general Weyl theorem nor the shell rank theorem alone implies the q/r-dependent four and three eigenspectra; the translated intersection and quadratic character count supply missing nontrivial specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Provides exact full eigenvalues and multiplicities—not merely rank—for a canonical high-dimensional quadratic-graph Gabor window, including a sharp characteristic-two versus odd-characteristic collapse and different limiting identifiable fractions. The different positive/zero singular modes matter for informational completeness and conditioning. The exact parameter family is mathematically motivated and not mechanically listed in the general Weyl theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

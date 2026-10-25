@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Run `python3 checks/verify_graph.py` with Python 3 and NumPy. The script constructs the graph points, their overlap after each translation, the field characters for each modulation, and the resulting complete ambiguity-magnitude histogram. It checks the histograms against the closed multiplicity formulas using numerical tolerance \(10^{-8}\), not as an exact-integer certificate for character cancellations. It covers \((q,r)=(2,1),(3,1),(4,1),(5,1),(2,2),(3,2)\); the \(r=1\) cases additionally exercise the formulas outside their stated main range and reveal occasional coincident eigenvalue levels. Every evaluated case passed. The \(\mathbb F_4\) field operations and trace-character computation are explicit.
+# Independent mathematical audit
 
-Direct projector-matrix check: in dimension \(D=8\), forming all \(64\) Weyl-translated vectors and diagonalizing their projector Gram matrix gives eigenvalues \(0,2,8\), with multiplicities \(35,28,1\). This is an independent normalization check of \(D|A|^2\).
+## correctness
 
-The general theorem is proved by finite-field character orthogonality and Gauss-sum identities. Finite checks alone cannot certify all finite fields or all ranks \(r\).
+PASS
+
+The Weyl operators give an orthonormal matrix basis and diagonalize the full rank-one projector orbit Gram with eigenvalues D|A(h,eta)|². For the graph z=x·y, the support intersection after shift (a,b,c) is the hyperplane a·y+b·x=c-a·b. Additive character orthogonality reduces all w≠0 coefficients to a single q-term quadratic sum with coefficient a·b and linear coefficient wd+u·a+v·b. Its magnitude is q or 0 over characteristic two (trace makes s² linear), but sqrt(q) for odd field with a·b≠0. Separating w=0, graph zero pair, a·b=0 and a·b≠0 yields B=q^(2r-1)+(q-1)q^(r-1), the exact odd four-band and even three-band eigenvalue multiplicities and nullities, plus asymptotic rank fraction. The proof respects q prime powers, r≥2, projectors of unit-normalized indicator and unweighted Hilbert-Schmidt normalization. It makes NO universal pure-state phase retrieval claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison after Resultary semantic search, primary literature inspection and exact frozen-source reading. Neither the general Weyl theorem nor the shell rank theorem alone implies the q/r-dependent four and three eigenspectra; the translated intersection and quadratic character count supply missing nontrivial specialization.
+
+## value
+
+PASS
+
+Provides exact full eigenvalues and multiplicities—not merely rank—for a canonical high-dimensional quadratic-graph Gabor window, including a sharp characteristic-two versus odd-characteristic collapse and different limiting identifiable fractions. The different positive/zero singular modes matter for informational completeness and conditioning. The exact parameter family is mathematically motivated and not mechanically listed in the general Weyl theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
