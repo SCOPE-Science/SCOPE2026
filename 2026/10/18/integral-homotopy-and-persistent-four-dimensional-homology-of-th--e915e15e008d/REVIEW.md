@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact graph is given by four-bit vertices and XOR differences \(\{1,2,4,8,15\}\). Two independent forest tests agree on all subsets. Deterministic acyclic Morse matchings were completely generated and their full directed Hasse graphs topologically sorted at all six degree bounds. The exceptional degree-two model has exact integral Morse boundary of rank two with a unimodular minor, giving \(S^4\). A 96-term signed integral fourth cycle in the first positive-degree stage pairs to \(-1\) with a 143-term integral fourth cocycle in the degree-four stage; all chain and cocycle identities were checked, proving the full integral persistence map. The computations establish a finite theorem, not extrapolation.
+## correctness
 
-## Originality
-PASS, with residual risk. Carnero Bravo's foundational forest-filtration work supplies the definitions and graph-family calculations but not a Clebsch classification or its persistence maps. A prior published record determines only the degree-zero Clebsch independence-complex wedge; that component is explicitly credited rather than treated as new. Full primary text, the closest published exact same-graph result, additional graph-complex research, and current mathematical-record queries were compared using exact graph presentations, stage definitions and inclusion maps. No prior statement inspected implies the positive-degree homotopy classification together with the primitive inclusion. Unindexed equivalent work and alternative names for degree-one forest complexes remain possible.
+PASS
 
-## Value
-PASS. The induced-forest degree bound is a canonical filtration introduced for graph topology. The Clebsch graph is the unique familiar degree-five folded cube on sixteen vertices, a natural symmetric benchmark. The four-stage persistent integral \(S^4\) and the transition from nine three-spheres to fifteen five-spheres characterize a meaningful finite natural instance. In particular, the primitive integral inclusion is information absent from separate Betti numbers or isolated stage homotopy types.
+Rebuilt the 16-vertex XOR graph (differences 1,2,4,8,15) and exhaustively classified each of all 65,535 nonempty masks as an induced forest with maximum degree. Independently regenerated six ordered-element Morse matchings and topologically sorted every Hasse incidence: face counts 392/2142/7262/12542/13822/13838 and matching pairs 191/1070/3628/6270/6910/6911. Critical cells at d0,d1,d3,d4,d5 give wedges; d2 critical chain boundary is [[-1,-1,0],[-1,0,-1]] with a unimodular rank-two minor, giving S4 by 2-connected 4-complex cancellation. Independently checked the 96-term integral 4-cycle, 143-term integral 4-cocycle on all 4360 five-simplices and their pairing exactly -1. Both H4 groups Z, so the inclusion degree is a unit; factorization forces all 1→2→3→4 maps to be isomorphisms. Distinguish this exhaustively finite proof from any infinite family assertion.
 
-## Scope and limitations
-Only the sixteen-vertex degree-five graph is covered; no all-parameter theorem or complete equivariant homology character is claimed. Computer enumeration is exhaustive for this finite graph, not an external independent audit. Searches cannot eliminate the possibility of unindexed prior results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The forest-filtration construction and graph-family results are known, and the degree-zero Clebsch independence wedge of nine 3-spheres was already published and credited. Actual full-text inspection of Carnero Bravo arXiv:2307.13271 concerns paths, cycles, double-stars, cacti, joins/products and not this Clebsch positive-degree/persistence theorem. Exact Resultary matches provide only F0, not integral positive-degree maps. The new component is the full degree-bounded positive-stage classification and its primitive persistence witness; no stronger prior implication identified in material read.
+
+## value
+
+PASS
+
+Degree-bounded induced forests constitute a natural topological filtration, and the Clebsch graph is a canonical 16-vertex strongly regular graph. The exact nontrivial F1→F4 persistent H4 unit distinguishes inclusion-induced topology from isolated Betti counts; d2 needs a genuinely integral attaching-map computation. This is a complete motivated finite benchmark, not a relabeled numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
