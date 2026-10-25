@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T15:02:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With common Gaussian increment, the drift-corrected Heun second-stage difference gives x_E−x_H=−λ²h²x/2+(λ g h^(3/2)/2)Z exactly, so its scaled squared norm is noncentral χ²_d(Δ), Δ=λ²h||x||²/g². Rechecked the inverse monotone transformation for U=C ε^(−k), both clipping atoms, derivative of Q(v) for the interior density, Poisson-mixture small-ball coefficient (leading e^(−Δ/2) Q^(d/2)/(2^(d/2)Γ(1+d/2))), layer-cake integral threshold q=d/k, and Cramér rate for sample mean of squared Gaussian coordinates. A separate numerical implementation checked the exact affine discrepancy and noncentral CDF for d=1,2,4,8, but finite simulation was not used to prove tails or limit laws. Raw, non-clipped moments diverge at threshold; clipped ones never do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kemperman–Ambrogioni is general adaptive solver architecture without verified published exact OU clipping rates in accessible abstract; Ilie–Jackson–Enright (2014/2015) Section 3.1 derives controller recursion/stability, not stated distribution."
+        ],
+        "reasoning": "General adaptive controller stability does not mathematically imply the exact raw tail coefficient, cap atoms, or dimension-asymptotic rates without OU specialization.",
+        "searches": [
+          "Resultary semantic query: stochastic Euler Heun PI adaptive step size raw gain noncentral chi-square heavy tail clipping OU",
+          "https://arxiv.org/abs/2610.03034",
+          "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03034",
+        "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf",
+        "https://math.gmu.edu/~harbir/stochstab.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source controller has same noise-normalized error in algorithmic generality; observed source Ilie Section 3.1 equation (16) gives PI update, not OU-specific distribution."
+        ],
+        "reasoning": "A general update formula is a premise for the specific stochastic-law calculation, not a prior conclusion covering it; full latest paper is a genuine priority gap.",
+        "searches": [
+          "Resultary semantic query: stochastic Euler Heun PI adaptive step size raw gain noncentral chi-square heavy tail clipping OU",
+          "https://arxiv.org/abs/2610.03034",
+          "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published controller equations define an error-driven PI gain; current theorem specializes to fixed-step OU shared Brownian increment, then transforms a noncentral χ² law."
+        ],
+        "reasoning": "Equivalent statistical variables may be described as inverse noncentral-chi-square powers, but this is a conditional one-step law, not a theorem about future adaptive step sizes.",
+        "searches": [
+          "Resultary semantic query: stochastic Euler Heun PI adaptive step size raw gain noncentral chi-square heavy tail clipping OU",
+          "https://arxiv.org/abs/2610.03034",
+          "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact conditional Gaussian Euler–Heun PI noncentral χ² cap-atom table surfaced; existing chi-square CDF/gamma tables are universal distribution tools."
+        ],
+        "reasoning": "Classical chi-square and Cramér reference tables compute functions once the normalization is derived, but do not by themselves establish the exact shared-increment step discrepancy for the specific PI rule.",
+        "searches": [
+          "Resultary semantic query: stochastic Euler Heun PI adaptive step size raw gain noncentral chi-square heavy tail clipping OU",
+          "https://arxiv.org/abs/2610.03034",
+          "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf"
+        ]
+      },
+      "rationale": "Kemperman–Ambrogioni describe the shared-noise embedded stochastic Euler–Heun PI controller in a general diffusion sampler. Ilie–Jackson–Enright establish PI recursions and stability for adaptive Milstein SDE integrators, but their inspected Section 3.1 does not derive this exact conditional noncentral chi-square law, its moment threshold, or cap-atom large-deviation rates. The Gaussian and Cramér components are classical and explicitly not claimed as new. The full Kemperman–Ambrogioni paper remained inaccessible and authorized access was safety-blocked; its possible overlap is a substantial documented priority risk, not proof of noncoverage.",
+      "residual_risks": [
+        "Full Kemperman–Ambrogioni 2026 article could not be inspected; authorized route was explicitly safety-blocked, with no bypass attempted.",
+        "An elementary inverse-chi-square transformation may have been known in adjacent adaptive-SDE literature even if unindexed.",
+        "Statements are conditional one-step only, not solver convergence, stochastic long-run step control, or rejection-biased distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot assert full article does not already compute OU special-case gain law; residual serious priority risk.",
+          "evidence": "Same controller/error normalization cited by claim; primary full text NOT inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03034",
+          "material_read": "Accessible arXiv abstract/metadata and original source description only; full text unavailable",
+          "method": "lawful arXiv/OA search; authorized protected route safety-blocked (not retried)",
+          "title": "Adaptive Second-Order Solvers for Fast Stochastic Diffusion Sampling",
+          "trigger": "Exact same shared-noise Euler–Heun PI scheme, strongest potential prior overlap"
+        },
+        {
+          "assessment": "Gives PI recursions and stability considerations, not noncentral χ² law or clipped cap probability/large-deviation theorem.",
+          "evidence": "Printed p10 equation (16) expresses k_I,k_P PI update; different Milstein setting.",
+          "identifier_or_url": "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf",
+          "material_read": "Full accessible primary PDF, especially Section 3.1 (printed p10) equations (14)–(16) on PI recursion",
+          "method": "PDF text and rendered page inspection",
+          "title": "Adaptive time-stepping for the strong numerical solution of stochastic differential equations",
+          "trigger": "Prior adaptive PI gain analysis in SDEs"
+        },
+        {
+          "assessment": "Mean-square stability analysis differs from one-step Gaussian inverse-power gain statistics.",
+          "evidence": "Multiplicative-noise linear SDE stability, rather than normalized OU predictor-corrector discrepancy.",
+          "identifier_or_url": "https://math.gmu.edu/~harbir/stochstab.pdf",
+          "material_read": "Abstract/cited topic and bibliographic record; full paper not independently read",
+          "method": "open bibliographic comparison",
+          "title": "Mean-square stability properties of an adaptive time-stepping SDE solver",
+          "trigger": "Adjacent stability result for linear SDE step controller"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-step gain distributions quantify extreme trial-step proposals and precisely separate an uncapped heavy-tail pathology from actual bounded implementation. Sharp per-dimension power moments and cap probabilities are natural design diagnostics for a published adaptive PI rule and OU benchmark; these exact facts could be independently useful despite not proving adaptive solver convergence. The value does not rest solely on rebranding an elementary Gaussian norm as noncentral chi-square.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.03034",
+    "https://www.cs.toronto.edu/pub/reports/na/SDE.Adaptive.Timestepping.NA.1.pdf",
+    "https://math.gmu.edu/~harbir/stochstab.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One forward OU model with isotropic additive nondegenerate noise, deterministic conditional tolerance, fixed starting x/h and fixed past error, shared increment.",
+    "Raw power-law tail is not an assertion about the bounded implemented multiplier or long-run integrator performance."
+  ],
+  "residual_risks": [
+    "Full Kemperman–Ambrogioni 2026 article could not be inspected; authorized route was explicitly safety-blocked, with no bypass attempted.",
+    "An elementary inverse-chi-square transformation may have been known in adjacent adaptive-SDE literature even if unindexed.",
+    "Statements are conditional one-step only, not solver convergence, stochastic long-run step control, or rejection-biased distribution."
+  ],
+  "schema_version": 1
+}

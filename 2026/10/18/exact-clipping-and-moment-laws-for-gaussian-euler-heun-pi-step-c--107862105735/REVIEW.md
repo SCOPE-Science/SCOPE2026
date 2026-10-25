@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional law follows from an explicitly reconstructed shared-Gaussian-increment predictor and Heun corrector. The discrepancy is an affine Gaussian vector with full isotropic variance \(s^2>0\). Its squared norm yields the noncentral chi-square law with parameter \(\Delta\); inverse-power monotonicity gives the raw survival function and both clipped atoms. The Poisson–gamma small-ball expansion gives the strictly positive leading tail constant and exact moment boundary \(q=d/k\). Cramér's theorem on independent squared normals proves both sharp dimension rates. Boundary cases \(d=1\), \(k>0\), \(m<1<M\), positive tolerances and singular-noise exclusion were checked. Finite tests corroborate, but the proof supplies the all-dimension result.
+PASS
 
-## Originality — PASS, with bibliographic residual risk
+With common Gaussian increment, the drift-corrected Heun second-stage difference gives x_E−x_H=−λ²h²x/2+(λ g h^(3/2)/2)Z exactly, so its scaled squared norm is noncentral χ²_d(Δ), Δ=λ²h||x||²/g². Rechecked the inverse monotone transformation for U=C ε^(−k), both clipping atoms, derivative of Q(v) for the interior density, Poisson-mixture small-ball coefficient (leading e^(−Δ/2) Q^(d/2)/(2^(d/2)Γ(1+d/2))), layer-cake integral threshold q=d/k, and Cramér rate for sample mean of squared Gaussian coordinates. A separate numerical implementation checked the exact affine discrepancy and noncentral CDF for d=1,2,4,8, but finite simulation was not used to prove tails or limit laws. Raw, non-clipped moments diverge at threshold; clipped ones never do.
 
-The 2026 motivating full text states the noise-normalized error and capped PI recurrence, not its exact stochastic OU conditional distribution or cap probabilities. The Ilie–Jackson–Enright original PI derivation treats closed-loop controller roots and Milstein errors, and Lamba–Seaman analyze a distinct multiplicative-noise stability question. Searches for noncentral chi-square, inverse-chi step multipliers and Gaussian clipping tails found no matching indexed exact theorem. The Gaussian distribution, small-ball asymptotic and large-deviation principle themselves are existing tools, not claimed novel. An older paper on adaptive diffusion sampling could not be read completely; an equivalent unindexed classification remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The source's gain clipping is not incidental: the raw proposal has a sharp dimension/gain-dependent moment cutoff, while the implemented clipped law has computable atoms and every positive moment finite. The theorem gives exact probabilities for testing caps and a sharp exponential regime for changing dimension, across a natural OU family rather than a single parameter setting. Its deliberately limited one-step scope is appropriate for a benchmark, but it proves nothing about entire adaptive trajectories, rejection rules or real diffusion-model quality.
+Kemperman–Ambrogioni describe the shared-noise embedded stochastic Euler–Heun PI controller in a general diffusion sampler. Ilie–Jackson–Enright establish PI recursions and stability for adaptive Milstein SDE integrators, but their inspected Section 3.1 does not derive this exact conditional noncentral chi-square law, its moment threshold, or cap-atom large-deviation rates. The Gaussian and Cramér components are classical and explicitly not claimed as new. The full Kemperman–Ambrogioni paper remained inaccessible and authorized access was safety-blocked; its possible overlap is a substantial documented priority risk, not proof of noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+One-step gain distributions quantify extreme trial-step proposals and precisely separate an uncapped heavy-tail pathology from actual bounded implementation. Sharp per-dimension power moments and cap probabilities are natural design diagnostics for a published adaptive PI rule and OU benchmark; these exact facts could be independently useful despite not proving adaptive solver convergence. The value does not rest solely on rebranding an elementary Gaussian norm as noncentral chi-square.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
