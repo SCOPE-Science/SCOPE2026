@@ -1,23 +1,21 @@
-# Scientific review: exact renewal scales in a rhombus piecewise isometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the full-measure set of parameter values in the normalized interval \([0,\sqrt2]\) having an infinite nonboundary itinerary under the Lowenstein–Vivaldi full-branch map \(f\). The object is the canonical induced base-triangle similarity-length hierarchy, not a phase-space orbit. The source's Theorem 1 and branch equations establish the full-step multiplier \(q^{|i|+|j|+2}\) where \(q=\sqrt2-1\). Cylinder-length products prove independence of the \(f\)-digits; pairing gives positive independent exponents with the explicit squared generating function.
+PASS
 
-The infinite exact hit formula follows from the renewal recurrence and an algebraically checked rational partial-fraction decomposition; the four-phase limits follow from its explicit coefficients. A finite-threshold first-crossing convolution gives complete rational overshoot generating functions, and dominated convergence plus an exact tail sum prove the limiting probability law, including normalization. Hypotheses, denominator cancellations, endpoint conventions and distinction between geometric scale and physical return time have been checked. The standalone exact-arithmetic reproduction reports `VERIFY_OK` on 85 positive levels, 84 paired-digit weights, 25 crossing thresholds and the limiting mass; finite checks supplement, not replace, the infinite proof.
+The original full-branch inverse of the generalized Lüroth map has cylinder probability q^{|i|+1}, so the digit exponents are iid with P(X=1)=q and P(X=j)=2q^j (j>=2). A complete renormalization pairs two digits; its multiplier is q^{Z} and W(z)=[qz(1+qz)/(1-qz)]^2. The renewal identity U(z)=1/(1-W(z)) has partial fractions 1/[4(1-z)]+1/[4(1+q^2 z)]+(1-qz)/[2(1+q^2 z^2)], giving exact u_m and the four residue-class asymptotics. The overshoot first-crossing convolution P(H_m=k)=sum_{j=1}^m u_{m-j} w_{j+k} yields the stated F_k and, by dominated convergence plus EZ=4, the normalized limiting mass (1/4)P(Z>=k+1). Independent floating-point renewal convolutions matched the exact hit expression at m=0..40 to 2.4e-15, and normalized overshoot distributions at seven thresholds with exact P(H=0)=u_m, P(H=1)=u_{m+1}. Proof extends to arbitrary m; numerical testing alone does not.
 
-## Originality — PASS, with residual historical uncertainty
+## originality
 
-Lowenstein–Vivaldi (arXiv:1406.6910, original public version 2014-06-26) already proves the planar rhombus model, the induced five-atom base triangle, its full-branch Lüroth coding and the geometric multiplier. No originality is claimed for those definitions or its renormalizability theorem. Its Sections 4–5 and 11 were read for possible coverage; these do not state the uniform-parameter exact level-hit distribution, four-phase finite-scale correction, or complete overshoot generating functions.
+PASS
 
-Kesseböhmer–Munday–Stratmann (arXiv:1006.5693, full Section 3) already states a general renewal recurrence and the reciprocal-mean renewal limit for Lüroth sum-level sets. Its generic generating-function identity \(U=1/(1-W)\), once the special increment law is separately supplied, is a clear antecedent to the present calculation; the renewal limit \(1/4\) is not presented as new in isolation. The evaluated rational factorization with nontrivial complex root phases and the exact first-crossing law for the specific geometric PWI hierarchy were not found stated in these sources.
+Best-of-knowledge originality is assigned to the exact strengthened/specialized claim, not to previously published premises: Theorem 1(iii) of Lowenstein–Vivaldi gives q^{|i|+|j|+2}; paired full-branch measures allow but do not already evaluate all u_m. Standard renewal recurrence structurally implies U=1/(1-W), so the leading 1/4 limit is not credited as a new general theorem; the evaluated poles, four-phase correction and F_k do require explicit new specialization. Targeted Resultary searches and primary-paper comparisons were performed; unsuccessful searches are not priority proof. The generic renewal theorem gives u_m->1/EZ=1/4 after identification of W; it does not state the oscillating correction or full finite-m generating functions. Exact overshoot renewal identities in generic theory are algorithmic antecedents, not a table of this evaluated special-family distribution.
 
-The main residual risk is that the exact finite-scale evaluation might have been derived elsewhere or considered a close explicit corollary of general discrete-renewal theory; absolute priority is not certified. The narrower specific evaluated formula, not an invented new renewal principle, is the claim reviewed here.
+## value
 
-## Mathematical value — PASS
+PASS
 
-In a planar model whose renormalizations can require arbitrarily complex induction itineraries, exact geometric scales form a natural discrete hierarchy. The probability of ever attaining a prescribed fine scale and the amount by which the first crossing skips that scale are intrinsic, interpretable parameter-ensemble invariants. The result gives all-level probabilities rather than only an asymptotic recurrence or generic mean. The four-phase leading correction distinguishes adjacent geometric levels by a stable arithmetic pattern; the exact rational first-crossing functions classify the distribution at every threshold, while the limiting overshoot quantifies unavoidable lattice-scale skipping. These statistics address questions about parameter-space geometry not answered by existence of renormalization, temporal incidence matrices, or general renewal limits.
+An intrinsic geometric question for renormalizable piecewise isometries asks whether a particular lattice scale occurs at any complete induction and by how much first passage jumps past it. The exact four-phase correction and full family of overshoot generating functions provide more precise parameter-space information than mere self-similarity or the generic renewal limit. The specific finite-scale distribution is a natural exact invariant, even though ordinary renewal machinery provides a conceptual framework.
 
-Scientific limitations remain: only the canonical base-triangle hierarchy, normalized uniform parameter measure, and scale (not actual return times or planar invariant-measure averages) are covered. The finding is not claimed to establish a perturbation theorem, an exceptional-set dimension, or historical independence of all prior literature.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

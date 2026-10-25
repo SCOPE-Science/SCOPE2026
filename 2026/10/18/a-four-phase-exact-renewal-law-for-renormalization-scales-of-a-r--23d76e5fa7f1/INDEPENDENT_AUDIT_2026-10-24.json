@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T15:50:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-four-phase-exact-renewal-law-for-renormalization-scales-of-a-r--23d76e5fa7f1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/8e5e2167af52d04f310bb669dc3100d7e8aaca19/2026/10/18/a-four-phase-exact-renewal-law-for-renormalization-scales-of-a-r--23d76e5fa7f1/verify.py",
+        "independent_checks.py and independent_checks.json (this private delivered run)"
+      ],
+      "rationale": "The original full-branch inverse of the generalized Lüroth map has cylinder probability q^{|i|+1}, so the digit exponents are iid with P(X=1)=q and P(X=j)=2q^j (j>=2). A complete renormalization pairs two digits; its multiplier is q^{Z} and W(z)=[qz(1+qz)/(1-qz)]^2. The renewal identity U(z)=1/(1-W(z)) has partial fractions 1/[4(1-z)]+1/[4(1+q^2 z)]+(1-qz)/[2(1+q^2 z^2)], giving exact u_m and the four residue-class asymptotics. The overshoot first-crossing convolution P(H_m=k)=sum_{j=1}^m u_{m-j} w_{j+k} yields the stated F_k and, by dominated convergence plus EZ=4, the normalized limiting mass (1/4)P(Z>=k+1). Independent floating-point renewal convolutions matched the exact hit expression at m=0..40 to 2.4e-15, and normalized overshoot distributions at seven thresholds with exact P(H=0)=u_m, P(H=1)=u_{m+1}. Proof extends to arbitrary m; numerical testing alone does not.",
+      "residual_risks": [
+        "Independent finite verification only tests bounded instances; universal portions follow from reconstructed analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+          "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1"
+        ],
+        "reasoning": "The generic renewal theorem gives u_m->1/EZ=1/4 after identification of W; it does not state the oscillating correction or full finite-m generating functions. Exact overshoot renewal identities in generic theory are algorithmic antecedents, not a table of this evaluated special-family distribution.",
+        "searches": [
+          "Resultary: Lowenstein Vivaldi rhombus piecewise isometry renormalization Lüroth digit renewal hitting geometric scales overshoot four periodic",
+          "Resultary: Lüroth renewal exact first passage overshoot geometric intervals rhombus renormalization",
+          "web: rhombus piecewise isometry renewal four-phase overshoot geometric scale Lowenstein Vivaldi"
+        ]
+      },
+      "checked_sources": [
+        "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+        "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1",
+        "Resultary 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc (full RESULT.md read; two-point jumps {1,m}, different law)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+          "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1"
+        ],
+        "reasoning": "Theorem 1(iii) of Lowenstein–Vivaldi gives q^{|i|+|j|+2}; paired full-branch measures allow but do not already evaluate all u_m. Standard renewal recurrence structurally implies U=1/(1-W), so the leading 1/4 limit is not credited as a new general theorem; the evaluated poles, four-phase correction and F_k do require explicit new specialization.",
+        "searches": [
+          "Resultary: Lowenstein Vivaldi rhombus piecewise isometry renormalization Lüroth digit renewal hitting geometric scales overshoot four periodic",
+          "Resultary: Lüroth renewal exact first passage overshoot geometric intervals rhombus renormalization",
+          "web: rhombus piecewise isometry renewal four-phase overshoot geometric scale Lowenstein Vivaldi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+          "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1",
+          "Resultary 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc (full RESULT.md read; two-point jumps {1,m}, different law)"
+        ],
+        "reasoning": "Uniform parameter cylinder law produces renewal sums with iid two-digit exponents. Generalized Lüroth systems supply this equivalent stochastic formulation, but the exact closed rational coefficients follow from the specific q-geometric multiplicities and paired steps, not from branch coding alone.",
+        "searches": [
+          "Resultary: Lowenstein Vivaldi rhombus piecewise isometry renormalization Lüroth digit renewal hitting geometric scales overshoot four periodic",
+          "Resultary: Lüroth renewal exact first passage overshoot geometric intervals rhombus renormalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc (full RESULT.md read; two-point jumps {1,m}, different law)"
+        ],
+        "reasoning": "The directly inspected published two-point lattice-renewal note optimizes mean overshoot for increments supported on {1,m}, whereas the present increments have infinite support and the object is a rhombus geometric scale; no equality of exact tables is implied. Relevant Resultary queries did not locate an identical four-periodic formula.",
+        "searches": [
+          "Resultary: Lowenstein Vivaldi rhombus piecewise isometry renormalization Lüroth digit renewal hitting geometric scales overshoot four periodic",
+          "Resultary: Lüroth renewal exact first passage overshoot geometric intervals rhombus renormalization"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is assigned to the exact strengthened/specialized claim, not to previously published premises: Theorem 1(iii) of Lowenstein–Vivaldi gives q^{|i|+|j|+2}; paired full-branch measures allow but do not already evaluate all u_m. Standard renewal recurrence structurally implies U=1/(1-W), so the leading 1/4 limit is not credited as a new general theorem; the evaluated poles, four-phase correction and F_k do require explicit new specialization. Targeted Resultary searches and primary-paper comparisons were performed; unsuccessful searches are not priority proof. The generic renewal theorem gives u_m->1/EZ=1/4 after identification of W; it does not state the oscillating correction or full finite-m generating functions. Exact overshoot renewal identities in generic theory are algorithmic antecedents, not a table of this evaluated special-family distribution.",
+      "residual_risks": [
+        "Exact evaluated renewal formula is potentially accessible as an unstated corollary of classical identities; unindexed prior evaluations are an originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies original f^2 map, full branches and similarity multiplier q^{|i|+|j|+2}; no uniform-parameter level-hitting or overshoot probability",
+          "evidence": "Theorem 1(iii) p19; branch equations (11)–(15).",
+          "identifier_or_url": "Lowenstein & Vivaldi, arXiv:1406.6910; https://arxiv.org/pdf/1406.6910",
+          "material_read": "Original 99-page arXiv full text; Theorems 1–2 pp18–20, Section 5 full branch and formulae, symbolic coding",
+          "method": "read PDF text and screenshot original p19 Theorem 1(iii)",
+          "title": "Renormalization of a one-parameter family of piecewise isometries",
+          "trigger": "Same rhombus PWI and two-step induction multiplier"
+        },
+        {
+          "assessment": "Generic renewal equation and reciprocal-mean limiting hit probability are prior; no evaluated rhombus two-digit four-phase rational factorization or all-threshold overshoot generating functions",
+          "evidence": "Section 3, Lemma 3.1, renewal recurrence.",
+          "identifier_or_url": "Kesseböhmer, Munday & Stratmann, arXiv:1006.5693; https://arxiv.org/pdf/1006.5693",
+          "material_read": "Original accessible full PDF, Section 3 including Lemma 3.1, ordinary reciprocal-mean renewal theorem",
+          "method": "read PDF text and inspect rendered p16",
+          "title": "Strong renewal theorems and Lyapunov spectra for alpha-Farey and alpha-Lüroth systems",
+          "trigger": "Possible dominating general sum-level renewal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+        "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1",
+        "Resultary 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc (full RESULT.md read; two-point jumps {1,m}, different law)"
+      ],
+      "rationale": "An intrinsic geometric question for renormalizable piecewise isometries asks whether a particular lattice scale occurs at any complete induction and by how much first passage jumps past it. The exact four-phase correction and full family of overshoot generating functions provide more precise parameter-space information than mere self-similarity or the generic renewal limit. The specific finite-scale distribution is a natural exact invariant, even though ordinary renewal machinery provides a conceptual framework.",
+      "residual_risks": [
+        "Exact evaluated renewal formula is potentially accessible as an unstated corollary of classical identities; unindexed prior evaluations are an originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lowenstein–Vivaldi arXiv:1406.6910 Theorem 1(iii)",
+    "Kesseböhmer–Munday–Stratmann arXiv:1006.5693 Section 3 Lemma 3.1",
+    "Resultary 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc (full RESULT.md read; two-point jumps {1,m}, different law)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniformly distributed parameters of the specific Lowenstein–Vivaldi rhombus renormalization, exact hit probabilities at q^m have an explicit rational generating function with four-phase q^m correction, and first threshold-crossing overshoots have exact finite-level generating functions and a normalized explicit limiting law.",
+  "limitations": [
+    "Sampling parameters by Lebesgue measure on [0,sqrt2], not planar initial positions or physical return times.",
+    "Null boundary/terminating itineraries excluded and correct length—not area—scale specified.",
+    "Exact evaluated renewal formula is potentially accessible as an unstated corollary of classical identities; unindexed prior evaluations are an originality risk."
+  ],
+  "residual_risks": [
+    "Exact evaluated renewal formula is potentially accessible as an unstated corollary of classical identities; unindexed prior evaluations are an originality risk."
+  ],
+  "schema_version": 1
+}
