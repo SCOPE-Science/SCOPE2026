@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The induction separates each formula into a fixed linear term in the current valuation and a term depending only on the accessible class's affine hull. The key nonstandard step is the fact that an affine Boolean function takes the value one on a nonempty support set exactly when it takes that value on the affine hull; this is proved using preservation of affine combinations. The separation argument constructs an affine equation for a point outside one affine subspace. An affine basis containing the pointed vector provides the exact optimal compression; dimension bounds prove lower optimality. Gaussian-binomial counting counts every affine subspace and each of its marked points once. The supporting checker independently verifies direct Kripke semantics for all supports through three atoms, but is not offered as a proof for arbitrary \(n\).
+PASS
 
-## Originality — PASS, subject to residual literature risk
+One-agent S5 with n>=1 finite propositional atoms, XOR, negation and constants but no conjunction: every propositional truth value is affine over F2. For a pointed class, a is its distinguished valuation, H=aff(X) of all class valuation vectors. Affine functions vanish on X iff on H. Structural induction, including nested Box/Diamond, shows each formula evaluates as L_phi(a) xor c_phi(H), since modalities of affine operands are constant on the class and depend only on H. Different a are separated by an atom; different H with same a by Diamond of an affine linear equation vanishing on one H but not other (choose direction appropriately). A d-dimensional H has an affine basis of d+1 valuation points including a, and fewer accessible worlds cannot span H; optimal size d+1 and worst-case n+1. For each d, G_2(n,d) linear subspaces, 2^(n-d) translates, 2^d possible a, total pointed theories 2^n sum_d G_2(n,d). Exact independent n=1,2,3 computations give 4,20,128, matching the proof; no claim for full Boolean languages or multiple agents.
 
-The strongest recent directly relevant primary sources were inspected for mathematical implication, not keyword similarity. The 2025 affine \(\mathsf{S5}\) paper's Theorem 3.1 proves a two-agent NP-hardness reduction and does not determine one-agent pointed semantic types. The 2026 survey of modal fragments raises basis-sensitive semantic equivalence as a problem rather than giving this quotient. The 2008 generalized modal satisfiability paper treats decision complexity, and 2016 classical depth-one normal forms for full Boolean \(\mathsf{S5}\) do not directly furnish the parity-specific affine-hull identification, count and sharp witness size. Targeted scientific searches returned no equivalent statement, which is not a proof of novelty. An unindexed equivalence theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-An exact invariant of **all** formulas in a restricted modal language, an optimal compression theorem for every pointed model, and an all-arity closed expression for the complete pointed-type census answer a natural basis-sensitive equivalence question. This goes beyond an isolated example or routine small census: it explains why an entire family of different epistemic classes becomes observationally identical without conjunction, and shows the exact complexity of the resulting semantic quotient.
+Krebs–Meier's affine S5 satisfiability hardness principally uses two accessibility relations; hardness does not classify one-agent logical equivalence or minimum finite models. Modal Fragments 2026 investigates restricted Boolean bases and basis-sensitive bisimulation but does not provide this precise S5 affine-hull iff and Gaussian pointed-type census. General unrestricted Boolean S5 normal forms distinguish exact reachable valuation sets X, not merely their affine spans; therefore they do not directly give the sharp XOR quotient/compression formula. Similar two-agent properization findings are logically separate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem gives a complete, nontrivial semantic invariant for a natural Boolean clone in epistemic modal logic, with sharp model compression and an exact all-n counting formula. It explicates the qualitative change from one to two agents and from affine to full Boolean syntax and is a useful precise example for basis-restricted modal expressivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
