@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The inequality system defines the six-element crown order polytope, each displayed inequality is a facet, and the active primitive normals are a totally unimodular directed incidence configuration. A complete cycle argument reduces all nonsmooth cones to exactly three zero-boundary four-cycles, three one-boundary four-cycles, and one comparison six-cycle. Their faces are six square pyramids and one primitive segment. The integral circuit models give rank-one \(2\times2\) and \(3\times3\) transverse determinantal cones, with respective multiplicities \(2\) and \(6\). The actual standalone checker passes 18,563 determinant checks and exact face/orbit incidence enumeration.
+## correctness
 
-**Originality: PASS, qualified.** Wagner (1996) already treats projective Hibi varieties for every finite distributive lattice, proves the orbitwise tree criterion for smoothness, and examines local rings. Its full primary text could not be accessed (institutional-archive PDF 404); only its published abstract was inspected, creating a substantial coverage risk. Brown–Lakshmibai (2006; 2007) and Lakshmibai–Mukherjee (2007) provide related classical Hibi constructions and, crucially, broad singular-locus criteria. The latter three accessible full texts were inspected at their theorem statements and relevant examples. The general all-Hibi criterion supplies a possible computational route but does not state the explicit six-crown projective decomposition, its codimension-five line, both Segre slices, or incidence and orbit counts. Searches for aliases including crown/3-crown, order polytope, six-cycle Hibi variety, and determinantal transverse germs did not reveal a covering worked classification. Wagner’s exact-object, all-poset criterion decisively covers the generic cycle/tree test, and might cover more of the worked example; it does not explicitly give the seven-component incidence/classification in the accessible abstract. This is a substantial broader-coverage risk; no claim of worldwide uniqueness or independent certification is made.
+PASS
 
-**Mathematical value: PASS.** This is a canonical minimal cyclic height-two poset, not an arbitrary parameter slice. An explicit non-pure singular locus contrasts with the pure codimension-three result for minuscule/grid Hibi families, and the two distinct determinantal generic germs explain its geometry. The component intersection configuration and entire singular-orbit distribution provide reusable benchmark data for singularity questions about non-grid Hibi varieties. These exact facts require the concrete cycle/circuit analysis beyond citing a general smoothness criterion.
+The crown order polytope has 12 actual facets: 3 lower a-bounds, 3 upper b-bounds and 6 cross-order inequalities. Their primitive incidence normals are totally unimodular. Dependence cycles in the active graph are exactly the 6 rooted four-circuits (three all-zero A and three all-one B) and the root-free six-circuit. These yield six maximal singular 3-faces and one independent singular segment; toric orbit-face correspondence yields seven irreducible singular components. Square-pyramid faces define quadric-cone threefolds, circuit duals give rank-one 2x2 (multiplicity 2) and 3x3 (multiplicity 6) generic transverse Segre cones. Independent exact facet-intersection/rank reconstruction of all 4096 facet subsets recovered 18 polytope vertices, 403 faces, six 3-dimensional + one 1-dimensional maximal singular faces and singular orbit counts (17,43,30,6). Pair face intersections give 6 lines/3 points/6 empty pairs among six cones. Dimension and characteristic boundaries explicitly respected.
 
-**Limitations and risks.** The theorem determines reduced singular support for the specified sixfold, not the Jacobian scheme structure and not larger crowns. The Wagner 1996 projective-Hibi and 2007 all-Hibi criteria are strong predecessors and an unindexed equivalent example remains possible. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the *explicit entire seven-component projective crown geometry*, not the already-established general Hibi tree criterion. Wagner 1996 is a highly relevant projective all-poset predecessor and its unavailable full examples/local-ring text create serious residual coverage risk. Brown-Lakshmibai and Lakshmibai-Mukherjee criteria and grid-lattice pure codim-three results do not themselves state the present non-grid seven-component incidence, nonpure dimension, two transverse Segre types and 96 orbit counts.
+
+## value
+
+PASS
+
+The six-element crown is the smallest natural height-two cycle poset; its nonpure singular-locus arrangement contrasts with purity for grid/minuscule Hibi degenerations. The complete component intersection graph, mixed transverse conifold/3x3 Segre types and exact orbit census are concrete reusable test data for toric singularities, not merely rebranding Wagner’s general smoothness criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
