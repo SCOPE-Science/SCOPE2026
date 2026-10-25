@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The action of every legal endpoint backbite on the bipartite permutation pair is derived from a literal alternating path. For balanced sides, a conjugate of a two-entry prefix or suffix reversal performs exactly one chosen adjacent swap in one side and fixes the other. For one-extra-vertex sides, all big-side adjacent swaps are pure; a three-vertex end reversal combined with those swaps produces pure small-side swaps. Direct composition verifies the written identities, and ordinary adjacent-swap sorting then yields the quadratic word-length bounds. The two exceptional minimal cases are resolved by unoriented path-reversal identifications. The embedded exact verifier compares predicted transitions with vertex-word backbites, checks macro effects and tests sorting. The proof covers unbounded parameters and does not rely on finite checks as infinite certification.
+## correctness
 
-## Originality — PASS
-The closest October 2026 Hamiltonian-path reconfiguration paper proves spanning-path-square and two-thirds minimum-degree sufficiency and proposes the weaker half-degree conjecture. Complete bipartite paths cannot have their squares inside the host, and the balanced graphs miss the two-thirds condition, so these theorems do not imply the new result. The cycle-switch literature uses a different move, and the similarly worded bipermutahedron calculation uses a different one-skeleton. Searches against public mathematical research records and related primary literature found no same result or stronger covering statement. Search limitations and possible unindexed equivalent work remain risks.
+PASS
 
-## Value — PASS
-The full class of traceable complete bipartite graphs is classified, including the exact half-degree extremal balanced family in the published connectivity conjecture. Unlike merely enumerating paths, the construction gives uniform quadratic explicit move algorithms and explains how separate bipartition permutations can be controlled through constrained endpoint reversals. This is a natural infinite graph family and a meaningful case of an open graph-reconfiguration problem.
+A backbite reverses an even-size prefix/suffix up to a graph-neighbor endpoint, represented by involutions P_j and S_j on alternating X/Y permutations. For K_n,n, conjugates P_j P_2 P_j and S_j S_2 S_j give pure adjacent X/Y swaps at ≤3 backbites each, yielding diameter ≤6n(n−1). For K_n,n+1, pure Y adjacent swaps have cost ≤3, P3 or S3 combined with their correction gives pure X swaps ≤12, establishing diameter ≤15n²−9n. Exhaustive independently built undirected path-backbite graphs: K1,2 one state; K2,2 four states diameter2; K2,3 six states diameter3; K3,3 36 states diameter4; K3,4 72 states diameter6. These corroborate, not prove, all-n macros. All traceable complete bipartite cases covered.
 
-## Residual limitations
-The upper bounds may not be tight. The theorem makes no claim about other dense graphs; bibliographic search is not an absolute novelty guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Contemporaneous connectivity conditions and conjectures do not cover K_n,n and K_n,n+1 endpoint-backbite reconfiguration with quantitative diameter. Best-of-knowledge; checked source and access limitations recorded in residual_risks.
+
+## value
+
+PASS
+
+Endpoint-backbite reconfiguration is the specific move underlying a published half-order connectivity conjecture. Every traceable complete bipartite graph is an extremal natural family and the polynomial word-length argument supplies nontrivial uniform quadratic diameter bounds, not merely a tiny sample enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
