@@ -1,15 +1,21 @@
-# Scientific review: tail-distance asymptotic
+# Independent mathematical audit
 
-## Correctness
-PASS. For each far tail competitor, the proof separates the large tail-\(\ell_1\) case from the small tail-\(\ell_1\) case. The former costs at least \( (2-\delta)m \) in \(\ell_1\); in the latter, the exact scale-one defect formula forces \(\theta H\ge m\) when \(\delta\log m-2\log(2/\delta)\ge1/\theta\). The explicit \(\delta_m\to0\) meets the condition. Balanced opposite unit blocks give the matching \(2m\) upper bound. Infinite tail vectors and complex scalars are included. A 2015-assertion finite checker was run; it is only diagnostic.
+## correctness
 
-## Originality
-PASS, with residual priority risk. Berná's arXiv:2610.05052v1 Remark 6.1 proves only \(m\le q_\theta(\mathbf1_A)\le2m\). The closest published mathematical result on the same space, *Logarithmic suppression conditionality in a semi-greedy non-quasi-greedy Markushevich basis*, evaluates the order of the distinct supremum-based projection invariant \(k_m\), not the tail-distance infimum. Its entire published RESULT.md was inspected. Earlier quasi-Banach counterexamples from arXiv:2510.13693v2 concern different spaces. Actual semantic searches were compared by implication, not merely by titles. Undiscovered earlier general entropy arguments remain possible.
+PASS
 
-## Mathematical value
-PASS. The source explicitly motivated the tail quotient but left its normalized value between \(1\) and \(2\). Resolving it at the sharp endpoint gives the asymptotic optimal cost of tail cancellation and the coefficient \(\theta/2\) in the exact quasi-norm/tail-gauge distortion, with a logarithmic effective error. The result concerns the complete natural block family, not an arbitrary single example.
+For each finite positive m-coordinate block u and each late-tail v, disjoint supports make ||u-v||_1=m+b where b=||v||_1. A disjoint negative unit block of cardinality m yields F_t≡0 and distance 2m, so q_theta<=2m. If b>=(1-delta)m the l1 term gives >=(2-delta)m. Otherwise S=m+sum w_j satisfies delta*m<|S|<2m for w=-v, and at t=1 the exact identity F_1=-m log m-D-S log(|S|/m), D=sum w_j log(m/max(|w_j|,1)), has |D|<=b log m, |S log(|S|/m)|<=2m log(2/delta). Thus H>=m[delta log m-2log(2/delta)]; for theta times the bracket >=1 the defect contributes at least m and enforces norm >=2m. The explicit delta_m=(3 log log m+10+2/theta)/log m for sufficiently large m has delta_m->0, delta_m<=1/2 and theta[delta_m log m-2log(2/delta_m)]>=1. The proof works for arbitrary absolutely summable complex tails, not just finite or constant-coefficient ones. Berná exact norm m(1+theta log m) and bidual block norm m yield stated ratios. Source finite checker was read but not executed; analytical scale-one argument covers the infinite-dimensional tail infimum.
 
-## Limitations
-The result is for positive constant-coefficient blocks and a fixed \(\theta>0\) in the original logarithmic quasi-norm. No general-vector classification, exact finite-size formula, variable-\(\theta\) uniform limit, or independent priority assessment is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Berná original paper Remark 6.1 proves only m<=q_theta(1_A)<=2m; the missing limiting endpoint is not implied by those inequalities. The published result on exactly the same logarithmic space establishes the different projection/suppression constant k_m(theta)∼log m but neither computes infimum distances to all tails nor supplies a sharp q_theta/m limit. The submitted scale-one entropy obstruction supplies the asymptotic lower endpoint 2. Both complete primary original work and the related public same-space result were inspected.
+
+## value
+
+PASS
+
+Berná specifically introduced the natural tail quotient gauge to reveal a basis obstruction, yet its asymptotic value for every m-coordinate block was left in a nontrivial factor-two interval. Identifying the sharp endpoint and effective logarithmic convergence gives a concrete, independently usable invariant of the natural whole block family and exact coefficient theta/2 for norm-to-gauge distortion. It is not a textbook renaming or an arbitrary slice; resolving a stated sharp gap in a motivated construction suffices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

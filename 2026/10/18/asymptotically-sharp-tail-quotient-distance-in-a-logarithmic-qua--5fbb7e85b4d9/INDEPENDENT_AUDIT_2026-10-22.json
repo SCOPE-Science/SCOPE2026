@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T05:58:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8b61233ee98669a3588b8f16354073f98e4d52b1",
+        "assigned check_tail.py blob bbf09d34e695144629e6e3bd8e31efb5e5673781 (read)",
+        "Berná arXiv:2610.05052v1 Sections 3 and 6, especially Remark 6.1"
+      ],
+      "rationale": "For each finite positive m-coordinate block u and each late-tail v, disjoint supports make ||u-v||_1=m+b where b=||v||_1. A disjoint negative unit block of cardinality m yields F_t≡0 and distance 2m, so q_theta<=2m. If b>=(1-delta)m the l1 term gives >=(2-delta)m. Otherwise S=m+sum w_j satisfies delta*m<|S|<2m for w=-v, and at t=1 the exact identity F_1=-m log m-D-S log(|S|/m), D=sum w_j log(m/max(|w_j|,1)), has |D|<=b log m, |S log(|S|/m)|<=2m log(2/delta). Thus H>=m[delta log m-2log(2/delta)]; for theta times the bracket >=1 the defect contributes at least m and enforces norm >=2m. The explicit delta_m=(3 log log m+10+2/theta)/log m for sufficiently large m has delta_m->0, delta_m<=1/2 and theta[delta_m log m-2log(2/delta_m)]>=1. The proof works for arbitrary absolutely summable complex tails, not just finite or constant-coefficient ones. Berná exact norm m(1+theta log m) and bidual block norm m yield stated ratios. Source finite checker was read but not executed; analytical scale-one argument covers the infinite-dimensional tail infimum.",
+      "residual_risks": [
+        "Theta must be fixed positive; no uniform theta->0 claim. The error bound applies only once its explicit delta_m<=1/2 conditions hold, as the source states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berná establishes m<=q_theta(1_A)<=2m for all m and independently the exact positive block quasi-norm m(1+theta log m).",
+          "The related result proves max{1,(1+theta log m)/2}<=k_m<=1+theta(log m+1/e), an order result for a distinct invariant."
+        ],
+        "reasoning": "Neither prior two-sided tail-distance bounds nor a projection-norm order theorem implies the new limit q_theta/m->2; the submitted universal entropy estimate closes the factor-two asymptotic gap.",
+        "searches": [
+          "Berná arXiv:2610.05052v1 Remark 6.1",
+          "published 2026/10/11 logarithmic suppression conditionality d622ec85fec3 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Berná arXiv:2610.05052v1 full HTML",
+        "Resultary public full d622ec85fec3 RESULT.md",
+        "Albiac et al arXiv:2510.13693v2 referenced earlier quasi-Banach examples, summary",
+        "Resultary same-space targeted search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One may have any limiting q/m in [1,2] while satisfying the old bounds, so those estimates alone cannot give 2.",
+          "An operator-norm lower bound from a specific positive/negative block construction does not show that every infinite tail competitor pays approximately 2m; the scale-one entropy obstruction is essential."
+        ],
+        "reasoning": "The stronger infimum-over-all-tails conclusion requires a new quantitative lower bound, not a renaming or substitution in previously published k_m comparisons.",
+        "searches": [
+          "arXiv:2610.05052v1 Remark 6.1",
+          "Resultary published d622ec85fec3 RESULT.md Section Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berná defines T_N=closed span of coordinates beyond N and q_theta(u)=sup_N inf_{v∈T_N}||u-v||theta.",
+          "The claimed invariant is a quotient-distance gauge on positive m-coordinate blocks, rather than a coordinate projection operator norm."
+        ],
+        "reasoning": "Tail quotient distance is expressible as a block-to-tail infimum with unrestricted infinite support; equating it with suppression conditionality k_m would confuse infima over tails and suprema over projections.",
+        "searches": [
+          "Berná logarithmic quasi-Banach Markushevich basis tail quotient distance characteristic vectors norm H",
+          "arXiv:2610.05052v1 Remark 6.1 tail quotient gauge q_theta",
+          "Resultary logarithmic suppression conditionality same space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant exact source block formula ||1_A||theta=m(1+theta log m) was already in Berná and is credited as such.",
+          "Published same-space result contains inequality bounds for k_m but not a table or exact asymptotic for the tail quotient q_theta."
+        ],
+        "reasoning": "This is an infinite asymptotic exact constant for a natural quotient invariant rather than a numerical table lookup; the known block norm is input only, not the claimed new tail-distance endpoint.",
+        "searches": [
+          "Resultary query: Berná logarithmic quasi-Banach Markushevich basis tail quotient distance characteristic vectors norm H",
+          "Resultary ID:2026/10/11/SCOPE-logarithmic-suppression-conditionality-in-a-semi-greedy-non-quas--d622ec85fec3"
+        ]
+      },
+      "rationale": "Berná original paper Remark 6.1 proves only m<=q_theta(1_A)<=2m; the missing limiting endpoint is not implied by those inequalities. The published result on exactly the same logarithmic space establishes the different projection/suppression constant k_m(theta)∼log m but neither computes infimum distances to all tails nor supplies a sharp q_theta/m limit. The submitted scale-one entropy obstruction supplies the asymptotic lower endpoint 2. Both complete primary original work and the related public same-space result were inspected.",
+      "residual_risks": [
+        "Equivalent entropy-tail obstruction could appear in unindexed quasi-Banach basis literature; no exhaustive bibliographic certification is claimed.",
+        "The exact finite-m tail distance remains unknown and was not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDS_ONLY",
+          "evidence": "Remark 6.1 shows m<=q_theta(1_A)<=2m; it does not identify lim q_theta/m. Remark 6.2 gives the norm of image in bidual as m.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05052v1",
+          "material_read": "Full original arXiv HTML Sections 3, 5 and 6, particularly Remark 6.1 tail gauge and Remark 6.2 bidual norm",
+          "method": "primary full arXiv HTML",
+          "title": "A semi-greedy Markushevich basis which is not quasi-greedy",
+          "trigger": "Identical space, underlying sharp quotient question"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "This source bounds coordinate-suppression constant k_m(theta), defining a supremum over projections, and leaves a leading coefficient gap. It does not evaluate q_theta(1_A) tail infimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-logarithmic-suppression-conditionality-in-a-semi-greedy-non-quas--d622ec85fec3/RESULT.md",
+          "material_read": "Entire 5651-character published RESULT.md including finding, exact definitions, proof and limitations",
+          "method": "full public GitHub source via authorized read-only connector",
+          "title": "Logarithmic suppression conditionality in a semi-greedy non-quasi-greedy Markushevich basis",
+          "trigger": "Closest published exact same-space result might cover quotient asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Berná arXiv:2610.05052v1 Remark 6.1 and 6.2",
+        "published same-space k_m theorem full RESULT.md"
+      ],
+      "rationale": "Berná specifically introduced the natural tail quotient gauge to reveal a basis obstruction, yet its asymptotic value for every m-coordinate block was left in a nontrivial factor-two interval. Identifying the sharp endpoint and effective logarithmic convergence gives a concrete, independently usable invariant of the natural whole block family and exact coefficient theta/2 for norm-to-gauge distortion. It is not a textbook renaming or an arbitrary slice; resolving a stated sharp gap in a motivated construction suffices.",
+      "residual_risks": [
+        "The result is not about all general vectors nor uniform changes to equivalent quasi-norms; this is explicitly delimited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is a best-of-knowledge conclusion based on actual literature inspection, not exhaustive priority certification.",
+    "No new public certificate or expert/Lean attestation created; unchanged source package science and external channels preserved.",
+    "All seven files in the assigned Git tree were read, but opaque repository checker scripts were not executed; separately stated bounded independent diagnostics do not replace infinite proofs.",
+    "The source tree snapshot is immutable and matched the seven-blob verified tree listing."
+  ],
+  "schema_version": 1
+}
