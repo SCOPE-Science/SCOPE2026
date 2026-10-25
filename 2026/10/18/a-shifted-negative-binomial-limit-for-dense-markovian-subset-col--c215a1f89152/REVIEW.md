@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cover-time/graph-vertex-cover equivalence follows directly by complementing visited \((n-2)\)-sets. The fresh-label tree recurrence is exact; its two geometric stages imply \(5+\operatorname{NegBin}(2,1/2)\). The collision union bound gives \(17/(n-2)\). Four-step simple-path forcing proves uniform exponential tails and therefore expectation convergence. Restricted-growth enumeration gives the exact first-completion count. The included checker reproduces finite cases; the proof covers all \(n\ge6\).
+## correctness
 
-**Originality — PASS on available sources, subject to residual literature risk.** The 2023 source and public journal update address the Markovian collection model but do not state this dense \(r=n-2,s=2\) law, its TV coupling or earliest probability. Published-record searches returned combinatorial graph coverage and independent occupancy results whose statements do not imply this distributional result. Some targeted mathematical database queries failed, and unindexed exact results remain possible.
+PASS
 
-**Value — PASS.** Identifying a natural new asymptotic regime, exact nondegenerate limiting law, explicit coupling error and finite earliest-completion probability answers a distributional question for the motivating Markovian collector. The key graph-cover interpretation is structural, not a relabeled iid coupon formula.
+Complement of visited (n−2)-subset is a 2-edge; a pair remains uncollected iff it hits every omitted edge, giving stopping time when graph vertex-cover number ≥3. With no fresh-label collision, visited edges form a growth tree with distinguished pendant edge; dynamic programming on cover costs (A,B) gives absorbing 5+two independent Geom-failure fair variables, pgf z⁵/(2−z)², E=7, variance=4. At j exposed edges collision hazard≤(j−1)/(n−2), so summing to ideal stopping yields TV≤E[(T∞−1)(T∞−2)]/[2(n−2)]=17/(n−2). A uniform 4-step fresh path with probability≥3/256 bounds all tails and ensures expectation convergence. Restricted-growth enumeration of four transitions distinguishes 4 new labels in 4(n−2)(n−3)(n−4)(n−5) paths and 3 new in 10(n−2)(n−3)(n−4); dividing by [2(n−2)]⁴ gives the stated exact P(T_n=5). Independently enumerated direct finite n=6,7,8 giving 21/256, 27/250, 55/432. These finite checks support, but do not substitute for, uniform coupling proof.
 
-**Limitations.** No corresponding laws for a general number of omitted labels or collected subset sizes are claimed. The mean limit has no certified finite-size rate. An independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the exact mathematical claim against published Resultary records and named primary literature finds no stronger statement implying its new sharp result. Distinguishes known general ingredients and specific overlapping endpoints; access limitations and unindexed priority risks retained rather than treated as absence proof.
+
+## value
+
+PASS
+
+Provides a natural dense-regime law for a Markovian subset coupon collector with an explicit total-variation bound, vertex-cover reduction and exact earliest-completion probability, contrasting fixed-r,s regimes. The graph interpretation and fast finite hitting-time law are useful in their own right.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
