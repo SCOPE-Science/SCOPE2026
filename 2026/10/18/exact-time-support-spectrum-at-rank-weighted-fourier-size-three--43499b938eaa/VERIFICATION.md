@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproducibility
-Run `python3 check_tetrahedral_support.py` with Python 3 and no third-party libraries. Exact integer checks establish group closure, Schur orthogonality, all seven witness cardinalities and the Fourier-transform rank-one identity. The limited integer-grid enumeration is supporting evidence only.
+# Independent mathematical audit
 
-## Analytic verification
-The proof uses the four-sign pattern on each of three cosets. All-nonzero vector coordinates give at most one zero value per coset; the existence of any zero coordinate makes the coset nonzero counts even. Together with the known uncertainty product bound, this excludes all unlisted cardinalities without a computational completeness assumption.
+## correctness
 
-## Limits
-No finite computation establishes originality, the theorem for arbitrary finite groups, or independent validation. These are not claimed.
+PASS
+
+The A4 irreducibles have dimensions 1,1,1,3. The condition sigma(f)=3 gives only all three one-dimensional Fourier blocks active (f factors through A4/V4 with support multiple four) or exactly one rank-one 3x3 block (f(g)=u* rho(g)v). For the 3D tetrahedral signed-permutation representation, each of the three V4 cosets gives four sign combinations of coefficients a1,a2,a3. If all coordinates of u and v are nonzero, the four signed sums in each coset have at most one zero, so total support>=9. If some coordinate vanishes, each coset has a zero a_j and four values split into opposite pairs, yielding an even number of nonzeros globally. The general uncertainty inequality |supp(f)|sigma(f)>=12 then excludes sizes below 4. Thus 5 and 7 impossible. Seven explicit integer pairs of vectors actually give support sizes 4,6,8,9,10,11,12; independent exact direct signed-permutation evaluation reproduced every count. Source checker and Schur orthogonality identities were inspected. This proves exclusions over arbitrary complex coefficients; the finite integer grid was not treated as exhaustive.
+
+## originality
+
+PASS
+
+PASS for exact seven-value tetrahedral support spectrum at Fourier rank weight 3 and the two forbidden values 5 and 7, not the pre-existing noncommutative uncertainty product bound. Alagic--Russell Theorem 2 implies lower support 4 only; 5 and 7 satisfy it and need the coset parity-or-large-support argument. Resultary nearest exact finite Fourier tables are on abelian groups, not A4 rank-one irreducible coefficients; older exact A4 tables remain risk.
+
+## value
+
+PASS
+
+A4 is a canonical smallest rotation group with a genuinely 3-dimensional irreducible. Determining all attainable time supports at the corresponding smallest nonabelian Fourier rank exposes nontrivial gaps beyond the generic product lower bound, a useful structural boundary for support uncertainty and finite-group matrix-coefficient zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

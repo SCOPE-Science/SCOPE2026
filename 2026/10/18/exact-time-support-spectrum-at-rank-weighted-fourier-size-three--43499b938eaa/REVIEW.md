@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All complex-valued functions with rank-weighted Fourier support exactly \(3\) fall into two explicit representation configurations. Schur orthogonality reconstructs the matrix-coefficient class. Its three four-sign cosets contribute only even numbers of nonzeros if either vector has a zero coordinate, and at least three nonzeros each otherwise. The resulting exclusions are proved for every complex vector pair. The seven included cardinalities have integer witnesses and verified exact Fourier-block identities.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The close primary source is Alagic–Russell, *Uncertainty Principles for Compact Groups* (2006), whose Theorem 2 proves \(|\operatorname{supp}f|\sigma(f)\ge12\) here. It neither excludes \(5\) and \(7\) nor classifies attainable cases on \(A_4\). Comparisons with published Fourier-support findings and public source indexes found no identical A4 table. Incomplete indexing and transient failures of some supplementary targeted searches leave risk of an unlocated specialization; absence of matches is not a uniqueness proof.
+PASS
 
-## Mathematical value
-**PASS.** The first genuinely nonabelian Fourier block of \(A_4\) yields a complete, discontinuous exact time-support spectrum at minimal three-dimensional Fourier rank weight. This separates actual realizability from a general uncertainty lower bound and identifies a usable structural obstruction for broader noncommutative support profiles.
+The A4 irreducibles have dimensions 1,1,1,3. The condition sigma(f)=3 gives only all three one-dimensional Fourier blocks active (f factors through A4/V4 with support multiple four) or exactly one rank-one 3x3 block (f(g)=u* rho(g)v). For the 3D tetrahedral signed-permutation representation, each of the three V4 cosets gives four sign combinations of coefficients a1,a2,a3. If all coordinates of u and v are nonzero, the four signed sums in each coset have at most one zero, so total support>=9. If some coordinate vanishes, each coset has a zero a_j and four values split into opposite pairs, yielding an even number of nonzeros globally. The general uncertainty inequality |supp(f)|sigma(f)>=12 then excludes sizes below 4. Thus 5 and 7 impossible. Seven explicit integer pairs of vectors actually give support sizes 4,6,8,9,10,11,12; independent exact direct signed-permutation evaluation reproduced every count. Source checker and Schur orthogonality identities were inspected. This proves exclusions over arbitrary complex coefficients; the finite integer grid was not treated as exhaustive.
 
-## Limits
-No classification at other rank weights, no positivity restriction, and no independent audit are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for exact seven-value tetrahedral support spectrum at Fourier rank weight 3 and the two forbidden values 5 and 7, not the pre-existing noncommutative uncertainty product bound. Alagic--Russell Theorem 2 implies lower support 4 only; 5 and 7 satisfy it and need the coset parity-or-large-support argument. Resultary nearest exact finite Fourier tables are on abelian groups, not A4 rank-one irreducible coefficients; older exact A4 tables remain risk.
+
+## value
+
+PASS
+
+A4 is a canonical smallest rotation group with a genuinely 3-dimensional irreducible. Determining all attainable time supports at the corresponding smallest nonabelian Fourier rank exposes nontrivial gaps beyond the generic product lower bound, a useful structural boundary for support uncertainty and finite-group matrix-coefficient zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
