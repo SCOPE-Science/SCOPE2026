@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed denominator is the number of ordered independent draws, \((n+1)^3\), not \(n^3\). The proof separately treats both Boolean endpoint layers, the four comparisons with the threshold \(t=n-a\), and boundary overlaps. The single-law count is \((n^3+30n^2+5n+12)/6\); the joint solution set has exactly \(3n\) pairs for every interior first coordinate, giving \(5n^2+n+2\). The involution exchanging the strong connectives proves the dual equality. The standalone direct-operation checker matched both region characterizations and formulas on every one of \(1{,}168{,}560\) assignments for denominators \(1\) through \(45\). No asymptotic assertion relies only on the finite checks.
+## correctness
 
-## Originality — PASS, qualified
-The inspected 2018 primary paper explicitly states non-distributivity but establishes decision-complexity and normal-form results rather than exact assignment frequencies or the joint-density collapse. The 2022 related representation article could not be inspected in full, so prior special-case enumeration cannot be entirely excluded. Published mathematical-record queries for the exact equations, their duality, asymptotic satisfaction degree, and polynomial formulas returned no equivalent claim. The originality judgment is best-knowledge and not priority certification.
+PASS
 
-## Mathematical value — PASS
-Strong conjunction and strong disjunction are the canonical non-lattice operations of finite Łukasiewicz logic; distributivity between them is an intrinsic structural law, explicitly relevant in the primary literature. The complete exact counts and the sharp geometric classification show a nonobvious dependence effect: each law has limiting satisfaction density \(1/6\), but their conjunction has vanishing density \(5/n+O(n^{-2})\). The result gives exact quantitative benchmarks for finite truth-value semantics rather than a mere counterexample to distributivity.
+Normalize the n+1-element finite MV-chain values to a,b,c∈{0,…,n}, ⊕=min(n,x+y), ⊙=max(0,x+y−n). For 0<a<n set t=n−a. The forward equation is exactly the union of four b,c regions: below threshold b+c≤t; two mixed regions with zero/minimal or n/maximal boundary; above threshold the diagonal b+c=2n−a. Summing yields (n³+30n²+5n+12)/6 forward triples; order-reversing De Morgan involution gives the identical dual count. Both equations hold on two full a=0,n layers plus boundary segments and exactly two interior diagonals, totaling 3n pairs per interior a and 5n²+n+2 overall. Exact probabilities divide by (n+1)³, giving 1/6 and 5/n asymptotics. Independent direct min/max enumeration for n=1,…,24 checked 105,624 triples and both exact counts. Finite enumeration corroborates but arbitrary n follows from disjoint case partition.
 
-## Closest sources and limitations
-Bofill et al. (2018), DOI 10.1007/s00500-018-3365-9, is the closest fully inspected source; Preto and Finger (2022), DOI 10.1017/S096012952200010X, is related but not fully available. The result is restricted to standard finite MV chains and uniform independent triples. The literature search cannot prove uniqueness, and independent scholarly review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual semantic Resultary search and primary-literature comparisons. The simultaneous law is a stronger combinatorial question with a vanishing-density solution set; inspected results do not imply either numerical polynomial formula. Unread primary documents are not treated as not covering.
+
+## value
+
+PASS
+
+The canonical strong connective laws are structurally central to finite MV-valued logic, and their exact satisfaction distributions quantify much more than existence of a counterexample: each law has asymptotic probability 1/6 yet their conjunction only 5/n and admits a full boundary/interior geometric classification. These precise natural semantic statistics furnish reproducible benchmarks and a sharp dependence phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
