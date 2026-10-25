@@ -1,0 +1,11 @@
+# Review of the lens ellipsoid theorem
+
+**Correctness: PASS.** The positive-root algebra yields \(a^2+(d+1)ha/\sqrt d+h^2=1\) and \(b^2=a^2+ha\sqrt d\). Substitution gives a nonnegative perfect-square containment certificate for every boundary point. The complete signed-latitude contact set admits explicit positive John weights with zero weighted mean and identity weighted covariance, proving global optimality and uniqueness. Asymptotic expansions are recovered from the same exact quadratic, and strict monotonicity follows from strict lens inclusion and uniqueness. The attached standard-library verifier independently tests containment, contacts, and both asymptotic regimes. Finite tests are not the proof.
+
+**Originality: PASS subject to historical-priority risk.** Full relevant passages of the 2007 Güler–Gürtuna paper establish generic contact criteria and explicit ellipsoids of *spherical slabs*, which do not imply an explicit John ellipsoid for a **two-sphere lens** without a new optimization argument. Finch 2013 gives forward lens volume, surface area and mean width but no John axes; Paouris–Pivovarov 2015 addresses random ball intersections and intrinsic volume inequalities, not ellipsoid contacts. A searched public record on the mean width of symmetric lenses likewise studies an entirely different functional. No claim of exhaustive historical uniqueness is made.
+
+**Value: PASS.** The spherical lens is a canonical intersection-of-congruent-balls model. Exact optimal ellipsoid axes, global contact geometry, and an order-\(d^{-1/2}\) high-dimensional crossover describe how an affine inner approximation collapses while the underlying balls remain nearly coincident in physical distance. The explicit nontrivial limiting fraction and exponentially small fixed-gap law give usable sharp benchmarks for approximation and high-dimensional convex geometry. This is more than a restatement of the general John criterion.
+
+**Residual scientific limitation.** Earlier specialist lens or affine-approximation work, including older non-digitized geometric sources, could contain equivalent formulas. Unrestricted ball intersections are not classified.
+
+Self-review: passed. Independent audit: not yet performed.
