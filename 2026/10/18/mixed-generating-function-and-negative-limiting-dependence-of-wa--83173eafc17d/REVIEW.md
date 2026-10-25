@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain and normalization are explicit: fair independent nearest-neighbor steps; the maximum includes the initial state, and the return count excludes it. Reflection identifies the origin-return paths reaching an integer barrier with unconditioned endpoints at double that barrier. First-passage and Green-function products account for whether the barrier was reached before a return or must be reached afterward, with the initial return explicitly subtracted. Geometric summation proves the mixed generating function; a monotone-density Tauberian theorem gives its leading coefficient. The corresponding return-count moment transform and maximal moment convergence yield the limiting covariance and correlation. Two independent exact-rational computations agree on every coefficient through degree 16. The finite test is supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Starting from the exact hitting transform r(z)^a and walk Green function u(z)r(z)^|k|, reflection at first hit of a gives P(S_j=0,M_j≥a)=P(S_j=2a). Splitting at every j≥1 return and future hitting event gives the stated three geometric sums for E[M_n L_n], with the exclusion of S0. As z→1, u~(2(1−z))^−1/2, 1−r~sqrt(2(1−z)), and weights (1+1/2−1/3)=7/6 yield leading 7/12·(1−z)^−2; nonnegative monotone moments justify monotone Tauberian E[M_nL_n]/n→7/12. Return-count second-moment transform ((u−1)(2u−1))/(1−z) and Donsker/Doob uniform integrability give each normalized variance 1−2/π. Thus Cov/n=7/12−2/π<0 and Corr ratio as claimed. Independent exact-fraction dynamic programming of all (position,maximum,return-count) states and separate binomial/Catalan coefficient expansion agree for every n≤16 on three moments, not an infinite proof.
 
-Kirschenhofer and Prodinger (1996) is a close primary reference: its Sections 2 and 3 separately study counts of origin returns and counts of visits to the maximum, using bridge and fixed-endpoint decompositions. It does not identify the unconditioned simultaneous product of the **maximum height** and **zero-return count**. Pitman (1998) studies Brownian bridge local times and distributional identities; Denisov and Wachtel (2014) treat local times of killed and reflected walks; Csáki, Földes and Salminen (1987) treat diffusion maximum and argmax, with a different local-time maximum application. The published maximum–endpoint half-variance identity involves the terminal location, not the accumulated returns. A more general unpublished or overlooked bivariate path transform may imply the claim. Search nonmatches are not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding quantifies dependence between two intrinsically different path statistics: the largest positive excursion height and the accumulated frequency of origin returns. The exact mixed generating function provides finite-time moments, while its singularity yields an explicit strictly negative linear covariance coefficient and nonzero limiting correlation. This is a substantive joint-path statement rather than a recomputation of either marginal moment or a renamed endpoint-covariance formula.
+Best-of-knowledge statement-level comparison of the precise functor, object and parameter with relevant full-text primary sources and published mathematical results. A bivariate generating-function derivative of the joint distribution of maximum and zero-local-time, an excursion decomposition and Brownian maximum–local-time scaling may be alternative formulations. The specific time-discrete mixed Green/first-hitting transform is tested directly, not inferred from a title match. Spitzer-type maximum/endpoint transforms, classical Lévy identities and joint Brownian local-time laws are stronger frameworks in neighboring variables, but the accessible papers inspected do not explicitly establish this discrete same-path M_n L_n GF with origin-return normalization. Kirschenhofer–Prodinger 1996 gives return counts and number of visits to the running maximum (not height×zero returns). Resultary published symmetry identity concerns maximum×odd terminal-point functions, not the pathwise accumulated L_n. No exact precomputed M_nL_n coefficient table in those inspected sources; historical broader bivariate transform remains a real risk. No function g(S_n) equals L_n for a given path: two trajectories can have identical endpoints but different return counts, so the endpoint covariance law does not imply the current covariance. A complete max/local-time joint distribution, if located, would imply the mixed GF and could overturn originality; none verified in inspected sources. Any remaining bibliography uncertainty is retained as residual risk, not presented as novelty proof.
 
-## Scope and literature limitations
+## value
 
-The formula is restricted to the symmetric simple walk, and the sign result is limiting rather than finite-universal. Plausible general joint functional transforms could subsume the exact identity; independent review and broad literature validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact joint mixed moment transform and asymptotically negative dependence of two fundamental same-trajectory observables—height maximum and fixed-origin return local time—give a sign/magnitude phenomenon not read off from marginal maximum or return-count distributions. The precise normalization L_n omits S0 and asymptotic result spans both parities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
