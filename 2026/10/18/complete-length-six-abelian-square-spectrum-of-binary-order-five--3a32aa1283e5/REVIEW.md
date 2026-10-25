@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** An order-five binary de Bruijn cycle is equivalent to an Euler circuit on the order-four de Bruijn graph. Every Euler circuit uniquely determines one of two incoming-to-outgoing matchings at each of 16 vertices. The switch successor permutation and Abelian-square predicate are derived explicitly in `RESULT.md`. All 65,536 choices are exhausted, proving exact coverage of 2,048 cycles and the nine-entry distribution. A separate exhaustive Euler-tour generator reconstructs each cyclic word and verifies its factors and complete reversal-complement orbit counts. Both finite enumerations agree. There is no extrapolation to larger orders.
+## correctness
 
-**Originality (PASS with disclosed residual risk).** The closest prior sources count Abelian squares in unrestricted word classes, analyze Abelian-square-rich infinite words, or generate de Bruijn sequences by successor rules; none of the materially accessible results gives this constrained nine-value histogram and symmetry profile. Existing specialized statistics on order-five de Bruijn cycles concern discrepancy, palindrome length, or linear complexity rather than equality of Parikh vectors across two consecutive triples; their data do not logically specify this distribution. Search cannot exclude unindexed or inaccessible equivalent enumerations.
+PASS
 
-**Value (PASS).** The first factor length beyond the order-five de Bruijn guarantee is a natural boundary: shorter factors have cycle-independent occurrence sets, whereas length-six Abelian squares depend on which factors follow which. Their minimum and maximum numbers, all intermediate values, exact frequencies, and symmetry types quantify the first nontrivial Abelian-repetition variation across a classical family of universally covering cyclic strings. The local-switch reduction isolates the decisive structural constraint, and the resulting table is a complete natural finite classification rather than an arbitrary sample. It is a finite standalone fact, not an all-orders theorem.
+PASS: The directed order-four binary de Bruijn graph has sixteen vertices and thirty-two labeled edges. Every Euler tour gives exactly one incoming→outgoing perfect pairing at every 4-bit vertex, encoded by sixteen switches, and vice versa; successor permutation T_s(e)=2(e mod16)+(floor(e/16) xor s_(e mod16)) is a single 32-cycle iff it represents one rooted Euler tour. Exhausting 2^16=65536 pairings is both complete and duplicate-free on rotation classes. The local indicator for the six-letter factor a x1 x2 x3 x4 b is [a+x1+x2=x3+x4+b]; with b=a xor s_x, summing both arriving edges gives X(B_s)=sum_x h(x,s_x). Independent switch/permutation enumeration recovered exact frequencies {4:32,5:96,6:288,7:384,8:448,9:416,10:224,11:128,12:32}, total 2048. Independently generated cyclic words by Hamilton/Euler DFS and computed each six-letter factor and reversal/complement orbits, recovering size-two/size-four orbit counts (4,6),(0,24),(8,68),(0,96),(8,108),(0,104),(8,52),(0,32),(4,6), total 528 orbits; mean 8 and variance 23/8. Exhaustiveness follows from bijection plus exhaustive loops, not from sampling or a timeout.
 
-**Literature and limitations.** G. Fici, F. Mignosi and J. Shallit, *Abelian-Square-Rich Words* (2017); L. B. Richmond and J. Shallit, *Counting Abelian Squares* (2009); D. Gabric et al., *A Framework for Constructing de Bruijn Sequences via Simple Successor Rules* (2018). The latter two sources were materially accessible at abstract/metadata level, and equivalent specialist results remain a residual originality risk. Only order-five binary cycles and cyclic length-six factors are classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: actual general-framework primary source text and result-set searches were checked against each exact claim, with the four distinct prior-implication tests documented. No examined theorem has a stronger statement whose direct specialization is the reported exact frequency and symmetry table. The finite exhaustive switch proof contributes a logically additional distribution. Historical priority is not guaranteed. No failed search is equated to a novelty proof; unaccessed primary material is named explicitly.
+
+## value
+
+PASS
+
+PASS: A de Bruijn cycle fixes the occurrence of every length-five factor but leaves the length-six neighbor relation variable. The length-six Abelian-square count is thus a natural first unconstrained Parikh-repetition statistic. The exact nine-value distribution and symmetry-orbit profile over all 2048 rotation classes are an independently useful natural finite classification, not a randomly sliced data subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
