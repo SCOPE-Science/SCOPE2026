@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary two-sided Brownian–Poisson construction has a finite fourth moment because \(\lambda_2,\lambda_4>0\), and synchronous fourth-power contraction proves uniqueness in that class. Exact generator equations on \(x\) and \(x^3\) produce both temporal orderings. The moment identity and factorization \((1-a)^3(1+a)=1-2a+2a^3-a^4\) yield the all-lag result. The sign, unique lag maximum, Gaussian comparator, and nonreversible zero-contrast example follow without sample-size extrapolation. A standalone checker passed 124 counted assertions, including independent polynomial-semigroup comparisons. Residual correctness risk: the strict conclusions do not apply outside \(\mathbb E|A|^4<1\) or if reset amplitudes depend on trajectory state.
+## correctness
 
-**Originality — PASS, qualified.** The 2021 random-amplitude resetting paper introduces the mechanism and can even allow an overshoot, and the 2022–2023 partial-reset Brownian papers provide stationary moment or one-point-propagator machinery. The inspected scientific texts do not explicitly state the temporal fourth-order antisymmetry, its universal sign for signed contractions, the overshoot sign reversal, or the irreversible cancellation at \(p=1/28\). The 2021 Lévy-driven harmonic time-reversal paper studies a different process and a different observable. An unidentified stronger general Markov-semigroup theorem may imply pieces of the calculation, so independent priority judgment is needed; database silence is not novelty proof.
+PASS
 
-**Scientific value — PASS.** The temporal order contrast is a natural, exactly measurable fourth-order signature of irreversibility in a resetting model whose complete covariance can be matched by a Gaussian reversible Ornstein–Uhlenbeck model. It has a universal positivity theorem for contraction marks and a nontrivial sharp sign-reversal and blind-spot boundary for the natural rare-overshoot family. This is a structural all-lag statement rather than a numerical parameter slice or a mere restatement of one-time moments. It does not quantify estimation error.
+For the stationary marked Poisson Brownian jump model dX=√(2D)dW between rate-r jumps X→AX with real iid marks and E|A|⁴<1, all λ_j=r(1−E[A^j]) for j=1..4 are positive. Two-sided stochastic convolution gives finite-fourth-moment stationary law v2=2D/λ2,v4=24D²/(λ2 λ4), unique among finite-fourth-moment stationary laws by fourth-power synchronous contraction. Generator identities Lx=−λ1x, Lx³=6Dx−λ3x³ give H(t)=E[X_t³X0]−E[X_t X0³]=[12D²r/(λ2λ4)]E[(1−A)³(1+A)] ∫_0^t exp(−λ1s−λ3(t−s))ds. Integral >0 at every positive t; unique positive maximum at log(λ3/λ1)/(λ3−λ1), continuous at equality. If |A|≤1 almost surely, F>0 under fourth-moment assumption. For P(A=−2)=p,P(A=0)=1−p, p<1/16, exact F=1−28p, so at p=1/28 contrast vanishes yet one-way off-diagonal jumps x→0 with no reverse jump prove nonreversibility. Covariance v2e^(−λ1|t|) matches reversible Gaussian OU. Independently recomputed exact mark-moment identities and all lag signs for p=1/40,1/28,1/20.
 
-**Closest literature and risks.** Dahlenburg et al. (arXiv:2104.14866v1), Tal-Friedman et al. (arXiv:2205.03363v1), Di Bello et al. (arXiv:2305.13722v1), and Yuvan–Bier (Phys. Rev. E 104, 014119). Broader moment-semigroup frameworks may cover special cases implicitly; publication priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Random-amplitude and partial resetting, and one-time moments/propagators, are studied previously; the reviewed final claim is an antisymmetric *two-time fourth-order* observable with an all-positive-lag sign law and a signed-overshoot zero/nonreversible witness, not the stationary distribution or autocovariance itself.
+
+## value
+
+PASS
+
+A natural lag-dependent fourth-order statistic detects temporal irreversibility invisible to the entire covariance, and its precise signed-multiplier threshold gives both a robust positive regime and a sharp measurement blind spot. The explicit closed form and maximizing lag are interpretable dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

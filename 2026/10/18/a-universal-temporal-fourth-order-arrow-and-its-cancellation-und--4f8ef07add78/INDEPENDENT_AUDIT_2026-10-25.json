@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T00:06:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stationary marked Poisson Brownian jump model dX=√(2D)dW between rate-r jumps X→AX with real iid marks and E|A|⁴<1, all λ_j=r(1−E[A^j]) for j=1..4 are positive. Two-sided stochastic convolution gives finite-fourth-moment stationary law v2=2D/λ2,v4=24D²/(λ2 λ4), unique among finite-fourth-moment stationary laws by fourth-power synchronous contraction. Generator identities Lx=−λ1x, Lx³=6Dx−λ3x³ give H(t)=E[X_t³X0]−E[X_t X0³]=[12D²r/(λ2λ4)]E[(1−A)³(1+A)] ∫_0^t exp(−λ1s−λ3(t−s))ds. Integral >0 at every positive t; unique positive maximum at log(λ3/λ1)/(λ3−λ1), continuous at equality. If |A|≤1 almost surely, F>0 under fourth-moment assumption. For P(A=−2)=p,P(A=0)=1−p, p<1/16, exact F=1−28p, so at p=1/28 contrast vanishes yet one-way off-diagonal jumps x→0 with no reverse jump prove nonreversibility. Covariance v2e^(−λ1|t|) matches reversible Gaussian OU. Independently recomputed exact mark-moment identities and all lag signs for p=1/40,1/28,1/20.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dahlenburg 2021 PDF uses random amplitudes and overshooting scenarios, with ballistic emphasis",
+          "Tal-Friedman 2022 analyzes Brownian stationary one-time distribution under a fixed positive contraction",
+          "Yuvan–Bier (2021) concerns Lévy noise in a parabolic potential, not Poisson jump multipliers"
+        ],
+        "reasoning": "A general Markov-semigroup polynomial identity might imply the formula, but the directly inspected more specific resetting papers do not provide the stated sign reversal and cancellation theorem.",
+        "searches": [
+          "Dahlenburg et al. arxiv 2104.14866 random amplitude resetting",
+          "Tal Friedman et al. arxiv 2205.03363 partial resetting",
+          "Resultary: Brownian stochastic resetting random amplitude temporal fourth order time reversal asymmetry moment E[(1-A)^3(1+A)]"
+        ]
+      },
+      "checked_sources": [
+        "Dahlenburg et al. (2021), arXiv:2104.14866",
+        "Tal-Friedman et al. (2022), arXiv:2205.03363",
+        "Di Bello et al. (2023), arXiv:2305.13722",
+        "Yuvan and Bier (2021), DOI:10.1103/PhysRevE.104.014119",
+        "Resultary published corpus and SCOPE repository science searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous one-time moments and two-time covariance can be derived with renewal methods",
+          "New generator x³ coupling is needed to compute H(t), then moment factorization determines its sign",
+          "Zero-contrast irreversibility uses off-diagonal jump detailed-balance violation"
+        ],
+        "reasoning": "The formula is elementary once polynomial generator closure is recognized; broader semigroup treatments might subsume it. Inspected works did not state this exact signed all-lag criterion or threshold.",
+        "searches": [
+          "Dahlenburg et al. 2021 random amplitude resetting PDF",
+          "Tal-Friedman et al. 2022 partial resetting Brownian PDF",
+          "Resultary: Brownian stochastic resetting random amplitude temporal fourth order time reversal asymmetry moment E[(1-A)^3(1+A)]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dahlenburg–Chechkin–Schumer–Metzler (2021) random-amplitude resetting; ballistic examples",
+          "Tal-Friedman–Roichman–Reuveni (2022) fixed contraction partial Brownian resetting stationary moments"
+        ],
+        "reasoning": "One-time fourth moment and covariance formulas from earlier renewal approaches do not alone state the two-time antisymmetric sign or nonreversible cancellation at exactly p=1/28.",
+        "searches": [
+          "Resultary: Brownian stochastic resetting random amplitude temporal fourth order time reversal asymmetry moment E[(1-A)^3(1+A)]",
+          "SCOPE GitHub: random amplitude Brownian resetting time reversal fourth moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite two-atom phase transition p=1/28 follows an exact polynomial moment, not simulation data",
+          "No inspected reset-moment database tabulates the two-time sign observable for signed iid multiplier laws"
+        ],
+        "reasoning": "No natural finite database is required for this unrestricted real-distribution theorem; numerical tests support identities but do not enumerate distributions.",
+        "searches": [
+          "Resultary: Brownian stochastic resetting random amplitude temporal fourth order time reversal asymmetry moment E[(1-A)^3(1+A)]",
+          "SCOPE GitHub: random amplitude Brownian resetting time reversal fourth moment"
+        ]
+      },
+      "rationale": "Random-amplitude and partial resetting, and one-time moments/propagators, are studied previously; the reviewed final claim is an antisymmetric *two-time fourth-order* observable with an all-positive-lag sign law and a signed-overshoot zero/nonreversible witness, not the stationary distribution or autocovariance itself.",
+      "residual_risks": [
+        "General polynomial-jump semigroup or renewal moment formulas may imply parts of the exact two-time contrast, even absent matching terminology.",
+        "Fourth-moment, iid reset-clock and stationarity assumptions are essential; H=0 does not imply detailed balance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the mechanism and relevant generic mark factors but does not state the reviewed Brownian two-time fourth antisymmetry in the inspected sections",
+          "evidence": [
+            "random resetting amplitude model and ballistic progression of the paper"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14866",
+          "material_read": "Open-access paper PDF introduction and random-amplitude reset formulation plus later resetting-analysis passages around pages 6–7",
+          "method": "arXiv PDF page screenshots and text inspection",
+          "title": "Stochastic resetting by a random amplitude",
+          "trigger": "Same random multiplier reset mechanism, including overshoots"
+        },
+        {
+          "assessment": "Fixed positive contractions and one-time laws are prior; no statement that the inspected sections prove the signed overshoot all-lag temporal contrast",
+          "evidence": [
+            "Brownian partial reset mechanism and fixed contraction parameter"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Open-access PDF introduction and stationary fixed-contraction Brownian distribution/moment setup",
+          "method": "arXiv PDF page screenshot and text inspection",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Closest partial Brownian resetting stationary moment results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural lag-dependent fourth-order statistic detects temporal irreversibility invisible to the entire covariance, and its precise signed-multiplier threshold gives both a robust positive regime and a sharp measurement blind spot. The explicit closed form and maximizing lag are interpretable dynamical invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "D,r>0, iid real A with E|A|⁴<1, Poisson event clock independent of Brownian noise; stationary finite-fourth-moment law only.",
+    "General polynomial-jump semigroup or renewal moment formulas may imply parts of the exact two-time contrast, even absent matching terminology.",
+    "Fourth-moment, iid reset-clock and stationarity assumptions are essential; H=0 does not imply detailed balance."
+  ],
+  "schema_version": 1
+}
