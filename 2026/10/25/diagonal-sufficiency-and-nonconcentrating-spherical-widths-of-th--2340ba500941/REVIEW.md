@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The Euclidean-width identity is exactly the sum of absolute generator projections; averaging over all Boolean masks rewrites it as a shifted Rademacher sum. Gaussian smoothing and third-order Lindeberg replacement give a deterministic all-dimensional bound depending only on the absolute third powers of the direction coordinates. For a Haar-spherical unit direction, the maximum coordinate tends to zero, while its diagonal projection converges to a standard normal, establishing the law and the stronger \(L^p\) diagonal approximation. Exact spherical-coordinate moments give uniform integrability. A bivariate Gaussian absolute-moment identity gives the positive variance \(1/12+(\sqrt3-2)/(2\pi)\). The binomial square-root expansion and a Gamma ratio give the coefficient \(1/8\) in the mean. The included checker independently enumerates coefficient-cube corners in 42 cases and verifies separate exact finite moment formulas; those finite checks are not the proof.
+
+## Originality — PASS, subject to remaining bibliographic risk
+The closest same-object source is Deza, Hao and Pournin, *Sizing the White Whale*, arXiv:2205.13309v1 (2022), inspected in its accessible 26-page primary preprint. Its actual results concern vertex enumeration, normal chambers, edges and degrees, not Haar-directional widths. Stinson, Gleich and Constantine, arXiv:1602.06620v1, provide general random-direction sampling of zonotope vertices, not the specific full-subset zonotope profile. Published database comparisons yielded no equivalent theorem. A related complete-bipartite graphical zonotope's one-hub law has twice the same scalar Gaussian profile; this coincidence is explicitly acknowledged rather than asserted to be a new distribution. That graphical model has a different set and rank of generators and does not imply the new deterministic diagonal approximation or the specified spherical mean correction. The absence of a search hit is not treated as a uniqueness proof. Overlap with unindexed treatments of Boolean-sum zonotopes remains possible.
+
+## Mathematical value — PASS
+The full Boolean generator system has exponentially many segments and a highly complex resonance arrangement, making its asymptotic width geometry a natural gap beyond finite vertex and edge counts. The result establishes that its entire leading directional fluctuation depends only on the diagonal projection despite the huge generator set, exhibits a strictly positive limiting relative variance rather than width concentration, and determines a sharp next-order mean correction. These are Euclidean structural facts for a natural published family, not merely a renamed Gaussian random variable or a finite numerical observation.
+
+## Limits of this assessment
+The deterministic rate need not be optimal; no individual vertex normal-cone law or convergence of bodies is claimed. Source searches cannot rule out unindexed equivalents. The finite checker is not an infinite certificate.
+
+Self-review: passed. Independent audit: not yet performed.
