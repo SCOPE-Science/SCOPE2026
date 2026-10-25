@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:13:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 4b22592a232caed82153052ed126fdee885279b4",
+        "pinned check_weighted_line.py blob adbf05c0a74cfd6dfb82428dc3560a2f16074994",
+        "independent_checks.py R1"
+      ],
+      "rationale": "The weighted scalar p-mean has a unique root because the real p-energy is strictly convex, and implicit differentiation at nonzero residuals yields a positive sensitivity g_i=v_i|r_i|^{p-2}/sum(v_j g_j). For p>2, write the signed p-1 residual moments as two probability vectors; the dual test with d_i=(y_i-Cv_i)v_i^{q-1} has d_i+d_j<=0 on every pair and at most one positive entry, so concavity of the power sigma=(p-2)/(p-1) bounds each sign group and yields the pair maximum. Opposite-sign residuals on the winning pair realize its derivative; at other coordinates g=0. For 1<p<2, ||g||_q<=sum g and sum v_i g_i>=min(v_i) sum g give V/min(v_i); monotone smooth regularization of the p-mean passes the global bound through zero residuals. For k>=3, a balanced residual with one minimum-weight coordinate tending to zero has g_i diverge and realizes the bound. k=1 is a coordinate retraction, k=2 is an exact linear weighted mean, p=2 is orthogonal. Pair norm >=1 by retraction and Hölder equality forces equal weights for two active coordinates away from p=2. Independent constrained-residual gradient tests checked 3840 finite cases, supporting but not replacing the dual/sign and smoothing arguments.",
+      "residual_risks": [
+        "The global Lipschitz supremum need not be realized by a separated pair; witnesses may be infinitesimal.",
+        "Complex scalar or nonatomic Lp cases are outside the proof; no extension inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borodin et al Theorem 2: n=1 K=1, n=2 K in [1,2], n>=3 lower and upper coarse estimates; no exact weighted K(v).",
+          "Weighted cross-polytope has precisely the same rank-one planar factor but solves projection onto a convex ball, not onto a weighted line."
+        ],
+        "reasoning": "Finiteness or a bound for any weighted one-dimensional subspace does not determine its exact modulus. Shared rank-one operator norm is acknowledged rather than counted as a new lemma.",
+        "searches": [
+          "10.1134/S0001434617090188 pages 9-10 Theorem 2",
+          "1997 Berens Finzel Li Xu best lp approximations uniform Lipschitz",
+          "Resultary SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1134/S0001434617090188",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-phase-diagram-of-metric-projection-onto-the-cons--c5b935fc4ff6",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+        "https://doi.org/10.1006/jmaa.1997.5521",
+        "Resultary mathematical research records (targeted semantic search)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2017 theorem implies global finiteness only, not equality to max_{i<j} VF_ij for p>2 or V/min w_i for p<2.",
+          "The cross-polytope theorem includes the same numerical expression in the planar case, but its nonlinear map and active-set mechanisms are different."
+        ],
+        "reasoning": "The accepted implication is strict: earlier results cover finiteness, the unweighted special case and a planar factor. The all-generator sharp reduction and weighted contractivity classification remain separate.",
+        "searches": [
+          "Borodin 2017 full Theorem 2",
+          "Resultary published unweighted line RESULT.md",
+          "Resultary published weighted cross-polytope RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constant-vector line has already published sharp n^(1/p) (p<2) and (n/2)^(1/p) (p>2) formulas, which the weighted theorem includes at all equal weights."
+        ],
+        "reasoning": "Equal-coordinate special case is already covered. Varying arbitrary coordinate magnitudes changes the optimizer and is not implied by the equal-weight formula.",
+        "searches": [
+          "Resultary: exact Lipschitz constant metric projection onto one-dimensional line weighted real lp finite dimensional best approximation formula pairs",
+          "Resultary: SCOPE-exact-lipschitz-phase-diagram-of-metric-projection-onto-the-cons--c5b935fc4ff6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed related entries cover all-ones line and weighted planar projection onto cross-polytope; none states the full weighted-line k>=3 p>2 or k>=3 p<2 formula."
+        ],
+        "reasoning": "No checked indexed prior table enumerates the arbitrary generator magnitudes or the support threshold; index nonmatch is only supporting negative evidence.",
+        "searches": [
+          "Resultary query: weighted best-line projection p>2 exact finite pair reduction",
+          "Resultary: constant-vector line exact phase diagram"
+        ]
+      },
+      "rationale": "The exact nonuniform all-weight formula and p-dependent support reduction survive close comparison. Earlier all-ones line constants and the weighted cross-polytope two-coordinate factor are covered ingredients, not novelties. The complete 2017 atomic-subspace article gives only finite/coarse constants, not the displayed sharp full-weight phase diagram.",
+      "residual_risks": [
+        "Full 1997 Berens et al best-approximation paper was not accessible in checked material; a stronger equivalent explicit formula could exist.",
+        "Same planar factor and known all-ones case mean historical priority is limited to the weighted extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SHARP_FORMULA",
+          "evidence": "Theorem 2 yields n=2 range [1,2], n>=3 finiteness and coarse estimates; does not identify all weight-dependent sharp constants.",
+          "identifier_or_url": "https://doi.org/10.1134/S0001434617090188",
+          "material_read": "Full 10-page paper, in particular Sections 1, 4, Lemma 5 and Theorem 2 on pages 9-10",
+          "method": "Authorized full-text publisher extraction with pagewise reading",
+          "title": "Finite-Dimensional Subspaces of Lp with Lipschitz Metric Projection",
+          "trigger": "Same one-dimensional weighted line and exact Lipschitz modulus"
+        },
+        {
+          "assessment": "COVERS_SPECIAL_CASE",
+          "evidence": "Sharp equal-weight n and p phase diagram; not nonuniform weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-phase-diagram-of-metric-projection-onto-the-cons--c5b935fc4ff6",
+          "material_read": "Complete RESULT.md, finding, proof and scope",
+          "method": "GitHub source at published RESULT.md",
+          "title": "Exact Lipschitz phase diagram of metric projection onto constant-vector line",
+          "trigger": "Equal-weight specialization"
+        },
+        {
+          "assessment": "SAME_FACTOR_DIFFERENT_MAP",
+          "evidence": "Planar expression equals F_ij factor but the target is a weighted ell1 ball, not a one-dimensional weighted line.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+          "material_read": "Complete RESULT.md, theorem and proof",
+          "method": "GitHub source at published RESULT.md",
+          "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+          "trigger": "Matching planar rank-one factor and nonexpansivity"
+        },
+        {
+          "assessment": "NOT_RESOLVED",
+          "evidence": "The cited abstract establishes uniform Lipschitz continuity but full text was not read; exact formulas therein remain a priority risk.",
+          "identifier_or_url": "https://doi.org/10.1006/jmaa.1997.5521",
+          "material_read": "Bibliographic abstract and indexed description, not full primary text",
+          "method": "Public bibliographic search",
+          "title": "Hoffman error bounds and uniform Lipschitz continuity of best lp-approximations",
+          "trigger": "Potential general sharp stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Borodin et al 2017 Theorem 2",
+        "complete pinned proof",
+        "published constant-vector line special case"
+      ],
+      "rationale": "Quantitative sensitivity of a nonlinear best approximation is natural in Banach approximation; the sharp weighted k>=3 phase switch differs structurally above/below the Hilbert exponent and completely classifies nonexpansive lines. It resolves the exact constant beyond known coarse atomic-subspace bounds, not a mere parameter substitution or norm estimate. The closed-form weighted extremal structures matter even without an application to larger approximation spaces.",
+      "residual_risks": [
+        "The weighted result is confined to finite real coordinate spaces; future practical need for any particular weight profile varies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V rests on independently reconstructed analytical arguments, not solely on scripts or self-review.",
+    "Originality is a best-of-knowledge primary-source comparison, not worldwide priority certification.",
+    "No public replacement bytes staged; publication is withheld pending verified sanitization."
+  ],
+  "schema_version": 1
+}
