@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify_pappus_full_character.py` using Python 3.10 or newer. The checker uses only the standard library. It generates the explicit finite-field incidence graph and all 216 automorphisms from an affine family plus a point-line involution; verifies graph edge preservation; enumerates all 2598 independent subsets including the empty subset; and performs exact bitset Gaussian elimination for every mod-two boundary rank. It enumerates all signed fixed simplices to compute the reduced rational Lefschetz character. Finally, it verifies the normality of the specified order-three subgroup, the two projected character degrees, their separate irreducible norms, and the entire 216-element distribution.
+## correctness
 
-## Exact observed checks
+PASS
 
-- Graph: 18 vertices and 27 edges; 108 affine side-preserving maps and 108 side-exchanging maps.
-- Nonempty face vector: `(18,126,438,801,756,348,90,18,2)`.
-- Mod-two boundary ranks in degrees one through eight: `(17,109,329,472,274,74,16,2)`.
-- Ordinary mod-two Betti vector: `(1,0,0,0,10,0,0,0,0)`; rational concentration follows by the field-rank inequality and Euler characteristic 11.
-- Reduced degree-four rational character: identity trace 10; nontrivial vertical translations each have trace 1; total character squared norm 2; character average 0.
-- Rational projection characters: dimensions 4 and 6, each squared norm 1, mutual inner product 0.
+Reconstructed Pappus graph from nine affine points and nine affine lines (18 vertices,27 edges), all 2598 independent sets including empty, and all 216 affine/duality automorphisms; independently summed signed setwise-fixed oriented faces to obtain trace distribution {-2:21,-1:72,0:54,1:32,2:36,10:1}. The source mod-two boundary rank calculation gives rational homology bounded by Betti_4=10; Euler characteristic forces rational rank exactly ten, all in degree 4. Normal C3 vertical translation z has trace 1 on z,z^2, so idempotent (1+z+z^2)/3 gives ranks 4 and 6. Both nonzero orthogonal constituent character norms are 1 (independently checked), proving complex absolute irreducibility.
 
-## Scope of verification
+## originality
 
-The finite field rank argument certifies rational Betti concentration but does not separately compute Smith normal forms or establish any integral equivariant decomposition. The complete automorphism group and the intrinsic representation splitting also use the mathematical arguments in `RESULT.md`; the checker verifies their finite enumerations, not the correctness of general group-theoretic principles.
+PASS
+
+Originality as checked against actual Resultary and primary source comparisons; Read two closest published Resultary RESULT.md files: wedge rank-ten and one order-three cyclic module. Neither states the normal-C3 rank 4 or the full 216-element character; the new object is strictly finer.
+
+## value
+
+PASS
+
+The entire 216-automorphism rational homology module for a canonical finite incidence graph and a canonical normal-C3 decomposition supplies symmetry data unobtainable from nonequivariant homotopy or a single cyclic subgroup; a natural exact representation invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
