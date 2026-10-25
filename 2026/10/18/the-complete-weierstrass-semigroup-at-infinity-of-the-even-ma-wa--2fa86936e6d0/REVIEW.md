@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The source's Kummer ramification and genus are explicitly identified and cited. For even \(n\), each \(B\)-zero is totally ramified, so the functions \(z^j/B(u)^{\lfloor jr/N\rfloor}\) have no finite poles and yield all \(N\) distinct residues modulo \(N\). Their Apéry gap count equals the source's genus, proving exactness rather than a lower bound. An index-\(N\) lattice fan proves the stated minimal progression generators; a residue argument identifies the maximal Apéry element and conductor. The included exact checker independently compares residues and generator shortest paths for six finite test instances. The proof does not substitute finite evidence for its uniform claim.
+## correctness
 
-## Originality (PASS, with residual risk)
-Ma–Wang (arXiv:2609.19546, Lemma 4.1) **already display all proposed minimal generators as individual nongaps** using \(u,z,zv,\ldots,zv^K\), where \(v=z^b/B(u)\). Their text does not conclude that these elements *generate the complete Weierstrass semigroup* or give the conductor, complete Apéry set, generator minimality and non-symmetry. Those are established here by a genus-saturation proof and a lattice-fan calculation. Montanucci–Pallozzi Lavorante (arXiv:1901.08897, Theorem 1.1) give a related progression semigroup only for *odd* exponents on the distinct Beelen–Montanucci family. The even case has coprime local Kummer exponents at every \(B\)-zero; this assumption is absent from the earlier odd case. Recorded searches of mathematical results, adjacent primary papers and recoverable local research history revealed no statement implying this exact even-case formula. The residual risk is a general Kummer-cover formula or an unindexed result which, after substitution, could yield the same answer.
+PASS
 
-## Mathematical value (PASS)
-These maximal curves were newly introduced as examples not covered by the Hermitian curve. Their unique rational point at infinity is a canonical place for one-point algebraic-geometric coding constructions. Determining *all* nongaps, the minimal generators, conductor, multiplicity and embedding dimension is structural information inaccessible from the genus alone. The formula also establishes a uniform non-symmetry phenomenon, in contrast with several familiar maximal-curve semigroups. The result does not assert improved code parameters or a classification of other points.
+I reconstructed the Kummer inputs directly from the displayed equation: the right side as a rational polynomial in u has q simple zeros of A=u^q-u with exponent 1, b=q(q-1) simple B-zeros with exponent r=(q^(n−1)-1)/(q−1), and pole degree Q=q^n. For even n, gcd(r,N=q^n+1)=1, as do gcd(1,N), gcd(Q,N), so all q²+1 finite/at-infinity branch places ramify fully. Tame Kummer Riemann–Hurwitz (p does not divide N) gives genus (q²−1)Q/2 independently of an inaccessible cited paper. The functions f_j=z^j/B(u)^floor(jr/N) have nonnegative valuation at every finite branch place, giving nongap orders w_j=qj+b(jr mod N). As gcd(r,N)=1 these represent every residue mod N; their sum/gap formula equals the calculated genus, so they are the complete Apéry set. Lattice fan rays with determinant N generate each nonnegative congruent (j,a), proving the complete progression <m,m+b,...,m+bK=Q,N>. Since 2m>N all listed generators are minimal. The largest Apéry order is w_m=q m+bQ, giving conductor q m+(b−1)Q and defect 2g−conductor=q²(q−1)K>0 (nonsymmetric). Independent Dijkstra residue-graph checks for (q,n)=(3,4),(4,4),(5,4),(3,6) agreed with all arithmetic assertions and computed the independent Apéry minima. Original source local valuation and genus descriptions remain a literature comparison/access limitation, but the Kummer equation itself suffices to rederive the needed tame ramification.
 
-## Closest literature and limitations
-The originating paper’s Lemma 4.1 is the closest nongap precursor; the explicit earlier complete semigroup theorem for odd \(n\) is the closest complete-classification predecessor. The even-parity ramification change is crucial. Exact source passages inspected: Ma–Wang Section 2, Lemma 2.3, Proposition 2.4, **Lemma 4.1 on its Riemann–Roch nongaps**, and Section 4's Hermitian semigroup reference; Montanucci–Pallozzi Lavorante Theorem 1.1 and the proof setting in Sections 2 and 3. There remains a nonzero possibility of equivalence to a general unindexed Kummer semigroup algorithm. The numerical checks are finite corroborations, not a certificate for all parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge with specific credit: Ma–Wang Lemma 4.1 already gives EVERY candidate progression element individually as nongaps, so their existence is NOT new. The claimed new information is exact semigroup equality, full Apéry set, minimality, conductor, embedding dimension and non-symmetry. Montanucci–Pallozzi Lavorante's closest complete semigroup theorem assumes odd n>=5 and does not cover this even family. The originating paper's inaccessible full text could contain a complete hidden statement; that material risk is expressly preserved and no whole-paper noncoverage asserted.
+
+## value
+
+PASS
+
+The exact one-point Weierstrass semigroup of a recently introduced maximal-curve family is a canonical geometric invariant determining pole-order gaps and the dimensions of one-point code spaces. Uniform completeness, conductor, minimal generators and nonsymmetry for all even n>=4, q>2 go beyond the established inclusion of progression nongaps, and are a natural complete classification of an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

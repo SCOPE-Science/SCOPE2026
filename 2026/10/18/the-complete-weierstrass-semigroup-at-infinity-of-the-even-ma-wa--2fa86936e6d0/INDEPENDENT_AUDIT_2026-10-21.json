@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T04:54:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the Kummer inputs directly from the displayed equation: the right side as a rational polynomial in u has q simple zeros of A=u^q-u with exponent 1, b=q(q-1) simple B-zeros with exponent r=(q^(n−1)-1)/(q−1), and pole degree Q=q^n. For even n, gcd(r,N=q^n+1)=1, as do gcd(1,N), gcd(Q,N), so all q²+1 finite/at-infinity branch places ramify fully. Tame Kummer Riemann–Hurwitz (p does not divide N) gives genus (q²−1)Q/2 independently of an inaccessible cited paper. The functions f_j=z^j/B(u)^floor(jr/N) have nonnegative valuation at every finite branch place, giving nongap orders w_j=qj+b(jr mod N). As gcd(r,N)=1 these represent every residue mod N; their sum/gap formula equals the calculated genus, so they are the complete Apéry set. Lattice fan rays with determinant N generate each nonnegative congruent (j,a), proving the complete progression <m,m+b,...,m+bK=Q,N>. Since 2m>N all listed generators are minimal. The largest Apéry order is w_m=q m+bQ, giving conductor q m+(b−1)Q and defect 2g−conductor=q²(q−1)K>0 (nonsymmetric). Independent Dijkstra residue-graph checks for (q,n)=(3,4),(4,4),(5,4),(3,6) agreed with all arithmetic assertions and computed the independent Apéry minima. Original source local valuation and genus descriptions remain a literature comparison/access limitation, but the Kummer equation itself suffices to rederive the needed tame ramification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Odd-exponent GK generalization has different gcd exponent/ramification, so cannot specialize to even n.",
+          "The indexed same-family SCOPE result computes deck normalizer/automorphisms, not semigroup or Apéry data."
+        ],
+        "reasoning": "Generic Kummer and numerical semigroup tools are proof methods, not located broader exact statements. A more general Kummer semigroup classification under another presentation could still imply the result.",
+        "searches": [
+          "arXiv:1901.08897 Theorem1.1 odd n>=5",
+          "Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry",
+          "Resultary 2026/9/18/SCOPE-kummer-deck-normalizer-even-maximal-curves--ba7ecfcdf760"
+        ]
+      },
+      "checked_sources": [
+        "Actual Git RESULT.md and full verify_semigroup.py at 8fc6e0d4e2d9913ab19b2e46a96578759591f1ff",
+        "Ma–Wang arXiv:2609.19546 abstract; full paper inaccessible",
+        "Montanucci–Pallozzi Lavorante arXiv:1901.08897 primary Theorem1.1",
+        "Published same-curve Resultary deck normalizer record 2026/9/18/SCOPE-kummer-deck-normalizer-even-maximal-curves--ba7ecfcdf760",
+        "Resultary query Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma–Wang provides the prospective whole generator list as nongaps, which implies the generated numerical subsemigroup is included in H, not equality.",
+          "The odd-exponent theorem describes a different function field ramification regime."
+        ],
+        "reasoning": "Exact equality needs the independent N-distinct Apéry representation with gap count matching genus, plus fan minimality and maximum arguments. These new implications are not automatic consequences of the prior nongap list; the inaccessible full paper is not declared definitively free of them.",
+        "searches": [
+          "Ma–Wang arXiv:2609.19546 Lemma4.1",
+          "Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry",
+          "Montanucci–Pallozzi Lavorante arXiv:1901.08897 Theorem1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma–Wang lists each proposed nongap via explicit functions, but the accessible abstract and cited lemma description do not affirm these form the complete semigroup.",
+          "The 2019 theorem supplies a complete arithmetic progression for odd exponent family; it has an incompatible parity hypothesis."
+        ],
+        "reasoning": "The exact semigroup could equally be given by its N-Apéry set or conductor/gap equality. Prior *inclusion* of candidate generators in H does not imply equality because extra nongaps can occur; the new genus saturation establishes the missing reverse inclusion.",
+        "searches": [
+          "Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry",
+          "Ma–Wang arXiv:2609.19546 Lemma4.1 summary",
+          "Montanucci–Pallozzi Lavorante arXiv:1901.08897 Theorem1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh computation gives q=3,n=4 exact generators and (g,c)=(324,594); q=4,n=4 yields <208,220,232,244,256,257>, (1920,3648).",
+          "No identical even-family semigroup table surfaced in Resultary or the accessible original abstract."
+        ],
+        "reasoning": "Negative index result is not a global novelty claim; because the full originating article could not be read, priority uncertainty remains elevated.",
+        "searches": [
+          "Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry",
+          "q=3,n=4 H=<63,69,75,81,82> conductor594 genus324",
+          "Ma Wang maximal curve even exponent Weierstrass semigroup table"
+        ]
+      },
+      "rationale": "PASS best of knowledge with specific credit: Ma–Wang Lemma 4.1 already gives EVERY candidate progression element individually as nongaps, so their existence is NOT new. The claimed new information is exact semigroup equality, full Apéry set, minimality, conductor, embedding dimension and non-symmetry. Montanucci–Pallozzi Lavorante's closest complete semigroup theorem assumes odd n>=5 and does not cover this even family. The originating paper's inaccessible full text could contain a complete hidden statement; that material risk is expressly preserved and no whole-paper noncoverage asserted.",
+      "residual_risks": [
+        "Ma–Wang 2026 full text inaccessible; could have explicit or implicit completeness/gap formula beyond described Lemma4.1.",
+        "A general Kummer valuation semigroup theorem may imply the explicit result under transformed parameters.",
+        "The source paper maximality itself is not independently re-proved, although the necessary Kummer branch/genus data are reconstructible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITATION_PRIOR_NONGAPS_CREDITED",
+          "evidence": "Original Lemma 4.1 reportedly exhibits all prospective generator nongaps; complete semigroup assertion cannot be excluded from inaccessible full paper.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19546",
+          "material_read": "Public abstract, bibliographic metadata, plus relevant reported Lemma 2.3, Proposition 2.4 and Lemma 4.1 claims from source package; not independently inspected original full text",
+          "method": "Tried lawful preprint/OA routes then institutional download, returned vpn_disconnected; independently reconstructed needed genus/ramification from displayed equation",
+          "title": "A new family of maximal curves not covered by the Hermitian curve",
+          "trigger": "Identical even Kummer family and strongest potential covering theorem"
+        },
+        {
+          "assessment": "COVERS_ODD_FAMILY_ONLY",
+          "evidence": "Theorem1.1 imposes odd n>=5, unlike the even n>=4 case; no logical parity specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.08897",
+          "material_read": "Primary PDF Theorem1.1, introduction and Kummer constructions in Sections2–3",
+          "method": "Read relevant primary full text and checked odd-exponent hypothesis",
+          "title": "AG codes from the second generalization of the GK maximal curve",
+          "trigger": "Closest complete semigroup theorem for related maximal curves"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Computes deck automorphism normalizer/centralizer, not H(P_infinity).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-kummer-deck-normalizer-even-maximal-curves--ba7ecfcdf760",
+          "material_read": "Indexed abstract/semantic summary only, not full paper",
+          "method": "Compared statement/implication",
+          "title": "Normalizer rigidity for the Kummer deck group of the even Ma-Wang maximal curves",
+          "trigger": "Published same-curve record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact one-point Weierstrass semigroup of a recently introduced maximal-curve family is a canonical geometric invariant determining pole-order gaps and the dimensions of one-point code spaces. Uniform completeness, conductor, minimal generators and nonsymmetry for all even n>=4, q>2 go beyond the established inclusion of progression nongaps, and are a natural complete classification of an infinite family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git RESULT.md and full verify_semigroup.py at 8fc6e0d4e2d9913ab19b2e46a96578759591f1ff",
+    "Ma–Wang arXiv:2609.19546 abstract; full paper inaccessible",
+    "Montanucci–Pallozzi Lavorante arXiv:1901.08897 primary Theorem1.1",
+    "Published same-curve Resultary deck normalizer record 2026/9/18/SCOPE-kummer-deck-normalizer-even-maximal-curves--ba7ecfcdf760",
+    "Resultary query Resultary: Weierstrass semigroup even Ma Wang maximal curves at infinity Kummer arithmetic progression conductor Apéry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is best of knowledge and is not an external priority certificate.",
+    "The independently performed bounded checks corroborate the unrestricted proofs, not a substitution for them.",
+    "Ma–Wang 2026 full text inaccessible; could have explicit or implicit completeness/gap formula beyond described Lemma4.1.",
+    "A general Kummer valuation semigroup theorem may imply the explicit result under transformed parameters.",
+    "The source paper maximality itself is not independently re-proved, although the necessary Kummer branch/genus data are reconstructible."
+  ],
+  "residual_risks": [
+    "Ma–Wang 2026 full text inaccessible; could have explicit or implicit completeness/gap formula beyond described Lemma4.1.",
+    "A general Kummer valuation semigroup theorem may imply the explicit result under transformed parameters.",
+    "The source paper maximality itself is not independently re-proved, although the necessary Kummer branch/genus data are reconstructible."
+  ],
+  "schema_version": 1
+}
