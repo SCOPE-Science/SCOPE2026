@@ -1,0 +1,223 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T03:35:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md in frozen Git tree 68acd9eabccbca3dc25826187046ac007f03ed80; full mathematical proof and scope.",
+        "Assigned check_koper.py and numerical_koper.py read as evidence, not instructions; independent_checks_source.py independently reconstructs six cubic invariance identities and the unfolding coefficient.",
+        "Assigned VERIFICATION.md; actual linearization and center manifold checked, no Lean/expert assertion used."
+      ],
+      "rationale": "For k, epsilon, delta>0 the scalar equilibrium equation has simple folds at r=±sqrt((k+3)/3) with nonzero quadratic drift and nonzero unfolding transversality; the full Jacobian has a simple zero eigenvalue and strictly left-half-plane quadratic transverse factor. Solving all center graph invariance coefficients independently yields A=−3r/H and B=(−1+2kA²S)/H, hence L=B/A. On the attracting side ru>0, the reciprocal equation W'=−A−B/W+O(W^-2) integrates to W=−At+(B/A) log t+C+o(1) because the remaining O(log t/t²) drift is integrable. Stable-fiber exponential tracking gives the same log coefficient off the strong stable manifold; strong-stable trajectories converge exponentially and are correctly excluded. For all positive k,delta the sole root epsilon*=sqrt(6k(k+3)S)−k(1+1/delta) is positive, and signs follow from monotonic H. Independent SymPy reconstructed the cubic invariance without relying on the supplied assertion; all six residuals vanish. Five numerical parameter cases corroborate, do not prove, the infinite-time law.",
+      "residual_risks": [
+        "Conclusion only applies to trajectories converging to the fold from its attracting side while eventually remaining local and avoiding the local strong-stable manifold.",
+        "No global basin, mixed-mode periodic-orbit or epsilon/delta zero singular-limit theorem follows.",
+        "Finite numerical integrations are not a proof of the asymptotic or existence of stable foliations; the latter uses the smooth stable-fiber theorem in the analytical argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic smooth saddle-node dynamics can generate 1/u=ct+L log t+C+o(1) in appropriate coordinates, with coefficient from its cubic normal form.",
+          "Prior Koper literature studies fold curves, singularly folded geometry, Hopf and homoclinic MMOs; no inspected result gives a stronger quantitative normal form from which epsilon* and both signs follow."
+        ],
+        "reasoning": "A general abstract asymptotic is methodological prior coverage, but does not settle whether, and precisely where in all positive parameters, the Koper-specific log term vanishes. No inspected broader theorem logically implies the *numerical coefficient* without a fresh model-specific computation.",
+        "searches": [
+          "Koper equilibrium fold critical slowing log(t) asymptotic finite epsilon normal form",
+          "Koper ordinary equilibrium saddle node cubic normal form logarithmic relaxation",
+          "Kaklamanos–Popović–Kristiansen 2022 §§IV–V and Appendix",
+          "Guckenheimer–Lizarraga 2015 full arXiv paper"
+        ]
+      },
+      "checked_sources": [
+        "Koper (1995), Physica D 80, pp.72–94, DOI 10.1016/0167-2789(95)90061-6 (all 23 extracted pages read, notably defining Eq.(1), §3.1 and Hopf Appendix).",
+        "Guckenheimer and Lizarraga (2015), arXiv:1406.1813, DOI 10.1137/140972007 (primary full text and geometric-hypotheses section read).",
+        "Kaklamanos, Popović and Kristiansen (2022), DOI 10.1063/5.0073353 (OA full text and accepted manuscript: original model, Koper section IV, conclusions, Appendix).",
+        "Resultary semantic searches for Koper ordinary folds, center-manifold logarithms and recurrence (self-return distinguished from genuinely prior records).",
+        "Previously published Koper speed-weighted stationary balance in Resultary, 2026/10/4/SCOPE-exact-speed-weighted-fold-balance-in-the-koper-mixed-mode-oscill--55de557a38e3 (complete RESULT.md read)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Koper original locates fold but Appendix derives a Hopf expansion, not ordinary saddle-node relaxation.",
+          "The 2015 and 2022 sources emphasize singular folded/oscillatory/homoclinic regimes; no finite k>0 equilibrium-fold L formula appears in materially inspected text.",
+          "Earlier published SCOPE Koper stationary measure law assumes k<0 for recurrence and cannot determine nonstationary k>0 local asymptotics."
+        ],
+        "reasoning": "A different bifurcation branch or a fold-locus formula does not entail the coefficient L=(H²−6k(k+3)S)/(3rH²). No inspected antecedent determines the required sign and uniqueness at epsilon*=sqrt(6k(k+3)S)−k(1+1/delta).",
+        "searches": [
+          "Koper three-variable van der Pol Duffing equilibrium saddle-node center manifold reciprocal displacement logarithmic correction coefficient cancellation epsilon delta",
+          "Koper equilibrium fold critical slowing log(t) asymptotic finite epsilon normal form",
+          "saddle-node ordinary equilibrium relaxation Koper model cubic normal form",
+          "doi:10.1016/0167-2789(95)90061-6 full 23 pages",
+          "arxiv:1406.1813v2",
+          "doi:10.1063/5.0073353",
+          "Resultary published same-ODE speed-weighted fold balance 2026/10/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard Koper equations match exactly after setting epsilon=epsilon1,delta=epsilon2; fold equilibria satisfy 3r²=k+3, lambda=2(k+3)r/3.",
+          "Singular folded-saddle-node of the fast subsystem is not a simple-zero-eigenvalue fold of the *full* flow. The source equilibrium folds are identical objects but their additional log-relaxation coefficients are not stated."
+        ],
+        "reasoning": "Resolved naming/time-scaling and singular/fold ambiguities. The claimed center-manifold ratio B/A, not the existence of ordinary saddle-nodes, is the distinctive mathematical assertion.",
+        "searches": [
+          "Koper three-variable van der Pol Duffing equilibrium saddle-node center manifold reciprocal displacement logarithmic correction coefficient cancellation epsilon delta",
+          "Koper (1995) DOI 10.1016/0167-2789(95)90061-6 pp.73–75",
+          "arXiv:1406.1813 model sections",
+          "doi:10.1063/5.0073353 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Koper 1995 Table 1 classifies bifurcation types, and §3.1 gives fold loci, but neither tabulates the cubic center drift or logarithmic-cancellation locus.",
+          "Nearest published Koper result gives stationary speed-integral balances, not a parameterized relaxation coefficient; other matched logarithms are for distinct flows."
+        ],
+        "reasoning": "The exact invariant here is an analytic hypersurface and sign partition, not a small table. Existing fold/phase-diagram tables lack the coefficient B/A and so do not cover the asserted boundary.",
+        "searches": [
+          "saddle-node ordinary equilibrium relaxation Koper model cubic normal form",
+          "Koper 1995 Table 1 and section 3.1 fold curves",
+          "Resultary nearest Koper and critical logarithmic-relaxation records"
+        ]
+      },
+      "rationale": "Directly read original Koper article and modern same-ODE primary full texts, compared exact statements and implications, and inspected the only close earlier published SCOPE Koper finding. Prior fold loci and generic saddle-node normal forms imply a possible t and log(t) structure but not the explicit positive-parameter L(k,epsilon,delta) or its unique root epsilon*. The specific model-dependent equality and full sign partition survive best-of-knowledge, with explicit unindexed-literature risk.",
+      "residual_risks": [
+        "An unindexed Koper-specific cubic normal-form calculation or broader published formula could implicitly yield the same L and epsilon*; search failures are not proof of novelty.",
+        "Generic center-manifold and saddle-node theory supplies the proof mechanism and type of asymptotic, so novelty is limited to the exact parameter-specific coefficient and cancellation partition.",
+        "The assessment is best-of-knowledge rather than exhaustive literature certification; no claim of formal or independent external attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eqs.(1)–(4) establish model, linearization and fold; p.75 and Appendix calculate small-epsilon near-Hopf (different bifurcation), not the finite-epsilon positive-k ordinary saddle-node cubic center drift or exact logarithmic cancellation.",
+          "evidence": [
+            "p.73 Eq.(1) identical three-variable model; p.74 §3.1 Jacobian and saddle-node loci; pp.75–76 distinguish near-Hopf normal-form development; p.92 Appendix pertains to singular Hopf, not stationary equilibrium-fold relaxation."
+          ],
+          "identifier_or_url": "doi:10.1016/0167-2789(95)90061-6",
+          "material_read": "All 23 original article pages (Physica D 80, 1995, pp.72–94), via lawful institutional full-text extraction; sections 1–4, tables, figures, concluding discussion, Appendix; especially pp.73–75 and p.92.",
+          "method": "Read pages 1–12, 13–23 and 7–12 through authorized full-text access; compared equations, normal-form setting and parameter domains.",
+          "title": "Bifurcations of mixed-mode oscillations in a three-variable autonomous Van der Pol–Duffing model with a cross-shaped phase diagram",
+          "trigger": "Original same ODE and exactly the same ordinary equilibrium fold loci."
+        },
+        {
+          "assessment": "Shilnikov/singularly folded return geometry (including a chosen delta=1 specialization), not the k>0 ordinary full-equilibrium fold with two stable eigenvalues or its finite-parameter logarithmic coefficient.",
+          "evidence": [
+            "arXiv:1406.1813 early model sections and later Shilnikov hypotheses distinguish singular folded manifolds and global homoclinic returns from a one-zero-eigenvalue stable-center equilibrium."
+          ],
+          "identifier_or_url": "arxiv:1406.1813;doi:10.1137/140972007",
+          "material_read": "Original arXiv primary preprint, mathematical model, folded geometry, return-map and geometric-hypotheses sections; PDF pages including model and later geometric hypotheses inspected.",
+          "method": "Direct OA arXiv PDF/HTML text, section navigation and page rendering for mathematical context; direct statement/implication comparison.",
+          "title": "Shilnikov Homoclinic Bifurcation of Mixed-Mode Oscillations",
+          "trigger": "Same Koper polynomial family, explicit folded-saddle-node language and homoclinic mechanism."
+        },
+        {
+          "assessment": "Treats fast-slow folded singularities and MMO scenarios; does not state finite positive-parameter ordinary equilibrium-fold reciprocal relaxation or the explicit epsilon* cancellation law.",
+          "evidence": [
+            "Section IV treats Koper folded epochs and mixed-mode geometry; section V and Appendix concern small-amplitude oscillations and singular return mechanisms, not the parameter-dependent center cubic coefficient."
+          ],
+          "identifier_or_url": "doi:10.1063/5.0073353",
+          "material_read": "Open full HTML article, its defining equations, sections I–IV (including Koper revisit), section V conclusions, and accessible Appendix and accepted-manuscript renderings.",
+          "method": "Material primary text reading and comparisons of model, fold type and parameter range.",
+          "title": "Bifurcations of mixed-mode oscillations in three-timescale systems: An extended prototypical example",
+          "trigger": "Modern complete treatment of same Koper system with epsilon and delta and potential dominating normal forms."
+        },
+        {
+          "assessment": "It imposes stationary expectation and speed-weighted recurrence constraints for k<0; gives no pointwise local k>0 saddle-node inverse-coordinate expansion and cannot imply the finite epsilon* surface.",
+          "evidence": [
+            "Its finding is E[(c'(x)-delta epsilon) xdot^2] slope balance and |x|<sqrt(1+delta epsilon/3) recurrence strip under k<0; different object and hypotheses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-speed-weighted-fold-balance-in-the-koper-mixed-mode-oscill--55de557a38e3",
+          "material_read": "Entire published RESULT.md, including theorem, invariant-measure argument, scope, limitations and references.",
+          "method": "Fetched primary mathematical artifact via read-only GitHub, compared quantifiers, k-sign and implications.",
+          "title": "Exact speed-weighted fold balance in the Koper mixed-mode oscillator",
+          "trigger": "Same underlying Koper ODE and previously published SCOPE item appearing among the nearest Resultary search hits."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original Koper 1995 ordinary fold loci and positive-coupling equilibrium regimes.",
+        "Assigned full parameter-dependent nonlinear proof and independent symbolic coefficient reconstruction."
+      ],
+      "rationale": "The ordinary equilibrium folds of the canonical Koper system bound bistable-onset regimes, and the local critical algebraic drift is physically/mathematically distinguishable from transverse exponential relaxation. Computing the exact cubic coefficient supplies a complete positive-parameter sign partition for the first logarithmic correction, including a nonempty cancellation surface depending nontrivially on BOTH finite relaxation timescales; this is a structural, motivated asymptotic boundary, not arbitrary numerical slicing or a generic textbook restatement. A researcher examining slow transients near the ordinary fold can use the precise coefficient and its vanishing locus without assuming global MMO significance.",
+      "residual_risks": [
+        "This is a local model-specific asymptotic invariant rather than a general theorem on mixed-mode oscillations or global chaos.",
+        "Potential specialized prior-work coverage may reduce its originality and, through that, practical contribution; significance is not claimed to be paper-sized."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Koper (1995), Physica D 80, pp.72–94, DOI 10.1016/0167-2789(95)90061-6 (all 23 extracted pages read, notably defining Eq.(1), §3.1 and Hopf Appendix).",
+    "Guckenheimer and Lizarraga (2015), arXiv:1406.1813, DOI 10.1137/140972007 (primary full text and geometric-hypotheses section read).",
+    "Kaklamanos, Popović and Kristiansen (2022), DOI 10.1063/5.0073353 (OA full text and accepted manuscript: original model, Koper section IV, conclusions, Appendix).",
+    "Resultary semantic searches for Koper ordinary folds, center-manifold logarithms and recurrence (self-return distinguished from genuinely prior records).",
+    "Previously published Koper speed-weighted stationary balance in Resultary, 2026/10/4/SCOPE-exact-speed-weighted-fold-balance-in-the-koper-mixed-mode-oscill--55de557a38e3 (complete RESULT.md read)."
+  ],
+  "disposition": "passed",
+  "final_claim": "For k, epsilon, delta>0 at full Koper equilibrium folds r²=(k+3)/3 and lambda=(2/3)(k+3)r, all eventual local convergent trajectories off the strong-stable manifold satisfy 1/(x(t)−r)=3rt/H+[1/(3r)−6krS/H²] log t+C+o(1), where H=epsilon+k(1+1/delta), S=1+2/delta+2/delta²; unique positive epsilon*=sqrt(6k(k+3)S)−k(1+1/delta) cancels the logarithm, with opposite sign partitions for r>0 and r<0.",
+  "limitations": [
+    "Only fixed finite k,epsilon,delta>0 and full ordinary equilibrium folds, not folds of the singular critical manifold.",
+    "Local eventual convergence from attracting side and exclusion of the local strong-stable manifold.",
+    "No proof of behavior outside the local basin, global chaotic dynamics, or singular parameter limits.",
+    "Literature best-of-knowledge rather than exhaustive; earlier implicit specialized formula remains possible.",
+    "Publication blocked by private provenance in potentially public source files; no sanitized import-ready file operations.",
+    "Individual Git blob contents not all independently rehashed from local complete bytes; tree SHA1 is independently reconstructed."
+  ],
+  "residual_risks": [
+    "An unindexed Koper-specific cubic normal-form calculation or broader published formula could implicitly yield the same L and epsilon*; search failures are not proof of novelty.",
+    "Generic center-manifold and saddle-node theory supplies the proof mechanism and type of asymptotic, so novelty is limited to the exact parameter-specific coefficient and cancellation partition.",
+    "The assessment is best-of-knowledge rather than exhaustive literature certification; no claim of formal or independent external attestation.",
+    "Conclusion only applies to trajectories converging to the fold from its attracting side while eventually remaining local and avoiding the local strong-stable manifold.",
+    "No global basin, mixed-mode periodic-orbit or epsilon/delta zero singular-limit theorem follows.",
+    "Finite numerical integrations are not a proof of the asymptotic or existence of stable foliations; the latter uses the smooth stable-fiber theorem in the analytical argument.",
+    "This is a local model-specific asymptotic invariant rather than a general theorem on mixed-mode oscillations or global chaos.",
+    "Potential specialized prior-work coverage may reduce its originality and, through that, practical contribution; significance is not claimed to be paper-sized."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Eqs.(1)–(4) establish model, linearization and fold; p.75 and Appendix calculate small-epsilon near-Hopf (different bifurcation), not the finite-epsilon positive-k ordinary saddle-node cubic center drift or exact logarithmic cancellation.",
+      "evidence": [
+        "p.73 Eq.(1) identical three-variable model; p.74 §3.1 Jacobian and saddle-node loci; pp.75–76 distinguish near-Hopf normal-form development; p.92 Appendix pertains to singular Hopf, not stationary equilibrium-fold relaxation."
+      ],
+      "identifier_or_url": "doi:10.1016/0167-2789(95)90061-6",
+      "material_read": "All 23 original article pages (Physica D 80, 1995, pp.72–94), via lawful institutional full-text extraction; sections 1–4, tables, figures, concluding discussion, Appendix; especially pp.73–75 and p.92.",
+      "method": "Read pages 1–12, 13–23 and 7–12 through authorized full-text access; compared equations, normal-form setting and parameter domains.",
+      "title": "Bifurcations of mixed-mode oscillations in a three-variable autonomous Van der Pol–Duffing model with a cross-shaped phase diagram",
+      "trigger": "Original same ODE and exactly the same ordinary equilibrium fold loci."
+    },
+    {
+      "assessment": "Shilnikov/singularly folded return geometry (including a chosen delta=1 specialization), not the k>0 ordinary full-equilibrium fold with two stable eigenvalues or its finite-parameter logarithmic coefficient.",
+      "evidence": [
+        "arXiv:1406.1813 early model sections and later Shilnikov hypotheses distinguish singular folded manifolds and global homoclinic returns from a one-zero-eigenvalue stable-center equilibrium."
+      ],
+      "identifier_or_url": "arxiv:1406.1813;doi:10.1137/140972007",
+      "material_read": "Original arXiv primary preprint, mathematical model, folded geometry, return-map and geometric-hypotheses sections; PDF pages including model and later geometric hypotheses inspected.",
+      "method": "Direct OA arXiv PDF/HTML text, section navigation and page rendering for mathematical context; direct statement/implication comparison.",
+      "title": "Shilnikov Homoclinic Bifurcation of Mixed-Mode Oscillations",
+      "trigger": "Same Koper polynomial family, explicit folded-saddle-node language and homoclinic mechanism."
+    },
+    {
+      "assessment": "Treats fast-slow folded singularities and MMO scenarios; does not state finite positive-parameter ordinary equilibrium-fold reciprocal relaxation or the explicit epsilon* cancellation law.",
+      "evidence": [
+        "Section IV treats Koper folded epochs and mixed-mode geometry; section V and Appendix concern small-amplitude oscillations and singular return mechanisms, not the parameter-dependent center cubic coefficient."
+      ],
+      "identifier_or_url": "doi:10.1063/5.0073353",
+      "material_read": "Open full HTML article, its defining equations, sections I–IV (including Koper revisit), section V conclusions, and accessible Appendix and accepted-manuscript renderings.",
+      "method": "Material primary text reading and comparisons of model, fold type and parameter range.",
+      "title": "Bifurcations of mixed-mode oscillations in three-timescale systems: An extended prototypical example",
+      "trigger": "Modern complete treatment of same Koper system with epsilon and delta and potential dominating normal forms."
+    },
+    {
+      "assessment": "It imposes stationary expectation and speed-weighted recurrence constraints for k<0; gives no pointwise local k>0 saddle-node inverse-coordinate expansion and cannot imply the finite epsilon* surface.",
+      "evidence": [
+        "Its finding is E[(c'(x)-delta epsilon) xdot^2] slope balance and |x|<sqrt(1+delta epsilon/3) recurrence strip under k<0; different object and hypotheses."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-speed-weighted-fold-balance-in-the-koper-mixed-mode-oscill--55de557a38e3",
+      "material_read": "Entire published RESULT.md, including theorem, invariant-measure argument, scope, limitations and references.",
+      "method": "Fetched primary mathematical artifact via read-only GitHub, compared quantifiers, k-sign and implications.",
+      "title": "Exact speed-weighted fold balance in the Koper mixed-mode oscillator",
+      "trigger": "Same underlying Koper ODE and previously published SCOPE item appearing among the nearest Resultary search hits."
+    }
+  ]
+}
