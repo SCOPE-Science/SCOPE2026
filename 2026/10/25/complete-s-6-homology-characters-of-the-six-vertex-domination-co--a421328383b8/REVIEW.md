@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The complete face census and exact integral chain elimination certify the two reduced rational homology degrees without assuming the previously published wedge result. The elimination uses only unit pivots; the kernel-coordinate character trace, injective top boundary and reduced Euler–Poincaré identity yield every conjugacy-class trace. Independent mathematical identities for signed chain maps, boundary squares, and irreducible character orthogonality are all checked in `artifacts/verify.py`. The claim is specifically rational and concerns one finite complex.
+
+**Originality — PASS on inspected evidence.** The founding paper by González and Hoekstra-Mendoza computes related nonequivariant complexes and explicitly highlights the Euler characteristic of \(D_{6,3}\). A subsequent exact same-object calculation establishes its mixed-dimensional wedge of \(115\) and \(24\) spheres, not the label-permutation characters. A published uniform Specht classification concerns \(D_{n,n-2}\), a different domination threshold with degree-two homology. Searches for equivalents, broader implications, tables, and parameter reductions found no covering rational \(S_6\)-module calculation. A differently indexed equivalent result remains possible.
+
+**Value — PASS.** The first mixed-dimensional domination complex is mathematically motivated by the original source's question. Its full rational symmetry modules distinguish label permutations that are invisible in ordinary homotopy and homology ranks. The multiplicity-three \(S^{(3,2,1)}\) summand in degree four and the lack of invariant vectors in either degree are nontrivial structural conclusions, rather than a small numerical extension.
+
+**Closest sources and limitations.** The original paper is arXiv:1901.07130 (first public 2019-01-22; primary 55P15). The exact nonequivariant source and the different-threshold Specht source are cited and compared in `RESULT.md` and `AUDIT.json`. The calculation does not establish an integral representation-lattice or any classification for the larger filtration family. The reproducibility code is an exact finite proof certificate, not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
