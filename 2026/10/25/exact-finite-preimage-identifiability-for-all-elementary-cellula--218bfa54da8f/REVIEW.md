@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Paths in a four-overlap-state predecessor graph correspond bijectively to complete finite input blocks. Capped integer path counting preserves singleton status, and its complete closure has at most 81 formal states. The saved standard-library verifier computes all 256 complete closures and independently enumerates every finite input word producing output lengths one through six, checking 32,256 output-word instances plus the right-terminal-pair supports. The exact 164/92 classification, eight length-six extremizers and 42 right-boundary-only rules reproduce the saved CSV.
+
+**Originality — PASS on inspected evidence, with residual historical risk.** The primary ancestor/preimage literature by Seck Tuoh Mora–Juárez Martínez–McIntosh (2004) and Jeras–Dobnikar (2006, 2007) provides general algorithms and illustrative examples but no identified complete least-unique-preimage census. Salo's inverse/regularity classification asks a logically different question, and Rule 18's previously documented unique antecedent is a special instance. Earlier right-boundary-only results do not imply full uniqueness: exactly 42 rules provide a counterexample. Search misses alone do not certify novelty; an unindexed 256-rule table remains a priority risk.
+
+**Mathematical value — PASS.** The classification settles an intrinsic, boundary-independent finite-block observability question for the complete canonical radius-one binary family, with a sharp universal cutoff and explicit extremizers. It detects a structurally important distinction between locating one endpoint and identifying an entire antecedent, including 42 rules for which the weaker observation is possible but the stronger one is not. It is not a routine length increment: impossibility at every length is proved by finite-state closure, and the classification determines all 256 rules.
+
+**Limitations.** Results concern unrestricted finite input blocks under one CA update, not invertibility on the bi-infinite shift or arbitrary larger-radius rules. The exhaustive computation is self-contained and independently cross-checked only through finite length six; the proof that no later witnesses exist is the full state-closure argument. Independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

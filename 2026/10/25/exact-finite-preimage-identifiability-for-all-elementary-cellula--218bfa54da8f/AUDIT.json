@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The four-overlap-state de Bruijn graph has exactly one path for each finite input predecessor. Initial path counts (1,1,1,1) and exact min(2, linear-transfer) updates retain the invariant that every coordinate equals the true terminal path count capped at two. Hence total 1 is equivalent to a single complete finite predecessor. Every state belongs to {0,1,2}^4; exhaustive BFS closure at all 256 rules (maximum reached 66) proves the classifications for arbitrary output length, and no unseen longer singleton can exist for the 92 absent cases. Exhaustive independent direct input enumeration for all 32,256 length<=6 rule/output pairs verifies predicted unique words, witnesses and terminal pair supports, and rerunning the saved verifier byte-compares all 256 catalog rows. Histogram: 16,52,56,28,4,8,92. Eight sharp rules 37,57,91,99,156,164,198,218. Full unique predecessors imply right-boundary uniqueness, giving exactly 42 right-only rules and shortest-length gaps 132,20,8,4. No assertion about periodic or global bilateral inverse uniqueness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus closest 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be: odd/twice-odd ring bijectivity for quadratic five-site CA.",
+        "published-finding corpus closest 2026/10/11/SCOPE-sharp-finite-boundary-versus-full-shift-reversibility-for-nonlin--d44fcfa8c455: global reversible versus finite-null-boundary nonlinear CA.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-temporal-trace-complexity-for-all-18-ternary-semigroup-cel--17d5e8d883ec: temporal traces of 18 ternary-semigroup CAs.",
+        "Jeras–Dobnikar counting techniques give general methods but not the computed ECA singleton observability spectrum."
+      ],
+      "reasoning": "General tools may permit computing this classification, but algorithms for obtaining quantities do not state or imply the evaluated 256-rule sharp cutoff as a theorem. Ring injectivity and bi-infinite generalized inverses quantify over whole configuration spaces and do not imply individual finite-open-boundary singleton words.",
+      "searches": [
+        "\"Algorithms for computing preimages of cellular automata configurations\" Jeras Dobnikar full text",
+        "\"Calculating ancestors in one-dimensional cellular automata\" 2004 arxiv",
+        "elementary binary cellular automata unique finite preimage word exact full-window predecessor counts shortest length cutoff six 256 rules"
+      ]
+    },
+    "checked_sources": [
+      "Jeras and Dobnikar, Cellular Automata Preimages: Count and List Algorithm (2006), DOI 10.1007/11758532_47",
+      "Jeras and Dobnikar, Algorithms for computing preimages of cellular automata configurations (2007), Physica D 233, 95–111",
+      "Seck Tuoh Mora, Juárez Martínez, McIntosh, Calculating Ancestors in One-Dimensional Cellular Automata (2004), DOI 10.1142/S0129183104006625",
+      "Salo, On von Neumann regularity of cellular automata, arxiv:2209.13373",
+      "Limit dynamics of elementary cellular automaton 18, Ergodic Theory and Dynamical Systems (2026)",
+      "Kayama, Complex networks derived from cellular automata, arxiv:1009.4509v1",
+      "published-finding corpus indexed research entries 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be; 2026/10/11/SCOPE-sharp-finite-boundary-versus-full-shift-reversibility-for-nonlin--d44fcfa8c455; 2026/10/11/SCOPE-exact-temporal-trace-complexity-for-all-18-ternary-semigroup-cel--17d5e8d883ec; 2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf",
+      "Earlier distinct right-boundary-only 256-rule classification: item d1c55b45-242c-41b1-b59c-bbdd93536c09"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own earlier right-boundary classification item d1c55b45-242c-41b1-b59c-bbdd93536c09 has 206 synchronizable rules, including 42 without any fully unique finite predecessor.",
+        "An individual Rule 18 preimage `11` is a special case and cannot imply all other 255 rule minima.",
+        "Salo regularity (arxiv:2209.13373) concerns existence of generalized continuous inverses."
+      ],
+      "reasoning": "Unique entire finite antecedent implies unique terminal pair, but the converse fails for exactly 42 rules, proven by both exact count and support closures. Particular-rule unique preimage examples are covered background; the new contribution is the complete 256-rule classification with sharp cutoff, plus the strict two-invariant implication gap.",
+      "searches": [
+        "elementary binary cellular automata unique finite preimage word exact full-window predecessor counts shortest length cutoff six 256 rules",
+        "elementary cellular automata right boundary synchronizing 256 rules sharp length six",
+        "right-boundary synchronization elementary cellular automaton rules 37 91 164 218 shortest length six predecessor pair"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A singleton path in the labeled predecessor de Bruijn graph is exactly a uniquely reconstructible entire finite input word. Jeras–Dobnikar (2006, 2007) study counts/listing; Seck Tuoh Mora et al. (2004) compute ancestors."
+      ],
+      "reasoning": "Compared synonyms unique preimage, singleton antecedent, fully reconstructible finite block and uniquely decodable output. The full length distribution (16,52,56,28,4,8,92) and exact sharp eight rules did not follow from inspected primary statements.",
+      "searches": [
+        "elementary binary cellular automata unique finite preimage word exact full-window predecessor counts shortest length cutoff six 256 rules",
+        "finite unique preimage word elementary cellular automata 92 rules exactly 164 six symbols",
+        "\"unique preimage words\" \"elementary cellular automata\" classification shortest",
+        "\"elementary cellular automata\" \"unique antecedent\" finite word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf concerns finite-support temporal cycles of reversible Rule 115, not predecessor-uniqueness data.",
+        "Rule-by-rule 256-row CSV with least unique-predecessor length and witness constructed by exhaustive closure and exact enumeration.",
+        "Own accessible earlier comparison item d1c55b45-242c-41b1-b59c-bbdd93536c09 classifies rightmost predecessor pair, not entire predecessor word."
+      ],
+      "reasoning": "Searching exact size, histogram and shortest witness terminology found no matching indexed complete table; a negative search is only evidence under inspected sources, not uniqueness certification. The 42-rule separation proves the earlier right-boundary table cannot be substituted for this one.",
+      "searches": [
+        "ECA \"unique preimage\" \"256\" count rule",
+        "finite unique preimage word elementary cellular automata 92 rules exactly 164 six symbols",
+        "elementary cellular automata right boundary synchronizing 256 rules sharp length six",
+        "ECA \"unique preimage\" \"256\" count rule"
+      ]
+    },
+    "rationale": "The new claim computes a complete intrinsic finite-predecessor-uniqueness spectrum, its sharp length-six cutoff and the exact 42-rule strict separation from one-sided boundary synchronization. Prior preimage papers supply more general algorithms, not the checked complete numerical spectrum or sharp classification. An earlier result solely concerning the final input pair does not imply unique full antecedent. Database searches returned related inverse/reversibility but no equivalent all-256 unique full-predecessor census. Historical-priority risk remains for unindexed tables and implicit examples.",
+    "residual_risks": [
+      "A preexisting unpublished or unindexed elementary-rule predecessor table may contain the same census.",
+      "Some historical works are accessible only in abstract/method extracts; further priority work could find equivalent enumerations.",
+      "This is a same-model appraisal and does not constitute independent research certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops broad counting and listing algorithms and particular examples, but no assessed all-256 sharp first-singleton-length census",
+        "evidence": [
+          "Jeras and Dobnikar (2006), LNCS 3993, 345–352, DOI 10.1007/11758532_47; counting/listing method and Rule 110 illustration"
+        ],
+        "identifier_or_url": "https://rattus.info/al/files/conference.pdf",
+        "material_read": "Freely available eight-page conference manuscript: introduction, counting/listing construction and Rule 110 case example",
+        "method": "Full-text reading with page-level inspection",
+        "title": "Cellular Automata Preimages: Count and List Algorithm",
+        "trigger": "Direct methods for preimage enumeration might dominate finite unique-preimage classification"
+      },
+      {
+        "assessment": "Counts preimages of cellular-automaton configurations by general machinery; assessed material does not give all elementary rules classified by shortest uniquely decodable unrestricted output length",
+        "evidence": [
+          "Jeras and Dobnikar, Physica D 233 (2007), 95–111, counting matrices and CA examples"
+        ],
+        "identifier_or_url": "https://rattus.info/al/files/preimages.pdf",
+        "material_read": "Freely available complete paper: introductory formulation, matrix preimage counting, selected CA examples and conclusion",
+        "method": "Full-text section and page inspection, including examples and figures",
+        "title": "Algorithms for computing preimages of cellular automata configurations",
+        "trigger": "General preimage computation might state an equivalent full-preimage uniqueness spectrum"
+      },
+      {
+        "assessment": "General ancestor and subset-diagram methods; no witnessed equivalent 256-rule length histogram or eight extremizers in inspected material",
+        "evidence": [
+          "Seck Tuoh Mora, Juárez Martínez, McIntosh (2004), International Journal of Modern Physics C 15, 1151–1169"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129183104006625",
+        "material_read": "Abstract, methodological discussion and publicly displayed results",
+        "method": "Publisher/author information and accessible text inspection",
+        "title": "Calculating Ancestors in One-Dimensional Cellular Automata",
+        "trigger": "Earlier subset-diagram ancestors might provide the same census"
+      },
+      {
+        "assessment": "Continuous generalized inverse/split epicness is not existential uniqueness of a given finite open-boundary antecedent. The exact 256-rule singleton spectra are not shown in inspected text.",
+        "evidence": [
+          "Salo, arxiv:2209.13373, regularity and generalized inverse conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+        "material_read": "Freely accessible text with definitions and propositions about generalized inverses, including elementary rules",
+        "method": "Full-text reading of definitions and substantive inverse-property comparisons",
+        "title": "On von Neumann regularity of cellular automata",
+        "trigger": "Classification of ECA inverse properties could imply uniqueness statements"
+      },
+      {
+        "assessment": "An individual unique-antecedent example for rule 18 is consistent with the classified value 2; it does not entail an all-rule shortest-length census",
+        "evidence": [
+          "Limit dynamics of elementary cellular automaton 18, Ergodic Theory and Dynamical Systems (2026), discussion of `11` and unique finite antecedent"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/limit-dynamics-of-elementary-cellular-automaton-18/8D236BAA96D6BB0F894ABCFEF3C1312B",
+        "material_read": "Accessible text around the Rule 18 preimage discussion and its specific output `11`",
+        "method": "Section reading and comparison of specific preimage example with complete all-rule statement",
+        "title": "Limit dynamics of elementary cellular automaton 18",
+        "trigger": "A published particular-rule uniquely ancestral finite word must be acknowledged"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "218bfa54-da8f-42f9-8fce-eeee456da1af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite observation that determines all hidden input bits is an intrinsically motivated observability invariant of one-step cellular automata. The all-256 spectrum is a natural complete classification, identifies eight sharp extremizers at six symbols, and exactly separates the 42 rules where a one-sided boundary is recoverable but an entire finite preimage never is; this separation shows a genuine hierarchy of inverse information instead of an arbitrary finite slice. The finite closure proves impossibility at ALL lengths and provides a compact independently reproducible algorithm, not a mere enumeration of sample length six. No implication beyond binary radius-one one-step finite-open-boundary preimages is claimed.",
+    "status": "PASS"
+  }
+}
