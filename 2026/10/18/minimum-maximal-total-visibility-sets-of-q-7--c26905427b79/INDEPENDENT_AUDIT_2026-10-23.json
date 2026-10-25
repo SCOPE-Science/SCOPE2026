@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T22:45:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a binary cube a total mutual-visibility set is exactly a set with no distance-2 pair: a distance-2 selected pair blocks both length-2 paths between their two common neighbors, while if none exists a shortest path can greedily avoid selected internal vertices. The parity halves of Q7 are independent copies of the 64-vertex halved cube H with edges at Hamming distance 2; maximal visibility means independent domination in BOTH halves. In H a closed neighborhood has 22 vertices; independent centers distance 4 have intersection size 6, distance 6 disjoint, with triple distance-4 intersection size 1. Three independent neighborhoods cover <64; four dominate iff exactly two disjoint distance-6 pairs, giving union size 64. Fix one center, choose its distance-6 partner in 7 ways and a complementary 3+3 partition in 10 ways; gives 64*70/4=1120 quadruples per parity, hence gamma_lower=8 and 1120^2=1,254,400 labeled achievers. Independent exhaustive enumeration of all parity independent dominating 4-sets gave precisely 1120, 70 through zero. The known maximum 16 is separately supported by a length-7 simplex code and elementary distance bound, not an unproved inference from the minimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Yero introduce the lower total-visibility number and explicitly pose determination for hypercubes; Bujtás–Klavžar–Tian study MAXIMUM total visibility."
+        ],
+        "reasoning": "Maximum Hamming code bound 8 per parity does not determine minimum size of a maximal independent set, nor the 1120-by-1120 multiplicity.",
+        "searches": [
+          "minimum maximal total mutual visibility hypercube Q7 halved cube independent dominating",
+          "arXiv:2307.02951 Problem 1",
+          "arXiv:2307.05168"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.02951",
+        "https://arxiv.org/abs/2307.05168",
+        "https://oeis.org/A355226"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published lower invariant is defined but not evaluated at Q7 in the inspected problem; all-independent-set table alone lacks domination coverage predicate."
+        ],
+        "reasoning": "The 8 lower number and exact labeled number follow from nonstandard intersection geometry and coverage counts, not a restatement of established maximum or OEIS numbers.",
+        "searches": [
+          "arXiv:2307.02951",
+          "OEIS A355226"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Total mutual visibility in binary Hamming graphs is equivalent to avoiding distance-2 selected pairs; this establishes an independent set in each halved cube."
+        ],
+        "reasoning": "The cited Hamming theorem covers the feasibility translation and maximum-oriented results, not independent domination of the halved seven-cube or inclusion-maximal counts.",
+        "searches": [
+          "minimum maximal total mutual visibility hypercube Q7 halved cube independent dominating",
+          "arXiv:2307.05168 Theorem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A355226 table row n=7 gives 36,400 independent four-sets in one parity halved cube; it does not filter those dominating H. The newly checked subset count is 1,120."
+        ],
+        "reasoning": "Distinguishes all independent 4-sets from inclusion-maximal 4-sets; the existing OEIS table is a related database, not the claimed exact count.",
+        "searches": [
+          "minimum maximal total mutual visibility hypercube Q7 halved cube independent dominating",
+          "OEIS A355226 https://oeis.org/A355226"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimum maximal total mutual visibility hypercube Q7 halved cube independent dominating). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.",
+      "residual_risks": [
+        "An unindexed classification of perfect diameter-6 pairings in length-7 binary distance-4 codes might implicitly include the 1120 count.",
+        "The finite proof is exact for Q7 but says nothing about other dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_INVARIANT_OPEN_HYPERCUBE_SCOPE",
+          "evidence": "Introduces mu_t^- and poses its hypercube determination as a problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Primary paper abstract, introduction/definitions and Problem 1 in available full PDF including rendered problem page.",
+          "method": "arXiv paper and rendered PDF page",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "introduces same lower invariant and hypercube problem"
+        },
+        {
+          "assessment": "COVERS_FEASIBILITY_NOT_LOWER_CLASSIFICATION",
+          "evidence": "Theorem 6 supplies criterion credited as background, no Q7 minimum maximal count.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05168",
+          "material_read": "Primary paper definitions and Theorem 6 on distance-two avoidance, rendered theorem page.",
+          "method": "arXiv article full-text material",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "strongest candidate Hamming equivalence"
+        },
+        {
+          "assessment": "TABLE_ALL_INDEPENDENT_NOT_DOMINATING",
+          "evidence": "At dimension 7 entry k=4 equals 36,400; not independent dominating 1120.",
+          "identifier_or_url": "https://oeis.org/A355226",
+          "material_read": "Entire OEIS description, triangle, examples and program inspected.",
+          "method": "OEIS primary sequence page",
+          "title": "Number of independent sets of size k in the n-halved cube graph",
+          "trigger": "exact indexed table of independent code counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a naturally posed lower total-visibility invariant for the first nontrivial seven-dimensional cube and exactly describes and counts every extremizer. Relates the independence complex facets to binary code geometry and proves nonpurity with a sharp eight-versus-sixteen witness, a useful finite classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2307.02951",
+    "https://arxiv.org/abs/2307.05168",
+    "https://oeis.org/A355226",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/minimum-maximal-total-visibility-sets-of-q-7--c26905427b79/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only actual finite cases listed under correctness were re-enumerated; infinite claims rely on the independently reconstructed package proof, not the finite checks.",
+    "No publication changes have been made; operational fields must be removed before publication.",
+    "Originality assessment is best-of-knowledge, with genuine prior-literature risks separately retained."
+  ],
+  "residual_risks": [
+    "An unindexed classification of perfect diameter-6 pairings in length-7 binary distance-4 codes might implicitly include the 1120 count.",
+    "The finite proof is exact for Q7 but says nothing about other dimensions."
+  ],
+  "schema_version": 1
+}

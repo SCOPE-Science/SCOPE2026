@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the seven-cube theorem
+# Independent mathematical audit
 
-The self-contained `verify_q7.py` requires Python 3 with only the standard library and can be run with `python3 verify_q7.py`. It constructs the 128 seven-bit vertices and both 64-vertex parity classes. Closed radius-two neighborhoods are formed directly from bit differences. Exhaustive enumeration of all independent triples confirms that none dominates a parity halfcube. Exhaustive enumeration of all independent quadruples confirms exactly 1,120 dominating quadruples, all with four distance-four and two distance-six pairs; 70 contain the zero word. Their independently selected even and odd copies yield exactly 1,254,400 minimum maximal total-visibility sets.
+## correctness
 
-For actual shortest-path visibility independently of the distance-two lemma, breadth-first searches with selected internal vertices blocked verify explicit eight- and sixteen-vertex examples and reject a two-vertex non-example. The embedded `verification_output.txt` records the program's actual result. The finite exhaustive checks cover the entire stated dimension, and the mathematical proof provides an independent count and characterization. The external scientific audit is not performed; no independent verification is claimed.
+PASS
+
+In a binary cube a total mutual-visibility set is exactly a set with no distance-2 pair: a distance-2 selected pair blocks both length-2 paths between their two common neighbors, while if none exists a shortest path can greedily avoid selected internal vertices. The parity halves of Q7 are independent copies of the 64-vertex halved cube H with edges at Hamming distance 2; maximal visibility means independent domination in BOTH halves. In H a closed neighborhood has 22 vertices; independent centers distance 4 have intersection size 6, distance 6 disjoint, with triple distance-4 intersection size 1. Three independent neighborhoods cover <64; four dominate iff exactly two disjoint distance-6 pairs, giving union size 64. Fix one center, choose its distance-6 partner in 7 ways and a complementary 3+3 partition in 10 ways; gives 64*70/4=1120 quadruples per parity, hence gamma_lower=8 and 1120^2=1,254,400 labeled achievers. Independent exhaustive enumeration of all parity independent dominating 4-sets gave precisely 1120, 70 through zero. The known maximum 16 is separately supported by a length-7 simplex code and elementary distance bound, not an unproved inference from the minimum.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct contribution after direct comparison with relevant same-invariant primary results, strong alternatives, indexed tables and a Resultary semantic search (minimum maximal total mutual visibility hypercube Q7 halved cube independent dominating). Known minimum values, feasibility reductions, algorithms and finite tables are credited, while the claimed additional structural enumeration is assessed separately. Unread high-relevance literature and alternative indexing are retained as residual risks, not silently treated as absence.
+
+## value
+
+PASS
+
+Determines a naturally posed lower total-visibility invariant for the first nontrivial seven-dimensional cube and exactly describes and counts every extremizer. Relates the independence complex facets to binary code geometry and proves nonpurity with a sharp eight-versus-sixteen witness, a useful finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
