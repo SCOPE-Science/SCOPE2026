@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ordinary Petersen open-neighborhood complex consists of exactly ten vertices, thirty edges and ten triangles, with distinct triangles sharing at most one vertex. Ten explicit elementary collapse pairs leave a connected graph of cycle rank eleven. The signed actions on chain groups are induced, respectively, from an unsigned duad permutation module, an oriented edge module with a two-point sign, and the sign module on oriented three-point triangles. Pieri decompositions imply precisely \(S^{(3,1,1)}\oplus S^{(2,2,1)}\), without presuming an equivariant collapse. A standalone verifier rebuilt all faces, all 120 signed actions, seven class traces and inner products, and returned PASS.
+## correctness
 
-## Originality — PASS (subject to residual bibliographic uncertainty)
-The principal published nonequivariant result is Nilakantan–Singh (arXiv:1802.05848), Theorem 1.3: it gives the eleven-circle homotopy type, but not its natural \(S_5\)-module. Schultz's full equivariant stable-Kneser analysis (arXiv:1003.5688) concerns an induced stable graph and dihedral symmetry, not the complete ordinary Petersen graph and its full five-label symmetry. A closely related published calculation treats \(\mathrm{KG}(6,2)\) in degree two under \(S_6\); its statement does not imply the present degree-one \(S_5\) representation. Indexed searches using the exact decomposition, graph aliases, and character values did not identify coverage. An unindexed equivalent calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The Petersen graph is the smallest nontrivial two-subset Kneser example and a canonical graph in topological graph coloring. The exact classification of its eleven natural homology directions into two inequivalent irreducibles is a complete, intrinsic invariant not determined by the ordinary wedge rank. The chain-module proof explains structurally why those constituents appear rather than simply reporting a character table; it supplies a useful base comparison for higher Kneser graphs. No unproved wider-family theorem or integral lattice classification is inferred.
+The Petersen open neighborhood of a two-subset is the three other two-subsets within the complementary three-set, yielding exactly ten disjoint-edge-support triangle facets, 10 vertices, 30 edges and 10 triangles. Every triangle has three edges of which none belongs to another triangle; ten free edge/triangle collapses leave a connected graph with 20 edges and 10 vertices, hence wedge of 11 circles integrally. The source proof explicitly decomposes the oriented C0,C1,C2 as S5-induced representations and cancels their rational Specht constituents using Pieri; independent enumeration over all 120 S5 permutations of all 50 nonempty faces reproduces reduced Lefschetz character (-11,1,1,1,1,-1,-1), i.e. the claimed H1 character. This is a rational representation, not an integral Specht-lattice splitting.
 
-## Limitations
-Only the stated finite graph and rational automorphism representation are covered. Full equivariant homotopy or integral Specht-lattice decomposition is not claimed. Full coverage of all unindexed scientific literature cannot be certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nilakantan–Singh already prove the eleven-circle wedge for KG(5,2), which is specifically excluded from novelty. The supplied S5 decomposition is extra symmetry data and is not implied by that nonequivariant result or by full S6 action in degree two for KG(6,2); neighboring Petersen three-cut and graph braid complexes are distinct. Best-of-knowledge O PASS with priority risk for unindexed equivariant treatment.
+
+## value
+
+PASS
+
+The complete S5 symmetry type of a standard graph-coloring neighborhood complex is a motivated natural refinement of its known topology; it gives all conjugacy-class traces and the absence of invariant classes, not merely a trivial rank calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
