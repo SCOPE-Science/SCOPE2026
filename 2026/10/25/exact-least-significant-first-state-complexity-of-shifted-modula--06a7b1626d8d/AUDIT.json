@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every prefix of length k the residual is either constant (if b^k does not divide c+1+u) or V_{s,k mod m} (if divisible). Exactly one u per depth satisfies divisibility, with s=ceil((c+1)/b^k). These s decrease strictly until 1 at L_b(c), thereafter providing precisely m phase states; all m constants are reached by digit 0 from V_{1,p}. The explicit transition recursion constructs a total DFAO. Distinguish different shifts s,t via continuations b^r-s at r and r+1; valuation of b^r+t-s stays fixed for r>nu_b(|t-s|) while valuation of b^r changes by one modulo m. This handles composite bases and proves genuine minimality, not just a finite test. The extracted standard-library checker independently minimized 3200 reachable DFAs and checked 204800 direct outputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 9/Corollary 10 of arXiv:2512.10017 concern general msd-first constructions and state upper bounds, not a concrete minimal-state formula for the given lsd-first valuation sequence.",
+        "Theorem 16 in Zantema--Bosma bounds one tail of a general automatic sequence by twice its reverse complexity; it is not the asserted exact arbitrary-shift law.",
+        "Theorem 1 of arXiv:2603.18858 establishes a logarithmic upper bound for shifts of the Fibonacci word in Zeckendorf numeration; it does not subsume the base-adic valuation family."
+      ],
+      "reasoning": "The literature gives frameworks and bounds for different sequence families/input orders, but none of the inspected statements implies the precise affine logarithmic formula or complete state-graph classification here.",
+      "searches": [
+        "arxiv:2512.10017 §4 Theorem 9 and Corollary 10",
+        "Zantema--Bosma (2022) §7 Theorems 16 and 20",
+        "arxiv:2603.18858 §3 Theorem 1",
+        "research-record search: shifted valuation sequences minimal DFAO base q residue"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2512.10017",
+      "https://arxiv.org/pdf/2603.18858",
+      "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+      "Other publicly indexed period-doubling attractor and dynamical-component research titles and summaries."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kernel characterization is a minimization principle, not a count of the specific residues; this work classifies and separates them.",
+        "Generic tail complexity bounds permit multiple possible state counts and do not force this formula.",
+        "The Fibonacci shift paper uses a different word and Zeckendorf arithmetic, so the state-count theorem is not a corollary."
+      ],
+      "reasoning": "The new statement supplies the missing exact residual enumeration, all-modulus separation, and matching lower bound. No stronger previously examined claim dominates it; historical priority remains contingent on unindexed literature.",
+      "searches": [
+        "Zantema--Bosma (2022) §§5,7",
+        "Moradi--Rampersad--Shallit (2025) §§4,4.2",
+        "Moradi--Popoli--Shallit--Vukusic (2026) §3",
+        "research-record search: period-doubling and valuation-modulo shift exact state complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source sequence is also the period-doubling word for base two and modulus two, while the general formulation is a residue of base-adic order. Zantema--Bosma (2022) explicitly identify reverse-input state complexity with kernel methods but do not list these translated valuation kernels.",
+        "The closest period-doubling work on three-block difference lifts concerns dynamical component counts and fibre ranks, not shifted minimal-state automata."
+      ],
+      "reasoning": "Exact value can be restated as a kernel-cardinality law or a minimal reverse-reading DFAO. Those equivalent statements were targeted by queries; no examined source gives that exact law. Dynamical-component counts or string-attractor counts are different invariants, not equivalents.",
+      "searches": [
+        "web: 'period-doubling' 'shift' 'state complexity' automaton",
+        "web: 'v_2(n+c)' 'state complexity' automaton",
+        "research-record search: p-adic valuation mod m shifts minimal DFAO exact logarithmic complexity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A period-doubling attractor record determines greedy string-attractor positions, not shifted automaton states.",
+        "No exact translated modular-valuation minimal-state table was identified in targeted record or web searches."
+      ],
+      "reasoning": "An exact state-count table for all shifts would cover the theorem, even without the same terminology. None of the inspected tables or public records supplies these quantities; databases not indexed or accessed remain a risk.",
+      "searches": [
+        "research-record search: period doubling word shifts 2-automatic state complexity minimal automaton",
+        "research-record search: exact minimal DFAO base b valuation v_b(n+c+1) residue modulo m",
+        "web: period doubling shifted minimal automaton states"
+      ]
+    },
+    "rationale": "The checked primary studies give general tail and arithmetic-subsequence bounds (Zantema--Bosma, §7), msd-first linear-subsequence constructions (Moradi--Rampersad--Shallit, §4), and shifted Zeckendorf Fibonacci-word results (Moradi--Popoli--Shallit--Vukusic, §3). None of the material inspected identifies the modular valuation-residue residual graph or the exact base-b/minimum modulus-m shifted-state law. Targeted mathematical web searches and multiple research-record comparisons found no stronger or equivalent valuation-residue shift theorem. The nearest same-period-doubling research records address attractors or dynamical components, not automaton state count. Search absence alone is not treated as proof of global novelty; unindexed historical equivalence remains a risk.",
+    "residual_risks": [
+      "An unindexed equivalently formulated modular valuation kernel or old period-doubling tail-state table could predate this work.",
+      "The comparison to each highly relevant primary source is limited to identified relevant sections, not every page of every related work.",
+      "No independent scientific or historical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected relevant sections: generic msd-first state upper bounds and Thue--Morse subsequences, no translated modular-valuation residue formula.",
+        "evidence": "Theorem 9/Corollary 10 give msd-first constructions; §4.2 treats Thue--Morse rather than valuation residues.",
+        "identifier_or_url": "https://arxiv.org/pdf/2512.10017",
+        "material_read": "Primary PDF abstract, introduction, definitions, Section 4 Theorem 9 and Corollary 10, Section 4.1 and Section 4.2 through Theorem 16; corresponding PDF page images.",
+        "method": "Primary full-text PDF sections and rendered pages",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Most relevant recent general paper on automaton size after linear subsequences and shifts"
+      },
+      {
+        "assessment": "NOT_COVERING: shift problem is Fibonacci word in Zeckendorf notation, not base-adic valuation residues in base-b LSD notation.",
+        "evidence": "§3 Theorem 1 states O(log c) for Fibonacci-word shifts with lsd-first Zeckendorf input.",
+        "identifier_or_url": "https://arxiv.org/pdf/2603.18858",
+        "material_read": "Primary PDF abstract, introduction, §3 theorem and construction material; title and first-page image.",
+        "method": "Primary PDF text and page inspection",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Direct shift-state complexity paper with logarithmic behavior"
+      },
+      {
+        "assessment": "NOT_COVERING in relevant inspected material: general tail bounds and sequence operations, no all-shift formula for modular base valuations.",
+        "evidence": "§7 Theorem 16 bounds reverse-reading tail complexity and discusses paperfolding/Thue--Morse examples, with no modular valuation-residue enumeration.",
+        "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+        "material_read": "Primary open-access PDF abstract, introduction, definitions, §7 Theorem 16 through arithmetic-subsequence construction; bibliography-oriented full-text searches for valuation, period doubling and shift terminology.",
+        "method": "Author-hosted primary full-text PDF and targeted section reading",
+        "title": "Complexity of automatic sequences",
+        "trigger": "Foundational paper on exact reverse-reading complexity and tail operations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06a7b162-6d8d-4eae-a155-1f01c82320b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact minimal-state complexity and complete residual graph for an infinite three-parameter family of automatic valuation words, including every translate of the classical period-doubling word. It sharpens the current general state-complexity question for shifts from a bound to an exact formula, shows the exact logarithmic coefficient one and additive residue penalty two m, and identifies every power-of-base transition. This is a natural automata-theoretic invariant motivated by the recent shift-state literature, not an arbitrary finite census; the all-moduli proof and minimality graph are substantive. No claim of improving worst-case complexity for unrelated automatic words is made.",
+    "status": "PASS"
+  }
+}
