@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has one literature-dependent structural input and an independent exact computation.
+# Independent mathematical audit
 
-The structural input is the published classification that every Reinhardt polygon with fewer than \(30\) sides is periodic. For \(n=9\), a periodic composition has repetition count \(d=3\) or \(d=9\). Enumerating positive odd-length blocks of sum \(9/d\) leaves only \([(3)^3]\) and \([(1)^9]\).
+## correctness
 
-The exact computation is replayed by `verify.py` from the packaged path. It constructs the \([(3)^3]\) nonagon as three equal three-chord subdivisions of the boundary arcs of a width-one Reuleaux triangle. Exact shoelace arithmetic in SymPy returns
-\[
-\frac92\sin\!\left(\frac{\pi}{9}\right)-\frac{\sqrt3}{2}.
-\]
-The script separately constructs the regular diameter-one nonagon and verifies
-\[
-9\sin^2\!\left(\frac{\pi}{18}\right)\cot\!\left(\frac{\pi}{9}\right).
-\]
-It also verifies the common side length \(2\sin(\pi/18)\), the common extremal perimeter, and the exact area-gap identity.
+PASS
 
-Finite enumeration is not being used to infer that all maximum-perimeter nonagons are periodic; that universal reduction is supplied by the inspected theorem. The checker verifies only the finite consequence and the exact geometry once that reduction is established.
+The classical perimeter optimizer/Reinhardt correspondence and the explicit cyclotomic criterion reduce n=9 to 128 odd-part compositions. Independent exact division by Phi_18=z^6-z^3+1 leaves exactly [(3)^3] and [(1)^9]. For [(3)^3], an equilateral triangle of side one has three congruent polygonal caps, each of area (3/2)sin(pi/9)-sqrt(3)/4; hence A_tri=9sin(pi/9)/2-sqrt(3)/2. The regular diameter-one nonagon has circumradius 1/(2cos(pi/18)) and A_reg=9sin^2(pi/18)cot(pi/9). Elementary trigonometry gives gap=(sqrt(3)-9tan(pi/18))/2. Taking t=1/(3sqrt(3)), tan(3 arctan t)=10sqrt(3)/27>tan(pi/6), proving tan(pi/18)<t. Independent 80-digit coordinate shoelace, side and diameter calculations corroborate the formulas.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty lies in the explicit exact area of the nonregular [(3)^3] optimizer and therefore the complete two-value secondary area spectrum. The earlier classification of the two classes and the classical odd-n area winner are acknowledged as already known.
+
+## value
+
+PASS
+
+For nine sides the maximum-perimeter fixed-diameter problem first has multiple odd-sided optimizer shapes, so area is a natural secondary geometric invariant. The theorem determines the complete exact area spectrum and positive separation between the two optimizers, resolving a genuine tie-breaking question. It is narrow and elementary once the known class count is available, but the exact nonregular area is a mathematically specific natural fact not supplied by the inspected class counts or the global odd-area theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

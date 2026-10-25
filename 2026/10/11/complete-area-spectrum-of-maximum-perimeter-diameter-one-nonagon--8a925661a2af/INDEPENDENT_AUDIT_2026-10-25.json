@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T18:08:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:1203.4107v2 pp. 2–4 for optimizer correspondence, composition encoding and cyclotomic criterion",
+        "independent_checks.py and independent_checks_output.json, including all 128 odd positive 9-compositions",
+        "arXiv:2204.04547v1 historical fixed-diameter area context"
+      ],
+      "rationale": "The classical perimeter optimizer/Reinhardt correspondence and the explicit cyclotomic criterion reduce n=9 to 128 odd-part compositions. Independent exact division by Phi_18=z^6-z^3+1 leaves exactly [(3)^3] and [(1)^9]. For [(3)^3], an equilateral triangle of side one has three congruent polygonal caps, each of area (3/2)sin(pi/9)-sqrt(3)/4; hence A_tri=9sin(pi/9)/2-sqrt(3)/2. The regular diameter-one nonagon has circumradius 1/(2cos(pi/18)) and A_reg=9sin^2(pi/18)cot(pi/9). Elementary trigonometry gives gap=(sqrt(3)-9tan(pi/18))/2. Taking t=1/(3sqrt(3)), tan(3 arctan t)=10sqrt(3)/27>tan(pi/6), proving tan(pi/18)<t. Independent 80-digit coordinate shoelace, side and diameter calculations corroborate the formulas.",
+      "residual_risks": [
+        "The universal perimeter-maximizer characterization is imported from classical published work; the finite check alone cannot establish it.",
+        "Numerical coordinate checks support but do not replace the elementary exact cap and trigonometric proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bingane–Mossinghoff arXiv:2204.04547 p. 1 states that Reinhardt proved the regular odd diameter-one polygon uniquely maximizes area.",
+          "The global area theorem determines the larger-area class but supplies neither the exact nonregular value nor the gap."
+        ],
+        "reasoning": "The global fixed-diameter area optimality theorem strictly orders the two known perimeter optimizers, but does not determine the complete area spectrum on the perimeter-optimal subset.",
+        "searches": [
+          "arXiv:2204.04547v1, introduction",
+          "Reinhardt odd small regular area theorem",
+          "Reinhardt polygon maximal perimeter versus maximal area for odd n"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.4107v2",
+        "arXiv:1405.5233v2",
+        "arXiv:2204.04547v1",
+        "DOI:10.1016/j.jcta.2011.03.004 (abstract only)",
+        "OEIS A374832 (class counts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reinhardt polynomial characterization F mod Phi_18 plus elementary finite enumeration identifies precisely the two classes; no prior nonregular area formula was located.",
+          "Global odd area theorem implies regular exceeds nonregular but not by a specified exact positive gap.",
+          "The 2011 enumeration article remains access-limited; its abstract treats class counts."
+        ],
+        "reasoning": "The published general optimizer correspondence and class counts cover the two-class reduction, and ordinary polygon area formulas make the remaining calculation elementary. They do not mechanically give the claimed exact nonregular area without evaluating the actual geometry. That narrow natural exact invariant is the surviving contribution.",
+        "searches": [
+          "arXiv:1203.4107 periodic composition and cyclotomic criterion",
+          "arXiv:1405.5233 Reinhardt polynomials",
+          "arXiv:2204.04547 global odd area bound",
+          "Mossinghoff 2011 DOI:10.1016/j.jcta.2011.03.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hare–Mossinghoff arXiv:1203.4107, pp. 2–5, encodes maximizers by dihedral compositions and classifies n<30 as periodic.",
+          "Hare–Mossinghoff arXiv:1405.5233, pp. 1–3, treats Reinhardt polynomial/composition counts rather than an area spectrum.",
+          "Independent area evaluation gives 9 sin^2(pi/18) cot(pi/9) and 9 sin(pi/9)/2 - sqrt(3)/2."
+        ],
+        "reasoning": "Alternative terminology includes extremal isodiametric polygons, inscribed Reuleaux-triangle subdivisions, and dihedral compositions. The inspected classification identifies exactly two shapes but does not explicitly evaluate the area of the nonregular class.",
+        "searches": [
+          "Reinhardt nonagon area Reuleaux triangle nine sided polygon regular area",
+          "Reinhardt 9-gon composition [(3)^3] area",
+          "Reinhardt polygons n=9 two maximal perimeter polygon classes area formula exact",
+          "arXiv:1203.4107 §§1-2; arXiv:1405.5233 §§1-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A374832 lists two periodic Reinhardt classes for n=9, matching the primary classification.",
+          "Exact-form and decimal searches did not identify a previously tabulated nonregular area."
+        ],
+        "reasoning": "The known numerical class-count table is not an area table. A negative indexed search is only weak novelty evidence; unindexed formulas remain possible.",
+        "searches": [
+          "OEIS A374832 number of periodic Reinhardt polygons",
+          "\"0.673065241181\" Reinhardt polygon",
+          "\"sqrt(3) - 9 tan(pi/18)\" nonagon",
+          "\"Reinhardt\" \"area\" \"nine\" \"nonagon\""
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty lies in the explicit exact area of the nonregular [(3)^3] optimizer and therefore the complete two-value secondary area spectrum. The earlier classification of the two classes and the classical odd-n area winner are acknowledged as already known.",
+      "residual_risks": [
+        "The complete 2011 enumeration study was unavailable for full-text comparison; priority cannot be excluded.",
+        "An old or unindexed calculation of the nonregular nonagon area may precede this finding.",
+        "The two-class optimizer count and the regular-global-area theorem are not new contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_PARTIAL_COVERAGE: provides full structural reduction, not the nonregular area expression.",
+          "evidence": "pp. 2–4 define the optimizer family; p. 3 gives the cyclotomic criterion; p. 4 asserts all n<30 periodic.",
+          "identifier_or_url": "arXiv:1203.4107v2; DOI:10.1007/s00454-012-9479-4",
+          "material_read": "Introduction and pp. 2–5 (figures, composition criterion, exact periodic count), theorem statements and closing tables/references.",
+          "method": "Lawful arXiv full-text page/figure inspection.",
+          "title": "Sporadic Reinhardt Polygons",
+          "trigger": "Defining perimeter-optimal class, Reuleaux arcs, polynomial/composition criterion and n<30 periodicity."
+        },
+        {
+          "assessment": "RELATED_CLASSIFICATION_NOT_AREA: concerns periodic and sporadic counts; no n=9 area theorem in inspected material.",
+          "evidence": "pp. 1–3 state the polynomial correspondence and give asymptotic/sporadic counting theorems.",
+          "identifier_or_url": "arXiv:1405.5233v2",
+          "material_read": "Introduction, pp. 1–3, polynomial criterion and theorem statements.",
+          "method": "Lawful arXiv PDF text and page-image inspection.",
+          "title": "Most Reinhardt Polygons Are Sporadic",
+          "trigger": "Closest later primary enumeration/classification study."
+        },
+        {
+          "assessment": "BROADER_FOR_ORDERING_ONLY: global odd area maximizer is regular, but the n=9 perimeter-tie secondary spectrum is not supplied.",
+          "evidence": "p. 1 identifies the regular odd polygon as the unique fixed-diameter area maximizer.",
+          "identifier_or_url": "arXiv:2204.04547v1",
+          "material_read": "Introduction, p. 1 and surrounding historical discussion.",
+          "method": "Lawful arXiv PDF text and page-image inspection.",
+          "title": "Small polygons with large area",
+          "trigger": "Strongest relevant global odd-polygon area coverage."
+        },
+        {
+          "assessment": "ACCESS_LIMIT: confirms count/classification topic only; full-document noncoverage not asserted.",
+          "evidence": "Abstract states exact counts E(n) of extremal classes; the accessible material does not evaluate n=9 area.",
+          "identifier_or_url": "DOI:10.1016/j.jcta.2011.03.004",
+          "material_read": "Bibliographic record and abstract; exact full-text PDF was not accessible.",
+          "method": "Accessible bibliographic record and abstract comparison; complete PDF unavailable.",
+          "title": "Enumerating isodiametric and isoperimetric polygons",
+          "trigger": "Potentially decisive primary enumeration of exactly the same maximizing polygon family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1203.4107v2 §1: nonuniqueness of perimeter optimizers beyond prime side counts",
+        "arXiv:2204.04547v1 p. 1: distinct classical diameter-area objective",
+        "independent exact class enumeration and geometric areas"
+      ],
+      "rationale": "For nine sides the maximum-perimeter fixed-diameter problem first has multiple odd-sided optimizer shapes, so area is a natural secondary geometric invariant. The theorem determines the complete exact area spectrum and positive separation between the two optimizers, resolving a genuine tie-breaking question. It is narrow and elementary once the known class count is available, but the exact nonregular area is a mathematically specific natural fact not supplied by the inspected class counts or the global odd-area theorem.",
+      "residual_risks": [
+        "No claim of a new global area maximum, general n-spectrum, or deep extension of Reinhardt classification.",
+        "Small-side exact evaluation can have modest standalone reach; its natural completeness for n=9 is the specific value argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Reinhardt characterization and the n<30 periodicity are established published prerequisites; their classification is not newly proved.",
+    "The 2011 primary enumeration study could be assessed only from abstract and bibliography because open-access retrieval failed and authorized institutional access reported disconnected VPN; no whole-document noncoverage is claimed.",
+    "An older unindexed nonregular-area computation remains possible; originality is best-of-knowledge.",
+    "No formal Lean proof or external human attestation is claimed. The staged publication plan is not a repository write."
+  ],
+  "schema_version": 1
+}
