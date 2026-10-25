@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses an exact graph-area identity checked independently against cube-edge intersections, the established sharp three-cube section extrema and equality directions, a spherical-cap identity for the lower germ, and an explicit homogeneous tangent deficit at all twelve upper maximizers. Its first-quadrant sublevel has exact area \((4+\pi)/(64\sqrt2)\). Correctly counting spherical patches produces the asserted upper constant. The four-coordinate singular denominators are treated by continuous extension; the limit uses uniform angular convergence. A finite checker supports but does not establish infinite claims.
+## correctness
 
-## Originality — PASS under located-literature comparison
-The closest fully inspected primary literature supplies section-volume extrema, deterministic formulas, expected face counts, and a *different random-plane law with offsets*. None of these statements implies either endpoint probability coefficient. Targeted published-record and mathematical-literature searches did not locate the identical area-tail theorem. A prior derivation in older integral-geometry treatments of cube-section distributions remains a residual risk; a search miss is not a proof of global uniqueness.
+PASS
 
-## Mathematical value — PASS
-For a canonical convex body, the result determines two sharp but unlike endpoint fluctuation exponents and exact constants for a natural Haar central-section measurement. The upper coefficient involves a nontrivial piecewise-rational homogeneous cusp and a circular-segment integral; it cannot be read off from the known extremal section areas or the number of extremizers. The result provides an analytic benchmark distinct from randomly offset stereological section models.
+For u with ordered absolute coordinates a≥b≥c, solving plane x1=-(bx2+cx3)/a gives Jacobian 1/a and forbidden corners of total projected area (b+c-a)_+²/(bc), hence A=4/a-(b+c-a)_+²/(abc). Near six axis normals this is 4/a and spherical cap probability exactly 3(1-4/(4+ε)). Near twelve face diagonal normals tangent deficit is 4sqrt(2)|t|+2(|s|-sqrt(2)|t|)_+²/|s| plus o(radius). Integrating the degree-one sublevel yields quadrant J=(4+π)/(64sqrt2), coefficient 12*4J/(4π)=3(4+π)/(16πsqrt2). Independently evaluated tangent ratios near 1 (.99967,.99992,.999985) and constant .30139183075. Global extrema used from prior cube section theory; no claim of full CDF.
 
-## Boundaries
-The complete interior CDF and quantitative finite-sample estimation are not established. The priority assessment is same-model only and should be independently checked before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Global extrema and exact area as a function of a fixed normal are known (Ambrus and Marichal–Mossinghoff), as are separate random face-vector laws. No inspected result supplies Haar probability germ at axis minima together with explicit ε² upper-tail coefficient at face-diagonal cusps. Existing published Resultary random cube hexagon face count concerns a discrete face-count statistic, not the metric area tails. Incomplete exhaustive literature coverage remains a residual risk.
+
+## value
+
+PASS
+
+The probability density of central slicing area near both sharp geometric endpoints is a natural stereological invariant; different exponents 1 and 2 and an explicit unusual π coefficient quantify concentration beyond deterministic extrema, with potential use in sampling rare extreme planar sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
