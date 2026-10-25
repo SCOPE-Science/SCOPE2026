@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(S=\operatorname{conv}\{v_0,\ldots,v_d\}\) with barycentric functions \(\lambda_i\) and gradients \(g_i\), direct substitution gives
-\[
-x\in S\div\{-Wu/2,Wu/2\}
-\iff
-\lambda_i(x)\ge\frac W2|\langle g_i,u\rangle|
-\quad\text{for every }i.
-\]
-These lower barycentric bounds sum to \(A_u\), so the feasible set is exactly a translate of \((1-A_u)S\).
+# Independent mathematical audit
 
-The key dual identity is checked symbolically in the proof:
-\[
-(S-S)^\circ=\operatorname{conv}\left\{\sum_{i\in I}g_i:I\subset\{0,\ldots,d\}\right\}.
-\]
-The forward inclusion follows from
-\[
-\left\langle\sum_{i\in I}g_i,v_j-v_k\right\rangle
-=\mathbf1_{j\in I}-\mathbf1_{k\in I}.
-\]
-For the reverse inclusion, a vector in the polar has vertex evaluations contained in an interval of length one; subtracting the minimum makes those evaluations coefficients in \([0,1]\), and the differentiated barycentric identity reconstructs the vector as a cube combination of the \(g_i\).
+## correctness
 
-Because \(w(S)=\min_{|u|=1}h_{S-S}(u)\), the circumradius of \((S-S)^\circ\) is exactly \(1/w(S)\). This gives the coefficient \(2/w(S)\) and hence the volume formula.
+PASS
 
-No computational certificate is needed: the result is proved for arbitrary dimension by exact barycentric identities and polar duality. The regular-simplex specialization is obtained by substituting the exact Gram relations \(\langle q_i,q_j\rangle=-1/d\) for distinct vertices.
+For each d>=1 nondegenerate simplex the affine barycentric inequalities x±(W/2)u∈S are exactly λ_i(x)>=(W/2)|<g_i,u>|. Their sum A<1 makes the full feasible polytope a translate c_u+(1-A)S, not just a containing subset. Since ∑g_i=0, ∑|<g_i,u>|=2max_I<G_I,u>. The polar of the difference body C=S-S is exactly conv{G_I}: each subset-gradient satisfies the vertex-difference inequalities, and conversely any y with max_j<y,v_j>-min_k<y,v_k><=1 equals ∑_i s_i g_i with s_i∈[0,1]. Thus max_I||G_I|| is the radius of C° and equals 1/min_{||u||=1}h_C(u)=1/w(S). It follows A<=W/w(S)<1, the minimized erosion volume is (1-W/w(S))^d vol(S), and every maximizing direction is ±G_I/||G_I|| with ||G_I||=1/w. For j∈I,k∉I, <G_I,v_j-v_k>=1, so the maximizing direction places complementary vertex faces on supports separated by w. The regular-simplex Gram formula ||G_I||²=d|I|(d+1-|I|)/(d+1)² for unit-radius vertices gives balanced partitions; that regular-width subresult was previously known. The theorem does not establish single-plank attainment in dimensions >=3.
 
-Limits: the result concerns exact segment erosion and its directional minimum. It does not construct an optimal single plank for arbitrary higher-dimensional simplices and does not claim anything for total width above \(w(S)\).
+## originality
+
+PASS
+
+Best-of-knowledge narrower novelty: explicit exact centered-segment erosion of every simplex, identity of its directionally minimized volume with the Bang homothetic-core volume, and full complementary-face minimizer description. Prior Bakaev–Polyanskii supply a general inclusion and special-altitude plank attainment; Har-Peled–Robson (and cited older sources) already give regular-simplex minimum width and balanced optimizers. The latter regular case and the polar inradius reciprocity are not credited as novel. The Resultary pyramid result gives a width criterion without eroded-simplex minimization. No inspected prior theorem states or implies the complete all-simplex target; hidden older convex-geometric equivalence remains a material residual risk.
+
+## value
+
+PASS
+
+The new exact identity evaluates the directional geometric quantity left open after the key Corollary 7 reduction of an active quantitative plank problem. It proves that every nondegenerate simplex, including regular tetrahedra outside the older altitude-equality class, reaches the Bang homothetic lower bound at the erosion stage and identifies every complementary-face direction doing so. This is a natural infinite-dimensional-family structural lemma and usefully isolates the unsolved step from optimized erosion to actual one-plank uncovered volume. The simplex barycentric computation and standard width polarity are elementary, and the regular-width balanced-partition corollary is known; mathematical value belongs only to the complete all-simplex sharp erosion formula for the partial-plank reduction, not to those routine sublemmas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
