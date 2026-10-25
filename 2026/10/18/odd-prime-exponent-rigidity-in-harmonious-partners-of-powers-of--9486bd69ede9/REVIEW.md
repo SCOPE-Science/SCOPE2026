@@ -1,23 +1,21 @@
-# Scientific review: Odd-prime exponent rigidity in harmonious partners of powers of two
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every positive exponent triple and every odd prime. The necessary direction has three logically exhaustive stages. For exponent \(k=1\), the second reciprocal-divisor-sum term is strictly greater than \(1/3\). For \(k\geq2\), denominator clearing forces \(2^k-1\mid p^s\); the elementary parity/factorization argument rules out proper odd-prime powers, hence \(2^k-1=p\). The residual equation reduces to \(2p+1=t(p^{s-1}+2\sum_{i=0}^{s-2}p^i)\), whose integer squeeze excludes all \(s\geq2\). The remaining \(s=1\) forces \(r=k\). Direct substitution proves sufficiency. The finite exact checker evaluated 256,512 independently computed cases and found four matching cases; 576 additional direct-divisor-sum enumerations corroborated the same classification. The general proof does not depend on those checks.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Write Y=2^k, X=2^r, S=Σ_{j=0}^s p^j. Harmonious means Y/(2Y−1)+Xp^s/((2X−1)S)=1. If k=1 then first term is 2/3 but second is strictly greater than (p−1)/(2p)≥1/3, impossible. For k≥2 clearing denominators gives Xp^s(2Y−1)=(Y−1)(2X−1)S; gcd(Y−1,X(2Y−1))=1 forces Y−1=p^j (1≤j≤s). If j is even then p^j=1 mod8 whereas Y−1=3 or 7 mod8; if j≥3 odd then (p^j+1)/(p+1) is an odd integer >1 dividing Y=2^k, impossible. Thus p=Y−1. Cancel p and observe p∤S, so p^{s−1}|2X−1. Set t=(2X−1)/p^{s−1}≥1; elementary exact algebra gives 2p+1=t(p^{s−1}+2Σ_{j=0}^{s−2}p^j). When s=2 the parenthesis is p+2, strictly between half and all of 2p+1, requiring 1<t<2; when s≥3 it is >2p+1. Hence s=1 and t=2p+1, yielding X=p+1=Y, r=k; direct substitution proves all Mersenne-prime cases. Independent exact cross-multiplication over k,r∈1..9, odd primes p≤67, s∈1..5 checked 7,290 cases and exactly three predictions, while algebra proves all exponents. The theorem does NOT cover multiple distinct odd primes such as partner 120 of 2.
 
-The primary 2015 paper of Kozek–Luca–Pollack–Pomerance gives the defining identity and general sparsity and discordance results, but not this odd-prime-power exponent exclusion. A publicly indexed exact finding titled *Powers of two in two-prime-support harmonious pairs* **already settles** the subfamily with the odd prime occurring once. Therefore the classification restricted to \(s=1\) is prior work, not a contribution here. The scientifically new part is the unconditional proof that no harmonious pair in the full two-prime-support family exists with \(s\geq2\); this rules out infinitely many additional exponent layers and is not a logical consequence of a theorem whose quantified domain fixes \(s=1\). Bishop et al. (2021) prove general recognition criteria and give examples but do not state this exclusion. Exact higher-exponent, alternate-name, and stronger-coverage searches did not identify an equivalent statement. No claim of exhaustive literature coverage is made; the closest indexed finding was accessible as a summary, not as a complete manuscript, and an unindexed general theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The underlying problem is the established divisor-sum recognition problem for harmonious pairs. Holding one member at a prime power of two and limiting the other to exactly two prime supports is a natural minimal arithmetic-complexity stratum. Previous classifications treated only squarefree odd parts. The theorem completes the entire exponent dimension instead of incrementing a numerical bound: repeated odd-prime factors are intrinsically impossible, and precisely the Mersenne-prime family survives. This is a structural boundary rather than a normalization identity or a finite table computation. The proof uses a nontrivial interaction of denominator divisibility, perfect-power rigidity and an integer-factor squeeze. It is not claimed to solve the unrestricted harmonious-partner problem or the infinitude of Mersenne primes.
+The exact s=1 classification is ALREADY a published mathematical finding and is not credited as new. The candidate new claim is exponent-uniform IMPOSSIBILITY for every s≥2 with one odd-prime support, completing the entire natural 2-prime-support slice. Kozek et al (2015) give the definition and sparsity/discordance rather than this fixed support classification; Bishop et al 2021 give general feebly amicable abundancy conditions but not this exclusion in inspected mathematical results. Priority remains best-of-knowledge in the face of alternate aliases and potential unindexed converse theorems.
 
-## Closest literature and limitations
+## value
 
-- Kozek, Luca, Pollack, Pomerance, *Harmonious pairs*, Int. J. Number Theory 11 (2015), 1633–1651; author's 20-page paper inspected, including definitions, results, proof methods, discordance and examples. https://www.pollack-math.net/harmonious5.pdf
-- *Powers of two in two-prime-support harmonious pairs*, indexed mathematical result `2026/10/4/SCOPE-powers-of-two-in-two-prime-support-harmonious-pairs--94f9b7228e53`; mathematical summary inspected, covering exactly the odd-prime-exponent-one case, but full manuscript not available through the result retrieval.
-- Bishop et al., *The Abundancy Index and Feebly Amicable Numbers*, arXiv:2104.11366; 9-page preprint inspected, with alias “feebly amicable.” https://arxiv.org/pdf/2104.11366
+PASS
 
-An unseen earlier classification of all \(2^k\)-partners with prime-power odd part would dominate this theorem. The calculation is not an independent audit.
+The power-of-two harmonious-partner problem is a classical divisor-sum Diophantine identity. Restricting the partner to two prime supports is the minimal nontrivial arithmetic layer; the previously known result settled only exponent one on its odd prime. Here a clean rigid divisibility/factorization argument proves no repeated odd-prime factor can occur for ANY positive exponent, completing the entire exponent direction and making the positive Mersenne family exhaustive. This closes an intrinsic natural boundary with an all-parameter proof, not a numerical increment or trivially substituted identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

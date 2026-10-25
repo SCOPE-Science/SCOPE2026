@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:48:34.552790Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write Y=2^k, X=2^r, S=Σ_{j=0}^s p^j. Harmonious means Y/(2Y−1)+Xp^s/((2X−1)S)=1. If k=1 then first term is 2/3 but second is strictly greater than (p−1)/(2p)≥1/3, impossible. For k≥2 clearing denominators gives Xp^s(2Y−1)=(Y−1)(2X−1)S; gcd(Y−1,X(2Y−1))=1 forces Y−1=p^j (1≤j≤s). If j is even then p^j=1 mod8 whereas Y−1=3 or 7 mod8; if j≥3 odd then (p^j+1)/(p+1) is an odd integer >1 dividing Y=2^k, impossible. Thus p=Y−1. Cancel p and observe p∤S, so p^{s−1}|2X−1. Set t=(2X−1)/p^{s−1}≥1; elementary exact algebra gives 2p+1=t(p^{s−1}+2Σ_{j=0}^{s−2}p^j). When s=2 the parenthesis is p+2, strictly between half and all of 2p+1, requiring 1<t<2; when s≥3 it is >2p+1. Hence s=1 and t=2p+1, yielding X=p+1=Y, r=k; direct substitution proves all Mersenne-prime cases. Independent exact cross-multiplication over k,r∈1..9, odd primes p≤67, s∈1..5 checked 7,290 cases and exactly three predictions, while algebra proves all exponents. The theorem does NOT cover multiple distinct odd primes such as partner 120 of 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozek et al Theorem 1.1 is an asymptotic sparsity bound, not complete exclusion on this support.",
+          "Bishop Theorem 8.1 gives a generic missing-abundancy-index criterion but no checked implication forbidding p^s for all s≥2.",
+          "S=1 published record fixes the odd-prime exponent to one, so its quantified domain does not imply s≥2 impossibility."
+        ],
+        "reasoning": "Established general abundance-index theorems were checked for potential stronger coverage; the 2-adic divisibility and integer-squeeze argument excludes a range not addressed by the more restricted result.",
+        "searches": [
+          "Kozek et al 2015 Theorem 1.1 global rarity",
+          "Bishop et al 2021 Theorem 8.1 abundancy exclusion",
+          "Resultary exact s=1 pair classification published 2026/10/4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query harmonious pairs powers of two prime power odd factor 2^r p^s",
+        "https://www.pollack-math.net/harmonious5.pdf",
+        "https://arxiv.org/pdf/2104.11366",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-powers-of-two-in-two-prime-support-harmonious-pairs--94f9b7228e53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S=1 theorem covers exactly the squarefree odd part, and nothing in its statement resolves repeated odd powers.",
+          "Generic rarity or missing-index results cannot be substituted for the all-s integer-factor contradiction without checking additional hypotheses."
+        ],
+        "reasoning": "Separated accepted known s=1 cases from the proposed new s≥2 obstruction. A stronger uninspected feebly-amicable classification is a residual risk, not evidence that the stated domain is already covered.",
+        "searches": [
+          "Resultary record 2026/10/4/SCOPE-powers-of-two-in-two-prime-support-harmonious-pairs--94f9b7228e53",
+          "2015 Kozek et al Theorem 1.1",
+          "2021 Bishop et al Theorem 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Harmonious pairs are the same equation as feebly amicable pairs: a/σ(a)+b/σ(b)=1.",
+          "The published s=1 SCOPE record classifies (2^a,2^bq) by b=a and q=2^a−1; it does not quantify s>1."
+        ],
+        "reasoning": "Compared aliases and exact support exponent hypotheses, not titles. The additional conclusion is lack of ANY s≥2 prime-power odd partners, not the already-known positive s=1 cases.",
+        "searches": [
+          "Resultary harmonious pairs powers of two prime power odd factor 2^r p^s",
+          "feebly amicable pairs abundancy index arXiv:2104.11366",
+          "Kozek Luca Pollack Pomerance Harmonious pairs 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All positive families with s=1 coincide exactly with previous Resultary finding and classic example (4,12); this subcase is NOT new.",
+          "Unrestricted examples including (2,120) have two odd-prime supports and are not counterexamples to the two-prime claim."
+        ],
+        "reasoning": "No finite table or positive family with s=1 logically rules out arbitrary s≥2; current result asserts a structural zero-locus over infinitely many exponents.",
+        "searches": [
+          "Resultary: Powers of two in two-prime-support harmonious pairs 2026/10/4",
+          "Kozek 2015 examples 4,12 and 2,120",
+          "Bishop 2021 numerical pairs"
+        ]
+      },
+      "rationale": "The exact s=1 classification is ALREADY a published mathematical finding and is not credited as new. The candidate new claim is exponent-uniform IMPOSSIBILITY for every s≥2 with one odd-prime support, completing the entire natural 2-prime-support slice. Kozek et al (2015) give the definition and sparsity/discordance rather than this fixed support classification; Bishop et al 2021 give general feebly amicable abundancy conditions but not this exclusion in inspected mathematical results. Priority remains best-of-knowledge in the face of alternate aliases and potential unindexed converse theorems.",
+      "residual_risks": [
+        "Other authors may use feebly amicable terminology, including an unindexed higher-exponent theorem.",
+        "Closest previously published s=1 manuscript material read only as Resultary summary; no whole-source noncoverage claim.",
+        "No classification when the second integer has two or more distinct odd primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines object, counts harmonious pair membership and discordance, no identified exhaustive two-prime-support power-of-two exponent criterion.",
+          "evidence": [
+            "Definition 1.1; Theorem 1.1 upper density bound on pair-members; examples (4,12), (2,120)."
+          ],
+          "identifier_or_url": "https://www.pollack-math.net/harmonious5.pdf",
+          "material_read": "Full author-hosted 20-page article; introduction, Definition 1.1, Theorem 1.1 and core rarity proof plus examples and discordance section",
+          "method": "Author-hosted OA full PDF text and selected page image",
+          "title": "Harmonious pairs",
+          "trigger": "Original defining harmonious equation and broad theorem potential"
+        },
+        {
+          "assessment": "Aliases classical harmonious pairs as feebly amicable and proves a generic criterion; inspected theorem not the exact s≥2 contradiction.",
+          "evidence": [
+            "Introduction explains feebly amicable synonym; §8 Theorem 8.1 on impossible abundancy index."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.11366",
+          "material_read": "Nine-page full arXiv PDF, terminology §§1,6–8, Theorem 8.1 and numerical examples",
+          "method": "Lawful OA PDF text and selected page image",
+          "title": "The Abundancy Index and Feebly Amicable Numbers",
+          "trigger": "Exact synonym and possible general abundancy-index obstruction"
+        },
+        {
+          "assessment": "EXACT prior coverage for (2^a,2^b q), q odd prime: a=b, q=2^a−1. Present claimed novelty restricted to exclusion of s≥2.",
+          "evidence": [
+            "Indexed finding expressly fixes odd-prime exponent to one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-powers-of-two-in-two-prime-support-harmonious-pairs--94f9b7228e53",
+          "material_read": "Indexed complete mathematical statement in semantic-search summary only, not full paper",
+          "method": "Resultary published record abstract/summary; no whole-document noncoverage claim",
+          "title": "Powers of two in two-prime-support harmonious pairs",
+          "trigger": "Closest already published s=1 classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The power-of-two harmonious-partner problem is a classical divisor-sum Diophantine identity. Restricting the partner to two prime supports is the minimal nontrivial arithmetic layer; the previously known result settled only exponent one on its odd prime. Here a clean rigid divisibility/factorization argument proves no repeated odd-prime factor can occur for ANY positive exponent, completing the entire exponent direction and making the positive Mersenne family exhaustive. This closes an intrinsic natural boundary with an all-parameter proof, not a numerical increment or trivially substituted identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Already published s=1 exact family explicitly credited, not new.",
+    "Alternative feebly-amicable/harmonious nomenclature could hide an existing all-exponent classification.",
+    "No proof for multiple odd-prime supports or Mersenne prime infinitude.",
+    "Independent result is best-of-knowledge scientific assessment, not human expert attestation or Lean proof.",
+    "Verified assigned Git tree object's SHA-1 matched its Git API identity; complete recursive Git tree byte encoding not independently reconstructed.",
+    "Although science passed, the privacy-blocked plan is not import-ready; source packages remain unchanged."
+  ],
+  "schema_version": 1
+}
