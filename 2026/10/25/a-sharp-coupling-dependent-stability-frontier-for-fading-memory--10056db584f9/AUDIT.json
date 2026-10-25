@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For the exact two-buffer cyclic update, the computed three-dimensional two-step matrix has the stated cubic. Its strict Schur–Jury inequalities factor into two positive terms, a positive multiple of F(t), and the determinant constraint. The smaller positive F-root precedes the determinant boundary, giving the exact cutoff; endpoints follow by substitution. E+TE spans the augmented state, so initialized trajectories cannot all converge when the matrix is non-Schur. Five SymPy identities, 500 exact-rational direct-cycle tests, 3000 finite eigenvalue comparisons, and limiting cases passed; infinite assertions rely on analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DIAG update (18) averages both delayed iterates and delayed component-function gradients, rather than refreshing and decaying one coordinate of a full-gradient buffer.",
+        "Beck–Tetruashvili establish broad cyclic block-gradient descent guarantees without the nonactive-coordinate gradient reuse of CoCD.",
+        "The CoCD source provides general conservative bounds; such bounds do not imply necessity or the exact larger-than-baseline window."
+      ],
+      "reasoning": "Generic convergence theorems are not themselves exact sharp step-size characterizations; the stronger-looking broad method analyses apply to distinct update maps or establish only a sufficient condition. A general matrix-Schur criterion alone could rederive this cubic by substitution, but no source with the substantive parameter reduction and phase diagram was identified.",
+      "searches": [
+        "two-state cyclic Jacobi stale gradient memory spectral radius cubic coupled convex quadratic",
+        "stale gradient CoCD coupled Hessian spectral stability improvement via momentum gamma correlation",
+        "arXiv:1611.00347 Sections 3 and 4",
+        "DOI:10.1137/120887679"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.14373",
+      "arXiv:1611.00347",
+      "DOI:10.1137/120887679",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source criterion is of sufficient-step form involving global smoothness and a staleness count; it does not solve the necessary-and-sufficient Schur boundary.",
+        "DIAG and CoCD have different state transitions because DIAG averages stored positions and gradient of finite-sum terms.",
+        "The standard no-memory cyclic block update is nested as gamma=0 and gives the exact baseline t<2; it cannot imply partial-memory expansion beyond 2."
+      ],
+      "reasoning": "The novel conclusion is the full iff frontier and t>2 memory-benefit regime. Neither the source general sufficient bound, the classical no-memory result, nor the DIAG rate theorem logically yields this claim without an additional dedicated stability analysis.",
+      "searches": [
+        "arXiv:2605.14373 Sections 4–5 and Appendix C",
+        "arXiv:1611.00347 equation (18)",
+        "DOI:10.1137/120887679 (abstract and MSC)",
+        "CoCD coherent coordinate descent two-dimensional coupled quadratic fading memory optimal momentum exact stability step size cyclic stale gradient cubic Schur",
+        "stale gradient CoCD coupled Hessian spectral stability improvement via momentum gamma correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arXiv:2605.14373 update is buffer decay, active-coordinate overwrite and simultaneous full-vector descent; its stability discussion supplies sufficient smoothness bounds, not a cubic criterion.",
+        "CoCD on an equal-curvature quadratic is exactly cyclic reuse of two delayed partial derivatives because centered differences are exact.",
+        "The search results on quadratic stale-gradient recurrences do not state this two-coordinate, fading-memory cutoff."
+      ],
+      "reasoning": "The same operator can be described as a periodic linear augmented-state recurrence with a cubic Schur polynomial. The derivative-free and exact-gradient descriptions coincide on the selected quadratic. No identified source supplies an equivalent root-location formula, despite searching both descriptions.",
+      "searches": [
+        "CoCD coherent coordinate descent two-dimensional coupled quadratic fading memory optimal momentum exact stability step size cyclic stale gradient cubic Schur",
+        "two coordinate cyclic gradient buffer one coordinate per step damping gamma Hessian coupling stability frontier learning rate",
+        "coherent coordinate descent stale gradients cyclic quadratic stability exact eigenvalues divergence",
+        "arXiv:2605.14373 Sections 4, 5.3, Appendix C and Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The matched published-result records concern momentum-coupled block minimization, Gauss–Seidel transient norm, SOAP stale bases, and fixed-product PDHG; none uses the CoCD cyclic buffer map.",
+        "No exact two-coordinate CoCD gamma/c coupling stability table occurred in the queried records."
+      ],
+      "reasoning": "The searched collection contains sharp phase diagrams for distinct maps; similarity in small matrices, momentum or spectral radii is not a logical implication. No exact table entry or superseding tabulation was recovered. This negative result is not proof of absence.",
+      "searches": [
+        "CoCD coherent coordinate descent two-dimensional coupled quadratic fading memory optimal momentum exact stability step size cyclic stale gradient cubic Schur",
+        "two coordinate cyclic gradient buffer one coordinate per step damping gamma Hessian coupling stability frontier learning rate",
+        "two-state cyclic Jacobi stale gradient memory spectral radius cubic coupled convex quadratic",
+        "stale gradient CoCD coupled Hessian spectral stability improvement via momentum gamma correlation",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208"
+      ]
+    },
+    "rationale": "The first posted 2026 CoCD preprint defines the algorithm and provides only conservative general bounds, not this exact cubic stability frontier or the sharply defined regime where fading memory expands the stepsize beyond ordinary cyclic descent. DIAG, cyclic block coordinate descent, and relevant published numerical stability findings use different update maps or performance questions. Comparison is by implication, not wording; earlier specialized computations remain a residual risk.",
+    "residual_risks": [
+      "Earlier specialized delayed-gradient or periodic linear system stability calculations could contain an equivalent Schur reduction even if not found by query.",
+      "Beck–Tetruashvili full text was not retrieved; comparison uses its clearly different stated cyclic block-gradient operation.",
+      "Published-result search is incomplete and does not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same update; does not derive the two-parameter exact two-coordinate sharp frontier",
+        "evidence": [
+          "PDF pages 3, 5–6, 13–15; initial posting dated 2026-05-14 on arXiv abstract record"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.14373",
+        "material_read": "17-page primary preprint: update equations (5)–(7), Section 5.2 and Section 5.3, Appendix C, and full pseudocode of Algorithm 1, with page-4 visual inspection",
+        "method": "full-text PDF examination with mathematical formula and pseudocode comparisons",
+        "title": "Turning Stale Gradients into Stable Gradients: Coherent Coordinate Descent with Implicit Landscape Smoothing for Lightweight Zeroth-Order Optimization",
+        "trigger": "The precise algorithm and possible stability coverage"
+      },
+      {
+        "assessment": "DIAG aggregates over component functions and averages stored iterates as well as gradients, hence no dominance of this distinct cyclic-coordinate buffer formula",
+        "evidence": [
+          "PDF pages 0, 3–8, equations (17)–(21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.00347",
+        "material_read": "28-page source: introduction, Section 3 algorithm and update (18), Section 4 convergence statement and comparison with IAG/SAG",
+        "method": "full-text primary PDF inspection of precise update and convergence guarantee",
+        "title": "Surpassing Gradient Descent Provably: A Cyclic Incremental Method with Linear Convergence Rate",
+        "trigger": "Potential prior coverage by delayed aggregated gradients"
+      },
+      {
+        "assessment": "Relevant non-buffered comparator (gamma=0); not treated as a whole-document absence claim",
+        "evidence": [
+          "Publisher abstract describes cyclic block gradient projection steps; MSC includes 65K05"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/120887679",
+        "material_read": "Publisher-accessible article abstract, bibliographic information, MSC codes; not complete paper text",
+        "method": "publisher summary/metadata",
+        "title": "On the Convergence of Block Coordinate Descent Type Methods",
+        "trigger": "Baseline cyclic-coordinate convergence and primary MSC"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10056db5-84f9-44cc-851b-ea53d9e41883",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nonseparable strongly convex quadratic is the simplest natural test of the design tradeoff between stale-gradient reuse and coordinate coupling. The complete exact admissible-step classification identifies an initially counterintuitive and practically actionable reversal: no-memory cyclic descent permits t<2, while partial fading memory permits t>2 exactly when gamma<1/2 and c^2>1/[2(1-gamma)]. A globally sharp supremum t=3 (unattained for SPD systems) quantifies the effect. This is a motivated method-specific stability phase diagram, not an arbitrary parameter slice or mere algebraic rearrangement.",
+    "status": "PASS"
+  }
+}
