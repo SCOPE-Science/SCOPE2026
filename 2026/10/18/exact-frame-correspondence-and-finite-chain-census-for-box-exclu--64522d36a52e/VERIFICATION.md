@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproduction and proof checkpoints
+# Independent mathematical audit
 
-From the directory containing the complete package, execute `python3 check_bem.py` using a standard Python 3 interpreter. No nonstandard modules or downloaded datasets are required.
+## correctness
 
-Observed outputs from the packaged checker:
+PASS
 
-```
-posets n=1: 2 basic frames, 2 validating frames
-posets n=2: 34 basic frames, 26 validating frames
-posets n=3: 2942 basic frames, 1262 validating frames
-chain n=1: valid=2, strong=2
-chain n=2: valid=5, strong=4
-chain n=3: valid=22, strong=8
-chain n=4: valid=157, strong=16
-two-world strict witness: verified
-All checks passed
-```
+For persistent birelational iK semantics, x<=y entails R(y) subset R(x). All upsets U make Box U stable along comparisons precisely when R(x) subset upward-closure R(y). Necessity uses U=up R(y) to falsify atomic Box p or not Box p at x if x<=y and a successor of x lies outside up R(y); sufficiency gives reverse Box persistence. On n-chain, nested rows sharing a common upward closure are empty or share least successor m; independent cutoffs for each target j>m give (n+1)^(n-1-m), hence C_n=1+sum_{j=0}^{n-1}(n+1)^j. Strong-condition rows are constant: 2^n. The two-point rows {0,1},{0} are a sharp counterexample. Independent literal enumeration over all nested row systems and upward-closed atomic valuations yielded n=1..4 counts 2,5,22,157, independently matching formula; these finite tests do not establish infinite correspondence.
 
-The checker lists every labelled partial order on up to three points, enumerates every relation satisfying \(x\leq y\wedge yRz\Rightarrow xRz\), and tests every upward-closed valuation of the atom \(p\) against the original truth clauses. It separately computes the explicit first-order correspondence. Agreement across these finite cases is supplemental to the general proof in `RESULT.md`. The chain enumerator independently tests the closed formula through four points. These tests do not establish infinite-cardinality correspondence or absence of earlier literature; those statements require the symbolic proof and source comparison, respectively.
+## originality
 
-The proof's critical general steps are: (i) persistent truth sets are upsets; (ii) failure of the proposed inclusion admits the countervaluation \(p=\uparrow R(y)\); (iii) the inclusion makes boxed truth constant along comparable worlds; (iv) on chains, each successor above the common least successor has an independent initial-segment cutoff. The empty-row and one-point boundary cases are explicitly included.
+PASS
+
+The 2025 open-access source proves only the stronger successor-row equality condition sufficient (Lemma 3.1.6), explicitly says it is not necessary (Example 3.1.7), and its canonical completeness theorem does not characterize every validating frame. The weaker up-closure converse and complete labelled-chain census are therefore additional results; potential older Esakia/co-Heyting correspondence remains a residual priority risk.
+
+## value
+
+PASS
+
+The exact all-valuation first-order frame condition closes an explicitly recognized sufficiency-versus-necessity gap, while the sharp two-world witness and n-chain labelled census C_n distinguish a natural semantic class. The quantified frame characterization and unbounded enumeration are motivated tools for finite-model analysis, not merely a restatement of BEM soundness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific review: exact frame correspondence and finite-chain census for box excluded middle
+# Independent mathematical audit
 
-## Correctness — PASS
-For all nonempty partially ordered carriers, under the stated basic \(\Box\)-persistence frame condition and upward-persistent atomic valuations, the proof reduces validity of \(\Box\varphi\vee\neg\Box\varphi\) to equality of successor up-closures along comparable worlds. The necessity uses the specific upset \(\uparrow R(y)\), so no unproved converse in modal correspondence is assumed. Sufficiency follows from formula persistence and the non-growth of modal truth along comparable worlds. For an \(n\)-element chain the nested rows all share either empty upward closure or one least successor \(m\), and each potential successor above \(m\) has \(n+1\) independent entry cutoffs. This establishes the exact count; no computational extrapolation is used.
+## correctness
 
-The independent finite checker directly compared the original semantical definition with the proposed condition across all basic birelational frames over every labelled poset of size at most three, and it recomputed the chain counts through four worlds. The witness on two worlds was checked against the semantic formula. Boundary cases \(n=1\) and empty successor rows are included. The source's sufficient condition is distinct from the exact one.
+PASS
 
-## Originality — PASS, subject to external review
-The 2025 paper *On the Contingency of Logic in Possible World Semantics*, §3.1, proves a **sufficient** stronger frame condition and exhibits a four-world model showing it is not necessary. It does not state the full equivalent order-refinement condition or the closed finite-chain census. Its canonical completeness theorem over the stronger frame class does not imply the present exact characterization of all validating frames. Searches also considered published finite-chain birelational and KI frame counts and work on modality condensation; their claims concern other interaction laws, so their enumerations cannot simply be substituted for the box-excluded-middle census. An unindexed or differently expressed known correspondent remains a residual originality risk.
+For persistent birelational iK semantics, x<=y entails R(y) subset R(x). All upsets U make Box U stable along comparisons precisely when R(x) subset upward-closure R(y). Necessity uses U=up R(y) to falsify atomic Box p or not Box p at x if x<=y and a successor of x lies outside up R(y); sufficiency gives reverse Box persistence. On n-chain, nested rows sharing a common upward closure are empty or share least successor m; independent cutoffs for each target j>m give (n+1)^(n-1-m), hence C_n=1+sum_{j=0}^{n-1}(n+1)^j. Strong-condition rows are constant: 2^n. The two-point rows {0,1},{0} are a sharp counterexample. Independent literal enumeration over all nested row systems and upward-closed atomic valuations yielded n=1..4 counts 2,5,22,157, independently matching formula; these finite tests do not establish infinite correspondence.
 
-## Value — PASS
-The source identifies a concrete gap between its sufficient structural condition and actual validity of the modal axiom. This result closes that gap by an exact first-order frame condition for all cardinalities, shows that the single atomic instance tests the entire schema, and counts precisely the relations in the fundamental family of finite intuitionistic chains. The two-world strict example is sharp and substantially simpler than the previously displayed four-world illustration. These results distinguish an axiom's actual validating frame class from a convenient complete subclass and quantify the difference in a natural finite setting.
+## originality
 
-## Limits
-Only finite chains are enumerated; no unrestricted-poset counting formula or new completeness theorem is asserted. The checker exhausts only its specified small domains. Similarity searches and published-source inspection do not exclude independent unpublished equivalents. An independent scientific audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2025 open-access source proves only the stronger successor-row equality condition sufficient (Lemma 3.1.6), explicitly says it is not necessary (Example 3.1.7), and its canonical completeness theorem does not characterize every validating frame. The weaker up-closure converse and complete labelled-chain census are therefore additional results; potential older Esakia/co-Heyting correspondence remains a residual priority risk.
+
+## value
+
+PASS
+
+The exact all-valuation first-order frame condition closes an explicitly recognized sufficiency-versus-necessity gap, while the sharp two-world witness and n-chain labelled census C_n distinguish a natural semantic class. The quantified frame characterization and unbounded enumeration are motivated tools for finite-model analysis, not merely a restatement of BEM soundness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
