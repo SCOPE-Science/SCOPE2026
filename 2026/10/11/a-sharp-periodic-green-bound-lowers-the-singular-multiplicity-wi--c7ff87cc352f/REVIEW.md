@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Green-kernel calculation is exact, its translate difference has the stated two linear branches, and the maximum amplitude is \(\pi/4\). The lower-function shift then preserves all hypotheses needed by the focal two-solution proof.
+## correctness
 
-## Originality
-PASS. The focal 2026 theorem, the 2003 original multiplicity theorem, and the 2001 lower-function construction were inspected directly; each uses the larger \(\pi/3\) width. Targeted theorem, Green-bound, alias, and ledger searches found no implication-equivalent \(\pi/4\) result.
+PASS
 
-## Value
-PASS. The admissible forcing window is reduced by one quarter, and the new coefficient is sharp for the exact linear periodic-corrector mechanism. The result does not claim the nonlinear theorem itself has a globally sharp threshold.
+Independently reconstructed the normalized 2pi-periodic mean-zero inverse of second differentiation: G(s)=-pi/6+s/2-s^2/(4pi), 0<=s<2pi, has integral zero and distributional G''=delta_0-1/(2pi). Its periodic translate difference for shorter separation 0<=d<=pi has two explicit affine branches [(2pi-d)(2s-d)/(4pi)] on 0<=s<d and [d(2pi+d-2s)/(4pi)] for d<=s<=2pi; direct symbolic simplification verifies both identities. Its supremum norm is d(2pi-d)/(4pi)<=pi/4. Thus w=G*(e-e_bar) satisfies w''=e-e_bar and osc(w)<=pi/4||e-e_bar||_1. At d=pi, positive/negative normalized smooth narrow bumps centered near the translate-difference extrema establish linear constant sharpness. Shift sigma_1=A-min(w)+w to [A,B] under the new width, with sigma_1''+k sigma_1=e-e_bar+k sigma_1>e+g(sigma_1). Strictness on compact [A,B], A>0, ensures a small downward-perturbed lower function. Focal 2026 Theorem 2.1 proof Steps 2-3 uses those lower-function properties, the assumed upper function and singularity/forcing conditions, but nowhere its prior numerical pi/3, so obtains two distinct positive periodic solutions for each arbitrary real k. For e-e_bar=0 the oscillation is zero and the argument remains valid. Finite rational verifier checks support exact algebra but are not the universal proof.
 
-## Closest literature and limitations
-The closest prior statements are Proposition 2.4 of the 2001 construction paper, Proposition 1.5 and Theorem 4.3 of the 2003 multiplicity paper, and Theorem 2.1 of arXiv:2610.04501v1. All retain the \(\pi/3\) width. General literature may contain the underlying Green-operator norm in another notation; the claim here is the sharpened multiplicity theorem obtained from it. The upper-function assumption remains necessary for this argument.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal primary paper (arXiv:2610.04501v1, Theorem 2.1 and proof Step 1) requires width pi/3 times the forcing L1 deviation, as do the inspected 2003 Proposition 1.5/Theorem 4.3 and 2001 Proposition 2.4. Their centered sup-norm pi/6 argument does not itself imply the pi/4 width. The new sufficient condition genuinely extends the admissible data because pi/4<pi/3, while retaining the singularity and upper-function hypotheses. Four fresh Resultary semantic queries retrieved only the same mathematical finding for the exact claim, not independent prior coverage, and alternative-notation/primary-literature searches found no proven equivalent or stronger theorem. The pi/4 linear Green estimate is elementary and could be known elsewhere: independent novelty is ascribed cautiously to its quantified insertion into this singular two-positive-solution theorem, not to a new general theory of Green functions.
+
+## value
+
+PASS
+
+The width B-A controls whether the forcing-induced periodic lower solution remains inside a fixed interval where g(x)-kx is strictly below -e_bar. Reducing the sufficient width from (pi/3)||e-e_bar||1 to (pi/4)||e-e_bar||1 permits a genuinely larger class of strongly singular periodic problems, without imposing nonresonance, stricter forcing bounds or changing the required upper-function hypothesis. The 25% gain is exactly accounted for by using oscillation rather than two centered supremum estimates, and pi/4 is optimal for this natural linear-corrector mechanism. This solves a motivated quantitative gap in a published two-solution theorem rather than a cosmetic normalization, while deliberately making no claim of global nonlinear optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

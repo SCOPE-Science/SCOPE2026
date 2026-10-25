@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T06:03:37.921940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/a-sharp-periodic-green-bound-lowers-the-singular-multiplicity-wi--c7ff87cc352f/RESULT.md (complete formula and boundary proof)",
+        "2026/10/11/a-sharp-periodic-green-bound-lowers-the-singular-multiplicity-wi--c7ff87cc352f/verify_green_bound.py (exact rational spot-checker independently read; not executed as opaque code)",
+        "sympy independent piecewise polynomial identities: both branch difference errors = 0, integral G=0, derivative jump=1, derivative amplitude=(pi-d)/(2pi)",
+        "https://arxiv.org/html/2610.04501v1 Theorem 2.1 and full three-step proof"
+      ],
+      "rationale": "Independently reconstructed the normalized 2pi-periodic mean-zero inverse of second differentiation: G(s)=-pi/6+s/2-s^2/(4pi), 0<=s<2pi, has integral zero and distributional G''=delta_0-1/(2pi). Its periodic translate difference for shorter separation 0<=d<=pi has two explicit affine branches [(2pi-d)(2s-d)/(4pi)] on 0<=s<d and [d(2pi+d-2s)/(4pi)] for d<=s<=2pi; direct symbolic simplification verifies both identities. Its supremum norm is d(2pi-d)/(4pi)<=pi/4. Thus w=G*(e-e_bar) satisfies w''=e-e_bar and osc(w)<=pi/4||e-e_bar||_1. At d=pi, positive/negative normalized smooth narrow bumps centered near the translate-difference extrema establish linear constant sharpness. Shift sigma_1=A-min(w)+w to [A,B] under the new width, with sigma_1''+k sigma_1=e-e_bar+k sigma_1>e+g(sigma_1). Strictness on compact [A,B], A>0, ensures a small downward-perturbed lower function. Focal 2026 Theorem 2.1 proof Steps 2-3 uses those lower-function properties, the assumed upper function and singularity/forcing conditions, but nowhere its prior numerical pi/3, so obtains two distinct positive periodic solutions for each arbitrary real k. For e-e_bar=0 the oscillation is zero and the argument remains valid. Finite rational verifier checks support exact algebra but are not the universal proof.",
+      "residual_risks": [
+        "The result inherits the stated singular multiplicity theorem and its lower/upper-function existence machinery; no wholly independent reproving of every pre-existing nonsingular lower/upper existence theorem is claimed.",
+        "Linear sharpness relies on an approximation to Dirac masses within smooth mean-zero L1 functions; it is a limiting operator norm, not necessarily attained by an ordinary L1 function.",
+        "The claim is sufficient, not necessary, for two solutions; no assertion of global nonlinear optimality is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Focal Theorem 3.1 keeps the pi/3 width and strengthens the essential-infimum forcing hypothesis; it does not subsume the new theorem.",
+          "Focal Theorem 3.2 has the spectral exclusion k != n^2, a different condition g(x)-k(A+B)/2<-e_bar and k-dependent width; it is not a theorem for every k under the original g(x)-kx hypothesis.",
+          "2003 Theorem 4.3 explicitly invokes the pi/3 window from Proposition 1.5, and its alternative nonresonant constructions have additional conditions."
+        ],
+        "reasoning": "A dominating theorem must imply existence for arbitrary real k, all e/g satisfying the stated singularity assumptions, and all width-pi/4 intervals with g(x)-kx<-e_bar. The inspected generalizations either retain the larger width, impose extra restrictions or modify the nonlinear comparison, so none establishes the audited theorem as a corollary.",
+        "searches": [
+          "singular periodic boundary value two positive solutions sharp pi/4 L1 forcing oscillation periodic Green lower upper functions",
+          "Tvrdý Rachunkova Vrkoč pi/3 pi/4 singular multiplicity threshold improvement",
+          "2026 arXiv 2610.04501v1 Theorem 3.1 and Theorem 3.2",
+          "2003 Rachunkova Tvrdy Vrkoč Theorems 4.3 and 4.7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04501v1",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/133937/MathBohem_128-2003-1_5.pdf",
+        "https://users.math.cas.cz/tvrdy/z4.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-periodic-green-bound-lowers-the-singular-multiplicity-wi--c7ff87cc352f",
+        "https://arxiv.org/abs/2610.04501"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2610.04501v1 Theorem 2.1 needs B-A >= pi/3 ||e-e_bar||_1 and Step 1 bounds ||sigma_0||_infty <= pi/6 ||e-e_bar||_1; the old argument enlarges [A,B] by 2*(pi/6).",
+          "2003 paper Proposition 1.5 requires B-A >= pi/3 ||e-e_bar||_1 and Theorem 4.3 invokes this quantitative hypothesis.",
+          "2001 Proposition 2.4 constructs a lower function via centered Sobolev pi/6 and interval width pi/3.",
+          "New direct periodic Green translate bound is pi/4 for oscillation, yielding a strictly less restrictive 25% width criterion under unchanged original assumptions."
+        ],
+        "reasoning": "The prior pi/3 sufficient theorem implies existence only in its larger-width subregime, not for the newly covered range pi/4 <= (B-A)/||e-e_bar||_1 < pi/3 when the norm is positive. Conversely the new theorem implies the focal pi/3 existence result. This is logical strengthening, not a title or parameter-string match.",
+        "searches": [
+          "https://arxiv.org/html/2610.04501v1#S2",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/133937/MathBohem_128-2003-1_5.pdf",
+          "https://users.math.cas.cz/tvrdy/z4.pdf",
+          "Tvrdý Rachunkova Vrkoč pi/3 pi/4 singular multiplicity threshold improvement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For f=e-e_bar of integral zero, the substitute estimate is osc((d^2/dt^2)^{-1} f) <= (pi/4)||f||_1, equivalent to pi/4 as a sufficient interval width for this lower-function construction.",
+          "Primary arXiv:2610.04501v1 Theorem 2.1 condition (2.5) and proof (2.7) show pi/3 from twice pi/6, not the oscillation estimate.",
+          "All four published Resultary queries returned this same 2026/10/11 research entry as closest exact claim; a self-match supplies no external priority evidence."
+        ],
+        "reasoning": "Compared nonlinear statement and exact inverse-second-derivative oscillation formulation under the same 2pi-period and non-normalized L1 definition. No independently prior implication-equivalent two-solution theorem was located. A classical sharp linear operator norm under other notation is a residual priority risk, not disproven by search.",
+        "searches": [
+          "singular periodic boundary value two positive solutions sharp pi/4 L1 forcing oscillation periodic Green lower upper functions",
+          "periodic second derivative inverse on mean-zero L1 sharp oscillation norm pi/4 triangle kernel",
+          "periodic second order ODE Green function sharp deviation sup inf L1 bounded forcing",
+          "2026 arXiv HTML Theorem 2.1 and proof Step 1",
+          "periodic second derivative inverse on mean-zero L1 sharp oscillation norm pi/4 triangle kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is a continuous-parameter existence theorem, not a finite tabulated invariant; exact-record search is relevant only for prior publication of the pi/4 inequality or implication.",
+          "Resultary returns the same SCOPE-a-sharp-periodic-green-bound research record as a self-match, while the other top results discuss distinct ODEs, spectra or finite cycles, not the exact singular multiplicity statement."
+        ],
+        "reasoning": "No independent exact database/table value would itself certify a nonlinear two-solution theorem. Checks of published research records did not find a prior matching exact statement; they do not establish absence of older unindexed sources.",
+        "searches": [
+          "singular periodic boundary value two positive solutions sharp pi/4 L1 forcing oscillation periodic Green lower upper functions",
+          "periodic second derivative inverse on mean-zero L1 sharp oscillation norm pi/4 triangle kernel",
+          "Tvrdý Rachunkova Vrkoč pi/3 pi/4 singular multiplicity threshold improvement",
+          "periodic second order ODE Green function sharp deviation sup inf L1 bounded forcing",
+          "arxiv 2610.04501 multiple solutions singular periodic problems theorem 2.1 pi 3 green 2026"
+        ]
+      },
+      "rationale": "The focal primary paper (arXiv:2610.04501v1, Theorem 2.1 and proof Step 1) requires width pi/3 times the forcing L1 deviation, as do the inspected 2003 Proposition 1.5/Theorem 4.3 and 2001 Proposition 2.4. Their centered sup-norm pi/6 argument does not itself imply the pi/4 width. The new sufficient condition genuinely extends the admissible data because pi/4<pi/3, while retaining the singularity and upper-function hypotheses. Four fresh Resultary semantic queries retrieved only the same mathematical finding for the exact claim, not independent prior coverage, and alternative-notation/primary-literature searches found no proven equivalent or stronger theorem. The pi/4 linear Green estimate is elementary and could be known elsewhere: independent novelty is ascribed cautiously to its quantified insertion into this singular two-positive-solution theorem, not to a new general theory of Green functions.",
+      "residual_risks": [
+        "The sharp linear Green-kernel operator norm may have been published earlier in functional-analysis or optimal-inequality literature under different names; searches and limited cited-source inspection do not prove first discovery.",
+        "Unindexed earlier work could potentially combine this classical norm with singular lower/upper-function multiplicity machinery to imply the same strengthened conclusion.",
+        "No claim that pi/4 is a globally sharp nonlinear multiplicity threshold; another lower-function ansatz may improve it further."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Step 1 alone uses pi/3, via a centered pi/6 sup bound; downstream arguments use the existence of the lower function, a strict small downward shift, and the singularity/upper conditions, not its original numeric width. Alternative theorems do not imply the full unrestricted-k pi/4 claim.",
+          "evidence": [
+            "Theorem 2.1 (2.5) and (2.6) and Step 1 around (2.7).",
+            "Steps 2-3 establish the second distinct solution after lower function exists; Theorem 3.2 has k != n^2 and modified g condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04501v1",
+          "material_read": "Complete HTML mathematical body: Definition 1.1, Theorem 1.2, Theorem 2.1 hypotheses (2.2)-(2.6), full proof Steps 1-3 and formulas (2.7)-(2.8), and Theorems 3.1-3.2.",
+          "method": "Direct original arXiv v1 full-HTML inspection, checking statements and the actual use of the width constant.",
+          "title": "Multiple solutions of singular periodic problems",
+          "trigger": "Exact focal singular two-positive-solution result and possible 2026 stronger follow-up theorems"
+        },
+        {
+          "assessment": "Proposition 1.5 displays pi/3 and Theorem 4.3 invokes (1.9), not pi/4; alternate k-dependent constructions do not dominate the general statement.",
+          "evidence": [
+            "Proposition 1.5, displayed (1.9): B-A >= (pi/3)||e-e_bar||1.",
+            "Theorem 4.3 on printed page 63 assumes (1.9)."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/133937/MathBohem_128-2003-1_5.pdf",
+          "material_read": "Full 27-page open PDF, with page-image checks of printed page 48 Proposition 1.5 (PDF p.4) and printed page 63 Theorem 4.3 (PDF p.19); original lower-function Lemma 4.1 and alternate Theorem 4.7 examined.",
+          "method": "Primary open-source PDF text inspection and actual page screenshots for the mathematical bounds.",
+          "title": "Resonance and multiplicity in periodic boundary value problems with singularity",
+          "trigger": "Original primary result named in the 2026 paper; a possibility of broader coverage under different theorem numbering."
+        },
+        {
+          "assessment": "The antecedent derives ||sigma_0||_infty<=pi/6||b||1 and shifts by pi/6 to produce pi/3 width; it does not state pi/4 condition.",
+          "evidence": [
+            "Page 5 formula (2.15) is the pi/6 centered Sobolev estimate.",
+            "The same proof obtains upper inclusion A+...+(pi/3)||b||1."
+          ],
+          "identifier_or_url": "https://users.math.cas.cz/tvrdy/z4.pdf",
+          "material_read": "Complete 12-page author-supplied preprint, with a screenshot of PDF page 4 (printed page 5), including Proposition 2.4 and its displayed (2.15).",
+          "method": "Lawful author-hosted primary full-text PDF and direct page-image inspection.",
+          "title": "Construction of Lower and Upper Functions and Their Application to Regular and Singular Periodic Boundary Value Problems",
+          "trigger": "Antecedent lower-upper construction cited by both 2003 and 2026 papers; could already contain exact oscillation constant."
+        },
+        {
+          "assessment": "Same mathematical research record under audit, not independent prior publication or external confirmation.",
+          "evidence": [
+            "Summary states reduction pi/3 to pi/4 for arXiv:2610.04501v1; identical source/result as assignment."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-periodic-green-bound-lowers-the-singular-multiplicity-wi--c7ff87cc352f",
+          "material_read": "Returned title, summary, record path and similarity ranking; not a substitute for independently reading the repository source package.",
+          "method": "Four Resultary semantic searches; search-result comparison and self-match deduplication.",
+          "title": "A sharp periodic Green bound lowers the singular multiplicity window by one quarter",
+          "trigger": "Top exact semantic match in all fresh published mathematical-record comparisons."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04501v1 Theorem 2.1 and (2.7)",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/133937/MathBohem_128-2003-1_5.pdf Proposition 1.5 and Theorem 4.3",
+        "https://users.math.cas.cz/tvrdy/z4.pdf Proposition 2.4"
+      ],
+      "rationale": "The width B-A controls whether the forcing-induced periodic lower solution remains inside a fixed interval where g(x)-kx is strictly below -e_bar. Reducing the sufficient width from (pi/3)||e-e_bar||1 to (pi/4)||e-e_bar||1 permits a genuinely larger class of strongly singular periodic problems, without imposing nonresonance, stricter forcing bounds or changing the required upper-function hypothesis. The 25% gain is exactly accounted for by using oscillation rather than two centered supremum estimates, and pi/4 is optimal for this natural linear-corrector mechanism. This solves a motivated quantitative gap in a published two-solution theorem rather than a cosmetic normalization, while deliberately making no claim of global nonlinear optimality.",
+      "residual_risks": [
+        "The sharpened interval criterion is still sufficient only; the upper function is assumed, and the global multiplicity threshold might be reducible by different nonlinear constructions.",
+        "The local Green calculation is short and may be classical, so value rests on its concrete 25% improvement to the singular two-solution hypothesis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The only asserted sharpness is pi/4 as the norm of periodic inverse-second-derivative oscillation on zero-mean L1 forcing, not the optimal possible nonlinear two-solution threshold.",
+    "No improvement to the necessity/existence of the assumed upper function; every singularity and sign hypothesis of the original theorem remains.",
+    "Existing primary sources, Resultary and external searches support best-of-knowledge originality, but cannot exclude unindexed equivalents or earlier uses of this elementary exact Green bound.",
+    "Science complete; public publication blocked by un-cleared operational metadata, separately from scientific disposition."
+  ],
+  "schema_version": 1
+}
