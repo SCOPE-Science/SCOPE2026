@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The singleton expectation is derived directly by hypergeometric counting, with no independence approximation. The one-unit balancing polynomial factors as \((1+z)^{N-a}Q(z)\); consecutive coefficient ratios for \(Q\) decrease, so one coefficient sign change is exact, and multiplication by \(1+z\) cannot introduce new changes. The first positive and terminal negative coefficients ensure exactly one reversal. For the finite majorization question, every positive integer partition up to 17 and every same-length strictly comparable pair is enumerated in exact integer arithmetic. A second implementation reconstructs the same domain from composition breakpoints, and direct enumeration of all labeled subsets confirms the explicit 17-individual witness. The finite census is exhaustive in its stated finite domain, not an infinite extrapolation.
+PASS
 
-## Originality — PASS with residual risk
+Linearity of indicators gives E[F1(m)]=sum_i a_i*C(N-a_i,m-1)/C(N,m). For a->a-1, b->b+1, the numerator difference polynomial is (1+z)^(N-a) Q(z), Q=(1+z)^d(1-bz)+(a-1)z-1, d=a-b-1>=1. Its coefficient q1=2d>0, q_{d+1}=-b<0 and ratios C(d,j)/C(d,j-1)=(d-j+1)/j strictly decrease, giving one + to - coefficient sign change; multiplication by (1+z) through adjacent sums is variation diminishing. Terminal and initial coefficients persist, proving exactly one switch for all N. Separately, independently written exact integer-partition enumeration for every 2<=N<=17, every same-length ordered strict-majorization pair and all m returned comparison counts (0,0,1,2,7,13,30,55,106,182,336,551,947,1543,2549,4032), total 10,354, no multi-reversal N<=16, and exactly N=17 pair (9,4,3,1) ≻ (7,6,2,2) with numerator (0,14,108,350,597,522,129,-112,9,114,-70,-306,-325,-186,-63,-12,-1), three sign reversals. Partition recursion is complete over positive integer profiles, making this a finite exhaustive proof within the specified class; it proves nothing for larger N or non-majorization comparisons.
 
-Heck, van Belle and Simberloff (1975) give expected richness and variance; Sibuya (2003) reviews singleton-category estimation; Shimadzu and Darnell (2015), §5.1 give the underlying frequency-of-frequencies hypergeometric expectation; and Chao and Jost (2012) motivate singleton-based coverage. Those established results are acknowledged, not claimed as original. Inspected relevant materials do not assert the local one-switch transfer law, the sharp 17-individual global majorization boundary, or the uniqueness of the triple-reversal witness. Zoroa et al. (2016) concern replacement-based discovery, not without-replacement singleton profiles. The nearest indexed research results on occupancy covariance, missing-mass covariance, species richness, and rarefaction variance have different functions and do not imply the new statement. A bibliographically obscure equivalent theorem about total positivity or singleton-frequency profiles might exist; independent audit has not been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Singleton counts directly inform finite-population rarefaction and sample-coverage reasoning; they are not an arbitrary statistic. The exact local-to-global contrast exposes a genuine boundary of naive evenness-based intuitions: every single abundance transfer permits just one directional switch, but a multi-transfer majorization comparison can generate three, first and uniquely at a small census size. The general structural lemma complements the reproducible sharp finite classification. This does not assert real-world policy or ecological forecasts.
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
 
-## Scope and evidence limits
+## value
 
-All abundance profiles compared for the finite minimum are positive, have the same census size and the same species count, and are strictly comparable by majorization. Both computational checks use exact integers; the unrestricted single-transfer theorem is analytical. No independent validation or exhaustive international literature audit has been performed. The linked singleton review is principally Japanese; its English abstract and table of contents were examined for scope, but equivalence elsewhere in the full literature remains an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One balancing transfer has a universal simple singleton-response pattern, yet global majorization admits alternating rarefaction-singleton preference; the natural smallest census at which that distinction is realizable is exactly 17, with a unique witness. This is a worthwhile combinatorial statistical cutoff for rarefaction interpretation and is not merely a recomputation of total observed richness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

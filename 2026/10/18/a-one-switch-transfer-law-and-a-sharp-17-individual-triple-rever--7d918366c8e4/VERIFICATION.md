@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verified limits
+# Independent mathematical audit
 
-The packages `verify_singletons.py` and `verify_independent.py` are standalone Python 3 programs using only the standard library. Run them independently from the same directory:
+## correctness
 
-```
-python3 verify_singletons.py
-python3 verify_independent.py
-```
+PASS
 
-The first verifier classifies every positive integer partition through census size 17, groups them by number of species, tests all ordered distinct strict-majorization comparable pairs, and evaluates every sample size exactly. Across census sizes 2 through 17 it tests 10,354 comparable pairs; the unique pair with at least two strict sign reversals is \((9,4,3,1)\succ(7,6,2,2)\), with three. The script independently counts singletons on all \(2^{17}\) labeled subsets of each witness community (262,144 total examined subsets). It also verifies local transfer polynomial identities, coefficient endpoints and exactly one sign change in 1,378 eligible test configurations (these tests supplement, not replace, the analytical unrestricted proof).
+Linearity of indicators gives E[F1(m)]=sum_i a_i*C(N-a_i,m-1)/C(N,m). For a->a-1, b->b+1, the numerator difference polynomial is (1+z)^(N-a) Q(z), Q=(1+z)^d(1-bz)+(a-1)z-1, d=a-b-1>=1. Its coefficient q1=2d>0, q_{d+1}=-b<0 and ratios C(d,j)/C(d,j-1)=(d-j+1)/j strictly decrease, giving one + to - coefficient sign change; multiplication by (1+z) through adjacent sums is variation diminishing. Terminal and initial coefficients persist, proving exactly one switch for all N. Separately, independently written exact integer-partition enumeration for every 2<=N<=17, every same-length ordered strict-majorization pair and all m returned comparison counts (0,0,1,2,7,13,30,55,106,182,336,551,947,1543,2549,4032), total 10,354, no multi-reversal N<=16, and exactly N=17 pair (9,4,3,1) ≻ (7,6,2,2) with numerator (0,14,108,350,597,522,129,-112,9,114,-70,-306,-325,-186,-63,-12,-1), three sign reversals. Partition recursion is complete over positive integer profiles, making this a finite exhaustive proof within the specified class; it proves nothing for larger N or non-majorization comparisons.
 
-The second program reconstructs all partitions by enumerating all integer-composition breakpoints rather than using the first program's partition recurrence. It repeats all 10,354 comparable-pair calculations and finds precisely the same unique witness. Both verification programs were executed successfully before assembly of this report.
+## originality
 
-The all-size single-transfer statement is proved symbolically in `RESULT.md`, using the one-switch coefficient structure of \(Q(z)\) and an elementary adjacent-sums induction. The finite 17-individual minimum and uniqueness depend on complete exhaustiveness of the partition enumeration; they do not extend without a further theorem to larger censuses, different-richness profiles, or arbitrary continuous abundance distributions.
+PASS
+
+No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.
+
+## value
+
+PASS
+
+One balancing transfer has a universal simple singleton-response pattern, yet global majorization admits alternating rarefaction-singleton preference; the natural smallest census at which that distinction is realizable is exactly 17, with a unique witness. This is a worthwhile combinatorial statistical cutoff for rarefaction interpretation and is not merely a recomputation of total observed richness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

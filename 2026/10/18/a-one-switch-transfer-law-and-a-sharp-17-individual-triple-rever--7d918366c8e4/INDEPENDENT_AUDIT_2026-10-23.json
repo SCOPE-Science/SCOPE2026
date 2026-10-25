@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T09:48:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Linearity of indicators gives E[F1(m)]=sum_i a_i*C(N-a_i,m-1)/C(N,m). For a->a-1, b->b+1, the numerator difference polynomial is (1+z)^(N-a) Q(z), Q=(1+z)^d(1-bz)+(a-1)z-1, d=a-b-1>=1. Its coefficient q1=2d>0, q_{d+1}=-b<0 and ratios C(d,j)/C(d,j-1)=(d-j+1)/j strictly decrease, giving one + to - coefficient sign change; multiplication by (1+z) through adjacent sums is variation diminishing. Terminal and initial coefficients persist, proving exactly one switch for all N. Separately, independently written exact integer-partition enumeration for every 2<=N<=17, every same-length ordered strict-majorization pair and all m returned comparison counts (0,0,1,2,7,13,30,55,106,182,336,551,947,1543,2549,4032), total 10,354, no multi-reversal N<=16, and exactly N=17 pair (9,4,3,1) ≻ (7,6,2,2) with numerator (0,14,108,350,597,522,129,-112,9,114,-70,-306,-325,-186,-63,-12,-1), three sign reversals. Partition recursion is complete over positive integer profiles, making this a finite exhaustive proof within the specified class; it proves nothing for larger N or non-majorization comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zoroa et al (2016), arXiv:1608.00155, full 33-page paper Sections 2 and 6, Theorem 6.1 treats independent replacement draws and DISTINCT categories",
+          "Shimadzu and Darnell (2015) general hypergeometric sample abundance spectrum formula"
+        ],
+        "reasoning": "Zoroa majorization results in an iid with-replacement coupon model concern occupancy discovery counts; finite without-replacement exactly-once categories is a different statistic and dependence structure. Shimadzu/Darnell includes the base expectation but does not, from inspected material, give the one-switch transfer or exhaustive N=17 uniqueness.",
+        "searches": [
+          "Resultary semantic: species abundance singleton rarefaction curve sign reversals majorization balancing transfer 17 individuals (9,4,3,1) (7,6,2,2)",
+          "Zoroa et al 2016 coupon collector unequal probabilities majorization sampling with replacement Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify_singletons.py and verify_independent.py Git blobs for record 4",
+        "Independent freshly implemented integer-partition and exact binomial arithmetic enumeration N<=17",
+        "Zoroa et al (2016), full arXiv:1608.00155 including Theorem 6.1",
+        "Shimadzu and Darnell (2015), DOI 10.1098/rsos.140219",
+        "Chao and Jost (2012), DOI 10.1890/11-1952.1",
+        "Resultary semantic singleton rarefaction majorization search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heck et al (1975) expected species richness, not singleton frequency",
+          "Chao and Jost (2012) sample-coverage interpretation, not a singleton sign-switch theorem",
+          "Zoroa 2016 distinct category discovery under replacement"
+        ],
+        "reasoning": "Monotonicity of observed richness or sampled coverage under abundance balancing does not order expected categories represented exactly ONCE; the N=17 reversal is consistent with a total-richness monotonic theorem. Earlier equivalent combinatorial classification remains an unexcluded bibliographic risk, not an implied result from inspected theorems.",
+        "searches": [
+          "Resultary semantic: species abundance singleton rarefaction curve sign reversals majorization balancing transfer 17 individuals (9,4,3,1) (7,6,2,2)",
+          "Chao Jost 2012 singleton coverage rarefaction Heck van Belle Simberloff 1975 richness monotonic majorization vs singletons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_a(m)=sum a_i C(N-a_i,m-1)/C(N,m)",
+          "Sign variation of binomial-coefficient convolutions and majorization transfer differences"
+        ],
+        "reasoning": "Expected singleton counts are the frequency-of-frequencies bin labelled occupancy expectation, NOT total species richness, true census singleton counts, or independent coupon collector distinct counts. Existing hypergeometric formulas are properly credited as known; nontrivial sign-variation and global cutoff are beyond the formula itself.",
+        "searches": [
+          "Resultary semantic: species abundance singleton rarefaction curve sign reversals majorization balancing transfer 17 individuals (9,4,3,1) (7,6,2,2)",
+          "hypergeometric frequency of frequencies singleton incidence expected count sample without replacement majorization stochastic order total positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive 10,354 same-length strict majorization comparisons N=2..17; unique witness vector reproduced exactly",
+          "No earlier identified published table with the unique N=17 singleton reversal pair"
+        ],
+        "reasoning": "This claim has an actual finite exact database/classification. We independently regenerated all partitions and all comparisons rather than treating source log as a certificate. No searched exact table giving this result was identified; a failed search does not prove priority.",
+        "searches": [
+          "Resultary semantic: species abundance singleton rarefaction curve sign reversals majorization balancing transfer 17 individuals (9,4,3,1) (7,6,2,2)",
+          "integer partition classification of rarefaction singleton majorization pairs minimal N 17 triple reversal 9 4 3 1"
+        ]
+      },
+      "rationale": "No inspected result implies the entire final claim on the same mathematical objects and hypotheses; the established machinery and access risks are credited explicitly. Best-of-knowledge, not a definitive priority certificate.",
+      "residual_risks": [
+        "The finite census classification is complete only for N<=17, same richness and majorization-comparable integer profiles; no general bound on all population pairs or larger N follows.",
+        "The 2015 hypergeometric primary full text was not fully inspected, though its known base formula is acknowledged as prior.",
+        "Independent classification is a complete explicit domain enumeration; source scripts alone and saved logs were not assumed to certify the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies independent draws with replacement and distinct categories, not finite-census without-replacement frequency of exactly-once species; no implication of current singleton crossing cutoff",
+          "evidence": "Zoroa et al (2016), arXiv:1608.00155, Sec 2 and Sec 6; distinctly different sampling law and observable.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00155",
+          "material_read": "Full 33-page PDF including model definitions and Section 6 majorization, especially Theorem 6.1",
+          "method": "complete primary PDF reading with page-image verification",
+          "title": "The coupon collector urn model with unequal probabilities in ecology and evolution",
+          "trigger": "Majorization of abundance sampling and potentially dominating theorem"
+        },
+        {
+          "assessment": "Prior hypergeometric expectation formula is known and not claimed novel; inspected material did not state majorization one-switch or N=17 cutoff",
+          "evidence": "Shimadzu and Darnell (2015), Royal Society Open Science 2, 140219, §5.1.",
+          "identifier_or_url": "https://doi.org/10.1098/rsos.140219",
+          "material_read": "Open article abstract and §5.1 cited formula through available excerpts; complete text not independently traversed due access limitations",
+          "method": "publisher and open search snippets plus direct algebraic formula reconstruction",
+          "title": "Attenuation of species abundance distributions by sampling",
+          "trigger": "Exact same hypergeometric sample-abundance spectrum"
+        },
+        {
+          "assessment": "Describes singleton-driven coverage estimators; this does not automatically determine all sample-size signs of expected exact-once species",
+          "evidence": "Chao and Jost (2012), Ecology 93,2533-2547.",
+          "identifier_or_url": "https://doi.org/10.1890/11-1952.1",
+          "material_read": "Bibliographic/abstract materials only; not full article",
+          "method": "literature search and matching of quantities",
+          "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+          "trigger": "Singleton counts are ecologically important and known method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One balancing transfer has a universal simple singleton-response pattern, yet global majorization admits alternating rarefaction-singleton preference; the natural smallest census at which that distinction is realizable is exactly 17, with a unique witness. This is a worthwhile combinatorial statistical cutoff for rarefaction interpretation and is not merely a recomputation of total observed richness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, verify_singletons.py and verify_independent.py Git blobs for record 4",
+    "Independent freshly implemented integer-partition and exact binomial arithmetic enumeration N<=17",
+    "Zoroa et al (2016), full arXiv:1608.00155 including Theorem 6.1",
+    "Shimadzu and Darnell (2015), DOI 10.1098/rsos.140219",
+    "Chao and Jost (2012), DOI 10.1890/11-1952.1",
+    "Resultary semantic singleton rarefaction majorization search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Expected without-replacement rarefaction singleton counts have exactly one positive-to-negative sign switch under each balancing unit transfer; the first same-species-count majorization-comparable population pair with more than one sign reversal occurs at N=17 and is uniquely (9,4,3,1) ≻ (7,6,2,2), with three sign changes.",
+  "limitations": [
+    "The finite census classification is complete only for N<=17, same richness and majorization-comparable integer profiles; no general bound on all population pairs or larger N follows.",
+    "The 2015 hypergeometric primary full text was not fully inspected, though its known base formula is acknowledged as prior.",
+    "Independent classification is a complete explicit domain enumeration; source scripts alone and saved logs were not assumed to certify the result."
+  ],
+  "residual_risks": [
+    "The finite census classification is complete only for N<=17, same richness and majorization-comparable integer profiles; no general bound on all population pairs or larger N follows.",
+    "The 2015 hypergeometric primary full text was not fully inspected, though its known base formula is acknowledged as prior.",
+    "Independent classification is a complete explicit domain enumeration; source scripts alone and saved logs were not assumed to certify the result."
+  ],
+  "schema_version": 1
+}
