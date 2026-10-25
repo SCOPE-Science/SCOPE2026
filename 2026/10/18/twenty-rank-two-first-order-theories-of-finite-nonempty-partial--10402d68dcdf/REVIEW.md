@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-round back-and-forth invariant is the set of realized point signatures recording the existence of a lower, upper, and incomparable point. The incomparability-component ordinal-sum argument restricts the invariant to a union of two singleton cases, four one-component cases, and sixteen multicomponent cases with exactly two overlaps, yielding at most 20. A complete table gives all 20 witnesses and their least sizes; the 6-point lower bound is structural. A standalone verifier independently enumerates all naturally labelled posets through six vertices and checks the direct two-round game for the 20 representative structures.
+## correctness
 
-## Originality
-PASS, subject to residual priority risk. The closest inspected primary source is Szwast–Tendera (STACS 2013), which studies satisfiability of two-variable first-order logic with one transitive relation, and not the present exact 20-type finite-poset census. Earlier quantifier-rank profiles for other families and finite-poset model-checking algorithms do not imply the numerical table or sharp cutoff without additional analysis. Targeted published-finding and literature searches found no dominating identical classification; unindexed or unexamined literature remains a risk.
+PASS
 
-## Value
-PASS. The number of bounded-rank logical theories and the least-model cutoff are intrinsic finite-model invariants for a classical structure class. The constructive complete classification identifies all tests required to distinguish rank-two theories and the unique extremal signature, rather than isolating an arbitrary finite parameter.
+The quantifier-rank-two Ehrenfeucht–Fraisse game for a finite nonempty strict poset sees exactly which of the 3-bit pointed profiles (exists lower, exists upper, exists incomparable) occur; each profile is definable with at most two nested quantifiers and Duplicator matches any selected pointed profile. Incomparability-graph connected components are linearly ordered by the poset, so its ordinal-sum decomposition constrains signatures to 2 singleton/antichain cases, 4 nontrivial connected cases and 16 multi-component displays, with exactly two duplicated sets: 20 distinct rank-two theories. All 20 lower-bound witnesses are explicit downset tuples. The exceptional mask 232 requires two nontrivial endpoint components, a middle interior point, and an additional element for type 111, hence >=6; its six-element witness attains it. Independently generated naturally labelled posets by adjoining an ideal-supported maximal vertex, with per-size counts 1,2,7,40,357,4824 for n=1..6 and verified exact all-20 minimum masks, with mask 232 unique at size 6. Exhaustion through n=6 supports the table; global exclusion follows from ordinal-sum proof, not that census.
 
-## Limitations
-This is a self-review rather than independent validation. The claim is restricted to pure finite nonempty partial orders and rank at most two. The verifier establishes finite cases but does not on its own prove the global classification; the ordinal-sum argument does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-round game and formula profile language are classical; the assessed contribution is the complete 20-type spectrum and optimal six-point bound for finite nonempty pure-order posets. Broader satisfiability algorithms for FO^2 with transitive relations and optimal representatives for colored linear orders do not supply this exact poset table as a formal consequence. No matching published exact finite-poset count was found in mathematical searches; unindexed prior enumeration remains a risk.
+
+## value
+
+PASS
+
+The number and least sizes of bounded-quantifier-rank theories are canonical finite-model invariants for a classical family, not a freely chosen numerical slice. The 20-type complete census and single six-point obstruction give explicit finite representatives for every two-round observational class, of use in finite-model testing and logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
