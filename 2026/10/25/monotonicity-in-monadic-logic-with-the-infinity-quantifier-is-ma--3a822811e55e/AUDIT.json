@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The reduction \\(\\chi_{\\varphi,P}\\) is satisfiable exactly when a same-domain monotonicity counterexample exists. For the upper bound, the rank-\\(r\\) type-count profile from Carreiro et al. yields a canonical model; symbolic evaluation with one fresh representative per unary type handles ordinary and infinity quantifiers exactly and uses at most \\((2^m+r)^r=2^{O(n^2)}\\) branches. Lewis's monadic satisfiability lower bound transfers through \\(\\psi(P)=\\theta\\wedge\\forall x\\,\\neg P(x)\\). Empty domains cannot witness a strict enlargement of \\(P\\), so the reduction remains exact under the source paper's empty-domain convention.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carreiro et al. treat monotonicity for arbitrary finite predicate subsets in M, ME, and \\(\\mathrm{ME}^{\\infty}\\), but state that they do not explore computational complexity.",
+        "Lewis's result covers a monadic satisfiability fragment but not semantic monotonicity or infinity quantifiers."
+      ],
+      "reasoning": "The earlier characterization is broader in the semantic property but only establishes decidability; it does not dominate the claimed complexity classification. The satisfiability lower bound is a premise, not a prior result about monotonicity.",
+      "searches": [
+        "doi:10.1007/s00153-021-00797-0, introduction and Theorem 3",
+        "doi:10.1016/0022-0000(80)90027-6, monadic satisfiability results"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00153-021-00797-0",
+      "doi:10.1016/0022-0000(80)90027-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carreiro et al. explicitly leave complexity questions unexplored while proving decidability.",
+        "Lewis establishes hardness for monadic satisfiability, without stating a monotonicity result."
+      ],
+      "reasoning": "The prior results do not state or directly imply the exact \\(\\mathrm{coNEXPTIME}\\)-completeness classification without the new symbolic profile-evaluation bound and the same-domain counterexample reduction.",
+      "searches": [
+        "doi:10.1007/s00153-021-00797-0, lines discussing the omitted complexity analysis",
+        "doi:10.1016/0022-0000(80)90027-6, Theorem 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nonmonotonicity is equivalent to satisfiability of \\(\\varphi(P)\\wedge\\neg\\varphi(P')\\wedge\\forall x(P(x)\\to P'(x))\\).",
+        "Carreiro et al. characterize rank-\\(r\\) equivalence by per-type exact counts below \\(r\\), finite counts at least \\(r\\), and infinite counts.",
+        "Lewis proves \\(\\mathrm{NEXPTIME}\\)-hardness for monadic satisfiability in a fragment without equality."
+      ],
+      "reasoning": "The counterexample encoding is an exact logical equivalence, not a title or parameter match. The profile categories give the upper-bound algorithm; the monadic reduction gives the lower bound. Neither prior source states this combined complexity classification.",
+      "searches": [
+        "Literature query: monadic first-order logic with infinity quantifier monotonicity complexity coNEXPTIME",
+        "doi:10.1007/s00153-021-00797-0, Theorem 3 and Definition 14/Proposition 5",
+        "doi:10.1016/0022-0000(80)90027-6, Theorem 4.1 and Corollary 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite database or table is mathematically applicable to a decision-problem completeness classification.",
+        "The closest retrieved records concern distinct modal semantic properties or finite type counts, not this monotonicity decision problem."
+      ],
+      "reasoning": "Inapplicable: the claim is established by a complexity reduction and an algorithmic upper bound, not by an empirical census or table lookup.",
+      "searches": [
+        "Literature query: computational complexity of deciding monotonicity in monadic predicate logic with the infinity quantifier",
+        "Literature query: complexity of semantic preservation properties in monadic predicate logic"
+      ]
+    },
+    "rationale": "The primary semantic paper proves decidability and explicitly defers complexity questions; the older hardness source treats satisfiability rather than semantic monotonicity. The exact \\(\\mathrm{coNEXPTIME}\\) classification, including the negative-occurrence restriction, is not stated in the inspected sources or the closest retrieved research records.",
+    "residual_risks": [
+      "The literature search was targeted rather than exhaustive; no absolute novelty claim is inferred from a failed search alone.",
+      "The symbolic upper-bound evaluator is specified mathematically, not supplied as an executable implementation.",
+      "The result is for combined complexity; fixed-vocabulary variants are not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the profile-based upper-bound premise and confirms that the paper establishes decidability but does not provide a complexity classification.",
+        "evidence": [
+          "doi:10.1007/s00153-021-00797-0, first published online 2021-10-27"
+        ],
+        "identifier_or_url": "doi:10.1007/s00153-021-00797-0",
+        "material_read": "Open-access full text: abstract and introduction's complexity discussion; Definition 14 and Proposition 5 on quantifier-rank profiles; Theorem 3 on monotonicity.",
+        "method": "Compared the exact property and model class; checked the rank-profile statement and the authors' stated complexity limitation.",
+        "title": "Model theory of monadic predicate logic with the infinity quantifier",
+        "trigger": "Primary source for the semantic monotonicity problem and its known decidability result."
+      },
+      {
+        "assessment": "Supplies NEXPTIME-hardness for ordinary monadic satisfiability; the reduction to nonmonotonicity is supplied in the present proof.",
+        "evidence": [
+          "doi:10.1016/0022-0000(80)90027-6, Theorem 4.1 and Corollary 4.2"
+        ],
+        "identifier_or_url": "doi:10.1016/0022-0000(80)90027-6",
+        "material_read": "Full text sections 4 and 5, including Theorem 4.1, Corollary 4.2, and the monadic upper-bound argument.",
+        "method": "Checked that the hard subfragment uses monadic predicates and yields a polynomial-length reduction from NEXPTIME computations.",
+        "title": "Complexity results for classes of quantificational formulas",
+        "trigger": "Primary source for the lower bound on monadic satisfiability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a822811-e55e-4730-bf71-0eae0d29659b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classification closes a concrete algorithmic gap explicitly left open by the primary semantic paper. It gives matching upper and lower bounds for a natural preservation property, and the lower bound persisting when \\(P\\) occurs only negatively identifies a meaningful boundary between syntactic polarity and semantic monotonicity.",
+    "status": "PASS"
+  }
+}
