@@ -1,15 +1,21 @@
-# Scientific review: octahedral two-matching homotopy
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is precisely the integral homotopy equivalence \(M_2(K_{2,2,2})\simeq\bigvee^3S^3\vee\bigvee^7S^4\). The complete finite proof enumerates all 4096 graph-edge subsets; verifies 772 faces, 377 acyclic element-matching pairs and a 17-cell Morse CW reduction; and computes its exact signed 6-by-10 cellular boundary. That boundary has rank three and an integer 3-by-3 minor of determinant one. Since the three-skeleton is a wedge of 3-spheres and \(\pi_3\) of that wedge is its degree lattice, the unimodular cancellation proves the integral *homotopy* type, not just ranks. Independent full simplicial boundary calculations over two prime fields agree. Scope is only this fixed graph; no general-family extrapolation is involved.
+## correctness
 
-## Originality
-PASS under the documented finite source comparison, not a guarantee of worldwide uniqueness. Vega's *2-Matching Complexes* (arXiv:1909.10406, original 2019) treats leaf-modified/clawed examples, wheel and perfect caterpillar families; Singh's *Higher matching complexes of complete graphs and complete bipartite graphs* (arXiv:2006.13632, original 2020) treats complete and bipartite classes and their stated high-threshold cases. The three-part graph \(K_{2,2,2}\) falls outside those exact conclusions. Publicly indexed same-graph classifications of the **ordinary matching** and **Morse-matching** complexes concern distinct constructions, so neither implies the present degree-two matching homotopy. Searches included the octahedral, cocktail-party, cross-polytope, complete-tripartite and bounded-degree aliases. Residual risks are unindexed equivalent literature and full text of some publicly indexed distinct-invariant records being inaccessible.
+PASS
 
-## Mathematical value
-PASS. The octahedral graph is a canonical and maximally symmetric complete tripartite graph; its degree-two bounded-degree complex is a natural next object beyond the complete/bipartite examples. The complex is nonpure, with maximal faces in dimensions three, four and five, but it has an exact mixed-dimensional sphere-wedge homotopy with nonzero groups in adjacent degrees three and four. This gives a structural benchmark that cannot be inferred from the graph's ordinary matching or Morse complex. It is a single-graph result, not a general recurrence or equivariant classification.
+Reconstructed M_2(K_{2,2,2}) as degree-at-most-two subsets of the twelve precisely specified graph edges. Independent enumeration of all 4096 masks yielded 772 faces including empty, nonempty face vector (12,66,196,297,180,20), 377 disjoint matching pairs and an acyclic oriented Hasse graph (771 nodes, 2928 covers). Independent signed algebraic Morse projection recovered the claimed 6×10 integer attaching matrix: rank three with a unit 3×3 minor and all nonzero Smith factors one. The one-vertex CW model has six 3-cells, ten 4-cells and none in dimensions 1,2 or >=5. Thus π3 of its 3-skeleton is Z^6, the degree matrix fully controls 4-cell attachments, and integral homotopy reduces to three S3 plus seven S4. Separate mod-two boundary ranks (1,11,55,141,153,20) give reduced Betti (0,0,0,3,7,0); finite enumeration is exhaustive for this graph only.
 
-## Closest literature and limits
-References and exact material inspected are recorded in `RESULT.md` and `AUDIT.json`. No relevant inspected theorem dominates the precise three-part degree-two claim. The executable certificate reconstructs all reported finite calculations. The further graph families and their group actions have not been classified here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison of the precise functor, object and parameter with relevant full-text primary sources and published mathematical results. Ordinary matching M_1(O) and discrete Morse matching complexes on the same graph differ from M_2(O), since two incident selected edges are allowed here and homology dimensions differ. Vega covers wheel/caterpillar two-matchings; Singh covers M_(n−2)(K_n) and M_(n−1)(K_n,n). O=K_2,2,2 is neither a wheel/caterpillar nor complete/bipartite, so those statements do not imply the 3/7 sphere claim. Checked the published octahedral M_1(O) exact homotopy/character and octahedral discrete Morse complex; their face definitions differ from M_2(O). No same M_2(O) 3/7 exact table in inspected primary/results; absence from ranked search alone cannot prove priority. The existing M_1(O) ≃ wedge^11 S1 and its full symmetry character are not sufficient to derive M_2(O); passing to the higher-degree-bound complex adds interacting faces and new attaching maps. Singh’s graph/threshold parameters exclude O. Any remaining bibliography uncertainty is retained as residual risk, not presented as novelty proof.
+
+## value
+
+PASS
+
+The smallest maximally symmetric complete-tripartite octahedral example with a nontrivial higher matching threshold has a nonpure complex and genuine adjacent-dimensional integral sphere-wedge homotopy, stronger than a Betti or Euler-characteristic table. It supplies a concrete computable reference point for higher matching complexes beyond complete and bipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
