@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For any binary candidate the greedy terminal position in infinite 0101... equals length plus the initial-1 indicator plus adjacent-equality count. Explicit deletion-cost cases are necessary and sufficient for minimal absence. Unique run decomposition yields closed rational length-and-cost series C and E, and exact parity extraction yields the asserted generating function. Algebraic identities and a standalone direct exhaustive subsequence test m=1..8 with recurrence verification m<=30 agree. Finite experiments are not substituted for the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2504.21471 proves general output-efficient enumeration of MAS but no closed formula for the binary alternating family.",
+        "arXiv:2407.18599 studies the number of all absent subsequences at specified length and fixed universality index, a different measure."
+      ],
+      "reasoning": "Checked stronger-looking general algorithmic and universal upper/lower bound statements for whether they already give the exact refined count. No examined theorem directly states it or yields it by specialization; the 2024 paper counts absent strings, not deletion-minimal absent strings.",
+      "searches": [
+        "Exact enumeration of minimal absent scattered subsequences of binary words of length n at fixed run count and composition, near-universal subsequence covers, complete classification",
+        "arXiv:2504.21471 Theorem 3 enumeration algorithms",
+        "arXiv:2407.18599 Sections 3-4"
+      ]
+    },
+    "checked_sources": [
+      "Kosche et al., Absent Subsequences in Words, arXiv:2108.13968, Section 3",
+      "Manea et al., Efficiently Finding All Minimal and Shortest Absent Subsequences in a String, arXiv:2504.21471, Theorem 3 and algorithms",
+      "Adamson et al., Tight Bounds for the Number of Absent Subsequences, arXiv:2407.18599, Sections 3 and 4",
+      "Published result entitled Fibonacci extremals for shortest absent subsequences of binary words (summary only)",
+      "Published result entitled Closed-form law for binary subsequence universality (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 proposition is a lower-bound family for a large fixed even alphabet and does not enumerate MAS of the two-symbol repeated increasing-block word.",
+        "The 2025 general enumeration algorithm can emit an output set, but states no symbolic formula for every number of blocks and length.",
+        "The recorded shortest-absent extremal gives only one length layer and a maximum across source words, whereas the new theorem counts all layers for a fixed family."
+      ],
+      "reasoning": "The full bivariate result strictly refines a shortest-layer count and differs from universal algorithmic enumerability. The implication from the investigated prior statements to the proposed closed rational series is not supplied; it requires the new weight/deletion/run derivation.",
+      "searches": [
+        "arXiv:2108.13968 Proposition 3.8",
+        "arXiv:2504.21471 Theorem 3",
+        "Exact enumeration of minimal absent scattered subsequences of binary words of length n at fixed run count and composition, near-universal subsequence covers, complete classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The repeated increasing-alphabet-block source B_k specializes to (01)^m in two symbols (arXiv:2108.13968, Section 3).",
+        "The arXiv:2108.13968 discussion provides MAS characterization and a large-even-alphabet exponential construction, not the stated bivariate exact identity."
+      ],
+      "reasoning": "Tested the aliases alternating binary words, period-two repeated blocks, minimal absent scattered subwords, and B_k. General representations of MAS could compute particular finite cases, but the examined statements do not entail the explicit full symbolic two-variable rational series without the new run decomposition and parity extraction.",
+      "searches": [
+        "minimal absent subsequences of alternating binary words (01)^m exact number generating function u(3-u+2u^2)/(1-2u+u^2-u^3), length distribution",
+        "minimal absent scattered subwords of periodic alternating string 0101... exact characterization avoidance 010 101 run lengths",
+        "enumeration of minimal absent subsequences of (ab)^n rational bivariate length enumerator",
+        "arXiv:2108.13968 Section 3 repeated blocks B_k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic search results centered on shortest-absent extremals and universality-index formulas, with no matching length-refined minimal-absent count.",
+        "The first total sequence 3,5,9,16,28,49,86,151 was independently reproduced from the exact generating function and brute-force tests."
+      ],
+      "reasoning": "Numerical agreement with a generic integer sequence would not establish covered mathematics. Targeted searches did not reveal an exact pre-existing MAS length table or matching rational generating function. This is limited evidence, not a guarantee of global novelty.",
+      "searches": [
+        "minimal absent subsequences of alternating binary words (01)^m exact number generating function u(3-u+2u^2)/(1-2u+u^2-u^3), length distribution",
+        "minimal absent scattered subwords of periodic alternating string 0101... exact characterization avoidance 010 101 run lengths",
+        "enumeration of minimal absent subsequences of (ab)^n rational bivariate length enumerator",
+        "\"3, 5, 9, 16, 28, 49, 86\" minimal absent subsequences"
+      ]
+    },
+    "rationale": "The main 2021 source studies the corresponding repeated-block family but does not give this exact binary MAS length profile; 2025 MAS algorithms do not enumerate the family symbolically, and 2024 bounds count all absent subsequences instead. Targeted scholarly source and mathematical-record searches found no explicit equivalent or dominating formula. Some unindexed or hidden equivalent work remains possible.",
+    "residual_risks": [
+      "Equivalent binary counts may appear in unindexed papers, theses, or integer-sequence annotations under other names.",
+      "General MAS enumeration methods can compute instances but no examined primary source states the exact parameterized rational series.",
+      "Published mathematical-record search rankings are not exhaustive uniqueness certificates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General MAS structure and large-alphabet exponential construction; no same exact binary bivariate enumeration in the examined material.",
+        "evidence": [
+          "arXiv:2108.13968 Section 3, lines near 162-209 of HTML rendering",
+          "Its B_k=(1 2 ... sigma)^k and growth proof assumes a large even sigma>=4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+        "material_read": "Section 3 definitions, Theorem 3.1, repeated-block construction and Proposition 3.8 with proof and scope of its alphabet assumption.",
+        "method": "Direct full-text HTML inspection and comparison of the claimed invariant and parameter quantifiers.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "It explicitly introduces the repeated-block source B_k matching (01)^m after binary specialization."
+      },
+      {
+        "assessment": "Algorithmic output enumeration, not an exact symbolic formula for all m and MAS lengths of (01)^m.",
+        "evidence": [
+          "arXiv:2504.21471 Theorem 3, HTML around lines 95-115",
+          "arXiv:2504.21471 submitted on 2025-04-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.21471v1",
+        "material_read": "Abstract, introduction, Theorem 3 inherited MAS characterization, enumeration algorithms and description of longest MAS algorithm.",
+        "method": "Direct arXiv full-text HTML sections and target-term searches for periodic, alternating, and formula.",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Recent direct MAS enumeration paper; possible dominating general formula."
+      },
+      {
+        "assessment": "All absent subsequences of fixed length and universality, not minimal absent subsequences; its exact count is not the proposed one.",
+        "evidence": [
+          "arXiv:2407.18599, Proposition 2 counts missing subsequences by size, not the deletion-minimal subset."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.18599v2",
+        "material_read": "Introduction, Sections 3 and 4 on lower and upper absent-subsequence bounds, Proposition 1 and Proposition 2.",
+        "method": "Direct arXiv full-text HTML inspection of definitions and enumerated objects.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "A paper with an exact absent-subsequence count, requiring implication comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ef49942-8033-43e7-8ec0-344e3a9325ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result quantifies a canonical repeated-alphabet-block family explicitly singled out in earlier MAS literature, solving all minimal-absent lengths and total counts for every period count. It gives a necessary-and-sufficient easy membership criterion, a complete bivariate rational generating function, a recurrence, and a sharp exponential growth constant. This is a structural all-parameter classification rather than an arbitrary finite table or routine normalization.",
+    "status": "PASS"
+  }
+}
