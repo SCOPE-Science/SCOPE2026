@@ -1,0 +1,39 @@
+# Sharp exponential finite-obstruction bound for disjunctions of constancy atoms
+
+## Finding
+For every integer \(r\ge 1\), the dependence-logic formula
+\[\Phi_r:=\mathrm{dep}(x_1)\vee\cdots\vee\mathrm{dep}(x_r)\]
+has *exact finite-obstruction size* \(2^r\): over any nonempty structure and any team \(T\), the formula holds on \(T\) if and only if it holds on each subteam of cardinality **at most** \(2^r\). This uniform integer cannot be decreased. More precisely, every team falsifying \(\Phi_r\) contains an inclusion-minimal falsifying finite subteam of cardinality at most \(2^r\), and there is such a minimal subteam of size exactly \(2^r\).
+
+The test uses subteams of **at most** \(2^r\) assignments. This convention is explicit to avoid the vacuity of a test of exactly \(2^r\) elements when the input team is smaller. In particular, small minimal obstructions can coexist with the sharp largest obstruction: for two disjuncts, a three-point diagonal team and a four-point Boolean square are both minimal obstructions.
+
+## Assumptions and scope
+A structure has a nonempty underlying set \(A\); no relational symbols or special properties of \(A\) are required. The variables \(x_1,\ldots,x_r\) are distinct. A team is a set of assignments with common domain containing these variables, possibly empty or infinite. Standard lax team semantics is used: \(\mathrm{dep}(x_i)\) means every assignment agrees on \(x_i\), and disjunction is realized by a union of two subteams (not necessarily disjoint). Repeated finite disjunction is associative. Extra variables do not affect the formula.
+
+For a finite team \(F\), write \(F\models\Phi_r\) when there are values \(a_1,\ldots,a_r\in A\) such that each \(s\in F\) satisfies \(s(x_i)=a_i\) for at least one \(i\). This equivalence follows by assigning each row to a constant-value component and is valid for arbitrary teams as well. Thus satisfaction is precisely coverage by one coordinate hyperplane in each of \(r\) coordinates. The empty team satisfies every such formula.
+
+## Proof
+**Step 1: every failure has a finite witness.** More generally, let \(T\subseteq A^r\) not be covered by one coordinate hyperplane in each dimension. Proceed by induction on \(r\). For \(r=0\), only the empty team is covered by an empty family of hyperplanes, so any nonempty team has a one-point witness. For \(r\ge1\), fix \(s^*\in T\) and define \(T_i=\{s\in T:s(x_i)\ne s^*(x_i)\}\). If \(T_i\) could be covered using one coordinate hyperplane in each coordinate other than \(i\), then adding the hyperplane \(x_i=s^*(x_i)\) would cover all of \(T\), contradiction. By induction, for every \(i\) there is a finite set \(F_i\subseteq T_i\) that cannot be covered using the other \(r-1\) coordinates. The finite union \(F=\{s^*\}\cup\bigcup_i F_i\) is not covered by \(r\) hyperplanes: any covering would have to cover \(s^*\) in some coordinate \(i\), yet its remaining hyperplanes cannot cover \(F_i\), whose rows disagree with \(s^*\) in that coordinate. Hence every failure admits a finite witness.
+
+**Step 2: the polynomial diagonal bound.** Choose an inclusion-minimal finite un-coverable team \(F\) from Step 1. For every \(s\in F\), minimality yields values \(a_{s,1},\ldots,a_{s,r}\in A\) covering \(F\setminus\{s\}\). None of those \(r\) coordinate hyperplanes contains \(s\), or the same hyperplanes would cover \(F\). Therefore \(s(x_i)\ne a_{s,i}\) for all \(i\).
+
+Only finitely many values occur in these assignments and witnesses. Inject their values into \(\mathbb Q\), independently for each coordinate if desired. For every \(s\in F\), form the multilinear polynomial
+\[P_s(X_1,\ldots,X_r)=\prod_{i=1}^r\bigl(X_i-a_{s,i}\bigr).\]
+Upon evaluation at an assignment \(t\in F\), the polynomial is zero whenever \(t\ne s\), because one covering hyperplane contains \(t\). At \(t=s\) it is nonzero. Consequently the evaluation matrix \((P_s(t))_{s,t\in F}\) is nonsingular diagonal. The polynomials \(P_s\) are therefore linearly independent. But multilinear polynomials in \(r\) variables have vector-space dimension exactly \(2^r\), with monomial basis \(\{\prod_{i\in I}X_i:I\subseteq\{1,\ldots,r\}\}\). Hence \(|F|\le 2^r\). This proves the universal at-most-\(2^r\) subteam test even for infinite domains and teams.
+
+**Step 3: sharpness.** On the two-element domain \(A=\{0,1\}\), let \(C_r=A^r\), all \(2^r\) Boolean assignments. Given one chosen coordinate hyperplane \(x_i=a_i\) for each \(i\), the complementary tuple with \(x_i=1-a_i\) for every \(i\) is uncovered. Therefore \(C_r\not\models\Phi_r\). Conversely, if a tuple \(s^*\) is removed, choose \(a_i=1-s^*(x_i)\); these hyperplanes cover the entire cube except \(s^*\). Every proper subteam satisfies \(\Phi_r\), establishing the sharp bound.
+
+## Verification
+A standalone, dependency-free Python checker, `verify.py`, enumerates **every** team over the alphabets and arities \((r,q)=(1,4),(2,2),(2,3),(3,2),(4,2)\). It verifies direct coordinate-hyperplane cover semantics, discovers all inclusion-minimal failures, checks that their sizes do not exceed \(2^r\), independently constructs the diagonal polynomial evaluation matrix on every minimal failure, expands the corresponding multilinear polynomials into all \(2^r\) monomials, and checks the Boolean-cube sharpness witnesses. In the \((2,3)\) census, minimal failures occur at sizes \(3\) and \(4\). The program prints `CONSTANCY_COHERENCE_BOUND_OK`. The universal theorem is proved algebraically above; these finite checks are corroboration, not its logical basis.
+
+## Relationship to prior work
+Fröhlich, Kolaitis, and Meier (CSL 2026), *Disjunctions of Two Dependence Atoms*, Corollary 23, gives the coherence-level \(4\) for the two-constancy-atom case; the full available HTML sections on the two-atom classification and coherence were inspected. The present theorem gives the exact sharp \(2^r\) obstruction bound for **arbitrary** numbers of independent constancy atoms, with a uniform multilinear-polynomial proof. This is not a claim that the published two-atom case is new.
+
+Barlag et al. (first public arXiv version 2026-05-29), *Aspects of Coherence in Dependence Logic*, establishes broad equivalences between finite coherence and first-order rewritability for quantifier-free dependence formulas, and complexity results for detecting coherence. The abstract was accessible; its full text was not substantively inspected. The relationship to potential unstated special cases and older general hyperplane-cover theorems remains an originality risk; the exact formula may be subsumed by stronger known statements not found in the inspected sources. Search failure alone is not proof of priority.
+
+## Limitations
+The result concerns only a finite disjunction of **constancy** atoms on distinct variables, not arbitrary dependence atoms, general first-order formulas, or other splitting semantics. The bound controls the size of a single falsifying subteam; it does not bound the total size of an input team or determine optimal algorithms beyond a fixed-parameter exhaustive subteam procedure. The words 'coherence level' in other sources sometimes use a formally stated exact-size convention; the precise property proved here is the **at-most** cardinality test, preventing any ambiguity about smaller teams. No independent audit or external historical-priority certification is claimed.
+
+## References
+1. T. Barlag, N. Fröhlich, M. Hannula, P. G. Kolaitis, J. Kontinen, A. Meier, J. Väänänen, *Aspects of Coherence in Dependence Logic*, arXiv:2605.31269, publicly posted 2026-05-29, https://arxiv.org/abs/2605.31269 .
+2. N. Fröhlich, P. G. Kolaitis, A. Meier, *Disjunctions of Two Dependence Atoms*, Leibniz International Proceedings in Informatics, CSL 2026, DOI:10.4230/LIPIcs.CSL.2026.10, https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html .
