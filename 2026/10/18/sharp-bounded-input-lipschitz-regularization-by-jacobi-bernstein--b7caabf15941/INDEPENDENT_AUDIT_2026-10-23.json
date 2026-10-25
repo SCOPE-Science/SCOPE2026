@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:19:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md bec8443397e85a8941190fd2914447a74609b54a",
+        "Pinned checker.py f671e647d163e39790e3228e481412392ddf0368",
+        "independent_crosschecks.py: 243 independent scipy.special.betainc versus gamma-ratio variations and endpoint comparisons"
+      ],
+      "rationale": "With n≥2 and a,b>0, differentiation of the Bernstein basis gives an L∞-dual signed kernel: n times a convex mixture of adjacent beta density differences. Each beta difference crosses only at c=(a+k)/(n+a+b−1) and has L1 norm 2V(k). Strict convexity of h(t)=t log t−log Γ(t+1), from 1/t−ψ1(t+1)>0, forces its discrete maximum to the outer k=0 or n−1 endpoint, larger at x=0 iff a<b. Pointwise derivative norms attain the bound at the selected endpoint with the sign of its signed beta kernel. For n≥3 interior Bernstein weights make the bound strict; for n=2,a=b, distinct crossings yield strict L1 triangle inequality. Gamma-ratio limits yield 2n(n/(n+1))^n in the uniform case and the claimed fixed-(a,b) coefficient. Independent incomplete-beta CDF computations reproduced 243 adjacent variations for integer parameters.",
+      "residual_risks": [
+        "Bounded independent calculations are not substitutes for all quantified analytical steps; no formal proof or external attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acu–Raşa 2018 develops differences of positive operators and derivative approximation estimates; the 2010 indexed general-weight Durrmeyer article introduces a larger family but its full text is inaccessible."
+        ],
+        "reasoning": "A broader family definition is not itself stronger norm coverage; the 2010 text remains a concrete priority uncertainty, not evidence of the norm formula.",
+        "searches": [
+          "arxiv:1810.08839",
+          "doi:10.1016/j.jat.2009.11.005"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches: Bernstein Durrmeyer Jacobi beta kernel sharp Lipschitz bound from L infinity and endpoint extremizers",
+        "Acu–Raşa arXiv:1810.08839",
+        "Berdysheva–Jetter doi:10.1016/j.jat.2009.11.005",
+        "Berens–Xu (1991), On Bernstein–Durrmeyer polynomials with Jacobi weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof depends on one-crossing beta likelihood ratios and strict trigamma convexity, not generic positivity or polynomial-degree estimates."
+        ],
+        "reasoning": "Available earlier bounds do not imply strict endpoint attainment or the sharp real-parameter coefficient without additional analysis.",
+        "searches": [
+          "Acu Rasa estimates differences positive linear operators derivatives 2018",
+          "Berens Xu 1991 Jacobi weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Durrmeyer moment/approximation bounds use smooth input regularity; an L∞→Lip operator norm is an exact L1 norm of an adjacent beta signed density."
+        ],
+        "reasoning": "Operator names and derivative formulas can match without implying the exact supremum over bounded measurable inputs or the extremizer locations.",
+        "searches": [
+          "Bernstein Durrmeyer Jacobi beta kernel sharp Lipschitz bound from L infinity and endpoint extremizers",
+          "Bernstein Durrmeyer Jacobi Lipschitz best constant adjacent beta total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby Jacobi–Radau endpoint thresholds concern a different quadrature problem; no matching adjacent-beta TV coefficient table was returned."
+        ],
+        "reasoning": "Exact numerical endpoint values cannot be inferred from named Jacobi operator tables absent a proved equality; no covering database identified.",
+        "searches": [
+          "Bernstein Durrmeyer Jacobi beta kernel sharp Lipschitz bound from L infinity and endpoint extremizers",
+          "Jacobi Durrmeyer Lipschitz seminorm sharp operator norm coefficient beta"
+        ]
+      },
+      "rationale": "Classical Jacobi Durrmeyer approximation and later derivative bounds give framework, not the exact L∞→Lip seminorm, strict endpoint-location classification and sign-extremizing rough inputs for every positive real a,b. The noninteger parameters and n=2 symmetric exceptional case are included.",
+      "residual_risks": [
+        "Berdysheva–Jetter 2010 full article not accessible by lawful OA/arXiv routes checked; authorized institutional access returned VPN disconnected, so its full text was NOT read and an exact-norm overlap remains a priority risk.",
+        "Berens–Xu 1991 original full text not accessible; comparisons rest on indexed descriptions and citations.",
+        "No search outcome certifies absolute novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the stated bounded-input Lipschitz norm and rough-input sign extremizers in inspected treatment",
+          "evidence": "arXiv:1810.08839",
+          "identifier_or_url": "https://arxiv.org/abs/1810.08839",
+          "material_read": "Open arXiv PDF relevant derivative-difference estimates, operator definitions and examples",
+          "method": "Full primary PDF textual/page inspection",
+          "title": "Acu and Raşa, Estimates for the differences of positive linear operators and their derivatives",
+          "trigger": "Same Durrmeyer derivative setting"
+        },
+        {
+          "assessment": "PRIORITY_RISK: cannot issue a whole-document NOT_COVERING judgment",
+          "evidence": "Journal of Approximation Theory 162 (2010), 576–598; full-text access blocker",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.11.005",
+          "material_read": "Indexed paper description and selected preview material only; full text NOT obtained",
+          "method": "Published abstracts/indexed sections; authorized institutional attempt blocked by VPN disconnected",
+          "title": "Berdysheva and Jetter, Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions",
+          "trigger": "Broader weighted operator family with possible embedded Jacobi case"
+        },
+        {
+          "assessment": "PRIORITY_RISK only: no noncoverage assertion from title",
+          "evidence": "1991 historical Jacobi-weighted paper",
+          "identifier_or_url": "https://scholar.google.com/scholar?q=Berens+Xu+Bernstein+Durrmeyer+Jacobi+weights+1991",
+          "material_read": "Bibliographic title/citation only; no article body read",
+          "method": "Reference check, not full-text inspection",
+          "title": "Berens and Xu, On Bernstein–Durrmeyer polynomials with Jacobi weights",
+          "trigger": "Exact same weight family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact L∞→Lip norm derivation and endpoint sign test",
+        "Independent 243 beta-density CDF calculations"
+      ],
+      "rationale": "This norm is a mathematically natural rough-input smoothing constant, not a routine smooth-function error bound. Sharp coefficient, exact maximizing endpoint including equality cases, and noninteger Jacobi parameters give a useful complete quantitative regularization classification; explicit sign extremizers witness attainability.",
+      "residual_risks": [
+        "Narrow normalized Jacobi Bernstein–Durrmeyer family and first derivative only; historical overlap with inaccessible 1991/2010 material remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

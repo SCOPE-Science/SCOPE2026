@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python3 checker.py` using Python 3 standard library only. The program performs exact rational integration of integer-parameter adjacent beta-density differences, verifies crossing-point formulas and endpoint comparisons, evaluates exact derivative-polynomial integrals, and independently approximates selected interior signed-kernel absolute integrals. Observed result: `PASS: 3202 exact and numerical finite checks`.
+# Independent mathematical audit
 
-For arbitrary real \(a,b>0\) and unbounded degree, the claims depend on the complete analytic argument in `RESULT.md`; testing finitely many integer parameters does not certify an infinite claim. The reported norm acts on real essentially bounded measurable inputs. The maximizing point is an extremum of a derivative functional; a single input is not asserted to maximize every evaluation point simultaneously. The cited first public source date is 2009-11-22. Historical originality remains qualified by inaccessible earlier complete texts. Independent audit has not been performed.
+## correctness
+
+PASS
+
+With n≥2 and a,b>0, differentiation of the Bernstein basis gives an L∞-dual signed kernel: n times a convex mixture of adjacent beta density differences. Each beta difference crosses only at c=(a+k)/(n+a+b−1) and has L1 norm 2V(k). Strict convexity of h(t)=t log t−log Γ(t+1), from 1/t−ψ1(t+1)>0, forces its discrete maximum to the outer k=0 or n−1 endpoint, larger at x=0 iff a<b. Pointwise derivative norms attain the bound at the selected endpoint with the sign of its signed beta kernel. For n≥3 interior Bernstein weights make the bound strict; for n=2,a=b, distinct crossings yield strict L1 triangle inequality. Gamma-ratio limits yield 2n(n/(n+1))^n in the uniform case and the claimed fixed-(a,b) coefficient. Independent incomplete-beta CDF computations reproduced 243 adjacent variations for integer parameters.
+
+## originality
+
+PASS
+
+Classical Jacobi Durrmeyer approximation and later derivative bounds give framework, not the exact L∞→Lip seminorm, strict endpoint-location classification and sign-extremizing rough inputs for every positive real a,b. The noninteger parameters and n=2 symmetric exceptional case are included.
+
+## value
+
+PASS
+
+This norm is a mathematically natural rough-input smoothing constant, not a routine smooth-function error bound. Sharp coefficient, exact maximizing endpoint including equality cases, and noninteger Jacobi parameters give a useful complete quantitative regularization classification; explicit sign extremizers witness attainability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Review of the sharp Jacobi Bernstein–Durrmeyer derivative norm
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Derivative of the Bernstein basis gives an exact adjacent-beta signed-kernel representation; a single beta-density crossing determines its exact variation by a boundary evaluation. Strict log-convexity of \(t^t/\Gamma(t+1)\), proved using the trigamma series against an integral, forces the largest adjacent variation to an extreme index. Sharpness follows from the signed density's sign function and the Bernstein weights at interval endpoints. The exceptional symmetric two-term case is handled by strict cancellation at interior points. Gamma-ratio asymptotics prove the fixed-weight asymptotic. The companion script passed 3,202 finite consistency checks and is not the basis of the universal proof.
+## correctness
 
-## Originality
-**PASS under the examined evidence, with residual priority risk.** The original Jacobi-weighted approximation literature defines this operator and studies approximation and spectral properties; the derivative-estimate literature studies bounded or smooth-input *error estimates*, not this sharp norm on all bounded inputs. The previously identified global oscillation coefficient compares two whole probability kernels and does not imply their precise infinitesimal total-variation speed. No checked mathematical statement or inspected primary section covered the endpoint-maximized adjacent-beta variation formula. The complete original 2010 text and a 1991 Jacobi-weighted reference were not available, so historical priority is not certified.
+PASS
 
-## Value
-**PASS.** The exact nontrivial two-weight formula quantifies the worst Lipschitz amplification of arbitrary bounded rough data under a canonical positive polynomial smoother. It locates the exact worst evaluation endpoint, exhibits input extremizers, and gives an order-\(n\) sharp regularization coefficient, including the exact \(2n(n/(n+1))^n\) unweighted profile and all fixed-weight asymptotic constants. This complements rather than restates known global oscillation and spectral-gap bounds.
+With n≥2 and a,b>0, differentiation of the Bernstein basis gives an L∞-dual signed kernel: n times a convex mixture of adjacent beta density differences. Each beta difference crosses only at c=(a+k)/(n+a+b−1) and has L1 norm 2V(k). Strict convexity of h(t)=t log t−log Γ(t+1), from 1/t−ψ1(t+1)>0, forces its discrete maximum to the outer k=0 or n−1 endpoint, larger at x=0 iff a<b. Pointwise derivative norms attain the bound at the selected endpoint with the sign of its signed beta kernel. For n≥3 interior Bernstein weights make the bound strict; for n=2,a=b, distinct crossings yield strict L1 triangle inequality. Gamma-ratio limits yield 2n(n/(n+1))^n in the uniform case and the claimed fixed-(a,b) coefficient. Independent incomplete-beta CDF computations reproduced 243 adjacent variations for integer parameters.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical Jacobi Durrmeyer approximation and later derivative bounds give framework, not the exact L∞→Lip seminorm, strict endpoint-location classification and sign-extremizing rough inputs for every positive real a,b. The noninteger parameters and n=2 symmetric exceptional case are included.
+
+## value
+
+PASS
+
+This norm is a mathematically natural rough-input smoothing constant, not a routine smooth-function error bound. Sharp coefficient, exact maximizing endpoint including equality cases, and noninteger Jacobi parameters give a useful complete quantitative regularization classification; explicit sign extremizers witness attainability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
