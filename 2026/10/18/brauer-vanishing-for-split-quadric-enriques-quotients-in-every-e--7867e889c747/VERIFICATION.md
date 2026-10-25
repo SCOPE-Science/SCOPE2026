@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The universal mathematical proof is reconstructed in `RESULT.md` in three stages: (i) integral Lefschetz for each even complex dimension \(n\ge4\); (ii) Cartan–Leray with the exact \(\mathbb Z/2\) group-cohomology table and all degree-two and degree-three differential targets; and (iii) finite étale descent and the analytic exponential sequence. The canonical two-torsion follows from the determinant sign on a holomorphic residue form. No computer experiment is relied on to establish a statement for infinitely many dimensions.
+## correctness
 
-Run `python3 low_degree_check.py` with the Python standard library. It checks only the group-cohomology parity pattern and bidegree support in low total degrees. Its reported success is an auxiliary consistency check, **not** an independent verification of the geometric hypotheses, spectral-sequence convergence, or proof for all dimensions. The proof does not assume that a computational enumeration is exhaustive in any higher degree.
+PASS
 
-The key external input describing actual smooth free members is Boissière–Camere–Sarti, arXiv:2409.09160v1, Section 6.1.5. Brauer-group and cyclic group-cohomology comparisons use Frassineti–Rizzo–Tufo–Verni, arXiv:2605.05450v1, Sections 2–3. No independent audit has been performed.
+Reconstructed the proof for smooth n-dimensional intersections of n+1 split quadrics in P^(2n+1) over C with the assumed free fixed-point-free sign involution; n is EVEN and at least 4. Integral complete-intersection Lefschetz below degree n yields H0Y=Z, H1Y=0, H2Y=Z (hyperplane), H3Y=0 and pi1Y=0. The involution acts trivially on H2Y; integral Cartan–Leray for C2 has E2^{p,q}=H^p(C2,H^qY). Every total-degree-three term is zero, so H3(T,Z)=0 without hidden differential, and surviving terms in degree two give 0→Z/2→H2T→Z→0, split. H1,H2 of O_T vanish by finite étale averaging and Hodge/Lefschetz; exponential sequence identifies Pic(T)=H2(T,Z) and H2(T,O*_T)=0, hence analytic/cohomological and algebraic Azumaya Brauer vanish. Residue top-form changes by determinant (-1)^(n+1)=-1 for even n, giving nontrivial order-two canonical class. This excludes n=2 and nonfree members. The source parity script is confirmatory only, not the proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, with prior partial/general coverage credited. Boissière–Camere–Sarti already construct the same split-quadric free quotients and prove order-two canonical behaviour; those are not new. Frassineti et al. compute Brauer for Enriques manifolds with hyper-Kähler covers, which are not the Calabi–Yau complete intersections here. Standard topological results make the calculation accessible but do not themselves state this geometric family’s uniform Brauer vanishing. Search failure alone is not proof of novelty, and explicit residual risks remain.
+
+## value
+
+PASS
+
+Computing the Brauer group of a natural family of smooth Enriques-type Calabi–Yau quotients in every higher even dimension is an independently useful exact invariant: despite persistent nontrivial canonical order-two torsion, Brauer becomes zero, unlike Enriques surfaces. It resolves a concrete previously unevaluated invariant for an identified geometric family through a uniform proof; it is more than a bare restatement of the Cartan–Leray formalism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
