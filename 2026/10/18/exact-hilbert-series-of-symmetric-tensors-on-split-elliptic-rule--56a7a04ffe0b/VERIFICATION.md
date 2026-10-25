@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Execute `python3 verify_sym_tensor.py` in an environment with Python 3 and its standard library. The program checks the finite binomial-sum identity underlying the Hilbert series, displays the first coefficients, and calculates the exact ranks of powers of the unipotent translation matrix on binary forms. A successful exit prints `VERIFY_OK`.
+## correctness
 
-The script checks only finite values. The proof for all integers \(m\geq0\) rests on the global extension-class argument, direct-image identification and elliptic-bundle cohomology. The graded isomorphism between tangent and auxiliary-bundle symmetric sections is the theorem of Denisi–Höring, equation (10). The finite checker neither establishes the absence of undiscovered prior art nor constitutes an independent mathematical audit.
+PASS
+
+Denisi–Höring Section 3 constructs 0→O(C+)→F→O→0 and identifies the nontrivial Atiyah F2 extension on C_-. Because f_*O(C+)=O_E⊕N, R1=0 and the defining section spans O_E, its class is the pushout from E. On any ruling F|P1=O(1)⊕O, hence R1 f_*Sym^m F=0. The fiberwise monomials z^j a^i b^{m-j-i} form a basis, and their transition b↦b+c a fixes j and acts as the single unipotent Jordan block of rank m-j+1; this yields the stated direct-sum decomposition. Atiyah bundles contribute h0(F_r)=1 at j=0; positive-degree N^j⊗F_r has h0=rjd, h1=0. Summing j(m-j+1)=binom(m+2,3), and Denisi–Höring equation (10) identifies graded section rings R(T_M) and R(F). Independent binomial checks m=0..30 and the nilpotent single-Jordan-block condition dimensions 2..8 corroborated, but all-degree proof is geometric.
+
+## originality
+
+PASS
+
+Denisi–Höring prove non-finite generation and the elementary-transform graded-ring isomorphism but do not state this complete direct-image splitting or closed Hilbert series in their inspected Section 3. Atiyah 1957 gives indecomposable unipotent elliptic bundles; assembling their symmetric powers and the ruled pushout gives the new numerical and sheaf-level refinement, not a new proof of nonfinite generation.
+
+## value
+
+PASS
+
+A simple rational Hilbert series for a provably non-finitely-generated natural symmetric-tensor section algebra is a nontrivial structural invariant. The stronger direct-image splitting identifies all graded dimensions for an entire d,m-family and explains the elliptic-unipotent contribution; these facts can be reused without an algorithm for ring multiplication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
