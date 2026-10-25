@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The objective is a pointwise conditional least-squares projection with exact excess identity. After splitting control time into two strips of width O(epsilon) and the untruncated interior, uniform normalized expansions give strip coefficients 1/6 per side (raw) and 1/12 (clipped); rational integration independently checks them. Interior is O(epsilon^4). All relevant endpoint and no-overlap constraints are explicit. Finite midpoint experiments agree but are only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2609.01291 interior proxy bound is a local-in-control-time result and excludes the two truncated strips.",
+        "arxiv:2111.09674: Sections 2 and 4 treat uncertainty in demand and deterministic velocity-dependent delays."
+      ],
+      "reasoning": "Generic L2 conditional projection is a proof ingredient but does not imply sharp epsilon^3 coefficients without calculating the moving eligibility windows. The original interior Var(V)^2 estimate does not cover endpoints.",
+      "searches": [
+        "random transport travel time fixed observation window truncation boundary layer mean speed proxy leading asymptotic",
+        "piecewise constant control random velocity weighted optimal inflow boundary conditioning sharp rate",
+        "\"optimal inflow control\" \"boundary effects\" velocity uncertainty 2026",
+        "\"boundary layer\" \"variance\" \"3/2\" optimal control random velocity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.01291, full mathematical HTML",
+      "arxiv:2111.09674, accessible full text",
+      "doi:10.1002/oca.2689, open-access formulation",
+      "published-finding corpus semantic-search records named by identifiers under the four recorded queries",
+      "Public-web searches under the five recorded queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Göttlich–Schillinger 2026, Theorem 3.1 and Lemma 4.2, yield the conditional optimum and an interior approximation upper bound; Section 6.4 discusses endpoint effects without the limiting constants.",
+        "Göttlich–Schillinger 2021 and Göttlich–Kolb–Lux 2020 focus on uncertain demand or chance constraints rather than uncertain fixed route speed at a finite observation boundary."
+      ],
+      "reasoning": "The mean-projection formula and a known interior estimate do not imply the O(Var(V)^(3/2)) full-window order. Explicit integration of both truncated endpoint strips is essential. The new finding is bounded to a uniform-speed affine-demand test family, not the more general source claim.",
+      "searches": [
+        "Optimal Inflow Control for Transport Equations with Uncertain Velocities and Demand Gottlich Schillinger 2609.01291 boundary random delay proxy",
+        "mean velocity proxy stochastic transport full observation boundary layer three half variance cost scaling",
+        "\"optimal inflow control\" \"boundary effects\" velocity uncertainty 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.01291 Sections 3.1, 4.2–4.7, 6.4: conditional-inflow and interior mean-speed analysis; source full text examined.",
+        "published-finding corpus nearest analogous stochastic-delay identifier 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac addresses stale-read iterative linear-system delays, not a transport-boundary least-squares loss."
+      ],
+      "reasoning": "Expressing the claim as conditional-mean projection excess, as speed-variance to the 3/2 power, or as a travel-time boundary-layer cost yields the same non-interior statement. None of the inspected sources establishes its two constants.",
+      "searches": [
+        "Optimal Inflow Control for Transport Equations with Uncertain Velocities and Demand Gottlich Schillinger 2609.01291 boundary random delay proxy",
+        "mean velocity proxy stochastic transport full observation boundary layer three half variance cost scaling",
+        "\"random travel time\" \"boundary\" \"mean-velocity\" proxy control error",
+        "\"stochastic transport\" \"random velocity\" \"boundary\" \"mean\" \"asymptotic\" control"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus search returned 2026/10/4/SCOPE-delay-consistency-correction-for-the-vector-control-optimality-s--1b9f67198bd6, about vector epidemic adjoints, and 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, about asynchronous solvers; neither contains these exact integrals."
+      ],
+      "reasoning": "The coefficients 1/3 and 1/6 are analytic new boundary integrals, not entries in a numerical table; no matching record arose from the executed database or literature queries. This limited negative retrieval is not itself evidence of universal novelty.",
+      "searches": [
+        "Optimal Inflow Control for Transport Equations with Uncertain Velocities and Demand Gottlich Schillinger 2609.01291 boundary random delay proxy",
+        "random transport travel time fixed observation window truncation boundary layer mean speed proxy leading asymptotic",
+        "\"random transport delay\" \"mean velocity\" \"optimal\" control finite observation"
+      ]
+    },
+    "rationale": "The recent source proves conditional least-squares optimality and interior variance-squared proxy bounds but does not state the full-horizon epsilon-cubed boundary-dominance law or either sharp coefficient. Earlier transport uncertain-demand literature treats demand randomness rather than truncated velocity-dependent conditional travel times. Search did not find a broader theorem entailing both quantified constants; risk of unindexed equivalent boundary-layer arguments remains.",
+    "residual_risks": [
+      "The source-associated code repository was not materially accessible/read; its scripts could contain undocumented endpoint observations.",
+      "An older or unindexed singular-perturbation or conditional-window transport theorem could imply these coefficients without using mean-velocity terminology.",
+      "Only this stated uniform-velocity/affine-demand specialization is claimed; variance-order behavior can differ with other models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes conditional optimum and interior proxy errors but does not give either full-window epsilon-cubic constant; Section 6.4 illustrates finite-window effects qualitatively.",
+        "evidence": [
+          "arxiv:2609.01291, Theorem 3.1, Section 4.2, Section 6.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.01291",
+        "material_read": "Complete accessible arXiv HTML mathematical text, Sections 3.1–4.7, 6.4, conclusions; theorem equations (3.3) and (4.1), interior Lemma 4.2",
+        "method": "Direct comparison of the conditional-optimality formulas, objective and support restrictions with the two present full-window asymptotics",
+        "title": "Optimal Inflow Control for Transport Equations with Uncertain Velocities and Demand",
+        "trigger": "Identical random-speed transport optimization and mean-velocity proxy, including possible stronger coverage of window edges"
+      },
+      {
+        "assessment": "Random demand with deterministic characteristics, not the present random-velocity conditional moving-delay boundary; no same full-window asymptotic.",
+        "evidence": [
+          "arxiv:2111.09674, Sections 2 and 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.09674",
+        "material_read": "Accessible full-text discussion of governing controls, especially Sections 2, 4.1.1 and 4.1.2",
+        "method": "Checked the random inputs, travel-time law and derived optimality equations against the present truncated random-velocity objective",
+        "title": "Control Strategies for Transport Networks under Demand Uncertainty",
+        "trigger": "Shared authors and transport-inflow controls might conceal equivalent stochastic delay results"
+      },
+      {
+        "assessment": "No coverage of random constant speed's truncated observation-window mean-delay bias.",
+        "evidence": [
+          "doi:10.1002/oca.2689, problem formulation and chance-constraint theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/oca.2689",
+        "material_read": "Open-access introduction, model and theorem discussion establishing demand uncertainty and chance constraints",
+        "method": "Compared stochastic quantities and the objective to conditional random-speed time shifts",
+        "title": "Chance-constrained optimal inflow control in hyperbolic supply systems with uncertain demand",
+        "trigger": "Earlier related stochastic transport control and possible dominating general risk formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f8ab85b-0539-4f13-9709-b62cf0ec8730",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's practically motivated mean-velocity approximation enjoys an interior variance-squared error bound; this exact smooth-data example shows its FULL observation cost instead has a sharp variance-to-3/2 order, driven by moving eligibility boundaries. The independently defined delay clipping recovers precisely half of the leading loss. These positive coefficients and degradation exponent clarify when an apparently excellent interior proxy cannot be extrapolated to a finite full horizon. This is not a mere normalization, tiny numerical adjustment or arbitrary invariant.",
+    "status": "PASS"
+  }
+}
