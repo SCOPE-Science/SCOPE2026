@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The affine two-snapshot Galerkin Gram calculation has exact coefficients c_s=(t-y)K_s/[(t-s)Delta] and c_t=(y-s)K_t/[(t-s)Delta]. Strict Cauchy-Schwarz yields K_s,K_t>0 and SPD yields Delta>0. The exact diagonal 3D example produces reduced first coordinate -140484100/176978669 while all full-order coordinates are positive. Dimension-one/two minimality follows from 1D positive-scalar projection or exactness when two snapshots span the space. Standard-library exact verification executed 9250 rational identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hannukainen and Toresen, arXiv:2609.34865v1, Theorem 5.1 gives a weighted-norm error bound, not per-coordinate coefficient signs.",
+        "Quarteroni, Rozza and Manzoni (2011) presents affine reduced-basis Galerkin and numerical error estimation, not an exact signed two-snapshot formula."
+      ],
+      "reasoning": "A norm error estimate does not imply a sign certificate without a strictly positive margin, nor determine coefficient positivity. Existing error-based reduced-basis results therefore do not dominate the present all-parameter exact sign theorem.",
+      "searches": [
+        "web: reduced basis Galerkin two snapshots positive coefficients affine parametric elliptic problem convex combination",
+        "web: structure preserving reduced basis nonnegativity positivity parameter interpolation snapshot Galerkin elliptic 2025",
+        "web: certified reduced basis approximation Quarteroni Rozza Manzoni 2011"
+      ]
+    },
+    "checked_sources": [
+      "Hannukainen–Toresen arXiv:2609.34865v1 (full PDF, relevant sections)",
+      "Quarteroni–Rozza–Manzoni 2011 review (abstract and selected sections)",
+      "Maday–Patera–Turinici 2002 (abstract only; full-text access limited)",
+      "Public published-finding corpus semantic records: three-dimensional CG positivity, least-squares projection positivity defect, two-step Lanczos exponential positivity horizon (titles and summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 eq.(15): Q^T A(y)Q z=Q^T b; Theorem 5.1: subspace approximation error bound.",
+        "2011 comparative source: affine Galerkin projection, snapshot spaces and error estimators.",
+        "2002 primary abstract: exponential convergence of Galerkin reduced basis for one-parameter symmetric-coercive equations."
+      ],
+      "reasoning": "The new statement concerns exact signs of two reduced coefficients at every real parameter plus a dimension-three physical-positivity counterexample. Error decay, stability and approximation optimality imply none of these assertions without additional information. The full 2002 paper remains a residual priority risk, not asserted to have been read in full.",
+      "searches": [
+        "arXiv:2609.34865v1 full text sections 2.1, 3.1, 5, 6",
+        "Quarteroni Rozza Manzoni 2011 full PDF section 2.3",
+        "Maday Patera Turinici 2002 Global a priori convergence theory abstract numdam"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Public semantic hits concern iterative positivity (conjugate gradients, MINRES, Lanczos), not signs of reduced Galerkin coordinates in the basis of two exact affine-parameter snapshots.",
+        "arXiv:2609.34865v1, equations (8) and (15), specifies precisely the relevant reduced system."
+      ],
+      "reasoning": "The unique coefficient decomposition in the snapshot basis is assessed under aliases such as barycentric, cone preservation and rational Galerkin interpolation. A two-snapshot Galerkin cone statement is not implied by an unrelated Krylov iterate positivity threshold.",
+      "searches": [
+        "published-finding corpus: Galerkin projection resolvent snapshot solutions positive coefficients two training points extrapolation sign theorem",
+        "web: two point rational Krylov reduced Galerkin barycentric coefficients positive interval Stieltjes rational interpolation",
+        "web: two snapshots reduced basis Galerkin solution coefficient positivity affine parameter matrix SPD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public research titles: Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems (2026-10-04); Exact positivity defect and max norm of the affine least-squares projector on a simplex (2026-10-04); The exact positivity horizon of the two-step Lanczos exponential (2026-10-04).",
+        "No retrieved database record states a two-snapshot Galerkin affine-SPD cone iff theorem."
+      ],
+      "reasoning": "The findings on Krylov, least-squares and semigroup approximations involve different operators, bases, parameters and implications. The closest titles cannot establish this sharp Galerkin cone property, and negative semantic search alone does not establish novelty.",
+      "searches": [
+        "published-finding corpus: two snapshot reduced basis Galerkin affine symmetric positive definite parameter convex hull nonnegative coefficients positive combination parameter interpolation",
+        "published-finding corpus: 2609.34865 Hannukainen Toresen snapshot Lagrange POD ROM positivity of Galerkin coefficients",
+        "published-finding corpus: rank-two reduced basis parametrized linear systems positivity interval and negative extrapolation three dimensions"
+      ]
+    },
+    "rationale": "The exact two-snapshot coefficient sign law, its if-and-only-if cone domain, and minimum-dimensional strictly-positive full-order extrapolation counterexample were not found in inspected source or compared public records. Main source arXiv:2609.34865v1 analyzes Galerkin error, not coordinate sign. This is an evidence-limited originality judgment, not a uniqueness certificate; the older 2002 primary paper full text is not fully accessible.",
+    "residual_risks": [
+      "An equivalent classical reduced-basis coefficient-sign theorem could be implicit in older results or an uncatalogued text.",
+      "Full text of the 2002 Maday–Patera–Turinici source was not inspected; its abstract is not used to prove noncoverage.",
+      "The 2011 review was checked in selected sections, not exhaustively for all possible formulae."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states an affine SPD snapshot Galerkin method and Lagrange/POD error bounds; no identified theorem determining signs of coefficients in two-snapshot basis or physical extrapolation counterexample.",
+        "evidence": [
+          "Equations (8), (15) and (17) define system and Galerkin method.",
+          "Theorem 5.1 and conclusions focus on error estimates, not exact sign of coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.34865",
+        "material_read": "Original full PDF sections 1–3 (especially pp.3–7, formulas (8),(15)), section 4 method, section 5 Theorem 5.1 and section 6 conclusions, with PDF page visual inspection.",
+        "method": "Full PDF text sections and selected rendered page; comparison of actual statements and hypotheses.",
+        "title": "A priori error analysis for one-parameter Lagrange and POD reduced order methods",
+        "trigger": "Exact match to affine SPD, parameter-independent forcing and snapshot Galerkin object; public preprint 2026-09-28."
+      },
+      {
+        "assessment": "Defines snapshot Galerkin, reliability and error certification but inspected material does not supply two-snapshot sign law; unexamined pages remain a modest priority risk.",
+        "evidence": [
+          "Section 2.3 enumerates reduced-basis Galerkin, error estimates and offline-online strategy."
+        ],
+        "identifier_or_url": "https://www.epfl.ch/labs/mathicse/wp-content/uploads/2018/10/02.2011-AQ-GR-AM.pdf",
+        "material_read": "Abstract, introduction and pp. 4–6 around Section 2.3 and Section 3, including rendered p.5; paper scope and methodological overview.",
+        "method": "Text-extracted PDF and rendered page review.",
+        "title": "Certified Reduced Basis Approximation for Parametrized PDEs and Applications",
+        "trigger": "Highly relevant general reduced-basis Galerkin and coercive PDE analysis."
+      },
+      {
+        "assessment": "Abstract establishes convergence results, not this sign classification; unavailable full text is explicitly retained as priority risk.",
+        "evidence": [
+          "Abstract: exponential uniform error convergence with logarithmically sampled points."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/CRMATH_2002__335_3_289_0/",
+        "material_read": "Publisher-hosted article landing-page abstract, bibliographic reference list; attempted free full-text retrieval returned inaccessible copy.",
+        "method": "Primary bibliographic landing page and abstract; no false full-text coverage assessment.",
+        "title": "Global a priori convergence theory for reduced-basis approximations of single-parameter symmetric coercive elliptic partial differential equations",
+        "trigger": "Original one-parameter symmetric coercive Galerkin literature cited by source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26f1128b-7e54-492c-988f-8566e1426d03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For physically nonnegative snapshot solutions, a two-snapshot affine-SPD Galerkin surrogate inherits coordinatewise positivity on the entire training interval automatically. An exact cone membership criterion supplies a sharp parameter frontier and a positive full-order diagonal 3D counterexample shows extrapolation can fail; dimension three is minimal. These are actionable sign/structure statements beyond a routine norm-error bound; no claims are made for higher-rank or nonsymmetric reduction.",
+    "status": "PASS"
+  }
+}
