@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:50:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In invariant affine-hyperplane measure d sigma(u)dt, conditioning on meeting Delta_(n-1) biases u by its full vertex-height width, not by Haar normals. For any generic section each j-face corresponds to an (j+1)-simplex-face indexed by j+2 vertices meeting both sides; integrate its crossing offset length to obtain numerator sum_S int w_S(u)d sigma over common denominator int w_[n](u). Project a standard Gaussian vector to the sum-zero subspace; normalized radius is independent of Haar direction and subtracting the sample mean preserves ranges, yielding E f_j=binom(n,j+2) R_(j+2)/R_n and rank gap law P(K=k)=E(G_(k+1)-G_(k))/R_n. The face formula binom(n,j+2)-binom(K,j+2)-binom(n-K,j+2) is exact. For m=n^gamma, endpoint telescoping of Gaussian gaps plus quantile concentration G_(m+1)/sqrt(2logn)->-sqrt(1-gamma) with uniform L2 control yields P(log M/log n<=gamma)->1-sqrt(1-gamma), law 1-U^2. For fixed j the face formula gives f_j asymptotic to M n^(j+1)/(j+1)! in probability, hence joint log exponent j+2-U^2. Endpoint gamma=0,1 handled. Exact small-n binomial face identities checked independently, source verify.py inspected. R_2=2/sqrt(pi), R_n~2sqrt(2logn) gives mean n^2/(2sqrt(2pi log n)). No assertion for j growing with n or nonregular simplexes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Birkemeyer et al. supply product-of-simplices combinatorial type of slices, not Crofton probabilities.",
+          "De Loera et al. provide maximum attainable counts, not invariant random measures."
+        ],
+        "reasoning": "A complete classification of possible section face vectors is not a distributional result, and the special central law has different conditional sampling.",
+        "searches": [
+          "arXiv:2609.16195 Section4 simplex slice types",
+          "arXiv:2412.12419 hyperplane cross sections maxima",
+          "Resultary joint chi square central simplex face vector"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py tree 28e295d0946e45746a7904cfb5d1e9b4c77ad5a8",
+        "arXiv:2609.16195 Section4",
+        "arXiv:2412.12419v3",
+        "Resultary joint central simplex aa90c887fe90",
+        "DOI:10.1007/BF02574000 abstract, uninspected full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Type formula f_j(K) is a geometric input; no prior asymptotic mass on K follows from it.",
+          "The central law fixes the zero offset, giving different K_N concentration and distribution."
+        ],
+        "reasoning": "The height-gap weighting requires new integration and extreme quantile analysis; cannot be inferred from type alone. The 1994 full text remains unavailable, so no definitive whole-document noncoverage asserted.",
+        "searches": [
+          "arXiv:2609.16195 Theorem4.1",
+          "Resultary central simplex joint face vector and chi square",
+          "Baryshnikov Vitale 1994 simplex Gaussian overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baryshnikov–Vitale concerns Gaussian samples and regular simplices but only title/abstract available; cannot exclude a related representation.",
+          "Resultary central sections have fixed offset and sign imbalance, not length-biased Gaussian spacings."
+        ],
+        "reasoning": "Gaussian normal-coordinate equivalence is a correct change of variables. Existing central law does not imply the affine rank spacing distribution; older Gaussian-simplex paper is an explicitly uninspected risk.",
+        "searches": [
+          "Crofton random affine regular simplex hyperplane Gaussian order statistic gaps",
+          "Baryshnikov Vitale Regular simplices and Gaussian samples DOI:10.1007/BF02574000",
+          "Resultary central regular simplex Haar sections joint chi square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Gaussian range and gap values are known analytic ingredients, but no inspected exact formula for invariant affine section ranks was found.",
+          "Central expected vertices ~ n^2/4 versus affine mean ~ n^2/sqrt(log n)."
+        ],
+        "reasoning": "The novelty resides in the exact Crofton connection and logarithmic law, not in a new table of normal order statistics.",
+        "searches": [
+          "Gaussian expected rank gap regular simplex Crofton random affine section",
+          "Resultary central simplex section expected f vector chi square",
+          "Gaussian R_n range and order spacing random simplex"
+        ]
+      },
+      "rationale": "Published central Haar section face laws are for t=0 and quadratic average size; the current motion-invariant affine model weights normals by width and then integrates all intersecting offsets. Full recent simplex section type theorem concerns combinatorial types, not the Crofton rank distribution. Baryshnikov–Vitale 1994 Gaussian–simplex paper remains plausible historical overlap with full text inaccessible (Oxford VPN disconnected), explicitly retained as risk rather than presumed noncoverage.",
+      "residual_risks": [
+        "Plausible 1994 Baryshnikov–Vitale original full text not accessed: authorized Oxford returned vpn_disconnected, no bypass attempted.",
+        "Prior formula may exist under integral geometry/Crofton probability rather than random simplex terminology.",
+        "Limit applies to fixed j, not ranks proportional to n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Product-of-simplices classification is background; no Crofton probabilities or Gaussian rank spacing law",
+          "evidence": [
+            "Section4 Theorem4.1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16195",
+          "material_read": "Full accessible PDF and screenshot of Section4 theorem on simplex sections",
+          "method": "Compare geometry support vs probability",
+          "title": "Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices",
+          "trigger": "Same simplex slice type"
+        },
+        {
+          "assessment": "Extremal/gap counts do not dominate distribution",
+          "evidence": [
+            "Theorems 1.1–1.5 and section discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.12419v3",
+          "material_read": "Accessible complete HTML theorem statements and section scope",
+          "method": "Compare supremal counts against expected under invariant hyperplane law",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "General sections with combinatorial vertex counts"
+        },
+        {
+          "assessment": "Different measure, chi-square central deficit versus noncentral rank exponent law",
+          "evidence": [
+            "Central hyperplane through centroid; K counts signs of centered Gaussians."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+          "material_read": "Entire public RESULT.md theorem, proof, sampling, limits",
+          "method": "Compare central Haar normal to random affine Crofton offset and width bias",
+          "title": "Joint chi-square face-vector fluctuations of random central regular-simplex sections",
+          "trigger": "Closest published random simplex result"
+        },
+        {
+          "assessment": "No whole-text not-covering conclusion is justified; explicit priority risk remains",
+          "evidence": [
+            "Oxford authenticated attempt returned vpn_disconnected job 127f1fbb7619af19dc554800ac6be7fa."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02574000",
+          "material_read": "Bibliographic title and abstract only; complete manuscript inaccessible",
+          "method": "Attempted lawful OA/arXiv, then authorized institutional download with result vpn_disconnected",
+          "title": "Regular simplices and Gaussian samples",
+          "trigger": "Plausibly prior Gaussian-simplex connection and distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact motion-invariant rank spacing distribution and nondegenerate continuum logarithmic exponent for random simplex slice complexity are substantial probabilistic/combinatorial statements; they show typical polynomial complexity is random and far below the nearly quadratic expected face count, an informative mean-versus-typical distinction. Exact all-j expectation is independently useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py tree 28e295d0946e45746a7904cfb5d1e9b4c77ad5a8",
+    "arXiv:2609.16195 Section4",
+    "arXiv:2412.12419v3",
+    "Resultary joint central simplex aa90c887fe90",
+    "DOI:10.1007/BF02574000 abstract, uninspected full text"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Plausible 1994 Baryshnikov–Vitale original full text not accessed: authorized Oxford returned vpn_disconnected, no bypass attempted.",
+    "Prior formula may exist under integral geometry/Crofton probability rather than random simplex terminology.",
+    "Limit applies to fixed j, not ranks proportional to n."
+  ],
+  "residual_risks": [
+    "Plausible 1994 Baryshnikov–Vitale original full text not accessed: authorized Oxford returned vpn_disconnected, no bypass attempted.",
+    "Prior formula may exist under integral geometry/Crofton probability rather than random simplex terminology.",
+    "Limit applies to fixed j, not ranks proportional to n."
+  ],
+  "schema_version": 1
+}
