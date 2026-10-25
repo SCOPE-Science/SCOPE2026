@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify.py` using only Python's standard library. Expected output includes `CASE_OK PG_F2_dimension_3`, `CASE_OK PG_F2_dimension_4`, `CASE_OK Affine_plane_F3_dim2`, and the last line `VERIFY_OK exhaustive_STS7_STS9_STS15 Gaussian=[15,155,1395]`.
+## correctness
 
-The script constructs block sets independently, counts pseudo-intents by ascending cardinality and the recursive definition, and verifies by forward chaining that the induced implications produce exactly the block-incidence Galois closure for all subsets in each of the three finite cases. Dimensions five and six are checked through exact Gaussian arithmetic only; there is no exhaustive enumeration of their entire power sets. The symbolic proof establishes the theorem for arbitrary Steiner triple systems and every integer projective dimension at least four.
+PASS
 
-No third-party code or downloaded paper is needed to replay these tests. Independent external mathematical validation has not been performed.
+PASS: The Galois closed sets are empty, singleton points, individual triple blocks and all points. Hence every pair is pseudo-intent; any larger pseudo-intent must close all contained pairs and thus be a proper subsystem; minimal proper nontrivial subsystems are exactly the surviving higher pseudo-intents. In characteristic two subsystem closure is equivalent to vector-subspace closure. Independent bitmask enumeration checked 21 pseudo-intents in the Fano plane, 36 in affine STS(9), and 120 in PG(3,2), including 15 Fano subspaces. Minor source proof slip: divisibility of w(w-1) by 6 ALONE does not exclude w=4,6, contrary to prose; the required r=(w-1)/2 integrality excludes even w, while w=5 fails 6 divisibility. This standard missing observation is sufficient and does not affect the theorem.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge): Equivalence to closure-system pseudo-closed sets and the usual Duquenne-Guigues canonical basis is credited, not claimed. The independent structural reduction to minimal proper Steiner subsystems is not stated by the inspected general paper. Broader coverage and exact table checks find no known proof of this final specialized classification. Residual priority risks are separately documented; unsuccessful searches do not prove novelty.
+
+## value
+
+PASS
+
+PASS: Computing canonical Horn implication premises for incidence closure systems is a natural structural problem; the connection with minimal Steiner subsystems determines every pseudo-intent rather than a mere bound and produces explicit cubic basis growth despite quadratic input incidence. The projective family is an exact, useful basis-size classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
