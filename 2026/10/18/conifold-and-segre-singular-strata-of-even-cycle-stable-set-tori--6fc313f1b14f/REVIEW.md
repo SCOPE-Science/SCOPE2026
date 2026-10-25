@@ -1,19 +1,21 @@
-# Scientific review: even-cycle stable-set normal fans
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter proof transforms the stable-set polytope of an even cycle into a circular-fence order polytope by an integral affine coordinate change. Primitive facet normals are a totally unimodular rooted incidence matrix. The minimal circuits in an active normal graph are either a four-edge rooted square (one for each centered triple) or the unrooted full cycle, and all nonsimplicial cones contain one such minimal cone. This exhausts the reduced singular support. Saturated lattice bases identify the square with the three-dimensional conifold cone and the full-cycle cone with the cone of rank-one \(m\times m\) matrices. Face intersections and their parity-dependent contacts with the diagonal segment are checked combinatorially. The standalone exact checker enumerates vertex normals and all component-subset intersections for \(n=4,6,8,10\), giving `VERIFY_OK`. The finite tests are not substitutes for the symbolic proof.
+PASS
 
-## Originality — PASS (qualified)
+For n=2m≥8, the unimodular affine change y_i=x_i on odd coordinates and y_i=1−x_i on even identifies STAB(C_n) with the circular-fence order polytope, in the full lattice. Primitive facet normals form a rooted directed incidence configuration, so independent active ray sets are unimodular. On each face the active comparison edges join only equal coordinate values; any active graphic circuit is either a root-to-root four-edge square through three consecutive pinned coordinates (τ_i, rank 3) or the entire unrooted n-cycle (τ_*, rank n−1). Thus exactly n+1 minimal nonsimplicial cones. The local four-ray lattice semigroup is k[a,b,c,d]/(ad−bc), multiplicity 2, class group Z; the alternating full-cycle relation yields the rank-one m×m determinantal cone with multiplicity binom(2m−2,m−1) and free class group Z. Faces y_i=1 yield Y_i isomorphic to normal-fan STAB(P_(n−3)); their joint intersections exist precisely for cyclically independent centers and are irreducible, whereas the diagonal alternating edge Z meets all even and all odd families at opposite endpoints. The binary-vertex local-trigger criterion allows exactly one smooth fixed point, corroborated independently for n=8,10,12 (47,123,322 vertices). These finite counts do not replace the all-even-n graphic-circuit proof; reduced support and generic transverse types, not all schemes/germs, are proved.
 
-Stanley's order-polytope paper gives general facet and face methods. Lakshmibai–Mukherjee's Hibi work establishes a general affine toric singular-locus criterion, but the inspected statements do not explicitly give this projective normal-fan all-even-cycle stratification, generic transverse Segre matrix cone, multiplicities, or the complete independence-complex intersection arrangement. Stable-set toric-ring studies address different invariants. Relevant existing small-cycle and path cases were checked and excluded as claims of novelty. Searches for the even-cycle, crown-poset, circular-fence, normal-fan and determinantal formulations found no stronger all-parameter special classification. The residual risk is an equivalent specialized statement in unindexed or differently named literature; absence from search results does not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a full geometric classification of the reduced singular support of a natural infinite family, distinguishing \(2m\) large conifold strata from a single high-codimension determinantal line with growing transverse multiplicity \(\binom{2m-2}{m-1}\). The intersection nerve, exact parity-restricted intersection with the line, and smooth fixed-point cutoff give information not supplied by the basic polytope description. The claim makes no assertion about the nonreduced singular scheme, all germs at intersections or the two previously treated smallest even cycles.
+PASS on best-of-knowledge comparison of the actual fan and singularity type. Lakshmibai–Mukherjee classify affine Hibi toric singular support, while stable-set toric-ring literature gives ring/ideal results. Neither inspected primary text implies the explicit cyclic projective fan decomposition into n conifold components and a Segre line, integral multiplicities and parity incidence. A hidden crown-poset specialization remains a substantive residual priority risk.
 
-## Relevant sources and limitations
+## value
 
-R. P. Stanley, *Two Poset Polytopes* (1986), DOI:10.1007/BF02187680; V. Lakshmibai and H. Mukherjee, *Singular Loci of Hibi toric varieties* (2007), arXiv:0706.2686; K. Matsuda, H. Ohsugi, and K. Shibata, *Toric Rings and Ideals of Stable Set Polytopes* (2016), arXiv:1603.01850. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete reduced singular-stratification theorem for an infinite, canonical cycle stable-set family is significant geometric information beyond toric-ring normality. It gives an unusual mixed-dimensional singular locus, transverse threefold conifolds plus higher-size Segre determinantal singularities, exact class groups and multiplicities, an independence-complex intersection nerve and a unique smooth fixed point. The obstruction at the circular edge is structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
