@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The full chain is connected with symmetric rates, so it is irreducible and reversible with uniform stationary law. The killed subgenerator Q is explicitly displayed. The spectral representation yields at most m real exponentials for m transient states; induction with Rolle's theorem bounds the number of zeros of f' by m-1. Two interior maxima require at least three zeros, so at least four transient states are necessary. The exact rational order-400 Taylor sums lie in the four stated intervals, and the analytic tail bound (<2e-107 after multiplying by ||Qr||) certifies the signs +,-,+,-.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kijima's abstract says the paper extends spectral results to classes including time-reversible Markov chains, but does not state a general unimodality theorem.",
+        "Hartich and Godec's read text gives spectral interlacing and a signed exponential representation for reversible first-passage distributions."
+      ],
+      "reasoning": "The accessible broader sources cover spectral representations, not the explicit four-transient-state minimality boundary. Kijima's full text was inaccessible, so no stronger non-coverage claim is made.",
+      "searches": [
+        "reversible Markov chain first passage time distribution spectral interlacing hitting-time density",
+        "general reversible chain hitting-time distribution unimodality log concavity first passage",
+        "Kijima (1987), DOI 10.2307/3214095, abstract",
+        "Hartich and Godec (2018), arXiv:1802.10049, sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "Fill, arXiv:0707.4042 (abstract and metadata read; full PDF retrieval failed)",
+      "Keilson, DOI 10.1111/j.1467-9574.1981.tb00710.x (publisher abstract read)",
+      "Kijima, DOI 10.2307/3214095 (publisher abstract read; full text inaccessible)",
+      "Hartich and Godec, arXiv:1802.10049 (sections 1-3 read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The birth-death results require a path-like state graph and yield unimodal passage-time densities.",
+        "The displayed five-state graph is connected and symmetric but contains the triangle 1-2-3-1; exact derivative signs certify two interior maxima.",
+        "For m transient states, reversibility gives a sum of at most m real exponentials; the zero-count bound precludes two interior maxima when m<=3."
+      ],
+      "reasoning": "Neither the birth-death theorem nor spectral interlacing entails unimodality for the displayed non-path graph. The proof adds a lower bound on the number of states and an exact attaining witness. Full-text comparison with Kijima (1987) remains a residual risk because only the abstract was accessible.",
+      "searches": [
+        "Fill, arXiv:0707.4042, birth-death passage-time theorem",
+        "Keilson (1981), DOI 10.1111/j.1467-9574.1981.tb00710.x, abstract",
+        "Kijima (1987), DOI 10.2307/3214095, abstract",
+        "Hartich and Godec, arXiv:1802.10049, spectral interlacing and first-passage density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fill, arXiv:0707.4042, states that birth-death passage time from state 0 to state d is a sum of independent exponentials.",
+        "Hartich and Godec, arXiv:1802.10049, gives a spectral representation and interlacing for reversible first-passage distributions; the read sections do not assert general unimodality.",
+        "The current accessible ledger contains no claim mentioning first-passage density, hitting-time density, or unimodality."
+      ],
+      "reasoning": "The claim concerns two interior modes and the minimum total state count for a reversible CTMC. The birth-death theorem has a path-graph hypothesis. The explicit graph has a triangle and is outside that class. A spectral representation alone does not force unimodality when coefficients can have mixed signs.",
+      "searches": [
+        "reversible Markov chain first passage time distribution spectral interlacing hitting-time density",
+        "general reversible chain hitting-time distribution unimodality log concavity first passage",
+        "Markov chain surprise probability bound exact graph walk hitting time first visit",
+        "Literature source: arXiv:0707.4042, first-passage distribution for birth-and-death chains",
+        "Literature source: arXiv:1802.10049, interlacing relaxation and first-passage phenomena in reversible dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table of minimum state counts for multimodal first-passage densities was located in the literature reviewed.",
+        "The closest public literature concerns birth-death passage-time unimodality and spectral representations for reversible chains."
+      ],
+      "reasoning": "No exact table applies to this structural claim. Literature searches were made for equivalent formulations and broader coverage; the absence of a matching search result is not treated as proof of novelty.",
+      "searches": [
+        "reversible Markov chain first passage time distribution spectral interlacing hitting-time density",
+        "general reversible chain hitting-time distribution unimodality log concavity first passage",
+        "Markov chain surprise probability bound exact graph walk hitting time first visit"
+      ]
+    },
+    "rationale": "The precise claim is a state-minimal reversible finite-state counterexample to extending birth-death passage-time unimodality to arbitrary reversible networks. The checked literature contains adjacent reversible-chain autocovariance and renewal-age results, but no statement implying this five-state minimality result. A nearby 1987 spectral-structure paper was available only as an abstract; this limitation is explicitly retained.",
+    "residual_risks": [
+      "The full text of Kijima (1987), a plausible broader source on reversible-chain first-passage densities, was inaccessible; only its abstract was compared.",
+      "The full text of Fill (2007) was not retrieved; its abstract was compared with the explicit birth-death versus non-path hypotheses.",
+      "No exhaustive literature search can establish novelty; the claim is limited to the explicit state-minimal witness and proof supplied here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the one-dimensional baseline but does not cover the non-path graph or the five-state minimality claim.",
+        "evidence": "The abstract specifies an irreducible birth-death chain and passage from state 0 to state d.",
+        "identifier_or_url": "arXiv:0707.4042",
+        "material_read": "ArXiv metadata and abstract; a PDF retrieval attempt failed through the available access route, so the full text was not read.",
+        "method": "Compared the stated birth-death hypotheses and independent-exponential representation with the explicit graph and claim.",
+        "title": "The passage time distribution for a birth-and-death chain: Strong stationary duality gives a first stochastic proof",
+        "trigger": "Closest accessible primary source for the classical birth-death passage-time structure."
+      },
+      {
+        "assessment": "The stated hypothesis is birth-death; the example is not birth-death. The abstract does not imply a theorem for all reversible networks.",
+        "evidence": "The abstract explicitly describes T_mn for a birth-death process.",
+        "identifier_or_url": "DOI:10.1111/j.1467-9574.1981.tb00710.x",
+        "material_read": "Publisher abstract only; it states unimodality for passage times within birth-death processes.",
+        "method": "Checked the process class and whether the statement applies to a graph with a triangle.",
+        "title": "On the unimodality of passage time densities in birth-death processes",
+        "trigger": "Closest classical result on passage-time unimodality."
+      },
+      {
+        "assessment": "The abstract establishes spectral-structure relevance but does not say that all reversible first-passage densities are unimodal. Full-text coverage remains unresolved.",
+        "evidence": "The abstract says the paper extends spectral results to time-reversible chains and gives explicit densities.",
+        "identifier_or_url": "DOI:10.2307/3214095",
+        "material_read": "Abstract only. The institutional PDF request reported a disconnected VPN, and no full text was obtained.",
+        "method": "Compared the abstract's scope with the claimed general reversible-chain unimodality boundary.",
+        "title": "Spectral structure of the first-passage-time densities for classes of Markov chains",
+        "trigger": "Plausible broader coverage because the title and abstract mention time-reversible Markov chains."
+      },
+      {
+        "assessment": "It provides a full first-passage spectral representation but does not state the minimal-state or general unimodality claim in the read sections.",
+        "evidence": "The paper writes the first-passage density as a spectral sum with weights and establishes interlacing of relaxation and first-passage eigenvalues.",
+        "identifier_or_url": "arXiv:1802.10049",
+        "material_read": "The abstract and sections 1-3, including the spectral representation and interlacing discussion.",
+        "method": "Compared the general spectral representation with the specific shape claim and checked for a stated unimodality conclusion.",
+        "title": "Interlacing Relaxation and First-Passage Phenomena in Reversible Discrete and Continuous Space Markovian Dynamics",
+        "trigger": "A full-text source on first-passage distributions for general reversible discrete-state dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38ac1ba3-1442-4e18-bed4-ef01d48c4758",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated structural boundary result rather than a random numerical example: it proves the exact minimum number of states needed for two interior modes and gives a rational-rate reversible network attaining that minimum. First-passage densities model completion and reaction times; assuming birth-death unimodality in a general reversible network can miss distinct time scales.",
+    "status": "PASS"
+  }
+}
