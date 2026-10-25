@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T20:12:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 798073ba0695784e217a7afff816b0a35bcb08e4",
+        "pinned p5_checker.py blob 7f5f1ef368202e9d66bc347868cd8b64489614ed",
+        "independent_checks.py Liggett exact rational intervals",
+        "Liggett 2021 Approximating multiples of strong Rayleigh random variables §3"
+      ],
+      "rationale": "Take X~Bin(21,1/2), Y=floor(3X/5), and F(t)=2^21 E[t^Y] of degree 12 with the displayed exact binomial coefficients. F has four real simple roots and four conjugate pairs: rational centers with radius 10^-5 satisfy 8 disjoint exact Taylor/Rouché inequalities, plus conjugate disks. Interval polynomial arithmetic certifies a strictly positive degree-2 factor and two strictly positive degree-5 factors, hence normalized law is P5. For any nonnegative real factorization, irreducible factors are four real linears plus four real conjugate quadratics. Conservative interval tests retain 41 possibly nonnegative groups of degree at most 4. Exhaustive subset partition DP proves that even this optimistic family cannot cover all eight irreducible factors; hence not P4 or any smaller j. Independently recomputed coefficient list, rational disk inequalities, positive 2+5+5 grouping, all 41 optimistic candidate groups, and absence of a <=4 cover. This is an exact finite rational certification of the precise 21-trial law, not a numerical-root heuristic.",
+      "residual_risks": [
+        "Rational outward intervals and complete eight-factor partition require the exact disk/isolation hypothesis, independently checked; finite proof is complete for this specified polynomial only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liggett constructs P6 and proves NOT P4 for exact Y=floor(3X/5); general strong-Rayleigh approximation statements do not imply P5."
+        ],
+        "reasoning": "A broad sufficient P6 decomposition cannot be specialized to force P5 without a new positive polynomial grouping; current certificate addresses the missing intermediate case.",
+        "searches": [
+          "Liggett Approximating multiples of strong Rayleigh random variables 2021",
+          "Liggett Binomial 21 floor 3X/5 property P5 independent bounded summands factorization"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md blob 798073ba0695784e217a7afff816b0a35bcb08e4",
+        "pinned p5_checker.py blob 7f5f1ef368202e9d66bc347868cd8b64489614ed",
+        "independent_checks.py Liggett exact rational intervals",
+        "Liggett 2021 Approximating multiples of strong Rayleigh random variables §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing P4 impossibility gives j>=5; existence of P6 gives j<=6. Present strictly positive 2+5+5 factors gives P5, so the new combined implication is min j=5."
+        ],
+        "reasoning": "Prior theorem permits indices five or six, does not force five. Positive quintics are the independent missing mathematical step; no broader covered implication found.",
+        "searches": [
+          "Liggett 2021 §3 P4/P6 passage",
+          "Liggett Binomial 21 floor 3X/5 property P5 independent bounded summands factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_j means convolution of laws supported on {0,...,j}, equivalently factorization of the PGF into nonnegative polynomials of degree<=j."
+        ],
+        "reasoning": "This exact alias was compared to Liggett's P4/P6 bounds; P5 is neither implied by P6 membership nor contradicted by P4 failure.",
+        "searches": [
+          "Liggett Binomial 21 floor 3X/5 property P5 independent bounded summands factorization",
+          "\"Liggett\" \"P_5\" \"21\" \"3/5\"",
+          "Liggett approximating multiples strong Rayleigh random variables P_j binomial 21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liggett primary article documents bounds but no positive P5 factorization; no matching exact table of degree-5 groupings was returned by Resultary."
+        ],
+        "reasoning": "No inspected published table covers the exact index=5; archive/index limitations acknowledged.",
+        "searches": [
+          "Liggett Binomial 21 floor 3X/5 property P5 independent bounded summands factorization",
+          "\"Liggett\" \"P_5\" \"21\" \"3/5\"",
+          "Resultary Liggett exact index P5"
+        ]
+      },
+      "rationale": "Liggett 2021 explicitly gives the SAME random variable, and proves it is not P4 but is P6; Section 3 leaves membership in the intermediate P5 undecided. The current exact factorization establishes P5, sharpening the known degree bound from [5,6] to exactly 5. The lower bound itself is prior, not claimed new. Resultary semantic searches under floor/truncated binomial, convolution and factorization degree found no matching P5 result. O PASS best of knowledge, with residual unpublished factorization/certificate risk.",
+      "residual_risks": [
+        "Potential unpublished decomposition of Liggett example is a residual originality risk.",
+        "Rational outward intervals and complete eight-factor partition require the exact disk/isolation hypothesis, independently checked; finite proof is complete for this specified polynomial only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDS_ONLY_NOT_P5",
+          "evidence": "Liggett original article §3 establishes NOT P4 and P6 for Bin(21,1/2) floor(3X/5); no P5 decomposition is stated in inspected passage.",
+          "identifier_or_url": "https://celebratio.org/Liggett_T/article/858/",
+          "material_read": "Primary published article HTML/full-text section on Binomial(21,1/2), floor(3X/5), failure P4 and positive P6 factorization; explicitly compared the precise statements",
+          "method": "lawful available primary full text",
+          "title": "Approximating multiples of strong Rayleigh random variables (Liggett)",
+          "trigger": "Original author defines exact same Y and property P_j"
+        },
+        {
+          "assessment": "MATHEMATICAL_CLAIM_VERIFIED",
+          "evidence": "Rational Rouché and exact nonnegative-factor partition certification; supplementary internal source, not external originality evidence.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026",
+          "material_read": "Whole p5_checker.py source, all rational complex arithmetic, degree grouping, conservative optimistic subsets and subset-cover DP",
+          "method": "GitHub pinned SHA 7f5f1ef368202e9d66bc347868cd8b64489614ed and independent script",
+          "title": "Pinned exact interval certificate for Liggett 21-trial factorization",
+          "trigger": "Check whether arithmetic proof of intermediate degree is actually supplied"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md blob 798073ba0695784e217a7afff816b0a35bcb08e4",
+        "pinned p5_checker.py blob 7f5f1ef368202e9d66bc347868cd8b64489614ed",
+        "independent_checks.py Liggett exact rational intervals",
+        "Liggett 2021 Approximating multiples of strong Rayleigh random variables §3"
+      ],
+      "rationale": "This closes the unique natural integer gap P5 in Liggett's concrete 21-trial extremal example: the minimal maximal summand support is exactly five. A rigorous positive decomposition and exhaustive lower-degree obstruction address a precise published quantization/convolution question, not an arbitrary factorization of a random polynomial.",
+      "residual_risks": [
+        "Potential unpublished decomposition of Liggett example is a residual originality risk.",
+        "Rational outward intervals and complete eight-factor partition require the exact disk/isolation hypothesis, independently checked; finite proof is complete for this specified polynomial only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential unpublished decomposition of Liggett example is a residual originality risk.",
+    "Rational outward intervals and complete eight-factor partition require the exact disk/isolation hypothesis, independently checked; finite proof is complete for this specified polynomial only.",
+    "Assigned record Git source_tree_sha copied from dispatcher and pinned RESULT/checker blob identities confirmed, but complete raw Git tree not locally rehashed.",
+    "Any publication operation is withheld pending verified sanitization of public operational identifiers."
+  ],
+  "schema_version": 1
+}

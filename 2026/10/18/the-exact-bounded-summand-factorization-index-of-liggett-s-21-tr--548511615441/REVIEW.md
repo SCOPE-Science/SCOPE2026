@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact count polynomial is generated from binomial coefficients. Twelve pairwise disjoint rational root disks are certified by rigorous Rouché inequalities, exhausting the degree. Interval arithmetic proves positivity of the proposed degree-2/5/5 grouping, while an optimistic exhaustive 8-factor partition search proves no nonnegative-coefficient grouping of maximum degree 4. The complete standard-library checker was replayed from the actual package content. No finite sample is extrapolated into a universal claim.
+PASS
 
-## Originality (O): PASS on accessible evidence
+Take X~Bin(21,1/2), Y=floor(3X/5), and F(t)=2^21 E[t^Y] of degree 12 with the displayed exact binomial coefficients. F has four real simple roots and four conjugate pairs: rational centers with radius 10^-5 satisfy 8 disjoint exact Taylor/Rouché inequalities, plus conjugate disks. Interval polynomial arithmetic certifies a strictly positive degree-2 factor and two strictly positive degree-5 factors, hence normalized law is P5. For any nonnegative real factorization, irreducible factors are four real linears plus four real conjugate quadratics. Conservative interval tests retain 41 possibly nonnegative groups of degree at most 4. Exhaustive subset partition DP proves that even this optimistic family cannot cover all eight irreducible factors; hence not P4 or any smaller j. Independently recomputed coefficient list, rational disk inequalities, positive 2+5+5 grouping, all 41 optimistic candidate groups, and absence of a <=4 cover. This is an exact finite rational certification of the precise 21-trial law, not a numerical-root heuristic.
 
-Liggett (2021), Section 3, analyzes the **same** 21-trial fair binomial law, and already proves failure of \(P_4\) and membership in \(P_6\). His full accessible text does not give a \(P_5\) factorization, a five-valued summand representation, or a proof of exact index five. Tang and Tang (2019/2023), Section 4, state general rounding conjectures and a degree-two result; neither implies a degree-five decomposition in this special case. Searches for alternative spellings, exact numerical parameters, real-root factorization indices, the explicit coefficient polynomial, and higher-order bounded independent-summand representations found no dominating result. Residual risk: unindexed or privately circulated extensions could have found this intermediate factorization.
+## originality
 
-## Value (V): PASS
+PASS
 
-The example is the canonical published obstruction for \(\lfloor3X/5\rfloor\) in the strong-Rayleigh rounding program, and its previously reported minimal summand size was bounded only between five and six. Deciding the precise minimal allowable alphabet closes that natural local classification, and the proof supplies a concrete degree-2/5/5 convolution structure with a global impossibility check at degree four. The exact invariant is motivated by the original research question, rather than an arbitrary auxiliary statistic.
+Liggett 2021 explicitly gives the SAME random variable, and proves it is not P4 but is P6; Section 3 leaves membership in the intermediate P5 undecided. The current exact factorization establishes P5, sharpening the known degree bound from [5,6] to exactly 5. The lower bound itself is prior, not claimed new. Resultary semantic searches under floor/truncated binomial, convolution and factorization degree found no matching P5 result. O PASS best of knowledge, with residual unpublished factorization/certificate risk.
 
-## Scope and limits
+## value
 
-The result is about one specified binomial count law and does not characterize general parameters or repair a broader conjecture. The nonnegative factors have algebraic, not rational, coefficients. The originality assessment is based on the accessible primary articles, targeted published literature, available mathematical-record searches, and deduplication against accessible prior research; no independent external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This closes the unique natural integer gap P5 in Liggett's concrete 21-trial extremal example: the minimal maximal summand support is exactly five. A rigorous positive decomposition and exhaustive lower-degree obstruction address a precise published quantization/convolution question, not an arbitrary factorization of a random polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
