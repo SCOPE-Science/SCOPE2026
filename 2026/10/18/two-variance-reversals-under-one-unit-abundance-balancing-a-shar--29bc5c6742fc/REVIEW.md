@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypergeometric absent-species indicator decomposition yields an exact integer expression for rarefied-richness variance. Exhaustive integer-partition enumeration checks every permissible unit-balancing transfer for \(N\le8\), with a separate direct-subset enumeration implementation reproducing the entire lower-bound census and validating the eight-individual example. The unbounded family is verified by symbolic rational-polynomial expansions: all coefficients of the \(m=2,7\) numerator differences are strictly negative and all coefficients for \(m=3\) are strictly positive when expanded in \(t=k-1\ge0\). The expectation increase is a direct binomial-difference identity. The attached standalone checker was executed successfully. Exhaustive finite computation is used only for the finite cutoff, never as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The classical rarefaction literature already provides both mean and variance formulas; the proof does not present those as new. Gotelli and Colwell discuss crossings of *expected* richness under arbitrary community comparisons; the present theorem addresses *variance* after one unit of abundance equalization, including the sharp eight-individual boundary and a sign-stable all-size family. Nipperess and Matsen's broader phylogenetic-moment formulas subsume the variance formula but not, on the inspected material, this transfer-specific sign classification. The full 1975 article by Heck, van Belle and Simberloff could not be inspected, so the possibility of unobserved equivalent comparison results remains a stated risk. No covering result was identified in the examined research-index records and primary texts. Independent bibliographic confirmation is still needed.
+PASS
 
-## Mathematical value — PASS
-The example and its sharp minimality uncover a limitation of using increasing species evenness as a universal predictor of sampling uncertainty. The result is not an arbitrary numerical slice: it resolves an extremal first-occurrence question over all integer abundance partitions, uniquely identifies the first witness, and establishes a parameterized family of arbitrarily large censuses with two strict variance reversals although mean observed richness improves everywhere in the stated range. The contrast between monotone mean and nonmonotone variance has a clear connection to comparing ecological survey precision across sample sizes.
+Derived the exact absent-indicator formula W_m=D^2 Var(K_m)=sum_i q_i(D-q_i)+2sum_{i<j}(D r_ij-q_i q_j) with D=binom(N,m), q_i=binom(N-a_i,m), r_ij=binom(N-a_i-a_j,m). Independently enumerated every integer partition of N=2..8, every unordered distinct permitted pair transfer, every possible sample subset for every m, and counted transfer totals 0,0,1,2,5,9,17; only N=8 (4,3,1)->(4,2,2) had >=2 reversals. Direct rational differences matched the full displayed vector (0,-11/784,73/3136,1/245,-55/784,-95/784,-7/64,0). Independently recomputed the full rational polynomials P_2(t),P_3(t),P_7(t) for t=k-1 from exact binomial moments and checked every coefficient against RESULT (degrees 3,5,13 with signs negative, positive, negative); coefficientwise signs prove the all-size theorem, not finite extrapolation. Pascal identity yields strict expected-richness increase. No floating approximation.
 
-## Scope and risks
-The results are mathematical statements about uniformly sampled fixed communities, without inference to ecological population processes or empirical data. The literature search cannot establish absolute uniqueness of an unpublished or differently worded theorem; independently confirm the 1975 source and other combinatorial sampling literature before dissemination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.
+
+## value
+
+PASS
+
+Richness sampling uncertainty is a natural statistical/ecological quantity beyond its mean. The result establishes the globally sharp first counterexample to a natural conjectured monotonicity under a single Robin Hood equalizing move, unique at the first size, and a uniform infinite family witnessing persistent nonmonotone variance while the mean improves. Exact small finite cutoff is mathematically motivated by this sharp boundary, and the all-size symbolic certificate shows it is not a one-off table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

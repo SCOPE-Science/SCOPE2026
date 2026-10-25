@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-21",
+  "audited_at_utc": "2026-10-21T04:53:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived the exact absent-indicator formula W_m=D^2 Var(K_m)=sum_i q_i(D-q_i)+2sum_{i<j}(D r_ij-q_i q_j) with D=binom(N,m), q_i=binom(N-a_i,m), r_ij=binom(N-a_i-a_j,m). Independently enumerated every integer partition of N=2..8, every unordered distinct permitted pair transfer, every possible sample subset for every m, and counted transfer totals 0,0,1,2,5,9,17; only N=8 (4,3,1)->(4,2,2) had >=2 reversals. Direct rational differences matched the full displayed vector (0,-11/784,73/3136,1/245,-55/784,-95/784,-7/64,0). Independently recomputed the full rational polynomials P_2(t),P_3(t),P_7(t) for t=k-1 from exact binomial moments and checked every coefficient against RESULT (degrees 3,5,13 with signs negative, positive, negative); coefficientwise signs prove the all-size theorem, not finite extrapolation. Pascal identity yields strict expected-richness increase. No floating approximation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess–Matsen computes richer phylogenetic moments and specializes to variance of species richness for a star tree.",
+          "A formula evaluating Var(K_m) individually for any profile does not directly state/implicate sign alternations as m varies under balancing."
+        ],
+        "reasoning": "Broader probability moments subsume the numerical ingredients, not the discrete sharp reversal threshold and uniform family. 1975 article remains plausible overlap risk because full text could not be read, but inaccessible literature alone is not a FAIL.",
+        "searches": [
+          "Hurlbert 1971 DOI 10.2307/1934145",
+          "Heck-van Belle-Simberloff 1975 DOI 10.2307/1934716",
+          "Nipperess-Matsen 2012 arXiv:1208.6552"
+        ]
+      },
+      "checked_sources": [
+        "Heck, van Belle and Simberloff (1975), DOI 10.2307/1934716 (abstract only)",
+        "Gotelli–Colwell (2001), DOI 10.1046/j.1461-0248.2001.00230.x",
+        "Nipperess–Matsen (2012), arXiv:1208.6552",
+        "Hurlbert (1971), DOI 10.2307/1934145"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotone expectation after balancing follows a Pascal/binomial difference but does not entail variance monotonicity.",
+          "Strong general rarefaction moments make the variance computable but do not logically imply the sign-reversal count/uniqueness without another extremal analysis."
+        ],
+        "reasoning": "The exact first-occurrence and positive/negative/positive contrast is not an immediate corollary of earlier mean behavior or second-moment identities. Lack of access to Heck full primary text remains reported.",
+        "searches": [
+          "Gotelli-Colwell 2001 mean curve crossings",
+          "Nipperess-Matsen 2012 tree-based variance theorem",
+          "Heck et al 1975 variance paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical absent-species binomial moments and phylogenetic star-tree reductions recover the variance expression but not the one-transfer sign sequence.",
+          "Mean rarefaction-curve crossings are a different statistic and compare arbitrary assemblages."
+        ],
+        "reasoning": "Aliases: Schur majorization/Robin Hood transfer, variance of number of observed species, hypergeometric occupancy, sampling-without-replacement species richness. The generic variance formula is known but not equivalent to a global first-two-sign-reversal classification.",
+        "searches": [
+          "Resultary semantic: rarefaction variance balancing transfer majorization Robin Hood abundance pair variance sign changes reversal size 8",
+          "Gotelli-Colwell DOI 10.1046/j.1461-0248.2001.00230.x",
+          "Nipperess-Matsen arXiv:1208.6552"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact N=8 first witness and unique transfer pair verified independently by full direct subset enumeration.",
+          "No published exact database of transfer-sign-patterns or exact N=8 two-reversal table located; cannot claim a negative universal."
+        ],
+        "reasoning": "No matching table covering the first sharp cutoff was found. Moment tables of richness variance are not the same as the exact table of sign changes between *paired* profiles linked by a balancing move.",
+        "searches": [
+          "Resultary same rarefaction query",
+          "Entire direct integer-partition census N<=8 in independent Python",
+          "Heck-van Belle-Simberloff 1975 abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.",
+      "residual_risks": [
+        "Heck–van Belle–Simberloff (1975) full article inaccessible due human-verification/access interruption; a detailed comparison inside could contain equivalent sign behavior.",
+        "A prior probability/majorization paper might phrase the same paired-variance phenomenon in occupancy terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMPONENT_COVERAGE only: second-moment formula, not verified exact transfer-sharp comparison",
+          "evidence": [
+            "General PD variance formula specializes to observed-species richness for star phylogenies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "Abstract, mathematical description of general moments and star-tree specialization; relevant source statements",
+          "method": "Lawful arXiv literature result/abstract, not asserted complete full-text inspection",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Broader result on variance under hypergeometric sampling"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; no whole-text NOT_COVERING claim",
+          "evidence": [
+            "Abstract discusses explicit rarefaction calculation/sample sizes; full text retrieval blocked and not bypassed."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Bibliographic abstract and paper scope; full 1975 text NOT read",
+          "method": "Publisher/abstract and authorized Oxford retrieval; institutional verification tab expired",
+          "title": "Explicit calculation of the rarefaction diversity measurement and determination of sufficient sample size",
+          "trigger": "Foundational same sampling variance, plausible exact comparison"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: mean richness comparisons, not variance reversal after one-unit transfer",
+          "evidence": [
+            "Mean curves can cross under general profile comparison; this family has improving means but reversing variances."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1461-0248.2001.00230.x",
+          "material_read": "Literature abstract and discussion of mean rarefaction curve crossing; not the entire article",
+          "method": "Bibliographic/abstract reading",
+          "title": "Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness",
+          "trigger": "Potential coverage of crossing diversity curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Richness sampling uncertainty is a natural statistical/ecological quantity beyond its mean. The result establishes the globally sharp first counterexample to a natural conjectured monotonicity under a single Robin Hood equalizing move, unique at the first size, and a uniform infinite family witnessing persistent nonmonotone variance while the mean improves. Exact small finite cutoff is mathematically motivated by this sharp boundary, and the all-size symbolic certificate shows it is not a one-off table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For one-unit balancing transfers of finite positive species abundances under hypergeometric individual sampling, there are no variance-difference sequences with two strict sign reversals at N<=7; the unique N=8 example is (4,3,1)->(4,2,2). The all-size family (4k,3k,k)->(4k,3k-1,k+1) has Delta_2<0, Delta_3>0, Delta_7<0 for every k>=1, despite higher mean richness throughout sample sizes 2..7k.",
+  "limitations": [
+    "Hypergeometric without-replacement sampling only; no detection error or correlated individuals.",
+    "The N<=8 census is exhaustive only through N=8; the family establishes two reversals, not a complete infinite classification.",
+    "A 1975 foundational rarefaction paper full text was unavailable for comparison, a priority risk not scientific failure."
+  ],
+  "schema_version": 1
+}

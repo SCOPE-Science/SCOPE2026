@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence
+# Independent mathematical audit
 
-The standalone `verify_rarefaction.py` and `bruteforce_census.py` both run on ordinary Python 3 without dependencies. Its primary checks, executed against the actual included program, are:
+## correctness
 
-1. Generate every nonincreasing positive integer partition of totals \(N=2,\ldots,8\), including those with one species (which have no eligible transfers).
-2. Deduplicate every eligible one-individual balancing transfer and compute exact integer signs of all sample-size variance differences. Confirm transfer counts \((0,0,1,2,5,9,17)\) and that the unique profile pair with at least two reversals is \((4,3,1)\to(4,2,2)\) at \(N=8\).
-3. Enumerate every possible subset at each sample size of the eight-individual example; verify direct first and second moments equal the exact binomial-moment formulas.
-4. Expand each all-size numerator difference for \(m=2,3,7\) as a polynomial in \(t=k-1\) with rational coefficients. Check their coefficientwise strict signs and compare evaluation with raw binomial moments at \(k=1,2,3,10,100,1000\).
+PASS
 
-Complete runs reported `ALL CERTIFICATES PASS` and `DIRECT FINITE-CENSUS CERTIFICATE PASS`, respectively. The alternate program derives all small-census variance values directly from individual samples instead of reusing the second-moment identity. No numerical tolerance, floating-point approximation or Monte Carlo test is used. The all-size conclusion rests on the symbolic coefficient signs, not on finitely many substitutions. The finite census is exhaustive only through eight individuals and is invoked only to establish the first-occurrence lower bound and uniqueness there.
+Derived the exact absent-indicator formula W_m=D^2 Var(K_m)=sum_i q_i(D-q_i)+2sum_{i<j}(D r_ij-q_i q_j) with D=binom(N,m), q_i=binom(N-a_i,m), r_ij=binom(N-a_i-a_j,m). Independently enumerated every integer partition of N=2..8, every unordered distinct permitted pair transfer, every possible sample subset for every m, and counted transfer totals 0,0,1,2,5,9,17; only N=8 (4,3,1)->(4,2,2) had >=2 reversals. Direct rational differences matched the full displayed vector (0,-11/784,73/3136,1/245,-55/784,-95/784,-7/64,0). Independently recomputed the full rational polynomials P_2(t),P_3(t),P_7(t) for t=k-1 from exact binomial moments and checked every coefficient against RESULT (degrees 3,5,13 with signs negative, positive, negative); coefficientwise signs prove the all-size theorem, not finite extrapolation. Pascal identity yields strict expected-richness increase. No floating approximation.
 
-The scientific assessment is a self-review; there is no independent audit, proof certification, empirical ecological test, or exhaustive survey of all published mathematical literature.
+## originality
+
+PASS
+
+Best-of-knowledge originality based on actual compared primary scientific claims and explicit residual risks; inaccessible texts not presumed to be absent or covering.
+
+## value
+
+PASS
+
+Richness sampling uncertainty is a natural statistical/ecological quantity beyond its mean. The result establishes the globally sharp first counterexample to a natural conjectured monotonicity under a single Robin Hood equalizing move, unique at the first size, and a uniform infinite family witnessing persistent nonmonotone variance while the mean improves. Exact small finite cutoff is mathematically motivated by this sharp boundary, and the all-size symbolic certificate shows it is not a one-off table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
