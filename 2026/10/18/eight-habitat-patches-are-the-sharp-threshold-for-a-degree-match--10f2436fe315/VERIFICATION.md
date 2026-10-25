@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later; only the standard library is required. The command emits one line of sorted, compact JSON. Its output must equal `certificate.json` after stripping the trailing newline. That certificate records all tree class counts, every number of degree-matched comparisons, the unique incomparable pair at eight vertices, both fixed-survivor vectors, and the symbolic expectation difference.
+## correctness
 
-The verifier generates all unlabeled trees of orders one through eight by exhaustive leaf attachment with a canonical rooted-tree word, then explicitly enumerates all subsets of their vertices. For the two exceptional eight-vertex trees it independently recalculates the 512 survivor subsets per tree using union-find rather than bitset flood filling. The algebraic deduction from their coefficient difference to the all-probability crossing follows exactly from the Bernstein identity in the proof.
+PASS
 
-The finite calculation is exhaustive only through eight vertices, not at larger orders. No independent audit or proof-assistant certification has been performed. The public source references support the ecological motivation and the scope comparison; a negative literature search does not prove historical uniqueness.
+The theorem defines S_T(k)=Σ_{|U|=k} max-component-order(T[U]) and F_T(p)=Σ S_T(k)p^k(1-p)^(n−k), including the empty subset and p endpoints. Independent networkx nonisomorphic-tree enumeration gave class counts 1,1,1,2,3,6,11,23, exact same-degree nonisomorphic pair counts 0,0,0,0,0,1,5,23, and precisely one coordinatewise-incomparable pair at n=8, none earlier. The exceptional pair has signed fixed-size difference only at k=5,6, yielding the all-real-p polynomial p^5(1-p)^2(2p−1) with orientation as RESULT.md. Recursive leaf extension and complete rooted-word invariant prove exhaustive coverage; direct subset enumeration is exhaustive only through n=8. No claim for larger trees follows.
+
+## originality
+
+PASS
+
+The sharp degree-controlled largest surviving component ranking reversal at order eight is not the same invariant as fixed-degree subtree counts or site-percolation asymptotics; the exact conditional sign-reversal classification is a new best-of-knowledge narrow result, with unresolved older graph reliability terminology.
+
+## value
+
+PASS
+
+Connected retained habitat is a natural resilience objective not captured by a degree distribution alone. The unique first same-degree pair with a probability-dependent reversal is a sharp, motivated minimal boundary and counterexample to a universal probability-independent design ordering; an exact finite result is useful without a general large-tree theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

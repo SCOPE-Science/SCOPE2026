@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exhaustive leaf-extension generation gives one representative per unrooted tree isomorphism class through eight vertices. The canonical minimum-rooted-word method is a complete invariant, and exact subset enumeration computes the entire fixed-survivor profile, not sampled values. All same-degree comparisons through seven vertices are coordinatewise ordered. The two eight-vertex witness profiles are independently recalculated using a different union-find algorithm; their exact difference yields the displayed polynomial and unique crossing at one-half. The verified classification covers precisely the stated finite orders; the witness polynomial holds for every real survival probability in the unit interval.
+PASS
 
-## Originality
+The theorem defines S_T(k)=Σ_{|U|=k} max-component-order(T[U]) and F_T(p)=Σ S_T(k)p^k(1-p)^(n−k), including the empty subset and p endpoints. Independent networkx nonisomorphic-tree enumeration gave class counts 1,1,1,2,3,6,11,23, exact same-degree nonisomorphic pair counts 0,0,0,0,0,1,5,23, and precisely one coordinatewise-incomparable pair at n=8, none earlier. The exceptional pair has signed fixed-size difference only at k=5,6, yielding the all-real-p polynomial p^5(1-p)^2(2p−1) with orientation as RESULT.md. Recursive leaf extension and complete rooted-word invariant prove exhaustive coverage; direct subset enumeration is exhaustive only through n=8. No claim for larger trees follows.
 
-**PASS under the checked literature, with residual risk.** The prior ecological framework categorizes connected habitat area but does not state the eight-vertex degree-controlled reversal. Fixed-degree extremality work treats different graph statistics; site-percolation random recursive tree asymptotics concern stochastic families and asymptotic clusters. Mathematical-record comparisons did not identify an earlier formula or dominating theorem for the exact finite largest-component profile threshold. Standard site-percolation definitions and tree enumeration are established tools and are not attributed to this result. An earlier equivalent under network reliability or connected-set polynomial terminology remains possible. Independent bibliographic audit has not been performed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Comparing networks by degree distribution is a common coarse structural control, while the largest connected surviving patch group is a natural fragmentation-risk indicator. The theorem gives the first possible order of a probability-dependent design reversal under that control, an explicit minimal witness, and the unique eight-vertex coefficientwise-incomparable pair. It demonstrates a real modeling boundary rather than a numerical ranking at one arbitrarily chosen survival probability. The statement is intentionally limited to equal-sized independently surviving tree vertices and exact expectation, not landscape heterogeneity or empirical predictive performance.
+The sharp degree-controlled largest surviving component ranking reversal at order eight is not the same invariant as fixed-degree subtree counts or site-percolation asymptotics; the exact conditional sign-reversal classification is a new best-of-knowledge narrow result, with unresolved older graph reliability terminology.
 
-## Sources and uncertainty
+## value
 
-The motivating habitat-network framework is Rayfield, Fortin, and Fall (2011), DOI 10.1890/09-2190.1. The closest identified technical comparisons include Andriantiana, Razanajatovo Misanantenaina, and Wagner (2021), DOI 10.37236/9770, and Gu and Yuan's random-recursive-tree site-percolation work, arXiv:2408.12515. Their mathematical objects and conclusions are distinguished in the result. Unlocated graph-reliability or fragmentation literature is a residual originality risk, and computational classification is specific to small trees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Connected retained habitat is a natural resilience objective not captured by a degree distribution alone. The unique first same-degree pair with a probability-dependent reversal is a sharp, motivated minimal boundary and counterexample to a universal probability-independent design ordering; an exact finite result is useful without a general large-tree theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
