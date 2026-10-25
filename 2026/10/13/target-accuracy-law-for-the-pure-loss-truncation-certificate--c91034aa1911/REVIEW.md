@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof begins from the exact published continuity penalty, expands both entropy functions with all fixed parameters and logarithm bases stated, and then inverts the resulting asymptotic. Integer rounding and the prime-dimension restriction are separated so that no unjustified additive prime-gap estimate is claimed. The decoder scaling uses the source's stated \(O(d^2m\log m)\) arithmetic-operation bound.
+## correctness
 
-## Originality
-PASS. The closest primary source gives the exact penalty and calls it exponentially decaying, but does not state its \(d e^{-\lambda d}\) prefactor, the target-gap inversion, or the induced accuracy dependence of decoder complexity. Winter supplies the general energy-constrained entropy continuity bound. Shirokov supplies broader finite-dimensional approximation theory. Neither inspected comparison covers the combined channel-specific statement. Focused published-result and own-ledger searches found no implication-equivalent claim. Residual risk from differently phrased older finite-dimensional-approximation literature is recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. The result turns the limiting step that connects a finite-dimensional polar/BPQM code to the infinite-dimensional pure-loss capacity into an explicit resource law. In particular, it shows where the logarithmic correction comes from and how target capacity gap propagates into the source's decoder operation bound. It is a sufficient certificate, not a lower bound on all possible truncations.
+Let eps=e^{-lambda d}. For fixed nbar>0, g(nbar/eps)=[ln(nbar/eps)+1+O(eps)]/ln2 and h2(eps)=[eps ln(1/eps)+eps+O(eps^2)]/ln2; therefore B=eps[6 ln(1/eps)+4 ln nbar+6+O(eps)]/ln2. Put y=lambda d and L=ln(1/delta); log inversion gives y=L+ln L+ln(6/ln2)+o(1). Eventual monotonicity justifies bounded integer rounding; prime number theorem gives the coarser prime leading term. Substitution into the source-stated O(d^2 m log m) complexity proves its sufficient scaling. Independent mpmath for nbar=1.4 and d=40,100 gave exact/leading asymptotic ratios 1.000000123839 and 1.000000000000005. No lower bound for true physical cutoff is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The arithmetic gives a sharp asymptotic inversion of a highly specific thermal-tail continuity certificate. The initiating primary text could not be obtained in full, and only its abstract and package-cited Lemma 3 expression were accessible; published source coverage thus remains a particularly material risk. Searches of Resultary and related Winter/Shirokov approximation statements did not reveal a matching channel-specific inverse and operation-count law. This is qualified best-of-knowledge originality, not proof of priority.
+
+## value
+
+PASS
+
+A designer of the specified finite-field pure-loss decoding construction may need the precise accuracy cutoff and loglog additive correction, with explicit link to the decoder arithmetic cost; the result quantifies a meaningful parameter cost, not only a renamed entropy formula. It is a sufficient certificate law, not a converse or universal quantum-channel complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
