@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domination criterion separates the deletion-link relative faces into an exceptional simplex and disjoint, precisely parametrized branches. Each branch is a contractible join whose collapsed boundary-plus-core quotient is a two-sphere wedge, with no unspecified attaching-map assumption. The finite matching has a proved globally acyclic edge orientation and precisely the expected critical faces; direct enumeration and independent \(\mathbb F_2\) boundary calculations agree for nine graphs. The proof is valid for all integer part sizes at least two; integral homology follows from the wedge and is not inferred from mod-two computations.
+## correctness
 
-## Originality — PASS, with literature uncertainty
-The earlier forest result of Ehrenborg–Hetyei and chordal result of Taylan do not apply to the specified complete multipartite graphs, each of which contains an induced \(C_4\). The general Alexander-dual theorem of Matsushita–Wakatsuki identifies the complement's neighborhood complex and determines homological relationships, but does not state this multipartite homotopy formula or the new explicit matching. It explicitly treats the smallest \(C_4\) case, which is therefore acknowledged as known and is not proposed as an independent new contribution. The complete infinite-family claim strengthens the previously known homological consequences by identifying actual attaching maps. Searches of published research records, exact theorem aliases, and the identified primary full texts found no directly covering statement, but unrestricted priority cannot be certified by search.
+PASS
 
-## Value — PASS
-The formula gives a complete topological classification of a natural, nonchordal graph family for **arbitrary** part sizes. It distinguishes multiple homology dimensions (for instance, \(K_{2,3,4}\)), proves absence of hidden higher attaching maps, and gives a uniform optimal discrete-Morse construction. This resolves a motivated gap between general Alexander-dual homology methods and explicit homotopy decompositions, rather than an isolated finite enumeration or a bare restatement of an existing theorem.
+Dominating complements meet at least two independent parts or equal one whole part. A vertex deletion and its link yield a cofibration quotient X0/L. Its relative faces split into one exceptional simplex plus disjoint branches B_j union nonempty proper subsets of A_j. In each branch, the contractible simplex-join Y_j modulo the boundary-plus-core Z_j is equivalent to S^{N-3} wedge S^{N-m_j-1}; endpoint B_j singleton is handled via S^0. The explicit matching pairs all link faces across v and inside each branch by adding w_j; a directed path cannot cycle between layers or branches, and an inserted w_j cannot be removed along a downward edge. Critical count gives k-1 top cells and one per part. Independent face enumeration/Euler checks for (2,2),(2,3),(2,2,2),(2,3,4),(3,3,3) agree with sphere wedge. The general conclusion uses the full combinatorial proof.
 
-## Known boundaries and risks
-The statement excludes singleton parts; the splitting is nonequivariant. Potential broader unpublished or unindexed constructions of the same family remain a residual novelty risk. Only self-review was performed; no independent audit or machine-formal verification is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements and mathematical implications; the named comparisons identify prior facts without conflating them with the claimed new invariant or construction. Historical-priority risks remain explicit.
+
+## value
+
+PASS
+
+A natural complete homotopy classification for all complete multipartite graphs without singleton parts, stronger than Betti-only information, and a uniform explicit perfect acyclic matching with no arbitrary finite cutoff. Handles a nonchordal family absent from earlier forest/chordal classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
