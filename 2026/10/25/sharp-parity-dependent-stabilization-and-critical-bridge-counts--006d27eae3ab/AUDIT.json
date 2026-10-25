@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each clique the exact update is obtained by separately comparing one-neighbour counts for distinguished and nondistinguished vertices, including ties and small n=3,4 boundaries. Odd cliques become consensus by time two; an even clique at half occupancy complements its nondistinguished vertices and copies the opposite bridge, and remains critical exactly while bridge bits disagree. These exhaustive cases prove the sharp 2/4/5 bounds, classify all fixed and 2-periodic states, and permit exact binomial counting of each maximal-depth stratum. The bundled independent direct-mask simulator checks all 254016 labelled configurations across 36 graphs, including all boundary parity cases, but proof is general and does not rely on computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser, Mallmann-Trenn, Natale, On the Voting Time of the Deterministic Majority Process, arXiv:1508.03519v1, §§1.1, 3.1–3.2, including the modular contraction theorem and its conditions.",
+        "Benjamini, Chan, O’Donnell, Tamuz, Tan, Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486v1, Introduction and Sections 2–4.",
+        "Goles, Olivos (1980), Periodic behaviour of generalized threshold functions, Discrete Mathematics 30, 187–189, DOI:10.1016/0012-365X(80)90121-1; indexed abstract and bibliographic evidence only."
+      ],
+      "reasoning": "The generic symmetric-threshold period-two theorem is strictly weaker than explicit finite times and exact counts. Kaaser et al. prove general upper bounds and a graph-module contraction technique; even if specialized to this barbell, a generic bound cannot supply the sharp 2/4/5 trichotomy or the classification of all critical initial configurations. The 2014 paper concerns random and infinite graphs, not exact bridge-barbell state counts. The 1980 full text was not read; an unlocated corollary remains a real residual risk, not an asserted exclusion.",
+      "searches": [
+        "For a graph made of two complete cliques K_a and K_b joined by one bridge, synchronous binary majority with lazy ties converges in at most five steps, with exact sharp parity cases 2 4 5 and 2-cycle enumeration",
+        "two cliques joined by a bridge binary majority dynamics exact periodic states attractor transient spectrum",
+        "\"two cliques\" \"binary majority\" \"five\" steps",
+        "On the Voting Time of the Deterministic Majority Process arxiv 1508.03519",
+        "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs arxiv 1405.2486"
+      ]
+    },
+    "checked_sources": [
+      "Kaaser, Mallmann-Trenn, Natale, On the Voting Time of the Deterministic Majority Process, arXiv:1508.03519v1, §§1.1, 3.1–3.2, including the modular contraction theorem and its conditions.",
+      "Benjamini, Chan, O’Donnell, Tamuz, Tan, Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486v1, Introduction and Sections 2–4.",
+      "Goles, Olivos (1980), Periodic behaviour of generalized threshold functions, Discrete Mathematics 30, 187–189, DOI:10.1016/0012-365X(80)90121-1; indexed abstract and bibliographic evidence only.",
+      "Published Zero forcing polynomial of bridge barbells, record record 5431b532d7f2 (a different monotone graph invariant).",
+      "Previously published Exact majority attractors and sharp convergence on complete split graphs, item 517ed2dd-3465-461d-abbe-7f8200099426.",
+      "Previously published Exact fixed-point and oscillation census for majority dynamics on clique windmills, item f6185c18-9932-4704-8b5c-b8b84bb9d26b."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaaser, Mallmann-Trenn, Natale, On the Voting Time of the Deterministic Majority Process, arXiv:1508.03519v1, §§1.1, 3.1–3.2, including the modular contraction theorem and its conditions. Its §3.2 proves a general family-contraction bound, not a state counting theorem.",
+        "Benjamini, Chan, O’Donnell, Tamuz, Tan, Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486v1, Introduction and Sections 2–4. Its Theorem 1.1 restates eventual period at most two.",
+        "Previously published Exact majority attractors and sharp convergence on complete split graphs, item 517ed2dd-3465-461d-abbe-7f8200099426. It has a distinct complete-split adjacency and maximum depth three.",
+        "Published Zero forcing polynomial of bridge barbells, record record 5431b532d7f2 (a different monotone graph invariant)."
+      ],
+      "reasoning": "Neither eventual 1/2 periodicity nor modular contraction implies the exact maximum times, counts of maximally delayed states, no delayed entry to a 2-cycle, or the explicit central-binomial exact count without further graph-specific analysis. The proof here derives these from the forced bridge-bit copy and one-step pivotal anomaly. Unindexed stronger theorems may still cover it; this is a bounded originality judgment.",
+      "searches": [
+        "For a graph made of two complete cliques K_a and K_b joined by one bridge, synchronous binary majority with lazy ties converges in at most five steps, with exact sharp parity cases 2 4 5 and 2-cycle enumeration",
+        "two cliques joined by a bridge binary majority dynamics exact periodic states attractor transient spectrum",
+        "\"barbell\" \"voting time\" deterministic majority"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaaser, Mallmann-Trenn, Natale, On the Voting Time of the Deterministic Majority Process, arXiv:1508.03519v1, §§1.1, 3.1–3.2, including the modular contraction theorem and its conditions.",
+        "Benjamini, Chan, O’Donnell, Tamuz, Tan, Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486v1, Introduction and Sections 2–4.",
+        "Published Zero forcing polynomial of bridge barbells, record record 5431b532d7f2 (a different monotone graph invariant)."
+      ],
+      "reasoning": "Equivalent descriptions include a dumbbell of two cliques joined by a single cut edge, deterministic tie-retaining majority voting, finite threshold automata and convergence to period at most two. The closest inspected dynamical articles provide general convergence and graph-module arguments, but not this bridge-specific phase diagram and terminal binomial census. The identically shaped published zero-forcing problem changes the local rule and cannot imply majority relaxation.",
+      "searches": [
+        "For a graph made of two complete cliques K_a and K_b joined by one bridge, synchronous binary majority with lazy ties converges in at most five steps, with exact sharp parity cases 2 4 5 and 2-cycle enumeration",
+        "barbell clique-bridge majority voting five-step maximum transient exact configurations both even period-two",
+        "sharp five-round voting time on barbell graph with odd-even clique parity binomial number of states requiring five rounds",
+        "two cliques joined by a bridge binary majority dynamics exact periodic states attractor transient spectrum",
+        "\"barbell graph\" \"majority dynamics\" convergence",
+        "\"bridge\" \"two cliques\" \"majority dynamics\" synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Zero forcing polynomial of bridge barbells, record record 5431b532d7f2 (a different monotone graph invariant).",
+        "Previously published Exact majority attractors and sharp convergence on complete split graphs, item 517ed2dd-3465-461d-abbe-7f8200099426.",
+        "Previously published Exact fixed-point and oscillation census for majority dynamics on clique windmills, item f6185c18-9932-4704-8b5c-b8b84bb9d26b.",
+        "No matching table or entry giving the three parity-dependent sharp transient times and all final-step populations surfaced from the actual index and literature queries."
+      ],
+      "reasoning": "The direct barbell record tabulates zero-forcing sets, not majority states. Existing related majority results describe complete split graphs or shared-hub clique windmills, whose adjacency relations differ and whose exact cycle and delay formulas cannot simply be relabelled to a bridge. Search absence alone does not establish novelty; these are statement-level and operator-level comparisons.",
+      "searches": [
+        "For a graph made of two complete cliques K_a and K_b joined by one bridge, synchronous binary majority with lazy ties converges in at most five steps, with exact sharp parity cases 2 4 5 and 2-cycle enumeration",
+        "barbell clique-bridge majority voting five-step maximum transient exact configurations both even period-two",
+        "sharp five-round voting time on barbell graph with odd-even clique parity binomial number of states requiring five rounds",
+        "two cliques joined by a bridge binary majority dynamics exact periodic states attractor transient spectrum"
+      ]
+    },
+    "rationale": "The closest actual primary papers prove generic eventual period two, bounds, and modular contraction, not an exact bridge-barbell stabilization and terminal-binomial census. An exact published bridge-barbell invariant uses zero forcing instead of majority dynamics. Related published majority classifications concern structurally different graph families and do not imply the present critical-bridge time-five condition. Originality is bounded to located and inspected sources; the full 1980 paper could not be inspected.",
+    "residual_risks": [
+      "The full Goles–Olivos 1980 article was not accessed; only its known general theorem can be compared from abstract and later primary sources.",
+      "Unindexed or inaccessible historical specializations of general threshold-network techniques could potentially duplicate part of the present single-bridge formulas.",
+      "Literature and index non-hits do not certify global historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general potential bounds, modular family contraction and examples, but not the particular single-bridge two-clique parity phase diagram or terminal binomial census.",
+        "evidence": "arXiv:1508.03519v1, Definition 3, Theorem 3.5, Lemma 3.6 and Theorem 1.2 discussion; no occurrence of barbell or bridge in searchable full text.",
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "Full primary PDF accessible; main theorem statements, introduction, modular contraction sections and relevant appendix/reference passages inspected; key pages additionally inspected visually.",
+        "method": "Primary arXiv full PDF text and page visual inspection (pp.3 and 14).",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Closest pre-2016 general sharp voting-time and clique-module treatment."
+      },
+      {
+        "assessment": "General period-two convergence and probabilistic results; does not establish any labelled bridge-barbell terminal-depth enumeration.",
+        "evidence": "arXiv:1405.2486v1, Theorem 1.1, Theorem 1 and Theorems 2–3.",
+        "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+        "material_read": "Open-access HTML full paper accessible; introduction, theorem statements, section structure, random-graph and unimodular hypotheses and relevant passages inspected.",
+        "method": "Open-access arXiv HTML; followed full structure and examined hypotheses and named results.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Primary source on majority convergence and periodicity; directly matches the tie-retaining operator."
+      },
+      {
+        "assessment": "Known period-two property applies; whether the historical full article contains an unlocated exact bridge-barbell specialization remains unverified.",
+        "evidence": "Goles and Olivos (1980) indexed abstract identifies the general period-two theorem; later primary papers credit it.",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic description and abstract only; full article not obtained in this round.",
+        "method": "Journal/index abstract and full references in inspected arXiv:1508.03519v1.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original period-two theorem potentially dominating later finite-graph results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "006d27ea-e3ab-4ae5-8b99-2f6fb000ee04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single bridge linking two dense communities is a canonical bottleneck graph, and the result supplies an exact infinite-family relaxation phase diagram. The sharp 2/4/5 parity transition, exact rare critical configurations, algebraic 1/(π sqrt(ab)) prevalence, and complete exceptional 2-cycle count explain a nontrivial time-lag mechanism at the interface; these facts are not generic consequences of eventual period two and are more than textbook restatements or isolated numerical tables.",
+    "status": "PASS"
+  }
+}
