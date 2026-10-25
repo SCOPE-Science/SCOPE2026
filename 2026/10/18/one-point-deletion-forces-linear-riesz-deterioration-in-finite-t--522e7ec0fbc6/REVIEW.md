@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The basis criterion follows from two-layer rank at most two per horizontal character, exact Fourier inversion in the complete first layer, and the missing-position support constraint in the second layer. The determinant is a block-Gram product multiplied by the squared norm \(1/(2n)\) of the missing coordinate projected to the one-dimensional orthogonal complement. This determines all bases, all determinants, and all optimal frequency placements. Sherman--Morrison and the Gram trace prove the universal Riesz ratio bound; the equality case forces antipodal vertical pairs. The odd-order three-dimensional secular reduction gives a cubic with the stated spectrum and fixed-modulus asymptotics. Separate finite full-matrix checks reproduced every tested formula, including noncyclic horizontal groups. The numerical checks are only corroborative.
+## correctness
 
-## Originality — PASS, best knowledge
-The primary comparison is Ferguson–Mayeli–Sothanaphan, arXiv:1904.04487, particularly Examples 4.19, 6.6, 6.14 and Theorem 6.17. Those results define quantitative spectrality and analyze intact products and subgroup-plus-point configurations; none contains the punctured two-layer theorem or implies its all-basis lower Riesz bound. The inspected complete public results *Exact Riesz ratio of the subgroup-plus-one-point family* and *A unicyclic graph criterion for basis partners of the two-line Riesz family* concern respectively one added point (\(n+1\) sites) and intersecting lines plus one point (\(2p\) sites), not the present parallel strip minus one point (\(2n-1\) sites). Search comparisons of source titles, equivalent objects, determinants, spectral matrices, and character-fiber parameters identified no covering theorem. The \(m=2\) co-singleton case is familiar and not the novel core. A differently indexed one-point-deletion identity remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a natural robustness problem for finite exponential Riesz bases: the intact two-layer set admits uniformly conditioned bases, whereas one deleted spatial sample forces a squared condition number at least \(2n\). Even vertical order yields exact values and all equality sets for the upper and lower Riesz constants, ratio, and determinant; every vertical order yields the complete determinant and an exact optimizer count, and the odd-order optimal spectrum is explicit. These are structural and design-relevant results for arbitrary finite abelian horizontal groups, not only isolated numeric minors or a restatement of basis existence. Odd-order global condition-number optimality is not established.
+Horizontal Fourier orthogonality bounds each vertical character fiber by two. Size 2n−1 forces exactly one singleton and n−1 doubletons; singleton row ensures the missing-row kernel is removed. For the full two-layer matrix D, each doubleton contributes n²|zj−zk|² to det D and the singleton 2n. The missing-row projection onto D-column orthogonal complement has squared norm 1/(2n), so det Q=det D/(2n), v*Q^{-1}v=2n−1 and L<=1. Trace Q=(2n−1)² then U>=2n and rho>=2n. At equality Dv=2nv forces all doubletons antipodal (even m), giving Q=2n I-vv* with spectrum {1,2n^(2n−2)}. Odd m: all optimal chords yield s=sin(pi/2m), rank-one secular cubic 2n y³−(2n−1)y²−2s² y+s², plus two (n−2)-fold levels; strict interlacing gives positivity and fixed-m asymptotics. The submitted proof correctly limits odd-m condition-number optimality; determinant optimization is NOT asserted to optimize odd-m rho. Independently formed exact/complex Fourier Gram matrices for 18 small (n,m) combinations, including nontrivial odd/even m, and matched determinants and complete spectra; finite tests corroborate, not establish all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge source/statement comparison, not mere keyword or parameter match: Fourier complement/duality and the shared numeric even-modulus bound do not transfer the occupancy/determinant classification for all finite abelian H. At m=2 the co-singleton minor is classical and treated as boundary prior work. Neither the general product theorem nor the specifically studied overlapping finite constructions dominates all features and quantifiers in the current punctured two-layer support; a hidden complementary formulation remains a residual risk. There is no direct restriction, product, or scalar parameter substitution proving the present complete classification from the strongest inspected same-invariant result. The co-singleton m=2 boundary is explicitly non-new.
+
+## value
+
+PASS
+
+A natural one-point perturbation of a uniformly well-conditioned complete two-layer Fourier sampling set provably forces arbitrary linear deterioration in any unweighted character-basis reconstruction as horizontal group size increases. Exact basis feasibility, determinant optimizers, optimizer counts and the odd-order spectral defect supply nontrivial structural sampling information. Boundary overlaps (m=2 and n=2) are acknowledged rather than counted as new; general n,m classification is not a mere renaming of the subgroup-plus-one-point case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
