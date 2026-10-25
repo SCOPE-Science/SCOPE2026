@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The command `python3 verify.py` rebuilds the simplicial boundaries from seven ground labels and checks the full supplied primal and dual certificates with integer arithmetic. Its independent enumeration finds 945 four-cycles, 630 chordless and 315 chorded, and its mod-three reduction detects the nonzero class of the canonical cycle. Expected output: `VERIFY_OK 945_FOUR_CYCLES 630_TORSION_GENERATORS 315_BOUNDARIES SHARP_FILLING_28`. The checked area is the simplicial chain \(\ell^1\) norm for a boundary equal to three times an oriented four-cycle, not the unrestricted minimal geometric area of a singular filling.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Reconstructed M(K7) with 21 matching edges, 105 1-simplices and 105 2-simplices; independently enumerated all 945 simple 4-cycles and 630 six-label chordless versus 315 seven-label chorded. Source certificate is a 105-long integer primal chain satisfying ∂c=3z with l1=28 and 105-long rational cochain y with ||δy||∞≤1 and <y,3z>=28, proving the minimum for all real (hence integer) fillings when exact checks hold. Inspected source verifier and complete primal/dual coefficient files; independently solved same finite real LP with scipy linprog, obtaining optimum 28.0 (numerical corroboration only). Source exact mod3 rank84 and nonzero class plus published H1(M7;Z)=Z/3 establish generator; S7 transitivity covers all 630 shortest classes.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality assessed by comparing exact mathematical objects, implications and stronger general statements; accessible primary and published sources inspected. Residual priority risk is recorded, and a failed search is not taken as a novelty proof.
+
+## value
+
+PASS
+
+The first torsion matching complex M(K7) is a canonical finite combinatorial object; the minimum exact l1 area filling three times a shortest torsion cycle is a natural torsion filling invariant independent of homology-group order and certified by dual extremality. 630 carrier orbit count adds meaningful geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
