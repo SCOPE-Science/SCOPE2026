@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each unchosen edge, exact single domination is equivalent to the sum of its two chosen-edge incidence degrees being one. Consequently chosen edges form exactly the induced edge set on nonzero-degree vertices, and its zero-degree set is independent. Every independent set in a biclique with one matching removed is confined to one part or is a single deleted pair. The proof exhausts all three forms, including the six-cycle exception. The full-star and entire-edge-set constructions satisfy the original condition. Exhaustive edge-subset and independent-zero-set tests corroborate the result, but the infinite claim is justified by the case proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The full text of Grippo–Lin–Vera (arXiv:2509.04598v2) was inspected, especially the perfect-edge-dominating-set definition, color reduction, structural properties and counting algorithm in Sections 1, 2, 4 and 6. It gives a broad counting algorithm for P6-free graphs but does not state a closed polynomial and one-edge jump for this family. The 2026 Grippo–Lin–Moyano–Vera paper (arXiv:2607.03894) specifically studies counting but its publicly described extremal families are trees, forests and chordal graphs; its accessible abstract and technical secondary summary do not cover the nonchordal bicliques here. That primary full text was not obtained, so publication priority is not conclusively resolved. Search comparisons included crown graphs, matching deletions, perfect Roman domination and ordinary edge domination; these cannot be substituted for perfect **edge** domination. Previously published cases of a single complete biclique are simple special cases and are not claimed as novel in isolation.
+PASS
 
-## Value — PASS
-The sharp one-edge perturbation changes the minimum from a linear quantity to a quadratic quantity by an unbounded factor, in a canonical dense bipartite family. The general three-parameter polynomial explains the jump by complete disappearance of all star solutions and classifies every feasible edge set. This provides more structure than existence or routine minimization and is not a numerical increment to a prior table.
+For every unselected edge uv, perfect edge domination is exactly deg_F(u)+deg_F(v)=1. The F-zero-degree vertex set U must be independent; every edge with both ends outside U is in F, so F=E(G[V\U]). For K_{m,n} minus t distinct matched edges, any independent U is confined to a single side or one missing pair, and the deg_F=1 condition allows only stars centered on unmatched vertices, except K3,3 minus its whole matching, which is C6 with three 2-edge and six 4-edge choices. Hence for 3<=m<=n,0<=t<=m the polynomial is (n-t)z^m+(m-t)z^n+z^(mn-t), except (3,3,3) with 3z²+6z⁴+z⁶. Independently enumerated 2,228,672 exact edge subsets for 22 parameter triples, confirming every polynomial; for n>=4 deleting the last matching edge changes two n-edge minima into a unique n(n-1)-edge minimum.
 
-## Limitations
-The theorem requires both sides of the biclique to have size at least three, and the deleted edges to form a matching. The full text of the July 2026 counting paper could not be inspected; independent verification and definitive bibliographic priority remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The P6-free graph class includes matched-deletion bicliques (an induced P6 would require four missing cross edges among three vertices per side, while a matching can provide at most three), so the published general PED counting algorithm is applicable. Its existence does NOT state or mathematically imply without new specialized analysis the closed three-term polynomial, exception and sharp one-edge instability; 2026 follow-up tree/chordal/GSP claims also do not state this family in accessible material. A plausible later primary paper could not be read in full; qualification preserved.
+
+## value
+
+PASS
+
+A dense classical graph family suffers a sharp one-edge jump in minimum perfect-edge domination by an unbounded factor; the exact polynomial gives every valid set and isolates a unique exceptional six-cycle. This is a structural phase transition for a natural domination invariant rather than just another table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

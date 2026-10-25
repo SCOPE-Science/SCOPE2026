@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T05:10:00.064839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every unselected edge uv, perfect edge domination is exactly deg_F(u)+deg_F(v)=1. The F-zero-degree vertex set U must be independent; every edge with both ends outside U is in F, so F=E(G[V\\U]). For K_{m,n} minus t distinct matched edges, any independent U is confined to a single side or one missing pair, and the deg_F=1 condition allows only stars centered on unmatched vertices, except K3,3 minus its whole matching, which is C6 with three 2-edge and six 4-edge choices. Hence for 3<=m<=n,0<=t<=m the polynomial is (n-t)z^m+(m-t)z^n+z^(mn-t), except (3,3,3) with 3z²+6z⁴+z⁶. Independently enumerated 2,228,672 exact edge subsets for 22 parameter triples, confirming every polynomial; for n>=4 deleting the last matching edge changes two n-edge minima into a unique n(n-1)-edge minimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grippo–Lin–Vera 2025/2026 provide a counting algorithm for P6-free graphs; matching-deleted bicliques are P6-free, so this general algorithm applies computationally.",
+          "The 2026 follow-up abstract advertises tree, forest, chordal and generalized series-parallel classes and general extremal counts."
+        ],
+        "reasoning": "The algorithmic theorem may calculate any finite case but does not directly state a uniform closed polynomial or one-edge instability. The later abstract does not decide whether a relevant appendix overlaps, so that primary-text access risk is retained.",
+        "searches": [
+          "Grippo Lin Vera Perfect Edge Domination in P6-free Graphs arxiv 2509.04598",
+          "Grippo Lin Moyano Vera Counting perfect edge dominating sets extremal results 2607.03894"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2509.04598v2",
+        "https://arxiv.org/abs/2607.03894",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known algorithm has broad applicability but the closed polynomial requires separate zero-degree independent-set classification.",
+          "Published forest/chordal/generalized series-parallel classes are not uniform characterizations of Kmn-M for m,n>=4."
+        ],
+        "reasoning": "No inspected prior statement dominates the one-edge sharp jump from 2 minima of n edges to all n(n-1) edges; stronger computability does not assert the exact theorem.",
+        "searches": [
+          "Grippo 2509.04598 algorithm P6-free PED counting",
+          "2026 Counting perfect edge dominating sets extremal results and linear time algorithms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grippo–Lin–Vera define perfect edge domination as exactly one incident selected edge for each unselected edge, matching the degree-sum criterion.",
+          "Resultary nearest matching-deleted-biclique studies concern CIS and geodesic-subpath invariants, not PED counts."
+        ],
+        "reasoning": "The induced-degree representation gives an equivalent graph-theoretic formulation; other domination notions (ordinary, vertex perfect, efficient edge) have materially different quantified requirements.",
+        "searches": [
+          "perfect edge dominating set edge degree sum condition zero selected degree independent set",
+          "Resultary: perfect edge domination biclique complete bipartite minus matching one edge deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed exceptional (3,3,3) polynomial 3z²+6z⁴+z⁶ is a complete enumeration for C6; the inspected P6-free paper gives a general counting scheme, not a table of this family."
+        ],
+        "reasoning": "No matching exact table found in the checked sources, but search failure alone is not proof of originality.",
+        "searches": [
+          "perfect edge dominating sets crown graph n n deleted perfect matching enumerations",
+          "matched deletion biclique perfect edge domination polynomial 3z2 6z4"
+        ]
+      },
+      "rationale": "The P6-free graph class includes matched-deletion bicliques (an induced P6 would require four missing cross edges among three vertices per side, while a matching can provide at most three), so the published general PED counting algorithm is applicable. Its existence does NOT state or mathematically imply without new specialized analysis the closed three-term polynomial, exception and sharp one-edge instability; 2026 follow-up tree/chordal/GSP claims also do not state this family in accessible material. A plausible later primary paper could not be read in full; qualification preserved.",
+      "residual_risks": [
+        "The potentially relevant July 2026 PED counting full text was inaccessible; primary arXiv and lawful OA were attempted, then authorized institutional retrieval returned vpn_disconnected. A relevant exact formula in its full text cannot be excluded.",
+        "The general P6-free algorithm is already known and should receive explicit credit.",
+        "No statement for m<3, nonmatching deletions, or counting up to graph automorphism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general P6-free counting algorithm, DOES NOT state the closed Kmn-minus-matching formula or instability in the inspected text",
+          "evidence": [
+            "The counting theorem for P6-free graphs applies by exclusion of induced P6 in matched-deletion bicliques."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.04598v2",
+          "material_read": "Full available primary arXiv HTML including PED definition, P6-free polynomial algorithm and graph-class results",
+          "method": "Primary full-text HTML reading",
+          "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+          "trigger": "Counting framework whose class includes the target family"
+        },
+        {
+          "assessment": "UNCERTAIN possible overlap; not classified as non-covering based on abstract alone",
+          "evidence": [
+            "arXiv:2607.03894 July 2026 abstract discusses trees, forests, chordal and generalized series-parallel graphs; full text unavailable"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03894",
+          "material_read": "Bibliographic abstract only; arXiv and lawful OA full-text retrieval unsuccessful; authorized institutional retrieval explicitly reports VPN disconnected",
+          "method": "Abstract-level comparison plus unsuccessful authorized full-text access",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "Direct same invariant and recent counting extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A dense classical graph family suffers a sharp one-edge jump in minimum perfect-edge domination by an unbounded factor; the exact polynomial gives every valid set and isolates a unique exceptional six-cycle. This is a structural phase transition for a natural domination invariant rather than just another table entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2509.04598v2",
+    "https://arxiv.org/abs/2607.03894",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The potentially relevant July 2026 PED counting full text was inaccessible; primary arXiv and lawful OA were attempted, then authorized institutional retrieval returned vpn_disconnected. A relevant exact formula in its full text cannot be excluded.",
+    "The general P6-free algorithm is already known and should receive explicit credit.",
+    "No statement for m<3, nonmatching deletions, or counting up to graph automorphism."
+  ],
+  "schema_version": 1
+}
