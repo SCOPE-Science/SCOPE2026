@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:53:22Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Independently computed p=4,a=3/2,b=1/2: midpoint distances to all four corners have fourth powers 8.5 and envelope F_p=8.5; also exact algebraic equality follows from ||u+v||_p^p=||u-v||_p^p. Read actual CHECK.py (blob 715ac3), but grid demonstrations are not the universal proof."
+      ],
+      "limitations": [
+        "Finite checker diagnostics do not substitute for analytic all-parameter proof."
+      ],
+      "rationale": "The proof uses a triangle with edge vectors u,v: compare interior z=hU+kV with 0 and an adjacent vertex to obtain d_p(z,vertices)<= (||U||+||V||)/2. By convexity and Hanner for p>=2, triangle deficiency^p <=2^(-p-1)[(||u||+||v||)^p+|||u||-||v|||^p]. Applying Meyer Lemma 2.4 when z is outside trivial A+conv B or conv A+B regions gives a parallelogram whose side lengths are <=2a,2b; F_p(x,y) monotone yields upper envelope. Sharp diagonal-antidiagonal vectors u=(2^(1-1/p)a,2^(1-1/p)a), v=(2^(1-1/p)b,-2^(1-1/p)b) make four vertices equidistant from midpoint, exactly attaining F_p(a,b). Imported lemma checked in primary source.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The imported geometric reduction applies to all normed planes and therefore fully covers a key structural step; Hanner refines the p>2 estimate using both radii."
+        ],
+        "reasoning": "A stronger hidden general two-radius norm theorem could subsume claim; inspected Meyer result states coefficient not entire off-diagonal optimum.",
+        "searches": [
+          "Meyer arXiv:2604.20387v2 full proof, Lemma 2.4",
+          "Meyer arXiv:2407.07033 Euclidean planar convex hull sumset"
+        ]
+      },
+      "checked_sources": [
+        "Meyer arXiv:2604.20387v2 full paper Proposition 1.1 and Lemma 2.4 pp5-8",
+        "Hanner 1956 DOI:10.1007/BF02589410 via secondary statement",
+        "Meyer arXiv:2407.07033 2024 Euclidean planar case",
+        "Resultary Hausdorff convexification search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Meyer supplies triangle reduction and Clarkson coefficient; substituting Hanner retains radii and produces a further sharp inequality not literally asserted in that source."
+        ],
+        "reasoning": "Mathematical ingredients known and related; claim is a tight off-diagonal implication of the published geometric reduction plus Hanner, not a claim of a new general reduction lemma.",
+        "searches": [
+          "Meyer arXiv:2604.20387v2 Lemma 2.4 and Lemma 2.5",
+          "Hanner 1956 inequality as cited in Meyer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer gives upper bound max{1,2^(p−2)}(a^p+b^p), sharp when a=b for p>2, while the claimed symmetric Hanner envelope F_p(a,b) is smaller away from that diagonal."
+        ],
+        "reasoning": "Compared same norm, dimension, deficiency d_p, quantifiers over compact A,B, not simply titles. New bound agrees at diagonal, zero radius and p2 boundary but is strictly more informative at positive unequal radii.",
+        "searches": [
+          "Mark Meyer arXiv:2604.20387v2 Proposition 1.1, Lemmas 2.4-2.5",
+          "Resultary: two-dimensional Minkowski sums Hausdorff distance to convex hull sharp off diagonal ell p Hanner Meyer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known equal-radius extremizer and p=2 Euclidean bound coincide with special boundary values, but not a complete bivariate p>2 sharp function in inspected text."
+        ],
+        "reasoning": "The exact surface F_p(a,b) requires the new equality construction and the sharp triangle interpolation; no matching full profile surfaced.",
+        "searches": [
+          "Meyer 2026 introduction Proposition 1.1",
+          "Resultary Hausdorff convexification semantic search"
+        ]
+      },
+      "rationale": "Meyer 2026 primary article read in relevant mathematical body: it proves sharp uniform factor max{1,2^(p-2)} and supplies exactly the imported planar parallelogram reduction, with equal-radii sharpness for p>2. The off-diagonal full two-radius profile is not in its inspected theorem and is a strict refinement for a≠b>0; Hanner is a known tool, appropriately credited.",
+      "residual_risks": [
+        "The exact off-diagonal bound may be regarded as a short corollary of Meyer reduction plus Hanner and so historical priority of the bivariate formula remains vulnerable.",
+        "Meyer reduction and Hanner inequality are imported; a proof must retain these credits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS reduction and equal-radius optimal coefficient; inspected source does not state full bivariate off-diagonal F_p(a,b)",
+          "evidence": "Its result has global constant max{1,2^(p−2)}; Lemma 2.4 grants bounded-side parallelogram; Lemma 2.5 uses Clarkson not exact Hanner radius profile.",
+          "identifier_or_url": "https://arxiv.org/html/2604.20387v2",
+          "material_read": "Full mathematical article downloaded/opened; Introduction, Proposition 1.1, Lemma 2.4, Lemma 2.5 and proofs on pp5-8 read with PDF screenshots",
+          "method": "arXiv full PDF/HTML and rendered page screenshots",
+          "title": "A sharp p-subadditive bound for the ell_p Hausdorff distance from convex hull",
+          "trigger": "Precisely matching objects, parameters and potential dominating theorem"
+        },
+        {
+          "assessment": "Hanner inequality is PRIOR mathematics, not novel part of this record",
+          "evidence": "p>=2 bound ||u+v||_p^p+||u-v||_p^p <= (||u||+||v||)^p+|||u||−||v|||^p.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02589410",
+          "material_read": "Published theorem cited/used through inspected Meyer argument; original 1956 paper not read in full",
+          "method": "Mathematical cross-reference in full modern paper",
+          "title": "On the uniform convexity of L^p and ell^p",
+          "trigger": "Core classical Hanner inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-radius exact convexification envelope resolves the unequal-deficiency regime in a motivated planar norm problem, including sharp attainment for all ratios. It improves the published uniform coefficient at every genuinely off-diagonal positive pair and supplies useful geometry-specific information.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Meyer arXiv:2604.20387v2 full paper Proposition 1.1 and Lemma 2.4 pp5-8",
+    "Hanner 1956 DOI:10.1007/BF02589410 via secondary statement",
+    "Meyer arXiv:2407.07033 2024 Euclidean planar case",
+    "Resultary Hausdorff convexification search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp off-diagonal ell_p Hausdorff convexification for planar Minkowski sums",
+  "limitations": [
+    "Scientific claim assessed against exact frozen source tree and specific reviewed RESULT.md, checker and metadata blobs.",
+    "Previous self-review is not treated as independent science; public audit status remains unverified.",
+    "No published modification or external attestation is represented."
+  ],
+  "residual_risks": [
+    "The exact off-diagonal bound may be regarded as a short corollary of Meyer reduction plus Hanner and so historical priority of the bivariate formula remains vulnerable.",
+    "Meyer reduction and Hanner inequality are imported; a proof must retain these credits."
+  ],
+  "schema_version": 1
+}

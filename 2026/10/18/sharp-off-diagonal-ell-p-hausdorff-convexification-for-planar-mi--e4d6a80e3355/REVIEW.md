@@ -1,15 +1,21 @@
-# Review of the sharp off-diagonal planar \(\ell_p\) profile
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete claim has a matching analytic upper and lower bound. Meyer's planar parallelogram reduction (Lemma 2.4, arXiv:2604.20387v2) gives a triangle with two controlled adjacent sides. The elementary triangle comparison bounds its vertex distance by the average of the two midpoint-vector \(p\)-th powers. The upper Hanner inequality for \(p>2\) retains the difference between the two side lengths. Monotonicity passes to the prescribed radii, and a scaled orthogonal-coordinate pair of two-point sets attains every parameter value. Boundary cases \(a=0\), \(b=0\) are included. The checker passed. Main nontrivial dependencies are the cited planar reduction and Hanner inequality; neither is silently assumed or inverted.
+## correctness
 
-## Originality
-**PASS, with residual historical priority risk.** Meyer's complete accessible 2026 manuscript gives only the sharp global coefficient and an equality family with \(a=b\) for \(p>2\); it explicitly motivates improvement off the diagonal in the introduction. The source's stronger geometric lemma and its scalar triangle estimate were compared by implication, not only by title; neither states the two-radius formula. Hanner (1956) separately provides a known vector-norm inequality; the new result is the exact sharp geometric synthesis and the unequal-radius equality mechanism. Targeted mathematical literature and mathematical research-record searches returned no matching sharp prescribed-radius profile. Other convexification records concern different bodies, scalar ratios, or higher-order sums. Unindexed earlier derivations and overlap in uninspected materials remain potential priority risks.
+PASS
 
-## Mathematical value
-**PASS.** The exact two-variable envelope answers the explicit off-diagonal sharpening question left by a recent sharp planar convexification theorem. Unlike the global multiplier, it quantifies the continuously varying penalty of unequal nonconvexity radii and gives universal extremizers at every ratio, including limiting one-convex-summand cases. It is a complete natural parameter classification, not an arbitrary numerical slice; no broader theory or equality rigidity is claimed.
+The proof uses a triangle with edge vectors u,v: compare interior z=hU+kV with 0 and an adjacent vertex to obtain d_p(z,vertices)<= (||U||+||V||)/2. By convexity and Hanner for p>=2, triangle deficiency^p <=2^(-p-1)[(||u||+||v||)^p+|||u||-||v|||^p]. Applying Meyer Lemma 2.4 when z is outside trivial A+conv B or conv A+B regions gives a parallelogram whose side lengths are <=2a,2b; F_p(x,y) monotone yields upper envelope. Sharp diagonal-antidiagonal vectors u=(2^(1-1/p)a,2^(1-1/p)a), v=(2^(1-1/p)b,-2^(1-1/p)b) make four vertices equidistant from midpoint, exactly attaining F_p(a,b). Imported lemma checked in primary source.
 
-## Closest literature and limitations
-Meyer, arXiv:2604.20387v2, Introduction and Proposition 1.1, and Hanner, Ark. Mat. 3 (1956), are the closest premises. Meyer (2025), arXiv:2407.07033, treats the Euclidean exponent. The proof relies on these existing results; the exact two-radius consequence and construction are new relative to the inspected accounts. No higher-dimensional or arbitrary-norm conclusion is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meyer 2026 primary article read in relevant mathematical body: it proves sharp uniform factor max{1,2^(p-2)} and supplies exactly the imported planar parallelogram reduction, with equal-radii sharpness for p>2. The off-diagonal full two-radius profile is not in its inspected theorem and is a strict refinement for a≠b>0; Hanner is a known tool, appropriately credited.
+
+## value
+
+PASS
+
+The two-radius exact convexification envelope resolves the unequal-deficiency regime in a motivated planar norm problem, including sharp attainment for all ratios. It improves the published uniform coefficient at every genuinely off-diagonal positive pair and supplies useful geometry-specific information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
