@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For generic Gaussian objectives, graphical-zonotope normal cones correspond bijectively to acyclic orientations. A complete-bipartite orientation has a unique alternating sequence of labeled class blocks; the independent Gaussian rank measure assigns its cone the exact probability equal to the within-block permutation count divided by the total permutation count. Squaring and multiplying by the labeled-block multiplicity yields the formal factorial-series coefficient. The bound on normalized weighted positive compositions follows by merging adjacent blocks and uniformly bounding the two-block reciprocal-binomial sum. Only configurations with one large-class block survive at first asymptotic order; their exact contribution is the inverse-binomial sum. The min/max angle classifications follow by factorial convexity and run balancing. A standard-library checker independently enumerated 2,818 orientation signatures from 15 small bipartitions, compared three exact methods, and tested nine large-side coefficients. No finite check is used as a substitute for the analytic proof.
+PASS
 
-## Originality — PASS, with residual risk
+The Euclidean normal cone of each K_{p,q} zonotope vertex is a graphic-arrangement chamber union: sorting isotropic Gaussian coordinates is uniform over (p+q)! orders, and consecutive same-partite vertices form blocks freely permutable inside runs. This gives angle prod_i(a_i!)prod_j(b_j!)/(p+q)!, orientation multiplicity p!q!/prod factorials, and collision sum C=sum(angle^2). The formal alternating-run series is F(x)F(y)(2+F(x)+F(y))/(1-F(x)F(y)), with F(t)=sum j! t^j; no analytic convergence is presumed. Fixed q means at most q+1 first-class blocks. For k>=2, merging a pair proves S_k(p)<=S_2(p)=O(1/p); one first-class block contributes p!q! H_q. This proves p^{2q}C->(q!)^2 H_q, NOT uniform in q. The min-angle smoothing and two-block max formulas match the block inequalities. An independent enumeration of ALL labeled orders for (1,1),(2,1),(2,2),(3,2),(3,3) gives 1/2,5/18,7/72,47/1200,9/800, agreeing with the combinatorial series, but is finite corroboration, not proof for all p,q.
 
-The central claim is the collision probability of two independent random Euclidean objectives and its fixed-small-side asymptotic. Padrol–Pilaud–Poullot establish the family and normal fans; Iriarte's earlier result already implies the maximum-angle orientations, which are not claimed as new. Carballosa–Khera–Reyes and Cameron–Glass–Rekvényi–Schumacher enumerate the orientations without their squared normal-cone weights. Stinson–Gleich–Constantine study Gaussian normal-cone vertex sampling in general, but their inspected probability and algorithmic sections do not give the present complete-bipartite coefficient or asymptotic. Neither the relevant retrieved mathematical record summaries nor the inspected primary source sections imply the new exact and asymptotic collision law. An equivalent calculation under lonesum-matrix or weighted-linear-extension terminology may exist and remains a bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The collision functional is the exact probability that repeated spherical optimization returns an already observed vertex, equivalently the order-two effective number of direction-visible vertices. The exact coefficient evaluates this statistic for every complete bipartition, while the sharp fixed-small-side limit demonstrates polynomial effective visibility in a family with exponentially many distinct vertices. This contrast is a substantive geometric sampling phenomenon and connects normal-cone geometry to randomized vertex enumeration. Its naturality is independent of the previously known maximum-angle extremizers.
+Best-of-knowledge originality is for the precisely new contribution, excluding acknowledged prior-covered premises/corollaries. The four structured implication comparisons and genuine source inspections support noncoverage within a bounded search, not an absolute proof of novelty.
 
-## Scope of claims
+## value
 
-The formula uses the induced Euclidean metric in the zero-sum hyperplane and applies to positive integer bipartition sizes. The asymptotic holds only when one class size remains fixed. References and risk statements do not certify global novelty. Independent mathematical verification has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural geometric sampling statistic on graph zonotopes: probability that two independent Euclidean supporting objectives have identical maximizing vertices. Exact angular spectrum/weighted second moment provides concentration information not contained in acyclic-orientation counts. The counterintuitive polynomial effective-support size versus exponentially many vertices has a sharp fixed-partite constant (q!)^2 H_q. Both the specified model and invariant have intrinsic motivation, with potential use in randomized vertex enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
