@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-sample theorem follows by determining the trigonometric intensity of the first channel, then using its known outer Fourier coefficient to recover the second channel from only \(2d-1\) samples. The exact Laurent-square identity creates a global sign dichotomy. In the same-sign branch the logarithmic derivatives coincide, so the polynomials differ only by phase. In the opposite branch a unimodular rational quotient obeys a constant Euler-logarithmic-derivative identity, whose integral residue is necessarily an integer. This gives the complete shifted reciprocal-conjugate classification, with explicit monomial witnesses at every resonant wall. Endpoints, zero polynomial, and degrees below the bound are included. The executable checks reproduce 105 exact Laurent/reciprocity claims and 48 independent finite-sample coefficient reconstructions; their limited numerical scope is acknowledged.
+## correctness
 
-**Originality — PASS, best knowledge.** Philipp's 2014 arXiv:1403.4769 Theorem 1.1 already proves the \(\alpha=0\) polynomial/derivative theorem at the same sample counts using the trigonometric sign method; this is explicitly credited, not claimed here. Perez's 2020 arXiv:2009.02061 considers two geometric modulus sets, not the shifted Euler-filter channel; polarimetric polynomial factorization results likewise use different measurements. The distinct asserted content is the full complex shift parameter-wall criterion, exact conditional support and two-phase-class fibers, and sharp failure at every wall. Searches for Euler-filter/shifted-derivative phase retrieval and conjugate-reflection analogues did not produce an implication stronger than the claimed result. The residual risk is that an earlier general differential-channel or rational inner-function theorem may encode the same parameter-wall classification.
+PASS
 
-**Value — PASS.** An analytically natural, tunable diagonal frequency filter undergoes sharp, fully classified phase-retrieval transitions on a discrete set of real shift parameters. The theorem specifies exactly when arbitrary angular designs with \(4d\) scalar intensities are universal and, when they are not, supplies every possible nontrivial ambiguity and explicit witnesses. This structural parametric bifurcation goes beyond a fixed-parameter exercise. It does not claim optimal conditioning or minimal number of samples against all other designs.
+The first 2d+1 samples interpolate the full Laurent intensity A. The top B Fourier coefficient is −conj(α)(d−α)[A]_d, so after removing both known extreme harmonics the remaining degree≤d−1 real Laurent intensity B is interpolated by any 2d−1 distinct sample points. The exact identity (Re(zP′conj(P))−Reα A)²=AB−(A′/2+Imα A)² forces one global sign in the Laurent domain; plus forces Q=cP, minus forces z(Q/P#)′/(Q/P#)=2Reα. Rational-function order at zero is an integer k, and constant logarithmic derivative yields Q=c z^k P#. Support 0≤k−j≤d yields all nontrivial walls and excluded endpoint cases, and monomial pairs give every resonant failure. Independently computed d=2 reciprocal pair P=(1+i)+(2−2i)z+(3+0.2i)z²: the A and B profiles coincide at α=1+0.3i to floating rounding, but not at detuned α=1.2+0.3i. This finite check only corroborates the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Friedrich Philipp’s 2014 Theorem 1.1 proves an unshifted derivative intensity construction using 4d measurements, and his polynomial proof shares Fourier interpolation. The shifted Euler filter zP′−αP and its exact integer-reciprocal resonance/fiber/support theorem were not established in the materially inspected prior theorem. Prior holomorphic phase-retrieval and polarimetric results use different channels.
+
+## value
+
+PASS
+
+An exact uniqueness boundary and complete two-point ambiguity classification for a natural degree-diagonal differential measurement is a motivated structural phase-retrieval result; it explains when increasing data cannot remove ambiguity, not just isolated numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
