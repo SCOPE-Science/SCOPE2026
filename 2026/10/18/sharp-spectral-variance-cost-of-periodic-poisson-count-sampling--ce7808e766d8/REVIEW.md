@@ -1,15 +1,21 @@
-# Scientific review: sharp periodic-Poisson factorial-count variance
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-window factorial generating function yields an exact covariance, and the unit-period block statistics form a stationary one-dependent sequence with all moments, giving the central limit theorem. The period-integrated covariance is evaluated by Parseval. Constant rate is the unique equality case in the lower bound; positive arc masses exclude attainment of the upper bound and a smooth approximate identity proves sharpness. The accompanying program passed 64 independently implemented deterministic assertions; numerical tests are supporting diagnostics only.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest motivating study is Stewart and Sahani, *Sampling on Discrete Spaces with Temporal Point Processes* (arXiv:2603.09089; first public March 10, 2026), which constructs the periodic Poisson special case and leaves oscillatory-efficiency effects as a question. The classical general variance formula and normal-approximation framework for Poisson U-statistics are due to Reitzner and Schulte (arXiv:1104.1039), not new here. The examined texts do not state the resulting exact seasonal Fourier penalty, its sharp upper/lower design bounds and unique optimizer. Targeted literature and mathematical-record searches returned no matching explicit coverage; older implicit coverage remains possible, and partial abstract-only comparisons are not full-text clearances.
+PASS
 
-## Mathematical value — PASS
-A normalized intensity oscillation leaves every sampled Poisson marginal unchanged, but worsens physical-time uncertainty in its second factorial moment by a computable harmonic penalty, while the corresponding linear observable is unaffected. This is a natural estimator-efficiency design question for temporal point-process samplers, with a sharp continuous class minimizer and unattained supremum. The effect is structurally linked to pair overlaps and supplies an exact motivation for uniform driving intensity when estimating a quadratic observable.
+For overlapping Poisson windows with shared intensity rho=lambda*A_(1-h)(t), the bivariate factorial generating function exp(lambda(z+w)+rho zw) gives Cov((S(t))_2,(S(t+h))_2)=4lambda²rho+2rho². The unit-period integrals B_j depend only on Poisson increments in (j-1,j+1], making a strictly stationary 1-dependent sequence with finite moments, so the standard m-dependent CLT applies. Integrating covariance over period and separation yields V=4lambda³+4lambda² integral_0^1int_0^1 A_L². Parseval gives integral A_L²=L²+sum_{k!=0}|etahat(k)|² sin²(pi*k*L)/(pi²k²), whose L integration yields the stated spectral penalty. Lower equality iff all nonzero Fourier modes vanish; positive arc masses give strict upper V<4lambda³+2lambda², while smooth approximate delta pulses approach it. The linear-count variance uses only first overlap moment and is lambda. Independent 2D trapezoidal quadrature of overlap masses agreed with the harmonic spectral formula within 6e-6 on three modulation/lambda cases.
 
-## Scientific limitations and integrity
-Only continuous positive period-one rates, a univariate Poisson target, physical-time unit-window averages and the explicitly stated observables are covered. Neither all target distributions nor other sampling schemes are classified. The exact variance is proved analytically, not inferred from finite quadrature. Independent priority and correctness audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct final theorem after comparison of equivalent objects, broader implications and exact accessible primary statements; not a historical priority guarantee. Identical Poisson marginals alone do not imply equal asymptotic variance for overlapping-window nonlinear statistics. Classical covariance/CLT formulas must be combined with periodic overlap Fourier analysis and extremizer argument, not stated in the motivating paper.
+
+## value
+
+PASS
+
+A practical natural uncertainty question: all periodic intensities have identical one-time Poisson target, yet nonlinear physical-time pair-count sampling incurs an exact nonnegative frequency penalty. Unique uniform optimum, sharp unattained worst case and a contrast with the unchanged linear estimator provide an explicit design theorem, not just a CLT corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T06:57:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/sharp-spectral-variance-cost-of-periodic-poisson-count-sampling--ce7808e766d8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/016411cb13578016bdc0d92a558ad8c934d73ff3/2026/10/18/sharp-spectral-variance-cost-of-periodic-poisson-count-sampling--ce7808e766d8/verify.py"
+      ],
+      "rationale": "For overlapping Poisson windows with shared intensity rho=lambda*A_(1-h)(t), the bivariate factorial generating function exp(lambda(z+w)+rho zw) gives Cov((S(t))_2,(S(t+h))_2)=4lambda²rho+2rho². The unit-period integrals B_j depend only on Poisson increments in (j-1,j+1], making a strictly stationary 1-dependent sequence with finite moments, so the standard m-dependent CLT applies. Integrating covariance over period and separation yields V=4lambda³+4lambda² integral_0^1int_0^1 A_L². Parseval gives integral A_L²=L²+sum_{k!=0}|etahat(k)|² sin²(pi*k*L)/(pi²k²), whose L integration yields the stated spectral penalty. Lower equality iff all nonzero Fourier modes vanish; positive arc masses give strict upper V<4lambda³+2lambda², while smooth approximate delta pulses approach it. The linear-count variance uses only first overlap moment and is lambda. Independent 2D trapezoidal quadrature of overlap masses agreed with the harmonic spectral formula within 6e-6 on three modulation/lambda cases.",
+      "residual_risks": [
+        "The upper constant is a supremum over the admissible class, never attained by strictly positive continuous eta; independence of disjoint one-unit windows underlies block 1-dependence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+          "arXiv:2603.09089, Example 1 and Discussion."
+        ],
+        "reasoning": "General Poisson U-statistic limit theorems can justify covariance and CLT, but without this explicit periodic window spectral identity and extremal design. Stewart–Sahani leaves periodic intensity efficacy as a motivating discussion instead of resolving the pair-count variance.",
+        "searches": [
+          "periodic nonhomogeneous Poisson sliding window pair count factorial moment integrated asymptotic variance Fourier modulation optimal intensity",
+          "Resultary published mathematical-record semantic search (12 results)",
+          "https://arxiv.org/html/2603.09089"
+        ]
+      },
+      "checked_sources": [
+        "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+        "Reitzner and Schulte, Central limit theorems for U-statistics of Poisson point processes, arXiv:1104.1039, background generic Poisson U-statistics covariance and CLT framework."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+          "arXiv:2603.09089, Example 1 and Discussion."
+        ],
+        "reasoning": "Identical Poisson marginals alone do not imply equal asymptotic variance for overlapping-window nonlinear statistics. Classical covariance/CLT formulas must be combined with periodic overlap Fourier analysis and extremizer argument, not stated in the motivating paper.",
+        "searches": [
+          "periodic nonhomogeneous Poisson sliding window pair count factorial moment integrated asymptotic variance Fourier modulation optimal intensity",
+          "Resultary published mathematical-record semantic search (12 results)",
+          "https://arxiv.org/html/2603.09089"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+          "arXiv:2603.09089, Example 1 and Discussion."
+        ],
+        "reasoning": "Checked aliases seasonal Poisson moving-window counts, Poisson U-statistics, second factorial moment and integrated covariance. Generic second-order chaos variance formulas cover covariance evaluation in principle, not the complete normalized-period spectral optimization.",
+        "searches": [
+          "periodic nonhomogeneous Poisson sliding window pair count factorial moment integrated asymptotic variance Fourier modulation optimal intensity",
+          "Resultary published mathematical-record semantic search (12 results)",
+          "https://arxiv.org/html/2603.09089"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+          "arXiv:2603.09089, Example 1 and Discussion."
+        ],
+        "reasoning": "Semantic Resultary searches for periodic Poisson, pair-count and Fourier variance found different Poisson occupancy and correlation statistics; no matching exact formula/table in top-ranked records. No assertion of exhaustive priority.",
+        "searches": [
+          "periodic nonhomogeneous Poisson sliding window pair count factorial moment integrated asymptotic variance Fourier modulation optimal intensity",
+          "Resultary published mathematical-record semantic search (12 results)",
+          "https://arxiv.org/html/2603.09089"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct final theorem after comparison of equivalent objects, broader implications and exact accessible primary statements; not a historical priority guarantee. Identical Poisson marginals alone do not imply equal asymptotic variance for overlapping-window nonlinear statistics. Classical covariance/CLT formulas must be combined with periodic overlap Fourier analysis and extremizer argument, not stated in the motivating paper.",
+      "residual_risks": [
+        "Earlier Poisson shot-noise spectral-method literature may contain algebraically equivalent variance formula in other normalization.",
+        "The primary general U-statistics reference was used as background; the all-inclusive literature index is not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Constructs the Poisson target with periodic modulation and discusses sampling efficiency; its inspected theorem/Example 1 does not establish this factorial-pair physical-time Fourier variance penalty or sharp optimization across eta.",
+          "evidence": [
+            "arXiv:2603.09089, Example 1 and Discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.09089",
+          "material_read": "Complete available arXiv HTML, Example 1 and Discussion including the modulated-Poisson target construction and efficiency discussion.",
+          "method": "Compared sampling clock/normalization, one-time marginals, observable, covariance result, and exact extremizer claims.",
+          "title": "Sampling on Discrete Spaces with Temporal Point Processes",
+          "trigger": "Same one-dimensional periodically modulated Poisson window sampler and direct unresolved periodic-efficiency question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Stewart and Sahani, Sampling on Discrete Spaces with Temporal Point Processes, arXiv:2603.09089, Example 1 and Discussion; full arXiv HTML inspected.",
+        "Reitzner and Schulte, Central limit theorems for U-statistics of Poisson point processes, arXiv:1104.1039, background generic Poisson U-statistics covariance and CLT framework."
+      ],
+      "rationale": "A practical natural uncertainty question: all periodic intensities have identical one-time Poisson target, yet nonlinear physical-time pair-count sampling incurs an exact nonnegative frequency penalty. Unique uniform optimum, sharp unattained worst case and a contrast with the unchanged linear estimator provide an explicit design theorem, not just a CLT corollary.",
+      "residual_risks": [
+        "Metric is physical-time factorial-moment variance, not event-time efficiency or general nonlinear observables."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
