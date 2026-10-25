@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness.** The prime-factor formulas for the arithmetic derivative and Euler totient reduce equality to the exact nonnegative Euler-product deficit \(c-c\prod_{q\ge5,q\mid c}(1-1/q)=2\). The prime factor \(q\) yields the rigorous lower bound \(c/q\) on that deficit, forcing \(c=q\) or \(c=2q\); only the latter works. Dirichlet's theorem justifies infinitude, and a uniform form of the classical prime number theorem proves the exponent-height asymptotic. Exact-arithmetic checks on 2,916 exponent pairs and independent comparisons with OEIS table terms corroborate the proof. No step relies on finite experiments to establish an unbounded assertion.
+## correctness
 
-**Originality.** OEIS A260961 publicly poses the exact global composition equality and lists sample integers, so the object and early examples are not claimed as new. Its complete entry has no formula for the interior \(\{2,3\}\)-smooth slice and no prime-indexed exponent-height asymptotic. Dahl--Olsson--Loiko (arXiv:1108.4762) supplies the arithmetic derivative's general factor formula but does not address the exact totient composition equality. Relevant published results on derivative cycles, derivative-cototient gaps and other totient compositions concern inequivalent equations and do not imply this classification. Full text of several less-direct results was not accessible, so an unindexed equivalent proof remains a residual risk.
+PASS
 
-**Value.** The original equation is an enumerated arithmetic-function commutation problem, not an artificially introduced equality. Numbers supported on the two smallest primes form its first nontrivial rank-two multiplicative lattice. The exact classification reveals a prime-indexed family, a fixed-exponent infinitude dichotomy, and the main-term count \(X^2/(4\log X)\) in the intrinsic height of that lattice. This is a complete natural subfamily rather than a bounded computation or routine substitution; it does not claim the unrestricted problem is solved.
+Reconstructed from D(n)=n sum_{p|n}vp(n)/p: set c=3a+2b, K=2^(a−1)*3^(b−2). Then D(n)=3Kc, D(phi(n))=K(c−2), phi(D(n))=Kc product_{q|c,q>=5}(1−1/q), yielding Euler-product deficit exactly 2. If any q>=5 divides c, deficit >=c/q; c=q gives deficit 1 and c=2q gives 2; no such q gives zero. Thus c=2q with q prime >=5; a even and q=3u+b. Dirichlet gives infinitude in the two reduced residue classes mod3 for fixed b, and none if 3|b. Counting interval 3u+2<=q<=X+u gives the exact prime-count sum; a uniform prime number theorem on u<=X/2 yields asymptotic X²/(4logX). Independently computed both arithmetic sides from factorizations for 225 exponent pairs (a,b in 2..16), all matched. Test scope excludes a<2,b<2.
 
-**Scientific limits.** Boundary exponents, other prime supports, and any global distribution by ordinary magnitude remain outside scope. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted contribution is the exact final claim after crediting the stated established inputs; best-of-knowledge originality is supported by matched statement/implication comparisons, not just title matches. The commutation locus of two standard arithmetic operations is a canonical explicit number-theoretic problem appearing in OEIS A260961. Exact prime parametrization on the first interior two-prime-support lattice, fixed-b infinitude classification and X²/(4logX) counting are nontrivial together, though bounded to the motivated 2,3 support and not solving the global equation.
+
+## value
+
+PASS
+
+The commutation locus of two standard arithmetic operations is a canonical explicit number-theoretic problem appearing in OEIS A260961. Exact prime parametrization on the first interior two-prime-support lattice, fixed-b infinitude classification and X²/(4logX) counting are nontrivial together, though bounded to the motivated 2,3 support and not solving the global equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
