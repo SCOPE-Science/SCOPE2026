@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T22:21:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Ehrenfest transition-row generating polynomial is A(z)^i B(z)^(n−i) with p=(1−a)/2,q=(1+a)/2; summing rows gives [B(z)^(n+1)−A(z)^(n+1)]/[a(1−z)]. The binomial likelihood ratio switches only once, so unique central column maximizes unweighted ℓ1. Differentiating the central binomial tail gives c_n/a integral_0^a(1−s²)^m ds, increasing from1 to c_n. Quotient Boolean-cube row absolute-derivative sums imply exact infinity norm 2 n a P(Bin(n−1,p)=floor np); local binomial CLT, uniform small/large time bound imply (γ+o(1))sqrt n. At a=n^(−1/2), t=(log n)/4, central-column derivative C_m′(t)/sqrt n->4β, hence M1>=(β+o(1))sqrt n log n. Individually checked 15 finite Q-matrix examples; no matching upper asymptotic of M1 is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/quant-ph/0702073",
+          "https://arxiv.org/abs/1003.6042",
+          "https://arxiv.org/abs/1309.0112"
+        ],
+        "reasoning": "Exact transition laws and spectra are broad tools but do not state the sharp central-column integral with corresponding n-dependent amplification or establish the logarithmic divergence of endpoint derivative norm ratios.",
+        "searches": [
+          "Kaplun continuous-time Ehrenfest transition formulas",
+          "Feinsilver Kocik Krawtchouk matrices",
+          "Diaconis Griffiths composition Ehrenfest chains"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: Ehrenfest chain endpoint counting l1 semigroup norm columns Krawtchouk",
+        "Feinsilver Kocik Krawtchouk polynomials matrices 2007",
+        "Kaplun continuous time Ehrenfest process arxiv 1003.6042",
+        "Diaconis Griffiths multivariate Krawtchouk 2013",
+        "Markov chain properties column sums Hunter 2012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/quant-ph/0702073",
+          "https://arxiv.org/abs/1003.6042",
+          "https://arxiv.org/abs/1309.0112"
+        ],
+        "reasoning": "Krawtchouk diagonalization implies transition matrix entries in principle, but the sharp maximum column and logarithmic endpoint separation require nontrivial binomial monotonicity and asymptotic estimates, not mere substitutions.",
+        "searches": [
+          "Krawtchouk spectral semigroup versus counting l1 norm Ehrenfest",
+          "unweighted column sum Ehrenfest derivative log separation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/quant-ph/0702073",
+          "https://arxiv.org/abs/1003.6042",
+          "https://arxiv.org/abs/1309.0112"
+        ],
+        "reasoning": "Stationary-weighted L1 is Markov-contractive, whereas ordinary counting ℓ1 has column sums that grow as c_n; confusing these equivalent-looking measures would erase the claim. Full-cube ℓ∞ derivative asymptotic is prior, not new.",
+        "searches": [
+          "Ehrenfest unweighted l1 counting semigroup norm column-sum central state",
+          "Ehrenfest binary hypercube derivative infinity norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://doi.org/10.12697/ACUTM.2012.16.03",
+          "Resultary targeted endpoint semantic hits concern other operators, no direct exact Ehrenfest column norm"
+        ],
+        "reasoning": "Generic column-sum estimates do not directly tabulate the central binomial integral or the derivative coefficients γ and β in counting norm.",
+        "searches": [
+          "Resultary Ehrenfest semigroup endpoint derivative gap log n",
+          "Jeffrey Hunter Markov chain properties in terms column sums transition 2012"
+        ]
+      },
+      "rationale": "Classical Krawtchouk diagonalization and reversible binomial stationarity do not determine unweighted counting-column norms or time-weighted endpoint derivative separation. Generic Markov-column-sum papers are not an exact Ehrenfest-ℓ1 radius theorem. Searches found no covering normalized logarithmic endpoint bound; older Ehrenfest literature may have equivalent expressions.",
+      "residual_risks": [
+        "Classical urn literature (Voit 1996 and Zhou–Lange 2009) full text not exhaustively read; possible equivalent counting-norm observations.",
+        "Only lower bound for M1; no matching upper coefficient or odd-n theorem asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior diagonalization background, no affirmative same norm-gap theorem",
+          "evidence": "Established connection of Krawtchouk matrices to Ehrenfest generator.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0702073",
+          "material_read": "ArXiv abstract and bibliographic description, not full derivations",
+          "method": "arXiv indexing",
+          "title": "Krawtchouk polynomials and Krawtchouk matrices",
+          "trigger": "Exact Ehrenfest spectral/eigenbasis machinery"
+        },
+        {
+          "assessment": "Relevant transition formula source; entire-document lack of norm estimate not certified",
+          "evidence": "No identified theorem on unweighted counting ℓ1 derivative operator norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.6042",
+          "material_read": "Title/abstract and transition-distribution summary only",
+          "method": "arXiv record inspection",
+          "title": "Continuous time Ehrenfest process in term structure modelling",
+          "trigger": "Same continuous-time urn process"
+        },
+        {
+          "assessment": "Supplies related spectral machinery; no affirmative domination by source scope",
+          "evidence": "Does not establish ℓ1/ℓ∞ derivative norm ratio on the n+1 Hamming-weight states.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.0112",
+          "material_read": "Available abstract/theorem descriptions rather than full paper",
+          "method": "arXiv indexing",
+          "title": "An introduction to multivariate Krawtchouk polynomials and their applications",
+          "trigger": "Broader Ehrenfest composition chain formalism"
+        },
+        {
+          "assessment": "General discrete-time column-sum and hitting-time relationships, not identified explicit Ehrenfest continuum logarithmic derivative gap",
+          "evidence": "No cited exact n,t central-binomial column formula.",
+          "identifier_or_url": "https://doi.org/10.12697/ACUTM.2012.16.03",
+          "material_read": "Journal full abstract and publication metadata",
+          "method": "Publisher abstract",
+          "title": "Markov chain properties in terms of column sums of the transition matrix",
+          "trigger": "Plausible alias through Markov column-sum norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting ℓ1 and ℓ∞ endpoint derivatives differ despite reversible Ehrenfest dynamics, with a sharp logarithmic lower order and explicit constants. The contrast isolates lumping/coordinate-counting geometry as a mathematically meaningful source of norm amplification; this is not the spectral eigenvalue calculation itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic: Ehrenfest chain endpoint counting l1 semigroup norm columns Krawtchouk",
+    "Feinsilver Kocik Krawtchouk polynomials matrices 2007",
+    "Kaplun continuous time Ehrenfest process arxiv 1003.6042",
+    "Diaconis Griffiths multivariate Krawtchouk 2013",
+    "Markov chain properties column sums Hunter 2012"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No Lean/expert proof, external human attestation, or exhaustive global bibliographic novelty certification is claimed.",
+    "Finite checks are supportive only; their precise limits are distinguished from analytical proofs.",
+    "Classical urn literature (Voit 1996 and Zhou–Lange 2009) full text not exhaustively read; possible equivalent counting-norm observations.",
+    "Only lower bound for M1; no matching upper coefficient or odd-n theorem asserted."
+  ],
+  "residual_risks": [
+    "Classical urn literature (Voit 1996 and Zhou–Lange 2009) full text not exhaustively read; possible equivalent counting-norm observations.",
+    "Only lower bound for M1; no matching upper coefficient or odd-n theorem asserted."
+  ],
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Scientific review: Ehrenfest endpoint derivative gap
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem uses even \(n\), the stated rate-one-per-bit generator, ordinary counting \(\ell^1\) and \(\ell^\infty\) norms, and positive times. The proof identifies the exact transition probability-generating polynomial, sums over initial states without multiplying by stationary weights, and determines the *central* maximizing column by strict binomial likelihood-ratio order. Differentiation of a finite binomial tail yields the integral identity and strict monotonicity. Hamming-weight lumping preserves the derivative's absolute-row norm for an all-zero initial state; the binomial mean-absolute-deviation identity supplies its exact value. Uniform binomial point-mass bounds control the maximizing-time boundary regimes. The rescaled central-column derivative at a logarithmic time gives a rigorous lower bound on the counting-\(\ell^1\) derivative norm and establishes a strict logarithmic separation from the \(\ell^\infty\) endpoint. No numerical experiment is used as an infinite-dimensional proof. A reproducible Poisson-uniformization checker passed 427 finite consistency comparisons.
+## correctness
 
-## Originality — PASS within examined evidence
-The central result is the exact *unweighted* \(\ell^1\) semigroup amplification and ensuing logarithmic derivative-norm separation. The separate full-Boolean-cube \(\ell^\infty\) formula and ordinary Ehrenfest transition kernel are recognized as existing ingredients rather than claimed discoveries. Feinsilver–Kocik (2007) gives the tridiagonal Kac/Krawtchouk structure; Zhou–Lange (2009) gives composition-chain lumping and spectral representations; Kaplun (2010) supplies explicit continuous-time Ehrenfest transition probabilities; Diaconis–Griffiths (2013) treats composition Markov chains using Krawtchouk expansions. The inspected theorem statements concern transitions, eigenfunctions, equilibrium, and mixing—not the unweighted maximum column mass, its strictly increasing integral profile, or the two-endpoint time-weighted derivative gap. Semantically related mathematical records on diagonal semigroups, Boolean-cube projections, and a discrete-time signSGD Ehrenfest example likewise do not imply this operator-norm result.
+PASS
 
-Priority limitation: classical Ehrenfest/birth–death literature is large; an older equivalent theorem under column sums, total-variation speed, or analytic-semigroup norms may exist. Voit's 1996 related work was accessible by abstract only. Publication priority has not been independently verified.
+The exact Ehrenfest transition-row generating polynomial is A(z)^i B(z)^(n−i) with p=(1−a)/2,q=(1+a)/2; summing rows gives [B(z)^(n+1)−A(z)^(n+1)]/[a(1−z)]. The binomial likelihood ratio switches only once, so unique central column maximizes unweighted ℓ1. Differentiating the central binomial tail gives c_n/a integral_0^a(1−s²)^m ds, increasing from1 to c_n. Quotient Boolean-cube row absolute-derivative sums imply exact infinity norm 2 n a P(Bin(n−1,p)=floor np); local binomial CLT, uniform small/large time bound imply (γ+o(1))sqrt n. At a=n^(−1/2), t=(log n)/4, central-column derivative C_m′(t)/sqrt n->4β, hence M1>=(β+o(1))sqrt n log n. Individually checked 15 finite Q-matrix examples; no matching upper asymptotic of M1 is claimed.
 
-## Value — PASS
-The result isolates a natural effect of state lumping: a process with symmetric microstate heat flow is noncontractive in the *counting* \(\ell^1\) geometry of the aggregated states. The exact finite-time column norm quantifies that concentration, while the proved logarithmic separation between time-weighted endpoint derivative norms demonstrates a qualitatively different amplification scale. This information is not inferable from the standard eigenvalues alone and informs how unweighted perturbations behave in coarse-grained birth–death dynamics.
+## originality
 
-## Limits
-Only even dimensions are treated by the exact central-column formula. The \(\ell^1\) time-weighted derivative result is a lower asymptotic bound, not a matching optimal coefficient. Numerical checks are finite. The literature comparison is evidence for originality but not a proof of historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical Krawtchouk diagonalization and reversible binomial stationarity do not determine unweighted counting-column norms or time-weighted endpoint derivative separation. Generic Markov-column-sum papers are not an exact Ehrenfest-ℓ1 radius theorem. Searches found no covering normalized logarithmic endpoint bound; older Ehrenfest literature may have equivalent expressions.
+
+## value
+
+PASS
+
+Counting ℓ1 and ℓ∞ endpoint derivatives differ despite reversible Ehrenfest dynamics, with a sharp logarithmic lower order and explicit constants. The contrast isolates lumping/coordinate-counting geometry as a mathematically meaningful source of norm amplification; this is not the spectral eigenvalue calculation itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
