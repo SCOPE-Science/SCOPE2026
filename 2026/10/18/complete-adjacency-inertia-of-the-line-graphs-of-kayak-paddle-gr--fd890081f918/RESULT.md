@@ -47,7 +47,7 @@ Akbari, Elphick, Kumar, Pragada and Tang (first posted August 2, 2025) considere
 The present assertion is the closed residue/parity profile of **all** kayak paddles, including every nullity branch and all equality cases. It does not claim a new general incidence identity, a new congruence method, a solution of the fixed-cyclomatic-number conjecture for arbitrary graphs, or novelty for the two previously exhibited equality examples in isolation.
 
 ## Limitations
-The theorem is restricted to two disjoint cycles with a single connecting path and no attached trees or additional edges. It does not extend the signature bound to arbitrary bicyclic graphs, nor does it resolve the open sharp cyclomatic-number inequality for general connected graphs. Priority remains subject to inspection of any earlier equivalent all-parameter spectral or threshold-inertia characterization of kayak-paddle graphs. The mathematical review is same-model only; no independent validation has occurred.
+The theorem is restricted to two disjoint cycles with a single connecting path and no attached trees or additional edges. It does not extend the signature bound to arbitrary bicyclic graphs, nor does it resolve the open sharp cyclomatic-number inequality for general connected graphs. Priority remains subject to inspection of any earlier equivalent all-parameter spectral or threshold-inertia characterization of kayak-paddle graphs. The mathematical review is self-review only; no independent validation has occurred.
 
 ## References
 1. S. Akbari, C. Elphick, H. Kumar, S. Pragada and Q. Tang, *A new conjecture on the inertia of graphs*, arXiv:2508.01163 (first public August 2, 2025); later published in Discrete Mathematics 349 (2026), 114953. https://arxiv.org/abs/2508.01163
