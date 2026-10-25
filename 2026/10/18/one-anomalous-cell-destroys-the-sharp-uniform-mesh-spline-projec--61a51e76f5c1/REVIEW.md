@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the strict dichotomy for the infinite one-defect linear-spline orthoprojector, together with two exact nodal witness formulas; it does **not** claim a closed formula for the global norm at nonunit defect lengths. The proof constructs two Green rows of the bi-infinite tridiagonal Gram operator, checks each exceptional/source equation, integrates the absolute value of a piecewise-linear kernel exactly, and factors the two excesses. The positive factorizations cover every fixed real positive cell length and both sides of the threshold. The uniform case is independently settled by the translation-invariant Green row and convexity between knots. The attached `verify.py` reproduces nine algebraic identities over the quadratic field and finite-section tests. Numerical comparisons alone would not establish the universal theorem; the analytical Green recurrence and sign factors do.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The prior finite-mesh nodal formula of Ciesielski–Kamont (2004) is acknowledged, as are their exact Franklin-family bound, the uniform-mesh results of Passenbrunner (2011), and the general bound in Kayumov (2004). These works contain either an algorithm applicable to arbitrary finite partitions, a family with contiguous half-length cells, or the unperturbed uniform case. None of the inspected primary material states the bi-infinite **single** variable-length defect threshold, the two explicit witness functions, or their short/long location switch. The broad nodal formula does permit such a derivation after independently solving the localized Green problem; this limits the conceptual distance from existing machinery and is not concealed. Full bibliographic priority against older cardinal-spline literature remains an open external check.
+PASS
 
-## Value — PASS
-The constant \(2\) is a natural, sharp stability threshold in the uniform-grid spline projector problem, not an arbitrarily chosen invariant. This complete one-parameter rigidity result proves that **every nontrivial single-cell distortion**, however small, causes strict instability beyond the uniform bound, and exhibits a reversal of local amplification from the defective cell endpoints to adjacent exterior knots when the defect changes from contraction to expansion. It provides exact continuous witness formulas, not merely an existence argument or finite numerical experiment. These formulas can be used to bound localized projection instability in meshes with isolated defects. The global norm and multiple-defect theory remain open.
+For every fixed tau>0, the piecewise-linear L² spline mass matrix gives Jacobi Q=6M with diagonal 4 except nodes 0,1, where it is 2(1+tau), and off-diagonal 1 except the exceptional edge tau. Conjugation by alternating signs gives a positive exponentially decaying Green inverse, with r=2-sqrt(3). Independently checked the two explicitly proposed Green rows against the junction equations and their factored absolute-integral identities symbolically in Q(sqrt(3)); direct independent evaluations give L_0(1/2)-2≈0.04824942>0, L_{-1}(2)-2≈0.04514007>0. For 0<tau<1 the former has numerator 3tau(1-tau²); for tau>1 the latter has (tau²-1), with every other factor positive. At tau=1 translation-invariant Green rows yield all knot Lebesgue values 2, and convexity bounds between knots, proving iff. Does NOT claim the exact nonunit global norm or maximizing knot.
 
-## Closest literature and limitations
-Ciesielski–Kamont, *Studia Mathematica* 164 (2004), Section 2 provides the general Gram and Lebesgue formulas and Section 3 treats uniform/Franklin knot families. Passenbrunner, arXiv:1103.1949, treats uniform meshes; arXiv:1103.1950 treats a different periodic Franklin knot family. Kayumov, arXiv:math/0408418, treats general L-spline boundedness. The full Ciesielski–Kamont primary text was read in relevant sections. The finite constant for \(\tau\ne1\) is not computed, and no global maximizing-knot assertion is made. A specialized old one-defect result not found in index searches remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nonstandard one-defect infinite cardinal-grid spline projection rigidity and opposite-side explicit witnesses; older Franklin kernel calculations and uniform grid results supply methods but their fixed domains/conclusions do not state or imply the strict arbitrary tau threshold. Search is best-of-knowledge, not priority certificate.
+
+## value
+
+PASS
+
+Local mesh perturbations are a natural stability question for L² spline projection: even one exceptional cell destroys the exact uniform L∞ threshold. Opposite witness locations for shorter vs longer perturbations are a motivated structural boundary rather than a routine uniform-grid substitution; explicit nonstandard Green-row formulas are useful for mesh sensitivity and stability analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

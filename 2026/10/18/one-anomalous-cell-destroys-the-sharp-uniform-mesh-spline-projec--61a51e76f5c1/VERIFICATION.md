@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and SymPy available. This test checks nine rational-function identities exactly in the quotient field defined by \(s^2=3\), including all junction equations and both exact excess factorizations; checks 12 signs at rational choices of the perturbed cell length; and compares six finite-interval Gram-integral evaluations with the infinite-mesh formulas. It does not require access to any other file.
+## correctness
 
-The relevant closed-form coefficient entries and series are derived in `RESULT.md`. Analytical verification applies to every real \(\tau>0\) because every factor needed in the positive numerator and denominator has a fixed sign. Tests at finitely many parameter values are diagnostic, not a substitute for the proof. The limiting finite-mesh comparisons are numerical and are not claimed as a finite-interval theorem. No independently authored audit has been performed.
+PASS
+
+For every fixed tau>0, the piecewise-linear L² spline mass matrix gives Jacobi Q=6M with diagonal 4 except nodes 0,1, where it is 2(1+tau), and off-diagonal 1 except the exceptional edge tau. Conjugation by alternating signs gives a positive exponentially decaying Green inverse, with r=2-sqrt(3). Independently checked the two explicitly proposed Green rows against the junction equations and their factored absolute-integral identities symbolically in Q(sqrt(3)); direct independent evaluations give L_0(1/2)-2≈0.04824942>0, L_{-1}(2)-2≈0.04514007>0. For 0<tau<1 the former has numerator 3tau(1-tau²); for tau>1 the latter has (tau²-1), with every other factor positive. At tau=1 translation-invariant Green rows yield all knot Lebesgue values 2, and convexity bounds between knots, proving iff. Does NOT claim the exact nonunit global norm or maximizing knot.
+
+## originality
+
+PASS
+
+Nonstandard one-defect infinite cardinal-grid spline projection rigidity and opposite-side explicit witnesses; older Franklin kernel calculations and uniform grid results supply methods but their fixed domains/conclusions do not state or imply the strict arbitrary tau threshold. Search is best-of-knowledge, not priority certificate.
+
+## value
+
+PASS
+
+Local mesh perturbations are a natural stability question for L² spline projection: even one exceptional cell destroys the exact uniform L∞ threshold. Opposite witness locations for shorter vs longer perturbations are a motivated structural boundary rather than a routine uniform-grid substitution; explicit nonstandard Green-row formulas are useful for mesh sensitivity and stability analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
