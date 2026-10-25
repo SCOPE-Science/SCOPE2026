@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:50:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Synchronous capacity-2 competitive update with alpha>1 maps every initial {1,2}-configuration exactly to Bernoulli bits after one update. Thereafter a surviving bit has either zero, one or two occupied neighbors, leading to support Y_i=X_i(1-X_{i-1}X_{i+1}) for alpha<=2 and Z_i=X_i(1-X_{i-1})(1-X_{i+1}) for alpha>2. For alpha in (1,2), length-two runs alone oscillate; at equality they freeze at weight one. Window enumeration gives means 3/8 and 1/8, adjacent/distance-2 covariances (-5,1)/64 and (-1,1)/64 respectively, and common exact Var(S_n)=7n/64 for n>=5. A stationary 2-dependent CLT with nonzero asymptotic variance proves Gaussian limits; cyclic boundary error is O(1). Independent exact evolution of 2^n states for n=5..9 with alpha=3/2,2,5/2 (2,976 state/regime cases) reproduced supports and moments. The open-interval odd/even biomass contrast follows Q_n counts with E Q_n=n/16. These are discrete cycles, not continuous LV systems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sergo et al. Appendix C establishes no attracting cycles longer than two for the discrete sign model, but gives no explicit Bernoulli degree-two ring fluctuation distribution identified in reading."
+        ],
+        "reasoning": "Strong prior result covers period bound but not support laws, variance coincidence or quantitative oscillation prevalence; credit it.",
+        "searches": [
+          "https://www.researchgate.net/publication/406463841_Percolation_and_clustering_in_ecological_communities_A_dynamical_theory",
+          "Resultary ecological cycle queries"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.09494",
+        "https://doi.org/10.1215/S0012-7094-48-01568-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior source defines the discrete map and shows attractor periods <=2. Classical m-dependent CLT supplies Gaussianity after the original explicit masks and covariance sums have been derived."
+        ],
+        "reasoning": "Neither general period bound nor off-the-shelf CLT implies the masks, exact variance coincidence, or density of 0,1,1,0 oscillators.",
+        "searches": [
+          "Sergo et al. arXiv:2606.09494 Section II and Appendix C",
+          "Hoeffding–Robbins (1948) DOI:10.1215/S0012-7094-48-01568-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sergo et al. define exactly the discrete synchronous capacity-K sign map Eq.(2)–(3); this review takes K=2, d=2 cycles, and iid {1,2} initial conditions."
+        ],
+        "reasoning": "Same dynamical system, specialized topology and law; explicit support masks and exact variance/CLT distinct from their typical high-degree attractor quantities.",
+        "searches": [
+          "Resultary: discrete generalized Lotka Volterra synchronous ecological cycle degree two alpha two occupancy Gaussian finite dependent oscillations",
+          "https://arxiv.org/abs/2606.09494"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite enumerated table can yield symbolic every-n exact variance and 2-dependent CLT by itself."
+        ],
+        "reasoning": "Not a database look-up claim; finite checks n<=9 corroborate but do not replace dynamical reduction.",
+        "searches": [
+          "Sergo et al. appendices model phases and numerical percolation figures",
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The precise ring-degree-two strong-competition attractor support formulas, equal finite-size variances in distinct phases, and CLT for Bernoulli initial data are additional to the general model/period-at-most-two results in Sergo et al.; no corresponding theorem was located in inspected full text. A general upper period bound does not identify attractors, their basins, or exact occupancy fluctuations.",
+      "residual_risks": [
+        "Historical specialized one-dimensional/cellular-automaton analyses may contain equivalent ring formulas not indexed under this model name.",
+        "The model uses synchronized discrete signs, fixed K=2, uniform edges and equiprobable starting biomasses; no continuous ecological extrapolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS model and period bound, but NOT IDENTIFIED the claimed exact one-dimensional Bernoulli variance and support classification.",
+          "evidence": "Main §II equations 2–3; Appendix C technical remarks, period theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.09494",
+          "material_read": "Substantial accessible full manuscript, Eq.(2)–(3), §II random d-regular specialization, Appendix C period <=2 and generic coupling breakpoints.",
+          "method": "Full primary manuscript text available through lawful author-publication page; inspected central model and relevant technical appendix.",
+          "title": "Percolation and clustering in ecological communities: A dynamical theory",
+          "trigger": "Same discrete gLV model and same K=2 strong-coupling regime"
+        },
+        {
+          "assessment": "COVERS limit theorem conditional on verified m-dependence and covariance; novelty does not include the general CLT.",
+          "evidence": "Hoeffding–Robbins 1948 theorem.",
+          "identifier_or_url": "https://doi.org/10.1215/S0012-7094-48-01568-3",
+          "material_read": "Reference theorem metadata and standard statement, no full source text.",
+          "method": "Classical theorem statement only.",
+          "title": "The central limit theorem for dependent random variables",
+          "trigger": "Generic bounded m-dependent CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural solvable dimension-one sector of a recently studied ecological competition dynamical system exhibits a non-obvious variance coincidence, two occupancy thresholds and a temporal oscillation threshold invisible to final occupancy. Exact local formulas and CLT give a benchmark for higher-dimensional/random regular ecological fragmentation, rather than just reproducing the general model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.09494",
+    "https://doi.org/10.1215/S0012-7094-48-01568-3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical specialized one-dimensional/cellular-automaton analyses may contain equivalent ring formulas not indexed under this model name.",
+    "The model uses synchronized discrete signs, fixed K=2, uniform edges and equiprobable starting biomasses; no continuous ecological extrapolation.",
+    "Source research package unchanged; critical mathematical claims restricted to exact assumptions of RESULT.md. Finite independent experiments verify tested instances but do not certify unrestricted conclusions."
+  ],
+  "residual_risks": [
+    "Historical specialized one-dimensional/cellular-automaton analyses may contain equivalent ring formulas not indexed under this model name.",
+    "The model uses synchronized discrete signs, fixed K=2, uniform edges and equiprobable starting biomasses; no continuous ecological extrapolation."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\ge5\), the model itself maps an initially one-valued site to zero and an initially two-valued site to one on the first step whenever \(\alpha>1\). At the next step the sign reduces exactly to \(1-\alpha h/2\), where \(h\in\{0,1,2\}\), and directly determines the two survivor masks and the separate critical case. Run decomposition proves that only maximal length-two high-biomass runs create oscillations, all in the same phase; these disappear at equality. Independent local enumeration gives the exact means and covariances, while the standard finite-dependence CLT yields the stated Gaussian limit. The included checker exhaustively replays all \(2^n\) initial states for each of \(5\le n\le11\) at three couplings and independently verifies the requisite local probability identities.
+PASS
 
-## Originality — PASS, with residual risks
+Synchronous capacity-2 competitive update with alpha>1 maps every initial {1,2}-configuration exactly to Bernoulli bits after one update. Thereafter a surviving bit has either zero, one or two occupied neighbors, leading to support Y_i=X_i(1-X_{i-1}X_{i+1}) for alpha<=2 and Z_i=X_i(1-X_{i-1})(1-X_{i+1}) for alpha>2. For alpha in (1,2), length-two runs alone oscillate; at equality they freeze at weight one. Window enumeration gives means 3/8 and 1/8, adjacent/distance-2 covariances (-5,1)/64 and (-1,1)/64 respectively, and common exact Var(S_n)=7n/64 for n>=5. A stationary 2-dependent CLT with nonzero asymptotic variance proves Gaussian limits; cyclic boundary error is O(1). Independent exact evolution of 2^n states for n=5..9 with alpha=3/2,2,5/2 (2,976 state/regime cases) reproduced supports and moments. The open-interval odd/even biomass contrast follows Q_n counts with E Q_n=n/16. These are discrete cycles, not continuous LV systems.
 
-The closest source is Sergo–Koller–Erba–Zdeborová, arXiv:2606.09494v1, whose Section II defines the precise ecological rule and whose Appendix C proves a general bound of period two and explains generic coupling intervals. Those statements do not identify the cyclic degree-two survivor masks, occupation density jump, synchronized oscillation prevalence, exact equality of finite-size variances, or Gaussian laws. The published comparator concerns larger random-regular ecosystems; its full publicly available text was inspected. Searches for direct one-dimensional, random-initialization, and binary-run equivalents in publicly indexed findings returned no claim implying the complete theorem. General finite-dependence CLT results supply a known method, not the ecological reductions or numerical fluctuation law. Residual risk remains of an unindexed earlier exact specialization or a directly translatable automaton calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The connected cycle is the natural degree-two boundary omitted from the higher-degree random-graph phase studies. A complete strong-competition phase of the same map becomes soluble at *all finite ring sizes*, exposing a critical stationary-but-occupied coupling, an abrupt extinction density step, and a persistent macroscopic synchronous biomass oscillation on only one side. The equal variance despite different survival means quantifies exact finite-size uncertainty for the ecological occupancy observable and is not predicted by an uncorrelated-site approximation. These are useful benchmarks for dynamical-cavity approximations; the result does not claim a general theorem for all spatial ecosystems.
+The precise ring-degree-two strong-competition attractor support formulas, equal finite-size variances in distinct phases, and CLT for Bernoulli initial data are additional to the general model/period-at-most-two results in Sergo et al.; no corresponding theorem was located in inspected full text. A general upper period bound does not identify attractors, their basins, or exact occupancy fluctuations.
 
-## Closest literature and limits
+## value
 
-The closest inspected paper is Sergo et al. (2026), Section II and Appendix C, https://arxiv.org/abs/2606.09494. Other known comparisons include the classical Hoeffding–Robbins dependent-variable CLT and stochastic or continuous Lotka–Volterra lattice/ring models with different updates. The proof is for iid equal two-level initial biomasses and \(\alpha>1\); finite enumeration is a check, not a replacement for the universal proof. Priority risk for unindexed exact automata remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural solvable dimension-one sector of a recently studied ecological competition dynamical system exhibits a non-obvious variance coincidence, two occupancy thresholds and a temporal oscillation threshold invisible to final occupancy. Exact local formulas and CLT give a benchmark for higher-dimensional/random regular ecological fragmentation, rather than just reproducing the general model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
