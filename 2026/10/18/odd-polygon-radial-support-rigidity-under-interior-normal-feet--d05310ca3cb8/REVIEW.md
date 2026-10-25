@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. With each perpendicular foot strictly internal, the angle between successive labelled vertex rays is the sum of two positive arccosine terms. Strict increase of those terms forces any two candidate radial vectors to alternate their pointwise order; an odd cycle rules out strict alternation. The cyclic two-diagonal Jacobian has exactly the two determinant terms displayed in RESULT.md, both positive in odd order, so the local analytic-inverse statement follows. The explicit four-ray family proves the parity boundary without relying on the numerical experiments.
+## correctness
 
-## Originality
-PASS under inspected evidence. The 2026 reconstruction survey states this data combination is open for general convex polygons and does not supply the strict-foot odd-order rigidity. The classical 2003 tangential/cyclic parity results pertain to prescribed side lengths or interior-angle sums, not arbitrary independent support distances paired with labelled vertex rays. The independent indexed studies of tangential symmetric polygons concern unlabeled projection-width distributions, not the present prescribed-direction inverse problem. No inspected stronger theorem entails the stated all-odd-order unequal-distance uniqueness. Residual risk: older geometric treatments could contain an equivalent monotonicity argument not found in inspected records; the inspected 2003 institutional postprint covers the side-length/cyclic-angle cases, but historical priority outside the inspected literature remains uncertain.
+PASS
 
-## Mathematical value
-PASS. The result isolates a natural open subproblem from recent convex-polygon reconstruction, proves global injectivity for *every* odd number of sides and arbitrary positive support distances, and identifies a sharp parity obstruction with an explicit even-order moduli family. The all-order positive determinant additionally supplies a nondegenerate local inverse, relevant to geometric measurement and inverse reconstruction.
+For an internal perpendicular foot on edge i, its two positive acute radial angles are exactly arccos(h_i/d_i) and arccos(h_i/d_(i+1)), so their sum is the prescribed vertex-ray gap. Since f_h(d)=arccos(h/d) has derivative h/(d sqrt(d^2-h^2))>0, comparing two admissible solutions forces consecutive strict signs to alternate (or equality propagates around the cycle). Odd n forbids nonzero alternating comparisons. The log-radius Jacobian has only diagonal a_i=h_i/sqrt(d_i^2-h_i^2)>0 and cyclic-forward b_i>0; det J=product a_i+(-1)^(n-1)product b_i, positive for odd n. Analytic inverse-function theorem applies in the strict-foot open domain. Explicit even quadrilateral rays pi/4+k pi/2 with radii alternately sec t,csc t have all h_i=1 for t in (0,pi/2). Checked actual standard-library geometry script and independently evaluated cyclic Jacobians for odd n=3,5,7,9, plus direct nonuniform triangle and equal-support even family from the proof. Finite samples corroborate analytic argument, not prove it.
 
-## Limitations and priority
-The interior-foot restriction is essential to the proof; arbitrary convex polygons may have perpendicular feet on supporting-line extensions. Unrestricted existence, unrestricted uniqueness, and global conditioning constants remain unproved. Earlier tangential polygon results are closest in their odd/even theme but assume different measurements. Assessment of inaccessible prior full texts is limited as documented in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. The general unpublished/open formulation and tangential side-length parity do not imply the strict-foot radial comparison cycle theorem without deriving monotonic trigonometry; the latter is supplied explicitly and independently checked.
+
+## value
+
+PASS
+
+The exact prescribed pair (labelled vertex radial directions, edge-support distances) is one of the unresolved input types catalogued in the contemporary convex-polygon reconstruction study. The strict-foot hypothesis is geometrically natural and removes a documented tangent-choice ambiguity; parity gives a sharp rigidity boundary, and nonsingularity gives meaningful local inverse structure. This is more than just renaming a known side-length tangential-polygon statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

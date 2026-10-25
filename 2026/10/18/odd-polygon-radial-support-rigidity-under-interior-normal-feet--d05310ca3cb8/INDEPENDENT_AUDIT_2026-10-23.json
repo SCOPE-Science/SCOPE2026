@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T05:00:52Z",
+  "axes": {
+    "correctness": {
+      "checked_source_blobs": {
+        "RESULT.md": "e7b1ca3efa50859cf91423d0484af7761c98e4fa",
+        "check_geometry.py": "d2aa5aa16297a83cc62466eb715ffe0181893048"
+      },
+      "rationale": "For an internal perpendicular foot on edge i, its two positive acute radial angles are exactly arccos(h_i/d_i) and arccos(h_i/d_(i+1)), so their sum is the prescribed vertex-ray gap. Since f_h(d)=arccos(h/d) has derivative h/(d sqrt(d^2-h^2))>0, comparing two admissible solutions forces consecutive strict signs to alternate (or equality propagates around the cycle). Odd n forbids nonzero alternating comparisons. The log-radius Jacobian has only diagonal a_i=h_i/sqrt(d_i^2-h_i^2)>0 and cyclic-forward b_i>0; det J=product a_i+(-1)^(n-1)product b_i, positive for odd n. Analytic inverse-function theorem applies in the strict-foot open domain. Explicit even quadrilateral rays pi/4+k pi/2 with radii alternately sec t,csc t have all h_i=1 for t in (0,pi/2). Checked actual standard-library geometry script and independently evaluated cyclic Jacobians for odd n=3,5,7,9, plus direct nonuniform triangle and equal-support even family from the proof. Finite samples corroborate analytic argument, not prove it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01423",
+          "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+          "https://doi.org/10.1080/00207390310001595456"
+        ],
+        "reasoning": "The 2026 reconstruction study covers the general measurement class but explicitly does not solve uniqueness/realizability. Older tangential-polygon statements require equal h_i and different prescribed data, not a stronger all-unequal-h_i inverse theorem.",
+        "searches": [
+          "Resultary semantic query: reconstruct odd convex polygons prescribed vertex radial angles rays distances edges perpendicular foot inside",
+          "Resultary semantic query: Radial support rigidity odd polygon interior perpendicular foot rays support lines"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.01423",
+        "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+        "https://doi.org/10.1080/00207390310001595456",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-classification-at-the-half-minus-one-bicycle-diagonal--cdb933033626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01423",
+          "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+          "https://doi.org/10.1080/00207390310001595456"
+        ],
+        "reasoning": "The general unpublished/open formulation and tangential side-length parity do not imply the strict-foot radial comparison cycle theorem without deriving monotonic trigonometry; the latter is supplied explicitly and independently checked.",
+        "searches": [
+          "Resultary semantic query: reconstruct odd convex polygons prescribed vertex radial angles rays distances edges perpendicular foot inside",
+          "Resultary semantic query: Radial support rigidity odd polygon interior perpendicular foot rays support lines"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01423",
+          "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+          "https://doi.org/10.1080/00207390310001595456"
+        ],
+        "reasoning": "Corner vectors of Baumann et al are identical to the labelled vertex rays; edge distances are identical h_i. The added all-feet-interior condition eliminates the sign/tangent branch ambiguity discussed in their D.4.2. Other Resultary bicycle-diagonal parity concerns chord-length constraints, not these measurements.",
+        "searches": [
+          "Resultary semantic query: reconstruct odd convex polygons prescribed vertex radial angles rays distances edges perpendicular foot inside",
+          "Resultary semantic query: Radial support rigidity odd polygon interior perpendicular foot rays support lines"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01423",
+          "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+          "https://doi.org/10.1080/00207390310001595456",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-parity-classification-at-the-half-minus-one-bicycle-diagonal--cdb933033626"
+        ],
+        "reasoning": "No database or table result applies: the target is an infinite odd-n uniqueness theorem with arbitrary continuous h_i and ray gaps, not enumeration of finite polygons.",
+        "searches": [
+          "Resultary semantic query: reconstruct odd convex polygons prescribed vertex radial angles rays distances edges perpendicular foot inside",
+          "Resultary semantic query: Radial support rigidity odd polygon interior perpendicular foot rays support lines"
+        ]
+      },
+      "rationale": "Best-of-knowledge after two real Resultary searches, public-primary reading and comparison of mathematical implications, not merely titles. The general unpublished/open formulation and tangential side-length parity do not imply the strict-foot radial comparison cycle theorem without deriving monotonic trigonometry; the latter is supplied explicitly and independently checked.",
+      "residual_risks": [
+        "Other geometric reconstruction literature using polar dual edge normal and corner-distance representation might contain an equivalent parity lemma.",
+        "The result does not solve Baumann et al full unrestricted problem; existence is untouched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States general convex reconstruction case remains open and notes tangent ambiguity. Does not derive odd-parity strict-foot uniqueness/Jacobian; its general problem is broader but unresolved.",
+          "evidence": [
+            "Section D.4.2 \"Corner Vector and Edge Distance, or Edge Normal and Corner Distance\"; Section 2 definition of edge-normal rays hitting segments"
+          ],
+          "identifier_or_url": "arXiv:2607.01423; ResearchGate full manuscript",
+          "material_read": "Original manuscript sections 2, 4, and appendix D.4.2, especially paragraph describing unknown corner-vector/edge-distance scenario and alternative tangent lines",
+          "method": "Public full-text manuscript, section-level close reading and comparison of input quantifiers",
+          "title": "On Reconstructing a Convex Polygon from Partial Information",
+          "trigger": "Directly addresses same two data types: corner vectors and edge distances"
+        },
+        {
+          "assessment": "Tangency to a common circle and prescribed side-length data are not the arbitrary unequal-support and fixed labelled vertex-ray data here; full-source risk remains",
+          "evidence": [
+            "Leung and Lopez-Real (2003), title and tangential/cyclic polygon topic"
+          ],
+          "identifier_or_url": "doi:10.1080/00207390310001595456",
+          "material_read": "Bibliographic description and cited distinction in actual pinned research package; full manuscript not accessed",
+          "method": "DOI metadata and comparison of hypotheses visible in title/abstract",
+          "title": "Properties of tangential and cyclic polygons: an application of circulant matrices",
+          "trigger": "Older parity identities for tangential/cyclic polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.01423",
+        "https://www.researchgate.net/publication/408403820_On_Reconstructing_a_Convex_Polygon_from_Partial_Information",
+        "https://doi.org/10.1080/00207390310001595456"
+      ],
+      "rationale": "The exact prescribed pair (labelled vertex radial directions, edge-support distances) is one of the unresolved input types catalogued in the contemporary convex-polygon reconstruction study. The strict-foot hypothesis is geometrically natural and removes a documented tangent-choice ambiguity; parity gives a sharp rigidity boundary, and nonsingularity gives meaningful local inverse structure. This is more than just renaming a known side-length tangential-polygon statement.",
+      "residual_risks": [
+        "Other geometric reconstruction literature using polar dual edge normal and corner-distance representation might contain an equivalent parity lemma.",
+        "The result does not solve Baumann et al full unrestricted problem; existence is untouched."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
