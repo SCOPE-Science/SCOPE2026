@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Invariant nonadopter arc yields exact time-inhomogeneous pure death transitions. Explicit -1 projection gives 2^(m-1); the -2 Jordan remainder is O(t^-2 log^(m-2)t). Gamma product supplies sharp coefficient; discrete tail summation gives moment cutoff. Exact rational checker verified 63 state-distribution identities for 1<=m<=7 and 0<=t<=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abella et al., arXiv:2209.05990: approximate master-equation/random-network behavior; 2D lattice simulations.",
+        "Richter, Henkel and Böttcher (2020), DOI:10.1103/PhysRevE.102.042308, abstract covers bistable aging equilibration rather than irreversible cycle arc-length death chain."
+      ],
+      "reasoning": "General absorbing-chain spectral theory can derive the present formula once a specialized time-inhomogeneous generator is established; it is acknowledged as classical technique. The inspected motivating study and older related work do not give a stronger all-cycle claim implying the stated exact amplitude and moments.",
+      "searches": [
+        "published-finding corpus: exact finite size absorbing time distribution aging threshold model homogeneous ring two adjacent adopters two fronts final node bottleneck",
+        "web: aging complex contagion finite ring exact consensus time long tails thresholds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.05990 full open primary PDF (all 12 pages, relevant equations visually confirmed)",
+      "DOI:10.1103/PhysRevE.102.042308 abstract",
+      "DOI:10.1103/PhysRevE.84.036115 PubMed abstract",
+      "published-finding corpus semantic searches for cycle completion, inverse-time death chains and exact gamma factors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary article, Figure 4 caption: measures time to 90% adoption, not full finite-size absorption.",
+        "Primary article, Appendix A formulas A1–A3: probability a single vertex avoids activation for one or infinitely many sweeps, without dependent two-front completion.",
+        "Present proof: transient generator spectrum -1,-2, spectral projection coefficient 2^(m-1) and gamma product."
+      ],
+      "reasoning": "The source single-vertex nonactivation product supplies an ingredient for the calculation, but does not imply the multi-front coefficient without a separate state-space reduction and spectral projection. It is not a rephrasing of the paper’s known mean nonadopter density decay or 90%-time scaling.",
+      "searches": [
+        "arXiv:2209.05990 full primary PDF Secs. II–III, Appendix A",
+        "published-finding corpus: Abella San Miguel Ramasco endogenous aging threshold contagion cycles C_n full adoption first passage survival Gamma asymptotic prefactor infinite expected completion",
+        "web: 2022 Abella San Miguel Ramasco aging threshold model cycle full adoption time infinite expectation exact formula endogenous age"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abella et al., arXiv:2209.05990, Sec. II and Appendix A: reciprocal age-dependent update; Sec. III: empirical nonadopter density decay.",
+        "published-finding corpus results for exact source/aliases returned related slow epidemiological transients but no cycle-arc passage-law statement."
+      ],
+      "reasoning": "Compare distribution of the random exact full-adoption time, not the mean density. The source identifies the aging rule and qualitative slow tails but does not give a cycle finite-time distribution or gamma-amplitude/moment threshold. Similar 1/t behavior alone would not be originality.",
+      "searches": [
+        "published-finding corpus: Abella San Miguel Ramasco endogenous aging threshold contagion cycles C_n full adoption first passage survival Gamma asymptotic prefactor infinite expected completion",
+        "web: aging complex contagion finite ring exact consensus time long tails thresholds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact cycle-completion database or tabulated finite-state first-passage sequence.",
+        "Explicit finite-case values 1753/2048 and 24233/25000 obtained by new exact-rational executable checker."
+      ],
+      "reasoning": "The claim is an infinite family of probability laws and a gamma-function limit, rather than a recomputation of a named exact finite table; checked search results do not provide such a table.",
+      "searches": [
+        "published-finding corpus: endogenous aging threshold contagion path graph exact first passage time rising factorial Stirling numbers record statistics infinite expected cascade completion logarithmic corrections",
+        "published-finding corpus: nonhomogeneous pure death chain rates 2 then 1 inverse time activation gamma function polynomial logarithmic correction"
+      ]
+    },
+    "rationale": "Full motivating article gives only mean-density tail and single-node nonactivation product, not cyclic full-absorption distribution or gamma coefficient; published-finding corpus and relevant web comparisons found no stronger exact statement. Classical absorbing-chain spectral techniques and earlier slow adoption observations are acknowledged. Priority risk remains.",
+    "residual_risks": [
+      "Publication priority cannot be certified from nonexhaustive search or abstract-only comparisons for older related papers.",
+      "An equivalent exact model-specific survival theorem in uninspected literature is possible; no such coverage found among inspected primary results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines activation p_A(j)=1/(j+2) and draws with replacement; reports reciprocal nonadopter density, but does not give cycle finite-time survival, amplitude or moment cutoff.",
+        "evidence": [
+          "Sec. II p2 asynchronous update rule",
+          "Sec. III p3–4 last-stage reciprocal nonadopter density and Figure 4 90% completion",
+          "Appendix A pp8–9 equations A1–A3 and explicit MC sweeps"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.05990",
+        "material_read": "Full 12-page open primary PDF: introduction, Secs. II–V, Appendix A formulas A1–A3, Appendix B model class; article page 9 inspected visually.",
+        "method": "Full-text PDF reading and original equations, captions, definitions comparison",
+        "title": "Aging in binary-state models: The Threshold model for complex contagion",
+        "trigger": "Exact originating aging rule and possible covering late-stage 1/t statements"
+      },
+      {
+        "assessment": "Bistable aging equilibration rather than identical irreversible threshold process; cannot exclude unknown full-text overlap.",
+        "evidence": [
+          "Publisher abstract on bistable contagion equilibrating with age"
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevE.102.042308",
+        "material_read": "Publisher abstract and bibliographic information (full text not inspected).",
+        "method": "Abstract-level conceptual comparison",
+        "title": "Aging and equilibration in bistable contagion dynamics",
+        "trigger": "Potential earlier broad aging/contagion coverage"
+      },
+      {
+        "assessment": "Voter model can copy both opinions and has interevent-time dynamics unlike irreversible monotone cascade; does not directly cover the claim.",
+        "evidence": [
+          "PubMed abstract on ring slowing due to non-Poissonian intervals"
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevE.84.036115",
+        "material_read": "PubMed abstract (full text not inspected).",
+        "method": "Abstract-level comparison of voter dynamics versus irreversible threshold adoption",
+        "title": "Voter model with non-Poissonian interevent intervals",
+        "trigger": "Older non-Markovian consensus time on ring"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ca2ee0d-69e2-481a-ad0a-b33c4bada5cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural practically distinct full-absorption observable displays a sharp nonintegrable tail even though all finite cycles absorb a.s. The nontrivial exact prefactor 2^(m-1)/Gamma(2-1/N)^N separates two-front geometry from last-node delay and provides finite-time benchmarks beyond known mean nonadopter density asymptotics.",
+    "status": "PASS"
+  }
+}
