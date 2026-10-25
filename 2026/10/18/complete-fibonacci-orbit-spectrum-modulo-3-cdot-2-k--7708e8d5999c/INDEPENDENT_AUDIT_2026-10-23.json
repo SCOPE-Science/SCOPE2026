@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T18:16:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/complete-fibonacci-orbit-spectrum-modulo-3-cdot-2-k--7708e8d5999c/RESULT.md blob 7bd868b16aca46f30ae13763c21f733c2bed452d",
+        "Actual verified package Git tree 7510ca1b9c108e353cb5e0fe24be718895c2b7dd",
+        "Independent exact combinatorial/finite check"
+      ],
+      "rationale": "A=[[0,1],[1,1]] has determinant -1. The exact matrices (A^3-I)/2, (A^6-I)/4 and (A^12-I)/8 have odd determinants. Primitive 2-adic states therefore have respective least periods 3,6,3·2^(j-1) for j>=3; the squaring/odd-multiplier induction proves no earlier return at every 2-adic layer. Each primitive layer has 3·2^(2j-2) states, and modulo 3 the only cycles have length 1 (zero) and 8 (all nonzero). CRT pairs an r-cycle and s-cycle into gcd(r,s) orbits of lcm(r,s). Assembling gives k=3 multiplicities (1,1,2,1,4,21), k>=4 (1,1,2,1,4,93) plus 9·2^(j-1) at length 3·2^(j-1) for j=5..k; total 9·2^k−42. Independent direct enumeration of all (3·2^k)^2 state pairs for k=3,4,5,6 gave 30,102,246,534 orbits with every length/count matched. The induction, not finite testing, establishes all k>=3.",
+      "residual_risks": [
+        "Only modulus m=3·2^k with k>=3; no claim for other OEIS conjectures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Renault establishes Pisano/individual generalized-sequence periods and CRT-lcm structure for recurrence moduli, no inspected closed formula for number of cycles in every 3·2^k state permutation.",
+          "Avila–Khovanova sections 8–10 analyze free Fibonacci recurrences and discuss sample modulo-eight cycles; a different recurrence operation divides by powers of n."
+        ],
+        "reasoning": "Known period computations constrain orbit lengths but do not algebraically determine cycle multiplicities without layer counts. The proposed theorem includes that missing enumeration.",
+        "searches": [
+          "Renault 1996 thesis §3.1",
+          "arXiv:1403.4614",
+          "OEIS:A015134"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A015134, Stephen Bartell conjecture Aug 20 2023",
+        "OEIS A015135 distinct orbit lengths",
+        "Renault, The Fibonacci Sequence Under Various Moduli, thesis 1996, section 3.1",
+        "Avila–Khovanova, Free Fibonacci Sequences, Journal of Integer Sequences 17 (2014), full paper arXiv:1403.4614",
+        "Resultary semantic query on exact 3·2^k state cycles",
+        "Frozen Git RESULT.md: 2026/10/18/complete-fibonacci-orbit-spectrum-modulo-3-cdot-2-k--7708e8d5999c@7bd868b16aca46f30ae13763c21f733c2bed452d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-sequence period/lcm formula is insufficient to know how many primitive vectors have each period or how CRT joins cycles.",
+          "OEIS conjectural identity is not a prior proof or implication of a stronger published statement."
+        ],
+        "reasoning": "The claimed 2-adic unimodular normalized differences, layer sizes and gcd cycle-pairing supply the missing argument; no located earlier theorem mathematically implies the exact multiplicities.",
+        "searches": [
+          "Renault 1996 thesis §3.1",
+          "OEIS:A015134",
+          "arXiv:1403.4614"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A015134 counts distinct cycles of the two-step modular Fibonacci state map; A015135 counts distinct lengths, a coarser statistic.",
+          "A Fibonacci-like initial pair is exactly a point of (Z/mZ)^2; cyclic shift of initial pair is orbit equivalence."
+        ],
+        "reasoning": "Equivalent state dynamics were compared explicitly, avoiding confusion between Pisano period of one sequence, number of distinct lengths, and total number of state cycles.",
+        "searches": [
+          "OEIS:A015134",
+          "OEIS:A015135",
+          "arXiv:1403.4614",
+          "Resultary:Fibonacci state orbit cycle spectrum modulo 3 times powers of two conjecture OEIS A015134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A015134 tabulates numerical counts and records Bartell’s August 20 2023 conjectural formula for 3·2^k, k>=3.",
+          "A015135 tabulates distinct orbit-length counts and does not encode their multiplicities."
+        ],
+        "reasoning": "The submitted total agrees with known numerical entries, but the result adds a proof of the conjectural all-k law plus a complete length-by-length spectrum; previously observed terms alone do not establish it.",
+        "searches": [
+          "OEIS:A015134",
+          "OEIS:A015135",
+          "arXiv:1403.4614"
+        ]
+      },
+      "rationale": "The numerical identity itself was an explicit **conjecture** in OEIS A015134, not presented as a novel guess; a rigorous all-k proof and length-resolved orbit multiplicities are the claimed improvements. Classical recurrence periods and the CRT lcm rule for a single starting pair are weaker because they do not count all state orbits or their least period distribution. The full 2014 Avila–Khovanova article discusses free Fibonacci numbers, distinct modulo-8 finite cycles and OEIS counts, not the given all-k 3·2^k theorem.",
+      "residual_risks": [
+        "Unindexed historical proof of the OEIS conjecture or broader theorem giving exact mixed-modulus cycle multiplicities could exist.",
+        "OEIS A015134 header informally says distinct periods, but its references and A015135 cross-reference distinguish distinct state cycles from distinct lengths; review used the mathematical orbit definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains conjecture, not a posted general proof; novelty claim limited to new proof and spectrum",
+          "evidence": [
+            "Formula section: a(3*2^n)=3*(3*2^n-14) for n>=3, explicitly under Conjectures from Stephen Bartell."
+          ],
+          "identifier_or_url": "https://oeis.org/A015134",
+          "material_read": "Entire current OEIS sequence entry, including formulas/comments on Aug 20 2023 conjecture and link to A015135",
+          "method": "Primary OEIS live entry",
+          "title": "A015134 – Fibonacci-type cycles modulo n",
+          "trigger": "Exact conjecture and preexisting count table"
+        },
+        {
+          "assessment": "Same OEIS parameters discussed only illustratively; main n-free recurrence includes division by largest n-power and is a different dynamical system",
+          "evidence": [
+            "The paper calls A015134 number of different cycles; the modulo-eight example lists finite periods; it does not derive the proposed 3·2^k multiplicity expression."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Avila/avila4.pdf",
+          "material_read": "Full 20-page PDF including sections 8–10 and discussion of finite Fibonacci-like cycles modulo 8, plus introductory sections",
+          "method": "Lawful primary journal PDF text and page screenshot",
+          "title": "Free Fibonacci Sequences",
+          "trigger": "Same OEIS citation and modular Fibonacci initial-pair dynamics"
+        },
+        {
+          "assessment": "Individual period and CRT laws preexist; no submitted mixed all-orbit census in inspected statements",
+          "evidence": [
+            "CRT lcm of individual cycle lengths and matrix periods are known, but no state-counting bijection supplied there."
+          ],
+          "identifier_or_url": "https://webspace.ship.edu/msrenault/fibonacci/fibthesis.pdf",
+          "material_read": "Primary thesis section 3.1 on period and generalized recurrence matrices, and related theorem statements",
+          "method": "Full-text accessible thesis PDF, theorem/section reading",
+          "title": "The Fibonacci Sequence Under Various Moduli",
+          "trigger": "Classic arbitrary-initial-state period/CRT background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A015134, Stephen Bartell conjecture Aug 20 2023",
+        "OEIS A015135 distinct orbit lengths",
+        "Renault, The Fibonacci Sequence Under Various Moduli, thesis 1996, section 3.1",
+        "Avila–Khovanova, Free Fibonacci Sequences, Journal of Integer Sequences 17 (2014), full paper arXiv:1403.4614",
+        "Resultary semantic query on exact 3·2^k state cycles",
+        "Frozen Git RESULT.md: 2026/10/18/complete-fibonacci-orbit-spectrum-modulo-3-cdot-2-k--7708e8d5999c@7bd868b16aca46f30ae13763c21f733c2bed452d"
+      ],
+      "rationale": "Resolves the explicitly recorded 2023 OEIS A015134 conjecture for 3·2^k, all k>=3, and provides strictly finer full least-period multiplicity spectrum. Explicit 2-adic matrix valuation stratification plus CRT provides transferable orbit enumeration information for modular linear recurrences. Known numerical terms are not falsely claimed new.",
+      "residual_risks": [
+        "Undiscovered stronger classification or equivalent table could affect novelty and hence value; stated best-of-knowledge significance only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS A015134, Stephen Bartell conjecture Aug 20 2023",
+    "OEIS A015135 distinct orbit lengths",
+    "Renault, The Fibonacci Sequence Under Various Moduli, thesis 1996, section 3.1",
+    "Avila–Khovanova, Free Fibonacci Sequences, Journal of Integer Sequences 17 (2014), full paper arXiv:1403.4614",
+    "Resultary semantic query on exact 3·2^k state cycles",
+    "Frozen Git RESULT.md: 2026/10/18/complete-fibonacci-orbit-spectrum-modulo-3-cdot-2-k--7708e8d5999c@7bd868b16aca46f30ae13763c21f733c2bed452d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only modulus m=3·2^k with k>=3; no claim for other OEIS conjectures.",
+    "Best-of-knowledge originality distinct from a guarantee against every unindexed historic proof.",
+    "Unindexed historical proof of the OEIS conjecture or broader theorem giving exact mixed-modulus cycle multiplicities could exist.",
+    "OEIS A015134 header informally says distinct periods, but its references and A015135 cross-reference distinguish distinct state cycles from distinct lengths; review used the mathematical orbit definition."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs all local least periods for every initial vector: the three normalized Fibonacci-matrix increments are invertible modulo \(2\); repeated squaring fixes the primitive power-of-two periods. Counting primitive valuation strata and using the modulo-three fixed/eight-cycle dichotomy, CRT converts each pair of local cycles into exactly a gcd-number of global cycles. Every listed multiplicity, the exceptional \(k=3\) boundary, and the total \(9\cdot2^k-42\) follow. The packaged exact-arithmetic enumerator passes for \(3\le k\le7\); finite verification is explicitly not the proof of the infinite assertion.
+## correctness
 
-**Originality — PASS, with limitations.** OEIS A015134 already **conjectures** the exact total for moduli \(3\cdot2^k\), due to Stephen Bartell (August 2023); the expression itself is not claimed to be a new conjecture. The contribution is the complete all-\(k\) proof and the full cycle-length multiplicities. Avila–Khovanova (2014) provides small-modulus examples, Renault (1996) proves basic period and CRT properties, and Pudelko (2025) investigates orbit patterns and conjectured prime-power behavior. None of their inspected relevant full-text sections presents the proven quantified mixed-modulus spectrum. An unindexed earlier proof remains a genuine residual risk.
+PASS
 
-**Value — PASS.** Resolves a precisely stated natural cycle-count conjecture for an infinite family of composite moduli, with a complete structural classification rather than additional table entries. The period-multiplicity result also identifies the sharp change between exponents \(3\) and \(4\).
+A=[[0,1],[1,1]] has determinant -1. The exact matrices (A^3-I)/2, (A^6-I)/4 and (A^12-I)/8 have odd determinants. Primitive 2-adic states therefore have respective least periods 3,6,3·2^(j-1) for j>=3; the squaring/odd-multiplier induction proves no earlier return at every 2-adic layer. Each primitive layer has 3·2^(2j-2) states, and modulo 3 the only cycles have length 1 (zero) and 8 (all nonzero). CRT pairs an r-cycle and s-cycle into gcd(r,s) orbits of lcm(r,s). Assembling gives k=3 multiplicities (1,1,2,1,4,21), k>=4 (1,1,2,1,4,93) plus 9·2^(j-1) at length 3·2^(j-1) for j=5..k; total 9·2^k−42. Independent direct enumeration of all (3·2^k)^2 state pairs for k=3,4,5,6 gave 30,102,246,534 orbits with every length/count matched. The induction, not finite testing, establishes all k>=3.
 
-**Primary references:** OEIS A015134 and A015135; Avila–Khovanova, arXiv:1403.4614; Renault (1996), section 3.1; Pudelko, arXiv:2510.24882, section 3. Scope is restricted to the stated moduli, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The numerical identity itself was an explicit **conjecture** in OEIS A015134, not presented as a novel guess; a rigorous all-k proof and length-resolved orbit multiplicities are the claimed improvements. Classical recurrence periods and the CRT lcm rule for a single starting pair are weaker because they do not count all state orbits or their least period distribution. The full 2014 Avila–Khovanova article discusses free Fibonacci numbers, distinct modulo-8 finite cycles and OEIS counts, not the given all-k 3·2^k theorem.
+
+## value
+
+PASS
+
+Resolves the explicitly recorded 2023 OEIS A015134 conjecture for 3·2^k, all k>=3, and provides strictly finer full least-period multiplicity spectrum. Explicit 2-adic matrix valuation stratification plus CRT provides transferable orbit enumeration information for modular linear recurrences. Known numerical terms are not falsely claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
