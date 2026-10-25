@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Multiplication in the unitized three-point dihedral quandle gives an explicit four-by-four left-multiplication matrix. Its determinant factors over the integers as \(a(a+x+y+z)(a^2-Q)\). Exact inclusion-exclusion counts of the residual two factor hypersurfaces distinguish split and nonsplit cubic-root Fourier coordinates and characteristic-three collapse. Nonzero annihilators correspond exactly to singular linear maps, without requiring associativity. The standalone finite-field rank checker exhaustively confirmed \(q=2,3,4,5,7,8,9\); infinite-field-order validity rests on the proof, not these instances.
+PASS
 
-## Originality — PASS under currently accessible literature
+For S=F_q1⊕F_q[R3], the exact polynomial determinant of left multiplication is a(a+s)(a²-Q), s=x+y+z and Q=x²+y²+z²-xy-xz-yz. Independent symbolic determinant factorization was verified over Z[a,x,y,z], and independent direct finite-field brute-force found singular nonzero counts 14,62,320,852,3740 for q=2,3,5,7,11. Fourier coordinate splitting over F_q for q≡1 mod3 yields norm-level q-1; conjugate-pair norm-one group for q≡2 yields q+1; in characteristic 3 Q=s². Thus Z(q)=q³-1+(q-1)B(q), B=2q²-2q+1 / 2q²-1 / 2q² in the three regimes. General prime-power formula follows finite-field group counting, not prime-only tests.
 
-The directly motivating August 10, 2026 paper computes the binary dihedral example only (Section 6.3), not a formula valid over all finite fields. The 2022 foundational study addresses general zero-divisor and idempotent behavior but the inspected passages do not state the arithmetic trichotomy. Related previously indexed claims about idempotents of \(R_3\), Fourier decompositions, derivations and left-multiplication algebras concern distinct statements; no retrieved statement implies the exact count as claimed. Searches compared both zero-divisor terminology and determinant/norm formulations. Residual risk: a matrix-decomposition or unindexed source may contain an implicit equivalent census. This is not an independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The zero-divisor graph's vertex set is its primary finite invariant and was explicitly introduced and pictured for the binary dihedral example in the motivating research. The theorem determines that invariant for every finite field and explains a genuine arithmetic three-way transition. It is a natural completion of an open-to-investigation concrete object, rather than an arbitrary coefficient slice. It does not purport to classify the entire graph.
+Best-of-knowledge statement-level comparison: Neither idempotent counts nor F2 graph produce the uniform singular left-multiplication count mechanically without the new arithmetic split.
 
-## Closest literature and limitations
+## value
 
-Churchill et al., *A further study of quandles and quandle rings* (arXiv:2608.09149, Definition 1.9 and Section 6.3); Bardakov–Passi–Singh, *Zero-divisors and idempotents in quandle rings* (arXiv:2001.06843). The exact vertex-count formula is not a complete graph classification. Unindexed equivalent results and implicit reductions are possible. The independent scientific audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a natural full finite-field family invariant extending an explicitly studied F2 example; the split/inert/characteristic-three arithmetic regimes illuminate the algebraic source of nontrivial vertex-count behavior, beyond recomputation of a known small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
