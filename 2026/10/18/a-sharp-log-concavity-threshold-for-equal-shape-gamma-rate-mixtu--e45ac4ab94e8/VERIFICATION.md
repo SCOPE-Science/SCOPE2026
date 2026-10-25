@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof directly computes the logarithmic curvature of the normalized two-component Gamma density and reduces its sign to the unique maximum of a strictly log-concave one-variable function. At the critical value the maximum and derivative equations give the location \(t=2\sqrt\alpha\) and the exact normalized weight threshold. Monotonicity in the log-amplitude ratio and the unique maximum establish necessity, sufficiency, and the single positive-curvature interval. The calculation separately treats \(\alpha\le1\), coincident rates, and pure components.
+## correctness
 
-Running `python verify.py` reproduces 196 finite consistency cases, including exact rational algebra and numerical shape/weight examples. These calculations are not substitutes for the universal analytic argument. The assumptions are \(\alpha>0\), positive distinct rates, and strictly interior mixing weights; no conclusions are asserted for higher-component mixtures. Primary-source comparison did not include the complete 2022 hyper-Erlang conference paper; historical priority therefore retains a documented risk. Independent audit has not been performed.
+PASS
+
+For two distinct rates 0<a<b and interior weight, re-derived (log f)"/d^2=-(alpha-1)/t^2+1/[4cosh^2((t-log r)/2)] with d=b-a>0,t=dx,r=wb^alpha/((1-w)a^alpha). For alpha<=1 the curvature is strictly positive on x>0; for alpha>1 strict log-concavity of log H_c(t) where H_c=t/[2cosh((t-c)/2)] yields unique maximum. Its maximum strictly increases with c via H_{c+h}(t+h)=(t+h)/t H_c(t). At sharp tangency derivative zero and curvature zero imply t=2sqrt(alpha) and c*=2sqrt(alpha)+log((sqrt(alpha)-1)/(sqrt(alpha)+1)). Strict log-H concavity classifies one bounded positive-curvature interval above threshold, isolated equality at threshold. Confirmed tangency and curvature signs independently for five shapes; full proof analytic for all real parameters.
+
+## originality
+
+PASS
+
+Ordinary density log-concavity is not the same as Yu 2009 stochastic/relative log ratio convexity, Levy convolution of Erlangs, or Mu Beta mixtures. Equal-rate Gamma shape-mixtures and two-rate same-shape mixtures have different x dependence. The closest 2022 hyper-Erlang article addresses convolution/algebra according to accessible abstract, but full text inaccessible; a 2026 general log-concave mixture-separation preprint was only abstract-level read. No inspected full result dominates the exact shape-only amplitude threshold; best-of-knowledge PASS with explicit material-access risks.
+
+## value
+
+PASS
+
+A complete necessary-sufficient inequality for the simplest genuinely heterogeneous rate Gamma mixture gives a sharp normalized weight independent of rate gap, complete curvature sign topology and non-closedness of global log-concavity under arbitrarily small rate heterogeneity in total variation. This is a natural reliability/phase-type mixture classification rather than arbitrary parameter fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
