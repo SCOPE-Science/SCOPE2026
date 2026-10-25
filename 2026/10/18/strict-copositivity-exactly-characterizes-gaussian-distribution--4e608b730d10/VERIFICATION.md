@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The universal claim follows analytically from four steps: convex projection of the Gaussian factor rows, positivity of conditional monotone covariances, conditional Gaussian Hermite contraction, and a nonnegative covariance-kernel witness for necessity. This argument does not require the full covariance to be invertible.
+## correctness
 
-Run `python verify.py` from this directory. The standalone script uses exact rational and integer arithmetic. It checks the displayed rank-two, four-coordinate Gaussian example and its covariance-simplex certificate; constructs a separate boundary example with a nonnegative null vector; and checks 50 exact Hermite contraction and 54 exact monotone-covariance instances. These finite checks are auxiliary evidence and do not replace the proof for arbitrary dimension or measurable monotone transformations.
+PASS
 
-The source's original nonlinear copositivity definition is used with the nondecreasing extension justified in its Lemma 15. The stronger conjecture of exact equality between the nonlinear copositivity constant and the linear copositivity modulus is not asserted. Independent validation has not been performed.
+Factor Sigma=BB^T even in singular rank; if m>0 the nearest point p to the convex hull of the row vectors gives a unit Gaussian direction u with all common-factor loadings a_i>=sqrt(m). Condition on the orthogonal Gaussian residual: nondecreasing functions of shared Z have nonnegative cross-covariances. Hermite-Mehler contraction yields E Var(f_i(X_i)|H) >= a_i^2/Sigma_ii Var(f_i(X_i)), giving beta>=m/M. If m=0 a nonnegative linear Gaussian relation has zero numerator and positive denominator; strictly increasing slopes approximated. Independent rank-two mixed-sign example has m=1, M=10. We verified factorization and singular boundary, rather than inferring the theorem from finite checks.
+
+## originality
+
+PASS
+
+The exact statement in Sei 2022 Section 7 is Conjecture 4, while Appendix E.2 establishes only positive-definite covariance. The factor separation plus Hermite conditional contraction resolves the missing strictly copositive singular case with explicit modulus. General matrix copositivity and Gaussian association/product inequalities are distinct and do not yield the nonlinear variance inequality without extra work. Resultary and primary term searches found no identical theorem, with residual search risk.
+
+## value
+
+PASS
+
+Directly resolves a published named Gaussian-distribution conjecture and produces a dimension-free explicit positivity modulus m/M for singular Gaussian laws, a substantive characterization applicable beyond positive-definite covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
