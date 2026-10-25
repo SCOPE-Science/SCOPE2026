@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:21:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final theorem is restricted to Fibonacci-cube dimensions 6, 7 and 8. The clearing-then-setting bit argument proves distance equals Hamming distance; hence a geodesic flips each coordinate once at most. Exactly F_n first-coordinate edges force >=F_n covering geodesics. I independently regenerated all admissible binary strings/edges and checked every ordered path in actual fibonacci_geodesic_certificate.json against the graph and Hamming endpoint distance: n=6 had 21 vertices/38 edges and 8 valid covering geodesics; n=7 had 34/71 and 13; n=8 had 55/130 and 21. The disjoint extreme coordinate classes yield an edge-general-position set of 2F_n edges; any F_n-geodesic cover yields universal |X|<=2F_n, proving 16,26,42 and cover 8,13,21 exactly. This verifies a finite certificate, not all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavzar-Tan Conjecture 4.5 asks for gp_e(Gamma_n)=2F_n generally, rather than proving n>=6.",
+          "Manuel et al consider hypercubes, torus and Benes networks, not the finite Fibonacci-cube cover certificates."
+        ],
+        "reasoning": "General partial-cube coordinate classes establish a lower bound, but do not dominate the finite n=6..8 exact upper bounds. Standard covering inequality without a small cover does not imply the claim.",
+        "searches": [
+          "Klavzar and Tan Edge General Position Sets in Fibonacci and Lucas Cubes full article 2023",
+          "Manuel, Prabha, Klavzar Generalization of edge general position problem 2025"
+        ]
+      },
+      "checked_sources": [
+        "Actual Git trees: record 1 c90a3814fc8cb61aeec6fb6a310c47335411d0fe; RESULT.md 419bf3633bbaead7f52b7d4cc40beb369fd32494; fibonacci_geodesic_certificate.json 672712f7258db35081113a9ebc05164d307fab2a",
+        "Klavzar-Tan 2023 doi:10.1007/s40840-023-01517-y",
+        "Manuel-Prabha-Klavzar 2025 doi:10.26493/2590-9770.1745.5f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior extremal coordinate-class union has size 2F_n but only proved inclusion-maximal for general n; existing exact case n=5.",
+          "New finite covering certificates provide needed matching upper bounds n=6,7,8."
+        ],
+        "reasoning": "Neither lower bound nor inclusion-maximality implies maximum size; the new matching upper bound is logically additional. Hypercube covers do not automatically restrict to induced Fibonacci-cube geodesics.",
+        "searches": [
+          "Klavzar-Tan 2023 Theorem 4.3, Proposition 4.4, Conjecture 4.5",
+          "Manuel-Prabha-Klavzar 2025 edge geodesic covering inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klavzar-Tan prove the two-extreme-Theta-class set is maximal and give a lower bound; maximal is not maximum.",
+          "Manuel-Prabha-Klavzar define the edge-geodesic covering dual inequality used here."
+        ],
+        "reasoning": "An equivalence gp_e<=2 gcover_e lets the new finite covering certificates establish conjectured exact values. The earlier maximality/lower-bound statement is not an equivalent proof of maximal cardinality.",
+        "searches": [
+          "Resultary semantic: edge general position edge geodesic cover Fibonacci cubes gamma 6 7 8 8 13 21",
+          "Klavzar Tan 2023 Theorem 4.3, Conjecture 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier paper gives explicit value gp_e(Gamma_5)=10, then proposes n>=6 general conjecture.",
+          "The present path certificate lists 8, 13 and 21 actual covering paths (independently checked)."
+        ],
+        "reasoning": "A known table for n<=5 and ambient hypercube results do not tabulate or imply edge-geodesic cover of Gamma_6, Gamma_7, Gamma_8. A hidden exhaustive census remains possible.",
+        "searches": [
+          "Resultary semantic query for Fibonacci cube edge general position and geodesic cover",
+          "Klavzar-Tan Proposition 4.4"
+        ]
+      },
+      "rationale": "No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.",
+      "residual_risks": [
+        "A later unindexed structural proof of Conjecture 4.5 could automatically subsume all three dimensions.",
+        "The result is finite n<=8, not the general conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING n=6..8 exact values",
+          "evidence": "Conjecture 4.5 formulates gp_e(Gamma_n)=2F_n, Proposition 4.4 verifies n=5; Theorem 4.3 only maximal edge-general-position set and lower bound.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-023-01517-y",
+          "material_read": "Full open-access article, especially section 4, Theorem 4.3, Proposition 4.4 and Conjecture 4.5",
+          "method": "Read publisher HTML full main result/proof and conjecture",
+          "title": "Edge General Position Sets in Fibonacci and Lucas Cubes",
+          "trigger": "Exact same graph and invariant"
+        },
+        {
+          "assessment": "NO_IDENTIFIED_EXACT_COVER",
+          "evidence": "Torus networks, hypercubes and Benes networks, no Gamma_6..8 certificate in inspected claims.",
+          "identifier_or_url": "https://doi.org/10.26493/2590-9770.1745.5f4",
+          "material_read": "Published abstract and cited general edge-geodesic-cover results; full preprint lemma described in package",
+          "method": "Inspected journal abstract and original-published family coverage",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Cover/general position dual inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three new finite-dimensional exact cases 6,7,8 of a named still-open edge-general-position conjecture, together with exact minimal edge-geodesic coverings, fill a motivated gap immediately after the previously proven n=5; concrete finite paths are mathematically checkable witnesses, not a routine parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git trees: record 1 c90a3814fc8cb61aeec6fb6a310c47335411d0fe; RESULT.md 419bf3633bbaead7f52b7d4cc40beb369fd32494; fibonacci_geodesic_certificate.json 672712f7258db35081113a9ebc05164d307fab2a",
+    "Klavzar-Tan 2023 doi:10.1007/s40840-023-01517-y",
+    "Manuel-Prabha-Klavzar 2025 doi:10.26493/2590-9770.1745.5f4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later unindexed structural proof of Conjecture 4.5 could automatically subsume all three dimensions.",
+    "The result is finite n<=8, not the general conjecture.",
+    "Scientific axes passed on final existing RESULT.md claim; no corrective scientific file edits proposed or staged. Publication is not ready due operational privacy."
+  ],
+  "residual_risks": [
+    "A later unindexed structural proof of Conjecture 4.5 could automatically subsume all three dimensions.",
+    "The result is finite n<=8, not the general conjecture."
+  ],
+  "schema_version": 1
+}

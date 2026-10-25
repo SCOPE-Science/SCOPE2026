@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An edge-geodesic cover must contain at least one path for each of the \(F_n\) first-coordinate edges, because no geodesic can flip the same bit twice. The attached list consists of exactly \(F_n\) paths in dimensions six through eight, each independently checked to be a geodesic and collectively to cover every edge. The proof explicitly establishes the isometric embedding by clearing and then setting differing bits; thus the endpoint Hamming check is an exact mathematical shortest-path certificate, not a heuristic. The first and last coordinate classes give \(2F_n\) feasible edges for general position, while the explicit cover and the general geodesic-counting inequality give the matching upper bound. Boundary parameters and finite coverage are asserted only in the three verified dimensions. The verifier also regenerated the graph and was checked by independent breadth-first distances.
+PASS
 
-## Originality — PASS (subject to residual priority risk)
+The final theorem is restricted to Fibonacci-cube dimensions 6, 7 and 8. The clearing-then-setting bit argument proves distance equals Hamming distance; hence a geodesic flips each coordinate once at most. Exactly F_n first-coordinate edges force >=F_n covering geodesics. I independently regenerated all admissible binary strings/edges and checked every ordered path in actual fibonacci_geodesic_certificate.json against the graph and Hamming endpoint distance: n=6 had 21 vertices/38 edges and 8 valid covering geodesics; n=7 had 34/71 and 13; n=8 had 55/130 and 21. The disjoint extreme coordinate classes yield an edge-general-position set of 2F_n edges; any F_n-geodesic cover yields universal |X|<=2F_n, proving 16,26,42 and cover 8,13,21 exactly. This verifies a finite certificate, not all n.
 
-Klavžar–Tan (2023), Theorem 4.3, already supplies the lower bound for all dimensions; Proposition 4.4 closes only dimension five, and Conjecture 4.5 asks about later dimensions. Manuel–Prabha–Klavžar (2022), Lemma 2.4, establishes the general inequality between cover numbers and edge general position; that inequality is reused rather than claimed. Tian–Klavžar–Tan (2024) concerns different graph families. No identical dimension-six/seven/eight value or geodesic-cover certificate was identified in the inspected full texts and searches. Unindexed or indirectly stronger results might exist and remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The work closes three successive previously untreated finite cases of an explicit conjecture, including the natural next dimension immediately beyond the published cutoff. It adds an exact dual covering invariant and small, independently replayable combinatorial witnesses. The finite results are natural because these are the first unresolved members of the conjectured family, rather than an arbitrary parameter slice. No unsupported general solution or downstream consequence is claimed.
+No exact prior implication was located after source-specific comparison of definitions and named parameters; best-of-knowledge, with explicit residual risks. The searches and source inspections below are not a novelty certificate.
 
-## Limitations and closest literature
+## value
 
-The conjecture for dimension nine and above remains open. Full bibliographic novelty cannot be certified. The result supplies exact finite certificates rather than a dimension-uniform construction. Closest sources are Klavžar–Tan, arXiv:2304.10114v1 (Theorem 4.3, Proposition 4.4, Conjecture 4.5), Manuel–Prabha–Klavžar, arXiv:2207.07357v1 (Lemma 2.4), and Tian–Klavžar–Tan, DOI 10.1007/s00373-024-02770-z.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three new finite-dimensional exact cases 6,7,8 of a named still-open edge-general-position conjecture, together with exact minimal edge-geodesic coverings, fill a motivated gap immediately after the previously proven n=5; concrete finite paths are mathematically checkable witnesses, not a routine parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
