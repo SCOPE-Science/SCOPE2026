@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-The included standalone `verify.py` (Python with NumPy and SymPy) constructs a Laplacian for each helm graph directly from every spoke, rim and pendant edge; its eigenvalues are computed from the full matrix independently of the analytical Fourier formula. It checks the symbolic radial characteristic polynomial and identities for the radial and Fourier support bounds. It computes optimal conductances by bisection of a monotone derivative for \(n\) from \(5\) to \(18\), eight relative rim prices for each size, verifies exact normalized-budget accounting and a unit spectral gap, and evaluates hundreds of asymmetric feasible allocations. The exact transition price case is checked at five distinct points in its symmetric continuum. The executed checker produced:
+## correctness
 
-`PASS 1180 exact-symbolic and numerical assertions`
+PASS
 
-The program does not constitute a computer proof of the infinite-size theorem. That follows from the explicit spectral blocks, concavity of \(\lambda_2\), and the strict convexity of the one-variable unit-gap expenditure. Assertions of equality and signs at all real prices are justified by these analytic arguments rather than by sampled matrices. The numerical bisection does not decide mathematical equality cases; the theorem treats them exactly.
+PASS. Fourier block and radial quotient determine all potentially minimal eigenvalues; positive-semidefinite constraints are necessary and sufficient for unit gap; Rayleigh concavity/automorphism averaging proves global unrestricted optimal value. Strict convexity and fixed-c optimization provide the exact threshold, continuum and boundaries. Separate full-matrix eigenspectra corroborate.
+
+## originality
+
+PASS
+
+PASS best of knowledge. General Sun–Boyd–Xiao–Diaconis fastest-mixing SDP covers method but no explicit price-dependent helm classification; Jafarizadeh gives the length-two-star rim-deleted face already, not the optimality region against priced rim edges. Similar wheel and graph-corona problems are structurally different. Exact transition formula not located in inspected prior statements.
+
+## value
+
+PASS
+
+PASS. Hub/rim/leaf networks are natural communication graphs; the theorem gives a sharp decision threshold for when costly local links should be shut off without sacrificing fastest diffusion, a nontrivial all-n finite-price classification and a continuum of critical designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
