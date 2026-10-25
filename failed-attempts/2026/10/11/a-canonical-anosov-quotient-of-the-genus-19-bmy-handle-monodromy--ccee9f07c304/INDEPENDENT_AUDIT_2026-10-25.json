@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T01:07:17Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Primary source matrix and isotropic lattice basis not independently reconstructed because primary PDF/ancillary inaccessible.",
+        "No claim about surface Anosov map or pseudo-Anosov stretch factor."
+      ],
+      "rationale": "Conditioned on the source-exact premises expressly included in the finding (38-dimensional integral symplectic S with chi=p²hh*, h irreducible, K=ker p(S) rational dimension two, L integral isotropic), all steps are sound: independent exact polynomial factorization confirms h irreducible, h != reciprocal h*, and gcd(h,h*)=gcd(h,p)=1. A common unit-circle root for real h would also be a root of h*; impossible. L is primitive as K intersection integral lattice; unimodular alternating symplectic basis extension gives free rank 34 quotient L^perp/L with integral symplectic induced form. By symplectic duality the two removed 2D factors both have chi p; quotient chi=hh*. Reciprocal degree 34 with no unit-circle roots gives stable/unstable real dimensions 17 each. p-primary 4D with dim ker p=2 forces one Q[t]/p² block, one Jordan block at each ±i; periodic rational vectors exactly K. B=R^{-1}Q is conjugate to A=QR^{-1} by R^{-1}. Exact SymPy verifies arithmetic but not original genus-19 38x38 matrix or full primary Appendix; all source-level premises are separately flagged as external.",
+      "status": "PASS",
+      "verification": {
+        "code": "independent_checks.py",
+        "finite_vs_infinite": "root samples are diagnostic only; no-unit-root and 17+17 are proved symbolically",
+        "method": "Independent SymPy symbolic irreducibility over Q, exact gcds and reciprocity, characteristic degree and numerical root location corroboration",
+        "replay": "python independent_checks.py"
+      }
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.02261v1 (Baykur--Stipsicz--Szabo), Appendix D.5 premises as transcribed in inspected RESULT.md; full primary text inaccessible in this run",
+          "Inspected RESULT.md Proof explicitly cites source characteristic polynomial, irreducibility, K dimension 2, integral isotropic L as already proved in its Appendix D.5.",
+          "Independent SymPy confirms factor h irreducible and gcd(h,h*)=gcd(h,t²+1)=1."
+        ],
+        "reasoning": "The published stronger data set is sufficient to deduce all the proposed spectral reduction by textbook symplectic quotient and primary decomposition; no new mapping-class matrix or lattice invariant is computed. A prior implication is coverage even when the precise corollary wording is absent.",
+        "searches": [
+          "arXiv:2610.02261v1 Small Lefschetz fibrations on the BMY line",
+          "web: 2610.02261 homology.json ordinary_factor finite_orbit_basis",
+          "Resultary: Cartwright Steger handle monodromy homology hyperbolic quotient",
+          "web: symplectic primary decomposition, hyperbolic toral Anosov quotient"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02261v1 (Baykur--Stipsicz--Szabo), Appendix D.5 premises as transcribed in inspected RESULT.md; full primary text inaccessible in this run",
+        "https://arxiv.org/abs/2610.01467",
+        "Resultary/2026/2026/10/11: SCOPE-a-sharp-two-orientation-spectral-trichotomy-for-the-cartwright-s--93148ef3233f; SCOPE-hodge-character-of-the-cartwright-steger-fiber-symmetry--bc82160037b2",
+        "Resultary/2026/2026/10/11/SCOPE-a-canonical-anosov-quotient-of-the-genus-19-bmy-handle-monodromy--ccee9f07c304 (same finding/mirror; not independent priority evidence)",
+        "actual source Git tree 217057fffe60c94e6af5479ff37833380a590dbb; RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, METADATA.json, SLOGAN.txt, artifacts/verify_spectral_reduction.py",
+        "own SymPy exact factorization/roots check 2026-10-25 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula p²hh*, dim ker p(S)=2, and isotropic L are explicitly attributed in the inspected submitted RESULT.md to the earlier primary source.",
+          "The submitted proof has no nonstandard deduction beyond these data, standard algebraic reciprocity, symplectic reduction, and elementary Q[t]-module theory.",
+          "Resultary/2026/2026/10/11: SCOPE-a-sharp-two-orientation-spectral-trichotomy-for-the-cartwright-s--93148ef3233f; SCOPE-hodge-character-of-the-cartwright-steger-fiber-symmetry--bc82160037b2"
+        ],
+        "reasoning": "Covers the same source-specific conclusion by direct consequence: a known symplectic characteristic polynomial, a known 2-dimensional isotropic cyclotomic kernel, and routine symplectic reduction/rational-canonical structure determine the proposed theorem without a new independent computation. The distinct Resultary findings concern order-three symmetry and unassigned nodal-twist products, hence neither computes nor refutes this particular handle action; it is the primary BMY calculation that covers it.",
+        "searches": [
+          "arXiv:2610.02261v1 Appendix D.5 source claims",
+          "arXiv:2610.01467v1 monodromy relation handle monodromies",
+          "Resultary distinct Cartwright--Steger nodal twist and Hodge character results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary/2026/2026/10/11/SCOPE-a-canonical-anosov-quotient-of-the-genus-19-bmy-handle-monodromy--ccee9f07c304 (same finding/mirror; not independent priority evidence)",
+          "This exact mirrored finding cannot establish distinct earlier authorship or priority; the closest independent primary text is Baykur--Stipsicz--Szabo (arXiv:2610.02261v1)."
+        ],
+        "reasoning": "Direct exact-title mirror discovered but not treated as a distinct prior proof. No independent verbatim counterpart established. Equivalent structural formulation is the symplectic reduction of the already-published p-primary kernel plus rational canonical module classification; those supplied source data determine it.",
+        "searches": [
+          "Resultary semantic search: genus 19 Cartwright Steger BMY handle monodromy symplectic quotient Anosov torus unit circle Jordan cyclotomic spectral reduction",
+          "Resultary semantic search: small Lefschetz fibrations BMY line monodromy h(t) h reciprocal eigenvalues finite orbit",
+          "web: Baykur Stipsicz Szabo unit circle Anosov monodromy 2026",
+          "web: 2610.02261 Appendix D.5 finite orbit homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected packaged RESULT.md states source Appendix D.5 already computes h coefficients, dim ker p(S)=2 and an integral isotropic basis for L.",
+          "The complete packaged script contains the same h coefficients, and independent SymPy reproduces the polynomial factor and irreducibility.",
+          "Ancillary JSON was not obtained directly, and its basis was not independently audited."
+        ],
+        "reasoning": "No separate exact quotient table was found. Nevertheless the source’s known finite-parameter characteristic polynomial and isotropic kernel determine the quotient, so absence of an explicit table entry does not establish independent originality.",
+        "searches": [
+          "arXiv:2610.02261v1/anc/homology.json ordinary_factor finite_orbit_basis",
+          "search: 2610.02261 homology.json Appendix D.5 characteristic polynomial",
+          "inspected source package artifacts/verify_spectral_reduction.py exact coefficient vector"
+        ]
+      },
+      "rationale": "Although the exact named quotient theorem is not visible in accessible abstracts or distinct SCOPE/Resultary findings, the submission expressly takes from the October 1 Baykur--Stipsicz--Szabo source the entire degree-38 polynomial p^2*h*h* with h irreducible, dim ker p(S)=2, and its primitive isotropic integral lattice. These published source-specific facts mechanically imply every asserted new conclusion by standard symplectic linear algebra: h != h* forces coprimality and absence of unit roots; quotient by the isotropic kernel removes two p factors; the remaining reciprocal degree-34 polynomial yields 17+17 hyperbolicity; dim ker p=2 forces a single Q[t]/(p^2) block. This is a covered direct corollary of the source calculations, despite not necessarily being worded there as a separate Anosov quotient theorem. Full source inspection was blocked, so the source-to-claim implication is documented with its reliance on the submission’s exact attributions.",
+      "residual_risks": [
+        "Full primary arXiv 2610.02261v1 Appendix D.5 and ancillary homology.json unavailable during this audit; coverage relies on explicit exact attributions in inspected package and mathematical implication.",
+        "Full independent same-fibration arXiv 2610.01467v1 unavailable; only abstract read.",
+        "A secondary proof might have isolated quotient formalism earlier, but search did not establish an independent verbatim statement.",
+        "Numerical roots do not prove monodromy matrix or integral isotropy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published source data as explicitly attributed in the submitted manuscript suffice for the purported new theorem by elementary implications; whole primary Appendix D.5 uninspected, so historical premise transcription retains risk.",
+          "evidence": "arXiv abstract confirms explicit genus-19 monodromy and pseudo-Anosov handle maps; package attributes p²hh*, irreducibility, dimK=2, and integral isotropy to Appendix D.5.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02261",
+          "material_read": "arXiv abstract and bibliographic metadata; detailed Appendix D.5 premises quoted in inspected assigned RESULT.md, AUDIT.json, REVIEW.md, and VERIFICATION.md (these are secondary claim files, not independent primary full-text reading).",
+          "method": "arXiv abstract web access; arXiv HTML/PDF and OA alternatives failed; authorized Oxford returned vpn_disconnected, job c80a78019e81de6cbd4f0a81bd2b956a.",
+          "title": "Small Lefschetz fibrations on the BMY line",
+          "trigger": "Same genus-19 handle maps and all essential spectral input claimed from Appendix D.5"
+        },
+        {
+          "assessment": "Abstract concerns order-three symmetry, vanishing cycles and monodromy relation, not explicit polynomial h or canonical quotient; do not infer whole-document noncoverage.",
+          "evidence": "Abstract: monodromy translates span first homology and two handle monodromies enter a relation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01467",
+          "material_read": "Public arXiv abstract only, plus full separate Resultary derivations dependent on this paper; no primary full-text availability.",
+          "method": "arXiv abstract web access; arXiv HTML/PDF/OA failed; authorized Oxford returned vpn_disconnected, job dbf0cb377665f9906d35db03f828f2d9.",
+          "title": "A monodromy relation for the Cartwright-Steger fibration",
+          "trigger": "Same genus-19 fibration and separate handle-monodromy discussion"
+        },
+        {
+          "assessment": "Different operators: two orderings of three nodal twists controlled by unresolved intersection m, not the genus-19 handle QR^{-1} action.",
+          "evidence": "Characteristic forms (z-1)^36 (z²-a_±(m) z+1), not p² h h*.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-two-orientation-spectral-trichotomy-for-the-cartwright-s--93148ef3233f/RESULT.md",
+          "material_read": "Full RESULT.md: theorem, assumptions, proof, verification, prior-work comparison and references.",
+          "method": "Pinned GitHub repository file retrieval through connected read-only GitHub access.",
+          "title": "A sharp two-orientation spectral trichotomy for the Cartwright–Steger nodal twists",
+          "trigger": "High-rank semantic hit covering same genus-19 fibration"
+        },
+        {
+          "assessment": "Studies order-three fiber automorphism, not handle monodromy; its (t-1)^12(t²+t+1)^13 cannot imply the requested quotient for QR^{-1}.",
+          "evidence": "Hodge eigenmultiplicities (6,6,7) and order-three symmetry char polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-hodge-character-of-the-cartwright-steger-fiber-symmetry--bc82160037b2/RESULT.md",
+          "material_read": "Full RESULT.md: finding, scope, holomorphic Lefschetz calculation, evidence and references.",
+          "method": "Connected read-only GitHub full file retrieval.",
+          "title": "Hodge character of the Cartwright–Steger fiber symmetry",
+          "trigger": "Same fiber/order-three symmetry relevant to possible dualities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quotient L^perp/L is a natural object, and structural Anosov dynamics is a mathematically relevant description; however the submitted exact statement is obtained entirely by standard symplectic reduction and rational-canonical/Jordan deductions from the previous authors’ specific characteristic polynomial and two-dimensional isotropic kernel. Its 34-dimensional rank, 17+17 split and p² primary module are forced immediately by that known data, with no independently new invariant, nonstandard lemma, meaningful boundary, fresh classification or added computation. As a standalone claim it is a restatement of textbook consequences of already-reported source computations, not an independently useful unknown precise fact. This is a value judgment about the submitted contribution, not about the broader mathematical importance of the Baykur–Stipsicz–Szabó construction.",
+      "residual_risks": [
+        "An exposition focused on quotient dynamics may have pedagogical utility even though no distinct mathematical advance remains."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.02261v1 (Baykur--Stipsicz--Szabo), Appendix D.5 premises as transcribed in inspected RESULT.md; full primary text inaccessible in this run",
+    "https://arxiv.org/abs/2610.01467",
+    "Resultary/2026/2026/10/11: SCOPE-a-sharp-two-orientation-spectral-trichotomy-for-the-cartwright-s--93148ef3233f; SCOPE-hodge-character-of-the-cartwright-steger-fiber-symmetry--bc82160037b2",
+    "Resultary/2026/2026/10/11/SCOPE-a-canonical-anosov-quotient-of-the-genus-19-bmy-handle-monodromy--ccee9f07c304 (same finding/mirror; not independent priority evidence)",
+    "actual source Git tree 217057fffe60c94e6af5479ff37833380a590dbb; RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, METADATA.json, SLOGAN.txt, artifacts/verify_spectral_reduction.py",
+    "own SymPy exact factorization/roots check 2026-10-25 UTC"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Primary source full text not accessible; scientific coverage argument uses source-level facts explicitly acknowledged by assigned manuscript.",
+    "Original package contains potentially public operational provenance, publication withheld."
+  ],
+  "residual_risks": [
+    "Full primary arXiv 2610.02261v1 Appendix D.5 and ancillary homology.json unavailable during this audit; coverage relies on explicit exact attributions in inspected package and mathematical implication.",
+    "Full independent same-fibration arXiv 2610.01467v1 unavailable; only abstract read.",
+    "A secondary proof might have isolated quotient formalism earlier, but search did not establish an independent verbatim statement.",
+    "Numerical roots do not prove monodromy matrix or integral isotropy.",
+    "Primary source matrix and isotropic lattice basis not independently reconstructed because primary PDF/ancillary inaccessible.",
+    "No claim about surface Anosov map or pseudo-Anosov stretch factor.",
+    "An exposition focused on quotient dynamics may have pedagogical utility even though no distinct mathematical advance remains."
+  ],
+  "schema_version": 1
+}
