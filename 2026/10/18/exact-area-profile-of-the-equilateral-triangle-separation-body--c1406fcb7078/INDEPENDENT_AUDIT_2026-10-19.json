@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T22:55:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The perimeter normalization is m(T,z)=[Per(conv(T,z))-6]/pi, not a volume floating body. For side length two the side and opposite-vertex chambers have visible paths of lengths 2 and 4. Focal semiaxes (1+q/2,sqrt((1+q/2)^2-1)) and (2+q/2,sqrt((2+q/2)^2-1)) therefore follow from the same two foci. On extended edge ray AB the perimeter equation t+sqrt(t^2+2t+4)-2=q has unique nonnegative root u=q(q+4)/(2(q+3)); its endpoints force angles phi=asin(sqrt(3)u/(2b_f)), psi=asin(u/(2a_v)). Green boundary integrals give I_f=a_fb_f(pi-2phi)+2/sqrt(3)+u/sqrt(3) and I_v=2a_vb_v psi-u/sqrt(3), whose crossing terms cancel, giving area sqrt(3)+3/2[a_fb_f(pi-2phi)+2a_vb_v psi]. Both nondegenerate arc pieces persist for q>0; q=0 is the triangle. Independent radial convex-hull-perimeter quadrature at q=.05,.5,2 matches the closed form, and independent SymPy expansion in q=s^2 reproduces coefficients sqrt(3)+3*pi*s/2+15*pi*s^3/16-2*sqrt(3)*s^4/9. All-parameter proof rests on exact chamber geometry and Green integration, not finite quadrature; similarity substitution delta->2delta/L and area factor (L/2)^2 is correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider gives ellipse arcs in arbitrary polygon chambers but no closed all-parameter triangle area.",
+          "Böröczky–Schneider derives stochastic mean-width bounds and simplicial asymptotics, not this deterministic perimeter-level planar area.",
+          "The square computation explicitly has 8 arcs and different semiaxes, not a universal area theorem."
+        ],
+        "reasoning": "The general chamber observation is a premise rather than dominating coverage of globally joined and integrated triangular arcs. The separate square model does not imply the triangle case by affine invariance; mean width lacks affine invariance.",
+        "searches": [
+          "Schneider arXiv:1910.12670 polygon example and Poisson section",
+          "Böröczky–Schneider arXiv:0901.3343 mean width of circumscribed random polytopes",
+          "square separation body Resultary published full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.12670v2, Schneider 2019, pp.3–6",
+        "arXiv:0901.3343v1, Böröczky–Schneider 2009, abstract/intro/theorems",
+        "Resultary full published square separation-body RESULT.md 2026-10-04",
+        "Resultary semantic polygon separation-body discovery; exact triangle floating body record is a different construction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ellipse-arc description is local and does not supply the transition u or total Green integral.",
+          "Square arc symmetry and geometry do not yield triangle six-arc formula or delta^2 coefficient."
+        ],
+        "reasoning": "Deriving the result requires solving the triangle-specific side/vertex transition and evaluating Green integrals; neither follows as a corollary of a general polygon structural assertion. The square result supplies a method, not an implication of the claimed equation.",
+        "searches": [
+          "Schneider polygon ellipse chamber argument Section 2",
+          "Resultary square full RESULT.md area expression"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same body is the perimeter-excess sublevel Per(conv(T,z))-Per(T)<=pi delta; Schneider explicitly supplies this equivalence.",
+          "No general triangular all-parameter area identity appears in the inspected Schneider polygon example."
+        ],
+        "reasoning": "Potential synonyms such as mean-width illumination-type body and separation hyperplane measure denote the same object after pi normalization. Recognizing these aliases avoids false novelty from changing terminology, while the original integration remains a distinct theorem.",
+        "searches": [
+          "Resultary semantic query: Exact isotropic separation body of equilateral triangle perimeter increment ellipse arcs area profile all levels separation body convex geometry",
+          "Schneider arXiv:1910.12670 Sections 2-3, perimeter excess vs isotropic mean width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full square RESULT.md gives Q[-1,1]^2 8 ellipse arcs, not the side-two triangle.",
+          "Targeted Resultary search returned nearest square and distinct triangle floating bodies, not a table for this triangle separation body."
+        ],
+        "reasoning": "The checked published exact body is a nearby noncovering entry, not an equal or stronger database/table row. Failed discovery is only weak evidence; unindexed historical geometry remains possible.",
+        "searches": [
+          "Resultary published exact square separation body 2026/10/4/SCOPE-exact-area-profile-of-the-square-separation-body--8376167378fb",
+          "Resultary semantic query: equilateral triangle separation body exact area",
+          "targeted web search: separation body triangle area exact perimeter ellipse"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS limited to the evaluated six-piece equilateral triangle profile and nontrivial cancellation/coefficients. Schneider already establishes the construction, planar perimeter normalization and polygonal ellipse chambers; square published result gives a separate exact profile and cannot be affinely substituted because isotropic mean width is not affine invariant. Original triangular all-parameter joining and area expression were not found in the targeted published records or examined primary texts. This is not a claim of priority for separation bodies or ellipse arcs.",
+      "residual_risks": [
+        "An unindexed deterministic triangle separation-body calculation in older stochastic-geometry literature could predate this full formula.",
+        "Targeted searches are not exhaustive; no inference of historical independence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: generic polygon chamber ellipse arc property and perimeter/pi formula, not triangle exact global area",
+          "evidence": "Section 2 polygon example explicitly states m(K,x)=[Per(Kx)-Per(K)]/pi and ellipse arc in each affine edge arrangement chamber; does not give triangle joining/area.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.12670",
+          "material_read": "13-page PDF; definitions Section 2 and actual polygon worked example p.5, application transition p.6, rendered page 5 inspected",
+          "method": "Primary full PDF text search plus page-image reading",
+          "title": "Separation bodies: a conceptual dual to floating bodies",
+          "trigger": "Same exact isotropic construction, polygonal ellipses, stochastic application"
+        },
+        {
+          "assessment": "RELATED_NOT_DOMINATING: stochastic mean-width expected-value bounds/asymptotics rather than deterministic equilateral separation-area profile",
+          "evidence": "Theorems 1.1–1.3 concern EW(K(n))−W(K), not V(T[delta]).",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.3343",
+          "material_read": "14-page primary PDF; abstract, introduction, Theorems 1.1–1.3, definitions and examples read",
+          "method": "ArXiv primary PDF text and page 1-3 theorem review",
+          "title": "The mean width of circumscribed random polytopes",
+          "trigger": "Same mean-width increment appears in stochastic circumscribed-polytope analysis"
+        },
+        {
+          "assessment": "NOT_COVERING: square only; eight pieces and different symmetry",
+          "evidence": "Square exact expression 4+4ab asin(1/a)+4(a+1)beta asin(...); explicitly not formula for arbitrary polygons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-area-profile-of-the-square-separation-body--8376167378fb/RESULT.md",
+          "material_read": "Full public GitHub RESULT.md including proof, exact 8-arc area, asymptotic expansion and scope",
+          "method": "GitHub source-text read",
+          "title": "Exact area profile of the square separation body",
+          "trigger": "Closest published exact polygon separation-body computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A regular triangle is the canonical noncentrally symmetric polygon; an explicit complete separation-body area profile, rather than generic polygon ellipse-local geometry, supplies exact geometric and Poisson-hyperplane comparison benchmarks. The six-piece transition, exact formula valid for every delta, and cancellation of the linear area term constitute a motivated mathematical gap rather than arbitrary parameter substitution. No expectation for a random circumscribed cell is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for isotropic equilateral Euclidean triangles, δ>=0; no anisotropic, arbitrary-polygon, or random-cell expected-area result.",
+    "Publication transport blocked: both METADATA.json and AUDIT.json contain the private scope_run_id; verified confidentiality-safe COMPLETE replacement bytes plus source-blob guards for BOTH have not been prepared. Withhold publication."
+  ],
+  "schema_version": 1
+}
