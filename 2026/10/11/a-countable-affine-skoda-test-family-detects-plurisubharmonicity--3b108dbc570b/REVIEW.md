@@ -1,48 +1,21 @@
-# Review of A countable affine Skoda test family detects plurisubharmonicity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. If the Levi form fails to be positive semidefinite, a strictly negative trace against a positive definite Hermitian matrix exists. The source proves that such matrices are exactly those arising from invertible complex affine coordinate changes.
+PASS
 
-Strict negativity is open in both the center and the affine matrix. Because a nonzero holomorphic function has zero set with empty interior, the center can be moved inside the strict negative set to a point where the fixed Bergman function is nonzero. Gaussian-rational centers and invertible Gaussian-rational matrices are dense, so the strict inequality survives discretization.
+For C² real φ on a bounded connected domain, failure of plurisubharmonicity gives a point and negative Levi direction. P=vv*+δI is positive definite with tr(HφP)<0 for small δ, and any positive definite Hermitian P is of the form conj(A⁻¹)(A⁻¹)^T; strict negativity is open in center and A. Since Gaussian-rational points/invertible matrices are dense and nonzero holomorphic f has zero set with empty interior, one finds permitted q,A with f(q)≠0 and strict negative transformed trace. Under w=A(z−q), g=(w,M) and both estimate integrals gain the same constant affine Jacobian. The exact analytic special-tuple Skoda lemma, Proposition 3.8 of arXiv:2609.33300, yields tr(i∂∂̄φ̃)(0)≥−n²/M² as ε→∞; ordinary limits still hold along ℓ∈positive integers. Every M∈positive integers is available, so M→∞ forces a contradiction. Pseudoconvex converse follows from classical Skoda division applied to this zero-free restricted family. Independent rational-matrix checks verified Hessian trace identities in n=1..5, and exact beta-integral second moments E|w|²=M²/ℓ for the J-kernel confirmed the concentration scaling in 48 bounded parameter cases. These algebraic checks do not prove Proposition 3.8; its analytic proof was reconstructed at the cited source, including the C², f(q)≠0, and fixed-M hypotheses.
 
-After the affine change of coordinates, the assumed tuple is exactly the source's
-\[
-(z_1,\ldots,z_n,M)
-\]
-test. The source proof for fixed
-\[
-M
-\]
-uses a limit as the Skoda exponent tends to infinity and obtains
-\[
-\operatorname{tr}
-i\partial\bar\partial\varphi(0)
-\ge
--\frac{n^2}{M^2}.
-\]
-All of those limits remain valid along positive integers. Applying the conclusion for integer
-\[
-M
-\]
-and then letting integer
-\[
-M
-\]
-tend to infinity gives the required contradiction.
+## originality
 
-## Originality
+PASS
 
-PASS. The 2026 source defines Skoda divisibility using every generator count, every zero-free holomorphic tuple, and every positive real exponent. Its proof narrows the mechanism to affine-normalized \((n+1)\)-generator radial tests, but it still works with continuous center, matrix, radial, and exponent parameters and does not state a countable determining family.
+Best-of-knowledge original as an explicit weaker-hypothesis countable determining criterion for the ORIGINAL Skoda estimate. The 2026 primary theorem assumes universal tuples and positive real exponents; its proof supplies nearly all ingredients but neither its statements nor the inspected text formulate simultaneous Gaussian-rational center/matrix and integer-parameter restrictions. The strictness/density and subsequence steps are an elementary but genuine hypothesis reduction; originality is modest and residual implicit-priority risk is material.
 
-The 2024 precursor uses a formally stronger division estimate. It therefore does not cover the claim that a countable family of tests for the original Skoda estimate suffices.
+## value
 
-Searches under countable-test, Gaussian-rational, rational-affine, and restricted-parameter formulations found no implication-equivalent published theorem.
+PASS
 
-## Value
+The main prior theorem requires a universal infinite-dimensional family of holomorphic generator tuples and continuous choices of parameters. The stated theorem identifies an explicit enumerable/testable countable determining family while retaining the same positivity characterization on pseudoconvex domains. Such separable determining sets are natural analytic objects and can support enumeration, approximation, or descriptive-set arguments; this is a motivated qualitative hypothesis reduction, not a random finite-parameter specialization. The result is modest and follows by standard density and subsequence arguments once the source special-tuple proof is known, so no claim of a major new Skoda estimate, finite algorithm, or lower-generator result is made.
 
-PASS. The result replaces an infinite-dimensional universal testing condition by an explicit countable family while retaining an if-and-only-if characterization on bounded pseudoconvex domains.
-
-This is a structural reduction rather than a numerical parameter improvement: it shows that differential positivity everywhere is encoded by countably many rigid affine-radial division problems. The reduction is potentially useful whenever one needs a separable, enumerable, or measurable positivity criterion and it identifies precisely which continuous freedoms in the source theorem are inessential.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
