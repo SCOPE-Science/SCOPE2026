@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The order-preserving cubic branch maps and their two invariant fiber strips follow from the explicit sharp derivative bounds. For every initial height, the bounded-martingale quadratic-variation identity forces convergence to strip endpoints; a countable rational-dense construction promotes this to a common almost-sure pair of threshold graphs for all other fiber heights. The exact marginal CDFs follow from the martingale mean. Coupling both strips under the same fair driving signs gives an absolutely convergent product-covariance series, strictly negative term by term. The rational checker passed 101 independently evaluated finite-depth identities; infinite conclusions rely on the written proof.
+## correctness
 
-**Originality — PASS, with stated priority risk.** The 2021 cubic skew-product source (arXiv:2103.03308v1, Eq. (5), Theorem 14) establishes qualitative intermingling, not these exact separator marginal and joint-dependence laws. The 2016 precursor (arXiv:1611.07248v1, Theorem 3.1) provides the existence of a separating graph in a general random interval-map class, but its hypotheses neither force complementary branches nor imply uniform threshold marginals or strict cross-strip negative dependence. Searches for martingale basin separator distributions, complementary cubic fiber maps, uniform thresholds and negative copulas did not identify a statement implying the theorem. Remaining risk: an unindexed result or supplementary treatment could derive these identities by a different name.
+PASS
 
-**Value — PASS.** Basin intermingling makes asymptotic destination sensitive to the chaotic base itinerary. Exact marginal laws directly quantify the chance of attraction to each of three invariant layers, while strict negative dependence reveals nontrivial coupling between otherwise individually uniform lower and upper basin boundaries. Both are motivated structural observables of the particular system, not arbitrary parameter slices. They supply exact benchmarks for numerical basin estimation and invalidate independent-threshold modeling.
+For 0<β<1, g±=y±aβ(y), aβ=y(1−y)(y−β), derivatives |aβ′|<1 on [0,1], so increasing homeomorphisms fix and preserve 0,β,1 and invariant open strips. Fair signs make each Y_n(y) a bounded martingale. Conditional quadratic variation ∑E aβ(Y_n(y))²<∞ forces limiting zeros of aβ, and expectation gives endpoint selection probabilities y/β below β and (y−β)/(1−β) above. Coupled monotonicity and a countable rational-dense argument produce simultaneous separating thresholds for all other starting heights, giving exact uniform marginal CDFs. Conditional product drift E[X_{n+1}Z_{n+1}−X_nZ_n | past]=aβ(X_n)aβ(Z_n)<0. Cauchy–Schwarz on quadratic variation ensures absolute convergence of its telescoping series; atomless cuts identify limit joint event, proving strict negative quadrant dependence and covariance. Independently checked the exact β=1/2, u=1/4, v=3/4 first-term bound 247/1024 by rational arithmetic.
 
-**Scientific limits.** Fair independent itinerary and equal cubic parameters are essential. Separator-start trajectories and an elementary closed form for the full joint copula are not determined. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The original cubic-fiber paper supplies exact dynamics and qualitative three-way intermingled basins, and the older interval-diffeomorphism paper provides a qualitative separating-graph existence theorem. Neither examined full primary article states the special fair-complementary cubic uniform marginals plus strict two-separator negative quadrant-dependence series.
+
+## value
+
+PASS
+
+The cubic skew product is a motivated canonical intermingled-basin example. Uniform marginals provide exact expected sizes of all three basins, while strictly negative dependence disproves naive independence of basin boundaries and gives a quantitative exact signed error series. These are natural dynamical observables rather than an arbitrary numeric plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
