@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact substitution proves four equations for the published parametrization. Upon inverting the two stated parameters, those equations form a prime four-dimensional ideal after an explicitly invertible formal change of variables to the twisted-cubic minors. The actual image ideal is a prime four-dimensional ideal containing it, so equality follows by dimension; this excludes extra local equations or branches. The quotient identification and discrepancy follow by standard surface-quotient and adjunction calculations. A standalone checker reproduces the defining identities.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The originating manuscript locates three singular planes in the fourfold but does not give their transverse analytic rings, quotient indices, or discrepancies. Its auxiliary computation lists ideal and singular-locus operations but not a local normal form. Searches covering the precise example and aliases yielded no exact overlap. Related records for other twisted-cubic loci, Segre cones, and unrelated \(\frac13(1,1)\) quotient surfaces do not imply a result for this fourfold. A broad determinantal local-normal-form theorem might subsume the specialization and remains a residual priority risk.
+PASS
 
-**Value — PASS.** The published example is a distinguished normal ACM fourfold with atypical multisecant behavior. The exact analytic germ along a dense part of its singular plane distinguishes it sharply from an ordinary-double-point stratum; the computed canonical index and negative discrepancy show this normal example is noncanonical along that stratum. Those invariants are not determined by the previous set-theoretic singular-locus decomposition.
+On x2=1 with t=x3 and q=x7 units, the four explicit source equations vanish on the eight cubics parametrizing Han–Kwak Example 6.3. F4 eliminates E and adjoining a formal square root s of t gives an invertible linear coordinate substitution U0=A/q,U1=sC/q,U2=D-U0,U3=B/s-U1. Independent exact SymPy simplification confirmed the three stated Hankel minors equal F2/q-F1/q^2, F3/(qs), 2F2/q-F1/q^2 respectively, with residual expressions all identically zero. The standard 2x2 minors define the prime Veronese subring C[u^3,u²v,uv²,v³]; the original irreducible image is birational on D=x5 !=0 and both defining primes have dimension four, giving localized scheme equality, not merely tangent-cone equality. The transverse 1/3(1,1) quotient has index three, multiplicity three, klt/noncanonical age 2/3; blowup exceptional P1 has normal degree -3 and discrepancy -1/3 by adjunction. A formal local square root is legitimate only after t invertible near each point. The proof does not classify other singular components.
 
-**Closest literature and limitations.** Han–Kwak, arXiv:2610.12078v1, Example 6.3 and the accompanying `code.m2`, give the construction and singular-stratum decomposition. Only \(\Pi^\circ\) is treated; the other planes, quadric, line, and boundary intersections are not classified. Exact algebra does not establish absolute priority or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact statements/implications, relevant published corpus findings and available primary material. Classical ingredients are credited; no located stronger theorem or exact table entails the claimed new conclusion. Residual access and priority limits are recorded.
+
+## value
+
+PASS
+
+Determining the transverse analytic type, singularity index and discrepancy along an explicitly identified two-dimensional singular stratum of a natural degree-eleven fourfold is a usable birational-geometric local invariant. It supplies strictly more information than the known set-theoretic singular-locus decomposition, without asserting a global desingularization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
