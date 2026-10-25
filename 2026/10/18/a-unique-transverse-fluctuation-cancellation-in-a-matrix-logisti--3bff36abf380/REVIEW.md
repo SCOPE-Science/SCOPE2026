@@ -1,19 +1,21 @@
-# Scientific review: transverse fluctuations of the two-node matrix logistic map
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-coordinate identity follows by direct multiplication, making the off-diagonal derivative an exact scalar cocycle on the invariant diagonal curve. The arcsine-to-doubling conjugacy and classical logarithmic Fourier identity determine the transverse exponent. The transfer operator decreases the \(L^2\)-norm of the centered observable by \(O(2^{-j})\), giving a convergent martingale-coboundary decomposition, a stationary reverse-martingale central limit theorem, and the explicit nonnegative odd-frequency variance series. Fourier uniqueness for a finite atomic orbit measure classifies every zero of the variance inside \(1<b<\sqrt3\). The exact telescoping product at \(b=\sqrt2\) and the finite-series calculation at \(b=2/\sqrt3\) provide independent structural checks. The packaged Python verifier executed 4,199 consistency assertions successfully. The verifier is not a substitute for the infinite proof; the limit theorem's remaining theoretical reliance is on the standard ergodic martingale CLT.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The full accessible public manuscript of Pawela and Życzkowski (arXiv:2303.06176, March 2023) was checked in the model section and Appendix A: its diagonal positive-matrix case is treated through decoupled logistic scalar spectral distributions, whereas the present normal cocycle, exact variance series, and unique coboundary resonance are not supplied. General martingale approximation is established background and contributes no matrix-specific coefficient. A related paper on coupled scalar logistic maps is not the same Hermitian matrix system and therefore does not imply this transverse theorem. A related calculation for a Sharkovskiĭ Lotka–Volterra map treats the endpoint logarithmic cocycle \(\log x\) for an arcsine logistic base; it does not cover the moving interior singularity \(\log|1-c_b-x|\) or its unique zero-variance locus. Targeted terminology, equation, and parameter searches in published literature and research records produced no direct antecedent to the combined claim. Residual risks remain for an unindexed cocycle paper or an equivalent log-singular doubling-map variance classification; bibliographic absence is not a proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-The nontrivial invariant diagonal curve is a natural test of how chaos from one diagonal matrix channel affects a linearly stable off-diagonal perturbation. The finding separates average normal contraction, always \(\log(b/2)\), from quantitative finite-time fluctuations, and determines their unique zero-variance resonance across the entire stable-fixed-channel range. The exact nonzero contrast \(\sigma_{2/\sqrt3}^2=\pi^2/3\) and an explicit infinite parameter-series yield reproducible dynamical invariants, not an arbitrary isolated numeric slice. It is specifically a normal linearized/stationary result, not a theorem of full nonlinear synchronization.
+For H=[[x,z],[conj(z),y]], the map F_b=D_b H(I-H)D_b has z+=2b(1-x-y)z, and the invariant diagonal orbit y=c_b=1-b^-2 is logistic x+=4x(1-x) with stationary arcsine. Circle conjugacy x=(1-cos(theta))/2 gives log-normal cocycle log|b(cos theta-cos beta)|, beta=acos(2c_b-1), mean log(b/2) by exact log-sine Fourier series. Transfer P kills odd cosine modes and halves even frequencies, so ||P^j psi||_2=O(2^-j), yielding an L2 martingale-coboundary decomposition and the standard stationary reverse-martingale CLT with σ²=2 sum_{q odd>=1}q^-2(sum_{j>=0}2^-j cos(2^j q beta))². Nonnegative terms plus Fourier uniqueness show σ²=0 iff the weighted even orbit-point measure is π-rotation invariant; its mass-one level-0 pair must consume all mass-one tail on shifted atoms, which forces β=π/3 or the self-shift β=π/2. Here β>acos(1/3)>π/3, hence only β=π/2, i.e. b=sqrt2. At b=sqrt2 log-cocycle telescopes via double-angle sine product and is L2 bounded; at b=2/sqrt3 β=2π/3 gives σ²=π²/3. Independently checked truncated special cosine spectrum approaching π²/3; this finite number is not the CLT proof.
 
-## Closest literature and limitations
-- Ł. Pawela and K. Życzkowski, arXiv:2303.06176v1, Eq. (6) and Appendix A. Same matrix model and diagonal curve; no comparable normal fluctuation variance or resonance classification identified in the inspected text.
-- M. Gordin and M. Peligrad, arXiv:0910.3448. General martingale limit framework, not the model-specific variance or zero set.
-- Research on coupled scalar logistic maps (for example Cánovas, 2022) considers distinct evolution laws and does not directly imply the Hermitian off-diagonal statement.
+## originality
 
-The conclusion is for infinitesimal normal derivatives along stationary diagonal dynamics; exceptional singular logarithmic phases have measure zero. An uninspected equivalent formulation could alter the originality judgment. No claim of independent scientific certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pawela–Życzkowski 2023 introduces Hermitian matrix logistic map, diagonal chaotic channel and spectral/transfer behavior. Its model and the logistic circle conjugacy are prior, as are Gordin-type martingale CLTs. The model-specific off-diagonal normal derivative variance formula and classification of a unique cancellation parameter are not stated in inspected original PDF including Appendix A. An earlier singular-observable CLT/coboundary theorem might imply this specialized zero locus, but not identified in actual targeted searches.
+
+## value
+
+PASS
+
+The transverse Lyapunov exponent log(b/2) is constant-form throughout a stable diagonal channel family, but intermittent finite-time contraction fluctuations can vanish at precisely one natural resonance. The full variance function, exact zero set and explicit π²/3 contrasting value are meaningful quantitative normal-hyperbolicity diagnostics, rather than an arbitrary numerical slice. Scope is stationary infinitesimal normal dynamics only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

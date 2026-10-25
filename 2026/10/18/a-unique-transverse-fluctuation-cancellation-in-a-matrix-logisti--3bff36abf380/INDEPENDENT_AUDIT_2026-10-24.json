@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:54:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree d0b686add6832132aa51ad0e48c4afbfd3de097c)",
+        "Independent truncation of odd Fourier variance at beta=2π/3"
+      ],
+      "rationale": "For H=[[x,z],[conj(z),y]], the map F_b=D_b H(I-H)D_b has z+=2b(1-x-y)z, and the invariant diagonal orbit y=c_b=1-b^-2 is logistic x+=4x(1-x) with stationary arcsine. Circle conjugacy x=(1-cos(theta))/2 gives log-normal cocycle log|b(cos theta-cos beta)|, beta=acos(2c_b-1), mean log(b/2) by exact log-sine Fourier series. Transfer P kills odd cosine modes and halves even frequencies, so ||P^j psi||_2=O(2^-j), yielding an L2 martingale-coboundary decomposition and the standard stationary reverse-martingale CLT with σ²=2 sum_{q odd>=1}q^-2(sum_{j>=0}2^-j cos(2^j q beta))². Nonnegative terms plus Fourier uniqueness show σ²=0 iff the weighted even orbit-point measure is π-rotation invariant; its mass-one level-0 pair must consume all mass-one tail on shifted atoms, which forces β=π/3 or the self-shift β=π/2. Here β>acos(1/3)>π/3, hence only β=π/2, i.e. b=sqrt2. At b=sqrt2 log-cocycle telescopes via double-angle sine product and is L2 bounded; at b=2/sqrt3 β=2π/3 gives σ²=π²/3. Independently checked truncated special cosine spectrum approaching π²/3; this finite number is not the CLT proof.",
+      "residual_risks": [
+        "Stationary arcsine initial point and infinitesimal normal linearization only; not global nonlinear matrix synchronization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pawela–Życzkowski 2023 PDF main map section and Appendix A discuss spectrum and matrix chaotic channels; Gordin–Peligrad general martingale approach gives limit theory for mixing observables, not parameter-specific exact Fourier coefficients."
+        ],
+        "reasoning": "A general theorem for doubling-map logarithmic cocycles might dominate if it classified all coboundaries; no such direct strong prior statement was verified. Source Appendix A is spectral, not this CLT.",
+        "searches": [
+          "matrix logistic map off diagonal Lyapunov variance central limit theorem transverse cocycle zero variance sqrt2",
+          "arxiv:2303.06176 matrix logistic Appendix A",
+          "Gordin Peligrad functional CLT martingale approximation arxiv 0910.3448"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree d0b686add6832132aa51ad0e48c4afbfd3de097c)",
+        "Independent truncation of odd Fourier variance at beta=2π/3",
+        "Pawela–Życzkowski arxiv:2303.06176 full PDF",
+        "Gordin–Peligrad arxiv:0910.3448 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arcsine doubling log-sine identity plus the moving singularity cosβ create exact martingale coefficients; β=π/2 cancellation is special. Pawela original diagonal spectral distribution is not a theorem about normal derivative partial sums."
+        ],
+        "reasoning": "Neither matrix map definition nor generic martingale limit independently implies unique cancellation locus. The source proof explicitly uses Fourier uniqueness on an atomic orbit measure.",
+        "searches": [
+          "matrix logistic map off diagonal Lyapunov variance central limit theorem transverse cocycle zero variance sqrt2",
+          "Resultary transverse logistic cocycle spectral variance resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pawela Życzkowski arxiv:2303.06176 defines same Hermitian map, logistic arcsine diagonal spectrum; Fourier log-sine and Gordin martingale decomposition are classical methods."
+        ],
+        "reasoning": "The exact off-diagonal cocycle is equivalent to singular logarithmic observable under circle doubling; checking only exact matrix title would miss this alias. Standard CLT theory supports framework but cannot by itself identify b=sqrt2 as sole zero-variance parameter.",
+        "searches": [
+          "matrix logistic map off diagonal Lyapunov variance central limit theorem transverse cocycle zero variance sqrt2",
+          "Pawela Zyczkowski matrix logistic normal Lyapunov CLT",
+          "doubling map log cos theta minus cos beta zero-variance coboundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific σ²(b) explicit odd Fourier sum and σ²(2/sqrt3)=π²/3 obtained from this cocycle; no exact table found in inspected primary model paper or searched records."
+        ],
+        "reasoning": "Known scalar logistic Lyapunov exponents do not tabulate the two-node off-diagonal central-limit variance or unique zero parameter; absence in indexing is not a guarantee.",
+        "searches": [
+          "matrix logistic map off diagonal Lyapunov variance central limit theorem transverse cocycle zero variance sqrt2",
+          "matrix logistic transverse asymptotic variance sqrt2 pi²/3",
+          "doubling log sin CLT variance zero singularity parameter"
+        ]
+      },
+      "rationale": "Pawela–Życzkowski 2023 introduces Hermitian matrix logistic map, diagonal chaotic channel and spectral/transfer behavior. Its model and the logistic circle conjugacy are prior, as are Gordin-type martingale CLTs. The model-specific off-diagonal normal derivative variance formula and classification of a unique cancellation parameter are not stated in inspected original PDF including Appendix A. An earlier singular-observable CLT/coboundary theorem might imply this specialized zero locus, but not identified in actual targeted searches.",
+      "residual_risks": [
+        "A less-indexed mathematical treatment of singular doubling-map logarithmic observables could imply the full zero-variance characterization under non-matrix terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL; no normal fluctuation variance in inspected source",
+          "evidence": "Paper examines matrix logistic dynamics, eigenvalue/spectral behavior and numerical transfer of chaos; not the log transverse cocycle CLT or b=sqrt2 cohomological cancellation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06176",
+          "material_read": "Full 9-page PDF including matrix logistic definition, Eq.(6), Appendix A",
+          "method": "Primary PDF read and screenshot pages 2 and 8",
+          "title": "Matrix logistic map: fractal spectral distributions and transfer of chaos",
+          "trigger": "Same matrix map and invariant chaotic diagonal dynamics"
+        },
+        {
+          "assessment": "GENERAL_PROBABILITY_PRIOR",
+          "evidence": "Gordin/Peligrad address martingale approximation; model-specific variance coefficients must still be derived.",
+          "identifier_or_url": "https://arxiv.org/abs/0910.3448",
+          "material_read": "Abstract and bibliographic reference; theorem used as general mathematical framework",
+          "method": "Reference-level abstract review, no claim of full independent read",
+          "title": "On the functional central limit theorem via martingale approximation",
+          "trigger": "General martingale CLT method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and verify.py (frozen tree d0b686add6832132aa51ad0e48c4afbfd3de097c)",
+        "Independent truncation of odd Fourier variance at beta=2π/3",
+        "Pawela–Życzkowski arxiv:2303.06176 full PDF",
+        "Gordin–Peligrad arxiv:0910.3448 (abstract)"
+      ],
+      "rationale": "The transverse Lyapunov exponent log(b/2) is constant-form throughout a stable diagonal channel family, but intermittent finite-time contraction fluctuations can vanish at precisely one natural resonance. The full variance function, exact zero set and explicit π²/3 contrasting value are meaningful quantitative normal-hyperbolicity diagnostics, rather than an arbitrary numerical slice. Scope is stationary infinitesimal normal dynamics only.",
+      "residual_risks": [
+        "A less-indexed mathematical treatment of singular doubling-map logarithmic observables could imply the full zero-variance characterization under non-matrix terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A less-indexed mathematical treatment of singular doubling-map logarithmic observables could imply the full zero-variance characterization under non-matrix terminology.",
+    "Stationary arcsine initial point and infinitesimal normal linearization only; not global nonlinear matrix synchronization.",
+    "No source updates and no public publication. Original human/expert and formal-proof status untouched; independent scientific review is not an external certified proof."
+  ],
+  "schema_version": 1
+}
