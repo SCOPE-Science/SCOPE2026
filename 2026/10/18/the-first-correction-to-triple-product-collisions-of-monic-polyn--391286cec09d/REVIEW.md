@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The formal Euler product is forced by unique factorization of monic polynomials. Subtracting the complete 3-by-3 geometric-product factor cancels the maximal power of \(q\) in each logarithmic bidegree; the only deficit-one term is \(-q e_2(\boldsymbol x)e_2(\boldsymbol y)\). The resulting two contingency-matrix counts are evaluated by exclusion of impossible second rows. The scope is every fixed \(d\ge1\) and all prime-power \(q\) in a large-field limit. Direct enumeration independently checks ten matrix degrees and small field examples, but these computations do not replace the proof.
+## correctness
 
-**Originality — PASS with residual risk.** Afifurrahman, arXiv:2610.11240v1, Theorem 2.2, solves the analogous four-polynomial problem, not the six-polynomial correction. Andrade–Bary-Soroker–Rudnick, arXiv:1407.2076, equation (1.18), addresses the unshifted general-divisor moment under total-degree rather than each-factor degree constraints. Afifurrahman–Corrigan, arXiv:2501.15372v3, studies integer rather than polynomial higher-product moments. Jiang et al., arXiv:2609.25863v1, discuss the Birkhoff lattice-point object (its abstract was accessible, not its full text), which alone does not supply the prime-polynomial correction. Targeted term, alias, and stronger-statement searches found no actual dominating statement. Unindexed general methods and the unread part of the last source remain originality risks.
+PASS
 
-**Mathematical value — PASS.** The first nontrivial higher restricted product collision is a natural extension of a current function-field question; its negative first correction is explicit in every fixed degree and has a structural transport-count meaning. The result does not claim a full exact polynomial, uniform large-degree bounds, or a first-of-its-kind priority guarantee.
+For all fixed d>=1 and q any prime power, the six-variable Euler product using I_r(q) for irreducible monic P encodes equality of ordered triple products. Factoring Z=prod_{i,j}(1-q x_i y_j)^(-1) cancels top q-degree in each homogeneous bidegree. The only bidegree-2 deficit-one logarithmic term is -q e2(x)e2(y); all bidegrees m>=3 have q-degree <=m-2 and products of corrections cannot recreate deficit one. Target coefficient extraction gives M_d q^(3d)-9 N_d q^(3d-1)+O_d(q^(3d-2)); inclusion-exclusion evaluates M_d=(d+1)(d+2)(d^2+3d+4)/8 and N_d=d(d+1)(d+2)(3d+1)/24. Fresh independent exact enumeration of all 3x3 contingency matrices for d=1..10 agrees, and direct triple polynomial product enumeration p=2,3,5 d<=3 confirms degree-one exact 6q^3-9q^2+4q and supports the lower-order behavior. Explicit formal Euler logarithmic degree bound establishes the unrestricted fixed-d statement, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+The first genuinely higher fixed-degree equal-product energy beyond 2x2 is a natural analogue of current restricted-divisor questions. The exact negative q^(3d-1) coefficient, interpreted as nine 3x3 near-semimagic contingency matrix counts, is a motivated nontrivial arithmetic refinement distinct from the known leading Ehrhart count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

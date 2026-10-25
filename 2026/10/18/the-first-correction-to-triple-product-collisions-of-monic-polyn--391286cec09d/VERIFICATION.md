@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3 environment. It uses no third-party packages.
+## correctness
 
-The certificate enumerates all 3-by-3 integer contingency matrices with margins \((d,d,d)\) and \((d,d-1,d-1)\) for \(1\le d\le10\); the observed counts agree with both closed formulas. It also enumerates actual ordered triples of monic polynomial factors over small prime fields, computes the product-multiplicity square sum, and checks the exact degree-one polynomial \(6q^3-9q^2+4q\).
+PASS
 
-The general claim is a formal generating-function theorem, not a computational extrapolation. Calculations with a finite set of degrees and fields are supplementary consistency checks only. A separate independent audit has not been performed.
+For all fixed d>=1 and q any prime power, the six-variable Euler product using I_r(q) for irreducible monic P encodes equality of ordered triple products. Factoring Z=prod_{i,j}(1-q x_i y_j)^(-1) cancels top q-degree in each homogeneous bidegree. The only bidegree-2 deficit-one logarithmic term is -q e2(x)e2(y); all bidegrees m>=3 have q-degree <=m-2 and products of corrections cannot recreate deficit one. Target coefficient extraction gives M_d q^(3d)-9 N_d q^(3d-1)+O_d(q^(3d-2)); inclusion-exclusion evaluates M_d=(d+1)(d+2)(d^2+3d+4)/8 and N_d=d(d+1)(d+2)(3d+1)/24. Fresh independent exact enumeration of all 3x3 contingency matrices for d=1..10 agrees, and direct triple polynomial product enumeration p=2,3,5 d<=3 confirms degree-one exact 6q^3-9q^2+4q and supports the lower-order behavior. Explicit formal Euler logarithmic degree bound establishes the unrestricted fixed-d statement, not finite enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison of the exact final conclusion against the closest primary theorems, relevant Resultary corpus, mathematical aliases and broader potential implications. Existing prerequisites are credited; absent search hits are not priority proof.
+
+## value
+
+PASS
+
+The first genuinely higher fixed-degree equal-product energy beyond 2x2 is a natural analogue of current restricted-divisor questions. The exact negative q^(3d-1) coefficient, interpreted as nine 3x3 near-semimagic contingency matrix counts, is a motivated nontrivial arithmetic refinement distinct from the known leading Ehrhart count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
