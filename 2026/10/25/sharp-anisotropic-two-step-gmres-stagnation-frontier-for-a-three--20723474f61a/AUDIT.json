@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Normal-equation elimination is reversible and yields exactly the continuous attained scalar minimum. Positivity and the universal bounds are analytic, the exact radical witness satisfies both residual normal equations, and the full Krylov dimension is three. Standalone symbolic checks and 4000 seeded constructions replayed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "\"Admissible and attainable convergence behavior with stagnation mirroring in restarted (block) GMRES\" https://link.springer.com/article/10.1007/s11075-026-02368-x, Sections 3 and 5 on realizable stagnation profiles",
+        "\"GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block\" https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf, Sections 1–3 including standard Jordan block and eq. (2.9)"
+      ],
+      "reasoning": "General prescribed-stagnation constructions allow the matrix to be chosen and do not give a sharp existence test for each fixed upper bidiagonal pair (u,v); Tichý–Liesen constrain all edge weights equal.",
+      "searches": [
+        "\"GMRES\" \"anisotropic\" \"bidiagonal\" stagnation",
+        "\"upper bidiagonal\" \"GMRES\" \"stagnation\" eigenvalues one",
+        "\"Admissible and attainable convergence behavior with stagnation mirroring in restarted (block) GMRES\" https://link.springer.com/article/10.1007/s11075-026-02368-x, Sections 3 and 5 on realizable stagnation profiles"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2609.13091",
+      "https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf",
+      "https://link.springer.com/article/10.1007/s11075-026-02368-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "\"A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES\" https://arxiv.org/pdf/2609.13091, page 1 MSC 65F10 and first public 2026-09-11; Algorithm 4.1 and equation (4.1) pages 10–11",
+        "\"GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block\" https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf, Sections 1–3 including standard Jordan block and eq. (2.9)",
+        "\"Admissible and attainable convergence behavior with stagnation mirroring in restarted (block) GMRES\" https://link.springer.com/article/10.1007/s11075-026-02368-x, Sections 3 and 5 on realizable stagnation profiles"
+      ],
+      "reasoning": "Equal Jordan coverage implies only g_*(1)=8/3. General GMRES stagnation criteria give the orthogonality equations but not the ratio-dependent elimination and exact fixed-product reversal; this is the assessed new classification. Eigenvalue data alone cannot imply the frontier, as the equal-product witness demonstrates.",
+      "searches": [
+        "restarted GMRES two-step full stagnation despite all eigenvalues one Jordan nilpotent Richardson 3 steps",
+        "\"bidiagonal\" \"GMRES\" \"stagnation\" \"weights\"",
+        "\"A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES\" https://arxiv.org/pdf/2609.13091, page 1 MSC 65F10 and first public 2026-09-11; Algorithm 4.1 and equation (4.1) pages 10–11",
+        "\"GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block\" https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf, Sections 1–3 including standard Jordan block and eq. (2.9)",
+        "\"Admissible and attainable convergence behavior with stagnation mirroring in restarted (block) GMRES\" https://link.springer.com/article/10.1007/s11075-026-02368-x, Sections 3 and 5 on realizable stagnation profiles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "\"A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES\" https://arxiv.org/pdf/2609.13091, page 1 MSC 65F10 and first public 2026-09-11; Algorithm 4.1 and equation (4.1) pages 10–11",
+        "\"GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block\" https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf, Sections 1–3 including standard Jordan block and eq. (2.9)"
+      ],
+      "reasoning": "The source Algorithm 4.1 supplies two presmoothed residual columns; their span is exactly the GMRES(2) Krylov correction space for identity preconditioning. Standard-Jordan statements cover the equal-weight case, not the unequal-weight Euclidean norm after a nonorthogonal diagonal similarity.",
+      "searches": [
+        "\"weighted shift\" \"GMRES\" \"stagnation\" 3x3",
+        "\"weighted Jordan\" \"polynomial numerical hull\" GMRES stagnation",
+        "\"A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES\" https://arxiv.org/pdf/2609.13091, page 1 MSC 65F10 and first public 2026-09-11; Algorithm 4.1 and equation (4.1) pages 10–11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic result search returned related weighted-nilpotent numerical-radius work (2026/10/11/SCOPE-exact-numerical-radius-of-a-two-weight-nilpotent-shift-on-ell-p--b3244292cab1), not a GMRES(2) prescribed-weight stagnation classification.",
+        "\"GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block\" https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf, Sections 1–3 including standard Jordan block and eq. (2.9)"
+      ],
+      "reasoning": "No retrieved exact table or database result specified the two-weight Euclidean residual-minimization threshold. The published numerical-radius statement concerns an operator numerical range, not these two quadratic stationarity equations.",
+      "searches": [
+        "weighted three by three upper bidiagonal identity nilpotent two distinct superdiagonal weights exact GMRES 2 complete stagnation parameter uv ratio threshold",
+        "degree two polynomial numerical hull general weighted shift bidiagonal three by three singular values nilpotent"
+      ]
+    },
+    "rationale": "The theorem is a sharp prescribed-two-weight Euclidean GMRES(2) frontier, not the known uniform Jordan radius or generic existence of GMRES stagnation. Equal-product opposite behavior rules out deduction from spectrum, product alone, or nonunitary Jordan similarity; primary sources and recent records searched for stronger implication.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier discussions of exact weighted 3-by-3 GMRES could overlap.",
+      "General polynomial-numerical-hull theory might imply equivalent weighted identities after additional reduction; no such exact weight-resolved source was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines pre- and post-smoothing and the two-column basis; no unequal-weight 3-by-3 stagnation frontier in the inspected manuscript",
+        "evidence": [
+          "Title and MSC on page 1; Algorithm 4.1 page 10 and (4.1) page 11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.13091",
+        "material_read": "Full 17-page PDF text, especially pages 1–3 and 9–11 including Algorithm 4.1, equation (4.1), projection inner product and references",
+        "method": "Primary full-text inspection and explicit span computation",
+        "title": "A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES",
+        "trigger": "Defines the exact accelerator being specialized"
+      },
+      {
+        "assessment": "Strong coverage of the equal-weight standard Jordan specialization, but not fixed two unequal upper links in the Euclidean norm",
+        "evidence": [
+          "Definition J_lambda=lambda I+E_n, equations (2.5), (2.9), Section 3"
+        ],
+        "identifier_or_url": "https://www3.math.tu-berlin.de/preprints/files/TiLi2006.pdf",
+        "material_read": "Complete available 18-page PDF; equations (1.1)–(1.7), (2.5) and (2.9), conditions for worst-case GMRES and Jordan radius",
+        "method": "Primary full-text comparison of matrix class and implication",
+        "title": "GMRES Convergence and the Polynomial Numerical Hull for a Jordan Block",
+        "trigger": "Strong potentially covering earlier GMRES/Jordan theorem"
+      },
+      {
+        "assessment": "Existential matrix constructions for prescribed histories; no result prescribing two bidiagonal link weights and deriving their exact frontier",
+        "evidence": [
+          "Theorem 3.6 constructs some matrix given prescribed norm sequence"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-026-02368-x",
+        "material_read": "Accessible full HTML, especially Sections 3.4 and 5 on admissible curves and construction",
+        "method": "Comparison of matrix quantifiers and constraints",
+        "title": "Admissible and attainable convergence behavior with stagnation mirroring in restarted (block) GMRES",
+        "trigger": "Could cover complete stagnation with arbitrary prescribed eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20723474-f61a-4c28-a62e-088569e63229",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nontrivial sharp boundary and same-eigenvalue/same-product safe-versus-stagnant pair diagnose a meaningful failure of the two-grid acceleration prototype while basic Richardson is finite terminating. The full ratio dependence gives actionable small-system insight beyond textbook GMRES orthogonality.",
+    "status": "PASS"
+  }
+}
