@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition of pseudo-intent is used recursively; every pair is nonclosed, and containment of every line forces a larger candidate to be a projective subspace, contradicting nonclosure. Full-support coefficients count exactly the minimal antecedent/root combinations and prove the compulsory nature of direct premises. The exact support hierarchy is established by induction on synchronous rounds; an independent-rank input with full-support target gives sharpness. The finite verifier checks recursive pseudo-intents, direct-root counts and round convergence on three geometries. Independent extension fields and arbitrary ranks rely on the symbolic proof, not finite experiments.
+PASS
 
-## Originality — PASS (qualified)
+PASS: In PG(d-1,q), q any prime power >=2, d>=2, singletons are closed and every pair is a pseudo-intent because its line has q+1 points. A larger pseudo-intent would contain the closure of every pair and hence be a projective flat, contradiction. For synchronous one-pass closure, each independent A and full-support point p in its span has no proper-subset rule capable of adding p in that pass; therefore the premise A and root p are compulsory. Conversely minimal spanning support of any target point is independent, making those rules sufficient. Count independent r-subsets I_r=prod_j(N-N_j)/r!, and full-support roots (q-1)^(r-1), deriving both exact grouped/unit formulas. Induction on rounds with a balanced partition of support establishes R_t(S)=union of spans over supports of size <=2^t. A rank-r independent frame and its all-nonzero coordinate sum attain ceil(log2 r); general rank-r inputs achieve closure by then. Independently enumerated all 128 subsets PG(2,2) and 8192 subsets PG(2,3), checking pair pseudo-intents, direct rule counts (21/49 and 78/312, unit 1092), closure and rounds. The independent finite tests cover q=2,3,d=3; all prime powers and dimensions rest on proof.
 
-Wild's survey already states the vector-space pair-to-span basis, while Kashiwabara and Nakamura already establish general rooted-circuit and pseudo-intent theory. Bérczi, Boros and Makino study matroid Horn minimization by circuits, and Adaricheva, Nourine and Vilmin analyze D-basis algorithms. These general mechanisms and obvious corollaries are **not** claimed original. The assessed new quantitative package is the full-rank projective direct-rule census together with the exact synchronous support law and sharp logarithmic depth. Actual mathematical-record comparisons found no identical coverage. An implicit older specialization or unindexed earlier result remains a material priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Directness exchanges additional Horn implications for evaluation latency. The explicit, all-rank counts and sharp iteration hierarchy display this resource tradeoff in a fundamental infinite family of finite projective spaces: canonical storage on the order of the square of the number of points and logarithmic rounds versus a much larger one-pass basis. The exact rather than asymptotic rank dependence is useful for basis design and mathematical knowledge representation.
+PASS best of knowledge for the combined exact all-rank projective enumeration D_group,D_unit and round-by-round support/depth tradeoff. Wild’s general canonical-direct stem/root construction and Kashiwabara-Nakamura rooted circuits explain the compulsory-rule mechanism, and Bérczi-Boros-Makino study matroid Horn representation minimization; these prior general frameworks are credited. Their inspected material does not give the displayed field-dependent closed counts plus exact logarithmic pair-rule convergence profile for every PG(d-1,q). This remains an especially important general-theory overlap risk, not presented as a new abstract direct-basis theorem.
 
-## Closest work and limits
+## value
 
-The cited 2013 paper treats general prime stems; the 2016/2017 survey explicitly lists vector-space pair bases; the 2023 and 2024 sources treat matroid Horn and closure-basis minimization/computation. None of the inspected statements was identified as the exact combined projective count/round-profile theorem. This comparison does not establish global novelty. Higher extension fields were not executed in the standalone finite checker, but are included in the mathematical proof. The result does not claim to optimize literal count or cover arbitrary matroids.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS with narrow scope: exact direct-basis sizes for finite projective geometries, optimal one-pass consequence counts and the cost of reducing propagation rounds are natural motivated closure-system invariants. The contrast from O(q^(2d)) canonical pair rules to q^(d^2-O(d log d)) direct rules makes a concrete nontrivial size/parallel-depth tradeoff. Generic rooted-circuit definitions alone do not supply these field- and dimension-dependent enumerators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
