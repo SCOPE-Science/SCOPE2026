@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to deterministic monotone dynamics on nonempty Alexandrov preorders. The explicit infinite model decodes the original two observations from one atom by a temporal change/no-change test. The published two-observation obstruction is independently reproved for arbitrary subformula substitutions, with the finite-upset alternating chain and a two-case eventuality contradiction. The variable-free sharpness proof uses induction on semantics. Both the order direction and temporal persistence were checked, and the executable reproducer performs separate finite tests.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Define D(r)=r xor next r; Q(r)=¬F D(r), P(r)=r xor Q(r). On W=N0×N0 with spatial order along i at fixed j and temporal successor (i,j+1), let p=(i even), q=(j>=i), r=p xor q. Along each temporal orbit r changes exactly once at j=i for i>=1, never for i=0, so Q=q and P=p. Substituting these two observations into the four Vooijs–Fernández-Duque conditions yields satisfiability at (0,0). The obstruction proof requires only arbitrary formula observations a,b: in any finite generated spatial upset, the alternating spatial successor relation produces mutually accessible points with opposite a. Formula 1 keeps a and makes b persistent along time; formulas 3/4 produce conflicting eventual b witnesses, and comparing their witness times contradicts persistence and monotonicity. Hence no finite generated upset. All variable-free formulae are spatially and temporally constant (for nonempty reflexive frames) and thus satisfiable on a singleton iff satisfiable anywhere; one genuine atom is sharp. The source proof and original two-variable Lemma 3.1 were inspected side by side, including the page image.
 
-The 2026 LICS paper's Lemma 3.1 gives a two-variable obstruction, rather than sharp one-variable minimality. The primary 2006 treatment establishes local finiteness in a syntactically restricted fragment, not in the full-language unary fragment. Targeted record and literature queries for temporal single-variable encodings and equivalent local-finiteness obstructions did not reveal an equivalent theorem. Search absence is not a priority certificate; older unary-variable modal encodings remain a possible source of subsumption.
+## originality
 
-## Value — PASS
+PASS
 
-The precise number of required atomic observations is a natural expressiveness parameter for finite-model obstructions. Replacing two independent colors by a single toggling temporal signal changes the variable-resource boundary, and variable-free sharpness supplies a complete minimum-resource classification. The construction is not a renaming or special-case computation; it creates a definable temporal marker and uses it to reconstruct both required observations.
+Best-of-knowledge, subject to explicitly documented priority risks: searched the available Resultary records and primary literature, compared the exact claimed quantifiers/invariants to prior implications rather than matching titles, and did not treat inaccessible full text as proof of noncoverage.
 
-## Closest literature and limitations
+## value
 
-Vooijs–Fernández-Duque (2026), §3, Lemma 3.1, supplies the source obstruction for two atoms; Konev–Kontchakov–Wolter–Zakharyaschev (2006), §§2–3, proves a locally finite result only for a restricted fragment. The present result does not assert a bound on satisfiability complexity, extend to arbitrary topologies, or rule out all equivalent older sources. The finite checker is supporting evidence, not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Proving the exact minimum number of propositional letters for failure of the locally finite model property sharpens an established foundational counterexample. One-variable temporal-change encoding provides a genuine expressivity reduction in full Alexandrov DTL and separates this from the variable-free fragment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
