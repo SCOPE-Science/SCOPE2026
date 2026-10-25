@@ -1,19 +1,21 @@
-# Scientific review: strict second path digraph of a transitive tournament
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter proof derives the digraph arcs from the strict ordered-face incidence rule of Caputi–Riihimäki, partitions edges and triangles uniquely into subcomplexes indexed by two-subsets, and identifies each as the clique complex of a complete tripartite graph. Their intersections occur only at vertices. A point-gluing argument yields the homotopy type as a wedge of circles and two-spheres. A generating-function count gives \(\beta_2=\binom{n-3}{5}\); the explicit face vector and connectedness give \(\beta_1=5\binom{n-2}{3}\). Checks of the original definitions, oriented flags, the special cases \(n=3,4\), and the first two-dimensional class at \(n=8\) find no missing hypotheses. The standalone exhaustive finite checker independently confirms vertex/edge/triangle sets and mod-two ranks for \(3\le n\le11\). The infinite conclusion follows from the proof, not from finite extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+Rebuilt strict condition d_i(sigma)=d_j(tau) with i<j, with vertices ordered triples a<b<c. All arcs and directed triangles belong to a common unordered pair uv; third coordinates partition into L=w<u, M=u<w<v, R=w>v. Each B_uv is a join of up to three discrete interval classes and blocks intersect pairwise only in vertices. Four-subset overlap induces a 4-vertex path, not a triangle; consequently all directed faces belong to blocks and no 3-simplices arise. Point-gluing by only vertices yields wedge circles/spheres; connectedness follows because each Johnson adjacency is supported by a connected 4-vertex path. H2 sum over (l-1)(m-1)(r-1) equals coefficient z^(n−2) z^6/(1−z)^6 = C(n−3,5). χ from C(n,3) vertices, 3C(n,4) edges, C(n,5) triangles gives β1=5C(n−2,3). Independent direct strict-face construction and mod2 ranks n3..11 agree including n8 β=(100,1); finite checks supplement, not prove, the all-n block argument.
 
-Caputi–Riihimäki (arXiv:2204.00462, Definition 3.20 and Question 3.33) define the exact strict path-digraph construction and ask for associated homotopy types but give no all-size transitive-tournament calculation. Riihimäki (arXiv:2202.07307, Sections 3–4) studies a different directed \(q\)-connection construction. A public scale-one Johnson-graph Rips classification describes a strictly larger flag complex with a different fundamental group, so it cannot itself imply the proposed classification. The multipath-complex literature likewise concerns another simplicial construction. Search comparisons using source names, face-incidence aliases, triplet overlap descriptions and numerical Betti formulas revealed no equivalent statement. Equivalent unindexed work remains possible; the comparison is not independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Question 3.33 of the motivating primary paper asks for topology and Betti numbers of higher path-digraph flag complexes. The theorem provides an all-parameter **homotopy**, not just Euler-characteristic, answer for the canonical complete acyclic orientation; it exposes nontrivial mixed one- and two-dimensional topology, an exact onset at eight tournament vertices, and torsion-free integral homology. The pair-indexed tripartite-join decomposition supplies a reusable structural method rather than a routine finite census.
+No earlier mathematical statement found that logically covers the exact final theorem, after checking closest indexed results and materially accessible primary sources. This is best-of-knowledge originality, not guaranteed priority.
 
-## Limits
+## value
 
-The result is restricted to \(P^{(2)}(T_n)\) with strict \(i<j\), \(n\ge3\), and nonequivariant homotopy. It neither answers the source's question for arbitrary digraphs nor determines other path-digraph orders or relaxed constructions. Unindexed equivalent literature remains the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Explicit all-size integral homotopy classification for the canonical transitive input to a recently introduced strict higher path-digraph functor, addressing Caputi–Riihimäki Question 3.33 and exposing nontrivial first homology from n5 and second from n8. The nontrivial exact family is more than a routine graph-label substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
