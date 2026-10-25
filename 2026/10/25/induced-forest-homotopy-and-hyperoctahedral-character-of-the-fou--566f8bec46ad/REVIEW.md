@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Two independent forest predicates agree on all 65,536 vertex subsets. A complete acyclicity check of a 12,497-pair discrete Morse matching over 158,256 face incidences leaves 15 six-cells and six seven-cells after augmentation. Exact signed gradient-path elimination gives the displayed 15-by-6 boundary with a determinant \(-1\) full-column minor, so the integral attaching maps cancel six of the 15 six-spheres. Independent full simplicial boundary ranks over \(\mathbb F_2\) corroborate the homology. Fixed-face Lefschetz sums verify the trace of each of the 384 automorphisms.
+
+**Originality — PASS, subject to residual literature risk.** The inspected full texts of Taylan (arXiv:1501.06754v1, 2015) and Carnero Bravo (arXiv:2307.13271, 2023) give the relevant constructions and other graph-family cases, but not the four-cube statement. Targeted search of public mathematical records finds four-cube independence, Čech, Rips, neighborhood and cut-complex results, none of which implies the vertex-induced forest calculation. Alias searches included `acyclic induced vertex sets`, `induced forest`, `devoid complex`, `hypercube`, `tesseract`, \(\mathcal F_\infty(Q_4)\), and the numerical sphere count. Published tables or unindexed equivalent material may still exist; a failed search does not prove universal novelty.
+
+**Value — PASS.** The four-dimensional hypercube is a canonical highly symmetric graph with many interacting induced cycles and lies outside the known path/cycle/cactus classifications. The complete integral homotopy type resolves a natural specific case of the forest filtration, and the full group character, trivial fixed subspace and precise order-two representation kernel provide substantial equivariant structure not implied by rank alone. This is a motivated exact topological invariant rather than a cosmetic reparameterization.
+
+**Remaining limitations.** This does not establish an all-dimensional hypercube formula or an integral group-module decomposition. Possible equivalent work in unindexed literature and absence of independent mathematical validation remain.
+
+Self-review: passed. Independent audit: not yet performed.
