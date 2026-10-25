@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T23:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unnormalized unit-cycle Green matrix equals (n^2-1)/(12n)-d(n-d)/(2n). On zero-mean space a rank-one conductance change gives G+delta vv^T, with v_j=(n-1-2j)/(2n) and delta=n(1-w)/(1+(n-1)w). The dual of the infinity unit ball intersected with sum-zero is exactly the sum of absolute deviations of each Green row from its median. Finite summation gives P_n(1)=n^2/32 with precise mod-4 corrections. A bounded rank-one perturbation changes signs only O_w(1) indices near the two median crossings; the uniform row expansion yields n*delta*K(i/n)+O_w(1), where K(x)=(1/2-x)H(x), H=x on [0,1/4], 1/2-x on [1/4,3/4], x-1 on [3/4,1]. Its maximum is 1/16 at 1/4 and 3/4, zero at 0,1/2,1. The argument is for fixed w; no w_n->0 uniformity. Fresh independent matrix inversions and row-median norms checked n=3,4,9,20,64 and conductances 2/5,1,3 against the rank-one and homogeneous identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grudsky–Maximenko–Soto-González arXiv:2205.12457 studies eigenvalues/eigenvectors of the same one-edge-weighted cycle.",
+          "Pozrikidis develops general Green updates, not in the accessed description the sharp mean-zero L∞ endpoint norm."
+        ],
+        "reasoning": "A general Green update is a component of the proof, but the first-order optimized norm and quarter-cycle maxima require distinct median and spatial calculations.",
+        "searches": [
+          "Grudsky Maximenko Soto Gonzalez eigenvalues cycles with one weighted edge 2022",
+          "Pozrikidis 2015 generalized Sherman Morrison network Green function",
+          "graph Laplacian pseudoinverse infinity operator norm cycle one edge"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md (blob fee42b5bc116dc994a3b07764a6c508c83609f4c)",
+        "https://arxiv.org/abs/2205.12457",
+        "https://arxiv.org/abs/1505.06989",
+        "https://doi.org/10.1002/qua.24740",
+        "https://doi.org/10.1088/1742-5468/2015/05/P05007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full 2022 primary paper derives spectral properties for exactly the same weighted cycle matrices, not the stated median-centered infinity response theorem.",
+          "Beveridge gives the classical unit-cycle Green function (random-walk Laplacian convention), which differs by factor two from the unnormalized graph Laplacian."
+        ],
+        "reasoning": "Existing spectral/Green identities supply ingredients but do not entail the one-sided order-n endpoint norm perturbation on their own. An equivalent operator-norm treatment in older network literature remains possible.",
+        "searches": [
+          "arxiv:2205.12457 cycle one weighted edge Laplacian eigenvalue asymptotics",
+          "Beveridge 2015 Hitting Time Formula Discrete Green Function cycle",
+          "Carmona Encinas Mitjana Effective resistances ladder-like chains 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm is the quotient l1 row norm modulo constants, equivalently a maximum row median-deviation functional.",
+          "The graph Green kernel and rank-one update give the entries but not their optimized median behavior."
+        ],
+        "reasoning": "The median formulation resolves zero-sum forcing exactly. The spectral study of a weighted cycle concerns a different functional unless its eigenvectors are additionally combined into the row l1 optimization.",
+        "searches": [
+          "single weighted-edge cycle pseudoinverse mean-zero infinity norm median deviation",
+          "weighted cycle discrete Green matrix edge modification rank one"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned weighted-cycle Lipschitz-free metric and eigenvalue/energy findings, with no matching mean-zero Poisson operator norm.",
+          "The finite homogeneous norm has mod-four corrections that depend on endpoint row medians."
+        ],
+        "reasoning": "A table of cycle Green entries or spectral eigenvalues does not imply the sharp defect coefficient for w<>1 without norm optimization; no matching table was located.",
+        "searches": [
+          "Resultary: weighted cycle graph one conductance edge pseudoinverse zero mean infinity Poisson Green norm median",
+          "cycle Green norm median quotient exact table w weight"
+        ]
+      },
+      "rationale": "The cycle Green kernel and Sherman–Morrison edge update are standard, and a 2022 paper analyzes exactly one weighted cycle edge spectrally. The new, independently reconstructed endpoint norm uses median centering and obtains its sharp order-n asymmetric response and optimizer locations, not an immediate eigenvalue corollary. Best-of-knowledge pass with network-operator norm priority risk.",
+      "residual_risks": [
+        "Full Pozrikidis and Carmona papers not inspected; equivalent graph endpoint norm may be formulated using network response or transport duality.",
+        "Result only covers fixed w>0; the remainder is not uniform as w decreases with n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same matrices; its results concern eigenvalues and do not state the row median endpoint norm.",
+          "evidence": [
+            "Eigenvalue and eigenvector formulas for one-edge-weighted cycle Laplacians; no median/mean-zero infinity norm in inspected full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.12457",
+          "material_read": "Primary full PDF abstract, definitions, characteristic equation/eigenvalue and eigenvector theorems, asymptotic sections, closing remarks.",
+          "method": "Primary PDF full-text analysis and page inspection.",
+          "title": "Eigenvalues of the laplacian matrices of the cycles with one weighted edge",
+          "trigger": "Same weighted-cycle Laplacian could contain stronger coverage."
+        },
+        {
+          "assessment": "Classical unweighted cycle Green coverage acknowledged, not sharp conductance-sensitive endpoint norm.",
+          "evidence": [
+            "Classical Green formula uses random-walk convention I-P=L/2 for unweighted cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.06989",
+          "material_read": "ArXiv primary paper Green-function formulation and cycle specialization.",
+          "method": "Open primary text / theorem comparison.",
+          "title": "A Hitting Time Formula for the Discrete Green’s Function",
+          "trigger": "Old closed form Green kernel of a cycle is essential prior ingredient."
+        },
+        {
+          "assessment": "Potential coverage of Green identities, uncertain full-text endpoint optimization.",
+          "evidence": [
+            "Addresses effective resistances and related Green functions in ladder-like chains."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/qua.24740",
+          "material_read": "Title, abstract, and bibliographic material; no complete text read.",
+          "method": "Publisher abstract and bibliographic comparison.",
+          "title": "Effective resistances for ladder-like chains",
+          "trigger": "Could provide equivalent Green formulas for cycle-containing graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single-edge defect changes the sharp forced Poisson response at a determined lower-order scale, locating worst-case response vertices. The exact norm is a motivated stability functional of a natural graph, with a phase transition at w=1; this is not merely the elementary rank-one identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unit graph-edge conductance except one distinguished edge; w fixed positive, n>=3.",
+    "For strengthening, the theorem identifies only possible asymptotic output maximizers, not all finite maximizers.",
+    "Full Pozrikidis and Carmona papers not inspected; equivalent graph endpoint norm may be formulated using network response or transport duality.",
+    "Result only covers fixed w>0; the remainder is not uniform as w decreases with n."
+  ],
+  "schema_version": 1
+}

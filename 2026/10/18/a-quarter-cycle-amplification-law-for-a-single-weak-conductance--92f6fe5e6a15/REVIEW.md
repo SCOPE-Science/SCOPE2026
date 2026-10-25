@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed sharp zero-sum Poisson norm is the maximum of centered absolute row sums, not the unrestricted row-sum norm. The proof establishes finite-dimensional median duality, the exact rank-one Green update, the four-residue homogeneous formula, uniform control of the median threshold crossings, and the explicit continuum signed profile. Its maximum is exactly \(1/16\). A separately implemented rational-matrix inversion and balanced-sign extremizer checks agree with the closed formula; `CHECK.py` reports 4269 finite assertions. Infinite asymptotics rest on the analytical argument, not on those tests.
+PASS
 
-## Originality — PASS within the inspected evidence
+The unnormalized unit-cycle Green matrix equals (n^2-1)/(12n)-d(n-d)/(2n). On zero-mean space a rank-one conductance change gives G+delta vv^T, with v_j=(n-1-2j)/(2n) and delta=n(1-w)/(1+(n-1)w). The dual of the infinity unit ball intersected with sum-zero is exactly the sum of absolute deviations of each Green row from its median. Finite summation gives P_n(1)=n^2/32 with precise mod-4 corrections. A bounded rank-one perturbation changes signs only O_w(1) indices near the two median crossings; the uniform row expansion yields n*delta*K(i/n)+O_w(1), where K(x)=(1/2-x)H(x), H=x on [0,1/4], 1/2-x on [1/4,3/4], x-1 on [3/4,1]. Its maximum is 1/16 at 1/4 and 3/4, zero at 0,1/2,1. The argument is for fixed w; no w_n->0 uniformity. Fresh independent matrix inversions and row-median norms checked n=3,4,9,20,64 and conductances 2/5,1,3 against the rank-one and homogeneous identities.
 
-The cycle Green kernel, rank-one pseudoinverse perturbation, and eigenpair description of one-edge weighted cycles all precede this result. Beveridge (arXiv:1505.06989v1) gives the classical Green kernel under a different Laplacian normalization; Grudsky, Maximenko and Soto-González (arXiv:2205.12457v1) study the same matrices' eigenpairs. The new assertion is the exact order-\(n\) sharp mean-zero endpoint correction, its positive-part dependence on conductance, and quarter-cycle localization. Related Green-function papers by Carmona and Pozrikidis were only available at abstract level and remain priority risks. A published-record search did not produce a matching claim, which alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result quantifies the worst spatial response of a ring network under compatible unit-bounded loads when one conductance is modified. It isolates a sharp coefficient and a geometric shift of worst response that a spectral-gap estimate cannot locate, and distinguishes weakening from strengthening. The object is canonical, and the coefficient is an actual leading correction for every fixed positive defective conductance.
+The cycle Green kernel and Sherman–Morrison edge update are standard, and a 2022 paper analyzes exactly one weighted cycle edge spectrally. The new, independently reconstructed endpoint norm uses median centering and obtains its sharp order-n asymmetric response and optimizer locations, not an immediate eigenvalue corollary. Best-of-knowledge pass with network-operator norm priority risk.
 
-## Limitations
+## value
 
-The asymptotic remainder is not uniform near zero conductance. The real compatible-forcing constraint and unnormalized Laplacian are essential; the result is not a theorem about all random-walk normalizations, nonlinear sources, or an arbitrary number of defects. An independent proof and bibliographic audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single-edge defect changes the sharp forced Poisson response at a determined lower-order scale, locating worst-case response vertices. The exact norm is a motivated stability functional of a natural graph, with a phase transition at w=1; this is not merely the elementary rank-one identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
