@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` from this file's directory. Its expected stdout is embedded in `checker-output.txt`. The checker enumerates every one-deletion descendant of all constructed codewords for lengths 2 through 96; exact compatible maximum sets are computed from scratch by memoized graph recursion for lengths 2 through 8, and shadow/loop premises are spot-checked through length 24.
+## correctness
 
-The mathematical proof of the infinite theorem is self-contained in `RESULT.md`; the code is finite corroboration only. The proof does not imply uniqueness, other weights, or any stronger edit channel. Independent audit has not been performed.
+PASS
+
+For each word w(i,j), deletion of a one leaves exactly one weight-1 output if adjacent, two otherwise; hence ℓ+2e≤n-1. Two adjacent double-one words have a common weight-2 output after deleting their distinct exterior zeros, so ℓ≤ceil((n-1)/2). Combining gives |C|≤n-1-floor((n+1)/4). The stated U_r=(2r,2r+1) and V_s=(4s+1,4s+4) achieve equality; their remaining-one locations are disjoint and their zero-deletion shadows have disjoint adjacent/nonadjacent gap classes and distinct first-one bands, including n=2 boundary. Independent brute-force compatibility search computed exact maxima n=2..7 and verified construction; no finite test substitutes for the all-length shadow argument.
+
+## originality
+
+PASS
+
+Classical Sloane/VT work treats unrestricted one-deletion binary codes. Gómez Soto et al. optimize packings in a double-vertex graph for adjacent transpositions, which is not this deletion descendant-intersection relation: explicitly different confusability pairs arise even at n=4,5. A September 2026 multi-deletion paper optimizes an unrestricted, stronger error channel, not the fixed-weight-two exact n-formula. No primary theorem inspected dominates it, with residual obscure older coding-table risk.
+
+## value
+
+PASS
+
+Determines a natural exact constant-composition one-deletion capacity at every blocklength with a sharp local obstruction and uniform construction; the second path-packing obstruction is needed beyond elementary one-shadow packing, so it is not only standard VT repackaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

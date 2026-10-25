@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T19:18:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each word w(i,j), deletion of a one leaves exactly one weight-1 output if adjacent, two otherwise; hence ℓ+2e≤n-1. Two adjacent double-one words have a common weight-2 output after deleting their distinct exterior zeros, so ℓ≤ceil((n-1)/2). Combining gives |C|≤n-1-floor((n+1)/4). The stated U_r=(2r,2r+1) and V_s=(4s+1,4s+4) achieve equality; their remaining-one locations are disjoint and their zero-deletion shadows have disjoint adjacent/nonadjacent gap classes and distinct first-one bands, including n=2 boundary. Independent brute-force compatibility search computed exact maxima n=2..7 and verified construction; no finite test substitutes for the all-length shadow argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "VT code constructions and classical unrestricted bounds concern 2^n/n-scale codes; the adjacent-transposition constant-weight-two packing is quadratic in n, whereas current optimum is linear in n; En Gad treats >=2 deletions."
+        ],
+        "reasoning": "None is a stronger theorem implying this exact single-deletion fixed-weight-two optimum.",
+        "searches": [
+          "Sloane, On Single-Deletion-Correcting Codes (2002)",
+          "En Gad 2609.19493",
+          "Gómez Soto DOI:10.1016/j.dam.2018.03.085"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0207197",
+        "https://doi.org/10.1016/j.dam.2018.03.085",
+        "https://arxiv.org/abs/2609.19493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof combines weight-one descendants with zero-deletion forbidden neighboring loops, not present as an exact fixed-weight-two specialization of Sloane general result."
+        ],
+        "reasoning": "Transmission under deletion has a different confusability graph from adjacent token swaps; neither checked source directly implies target formula.",
+        "searches": [
+          "Sloane math/0207197 full text",
+          "Gómez Soto et al. full 2018 PDF, theorem and definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deletion intersection graph edges exist iff two length n weight-2 words share a length n-1 deletion output; this differs from token graph adjacent-transposition distance <=2."
+        ],
+        "reasoning": "The graph-theoretic phrase double-vertex graph suggests an alias but operations and adjacency were compared directly.",
+        "searches": [
+          "Resultary semantic search: binary constant weight two single deletion correcting code optimal size n floor formula",
+          "Sloane math/0207197",
+          "Gómez Soto et al. 2018 double vertex graph path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching all-n deletion optimum appears in inspected records; the closest table is for a different error channel."
+        ],
+        "reasoning": "Negative search is not independent proof of novelty; unindexed constant-weight coding thesis remains possible.",
+        "searches": [
+          "Resultary weight two deletion optimal formula query",
+          "Gómez Soto double vertex graph path theorem and tables"
+        ]
+      },
+      "rationale": "Classical Sloane/VT work treats unrestricted one-deletion binary codes. Gómez Soto et al. optimize packings in a double-vertex graph for adjacent transpositions, which is not this deletion descendant-intersection relation: explicitly different confusability pairs arise even at n=4,5. A September 2026 multi-deletion paper optimizes an unrestricted, stronger error channel, not the fixed-weight-two exact n-formula. No primary theorem inspected dominates it, with residual obscure older coding-table risk.",
+      "residual_risks": [
+        "Historical fixed-weight code tables or theses may already state the all-n formula.",
+        "Only weight exactly two, one arbitrary deletion; no uniqueness classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not in inspected theorem scope present the exact fixed-weight-two optimum for arbitrary n.",
+          "evidence": "Sloane (2002): unrestricted single deletion VT codes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+          "material_read": "Complete accessible HTML mathematical exposition; construction/size discussion and deletion definitions.",
+          "method": "Full-text OA HTML review",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Standard unrestricted deletion-correction bounds and VT code formulas"
+        },
+        {
+          "assessment": "Optimizes adjacent-transposition two-token code, not deletion descendant disjointness.",
+          "evidence": "Gómez Soto, Leaños, Ríos-Castro, Rivera (2018), main packing theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.03.085",
+          "material_read": "Accessible primary full PDF, introduction, graph-distance/packing definitions and main theorem; representative PDF pages screenshot inspected.",
+          "method": "Full PDF/source statement comparison plus direct adjacency counterexamples",
+          "title": "The packing number of the double vertex graph of the path graph",
+          "trigger": "Very plausible same weight-two vertex encoding"
+        },
+        {
+          "assessment": "At least two deletion errors and unrestricted coding, no exact weight-2 single deletion implication established.",
+          "evidence": "En Gad (2026).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19493",
+          "material_read": "OA abstract and problem statement; full technical contents not exhaustively read.",
+          "method": "Bibliographic and primary abstract reading",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Recent stronger deletion-code capacity paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural exact constant-composition one-deletion capacity at every blocklength with a sharp local obstruction and uniform construction; the second path-packing obstruction is needed beyond elementary one-shadow packing, so it is not only standard VT repackaging.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0207197",
+    "https://doi.org/10.1016/j.dam.2018.03.085",
+    "https://arxiv.org/abs/2609.19493"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical fixed-weight code tables or theses may already state the all-n formula.",
+    "Only weight exactly two, one arbitrary deletion; no uniqueness classification.",
+    "All source-inspection scope statements are limited to material actually accessed; no independent external publication or priority certification."
+  ],
+  "schema_version": 1
+}
