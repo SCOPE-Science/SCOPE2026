@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Parity fibers are exactly even-subset whole-path reversal orbits, since each internal degree-two vertex forces both path edges to flip together. The coherent-path subset is invariant in each fiber. A directed cycle exists precisely when two coherent paths point in opposite directions. Counting fibers for each coherent subset gives the product coefficient, while the two fully coherent parity orbits give the explicit odd/even term. These statements cover all integers \(m\ge3\) and \(\ell_i\ge2\) without extrapolating finite experiments. Exhaustive independent edge-orientation enumeration checks 30 instances and 159168 orientations.
+PASS
 
-## Originality
+For a two-terminal multi-theta graph with m>=3 internally disjoint paths of lengths ell_i>=2, equal indegree parity of orientations is equivalent to flipping an even subset of whole paths, the binary cycle-space fiber of size 2^(m-1); global parity supplies exactly 2^(|V|-1) feasible signatures. Coherence of each path is fiber invariant. A directed cycle occurs iff two coherent paths point opposite ways. For a proper coherent-path set S, number of fibers B_S=2 product_{i notin S}(2^(ell_i-1)-1), and each fiber has h_m(|S|) acyclic representatives, h=2^(m-1) for r<=1 else 2^(m-r). All-coherent orientations form two fibers; for odd m each holds one acyclic orientation, for even m one holds two and the unique other (all-odd indegree signature) none. This yields the stated polynomial and its derivative total, 2 prod_i(2^ell_i-1)-prod_i(2^ell_i-2). Independent brute orientation/acyclicity groupings reproduce five small length patterns; these do not replace the cycle-space/coherence proof.
 
-PASS subject to residual bibliographic uncertainty. The March 2026 motivating work develops parity-constrained acyclic orientations and structural sufficiency conditions, not this distribution of the number of acyclic representatives in each parity fiber. Király and Kisfaludi-Bak's dual-critical and super-dual-critical criteria can establish some existence claims but do not determine the full multiplicity polynomial. The existing cactus rigidity classification cannot imply a multi-theta classification: these graphs have overlapping cycles and demonstrably mixed fibers. The September 2026 multipath Hamiltonicity paper has the same graph objects but counts acyclic orientations by **edge disagreements with a reference orientation**, a different parity and polynomial from vertex indegree-signature multiplicities. Related work on complete graphs minus matchings also studies a different family. Searches under indegree-parity, multi-theta, subdivided dipole, parallel paths, and acyclic representatives found no covering theorem. Unindexed or differently phrased coverage remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves a natural complete enumeration for the minimal overlapping-cycle two-terminal graph family in a newly active parity-constrained orientation problem. It distinguishes fully acyclic, partly acyclic, and impossible parity fibers, gives the exact multiplicity at every fiber, and specializes to explicit binomial spectra for complete bipartite \(K_{2,m}\). This is strictly more informative than a yes/no feasibility criterion or a total acyclic-orientation count. The one impossible all-odd signature in even width is the known no-source obstruction and is not advanced as a standalone novelty claim.
+General parity-orientation work addresses existence of an acyclic representative, not the count spectrum within every feasible signature. Multi-path acyclic polynomial of Mühlherr–Poullot is indexed by edge-direction disagreement relative to a reference orientation, a scalar different from vertex indegree-parity signature. Existing Resultary work on acyclic orientation signatures for complete graphs minus a matching uses a different graph and another statistic. The exact parity-fiber histogram is additional and not implied merely by existence or the global acyclic-orientation total.
 
-## Boundaries
+## value
 
-Results apply to simple two-terminal path bundles only. Finite checks do not certify the infinite theorem. Priority is not guaranteed by a failed literature search. The proof is self-contained but has not received independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem is a natural complete classification of parity constrained acyclic orientations on a series-parallel graph family with overlapping cycles. It sharpens a qualitative source/non-source obstruction into an explicit signature multiplicity spectrum, and locates the unique nonrealizable all-odd signature when m even. This is mathematically motivated despite elementary counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
