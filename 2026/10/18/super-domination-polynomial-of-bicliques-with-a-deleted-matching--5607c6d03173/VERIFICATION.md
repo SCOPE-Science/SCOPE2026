@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-21.md",
+      "INDEPENDENT_AUDIT_2026-10-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Use Python 3 standard library and run `python check_super_match.py` in the directory containing this document. The complete expected output is in `verification_output.txt`. The checker reconstructs each bipartite graph with exactly the specified deleted matching edges, enumerates every vertex subset, independently tests the open-neighborhood witness condition, and compares counts for every pair of omitted-side sizes.
+## correctness
 
-It covers all \(3\leq a,b\leq7\) and all \(0\leq t\leq\min\{a,b\}\), totaling \(130\) graph profiles and \(407040\) tested vertex subsets. This finite verification is not a proof for unbounded parameters; the separate combinatorial argument proves the full theorem. The polynomial coefficients and exceptional \((3,3,3)\) boundary are explicitly included in both sources of computation.
+PASS
 
-Self-review is documented in `REVIEW.md` and `AUDIT.json`; no independent audit has been performed.
+For an omitted set X, a selected vertex opposite A misses at most one vertex of A, hence cannot uniquely witness any of three omitted A vertices: omitted counts alpha,beta<=2. When alpha=2 the two omitted A indices must be among the t deleted pairs and their opposite partners selected, equivalently I subset [t], I cap J empty; symmetrically for beta=2. For singleton A-omission, a witness exists except b=3,beta=2 and sole selected opposite vertex is its deleted partner; the symmetric a=3 exception is essential and correctly included. The nine possible occupancy types contribute 1,a,b,ab,C(t,2),C(t,2), corrected (2,1)/(1,2) totals and 6C(t,4). This proves polynomial across all a,b,t, with t=0/1 identical; positivity of top coefficients yields piecewise gamma and special (3,3,3) count 15. Minimum vertex degree min(a,b)-1>=2 makes every super dominating set end-super-dominating under the paper's definition. Independent direct open-neighbour brute enumeration across eight profiles (including all t=0..3 for a=b=3, t=4 for 4x4 and t=5 for 5x5) matched every omitted-size coefficient; the proof, not the finite tests, covers unbounded parts.
+
+## originality
+
+PASS
+
+General super-domination polynomial introduced by Kaidash (2024) and complete bipartite minimum counts computed by Ghanbari et al; t=0 coefficient of lowest degree is known and not new. The matching-deleted polynomial, degree at most four, sharp threshold and exceptional (3,3,3) are not implied by complete multipartite graph formulas (except t=0) because deleting disjoint cross-edges exits complete multipartite classes. Kaidash's 2024 full chapter inaccessible after open-access and institutional checks; abstract merely says 'some families', so it cannot justify exclusion or automatic failure. Best-of-knowledge PASS with explicit same-object priority risk.
+
+## value
+
+PASS
+
+The family is a natural controlled perturbation of a complete bipartite graph, and the full enumerator captures all solution sizes and explicit structural thresholds at t=2/4, an exceptional crown graph and nonisomorphic equal-polynomial profiles t=0 vs 1; not arbitrary isolated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

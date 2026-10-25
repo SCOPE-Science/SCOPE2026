@@ -1,19 +1,21 @@
-# Scientific review: super-domination of matching-deleted bicliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition fixes open-neighborhood witnesses and counts labeled vertex subsets. The proof first bounds the omitted vertices to two in each bipartition; it then gives a necessary-and-sufficient witness test for all nine occupancy patterns. The only small-boundary failures arise when a side of order three leaves a single selected witness, exactly producing the two correction terms. Summing the disjoint cases gives every polynomial coefficient, and the leading nonzero coefficient gives both the minimum and its multiplicity. The standalone exhaustive verifier agreed for 130 profiles and 407040 subsets, including the six-vertex exception. This computation corroborates but does not replace the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual source-access risk
+For an omitted set X, a selected vertex opposite A misses at most one vertex of A, hence cannot uniquely witness any of three omitted A vertices: omitted counts alpha,beta<=2. When alpha=2 the two omitted A indices must be among the t deleted pairs and their opposite partners selected, equivalently I subset [t], I cap J empty; symmetrically for beta=2. For singleton A-omission, a witness exists except b=3,beta=2 and sole selected opposite vertex is its deleted partner; the symmetric a=3 exception is essential and correctly included. The nine possible occupancy types contribute 1,a,b,ab,C(t,2),C(t,2), corrected (2,1)/(1,2) totals and 6C(t,4). This proves polynomial across all a,b,t, with t=0/1 identical; positivity of top coefficients yields piecewise gamma and special (3,3,3) count 15. Minimum vertex degree min(a,b)-1>=2 makes every super dominating set end-super-dominating under the paper's definition. Independent direct open-neighbour brute enumeration across eight profiles (including all t=0..3 for a=b=3, t=4 for 4x4 and t=5 for 5x5) matched every omitted-size coefficient; the proof, not the finite tests, covers unbounded parts.
 
-The closest full texts inspected were Ghanbari, Jäger and Lehtilä, *Super Domination: Graph Classes, Products and Enumeration* (arXiv:2209.01795), and Akbari, Ghanbari and Henning, *End Super Dominating Sets in Graphs* (arXiv:2209.02980). Their results for complete bipartite graphs, cycles, graph operations and general bounds do not give a complete polynomial for complete bipartite graphs with an arbitrary matching deleted. A published classification for complete multipartite graphs gives the no-deletion case but does not cover the missing-edge family. The 2024 chapter by Kaidash (DOI 10.1007/978-3-031-73365-9_6) develops super-domination polynomials and could contain an equivalent special case, but only its abstract was accessible. No priority claim is made beyond the inspected evidence; an unindexed or inaccessible equivalent result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The formula describes *every* super dominating set by cardinality, not only an optimum, throughout a natural three-parameter graph family. It explains why one deleted edge changes no minimum, two allow one extra omission, and four allow two extra omissions, and isolates the six-vertex crown boundary. Exact optimal-set multiplicities distinguish deletion profiles with the same optimum size; the complete polynomial is insensitive to one deleted edge yet distinguishes every larger matching size. This represents a concrete stability phenomenon for a standard graph parameter, motivated by prior complete-bipartite enumeration and graph-modification studies.
+General super-domination polynomial introduced by Kaidash (2024) and complete bipartite minimum counts computed by Ghanbari et al; t=0 coefficient of lowest degree is known and not new. The matching-deleted polynomial, degree at most four, sharp threshold and exceptional (3,3,3) are not implied by complete multipartite graph formulas (except t=0) because deleting disjoint cross-edges exits complete multipartite classes. Kaidash's 2024 full chapter inaccessible after open-access and institutional checks; abstract merely says 'some families', so it cannot justify exclusion or automatic failure. Best-of-knowledge PASS with explicit same-object priority risk.
 
-## Limits
+## value
 
-The theorem assumes both sides have at least three vertices. The counts are by labeled subsets and do not enumerate automorphism orbits. Full bibliographic priority validation and independent scientific checking are outstanding. The inaccessible 2024 polynomial chapter is a specific originality risk, not evidence of coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is a natural controlled perturbation of a complete bipartite graph, and the full enumerator captures all solution sizes and explicit structural thresholds at t=2/4, an exceptional crown graph and nonisomorphic equal-polynomial profiles t=0 vs 1; not arbitrary isolated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
