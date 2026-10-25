@@ -1,15 +1,21 @@
-# Scientific review: sharp stability reversal for alternating linear-spline meshes
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct tridiagonal inverse-Gram construction verifies the parity-split geometric Green row for every positive parameter pair. Exact cellwise integration, a summable four-tail decomposition, and symmetry plus an extremizing sign input prove the full-line sharp norm, not merely a finite-section estimate. The rational simplification is independently checkable by symbolic polynomial division modulo the root equation; the package checker passed 144 assertions. Critical limits include equal cell lengths and extreme contrast. No infinite-dimensional conclusion is inferred solely from numerical tests.
+## correctness
 
-## Originality — PASS (same-model, with identified priority uncertainty)
-Passenbrunner's 2016 periodic-spline full-text work and Passenbrunner–Shadrin's 2013 arbitrary-knot full-text results provide global bounds and inverse-Gram localization. Their inspected theorems do not assert this exact alternating full-line norm or its strict contrast law. The isolated single-cell perturbation belongs to a different knot geometry and does not imply the new rational identity. Direct searches for alternative aliases, explicit rational formulas, and exact mesh tables found no matching coverage. A 2013 sharp-bounds chapter by Oswald and older geometric-mesh work by Jia could not be read in full, leaving a real priority risk; no absent-source noncoverage is asserted. This does not constitute independent bibliographic validation.
+PASS
 
-## Value — PASS
-The result provides a natural complete family with a surprising mathematical direction: alternating periodic mesh deformation decreases the sharp projection norm from 2, whereas an isolated mesh defect increases it. Exact dependence on the normalized cell contrast, a unique uniform-mesh equality case, and the sharp unattained limit 5/3 quantify a meaningful stability mechanism not captured by generic knot-independent estimates.
+For positive two-periodic full-line mesh lengths a,b, hat-function Gram has diagonal (a+b)/3 and neighboring off-diagonals h_j/6, uniformly strictly diagonally dominant. Its inverse row obeys alternating-sign geometric recurrence with Q(r)=ab r²+(a²+b²-4(a+b)²)r+ab, smaller root 0<r<1 and factors u=(a+br)/(2(a+b)), v=(b+ar)/(2(a+b)) satisfying uv=r. Direct substitution verifies recurrence and invertibility. The kernel row is linear interpolation of inverse coefficients; exact absolute area on one cell is h(c²+d²)/(2(c+d)); summing four tails and reducing algebraically modulo Q gives the ratio (5a²+22ab+5b²)/(3a²+10ab+3b²). Independently verified a symbolic polynomial remainder exactly zero and assembled/inverted 128x128 cyclic Gram matrices at (a,b)=(1,1),(1,2),(1,10),(4,7), obtaining matching L∞ norms 2, 1.971428571429, 1.799007444169, 1.981052631579. Reflection/translation of the mesh makes nodal Lebesgue constants identical, and convex combinations bound all non-nodal x; the kernel sign attains at a knot as an L∞ function. The full-line operator norm is thus 2-(a-b)²/(3a²+10ab+3b²), uniquely 2 at a=b, strictly lower for alternating grids, inf5/3 approached at degenerate ratio. Cyclic finite tests corroborate, not prove, the bi-infinite inverse formula.
 
-## Boundaries
-The theorem concerns continuous degree-one splines on the full real line. Finite endpoints, higher spline orders and nonperiodic meshes are outside scope. Potential exact historical specializations remain an explicit risk. The reported checks are reproducibility evidence, not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact full-line alternating two-periodic linear-spline projection L∞ norm and opposite global-distortion behavior; broad Shadrin/Passenbrunner bounds are prior. Historical formulas by Jia or Oswald remain material priority risks because full texts could not be accessed.
+
+## value
+
+PASS
+
+The natural alternating class gives a complete exact two-parameter projection-stability law on the whole line, exhibiting strict *improvement* relative to the uniform grid rather than worsening with distortion. Explicit inverse Gram kernel and optimal sign input provide useful sharp operator estimates and a counterpoint to single-cell perturbations, a motivated structural phenomenon rather than arbitrary finite experimentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

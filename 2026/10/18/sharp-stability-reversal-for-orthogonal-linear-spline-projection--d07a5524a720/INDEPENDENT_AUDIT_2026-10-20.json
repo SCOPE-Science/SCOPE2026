@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T03:56:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive two-periodic full-line mesh lengths a,b, hat-function Gram has diagonal (a+b)/3 and neighboring off-diagonals h_j/6, uniformly strictly diagonally dominant. Its inverse row obeys alternating-sign geometric recurrence with Q(r)=ab r²+(a²+b²-4(a+b)²)r+ab, smaller root 0<r<1 and factors u=(a+br)/(2(a+b)), v=(b+ar)/(2(a+b)) satisfying uv=r. Direct substitution verifies recurrence and invertibility. The kernel row is linear interpolation of inverse coefficients; exact absolute area on one cell is h(c²+d²)/(2(c+d)); summing four tails and reducing algebraically modulo Q gives the ratio (5a²+22ab+5b²)/(3a²+10ab+3b²). Independently verified a symbolic polynomial remainder exactly zero and assembled/inverted 128x128 cyclic Gram matrices at (a,b)=(1,1),(1,2),(1,10),(4,7), obtaining matching L∞ norms 2, 1.971428571429, 1.799007444169, 1.981052631579. Reflection/translation of the mesh makes nodal Lebesgue constants identical, and convex combinations bound all non-nodal x; the kernel sign attains at a knot as an L∞ function. The full-line operator norm is thus 2-(a-b)²/(3a²+10ab+3b²), uniquely 2 at a=b, strictly lower for alternating grids, inf5/3 approached at degenerate ratio. Cyclic finite tests corroborate, not prove, the bi-infinite inverse formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Passenbrunner states Shadrin uniform bounds and convergence; Oswald 2013 title specifically L∞ bounds for L² linear-spline projection, Jia 1987 multiple geometric meshes."
+        ],
+        "reasoning": "A sufficiently sharp earlier formula in either would dominate this special case, but abstracts/titles do not decide this implication. Where fully accessible, Passenbrunner establishes existence of c_k rather than the rational dependence on a,b.",
+        "searches": [
+          "https://arxiv.org/html/1608.06720v2",
+          "https://doi.org/10.2307/2007836",
+          "https://doi.org/10.1007/978-1-4614-4565-4_24",
+          "arxiv:1308.4824"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1608.06720v2",
+        "arxiv:1308.4824",
+        "https://doi.org/10.2307/2007836",
+        "https://doi.org/10.1007/978-1-4614-4565-4_24",
+        "Resultary projection/periodic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shadrin-Passenbrunner uniform boundedness controls all meshes but gives a nonsharp universal c_k; exact alternating rational formula requires solving the 2-periodic inverse Gram row."
+        ],
+        "reasoning": "Old sources on geometric knots and L∞ estimates could potentially have the same special-case expression. No accessible fully read passage established coverage; this is best-of-knowledge PASS with explicit historical uncertainty, not a declaration those works are noncovering.",
+        "searches": [
+          "https://arxiv.org/html/1608.06720v2",
+          "https://doi.org/10.2307/2007836",
+          "https://doi.org/10.1007/978-1-4614-4565-4_24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Passenbrunner Theorems 1.1 and 1.4 bound endpoint norms for arbitrary and torus-periodic knots; their corollary about infinite sequences provides uniform boundedness."
+        ],
+        "reasoning": "Full-line 2-periodic coefficients and the explicit kernel have special solvable Floquet recurrence; general knot-independent bounds do not identify the rational two-length norm. Jia 1987 multiple geometric meshes might share a limiting two-periodic construction but source unavailable; no negative whole-text conclusion made.",
+        "searches": [
+          "https://arxiv.org/html/1608.06720v2",
+          "https://doi.org/10.2307/2007836",
+          "https://doi.org/10.1007/978-1-4614-4565-4_24",
+          "Resultary: exact L infinity norm L2 orthogonal linear spline projection two periodic alternating grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest records involve finite cyclic Fourier projections or unrelated periodic recurrences, not this two-length spline projector."
+        ],
+        "reasoning": "The uniform-mesh norm2 is classical, but the exact distortion profile 2-theta²/(4-theta²) for all 0<=theta<1 was not located as a known table. Negative results are not proof of novelty; inaccessible 1987/2013 sources remain named risks.",
+        "searches": [
+          "Resultary: two-periodic linear splines L infinity norm orthogonal L2 projection alternating cell lengths",
+          "web: orthogonal projection alternating mesh linear spline L infinity norm",
+          "https://arxiv.org/html/1608.06720v2"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact full-line alternating two-periodic linear-spline projection L∞ norm and opposite global-distortion behavior; broad Shadrin/Passenbrunner bounds are prior. Historical formulas by Jia or Oswald remain material priority risks because full texts could not be accessed.",
+      "residual_risks": [
+        "Highly relevant 1987 Jia article inaccessible after failed arXiv/OA attempts and authorized Oxford vpn_disconnected; exact priority is not established.",
+        "Oswald 2013 exact linear spline projection bounds not fully inspected; a sharper stronger theorem could cover this formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT_TWO_PERIODIC_FORMULA",
+          "evidence": "Bounds ||P||∞ by order-dependent c_k; does not list an exact rational two-periodic full-line formula.",
+          "identifier_or_url": "https://arxiv.org/html/1608.06720v2",
+          "material_read": "Full arXiv HTML Sec.1 Theorems 1.1,1.3,1.4 and Sec.2-5 projection estimates",
+          "method": "primary full-text theorem comparison",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "same periodic projector and infinite-knot methods"
+        },
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Institutional retrieval reported vpn_disconnected; no claim of noncoverage based on a title/snippet.",
+          "identifier_or_url": "https://doi.org/10.2307/2007836",
+          "material_read": "Title, bibliographic/DOI metadata only; arXiv/preprint and lawful OA attempts did not yield full text",
+          "method": "targeted bibliographic search then authorized institutional request",
+          "title": "L-infinity boundedness of L2-projections on splines for a multiple geometric mesh",
+          "trigger": "plausible earlier explicit 2-periodic or geometric mesh constant"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "May contain general bound strong enough to imply special-case norm; risk remains.",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-4565-4_24",
+          "material_read": "Bibliographic title and DOI; no verifiable full primary text inspected",
+          "method": "targeted bibliographic comparison",
+          "title": "L-infinity bounds for the L2-projection onto linear spline spaces",
+          "trigger": "exact same invariant on degree-one splines"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural alternating class gives a complete exact two-parameter projection-stability law on the whole line, exhibiting strict *improvement* relative to the uniform grid rather than worsening with distortion. Explicit inverse Gram kernel and optimal sign input provide useful sharp operator estimates and a counterpoint to single-cell perturbations, a motivated structural phenomenon rather than arbitrary finite experimentation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1608.06720v2",
+    "arxiv:1308.4824",
+    "https://doi.org/10.2307/2007836",
+    "https://doi.org/10.1007/978-1-4614-4565-4_24",
+    "Resultary projection/periodic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive two-periodic degree-one mesh on all of R; finite-interval endpoint conditions, other orders and arbitrary meshes not covered.",
+    "Closest Jia 1987 and Oswald 2013 primary sources were not fully read, so originality remains qualified; no bypass of unavailable access."
+  ],
+  "residual_risks": [
+    "Highly relevant 1987 Jia article inaccessible after failed arXiv/OA attempts and authorized Oxford vpn_disconnected; exact priority is not established.",
+    "Oswald 2013 exact linear spline projection bounds not fully inspected; a sharper stronger theorem could cover this formula."
+  ],
+  "schema_version": 1
+}
