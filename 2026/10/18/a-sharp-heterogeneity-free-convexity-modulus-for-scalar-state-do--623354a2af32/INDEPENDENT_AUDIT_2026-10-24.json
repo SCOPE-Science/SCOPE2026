@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T22:08:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each stationary scalar LQR plant term is J=(q+kᵀRk)g(a+bᵀk), g=(1−y²)⁻¹. Directional Hessian D²J=2z g+4u g′h+Q g″h², where u²≤zQ. Completing square yields D²J≥z(2g−4g′²/g″)=2z/(1+3y²)≥z/2. Summing gives Hess F≥Rbar/2 throughout convex joint stability slabs. Coercivity and blowup at finite stability boundaries ensure a unique interior minimum and PL inequality; explicit q_y=(1−y)^4, a_y=y(3+y²)/(1+3y²), k_y=y−a_y give Hess→1/2 from above, so sharp. Independent symbolic simplification and 400 random directional checks corroborate formulas; proof handles all dimensions of k but only scalar state.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nearest newer work applies heterogeneity or gradient-dominance hypotheses in general-state models; sharp all-plant one-state bound not indexed in available abstracts"
+        ],
+        "reasoning": "A general-state statement could cover the scalar subclass if verified; read material does not provide one and full closest 2026 manuscript remains inaccessible (explicit risk).",
+        "searches": [
+          "Pasdar–Adib Yaghmaie 2026; Fujinami–Lee–Matni–Pappas arXiv:2503.24371",
+          "Resultary semantic search: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+          "GitHub SCOPE2026 code search: domain randomized LQR convexity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.04794; https://arxiv.org/abs/2609.04794",
+        "arXiv:2503.24371; https://arxiv.org/abs/2503.24371",
+        "arXiv:2604.22138; https://arxiv.org/abs/2604.22138",
+        "Resultary semantic query: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+        "SCOPE2026 repository code search: domain randomized LQR convexity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their convergence results assume gradient dominance or restrict plant heterogeneity; new expression derives Hessian≥sum ω ν R/2 directly with sharpness from a one-system family"
+        ],
+        "reasoning": "In absence of a full manuscript, cannot assert no hidden proof of this implication; on available evidence explicit data-independent sharp factor not established. A standard rational-function square completion is an ingredient, not automatically a cited applied classification.",
+        "searches": [
+          "Pasdar–Adib Yaghmaie 2026 abstract, Fujinami et al 2025 abstract",
+          "Resultary semantic search: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+          "GitHub SCOPE2026 code search: domain randomized LQR convexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pasdar–Adib Yaghmaie arXiv:2609.04794 DR-LQR; Fazel et al ICML2018 classical LQR landscape; Rodriguez-Gil–Uribe arXiv:2604.22138 Bellman surrogate"
+        ],
+        "reasoning": "Distinguish Hessian of native stationary shared-gain objective from lifted SDPs and fixed-policy Bellman surrogate; no exact sharp global native modulus located in accessible material.",
+        "searches": [
+          "scalar LQR stationary cost strong convexity quadratic over 1-pole-square domain randomization",
+          "Resultary semantic search: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+          "GitHub SCOPE2026 code search: domain randomized LQR convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top-12 and GitHub search had no directly matching stationary scalar DR-LQR 1/2 Hessian theorem"
+        ],
+        "reasoning": "This is a continuous-family global curvature inequality, not a small numerical enumeration; classical scalar algebraic identities might subsume part.",
+        "searches": [
+          "Resultary search: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+          "Resultary semantic search: domain randomized scalar state LQR cost global strongly convex sharp Hessian 1/2 heterogeneity",
+          "GitHub SCOPE2026 code search: domain randomized LQR convexity"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. In absence of a full manuscript, cannot assert no hidden proof of this implication; on available evidence explicit data-independent sharp factor not established. A standard rational-function square completion is an ingredient, not automatically a cited applied classification.",
+      "residual_risks": [
+        "Closest Sep2026 domain-randomized stationary LQR preprint full text inaccessible because institutional VPN disconnected, making an implicit scalar-Hessian lemma possible; standard curvature identities or older optimization texts could be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract describes a linear-rate theorem assuming gradient dominance. It cannot exclude an unstated general scalar-state Hessian lemma in inaccessible full text; residual priority risk explicitly remains",
+          "evidence": [
+            "Pasdar & Adib Yaghmaie 2026 arXiv abstract, first posted 2026-09-04"
+          ],
+          "identifier_or_url": "arXiv:2609.04794; https://arxiv.org/abs/2609.04794",
+          "material_read": "Published arXiv abstract and indexing with gradient-dominance assumptions; complete manuscript unavailable",
+          "method": "arXiv/preprint and lawful OA attempts unsuccessful; authorized institutional retriever returned vpn_disconnected",
+          "title": "Policy Iteration for Domain Randomized Linear Quadratic Systems",
+          "trigger": "Nearest 2026 native domain-randomized stationary LQR formulation"
+        },
+        {
+          "assessment": "Shows gradient convergence under system-heterogeneity bounds, not indexed as heterogeneity-free sharp scalar-state matrix Hessian bound; full scope remains an O risk",
+          "evidence": [
+            "Fujinami et al. 2025 abstract and sufficient-condition description"
+          ],
+          "identifier_or_url": "arXiv:2503.24371; https://arxiv.org/abs/2503.24371",
+          "material_read": "Abstract and accessible source synopsis",
+          "method": "Public abstract/index search",
+          "title": "Policy Gradient for LQR with Domain Randomization",
+          "trigger": "May provide landscape guarantee under general heterogeneous plants"
+        },
+        {
+          "assessment": "Concerns a fixed-policy Bellman surrogate/ReLU controller and not native shared-gain, stationary domain-randomized objective",
+          "evidence": [
+            "Rodriguez-Gil & Uribe 2026 abstract, different objective"
+          ],
+          "identifier_or_url": "arXiv:2604.22138; https://arxiv.org/abs/2604.22138",
+          "material_read": "Abstract and indexed account",
+          "method": "Public literature search",
+          "title": "Global Convergence of Policy Gradient Methods for ReLU Controllers in Linear Quadratic Regulation",
+          "trigger": "Potential scalar LQR strong-convexity prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Domain-randomized LQR landscape analyses currently often impose similarity or PL assumptions. A heterogeneity-independent explicit Hessian modulus for an arbitrary finite mixture of scalar-state plants with multi-input shared feedback, plus exact sharpness and unique optimality, is a reusable rigorous benchmark for policy optimization rather than a textbook restatement of individual scalar feedback formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional state only; q_j>0, R_j positive definite and nonempty joint stabilizing region essential. This is stationary exact cost, not a Bellman surrogate, controller synthesis for arbitrary states, or algorithm iteration guarantee.",
+    "Closest Sep2026 domain-randomized stationary LQR preprint full text inaccessible because institutional VPN disconnected, making an implicit scalar-Hessian lemma possible; standard curvature identities or older optimization texts could be equivalent.",
+    "Sharp 1/2 Hessian coefficient only scalar-state plants; full closest September-2026 preprint unavailable and potential classical equivalent inequalities remain."
+  ],
+  "schema_version": 1
+}

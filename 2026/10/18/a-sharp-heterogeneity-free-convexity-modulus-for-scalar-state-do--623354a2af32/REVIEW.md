@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closed-loop variance is the convergent scalar Lyapunov solution. Twice differentiating the rational stage-cost gives the exact directional Hessian identity. Completing a positive quadratic square and applying Cauchy–Schwarz gives the pointwise bound \(D^2J[v,v]\ge 2v^\mathsf TRv/(1+3y^2)\); its infimum on the stable pole interval is one half of the input quadratic form. Positive aggregation, compact interior sublevel sets, existence, uniqueness, and the Polyak–Łojasiewicz consequence follow with the stated hypotheses. The displayed explicit family, with positive state cost tending to zero, shows universal sharpness. The packaged program checks critical algebraic identities and finite matrix instances, but is not a replacement for the proof.
+PASS
 
-## Originality — PASS, with residual risks
+Each stationary scalar LQR plant term is J=(q+kᵀRk)g(a+bᵀk), g=(1−y²)⁻¹. Directional Hessian D²J=2z g+4u g′h+Q g″h², where u²≤zQ. Completing square yields D²J≥z(2g−4g′²/g″)=2z/(1+3y²)≥z/2. Summing gives Hess F≥Rbar/2 throughout convex joint stability slabs. Coercivity and blowup at finite stability boundaries ensure a unique interior minimum and PL inequality; explicit q_y=(1−y)^4, a_y=y(3+y²)/(1+3y²), k_y=y−a_y give Hess→1/2 from above, so sharp. Independent symbolic simplification and 400 random directional checks corroborate formulas; proof handles all dimensions of k but only scalar state.
 
-The September 2026 domain-randomized LQR policy-iteration paper assumes gradient dominance for its linear-rate theorem; the March 2025 gradient paper uses heterogeneity restrictions. Neither states the native stationary-cost global strong-convexity matrix modulus for scalar states with arbitrarily many distinct plants and arbitrarily many actuators. The related 2026 semidefinite formulation uses a lifted iterative relaxation; the 2026 scalar ReLU LQR paper establishes strong convexity of a Bellman improvement surrogate and obtains a PL property in a different controller model, not the present uniform Hessian claim for a domain-randomized stationary objective. The closest matched mathematical objects and stronger-coverage possibilities were examined in the primary texts and publication database. Undetected equivalent consequences of classical quadratic-over-linear identities or older scalar-LQR analysis remain possible, despite the negative targeted comparisons; independent literature review is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a concrete gap: when one feedback law stabilizes many heterogeneous scalar-state systems, the sample-average control cost has a globally well-conditioned convex landscape even though the source's general-state convergence theory assumes gradient dominance or bounds plant heterogeneity. The coefficient is explicit, depends only on weighted input penalties, and is provably sharp over the natural problem class, so it supplies a reusable a-priori gradient-domination and policy-optimization benchmark rather than a merely numerical or renamed special case. One state dimension and exact linear feedback remain essential restrictions.
+Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. In absence of a full manuscript, cannot assert no hidden proof of this implication; on available evidence explicit data-independent sharp factor not established. A standard rational-function square completion is an ingredient, not automatically a cited applied classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Domain-randomized LQR landscape analyses currently often impose similarity or PL assumptions. A heterogeneity-independent explicit Hessian modulus for an arbitrary finite mixture of scalar-state plants with multi-input shared feedback, plus exact sharpness and unique optimality, is a reusable rigorous benchmark for policy optimization rather than a textbook restatement of individual scalar feedback formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
