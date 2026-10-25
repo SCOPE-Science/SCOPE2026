@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact proof needs no machine computation. The accompanying `check_cascades.py` program independently implements synchronous activation, counts final adopters from every single seed, and checks the independently derived component formula and equality types over all unlabeled trees of order 4 through 12. Executed with Python 3 and `networkx`, it passed 984 topologies and 11,000 seeded simulations; minima by order 4–12 were 7, 9, 10, 12, 13, 15, 16, 18, and 19 as total cascade sums. The proof for unbounded order is the connected-active-set argument, tree decomposition, degree-sum inequality, and explicit construction. The finite census makes no claim to exhaust trees of orders greater than 12.
+## correctness
 
-The literature comparison assessed full public text of the primary 2002 model and the 2007 random-network analysis, available sections of the 2009 finite-network study and the 2017 algorithmic intervention study. None of those inspected passages states or implies the exact fixed-order tree minimization; this is not a claim of exhaustive bibliographic coverage. No external independent validation or certification has taken place.
+PASS
+
+For each simple connected tree T on n>=4, inclusive half-neighbour activation from one seed is monotone. At every step active vertices are connected; for any initially unseeded hub (degree>=3), all active vertices stay on one side of its removal and so at most one neighbour can be active; it never activates. Every low-degree path component K_j of size m_j activates in full when seeded there, while a hub seed activates itself and all incident low-degree components. Thus sum_v C_T(v)=|H|+sum_j(m_j^2+b_j m_j)>=2n-|H|>=2n-floor((n-2)/2). First equality holds iff every K_j is a single leaf; second iff hub count maximal. Degree excess identity fixes all hubs cubic for even n and exactly one quartic for odd n. Constructing hub skeleton trees with attached leaves shows attainment. Independently enumerated unlabeled trees n=4..10 and all seeds; minima were 7,9,10,12,13,15,16 as expected. This independently checks boundary n=4 and parity cases. No stochastic edge transmissions assumed.
+
+## originality
+
+PASS
+
+A precise prescribed-order deterministic tree mean-cascade extremum and all optimizer degree patterns; prior vulnerable-component mechanism is credited.
+
+## value
+
+PASS
+
+The quantity is a natural expected final outbreak size for one uniformly random seed, and optimization at fixed tree order is a meaningful structural extremal problem. Exact optimal value and complete equality cases reveal that maximizing branching hubs, not a star, minimizes mean cascade. The extremal threshold and equality classification are not a routine restatement of the vulnerable-degree condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

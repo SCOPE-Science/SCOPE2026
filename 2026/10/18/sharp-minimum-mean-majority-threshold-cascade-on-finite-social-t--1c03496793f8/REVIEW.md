@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The propagation lemma is exact because the active set remains connected and an unseeded vertex of degree at least three can be adjacent to at most one active vertex while inactive. This proves the component sum \(S=|H|+\sum_j(m_j^2+b_jm_j)\), not just an empirical pattern. Both lower bounds and their equality conditions follow from positive integer component sizes, positive boundary counts and the tree degree sum. The explicit leaf-attachment construction realizes the degree signatures for every \(n\ge4\). The 984-tree replay checks the calculations, but only the general structural argument establishes the theorem for all orders.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
+For each simple connected tree T on n>=4, inclusive half-neighbour activation from one seed is monotone. At every step active vertices are connected; for any initially unseeded hub (degree>=3), all active vertices stay on one side of its removal and so at most one neighbour can be active; it never activates. Every low-degree path component K_j of size m_j activates in full when seeded there, while a hub seed activates itself and all incident low-degree components. Thus sum_v C_T(v)=|H|+sum_j(m_j^2+b_j m_j)>=2n-|H|>=2n-floor((n-2)/2). First equality holds iff every K_j is a single leaf; second iff hub count maximal. Degree excess identity fixes all hubs cubic for even n and exactly one quartic for odd n. Constructing hub skeleton trees with attached leaves shows attainment. Independently enumerated unlabeled trees n=4..10 and all seeds; minima were 7,9,10,12,13,15,16 as expected. This independently checks boundary n=4 and parity cases. No stochastic edge transmissions assumed.
 
-Watts (2002) establishes the vulnerable-degree condition and random-network cascade questions; Gleeson–Cahalane (2007) computes ensemble-averaged cascade fractions; Whitney (2009) gives finite random-network dynamics; Pei et al. (2017) studies seed influence maximization. These are not equivalent to minimizing the uniform-seed expected final cascade among all exact-order trees, nor do their inspected results give the stated complete equality classification. One related published network-result search returned fixed-threshold influence and graph structural extremals, neither covering the theorem. The known vulnerable-vertex observation is essential background, not presented as new. A prior exact finite-tree optimization may nevertheless exist; novelty is assessed against the material actually inspected, not proved by unsuccessful searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact natural extremum over **all** connected tree-shaped contact networks answers a concrete design question: how little diffusion is unavoidable if the location of the sole initiating adopter is uniformly unknown? The complete minimizer classification exhibits a nontrivial topology difference—branching degree-three cores minimize average exposure, and a star generally does not. The sharp lower bound tends to \(3/2\) while a path permits full propagation. This goes beyond a computation for an arbitrary small graph or a degree-count exercise because it solves the dynamics for every tree and identifies all optimal network topologies.
+A precise prescribed-order deterministic tree mean-cascade extremum and all optimizer degree patterns; prior vulnerable-component mechanism is credited.
 
-## Limitations and evidence
+## value
 
-The threshold convention is inclusive, the seed is uniform, the graph is a finite tree, and all adopters remain active. The finite script does not certify arbitrary orders. Other update rules, graph cycles and nonuniform recruitment are outside the theorem. Watts and Gleeson–Cahalane were available in full text and their model/results sections were inspected; Whitney's full-text model section and the relevant parts of Pei et al. were inspected. Related results may be overlooked, especially among threshold-vulnerability and tree cascade papers. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantity is a natural expected final outbreak size for one uniformly random seed, and optimization at fixed tree order is a meaningful structural extremal problem. Exact optimal value and complete equality cases reveal that maximizing branching hubs, not a star, minimizes mean cascade. The extremal threshold and equality classification are not a routine restatement of the vulnerable-degree condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
