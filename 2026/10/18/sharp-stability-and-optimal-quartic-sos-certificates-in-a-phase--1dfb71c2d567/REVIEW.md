@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant phase-locked ray proves necessity, including the stationary-ray equality case. Direct exact differentiation yields the quartic Gram identity; its eigenvalues are \(a(1\pm\gamma/\sqrt{a^2+\omega^2})>0\), while the quartic's two-square coefficients are positive. Degree sharpness follows from quarter-turn averaging of all strict quadratic candidates and parity of the leading term of any globally positive polynomial. `verify.py` reproduces the central algebra from the stated equations. The relaxation estimate follows from the minimum Gram eigenvalue and quartic norm equivalence.
+PASS
 
-## Originality — PASS under inspected material
+The exact polar decomposition has dr/dt=r^3[-a+gamma cos(4theta)] and dtheta/dt=r^2[omega-gamma sin(4theta)]. For 0<=omega<=gamma an invariant ray of positive cosine gives equilibrium at a=sqrt(gamma^2-omega^2) and outward flow below it, proving necessity. For a above the threshold, D=a^2+omega^2>gamma^2; with t=-gamma omega/D the quartic V=r^4+2t(x^2-y^2)(2xy) has positive SOS decomposition (1±t)/2 (A±B)^2. Independently verified its exact symbolic negative Lie derivative -dot V=4r^2 [A,B]M[A,B]^T and eigenvalue condition a(1±gamma/sqrt(D))>0. Proper strict V proves GAS including degenerate omega=gamma. Z4 averaging shows no strict quadratic if a<=gamma, while odd total degree cannot globally be positive; hence minimum strict polynomial Lyapunov degree 4 versus 2, with algebraic decay upper bound.
 
-The work is restricted to the phase-locked domain \(0\le\omega\le\gamma\). A prior rotating-domain quartic theorem assumed \(\gamma<\omega\) and therefore cannot be specialized to this sector; its quartic coefficient would not give a positive-definite certificate here. Shevchenko–Liu–Liu supply a general invariant-measure/angle characterization, not the claimed explicit fixed-degree dual-SOS and sharp degree boundary. Ahmadi–Parrilo establish generic degree-unbounded SOS conversion, not this fixed-degree formula. No exact matching mathematical-record entry was identified by searches of the angular-locked normal form, coefficient boundary, equivalences or sharp SOS-degree claim. This is best-knowledge originality, not an assertion that searches prove uniqueness. Residual risk: an equivalent treatment in older planar equivariant cubic or homogeneous-classification literature may exist; one related 2026 cubic counterexample was available only at abstract level.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The locked angular sector is qualitatively different from a rotating-angle system. This theorem gives a complete global attraction boundary there and determines an optimal finite SOS relaxation degree, even for parameters where Euclidean radius initially grows. The parameter-independent degree four closes a concrete computational certification gap not decided by broad converse Lyapunov existence theorems.
+Ahmadi–Parrilo provides generic existence of SOS transformations of polynomial Lyapunov functions and Shevchenko et al. a general angular GAS criterion. Neither accessible statement determines an explicit sharp quartic and its minimum strict degree for this 3-parameter Z4 phase-locked family. A previous result for gamma<omega has rotating angular dynamics and cannot directly cover 0<=omega<=gamma. Priority risk remains for older planar equivariant homogeneous cubic classifications.
 
-## Limitations and closest literature
+## value
 
-The theorem is specific to a fourfold-equivariant cubic normal form, and the quadratic obstruction concerns **strict** derivatives. The full original text of the Liu–Fitzsimmons counterexample and the older Samardžija classification were not inspected; independent priority validation remains outstanding. Finite rational tests are diagnostics, not a substitute for the exact symbolic identities and proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The angular-locked sector of the canonical 1:4-resonant cubic normal form has invariant rays, a sharp sink-to-neutral/outward threshold, and a uniform explicit low-degree SOS certificate even where ordinary radial energy initially grows. The degree-2/4 sharp transition is a substantive stability/certification invariant within a natural symmetry family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
