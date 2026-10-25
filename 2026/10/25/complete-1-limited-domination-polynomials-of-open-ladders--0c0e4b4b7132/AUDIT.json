@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact local Boolean equivalence on 3-column windows gives a 16-state transfer expression for each polynomial. A reproducible exact integer-polynomial program verifies 16 matrix residual identities. By Cayley-Hamilton, these imply every later residual; initial 5 coefficients plus the order-6 case establish the rational formula for all n. Separately, a cross-cut matching count and a two-case column argument prove the complete minimum-set classification. Direct graph-based exhaustive checks through n=9 agree, but are corroboration only. See RESULT.md and verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tepeh, arXiv:2606.22428, gives gamma_1^L(P_m square P_n)=mn/2 when one path order is even; this implies only gamma_1^L(P_n square K_2)=n, which is explicitly credited.",
+        "The foundational article proves bounds and basic-family values; it does not present a full size enumerator for open ladders.",
+        "A published record on complete multipartite graphs determines gamma_k^L using part sizes; open ladders with at least three columns are not complete multipartite, and a value formula would not imply the claimed enumerator."
+      ],
+      "reasoning": "The strongest directly overlapping result covers the minimum size, not the number of minima or counts at all cardinalities. The new rational series strictly refines that known minimum. General bounded-width transfer methods imply rationality in principle but do not provide its exact coefficients or this reduced five-step recurrence.",
+      "searches": [
+        "arXiv:2606.22428, Section 4 grid graph theorem and full section",
+        "doi:10.1007/s40314-026-03902-2, Sections 1-5, limitations and connections to (1,t)-domination",
+        "Published mathematical-record query: all cardinalities 1-limited dominating sets in ladder graph P_n square K_2 rational generating function size polynomial",
+        "Public literature query: k-limited domination ladder graph exact polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22428 (full public text; earliest public version 2026-06-21)",
+      "arxiv:2606.22422 (initial public 2026-06-21; matching open-access published full article)",
+      "doi:10.1007/s40314-026-03902-2 (full open-access article)",
+      "arxiv:2610.01796 (abstract, cubic-only scope)",
+      "OEIS:A303054",
+      "OEIS:A347558",
+      "Published mathematical record: Exact k-limited domination of complete multipartite graphs (search result summary only; inapplicable graph class)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary grid theorem implies the asserted minimum gamma=n and is subsumed by the new polynomial, hence this numerical value is not presented as novel.",
+        "The new result determines each coefficient, including minimum-set multiplicities of 2 or 4; the published size bounds alone cannot fix these distributions.",
+        "Perfect matching cuts describe the equality case only, not nonminimum 1-limited dominating sets; the 5-step full polynomial recurrence is separate."
+      ],
+      "reasoning": "The exact minimum value is covered. The proposed claim is the explicitly defined complete polynomial and all of its coefficients for all n, accompanied by a newly obtained structural census of the minima. Prior formulas for a scalar minimum cannot entail the full enumerator without further proof.",
+      "searches": [
+        "Tepeh arXiv:2606.22428 grid theorem gamma_1 limited",
+        "Bozovic et al DOI:10.1007/s40314-026-03902-2 Proposition 1 and general bounds",
+        "Published mathematical-record query: k-limited domination paths ladders number of minimum solutions upper bound",
+        "Published mathematical-record query: matching cut ladder graph 1-limited domination polynomial generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary open-access article DOI:10.1007/s40314-026-03902-2 explicitly states that (0,k)-pitchfork dominating sets coincide with k-limited dominating sets.",
+        "arXiv:2606.22428 treats the same capacity constraint on Cartesian-product graphs, while its stated grid theorems determine minima, not coefficients of the complete ladder polynomial.",
+        "Closest published mathematical records concern domination polynomials of chain graphs, limited domination of complete multipartite graphs, and different ladder invariants."
+      ],
+      "reasoning": "The aliases (0,1)-pitchfork domination and 1-limited domination describe the same vertex-set family; they were included in comparisons. Ordinary domination and total domination differ in local constraints. No source supplying the rational all-cardinality ladder enumerator was found; this is not a proof of publication uniqueness.",
+      "searches": [
+        "Published mathematical-record query: 1-limited dominating sets open ladder graphs P_n Cartesian P_2 enumeration minimum domination 2026",
+        "Published mathematical-record query: one limited domination polynomial two row grid ladder minimum sets parity",
+        "Published mathematical-record query: strongly restrained dominating sets grid ladders 0 1 pitchfork domination polynomial",
+        "Public literature query: 0 1 pitchfork domination polynomial ladder graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A303054 counts minimum total dominating sets of ladders; its term values and membership definition differ.",
+        "OEIS A347558 counts minimum ordinary dominating sets of ladders; its condition lacks the capacity restriction.",
+        "Searches for the first terms 3,9,18,43,99,226 did not expose a matching exact table; absence of search results is not decisive."
+      ],
+      "reasoning": "Neither inspected named ladder table counts the 1-limited all-cardinality family. No exact table covering the claimed rational coefficients was identified.",
+      "searches": [
+        "Public literature query: OEIS 9 18 43 99 226 517 ladder 1 limited dominating",
+        "Public literature query: OEIS number of one-limited dominating sets ladder sequence",
+        "OEIS A303054 number of minimum total dominating sets ladder",
+        "OEIS A347558 number of minimum dominating sets ladder"
+      ]
+    },
+    "rationale": "The grid-product paper already implies gamma_1^L(L_n)=n and is credited explicitly. The five-term all-size polynomial recurrence and optimum multiplicities are not implied by that single minimum-size value. Open-access primary texts and relevant sequence records were compared by the exact statements, graph classes and aliases; no broader result providing this full ladder polynomial was identified. Publication priority is not independently guaranteed.",
+    "residual_risks": [
+      "Search results do not establish the absence of equivalent work in unindexed publications or theses.",
+      "A relevant published mathematical record on complete multipartite domination was compared from its search summary, not its full text; its named graph class does not cover general open ladders.",
+      "Some known matching-cut formulations could imply the restricted optimum classification, but not necessarily the all-cardinality recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Minimum-size result covers gamma=n; inspected grid theorem and its context do not supply the entire size polynomial or minimum-set multiplicity classification.",
+        "evidence": "arXiv:2606.22428, grid-graph section, theorem on gamma_1^L(P_m square P_n).",
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Full available article text, especially grid-graph theorem and its proof, plus introductory and concluding comparisons; initial 2026-06-21 public-version text examined.",
+        "method": "Read public accessible article text and compared graph definitions, quantifiers and claims.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Same invariant and exactly the same open ladder graph family as the even-width case of the grid theorem."
+      },
+      {
+        "assessment": "Provides basic parameter and (0,k)-pitchfork equivalence, but not the ladder all-size distribution.",
+        "evidence": "The article establishes |D|>=|V|/(k+1) and the (0,k) relation; neither determines exact coefficients of the constrained ladder polynomial.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "material_read": "Open-access full article sections 1-5 with the basic-graph proposition, bounds, and matching/packing connections.",
+        "method": "Inspected public full HTML text and matched the load-limited constraint.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Foundational exact definition, aliases and all-graph inequalities that could imply special cases."
+      },
+      {
+        "assessment": "Different admissibility property and different counts; not a polynomial for all constrained subsets.",
+        "evidence": "OEIS A303054 describes minimum total dominating sets, not 1-limited sets.",
+        "identifier_or_url": "https://oeis.org/A303054",
+        "material_read": "Sequence definition, initial values and formula.",
+        "method": "Compared mathematical definition of total domination to the capacity-limited condition.",
+        "title": "Number of minimum total dominating sets in the n-ladder graph",
+        "trigger": "Potential matching integer sequence of ladder optimum counts."
+      },
+      {
+        "assessment": "Different family of sets; no load limitation.",
+        "evidence": "OEIS A347558 enumerates minimum ordinary dominating sets.",
+        "identifier_or_url": "https://oeis.org/A347558",
+        "material_read": "Sequence definition, initial values and formula.",
+        "method": "Compared ordinary domination membership and minimum counts.",
+        "title": "Number of minimum dominating sets in the n-ladder graph",
+        "trigger": "Potential existing exact minimum-set census on the same graphs."
+      },
+      {
+        "assessment": "Cubic-only paper cannot directly cover the infinite family of nonregular open ladders; no whole-text noncoverage inference made.",
+        "evidence": "The paper studies cubic planar complexity and the Goldberg family.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.01796",
+        "material_read": "Title, abstract and indicated cubic-graph scope only.",
+        "method": "Compared vertex-degree assumptions and stated main results from public abstract.",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "Contemporary paper using identical 1-limited invariant and a strong duality in cubic graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c0e4b4b-7132-4919-a98e-4b4c0b039005",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Refines a recently solved exact graph-product optimization problem into a complete cardinality-by-cardinality census on a standard infinite family. The reduced order-five rational recurrence allows all counts without exponential subset enumeration, and the parity-sharp 2/4 optimum multiplicity classification has a clean structural explanation. The central question is motivated by load-limited facility placement and a real gap between a minimum value and the set of admissible configurations; no downstream theorem is needed.",
+    "status": "PASS"
+  }
+}
