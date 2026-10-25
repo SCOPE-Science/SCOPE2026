@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit construction defines one infinite word over exactly thirteen symbols. The proof exhibits all six disjoint full-binary/phase-legal factor languages for each length \(n\ge2\), counts their reflection classes precisely, and bounds every marker-containing factor by \(8n^2+1\). Aperiodicity follows from increasing marker runs and infinitely many intervening nonmarkers. The finite checker verifies the separate pure-language counts for lengths two through nine; the all-length result is proved analytically. Main remaining risk is an undetected transcription or implementation mismatch, not an unproved extrapolation.
+## correctness
 
-**Originality — PASS within examined evidence.** Section 6 of Dvořáková–Pelantová (arXiv:2511.12358) notices the periodic \(2/3\) obstruction to Conjecture 29 and considers aperiodicity as an additional hypothesis; Blažek–Dvořáková–Pelantová (arXiv:2610.14637), Section 6.3, formally states the aperiodic two-value assertion as Conjecture 35. Neither full-text discussion supplies a nonrecurrent aperiodic counterexample with a proved intermediate limit. Allouche et al. (arXiv:2406.09302) supply original reflection-complexity results, including uniformly recurrent cases; they do not imply the claim because the constructed word is not uniformly recurrent. Semantically targeted literature and indexed-mathematics searches found no statement implying this exact counterexample. Residual risk: work on disjoint-alphabet mixtures or nonrecurrent word-complexity limits may be indexed under different terminology.
+PASS
 
-**Value — PASS.** A precise aperiodic version was explicitly published as an open conjecture on 2026-10-10. A constructive counterexample clarifies that the essential structural issue is not merely eventual periodicity: aperiodicity alone permits an intermediate ratio even though reversal-closed or uniformly recurrent cases behave differently. The simple rational target \(3/4\) supports a transparent exact decomposition, and the counterexample defines a concrete boundary to any corrected future hypothesis.
+The 13-symbol infinite concatenation has three disjoint binary full-shift languages and a directed phase-0/1/2 binary component. For n>=2 unmarked factor count is U_n=6*2^n and unmarked reversal-class count T_n=(9/2)*2^n+(3/2)*2^ceil(n/2). The phase increment +1 mod 3 makes reversals of directed words absent. Separators #^t yield at most 8n^2-7 distinct marked factors; their reflection classes are likewise O(n²). Consequently r_x(n)/C_x(n)->3/4. Unbounded # runs and infinitely many other letters prove not eventually periodic, but the word is not recurrent. Separate finite prefix enumeration for n=2..8 matched both unmarked identities. Exact infinite argument follows language and marker bounds, not finite sampling.
 
-**Limitations.** The example is over thirteen symbols and not recurrent. No smaller-alphabet minimality, recurrent analogue, or universal classification is claimed. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison: The final claim is a genuinely new class of witness subject to explicit inaccessible-current-paper risk.
+
+## value
+
+PASS
+
+An explicit aperiodic counterexample with rigorous factor language asymptotics resolves a natural stated aperiodicity-only version of a reflection-complexity conjecture, sharply clarifying the need for stronger dynamical hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

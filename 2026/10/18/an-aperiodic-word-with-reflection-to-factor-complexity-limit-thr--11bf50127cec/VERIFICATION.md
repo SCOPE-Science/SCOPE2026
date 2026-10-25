@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program builds finite stage prefixes from binary de Bruijn cycles and checks the exact unmarked-factor and unmarked-reflection-class formulas for lengths two through nine. `check_output.txt` contains a captured successful execution, with the length-nine row reporting 3072 unmarked factors and 2352 unmarked reflection classes.
+## correctness
 
-The prefix checks do not verify all future stages; completeness for arbitrary length follows from the binary de Bruijn property plus three distinct starting phases, while the bound on marked factors follows by separating short markers from long markers. Analytic steps and their quantifiers appear in RESULT.md. No independent audit or external proof certification is claimed.
+PASS
+
+The 13-symbol infinite concatenation has three disjoint binary full-shift languages and a directed phase-0/1/2 binary component. For n>=2 unmarked factor count is U_n=6*2^n and unmarked reversal-class count T_n=(9/2)*2^n+(3/2)*2^ceil(n/2). The phase increment +1 mod 3 makes reversals of directed words absent. Separators #^t yield at most 8n^2-7 distinct marked factors; their reflection classes are likewise O(n²). Consequently r_x(n)/C_x(n)->3/4. Unbounded # runs and infinitely many other letters prove not eventually periodic, but the word is not recurrent. Separate finite prefix enumeration for n=2..8 matched both unmarked identities. Exact infinite argument follows language and marker bounds, not finite sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison: The final claim is a genuinely new class of witness subject to explicit inaccessible-current-paper risk.
+
+## value
+
+PASS
+
+An explicit aperiodic counterexample with rigorous factor language asymptotics resolves a natural stated aperiodicity-only version of a reflection-complexity conjecture, sharply clarifying the need for stronger dynamical hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
