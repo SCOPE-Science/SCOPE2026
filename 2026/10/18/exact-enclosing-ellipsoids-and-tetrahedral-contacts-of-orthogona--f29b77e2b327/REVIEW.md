@@ -1,15 +1,21 @@
-# Scientific review: enclosing ellipsoid of orthogonal-disk hulls
+# Independent mathematical audit
 
-## Correctness — PASS
-For each center separation the semiaxes satisfy an exact circle-containment identity, with a nonnegative square as the global gap. Four explicit generating-circle contacts normalize to a zero-mean isotropic regular tetrahedron; averaging the ellipsoidal-gauge inequalities of an arbitrary competing translated ellipsoid forces a determinant lower bound, with equality uniquely at the proposed ellipsoid. Strict convexity and strictness of the gap for positive separation give exactly four contacts; at zero separation the contact set consists of the two entire circles. Exact rational checks and numerical probes supplement, but do not replace, these universal proof steps.
+## correctness
 
-## Originality — PASS (subject to historical search limits)
-The 1997 Dirnböck–Stachel paper analyzes the oloid and a different, inscribed ellipsoid. Finch's arXiv:1211.4514 treats intrinsic volumes of several orthogonal-disk hulls. Bäsel's arXiv:1604.07245 computes mean width, and Nash–Pir–Sottile–Ying's arXiv:1612.09382 classifies two-circle convex hulls. The closest published mathematical record treats the same one-parameter disk family but proves a mean-width derivative and strict convexity, not an optimal enclosing ellipsoid. Generic extremal-ellipsoid theory can characterize an optimizer but does not imply the presented radical profile and exact four-point rigidity without additional calculation. Alternative-indexing and older-geometry priority uncertainty remains.
+PASS
 
-## Value — PASS
-A convex hull of two perpendicular disks is a natural spatial convex body, and its special separation is the classical oloid. The exact minimum-volume enclosing ellipsoid for every nonnegative separation and the universal regular-tetrahedron contact certificate solve a genuine geometric optimization problem across an entire continuous family, including its singular symmetric endpoint. This is a structural extremal classification rather than a numerical approximation or arbitrary subcase.
+Let t>=0 and p=(t-sqrt(t*t+12))/6. The identity 3p^2-tp-1=0 gives the proposed a²=3(t/2-p)² and b²=(3/2)(1-p²), with a>=b>0. Each generating circle gauge q(v) obeys 1-q(v)=(b^-2-a^-2)(v-p)²>=0, exactly establishing enclosure for both disks and their convex hull without assuming axis symmetry of competitors. For t>0 equality on the generating circles occurs at precisely four points; normalized by (a,b,b), these have zero mean and covariance I/3, equivalently a regular tetrahedron. Any arbitrary translated oriented containing ellipsoid m+T B_2^3 must satisfy tr((TT^T)^-1)/3+||T^-1 m||²<=1 by averaging four contacts; AM–GM forces |det T|>=1 and equality fixes the normalized unit ball, proving global uniqueness. Strict convexity rules out added convex-hull contacts. For t=0, a=b=1 and both generating full circles touch. Independently checked 1206 circle gauges at six separations and four-point covariance/centering, each within 2e-13 roundoff; this is corroboration of the exact identities.
 
-## Scientific limitations
-The result applies only to congruent disks in perpendicular planes whose centers lie on the planes' common line. It does not establish priority beyond searched records, cover unequal disks or oblique planes, or claim independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.
+
+## value
+
+PASS
+
+The equal orthogonal-disk hull family contains the classical oloid and natural separations; determining its unrestricted Löwner ellipsoid, all semiaxes and exact contact locus is a meaningful convex-geometric invariant, distinct from well-studied width/volume. The normalized regular tetrahedral contact certificate is structural, not an arbitrary numerical instance, and solves a genuine enclosing-ellipsoid optimization without symmetry assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

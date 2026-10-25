@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T01:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let t>=0 and p=(t-sqrt(t*t+12))/6. The identity 3p^2-tp-1=0 gives the proposed a²=3(t/2-p)² and b²=(3/2)(1-p²), with a>=b>0. Each generating circle gauge q(v) obeys 1-q(v)=(b^-2-a^-2)(v-p)²>=0, exactly establishing enclosure for both disks and their convex hull without assuming axis symmetry of competitors. For t>0 equality on the generating circles occurs at precisely four points; normalized by (a,b,b), these have zero mean and covariance I/3, equivalently a regular tetrahedron. Any arbitrary translated oriented containing ellipsoid m+T B_2^3 must satisfy tr((TT^T)^-1)/3+||T^-1 m||²<=1 by averaging four contacts; AM–GM forces |det T|>=1 and equality fixes the normalized unit ball, proving global uniqueness. Strict convexity rules out added convex-hull contacts. For t=0, a=b=1 and both generating full circles touch. Independently checked 1206 circle gauges at six separations and four-point covariance/centering, each within 2e-13 roundoff; this is corroboration of the exact identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general contact criterion is a known optimality tool and is used explicitly in the proof.",
+          "General ellipsoid-of-ellipsoids algorithms may optimize covering shapes but do not specify these semiaxes/contact classification in inspected abstract."
+        ],
+        "reasoning": "A broadly applicable existence/contact or numerical covering algorithm is not a direct explicit closed formula with complete four-point locus for these disks. The inaccessible complete Yıldırım text leaves a small coverage risk.",
+        "searches": [
+          "Minimum volume containing Löwner ellipsoid oloid convex hull of perpendicular disks separated centers four tetrahedral contact points",
+          "general Löwner–John ellipsoid condition",
+          "Yıldırım 2006 DOI 10.1137/050622560 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 4203e0f8d95f84746f7c6d3921c29bba102470a1, RESULT.md verify.py AUDIT METADATA REVIEW SLOGAN VERIFICATION",
+        "Dirnböck–Stachel 1997 PDF",
+        "Finch 2012 PDF",
+        "Bäsel 2016 PDF",
+        "Resultary same-object mean-width full RESULT.md",
+        "Yıldırım 2006 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published mean-width derivative is a spherical averaged support-function law, not a covering quadratic form.",
+          "The older oloid special ellipsoid is inscribed, not covering."
+        ],
+        "reasoning": "A mean-width identity does not determine the minimizing covering quadratic form. The inscribed ellipsoid optimizes the opposite inclusion and its axes are not the asserted ones. The tetrahedral contact proof supplies the missing global lower bound.",
+        "searches": [
+          "Minimum volume containing Löwner ellipsoid oloid convex hull of perpendicular disks separated centers four tetrahedral contact points",
+          "Dirnböck–Stachel 1997 full text",
+          "Resultary published mean-width derivative RESULT.md",
+          "Nash–Pir–Sottile–Ying arXiv:1612.09382"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present object is the convex hull of two perpendicular filled unit disks with variable common-axis center separation.",
+          "Oloid literature discusses another ellipsoid inscribed in the body; the candidate is the minimum-volume CONTAINING ellipsoid."
+        ],
+        "reasoning": "Inscribed John-type optimization is different from Löwner containment. The same object is studied under the names oloid, convex hull of two circles, and orthogonal-disk hull, but no inspected equivalent minimum-volume containing semiaxis/contact statement was found.",
+        "searches": [
+          "Minimum volume containing Löwner ellipsoid oloid convex hull of perpendicular disks separated centers four tetrahedral contact points",
+          "Dirnböck–Stachel 1997 §3 Eq.26",
+          "Finch arXiv:1211.4514",
+          "Resultary same-object width law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary relevant hits include orthogonal three-disk hull intrinsic volumes and other polytopal Löwner transitions, not this two-disk hull.",
+          "Finch/Bäsel formulas address surface area, volume or mean width."
+        ],
+        "reasoning": "This is an exact all-t continuous family, not merely a tabulated t=1 number. Compared same-object geometric measurements and closest indexed ellipsoid classes; none gives the proposed a(t),b(t) and four contacts.",
+        "searches": [
+          "Minimum volume containing Löwner ellipsoid oloid convex hull of perpendicular disks separated centers four tetrahedral contact points",
+          "Resultary semantic top-12 Löwner oloid query",
+          "Finch arXiv:1211.4514",
+          "Bäsel arXiv:1604.07245"
+        ]
+      },
+      "rationale": "The final claim, not its title or shared elementary ingredients, was compared against statement-level prior implications, published records and highly relevant primary literature. The named check objects and actual inspections below support best-of-knowledge originality, with inaccessible material separately identified as residual risk.",
+      "residual_risks": [
+        "A general algorithmic covering-ellipsoid article could bury this specialization and was not read completely; no negative full-text assertion is made.",
+        "The t=0 contact set has two circles, not the t>0 four-point classification; proofs distinguish this boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPPOSITE_OPTIMIZATION",
+          "evidence": "Their designated ellipsoid is inscribed in the oloid; not the outer minimum volume ellipsoid.",
+          "identifier_or_url": "https://www.heldermann-verlag.de/jgg/jgg01_05/jgg0113.pdf",
+          "material_read": "Primary 1997 PDF §3, including Equation (26)",
+          "method": "full-text PDF inspected",
+          "title": "The Development of the Oloid",
+          "trigger": "Same object and a purported distinguished ellipsoid"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANTS",
+          "evidence": "No outer Löwner semiaxes formula/contact classification in inspected results.",
+          "identifier_or_url": "arXiv:1211.4514",
+          "material_read": "Primary PDF on volume, area, mean width and convex hull",
+          "method": "full-text PDF inspected",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Exact same geometric family"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": "Gives W′,W″ and strict convexity of mean width; does not determine enclosing ellipsoid or contacts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf",
+          "material_read": "Entire RESULT.md, including support-function derivative proof",
+          "method": "full Git result read",
+          "title": "A one-dimensional derivative law for orthogonal-disk mean width",
+          "trigger": "Same family and parameter under another coordinate-axis labeling"
+        },
+        {
+          "assessment": "FULL_NOT_EXAMINED",
+          "evidence": "Generic ellipsoid enclosing ellipsoids algorithm; possible specialized result remains priority risk.",
+          "identifier_or_url": "DOI:10.1137/050622560",
+          "material_read": "Abstract, not complete published article",
+          "method": "abstract only",
+          "title": "On the Minimum Volume Covering Ellipsoid of Ellipsoids",
+          "trigger": "Plausible broader covering-ellipsoid algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equal orthogonal-disk hull family contains the classical oloid and natural separations; determining its unrestricted Löwner ellipsoid, all semiaxes and exact contact locus is a meaningful convex-geometric invariant, distinct from well-studied width/volume. The normalized regular tetrahedral contact certificate is structural, not an arbitrary numerical instance, and solves a genuine enclosing-ellipsoid optimization without symmetry assumptions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 4203e0f8d95f84746f7c6d3921c29bba102470a1, RESULT.md verify.py AUDIT METADATA REVIEW SLOGAN VERIFICATION",
+    "Dirnböck–Stachel 1997 PDF",
+    "Finch 2012 PDF",
+    "Bäsel 2016 PDF",
+    "Resultary same-object mean-width full RESULT.md",
+    "Yıldırım 2006 abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general algorithmic covering-ellipsoid article could bury this specialization and was not read completely; no negative full-text assertion is made.",
+    "The t=0 contact set has two circles, not the t>0 four-point classification; proofs distinguish this boundary."
+  ],
+  "residual_risks": [
+    "A general algorithmic covering-ellipsoid article could bury this specialization and was not read completely; no negative full-text assertion is made.",
+    "The t=0 contact set has two circles, not the t>0 four-point classification; proofs distinguish this boundary."
+  ],
+  "schema_version": 1
+}
