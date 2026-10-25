@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The two adjacency relations are explicit on Z4×Z4 and all 65,536 vertex masks per graph are exhaustively tested. Independent degree and forbidden-subgraph face predicates agree on every mask. All strongly regular parameters, face vectors, maximal-face counts, matching pairs and critical multisets are asserted by a standalone checker. The common fixed vertex order creates 639 and 543 matched pairs on the new complexes, leaving one critical vertex and 57 or 105 critical three-cells. A complete topological sort on 4,960 and 4,224 oriented face incidences verifies the acyclic matching condition. Forman’s discrete Morse theorem then gives a CW complex with one zero-cell and only three-cells; all three-cell attaching maps land in a point, so the full integral homotopy types are precisely the claimed wedges. The checker reproduced VERIFY_OK from actual package files. The r=1 comparison is separately reproduced but is only historical context.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deshpande–Singh arXiv:2001.05448v2, introduction and Theorems 3.5, 3.8, 4.6, 5.6: complete multipartite, fully whiskered, cycle and rooted tree families.",
+        "Deshpande–Shukla–Singh arXiv:2001.06775, Theorem 3: homotopy wedge for chordal graphs, not these graphs.",
+        "Explicit induced four-cycles are vertex labels (0,1,2,3) in Shrikhande and (0,1,4,5) in the rook graph, confirming neither is chordal.",
+        "Paolini–Salvetti arXiv:1703.02586, Theorem 3.4 and sections: path/Coxeter graph computations, not these graphs."
+      ],
+      "reasoning": "The checked primary theorem hypotheses do not contain the pair, and their universal statements do not determine exact multiplicities 57 or 105. Identical SRG parameters also cannot force distinct computed Betti ranks.",
+      "searches": [
+        "published-finding corpus: \"Rook graphs k-independence complexes r=2 graph (K_4\\square K_4), cardinality and homotopy type\"",
+        "published-finding corpus: \"Shrikhande graph higher independence complex dissociation complex homotopy topological Betti numbers compared to 4 by 4 rook graph\"",
+        "web: \"higher independence complexes of graphs\" Deshpande Singh arxiv first submitted",
+        "web: \"Shrikhande\" \"Ind_2\" homotopy"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1214/aoms/1177706207 (metadata and abstract)",
+      "arxiv:1703.02586 (selected primary PDF pages and theorems)",
+      "arxiv:2001.05448 (primary PDF theorem sections and concluding remarks)",
+      "arxiv:2001.06775 (primary PDF introduction and main theorems)",
+      "published-finding corpus published record 41bf4d1d3187 (ordinary Shrikhande/rook independence homotopy) (published summary)",
+      "published-finding corpus published record 0d53a7f4e76a (Petersen two-independence complex) (published summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published ordinary comparison: Ind_1(Shrikhande) ≃ wedge of 23 S^2 and Ind_1(Rook) ≃ wedge of 15 S^2.",
+        "The new Ind_2 complexes contain 1,337 and 1,193 total faces versus 201 and 209 for Ind_1, respectively; none of the earlier descriptions controls the new faces or their attaching maps.",
+        "The 2020 papers treat other graph classes, and their general connectivity/wedge statements do not yield numerical dimension-three types in this case."
+      ],
+      "reasoning": "The inclusion Ind_1(G)⊆Ind_2(G) is not a homotopy equivalence here: a two-dimensional ordinary wedge does not imply a three-dimensional higher wedge. The proof gives new complete acyclic matchings. Earlier ordinary results are explicitly credited.",
+      "searches": [
+        "published-finding corpus: \"Shrikhande graph independence complex simplicial homotopy type integral homology\"",
+        "published-finding corpus: \"strongly regular graph (16,6,2,2) higher independence complex comparison rook graph\"",
+        "web: \"Shrikhande\" \"2-independence complex\"",
+        "web: \"r-independence complex\" graph first introduced 2015",
+        "published-finding corpus: \"Ind_2(Shrikhande) wedge 57 copies of S^3 and Ind_2(K4 square K4) wedge 105 copies of S^3; reversed betti ranking relative to Ind_1\"",
+        "published-finding corpus: \"Shrikhande rook dissociation complexes homotopy 57 105 three-sphere 16 vertex strongly regular\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ind_2(G) is exactly the complex of induced graphs with maximum degree at most 1, namely dissociation complexes.",
+        "A degree-at-most-one induced graph forbids a three-vertex path as a subgraph, even if its endpoints are adjacent; excluding only induced P3 would erroneously allow triangles.",
+        "published-finding corpus top hits included ordinary Shrikhande/rook Ind_1 record ID published record 41bf4d1d3187 (ordinary Shrikhande/rook independence homotopy) and Petersen Ind_2 record ID published record 0d53a7f4e76a (Petersen two-independence complex), not the asserted Ind_2 pair."
+      ],
+      "reasoning": "The original defining condition was compared against alternative dissociation terminology and the exact forbidden three-vertex star. A weaker induced-P3-free formulation is not equivalent. Search hits classified other complexes but did not cover this pair.",
+      "searches": [
+        "published-finding corpus: \"Homotopy types of the dissociation or Ind_2 complex of Shrikhande graph and the 4-by-4 rook or lattice graph; 57 versus 105 three spheres\"",
+        "published-finding corpus: \"Strongly regular graphs with parameters (16,6,2,2) induced maximum degree one complex, no induced path P3, homotopy group topological cohomology\"",
+        "published-finding corpus: \"Shrikhande ‘P3-free’ induced subgraph complex wedge spheres\"",
+        "web: \"Shrikhande\" \"dissociation complex\" topology",
+        "web: \"Shrikhande\" \"2-independence complex\"",
+        "web: \"rook graph\" \"2-independence complex\" homotopy",
+        "published-finding corpus: \"Ind_2(Shrikhande) wedge 57 copies of S^3 and Ind_2(K4 square K4) wedge 105 copies of S^3; reversed betti ranking relative to Ind_1\"",
+        "published-finding corpus: \"Shrikhande rook dissociation complexes homotopy 57 105 three-sphere 16 vertex strongly regular\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed result ID published record 41bf4d1d3187 (ordinary Shrikhande/rook independence homotopy) gives only Ind_1 sphere ranks 23 and 15.",
+        "Searchable related results list Rook neighborhood complexes and Rook Čech homology, neither an Ind_2 construction.",
+        "No found web page or indexed result gives both Ind_2 homotopy types 57 and 105.",
+        "Two final targeted rank-57/rank-105 published-finding corpus searches returned the known ordinary rank-23/rank-15 comparison and other complexes, not this two-independence pair."
+      ],
+      "reasoning": "No exact table or scientific result covering the new assertions was found. Absence from queried indices does not prove exclusivity and is recorded as a residual risk.",
+      "searches": [
+        "published-finding corpus: \"Homotopy types of the dissociation or Ind_2 complex of Shrikhande graph and the 4-by-4 rook or lattice graph; 57 versus 105 three spheres\"",
+        "published-finding corpus: \"Rook graphs k-independence complexes r=2 graph (K_4\\square K_4), cardinality and homotopy type\"",
+        "web: \"Shrikhande\" \"57\" \"spheres\" \"independence\"",
+        "web: \"rook\" \"105\" \"3-spheres\" \"independence\"",
+        "published-finding corpus: \"Ind_2(Shrikhande) wedge 57 copies of S^3 and Ind_2(K4 square K4) wedge 105 copies of S^3; reversed betti ranking relative to Ind_1\"",
+        "published-finding corpus: \"Shrikhande rook dissociation complexes homotopy 57 105 three-sphere 16 vertex strongly regular\""
+      ]
+    },
+    "rationale": "The published ordinary-independence comparison for the same exceptional strongly regular pair computes Ind_1, not Ind_2; no logical implication supplies the new homotopy types or degree-three sphere counts. The closely related full-text primary sources classify complete multipartite, whiskered, path, cycle, tree, or chordal graph classes; the two six-regular nonchordal graphs fall outside their stated hypotheses. Actual semantic research-database and public literature searches for the exact objects, alternative dissociation terminology, degree-one induced-subgraph constraints, and stronger graph-family statements did not reveal a covering theorem. This is a best-knowledge assessment with explicitly acknowledged risks.",
+    "residual_risks": [
+      "The exact earlier ordinary-comparison record was retrievable by scientific search summary but its complete GitHub text was unavailable; a stronger result hidden in that work is not independently excluded by full-text inspection.",
+      "An unindexed thesis, unpublished computation, or another source could contain equivalent 57 and 105 sphere-wedge calculations.",
+      "The original 1959 graph-classification primary full text was not accessible; it is background rather than an apparent source of higher-complex homotopy calculations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Historical identification of the graphs and parameters, not a topology-of-independence-complex paper. No inference of noncoverage from unseen full text.",
+        "evidence": [
+          "Shrikhande, Ann. Math. Statist. 30(3) (1959), 781–798; dated source gives 01 Sep 1959.",
+          "The abstract describes characterizing the L2 association scheme."
+        ],
+        "identifier_or_url": "doi:10.1214/aoms/1177706207",
+        "material_read": "Bibliographic metadata and abstract at https://repository.ias.ac.in/74076/ ; external dated publication record https://scispace.com/papers/the-uniqueness-of-the-mathrm-l-2-association-scheme-16eoyvkfdw ; full primary article unavailable.",
+        "method": "Read bibliographic description and abstract; checked the 1959 volume/issue publication record.",
+        "title": "The uniqueness of the L2 association scheme",
+        "trigger": "Original exceptional strongly regular graph pair and first-public date."
+      },
+      {
+        "assessment": "Relates certain higher independence complexes of Coxeter/path graphs to Artin-group homology, not the exceptional pair.",
+        "evidence": [
+          "Theorem 3.4 is about Ind_{d−2}(A_{n−d}); Sections 3 and 5 address braid and Artin groups, not Shrikhande or rook."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1703.02586",
+        "material_read": "PDF introduction, contents, Theorem 3.4 and scope through first three pages; selected section descriptions. Screenshot of page 1 was inspected.",
+        "method": "Inspected full-text PDF targeted sections and the section-by-section scope.",
+        "title": "Weighted sheaves and homology of Artin groups",
+        "trigger": "Introduces generalized independence complexes and might contain broad theorem."
+      },
+      {
+        "assessment": "Theorem families are complete multipartite, fully whiskered, paths, cycles and rooted trees, none of the two graphs. Section 6 notes the separate chordal theorem.",
+        "evidence": [
+          "Introduction lists the exact families (arXiv:2001.05448, PDF p. 2).",
+          "Section 6.2 announces a chordal-graph result, not an all-graph classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+        "material_read": "Full-text PDF introduction, formal definitions, Theorems 3.5 and 3.8, Proposition 4.3, Theorem 4.6, Theorem 5.6 and Section 6 concluding remarks via PDF text views; screenshot of page 1.",
+        "method": "Inspected the theorem-bearing full text and scope list rather than relying on search snippets.",
+        "title": "Higher independence complexes of graphs and their homotopy types",
+        "trigger": "Direct primary work classifying homotopy types for higher independence complexes."
+      },
+      {
+        "assessment": "The only universal assertion in the shown theorems concerns low-dimensional homology vanishing, not a precise wedge count. The wedge theorem explicitly assumes chordality, which fails in both present cases.",
+        "evidence": [
+          "Theorem 3 has the hypothesis that G is chordal (PDF p. 3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.06775",
+        "material_read": "Full-text PDF introduction, scope of Theorems 2–4 and definitions on pp. 1–3; screenshot of page 3; targeted full-text searches for exact graph names.",
+        "method": "Examined the relevant general statements directly in the PDF.",
+        "title": "Distance r-domination number and r-independence complexes of graphs",
+        "trigger": "Possible stronger general wedge theorem."
+      },
+      {
+        "assessment": "The indexed statement concerns Ind_1; it cannot establish the different Ind_2 homotopy types. Full-text unavailability is a residual priority risk.",
+        "evidence": [
+          "Published searchable summary explicitly specifies ordinary independence complexes and S^2 ranks 23,15; no Ind_2 claim was present in retrieved material."
+        ],
+        "identifier_or_url": "published-finding corpus published mathematical record 41bf4d1d3187",
+        "material_read": "Ranked published-finding corpus search hit title and summary: ordinary Ind_1 ranks 23 and 15; direct GitHub full text could not be fetched.",
+        "method": "Compared the retrieved published mathematical claim and attempted full-text access.",
+        "title": "Independence complexes of the Shrikhande and 4x4 rook graphs have different sphere-wedge homotopy types",
+        "trigger": "Same graph objects; must determine whether ordinary conclusion includes the higher-independence result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "910d35e0-c15c-4197-848b-159822a1e2a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair of exceptional strongly regular (16,6,2,2) graphs is a canonical example of spectral twins. Their ordinary independence homotopy types were already known to have 23 versus 15 two-spheres. The first higher-independence step reverses their sphere-count order to 57 versus 105 three-spheres. The new result provides two complete nonpure integral homotopy classifications and an interpretable comparison of a natural graph-complex invariant, not just another face enumeration or graph-name substitution. The exact dimensions and multiplicities furnish a benchmark for homotopy sensitivity beyond strongly regular parameters and are not consequences of prior r=1 results.",
+    "status": "PASS"
+  }
+}
