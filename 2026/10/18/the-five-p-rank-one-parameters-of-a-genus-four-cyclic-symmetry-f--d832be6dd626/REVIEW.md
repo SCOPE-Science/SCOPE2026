@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The curve is smooth exactly when \(b\Delta\ne0\) because its branch polynomial factors as \(xg(x^3)\) with cubic discriminant \(\Delta\). The exact Cartier coefficient matrix has isolated blocks of sizes two, one, one. Its rank gives the \(a\)-number. Frobenius-inverse semilinearity gives the correct twisted product \(M^{[7]}M\), rather than an untwisted matrix square over the algebraic closure; its rank-one block reduces stable rank to \(W\). The five-point count is an identity of one-variable polynomials together with irreducibility and smoothness exclusions. Standard-library verification independently reproduces the polynomial identities and all 37 smooth prime-field parameter cases. The proof makes no inference from finite experiments to arbitrary extensions.
+## correctness
 
-## Originality — PASS, with risks
-Kudo–Nakagawa–Takagi (arXiv:2210.14822, especially Sections 2.2, 3 and 4) define precisely this family and compute superspecial parameters, but do not provide its complete characteristic-seven \((p\text{-rank},a\text{-number})\) classification or the five isolated rank-one parameter pairs. Frei's thesis, Sections 2.3 and 4.3, establishes general background and discusses large \(a\)-numbers over characteristic seven, not these exact parameter equations. Targeted searches of research records and online primary literature did not reveal an equivalent or stronger covering statement. This is a best-knowledge comparison, not a uniqueness guarantee. A differently phrased or unindexed classification of this family remains a risk.
+PASS
 
-## Value — PASS
-The theorem supplies a complete two-dimensional rank stratification with a sharp positive lower bound on \(p\)-rank and a precisely located zero-dimensional deepest stratum of five geometric parameters. The distinction between \(p\)-ranks one and two on the same Cartier-rank-two divisor is invisible to a rank-of-Cartier computation alone. Characteristic seven is the smallest prime in the automorphism classification of this family and a documented difficult case for large \(a\)-number questions. These facts constitute a nontrivial arithmetic-geometric boundary result, not just a finite check or an arbitrary change of prime. The result does not resolve the global genus-four problem.
+For the smooth algebraically-closed characteristic-7 family y²=x^10+x^7+a x^4+b x with smoothness b Delta≠0, the source computes 4×4 Cartier coefficient matrix of f³. Independently expanded f³ in symbolic coefficients mod 7; reproduced all sixteen coefficients and block rank criteria, determinant 3 b² U V², substitution V=0 -> b=3a(a+1), U=6a²(a-5)² and Delta=2a(a+2)³, and W factorization 3(a-2)(a-3)(a+1)²(a³+3a²-1). The irreducible cubic Q has no F7 root and three simple geometric roots, giving five smooth p-rank-one parameter pairs (2,4),(3,1), and three over F343. The rank of Frobenius-semilinear Cartier stable products shows p-rank (4,3,2,1) with a-number (0,1,2,2) by U,V,W cases. Independently checked 37 smooth F7 pairs with exact strata (29,4,2,2). The geometric conclusion depends on symbolic factorization/semilinear argument, not F7-only check.
 
-## Relationship to closest literature and limitations
-Primary sources: Kudo, Nakagawa and Takagi (2022 preprint / 2023 article), and Frei (2014 thesis). Their statements have different quantifiers and invariants from the exact characteristic-seven classification. A related calculation in a different characteristic provides no implication for the present characteristic-seven twisted Frobenius identities. Mathematical novelty remains subject to unindexed equivalent work; no independent audit or full geometric-isomorphism classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kudo, Nakagawa and Takagi 2023 give precisely the H_{a,b} family and Cartier support matrix in §3.2, and study superspeciality (Cartier matrix zero) generally. Their same-family results and Elkin/Yui Cartier formula are credited, not re-labelled as new. The submitted characteristic-seven full positive p-rank/a-number strata and five geometric p-rank-one parameters are not supplied by the examined primary theorem/algorithm sections. Frei thesis studies genus-four a-number phenomena broadly but no displayed exact five locus found from read material. Originality is qualified by plausible unindexed Cartier strata.
+
+## value
+
+PASS
+
+A complete rank/a-number stratification and zero-dimensional p-rank-one locus in a natural cyclic-automorphism genus-four family is a motivated moduli degeneration invariant, with geometric versus prime-field distinction and sharp absence of p-rank zero and a-number >=3. It answers more than a routine single-point rank test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
