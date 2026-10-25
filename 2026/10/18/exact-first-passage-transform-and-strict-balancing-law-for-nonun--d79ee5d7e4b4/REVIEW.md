@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated nonuniform selected-type refresh process has independent coordinate Poisson clocks after rate-one Poissonization. Its two explicit product transition probabilities satisfy a strong-Markov first-hit convolution, providing the claimed generating-function ratio. The common \(1/s\) pole in both resolvents yields the subset-sum expectation formula. A strict convexity/concavity calculation, followed by Karamata, gives strict majorization of the mean including the zero-loss endpoint. Finite expected hitting time follows from a positive-probability success block. The embedded rational checker independently solves small absorbing Markov matrices and reproduces 207 exact diagnostics. The theorem is proven analytically; finite checks do not establish its infinite-dimensional quantifiers.
+## correctness
 
-## Originality — PASS, qualified
-The nearest scientific antecedents are the uniform clumsy coupon-collection formula and asymptotics of Attrill–Garoni (arXiv:2605.14206v1) and Long (arXiv:2605.14511v1, Section 4), the 2025 initiating model of Aggarwal–Garoni, and the monotone heterogeneous coupon optimization of Anceaume et al. (arXiv:1504.03878). Long's heterogeneous calculation treats a global reset rather than selected-type erasure. Neither a uniform-only result nor a different loss rule implies the nonuniform explicit first-passage formula and strictly optimal scan weights. The techniques are standard, and older or inaccessible literature may contain an equivalent result; the original Aggarwal–Garoni three-page note was examined in full and explicitly draws types uniformly; the late sections of the recent Attrill–Garoni manuscript were not completely re-read because the full-text fetch was unavailable. A 2023 group-walk representation may imply the symmetric-refresh specialization but does not cover general biased refresh. These limitations are recorded rather than treated as proof of priority.
+PASS
 
-## Mathematical value — PASS
-There is a concrete choice variable—how often to sample each coupon type—in an explicitly studied nonmonotone coupon process. The theorem determines its full exact finite-sample expected-time functional and solves the entire fixed-probability scan allocation problem for all numbers of types and every common loss probability below one. Strict majorization supplies more information than a single uniform optimality point, and the subset-sum representation gives a direct finite algorithm independent of solving the full transient Markov system. This is not an assertion of distributional optimality or novel general Markov-chain theory.
+Poissonization of the discrete one-coordinate Bernoulli refresh chain makes coordinate update clocks independent rates w_i. Starting all zero, target probability q^m prod_i(1-e^{-w_i t}); starting all one, q^m prod_i(1+r e^{-w_i t}) with r=p/q. Strong Markov first-passage convolution at the all-one target implies exact Laplace-resolvent ratio, whose inclusion-exclusion expansion gives the claimed PGF for s=(1-z)/z. Both transforms have 1/s poles; the finite constant terms yield E N=Σ_{S!=∅}(r^|S|-(-1)^|S|)/w_S, including p=0. Independent m=3 nonuniform rational absorbing-chain solution at weights (1/2,1/3,1/6), p=2/5 yielded mean 919/54 matching direct subset sum. For fixed t, log(1+r e^{-w_i t}) is convex (constant if r=0), while log(1-e^{-w_i t}) is strictly concave for w_i>0; Karamata gives strict Schur-convexity of integrand and expected hitting time, so uniform unique minimizer. The geometric success-block lower bound proves finiteness for positive weights. This covers all finite m, positive weights, 0<=p<1; does not claim stochastic order of the law.
 
-## Scientific limitations
-The random-scan weights are fixed and positive, type-specific success probabilities are not covered, and stochastic ordering of the full completion-time law is unproved. Earlier general heat-bath or hitting-time comparison results remain a possible originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aggarwal–Garoni 2025 note and Attrill–Garoni arXiv:2605.14206 use uniform selection. Long arXiv:2605.14511 Section 4 likewise uniform selected-type refresh; its nonuniform Section 3.6 is a different global-reset model. Anceaume et al arXiv:1504.03878 prove weight optimization for MONOTONE collector, which does not directly imply strict balancing under loss. Compared nonuniform heat-bath product chains, nonmonotone coupon models and monotone analogues; same basic process with unequal weights is not covered by named uniform papers. General Markov/Poissonization techniques are classical and credited; no inspected dominating prior theorem provides ratio-of-resolvents and strict majorization for all p>0 and nonuniform w.
+
+## value
+
+PASS
+
+In a natural actively nonmonotone coupon collection system the sampling probabilities are controllable, and the theorem supplies the exact hitting-time transform and a strict all-parameter balancing optimum rather than an arbitrary small instance. It distinguishes genuine selected-coordinate erasure from monotone or global-reset collection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

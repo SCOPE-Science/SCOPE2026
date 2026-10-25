@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T02:58:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poissonization of the discrete one-coordinate Bernoulli refresh chain makes coordinate update clocks independent rates w_i. Starting all zero, target probability q^m prod_i(1-e^{-w_i t}); starting all one, q^m prod_i(1+r e^{-w_i t}) with r=p/q. Strong Markov first-passage convolution at the all-one target implies exact Laplace-resolvent ratio, whose inclusion-exclusion expansion gives the claimed PGF for s=(1-z)/z. Both transforms have 1/s poles; the finite constant terms yield E N=Σ_{S!=∅}(r^|S|-(-1)^|S|)/w_S, including p=0. Independent m=3 nonuniform rational absorbing-chain solution at weights (1/2,1/3,1/6), p=2/5 yielded mean 919/54 matching direct subset sum. For fixed t, log(1+r e^{-w_i t}) is convex (constant if r=0), while log(1-e^{-w_i t}) is strictly concave for w_i>0; Karamata gives strict Schur-convexity of integrand and expected hitting time, so uniform unique minimizer. The geometric success-block lower bound proves finiteness for positive weights. This covers all finite m, positive weights, 0<=p<1; does not claim stochastic order of the law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long unequal weight theorem is for global reset, not selected-coordinate erasure.",
+          "Monotone coupon theorem has no loss, and group-walk symmetry calculations do not cover biased independent refresh coins in general."
+        ],
+        "reasoning": "General Markov/Poissonization techniques are classical and credited; no inspected dominating prior theorem provides ratio-of-resolvents and strict majorization for all p>0 and nonuniform w.",
+        "searches": [
+          "arXiv:2605.14511 sections 3.6 and 4",
+          "arXiv:1504.03878 uniform sampling optimum",
+          "arXiv:2302.01963 group walk hitting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 059758f25fc7cef5f6075f6dcbbcb04a967a3156",
+        "Resultary query: nonuniform clumsy coupon collector refresh selected coordinate weighted sampling exact first passage expected time Schur convex",
+        "arXiv:2605.14206",
+        "arXiv:2605.14511",
+        "arXiv:1504.03878",
+        "doi:10.1007/978-3-031-76738-8_32",
+        "Resultary nonuniform coupon query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform clumsy results specify a single weight vector; they cannot establish strict Schur-convexity over the simplex.",
+          "Monotone Schur-convexity does not imply the same ordering after collected types can be erased."
+        ],
+        "reasoning": "The PGF and strict balancing genuinely extend the model along the independent sampling-weight parameter; the positive-loss regime needs the two product resolvents and Karamata proof.",
+        "searches": [
+          "arXiv:2605.14206 main results",
+          "arXiv:2605.14511 Sections 3.6, 4",
+          "arXiv:1504.03878 majorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The process equals biased single-coordinate heat-bath Glauber dynamics started all zero; all-one hitting is a first-passage quantity distinct from stationary occupancy alone.",
+          "Poissonization turns discrete random scan into independent refresh clocks."
+        ],
+        "reasoning": "Compared nonuniform heat-bath product chains, nonmonotone coupon models and monotone analogues; same basic process with unequal weights is not covered by named uniform papers.",
+        "searches": [
+          "nonuniform clumsy coupon collector refresh selected coordinate weighted sampling exact first passage expected time Schur convex",
+          "arXiv:2605.14206 clumsy coupon collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest reset collectors perform global catastrophes; their rate tables are not this selected-coordinate finite PGF."
+        ],
+        "reasoning": "m is arbitrary and weights continuous; the subset-sum functional is an explicit formula, not recomputation of a fixed numerical table.",
+        "searches": [
+          "nonuniform clumsy coupon collector refresh selected coordinate weighted sampling exact first passage expected time Schur convex",
+          "Resultary nonuniform reset coupon collector optimization"
+        ]
+      },
+      "rationale": "Aggarwal–Garoni 2025 note and Attrill–Garoni arXiv:2605.14206 use uniform selection. Long arXiv:2605.14511 Section 4 likewise uniform selected-type refresh; its nonuniform Section 3.6 is a different global-reset model. Anceaume et al arXiv:1504.03878 prove weight optimization for MONOTONE collector, which does not directly imply strict balancing under loss. Compared nonuniform heat-bath product chains, nonmonotone coupon models and monotone analogues; same basic process with unequal weights is not covered by named uniform papers. General Markov/Poissonization techniques are classical and credited; no inspected dominating prior theorem provides ratio-of-resolvents and strict majorization for all p>0 and nonuniform w.",
+      "residual_risks": [
+        "An older general product-chain hitting-time resolvent theorem might imply the result; current targeted source inspection does not exhaust that literature.",
+        "No full-time distributional stochastic majorization is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNIFORM TYPE SELECTION, NOT NONUNIFORM THEOREM",
+          "evidence": [
+            "Sampling identical types by uniform probabilities is fixed in examined main statement."
+          ],
+          "identifier_or_url": "arXiv:2605.14206",
+          "material_read": "Primary PDF introduction and uniform-selection definitions / generating-function results",
+          "method": "Opened full primary PDF, inspected matching portions and page image",
+          "title": "The clumsy coupon collector’s problem",
+          "trigger": "Same selected-type loss model"
+        },
+        {
+          "assessment": "DIFFERENT NONUNIFORM MODEL; TARGET SELECTED REFRESH ONLY UNIFORM",
+          "evidence": [
+            "Global-reset is not the one-coordinate heat-bath rule; the selected-refresh section fixes uniform probabilities."
+          ],
+          "identifier_or_url": "arXiv:2605.14511",
+          "material_read": "Primary PDF nonuniform global-reset section 3.6 and uniform clumsy section 4",
+          "method": "Opened full primary PDF; inspected targeted sections and page image",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Possible general first-passage coverage"
+        },
+        {
+          "assessment": "PRIOR MONOTONE COLLECTOR, NOT POSITIVE-LOSS PROCESS",
+          "evidence": [
+            "Collected distinct coupons never vanish in the source; submitted process can erase upon revisits."
+          ],
+          "identifier_or_url": "arXiv:1504.03878",
+          "material_read": "Primary PDF abstract, model introduction and majorization problem; page image",
+          "method": "Opened original PDF and inspected matching regions",
+          "title": "Optimization results for a generalized coupon collector problem",
+          "trigger": "Known Schur convexity for biased sampling"
+        },
+        {
+          "assessment": "BACKGROUND/UNIFORM, COMPLETE INDEPENDENT READING NOT ESTABLISHED",
+          "evidence": [
+            "Full original article not claimed read by this auditor."
+          ],
+          "identifier_or_url": "doi:10.1007/978-3-031-76738-8_32",
+          "material_read": "Original three-page author note reported in record; independent current PDF access to complete article not established",
+          "method": "Source description and source-package bibliography",
+          "title": "The Clumsy Coupon Collector",
+          "trigger": "Model initiation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural actively nonmonotone coupon collection system the sampling probabilities are controllable, and the theorem supplies the exact hitting-time transform and a strict all-parameter balancing optimum rather than an arbitrary small instance. It distinguishes genuine selected-coordinate erasure from monotone or global-reset collection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Common refresh-success q>0, iid positive sample weights finite m; no adaptive/nonuniform loss per coordinate.",
+    "Schur-convexity proof applies to expectation, not all stochastic-order functionals."
+  ],
+  "schema_version": 1
+}
