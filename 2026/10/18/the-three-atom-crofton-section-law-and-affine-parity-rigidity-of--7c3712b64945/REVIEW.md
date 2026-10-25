@@ -1,15 +1,21 @@
-# Scientific assessment: cuboctahedral Crofton section law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the polyhedron, kinematic plane measure, normal/offset identification, generic boundaries, and the complete support of the section-vertex count. The twelve vertices and twenty-four edge incidences are reconstructed in the supplied standard-library checker. Each positive vertex-height transition has a proved neighbor-sign count on the full ordered cone, not a sampled orientation. The event-height formula is therefore valid for all generic normals. Spherical integration uses an explicit three-arc vector-area identity, which the checker reevaluates independently. The resulting probabilities are positive, sum to one, and give the stated expected count. Boundary directions and vertex-crossing planes have measure zero.
+## correctness
 
-## Originality — PASS under inspected evidence
-The complete invariant-affine-plane law, its exact arctangent probabilities, and generic even-side rigidity were compared against the three-dimensional two-orbit classification of Matteo (arXiv:1403.2125), Rajpoot's accessible cuboctahedron geometric analysis (DOI:10.13140/RG.2.2.28935.20647), Chakerian–Logothetti's published cube-slicing paper (DOI:10.2307/2690829, full text unavailable), targeted internet searches for cuboctahedral random sections and the exact numerical values, and records of published geometry results. The two fully inspected directly relevant texts concern symmetry and metric face geometry, not random plane-section combinatorics. The cube-slicing paper concerns a different solid and has an explicitly unresolved full-text risk. Earlier central-plane and orthographic-shadow laws do not integrate offsets over the cuboctahedron. No inspected statement entails the asserted three probabilities or the critical direction-dependent offset thresholds. Failed searches alone do not establish historical priority.
+PASS
 
-## Mathematical value — PASS
-The cuboctahedron is the canonical quasiregular rectification of the cube and octahedron. Its mixed triangular and square facets make a universal even-sidedness phenomenon for generic *affine* cuts nonobvious, unlike a centrally symmetric planar section or a zonohedron silhouette. The theorem gives a complete exact and reproducible kinematic distribution, distinguishes affine-invariant combinatorial support from non-affine-invariant Euclidean probabilities, and gives a direction-resolved structural law suitable for comparison with other Archimedean solids. It is a natural classification, not an arbitrary finite slice or a mere moment calculation.
+Use the twelve signed permutations of (1,1,0) and 24 distance-sqrt(2) edges. For x>y>z>0 the signed vertex-height event table gives exactly eight edge crossings for a central plane; crossing x−z changes the count by −2, crossing x+z by −2 and passing x+y by −4, while all other positive height events have zero increment. Direct independent edge-sweep on four strict generic directions reproduced 8,6,4 on the three offset windows; tie planes have measure zero. Under Euclidean-invariant hitting-plane measure, normals are width weighted, not uniformly sampled after conditioning. Integration over the 48 ordered-coordinate spherical chambers yields lengths ell8=x−z, ell6=2z, ell4=y−z and Stokes spherical vector-area terms I_j; Z=I1+I2=gamma/(2sqrt(2)), gamma=arctan sqrt(2). Thus p4=3−pi(2+sqrt(2))/(4 gamma)=0.1930593371243985; p6=pi sqrt(2)/(2gamma)−2=0.32534578267919967; p8=pi(2−sqrt(2))/(4gamma)=0.481594880196402, with expected sides 2pi/gamma=6.577071086144008. An invertible affine map preserves generic section polygon side counts but not the Euclidean kinematic probabilities. Null boundary and singular normal cases excluded.
 
-## Sources, limitations, and remaining risks
-The main accessible sources were inspected at the mathematical material level, and a targeted bibliographic source could not be obtained through lawful open-access and institutional routes. The literature search is not exhaustive for older books or nonindexed geometry tables. A general theorem giving precisely the same distribution through a broader, explicitly evaluated formula would supersede the originality claim, if identified. Independent validation has not been carried out; this assessment concerns the supplied self-contained analytic argument and reproducibility checker.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after reconstructed proof and actual published/literature search; an inaccessible or not-fully-inspected primary source is not a proof of noncoverage and remains a recorded risk. The checked earlier statements do not imply the exact final claim.
+
+## value
+
+PASS
+
+A full exact 3-atom probability distribution for random affine sections of a familiar nonzonotopal Archimedean solid, with a direction-resolved offset phase profile and correct invariant hitting measure, is a meaningful, reusable integral-geometric benchmark. Generic parity alone follows from the even-degree edge-event structure and is not, by itself, asserted as the major original contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
