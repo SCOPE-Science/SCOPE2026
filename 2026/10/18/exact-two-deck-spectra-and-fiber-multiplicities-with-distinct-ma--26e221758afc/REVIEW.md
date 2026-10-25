@@ -1,15 +1,21 @@
-# Scientific review: exact labeled-marker two-deck spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The deck itself recovers the marker permutation from pair orientations and both vectors of binary gap counts from prefix-to-marker pairs. The remaining free coordinate is the global scattered \(ab\) count. All its feasible values form an integer interval because adjacent binary swaps change the within-gap count by exactly one. A product of Gaussian binomials gives every fiber cardinality, and symmetry of weak compositions yields the closed class count. This is a complete proof for every \(A,B,r\) in the claimed range, not merely a finite extrapolation. Direct exhaustive two-deck enumeration and a separate gap-polynomial construction agree on all 36 checked triples, 23,526 source words. Edge cases with zero occurrences of a letter in individual gaps are included.
+## correctness
 
-## Originality — PASS within checked sources
-Lejeune, Rigo and Rosenfeld, *On the binomial equivalence classes of finite words*, arXiv:2001.11732, is the closest structurally relevant full text: it gives general pair-deck equivalence machinery and the binary inversion characterization, not the derived exact marker-rich fixed-content formula or its complete fiber coefficient law. Chrisnata et al., DOI:10.3934/amc.2021032, treat deck enumeration and bounds but do not give these exact fibers. Nilforoushan and Parvaresh, arXiv:2609.23106, establish broad degrees-of-freedom bounds and \(q\)-ary two-deck asymptotic growth, but their available record does not imply the exact finite specialization. Related indexed binary adjacent-pair multispectra and length-two substring composition observations are not scattered pair decks. Searches under alternative deck/binomial-equivalence/marker/gap/Parikh-matrix formulations found no dominating theorem. Residual risks: the latest 2026 preprint's full text could not be inspected; an unindexed exact specialization is possible. The originality assessment is qualified by these concrete access limits and does not presume search completeness.
+PASS
 
-## Value — PASS
-The family isolates how a small number of frequently occurring letters interact with any number of distinct single-use markers, a natural nontrivial fixed-composition class for short-subsequence reconstruction. The exact formula determines the maximum number of distinguishable readout classes for *all* abundances and marker counts, while the Gaussian product refines this to every class size, identifying collision patterns without enumerating words. It is therefore a complete structural and counting classification, not an arbitrary numerical cutoff or direct restatement of the general polynomial bounds.
+The length-two scattered deck recovers relative order of all r distinct singleton marker symbols from their directed pair counts. For a fixed marker permutation, each a-prefix and b-prefix count before a marker recovers all r+1 weak gap compositions a_s,b_s. All other deck entries are determined except K=#ab. Its intergap contribution H=sum_{s<t}a_s b_t is forced, and its intragap values form every integer in [0,S], S=sum a_s b_s, since an adjacent ba→ab swap increments #ab by one. Therefore each marker permutation and gap-composition pair contributes exactly S+1 decks, each with a nonempty fiber and multiplicity [z^{K-H}]∏ GaussianBinom(a_s+b_s,a_s;z). Summing using symmetry and means A/(r+1),B/(r+1) yields D2=r! * binom(A+r,r)*binom(B+r,r) * (1+AB/(r+1)), an integer. Independent direct enumeration of all multiset words/decks for (A,B,r)=(1,1,1),(2,2,1),(2,2,2),(3,2,2) yielded respectively 6,27,168,360 decks, matching the formula. The general interval and coefficient proof, not the small samples, establish unrestricted A,B,r>=1.
 
-## Reproducibility and limitations
-The standalone `checker.py` exhaustively computes pair counts from positions and checks both the number and sizes of classes against independently generated gap polynomials; `checker-output.txt` records the completed checks. The proof handles all parameters and does not assume completeness of the computational sample. Repeated markers, decks of length more than two, and unrestricted alphabets remain outside scope. Bibliographic comparison risk from inaccessible full text remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: familiar Parikh matrices, inversion distributions, and general binary two-binomial equivalence algorithms are reused, but the all-parameter distinguishable-singleton-marker spectrum with exact every-fiber Gaussian convolution was not identified as already covered. Recent broad bounds pose a specific access risk.
+
+## value
+
+PASS
+
+A precise length-two subsequence-deck class count and all fiber sizes provide natural reconstructibility and zero-error code invariants for fixed-content words with distinguishable markers, a useful intermediate family between binary inversion statistics and fully general multisymbol deck enumeration. Arbitrary r and A,B are covered, not a single small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
