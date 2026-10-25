@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T03:59:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a full-dimensional convex combinatorial d-crosspolytope, the nonadjacent opposite labeling indexes the 2^d oriented facets. Multilinearity of the signed cone volume sum gives Vol(P)=2^d/d! |det A| exactly even when P is not centrally symmetric; this does not depend on choosing apex inside. Unit sphere vertices yield Delta²=4(d-max_U tr(U^T A))=4(d-||A||_*), with A invertible since determinant equals nonzero volume, and |a_i|<=1. AM-GM over singular values gives product s_j <=(sum s_j/d)^d and equality iff A=sU, 0<s<=1. To prove local sharpness, for s close1 use p_{i,+/-}=sqrt(1-s²)e_{i+1}±s e_i; vertex normals perturb strictly valid regular-crosspolytope facets, preserving combinatorics, A=sI and Delta²=4d(1-s), attaining equality for every sufficiently small nonzero discrepancy. Pair midpoints differ, ensuring a genuinely non-antipodal equality family. Expansion gives optimal leading deficit V0 Delta²/4 with V0=2^d/d!. Independent ConvexHull volume calculations d=2,3,4,5 at s=.995 agreed with determinants/envelope within numerical precision. Finite tests verify only instances; general proof is determinant/polar decomposition/AM-GM plus combinatorial continuity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Lángi 2014 Corollary 3: regular cross-polytope is the volume maximizer in combinatorial class. That follows from current inequality at Delta=0 but does not imply its quantitative coefficient or nontrivial equality curves."
+        ],
+        "reasoning": "Qualitative volume-maximality is strictly weaker than exact distance-dependent envelope. Nearby Resultary Mahler/isotropic bounds are different invariants.",
+        "searches": [
+          "cross polytope inscribed sphere volume Procrustes distance stability nonlinear envelope singular value product opposite vertex difference",
+          "inscribed combinatorial cross polytope orthogonal Procrustes stability volume determinant nuclear norm equality family",
+          "https://arxiv.org/abs/1402.6496"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1402.6496",
+        "https://math.stackexchange.com/questions/5100009/volume-of-polytope-spanned-by-vertex-pairs-a-i-a-i-is-invariant-under-trans"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horváth–Lángi Corollary 3 gives maximizing regular volume 2^d/d!, while the present inequality gives deficit proportional to Delta² and exact equality for small nonantipodal distortions."
+        ],
+        "reasoning": "Qualitative maximization alone cannot recover sharp nonlinear modulus or Procrustes rigidity and local attainability without the determinant/singular-value argument.",
+        "searches": [
+          "https://arxiv.org/abs/1402.6496",
+          "cross polytope inscribed sphere volume Procrustes distance stability nonlinear envelope singular value product opposite vertex difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known regular inscribed volume maximizer corresponds to Delta=0. Orthogonal Procrustes distance is exactly four times nuclear-norm deficit for half-chords."
+        ],
+        "reasoning": "Reformulating the result as determinant versus nuclear norm is mathematically equivalent to the inequality but a cited identical statement for labeled *spherical crosspolytopes*, including sharp noncentral equality, was not found.",
+        "searches": [
+          "cross polytope inscribed sphere volume Procrustes distance stability nonlinear envelope singular value product opposite vertex difference",
+          "inscribed combinatorial cross polytope orthogonal Procrustes stability volume determinant nuclear norm equality family",
+          "https://arxiv.org/abs/1402.6496"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: closest crosspolytope Mahler products, isotropic constants and nearest-point projection; no table of Procrustes discrepancy and volume for all d."
+        ],
+        "reasoning": "The claim is a continuous all-d bound and equality class, not the numeric volume of one known regular crosspolytope.",
+        "searches": [
+          "cross polytope inscribed sphere volume Procrustes distance stability nonlinear envelope singular value product opposite vertex difference",
+          "inscribed combinatorial cross polytope orthogonal Procrustes stability volume determinant nuclear norm equality family"
+        ]
+      },
+      "rationale": "Horváth–Lángi show regular cross-polytopes maximize inscribed spherical volume, but the new statement is an exact globally valid nonlinear upper envelope in a labeled Procrustes vertex distance with equality for noncentral-symmetric perturbations. The determinant identity and nuclear-norm AM-GM are standard ingredients and are not claimed novel separately.",
+      "residual_risks": [
+        "A similarly normalized determinant/nuclear norm inequality could appear as a standard matrix corollary, but no direct prior treatment of this labeled spherical polytope sharpness/equality was found.",
+        "Global attainability is not claimed: equality configurations are proven on a small discrepancy interval only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_QUALITATIVE_EXTREMUM_ONLY",
+          "evidence": [
+            "Regular crosspolytope uniquely maximizes volume; no exact labeled-vertex Procrustes nonlinear envelope is stated in cited corollary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496",
+          "material_read": "Accessible full arXiv author paper, especially Corollary 3, volume maximality proof and supporting convexity conditions",
+          "method": "arXiv full text inspection",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Primary highest-priority combinatorial cross-polytope maximum theorem"
+        },
+        {
+          "assessment": "DETERMINANT_PREMISE_NOT_ENVELOPE",
+          "evidence": [
+            "Basic determinant multilinearity is known, not claimed to be contribution."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/5100009/volume-of-polytope-spanned-by-vertex-pairs-a-i-a-i-is-invariant-under-trans",
+          "material_read": "Public mathematics discussion and low-dimensional examples as cited in source",
+          "method": "Public discussion inspection",
+          "title": "Volume of polytope spanned by vertex pairs is invariant under translation of diagonals",
+          "trigger": "Prior articulation of determinant-volume identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stability of the regular spherical crosspolytope maximizer under a concrete labeled vertex perturbation is a natural convex-geometric question. The exact nonlinear envelope identifies how far volume must fall with the orthogonal vertex discrepancy, yields the sharp quadratic deficit at the maximizer, and unexpectedly admits noncentrally symmetric equality families. Though the AM-GM step is elementary, the exact combinatorial signed-volume identity and geometric attainment convert it into a reusable sharp stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only full-dimensional combinatorial crosspolytope with chosen opposite pairing and S^(d-1) vertices; global equality description subject to combinatorics, small-discrepancy sharp interval only."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Boundary orientations of all \(2^d\) signed facets give a multilinear determinant identity for the volume of each actual cross-polytope realization, without incorrectly assuming central symmetry or containment of the origin. Singular-value decomposition gives the exact labelled Procrustes distance; arithmetic–geometric mean supplies the sharp upper envelope with equality precisely at scalar-orthogonal half-chord matrices. The cyclic displaced construction has all vertices on the sphere, preserves strict facet incidence by perturbation stability, and attains the bound for a nonzero interval of deviations in every dimension. Independent convex-hull computations were reproduced for dimensions \(2,3,4,5,6\). The proof, rather than finite tests, covers all dimensions.
+## correctness
 
-## Originality
-**PASS, subject to independent priority review.** Horváth–Lángi (arXiv:1402.6496, full text read) establishes only qualitative volume maximality of the regular cross-polytope. The separate opposite-diagonal determinant identity is already discussed in low dimensions in an October 2025 mathematical question, so no novelty is attributed to it. Actual published-finding searches for cross-polytope volume, opposite diagonals, singular values, Procrustes discrepancies, stability, and equality configurations located no all-dimensional volume-versus-Procrustes envelope; the nearest findings concern normed ellipse constants, vertex index, and nine-vertex spherical-polytope Hessians, none of which bounds this same quantity on the same domain. Broader standard matrix inequalities imply the computational core only *after* the geometric volume and vertex metric are identified, rather than state this geometric stability theorem. The 1970 three-dimensional volume-maximization source was identified from the 2014 bibliography, but not read in full; its possible overlapping local estimates are a residual priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The theorem supplies a scale-exact quantitative version of a classical uniqueness result, with a complete equality criterion and a continuum of genuinely asymmetric sharp witnesses. The explicit nonlinear profile determines the optimum among small shape discrepancies and its dimension-dependent best quadratic coefficient. It connects a geometric shape metric to singular-value structure and distinguishes sharp, non-antipodal perturbations from the regular optimizer. These are structural stability data not supplied by the pre-existing extremal classification.
+For a full-dimensional convex combinatorial d-crosspolytope, the nonadjacent opposite labeling indexes the 2^d oriented facets. Multilinearity of the signed cone volume sum gives Vol(P)=2^d/d! |det A| exactly even when P is not centrally symmetric; this does not depend on choosing apex inside. Unit sphere vertices yield Delta²=4(d-max_U tr(U^T A))=4(d-||A||_*), with A invertible since determinant equals nonzero volume, and |a_i|<=1. AM-GM over singular values gives product s_j <=(sum s_j/d)^d and equality iff A=sU, 0<s<=1. To prove local sharpness, for s close1 use p_{i,+/-}=sqrt(1-s²)e_{i+1}±s e_i; vertex normals perturb strictly valid regular-crosspolytope facets, preserving combinatorics, A=sI and Delta²=4d(1-s), attaining equality for every sufficiently small nonzero discrepancy. Pair midpoints differ, ensuring a genuinely non-antipodal equality family. Expansion gives optimal leading deficit V0 Delta²/4 with V0=2^d/d!. Independent ConvexHull volume calculations d=2,3,4,5 at s=.995 agreed with determinants/envelope within numerical precision. Finite tests verify only instances; general proof is determinant/polar decomposition/AM-GM plus combinatorial continuity.
 
-## Scope and limitations
-The shape discrepancy preserves a chosen opposite-vertex labelling and minimizes only over orthogonal transformations. This is not a statement about arbitrary vertex counts, Banach–Mazur distance, or the complete global equality-discrepancy range. Numerical verifications do not certify all dimensions. Literature comparison used available full text and records the remaining archival-priority uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Horváth–Lángi show regular cross-polytopes maximize inscribed spherical volume, but the new statement is an exact globally valid nonlinear upper envelope in a labeled Procrustes vertex distance with equality for noncentral-symmetric perturbations. The determinant identity and nuclear-norm AM-GM are standard ingredients and are not claimed novel separately.
+
+## value
+
+PASS
+
+Stability of the regular spherical crosspolytope maximizer under a concrete labeled vertex perturbation is a natural convex-geometric question. The exact nonlinear envelope identifies how far volume must fall with the orthogonal vertex discrepancy, yields the sharp quadratic deficit at the maximizer, and unexpectedly admits noncentrally symmetric equality families. Though the AM-GM step is elementary, the exact combinatorial signed-volume identity and geometric attainment convert it into a reusable sharp stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
