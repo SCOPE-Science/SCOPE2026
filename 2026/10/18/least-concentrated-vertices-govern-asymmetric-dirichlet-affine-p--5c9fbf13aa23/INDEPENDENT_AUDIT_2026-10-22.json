@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T14:02:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Proof kernel reconstruction, vertex localization, strict ordering, concentration asymptotics (blob 02dabb3c61d88e7795f10c668d927a4751707409)",
+        "check_dirichlet_affine.py (blob 2460da1d7814ee570e657103d1422df4cabdfe19)",
+        "Griffiths–Spanò arXiv:1003.5131, Section 2.2 existing degree-one orthogonal kernel",
+        "Independent SciPy incomplete beta test for alpha (1,2,5) and balance"
+      ],
+      "rationale": "PASS. Orthogonal projection of Dirichlet L² onto span of barycentric affine coordinates has Gram G_ij=(alpha_i alpha_j+delta_ij alpha_i)/[A(A+1)] and inverse diagonal A(A+1)/alpha_i minus rank-one A, giving kernel K(x,y)=A(A+1)sum_i x_i y_i/alpha_i-A. The L∞ and L¹ norms both equal max_x E|K(x,Y)| by symmetry and kernel duality; strict nonvertex inequality follows from mixed signs of K(e_i,Y), K(e_j,Y) on an open positive-measure region. The vertex integral uses beta marginal Y_i~Beta(a,A-a) and cutoff a/(A+1), yielding the stated F_A(a). For a<b<A, independent gamma splitting gives E[Z_a|Y_b]=Z_b and strict Jensen because the conditional split has mass on both sides of the sign threshold. Thus F_A strictly decreases and only least-concentrated vertices maximize; equal alpha uniquely minimizes fixed-total norm. As a↓0, Y_a/a→0 in probability and bounded negative part yields nonattained sup 1+2A. For a=Ap fixed proportions, beta CLT plus uniform integrability of |Z_a|/sqrt A gives sqrt(2/pi)*sqrt((1-p)/p). Independently evaluated incomplete beta integrals for A=8: alpha_min=1 gives 6.0153981763, balanced 8/3 gives 3.48181400685; inspected exact Gram and beta numerical checker covering 241 cases. Boundaries require m>=2, alpha_i>0, fixed proportions for A→∞, not higher degree.",
+      "residual_risks": [
+        "The degree-one kernel itself is previously known and not a novel result.",
+        "No assertion covers degree >=2 or asymptotic vanishing fractions; mpmath-based verification script is only finite numeric corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griffiths–Spanò Bernoulli 19 (2013) investigates Dirichlet kernels and canonical correlations, not the claimed asymmetric endpoint norm minimax",
+          "Arab–Oliveira–Wiklund 2021 convex-transform order of beta laws studies another family of stochastic comparisons"
+        ],
+        "reasoning": "The general kernel is a broader analytic framework, but sharp absolute-value operator norms require separate beta tail integral and conditional mean-preserving spread argument. Convex-transform orders for beta families do not by title imply the specific affine-projector norm order.",
+        "searches": [
+          "Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+          "degree one orthogonal projection Dirichlet measure endpoint norm asymmetry beta gamma convex order"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+        "Griffiths–Spanò arXiv:1003.5131 full primary PDF",
+        "Resultary uniform-simplex affine projector norm record 99c2b9dd9b34",
+        "Arab–Oliveira–Wiklund DOI 10.1111/stan.12233 bibliographic evidence",
+        "Xu arXiv:1309.1510 title/metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Section 2.2 kernel explicitly determines K(x,y)",
+          "Published uniform simplex norm is obtained by fixing alpha_i=1",
+          "Current strict ordering uses E[Z_a|Y_b]=Z_b with gamma splitting for every 0<a<b<A"
+        ],
+        "reasoning": "Formula for kernel and symmetric norm special case do not algebraically imply that worst amplification occurs only at vertices with minimum alpha or that equal allocation is unique optimal. Strict Jensen across shape parameters and a→0 boundary complete that implication.",
+        "searches": [
+          "Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+          "strict beta gamma splitting Dirichlet concentration parameter affine projection norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Griffiths–Spanò arXiv:1003.5131, Section 2.2 degree-one Jacobi/Dirichlet polynomial kernel",
+          "Equal-weight affine least-squares projector positivity defect and max norm, published record 99c2b9dd9b34"
+        ],
+        "reasoning": "Recognized K=1+degree-one Dirichlet kernel and equality of L1/L∞ through symmetry, plus classical beta marginal. This covers kernel reconstruction but not the sharp asymmetric a_min optimization or worst-vertex classification.",
+        "searches": [
+          "Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+          "Dirichlet orthogonal polynomials degree one reproducing kernel Lebesgue function beta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published finding Exact positivity defect and max norm of affine least-squares projector on a simplex, record 99c2b9dd9b34",
+          "Symmetric alpha_i=1 is the equal-shape special case; alpha=(1,2,5) and continuous A budget are outside"
+        ],
+        "reasoning": "The published equal-volume simplex table is a covered special case, not the full unequal-alpha theorem, unique balancing or fixed-proportion scaling. No tabulation for all positive alpha and worst vertices was found in semantic search.",
+        "searches": [
+          "Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+          "exact norm affine projection uniform simplex positivity defect"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for asymmetric sharp L¹/L∞ norm, unique worst-vertex characterization, total-concentration minimax and sharp Gaussian-growth coefficient. Known Dirichlet degree-one kernel and uniform-simplex equal-shape case are explicitly treated as covered inputs. The strict gamma-splitting convex-order comparison and its norm extremizers are the distinct extension.",
+      "residual_risks": [
+        "Another orthogonal-polynomial/weighted least-squares paper may have the sharp asymmetric beta-tail norm as a corollary, notwithstanding the examined kernel framework.",
+        "The beta convex-transform-order source was not read in full and cannot support a blanket noncoverage assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Degree-one projection kernel is covered prior; inspected principal mathematical questions do not supply strict asymmetric L∞/L¹ max-vertex and fixed A minimax; priority still subject to inaccessible other papers",
+          "evidence": "Griffiths–Spanò, Bernoulli 2013, Section 2.2",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5131",
+          "material_read": "Primary full PDF, especially Section 2.2 degree-one Dirichlet/Jacobi kernel expression Q_1 and principal correlation/orthogonal-polynomial themes",
+          "method": "Full accessible arXiv primary PDF, relevant sections read",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Same Dirichlet law and degree-one projection kernel"
+        },
+        {
+          "assessment": "Equal shape/uniform special case is prior, but no heterogeneous Dirichlet concentration optimization",
+          "evidence": "Resultary record 99c2b9dd9b34",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Public Resultary indexed finding title and formula C_d=(d+1)[(d+1)/(d+2)]^d-1, exact norm 1+2C_d",
+          "method": "Read indexed record summary and displayed formula, not a full proof",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Known uniform-simplex endpoint norm may be an included case"
+        },
+        {
+          "assessment": "Direct implication to this conditional beta-split projector norm not established; retain risk rather than claim whole-document noncoverage",
+          "evidence": "Arab–Oliveira–Wiklund, Statistica Neerlandica 75 (2021)",
+          "identifier_or_url": "https://doi.org/10.1111/stan.12233",
+          "material_read": "Accessible bibliographic information and subject statement on beta convex-transform ordering; complete article not obtained",
+          "method": "Publisher bibliographic description",
+          "title": "Convex transform order of Beta distributions with some consequences",
+          "trigger": "Plausible stronger stochastic order across beta shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search Dirichlet asymmetric weights degree-one affine L2 orthogonal projection sharp L infinity operator norm minimum alpha",
+        "Griffiths–Spanò arXiv:1003.5131 full primary PDF",
+        "RESULT.md §§Proof kernel reconstruction, vertex localization, strict ordering, concentration asymptotics (blob 02dabb3c61d88e7795f10c668d927a4751707409)"
+      ],
+      "rationale": "PASS. Projection stability in L∞ and L¹ governs error amplification for affine least-squares on simplices, a natural numerical-approximation invariant. Exact determination for all asymmetric concentration vectors, rigorous unique balancing for prescribed total concentration, and a sharp high-concentration growth law characterize the effect of least-concentrated vertices and are not a mere recomputation of the known degree-one kernel.",
+      "residual_risks": [
+        "Only local affine projection under a Dirichlet probability law is analyzed; no claims for multielement FEM schemes, higher degree, or arbitrary measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The degree-one kernel itself is previously known and not a novel result.",
+    "No assertion covers degree >=2 or asymptotic vanishing fractions; mpmath-based verification script is only finite numeric corroboration.",
+    "Another orthogonal-polynomial/weighted least-squares paper may have the sharp asymmetric beta-tail norm as a corollary, notwithstanding the examined kernel framework.",
+    "The beta convex-transform-order source was not read in full and cannot support a blanket noncoverage assertion.",
+    "Only local affine projection under a Dirichlet probability law is analyzed; no claims for multielement FEM schemes, higher degree, or arbitrary measures."
+  ],
+  "schema_version": 1
+}
