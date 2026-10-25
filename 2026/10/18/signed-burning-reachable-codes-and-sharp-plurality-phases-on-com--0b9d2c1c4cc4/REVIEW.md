@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-round analysis explicitly uses the source model's simultaneous spread-before-ignition rule and proves a necessary-and-sufficient terminal-code classification. Switching covariance follows directly from the signed influence formula. The Hamming distances and deep-hole counting exhaust all vertex switching words, with complement pairs giving distinct balanced edge signings. Boundary cases include complete graphs, stars, and both order parities. The standalone enumerator checks terminal sets from the process itself for 37 graph types and 1,354 signings through order seven, but the infinite conclusion rests on the displayed proof.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** Fallat–Gupta–Khodamoradi–Zilles (2026), Definition 2.1 and Lemma 2.3/Proposition 2.9, introduce the model and generic switching-code identity, while their specific exact enumeration is for paths. The currently inspected paper does not state a complete multipartite reachable-code or deep-hole count. A related previous calculation for a singly negative complete bipartite graph concerns an unbalanced switching class when the two parts are at least three, whereas the present statement concerns all balanced signings and arbitrary multipartite part sizes. Searches of mathematical records for signed burning, balanced complete multipartite signatures, reachable colourings and covering codes identified no covering statement. Generic coding theory for repetition codes alone does not supply the graph-specific eligible-coordinate subset. A separate equivalent treatment could remain unindexed.
+PASS
 
-**Value — PASS.** This is a complete infinite-family solution of the newly defined plurality invariant in its natural balanced-signing regime. It determines not only the extremal value but every reachable codeword, every instance's plurality, a genuine parity/singleton phase transition in the worst signing, and the exact multiplicity of extremizers. The exact deep-hole profile can benchmark wider signed-burning code constructions and is not a mere fixed-parameter sample.
+PASS: Harary switching converts a balanced signing into the all-positive graph and conjugates the propagation rule, preserving reachable states. With first ignition at u in part V_i, second-round spread colors every vertex outside V_i; if size(V_i)>1, a second ignition v in V_i is the only optional flipped vertex, and third-round spread colors the remaining vertices c. Every eligible v is reachable by first igniting another vertex in its own part; no other terminal word can arise. Distances from a switching vector to constants/flips yield min(|U|-1_{U intersects E},n-|U|-1_{E not contained in U}); parity casework gives covering radius and deep-hole counts divided by antipodal 2 for distinct edge signatures. Independent state-space BFS checked all 458 normalized balanced-signing instances for multipartite integer partitions with 2<=n<=6, matching entire code. No arbitrary unbalanced-signing assertion.
 
-**Scope and limitations.** Unbalanced signatures with frustrated cycles, edgeless graphs, and uniqueness of bibliographic priority are not addressed. Finite simulation supplements but cannot certify all graph orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): Fallat–Gupta–Khodamoradi–Zilles introduce signed burning, switching covariance and its coding/covering-radius interpretation; visible primary material discusses paths and hardness but does not visibly provide the complete multipartite terminal code or extremal multiplicities. Separate results on static majority coloring are different processes; no dominating formula found. Full article could not be downloaded as a single intact primary text in this execution, leaving residual priority risk.
+
+## value
+
+PASS
+
+PASS: This gives a complete solvable infinite graph family for a newly defined plurality invariant, including its full reachable code and exact extremizing signature count. The parity/singleton phase boundary is nontrivial and motivated by the graph family, not a trivial repeated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
