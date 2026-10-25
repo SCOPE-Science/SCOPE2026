@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The explicit Abrams cubical model has exactly \(20,48,24\) cells in degrees \(0,1,2\); each link is a circle, there are two squares per edge, and a primitive globally coherent orientation cycle. This establishes an orientable genus-three surface, hence integral homology without hidden torsion. The exact signed-cell action of all \(48\) automorphisms computes \(H_1\) by the equivariant Euler identity. Specht character comparison and Lefschetz fixed-point indices then determine the quotient branching. The finite checker reproduces every enumerated step. The distinction between modular rank tests and integral topology is explicit.
+
+**Originality: PASS on inspected material.** Maciążek–Sawicki (arXiv:1806.02846, §5.6) already provides the ordinary genus-three example and numerical homology. An–Knudsen and a published theta-class relation theorem cover top-dimensional generators; that does not imply the first-homology character. Recent stable graph-configuration representations address other bipartite families. Semantic searches across the published mathematical record did not produce the \(S_4\times C_2\) action on this six-dimensional first homology or the stated \(A_4\) branch signature. An unindexed equivalent finite calculation remains a residual risk, not a mathematical disproof.
+
+**Value: PASS.** The genus-three three-particle theta surface is a naturally occurring closed surface in graph configuration topology, not an arbitrarily selected triangulation. Its nontrivial path-permutation and hub-swap homology action, and the precise four-orbifold-point quotient, are structural information absent from Betti numbers. They allow comparison of natural graph automorphisms and finite quotients and meaningfully refine a well-studied example.
+
+Self-review: passed. Independent audit: not yet performed.
