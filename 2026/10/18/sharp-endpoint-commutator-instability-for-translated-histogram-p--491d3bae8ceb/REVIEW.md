@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact common-refinement cells yield the weighted operator matrix and complete sharp \(L^1/L^\infty\) formula, including the exceptional two-cell coincidence. Hilbert singular values follow from an explicit cyclic cross-Gram matrix and canonical two-projection blocks. Interpolation establishes strict-interior \(L^p\) convergence. An independent exact-rational matrix checker verifies 750 finite examples; those computations are not substituted for the all-parameter proof.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** Cohen's results on iterated conditional expectations, Badea–Seifert's Hilbert-space projection convergence, and Bauschke et al.'s Friedrichs-angle bounds were compared against the full assertion. Their published statements do not imply the sharp periodic staggered-grid endpoint commutator formula or two-bin cancellation. Targeted comparisons against indexed mathematical records also found no covering statement. Similar computations might nevertheless appear in older histogram, finite-state Markov, or averaging-kernel literature not indexed by those queries.
+PASS
 
-**Value — PASS.** The object is a canonical family of translated local averaging projections. The complete norm law has a qualitatively strong boundary: an arbitrarily small grid shift produces a commutator of nearly maximal possible \(L^1/L^\infty\) norm while every strictly interior \(L^p\) norm converges to zero. The exceptional two-bin zero is forced by cyclic identification, not an artificial parameter cut.
+PASS. The common refinement has A_j of length t and B_j of length 1-t and Q_t shifted membership. The exact kernel norm on ambient L¹ equals the maximum weighted column sum of the 2n-cell matrix because normalized individual cell indicators realize each column. Evaluating the two input atom types gives 2(1-t)(t+|2t-1|) and 2t((1-t)+|2t-1|) when n≥3, whose maximum is 2max(t,1-t)^2; at n=2 the periodic target collisions subtract and give 2max(t,1-t)|2t-1|. K*=−K gives identical L∞ norm. Circulant cross Gram matrix (1-t)I+tS yields principal cosines and the claimed nonzero L² singular values, then interpolation gives norm convergence to zero at 1<p<∞ while endpoint norms tend to 2 as t approaches 0 or 1.
 
-**Limits.** Uniform cyclic grids of finite length only, not general weighted or nonperiodic partitions. Historical literature comparisons are not a guarantee of absolute novelty; independent validation remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Exact translated-periodic two-partition commutator sharp L¹/L∞ profile and the exceptional n=2 half-step vanishing are more specific than general iterated-product convergence and Hilbert principal-angle bounds. Published 3-point numerical-radius commutator treats a different Banach norm, statistic and partitions.
+
+## value
+
+PASS
+
+PASS. The exact endpoint-only failure of translation operator-norm stability despite Lp (1<p<∞) convergence is a nontrivial analytic boundary phenomenon of a natural approximation primitive. The n=2 half-period cancellation and exact sharp short-atom witnesses are meaningful structural distinctions from general contraction bounds, not a routine constant restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T17:00:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and check.py at the pinned tree",
+        "Independent 30-case exact-refinement diagnostic",
+        "Standard conditional-expectation adjoint duality and two-projection principal angles"
+      ],
+      "evidence": [
+        "Actual RESULT.md blob 26c31ff4bda3b5eed67ae761ace551bc2203aa58: exact cell-integral reduction, two normalized atom columns, exceptional n=2 cancellation, principal-angle Fourier spectrum.",
+        "Independent implementation of conditional expectations using common-refinement weighted masses tested n=2..7 and t in {1/10,1/4,1/2,3/5,9/10}: 30 finite matrices matched the asserted endpoint norm exactly; n=2,t=1/2 gave zero.",
+        "Inspected companion check.py blob 88dc1064546869313a58981853b1e41b1aa0cf46; it uses Fractions for a larger finite set, plus Fourier consistency. Finite checks do not prove the all-n formula.",
+        "Pointwise Q_t→P at coalescing partitions does not force operator-norm convergence at L1/L∞: cell-concentrated witnesses have vanishing length but unit mass."
+      ],
+      "rationale": "PASS. The common refinement has A_j of length t and B_j of length 1-t and Q_t shifted membership. The exact kernel norm on ambient L¹ equals the maximum weighted column sum of the 2n-cell matrix because normalized individual cell indicators realize each column. Evaluating the two input atom types gives 2(1-t)(t+|2t-1|) and 2t((1-t)+|2t-1|) when n≥3, whose maximum is 2max(t,1-t)^2; at n=2 the periodic target collisions subtract and give 2max(t,1-t)|2t-1|. K*=−K gives identical L∞ norm. Circulant cross Gram matrix (1-t)I+tS yields principal cosines and the claimed nonzero L² singular values, then interpolation gives norm convergence to zero at 1<p<∞ while endpoint norms tend to 2 as t approaches 0 or 1.",
+      "residual_risks": [
+        "Singular spectrum statement excludes zero singular values and accounts for multiplicities; duplicate Fourier frequencies do not generate additional singular modes.",
+        "At t=0 or t=1 exact commutator is zero; the endpoint result is one-sided interior limit and deliberately discontinuous."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen JFA 242 (2007) addresses convergence and maximal inequalities for products of conditional expectations.",
+          "Badea--Seifert (2015) concerns Hilbert alternating-projection rates; Bauschke et al. (2013) calculates Douglas--Rachford convergence via Friedrichs angles."
+        ],
+        "reasoning": "These are broad operator families but their results give no exact weighted absolute commutator column sums and no endpoint t-dependent sharp norm. L² estimates cannot imply an endpoint discontinuity by interpolation in the reverse direction.",
+        "searches": [
+          "Guy Cohen Iterates of a product of conditional expectation operators 2007",
+          "Badea Seifert Ritt operators alternating projections arxiv 1510.04560",
+          "Bauschke Friedrichs angle Douglas Rachford arxiv 1309.4709"
+        ]
+      },
+      "checked_sources": [
+        "Cohen JFA 242 (2007), bibliographic preprint text read in scope",
+        "arXiv:1309.4709",
+        "arXiv:1510.04560",
+        "Resultary three-point commutator complete RESULT.md",
+        "Resultary weighted expectation approximation profile",
+        "Resultary searches commutator of translated uniform partition conditional expectation sharp L1 Linfinity norm discontinuity histogram projection; conditional expectations translated periodic partitions histogram commutator L1 operator norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The principal-angle formula supplies a general L² singular-value expression once the circulant Gram spectrum is known; it does not fix L¹/L∞ norms.",
+          "The published ℓ4^3 numerical-radius result evaluates a nonlinear spatial numerical radius and has no periodic shift parameter or n→∞ combinatorics."
+        ],
+        "reasoning": "Knowing Hilbert commutator principal angles and norm ≤2 does not imply equality 2max(t,1-t)^2, nor n=2 cancellation at t=1/2. These are the independently justified endpoints constituting the new claim.",
+        "searches": [
+          "arXiv:1309.4709 principal-angle methods",
+          "Resultary three-point conditional-expectation commutator numerical radius",
+          "Cohen DOI:10.1016/j.jfa.2006.09.008"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is a skew-symmetric kernel on 2n common-refinement atoms; the sharp L1/L∞ constants are weighted absolute columns, not Hilbert principal angles.",
+          "Resultary full published Sharp numerical radius of a three-point conditional-expectation commutator uses real ℓ4^3 spatial numerical radius, not these periodic L¹/L∞ induced norms."
+        ],
+        "reasoning": "An exact finite matrix can be computed for each n,t, but neither a generic conditional-expectation commutator nor the three-point numerical-radius example is equivalent to this all-n profile, especially the two-bin cancellation.",
+        "searches": [
+          "commutator of translated uniform partition conditional expectation sharp L1 Linfinity norm discontinuity histogram projection",
+          "conditional expectations translated periodic partitions histogram commutator L1 operator norm",
+          "two shifted grids conditional expectation PQ-QP histogram endpoint norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact weighted conditional L1 profile describes approximation numbers of M_w E M_u for a single expectation; other exact results treat unrelated Fourier projectors, mixing chains or 3-point numerical radius."
+        ],
+        "reasoning": "No located table of translated two-grid commutator sharp endpoint norms; comparing a single expectation approximation profile with [P,Q] is not mathematically substitutable.",
+        "searches": [
+          "commutator of translated uniform partition conditional expectation sharp L1 Linfinity norm discontinuity histogram projection",
+          "conditional expectations translated periodic partitions histogram commutator L1 operator norm",
+          "Resultary 2026/9/20/SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Exact translated-periodic two-partition commutator sharp L¹/L∞ profile and the exceptional n=2 half-step vanishing are more specific than general iterated-product convergence and Hilbert principal-angle bounds. Published 3-point numerical-radius commutator treats a different Banach norm, statistic and partitions.",
+      "residual_risks": [
+        "Specialized signal-processing grid calculations might contain an unindexed equivalent profile; no exhaustive priority guarantee.",
+        "Only the common equal-length cyclic partition model was checked, not arbitrary sigma-algebra commutators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, not a direct sharp shifted commutator theorem in material read",
+          "evidence": "Studies (PQ)^k and convergence/maximal inequalities, not translation-dependent L1/L∞ commutator column sums.",
+          "identifier_or_url": "DOI:10.1016/j.jfa.2006.09.008",
+          "material_read": "Web-accessible preprint introduction and Section 2 on iterated products, convergence and maximal inequalities",
+          "method": "ResearchGate rendered preprint sections; exact mathematical topic inspected",
+          "title": "Iterates of a product of conditional expectation operators",
+          "trigger": "Same operator building blocks"
+        },
+        {
+          "assessment": "DIFFERENT OPERATOR/NORM; no coverage",
+          "evidence": "Real ℓ4 three-point numerical radius sqrt(3sqrt6)/16, compared to L1/L∞ translated periodic grids.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-numerical-radius-of-a-three-point-conditional-expectation--d81ced4c9642",
+          "material_read": "Full published RESULT.md including three-point matrices, ℓ4 spatial radius and proof",
+          "method": "Read complete published GitHub RESULT.md",
+          "title": "Sharp numerical radius of a three-point conditional-expectation commutator",
+          "trigger": "Closest Resultary same commutator keyword"
+        },
+        {
+          "assessment": "RELATED Hilbert angle fact, not endpoint formula",
+          "evidence": "The n-frequency principal angles are standard and acknowledged; sharp cell endpoint norms require separate weighted sums.",
+          "identifier_or_url": "arXiv:1309.4709",
+          "material_read": "Accessible abstract and mathematical statement of Friedrichs-angle convergence; no full-document negative inferred",
+          "method": "Publisher/arXiv indexed statement comparison",
+          "title": "The rate of linear convergence of the Douglas–Rachford algorithm for subspaces is the cosine of the Friedrichs angle",
+          "trigger": "Potential dominant two-projection principal-angle law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Explicit 2n-atom kernel reduction and witnesses",
+        "Analytic Lp interpolation conclusion",
+        "Cohen iteration comparison and three-point numerical-radius contrast"
+      ],
+      "rationale": "PASS. The exact endpoint-only failure of translation operator-norm stability despite Lp (1<p<∞) convergence is a nontrivial analytic boundary phenomenon of a natural approximation primitive. The n=2 half-period cancellation and exact sharp short-atom witnesses are meaningful structural distinctions from general contraction bounds, not a routine constant restatement.",
+      "residual_risks": [
+        "The Fourier L2 principal-angle calculation alone is standard; value primarily comes from exact L1/L∞ discontinuity and finite-bin anomaly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
