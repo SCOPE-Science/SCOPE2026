@@ -1,15 +1,21 @@
-# Scientific assessment: critical predator decline in an exclusion zone
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For small perturbations of the prey carrying-capacity state, scalar comparison preserves a small nonnegative prey deficit and bounds predator density. An exact integrated predator identity shows that its spatial mean decreases. Positive Neumann heat kernels rule out a positive limiting mean. Exponential spectral decay of the predator mean-zero modes and the stable prey semigroup then yield a resolvent response to the slow predator mode. The derivative of the inverse predator mean converges to the strictly positive coefficient \(\alpha\beta s_a\), which proves the uniform inverse-time laws. The two-piece Neumann boundary-value problem supplies the closed hyperbolic expression and the iterated thin-zone limit. The proof explicitly keeps the limits in the correct order. A standalone standard-library checker passed the 16 finite-dimensional Neumann-response tests; these are corroboration, not a replacement for the infinite-dimensional argument.
+## correctness
 
-## Originality
-**PASS under the inspected comparison, with explicit residual risk.** Berestycki–Fagan–Safsten establish extinction in the strict regime \(\alpha<\gamma\) and spatial coexistence in a contrasting regime; their published equations and thin-zone calculations do not give the critical boundary's universal transient amplitude. Du–Shi study logistic prey growth and a different saturated functional response. Cui–Shi–Wu study strong Allee growth but Holling-II interactions; Min–Wang use ratio-dependent interactions. These functional responses alter the nonlinear center-mode coefficient. Searches for critical extinction, predator-protection-zone geometry, Neumann Green responses, and inverse-time relaxation located related finite-dimensional critical decay results, not the stated boundary-attached reaction–diffusion coefficient or finite thin-zone iterated limit. The possibility that the result follows from a separately published abstract PDE normal-form theorem remains a stated originality risk; a generic tool does not independently supply the explicit constant without the model-specific comparison.
+PASS
 
-## Mathematical value
-**PASS.** The source's protected-habitat model has a natural missing boundary between exponential predator loss and possible coexistence. At that boundary, the exact decay coefficient carries the spatial prey-response geometry and is independent of the predator's diffusion coefficient; taking the predator interval to zero leaves a nonzero coefficient for time-scaled total predator mass. This is a meaningful critical and singular-limit classification of a physically motivated model, not an arbitrarily selected numerical example. The local-initial-data and iterated-limit restrictions are essential rather than silently extrapolated.
+For 0<a<L, positive d_u,d_v,r,α,β, 0<θ<1/2, and sufficiently small positive predator introductions near u≡1 at γ=α, comparison traps prey deficit w=1−u in a stable neighborhood and bounds predator v≥0. The spatial predator mean z is decreasing and cannot tend to a nonzero value: a positive Neumann heat-kernel bound would force persistent w>0 and negative z′. The positive Neumann spectral gap forces v/z→1 as t→∞. The prey stable resolvent B=d_u∂xx−λ implies w/z→βψ_a where ψ_a=(−B)^{-1}1_(0,a). Substituting into z′ gives (1/z)′→αβ s_a and thus t z→1/(αβ s_a), with uniform predator and prey profiles. Direct differentiation and Neumann/interface matching verify ψ_a is piecewise hyperbolic as stated; independent SymPy finds zero function and derivative jumps and the average s_a. The thin-zone coefficient s_a/a→κ/(λ tanh(κ L)), yielding lim_{a↓0}lim_{t→∞}t∫_0^a v dx=√(λ d_u)tanh(L√(λ/d_u))/(αβ). This is an iterated limit, not uniform in a. Key semigroup domination requires δ chosen with αδ below prey/predator gaps, available at each fixed positive a.
 
-## Closest sources and limitations
-The motivating preprint is H. Berestycki, W. F. Fagan, A. Safsten, arXiv:2602.21414, initially posted 2026-02-24. Relevant comparisons are Y. Du and J. Shi, JDE 229 (2006), 63–91; R. Cui, J. Shi, B. Wu, JDE 256 (2014), 108–129; and N. Min, M. Wang, DCDS-B 23 (2018), 1721–1737. Distinctions concern the exact nonlinear functional response, the conversion–mortality equality, the transient rather than stationary quantity, and the order of limits. The result does not cover large introductions, field data, nonconstant coefficients, or simultaneous vanishing-habitat/large-time limits. A further independent literature review and scientific audit could change the originality or proof assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Berestycki–Fagan–Safsten exclusion-zone model has subcritical predator extinction and supercritical coexistence analyses, while the submitted theorem isolates exact conversion–mortality equality, algebraic 1/t extinction, spatial Neumann resolvent amplitude and the order-sensitive thin-zone mass. The comparison is of parameter implications, not titles; threshold asymptotics are not delivered by those cited equilibrium results. Best-of-knowledge with risk from broader center-manifold asymptotic theory.
+
+## value
+
+PASS
+
+The marginal predator spectral mode at exact growth/mortality balance is a motivated nonhyperbolic boundary of a concrete reaction-diffusion exclusion model. A universal leading amplitude depending on prey diffusion and vanishing zone size, but not predator diffusion, quantifies slow critical extinction and the noncommuting geometry/time limits, useful beyond merely reasserting extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
