@@ -1,11 +1,21 @@
-# Scientific review: linear backward-orbit growth in discrete Huygens stars
+# Independent mathematical audit
 
-**Correctness — PASS.** The original star map is reduced by translating the all-opposition sink. The difference map \(v\mapsto v-h\sin v\) is invertible for the complete stated range, so no off-diagonal predecessor is omitted. Explicit fold locations \(\pmrccos(1/c)\) yield the exact three-to-one scalar inverse region. The fixed central branch at zero creates precisely two new ancestors per depth, giving \(2n+1\); nonzero targets encounter only finitely many folds, with the quantified logarithmic boundary from Taylor expansion and summable geometric error. The proof counts coincident critical roots once and treats the endpoint. Supplementary checker tests 12 dimension/parameter combinations.
+## correctness
 
-**Originality — PASS, with an explicitly unresolved literature risk.** The full Huygens primary paper, arXiv:2610.10993v1, discusses invertibility and Morse--Smale behavior in the smaller parameter interval, not backward fiber counts in the present interval. The full Schaeffer--McCalla gradient-descent paper supplies a broader saddle-avoidance principle, which is not claimed as novel. Searching Huygens star, sine circle-map, inverse-branch counts and logarithmic accumulation in published records did not find the present result. Older circle-map kneading theory may contain an equivalent fiber law; only the 1986 abstract was accessible. Searches alone are not definitive novelty certification.
+PASS
 
-**Value — PASS.** The count is exact for every iteration and every star dimension, detects a sharp loss-of-injectivity threshold and identifies an unbounded yet only logarithmic inverse multiplicity boundary near the physical phase-opposition sink. This answers a natural reconstruction question not addressed by forward stability or convergence results.
+For F_h(u)=u-h(I+11^T)sin u and h<1, subtracting coordinates of an inverse of a diagonal target reduces to q_h(ui)=q_h(uj) modulo 2pi; q_h(v)=v-h sin v is a degree-one circle diffeomorphism, forcing all coordinates equal. Thus all backward ancestors reduce to f_c(u)=u-c sin u, c=(d+1)h. For 1<c<2, its critical points ±acos(1/c) give a three-branch window |t|<a_c=sqrt(c²-1)-acos(1/c), and each outer branch is one-to-one forever. Target zero generates ± one new outer ancestor per level, N_n(0)=2n+1. Nonzero central inverse grows in magnitude at least by (c-1)^(-1), so eventually exits; Taylor expansion of f_c near zero plus summable O(u_j²) distortion yields 2 log(1/|t|)/log(1/(c-1))+O_c(1) eventual count. Independent numerical bracketing gave N_n(0)=1,3,5,7,9,11 for c=1.2,1.5,1.9 at n=0..5 and finite stabilization for off-zero examples; numerical tolerance cannot certify the asymptotic.
 
-**Limits.** Results concern equal-weight stars and diagonal targets; no claims are made about general trees, off-diagonal fibers, global Morse--Smale dynamics beyond invertibility, or uniform constants at coupling endpoints. Finite diagnostics are not infinite proofs. Relevant old circle-map literature remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known Huygens paper gives a sharp invertibility/Morse–Smale threshold, while the submitted supercritical diagonal-target inverse-fiber classification addresses a different problem. Only its abstract and bibliographic links were accessible this run; an authorized full-text attempt was blocked by VPN. Thus priority is a qualified best-of-knowledge PASS, with explicit primary-text gap, not a claim that the whole paper lacks the result.
+
+## value
+
+PASS
+
+Counts of all global torus preimages just past a known invertibility transition quantify precisely how inverse fibers proliferate and why a sink has linear rather than exponential ancestor growth. The exact logarithmic boundary layer is a natural dynamical invariant tied to the derivative magnitude c-1, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

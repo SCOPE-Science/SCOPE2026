@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof establishes the full-dimensional inverse-fiber reduction, the exact scalar branching geometry and critical-root conventions, the \(2n+1\) count for every iteration and the logarithmic law for all sufficiently small nonzero target offsets. No finite computation is used in place of an infinite argument.
+## correctness
 
-Run `python check_preimages.py` in Python 3 with NumPy and SciPy. In the saved package the checker returned `ALL NUMERICAL DIAGNOSTICS PASSED`. It directly solves the three monotone branches using Brent bracketing for \(d\in\{2,3,5,9\}\), \(c\in\{1.2,1.5,1.9\}\), and \(1\le n\le7\); it compares full star updates with the scalar map, tests fiber stabilization and the logarithmic slope at finitely many offsets. Double-precision tolerances, tested dimensions, and finite-depth tests impose no restriction on the analytic theorem.
+PASS
 
-Bibliographic sources and comparison limits are documented in the review. Independent verification has not been performed.
+For F_h(u)=u-h(I+11^T)sin u and h<1, subtracting coordinates of an inverse of a diagonal target reduces to q_h(ui)=q_h(uj) modulo 2pi; q_h(v)=v-h sin v is a degree-one circle diffeomorphism, forcing all coordinates equal. Thus all backward ancestors reduce to f_c(u)=u-c sin u, c=(d+1)h. For 1<c<2, its critical points ±acos(1/c) give a three-branch window |t|<a_c=sqrt(c²-1)-acos(1/c), and each outer branch is one-to-one forever. Target zero generates ± one new outer ancestor per level, N_n(0)=2n+1. Nonzero central inverse grows in magnitude at least by (c-1)^(-1), so eventually exits; Taylor expansion of f_c near zero plus summable O(u_j²) distortion yields 2 log(1/|t|)/log(1/(c-1))+O_c(1) eventual count. Independent numerical bracketing gave N_n(0)=1,3,5,7,9,11 for c=1.2,1.5,1.9 at n=0..5 and finite stabilization for off-zero examples; numerical tolerance cannot certify the asymptotic.
+
+## originality
+
+PASS
+
+The known Huygens paper gives a sharp invertibility/Morse–Smale threshold, while the submitted supercritical diagonal-target inverse-fiber classification addresses a different problem. Only its abstract and bibliographic links were accessible this run; an authorized full-text attempt was blocked by VPN. Thus priority is a qualified best-of-knowledge PASS, with explicit primary-text gap, not a claim that the whole paper lacks the result.
+
+## value
+
+PASS
+
+Counts of all global torus preimages just past a known invertibility transition quantify precisely how inverse fibers proliferate and why a sink has linear rather than exponential ancestor growth. The exact logarithmic boundary layer is a natural dynamical invariant tied to the derivative magnitude c-1, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
