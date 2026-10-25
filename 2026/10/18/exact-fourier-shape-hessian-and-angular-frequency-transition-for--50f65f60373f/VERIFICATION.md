@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The analytic proof follows the disk monomial spectrum, trace-class radial shape derivatives, the infinite-dimensional simple-eigenvalue second-derivative formula, Parseval, and a falling-factorial domination argument. These are independent of finite testing.
+# Independent mathematical audit
 
-The accompanying standalone `shape_hessian_checker.py` uses angular quadrature with incomplete gamma functions and a Hermitian matrix eigensolver; it passed 12 pure angular modes, 2 mixed modes, 12 large-radius transition comparisons, and 4 monotonicity checks. NumPy and SciPy are required. For the normalized test `R=1`, a quadratic cosine perturbation has predicted deficit coefficient `0.061313240195240384`. Matrix truncation and small nonzero deformation parameters do not prove infinite-dimensional or asymptotic results.
+## correctness
 
-The result concerns a one-parameter family with fixed profile, and the critical high-area transition applies to its analytically derived multipliers, not to arbitrary joint perturbation limits. No independent audit has been performed.
+PASS
+
+For fixed R>0 and a real C² mean-zero h, the polar boundary r²<R+εh preserves area πR exactly. At the disk the Fock monomial e_0 has isolated top eigenvalue 1−e^(−R), gaps e^(−R) S_m(R). The coherent-state projector integral is trace-norm C² for compact bounded boundary motion, so simple-eigenvalue perturbation is legitimate. The second derivative is −e^(−R)||h||²+2e^(−R)Σ_{m≥1}(R^m/m!)/S_m |hhat_m|². Real Parseval eliminates mean mode, cancels m=1 and yields the claimed Φ_m=S_(m−1)/S_m Hessian coefficient. S_m/(R^m/m!) is strictly increasing in integer m, giving the sharp Φ_2=2/(R+2) inequality and equality directions. Falling factorial term domination for m/R→α<1 and initial partial-sum divergence for α≥1 give min(α,1), including ∞. Independent numerical Fock matrix angular quadrature at R=1 cos2 converges to e^(−1)/6=0.061313240195; 12×12 top-eigenvalue matrices at ε=0.1,0.05,0.025,0.0125 gave 0.0613839252,0.0613308989,0.0613176541,0.0613143436. Finite matrices are normalization checks, not infinite proofs.
+
+## originality
+
+PASS
+
+Global disk optimality and nearby sharp stability theorems do not identify the top fixed-domain eigenvalue entire Fourier Hessian with spectral-gap factor S_m(R) or its m/R frequency transition. The very relevant Ramos (2026) manuscript computes first variations and second-harmonic geometric separation, and the 2024 Gómez–Guerra–Ramos–Tilli work computes second variation for an optimized-superlevel functional, rather than the same λ_max(D_ε) operator. No implication yielding Φ_m found on reading these relevant sections; unindexed equivalence risk remains.
+
+## value
+
+PASS
+
+The natural stability question for Gaussian concentration around its uniquely maximizing disk requires exactly the local spectral curvature modulo translation. Computing all angular directions produces a sharp eigenvalue stability constant and a nontrivial large-area frequency crossover m≈R, not merely rewriting the global Faber–Krahn bound. Pure m=2 gives optimal transverse second-order loss and higher modes quantify shape sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

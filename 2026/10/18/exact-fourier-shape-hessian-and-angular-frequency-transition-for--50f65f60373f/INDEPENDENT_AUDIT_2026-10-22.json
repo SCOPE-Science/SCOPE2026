@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:03:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed R>0 and a real C² mean-zero h, the polar boundary r²<R+εh preserves area πR exactly. At the disk the Fock monomial e_0 has isolated top eigenvalue 1−e^(−R), gaps e^(−R) S_m(R). The coherent-state projector integral is trace-norm C² for compact bounded boundary motion, so simple-eigenvalue perturbation is legitimate. The second derivative is −e^(−R)||h||²+2e^(−R)Σ_{m≥1}(R^m/m!)/S_m |hhat_m|². Real Parseval eliminates mean mode, cancels m=1 and yields the claimed Φ_m=S_(m−1)/S_m Hessian coefficient. S_m/(R^m/m!) is strictly increasing in integer m, giving the sharp Φ_2=2/(R+2) inequality and equality directions. Falling factorial term domination for m/R→α<1 and initial partial-sum divergence for α≥1 give min(α,1), including ∞. Independent numerical Fock matrix angular quadrature at R=1 cos2 converges to e^(−1)/6=0.061313240195; 12×12 top-eigenvalue matrices at ε=0.1,0.05,0.025,0.0125 gave 0.0613839252,0.0613308989,0.0613176541,0.0613143436. Finite matrices are normalization checks, not infinite proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 quantitative Faber–Krahn controls global deficit but derives other optimized-superlevel second variation; Ramos 2026 proves local maximizers disks"
+        ],
+        "reasoning": "A global stability inequality or local uniqueness does not imply equality of every Fourier coefficient, its sharp mode-2 constant, or m/R transition; the similarly named 2024 Fourier variation has different functional/denominator.",
+        "searches": [
+          "Bargmann Fock localization Gaussian disk exact second shape variation largest eigenvalue Fourier Hessian angular frequencies sharp deficit",
+          "Gómez–Guerra–Ramos–Tilli 2024 Invent. Math. Sect.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2607.21590",
+        "https://link.springer.com/article/10.1007/s00222-024-01248-2",
+        "https://link.springer.com/article/10.1007/s00222-022-01119-8",
+        "Resultary query: Bargmann Fock localization Gaussian disk exact second shape variation largest eigenvalue Fourier Hessian angular frequencies sharp deficit",
+        "Resultary query: Gaussian time frequency localization disk eigenvalue shape perturbations angular boundary harmonics exact Hessian coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ramos first variation Eq.5.10 and geometric Lemma5.4; the 2024 stability coefficients include S_{m−1} but not 1/S_m"
+        ],
+        "reasoning": "Even after matching Gaussian normalization (R is squared Fock radius), these earlier statements cannot be specialized to the top-eigenvalue optimized-eigenfunction correction across all m. New denominator and limit are not implied by their displayed statements.",
+        "searches": [
+          "arxiv:2607.21590 Sections 5.1–5.2; 2024 Invent Math Sect.5 Eq (5.20)-(5.21)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ramos 2026 Eq. (5.10): first variation, Lemma 5.4: second-harmonic symmetric difference"
+        ],
+        "reasoning": "Identify Fock λ_max with Gaussian STFT concentration; although first domain shape derivative is standard, source lacks the second-order matrix spectral-gap normalization Φ_m=S_{m-1}/S_m.",
+        "searches": [
+          "Gaussian time frequency localization disk eigenvalue shape perturbations angular boundary harmonics exact Hessian coefficient",
+          "arxiv:2607.21590 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary hit 2026/10/11/SCOPE-full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f concerns equispaced weighted Bergman poles"
+        ],
+        "reasoning": "This is an all-R exact analytic spectral invariant rather than a finite tabulated object; no actual consulted table describes Φ_m for Gaussian localization, though lack of a hit proves no priority.",
+        "searches": [
+          "Resultary semantic search Bargmann Fock localization Gaussian disk exact second shape variation largest eigenvalue Fourier Hessian angular frequencies sharp deficit"
+        ]
+      },
+      "rationale": "Global disk optimality and nearby sharp stability theorems do not identify the top fixed-domain eigenvalue entire Fourier Hessian with spectral-gap factor S_m(R) or its m/R frequency transition. The very relevant Ramos (2026) manuscript computes first variations and second-harmonic geometric separation, and the 2024 Gómez–Guerra–Ramos–Tilli work computes second variation for an optimized-superlevel functional, rather than the same λ_max(D_ε) operator. No implication yielding Φ_m found on reading these relevant sections; unindexed equivalence risk remains.",
+      "residual_risks": [
+        "An unindexed spectral perturbation analysis may already contain this full Hessian under an equivalent boundary coordinate.",
+        "Infinite-dimensional trace-norm differentiability is argued from compact smooth projector families; no formal operator-calculus certificate.",
+        "The mode-frequency limit does not assert joint uniform expansion in ε,R,h; extrapolating it to arbitrary rough shapes would be unjustified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_FUNCTIONAL_NOT_DOMINATING",
+          "evidence": "Gómez–Guerra–Ramos–Tilli (2024), Sect. 5 variation coefficients involve S_{m-1}(R) but not spectral gap denominator S_m(R) that enters the optimized fixed-domain top eigenvalue Hessian.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00222-024-01248-2",
+          "material_read": "Open-access HTML: abstract, main theorem and pertinent Section 5 second-variation expressions including equations (5.20)-(5.21), comparison of optimized-superlevel functional; not the full paper",
+          "method": "Full-text HTML navigation and mathematical comparison of the varied functional and coefficients",
+          "title": "Stability of the Faber-Krahn inequality for the short-time Fourier transform",
+          "trigger": "Same Gaussian localization spectral optimum and Fourier boundary second variation"
+        },
+        {
+          "assessment": "CLOSEST_SAME_SPECTRAL_FUNCTIONAL_BUT_NO_FULL_FOURIER_HESSIAN",
+          "evidence": "Ramos (2026) Eq. (5.10) is first variation; Lemma 5.4 uses second Fourier harmonic to bound symmetric difference. Neither states mode-by-mode λ_max second derivative with S_{m-1}/S_m or m/R transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.21590",
+          "material_read": "Abstract and main theorems, Sections 5.1-5.2 including first variation equation (5.10) and second-harmonic symmetric-difference Lemma 5.4, Section 6 local-maximizer analysis and paper comments",
+          "method": "ArXiv primary PDF parsed text (screenshot endpoint attempted but returned internal error); exact theorem and equations compared",
+          "title": "Eigenfunctions, free boundaries, and time-frequency localization",
+          "trigger": "Same leading localization eigenvalue, disk, and shape variations"
+        },
+        {
+          "assessment": "GLOBAL_MAXIMIZER_BASELINE_ONLY",
+          "evidence": "Nicola–Tilli proves λ_max(Ω)≤1−e^{−|Ω|} and disk equality, not the explicit local Fourier spectrum.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00222-022-01119-8",
+          "material_read": "Global disk optimality theorem and normalization as described in primary summary and references; full text not re-read this execution",
+          "method": "Primary-result contextual cross-reference; not used for a whole-document novelty exclusion",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Known global Gaussian disk maximizer and spectral equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural stability question for Gaussian concentration around its uniquely maximizing disk requires exactly the local spectral curvature modulo translation. Computing all angular directions produces a sharp eigenvalue stability constant and a nontrivial large-area frequency crossover m≈R, not merely rewriting the global Faber–Krahn bound. Pure m=2 gives optimal transverse second-order loss and higher modes quantify shape sensitivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2607.21590",
+    "https://link.springer.com/article/10.1007/s00222-024-01248-2",
+    "https://link.springer.com/article/10.1007/s00222-022-01119-8",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-fourier-shape-hessian-and-angular-frequency-transition-for--50f65f60373f",
+    "Git RESULT.md blob: 25940668cd43fdb63b8027dc7400fd0d9d0388ce",
+    "Resultary semantic search: Bargmann Fock localization Gaussian disk exact second shape variation largest eigenvalue Fourier Hessian angular frequencies sharp deficit",
+    "Resultary semantic search: Gaussian time frequency localization disk eigenvalue shape perturbations angular boundary harmonics exact Hessian coefficient"
+  ],
+  "disposition": "passed",
+  "limitations": "Fixed R smooth mean-zero polar graph and λ_max only; high-area limit applies solely to exact multipliers, not simultaneous deformation.",
+  "residual_risks": [
+    "An unindexed spectral perturbation analysis may already contain this full Hessian under an equivalent boundary coordinate.",
+    "Infinite-dimensional trace-norm differentiability is argued from compact smooth projector families; no formal operator-calculus certificate.",
+    "The mode-frequency limit does not assert joint uniform expansion in ε,R,h; extrapolating it to arbitrary rough shapes would be unjustified."
+  ],
+  "schema_version": 1
+}

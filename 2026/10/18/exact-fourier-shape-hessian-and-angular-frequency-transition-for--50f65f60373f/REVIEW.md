@@ -1,15 +1,21 @@
-# Scientific review: Gaussian localization disk shape Hessian
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fock normalization, the prescribed equal-area polar family and the simple disk eigenvalue are explicit. Differentiating the radial spectral matrix in trace-class norm and applying the isolated-eigenvalue second-derivative formula yields the exact frequency multipliers, including the vanishing degree-one translation contribution and the necessary eigenfunction-readjustment term. The falling-factorial identity proves strict multiplier ordering and the large-area transition; it also proves the claimed sharp quadrupole coefficient. A separate finite matrix quadrature/eigensolver agrees for mixed and pure harmonics. All statements remain local in the shape parameter; finite experiments are not infinite proofs.
+## correctness
 
-## Originality — PASS with residual priority risk
-The principal comparator is Ramos, arXiv:2607.21590 (2026), whose full available arXiv text was inspected in its introduction and pertinent inverse-construction and shape-derivative/local-maximizer sections. Its results establish prescribed-eigenfunction domains, exponent sharpness and local uniqueness of disks, not the entire fixed-domain principal-eigenvalue shape Hessian or the sharp angular-frequency transition. Gómez–Guerra–Ramos–Tilli, arXiv:2307.09304, Sect. 5, computes the second variation of an optimized-superlevel function with coefficients \(-e^{-R}S_{m-1}(R)\); that is not the same quantity, and its statement lacks the spectral-gap denominator \(S_m(R)\) arising from *optimizing a fixed domain's eigenfunction*. Nicola–Tilli establishes global disk extremality, and Nicola–Riccardi concerns Hilbert–Schmidt rather than operator norm. Research-index searches on boundary Hessians and the related local findings found no matching or dominating statement. These comparisons are substantive but cannot exclude unindexed equivalents.
+PASS
 
-## Value — PASS
-The established global Faber–Krahn bound alone provides no exact shape-response spectrum. The exact all-mode Hessian gives mode-by-mode distortion sensitivity, identifies the unique nontranslational least-stable angular degree and its best curvature constant, and reveals the large-area resolution transition at angular frequency comparable to disk area. This makes the precise invariant relevant to sharp local shape recovery and design of Gaussian time–frequency concentration masks.
+For fixed R>0 and a real C² mean-zero h, the polar boundary r²<R+εh preserves area πR exactly. At the disk the Fock monomial e_0 has isolated top eigenvalue 1−e^(−R), gaps e^(−R) S_m(R). The coherent-state projector integral is trace-norm C² for compact bounded boundary motion, so simple-eigenvalue perturbation is legitimate. The second derivative is −e^(−R)||h||²+2e^(−R)Σ_{m≥1}(R^m/m!)/S_m |hhat_m|². Real Parseval eliminates mean mode, cancels m=1 and yields the claimed Φ_m=S_(m−1)/S_m Hessian coefficient. S_m/(R^m/m!) is strictly increasing in integer m, giving the sharp Φ_2=2/(R+2) inequality and equality directions. Falling factorial term domination for m/R→α<1 and initial partial-sum divergence for α≥1 give min(α,1), including ∞. Independent numerical Fock matrix angular quadrature at R=1 cos2 converges to e^(−1)/6=0.061313240195; 12×12 top-eigenvalue matrices at ε=0.1,0.05,0.025,0.0125 gave 0.0613839252,0.0613308989,0.0613176541,0.0613143436. Finite matrices are normalization checks, not infinite proofs.
 
-## Limitations and literature risk
-All shapes are smooth star-shaped near a centered disk. No global stability, rough-boundary or other-window theorem is asserted. The three cited comparators' pertinent source sections were inspected; unindexed historical duplication remains possible. Numerical truncation verifies constants but not the complete operator theorem. No independent human audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Global disk optimality and nearby sharp stability theorems do not identify the top fixed-domain eigenvalue entire Fourier Hessian with spectral-gap factor S_m(R) or its m/R frequency transition. The very relevant Ramos (2026) manuscript computes first variations and second-harmonic geometric separation, and the 2024 Gómez–Guerra–Ramos–Tilli work computes second variation for an optimized-superlevel functional, rather than the same λ_max(D_ε) operator. No implication yielding Φ_m found on reading these relevant sections; unindexed equivalence risk remains.
+
+## value
+
+PASS
+
+The natural stability question for Gaussian concentration around its uniquely maximizing disk requires exactly the local spectral curvature modulo translation. Computing all angular directions produces a sharp eigenvalue stability constant and a nontrivial large-area frequency crossover m≈R, not merely rewriting the global Faber–Krahn bound. Pure m=2 gives optimal transverse second-order loss and higher modes quantify shape sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
