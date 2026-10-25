@@ -1,0 +1,9 @@
+# Review of the regular-nilpotent fiber law
+
+**Correctness — PASS.** For a regular nilpotent \(B\), the centralizer is the truncated polynomial ring, making the Jordan type of a nonzero commuting nilpotent \(A\) the almost-rectangular type of a power of \(B\). The explicit invertible-centralizer orbit count proves equal cardinality for every polynomial parameter of the requisite valuation. The standard radical quotient of the full centralizer and the Fine–Herstein nilpotent count give the denominator. The zero case is computed separately. Actual matrix enumeration and direct polynomial evaluation verify the formulas through dimension four over several finite fields, including \(\mathbb F_4\).
+
+**Originality — PASS, subject to priority risk.** The inspected primary papers arXiv:2212.08425 and arXiv:1001.0811 concern possible commuting Jordan types, arXiv:2305.00176 gives a normal-form classification for two unequal blocks, and arXiv:2012.04038 gives joint-kernel-one normal forms. The precise fixed-matrix Euler-product conditional probability and uniform polynomial fiber multiplicity for all partitions are not identified in the examined statements. SageMath documents the unit centralizer order, and Fine–Herstein supplies the total nilpotent count; neither by itself gives the uniform fibers. The results are derivable by the separate explicit orbit calculation; a stronger unindexed count remains possible.
+
+**Value — PASS.** The statistic is the probability that a nilpotent element of a fixed matrix centralizer realizes the unique regular nilpotent orbit. It resolves the existence/zero boundary and its exact positive density for every Jordan type, and identifies a uniform parameter law and scale-stable probabilities. These are natural counts for finite-field commuting nilpotent pairs, not a single arbitrary small example. This is not a full census of commuting-pair Jordan types.
+
+Self-review: passed. Independent audit: not yet performed.

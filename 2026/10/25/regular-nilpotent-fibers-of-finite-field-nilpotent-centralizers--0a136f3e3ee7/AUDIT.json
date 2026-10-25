@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For regular nilpotent B the full centralizer is Fq[B], so a nonzero commuting nilpotent A has a unique polynomial f(B) of valuation k and necessarily almost-rectangular Jordan type [n]_k. Conversely J_n^k realizes every such type. The standard endomorphism-algebra radical quotient gives number q^(dimCent(A)-k) of nilpotent commuting matrices, using the Fine-Herstein q^(m*m-m) count in each matrix factor. Double counting conjugators for f(J_n) similar to A gives each f a fiber of |C_GL(A)|/((q-1)q^(n-1)), independent of f. Division by the nilpotent centralizer count gives Phi_r Phi_(k-r) for nonzero almost rectangular A; zero A has its own correct boundary formula. Actual package file check.py was executed and its output byte-compared with check_output.txt: 18 partition instances, 5192 nilpotent centralizer elements, 3293 regular occurrences, 31 uniform polynomial fibers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hua arXiv:2305.00176 Sections 2-3 supplies canonical forms for indecomposable pairs with A two unequal Jordan blocks, but its Theorems 3.1-3.2 contain no uniform random-matrix distribution or all-partitions fiber multiplicity.",
+        "Bondarenko et al. arXiv:2012.04038 Theorem 2 classifies pairs having one-dimensional common kernel but does not count a fixed-f polynomial fiber over each finite field."
+      ],
+      "reasoning": "The displayed theorems do not directly give the claimed fiber cardinalities. A sufficiently general orbit count could yield them as a corollary, so potential implicit stronger coverage is acknowledged rather than suppressed.",
+      "searches": [
+        "nilpotent centralizer Jordan classification arxiv:2212.08425",
+        "arxiv:2305.00176 Theorems 3.1 and 3.2 canonical forms commuting nilpotent pairs",
+        "arxiv:2012.04038 Theorem 2 common one-dimensional nullspace",
+        "\"regular nilpotent\" \"centralizer\" \"number\" finite field commuting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.08425",
+      "arxiv:1001.0811",
+      "arxiv:2305.00176",
+      "arxiv:2012.04038",
+      "doi:10.1215/ijm/1255629831",
+      "SageMath similarity_class_type documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2212.08425 Theorem 3 concerns nonempty intersections of Jordan orbits; arXiv:1001.0811 Proposition 4.1 concerns which nilpotent classes commute; arXiv:2305.00176 classifies certain indecomposable simultaneous-similarity orbits. Standard centralizer sizes and Fine-Herstein count are known."
+      ],
+      "reasoning": "Known orbit-existence results are not mistaken for an original existence classification. The quantified fixed-A fibers follow from the explicit new double count, so publication statements inspected do not imply the numerical result without that additional analysis. General matrix enumeration formulae might implicitly dominate this narrow consequence; risk remains.",
+      "searches": [
+        "arxiv:2212.08425 main Theorem 3 P1 regular nilpotent",
+        "arxiv:1001.0811 Proposition 4.1 cyclic nilpotent classes",
+        "arxiv:2305.00176 canonical forms nilpotent commuting pairs",
+        "nilpotent centralizer count Jordan partition q finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Britnell and Wildon arXiv:1001.0811 Section 4.1 establishes existence of commuting classes via almost rectangular partitions; it contains no count or uniform fiber distribution in the inspected Section 4.",
+        "Bogdanić et al. arXiv:2212.08425 Table 1 case (P1) includes almost rectangular partners for two equal Jordan blocks, with classification rather than finite-field multiplicities."
+      ],
+      "reasoning": "The known polynomial-in-a-Jordan-block criterion is exactly the existence portion. The new statement counts all regular nilpotent partners of each fixed A and gives a uniform distribution over the unique polynomial f with A=f(B). Existence equivalence alone does not supply those numerical fibers.",
+      "searches": [
+        "regular nilpotent matrices commuting with fixed nilpotent Jordan matrix number probability partition almost rectangular",
+        "\"regular nilpotent\" \"commuting\" \"probability\" nilpotent",
+        "arxiv:1001.0811 Section 4.1 cyclic nilpotent classes",
+        "arxiv:2212.08425 Theorem 3 Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SageMath centralizer_group_cardinality(la,q) provides the size of the invertible centralizer for the given partition; example for (2,1) is q^5-2q^4+q^3.",
+        "Gerstenhaber (1961) re-proves Fine-Herstein total nilpotent matrix count q^(m*m-m), not a commuting-regular intersection table."
+      ],
+      "reasoning": "These supply algebraic factors of the proof, but neither tabulates |{B regular nilpotent: AB=BA}| by arbitrary fixed A, nor the cardinality of each polynomial fiber A=f(B). No exact database entry covering the final combined claim was identified.",
+      "searches": [
+        "Sage similarity_class_type.centralizer_group_cardinality nilpotent matrix partition q",
+        "Fine and Herstein number nilpotent matrices q^(n(n-1))",
+        "\"number of regular nilpotent\" \"commute\" \"nilpotent\" matrix"
+      ]
+    },
+    "rationale": "The verified contribution is the simultaneous fixed-matrix probability for all Jordan partitions and uniformity of the unique polynomial fibers for regular nilpotent commuting partners. Published papers read in relevant sections classify possible commuting Jordan types or simultaneous-similarity forms, not this complete finite-field parameter-fiber law. The known orbit/stabilizer, Fine-Herstein, and unit centralizer counts are acknowledged, and their combination makes the novelty relatively narrow; possible implicit prior implication remains a residual risk.",
+    "residual_risks": [
+      "An unindexed published counting theorem for pairs of commuting nilpotents could imply the exact regular-fiber formula by specialization.",
+      "The fiber count is a concise orbit-stabilizer calculation from known centralizer sizes; an earlier paper may have already drawn this consequence.",
+      "The classic Fine-Herstein count is taken as a proved external theorem, not reproved in the package."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exists/classifies possible Jordan partitions for two equal-sized blocks; finite-field polynomial fiber counts and every-partition probability are not presented in inspected text.",
+        "evidence": [
+          "Theorem 3 Table 1 P1: almost rectangular Jordan types occur.",
+          "Section 2 identifies centralizer as M_2(F[X]/(X^n)).",
+          "Section 4 Table 2 lists orbit types, not multiplicities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.08425",
+        "material_read": "Accessible full-text HTML: introduction, Theorem 3 and its complete Table 1, centralizer polynomial model, proof calculations across Section 3, examples and open questions Section 4.",
+        "method": "Read arXiv extracted full text and compared case P1 existence with regular-partner probability/fibers.",
+        "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+        "trigger": "Focal 2022 nilpotent-centralizer Jordan-type paper; same object and almost-rectangular case"
+      },
+      {
+        "assessment": "Existence and class-type results cover almost rectangular criterion but not identified numerical fibers.",
+        "evidence": [
+          "Section 4.1 cyclic nilpotent classes and partition refinements.",
+          "Theorem 2.6 relates class types through polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+        "material_read": "Accessible full-text HTML: Sections 1, 2.1, 3, 4 with Proposition 4.1 and Theorem 4.10 introductions and relevant statements.",
+        "method": "Compared Jordan-class commuting conditions and polynomial-in-class results with fixed-matrix counting and equidistribution.",
+        "title": "On types and classes of commuting matrices over finite fields",
+        "trigger": "Potential stronger commuting-nilpotent existence classification over finite fields"
+      },
+      {
+        "assessment": "Provides classification of indecomposable pairs with two distinct lengths but does not state their uniform matrix-partner probabilities; does not cover arbitrary partitions.",
+        "evidence": [
+          "Theorem 3.1 lists canonical forms with free coefficients.",
+          "Theorem 3.2 gives transformations to normal form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.00176v1",
+        "material_read": "Full open HTML Sections 1-3 including canonical-rank description and Theorems 3.1-3.2; Appendix cases.",
+        "method": "Compared simultaneous similarity canonical forms with fixed A, uniform f coefficient fibers, and all partitions.",
+        "title": "Canonical forms for a class of pairs of commuting nilpotent matrices under simultaneous similarity",
+        "trigger": "Two distinct length blocks include the adjacent-block family of the probability formula"
+      },
+      {
+        "assessment": "Studies form under similarity, not fixed-matrix number or uniform polynomial fibers in finite fields.",
+        "evidence": [
+          "Theorem 2 gives normal forms of commuting pairs with one-dimensional common kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.04038",
+        "material_read": "Accessible full-text HTML: introduction, Theorem 2 and Weyr description in Section 3.",
+        "method": "Compared its normal forms and commuting-matrix description with counting the regular B locus.",
+        "title": "Pairs of commuting nilpotent operators with one-dimensional intersection of kernels and matrices commuting with a Weyr matrix",
+        "trigger": "Regular nilpotent B forces one-dimensional intersection of kernels"
+      },
+      {
+        "assessment": "The classical total nilpotent count is a cited input; no fixed-A uniform polynomial-fiber theorem was found in the excerpt.",
+        "evidence": [
+          "Gerstenhaber identifies Fine-Herstein nilpotent m-by-m count q^(m*m-m)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1215/ijm/1255629831",
+        "material_read": "Article bibliographic result and text excerpt describing the Fine-Herstein count and Gerstenhaber alternative proof; not entire paper.",
+        "method": "Compared published count with small-field direct exhaustive matrix enumeration.",
+        "title": "On the number of nilpotent matrices with coefficients in a finite field",
+        "trigger": "Critical standard scalar q^(m*m-m) used in the centralizer-denominator calculation"
+      },
+      {
+        "assessment": "Provides unit centralizer size, not full regular nilpotent commuting-partner fiber table.",
+        "evidence": [
+          "centralizer_group_cardinality(Partition([2,1])) produces q^5-2q^4+q^3."
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/similarity_class_type.html",
+        "material_read": "Documentation sections on centralizer algebra dimension and centralizer group cardinality with worked (2,1) example.",
+        "method": "Compared documented function outputs with regular-nilpotent intersection count.",
+        "title": "Similarity class types of matrices with entries in a finite field — SageMath documentation",
+        "trigger": "Check for dominating exact lookup of nilpotent-matrix centralizer group orders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a136f3e-3ee7-432f-8353-d2a81b743d8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural sampling space of nilpotent commuting partners of a fixed nilpotent matrix, the result determines when the unique largest nilpotent Jordan orbit occurs and exactly how frequently for every finite field and every Jordan partition. It also determines a uniform law for the unique polynomial relation and an exact invariance under common scaling of almost-rectangular block lengths. Such shape-sensitive densities and uniform parameter fibers are not provided by a possible-Jordan-type list or unit-centralizer count; they support finer probabilistic and enumeration questions about commuting nilpotent pairs. This is a natural complete binary-event classification, not an arbitrary tiny case, though a stronger existing count would remove its originality.",
+    "status": "PASS"
+  }
+}
