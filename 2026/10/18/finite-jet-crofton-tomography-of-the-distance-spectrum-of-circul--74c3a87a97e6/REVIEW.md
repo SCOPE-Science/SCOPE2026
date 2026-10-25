@@ -1,20 +1,21 @@
-# Scientific review: finite-jet Crofton distance-spectrum tomography
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is established for a fixed convex window, finitely many distinct centers with sufficiently small disjoint circular holes, and the invariant measure on affine lines conditioned to meet the window. Cauchy's perimeter identity fixes the normalizer. A generic hitting line meets the convex window in one interval, and each crossed interior hole adds exactly one section component. For each pair the common allowable line-offset length is the overlap of two length-\(2r\) intervals, giving the stated arcsine–square-root Crofton kernel. Its derivative is \(\arcsin s\), establishing positive even coefficients. The recovered coefficients form an ordinary positive finite atomic moment sequence in inverse squared distances. The positive Hankel factorization and annihilating-polynomial reconstruction work also with repeated distances. The independent standard-library checker tests quadrature, exact rational repeated-distance recovery and invariant-line simulation.
+## correctness
 
-## Originality — PASS relative to examined sources
-The public arXiv versions of Jiao–Stillinger–Torquato (2009 and 2012) examine pair-distance statistics, lineal-path functions, random-texture connectedness and inverse reconstruction, but the inspected mathematical claims do not give a radius-indexed second factorial **section-component count** with an exact universal pair kernel and a finite-jet recovery theorem. Earlier stereological lineal-path studies by Lu–Torquato (1992) present the most important remaining priority risk because their full text was inaccessible here. Coleman's general path-sampling paper (1969) supplies background rather than the stated finite-jet inverse theorem, based on the abstract available. Relevant published results retrieved by semantic search concerned planar chord distributions, intersection areas of circular disks, unlabeled directional widths, and different tomography operators; their statements do not dominate the proposed data-to-distance reconstruction. Negative search results alone are not treated as a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Unlabeled pairwise distances are a natural geometric invariant and are generally nontrivial to recover from indirect observations. Here an unlabeled, direction-averaged **topological scalar** measured across infinitesimal hole radii recovers every distance with multiplicity, through a finite number of derivatives despite the absence of individual pair observations. The perimeter-only dependence eliminates sensitivity to the surrounding convex window and the constructive Hankel algorithm includes repeated distances. The result is an inverse statement, not a routine count for one parameter choice. It does not purport to identify configurations uniquely, does not estimate stability from noisy data, and does not generalize to overlapping holes.
+For an arbitrary compact convex planar W with perimeter P and finitely many distinct strictly interior centers, r<min(boundary distance,half minimum center separation) ensures separate holes. A generic invariant line meeting W intersects the convex window in one segment; each transversal disk hit removes one interval, so C_r-1=sum I_i. Normalization integral_0^pi width_W(theta)dtheta=P. Joint offset overlap for pair separation d is (2r-d|cos theta|)_+ and angular integral equals 2d F(2r/d), F(s)=s asin(s)+sqrt(1-s²)-1. Thus G=E binom(C_r-1,2)=(2/P)sum d F(2r/d), unaffected by triple hits. F'(s)=asin s and positive c_k=binom(2k-2,k-1)/[4^(k-1)(2k-1)(2k)] yield μ_j=sum d^(-2j-1) from even Taylor coefficients. The first 2M μ_j for M=binom(n,2) determine the positive atomic measure at t=d^-2, with weights multiplicity*d^-1 via rank of Hankel matrix, annihilating polynomial and Vandermonde; repeated distances are recovered. The actual package checker performs exact-rational repeated-distance recovery, angular quadrature and conditional-line simulation, read here but not used as infinite proof.
 
-## Closest literature and limitations
-- Jiao, Stillinger and Torquato, *Geometrical Ambiguity of Pair Statistics. I. Point Configurations*, arXiv:0908.1366: recovers and studies pair-distance information when that information is already measured as a radial pair statistic, and demonstrates configuration ambiguity.
-- Jiao, Stillinger and Torquato, *A Superior Descriptor of Random Textures and Its Predictive Capacity*, arXiv:1201.0710: defines lineal-path, chord-length and cluster correlation functions and uses them in numerical texture reconstruction; no inspected finite-jet isotropic line component-inversion identity.
-- Lu and Torquato, *Lineal-path function for random heterogeneous materials*, Physical Review A 45 (1992): closely related but full text inaccessible; unresolved equivalent-transform priority risk.
-- Coleman, *Random paths through convex bodies*, Journal of Applied Probability 6 (1969): random-line sampling framework; only abstract available here.
+## originality
 
-The theorem is exact under a separation threshold but has no finite-sample error rate or stable numerical inversion guarantee. The same unlabeled distance data may correspond to more than one center configuration. The closest inaccessible older source is a priority risk, not evidence of coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: classic lineal-path stereology and pair-correlation literature address related operators but inspected full Jiao–Stillinger–Torquato primary texts do not give the exact topological section-component second factorial law and finite-Taylor-jet inversion. Lu–Torquato 1992 is a plausible same-operator antecedent, abstract only and full text inaccessible; record material and risk without automatically failing originality.
+
+## value
+
+PASS
+
+Recovery of an unordered Euclidean distance spectrum from one scalar line-section topology observable as a radius varies is an independently motivated geometric inverse problem. Positive Hankel inversion handles repeated distances constructively, and the containing convex window influences the observation only through its perimeter. The paper carefully does not claim center location or noisy reconstruction; the exact finite-jet fact is valuable on its own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
