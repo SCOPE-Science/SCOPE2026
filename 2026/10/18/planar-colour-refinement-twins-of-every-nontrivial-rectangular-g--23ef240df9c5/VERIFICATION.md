@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof's all-size steps are the explicit switch, colour-refinement induction, planar exterior-arc embedding (with the exceptional eight-vertex strip handled by Kuratowski's theorem), and a four-cycle count via three-edge paths. No finite program substitutes for these arguments.
+# Independent mathematical audit
 
-`verify.py` checked all 152 witness parameter pairs with \(2\le m\le n\le18\) apart from \((2,2)\), using NetworkX 3.6.1. It verified connectivity, planarity, equality of every refinement colour at every vertex until stabilization, and the exact signed four-cycle-count change. It also checked the four-vertex regularity premise for \(C_4\). The run output is supplied in `verification_output.json`.
+## correctness
 
-Reproduce via `python verify.py` with Python 3.11+ and NetworkX 3.6.1. Exhaustion stops at side length 18; arbitrary-side correctness rests on the proof.
+PASS
+
+For all 2<=m<=n except (2,2), the given corner boundary degree-preserving 2-switch removes ac,bd and adds ad,bc. The source grid involution exchanges a with b and c with d, so colour-refinement neighbour-color multisets agree at all named vertices at every round by induction; this implies C²-equivalence. Removed edges have separate 3-edge grid detours, retaining connectivity. For m>=3 and the 2-row long strips new edges embed in disjoint exterior boundary arcs; the (2,4) strip avoids any K5 or K3,3 subdivision by degree counts. Two original unit squares disappear; added-edge 3-path counting creates four new cycles only for (3,3), hence c4 gap +2 there and -2 otherwise. C4 itself is identified as the unique four-vertex 2-regular simple graph. Independently built and checked 35 2<=m<=n<=9 grids: all planar, connected, same named-vertex refinement colours to stabilization and claimed 4-cycle delta.
+
+## originality
+
+PASS
+
+General theorems already show that certain grids are not identified by colour refinement among all finite graphs and give balanced-switch preservation of colours. The strengthened statement requires a *connected planar* nonisomorphic competitor for every nonexceptional grid, a single explicit switch, and exact four-cycle difference. Neither unrestricted C² characterizations nor abstract colour-preserving replacements imply the planar witness property as stated without the new geometric construction.
+
+## value
+
+PASS
+
+Graph identification within connected planar graphs is a naturally stricter comparison class than unrestricted graph identification. The explicit universal two-edge switch, exceptional C4 boundary and exact four-cycle difference provide a useful sharp witness theorem, despite elementary ingredients from equitable partition theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
