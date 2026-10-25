@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T16:54:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Used original RESULT.md and exact verify.py/certificate.json, reconstructed all rook faces sizes 1..5: (25,200,600,600,120). From α(0;0,1)∧α(1;2,3)∧β(2,3;4), independently built 8-term Z and transposed signed 8-term cycle. Independently parsed the actual 60-term mod-3 chain W and 184-term cocycle φ; checked ∂W=Z+τZ exactly mod3, δφ=0 on all 600 four-rook faces, <φ,Z>=1, and pairings with τZ, transposed row01 and col01 are all 2 mod3. Independently computed exact F3 ranks ∂2=176 and ∂3=423, giving H2(F3) one-dimensional, proving τ acts −1 on the unique Z/3 via UCT and known H1=0. Each four-rook face belongs to uniquely one five-rook face, giving unit minor and free integral H3; reduced Euler −56 then rank56, given cited prior integral homology and connectivity. For transpose, signed fixed-face Lefschetz recurrence F5=0 yields trace zero and 28 +1 eigenrank; coinvariants over Z_(3) are exact since 2 invertible. Simply connected X and a fixed diagonal vertex yield π1 quotient=0 via Armstrong. Localized H3 only free rank28 implies a 3-local wedge of 28 S3 by Hurewicz/Whitehead. Does NOT assert integral wedge or no 2-primary torsion. Full rank/cocycle checks independently reimplemented, not trusted solely to log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shareshian–Wachs Theorem 5.4 provides Z/3 and cycle, not transposition extension.",
+          "Jonsson Theorem 3.1 specifically H2(M5,5;Z)=Z3 using exact sequences, with no transpose result."
+        ],
+        "reasoning": "The general group-action result on row and column permutations leaves two full-group extensions; no prior implication of −1 swap sign.",
+        "searches": [
+          "Shareshian–Wachs Torsion in Matching/Chessboard Complex",
+          "Jonsson On the 3-torsion part...",
+          "Friedman–Hanlon Betti Numbers of Chessboard Complexes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0409054",
+        "https://arxiv.org/pdf/1203.5644"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full board group = (S5×S5)⋊C2; restriction sign×sign to subgroup admits two signs on τ.",
+          "A fixed-point theorem gives π1(Y) once τ action is known but does not predict homology torsion cancellation."
+        ],
+        "reasoning": "The earlier torsion class and general quotient formalism do not select the transposition action. Exact W certificate supplies missing comparison.",
+        "searches": [
+          "Shareshian–Wachs Theorem 5.4 eqs5.8–5.10",
+          "Jonsson Section3",
+          "Armstrong orbit fundamental group theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chessboard X is matching complex M(K5,5).",
+          "Shareshian–Wachs row and column sgn factors do not determine the orientation-reversing group extension exchanging both sides."
+        ],
+        "reasoning": "The core novel invariant is transpose character on H2-torsion and the consequent ordinary quotient, not torsion existence.",
+        "searches": [
+          "Shareshian–Wachs arXiv:math/0409054 Theorem 5.4",
+          "Jonsson arXiv:1203.5644 Section 3",
+          "Resultary chessboard 5x5 transpose torsion quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published rational H3 rank and 3-torsion H2 are inputs; none lists 28 rank in ordinary transpose quotient with vanishing H2_3."
+        ],
+        "reasoning": "The 28 is fixed by a new transpose trace/coinvariant computation, not determined by unrefined Betti table.",
+        "searches": [
+          "Resultary M5,5 quotient involution torsion 3-local",
+          "Friedman–Hanlon ordinary rational Betti numbers chessboard",
+          "Jonsson 5×5 Z3 torsion"
+        ]
+      },
+      "rationale": "Shareshian–Wachs explicitly supplies the Z/3 class and side-preserving sign characters. Jonsson supplies an independent computer-free proof of the same torsion group. Those results do not supply transpose action, which is a nontrivial extension of the side-group sign character, or the ordinary orbit-space localized topology. A new concrete mod-3 boundary certificate determines it. The prior ordinary Betti and rational representation theory also cannot by itself fix torsion transposition. Best-of-knowledge original with noted earlier equivariant-homology search risk.",
+      "residual_risks": [
+        "An unindexed calculation of the full board symmetry action on the Z/3 class may predate this result.",
+        "Armstrong and 3-local Whitehead results are standard external topological inputs, not reproved here; two-primary homotopy of quotient unaddressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Provides Z/3 generator and two side-preserving permutation signs, but not diagonal board transpose.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409054",
+          "material_read": "Full 47-page PDF accessible; definitions, Theorem 5.4 and equations 5.8–5.10 around pages22–24, searched for transpose",
+          "method": "Read PDF text and inspected printed pages",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "principal source for nontrivial integral torsion generator and row/column character"
+        },
+        {
+          "assessment": "PRIOR_TORSION_ONLY",
+          "evidence": "Theorem3.1 proves H2(M5,5;Z)=Z3; target of theorem is torsion existence, not transpose-induced action or quotient localization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5644",
+          "material_read": "21-page full-text PDF, abstract/introduction, Section3 Theorem3.1 near page8 and proof via Γ long exact sequence; targeted transpose search",
+          "method": "Read selected contiguous original mathematical sections and viewed page image",
+          "title": "On the 3-torsion Part of the Homology of the Chessboard Complex",
+          "trigger": "plausibly same M5,5 torsion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest 5×5 torsion chessboard complex is a natural boundary example in matching-complex theory. The sign of the non-side-preserving transposition controls whether 3-torsion survives under an actual topological quotient, and the exact 28-sphere 3-local answer is a substantial structural computation, not a normalization or a small numerical increment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed calculation of the full board symmetry action on the Z/3 class may predate this result.",
+    "Armstrong and 3-local Whitehead results are standard external topological inputs, not reproved here; two-primary homotopy of quotient unaddressed.",
+    "All proposed publication statuses are not_ready until confidentiality-safe public file replacements are verified; no GitHub writes or dispatcher closeout were performed."
+  ],
+  "schema_version": 1
+}
