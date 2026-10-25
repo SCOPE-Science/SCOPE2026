@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Canonical rotation by anchoring 1 and unique reversal orientation a2<a_n gives a bijection to dihedral classes. Every permutation branch occurs exactly once in the exhaustive recursion. Multiply all possible reciprocal denominators by LCM(3,...,2n-1) and perform exact uint64 integer equality. Maximum sum nL/3<2^64 for n<=13; no overflow, signed rounding or numerical tolerance. Actual packaged verifier ran all sizes and asserted values. A second independent exact Fraction enumeration checked both n8 representatives and n9=5. No infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.18431 establishes existence via recursive constructions and base cases.",
+        "OEIS A322070 gives path counts n<=15, not circle counts."
+      ],
+      "reasoning": "Neither published statement gives total numbers of dihedral orbits satisfying the closed identity. An undetected counting theorem remains possible.",
+      "searches": [
+        "published-finding corpus: number of solutions permutations 1 to n whose reciprocals of adjacent integer sums equal one circular cycles dihedral count n=8 2 n=9 5 n=10 6 n=11 38",
+        "published-finding corpus: On Permutations Whose Adjacent-Sum Reciprocals Sum to One Ai Hu Yan 2026 classification existence multiplicities",
+        "web: On Permutations Whose Adjacent-Sum Reciprocals Sum to One Ai Hu Yan 2026 classification existence multiplicities"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.18431; abstracts and cached manuscript excerpts",
+      "OEIS:A322070; exact existing linear table",
+      "OEIS:A040018; distinct adjacent sums",
+      "arxiv:1309.1679; different adjacent-sum predicate",
+      "published-finding corpus targeted semantic queries for exact cyclic values and equivalent statements",
+      "Accessible historical current-week and prior-week ledger claims for statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published proposition: existence for every circular n>7.",
+        "Exact new data: C_8=2, C_9=5, C_10=6, C_11=38, C_12=79, C_13=224.",
+        "OEIS A322070 (original 2018, extended 2022) already supplies linear multiplicities."
+      ],
+      "reasoning": "The paper’s existential lower bound C_n>=1 is strictly weaker than any one of the exact multiplicities. Linear enumerations need not determine cyclic enumerations because their endpoint pair contributes another summand.",
+      "searches": [
+        "published-finding corpus: On Permutations Whose Adjacent-Sum Reciprocals Sum to One Ai Hu Yan 2026 classification existence multiplicities",
+        "web: Zhi Wei Sun permutations consecutive adjacent sums reciprocal sum one count solutions enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arXiv:2610.18431 gives a solution for each n>7, not an orbit count.",
+        "OEIS A322070 is a path statistic: its summation lacks the closing edge."
+      ],
+      "reasoning": "The exact orbit count does not follow from mere existence, and closing the last edge changes the constraint rather than renaming the same sequence.",
+      "searches": [
+        "published-finding corpus: number of solutions permutations 1 to n whose reciprocals of adjacent integer sums equal one circular cycles dihedral count n=8 2 n=9 5 n=10 6 n=11 38",
+        "published-finding corpus: counting Egyptian fraction equal one permutations adjacent neighboring sums n=7 to 13 exact enumeration Ai Hu Yan",
+        "published-finding corpus: On Permutations Whose Adjacent-Sum Reciprocals Sum to One Ai Hu Yan 2026 classification existence multiplicities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A322070 has the EXACT line counts 1,8,22,98,844,3831,20922,88902,358253, covering this experiment’s linear controls.",
+        "OEIS A040018 counts distinct adjacent sums, not unit reciprocal sum.",
+        "No retrieved OEIS record contained the cyclic 2,5,6,38,79,224 entries."
+      ],
+      "reasoning": "The existing linear entries were explicitly removed from the new scientific claim. A table of a different circular predicate cannot imply these counts. Absence from search results is not proof of global novelty.",
+      "searches": [
+        "web: site:oeis.org \"2, 5, 6, 38, 79, 224\" \"adjacent\"",
+        "web: OEIS adjacent sum reciprocal equals 1 circular permutations number",
+        "OEIS A322070",
+        "OEIS A040018"
+      ]
+    },
+    "rationale": "The exact cyclic dihedral counts for n=8..13 and the full absence classification n=3..7 are not implied by the recent existence-only theorem. Exhaustive source checks located A322070 as a decisive broader LINEAR count table, so linear counts were excluded from the claim. A040018 concerns different distinct-adjacent-sum conditions. The published-finding corpus records returned generic permutation or dihedral enumeration problems, not the reciprocal unit-sum constraint. Full primary article inspection had access limitations and the possibility of a separate cyclic table remains a residual risk.",
+    "residual_risks": [
+      "Contiguous full-text retrieval of arXiv:2610.18431 was unavailable; material outside retrieved portions might mention multiplicities.",
+      "An older or unindexed cyclic-only enumeration table may exist; search non-detection is not uniqueness proof.",
+      "The finite result has no all-n generalization and has not received independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existential constructive coverage identified. No enumeration of all circular solutions in the retrieved material. Entire remaining full text not conclusively excluded.",
+        "evidence": [
+          "October 13 2026 initial submission, math.NT; abstract asserts constructive existence n>7 circular.",
+          "Section 3 tabulates 28 construction base cases and residue-class coverage rather than exact dihedral multiplicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18431",
+        "material_read": "ArXiv submission abstract, cached mirror text of theorem, proof structure, Section 3 base-case/coverage tables and appendix extracts; complete contiguous document could not be retrieved.",
+        "method": "Search-index HTML extraction and arXiv abstract; a direct fetch of the mirrored full text timed out.",
+        "title": "On Permutations Whose Adjacent-Sum Reciprocals Sum to One",
+        "trigger": "Precisely same reciprocal-adjacent-sum problem"
+      },
+      {
+        "assessment": "Line counts already published; excluded from accepted circular claim.",
+        "evidence": [
+          "A322070 values n7..12: 1,8,22,98,844,3831.",
+          "It sums only i=1..n-1, unlike the closed cyclic sum."
+        ],
+        "identifier_or_url": "https://oeis.org/A322070",
+        "material_read": "Definition, values, conjectures, tables and links, author and extension dates, algorithm",
+        "method": "Direct webpage inspection",
+        "title": "OEIS A322070",
+        "trigger": "Same reciprocal adjacent sum but linear paths; essential database overlap check"
+      },
+      {
+        "assessment": "Different predicate: all neighboring pair sums distinct.",
+        "evidence": [
+          "A040018 counts pairwise-distinct adjacent sums, not equality of reciprocal sum to one."
+        ],
+        "identifier_or_url": "https://oeis.org/A040018",
+        "material_read": "Sequence definition and listed counts",
+        "method": "Search and web-page text",
+        "title": "OEIS A040018",
+        "trigger": "Potential similarly titled circular permutation count"
+      },
+      {
+        "assessment": "Other adjacency sum constraints, does not cover the new finite unit-sum table.",
+        "evidence": [
+          "Primarily distinctness and prime-power additive properties, not reciprocal-one counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.1679",
+        "material_read": "Abstract describing cyclic permutations with distinct adjacent sums",
+        "method": "ArXiv abstract search result",
+        "title": "Some new problems in additive combinatorics",
+        "trigger": "Earlier Sun conjecture on adjacent sums"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2dc1eaf9-1fb7-4647-9cb2-00dd4c30f06c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly resolved existential problem naturally asks whether its solutions are unique, rare, or abundant. The first feasible circular n=8 has exactly TWO distinct classes, and the complete successive orbit multiplicities through n=13 provide the first rigorously bounded natural initial spectrum, including the first substantial growth to 38 at n=11. Exact finite counts give reproducible benchmark data for orbit-counting methods and constructions. The already published linear spectrum was intentionally excluded. This is not a claim of a general asymptotic theorem.",
+    "status": "PASS"
+  }
+}
