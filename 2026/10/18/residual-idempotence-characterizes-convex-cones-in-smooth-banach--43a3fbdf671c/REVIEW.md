@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For real smooth \(X\) and nonempty closed convex Chebyshev \(K\), the first-order variational inequality is proved from differentiability of \(\|\cdot\|^2/2\). The necessity direction uses \(R^2=R\) first to infer \(0\in K\), then applies the pointwise duality-orthogonality test to \(P_K(ty)\) for **every** \(y\in K\) and \(t>1\), forcing \(ty\in K\). The converse uses \(0,2P_Kx\in K\) to force exact orthogonality and retraction of residuals. The zero residual and trivial cone boundaries are included. Nothing relies on finite checks.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest motivating paper, Kumar–Bin Abu Baker–Botelho, *On Nonlinear Idempotents and Metric Projections in Normed Spaces*, arXiv:2607.14649v1 (2026-07-16), develops necessary conditions for bi-potency and does not state the complete equivalence in this domain. The directly inspected Domokos–Marsh (2018) projection inequalities and conical consequences supply a standard premise but do not state the global converse. Németh (2026) and the dual-cone literature address projections onto given cones. Searches for Moreau/polar complements, prox/resolvent equivalences, and arbitrary convex-set retractions found no directly encompassing claim in the material examined. Residual priority risk remains: a more general pre-existing convex-analytic statement may imply the theorem immediately, and a relevant older projections source was not inspected in full. Absence from searches is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The main object is precisely the bi-potent residual mapping posed as a structural question in the recent nonlinear-idempotent literature. A complete characterization—rather than another necessary condition or a special example—is useful in every real smooth Chebyshev geometry, including non-Hilbert \(\ell_p\), with no pointedness or solidity assumption. The exact pointwise duality test identifies the mechanism. The proof is concise and uses known basic inequalities, so this is a structural classification rather than a new projection method or general convergence theorem.
+The smooth duality J(x)=D||x||²/2 gives the necessary/sufficient variational inequality P_K(z)=q iff ⟨J(z−q),k−q⟩≤0 for every k∈K (using convexity, differentiability and Chebyshev uniqueness); it includes zero residual. Assuming 0∈K, first inequality with k=0 at x,p forces ⟨J(r),p⟩≥0; testing P_Kr=0 against k=p forces ≤0. Conversely zero pairing implies ⟨J(r),k⟩≤0 for all k∈K and thus P_Kr=0. If R²=R, evaluating y∈K gives R0=0 and 0∈K. For each y∈K and t>1, at x=ty the idempotence criterion plus variational inequality k=y yields ||r||²=t⟨J(r),y⟩−⟨J(r),p⟩≤0, so ty∈K; convexity gives 0≤t≤1. Conversely if K is a cone, use comparison points 0 and 2p in K to force exact pairing zero, hence R²=R. In independent one-dimensional boundary tests K=[0,1] fails at x=2 and K=[0,∞) succeeds; proof not based on finite checks.
 
-## Limits and verification
-The conclusion is restricted to smooth real norms and convex Chebyshev sets; no nonsmooth analogue, numerical certification, or independent validation is asserted. Publication priority remains contingent on broader literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Domokos–Marsh full paper establishes standard duality inequalities and projection behavior for sets assumed cones, whereas the new converse classifies a previously unknown K from an idempotent residual. The contemporary Kumar–Bin Abu Baker–Botelho paper addresses nonlinear idempotents and is the most plausible stronger prior source; only abstract-level necessary-condition coverage was accessible. Full text was blocked, including authorized institutional access (Oxford VPN disconnected), so priority is explicitly provisional and not declared certified.
+
+## value
+
+PASS
+
+The paper-defined nonlinear residual bi-potency problem has a natural structural answer over a broad real smooth Chebyshev class, including non-Hilbert ℓ_p and unpointed cones. Characterizing the exact geometric condition on unknown K, not just supplying necessity, is a useful complete classification with a pointwise duality test; it is not asserted as a new general projection method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
