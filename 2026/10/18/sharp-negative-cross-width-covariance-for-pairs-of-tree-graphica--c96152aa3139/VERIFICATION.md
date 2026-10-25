@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the cross-width covariance theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The checker regenerates all labelled spanning trees from Prüfer codes at orders four, five, and six. It measures the exact degree cross-product and common-edge count for **all 1,695,497 ordered pairs**, and checks both the asserted minimum and its necessary-and-sufficient equality conditions. The exact minima are attained by 12, 480, and 28,080 ordered labelled pairs, respectively.
+## correctness
 
-For every one of 160 prescribed random unit directions in orders four through seven, the checker independently enumerates the endpoints of the generating Minkowski sum and verifies that maximum minus minimum vertex support equals the root-segment width expression. It also compares fixed-seed covariance estimates from 150,000 Gaussian-derived spherical directions at orders four and twelve against the exact gamma-function covariance expression. The run ends with `VERIFY_OK`.
+PASS
 
-These checks cannot establish an infinite-order theorem or mathematical uniqueness; the proof is given in `RESULT.md`. The source record concerning individual-tree width variance contains the already-known absolute-Gaussian pair kernel; this is credited rather than claimed as new. Independent audit status is not performed.
+Spherical/Gaussian polar factorization and bivariate absolute-normal kernel yield expectation by identical edge pairs c, endpoint-sharing pairs s-2c, disjoint remainder. With d=n-1, r_d=E||g||, delta=1/3+(2sqrt3-4)/pi>0, lambda=4/3+(4-4sqrt3)/pi>0, Cov=4/pi*(d-d²/r_d²)+(delta s+lambda c)/d. For trees s=3n-4+sum_v(deg_T-1)(deg_S-1)>=3n-4, c>=0; simultaneous equality iff nonleaf sets disjoint and no common edges. Explicit n4 pair {01,02,13} & {03,12,23}, extending by leaves at 0 and 2 realizes every n. Gamma ratio gives limit 3delta-2/pi and strict negativity.
+
+## originality
+
+PASS
+
+The exact angular kernel and individual-tree width-variance extremizers appear in earlier published SCOPE Resultary record, read in full; it treats one graph at a time and proves path/star self-variance extrema, not optimizing a paired labeled-tree cross-covariance with disjoint nonleaf and edge sets.
+
+## value
+
+PASS
+
+The co-oriented width covariance of two shapes is a natural mixed geometric invariant; all-pair negative extremality and rigid graph-label classification reveal anticorrelation despite fixed volume and combinatorial type. This is a structural extremum, not a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
