@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fano matroid independence complex is a 2-dimensional simply connected complex with chain-face vector \((7,21,28)\), and reduced integral homology \(\mathbb Z^{13}\) in degree two. Its all-group-element signed Lefschetz trace is \((13,-3,1,1,-1,-1)\). The full binary boundary calculation for the Heawood independence complex forces its reduced rational homology to degree three of rank six; its signed fixed-face character is \((6,-2,0,2,-1,-1)\). An exact enumeration of the eight Sylow-seven subgroups gives the remaining augmentation character \((7,-1,1,-1,0,0)\). The characters agree identically and semisimplicity proves the rational-module isomorphism. All essential finite computations are independently reproducible using the bundled standard-library checker.
+## correctness
 
-**Originality — PASS, with residual risk.** The exact known six-dimensional Heawood module is credited. Previously indexed Heawood matching-complex representations, known order-seven Singer restrictions, and character tables do not imply the full Fano matroid 168-group action. The general Moci–Pezzoli equivariant matroid theory has been inspected for possible coverage and supplies important context, but the inspected applications did not yield the explicit Fano/Heawood/Sylow module identification. The full Björner chapter and some underlying indexed results were not accessible, so equivalence elsewhere remains an identifiable bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** The Fano matroid is the smallest binary projective-plane matroid and carries a distinguished 168-element automorphism group. Its complete 13-dimensional homology representation is a natural invariant beyond Betti numbers. Identifying that module with Heawood homology and the augmentation on eight Sylow-seven subgroups is an exact structural bridge between matroid and graph independence topology. It determines all irreducible constituents and the absence of invariant classes, without claiming a generalization or an integral splitting.
+The rank-3 Fano independence complex has full K7 one-skeleton, 28 noncollinear triangles, reduced Euler characteristic −1+7−21+28=13; missing-line loops fill using any outside vertex, hence its only reduced integral homology is H2=Z^13. The Heawood incidence independence complex has full face counts (1,14,70,154,147,56,14,2) and mod2 augmented boundary ranks (1,13,57,97,44,12,2); these bound rational Betti numbers, and Euler characteristic forces H̃3(Q)=Q^6 only. Exact full-group oriented fixed-face character comparison under GL(3,2), 168 elements, yields Fano (13,−3,1,1,−1,−1), Heawood (6,−2,0,2,−1,−1), Sylow-seven augmentation (7,−1,1,−1,0,0). Independently checked the class-weighted identity and inner products (Heawood norm=2,Sylow norm=1, cross=0). Maschke and rational character determination give the abstract direct-sum, not a canonical geometric splitting. Inspected full finite verifier source for all 168 elements and exact mod2 ranks; no logs taken as independent proof.
 
-**Scientific limits.** The module isomorphism is rational and abstract. No explicit equivariant chain map, integral splitting, or result for larger projective geometries is established. Bibliographic checking cannot rule out all unindexed equivalent statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted semantic published search, direct mathematical implication checks and primary full-text comparisons identify relevant component machinery or partial results but not a dominating exact statement, with the listed residual risks.
+
+## value
+
+PASS
+
+The Fano matroid and Heawood incidence independence complexes are canonical but different finite objects carrying GL3(F2) symmetry. Their unexpected 13=6+7 rational-module identity with the natural Sylow-seven permutation augmentation explicitly relates matroid topology, graph topology and finite-group representation theory, supplying a usable exact example and equivariant invariant not merely a new computation of a Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
