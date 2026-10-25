@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The vertex-type classification is an if-and-only-if statement: an unselected subdivision vertex must not join two selected original endpoints, and every unselected original vertex can be incident to at most one selected subdivision vertex. This forces internal edges, a matching on the remaining original vertices and independent residual cross-edge choices. The specialization, formal exponential generating function and largest-proper-set equality cases follow by explicitly counted choices. Actual direct adjacency enumeration verified all 75 labelled hosts of orders at most four, the subdivided complete hosts through order six, and 31 generating-function coefficients. The proof, not those tests, supplies the infinite quantifiers.
+
+**Originality — PASS, qualified.** The directly relevant 2026 counting paper of Dourado, Grippo, Lin and Protti gives general hardness/algorithms, and its inspected body does not state the specialized subdivision matching identity or complete-host generating function. The earlier convex-partition paper of Centeno and collaborators addresses a distinct problem. Searches for subdivision, incidence-graph and bootstrap-closure formulations did not identify a dominating result; full historical literature coverage is not guaranteed. Closest database records treat the same subdivided complete graph under Vietoris–Rips topology, or use matching polynomials on different combinatorial structures. Same-object/same-claim implication was not found; an unindexed equivalent remains a risk.
+
+**Value — PASS.** The closed exact size polynomial solves a natural family instance of a counting problem known to be hard generally. The matching decomposition works for every simple host, the compact entire-family exponential generating function is useful for extracting counts and asymptotics, and the largest-proper-set classification proves a sharp unexplained-by-total-count gap in high coefficients. None relies on an arbitrary parameter cutoff.
+
+Scientific limitations: one-edge subdivision, undirected simple hosts, and no historical uniqueness claim or independent mathematical validation. Finite computations cannot prove the infinite identities.
+
+Self-review: passed. Independent audit: not yet performed.
