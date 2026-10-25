@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The functorial reduced Świątkowski complex for three particles on \(K_{3,4}\) has finite chain dimensions \((364,1326,1476,491)\). Modular exact boundary ranks \((363,957,491)\) alone give lower bounds; the graph-connectedness argument, full-rank top differential and six explicit square-motion loops provide equal characteristic-zero bounds and rational Betti numbers \((1,6,28,0)\). The full \(144\)-element signed Lefschetz character is checked against an independent orbit formula. Equivariance holds on group generators, all boundary squares vanish, and character orthogonality proves the precise seven-type decomposition.
+PASS
 
-## Originality — PASS, with limitations
+The actual reduced Świątkowski weight-three complex has dimensions (364,1326,1476,491). Independent reconstruction and full F3 elimination give ranks (363,957,491); the graph-cycle-surjective map on H1 and full rank of d3 give matching rational rank bounds rather than confusing finite-field rank with Q-rank, yielding Betti (1,6,28,0). Independently calculated all fifteen rational H2 class traces via the vertex/edge-orbit alternating chain generating function and H1 graph cycle character, matching the claimed class table. The original verify.py code was inspected for local differences, signed Koszul actions, boundary-square-zero and automorphism checks; the submitted proof gives exact Specht character inner products. The result makes no integral torsion or lattice-splitting assertion.
 
-The nearest primary source, Maciążek–Sawicki (2019), computes the smaller \(K_{3,3}\) three-particle case and not this \(K_{3,4}\) degree-two \(S_3\times S_4\)-module. A 2026 complete-bipartite top-homology theorem applies to degree three at three particles; a graph-family stability paper treats two particles in bipartite families. Targeted searches for the same object, degree, parameters, fifteen-class characters and reductions found no equivalent explicit result. An earlier \(K_{3,3}\) representation is covered by prior work and not reasserted. Unindexed equivalent literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The asymmetric pair of bipartition sizes naturally distinguishes all fifteen conjugacy classes, and the exact twenty-eight-dimensional module has seven constituents but no invariant homology class. This gives a finite reproducible symmetry benchmark not recoverable from the graph rank or the previously studied smaller complete-bipartite case. The result has no claims about integral torsion or higher particle number.
+K3,4 is genuinely different from K3,3 and stable complete-graph families. The degree-two full S3 x S4 action is not implied by H2 data for K3,3 or top-degree H3 results for K_ab. Best-of-knowledge originality is limited by potential unindexed equivariant calculations.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first unequal complete bipartite extension of K3,3 is a canonical nonplanar graph with a large symmetry group; its explicit equivariant H2 module gives precise invariant, anti-invariant and irreducible data unavailable from Betti ranks alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
