@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Geometric smoothness is equivalent to surjectivity of the explicit degree-ten Macaulay map, by a base-point-free linear-system argument and the socle-degree-nine bound for a regular sequence of three quartics. The binary quartic derivative criterion is exact over the algebraic closure. Every nonzero 15-bit coefficient vector is tested; explicit \(168\)-element group orbit computation verifies the decomposition. The embedded Python verifier passed, as did independent SymPy Gröbner unit tests for all three charts of every smooth orbit representative.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The 2020 Asgarli–Freidin primary article proves bounds for asymptotic density, not the exact \(\mathbf F_2\) quartic profile. The 2018 Asgarli theorem is an existence bound; the 2024 generalization considers other geometric settings. Homma–Kim covers the rational-plane-filling 24-orbit, which is not presented as new in isolation. Dickson's 1915 studies address projective characteristic-two quartic classification and bitangents, including rational-point strata. The closest historical texts were not fully accessible: an unrecognized implication from complete older tables remains the principal novelty risk. The final claim is the complete joint rational-point/transverse-line and projective orbit spectrum rather than those covered components. Searches of mathematical literature, semantic research records and accessible earlier findings did not identify an equivalent complete profile.
+PASS
 
-**Value — PASS.** The exact finite-degree distribution is a directly motivated refinement of the published Bertini probability problem, at the first degree over the smallest finite field where smooth transverse-free examples can arise. It provides not just examples or a small invariant but a complete incidence profile of all smooth canonical genus-three plane quartics and its arithmetic/projective stratification; it also separates rational tangency from tangency at nonrational geometric points.
+PASS. For all nonzero 15-bit ternary quartic equations over F2, geometric smoothness follows exactly from full rank of S6 + (S7)^3 -> S10 (dimension 66). The base-point-free degree-four system admits three generic quartic generators forming a length-three regular sequence; its quotient socle degree is 9, so degree-ten surjectivity is equivalent to having no geometric common zero. The derivative of a binary quartic restriction in characteristic 2 gives precisely the three coefficient cases for square-freeness on each of seven F2 rational lines. An independently implemented integer-bit elimination exhausted 32767 masks: 10920 geometrically smooth, t=0..7 histogram [25,168,588,2604,3885,2940,686,24], the stated 20 nonzero joint (rational-point, transverse-line) cells and 78 GL3(F2) orbits; transverse-free orbit sizes 1 and 24 with masks 21945 and 6670. Original bundled verify_quartic_spectrum.py and secondary Groebner source were inspected, but finite enumerations rely crucially on the rank equivalence, not finite-extension sampling. Scope: embedded equations/projective classes over F2, not abstract genus-three moduli or other fields.
 
-**Limitations.** Scope is limited to embedded quartics over the binary field. The finite census is justified by exhaustive code plus a proved geometric criterion, not by sample statistics; bibliographic uniqueness and independent certification are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS on the exact final claim after new Git-tree proof and computation reconstruction, Resultary semantic searches, checked primary theorem scopes and explicit source risks. Not a claim of comprehensive historical priority, external certification or entire-paper noncoverage where material was inaccessible. All known special-case antecedents are credited.
+
+## value
+
+PASS
+
+PASS. Complete exact rational Bertini-line incidence data for the entire first nontrivial plane-quartic universe F2 is a natural refinement of an established transverse-free curve density problem, not an arbitrary coefficient slice. The 20-cell n/t table and 78 projective orbits distinguish pointlessness, plane-filling and geometric tangency for genus-three canonical plane curves. Exact invariants can be independently useful without extension to other q. The single already-known plane-filling orbit is not separately the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
