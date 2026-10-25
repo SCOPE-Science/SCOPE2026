@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the fully specified 16-vertex nearest-neighbor Cartesian square grid, the complete 10,012-face augmented complex was enumerated and its integer signed boundary reduced through 5,002 exact pivot-unit chain contractions. The remaining complex consists of six degree-four and two degree-five free generators with zero differential. Explicit integral inclusion/projection maps transfer each of the eight orientation-signed graph symmetries to homology. The matrices satisfy the dihedral relations and have the reported character. A second complete edge-ordering and signed fixed-simplex enumeration independently agrees with all eight alternating Lefschetz traces. Exact rational character orthogonality gives the irreducible multiplicities, and transfer gives the rational quotient statement. There is no extrapolation from samples.
+## correctness
 
-## Originality — PASS
-The closest published result [2] proves the nonequivariant wedge for this exact graph, but its full text contains no representation or quotient calculation. The closest symmetry result [3] is for three-row grids and their Klein-four group, and [4] studies a different simplicial complex. Matsushita [1] studies small-grid matching complexes but does not classify the square-grid group character. The categorical-path result [5] involves nonisomorphic graph constructions, and [6] is restricted to outerplanar graphs. Actual targeted published-finding corpus searches of the object, aliases, character tuples and prior parameter families found no stronger or equivalent statement. Residual risk: an unindexed earlier equivariant table or unpublished computation.
+PASS
 
-## Value — PASS
-The graph is a natural first square beyond the width-two setting and has both fourth- and fifth-degree homology. Its nonequivariant wedge type cannot determine the dihedral character: quarter-turns and reflection classes act differently, and both fifth-degree generators form the irreducible moving plane, disappearing entirely in the rational full-symmetry quotient. The exact representations and quotient are motivated topological invariants, not an arbitrary relabeling or recomputation of Betti numbers.
+The ordinary matching complex of P4 square P4 has 24 graph edges and 10012 augmented faces with counts (1,24,224,1044,2593,3388,2150,552,36). Independent endpoint-disjoint enumeration reproduced all counts and exact F2 boundary rank checks, corroborating H4 dimension6 and H5 dimension2. Examined full verify_equivariant.py integral signed differential, elimination formula and inclusion/projection chain maps: 5002 unit pivots leave exactly six degree-four and two degree-five generators with zero residual differential. Source verifies each lifted generator is an original cycle and reprojects correctly, then obtains exact 8x8 induced dihedral matrices and all relations; character in order (1,r²,r,h,d) is H4=(6,2,2,0,-2), H5=(2,-2,0,0,0). Independently enumerated signed invariant matching faces for every D4 symmetry, checking the alternating *reduced Lefschetz* values χ4−χ5=(4,4,2,0,-2) by class, careful with augmented empty-face negative sign. Character orthogonality gives H4=A1+2A2+B1+E, H5=E, and rational transfer on barycentric subdivision gives exactly one quotient H4 invariant. No integral quotient torsion asserted.
 
-## Limitations
-No statement is made about integral orbit-space torsion, equivariant wedge decompositions or larger grids. The original nonequivariant homotopy calculation is properly treated as prior work. The attached finite exact programs certify this one graph and allow replay; they are not independent mathematical audits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published 4x4 Cartesian matching complex wedge^6 S4∨ wedge^2 S5 (same object) establishes nonequivariant ranks, not the dihedral module. Matsushita (2019) handles small-width strips, 3-row reflection work has smaller geometric group and different graph, and the published 4x4 D4 three-cut result has the same group but is a different complex. None imposes the degreewise rational homology characters or distinguishes horizontal from diagonal reflections here. Public search yielded no prior equivalent exact full D4 matching character; hidden computations remain a risk.
+
+## value
+
+PASS
+
+The 4x4 square grid is a canonical small genuinely two-dimensional Cartesian grid with full quarter-turn symmetry. Its mixed-dimensional sphere-wedge homology has two distinct D4 representations, and separating axis/diagonal reflection and identifying the one surviving quotient class is natural geometric equivariant topology, not derivable from Betti ranks. Finite exact object is motivated despite no infinite strip theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
