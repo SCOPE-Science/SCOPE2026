@@ -1,19 +1,21 @@
-# Scientific review: exact shortest-extension profile of the Černý automata
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof uses the explicit transition normalization \(a:i\mapsto i+1\) cyclically and \(b:0\mapsto1\), then applies a telescoping identity for transition in-degree. The short-suffix lemma constrains every contribution to a cyclic indicator difference indexed by at most the suffix length. This supplies both the strict lower bound and the unique word attaining it. The prefix-count argument proves the cardinality-refined and unconditional histograms, the exact exceptional length-\(n\) subsets, and the mean. Independently coded finite preimage BFS checks all \(3\le n\le11\), while literal word enumeration verifies uniqueness for \(3\le n\le9\). The checker output is supplied. The proof, not the finite search, covers arbitrary \(n\).
+PASS
 
-## Originality
+PASS: For n≥3, a cyclically shifts 0..n−1 and b maps 0→1 while fixing others; words act left-to-right. Telescoping the column-sum defect 1P_w−1 as a sum over b-letters followed by suffix matrices yields signed contributions s_{1·v}−s_{0·v}. For suffix length≤n−1 the pair images are either merged or the adjacent states h,h+1 modulo n, h equal to number of a letters; until the first cyclic 01 boundary r(S), every contribution of a word of length≤r is nonpositive. The word ba^r creates exactly one positive contribution. A length-(r+1) extending word must have initial b and a suffix with r copies of a, forcing the unique optimum ba^r. For d<n, initial no-01 binary prefix is 1^h0^{d−h}, with s_d=1 and n−d−1 free bits: d 2^{n−d−1} subsets; for d=n exactly the n−1 prefix-run sets. Fixed-cardinality binomial formula and mean follow by finite sums. Independent full subset-word enumeration for n=3..7 verified the minimum/uniqueness, histograms and moments. No inference to arbitrary automata.
 
-**PASS within examined evidence.** Miccinesi, arXiv:2609.21603v1, Introduction and Section 8.1, provides general sufficient certificates and the fact that some Černý subsets cannot extend before length \(n\), but neither identifies all such subsets nor gives minimum lengths and unique shortest words for all subsets. Berlinkov–Ferens–Szykuła, arXiv:1704.08233v4, treats extension-complexity questions and an example on a four-state Černý automaton, not the infinite exact profile. Closest published research records address initial *image-rank* compression or *complete avoidance*; neither fixes the first-strict-growth reverse-preimage times. Alternative formulations via complement shrinking, subset-level reverse distances, and complete-avoidance thresholds were compared by statement and implication. Searches do not establish historical priority. An unindexed pre-existing Černý calculation is the main residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Uniform bounds on individual extension words enter the extension method for synchronizing automata. The classical extremal Černý family is a natural benchmark, and the originating certificate paper explicitly uses it as an obstruction to the threshold \(n-1\). The exact theorem characterizes every obstruction and every optimal word, quantifies the distribution by subset size, and distinguishes an average cost tending to \(3\) from a worst cost of \(n\). Neither the published nonuniform certificate nor known reset thresholds answer this precise distribution question. This is a natural complete classification rather than a selected finite parameter or a renaming of the known reset-word bound.
+PASS best of knowledge with explicit access risk: Berlinkov–Ferens–Szykuła 2018 classify preimage-problem complexity for general DFAs, not every subset of the particular Černý family. Miccinesi 2026 studies certificates for ≤n−1 short extending words and reportedly uses a Černý exceptional subset, but its arXiv text/PDF access failed; only abstract and indexed summary could be inspected, so it might contain an equivalent all-subset classification not excluded. Resultary produced family rank-compression and k-avoidance classifications, whose target quantifier differs from strict FIRST preimage enlargement. No positive evidence of a stronger published profile implies the full distribution and unique shortest words; priority remains provisional.
 
-## Limits and closest comparison
+## value
 
-The scope is exactly the fixed-labeled automata \(C_n\) for \(n\ge3\), with strict *preimage cardinality* extension. The statement does not settle all-subset extendibility in general automata or provide a better reset bound. Unindexed historical literature remains a possible source of an equivalent profile; independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: for the foundational Černý automata, determining exact shortest preimage enlargements for every proper subset, including a full length and size-refined histogram and unique words, fills a natural gap between extremal examples and general complexity. The mean length asymptotically 3 against a worst case n captures nontrivial structural distribution, not an arbitrary tiny census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

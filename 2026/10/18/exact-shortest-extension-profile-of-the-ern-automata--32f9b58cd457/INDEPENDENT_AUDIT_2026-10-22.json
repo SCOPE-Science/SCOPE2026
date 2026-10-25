@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:04:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For n≥3, a cyclically shifts 0..n−1 and b maps 0→1 while fixing others; words act left-to-right. Telescoping the column-sum defect 1P_w−1 as a sum over b-letters followed by suffix matrices yields signed contributions s_{1·v}−s_{0·v}. For suffix length≤n−1 the pair images are either merged or the adjacent states h,h+1 modulo n, h equal to number of a letters; until the first cyclic 01 boundary r(S), every contribution of a word of length≤r is nonpositive. The word ba^r creates exactly one positive contribution. A length-(r+1) extending word must have initial b and a suffix with r copies of a, forcing the unique optimum ba^r. For d<n, initial no-01 binary prefix is 1^h0^{d−h}, with s_d=1 and n−d−1 free bits: d 2^{n−d−1} subsets; for d=n exactly the n−1 prefix-run sets. Fixed-cardinality binomial formula and mean follow by finite sums. Independent full subset-word enumeration for n=3..7 verified the minimum/uniqueness, histograms and moments. No inference to arbitrary automata.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "n−1 certificate bounds do not yield the precise lengths for each of 2^n−2 subsets or their unique optimal words.",
+          "The complete family may be implicit in particular suffix-preimage arguments but no verified stronger statement was read."
+        ],
+        "reasoning": "Previously known hardest example is covered/credited; the complete exact profile is not demonstrated as prior corollary.",
+        "searches": [
+          "Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram",
+          "Miccinesi certificates short extending words arxiv:2609.21603",
+          "Berlinkov preimage complexity 2018"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1704.08233",
+        "https://arxiv.org/abs/2609.21603",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457",
+        "Resultary:Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known certificate shows some subsets have minext>n−1; here exact exceptional sets are all 1^k0^(n−k), one per cardinality.",
+          "General complexity theorems do not automatically classify a specified automaton family at all subsets."
+        ],
+        "reasoning": "The proof reconstructs a full pair-suffix lemma, distribution and uniqueness rather than merely applying a general worst-case upper bound.",
+        "searches": [
+          "Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram",
+          "Miccinesi certificates for short extending words 2026",
+          "Berlinkov Ferens Szykula preimage problems 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General preimage extension and k-avoidance are not the same exact all-subset first-enlargement functional.",
+          "Miccinesi abstract addresses existence of hard subset, not verified to state unique ba^r words and cardinality histogram."
+        ],
+        "reasoning": "Different quantifier goals and no demonstrated equivalence; full-text Miccinesi comparison remains open and material.",
+        "searches": [
+          "Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram",
+          "Berlinkov Ferens Szykula arxiv:1704.08233 preimage problem",
+          "Miccinesi arxiv:2609.21603 section 8.1",
+          "Resultary 2026/9/17 exact k avoiding thresholds of Cerny"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned automaton initial rank-compression tables and a k-avoidance threshold profile, not this strict preimage-extension table.",
+          "The audited counts are symbolic for all n rather than a preexisting listed finite table."
+        ],
+        "reasoning": "Search absence does not prove global novelty; relevant unavailable Miccinesi text is a residual risk.",
+        "searches": [
+          "Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram",
+          "Resultary exact Černý extension length histogram d 2^(n-d-1)",
+          "Cerny preimage exact distribution database"
+        ]
+      },
+      "rationale": "PASS best of knowledge with explicit access risk: Berlinkov–Ferens–Szykuła 2018 classify preimage-problem complexity for general DFAs, not every subset of the particular Černý family. Miccinesi 2026 studies certificates for ≤n−1 short extending words and reportedly uses a Černý exceptional subset, but its arXiv text/PDF access failed; only abstract and indexed summary could be inspected, so it might contain an equivalent all-subset classification not excluded. Resultary produced family rank-compression and k-avoidance classifications, whose target quantifier differs from strict FIRST preimage enlargement. No positive evidence of a stronger published profile implies the full distribution and unique shortest words; priority remains provisional.",
+      "residual_risks": [
+        "Miccinesi 2026 is directly relevant but full original PDF/HTML could not be read via accessible arXiv/OA, possibly containing equivalent longer classification; independent priority judgment is provisional.",
+        "The short-suffix lemma uses the exact a/b orientation and pair (0,1); transporting the result to other labelings requires care."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies general decision problems; no exact n-state Černý subset histogram identified",
+          "evidence": [
+            "Preimage-optimization definitions and general hardness results"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.08233",
+          "material_read": "Lawful open MFCS 2018 article HTML/complete statement and sections 2–4",
+          "method": "read full open proceedings HTML of statement and sections",
+          "title": "Complexity of Preimage Problems for Deterministic Finite Automata",
+          "trigger": "General DFA preimage extension, same operation"
+        },
+        {
+          "assessment": "Potentially relevant, inaccessible; cannot declare entire paper noncovering",
+          "evidence": [
+            "Abstract claims short-extension certificates; original paper section 8.1 not read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21603",
+          "material_read": "Abstract and indexed descriptions only; arXiv HTML/PDF fetch rejected (DisabledError), no full-text comparison made",
+          "method": "lawful arXiv/preprint and OA search attempt",
+          "title": "Certificates for short extending words in a finite automaton",
+          "trigger": "Directly studies short extending words and Černý exceptional subsets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: for the foundational Černý automata, determining exact shortest preimage enlargements for every proper subset, including a full length and size-refined histogram and unique words, fills a natural gap between extremal examples and general complexity. The mean length asymptotically 3 against a worst case n captures nontrivial structural distribution, not an arbitrary tiny census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1704.08233",
+    "https://arxiv.org/abs/2609.21603",
+    "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/de26e83910359a550ea7b5777532c8a29cafe2de/2026/10/18/exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457",
+    "Resultary:Černý automaton minimum extension word unique ba^r subset preimage exact extension length histogram"
+  ],
+  "disposition": "passed",
+  "limitations": "Only normalized Černý family n≥3; strict one-step preimage-cardinality gain rather than reset-word length or total extension.",
+  "residual_risks": [
+    "Miccinesi 2026 is directly relevant but full original PDF/HTML could not be read via accessible arXiv/OA, possibly containing equivalent longer classification; independent priority judgment is provisional.",
+    "The short-suffix lemma uses the exact a/b orientation and pair (0,1); transporting the result to other labelings requires care."
+  ],
+  "schema_version": 1
+}
