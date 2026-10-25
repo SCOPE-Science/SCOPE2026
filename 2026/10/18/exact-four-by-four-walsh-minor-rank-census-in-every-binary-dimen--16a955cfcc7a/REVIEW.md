@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction to four projected binary character types for affine-plane row sets, or eight projected types for affine-independent row sets, is an exact consequence of surjective dual restriction. Every integer \(3\)-by-\(3\) determinant is classified by projected affine span. The combinatorial occupancy enumeration uses disjoint multiplicity patterns and sums to \(\binom{N}{4}^2\). Separate exact-arithmetic full enumeration at orders eight and sixteen agrees at every rank and both nonzero determinant moduli. No numerical inference is needed in larger dimensions.
+## correctness
 
-**Originality — PASS with residual uncertainty.** The closest primary full texts are Krahmer--Pfander--Rashkov's discussion of finite Fourier minors and Brent--Osborn's small-order Hadamard minor tables. An order-sixteen vanishing count is previously documented and is credited, while the latter source states that there is no Hadamard-class-uniform four-minor zero law. The two inspected published Walsh findings resolve orthogonal four-character bases and four-sparse Fourier support, respectively; their stated results do not yield the complete all-dimension rank histogram or the structural location of determinant-eight minor types. Formula-equivalent work under design-theoretic or coding-theoretic nomenclature remains a residual priority risk, so independent priority is not asserted.
+PASS
 
-**Mathematical value — PASS.** For four-point Fourier interpolation on a canonical noncyclic group, the rank determines the number of independent sampling conditions and full rank determines unique reconstruction on a given support. The result resolves every rank defect and the structural placement of both invertible determinant classes in all dimensions, rather than only the zero/nonzero determinant or a small-order table. The exceptional twelve affine planes among seventy projected patterns explain why independence is not equivalent to character orthogonality.
+Every 4-set of F2^d rows is an affine plane (P=N(N-1)(N-2)/24) or independent tetrahedron (T=N(N-1)(N-2)(N-4)/24). The respective character projections onto 4 or 8 types have fiber sizes u=N/4,v=N/8. Plane-row rank equals number of distinct projected types. Independent-row distinct four-projection local classification of C(8,4)=70 cube sets yields 56 full-rank |det|8, two even-parity affine planes full-rank |det|16, remaining twelve affine planes rank3; repeated types give ranks 1,2,3 by occupancy. Counting type multiplicities gives the claimed all-dimensional A1..A4 formulas and determinant counts. Independent direct C++ enumerator of original 4x4 ±1 Walsh minors with exact integer elimination—not the submitted dephased determinant code—checked all 4900 submatrix pairs at N=8 and all 3,312,400 at N=16, obtaining ranks (0,84,1344,3472) and (560,104160,1612800,1594880), and |det|8,16 counts (3136,336) and (1505280,89600). The all-d proof relies on fixed local cube classification, not finite extrapolation.
 
-**Scientific limits.** The result applies only to four-by-four restrictions of the binary Walsh character table. It does not treat larger orders or arbitrary Hadamard matrices, and published orthogonal-submatrix results are explicitly credited. Independent scholarly review is still required before any claim of publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new technical specialization assessed after four statement/implication comparisons, primary-source reading and Resultary search. Published general background and covered special consequences are credited; no dominating prior theorem for the final stated result was found in material actually inspected.
+
+## value
+
+PASS
+
+Complete singular rank stratification of every 4x4 Walsh restriction across binary dimensions is a natural finite Fourier geometry invariant connected to sparse-recovery rank obstruction. The affine plane/tetrahedron structure yields reusable closed formulas, not just a known Hadamard small-order determinant table. Existing orthogonal/determinant consequences are explicitly demoted to background.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
