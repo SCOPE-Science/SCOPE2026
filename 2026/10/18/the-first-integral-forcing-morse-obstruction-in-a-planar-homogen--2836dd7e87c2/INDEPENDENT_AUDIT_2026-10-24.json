@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:55:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob 87ae08ff6273f6e94a511799fa95bc6db1560c4f and verification.py blob 020a169872b7e96d00165f19855bcdd1b14f6f80",
+        "Independent symbolic Gram-factor and Hessian-obstruction calculations record3"
+      ],
+      "rationale": "For b=0, Q0=r² gives Lie derivative -2r^4; for b=1, Q1=r²-xy is positive definite and L_Q1/(2r^4)=-1+(cos2θ+sin2θ-cos2θ sin2θ)/2<=-1/2 by (1-cos2θ)(1-sin2θ)>=0. For b=2, an independent symbolic differentiation of F2 and the explicit quartic V confirmed V=u2^T A u2, -L_F2 V=u3^T B u3 and leading principal minors A=(33,1833,22352), B=(18,1748,258632,5083552), all positive. Thus the quartic is strict/coercive and proves global asymptotic stability. Any local C² Morse candidate would have positive quadratic leading term Q=r²+d(x²-y²)+2exy. Homogeneity forces D=L_F2 Q<=0 on every direction. D(1,0)=2(1+d+e), D(1,1)=-8(1+d+e) imply d+e=-1; the tangent derivative at (1,0) forces e=d; hence d=e=-1/2, yielding D=8y³(x-y)>0 at (2,1). This contradiction applies to ALL such local C² candidates. All algebraic certificates were independently checked exactly using symbolic polynomials.",
+      "residual_risks": [
+        "Least forcing proven only among nonnegative integer b, not as a complete real-parameter transition.",
+        "No claim that non-Morse means no C¹, nonanalytic, or degenerate Lyapunov function."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Fitzsimmons proves no-polynomial certificate for a particular stronger forcing regime, whereas a positive quartic explicitly exists for the claimed b=2. General converse/SOS existence and non-Morse examples do not produce this exact threshold pair."
+        ],
+        "reasoning": "The b2 result is not a special case of no-polynomial impossibility; it exhibits the opposite polynomial behavior while still forbidding positive Hessian. However, a hidden parameter-specific appendix in related work remains an originality risk.",
+        "searches": [
+          "Liu–Fitzsimmons arXiv:2607.16171 theorem no polynomial Lyapunov in highly forced cubic regime",
+          "Ahmadi El Khadir arXiv:1803.01877 homogeneous Lyapunov SOS",
+          "Jongeneel arXiv:2610.05626 globally stable non-Morse examples"
+        ]
+      },
+      "checked_sources": [
+        "Jongeneel arXiv:2610.05626, full accessible HTML example/proposition",
+        "Liu–Fitzsimmons arXiv:2607.16171, abstract and accessible summary only",
+        "Ahmadi–El Khadir arXiv:1803.01877, general SOS literature abstract",
+        "Resultary 2026/10/11/SCOPE-morse-lyapunov-existence-is-invisible-to-the-full-taylor-jet--3937ccf41604 and semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new obstruction is D(1,0) and D(1,1) opposite signs plus forced tangent stationarity; this is an exact parameter-specific Hessian argument. The positive quartic conflicts with the hypotheses of no-polynomial results."
+        ],
+        "reasoning": "No prior statement located that, without further parameter-specific algebra, entails the asserted least integer b=2 where both quartic existence and Morse obstruction hold. The comparison is best of knowledge, not certified exhaustive.",
+        "searches": [
+          "Jongeneel arXiv:2610.05626 Proposition 3.5",
+          "Liu–Fitzsimmons arXiv:2607.16171 main theorem",
+          "Resultary SCOPE 3937ccf41604"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same existence-of-Morse-Lyapunov question, but known Jongeneel non-Morse example uses a different planar flow and the Resultary Taylor-jet pair is based on flat time change. Liu–Fitzsimmons considers nonexistence of every polynomial Lyapunov function in its counterexample, unlike this quartic-positive b=2 regime."
+        ],
+        "reasoning": "A high-level non-Morse phenomenon does not imply the specific sharp integer forcing, exact quartic, or homogeneous quadratic obstruction in this cubic parameter family. Terminology of local Morse and strictly dissipative polynomial certificates was compared by statement, not title.",
+        "searches": [
+          "Jongeneel arXiv:2610.05626 On global Lyapunov functions being Morse",
+          "Liu Fitzsimmons arXiv:2607.16171 stable cubic no polynomial Lyapunov",
+          "Resultary Morse–Lyapunov existence is invisible to the full Taylor jet 3937ccf41604"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest surfaced Resultary item: Morse–Lyapunov existence is invisible to the full Taylor jet (2026/10/11/...3937ccf41604), with unrelated zero Taylor jet mechanism. No exact b2 certificate table surfaced in query results."
+        ],
+        "reasoning": "No known polynomial certificate/Gram table with these coefficients or integer-firstness appeared in actual searches; this is a bounded negative result only.",
+        "searches": [
+          "Resultary search non-Morse Lyapunov homogeneous cubic planar family quartic forcing b=2",
+          "Search exact quartic coefficients 33 -150 326 -318 125 homogeneous Lyapunov"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact theorem after statement-level comparison: Parameter-specific calculations in a not fully inspected appendix of the original cubic-family paper may cover the b=2 regime; bibliography does not certify priority. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.",
+      "residual_risks": [
+        "Parameter-specific calculations in a not fully inspected appendix of the original cubic-family paper may cover the b=2 regime; bibliography does not certify priority.",
+        "The supplied exact quartic is only one certificate and does not establish a complete real-parameter threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known non-Morse example but not the same cubic field or least-b parameter, and does not provide the quartic Gram pair",
+          "evidence": "Jongeneel arXiv:2610.05626, Proposition 3.5 non-Morse planar example.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05626",
+          "material_read": "Full accessible arXiv HTML through example and Proposition 3.5 plus theorem context",
+          "method": "Read HTML sections of the original primary manuscript, compared vector field and regularity assumptions",
+          "title": "On global Lyapunov functions being Morse",
+          "trigger": "Closest explicit no-Morse stability source"
+        },
+        {
+          "assessment": "Describes no polynomial Lyapunov in a particular cubic; b=2 exhibited positive quartic so no direct domination established; exact appendix overlap unverified",
+          "evidence": "Liu–Fitzsimmons arXiv:2607.16171 abstract: homogeneous cubic globally stable yet admits no polynomial Lyapunov function.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.16171",
+          "material_read": "Public abstract, beginning of scholarly full-text mirror in web search, and paper scope; full PDF inaccessible in this turn",
+          "method": "Compared claimed no-polynomial regime with exact quartic existence and field parameterization; no claim of whole-document exclusion",
+          "title": "A Globally Asymptotically Stable Planar Homogeneous Polynomial Vector Field With No Polynomial Lyapunov Function",
+          "trigger": "Contains the motivating cubic family with potentially dominating parametric result"
+        },
+        {
+          "assessment": "Flat-time-change Taylor-jet construction is a different statement and does not yield the indicated quartic and integer parameter transition",
+          "evidence": "Resultary published summary: same full Taylor jet but contrasting Morse behavior via flat time change.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-morse-lyapunov-existence-is-invisible-to-the-full-taylor-jet--3937ccf41604",
+          "material_read": "Published semantic search title and full summary; not full source file",
+          "method": "Resultary semantic search and implication comparison",
+          "title": "Morse–Lyapunov existence is invisible to the full Taylor jet",
+          "trigger": "Published result directly about the same Morse obstruction theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob 87ae08ff6273f6e94a511799fa95bc6db1560c4f and verification.py blob 020a169872b7e96d00165f19855bcdd1b14f6f80"
+      ],
+      "rationale": "The result sharply distinguishes the geometry of a Morse nondegenerate Lyapunov minimum from existence of a global strict polynomial Lyapunov certificate in an already motivated planar cubic family. The three-integer boundary b=0,1,2 is structurally minimal under its integral forcing normalization, while the exact rational quartic Gram and local Hessian contradiction show both sides independently. This is a meaningful exact boundary result, not a cheap numerical no-certificate search.",
+      "residual_risks": [
+        "Specialized one-parameter boundary; cannot be advertised as a general non-Morse classification or polynomial Lyapunov nonexistence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Least forcing proven only among nonnegative integer b, not as a complete real-parameter transition.",
+    "No claim that non-Morse means no C¹, nonanalytic, or degenerate Lyapunov function.",
+    "Parameter-specific calculations in a not fully inspected appendix of the original cubic-family paper may cover the b=2 regime; bibliography does not certify priority.",
+    "The supplied exact quartic is only one certificate and does not establish a complete real-parameter threshold.",
+    "Specialized one-parameter boundary; cannot be advertised as a general non-Morse classification or polynomial Lyapunov nonexistence."
+  ],
+  "schema_version": 1
+}
