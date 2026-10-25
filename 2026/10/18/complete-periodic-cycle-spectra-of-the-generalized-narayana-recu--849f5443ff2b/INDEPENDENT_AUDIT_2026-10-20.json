@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T11:54:14.018617Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual RESULT.md blob 3342c419395221ab3094cdfb5c0ceb0ddd292ef5. Matrix A_c has char polynomial X³−X²−c. For odd c mod2 polynomial is primitive irreducible, A_c order7, and checked B=(A_c^7−I)/2 plus I+B invertible mod2 for c=1,3 mod4; 2-adic matrix squaring yields period 7·2^(r−1) for nonzero valuation stratum, giving 4^(r−1) cycles. For even c the coprime x² and (x+1) factors lift the free Z_2^1 odd-unit root plus nilpotent rank-two summand; latter has no nonzero periodic vectors. Exact λ²(λ−1)=c and (λ+1)(λ²−2λ+2)=c+2 translate valuations to LTE unit orders and displayed length counts for c=0, v2(c)>=2, v2(c)=1 including c=−2. Independently enumerated 48 complete functional graphs for c in −8,−6,−4,−2,−1,0,1,2,3,4,6,8 and k1..4; all period histograms matched. Infinite proof uses Hensel and lift, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Hensel splitting and multiplicative order theory are prior tools; they do not themselves tabulate this one-family cycle multiplicity.",
+          "Selected Narayana periods under invertible fixed coefficients fail to cover singular even-c regime."
+        ],
+        "reasoning": "Specialization of Hensel/LTE is an exact classification with nontrivial arithmetic case split; cited broader framework is not itself an identical published table.",
+        "searches": [
+          "arXiv:1509.05745 full PDF",
+          "Kuloğlu et al. Fibonacci Quarterly 60 (2022), full available text",
+          "generic Hensel companion module theory"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md blob 3342c419395221ab3094cdfb5c0ceb0ddd292ef5",
+        "arXiv:1509.05745 full PDF",
+        "Kuloğlu et al. 2022 Fibonacci Quarterly, accessible full text",
+        "Resultary recurrence semantic query",
+        "Independent Python 48 full functional graph enumerations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Period 7 modulo 2 by primitive polynomial is a standard input, but not the 2-adic multiplicities.",
+          "Even c noninvertible periodic submodule has rank one, not present in classical invertible Narayana case."
+        ],
+        "reasoning": "General methods can derive the result, but no located published theorem directly implies the explicit entire parameter-class count without working through this family.",
+        "searches": [
+          "Kirthi 2015 periods modulo primes",
+          "Kuloğlu et al. 2022 Narayana in finite groups",
+          "primitive mod2 polynomial X³+X²+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Third-order recurrence x_(j+3)=x_(j+2)+c x_j is the orbit of a 3×3 companion matrix.",
+          "The exact object is a functional graph over Z/2^k; period of one seed is a different invariant from counts for all seeds."
+        ],
+        "reasoning": "Looked through companion matrices, Narayana period, unit-root module and finite group aliases; no inspected full-state arbitrary-c law.",
+        "searches": [
+          "Resultary semantic search: generalized Narayana recurrence x_n=x_(n-1)+c x_(n-3) modulo 2^k periodic points cycle length",
+          "Kirthi 2015 companion matrix period",
+          "Kuloğlu-Özkan-Shannon Narayana sequences finite groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared exact 48 small functional graphs and stated published seed-specific numerical examples; no table for all k, c and all states found."
+        ],
+        "reasoning": "Finite checks validate formulas within test window only; noncoverage outside inspected published range remains a priority risk.",
+        "searches": [
+          "Resultary semantic search: generalized Narayana recurrence x_n=x_(n-1)+c x_(n-3) modulo 2^k periodic points cycle length",
+          "Narayana sequence 2-adic periods c parity tables",
+          "Fibonacci Quarterly 2022 selected examples"
+        ]
+      },
+      "rationale": "Kirthi 2015 analyzes Narayana sequence periods for selected initial data modulo primes; the primary 2022 finite-group Narayana paper considers selected group recurrences, rather than arbitrary c with singular even-c matrices and all-state cycle counts mod 2^k. Full-text sections compared; standard Hensel decomposition and LTE are credited. No same full explicit spectrum located, but broader modular linear-dynamics theory may subsume it.",
+      "residual_risks": [
+        "An unindexed theorem on 2-adic companion-matrix dynamics could imply this parameterized family without using Narayana terminology.",
+        "Classification excludes transient-tail-length distribution; tests only k<=4 while all-k result relies on Hensel/LTE proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: seeded periods over primes, not all-state mod powers of 2 and arbitrary c",
+          "evidence": [
+            "Classical c=1 recurrence and primes emphasized."
+          ],
+          "identifier_or_url": "arXiv:1509.05745",
+          "material_read": "Full primary PDF introduction, basic recurrence and period results/definitions",
+          "method": "PDF full text and page-image reading",
+          "title": "Narayana Sequences for Cryptographic Applications",
+          "trigger": "Same classical cubic recurrence and modular periods"
+        },
+        {
+          "assessment": "RELATED: periodicity for finite-group versions, not this arbitrary-coefficient all-state cycle count",
+          "evidence": [
+            "Fixed Narayana group setting differs from 3x3 endomorphism with singular even c."
+          ],
+          "identifier_or_url": "DOI:10.1080/00150517.2022.12427441",
+          "material_read": "Accessible full-text article including definitions, finite-group examples and principal period sections",
+          "method": "Primary full text reading through accessible scholarly copy",
+          "title": "The Narayana Sequence in Finite Groups",
+          "trigger": "Possible modular all-state recurrence classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-state periodic points and exact cycle counts in a natural third-order recurrence distinguish invertible and noninvertible parameters and resolve 2-adic transitions at c, c+2. The split between 2^(3k) and 2^k periodic states is mathematically structural; all parameter classes are classified rather than arbitrary special examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 RESULT.md blob 3342c419395221ab3094cdfb5c0ceb0ddd292ef5",
+    "arXiv:1509.05745 full PDF",
+    "Kuloğlu et al. 2022 Fibonacci Quarterly, accessible full text",
+    "Resultary recurrence semantic query",
+    "Independent Python 48 full functional graph enumerations"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All integer c, k>=1 only modulo 2^k, periodic orbit counts and total transient number, not transient preperiod distribution.",
+    "An unindexed theorem on 2-adic companion-matrix dynamics could imply this parameterized family without using Narayana terminology.",
+    "Classification excludes transient-tail-length distribution; tests only k<=4 while all-k result relies on Hensel/LTE proof."
+  ],
+  "residual_risks": [
+    "An unindexed theorem on 2-adic companion-matrix dynamics could imply this parameterized family without using Narayana terminology.",
+    "Classification excludes transient-tail-length distribution; tests only k<=4 while all-k result relies on Hensel/LTE proof."
+  ],
+  "schema_version": 1
+}

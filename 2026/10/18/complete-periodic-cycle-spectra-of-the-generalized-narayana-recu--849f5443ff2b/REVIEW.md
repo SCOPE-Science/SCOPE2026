@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact CRT/Hensel split for even coefficients reduces all periodic dynamics to multiplication by an odd 2-adic root. Its valuations at \(\lambda\pm1\) determine every order and cycle multiplicity. For odd coefficients an irreducible cubic reduction and invertible first two lifting matrices establish every primitive-state period. Exhaustive small moduli and integer determinant checks were replayed; these do not constitute the infinite proof.
+## correctness
 
-## Originality — PASS (residual risk)
-Kirthi's 2015 paper treats selected Narayana period lengths modulo primes, not the four-case all-parameter all-state functional graph census for powers of two. Closest records in mathematical search concern different recurrences or dynamical maps. Generic Hensel lifting is prior mathematical knowledge and explicitly used. The related finite-group paper was available only in abstract, and an unindexed general result could imply the classification.
+PASS
 
-## Value — PASS
-The result explains and completely quantifies the phase boundary between invertible and singular cubic recurrence dynamics. Two independent 2-adic valuation parameters give every period multiplicity and exactly count periodic versus transient states for the entire integer coefficient family, making it a natural structural invariant rather than an arbitrary finite case.
+Read actual RESULT.md blob 3342c419395221ab3094cdfb5c0ceb0ddd292ef5. Matrix A_c has char polynomial X³−X²−c. For odd c mod2 polynomial is primitive irreducible, A_c order7, and checked B=(A_c^7−I)/2 plus I+B invertible mod2 for c=1,3 mod4; 2-adic matrix squaring yields period 7·2^(r−1) for nonzero valuation stratum, giving 4^(r−1) cycles. For even c the coprime x² and (x+1) factors lift the free Z_2^1 odd-unit root plus nilpotent rank-two summand; latter has no nonzero periodic vectors. Exact λ²(λ−1)=c and (λ+1)(λ²−2λ+2)=c+2 translate valuations to LTE unit orders and displayed length counts for c=0, v2(c)>=2, v2(c)=1 including c=−2. Independently enumerated 48 complete functional graphs for c in −8,−6,−4,−2,−1,0,1,2,3,4,6,8 and k1..4; all period histograms matched. Infinite proof uses Hensel and lift, not finite enumeration.
 
-## Scientific limits
-No statement on transient tail length distribution or on odd-prime-power moduli. A relevant finite-group paper was not inspected in full; independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kirthi 2015 analyzes Narayana sequence periods for selected initial data modulo primes; the primary 2022 finite-group Narayana paper considers selected group recurrences, rather than arbitrary c with singular even-c matrices and all-state cycle counts mod 2^k. Full-text sections compared; standard Hensel decomposition and LTE are credited. No same full explicit spectrum located, but broader modular linear-dynamics theory may subsume it.
+
+## value
+
+PASS
+
+All-state periodic points and exact cycle counts in a natural third-order recurrence distinguish invertible and noninvertible parameters and resolve 2-adic transitions at c, c+2. The split between 2^(3k) and 2^k periodic states is mathematically structural; all parameter classes are classified rather than arbitrary special examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
