@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the charge proof for arbitrary finite simple graphs, including isolates, disconnected components, chords and empty selections. The equality cases exhaust the two possible incident edge-label patterns and force a disjoint matching and alternating even cycles; the remaining edge checks are exactly proper coloring. The inverse construction meets every empty-vertex requirement. A separate direct finite verifier tested 1,671,091 weighted assignments in 86 graphs and checked forest and path specializations. Finite tests support rather than establish the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim 2024 Theorem 1.3 proves all three minimum numerical values equal n and later characterizes stability, not full 2-rainbow optimizer families.",
+        "Kim 2024 Observation 2.1 states structural claims about minimum Roman dominating functions (MRDF), a smaller labeling class.",
+        "Published research-record ID 2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973 concerns Roman weight enumeration of a different graph family."
+      ],
+      "reasoning": "The scalar minimum has stronger domain coverage only in its numerical sense and is explicitly treated as prior, but it cannot imply which optimal two-rainbow functions exist. Roman minimum functions form only a restricted subfamily of the new classified functions. No identified all-graph all-function enumeration dominates the new claim.",
+      "searches": [
+        "forest tree middle graph minimum 2-rainbow domination function enumeration matchings and proper two colorings uncovered vertices",
+        "all minimum weight 2 rainbow dominating functions on middle graph of a tree induced unmatched forest exact optimizer count",
+        "All minimum weight two rainbow domination functions of arbitrary middle graphs characterized by matchings and vertex disjoint alternating even cycles; exact count of optimizers and tribonacci sequence for path middle graphs",
+        "Kijung Kim DOI:10.1051/ro/2024072 Theorem 1.3 Observation 2.1 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.08635v1 (full paper)",
+      "doi:10.1051/ro/2021163 (published open version)",
+      "doi:10.1051/ro/2024072 (complete accessible full text)",
+      "OEIS A047081",
+      "Published mathematical research-record identifiers noted in the originality comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim 2020 arXiv abstract and 2021 full text emphasize k=3 results for paths, cycles and trees, not optimum 2-rainbow enumeration.",
+        "Kim 2024 full text Theorem 1.3: gamma_r2(M(G))=n; Observation 2.1: minimum Roman structure, not all 2-rainbow configurations.",
+        "Independent examples C4: 14 optimum rainbow functions, of which two have singleton-colored cycle edges; K4: 21 optimum functions including six coming from three distinct alternating 4-cycles."
+      ],
+      "reasoning": "Knowledge of the optimum value n establishes equality of weights but not whether the equality conditions force monochromatic full-edge labels. The new proof explicitly finds additional solutions with an even cycle of singleton edges. Thus the published minimum cannot directly imply this precise optimizer description or enumerator without additional mathematical analysis.",
+      "searches": [
+        "All minimum weight two rainbow domination functions of arbitrary middle graphs characterized by matchings and vertex disjoint alternating even cycles; exact count of optimizers and tribonacci sequence for path middle graphs",
+        "minimum 2-rainbow dominating functions in middle graphs of paths; exact count tribonacci recurrence",
+        "2 rainbow domination optimizer count of M(P_n) in bijection with colored monomer-domino tilings",
+        "\"middle graph\" \"2-rainbow dominating\" \"minimum functions\" \"matching\" counting",
+        "\"middle graph\" \"2-rainbow\" \"even cycles\" \"optimal\"",
+        "\"2-rainbow domination\" \"middle graph\" counting minimizers",
+        "\"middle graph\" \"2-rainbow\" \"matching\" \"even cycles\" minimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.08635v1 and DOI:10.1051/ro/2024072 define the same M(G) middle-graph rainbow invariant under equivalent starred notation.",
+        "Kim 2024 Remark 2.1 equates middle 2-rainbow domination to ordinary 2-rainbow domination of M(G).",
+        "Published research-record ID 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 counts functions on complete multipartite graphs, not middle graphs."
+      ],
+      "reasoning": "The claimed object is the equality-case function set for arbitrary M(G). Roman, Italian, and 2-rainbow parameters share their minimum n but their optimum functions are not equivalent. In particular, singleton edges forming an alternating even cycle are valid for two-rainbow domination but do not give Roman solutions.",
+      "searches": [
+        "forest tree middle graph minimum 2-rainbow domination function enumeration matchings and proper two colorings uncovered vertices",
+        "all minimum weight 2 rainbow dominating functions on middle graph of a tree induced unmatched forest exact optimizer count",
+        "All minimum weight two rainbow domination functions of arbitrary middle graphs characterized by matchings and vertex disjoint alternating even cycles; exact count of optimizers and tribonacci sequence for path middle graphs",
+        "\"middle graph\" \"2-rainbow dominating\" \"minimum functions\" \"matching\" counting",
+        "\"middle graph\" \"2-rainbow\" \"even cycles\" \"optimal\"",
+        "\"2-rainbow domination\" \"middle graph\" counting minimizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A047081 explicitly has coefficients 1,2,3,6,11,20,37,68,125 and generating function (1+x)/(1-x-x^2-x^3).",
+        "The closest published records concern unrelated tribonacci dissociation polynomial on fans or rainbow path covers."
+      ],
+      "reasoning": "The numerical path sequence and rational generating function were already in OEIS: neither is presented as a new bare sequence. The proposed new content is the middle-graph optimum-function interpretation and the universal matching-and-cycle classification, not novelty of the table.",
+      "searches": [
+        "enumerating middle 2 rainbow dominating functions of paths tribonacci weighted matchings",
+        "middle graph path 2 rainbow dominating functions count recurrence 1 2 3 6 11",
+        "site:oeis.org \"2, 3, 6, 11, 20, 37, 68, 125\"",
+        "OEIS A047081 generating function (1+x)/(1-x-x^2-x^3)"
+      ]
+    },
+    "rationale": "A graph-wide matching plus alternating even-cycle classification and exact count is stronger than Kim's known scalar optimum n; it includes rainbow-specific cycle minimizers absent from the Roman setting. Kim 2020/2021 studies mainly k=3; Kim 2024 Theorem 1.3 establishes only the minimum, and Observation 2.1 refers to Roman functions. Full accessible material was examined rather than using titles alone. Published scientific-index searches did not return a stronger covering record; OEIS A047081 is a preexisting sequence but not this graph interpretation. Residual priority risk remains.",
+    "residual_risks": [
+      "An unindexed or not retrievable equivalent equality-case classification could predate this work.",
+      "The path integer sequence was already recorded as OEIS A047081; only its specific graph interpretation, not numerical novelty, is claimed.",
+      "Independent mathematical validation and exhaustive priority search have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces middle-graph rainbow domination and addresses chiefly 3-rainbow parameters; does not present the all-graph 2-rainbow optimum census.",
+        "evidence": [
+          "arXiv v1 submitted 2020-11-17T13:55:23Z",
+          "Primary MSC 05C69",
+          "DOI:10.1051/ro/2021163"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.08635",
+        "material_read": "arXiv submission and full 12-page publicly available article; title, abstract, definitions and theorem sections on k=3 and path/cycle domination",
+        "method": "direct HTML/arXiv and publicly accessible PDF, including page-image inspection",
+        "title": "On k-rainbow domination in middle graphs",
+        "trigger": "Earliest publicly dated primary article and original definition"
+      },
+      {
+        "assessment": "Theorem 1.3 resolves scalar minimum at n; Observation 2.1 classifies minimum Roman rather than all minimum two-rainbow functions; no all-optimum colored-cycle census found.",
+        "evidence": [
+          "DOI:10.1051/ro/2024072",
+          "RAIRO Operations Research 58 (2024) 2045-2053",
+          "Theorem 1.3; Observation 2.1; Section 3"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/379271047_Italian_2-rainbow_and_Roman_domination_numbers_in_middle_graphs",
+        "material_read": "Accessible entire article text; abstract, definitions, Remark 2.1, Observation 2.1, Lemmas 3.1–3.2, Theorem 1.3 proof, stability sections and references",
+        "method": "public full-text HTML rendering of the open-access published article",
+        "title": "Italian, 2-rainbow and Roman domination numbers in middle graphs",
+        "trigger": "Highly relevant exact same graph operator and parameter"
+      },
+      {
+        "assessment": "Explicitly covers bare path count integer sequence, not its rainbow-middle-graph combinatorial origin; numerical sequence is known.",
+        "evidence": [
+          "A047081 rational generating function (1+x)/(1-x-x^2-x^3)",
+          "A047081 coefficients 1,2,3,6,11,20,..."
+        ],
+        "identifier_or_url": "https://oeis.org/A047081",
+        "material_read": "Sequence values, existing rational generating function and comments",
+        "method": "public integer-sequence entry inspection",
+        "title": "OEIS A047081",
+        "trigger": "Exact proposed path term sequence and recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24b9de8a-b4de-4a72-b455-e64ef0ce2caf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-graph numerical optimum was determined by Kim (2024), but identifying every optimizer is a distinct natural equality-case classification. It gives a graph-wide exact counting formula, a clear new family of alternating-cycle rainbow optima beyond Roman solutions, tractable forest interpretation and an explicit path grammar. These are mathematically motivated by the published equality, not arbitrary graph slices or mere recomputation of OEIS sequence.",
+    "status": "PASS"
+  }
+}
