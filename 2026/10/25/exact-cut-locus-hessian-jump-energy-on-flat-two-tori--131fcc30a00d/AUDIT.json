@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The facet jump follows from the two nearest lifts. Centering each facet at \\(v/2\\) yields an exact integral \\(4|v|\\arctan(\\ell_v/|v|)\\). For a rectangular lattice the two relevant facets give the stated formula. The derivative and symmetry argument proves the unique maximum at equal side lengths under \\(A=4ab\\), with value \\(2\\pi\\sqrt A\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2013 paper proves a general Riemannian singular-Hessian formula.",
+        "The 2026 paper computes facetwise distributional-Hessian contributions for radial distance kernels on flat tori and studies distance-energy maximizers; its inspected statements do not state J2 or the fixed-area rectangular optimizer."
+      ],
+      "reasoning": "The prior general formula covers the local density but does not itself state the exact squared integral \\(J_2\\) or its shape optimization. The current proof supplies an additional facet integration and a separate global one-variable extremum argument.",
+      "searches": [
+        "arXiv:1303.1421, §2, Theorem 2.10",
+        "arXiv:2609.05622, §3.1, Lemma 3.1, and Theorem 3.3",
+        "rectangular flat torus cut locus gradient jump energy maximized by square torus fixed area"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arXiv:1303.1421",
+        "public_date": "2013-03-06",
+        "relevance": "General singular-Hessian density on the cut locus.",
+        "title": "On the Distributional Hessian of the Distance Function"
+      },
+      {
+        "identifier": "arXiv:2609.05622",
+        "public_date": "2026-09-04",
+        "relevance": "Recent flat-torus facet formula; related but not a direct statement of J2.",
+        "title": "Distance Energies and Negative Type of Flat Tori"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known jump-density formula gives \\(j(x)=|v|/|x|\\) on a Voronoi facet for the flat distance function.",
+        "The current proof integrates \\(j^2\\) along each centered facet to obtain \\(4|v|\\arctan(\\ell_v/|v|)\\), then proves the unique rectangular optimizer by an explicit derivative sign."
+      ],
+      "reasoning": "The local density is prior work. The exact global aggregation and its fixed-area optimizer require additional calculations not stated in the inspected prior results. The claim is limited to this aggregate and the rectangular family.",
+      "searches": [
+        "arXiv:1303.1421, §2, Theorem 2.10",
+        "arXiv:2609.05622, §3.1, Lemma 3.1",
+        "rectangular flat torus cut locus gradient jump energy maximized by square torus fixed area"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mantegazza–Mascellani–Uraltsev state the singular Hessian density in terms of the two one-sided distance-gradient traces, but do not integrate its square over the cut locus.",
+        "The present \\(J_2\\) definition is translation-invariant and independent of the chosen base point on a flat torus."
+      ],
+      "reasoning": "The equivalent local formulation is the magnitude of the jump density in the singular part of the distributional Hessian. The claim is the global \\(L^2\\) aggregation defining \\(J_2\\), not a rewording of the local jump formula.",
+      "searches": [
+        "L2 jump energy of gradient of distance function on a flat torus, cut locus density, rectangular lattice aspect ratio",
+        "distributional Hessian of distance function flat torus Voronoi cell jump measure exact integral",
+        "cut locus length and gradient jump of distance function on flat tori lattice Voronoi edges",
+        "arXiv:1303.1421, §2, Theorem 2.10 and Corollary 2.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concerned the sharp flat-torus systolic profile and isoperimetric properties of lattice Voronoi cells, not the squared jump density of the distance Hessian.",
+        "No inspected result stated the arctangent facet sum or the square-torus maximum for this functional."
+      ],
+      "reasoning": "Exact-phrase and alias searches found adjacent flat-torus and Voronoi topics but no direct claim match. This is supporting overlap evidence, not a proof of novelty by search failure alone.",
+      "searches": [
+        "L2 jump energy of gradient of distance function on a flat torus, cut locus density, rectangular lattice aspect ratio",
+        "distributional Hessian of distance function flat torus Voronoi cell jump measure exact integral",
+        "rectangular flat torus cut locus gradient jump energy maximized by square torus fixed area",
+        "cut locus length and gradient jump of distance function on flat tori lattice Voronoi edges"
+      ]
+    },
+    "rationale": "The prior literature supplies the local singular-Hessian density, but the specific squared cut-locus jump energy \\(J_2\\), its facet-sum formula, and its unique fixed-area rectangular maximizer were not found in the inspected sources or accessible prior claims. The novelty assessment is limited to this global aggregate and extremizer, not to the known jump-density identity.",
+    "residual_risks": [
+      "The exact \\(J_2\\) functional is a natural integral of a known local jump density; an uninspected source could already compute the same aggregate.",
+      "The extremizer is proved only among rectangular flat tori of fixed area, not among all flat two-tori.",
+      "No application-specific PDE estimate is proved; the stated value is a geometric benchmark."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the local jump-density framework; does not state the squared cut-locus integral or the rectangular shape optimization.",
+        "evidence": "Theorem 2.10 writes the singular Hessian as a rank-one tensor weighted by the magnitude of the two-sided gradient jump.",
+        "identifier_or_url": "arXiv:1303.1421; DOI 10.2140/pjm.2014.270.151",
+        "material_read": "Abstract and §2, especially Theorem 2.10, Corollary 2.11, and the discussion of the rank-one jump measure.",
+        "method": "Read the relevant full-text section and compared the exact tensor-valued measure with the scalar density used in J2.",
+        "title": "On the Distributional Hessian of the Distance Function",
+        "trigger": "Primary source for the singular part of the distributional Hessian of a point-distance function."
+      },
+      {
+        "assessment": "The paper gives a facetwise local Hessian formula and studies a different global distance-energy functional; no exact \\(J_2\\) integral or fixed-area rectangular \\(J_2\\) optimizer was found in the inspected statements.",
+        "evidence": "Lemma 3.1 and Theorem 3.3 concern distributional Hessians and Fourier coefficients of radial distance kernels; Theorem 1.4 classifies maximizing measures for distance energies.",
+        "identifier_or_url": "arXiv:2609.05622",
+        "material_read": "Abstract, §2.1, §3.1 (Lemma 3.1), Theorem 3.3, and the rectangular-torus results summarized in Theorem 1.4.",
+        "method": "Compared the facet-density formula and rectangular distance-energy optimization statements against the proposed J2 functional.",
+        "title": "Distance Energies and Negative Type of Flat Tori",
+        "trigger": "Highly relevant recent paper on flat-torus Voronoi facets and distributional Hessians of radial distance kernels."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "131fcc30-a00d-462e-b366-2ebc3450c829",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The squared jump-density integral \\(J_2\\) is a natural quantitative measure of cut-locus singularity concentration. The exact facet-sum formula and sharp rectangular optimizer provide a reusable shape-sensitive benchmark. The claim is narrow but motivated, and it does not overclaim downstream consequences.",
+    "status": "PASS"
+  }
+}
