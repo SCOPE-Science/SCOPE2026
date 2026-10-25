@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T23:49:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 64f315f5f95afedb0b5fd030be0d973d8606672e",
+        "Inspected verify.py 7136d6c2995db7817b896f131bf5f4ea424f5d35",
+        "Independent exact Gröbner chart ideals at p=2,3,5,7",
+        "Faber–Grantham Lemma 5.1 on genus-four canonical quadrics, arXiv:2005.07054"
+      ],
+      "rationale": "For each finite k, the proposed quadric Q is the sum of a hyperbolic XY plane and anisotropic rank-two quadratic form: Z²-cW² for nonsquare c in odd characteristic, or Z²+ZW+aW² with absolute trace(a)=1 in characteristic two. Thus smooth Q is nonsplit over k but P1xP1 over algebraic closure. The three explicit cubic F forms have no geometrically singular intersections, proved not just by sample tests: when p>=5, Jacobian proportionality forces Z=0 and then c³=1/4, contradicted by nonsquare c; p=3, the affine equations reduce a hypothetical singularity to z³=0 then y=0, impossible, and the W=0 gradient W-component eliminates boundary singularities; p=2 the nonzero dQ/dZ=1 on W=1 forces dF=0 at x=y=z=0, impossible since trace(a)=1, and W=0 proportionality gives t²=0 with t³=1. Independently tested all four homogeneous charts with exact Groebner ideal [1] for sample (p,c)=(2,1),(3,2),(5,2),(7,3), supporting but not proving uniform smoothness. On split Qbar the smooth (3,3) divisor is geometrically connected/integral and by adjunction genus 4 with canonical O_C(1); unique nonsplit smooth canonical quadric excludes a k-rational degree-3 pencil, and canonical nonhyperellipticity excludes lower gonality. The displayed k-rational P gives a degree<=4 k-pencil via h0(K-2P)>=2 (a basepoint-free nonconstant subpencil after removing fixed parts), so k-gonality exactly 4. Nothing asserts geometric gonality four; it is three after field extension.",
+      "residual_risks": [
+        "Sample prime-characteristic Gröbner checks are not a proof over every prime-power extension; the separate all-characteristic gradient argument is essential.",
+        "Gonality is over k and relies on the standard genus-four canonical-quadric/trigonal-pencil criterion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General upper bound gonality<=g for g>=5 and exceptional genus3,4 does not imply attainability g=4 over every field.",
+          "The earlier binary genus-four example proves a q=2 case, and small q<=4 cases are known; uniform prime-power cases remain extra."
+        ],
+        "reasoning": "The broad upper-bound theorem and quadric criterion leave a genuine existential gap filled by the characteristic-explicit smoothness constructions.",
+        "searches": [
+          "Faber–Grantham–Howe arXiv:2207.14307 Theorem 1.1 and Question 1.3",
+          "Faber–Grantham arXiv:2005.07054 Lemma 5.1, Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Faber–Grantham–Howe, arXiv:2207.14307, Question 1.3 and publication 2025 discussion",
+        "Faber–Grantham, arXiv:2005.07054, Lemma 5.1 and Theorem 5.3",
+        "Resultary semantic query for all-characteristic genus4 gonality4 existence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old nonsplit-quadric criterion is a conditional equivalence; it needs a geometrically smooth (3,3) curve on that quadric.",
+          "The characteristic 2,3 cubic formulas and smoothness proof establish the missing existence; no earlier small-field example forces them."
+        ],
+        "reasoning": "The new universal existence conclusion is genuinely stronger than the cited prior hypotheses and is not automatically derived by changing notation.",
+        "searches": [
+          "Faber–Grantham–Howe 2022/2025 publication Question 1.3",
+          "Faber–Grantham 2020 canonical-quadric criterion",
+          "Explicit three-case all-characteristic homogeneous Jacobian argument in frozen RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform existence of smooth canonical cubic section on each nonsplit k-quadric is equivalent to the claimed genus-four field gonality boundary when a k-point exists.",
+          "The earlier 2022 question explicitly asked for all finite fields; its statement is not a solution."
+        ],
+        "reasoning": "Checked labels gonality=4, nontrigonal genus4 over k, nonsplit/elliptic canonical quadrics and smooth (2,3) sections. Prior paper provides criterion not the universal existence construction.",
+        "searches": [
+          "Resultary semantic search: genus four curves finite fields gonality four nonsplit quadric uniform explicit construction",
+          "Faber–Grantham–Howe arXiv:2207.14307 Question 1.3",
+          "Faber–Grantham arXiv:2005.07054 Lemma 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 5.3 has a binary gonality-four example, not these three universal characteristic parametrizations.",
+          "Equations Q=XY+Z²-cW², F=X³+Y³+W³ and characteristic-two variant were not located as an existing theorem in inspected sources."
+        ],
+        "reasoning": "Small-field tables do not imply existence for all q or all extensions; no universal equation database/formula covering the three cases identified.",
+        "searches": [
+          "Faber–Grantham 2020 explicit binary genus-four tables",
+          "Search: \"genus 4\" \"gonality 4\" \"every finite field\"",
+          "Resultary genus-four nonsplit quadric all-field query"
+        ]
+      },
+      "rationale": "The universal genus-four existence assertion is exactly the g=4 instance of Faber–Grantham–Howe Question 1.3, beyond their general gonality bound and small q<=4 examples. Faber–Grantham 2020 gives the canonical quadric criterion and a binary example; it does not supply cubics smooth over every finite field. The new F equations prove existence over all odd and even extensions and characteristic three explicitly, not merely a rewording of nonsplit-quadric geometry. The 2025 published paper continued to frame odd-field smooth cubic sections as a possible route, not a construction theorem. No stronger all-field solution found in targeted searches; unindexed later solutions remain possible.",
+      "residual_risks": [
+        "Later or unindexed article might already provide a universal genus-four construction, especially after the 2025 publication.",
+        "The result solves only genus four, not the higher-genus existence question; no prior-art search is exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence for arbitrary genus-four finite-field q is posed, not proved in inspected original and journal discussion",
+          "evidence": "Question 1.3, genus-four known small-field case, proposed odd characteristic nonsplit smooth cubic approach",
+          "identifier_or_url": "arXiv:2207.14307; DOI:10.2140/ant.2025.19.1637",
+          "material_read": "Primary arXiv full available: introduction through Questions 1.3/1.4, genus-four bounds, discussion of proposed nonsplit-quadric strategy and relevant proof sections; page with question visually examined",
+          "method": "Full-text paper question/theorem comparison with rendered page",
+          "title": "On the Maximum Gonality of a Curve over a Finite Field",
+          "trigger": "Question 1.3 is the precise universal existence problem"
+        },
+        {
+          "assessment": "Supplies nonsplit smooth-quadric gonality criterion and explicit q=2 example; no all-q construction in inspected relevant statements",
+          "evidence": "Lemma 5.1 unique canonical quadric and trigonal ruling, Theorem 5.3 binary genus4 example",
+          "identifier_or_url": "arXiv:2005.07054",
+          "material_read": "Intro, genus-four Section 5, Lemma 5.1 and Theorem 5.3 and associated proof as available; not treated as full-paper independent noncoverage",
+          "method": "Primary arXiv text reading, targeted theorem comparison",
+          "title": "Binary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "Provides quadric criterion, could contain all-field existence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Faber–Grantham–Howe, arXiv:2207.14307, Question 1.3 and publication 2025 discussion",
+        "Faber–Grantham, arXiv:2005.07054, Lemma 5.1 and Theorem 5.3"
+      ],
+      "rationale": "It settles the g=4 case of a published natural existence question by uniform explicit k-rational genus-four canonical models of gonality exactly four, including every prime-power extension in characteristics two and three. Removing dependence on a field-by-field search is a substantive construction with independent utility, not an isolated small example or a known quadric criterion restated.",
+      "residual_risks": [
+        "Does not classify all such curves, and geometric gonality differs from k-gonality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "External human algebraic geometry verification and exhaustive historic priority are not asserted.",
+    "Symbolic all-field gradients, not bounded prime-field tests, are the proof of universal geometric smoothness.",
+    "Frozen public AUDIT.json and METADATA.json both retain scope_run_id internal operational identifiers. No complete safe public replacement bytes with exact blob guards and SHA-256 were prepared. Publication therefore withheld independently of scientific verdict."
+  ],
+  "schema_version": 1
+}
