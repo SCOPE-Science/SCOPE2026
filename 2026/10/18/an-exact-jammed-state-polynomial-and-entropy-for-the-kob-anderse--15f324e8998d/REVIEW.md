@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The physical graph rule is translated into an explicit four-rung local Boolean condition, ensuring a bijection between frozen configurations and weighted closed walks. Exact computation of the 29-state recurrent characteristic polynomial yields the finite-size rational generating function. Perron–Frobenius, the quintic modulus bound and shifted-octic Descartes argument prove the entropy; analytic perturbation proves the particle-density law. The included independent edge-level exhaustive enumerator matches all graded counts through 8 rungs. Risk: this is not a proof about dynamically accessible jammed states; it is only an absorbing-state count.
+## correctness
 
-**Originality — PASS (best-knowledge, not a uniqueness certificate).** The closest foundational Kob–Andersen paper discusses frozen infinite slabs but not the degree-eight entropy polynomial for the two-leg periodic ladder. De Oliveira's ladder model uses a different activated-particle rule and numerical critical densities. Jack's East model and Raj–Oganesyan–Scardicchio's triangular model impose different dynamics. Actual mathematical-results searches for square-ladder KA frozen states, the exact polynomial and aliases identified no covering result; this does not exclude unindexed literature. No prior claim in the available own-record titles or compared claims was the same result. Risk: the exact finite-ladder partition polynomial may already be implicit in an unindexed enumeration.
+PASS
 
-**Value — PASS.** A degree-three quasi-one-dimensional confinement geometry permits an exact finite-volume complexity polynomial and its thermodynamic entropy and typical frozen density. This is a precise physical benchmark for geometrical caging, separating exponentially many possible frozen configurations from typical dynamically reached freezing. This is not a renaming of a known regular-square-lattice result: the ladder's coordination and transverse closure change which local moves are enabled.
+For n>=4 periodic two-leg square ladder with degree-three sites and the exact two-end vacancy Kob–Andersen hop rule, each quadruple (a,b,c,d) passes a local Boolean test iff its central rung and two following leg edges disallow enabled hopping. Independently rebuilt the 64 triple-rung transfer states, counted 108 allowed weighted transitions and identified a single 29-state primitive recurrent class. Independently constructed its exact symbolic characteristic polynomial, verifying x^16 F(x,z)G(x,z) with given octic/quintic, and separately brute-enumerated all rung words n=4..8 and full particle-size distribution with totals 54,129,319,837,2150. The exact trace/log determinant identity yields all-n polynomial Z_n; Perron-Frobenius, Rouché bound on quintic, Descartes root uniqueness for octic x>2 and analytic perturbation prove asymptotic entropy log(2.605506658540588...) per rung and density 0.736222013311... per site. These are all-n analytic consequences of the verified transfer identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison: This is a finite-width natural-model calculation not mechanically read off an unrelated general kinetic constraint statement.
+
+## value
+
+PASS
+
+The complete weighted jammed-state polynomial for a natural exactly solvable width-two kinetic-constraint model simultaneously yields rigorous all-volume counts, Perron entropy and typical particle density. Exact finite-width solvability is useful as a benchmark for kinetic jamming studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
