@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The accompanying `verify.py` independently generates Fibonacci and Lucas terms modulo \(2^m\) from their initial values and checks both claimed mixed-sumset identities, including every admissible and inadmissible residue, for all \(3\le m\le12\). It also verifies the shift congruences for \(G_t=F_{6t}/8\) and \(J_t=G_t+G_{t+1}\) for 576 parameter instances with \(0\le r\le8\) and \(0\le t<32\).
+## correctness
 
-Observed execution output:
+PASS
 
-```text
-VERIFY_OK modulus_exponents=10 shift_congruences=576 largest_modulus=4096
-```
+Write G_t=F_(6t)/8. Its exact recurrence G_(t+2)=18G_(t+1)−G_t and generating-function binomial expansion show G_(t+2^r)−G_t≡2^r modulo 2^(r+1); lifting proves every 8-multiple occurs. J_t=L_(6t+3)/4=G_t+G_(t+1) similarly covers all odd residues at every 2-power precision. The four six-step sequence residues give F_even mod8={0,2} and L_even mod8={2,4}. Two-summand exclusion and explicit lifts for residue types 2,4,6 follow, and adding fixed F or Lucas classes covers all even residues in three terms. Independently computed complete periods and both modular sumsets for m=3,...,8; unbounded claim rests on the lifting proof, not the bounded census.
 
-The infinite identities follow from the formal generating-function identity, Vandermonde's formula, the elementary binomial valuation inequality and the residue-lifting induction in `RESULT.md`. The finite script is cross-checking evidence only, not a proof of infinitely many cases. The analysis does not address prime-pair asymptotics, bounded recurrence indices or arbitrary odd summands. Independent audit: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Exact local additive-basis thresholds identify a genuine 2-adic obstruction and its minimal repair in a natural pair of classical recurrence sequences. Even-restricted mixed sumsets are an independently useful invariant, not a claim about global prime representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

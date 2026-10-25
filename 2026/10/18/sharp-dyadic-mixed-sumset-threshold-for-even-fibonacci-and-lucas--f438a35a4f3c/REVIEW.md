@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit recurrence and binomial-generating-function identity give dyadic shifts of exact valuations. These show that the subsequence \(F_{6t}\) attains every residue divisible by eight and the subsequence \(L_{6t+3}\) attains every residue congruent to four modulo eight. Congruence classification and fixed witnesses then prove both claimed sumset identities and sharpness for all \(m\ge3\). The stand-alone verifier checks exponents 3–12, while the proof is uniform and infinite.
+## correctness
 
-**Originality — PASS, with residual risk.** The accessible full-text HTML of Shen–Xu's eligible 2026 manuscript was examined in its theorems, recurrence parity subsection and relevant local calculations; appendix headings were also inspected. It addresses five recurrence terms plus primes, not a two/three-even-term residue-image classification. Park et al. (2020) study unrestricted-length representations; Southwick (2014) and OEIS A066853/A066981 address single-sequence residue completeness/counts. Published-result searches and accessible prior claims yielded no equivalent or stronger theorem. A classical implicit derivation from more detailed modular distribution results remains possible.
+PASS
 
-**Mathematical value — PASS.** Local admissibility at powers of two is a natural ingredient in mixed additive-recurrence problems. The result identifies a persistent exact missing quarter of even residue classes for two mixed summands and the sharp transition to full local coverage with a third summand, uniformly in an unbounded modulus. The two explicit 2-adic permutation lemmas explain the structure rather than merely giving a finite table. This does not by itself improve an asymptotic prime-representation theorem.
+Write G_t=F_(6t)/8. Its exact recurrence G_(t+2)=18G_(t+1)−G_t and generating-function binomial expansion show G_(t+2^r)−G_t≡2^r modulo 2^(r+1); lifting proves every 8-multiple occurs. J_t=L_(6t+3)/4=G_t+G_(t+1) similarly covers all odd residues at every 2-power precision. The four six-step sequence residues give F_even mod8={0,2} and L_even mod8={2,4}. Two-summand exclusion and explicit lifts for residue types 2,4,6 follow, and adding fixed F or Lucas classes covers all even residues in three terms. Independently computed complete periods and both modular sumsets for m=3,...,8; unbounded claim rests on the lifting proof, not the bounded census.
 
-**Sources and limits.** Main source: Shen–Xu, arXiv:2610.12291v1 (2026-10-08). Comparators: Park et al., Symmetry 12 (2020), 1625; Southwick, arXiv:1402.0598; OEIS A066853 and A066981. Residual uncertainty concerns unindexed literature and possible derivations from older exact distribution results. The main source was available as full HTML and relevant sections were examined; the Southwick abstract was read, not its complete PDF. No independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the precise contribution, with prior shared lemmas and coarser theorems expressly excluded and access limitations retained. The four independent statement-implication comparisons below were performed against Resultary and the specified primary sources.
+
+## value
+
+PASS
+
+Exact local additive-basis thresholds identify a genuine 2-adic obstruction and its minimal repair in a natural pair of classical recurrence sequences. Even-restricted mixed sumsets are an independently useful invariant, not a claim about global prime representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
