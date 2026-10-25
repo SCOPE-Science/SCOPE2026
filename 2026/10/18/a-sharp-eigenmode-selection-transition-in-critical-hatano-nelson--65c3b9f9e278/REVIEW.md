@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized real eigenstates yield the exact score identity \(F_{N,m}(\theta)=\theta^{-2}\operatorname{Var}(j)\); the limiting partition integrals have been integrated and differentiated independently. Every possible sequence of mode indices falls, after subselection, into either a fixed edge-distance regime or a diverging edge-distance regime; the geometric-series/summation-by-parts estimate treats the latter uniformly. The strict algebraic ordering of limiting mode corrections proves the sharp \(2\pi\) crossover and eventually exact endpoint selection on the strong-bias side. The deterministic finite checker provides 2716 independent score, symmetry, integral, derivative, and finite optimizer comparisons. Numerical testing supports but does not certify the infinite statement.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The 2024 Sarkar–Ciccarello–Carollo–Bayat work contains the relevant non-Hermitian eigenstates and QFI expressions (Appendix C) and the \(N^2\) critical enhancement; these are not claimed as new. Liu–Shi–Wu–Yu (2026) prove optimal position measurement and reproduce the eigenstate family, but their main manuscript does not formulate optimization across every mode in the \(u/(N+1)\) window. The 2026 Wiersig–Rotter QFI concerns scattering input-output sensing rather than a single normalized right eigenstate. Actual literature and published mathematical-research searches found no explicit sharp selection theorem or stronger formulation implying it. The 2024 general QFI formula does imply computability of the eventual theorem, so the remaining risk is an unrecognized implicit or unindexed earlier optimization, not independent certification of publication priority.
+PASS
 
-## Value — PASS
-A metrology practitioner must choose which state within a non-Hermitian eigenfamily is best. The result shows that optimizing the leading Heisenberg-scale constant is qualitatively different on the two sides of a universal critical-window threshold, and fully resolves the all-mode optimization including mode indices that grow with system size. This is information absent from a bare quadratic-scaling statement or an optimal-measurement rule. The result does not include experimental preparation cost or a finite-size crossover classification at equality.
+Normalize right Hatano–Nelson sine eigenstates; the derivative of its real normalized amplitude equals (j−E j)/(2θ) times the amplitude, so QFI=Var(j)/θ². Fixed m gives tilted sine² integral; r=min(m,n−m)→∞ gives tilted uniform law by a uniform summation-by-parts O(1/r) bound. Log second derivative yields V_m(u)=V∞(u)+2(u²−(2πm)²)/(u²+(2πm)²)². For |u|<2π all fixed m lose to bulk; for |u|>2π m=1 uniquely maximizes limiting family, with subsequence argument upgrading to finite-N endpoint selection. Equality excluded. Independent 72 finite-score and quadrature tests corroborate only the finite/numerical components.
 
-## Closest sources and limitations
-Sarkar et al., *New Journal of Physics* **26**, 073010 (2024), Appendix C: full text materially examined. Liu et al., *Nature Communications* **17**, 7898 (2026), doi:10.1038/s41467-026-73507-0: complete main text materially examined. Wiersig–Rotter, *Reports on Progress in Physics* **89**, 067501 (2026): abstract-level comparison; distinct scattering formulation. No claim is made that lack of search results proves novelty. The standalone verification only checks finite chains. Possible unindexed coverage and supplemental derivations remain residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical priority assessment: the primary work is credited for model, antecedent formulas and context; the stronger exact theorem is not shown to be explicitly stated or automatically implied by the read material. Inaccessible full texts and older equivalent formulations are recorded explicitly rather than turned into categorical exclusions. The prior per-mode equations alone do not state optimizer selection over sequences of increasing modes; uniform oscillatory asymptotics and strict comparison establish that new claim, conditional on priority.
+
+## value
+
+PASS
+
+Selecting the best eigenstate of a non-Hermitian sensor among all modes is a natural optimization unavailable from merely knowing O(N²) scaling. The exact coefficient, universal |u|=2π crossover, and treatment of modes growing with size give the sharp preparation-independent upper landscape, within explicitly stated eigenstate/postselection scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
