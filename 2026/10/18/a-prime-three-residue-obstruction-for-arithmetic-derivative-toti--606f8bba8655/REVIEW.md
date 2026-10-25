@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For prime-three exponent \(a\ge2\), normalized derivative \(D(n)/n\ge2/3\) exceeds \(\varphi(n)/n<2/3\) whenever other primes occur; the lone prime-power exception is \(9\). The even-factor obstruction follows from the normalized derivative. Modulo \(3\), equality forces every other prime to be \(2\) modulo \(3\), and then its prime-power factors force an odd number of distinct other primes. Both directions of the exact two-support branch are checked. The standalone checker replays 100000-range examples, not the infinite proof.
+## correctness
 
-**Originality — PASS subject to literature risk.** OEIS A166374 covers known two-prime examples and a construction of general two-prime solutions. The 2011 primary paper treats \(D(n)=an+1\); the closest indexed derivative–cototient support record controls \(D(n)-(n-\varphi(n))\). Exact and alias searches did not uncover the general local prime-three signature or its consequence for *arbitrary-exponent* three-support integers. Absence of a search hit is not a uniqueness certificate. The two-support parameterization is explicitly acknowledged as already covered.
+PASS
 
-**Value — PASS.** The equation \(D(n)=\varphi(n)\) already has infinite nonsquarefree solution families, making structural exclusion of prime supports meaningful beyond squarefree parity. The result simultaneously forces exponent one for \(3\), all remaining prime residues, and a parity condition on **distinct** remaining prime supports for any solution. It rules out an entire unbounded three-prime-support slice, despite known two-prime families containing \(3\), giving a reusable local sieve rather than a finite check.
+For n=3^a m, gcd(m,3)=1, the normalized derivative is a/3+∑_{p^e∥m}e/p and normalized totient is (2/3)∏_{p|m}(1−1/p). If m>1, a≥2 contradicts strict bound <2/3; any even m likewise forces a strictly larger derivative than totient. With a=1, n=3m, D(n)=m+3D(m)≡m ≠0 mod 3; equality with 2φ(m) forces no factor p≡1 mod3 in m. All remaining p≡−1 mod3, and reducing m≡2φ(m) mod3 gives (−1)^ω(m)=−1, hence odd support, excluding total support exactly three. m=1 gives n=9, while for m=p^b solve 1/3+b/p=(2/3)(p−1)/p yielding p=3b+2 exactly. A fresh direct sieve through 30000 for every multiple of 3 found hits 9,15,3993, all with required profile. The modular proof, not finite sieve, proves unrestricted exponents.
 
-Closest sources: OEIS A166374, its 2014 two-prime construction comment, Grau–Oller-Marcén (2011), and a mathematically different indexed derivative–cototient gap result. Later equivalent arguments may exist in unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defining equation, sample hits and exact two-support construction are already OEIS A166374 and are not the originality claim. The general modular signature at the prime 3, for any number of other distinct primes and arbitrary exponents, was not stated in the materially reviewed sequence entry or in the unlike Giuga D(n)=an+1 paper. Semantically related derivative-cototient Resultary results use different equations, and absence of older elementary congruence treatments remains a priority risk.
+
+## value
+
+PASS
+
+The natural D(n)=φ(n) Diophantine problem has nontrivial infinite prime-power families; this inexpensive but complete unbounded prime-3 local sieve rules out all 3-supported solutions containing 3 and constrains residue and distinct-support parity in every larger case. It is a motivated structural obstruction rather than a single small counterexample. It does not purport to classify the full equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

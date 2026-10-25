@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T12:11:37.816815Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=3^a m, gcd(m,3)=1, the normalized derivative is a/3+∑_{p^e∥m}e/p and normalized totient is (2/3)∏_{p|m}(1−1/p). If m>1, a≥2 contradicts strict bound <2/3; any even m likewise forces a strictly larger derivative than totient. With a=1, n=3m, D(n)=m+3D(m)≡m ≠0 mod 3; equality with 2φ(m) forces no factor p≡1 mod3 in m. All remaining p≡−1 mod3, and reducing m≡2φ(m) mod3 gives (−1)^ω(m)=−1, hence odd support, excluding total support exactly three. m=1 gives n=9, while for m=p^b solve 1/3+b/p=(2/3)(p−1)/p yielding p=3b+2 exactly. A fresh direct sieve through 30000 for every multiple of 3 found hits 9,15,3993, all with required profile. The modular proof, not finite sieve, proves unrestricted exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giuga study asks D(n)=an+1, while the nearby indexed gap is D(n)−(n−φ(n)), both different from D(n)=φ(n)."
+        ],
+        "reasoning": "Neither other equation provides a stronger theorem specializing directly to this prime-3 residue pattern.",
+        "searches": [
+          "arithmetic derivative equals Euler totient divisible by 3 prime factors residue 2 mod 3 support parity",
+          "arXiv:1103.2298 Giuga Numbers arithmetic derivative",
+          "Resultary sharp support thresholds for arithmetic-derivative cototient gap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query arithmetic derivative equals Euler totient divisible by 3 prime factors residue 2 mod 3 support parity",
+        "OEIS A166374 entire entry",
+        "arXiv:1103.2298 relevant full mathematical text",
+        "OEIS A369252 checked as derivative-of-three-primes table, not full equality result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact p=3 two-support branch is known; neither it nor the distinct Giuga result implies restrictions on support 4,6,... with arbitrary exponents."
+        ],
+        "reasoning": "The new statement follows from a separate normalized-derivative bound and modulo-three factor comparison; it is not a corollary of those cited known classifications.",
+        "searches": [
+          "arithmetic derivative equals Euler totient divisible by 3 prime factors residue 2 mod 3 support parity",
+          "OEIS A166374 2014 formula",
+          "arXiv:1103.2298 Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS lists examples and known two-prime parameterization n=3p^((p−2)/3); no visible statement of odd ω(m) and residue obstruction at arbitrary support."
+        ],
+        "reasoning": "The equivalent congruence form follows from D(3m)≡m and m≡2φ(m) mod 3; the new claim is the universal restriction across any factorization.",
+        "searches": [
+          "arithmetic derivative equals Euler totient divisible by 3 prime factors residue 2 mod 3 support parity",
+          "OEIS A166374 arithmetic derivative Euler totient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A166374 covers 9,15,3993 and 2014 two-support family; separate A369252 lists derivatives of products of three primes, not solutions to D=φ of unrestricted exponents."
+        ],
+        "reasoning": "Finite examples and raw derivative tables do not imply all prime-support residue exclusions; known two-prime branch is explicitly excluded from originality claim.",
+        "searches": [
+          "arithmetic derivative equals Euler totient divisible by 3 prime factors residue 2 mod 3 support parity",
+          "OEIS A166374 full comments initial sequence",
+          "OEIS arithmetic derivative triples A369252"
+        ]
+      },
+      "rationale": "The defining equation, sample hits and exact two-support construction are already OEIS A166374 and are not the originality claim. The general modular signature at the prime 3, for any number of other distinct primes and arbitrary exponents, was not stated in the materially reviewed sequence entry or in the unlike Giuga D(n)=an+1 paper. Semantically related derivative-cototient Resultary results use different equations, and absence of older elementary congruence treatments remains a priority risk.",
+      "residual_risks": [
+        "An elementary modular observation may have appeared in unindexed derivative/totient literature",
+        "The exact n=3p^b classification is known; no novelty or value credited to that branch alone",
+        "Congruence conditions are necessary, not sufficient at higher support"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-prime family and initial values covered, arbitrary-support parity obstruction not visible",
+          "evidence": "9,15,3993; comment constructs n=3p^((p−2)/3)",
+          "identifier_or_url": "https://oeis.org/A166374",
+          "material_read": "Entire rendered OEIS entry including examples, formulas, comments and 2009/2014 chronology",
+          "method": "Compared comments and parametrizations to all-support congruence theorem",
+          "title": "OEIS A166374: Arithmetic derivative equals Euler totient",
+          "trigger": "Exact target Diophantine equation, known hits and two-prime constructions"
+        },
+        {
+          "assessment": "Different Diophantine equation, no covering implication located",
+          "evidence": "Grau–Oller-Marcén (2011), Giuga characterizations",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2298",
+          "material_read": "Relevant full arXiv mathematical article including Giuga equation and Proposition 3",
+          "method": "Read distinction between D(n)=an+1 and φ equality",
+          "title": "Giuga Numbers and the arithmetic derivative",
+          "trigger": "Closest older primary arithmetic derivative paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural D(n)=φ(n) Diophantine problem has nontrivial infinite prime-power families; this inexpensive but complete unbounded prime-3 local sieve rules out all 3-supported solutions containing 3 and constrains residue and distinct-support parity in every larger case. It is a motivated structural obstruction rather than a single small counterexample. It does not purport to classify the full equation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
