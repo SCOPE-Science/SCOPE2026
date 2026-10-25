@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T20:55:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE2026 RESULT.md Git blob 590560d828f29a99f4176e8bd7083e0cd527a854; verify.py 5969812fe1278cbe11375f98edbe5d06855695ab",
+        "Independent checker record2 exhaustively enumerated all 511 words, 255 fibers and one hole at (8,4,4,8)"
+      ],
+      "rationale": "In a fixed (A,B,C) binary Parikh fiber, if one word has subsequence-universality index >=2 then A,B>=2 and 0<C<AB, ensuring every member has index>=2. The greedy arch characterization and two-symbol-per-arch length constraint preclude any spectrum hole through length seven; at length eight an index-four word is exactly four blocks each ab or ba, forcing A=B=4 and C=6+t for t in 0..4. Explicit index-three words fill the would-be hole for C=6,7,9,10. For C=8, all nonnegative x_0..x_4 with sum 4 and weighted sum 8 correspond bijectively to the eight partitions of 8 fitting in 4x4: two have exactly two arches, the other six four arches, yielding exactly {2,4}. A new independent exhaustive implementation tested every binary subsequence pattern for all 511 words of lengths 0..8, found 255 actual fibers, verified greedy arch indices separately, and recovered just that one eight-word noninterval fiber.",
+      "residual_risks": [
+        "Statement is only the first occurrence and uniqueness through length eight; no all-length spectrum classification.",
+        "Finite exhaustive classification is justified by the independent all-length structural cutoff argument, not by extrapolating 511 samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazekas–Huang–Mercaş abstract states exact arithmetic criteria for whether SOME or ALL members of a binary Parikh fiber are k-universal. Richomme supplies a partition parameterization of binary binomial-equivalence classes."
+        ],
+        "reasoning": "The new claim identifies the internal attainable spectrum and first absent intermediate value. Criteria giving the minimum/maximum index do not, absent additional theorem, fix intermediate gaps. The partition model is an ingredient used to enumerate eight words, not a stronger stated gap theorem; complete Fazekas primary text was unavailable, hence residual risk.",
+        "searches": [
+          "arXiv:2610.06717 existential forall universality binary Parikh matrix exact arithmetic characterizations",
+          "arXiv:2510.07159 partitions of 2-binomial-equivalent binary words"
+        ]
+      },
+      "checked_sources": [
+        "Fazekas–Huang–Mercaş, arXiv:2610.06717, abstract-level; full text inaccessible",
+        "Richomme, arXiv:2510.07159, partition-encoding abstract-level",
+        "Published Resultary SCOPE e77c4e8d9f37 complete RESULT.md, global index distribution",
+        "Actual Resultary search for Parikh matrix and universal-subsequence spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target derives noninterval {2,4} by a first-length argument plus an exhaustive eight-word fiber classification; the cited sources provide endpoint predicates, a partition coding, or unconditional index marginals, respectively."
+        ],
+        "reasoning": "No cited prior complete statement directly forces the first missing intermediate index; combining already-known ingredients with a nontrivial first-gap argument is necessary. Yet Fazekas full text could hide an exact eight-letter example, which remains an explicitly inaccessible priority risk.",
+        "searches": [
+          "Fazekas Huang Mercaş arXiv:2610.06717 abstract on existential and universal universality",
+          "Richomme arXiv:2510.07159 partition-encoded binary Parikh classes",
+          "Resultary global binary universality generating-function RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target fiber is indexed by A,B,number of ab-subsequences C, exactly the binary Parikh matrix; the index is the same arch universality index in both sources. Published Resultary law counts index globally over all words, without retaining C."
+        ],
+        "reasoning": "The equivalence of terminology was recognized explicitly. Aggregate histograms or existential/universal index bounds do not alone determine which indices occur in an individual A,B,C fiber.",
+        "searches": [
+          "Subsequence Analysis Problems for Binary Parikh Matrices arXiv:2610.06717",
+          "Closed-form law for binary subsequence universality Resultary SCOPE e77c4e8d9f37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The read Resultary theorem gives generating function (1+z)/(1-z-2uz²) for N_(n,index), marginalizing over A,B,C. It cannot distinguish C=8 from neighboring C=6,7,9,10; its full RESULT.md has no Parikh-matrix conditional table."
+        ],
+        "reasoning": "An index marginal distribution does not imply a joint fiber spectrum; no exact published conditional table of eight exceptional words was located in actual searches. The no-table observation is best-of-knowledge, not global certainty.",
+        "searches": [
+          "Resultary semantic published search binary Parikh matrix 4 a 4 b eight scattered ab index subsequence universality first missing index",
+          "Resultary/2026/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact theorem after statement-level comparison: Fazekas–Huang–Mercaş full paper remains plausible source of an uninspected example or appendix asserting the same first gap; material read is abstract only, so not treated as conclusively noncovering. Previously known ingredients are credited; no unsuccessful search is treated as novelty proof.",
+      "residual_risks": [
+        "Fazekas–Huang–Mercaş full paper remains plausible source of an uninspected example or appendix asserting the same first gap; material read is abstract only, so not treated as conclusively noncovering.",
+        "A differently named fixed-binomial-equivalence partition census may already have identified the same exceptional eight words.",
+        "Access limitation on authorized institutional download: disconnected; no bypass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The global bivariate length/index generating function forgets A,B,C and does not determine the conditional fiber gap",
+          "evidence": "Published RESULT.md: sum N_(n,j)u^jz^n=(1+z)/(1-z-2uz²); no fixed-Parikh matrix refinement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md including theorem, proof, verification and scope",
+          "method": "Retrieved actual GitHub source file with connector and read all sections",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Known full binary universality distribution might dominate fiber spectra"
+        },
+        {
+          "assessment": "Endpoint criteria alone do not logically decide whether intermediate indices are realized; risk from inaccessible full theorem/examples remains",
+          "evidence": "Fazekas–Huang–Mercaş 2026 abstract: existential and universal subsequence universality of fixed A,B,C fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Public abstract specifying arithmetic endpoint characterizations and pattern-probability approximation; primary full text could not be fetched from lawful OA or arXiv; institutional route reported disconnected",
+          "method": "Read arXiv abstract and attempted full-text routes; no full-text exclusion claim",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same fiber object and exact existential/universal indices"
+        },
+        {
+          "assessment": "Partition bijection underlies eight-word enumeration but cannot alone assert no index-three word without classifying the arch index on the partitions",
+          "evidence": "Richomme arXiv:2510.07159, binary 2-binomial classes and partitions.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Primary abstract and known partition correspondence; full article not completely inspected during this run",
+          "method": "Abstract/statement-level mathematical comparison",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Partition encoding equivalent to fixed A,B,C"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE2026 RESULT.md Git blob 590560d828f29a99f4176e8bd7083e0cd527a854; verify.py 5969812fe1278cbe11375f98edbe5d06855695ab"
+      ],
+      "rationale": "The A,B,C fiber is exactly the natural refinement of previously studied existential and universal binary subsequence-universality indices. Demonstrating its attainable-index set need not be an interval, and locating the first possible hole uniquely at the sharp length-eight boundary, gives a finite but nonarbitrary structural obstruction and precise benchmark for future fiber-spectrum work. The precise eight-word constellation is not merely an aggregated known index table.",
+      "residual_risks": [
+        "Does not classify longer fibers or assert a universal phenomenon at each even length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Statement is only the first occurrence and uniqueness through length eight; no all-length spectrum classification.",
+    "Finite exhaustive classification is justified by the independent all-length structural cutoff argument, not by extrapolating 511 samples.",
+    "Fazekas–Huang–Mercaş full paper remains plausible source of an uninspected example or appendix asserting the same first gap; material read is abstract only, so not treated as conclusively noncovering.",
+    "A differently named fixed-binomial-equivalence partition census may already have identified the same exceptional eight words.",
+    "Access limitation on authorized institutional download: disconnected; no bypass.",
+    "Does not classify longer fibers or assert a universal phenomenon at each even length."
+  ],
+  "schema_version": 1
+}
