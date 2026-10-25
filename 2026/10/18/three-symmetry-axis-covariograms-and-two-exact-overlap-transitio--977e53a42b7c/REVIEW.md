@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof identifies a fiber for each of the three translation directions, integrates its clipped length, and obtains all three continuous profiles. The phase proof is global on the entire specified distance interval: a factored first crossing, a concavity argument, a monotone second crossing, and separate strict comparisons exclude the remaining axis. Endpoint values, axis-versus-distance normalization, exact regularity orders and two-way ties are explicitly checked. An independently implemented halfspace-intersection numerical calculation tests the formulas without being used to prove their infinite-parameter assertions. The unrestricted angular optimum is specifically not asserted.
+PASS
 
-## Originality — PASS, with residual priority risk
+Full analytical proof was reconstructed with correct ray/euclidean scale. A(t)=2−2t+t³/3 on [0,1], (2−t)³/3 on [1,2]; F(t)=(1−t)(2−t) on [0,1]; D(t)=2−3t on [0,1/2] and 4(1−t)³ on [1/2,1], zero past respective supports. Axis profile uses fixed (y,z)-fiber length 2(1−max(|y|,|z|)) and distribution H; facet normal uses u=(x+y)/2,v=(x−y)/2 and Jacobian 2; diagonal uses ρ=max(|u|,|v|,|u−v|) hexagon shell density 6s. Fixed Euclidean r rescales F(r/√2), D(r/√3). Exact difference D−F=(r/2)(α−r) below √3/2; polynomial inequalities show D>A to α. F−A has a concave positive bracket to r=1 and strictly decreasing cubic branch 1..√2 with unique zero β; D loses to F until β and to A thereafter. At internal support breaks A is C² not C³, D is C¹ not C². Independent half-space intersection convex-hull volume checks of original 12 inequalities and translated copies match analytic A/F/D for several t, including both nonzero branches. Numerical checks only corroborate the exact algebraic continuum inequalities.
 
-The examined full texts of Averkov–Bianchi (arXiv:math/0702892) and Bianchi (arXiv:0805.1605) establish restricted reconstruction and polyhedral covariogram uniqueness or singularity principles, not these exact rhombic-dodecahedral profiles. The nearest indexed fixed-distance phase theorem for cubes was inspected in full; its Cartesian-product formula cannot directly imply the overlap of this nonproduct polytope. Related FCC/BCC-cell and rhombic-dodecahedron records study boundary clearance or other invariants. No located source states a stronger result covering the present formulas. The mathematically substantive residual risk is an older unindexed diffraction/autocorrelation table or spline formula that might contain the same three profiles. A search is not a proof of global publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The FCC Voronoi cell is a canonical lattice polytope; its covariogram is the directional overlap/chord statistic underlying geometric tomography. The result is not an arbitrary sampled invariant: it determines every positive translation along all three inequivalent symmetry-axis orbits, exact differentiability defects, and a sharp double transition under the natural fixed-distance constraint. It supplies an analytic benchmark for lattice-cell overlap calculations while carefully separating axis selection from unrestricted angular optimization.
+Bianchi proves that covariograms determine three-dimensional convex polytopes, and Averkov–Bianchi study determination from restricted functions; neither inspected theorem tabulates the explicit three ray profiles or the fixed-distance three-axis crossing. The published hypercube covariogram phase diagram relies on Cartesian factorization and concerns a different body. An unindexed crystallography spline or autocorrelation table could contain the same formulas, so priority is best-of-knowledge.
 
-## Scope and limitations
+## value
 
-The result is restricted to the displayed regular rhombic dodecahedron and its three crystallographic axes; no assertion is made for general directions or rotational matching. Independent mathematical audit and exhaustive bibliographic priority checking have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three symmetry-axis autocorrelation/covariogram functions and their exact positive-overlap transition distances are natural lattice-cell geometric invariants. The precise piecewise profiles, differentiability orders and nontrivial D→F→A maximizer sequence within all crystallographic axis types can be used directly in overlap and scattering computations; it is not a claim of full-sphere angular optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
