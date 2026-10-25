@@ -1,0 +1,76 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T17:59:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned source RESULT.md Git blob e84f6e09e71bf5a6e2d9daaac3a9027c46ae6d39",
+        "Pinned source CHECK.py Git blob f7b95f9657b5a194997fd1d017834837bbc612e6",
+        "Classical confluent Vandermonde Hermite interpolation background https://arxiv.org/pdf/1505.03574"
+      ],
+      "rationale": "For all k≥2, a,d>0 and t>0, factor e^{-aℓt} from each pair of rows, subtract a times the amplitude row from the decay-slope row, divide by d and remove a factor x_ℓ=q^ℓ. The resulting paired polynomial value/derivative matrix is the standard confluent Vandermonde; its pairwise |x_r−x_ℓ|^4 factors and geometric-node powers give exactly d^k q^{k(k−1)(a/d+(4k−5)/6)}∏_{h=1}^{k−1}(1−q^h)^{4(k−h)}. The formula is nonzero for q∈(0,1), so full state recovery and minimal k time slots follow. Fixed iid variance gives det I=σ^(−4k)|det H|². The log determinant derivative equals β_k−4Σ h(k−h)q^h/(1−q^h); the sum increases strictly from 0 to ∞, so there is one interior maximum, with determinant zero at both endpoints. For fixed α=a/d>0, c_k=−k log q_k satisfies β_k/k³=(4/k)Σ f_{c_k}(h/k), f_c(x)=x(1−x)/(exp(cx)−1), f_c(0)=1/c. Uniform O(1/k) Riemann-sum error on compact positive c and the strictly negative derivative of 4∫f_c give c_k=c_*+O_α(1/k), c_* unique with 4∫f_{c_*}=2/3, and the stated horizon. k=2 reduces to q=(2a+d)/(2a+5d). Independently recomputed 24 distinct exact rational determinant cases and high-precision root convergence, without using finite checks as proof of all k.",
+      "residual_risks": [
+        "Numerical determinant enumeration and root approximations cannot independently certify the infinite-size theorem; the universal claim is supported by the reconstructed algebraic and Riemann-sum proof.",
+        "The stated optimality is only over equal time spacing, fixed two sensor channels, and fixed iid variance; arbitrary grids or correlated noise would change the design criterion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Liu and Xiu (2026), Predictability of Observables of Dynamical Systems, arXiv:2603.20641v1, Theorems 3.2, 3.6, 3.8 and Appendix A, full relevant HTML.",
+        "Dette, Melas and Wong (2006), Locally D-optimal Designs for Exponential Regression Models, Statistica Sinica 16, 789–803, lawful open-access preprint https://www.econstor.eu/bitstream/10419/22533/1/tr20-04.pdf, Theorem 1 and model setup.",
+        "Bolotnikov (2015), Confluent Vandermonde matrices, divided differences, and Lagrange–Hermite interpolation over quaternions, arXiv:1505.03574, introduction and classical interpolation setup.",
+        "Dette and Neugebauer (1997), Bayesian D-optimal Designs for Exponential Regression Models, DOI:10.1016/S0378-3758(96)00131-0, abstract only.",
+        "Resultary published-record semantic searches, three verbatim queries as recorded in the four named check objects, including closest normalized-path dynamical-sampling finding https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f."
+      ],
+      "rationale": "The full constrained conclusion—an exact 2k-mode/two-simultaneous-sensor equally spaced Fisher determinant, a unique optimal spacing for every k and a fixed-offset universal asymptotic horizon—is not implied by the inspected generic delay-representation, Hermite interpolation, or exponential-regression design theorems. The determinant factorization is classical confluent Vandermonde and is excluded from novelty by itself. Targeted published-record searches found this same finding but not another distinct source covering the combined extremum and limit. Best-of-knowledge PASS with residual priority risk from older design literature.",
+      "residual_risks": [
+        "Older specialist optimal-design literature or unindexed Prony/Hermite sampling formulations could contain an equivalent combined all-k optimal-spacing law; no global novelty guarantee.",
+        "Bayesian exponential-design predecessor inspected only at abstract level, not whole document; it is not a direct same-sensor/same-parameter theorem from the accessible abstract.",
+        "The paired confluent Vandermonde identity is classical; novelty is restricted to the concrete all-k time-optimization/unique optimum and dimension-limit horizon, not the determinant identity alone.",
+        "Resultary ranking is not exhaustive and in itself does not establish originality.",
+        "Numerical determinant enumeration and root approximations cannot independently certify the infinite-size theorem; the universal claim is supported by the reconstructed algebraic and Riemann-sum proof.",
+        "The stated optimality is only over equal time spacing, fixed two sensor channels, and fixed iid variance; arbitrary grids or correlated noise would change the design criterion.",
+        "Applicability requires arithmetic spectral rates, known fixed a,d, two fixed sensor units with equal noise variance, and equal spacings; usefulness for nonuniform experimental designs is not established."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md statement and proof, especially physical sensor/noise normalization and c_star asymptotics.",
+        "https://arxiv.org/html/2603.20641v1",
+        "https://www.econstor.eu/bitstream/10419/22533/1/tr20-04.pdf"
+      ],
+      "rationale": "In a natural stable linear inverse problem with an entire family of arithmetic decay spectra and two physical amplitude/decay-slope sensors, mere observability does not specify experiment timing. The exact Fisher determinant, unique global optimum within equal meshes for every size, and nontrivial spectral-gap-scaled universal finite limiting observation horizon provide a motivated quantitative design result; a researcher could use the exact q_k equation and asymptotic constant to select/benchmark observation windows for growing mode count. This goes beyond a renamed generic matrix determinant, finite table, or cheap normalization check, while explicitly not claiming unconstrained globally D-optimal time grids or a general flow theorem.",
+      "residual_risks": [
+        "Applicability requires arithmetic spectral rates, known fixed a,d, two fixed sensor units with equal noise variance, and equal spacings; usefulness for nonuniform experimental designs is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liu and Xiu (2026), Predictability of Observables of Dynamical Systems, arXiv:2603.20641v1, Theorems 3.2, 3.6, 3.8 and Appendix A, full relevant HTML.",
+    "Dette, Melas and Wong (2006), Locally D-optimal Designs for Exponential Regression Models, Statistica Sinica 16, 789–803, lawful open-access preprint https://www.econstor.eu/bitstream/10419/22533/1/tr20-04.pdf, Theorem 1 and model setup.",
+    "Bolotnikov (2015), Confluent Vandermonde matrices, divided differences, and Lagrange–Hermite interpolation over quaternions, arXiv:1505.03574, introduction and classical interpolation setup.",
+    "Dette and Neugebauer (1997), Bayesian D-optimal Designs for Exponential Regression Models, DOI:10.1016/S0378-3758(96)00131-0, abstract only.",
+    "Resultary published-record semantic searches, three verbatim queries as recorded in the four named check objects, including closest normalized-path dynamical-sampling finding https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claimed D-optimality is conditional on the fixed equally spaced k-time family and two fixed physical sensor channels under iid equal-variance Gaussian observations; no optimality over arbitrary grids or sensor allocations.",
+    "Asymptotics fix α=a/d>0 as k grows; the result does not assert uniformity when α varies with k.",
+    "The confluent Vandermonde determinant itself is classical, not claimed new. Historical priority remains best-of-knowledge, not independently certified.",
+    "24 independent exact determinant examples and high-precision roots supplement rather than replace the symbolic all-k proof.",
+    "Existing verification channels remain unperformed in the inspected source and are not independently attested here."
+  ],
+  "residual_risks": [
+    "Older specialist optimal-design literature or unindexed Prony/Hermite sampling formulations could contain an equivalent combined all-k optimal-spacing law; no global novelty guarantee.",
+    "Bayesian exponential-design predecessor inspected only at abstract level, not whole document; it is not a direct same-sensor/same-parameter theorem from the accessible abstract.",
+    "The paired confluent Vandermonde identity is classical; novelty is restricted to the concrete all-k time-optimization/unique optimum and dimension-limit horizon, not the determinant identity alone.",
+    "Resultary ranking is not exhaustive and in itself does not establish originality.",
+    "Numerical determinant enumeration and root approximations cannot independently certify the infinite-size theorem; the universal claim is supported by the reconstructed algebraic and Riemann-sum proof.",
+    "The stated optimality is only over equal time spacing, fixed two sensor channels, and fixed iid variance; arbitrary grids or correlated noise would change the design criterion.",
+    "Applicability requires arithmetic spectral rates, known fixed a,d, two fixed sensor units with equal noise variance, and equal spacings; usefulness for nonuniform experimental designs is not established."
+  ],
+  "schema_version": 1
+}
