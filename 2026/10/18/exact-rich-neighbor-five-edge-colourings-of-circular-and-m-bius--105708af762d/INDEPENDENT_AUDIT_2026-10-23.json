@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T21:52:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/RESULT.md",
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/VERIFICATION.md",
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/verify.py",
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/AUDIT.json",
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/REVIEW.md"
+      ],
+      "rationale": "For each cubic circular ladder C_n□K2 and twisted Möbius ladder (n>=3), every rich edge has four distinct adjacent edge colors and its own fifth color, forcing chi_rn>=5. In the proposed cyclic edge-colour assignment two rim edges at column i receive a_i and the rung c_i; the all-distinct triple {a_(i-1),a_i,c_i} enforces properness and distinct quadruple {a_(i-1),a_(i+1),c_i,c_(i+1)} makes every horizontal edge rich, including either seam closure. Four stated cyclic state blocks of length 5,6,8,9 share starting state (0,1,3) so concatenate without invalid joins. Lengths 5,6 and n>=8 follow from blocks 8..12 plus multiples of 5; n=3,4,7 use six explicit incidence-checked tables. All edges touch a rich rim edge. Independently reconstructed graph incidence for the six exceptions and four blocks with both twists (14 instances) and confirmed proper and rich-neighbor conditions. Infinite n follows from transition and decomposition, not finite enumeration.",
+      "residual_risks": [
+        "All graphs finite, undirected, simple and n>=3, rich is defined using the OPEN edge neighbourhood, not strong colouring.",
+        "The finite incidence checker alone cannot prove the infinite family; common-state concatenation is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 five-colour theorem excludes adjacent degree-3 vertices; the Oct 2026 theorem allows induced matching of degree-3 vertices. Here every vertex and neighbor has degree 3, so induced max degree is 3, violating both premises. A universal seven-colour bound does not imply five."
+        ],
+        "reasoning": "None of those currently inspected broad theorems covers these maximally adjacent cubic families at five colours.",
+        "searches": [
+          "Chen Tan Zhou 2025 DOI:10.1007/s00373-025-02949-y",
+          "Kong Lin Wang arXiv:2610.21868 Theorem 1.2",
+          "Kashima et al arXiv:2610.16446 general upper bound"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.21868v1",
+        "https://doi.org/10.1007/s00373-025-02949-y",
+        "https://doi.org/10.1016/j.disc.2023.113803",
+        "Resultary indexed semantic search on exact object/parameter/claim under appropriate aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conjecture asks five colours for all connected subcubic graphs except K4. The known 2024/2025 results yield existence in other structural classes; a seven-colour bound is strictly weaker."
+        ],
+        "reasoning": "The current infinite-family construction supplies a previously unproved sharp special case, not the open general conjecture. Lack of full text of initial literature remains a priority uncertainty, not noncoverage proof.",
+        "searches": [
+          "arXiv:2610.21868v1 theorem hypotheses",
+          "arXiv:2610.16446 7-colour cubic bound",
+          "2024 Petruševski-Skrekovski abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_n=C_n□K2 is the cubic prism or circular ladder; twisted cycle closure is the Möbius ladder; the published definition uses exactly the four-edge open neighbourhood."
+        ],
+        "reasoning": "The object aliases were explicitly checked. Normal/strong edge-colouring has different global requirements; general statements about them do not automatically imply every edge has a rich neighbour under five colours.",
+        "searches": [
+          "Resultary: rich neighbor five edge coloring circular ladders Möbius ladders cubic",
+          "arXiv:2610.21868 Introduction: prisms and rich edge versus normal edge colouring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary hits for these graphs concern independence, Lovász neighbourhood or three-cut topological complexes, not rich-neighbour edge counts; n=3 Möbius is K_{3,3}, which an isolated known bipartite case may already cover."
+        ],
+        "reasoning": "Possible finite exceptional cases or numerical tables do not entail the two infinite n-parametric five-colour families; no covering exact tabulation found in searched index.",
+        "searches": [
+          "Resultary: rich-neighbor chromatic index circular ladder prism graph Cartesian Cn K2",
+          "Resultary: Möbius ladder rich-neighbor five edge coloring"
+        ]
+      },
+      "rationale": "The exact mathematical conclusions compared to prior results were not identified as an implication of an inspected stronger result; best-of-knowledge, not exhaustive priority certification. Relevant full-text access limitations and aliases recorded.",
+      "residual_risks": [
+        "2024 foundational article and complete 2025 full text inaccessible; possible hidden special-family theorem not excluded.",
+        "Normal edge-colouring of prism or generalized Petersen aliases could contain an equivalent construction under different language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its Delta(G[V3])<=1 condition is false: cubic ladders have Delta(G[V3])=3.",
+          "evidence": [
+            "Abstract; Introduction definition; main theorem hypothesis Delta(G[V3])<=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21868v1",
+          "material_read": "Full openly accessible Oct 15, 2026 article introduction, exact definitions, theorem and proof hypotheses",
+          "method": "Read primary arXiv HTML theorem and inspect applicability to cubic ladders",
+          "title": "Rich-neighbor 5-edge-colorings of subcubic graphs whose 3-vertices induce a matching",
+          "trigger": "Recent same invariant five-colour theorem, broader graph class"
+        },
+        {
+          "assessment": "No-adjacent-cubic condition excludes these ladders, but any unadvertised special case in unread full text remains unchecked.",
+          "evidence": [
+            "Abstract: no adjacent degree-three vertices"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02949-y",
+          "material_read": "Publisher bibliographic abstract and cited main theorem condition; complete article was not accessed",
+          "method": "Compare published advertised condition with all-cubic instances",
+          "title": "On the Rich-Neighbor Edge-Colorings of Subcubic Graphs",
+          "trigger": "Earlier subcubic five-colour result"
+        },
+        {
+          "assessment": "Introduced definition and conjecture; a hidden prism/Möbius result cannot be excluded from unread pages.",
+          "evidence": [
+            "2024 Discrete Mathematics 347 article 113803; cited in arXiv:2610.21868 Introduction"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2023.113803",
+          "material_read": "Bibliographic and abstract level only plus definitions quoted in later accessible full paper; original full article inaccessible",
+          "method": "Priority-risk comparison, without claiming unread pages absent",
+          "title": "Proper edge-colorings with a rich neighbor requirement",
+          "trigger": "Original exact notion and conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/18/exact-rich-neighbor-five-edge-colourings-of-circular-and-m-bius--105708af762d/RESULT.md",
+        "https://arxiv.org/html/2610.21868v1",
+        "https://doi.org/10.1007/s00373-025-02949-y",
+        "https://doi.org/10.1016/j.disc.2023.113803"
+      ],
+      "rationale": "The same conjectured optimal palette is attained on two natural unbounded and structurally different cubic families with maximum adjacency among degree-three vertices, outside prior five-colour hypothesis classes. A reusable common-state finite construction and exact exceptional certificates settle a motivated family boundary rather than an arbitrary small-graph table.",
+      "residual_risks": [
+        "General subcubic conjecture remains unsolved; small K3,3 case alone is not new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All graphs finite, undirected, simple and n>=3, rich is defined using the OPEN edge neighbourhood, not strong colouring.",
+    "The finite incidence checker alone cannot prove the infinite family; common-state concatenation is essential.",
+    "2024 foundational article and complete 2025 full text inaccessible; possible hidden special-family theorem not excluded.",
+    "Normal edge-colouring of prism or generalized Petersen aliases could contain an equivalent construction under different language.",
+    "General subcubic conjecture remains unsolved; small K3,3 case alone is not new.",
+    "Frozen public-facing AUDIT.json and METADATA.json retain private operational scope_run_id identifiers. Actual complete neutral sanitization edits with content bytes, exact blob guards and content SHA-256 have not been prepared, so no public publication permitted despite full scientific PASS."
+  ],
+  "schema_version": 1
+}
