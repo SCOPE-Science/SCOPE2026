@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Definition-level reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_dual_gp.py` from the directory containing the packaged standalone Python file. Python standard library is sufficient. The program independently constructs each graph's vertices and adjacency, runs breadth-first search for all vertex-to-vertex distances, and checks whether any selected graph vertex lies internally on a shortest path whose endpoints are both in the selected set or both in its complement. It then compares this geometric definition with the star/triangle classification.
+## correctness
 
-Complete enumeration is performed for \(n=3,4,5,6\), totaling \(33864\) candidate subsets; the resulting nonzero size distributions are \(\{0:1,1:3,2:3,3:1\}\), \(\{0:1,3:8\}\), \(\{0:1,4:5\}\), and \(\{0:1,5:6\}\). Fixed-seed sampling probes \(5009\) additional masks for \(n=7\) and \(5010\) for \(n=8\). The exact output is included in `verification_output.txt`.
+PASS
 
-This verifier is not a proof for arbitrary orders: all infinite quantifiers are settled by the case analysis in `RESULT.md`. The listed status reports only self-review; no independent audit or certification was undertaken.
+Dual general position is GP(X) plus convex complement. For diameter-two T_n, disjoint K_n edges ab,cd have four cross edges as all geodesic midpoints. Fix chosen uv and define missing incident-edge label sets A,B. Convexity of complement prohibits distinct b∈A,d∈B because ub,vd have selected midpoint uv. If either missing set empty, one selected star is complete and any extra avoiding-center edge makes a selected geodesic. If both nonempty, forced A=B={w}; for n≥5 distinct remaining p,q create three selected edges on a shortest path, contradiction. For n=4 this leaves only a triangle; verify stars/triangles by clique and convex complement. Independently enumerated every subset of T_n for n=3..6, 33864 masks total, confirming histograms 1+3z+3z²+z³, 1+8z³, 1+5z⁴, 1+6z⁵. General n proof is structural, not finite interpolation.
+
+## originality
+
+PASS
+
+Previously published foundational dual-GP characterization and ordinary lower-general-position classification for line graphs are credited. Ordinary GP maximal configurations cannot substitute for the extra convex-complement requirement; a separate complete-multipartite dual GP formula addresses a different family and does not imply triangular-graph result for n≥5.
+
+## value
+
+PASS
+
+An all-order classification of dual GP sets of a central graph family with striking all-or-nothing size spectrum and unbounded missing-cardinality gaps. The proof isolates a genuine geometric geodesic-convexity obstruction, rather than a small numerical specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

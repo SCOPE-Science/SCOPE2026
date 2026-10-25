@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every disjoint pair of missing base edges has all its common neighbors in the complement when the complement is convex. Fixing an included base edge \(uv\), this forces the missing-neighbor sets at \(u\) and \(v\) either to have an empty side (yielding a full star) or to be the same singleton. Ordinary general position rules out additions to a full star for \(n\geq4\), rules out the singleton case for \(n\geq5\), and forces an exact triangle in that case for \(n=4\). Complements of the remaining stars and exceptional triangles are geodesically convex. The proof checks all boundaries \(n\geq3\), distinguishes selected from missing endpoints, and does not extrapolate an infinite claim from finite tests. The independent-programming-path BFS verifier reproduces the predicted families exhaustively through \(n=6\), with additional sampled orders.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Dual general position is GP(X) plus convex complement. For diameter-two T_n, disjoint K_n edges ab,cd have four cross edges as all geodesic midpoints. Fix chosen uv and define missing incident-edge label sets A,B. Convexity of complement prohibits distinct b∈A,d∈B because ub,vd have selected midpoint uv. If either missing set empty, one selected star is complete and any extra avoiding-center edge makes a selected geodesic. If both nonempty, forced A=B={w}; for n≥5 distinct remaining p,q create three selected edges on a shortest path, contradiction. For n=4 this leaves only a triangle; verify stars/triangles by clique and convex complement. Independently enumerated every subset of T_n for n=3..6, 33864 masks total, confirming histograms 1+3z+3z²+z³, 1+8z³, 1+5z⁴, 1+6z⁵. General n proof is structural, not finite interpolation.
 
-Tian–Klavžar, arXiv:2402.17338v1, defines the dual variant and proves the generic convex-complement criterion but does not enumerate triangular-graph dual sets. Di Stefano et al., arXiv:2306.09965v1, Theorem 5.2, describes a distinct *lower ordinary* general-position invariant of exactly the same line graph; the ordinary maximal-configuration characterization does not imply the convex-complement restriction. The earlier line-graph ordinary-general-position literature likewise concerns the larger feasible family. Published complete-multipartite results can encompass the exceptional \(n=4\) instance; no novelty is claimed for this finite boundary. The genuine contribution is the arbitrary-order \(n\geq5\) classification and exact polynomial. Targeted aliases and implication searches found no covering source, but unindexed equivalent work remains possible and absence of retrieval is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The result completely resolves a nonhereditary geometric set property for the classical strongly regular triangular graphs, rather than giving only its maximum size. Every nonempty feasible set must be a global star of size \(n-1\), so there are exactly \(n\) solutions and no feasible nonempty set at any of the \(n-2\) smaller sizes. The exact enumerator and unbounded cardinality gap identify a substantial structural obstruction supplied by complementary geodesic convexity and permit direct comparison with known ordinary and lower general-position parameters.
+Previously published foundational dual-GP characterization and ordinary lower-general-position classification for line graphs are credited. Ordinary GP maximal configurations cannot substitute for the extra convex-complement requirement; a separate complete-multipartite dual GP formula addresses a different family and does not imply triangular-graph result for n≥5.
 
-## Limitations and provenance
+## value
 
-The literature overlap comparison is not a comprehensive world-wide priority certification. The self-review verifies the mathematical argument and new packaged verifier; independent scientific assessment remains pending. The 2024 source predates the applicable middle-period cutoff, and its first public arXiv date, not a later publication date, is used for scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-order classification of dual GP sets of a central graph family with striking all-or-nothing size spectrum and unbounded missing-cardinality gaps. The proof isolates a genuine geometric geodesic-convexity obstruction, rather than a small numerical specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
