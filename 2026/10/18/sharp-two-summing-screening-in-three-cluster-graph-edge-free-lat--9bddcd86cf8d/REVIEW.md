@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hilbert weak-two constraint converts the lattice norm to unrestricted nuclear-norm optimization, which is exactly a weighted graph-Laplacian square-root trace. Concavity permits full graph-symmetry averaging without assuming a symmetric optimizer; the four eigenspaces are calculated exactly. Strict one-variable concavity and explicit endpoint inequalities give the integer threshold, with no numerical extrapolation. Executable supplementary checks comprise 36 exact rational matrix spectra, 13 unrestricted numerical edge-weight optimizations, and 15 polar-factor witnesses. The rigorous proof, not the finite tests, establishes the theorem for all stated dimensions.
+## correctness
 
-**Originality — PASS, with risk.** The 2021 free two-convex lattice paper gives the general norm but not this graph evaluation. A previous complete-bipartite edge norm supplies the screened endpoint only; general graph spectral estimates do not determine the unscreened optimum. Published Laplacian-energy-like work concerns fixed unweighted graphs. Most importantly, the published full-text minimum Löwner ellipsoid of the same \(K_{a,a,b}\) symmetric edge polytope maximizes log determinant and screens at \(b\ge2a+1\), whereas the present absolutely-two-summing norm maximizes trace square root and screens at \(b\ge2a+2\). The exact statements are not equivalent or nested. Equivalent results in unindexed optimization or operator-ideal literature remain possible.
+PASS
 
-**Mathematical value — PASS.** This is a complete sharp evaluation of a natural norm over infinitely many three-cluster graph-generated lattice elements. The one-integer shift versus a distinct established spectral design problem and norm equality despite strict pointwise inequality reveal genuine geometry beyond renaming or a finite lookup. Real Hilbert generators, exponent two, and two equal graph classes delimit the scope.
+The domain is real Euclidean R^{2a+b}, the lattice element is the supremum of all absolute graph-edge differences for K_{a,a,b}, and the FBL^{(2)} norm uses the weak-l2 test-family contraction constraint. Expanding l2 duality over individual maximally active edges gives a nuclear norm of a weighted incidence matrix. Its squared singular values are precisely a probability-weighted graph Laplacian L_mu; this proves pi_2(D_G)=max_mu tr sqrt(L_mu) without any symmetry assumption. Matrix square-root trace is concave; averaging over the graph automorphism group restricts the objective to two edge orbits parametrized by s∈[0,1]. Direct invariant subspace diagonalization gives eigenvalues (1+s)/(2a) of mult 2a-2, (1-s)/b of mult b-1, (1+3s)/(2a), and (2a+b)(1-s)/(2ab); the zero constant eigenvalue is excluded. Their square roots produce exactly Phi_{a,b}(s). Strict concavity yields unique optimal orbit mass. The derivative at s=0 compares H_{a,b} with (2a+1)/sqrt(2a); verified monotonic H(b) and bracketing b=2a+1 and 2a+2 give the stated sharp integer threshold. At s=0 the trace matches the complete bipartite graph; for s>0 strict concavity forces larger norm. The witness z=(1,-1,0) across parts confirms different lattice functions. Independently assembled six rational/float Laplacian spectra and nine neighboring integer cutoffs and checked the exact analytic derivative sign. These tests corroborate, rather than replace, nuclear-norm duality and infinite-parameter threshold proof.
 
-**Limitations.** No assertion covers general exponents or arbitrary multipartite graphs. The public computational verification is finite, and bibliographic priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The publicly indexed exact Löwner-ellipsoid computation solves the SAME K_{a,a,b} edge-orbit Laplacian eigenvalues but maximizes log determinant, not trace sqrt. Its screening begins at b>=2a+1, whereas the current free-lattice two-summing screening starts at b>=2a+2, so prior metric ellipsoid implication is demonstrably insufficient. The FBL2 norm definition and its summing-map relation are prior, but they do not supply the new spectral-design optimization or cutoff.
+
+## value
+
+PASS
+
+Two-summing norms of finite graph incidence operators are natural operator-ideal invariants, while free-lattice edge generators are canonical examples. A nontrivial sharp integer screening criterion in which pointwise extra generators remain active but norm becomes insensitive distinguishes this invariant from an already solved Löwner design on the same graph and supplies a structurally motivated exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

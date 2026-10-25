@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T19:17:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/sharp-two-summing-screening-in-three-cluster-graph-edge-free-lat--9bddcd86cf8d/RESULT.md",
+        "2026/10/18/sharp-two-summing-screening-in-three-cluster-graph-edge-free-lat--9bddcd86cf8d/verify.py"
+      ],
+      "rationale": "The domain is real Euclidean R^{2a+b}, the lattice element is the supremum of all absolute graph-edge differences for K_{a,a,b}, and the FBL^{(2)} norm uses the weak-l2 test-family contraction constraint. Expanding l2 duality over individual maximally active edges gives a nuclear norm of a weighted incidence matrix. Its squared singular values are precisely a probability-weighted graph Laplacian L_mu; this proves pi_2(D_G)=max_mu tr sqrt(L_mu) without any symmetry assumption. Matrix square-root trace is concave; averaging over the graph automorphism group restricts the objective to two edge orbits parametrized by s∈[0,1]. Direct invariant subspace diagonalization gives eigenvalues (1+s)/(2a) of mult 2a-2, (1-s)/b of mult b-1, (1+3s)/(2a), and (2a+b)(1-s)/(2ab); the zero constant eigenvalue is excluded. Their square roots produce exactly Phi_{a,b}(s). Strict concavity yields unique optimal orbit mass. The derivative at s=0 compares H_{a,b} with (2a+1)/sqrt(2a); verified monotonic H(b) and bracketing b=2a+1 and 2a+2 give the stated sharp integer threshold. At s=0 the trace matches the complete bipartite graph; for s>0 strict concavity forces larger norm. The witness z=(1,-1,0) across parts confirms different lattice functions. Independently assembled six rational/float Laplacian spectra and nine neighboring integer cutoffs and checked the exact analytic derivative sign. These tests corroborate, rather than replace, nuclear-norm duality and infinite-parameter threshold proof.",
+      "residual_risks": [
+        "Finite numerical/modular experiments corroborate but do not substitute for analytic or integer-exact proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary free-lattice article states general supremum norm, but not this tripartite graph orbit optimization.",
+          "Löwner primary RESULT.md optimizes F(t)=(2a-2)log(1+t)+log(1+3t)+b log(1-t), derivative Fprime(0)=2a+1-b."
+        ],
+        "reasoning": "Broader foundational frameworks supply duality but no solved special combinatorial optimization; the known exact graph result gives different cutoff and hence cannot dominate this statement.",
+        "searches": [
+          "Jardon-Sanchez et al Free Banach lattices under convexity conditions full Springer article",
+          "Resultary: exact Loewner ellipsoid and sharp screening transition for K_{a,a,b} symmetric edge polytopes"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s13398-021-01155-8",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-sharp-screening-transition-for-k-a-a--2ec3472028bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Löwner geometry requires max det L_mu and equal-contact leverage; its K_{a,a,b} design is s=0 already when b>=2a+1.",
+          "Present problem requires max tr sqrt(L_mu), whose one-sided derivative changes sign only for b>=2a+2."
+        ],
+        "reasoning": "The adjacent but distinct cutoffs prove a derivative/optimization gap; neither the prior ellipsoid theorem nor the general norm definition supplies the current edge-screening classification.",
+        "searches": [
+          "Published SCOPE Löwner ellipsoid RESULT.md primary full text",
+          "Jardon-Sanchez et al article p-convex norm Eq (1.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Free 2-convex norm duality identifies exactly the absolutely two-summing graph-edge operator and a trace-square-root Laplacian design.",
+          "Published related Löwner problem uses weighted Laplacian covariance but the design objective is log det."
+        ],
+        "reasoning": "Checked graph-edge lattice norm, absolutely 2-summing incidence norm, weighted Laplacian nuclear-norm design as equivalent terms; ellipsoid covariance agreement does not imply objective agreement.",
+        "searches": [
+          "Resultary: exact Loewner ellipsoid screening transition K_{a,a,b} free two convex lattice norm",
+          "arXiv:2101.03510 free Banach lattices under convexity conditions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact Löwner table does share four eigenvalue classes but tabulates determinant, not summed square roots.",
+          "Threshold 2a+1 for Löwner versus 2a+2 for two-summing is an explicit incompatibility of objective values."
+        ],
+        "reasoning": "No known-table recomputation: the equal eigenvalues alone do not determine the unique maximizer of a different strictly concave functional.",
+        "searches": [
+          "Resultary: exact Loewner ellipsoid screening transition K_{a,a,b} free two convex lattice norm",
+          "Resultary: graph edge difference absolutely p summing norm trace square root"
+        ]
+      },
+      "rationale": "The publicly indexed exact Löwner-ellipsoid computation solves the SAME K_{a,a,b} edge-orbit Laplacian eigenvalues but maximizes log determinant, not trace sqrt. Its screening begins at b>=2a+1, whereas the current free-lattice two-summing screening starts at b>=2a+2, so prior metric ellipsoid implication is demonstrably insufficient. The FBL2 norm definition and its summing-map relation are prior, but they do not supply the new spectral-design optimization or cutoff.",
+      "residual_risks": [
+        "A general optimal experimental-design theorem specialized to graph incidence vectors might reproduce trace-sqrt optimization without matching terminology; no directly covering statement located.",
+        "Scope restricted to real p=2 and K_{a,a,b}, not arbitrary graphs or complex lattice spaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the defining norm, does not assert tripartite cutoff in inspected text",
+          "evidence": "The defining constraint is a supremum over finite families of dual vectors; the graph-specific spectral optimization is additional mathematics.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13398-021-01155-8",
+          "material_read": "Open publisher full primary article, early definitions and norm equation (1.1), p-convex construction and p-summing framework",
+          "method": "Springer publisher HTML full text",
+          "title": "Free Banach lattices under convexity conditions",
+          "trigger": "source of FBL2 norm and its operator-ideal interpretation"
+        },
+        {
+          "assessment": "Shared four eigenvalues but different optimizer and threshold",
+          "evidence": "Published log-determinant objective Fprime(0)=2a+1-b gives screen b>=2a+1; the current trace-root derivative gives b>=2a+2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-sharp-screening-transition-for-k-a-a--2ec3472028bb",
+          "material_read": "Full primary published RESULT.md Git blob 15df5e95cee294ada1cda96d9b3194fbbbb1e16b, all theorem, proof and cutoff paragraphs",
+          "method": "Authenticated GitHub public repository read",
+          "title": "Exact Löwner ellipsoid and sharp screening transition for K_{a,a,b} symmetric edge polytopes",
+          "trigger": "exact same graph and Laplacian spectrum; plausible dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s13398-021-01155-8"
+      ],
+      "rationale": "Two-summing norms of finite graph incidence operators are natural operator-ideal invariants, while free-lattice edge generators are canonical examples. A nontrivial sharp integer screening criterion in which pointwise extra generators remain active but norm becomes insensitive distinguishes this invariant from an already solved Löwner design on the same graph and supplies a structurally motivated exact classification.",
+      "residual_risks": [
+        "Value assessment is confined to the exact claimed object/family and is not a claim of general classification beyond its scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent assessment based on explicitly reconstructed mathematics and actual package files; repository script outputs are corroboration, not proof.",
+    "No worldwide novelty guarantee; inaccessible plausible primary source was recorded where applicable.",
+    "No complete sanitized public-file replacements were staged; publication must remain withheld."
+  ],
+  "schema_version": 1
+}
