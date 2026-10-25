@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=3 and 3<=k<=2n-3: (i) every complement of size >= k+2 contains a disconnected k-set via a degree-at-most-two vertex; (ii) complement of size k has obstruction exactly when connected; (iii) every deletion-robust (k+1)-set is a full consecutive 2-by-m block, counted by n-m+1; (iv) two singleton and one double occupancy states give the rational C(z,t) by an exact two-state recurrence; (v) reduced Euler identity and published all-k shellability yield the integer top-sphere rank. A pure-Python standalone finite checker independently verifies the recurrence counts against direct enumeration on 21 (n,k) pairs and face Euler counts for n<=5. Those checks are supporting evidence, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Paper [1] computes k=3 and k=4 and a finite table for k=5 and k=6; Paper [2] proves all-k shellability without a sphere-count formula.",
+        "published-finding corpus high-girth theorem applies only with girth >= k+2; ladders have girth four and k >= 3."
+      ],
+      "reasoning": "All-k shellability is a topological input, not a count of spheres. The full rank formula needs the new exact enumerator for connected k-vertex induced subsets and robust (k+1)-vertex subsets; high-girth coverage does not apply to the ladder.",
+      "searches": [
+        "graph cut complexes of two-row grid 2 by n full Betti polynomial generating series",
+        "ordinary cut complex ladder graph all k Betti closed formula binomial connected vertex subsets n ladders rational generating function",
+        "arxiv:2407.08158v1",
+        "arxiv:2408.07646v3",
+        "2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b"
+      ]
+    },
+    "checked_sources": [
+      "Bayer et al., arXiv:2407.08158v1, Theorem 2.16, Proposition 2.17, Section 5 and Table 3 (full text relevant pages 5-6, 15-21).",
+      "Chandrakar et al., arXiv:2408.07646v3, Theorem 5.6 on page 21 and Section 5 proof (relevant pages 19-23).",
+      "published-finding corpus searches: ordinary k-cut complexes of ladder graph P_n cartesian K_2 exact top Betti numbers all k via rational generating function of connected induced subsets; graph cut complexes of two-row grid 2 by n full Betti polynomial generating series; connectivity enumerator for ladder graph induced connected subsets and biconnected intervals Euler characteristic cut complex; ordinary cut complex ladder graph all k Betti closed formula binomial connected vertex subsets n ladders rational generating function; cut complex of 2 by n ladder graph sphere ranks generating function n k 2024 2025 2026; connected k-vertex induced subgraphs ladder graph generating function a b c word transfer matrix"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paper [1], Theorem 2.16 and Proposition 2.17 present Euler-characteristic frameworks conditional on face-poset hypotheses; Section 5 gives limited ladder calculations.",
+        "Paper [2], Theorem 5.6 supplies shellability for the precise ordinary cut complexes, but no bivariate connected-subset enumerator."
+      ],
+      "reasoning": "The combination of an Euler expression and shellability alone does not give the displayed explicit coefficient: one must establish the full codimension-two face classification for every k, count deletion-robust sets, solve the three-state transfer system, and derive the rational function. Thus the exact new formula is not directly stated or numerically implied by the inspected cited results. It could be regarded as an enumerative extension of their methods, not a new shellability theorem.",
+      "searches": [
+        "arxiv:2407.08158v1",
+        "arxiv:2408.07646v3",
+        "ordinary k-cut complexes of ladder graph P_n cartesian K_2 exact top Betti numbers all k via rational generating function of connected induced subsets",
+        "cut complex of 2 by n ladder graph sphere ranks generating function n k 2024 2025 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayer et al., arXiv:2407.08158v1, Theorem 2.16, Proposition 2.17, Section 5 and Table 3 (full text relevant pages 5-6, 15-21).",
+        "Chandrakar et al., arXiv:2408.07646v3, Theorem 5.6 on page 21 and Section 5 proof (relevant pages 19-23).",
+        "Closest semantic hits include total cut complexes and circular-ladder cut complexes, whose facet definitions or graphs differ."
+      ],
+      "reasoning": "Checked reformulations as a rational connected-induced-subgraph enumerator, a two-row ordinary cut-complex Betti polynomial, and a face-poset Euler formula. The inspected papers supply parts of the argument but not the all-(n,k) rational coefficient identity. Total cut versus ordinary cut and open versus circular ladders cannot be equated.",
+      "searches": [
+        "ordinary k-cut complexes of ladder graph P_n cartesian K_2 exact top Betti numbers all k via rational generating function of connected induced subsets",
+        "graph cut complexes of two-row grid 2 by n full Betti polynomial generating series",
+        "connectivity enumerator for ladder graph induced connected subsets and biconnected intervals Euler characteristic cut complex",
+        "arxiv:2407.08158v1",
+        "arxiv:2408.07646v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Paper [1], Table 3: five-cut ranks 13,85,270,636 at n=4,5,6,7; these agree with the new formula but comprise four specific cases.",
+        "The published-finding corpus total three-cut ladder character concerns a different complex; the circular ladder entry concerns a different graph."
+      ],
+      "reasoning": "Checked exact k=5 numerical entries and nearby previously published claims, including the first four values. Matching finite values are covered special cases and are not presented as novel; the result is the all-parameter bivariate generating function and rank classification.",
+      "searches": [
+        "graph cut complexes of two-row grid 2 by n full Betti polynomial generating series",
+        "ordinary cut complex ladder graph all k Betti closed formula binomial connected vertex subsets n ladders rational generating function",
+        "arxiv:2407.08158v1",
+        "2026/10/11/SCOPE-parity-twisted-square-pair-representation-of-total-three-cut-lad--e24772158f9a",
+        "2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449"
+      ]
+    },
+    "rationale": "The inspected published grid papers provide the finite five-cut table and the separate all-parameter shellability statement, but neither provides the uniform bivariate rational enumerator or complete sphere-rank formula. Semantic published-finding corpus queries and direct full-text comparisons revealed related total-cut and circular-ladder claims but none implying the stated formula.",
+    "residual_risks": [
+      "The exact rational transfer enumerator might occur in unindexed combinatorics literature under connected induced-set polynomial terminology.",
+      "Some indexed published-finding corpus project full texts were inaccessible; comparisons against those entries use title and summary, not a claim of full-text noncoverage.",
+      "Later revisions of cited primary papers may differ from their 2024 v1 versions; the shellability theorem explicitly used is cited to v3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP_NOT_FULL_COVERAGE",
+        "evidence": [
+          "Thm2.16/Prop2.17 give conditional Euler formulas; Table3 gives k5 ranks for n=4..7, but no coefficient generating function for all n,k."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Title/abstract/primary MSC (PDF page 0), Theorem 2.16 and Proposition 2.17 (pages 5-6), Section 5 grid arguments and Table 3 (pages 15-21)",
+        "method": "Full PDF text with rendered page inspection for the title and ladder Betti table",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Same ordinary cut complex, same two-row grid, all published finite Betti entries and Euler tools"
+      },
+      {
+        "assessment": "SHELLABILITY_ONLY_NOT_RANK_FORMULA",
+        "evidence": [
+          "Thm 5.6 states Delta_k(G2xn) shellable for 3<=k<=2n-3, not the all-k sphere ranks or rational connected-subset enumerator."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.07646",
+        "material_read": "Abstract/introduction/definitions (PDF pages 0-2), Section 5, Theorem 5.6 and its proof (pages 21-23)",
+        "method": "Full PDF text with rendered title-page inspection; PDF is v3 dated 2026-01-12; v1 first public 2024-08-14",
+        "title": "Topology of total cut complexes and cut complexes of grid graphs",
+        "trigger": "Known uniform shellability for ordinary two-row cut complexes could dominate the proposed homotopy result"
+      },
+      {
+        "assessment": "DIFFERENT_TOTAL_CUT_COMPLEX_WITH_RESIDUAL_ACCESS_RISK",
+        "evidence": [
+          "Total three-cut facets complement independent sets, whereas ordinary k-cut facets complement disconnected k-sets for all k."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-parity-twisted-square-pair-representation-of-total-three-cut-lad--e24772158f9a",
+        "material_read": "published-finding corpus title and abstract-level scientific summary only; direct GitHub full-text fetch was disabled",
+        "method": "published-finding corpus semantic discovery and comparison of named graph/complex; no full-text finding inspection claimed",
+        "title": "Parity-twisted square-pair representation of total three-cut ladder homology",
+        "trigger": "Closest indexed ladder topology claim"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_CIRCULAR_LADDER_WITH_RESIDUAL_ACCESS_RISK",
+        "evidence": [
+          "Graph C_n square K2 differs from path ladder P_n square K2; also only k=3."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449",
+        "material_read": "published-finding corpus title and abstract-level scientific summary only; direct GitHub full-text fetch was disabled",
+        "method": "published-finding corpus semantic discovery and graph comparison; no full-text inspection claimed",
+        "title": "Sphere-wedge topology of three-cut complexes of circular ladders",
+        "trigger": "Closest indexed ordinary three-cut claim on ladder-like graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "916dd378-cfd3-4806-81b7-4ae8582ace27",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cut-complex homotopy of grid graphs was studied through difficult shellability and small-parameter Betti computations. Providing a natural all-(n,k) complete rank classification for the fundamental two-row family, with a compact rational generating series and new infinite k=5 formula, answers the precise finite-table and topological-computation gap. The fact is not merely a special numerical substitution into known ranks, since it requires an exact structural decomposition of all potential missing faces and a weighted connected-subset enumeration. It may be reused to study asymptotics, parameter recurrences, and checks of wider-grid conjectures; no larger theorem is claimed.",
+    "status": "PASS"
+  }
+}
