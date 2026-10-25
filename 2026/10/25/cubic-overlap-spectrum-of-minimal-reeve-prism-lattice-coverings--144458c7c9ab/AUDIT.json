@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each m>=2 the unique horizontal cell contributes a vertical interval of length 1+mT with T=min(x,1-x,y,1-y). Its vertical orbit counting is floor-ceil randomized by the uniform z-coordinate. Integration of P(T>t)=(1-2t)^2 gives the cubic full tail, including truncation and exact maximal level. Conditional moments and unit/half-unit integration establish the parity-specific variance. Periodic orbit weighting gives the exact singly covered copy volume and almost-sure convergence. The 101,200 independent exact rational membership checks and 2,765 moment/tail comparisons passed; the universal proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Codenotti--Freyer--Krivokuća provide unit-interval lifts and minimality criteria for covering convex bodies; the relevant inspected parts do not derive the specific Reeve-prism quotient multiplicity law.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-subcritical-coverage-profile-of-the-optimal-octahedral-lat--fcf41f75a200 analyzes BCC regular-octahedron covering up to multiplicity two."
+      ],
+      "reasoning": "General minimality or a different lattice covering profile does not specify the particular full family distribution. Universal lattice-translate point-count identities by themselves do not evaluate these integrals. Older literature could still contain a stronger overlapping theorem.",
+      "searches": [
+        "lattice coverings Reeve prism periodic cover number distribution essential singly covered region volume probability",
+        "minimal lattice covering body multiple covering multiplicity distribution unbounded density Reeve tetrahedra geometry 52C17",
+        "minimum-covering Reeve tetrahedron singly covered volume tends to zero while covering density tends to infinity",
+        "Reeve tetrahedron minimal lattice covering",
+        "arxiv:2606.14442v1 Sections 1 and 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.14584v1",
+      "arxiv:2606.14442v1",
+      "2026/10/11/SCOPE-exact-subcritical-coverage-profile-of-the-optimal-octahedral-lat--fcf41f75a200",
+      "2026/10/4/SCOPE-exact-covering-radius-profile-of-the-sharp-planar-parallelogram--4ec5985b1498",
+      "2026/10/4/SCOPE-a-cube-extension-law-for-the-weak-covering-index--1ed6106b566e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lian--Xue explicitly implies the single-horizontal-cell reduction and the conditional interval count; our formula further integrates a triangular law across uniform horizontal phases.",
+        "Codenotti--Freyer--Krivokuća: general construction and minimality statements, not the quantitative invariant."
+      ],
+      "reasoning": "The previous fiber formula mathematically determines the candidate distribution. It does not in its inspected presentation *state* or *evaluate* the exact law; the additional all-level integration and parity calculation are the asserted new evaluation, not an independent qualitative covering theorem.",
+      "searches": [
+        "Minimal covering bodies Reeve tetrahedron prism T_m plus vertical unit segment Z3 lattice covering exact overlap multiplicity distribution singly covered volume",
+        "lattice coverings Reeve prism periodic cover number distribution essential singly covered region volume probability",
+        "Reeve minimal lattice covering prism full overlap distribution variance parity even odd lattice translations",
+        "arxiv:2606.14584v1: fiber equality and unique-point criterion",
+        "arxiv:2606.14442v1: unit lift construction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lian--Xue states vertical fiber endpoints a=m max(0,x+y-1), b=m min(x,y), proves covering and minimality, but inspected Section 4.2 does not state distribution over the quotient torus.",
+        "The new random variable is equivalent to counting integer vertical shifts through an interval of length 1+m min(x,1-x,y,1-y)."
+      ],
+      "reasoning": "The source is an essential prerequisite and yields the candidate with additional integration; do not assert logical independence. In the inspected primary text, no assertion of the full multiplicity probabilities, their parity-sensitive variance, or normalized essential-copy measure appears.",
+      "searches": [
+        "Minimal covering bodies Reeve tetrahedron prism T_m plus vertical unit segment Z3 lattice covering exact overlap multiplicity distribution singly covered volume",
+        "exact coverage multiplicity spectrum Reeve prism T_m+[0,e3] minimal Z3 covering, tails cubic, singly covered fraction 2/m-4/(3m^2)",
+        "Reeve minimal lattice covering prism full overlap distribution variance parity even odd lattice translations",
+        "arxiv:2606.14584v1 Sections 4.2-4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches (including 300-result searches for exact source title and Reeve tetrahedron) yielded no Reeve-prism overlap-spectrum record among ranked hits.",
+        "The closest named mathematical record concerns a different lattice, polytope, and bounded-overlap regime."
+      ],
+      "reasoning": "No exact published database table for the family was found in these bounded searches. Negative semantic search results are not proofs of novelty or universal database completeness.",
+      "searches": [
+        "exact coverage multiplicity spectrum Reeve prism T_m+[0,e3] minimal Z3 covering, tails cubic, singly covered fraction 2/m-4/(3m^2)",
+        "covering multiplicity minimal lattice Reeve tetrahedron fiber lengths central square measure all multiplicity levels",
+        "Reeve tetrahedron minimal lattice covering",
+        "Lian Xue 2026 minimal covering body Reeve tetrahedron family"
+      ]
+    },
+    "rationale": "The prior Lian--Xue source provides the geometry, fiber endpoints, and covering minimality, but its inspected Section 4.2 does not provide the full overlap-multiplicity distribution, parity-sensitive variance, quantitative essential-volume ratio, or limit law. The present claim computes a complete natural invariant not claimed as original input. General lift and nearby covering-profile literature do not imply the exact law without further family-specific integration. Novelty is provisional: the source fiber formula determines the result upon elementary postprocessing, and other authors might have done so.",
+    "residual_risks": [
+      "The complete law follows from the published fiber endpoints using elementary integration; a prior paper might already have evaluated these consequences implicitly or explicitly.",
+      "Semantic published-finding corpus search is ranked, not exhaustive, and no independent historical-priority audit was undertaken.",
+      "Only materially relevant sections of the second related primary source were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PREREQUISITE_NONCOVERING_OF_QUANTITATIVE_CLAIM",
+        "evidence": [
+          "Explicit lower and upper height a=m max(0,x+y-1), b=m min(x,y); volume 1+m/6 and irredundancy; no full overlap distribution in inspected construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.14584",
+        "material_read": "Main construction and proof in Section 4.2, especially vertical fiber calculation, covering, essential-point proof and volume; also nearby introductory characterizations.",
+        "method": "Read publicly accessible rendered arXiv source HTML, including the full construction/proof segment, rather than relying only on search snippets.",
+        "title": "Minimal Covering Bodies and a Minkowski-Type Criterion for Lattice Coverings",
+        "trigger": "Same Reeve-type tetrahedron plus unit vertical segment; exact geometry and volume"
+      },
+      {
+        "assessment": "RELATED_GENERAL_FRAMEWORK_NO_EXACT_REEVE_PROFILE_IN_INSPECTED_PASSAGES",
+        "evidence": [
+          "General lifting criterion and covering-radius geometry do not explicitly determine the family-specific overlap law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.14442",
+        "material_read": "PDF pages 1-3 and relevant pages 9-11 (introductory and lift/construction/criterion passages); not all unrelated sections",
+        "method": "Read accessible arXiv PDF body; inspected page screenshot and relevant text sections.",
+        "title": "Minimal covering bodies and Brunn-Minkowski type inequalities for the covering radius",
+        "trigger": "General unit vertical interval lifts and lattice-covering minimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "144458c7-c9ab-46d4-a8ce-90f4834a826a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full covering-multiplicity spectrum is a natural complete geometric invariant for the published minimal Reeve-prism family. The exact quadratically collapsing essential-copy volume in a covering of linearly increasing density quantifies a substantive irredundancy/efficiency tension. The parity-sensitive moment and full limit law add structural information beyond source covering minimality and volume; no universal covering result is claimed.",
+    "status": "PASS"
+  }
+}
