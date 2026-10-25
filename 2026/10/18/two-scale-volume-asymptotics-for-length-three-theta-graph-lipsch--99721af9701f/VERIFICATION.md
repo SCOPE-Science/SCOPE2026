@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained. The exact comparison below uses a different route from the displayed integral: counting integer anchored potentials on the graph for every integer dilation, then extracting the Ehrhart leading coefficient using finite differences. This is valid because an oriented vertex-edge incidence matrix with one base vertex removed is totally unimodular; its signed inequality duplicates preserve this property, so all vertices of the unit graph-Lipschitz ball are integral.
+## correctness
 
-Run `python3 artifacts/verify.py` after extracting the complete file set while keeping relative paths. Python's standard library alone suffices. The executable reconstructs the arm counts by direct integer enumeration, multiplies them across independent arms only after conditioning on the common hub, evaluates the finite difference, and compares against the explicit rational integral.
+PASS
 
-Observed output included `PASS: 7 Ehrhart volumes; 19 exact strict log-convexity checks; 20 upper-ratio checks`. Dimensions checked were \(3,5,7,9,11,13,15\), with exact volumes \(8,88/5,1536/35,12128/105,72320/231,865152/1001,1727488/715\). These finite computations test normalization and algebra, while the analytic derivation establishes all integer \(m\ge3\) and the asymptotic limits.
+For m>=3 the anchored graph-Lipschitz constraints factor over m independent three-edge paths conditioned on pole potential h in [-3,3]. Their two-internal-coordinate area is the threefold convolution of 1_{[-1,1]}, namely A(h)=3-h² for |h|<=1 and (3-|h|)²/2 for 1<=|h|<=3; integrate A(h)^m to derive both the exact rational formula and the positive pushforward density w(x)=sqrt(2/x) on (0,2), (3-x)^-1/2 on (2,3). Strict Cauchy-Schwarz proves all moment log-convexities and increasing ratios bounded by 3. The beta integral comparison B_m isolates the positive correction; at x=2-s, the density difference is (3/4)s+O(s²), yielding exactly 3·2^m/((m+1)(m+2))+O(2^m/m³). Gamma-ratio expansion gives leading 3^m sqrt(3pi/m)(1-3/(8m)+...). Independent exact rational Ehrhart difference computation recovers m=1..4 volumes 8,88/5,1536/35,12128/105. Infinite statements rest on kernel analysis, not these finite checks.
 
-No independent external mathematical audit was performed. A search for equivalent formulations in primary literature and mathematical research records is necessarily nonexhaustive.
+## originality
+
+PASS
+
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
+
+## value
+
+PASS
+
+The equal-arm theta graph family is a natural network and metric-space test case. The explicit complete volume moment sequence, strict growth ratios, and particularly a sharp exponentially smaller 2^m/m² correction at the cross-sectional density junction identify geometric features inaccessible from leading Laplace asymptotics. This gives reusable exact benchmarks for graph-Lipschitz ball volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

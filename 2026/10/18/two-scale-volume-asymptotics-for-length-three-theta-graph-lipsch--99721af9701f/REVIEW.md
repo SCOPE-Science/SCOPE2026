@@ -1,19 +1,21 @@
-# Scientific review: length-three theta-graph dual volumes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Graph-edge inequalities suffice for the shortest-path metric, and fixing one pole at zero gives \(2m+1\) independent coordinates. Conditioning on the opposite pole exposes \(m\) copies of the same two-coordinate arm polytope. Its area is exactly the threefold convolution of a unit-edge increment indicator, equal to \(3-h^2\) centrally and \((3-|h|)^2/2\) outside. Integration gives the rational formula. The pushforward density, strict moment inequalities, beta integral, and the endpoint Taylor expansion prove every infinite claim. The external-to-proof exact Ehrhart checker reproduced seven rational volumes. The secondary correction is *positive* and has coefficient \(3\), not merely a bound.
+PASS
 
-## Originality
+For m>=3 the anchored graph-Lipschitz constraints factor over m independent three-edge paths conditioned on pole potential h in [-3,3]. Their two-internal-coordinate area is the threefold convolution of 1_{[-1,1]}, namely A(h)=3-h² for |h|<=1 and (3-|h|)²/2 for 1<=|h|<=3; integrate A(h)^m to derive both the exact rational formula and the positive pushforward density w(x)=sqrt(2/x) on (0,2), (3-x)^-1/2 on (2,3). Strict Cauchy-Schwarz proves all moment log-convexities and increasing ratios bounded by 3. The beta integral comparison B_m isolates the positive correction; at x=2-s, the density difference is (3/4)s+O(s²), yielding exactly 3·2^m/((m+1)(m+2))+O(2^m/m³). Gamma-ratio expansion gives leading 3^m sqrt(3pi/m)(1-3/(8m)+...). Independent exact rational Ehrhart difference computation recovers m=1..4 volumes 8,88/5,1536/35,12128/105. Infinite statements rest on kernel analysis, not these finite checks.
 
-PASS subject to the residual risks below. The exact result is a full volume sequence for the biconnected length-three theta family \(m\ge3\), not a facet count or a topological invariant. In the inspected primary full texts, Alexander--Fradelizi--García-Lirola--Zvavitch compute the equilateral dual volume and study volume products, Aliaga identifies extreme molecules, and Ostrovska--Ostrovskii analyze canonical graph transport representations. None of these read results states or implies the branch-area moment density or the sharp secondary scale. Available related result summaries concern the *same graph's* Rips homotopy, a *different mixed-theta graph's* facets, the known six-cycle case \(m=2\), and two-edge-arm complete-bipartite geometry. They do not state the claimed volume formula or its asymptotic. Full text of the same-graph Rips record was not accessible in the comparisons, and unindexed coverage remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The first genuinely multiply cyclic equal-arm theta family beyond two-edge-arm bicliques has a natural, dimension-growing Banach dual ball. Its complete volume sequence, compact-support moment density, strict all-dimensional growth-ratio law and sharp *second exponential scale* describe quantitative geometry that facet and homotopy information do not determine. The secondary \(2^m/m^2\) term detects the internal cross-sectional phase boundary and is not a restatement of the leading Laplace estimate. This is a motivated exact invariant rather than a selected finite numeral.
+Best-of-knowledge original final claim: compared specific mathematical statements and implications against the retrieved Resultary indexed records and relevant original primary texts; known normalizations, generic tools and special cases are not counted as new. No positive coverage result was established; inaccessible/unread alternatives remain explicit risks.
 
-## Boundaries and evidence
+## value
 
-Only anchored-coordinate dual volumes for equal unit-edge length-three arms are settled. The proof is analytical; finite integer-polytope verification covers seven small dimensions and cannot certify the infinite theorem on its own. The closest inspected primary works are arXiv:1911.10642 (Section 5), arXiv:2102.01219 (Theorem 1), and arXiv:2112.02689 (Sections 1--3). Same-graph Rips and mixed-theta facet records were compared through their available summaries, not their complete files. Earlier six-cycle volumes are acknowledged as a special case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equal-arm theta graph family is a natural network and metric-space test case. The explicit complete volume moment sequence, strict growth ratios, and particularly a sharp exponentially smaller 2^m/m² correction at the cross-sectional density junction identify geometric features inaccessible from leading Laplace asymptotics. This gives reusable exact benchmarks for graph-Lipschitz ball volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
