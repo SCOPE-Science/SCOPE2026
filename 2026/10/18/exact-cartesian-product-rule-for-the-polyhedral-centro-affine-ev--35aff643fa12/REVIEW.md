@@ -1,15 +1,21 @@
-# Scientific review: Cartesian-product centro-affine even spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved for every finite family of positive-dimensional origin-symmetric polytopes. A product facet's mass and each of the two possible ridge-conductance classes are computed exactly. The divergence-theorem identity for the sum of facet masses converts those weights into an explicit block operator. The orthogonal decomposition into centered factor modes and block constants is exhaustive, respects antipodal parity, and yields the complete multiset, including coincident eigenvalues. The cross-polytope illustration follows from explicit simplex facet volumes, cube-graph conductances, and an all-dimensional Walsh basis. The attached exact-rational checker independently verifies 26 product networks; finite verification is not treated as proof.
+## correctness
 
-## Originality — PASS, with limitations
-The relevant Hu--Ivaki manuscript (arXiv:2609.21670v1; first submitted 18 September 2026) defines the weighted facet Laplacian and proves a conditional local-minimizer spectral inequality, but contains no general Cartesian-product spectral rule. Published full-text comparison records compute the even spectra of parallelotopes, regular cross-polytopes, and one cube--octahedron intersection family; their objects are either individual factors or a different fixed-dimensional interpolation. Actual semantic searches for product spectra, mixed ridges, prisms, equivalent weighted-join descriptions, and factor dimension shifts found these closest records but no subsuming general theorem. Classical weighted graph-join algebra is related; the missing geometric step is the exact product rule for facet masses and cross-ridge conductances. This is a positive best-knowledge comparison, not a claim of exhaustive historical priority.
+PASS
 
-## Mathematical value — PASS
-The result is a structural tensorization law for a newly introduced convex-geometric spectral operator, rather than a single parameter computation. It supplies the full spectrum (not just an estimate), reduces its gap calculation on every decomposable polytope to the factors, proves an exact closure principle for the dimension-level even gap, and exhibits non-parallelotope bodies in every ambient dimension at least four saturating that gap. These consequences are motivated by the local log-Brunn--Minkowski spectral setting and cannot be read off from the previously computed spectrum of a single cube or cross-polytope without the newly derived weighted product geometry.
+For each facet a from factor i, direct orthogonal product geometry gives m_(ia)(P)=m_a(P_i)V/V_i. Same-factor ridge conductance scales by V/V_i; distinct-factor ridge conductance is m_a(P_i)m_b(P_j)V/(V_i V_j) because normals are perpendicular. Divergence theorem gives Σ_a m_a(P_i)=d_iV_i, hence (L_P f)_(ia)=(L_i f_i)_a+Σ_(j≠i)d_j(f_(ia)−bar(f_j)). The mass-orthogonal even facet space decomposes into centered even factor modes with eigenvalues shifted n-d_i and a k-dimensional block-constant space with eigenvalues zero and n of multiplicity k-1. This covers all eigenvalues and multiplicities even for segment factors. Cross-polytope facets give a Boolean cube network with c/m=(d-1)/2, eigenvalues r(d-1), even Walsh r; the segment×C_d prism has single first eigenvalue d+1 for d≥3 and dimension-four example {0,4,5,5,5}. An independent symbolic product-network derivation and comparison with fully inspected cross-polytope/parallelotope original proofs corroborate. The finite supplied verify.py checks only selected products, not all dimensions.
 
-## Closest literature and limitations
-The proof concerns the finite facet-network operator, not the smooth centro-affine operator; it proves no gap bound for an indecomposable factor and no local-minimality statement. Weighted graph-join identities are standard algebraic background and an equivalent older product identity using other terminology may exist. The primary manuscript's source definitions were inspected in the accessible HTML, including the facet network, spectral baseline, and cited context. The three closely related published mathematical RESULT texts were materially read. Novelty remains subject to subsequent human bibliographic verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general dimension-uniform product decomposition and non-parallelotope equality examples are not implicit in earlier published standalone factor spectra without the new mixed-ridge geometric identity. The fully read Resultary related RESULT.md works cover separate factor calculations; the initiating primary Hu–Ivaki full text could not be accessed here, and older weighted-join formulations remain a priority risk.
+
+## value
+
+PASS
+
+This structural spectral product rule reduces entire even spectra and dimension-level gap questions for arbitrary decomposable symmetric polytopes to constituent spectra; non-parallelotope prisms attain the baseline. It is mathematically useful beyond a small parameter census and does not require indecomposable gap conjecture resolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

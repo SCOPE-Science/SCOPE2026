@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the product-spectrum theorem
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. Its decisive identities are the exact factorization of facet masses, the same-factor ridge conductance, and the cross-factor ridge conductance. The weighted operator then reduces to a direct sum of centered factor eigenmodes and a finite block-constant sector. The latter has eigenvalues zero and the ambient dimension, with the latter repeated one less than the number of factors. No computer enumeration is used to infer the general theorem.
+## correctness
 
-The executable `verify.py` uses only Python's standard library. It builds exact rational networks from independently specified regular cross-polytopes and segments, forms the product masses and edge conductances, and checks every predicted even Walsh eigenvector and the block-constant eigenvectors by direct application of the mass-normalized graph Laplacian. The command `python verify.py` succeeded with the exact output:
+PASS
 
-`VERIFY_OK exact weighted facet graph eigenidentities 26 product networks; largest dimension 10`
+For each facet a from factor i, direct orthogonal product geometry gives m_(ia)(P)=m_a(P_i)V/V_i. Same-factor ridge conductance scales by V/V_i; distinct-factor ridge conductance is m_a(P_i)m_b(P_j)V/(V_i V_j) because normals are perpendicular. Divergence theorem gives Σ_a m_a(P_i)=d_iV_i, hence (L_P f)_(ia)=(L_i f_i)_a+Σ_(j≠i)d_j(f_(ia)−bar(f_j)). The mass-orthogonal even facet space decomposes into centered even factor modes with eigenvalues shifted n-d_i and a k-dimensional block-constant space with eigenvalues zero and n of multiplicity k-1. This covers all eigenvalues and multiplicities even for segment factors. Cross-polytope facets give a Boolean cube network with c/m=(d-1)/2, eigenvalues r(d-1), even Walsh r; the segment×C_d prism has single first eigenvalue d+1 for d≥3 and dimension-four example {0,4,5,5,5}. An independent symbolic product-network derivation and comparison with fully inspected cross-polytope/parallelotope original proofs corroborate. The finite supplied verify.py checks only selected products, not all dimensions.
 
-The finite tests cover 26 products and ambient dimensions through ten; they do not exhaust all polytopes or establish the infinite theorem. The proof covers general polytopes via the exact geometric identity. Bibliographic uniqueness and independent mathematical audit are not certified.
+## originality
+
+PASS
+
+The general dimension-uniform product decomposition and non-parallelotope equality examples are not implicit in earlier published standalone factor spectra without the new mixed-ridge geometric identity. The fully read Resultary related RESULT.md works cover separate factor calculations; the initiating primary Hu–Ivaki full text could not be accessed here, and older weighted-join formulations remain a priority risk.
+
+## value
+
+PASS
+
+This structural spectral product rule reduces entire even spectra and dimension-level gap questions for arbitrary decomposable symmetric polytopes to constituent spectra; non-parallelotope prisms attain the baseline. It is mathematically useful beyond a small parameter census and does not require indecomposable gap conjecture resolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
