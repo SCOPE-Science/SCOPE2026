@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each of the 24 nonzero ordered residue pairs mod 5, the two Stern pair transformations give an exact binary word decomposition. Total, maximal-prefix, and minimal-prefix functions satisfy explicit integer sum/max/min recurrences. A recomputed 24-row certificate proves S28=S16, H28=H16+4, J28=J16-4 simultaneously for all states. The recurrence propagates the relation indefinitely. Separate root-depth checks for 8<=r<=15 establish the full range r>=8. The sharp logarithmic limit superior/inferior follow using maximizing/minimizing prefix indices; direct integer prefix checks and independent binary-block witness checks agree. No extrapolation from finite Stern enumeration is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reznick proves T(N;d,i)=r_{d,i}N+O(N^{tau_d}) for tau_d<1; this permits logarithmic discrepancies and does not determine their constants.",
+        "Reznick’s modulus-3 boundedness is not a modulus-5 theorem; Allouche’s recurrence identities do not provide state-prefix extremum classifications."
+      ],
+      "reasoning": "General residue equidistribution and dyadic block identities are stronger in scope of moduli but weaker on the claimed exact signed prefix extremum; they do not cover or dominate this explicit theorem.",
+      "searches": [
+        "Stern 2-regular automatic sequence partial sums mod 5 signed residue difference exact maximum minimum",
+        "\"Stern sequence\" \"T(N;5,1)\"",
+        "Reznick arXiv:math/0610601, Eq. (1.12) modular equidistribution"
+      ]
+    },
+    "checked_sources": [
+      "Bruce Reznick (2006), arXiv:math/0610601v1, Sections 1, 2, 4, 5, including its last paragraph",
+      "J.-P. Allouche (2012), arXiv:1202.4171, full text Sections 1 through 6",
+      "OEIS A002487: sequence definition",
+      "Online scholarly searches for exact signed-residue discrepancy and modulo-five sharp range"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 result proves Δ_3(N) lies in {0,1,2,3}, but explicitly says no comparable result was found for d=5.",
+        "The 2006 general O(N^{tau_d}) error allows both bounded and logarithmically unbounded d=5 differences.",
+        "The exact new 24-state finite identity proves a +4/-4 drift every twelve layers."
+      ],
+      "reasoning": "There is no implication from any inspected earlier theorem to the new sharp recurrence. Earlier finite observations do not refute the new witnesses beyond the checked range. A later unlocated strengthening remains possible.",
+      "searches": [
+        "arXiv:math/0610601v1, Theorem 5.6 and final paragraph",
+        "\"Stern diatomic sequence\" \"discrepancy\" 5",
+        "Stern diatomic sequence modulo five discrepancy T(N;5,1)-T(N;5,4) unbounded logarithmic extremal prefixes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reznick defines the exact same signed count T(N;5,1)-T(N;5,4), but his theorem with bounded discrepancy concerns modulus 3; for modulus 5 he reports only a finite check through 2^19.",
+        "Allouche 2012 treats binary-block Stern identities and twisted Stern generating series, with no signed mod-5 extremum law in the inspected full text."
+      ],
+      "reasoning": "The formulation uses Reznick’s same signed residue-count difference, so it is not a renamed new object. The distinct assertion is a full infinite sharp twelve-scale recurrence and logarithmic extremal growth, which the inspected source does not state or imply.",
+      "searches": [
+        "\"T(N;5,1)\" \"T(N;5,4)\" Stern",
+        "\"Stern diatomic sequence\" \"discrepancy\" 5",
+        "Stern diatomic sequence modulo five discrepancy T(N;5,1)-T(N;5,4) unbounded logarithmic extremal prefixes",
+        "arXiv:math/0610601v1, Section 5, Theorem 5.6 and closing paragraph",
+        "arXiv:1202.4171, Sections 2-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A002487 records the underlying Stern terms, not the stated 24-state twelve-level extremum recurrence.",
+        "The numerical window [-5,11] up through 2^19 in Reznick is a finite check, whereas both larger signed witnesses and all-depth asymptotics are proven here."
+      ],
+      "reasoning": "An enumerated Stern-value database or 2^19 experiment does not supply global recurrence or the limiting coefficient; no exact prior table of these extrema was identified.",
+      "searches": [
+        "\"T(N;5,1)\" \"T(N;5,4)\" Stern",
+        "\"Stern sequence\" \"T(N;5,1)\"",
+        "OEIS:A002487",
+        "Reznick 2006 bounded difference -5 to 11 Stern sequence mod 5 residues 1 versus 4 counterexample"
+      ]
+    },
+    "rationale": "The identical signed count appears in Reznick 2006, but that source explicitly reports only a finite experiment for modulus 5 and proves the bounded theorem at modulus 3. The new exact +4/-4 drift and its sharp logarithmic constants do not follow from his general equidistribution estimate or from later Stern sequence binary-block identities. Searches found no equivalent full theorem; stronger unlocated work, particularly the 2012 class notes, is a priority risk.",
+    "residual_risks": [
+      "The 2012 class notes by B. Reznick, A Stern introduction to combinatorial number theory, are cited by later papers but no full text was located; they might contain an equivalent result.",
+      "Searches of published and indexed literature cannot exclude every stronger unpublished or unindexed modular-prefix theorem.",
+      "The proof is deterministic and reproducible, but no independent mathematical or priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new modulo-five sharp infinite extrema; covers modulo-three and general equidistribution only.",
+        "evidence": [
+          "Section 5 final paragraph: for d=5 only a Mathematica check N<=2^19 is reported, with -5<=T(N;5,1)-T(N;5,4)<=11.",
+          "Theorem 5.6 bounds the same type of difference for modulus 3."
+        ],
+        "identifier_or_url": "arXiv:math/0610601v1; https://arxiv.org/html/math/0610601v1",
+        "material_read": "Full accessible HTML including definitions and Sections 1, 2, 4 and 5, especially Theorem 5.6 and the closing paragraph.",
+        "method": "Direct comparison of modulus, quantification over N, theorem strength and finite experiment versus infinite recurrence.",
+        "title": "Regularity properties of the Stern enumeration of the rationals",
+        "trigger": "Defines the identical signed residue discrepancy and states the precise modulo-five numerical observation."
+      },
+      {
+        "assessment": "NOT_COVERING the stated modulo-five extremal discrepancy law.",
+        "evidence": [
+          "Propositions and theorems concern Stern/twisted Stern binary-block identities, generating functions and correlations, not modulo-five residue signed-count maxima or minima."
+        ],
+        "identifier_or_url": "arXiv:1202.4171; https://arxiv.org/abs/1202.4171",
+        "material_read": "Accessible full text, Sections 1 through 6, including stated propositions and theorems.",
+        "method": "Compare objects and conclusions: linear binary-block expressions and twisted series versus signed modular-prefix extrema.",
+        "title": "On the Stern sequence and its twisted version",
+        "trigger": "General dyadic identities for the same Stern sequence might dominate a finite-state recurrence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17b06025-c42e-4274-a39a-d7c5ab99e9ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2006 foundational treatment explicitly singles out the modulus-five signed discrepancy as lacking a result and records a finite narrow range. The theorem gives the exact dyadic extreme sequences for all scales and establishes that both discrepancies grow sharply like one third of log_2 N, with exact counter-witnesses to extending the former finite range. This answers a natural, quantitatively motivated modular-regularity question, not an arbitrary slice or routine computation.",
+    "status": "PASS"
+  }
+}
