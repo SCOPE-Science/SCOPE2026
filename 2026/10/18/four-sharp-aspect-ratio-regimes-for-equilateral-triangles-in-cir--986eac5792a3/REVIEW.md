@@ -1,23 +1,21 @@
-# Scientific review: equilateral triangles in circular cylinders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result quantifies over all finite Euclidean dimensions at least three, all positive transverse radii, all nonnegative cylinder heights, and all placements and orientations of an equilateral triangle. Ordering the three axial coordinates loses no cases. For every candidate the projected squared side lengths follow from Pythagoras. Their Heron area identity is exactly \(16\mathcal A_\perp^2/s^4=3-4k^2+4uv\). The minimum-enclosing-circle radius is the circumradius only in the acute case; the proof also handles the competing obtuse case and shows it cannot beat the subsequent acute minimum. The derivative in the single product parameter \(p=uv\) locates the three unique minimizing splits and their boundaries \(k^2=1/2,4/7\). The resulting envelope is strictly decreasing, so the outer optimization has a unique crossing until the exact saturation height, followed by the endpoint optimum. Explicit spatial vertex reconstruction proves attainability and classifies equality, including a degenerate transverse projection at saturation. The exact formulas agree at all three phase boundaries.
+PASS
 
-The independent computational formulations in `verify.py` use three-dimensional distance reconstruction, minimum-circle calculation, deterministic orientation samples, and exact rational branch identities. Their finite checks supplement and do not establish the universal theorem. The verifier successfully checked 2,000 maximizing witness configurations, 77,088 admissible projected configurations, and 132,000 spatial orientations. Floating-point sensitivity near the flattened endpoint is addressed by evaluating the projected area in a cancellation-resistant factored form. The analytic proof covers the endpoint exactly, independently of floating-point arithmetic.
+Project an equilateral triangle of side s onto transverse ball; axial normalized ordered gaps u,v give squared transverse sides s²(1−u²), s²(1−v²), s²(1−(u+v)²). Heron yields area²=s⁴(3−4z+4p)/16, z=(u+v)²,p=uv. Symbolically independently differentiated acute circumradius F_z(p) to exactly 2(1−z)(2p+1)(p+1−2z)/(3−4z+4p)². Min across acute/obtuse branches occurs at p=0,2z−1,z/4 in consecutive z ranges <=1/2,1/2..4/7,>=4/7; obtuse threshold cannot beat acute minimizer. Resulting f(k) strictly decreases to sqrt3/4, hence one crossing of h/k and r/f(k) yields all formulas and unique maximizing axial gaps. Boundary h=0, saturation h>=4r/sqrt3 checked. Finite symbolic checks support derivative and transition algebra, universal proof relies on monotonicity and enclosing-circle argument.
 
-## Originality — PASS, with residual literature risk
+## originality
 
-The initiating work is Á. G. Horváth, *Triangle in a brick*, arXiv:1010.1607v1 (2010-10-08). Its full six-page text was inspected. Horváth's sharp configurations concern equilateral triangles inside unit-volume rectangular bricks with a lower bound on every box edge and specifically vertices on skew brick edges. Neither its hypotheses nor its resulting length inequality determines the maximum in a circular cylinder as an explicit function of the continuously varying height-to-radius ratio. The classical smallest-circle theorem is an ingredient, not this optimized three-phase projected-radius envelope. The IMO 1984 cylinder problem is about tetrahedral volume, not maximal equilateral-triangle side length. Comparison searches using inscribed/circumscribed equilateral triangles, minimal circular cylinders, bounding-circle projections, and exact threshold aliases found no stronger or equivalent result; this negative evidence cannot establish absolute priority.
+PASS
 
-The named checks, full-source inspection, published scientific-record comparisons and remaining risks are supplied in `AUDIT.json`. A general theorem on minimum enclosing cylinders or an obscure historical geometry source could still imply the formula; this remains a priority uncertainty requiring later human examination.
+No located published theorem simultaneously optimizes all orientations in solid round cylinder with exact piecewise four-regime law and equality classification; rectangular-brick and historical enclosing-circle results are genuinely weaker/inapplicable to this objective, with named older-literature risk.
 
-## Value — PASS
+## value
 
-The result completely solves a natural geometric placement problem in a canonical family of convex solids, not merely one special aspect ratio. Its two internal orientation transitions are genuinely structural: the optimal axial pattern changes from two vertices sharing one height, to a continuously varying asymmetric three-height pattern, and then to equally spaced heights; a final threshold produces an exact flat saturation of the maximal side length. The proof identifies a nontrivial intermediate envelope \(k\sqrt{1-k^2}\) that would be missed by guessing only symmetric or endpoint configurations. Both the sharp formulas and all maximizer types persist in every finite ambient dimension at least three. Such phase data are natural benchmarks for geometric packing and smallest-enclosing-cylinder problems and are not implied by the classical zero-height circle case.
+PASS
 
-## Remaining limits
+A natural dimension-independent sharp packing/extremal geometry invariant with three exact transition heights and complete equality cases, not a tiny parameter substitution.
 
-The result is restricted to circular cross sections and equilateral triangles; it does not solve arbitrary triangles, arbitrary bodies, or noncircular cylinders. It is supported by an explicit proof and reproducibility diagnostics, not by an independent expert audit. Historical priority remains uncertain.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

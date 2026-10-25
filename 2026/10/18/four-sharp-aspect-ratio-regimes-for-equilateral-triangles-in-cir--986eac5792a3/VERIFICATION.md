@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact cylinder profile
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 installation. The checker requires no external libraries.
+## correctness
 
-The checker recomputes direct coordinate witnesses for 2,000 positive-height ratios. It verifies all three Euclidean side lengths against the claimed sharp value, membership in both cylinder end caps, and membership in the transverse disk. It separately evaluates minimum enclosing circles of projected triangles on a finite grid, compares 132,000 independently seeded spatial orientations against the formula, and checks exact algebraic branch substitutions using `fractions.Fraction`.
+PASS
 
-On successful execution the program prints `VERIFY_OK` with the checked counts. The checker does not enumerate every real parameter value or establish an infinite theorem; that role is played by the displayed Heron identity, acute/obtuse circle classification, rational derivative sign, monotonic envelope, and explicit sharp constructions in `RESULT.md`. Its use of a factored area expression avoids catastrophic cancellation for nearly axial (nearly collinear projected) triangles.
+Project an equilateral triangle of side s onto transverse ball; axial normalized ordered gaps u,v give squared transverse sides s²(1−u²), s²(1−v²), s²(1−(u+v)²). Heron yields area²=s⁴(3−4z+4p)/16, z=(u+v)²,p=uv. Symbolically independently differentiated acute circumradius F_z(p) to exactly 2(1−z)(2p+1)(p+1−2z)/(3−4z+4p)². Min across acute/obtuse branches occurs at p=0,2z−1,z/4 in consecutive z ranges <=1/2,1/2..4/7,>=4/7; obtuse threshold cannot beat acute minimizer. Resulting f(k) strictly decreases to sqrt3/4, hence one crossing of h/k and r/f(k) yields all formulas and unique maximizing axial gaps. Boundary h=0, saturation h>=4r/sqrt3 checked. Finite symbolic checks support derivative and transition algebra, universal proof relies on monotonicity and enclosing-circle argument.
 
-The first-source publication date is taken from the original arXiv v1 header, 2010-10-08. Source comparisons and historical uncertainties are documented separately. Independent external scientific validation has not been performed.
+## originality
+
+PASS
+
+No located published theorem simultaneously optimizes all orientations in solid round cylinder with exact piecewise four-regime law and equality classification; rectangular-brick and historical enclosing-circle results are genuinely weaker/inapplicable to this objective, with named older-literature risk.
+
+## value
+
+PASS
+
+A natural dimension-independent sharp packing/extremal geometry invariant with three exact transition heights and complete equality cases, not a tiny parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
