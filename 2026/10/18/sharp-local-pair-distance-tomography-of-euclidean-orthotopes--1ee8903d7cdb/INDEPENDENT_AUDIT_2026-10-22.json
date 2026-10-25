@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T18:13:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 1ead5879eec1026d055afb8353ee383e5fd6e029",
+        "pinned verify.py blob 8da83d3bfd64e33787119c2889966fe5bdbfcd04",
+        "independent_checks.py R2"
+      ],
+      "rationale": "For two independent uniform interior points the normalized difference density is product_i(a_i-|z_i|)_+/vol(Q)^2. Substitute z=Ry with R^d/vol(Q)=1/omega_d; below rho<min a_i/R the positive factors expand to finitely many elementary symmetric sums. Integrals of k distinct coordinate absolute values over a Euclidean rho-ball equal pi^((d-k)/2)rho^(d+k)/Gamma(1+(d+k)/2), giving every claimed coefficient with no remainder. The normalization fixes e_d(b)=1/omega_d, so the leading 1 and coefficients k=1,...,d-1 determine every coefficient of prod(z-b_i), including repeated positive roots. Perturbing e_{m+1} at distinct simple roots while fixing lower e_k and the constant term proves fewer measurements fail locally. Rouché applied to radius delta^(1/d) unions of root disks gives a uniform multiset matching; reciprocals are Lipschitz for b>=u. Perturb two real-rooted monic polynomials only in their constant terms, shift roots by epsilon and normalize products, yielding a coefficient gap O(epsilon^d) but root gap Theta(epsilon), so exponent 1/d is sharp at cubes. Independent normalized coefficients and fixed-product checks passed in d=3,4,5,7; these do not certify the general statement.",
+      "residual_risks": [
+        "The exact polynomial is only valid below the first width threshold.",
+        "Rouché constants depend on fixed dimension and compact positive shape bounds; finite-sample inference is not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published orthotope moment theorem recovers all sides from d random hyperplane-projection-volume moments; here the statistic is an independent random point-pair distance law and d-1 normalized coefficients.",
+          "Free-path random line/chord distribution is not the independent interior pair statistic; planar polygon law is d=2 only."
+        ],
+        "reasoning": "A recovery result for side ratios under a distinct sampling model cannot imply the explicit local radial-distance coefficients. The all-dimensional rectangular restriction also differs from general convex-polygon angular coefficients.",
+        "searches": [
+          "Resultary: sharp finite-moment tomography of orthotopes in every dimension",
+          "arxiv:1702.08096 free path length random lines n-dimensional box",
+          "Resultary: sharp uniform angular stability for short-pair distance coefficient convex polygons"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01916",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-tomography-of-orthotopes-in-every-dimension--cb0a2e3c75db",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "https://arxiv.org/pdf/1702.08096",
+        "https://doi.org/10.6092/issn.1973-2201/1104",
+        "Resultary mathematical research records (targeted semantic search)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang first-order small-rho perimeter correction determines e_1(b) for boxes but not e_2,...,e_{d-1} or the sharp reconstruction theorem.",
+          "The projection-tomography theorem can recover a box from d shadow-area moments; no implication transfers these moments to the point-pair radial CDF."
+        ],
+        "reasoning": "Known first coefficient and independent cube density are covered. The complete higher coefficients and the precise inverse stability are distinct mathematical assertions.",
+        "searches": [
+          "Wang 2026 arxiv 2610.01916 Introduction and theorems",
+          "Resultary orthotope projected-volume-moment RESULT.md",
+          "Holmin et al arxiv 1702.08096 full introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang Eq (1.3) states D_K(rho)=vol(K)^-2 integral_{ball}g_K(z) dz; the current result specializes and inverts this radial covariogram on orthotopes.",
+          "1999 Mathai et al gives complete density/moments for the cube, an equal-edge special case with no shape parameters to reconstruct."
+        ],
+        "reasoning": "The observable is the same as Wang and the 1999 cube study; those general representations/special cases do not state the sharp all-orthotope minimal inverse.",
+        "searches": [
+          "Resultary: Euclidean orthotope side lengths reconstruction from distribution of distances between two independent uniform interior random points short distance coefficients",
+          "Sinan Wang 2610.01916 radialized covariogram normalized D_K(rho)",
+          "Mathai Moschopoulos Pederzoli 1999 distance between random points in cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact distance tables treat cube or plane rectangle special cases; projected-volume moments treat a different statistic."
+        ],
+        "reasoning": "The all-dimensional general-side 3D+ inverse certificate with minimal count and optimal Holder rate was not located. Failure of catalog matches is not a proof of worldwide novelty.",
+        "searches": [
+          "Resultary orthotope moment tomography and 2D polygon short-distance law",
+          "Mathai et al 1999 cube distance exact density abstract",
+          "Mathai et al 1999 rectangular-city random distance references"
+        ]
+      },
+      "rationale": "The novelty is not the covariogram identity or the known cube/planar distance distributions; it is the all-d>=3 orthotope exact finite coefficient reconstruction with minimal d-1 observations and uniform sharp 1/d inverse exponent for the SAME radial two-point statistic. Published projection tomography has the same algebraic stability exponent but studies a different random observable.",
+      "residual_risks": [
+        "Potentially relevant 1999 Mathai–Moschopoulos–Pederzoli cube article was not materially read beyond abstract; authorized access disconnected, leaving priority risk.",
+        "Older higher-dimensional rectangular random-point distance literature may contain explicit coefficient formulas; specific full-claim inverse not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_NORMALIZATION_NOT_INVERSE",
+          "evidence": "Defines exactly same D_K and proves first small-distance perimeter correction and global variational/rigidity results; does not provide d-1 box coefficient reconstruction.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01916",
+          "material_read": "HTML primary full-text introduction, equations (1.1)-(1.7) and named theorems; searched complete document for orthotope",
+          "method": "Open arXiv HTML full primary text",
+          "title": "A Brunn-Minkowski Theory for the Distribution of Random Pairs of Points in Convex Bodies",
+          "trigger": "Identical normalized radial point-pair distribution and covariogram"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Hyperplane projection volume moments, not two independent interior points; no reduction supplied.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-moment-tomography-of-orthotopes-in-every-dimension--cb0a2e3c75db",
+          "material_read": "Complete RESULT.md including theorem, cumulant proof, inverse stability",
+          "method": "GitHub published mathematical result",
+          "title": "Sharp finite-moment tomography of orthotopes in every dimension",
+          "trigger": "Same object and matching 1/d inverse exponent"
+        },
+        {
+          "assessment": "LOWER_DIMENSION_SPECIAL_CASE",
+          "evidence": "The two-dimensional polygon quartic does not prove the dimension >=3 orthotope inverse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+          "material_read": "Complete RESULT.md, coefficient identity and proof",
+          "method": "GitHub published mathematical result",
+          "title": "Sharp uniform angular stability for short-pair distance coefficient of convex polygons",
+          "trigger": "Same pair-distance observable in lower dimension"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING_LAW",
+          "evidence": "Samples trajectories and random chord/free path lengths with bounces rather than independent interior point distances.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.08096",
+          "material_read": "Primary PDF abstract, introduction and sampling model pages 1-2",
+          "method": "Open arXiv full PDF, pagewise visual check",
+          "title": "On the free path length distribution for linear motion in an n-dimensional box",
+          "trigger": "Same box geometry and inverse recovery of side lengths"
+        },
+        {
+          "assessment": "COVERS_CUBE_SPECIAL_CASE_FULL_SCOPE_UNRESOLVED",
+          "evidence": "Exact cube distance density and moments already known; unable to compare any hidden rectangular generalizations in the full text.",
+          "identifier_or_url": "https://doi.org/10.6092/issn.1973-2201/1104",
+          "material_read": "Journal abstract only; entire 1999 primary article not available through inspected OA or institutional access",
+          "method": "Journal record; authorized full-text request returned disconnected authentication, no bypass",
+          "title": "Distance between random points in a cube",
+          "trigger": "Potential older same observable exact cube distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang 2026 normalized pair-distance framework",
+        "published projection tomography analog",
+        "pinned proof"
+      ],
+      "rationale": "A finite-radius local distance profile is an intrinsic similarity-invariant observation model for boxes. Exact identification by d-1 coefficients, proof no fewer suffice, and sharp non-Lipschitz stability at repeated roots solve a natural complete inverse problem, rather than an arbitrary cut of a known table. Its optimal root-collision exponent quantifies the instability of nearly cubical shapes; no downstream reconstruction algorithm or large application is needed for this intrinsic fact.",
+      "residual_risks": [
+        "Only exact population germs, not finite-sample or noise-optimal statistics, are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific C/O/V rests on independently reconstructed analytical arguments, not solely on scripts or self-review.",
+    "Originality is a best-of-knowledge primary-source comparison, not worldwide priority certification.",
+    "No public replacement bytes staged; publication is withheld pending verified sanitization."
+  ],
+  "schema_version": 1
+}
