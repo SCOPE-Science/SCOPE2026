@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, edge ordering, cap-two face condition, bit encodings and precise homotopy claim are explicit. For each vertex of the cubic graph, the only prohibited face condition is containing its three incident edges. The standalone program exhausts all 4095 candidate nonempty edge sets, obtains 1698 faces, constructs 847 valid disjoint cover pairs, and identifies precisely one critical vertex and three critical five-faces. The full reoriented face-poset graph has 7980 directed covers; a certified total topological order rules out directed cycles. Forman's discrete-Morse theorem produces a CW complex with one zero-cell and three five-cells, all trivially attached; therefore the claimed integral wedge is proved. A separate chain-rank computation matches the Betti ranks but is not used to substitute for the homotopy argument. Source: `verify.py`, `certificate.json`, `verification_output.txt`.
+## correctness
 
-## Originality — PASS with residual risk
-The complete relevant sections of Ghosh–Selvaraja, *Shellability in Clique-Free Complexes of Graphs* (arXiv:2602.09623v1), and Vega, *2-Matching Complexes* (arXiv:1909.10406), were compared. The former's main theorems concern chordal graph classes and clique attachments and do not apply to this induced-four-cycle-containing line graph. The latter establishes a language and Morse framework and computes other graph families, not this object. Previously published results for the ordinary matching complex of the cube, the ordinary matching complex of its line graph, the cube's discrete-Morse complex, and two-matchings of distinct graphs use genuinely different incidence constraints or underlying graphs; no implication to this precise nonpure cube classification was identified. An unindexed equivalent or stronger theorem remains a residual risk. Absence of search hits is not offered as a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The fixed graph is not a contrived parameter slice: the cube is a canonical regular graph, and the cap-two step is the first strict relaxation from the ordinary matching complex. The equivalent three-clique-free formulation is a natural test just outside the chordal sufficient shellability regime. Unlike a bare f-vector or field-homology computation, the result establishes a full integral homotopy equivalence for a nonpure seven-dimensional complex. The explicit exhaustive acyclic matching makes the classification reproducible and suitable as a benchmark for topology beyond chordal graph classes. No larger classification is claimed.
+The fixed edge order is [(0,1),(0,2),(0,4),(1,3),(1,5),(2,3),(2,6),(3,7),(4,5),(4,6),(5,7),(6,7)]. Each cube vertex has 3 incident edges, so exactly the 8 full-stars are forbidden 3-edge subsets, masks (7,25,98,168,772,1296,2624,3200). INDEPENDENT Python reconstruction enumerated all 4095 nonempty edge-subsets and confirmed 1698 allowable faces; f=(12,66,212,423,516,352,108,9). Reimplemented greedy sequential pivots i=11,...,0 and obtained pair counts (665,94,51,18,8,0,7,0,2,1,1,0), 847 disjoint cover pairs, critical masks 888,1235,1421 (three five-dimensional simplices) and 2048 (one 0-cell). Built all 7980 directed Hasse cover arrows and independently topologically sorted all 1698 nodes, proving this matching acyclic rather than relying on certificate output. Forman CW theorem then has one 0-cell and three 5-cells, so attaching maps to the point are constant and M2(Q3) ≃ wedge of three S5 integrally; no torsion. The line graph equivalence uses Q3 triangle-free, so 3 pairwise incident edges necessarily share a vertex. Only this finite cube/degree-cap case is proved.
 
-## Related literature and limitations
-Ghosh–Selvaraja (arXiv:2602.09623v1, 2026-02-10) motivates the higher clique-free problem. Vega (arXiv:1909.10406, 2019-09-23) defines the degree-bounded matching context. Possible stronger unindexed equivalent results remain the material originality risk. Finite verification covers all cells of only the stated object; an independent audit of proof and novelty has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final finite homotopy classification is distinct from ordinary matching and cut complexes of the cube and its line graph. Resultary covered ordinary cube matching complex wedge4 S2, cuboctahedral ordinary matching complex wedge57 S3 and three-cut complex mixed-dimensional, not M2(Q3). The primary 2-matching methods and clique-free shellability theorems inspected do not state or imply this nonpure Q3 homotopy classification. Best-of-knowledge original; not proof of exhaustive literature priority.
+
+## value
+
+PASS
+
+The cube and its degree-constrained matching complex are canonical graph/topological objects; the 49 facets occur in three dimensions (4,36,9 across dims 5,6,7), making this nonpure complex a legitimate exact homotopy classification rather than a routine purity/shellability corollary. Explicit acyclic collapse to 3 spheres supplies a reusable integral finite benchmark, not merely its Betti numbers. This natural unknown exact invariant is self-contained and mathematically worth recording.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

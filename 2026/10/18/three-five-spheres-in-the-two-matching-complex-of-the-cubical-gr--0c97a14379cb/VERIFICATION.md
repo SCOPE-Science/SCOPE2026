@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limitations
 
-`verify.py` is a standalone Python 3 verifier without third-party dependencies. Run `python verify.py --check-certificate certificate.json` from a directory containing these two files, or provide the certificate's correct relative path. The program (i) constructs the twelve cube edges explicitly using binary triples; (ii) enumerates all degree-capped subgraphs; (iii) creates every matched pair from descending fixed pivots and checks that pairs are disjoint codimension-one incidences; (iv) builds all 7980 face-poset covers; (v) checks a directed topological order on all 1698 nonempty faces; and (vi) compares the exact recalculated face list, pair list, critical-cell list and topological order with the supplied certificate. The recorded output is `verification_output.txt`.
+# Independent mathematical audit
 
-The four unmatched nonempty faces have mask encodings 888, 1235, 1421 and 2048, corresponding respectively to three critical cells of dimension five and one of dimension zero. By discrete Morse theory their CW model has no cells in intermediate dimensions, so it is the asserted wedge without an uncomputed attaching differential. The separate mod-two chain computation obtains unreduced Betti numbers (1,0,0,0,0,3,0,0) in dimensions zero through seven and corroborates the Euler characteristic, but is not treated as proof of an integral homotopy type. Numerical verification is exhaustive **only** for this stated twelve-edge graph. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+The fixed edge order is [(0,1),(0,2),(0,4),(1,3),(1,5),(2,3),(2,6),(3,7),(4,5),(4,6),(5,7),(6,7)]. Each cube vertex has 3 incident edges, so exactly the 8 full-stars are forbidden 3-edge subsets, masks (7,25,98,168,772,1296,2624,3200). INDEPENDENT Python reconstruction enumerated all 4095 nonempty edge-subsets and confirmed 1698 allowable faces; f=(12,66,212,423,516,352,108,9). Reimplemented greedy sequential pivots i=11,...,0 and obtained pair counts (665,94,51,18,8,0,7,0,2,1,1,0), 847 disjoint cover pairs, critical masks 888,1235,1421 (three five-dimensional simplices) and 2048 (one 0-cell). Built all 7980 directed Hasse cover arrows and independently topologically sorted all 1698 nodes, proving this matching acyclic rather than relying on certificate output. Forman CW theorem then has one 0-cell and three 5-cells, so attaching maps to the point are constant and M2(Q3) ≃ wedge of three S5 integrally; no torsion. The line graph equivalence uses Q3 triangle-free, so 3 pairwise incident edges necessarily share a vertex. Only this finite cube/degree-cap case is proved.
+
+## originality
+
+PASS
+
+The final finite homotopy classification is distinct from ordinary matching and cut complexes of the cube and its line graph. Resultary covered ordinary cube matching complex wedge4 S2, cuboctahedral ordinary matching complex wedge57 S3 and three-cut complex mixed-dimensional, not M2(Q3). The primary 2-matching methods and clique-free shellability theorems inspected do not state or imply this nonpure Q3 homotopy classification. Best-of-knowledge original; not proof of exhaustive literature priority.
+
+## value
+
+PASS
+
+The cube and its degree-constrained matching complex are canonical graph/topological objects; the 49 facets occur in three dimensions (4,36,9 across dims 5,6,7), making this nonpure complex a legitimate exact homotopy classification rather than a routine purity/shellability corollary. Explicit acyclic collapse to 3 spheres supplies a reusable integral finite benchmark, not merely its Betti numbers. This natural unknown exact invariant is self-contained and mathematically worth recording.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
