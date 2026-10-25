@@ -1,15 +1,21 @@
-# Review of the triangular-prism Crofton law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact distribution follows from the full allowed-offset interval for pentagonal sections, the conditioned invariant plane measure, and the elementary arctangent integral. The triangle, plane convention, height and zero-measure boundaries are fixed explicitly. The reciprocal-side thin coefficient comes from the six transverse projection coincidences; the positive angle-weighted tall invariant comes from angular integration. The nine-edge crossing checker independently reproduces the distribution at twelve geometries. Finite checks are supporting evidence, not the proof.
+PASS
 
-## Originality
+For a generic normal, sorted base projections have gaps x,y and vertical separation s. Exactly five prism edges are crossed for an offset interval of length s-(s-x)_+-(s-y)_++(s-x-y)_+. Spherical normal integration transforms its positive-part terms to a difference of arctangents in projected gaps X,Y. The total intersecting plane mass is pi(P+2h) by directional width integration; hence p5=I_T(h)/[pi(P+2h)]. Counting expected edge crossings gives p3=p5+2h/(P+2h) and p4=P/(P+2h)-2p5. Local analysis at six projection-gap degeneracies gives thin deficit pi h^2 sum(1/a_i), and a uniform large-h arctangent expansion gives C(T)=sum |edge1||edge2|(sin(alpha)-alpha cos(alpha))/pi>0. Independently integrated the formula and counted all nine actual prism-edge intersections for a scalene base at h=0.2,0.7,1.8 over a 360x96 spherical grid; all agree within 5.2e-5. Also cross-checked six equilateral heights against separately derived closed form to floating error ~1e-15. These are bounded corroborations of the analytic argument.
 
-**PASS under accessible evidence, with substantial historical risk.** A general mean section-vertex identity and an exact equilateral-base triangular-prism Crofton law are already known and are not claimed as new. Affine transformations of the equilateral base do not preserve Euclidean-motion-invariant plane sampling; the arbitrary-scalene law and two shape-sensitive asymptotic coefficients require additional analysis. Accessible complete proofs on attainable slice counts and optimum sections do not imply this closed one-dimensional law and its two shape-sensitive asymptotic coefficients. Nevertheless, Voss (1982) treats exact polygon section frequencies for unspecified simple-polyhedron families, and Ohser–Mücklich (1995) discusses regular-prism stereology; their full texts were unavailable for a definitive implication comparison. The finding should not be represented as independently priority-certified. The motivating 2026 source's complete text was also unavailable; only its public abstract was accessible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact three-type probability law for an arbitrary scalene triangular base provides a natural stereological invariant and two distinct limits exposing reciprocal side lengths and a positive angle-weighted geometric quantity. It is a structural classification of a continuous body family, not an isolated numerical evaluation. The result does not extend to skew prisms, unconditioned normal sampling, central sections, or uniformly degenerating triangles.
+The equilateral-base special case is covered by the separately assigned exact elementary formula, but not the arbitrary-scalene Crofton distribution and its shape-dependent asymptotic coefficients; affine deformation of a regular prism does not preserve motion-invariant random-plane measure. Classical stereology supplies mean edge counts and some sectional frequency tables, but accessible evidence did not establish this arbitrary-triangle formula. Full 1982 Voss and 1995 Ohser–Mücklich texts inaccessible, named residual risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact probability law for a natural three-dimensional family of nonregular prisms gives distinct second-order thin and leading tall geometric signatures depending on triangle sides and angles. It is a motivated stereological invariant beyond a trivial mean or affine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
