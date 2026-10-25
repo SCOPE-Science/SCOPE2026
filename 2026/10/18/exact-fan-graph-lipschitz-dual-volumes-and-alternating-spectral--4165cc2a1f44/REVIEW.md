@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The metric inequalities follow from unit hub and consecutive path edges; all other distances are bounded along graph paths. Fubini gives the transfer-operator volume identity. Reflection symmetry reduces the resolvent to an explicitly solvable two-point boundary problem. The resulting rational expression in \(\tan(z/2)\) agrees with the stated trigonometric generating function, while the subtracted cotangent partial fractions give an absolutely convergent expression with exact positive volumes. Pairing positive and negative pole indices proves strict alternating signs of the corrections at every integer index, hence strict alternation of consecutive-volume ratios, not merely asymptotic agreement. A fresh, independent exact-arithmetic implementation verifies twelve leading Ehrhart coefficients against polynomial integration; finite tests support but do not replace the all-dimensional proof. Principal mathematical risks: accurate normalization of the anchored lattice, integer-polytope justification for Ehrhart checks, and the sign of the negative spectral residues. The proof and checks address each.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest same-graph published result calculates the facet-distance spectrum and Euclidean inball geometry of the symmetric edge polytope, but not the fan's anchored dual volume generating function or the ratio oscillation. The nearby published complete-ladder result has a different graph and a positive-weight spectral sum yielding monotone, rather than alternating, volume ratios. Aliaga's foundational extreme-point theorem and Alexander–Fradelizi–García-Lirola–Zvavitch's volume-product theory do not state the fan sequence. Sanyal–Stump's oriented poset Lipschitz polytope does not have the present symmetric triangle constraints, and general toric volume algorithms do not themselves supply an evaluated closed family or the sign theorem. Indexed mathematical search and comparison with available earlier claims yielded no stronger theorem implying the stated all-index result. Residual risk: an earlier unindexed computation under alcoved-polytope or conditioned-chain nomenclature could be equivalent; a failed search is not uniqueness certification.
+PASS
 
-## Mathematical value — PASS
-The exact complete sequence evaluates the canonical rooted-coordinate volume of a nontrivial infinite family of finite-dimensional Banach dual balls. The limiting constant is explicit and the alternating signed error holds in **every dimension**; such a sign law is structural and contrasts with the known strictly log-convex open-ladder volume sequence. Exact rational volumes and a reproducible independent Ehrhart route allow quantitative use of the formula. The contribution goes beyond a numerical table or a routine isolated specialization. No general invariant for arbitrary graphs is claimed.
+Unit hub constraints yield |x_i|<=1 and path edges |x_i-x_{i+1}|<=1, so Fubini expresses V_n=<1,T^(n-1)1> with symmetric integral kernel 1_{|x-y|<=1} on [-1,1]. Resolvent u=1+zTu even and for x>=0 satisfies u'(x)=-z u(1-x), u''(x)=-z²u(x). Endpoint identities u(0)=2u(1)-1 and u'(0)=-z u(1) yield G(z)=4sin(z/2)/[z(cos(z/2)-3sin(z/2))]. With alpha=2 arctan(1/3), cotangent partial fractions give V_n=(4/5)sum_{j in Z}(alpha+2pi j)^-(n+1), convergent absolutely. Nonzero-pole corrections alternate sign, since paired negative pole a_-k is closer to zero than a_+k; each 1+epsilon_n>0 from geometric volume, establishing strict parity-sign ratio inequalities all n. Independent exact polynomial-transfer integration matched Ehrhart finite differences for n<=8, and numerical ratio signs through n=11; infinite signs proven by pole pairing, not computation.
 
-## Scope and independence
-The findings refer only to unweighted fan graphs and their specified anchored-coordinate volume; unweighted poset, finite-metric volume-product, and same-graph facet results are credited for their distinct contributions. Independent scientific validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Closed meromorphic generating function and exact all-index alternating spectral correction for the coordinate-volume sequence of natural fan-graph Lipschitz balls. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+Anchored-coordinate volumes of Lipschitz duals for the natural fan graph give a nontrivial graph-indexed convex-body volume sequence. Explicit resolvent, rational coefficients, exact spectrum and strict all-index parity oscillations supply an independently useful analytic benchmark unavailable from generic facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

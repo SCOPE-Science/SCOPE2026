@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. Exact polynomial integration on \([0,1]\) constructs the fan-volume sequence through dimension 16. A separate count of integer lattice points in dilated fan polytopes obtains the leading Ehrhart coefficients, compared at exact rational precision through dimension 12. The computation also checks the strict alternating-ratio inequalities for 14 indexes and numerical spectral sums for 10 dimensions.
+## correctness
 
-The graph-edge inequalities have a rooted, totally unimodular difference-constraint matrix, so Ehrhart's leading coefficient is exactly the anchored volume. This integrality is independently justified by the spanning-tree argument in RESULT.md. The trigonometric generating function, infinite cotangent sum and uniform alternating signs are proved symbolically in RESULT.md; sample calculations alone do not imply them.
+PASS
 
-Scientific limits: no independent scientific audit has been completed, the numerical series comparison uses finitely many terms, and the spectral remainder estimate is a mathematical proof step rather than a finite numerical certificate.
+Unit hub constraints yield |x_i|<=1 and path edges |x_i-x_{i+1}|<=1, so Fubini expresses V_n=<1,T^(n-1)1> with symmetric integral kernel 1_{|x-y|<=1} on [-1,1]. Resolvent u=1+zTu even and for x>=0 satisfies u'(x)=-z u(1-x), u''(x)=-z²u(x). Endpoint identities u(0)=2u(1)-1 and u'(0)=-z u(1) yield G(z)=4sin(z/2)/[z(cos(z/2)-3sin(z/2))]. With alpha=2 arctan(1/3), cotangent partial fractions give V_n=(4/5)sum_{j in Z}(alpha+2pi j)^-(n+1), convergent absolutely. Nonzero-pole corrections alternate sign, since paired negative pole a_-k is closer to zero than a_+k; each 1+epsilon_n>0 from geometric volume, establishing strict parity-sign ratio inequalities all n. Independent exact polynomial-transfer integration matched Ehrhart finite differences for n<=8, and numerical ratio signs through n=11; infinite signs proven by pole pairing, not computation.
+
+## originality
+
+PASS
+
+Best-of-knowledge: targeted published finding search and primary-source theorem comparison did not identify a prior result implying the entire final claim; known components are explicitly credited, not counted as novel. Closed meromorphic generating function and exact all-index alternating spectral correction for the coordinate-volume sequence of natural fan-graph Lipschitz balls. Unindexed-equivalent risk retained.
+
+## value
+
+PASS
+
+Anchored-coordinate volumes of Lipschitz duals for the natural fan graph give a nontrivial graph-indexed convex-body volume sequence. Explicit resolvent, rational coefficients, exact spectrum and strict all-index parity oscillations supply an independently useful analytic benchmark unavailable from generic facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
