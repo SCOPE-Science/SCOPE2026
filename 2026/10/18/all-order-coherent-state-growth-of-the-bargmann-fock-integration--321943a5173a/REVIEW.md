@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the normalized Gaussian Hilbert Fock basis, \(J\phi_j=\phi_{j+1}/\sqrt{j+1}\) gives exact resolvent columns. The Poisson weighted Cauchy–Schwarz estimate controls the infinite column tail uniformly, and finite low columns converge exponentially to the claimed coherent-state rank-one profile. Choosing a fixed cutoff more than twice the desired expansion order proves every stated factorial term. The spectral resolvent follows by an exact scalar transformation and norm radiality; the logarithmic inversion produces the displayed pseudospectral radius. Scope: fixed integer orders; no convergence of the factorial series or extension to other Fock norms. The checker corroborates finite instances but is not logically used in the proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2015 Constantin–Persson paper already supplies general Volterra-type resolvent equations and quasinilpotence in the standard Gaussian model; those claims are explicitly excluded from novelty. Its inspected spectrum/resolvent proofs do not present the rank-one *operator-norm* expansion, factorial coefficients, or the logarithmic pseudospectral correction. The 2026 Schindl paper concerns weighted-function-space integration criteria, not these quantitative Hilbert Gaussian resolvent estimates. Targeted bibliographic and mathematical-record searches did not identify a stronger or equivalent all-order statement. This is best-knowledge originality, not a proof of priority: earlier factorial-weighted-shift or pseudospectral results not retrieved could imply it. The canonical coherent-state lower bound by itself is old and not the claimed contribution.
+PASS
 
-## Mathematical value — PASS
-Quasinilpotent compact operators may have extremely large resolvents near their spectral point; spectral identification alone cannot quantify that instability. The theorem supplies a sharp norm expansion at every prescribed order, a structural explanation by coherent-state asymptotic rank one, and a nontrivial log-log correction for the pseudospectrum. These describe natural operator invariants in the canonical Gaussian model rather than an ad hoc finite parameter slice.
+Verified Jφ_j=(j+1)^(-1/2)φ_(j+1), resolvent matrix entries t^(k-j)√(j!/k!), quasinilpotence ∥J^k∥=1/√k!, and normalized exact columns √j! t^-j P_(≥j)u_t. For fixed cutoff m the omitted columns have bound e^(-t²/2)∑_n t^n/√n!=O(t^1/2) by Poisson-weight Cauchy-Schwarz. This yields O_m(t^(-m+1/2)) rank-one remainder, and m=2N+3 gives all fixed-order factorial expansion. Spectrum {0} and logarithmic pseudospectral radius follow, with fixed N and no convergence assertion for full divergent series; no finite matrix is used as an infinite-dimensional proof.
 
-## Sources and limitations
-Primary: Schindl, arXiv:2610.11902v1 (public 2026-10-08; relevant introduction and integration results inspected). Direct earlier comparison: Constantin–Persson, arXiv:1509.01401v1 (spectrum/resolvent formulas inspected). Residual risks: prior equivalent weighted-shift asymptotic under other terminology; no independent scientific or priority verification; finite checker only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Fock Volterra theory contains the quasinilpotent resolvent formula and coherent exponential lower bound, not the factorial all-order operator-norm expansion or explicit rank-one error reported here. Relevant Constantin–Persson paper was read; unresolved equivalent weighted-shift literature remains a risk.
+
+## value
+
+PASS
+
+The full fixed-order factorial singular-norm expansion and explicit coherent-state rank-one operator-norm approximant quantify the extreme pseudospectral growth of a natural quasinilpotent integration operator, not merely rename a known resolvent equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

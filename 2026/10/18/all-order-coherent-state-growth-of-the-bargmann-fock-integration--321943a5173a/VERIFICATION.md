@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytic verification and limits
+# Independent mathematical audit
 
-The standard Bargmann–Fock basis gives \(J\phi_j=\phi_{j+1}/\sqrt{j+1}\) and \(\|J^k\|=1/\sqrt{k!}\). The normalized resolvent column identity is exact for every \(j\) and every \(t>0\); no truncation is required. The coherent state has norm exactly one.
+## correctness
 
-A direct Poisson mean-variance computation and weighted Cauchy–Schwarz establish a uniform bound for \(e^{-t^2/2}\sum_{n\ge0}t^n/\sqrt{n!}\), allowing the operator-norm tail estimate \(O_m(t^{-m+1/2})\). The required fixed-order expansion follows by choosing \(m=2N+3\) and estimating the omitted finite factorial terms. The radius formula follows by inversion of the exact resolvent relation and the first coefficients of the proven expansion.
+PASS
 
-Run `python checker.py` with NumPy and SciPy installed to reproduce 51 finite tests of the resolvent matrix, finite-section norms, tail estimate and Poisson bound. The checker does not prove the infinite-dimensional estimate or the asymptotic error; its diagnostics are strictly supporting evidence. An independent audit or publication-priority verification has not been performed.
+Verified Jφ_j=(j+1)^(-1/2)φ_(j+1), resolvent matrix entries t^(k-j)√(j!/k!), quasinilpotence ∥J^k∥=1/√k!, and normalized exact columns √j! t^-j P_(≥j)u_t. For fixed cutoff m the omitted columns have bound e^(-t²/2)∑_n t^n/√n!=O(t^1/2) by Poisson-weight Cauchy-Schwarz. This yields O_m(t^(-m+1/2)) rank-one remainder, and m=2N+3 gives all fixed-order factorial expansion. Spectrum {0} and logarithmic pseudospectral radius follow, with fixed N and no convergence assertion for full divergent series; no finite matrix is used as an infinite-dimensional proof.
+
+## originality
+
+PASS
+
+Prior Fock Volterra theory contains the quasinilpotent resolvent formula and coherent exponential lower bound, not the factorial all-order operator-norm expansion or explicit rank-one error reported here. Relevant Constantin–Persson paper was read; unresolved equivalent weighted-shift literature remains a risk.
+
+## value
+
+PASS
+
+The full fixed-order factorial singular-norm expansion and explicit coherent-state rank-one operator-norm approximant quantify the extreme pseudospectral growth of a natural quasinilpotent integration operator, not merely rename a known resolvent equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
