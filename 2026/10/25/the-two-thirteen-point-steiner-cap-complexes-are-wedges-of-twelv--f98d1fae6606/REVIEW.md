@@ -1,0 +1,19 @@
+# Scientific review: order-thirteen Steiner cap complexes
+
+## Correctness — PASS
+
+The constructions list every triple as two cyclic base orbits or one explicitly given Pasch trade. The verifier checks each of the seventy-eight pairs occurs exactly once in each design; no hidden relabeling or classification assumptions enter the finite computation. Every one of the \(8192\) vertex subsets is tested against all twenty-six blocks. The signed incidence structure is reconstructed from increasing vertex order. Two face-poset matchings are built by an explicit deterministic algorithm, their \(4550\) and \(4520\) oriented incidence relations are fully topologically sorted, and signed elimination gives exact integral boundary matrices. The displayed determinants \(1\) make the boundaries split surjective over the integers, not just over a field. One zero-cell and no cells of dimensions one or two, followed by vanishing third homology, give three-connectedness; Hurewicz and homology Whitehead promote the computed free fourth homology to the asserted homotopy equivalence. The cyclic rational character follows from the free nontrivial translation action on nonempty faces and the signed reduced Lefschetz formula. The independent mod-two boundary-rank calculation corroborates the integral result but is not used as a substitute for it.
+
+## Originality — PASS, with residual risk
+
+The 2004 article by Forbes, Grannell and Griggs studies enumerative independent-point-set formulas, including dependence on Pasch configurations, and does not furnish the two integral homotopy types or the cyclic action. The 2000 Grannell–Griggs–Rosa paper identifies the order-thirteen designs and Pasch switch, but studies block-coloring indices rather than topology. Their 2005 follow-up again addresses counts. Huggan, Huntemann and Stevens (2021, arXiv:2103.13501) explicitly model Nofil legal positions by the same block-avoiding subsets, and exhaustively compute nim-values for both order-thirteen systems; they do not compute homology or homotopy groups. Comparisons against indexed cap-complex results on the thirteen-point projective plane, the nine-point affine Steiner system, the sixteen-point affine plane, higher-order Witt designs and general incidence-neighborhood complexes do not imply this result: those objects have distinct block families, forbidden subsets or vertex sets. Rank-three matroid shellability is not applicable because the present complexes have genuine six-point faces. Focused exact-object, alias, Pasch-switch, integral-homology, character and broader-covering searches found no statement covering the claim. The possibility of unindexed prior computation and the fact that only selected parts of the available 2004 PDF were visually inspectable remain residual risks.
+
+## Value — PASS
+
+This is a natural complete classification across all two nonisomorphic minimal nonunique Steiner triple systems, answering a topological question not settled by known enumeration of independent point sets. It proves that two nonpure complexes with five-dimensional facets nevertheless have homogeneous wedge-of-four-spheres homotopy types, and quantifies a concrete five-sphere change under a classical Pasch trade. The cyclotomic action adds a symmetry structure beyond Betti numbers. The numerical ranks and exact attaching maps are independently reproducible and tied to a canonical object rather than an arbitrary parameter choice.
+
+## Scope and remaining risks
+
+No formula for general orders, no claim about every switch in larger Steiner systems, and no claim of a full automorphism-character classification. All finite computations are self-contained in the included standard-library verifier. The result remains open to independent audit and to the discovery of equivalent unindexed literature.
+
+Self-review: passed. Independent audit: not yet performed.
