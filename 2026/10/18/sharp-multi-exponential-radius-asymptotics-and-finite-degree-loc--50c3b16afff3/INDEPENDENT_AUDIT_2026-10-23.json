@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T00:02:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Jacobi reduction M_s=2/||J_s|| uses the original weighted coefficient form and all approximant zeros (the cited 2016 reduction is prior); weights give edges ((j+3)/(j+2))^(s/2). After scaling first edge to 1, b=(8/9)^(s/2) and c=(5/6)^(s/2). The first two site Schur complement yields λ-1/λ=b²m(λ), λ>1; the tail norm <=2c<1/2 for sufficiently large s and its bipartite resolvent has m=λ^(-1)+c²λ^(-3)+O(c⁴). Thus λ²=1+b²+b²c²+O(b^6), since (160/243)^s and (50/81)^s are <=(512/729)^s, giving the three requested coefficients and uniform error. Principal 2×2 and 3×3 Jacobi compressions yield exact first-degree generator-degree-one/two formulae, not a claim about higher-degree approximants. Resolvent control gives O(b²) spectral mass outside coordinates 0 and 1. Independently diagonalized 1,301×1,301 Jacobi truncations at s=16,20,32,48,64; their absolute remainders divided by specified b^6 were bounded and their quadratic gaps positive. These finite sections corroborate but cannot replace the infinite tail estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 paper explicitly says negative-weight bound is not optimal and its Figure 1 uses finite-section estimates for s≤12.",
+          "The 2021 survey lists the exact negative-index norm as an open question."
+        ],
+        "reasoning": "An exact all-s Jacobi radius theorem would dominate a large-s expansion but was not found in the primary paper; it explicitly lacks it. Standard perturbation theory of an isolated eigenvalue offers a methodology, not these arithmetic-specific coefficients absent specialization.",
+        "searches": [
+          "arxiv:1606.08615 Theorems 4.2,5.3 and §5.3",
+          "arxiv:2102.01725 Open Question 1",
+          "optimal polynomial approximants negative Dirichlet spaces zeros Jacobi matrix norm asymptotic large negative index exponential corrections"
+        ]
+      },
+      "checked_sources": [
+        "frozen mathematical package RESULT.md, REVIEW.md, VERIFICATION.md",
+        "arxiv:1606.08615 full text §§4–5",
+        "arxiv:2102.01725 full text §4.1",
+        "Resultary targeted query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known universal lower bound is (2/3)^(s/2), half of the large-s leading term in the source.",
+          "The survey explicitly regards the exact operator norm and generator as undetermined for α<0 except -1."
+        ],
+        "reasoning": "The claimed high-s leading constant, higher corrections and first-two-site localization require the new resolvent perturbation calculation and are not corollaries of those weaker bounds. A stronger precise Jacobi perturbation statement outside searched sources remains possible.",
+        "searches": [
+          "arxiv:1606.08615 Theorem 5.3",
+          "arxiv:2102.01725 Open Question 1",
+          "optimal polynomial approximants negative Dirichlet spaces zeros Jacobi matrix norm asymptotic large negative index exponential corrections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bénéteau et al. reduce the nearest zero to Jacobi norm; in negative Dirichlet spaces Theorem 5.3 gives the lower disk radius (2/3)^(s/2).",
+          "Bénéteau–Centner Open Question 1 asks what the radius and extremal function are for negative weights other than Bergman."
+        ],
+        "reasoning": "The same radius object and Jacobi operator are already known; the newly evaluated three asymptotic correction scales and degree-limited gap are not in the inspected sections.",
+        "searches": [
+          "optimal polynomial approximants negative Dirichlet spaces zeros Jacobi matrix norm asymptotic large negative index exponential corrections",
+          "arxiv:1606.08615 §4,Theorem 5.3",
+          "arxiv:2102.01725 §4.1 Open Question 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2016 Figure 1 plots finite-section spectral estimates for negative indices in [-12,0], not exact symbolic high-s exponential coefficients.",
+          "The Resultary query returned related bidisk and polydisk optimal-approximant claims, not this one-variable Jacobi asymptotic table."
+        ],
+        "reasoning": "A plot or broad spectral estimate does not tabulate the exact ordered bases 8/9,64/81,20/27,512/729 or the restricted-degree gap, so no exact table coverage was established.",
+        "searches": [
+          "optimal polynomial approximants negative Dirichlet spaces zeros Jacobi matrix norm asymptotic large negative index exponential corrections",
+          "arxiv:1606.08615 Figure 1",
+          "Resultary query Dirichlet Jacobi optimal approximant"
+        ]
+      },
+      "rationale": "The foundational 2016 Jacobi norm theorem gives zero location reduction and an intentionally nonsharp negative-weight bound; the 2021 survey explicitly asks for its exact radius and extremal generator. The audited result supplies a partial large-s asymptotic with three separate scales, not a new Jacobi reduction. No matching negative-index expansion was identified in targeted indexed research searches or the full primary mathematical passages read. Older generic Jacobi operator perturbation formulas might entail the expansion after specialization, so originality is explicitly best-knowledge.",
+      "residual_risks": [
+        "A specialized old Jacobi or weighted shift perturbation expansion may yield these bases as a known corollary; no exhaustive historic citation graph checked.",
+        "Finite-section numerical diagonalization cannot by itself certify infinite Jacobi spectral exclusion; the source Schur bound is the proof.",
+        "The statement does not solve the fixed finite-s exact norm problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides underlying reduction and only a weaker bound, not these high-s scales.",
+          "evidence": "Theorem 5.3 radius (3/2)^{α/2}; nearby discussion says estimate nonoptimal and provides finite-N plot.",
+          "identifier_or_url": "arxiv:1606.08615",
+          "material_read": "Full public HTML, particularly reduction theorems and §5.3 Theorem 5.3, plot and discussion of nonsharp bound.",
+          "method": "Primary mathematical full text on arXiv.",
+          "title": "Zeros of optimal polynomial approximants: Jacobi matrices and Jentzsch-type theorems",
+          "trigger": "Original theorem establishes same Jacobi operator and negative-space zero radii."
+        },
+        {
+          "assessment": "Open question is stronger globally but unsolved in inspected survey; does not imply proposed partial large-s coefficients.",
+          "evidence": "Open Question 1 asks for M and extremal function for all α<0, α≠−1.",
+          "identifier_or_url": "arxiv:2102.01725",
+          "material_read": "Full public HTML §4.1, Open Question 1 and surrounding Jacobi material.",
+          "method": "Public primary mathematical survey full text.",
+          "title": "A survey of optimal polynomial approximants, applications to digital filter design, and related open problems",
+          "trigger": "Explicit current-status statement for exact negative Dirichlet radii."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated asymptotic partial solution to an explicitly published problem about zero-free discs and extremal generating functions. The sharp factor two improves a standard bound, the (20/27)^s scale quantifies exactly when quadratic generators cease to capture the full radius, and the spectral two-site localization describes extremal functions; not a mere high-precision number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen mathematical package RESULT.md, REVIEW.md, VERIFICATION.md",
+    "arxiv:1606.08615 full text §§4–5",
+    "arxiv:2102.01725 full text §4.1",
+    "Resultary targeted query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized old Jacobi or weighted shift perturbation expansion may yield these bases as a known corollary; no exhaustive historic citation graph checked.",
+    "Finite-section numerical diagonalization cannot by itself certify infinite Jacobi spectral exclusion; the source Schur bound is the proof.",
+    "The statement does not solve the fixed finite-s exact norm problem."
+  ],
+  "residual_risks": [
+    "A specialized old Jacobi or weighted shift perturbation expansion may yield these bases as a known corollary; no exhaustive historic citation graph checked.",
+    "Finite-section numerical diagonalization cannot by itself certify infinite Jacobi spectral exclusion; the source Schur bound is the proof.",
+    "The statement does not solve the fixed finite-s exact norm problem."
+  ],
+  "schema_version": 1
+}

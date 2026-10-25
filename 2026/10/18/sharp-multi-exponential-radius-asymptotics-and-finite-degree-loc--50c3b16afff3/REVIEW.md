@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted Jacobi identification is reconstructed from the coefficient quadratic form, with the source's reduction from all optimal-approximant zeros to linear approximants made explicit. Splitting off the first two Jacobi coordinates yields an isolated positive spectral root and a resolvent whose even-walk expansion gives a uniform analytic remainder. The two exact finite-section optima and concentration estimates follow from the same operator. A program checking large-parameter tridiagonal spectra, finite truncations, and the published Bergman special value completed all 25 assertions. The numerical tests alone do not prove the asymptotics; the uniform tail bound does.
+## correctness
 
-**Originality — PASS (best knowledge).** The 2016 primary paper provides the reduction and a lower bound, but its relevant Sections 4 and 5.3 do not contain the high-negative-index multi-exponential expansion, quadratic-generator gap, or parameter-dependent concentration. The 2021 survey (Section 4.1, Open Question 1) states the general radius and extremal-generator question as open. Search comparisons against indexed Fourier/Dirichlet polynomial records and older arXiv literature did not reveal a stronger result implying the precise formula. This is a best-knowledge assessment, not a uniqueness or independent novelty certificate.
+PASS
 
-**Mathematical value — PASS.** The precise leading factor of two improves the earlier uniform zero-free bound in a natural singular weight regime, while the ordered corrections distinguish the influence of successive Jacobi edges. The sharp first-degree optimal-approximant gap for quadratic generators gives a quantitative finite-versus-infinite extremization cutoff. The eigenvector localization describes how near-extremal generating functions are organized. This is a limited asymptotic partial answer, not a global solution for every Dirichlet exponent.
+The Jacobi reduction M_s=2/||J_s|| uses the original weighted coefficient form and all approximant zeros (the cited 2016 reduction is prior); weights give edges ((j+3)/(j+2))^(s/2). After scaling first edge to 1, b=(8/9)^(s/2) and c=(5/6)^(s/2). The first two site Schur complement yields λ-1/λ=b²m(λ), λ>1; the tail norm <=2c<1/2 for sufficiently large s and its bipartite resolvent has m=λ^(-1)+c²λ^(-3)+O(c⁴). Thus λ²=1+b²+b²c²+O(b^6), since (160/243)^s and (50/81)^s are <=(512/729)^s, giving the three requested coefficients and uniform error. Principal 2×2 and 3×3 Jacobi compressions yield exact first-degree generator-degree-one/two formulae, not a claim about higher-degree approximants. Resolvent control gives O(b²) spectral mass outside coordinates 0 and 1. Independently diagonalized 1,301×1,301 Jacobi truncations at s=16,20,32,48,64; their absolute remainders divided by specified b^6 were bounded and their quadratic gaps positive. These finite sections corroborate but cannot replace the infinite tail estimate.
 
-Closest literature: Bénéteau--Khavinson--Liaw--Seco--Simanek, arXiv:1606.08615, Sections 4 and 5.3; Bénéteau--Centner, arXiv:2102.01725v1, Section 4.1, Open Question 1. Residual priority risks include equivalent spectral perturbation asymptotics in older Jacobi-matrix literature and unindexed work on optimal approximants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational 2016 Jacobi norm theorem gives zero location reduction and an intentionally nonsharp negative-weight bound; the 2021 survey explicitly asks for its exact radius and extremal generator. The audited result supplies a partial large-s asymptotic with three separate scales, not a new Jacobi reduction. No matching negative-index expansion was identified in targeted indexed research searches or the full primary mathematical passages read. Older generic Jacobi operator perturbation formulas might entail the expansion after specialization, so originality is explicitly best-knowledge.
+
+## value
+
+PASS
+
+This is a motivated asymptotic partial solution to an explicitly published problem about zero-free discs and extremal generating functions. The sharp factor two improves a standard bound, the (20/27)^s scale quantifies exactly when quadratic generators cease to capture the full radius, and the spectral two-site localization describes extremal functions; not a mere high-precision number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
