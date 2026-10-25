@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete ten-stage finite certificate is verified from the definitions of the Petersen graph and higher independence, including all 1023 possible nonempty vertex sets, every elementary free-face match and critical facet, and the forced acyclicity of the removal-order matching. The critical cells consist only of one vertex plus cells in a single dimension \(\ge2\) at each noncontractible stage, so discrete Morse theory gives the stated integral wedges, with no undetermined cellular attaching maps. An independent full \(\mathbb F_2\) boundary calculation and filtration matrix reduction confirms the persistent intervals. Verifier output is included and reproducible.
+## correctness
 
-**Originality — PASS (best-knowledge, not guaranteed uniqueness).** Closest published Petersen two-independence results establish only parameter two; ordinary Petersen independence is likewise prior work. Inspected primary manuscripts on tree decomposability, higher independence shellability, dual co-connected complexes and families such as cycles and complete multipartite graphs do not state the whole Petersen profile or its persistent maps. In particular the general near-maximal-parameter shellability theorem does not fix the sphere multiplicities. Targeted published finding searches under ``higher independence'', ``Kneser KG(5,2)'', connected-component restrictions, and persistent homology did not find equivalent or dominating classification. Unindexed literature is a residual risk, and an absence of database hits alone would not establish priority.
+PASS
 
-**Mathematical value — PASS.** The Petersen graph is the standard smallest nontrivial Kneser graph and a canonical nonchordal, cubic test case for modern higher-independence theory, not an arbitrary induced subgraph. A complete all-parameter homotopy classification determines its integral torsion-free topology; the nontrivial persistence bar connecting parameters two, three and four is information not implied by isolated Betti vectors. This is a self-contained, precisely certified finite classification, not a claim of a general graph theorem.
+The frozen ten-vertex graph is KG(5,2), with K_r all subsets whose largest connected component has ≤r vertices, and all 1≤r≤10 plus r≥10 contractibility. Independently generated all 1023 nonempty subsets and their exact component-size levels, then fetched and exhaustively checked the 47,656-byte certificate.json (Git blob 6f51d9bb81d3d14d5d981f59f37759cafd26037e). For each r=1..10, every P removal was verified as a unique surviving codimension-one coface, every C removal as a maximal surviving face, and complete exhaustion with face counts 75,260,380,510,702,857,967,1012,1022,1023 and critical cells (one vertex plus 4 S²; 1 S³;1 S³;11 S³;61 S⁴;74 S⁵;36 S⁶;9 S⁷;1 S⁸;only vertex). This complete finite elementary-collapse certificate gives integral sphere-wedge homotopy at each stage; not just F2 ranks. Independently reconstructed simplicial boundary matrices over F2 and the 1023-face filtration; persistence reduction produced exactly (dimension,birth,death,multiplicity) (2,1,2,4),(3,2,5,1),(3,4,5,10),(4,5,6,61),(5,6,7,74),(6,7,8,36),(7,8,9,9),(8,9,10,1), plus one essential H0. No integral persistence module structure or equivariance is claimed.
 
-**Closest literature and limitations.** Sawant (2026) proves a theorem for trees; Deshpande–Singh (2020) treat other graph classes; Ghosh–Selvaraja (2025) have qualitative shellability results; Deshpande–Roy–Sawant (2025/26) treat Alexander duals and homological algebra for graph families. Previously published parameter-one and -two results are acknowledged. Only mod-two persistence is determined; integral persistence maps and group representations are not. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the complete all-parameter homotopy and F2 persistence, while ordinary r=1 and Petersen r=2=S³ are expressly prior. The full published Resultary Petersen r=2 RESULT.md establishes exactly one stage; the inspected Deshpande–Singh primary family theorems address trees, cycles, whiskered and multipartite graphs, not Petersen's entire component-size filtration. General higher-independence complexes and field persistence algorithms do not mechanically imply the evaluated sequence of Betti numbers, attaching data and inclusion maps.
+
+## value
+
+PASS
+
+The Petersen graph is the natural canonical small nonchordal cubic graph, and higher-independence complexes form a recent structural topological invariant. A complete finite r=1..10 integral homotopy classification and full finite F2 barcode reveal genuine class births, survivals and deaths not implied by the known r2 sphere or routine homology tables. Exact all-parameter results are useful benchmark facts for discrete Morse and persistence studies even without a wider graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
