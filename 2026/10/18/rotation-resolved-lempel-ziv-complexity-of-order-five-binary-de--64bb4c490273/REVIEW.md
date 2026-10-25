@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete finite universe has two independent encodings: all \(2^{16}\) incoming/outgoing pairings on the order-four de Bruijn graph, and a depth-first enumeration of every Eulerian circuit with its unique edge `00000` first. The two 2048-word sets agree. Every one of the \(65536\) cyclic cuts is parsed using two independently implemented but mathematically equivalent full-component LZ76 rules, both allowing recursive overlap and counting a fully reproducible final phrase. The exact rooted histogram and four-cycle minimum/maximum table agree. No infinite theorem is inferred from a finite test; completeness follows from the graph and parsing arguments and the bounded exhaustive loops in `verify.py`.
+## correctness
 
-## Originality — PASS, subject to the stated search limits
-Szczepanski (arXiv:math/0009084) supplies LZ76 distribution relations for the uniform class of *all* binary words, not an evaluation conditional on de Bruijn universality. Nunes et al. (arXiv:1311.0822) study maximal-complexity word constructions, not the full order-five de Bruijn orbit-by-orbit spectrum. Etzion–Lempel (1984) and Chan–Games–Key (1982) concern a different notion of sequence complexity, the least linear recurrence degree, so their de Bruijn tables do not imply this LZ76 histogram. Directed research-record searches and primary-literature comparisons revealed no theorem giving either displayed table. An unindexed earlier census remains a real historical-priority risk; no claim of exhaustive bibliographic coverage is made.
+PASS
 
-## Mathematical value — PASS
-LZ76 exhaustive-history complexity measures novel phrase production along a *linear* ordering, while de Bruijn universality constrains the complete circular factor set. The result exactly quantifies the cut sensitivity of this natural interaction for the first order with 2048 distinct cycles. The complete four-point law and the classification of every cycle by its best and worst possible cut show that no order-five de Bruijn cycle has cut-independent complexity. This is a natural complete finite classification, not a mere algorithm benchmark; it supplies reproducible exact reference distributions for phrase-based complexity of universal cycles. It does not claim downstream compression ratios or an all-order extension.
+The binary 4-bit de Bruijn digraph has 16 vertices each with two incoming and outgoing 5-bit edges; pairing all incoming to outgoing edges at each vertex gives exactly 2^16 deterministic edge permutations, with a single 32-cycle iff an order-five de Bruijn cycle. Fixing edge 00000 makes a one-to-one rotation class enumeration, and every class has 32 rooted cuts. Independently coded the full 65536 pairings and verified exactly 2048 cycles with distinct 5-bit circular factors, then parsed all 65536 rotations using the explicitly defined overlapping-source longest-previous-factor, final-phrase-included LZ76 convention. Obtained exact c histogram 8:6766, 9:34836, 10:23208, 11:726, exact cycle extrema (8,10):1228,(8,11):502,(9,10):226,(9,11):92; independently computed population mean 303859/32768 and variance 458624343/1073741824. The entire finite universe is exhausted, not estimated by sampling or a timeout.
 
-## Sources and remaining risks
-Primary texts inspected: Szczepanski, *On the Distribution Function of the Complexity of Finite Sequences* (arXiv:math/0009084); Nunes et al., *Properties of Maximum Lempel-Ziv Complexity Strings* (arXiv:1311.0822). Definitions were cross-checked with the full-component/exhaustive-history convention and the published sample parsing. Related primary abstracts or accessible extracts examined include Etzion–Lempel (1984), Chan–Games–Key (1982), and Ruskey–Sawada–Williams (2012). The first two are about linear recurrence complexity rather than LZ76. There remains a risk of an unindexed computation and a finite-convention mismatch if a different type of Lempel–Ziv factorization is substituted. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Etzion and Lempel (1984) have a deceptively identical title about de Bruijn sequences of given complexity, but materially read full text explicitly defines LINEAR FEEDBACK recurrence complexity, not Lempel–Ziv exhaustive-history complexity. Szczepański (2000) gives unconditional LZ76 distributions for unrestricted words, not the order-five de Bruijn conditional ensemble, and Nunes et al. (2013) studies globally maximal-complexity strings, not this 2048-cycle and 32-cut census. No equivalent LZ76 conditioned table was established.
+
+## value
+
+PASS
+
+The full-component LZ76 parsing of rooted versus cyclic de Bruijn words is a natural, convention-sensitive combinatorics/information-theory invariant. The exact exhaustive order-five histogram, rotational min/max classifications and universal cut bound 9/10 supply a canonical small-order benchmark; the finite census is complete, not an arbitrary hand-picked subset. It makes no unsupported general-order or compression-ratio claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
