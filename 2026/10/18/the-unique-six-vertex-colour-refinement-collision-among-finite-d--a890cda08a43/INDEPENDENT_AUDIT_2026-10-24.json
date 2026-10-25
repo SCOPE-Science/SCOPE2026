@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T08:55:28.763199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a loopless DAG, global directed 1-WL updates by old color and multisets of in- and out-neighbor colors, equivalent to C2 by standard counting-logic/refinement characterization. Independently enumerated EVERY upper-triangular adjacency mask (topological labelling exists for any DAG), n=1..6 mask counts 1,2,8,64,1024,32768, synchronizing colors across all same-n graphs and exactly deduplicating by directed isomorphism preserving stable colors. Recovered unlabeled DAG types 1,2,6,31,302,5984 and directed-WL/C2 buckets 1,2,6,31,302,5983, precisely one bucket with two nonisomorphic types at n6. Explicit witnesses have two oriented-transitive triangles versus a connected 6-cycle with sources/intermediate/sinks; each quotient class has two vertices, neighbor-color signatures identical while underlying connectivity proves nonisomorphism. The full exact exhaustive enumeration and finite-class completeness are independent of packaged logs and prove the n<=6 assertion; no assertion about n>=7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem27 of Kiefer et al. is a general relational structural statement, not a DAG order-six table.",
+          "Arvind et al. undirected hierarchy does not entail 5983 n6 directed-DAG logical classes."
+        ],
+        "reasoning": "Kiefer–Schweitzer–Selman give a much broader structural criterion for C2-identified relational structures, but do not in the inspected Theorem27 and discussion provide the exact DAG-restricted order-six orbit class count; Arvind et al. treat mostly undirected refinability/compactness. Their general theory supplies a method, not automatically this specialized sharp finite enumeration.",
+        "searches": [
+          "Resultary semantic: directed acyclic graphs C2 counting logic colour refinement first nonisomorphic six vertices 5983",
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 27",
+          "Arvind et al. arXiv:1502.01255",
+          "OEIS A003087 unlabeled DAG census"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: directed acyclic graphs C2 counting logic colour refinement first nonisomorphic six vertices 5983",
+        "Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 27",
+        "Arvind et al. arXiv:1502.01255",
+        "OEIS A003087 unlabeled DAG census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General 1-WL theorem is a semantic ingredient, not the n6 DAG bucket calculation.",
+          "Full 32768-mask topological census explicitly proves unique collision class."
+        ],
+        "reasoning": "A theorem identifying which individual structures are C2-identified in all finite structures may help derive which DAGs fail, but does not directly produce the classification within the DAG-restricted n6 universe without checking each isomorphism class. Generic 1-WL/C2 equivalence plus known 5984 DAG count do not imply precisely one collision: the independent exhaustive quotient calculation is essential.",
+        "searches": [
+          "Resultary semantic: directed acyclic graphs C2 counting logic colour refinement first nonisomorphic six vertices 5983",
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 27",
+          "Arvind et al. arXiv:1502.01255",
+          "OEIS A003087 unlabeled DAG census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C2 equivalence = synchronized directed counting color refinement under standard relational WL result.",
+          "The witness pair has equal in/out quotient but different connectivity."
+        ],
+        "reasoning": "Directed-arc structures (not reachability-posets or transitively closed DAGs) are compared in ordinary C2. The directed 1-WL semantics count both in- and out-neighbors; the two explicitly different DAGs are C2-equivalent by the same stable equitable quotient. Recasting as a pair of oriented copies of K3 versus an acyclic C6 orientation does not create independent novelty: the added result is the complete six-vertex class census and uniqueness.",
+        "searches": [
+          "Resultary semantic: directed acyclic graphs C2 counting logic colour refinement first nonisomorphic six vertices 5983",
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 27",
+          "Arvind et al. arXiv:1502.01255",
+          "OEIS A003087 unlabeled DAG census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A003087 n6=5984 unlabeled DAGs.",
+          "Independent full census n6 contains exactly one nontrivial C2 class (2 graph types)."
+        ],
+        "reasoning": "The DAG isomorphism counts 1,2,6,31,302,5984 are classical OEIS A003087; not claimed new. The C2 class count at n6 (5983), its unique double-isomorphism-class bucket and the exact minimal order are new computed properties not included in that unlabeled-graph count table.",
+        "searches": [
+          "Resultary semantic: directed acyclic graphs C2 counting logic colour refinement first nonisomorphic six vertices 5983",
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 27",
+          "Arvind et al. arXiv:1502.01255",
+          "OEIS A003087 unlabeled DAG census"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.",
+      "residual_risks": [
+        "An unindexed table of directed 1-WL classes or C2 classes for six-vertex DAGs could cover the exact 5983 count.",
+        "The C2/1-WL equivalence uses the directed relational interpretation, not simple undirected color refinement or poset reachability; replacing it would change the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL THEORY, NO EXACT DAG SIX-VERTEX TABLE READ",
+          "evidence": "Gives counting-logic machinery and broad structural criteria, not a stated 5983 DAG-C2 class count in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "Full primary PDF retrieved and mathematical introduction, WL characterization and relational Theorem 27 examined",
+          "method": "Open arXiv PDF text and page-image inspection",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Primary logic characterization potentially dominating the DAG classification"
+        },
+        {
+          "assessment": "UNDIRECTED/DIFFERENT GRAPH-CLASS EMPHASIS",
+          "evidence": "Undirected refinability and amenability do not imply exact directed acyclic order-six classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "Full accessible primary PDF with hierarchy/1-WL definitions and selected structural sections read",
+          "method": "arXiv PDF text and page images",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Earlier potential WL obstruction statement"
+        },
+        {
+          "assessment": "RECOUNTS ISOMORPHISM TYPES ONLY",
+          "evidence": "DAG sequence 5984 at n6 is known, but no C2 class bucket invariant supplied in relevant record.",
+          "identifier_or_url": "https://oeis.org/A003087",
+          "material_read": "Sequence title, small entries and Robinson enumerations checked; database not a C2 classification",
+          "method": "Public mathematical integer-sequence database",
+          "title": "OEIS A003087: Number of acyclic digraphs with n unlabeled nodes",
+          "trigger": "Exact database of related finite objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The onset of C2 nonidentification among directed acyclic graphs is a natural boundary for low-dimensional logic and graph-refinement methods. An exact first failure and a unique obstruction (together with class count 5983) is a meaningful finite classification distinct from routine listing of DAG counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed table of directed 1-WL classes or C2 classes for six-vertex DAGs could cover the exact 5983 count.",
+    "The C2/1-WL equivalence uses the directed relational interpretation, not simple undirected color refinement or poset reachability; replacing it would change the theorem.",
+    "C assessment for finite cutoffs rests on the complete combinatorial or algebraic proof and exact finite verifier, not the previous saved logs.",
+    "No independent Lean proof or external expert certification claimed; O remains provisional best-of-knowledge.",
+    "Scientific PASS does not equal publication authorization: separate plan status is not_ready."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Both computations below were run on the embedded source code; their outputs appear in `verification_output.txt`.
+# Independent mathematical audit
 
-**Standard-library independent enumeration:** `python3 verify_dags.py` builds all \(2^{\binom n2}\) topologically labelled DAGs for \(1\le n\le6\), runs globally synchronized directed refinement until its computed palette stops changing, then identifies distinct colour-preserving directed-isomorphism classes inside each signature bucket by exact backtracking. It asserts the six expected isomorphism counts and logical-class counts, and prints `VERIFIED` after the last assertion.
+## correctness
 
-**Second implementation:** `g++ -O3 -std=c++17 canon_dags.cpp -o canon_dags && ./canon_dags 6 > canonical_dags.txt && python3 analyze_canonical.py`. The C++ implementation computes the minimum directed adjacency integer across all permutations, independently of refinement, and the Python analyzer then computes stable directed colours and groups the canonical types. It produces the same six count pairs, with only the six-vertex group of size two.
+PASS
 
-The argument that these computations are exhaustive uses the existence of a topological ordering for every finite DAG and explicit (not probabilistic) isomorphism testing. The all-orders mathematical part—the equivalence of directed colour refinement and \(C^2\) on the stated DAG language—is a standard finite-model-theoretic theorem. The explicit exceptional witness is checked structurally in `RESULT.md`. No arbitrary-order DAG count, publication priority guarantee, or external validation is asserted.
+On a loopless DAG, global directed 1-WL updates by old color and multisets of in- and out-neighbor colors, equivalent to C2 by standard counting-logic/refinement characterization. Independently enumerated EVERY upper-triangular adjacency mask (topological labelling exists for any DAG), n=1..6 mask counts 1,2,8,64,1024,32768, synchronizing colors across all same-n graphs and exactly deduplicating by directed isomorphism preserving stable colors. Recovered unlabeled DAG types 1,2,6,31,302,5984 and directed-WL/C2 buckets 1,2,6,31,302,5983, precisely one bucket with two nonisomorphic types at n6. Explicit witnesses have two oriented-transitive triangles versus a connected 6-cycle with sources/intermediate/sinks; each quotient class has two vertices, neighbor-color signatures identical while underlying connectivity proves nonisomorphism. The full exact exhaustive enumeration and finite-class completeness are independent of packaged logs and prove the n<=6 assertion; no assertion about n>=7.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: exact claim-versus-prior implication comparisons, including its aliases and stronger possible coverage, were made using identified primary material and the recorded semantic search. No decisive full-claim coverage was found; negative searches alone are not proof of novelty. The special-case known ingredients are explicitly credited.
+
+## value
+
+PASS
+
+The onset of C2 nonidentification among directed acyclic graphs is a natural boundary for low-dimensional logic and graph-refinement methods. An exact first failure and a unique obstruction (together with class count 5983) is a meaningful finite classification distinct from routine listing of DAG counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
