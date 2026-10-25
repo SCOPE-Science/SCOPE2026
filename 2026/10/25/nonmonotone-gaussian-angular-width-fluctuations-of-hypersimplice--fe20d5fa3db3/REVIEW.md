@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The Gaussian projection is intrinsic and exact, the top-minus-bottom support identity is exact, the positive-proportion quantile linearization has a uniform probabilistic remainder, and the spherical denominator contributes the quadratic Gaussian term required by the displayed variance. The explicit covariance integrals yield the stated \(V\). The nonmonotone inequalities are enclosed by exact rational alternating-series arithmetic in the standalone checker. Finite support enumeration is ancillary verification, not a proof of the limit theorem.
+
+**Originality — PASS, qualified.** In the accessible primary source on hypersimplex projections, Martínez-Sandoval–Padrol address skeleton preservation, not random widths. Kabluchko–Litvak–Zaporozhets prove the regular cube/simplex/crosspolytope random-width laws, and explicitly supply the balanced endpoint, which is prior art. The general L-statistic and studentization mechanisms are known and credited. The assessed new synthesis is the precise dense-rank hypersimplex width law and its nonmonotone fluctuation-variance counterexample, rather than the underlying standard CLT method. Searches of closely matched published records did not reveal a same-claim result; equivalent broad Gaussian L-statistic formulations remain possible.
+
+**Mathematical value — PASS.** Hypersimplex rank interpolates a canonical matroid-base-polytope family from simplex-like to balanced geometry. The derived fluctuation law determines the stochastic Euclidean scale along this family and rules out a natural monotonic fluctuation ordering by showing a decrease, reversal, and another decrease. The nonmonotonicity is not evident from classical Gaussian order-statistic asymptotics and is proved with a finite rational certificate. No full classification of local extrema, sparse-rank limit, or finite-n variance is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
