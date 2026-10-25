@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All ten vertices of the Petersen graph are explicitly modeled as two-subsets of a five-element set, with graph edges joining disjoint pairs. Exact exhaustive enumeration checks every one of the 1024 subsets and independently verifies the connected-component condition at every level. Each of nine deterministic partial matchings is checked against **all** face-poset covering incidences for the absence of directed cycles, yielding the critical-cell vectors in the result. All levels except parameter \(4\) collapse homotopically to an explicit common-dimensional sphere wedge. At parameter \(4\), the signed integral critical boundary between four degree-four and fifteen degree-three cells has a displayed determinant-one maximal minor, permitting integral cancellation of all four degree-four attaching maps in the \(2\)-connected Morse CW complex. The filtered complex's complete reduced \(\mathbb F_2\) barcode is determined by exhaustive boundary reduction, not just by stagewise Betti numbers. Independent raw-chain calculations over four prime fields agree at all ten levels; a separate calculation confirms the degree-three inclusion rank from parameter \(2\) to \(4\).
+## correctness
 
-## Originality — PASS, with residual risk
-Deshpande and Singh's accessible 2020 full text introduces and classifies higher-independence complexes for complete multipartite graphs, fully whiskered graphs, paths, cycles, and perfect arity trees. It does not classify Petersen higher-independence levels. Related chordal-graph theorems do not apply because the Petersen graph has induced pentagons. Published Petersen \(2\)-independence calculations already prove \(\operatorname{Ind}_2(P)\simeq S^3\), and ordinary Petersen independence computations provide the first stage: **neither stage is claimed individually as new**. Related graph Čech persistence, matching, Morse, and cut complexes use different constructions. The new complete list at parameters \(3\)–\(9\), together with the exact filtration maps and nontrivial \([2,5)\) interval, is not entailed by those comparisons and was not located in targeted public mathematical-record and literature searches. Because indexing is incomplete, unindexed equivalent results remain possible.
+PASS
 
-## Mathematical value — PASS
-The filtration measures allowable connected cluster size in the canonical smallest cubic girth-five graph, a distinct topological invariant from metric Čech or Rips persistence. It is a **complete natural finite classification**, not a cherry-picked numerical slice: it resolves every possible parameter and both the integral stagewise homotopy and the field-specific interstage behavior. In particular, the persistent degree-three class survives three successive levels, while ten further independent classes appear at the fourth level before their simultaneous death; these facts are invisible in the previously known isolated \(2\)-independence sphere result. The exceptional primitive attaching-map calculation shows why integral wedge type, rather than merely finite-field Betti numbers, follows. No downstream theorem is asserted.
+Using Petersen graph KG(5,2), max induced component size defines a genuinely nested ten-stage simplicial filtration. Independently enumerated all 1024 ten-bit subsets. Exact nonempty face counts for r=1..9 are 75,260,380,510,702,857,967,1012,1022; r=10 is the full 9-simplex. Reconstructed all specified vertex-order toggle matchings and checked acyclicity by topological sorting every oriented Hasse cover. Critical cells are one vertex and one positive degree except r=4; the exception has fifteen degree-3 and four degree-4 critical cells. Independent integral matched-boundary elimination reproduces the exact displayed 15x4 matrix, and its rows 2,4,9,13 yield unimodular determinant +1; 2-connected CW and integral degree-3 basis changes cancel four 3/4 pairs giving a wedge of eleven S3, not merely Betti ranks. Rebuilt complete augmented GF2 persistence matrix, obtaining bars (dim,birth,death;mult) (2,1,2;4), (3,2,5;1), (3,4,5;10), (4,5,6;61), (5,6,7;74), (6,7,8;36), (7,8,9;9), (8,9,10;1). All calculations are exhaustive for Petersen only.
 
-## Closest literature and limitations
-The primary source is P. Deshpande and A. Singh, *Higher Independence Complexes of graphs and their homotopy types*, arXiv:2001.05448 (first public January 15, 2020), inspected via the available full text, including the theorem census and concluding questions. The related chordal-graph framework is P. Deshpande, S. Shukla, and A. Singh, arXiv:2001.06775 (January 19, 2020). Previous public Petersen \(2\)-independence classifications are a genuine overlap on the single \(r=2\) stage. The new conclusion is restricted to this graph; its persistence statement uses \(\mathbb F_2\), and equivalence as a filtration of spaces is not claimed. The work is reproducible and internally reviewed, not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncovered part: Complete higher-independence homotopy and F2 persistence of the Petersen graph. An exact complete homotopy classification of a canonical nonchordal symmetric graph across a natural higher-independence filtration, including an exceptional unimodular attaching calculation and a surviving older degree-three class plus ten later-born classes, is a mathematically motivated finite classification; it is not reducible to the known isolated r=2 computation; Full theorem not a corollary of an earlier isolated stage or general Euler-characteristic calculations.
+
+## value
+
+PASS
+
+An exact complete homotopy classification of a canonical nonchordal symmetric graph across a natural higher-independence filtration, including an exceptional unimodular attaching calculation and a surviving older degree-three class plus ten later-born classes, is a mathematically motivated finite classification; it is not reducible to the known isolated r=2 computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
