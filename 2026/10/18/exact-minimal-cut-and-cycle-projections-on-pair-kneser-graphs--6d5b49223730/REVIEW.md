@@ -1,15 +1,21 @@
-# Review of exact minimal pair-Kneser projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph Laplacian Poisson potential has six explicitly specified levels, obeys the two nontrivial Laplacian equations for every integer \(n\ge5\), and gives the orthogonal cut column. Exhaustive symbolic edge-orbit counts establish both endpoint norms. A stabilizer argument classifies all equivariant cut projections and fixes the two parameters uniquely; adjoint intertwiners yield uniqueness for cycles, so group averaging proves global minimality for all real \(\ell_p\) exponents. The rational difference formulas give the exact maximizing dimensions. Executing the included `check.py` from its final package path produced 652346 successful exact finite assertions for dimensions 5–10; this is verification, not the proof of the universal statement.
+## correctness
 
-## Originality — PASS, subject to literature limitations
-The nearest primary article, Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582v1), gives invariant-projection tools and evaluates Hamming and torus families; relevant pages and keyword searches did not show the pair-Kneser norms. Related 2018 and 2020 primary work addresses finite transportation geometry and recursive diamond/Laakso graphs. The prior triangular Johnson case uses the complement adjacency relation and a different edge-coordinate ambient space. Actual index, alias and stronger-coverage queries were compared by mathematical implication; no equivalent indexed formula was found. An unindexed transfer-current or strongly-regular-graph theorem could still cover the claim.
+PASS
 
-## Mathematical value — PASS
-The exact relative projection constants are natural geometric invariants of the classic pair-Kneser graph family, including the Petersen graph. The simultaneous minimization theorem holds at every exponent, and the distinct endpoint constants have sharp, non-monotone discrete maxima and different limiting values. Their derivation requires a nontrivial invariant-projection classification and orbit enumeration rather than a change of notation in a known formula.
+For KG(n,2), n>=5, a fixed oriented graph edge e=(A,B) has 6 stabilizer-orbit potential values (t,-t,-u,u,0,0) with t=2(n+1)/[n(n-1)(n-3)] and u=4/[(n-4)(n-3)(n-1)n]. Neighbor counting verifies Laplacian Lh_e=1_A-1_B. Therefore the orthogonal cut projection Q=D^T L^+ D has these gradient columns; cycle P=I-Q. The S_n edge-stabilizer signed symmetries leave only a two-parameter antisymmetric potential and the projection fixing equations force those parameters, hence unique equivariant cut projector. Transpose intertwining gives uniqueness for cycle; averaging any idempotent over signed coordinate isometries proves both globally norm-minimal for every real l_p, 1<=p<=infinity. Absolute gradient orbit counts yield cut 2(n-3)(n+6)/[n(n-1)] and cycle 1+cut-8(n+1)/[n(n-1)(n-3)] at both endpoints. Rational consecutive differences give cut max 5/2 at n8,9 and cycle max 1000/297 at n12. Independently reconstructed integer-scaled Poisson potentials and each endpoint column for every edge of n5..8, checking formulas exactly; this finite check does not prove global all-n minimality.
 
-## Limits and closest literature
-Claims are restricted to real standard edge-coordinate spaces and \(KG(n,2)\) with \(n\ge5\). Exact intermediate-exponent norms and higher-order Kneser graphs remain untreated. The closest examined primary text is arXiv:2305.12582v1; arXiv:1807.03814v1 and arXiv:2007.07949 provide related background but not these identified formulas. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 already develops invariant minimal cycle-space projections, representation uniqueness and examples for Hamming graphs and discrete tori. The general group-averaging principle is not new and should not be counted as originality. Their inspected article does not evaluate KG(n,2) endpoint formulas or maximize them; Johnson graph complements have different edge-coordinate spaces. Closest Resultary Johnson spherical and cactus transportation results also involve different spaces/invariants. Residual risk: a universal strongly regular graph transfer-current/association scheme formula may recover these expressions.
+
+## value
+
+PASS
+
+KG(n,2), including the Petersen graph, is a canonical infinite graph family; natural relative projection constants and simultaneous all-p minimality are meaningful Banach-space/transportation invariants. Exact nonlinear maxima at distinct n reveal structural information beyond repeating a general averaging theorem or a finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
