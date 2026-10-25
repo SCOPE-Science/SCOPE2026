@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof reduces the primal unit-ball volume to a finite binomial sum using complete signed-orthant integration, and the polar volume to the exact range-density integral. The closed polynomial derivative has strictly positive coefficients after removing the factor \(1-s\). Those arguments cover **all integers** \(n\ge2\) and **all real parameters** \(s\ge\frac12\).
+# Independent mathematical audit
 
-Run `python VERIFY.py`. The script independently compares the collapsed and uncollapsed orthant volume formulas using rational arithmetic for every integer \(2\le n\le14\) at seven exact radii; verifies the derivative identity coefficient by coefficient and checks both endpoint identities. When NumPy and SciPy are installed it independently builds the primal hull and the polar halfspace-intersection polytope for \(2\le n\le5\) at six radii and compares geometric volumes numerically. Both verification stages completed successfully during self-review. The floating geometric tolerance is \(5\cdot10^{-8}\) relative, and finite tests do not certify the infinite quantifiers independently.
+## correctness
 
-The basepoint is the hub, dimensions refer to the \(n\) leaf coordinates, and the origin is interior to both convex bodies. The full signed-orthant decomposition covers all domain strata except measure-zero boundaries. This record does not constitute an independent external audit.
+PASS
+
+For all integers n>=2 and real s>=1/2, the transport norm is 1/2 sum |x_i|+(s-1/2)|sum x_i|; reverse dual potentials use levels s and s-1, valid under the metric triangle bound. The polar range constraint |f_i|<=s, |f_i-f_j|<=1 gives volume 2ns-n+1 by integrating range r<=1. Splitting primal coordinates by signs, integrating positive and negative totals and applying Vandermonde gives 2/(n!s^n) sum_{j=0}^{n-1} binom(n-1+j,j)s^j. Differentiation factors as 2(1-s)/(n!s^(n+1)) times a polynomial with all positive coefficients, hence the strict equilateral maximum at s=1 and both endpoint identities. Independently checked symbolic derivative identities for n=2..11 using SymPy and inspected exact-orthant/hull reproducer. The polynomial proof, not the finite n test, establishes universal quantifiers.
+
+## originality
+
+PASS
+
+A parameterized affine volume product with strict monotonicity for an equiradial hub-and-leaf metric is not stated in the inspected finite-Lipschitz-free-space volume-product primary text. The familiar tree/equilateral endpoints and the transport norm formula alone do not determine the continuous polynomial. Best-of-knowledge only.
+
+## value
+
+PASS
+
+Exact continuous interpolation and unique finite-family optimum for a naturally parameterized finite Lipschitz-free unit ball are nontrivial and useful: different volume normalizations require a genuine orthant integration and yield an explicit boundary transition. It is not a renamed endpoint, and the result is intentionally limited to equiradial metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
