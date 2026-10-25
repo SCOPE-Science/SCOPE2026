@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3.10+ from this directory. The program has no third-party dependencies and constructs every weak-order poset with total size one through eight using all ordered compositions of the total size, plus five larger selected tuples.
+## correctness
 
-For each frame, it constructs every upset from the order relation, directly evaluates Heyting implication through upper cones, and checks the exact Peirce equation for all ordered pairs. The expected principal filters, the multiplicity polynomial, the inverse recovery of the level-size sequence, and the resulting two-variable satisfaction degree are compared independently to this exhaustive evaluation. With at most five points, the implication operation is also independently recomputed as the join of all upsets satisfying the defining residuation condition.
+PASS
 
-Observed successful output on execution:
+For the ordinal sum of nonempty antichains of widths n_i, all upsets are empty or T_{i+1} union a nonempty subset of level i. The order-upset implication formula gives ((U->V)->U)=U exactly when a suitable tail T is contained in V. The right-fiber sizes are 1+sum_{j<=i}(2^{n_j}-1), with nonleading multiplicity a_i=2^{n_i}-1 and leading multiplicity a_h+1; this proves Phi=(a_h+1)z^N+sum_{i<h} a_i z^{1+sum_{j<=i}a_j}. Strictly ascending exponents and coefficients reconstruct every ordered n_i; double-counting fails gives degree 1-sum_{i<j}a_i*a_j/N². Independently checked all 127 positive compositions of total worlds <=7 and all 55,615 ordered Peirce pairs, matching full histogram and degree. The proof includes h=1 and singleton layers.
 
-`VERIFY_OK families=260 peirce_pairs=328293 direct_residuation_families=31`
+## originality
 
-The program is bounded finite verification. The general theorem is established by the symbolic argument in `RESULT.md`, not by an infinite computational certificate. Publication priority and independent external auditing have not been verified.
+PASS
+
+Known Peirce satisfiability degree and no-gap facts concern the aggregate truth proportion and do not provide the full right-argument fiber histogram or recover ordered level widths. The exact reconstruction statement is a distinct natural inverse invariant, subject to residual unindexed order-theoretic overlap.
+
+## value
+
+PASS
+
+The fiber polynomial distinguishes weak-order Heyting algebra structures that a scalar Peirce degree cannot distinguish, recovering the complete ordered level-size sequence. This is a meaningful finite-logic inverse classification, not a merely renamed statistic; the (2,3)/(3,2) example exhibits scalar indistinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
