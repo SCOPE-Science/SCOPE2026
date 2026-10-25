@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T05:43:32Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Independent symbolic reconstruction: critical vector field and lambda*(lambda^2+b*sigma*lambda+c*yc*sigma*D(w)) vanish/factor exactly.",
+        "Two independent rational parameter families (A,b,k,h,p,c,delta)=(2,1,1,1,1,1,1) and (7,2,3,2,5,3,2) verified five segment positions each with a simple zero and negative real normal parts; diagnostic only.",
+        "Proof by monotonic branch equations and positivity of two normal Hurwitz coefficients is valid for all positive coefficients with A>b."
+      ],
+      "limitations": [
+        "Numerical cases are bounded corroboration, not the universal argument.",
+        "Only predator-positive branches and local/normal spectra, not global attractors."
+      ],
+      "rationale": "For strictly positive g,A,b,k,h,p,c,delta with A>b, define sigma=delta/c, a(y)=A/(1+k y), G(y)=g/(1+k y)-h-p y. Predator-positive equilibria have u+v=sigma; subtraction of the two per-capita prey balances gives (b-a(y))(u-v)=0. Strict monotonicity of the symmetric and exclusion scalar growth equations gives exactly one positive symmetric equilibrium iff g>g0=h+(A+b)sigma/2 and two predator-positive exclusion states iff g>g1=h+A sigma, with g0<g1<gc=(1+k yc)(h+p yc+b sigma), yc=(A/b-1)/k. Asymmetry with both prey positive requires a(y)=b and G(y)=b sigma, forcing g=gc and the entire segment (u,v,yc), u+v=sigma. At the symmetric state the exchange eigenvalue sigma(b-a(ys))/2 changes negative to positive across gc, and its other eigenvalues solve a quadratic with positive linear and constant coefficients. Boundary invasion eigenvalue sigma(a(yb)-b) changes positive to negative; the other pair remains Hurwitz. At gc the full Jacobian has a simple zero eigenvalue tangent to the line and normal polynomial L^2+b*sigma L+c*yc*sigma*D(w), D(w)=p+k[gc-A*sigma(1+w^2)/2]/(1+k yc)^2 >p, uniformly for -1<=w<=1 because gc>A*sigma. This proves normal attraction, including endpoints; points on the continuum are not individually asymptotically stable. Independently reconstructed the full vector field/Jacobian and symbolically verified line field=0 and its characteristic quadratic for all parameters; computed stable nonzero spectra for two distinct rational positive parameter sets and five positions per segment. Read rather than trusted the source check.py, its claims and a sample; finite numerical tests do not establish the unrestricted theorem. No global claim is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Wang–Liu Theorem 4.1 requires strictly positive characteristic-polynomial coefficients and therefore cannot directly include a simple-zero eigenvalue on a segment.",
+          "Ahmed et al. (2025) extended Holling-II predator intake denominator depends on X,Y and the global and bifurcation theorems concern different equilibria.",
+          "Mukherjee (2022) Eq. (2) includes prey-density-dependent interference and predator anti-predator terms absent from the assigned model.",
+          "Cushing (1984), DOI 10.1137/0144026, abstract discusses a continuum/vertical bifurcation for the trophic-role-reversed problem, not a mathematical embedding verified here."
+        ],
+        "reasoning": "None of the accessed stronger-looking results supplies a theorem whose hypotheses encompass the present coefficient family AND whose conclusions imply the complete threshold and spectrum; nontrivial reductions are not established. Generic symmetric competition theory explains the intuition, not automatically this predator-dependent stability classification. Full text of Cushing was not inspected and no negative claim is made about all of it.",
+        "searches": [
+          "\"Local Bifurcation and Global Stability of Two-Prey-One-Predator Model\" 2025 Ahmed PDF",
+          "\"Stability and bifurcation of a two competing prey-one predator system with anti-predator behavior\" Mukherjee pdf",
+          "\"line of equilibria\" \"two prey\" predator competition coexistence",
+          "two competing prey predator fear effect coexistence continuum equilibrium competition symmetric neutral stability exchange",
+          "predator mediated competitive exclusion symmetric prey line equilibria fear model"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2024/9/PDF/math-09-09-1164.pdf",
+        "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/9391001",
+        "https://ejurnal.ung.ac.id/index.php/JJBM/article/download/13820/4530",
+        "https://epubs.siam.org/doi/abs/10.1137/0144026",
+        "Resultary published semantic searches: symmetric two prey predator model continuous line equilibria neutral coexistence composition ratio stability exchange threshold; fear effect predator dependent competition equal cross competition line of equilibria transverse eigenvalues exclusion bistability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted complete claim: for g>g0 exactly one symmetric coexistence, for g>g1 two exclusions, changes at g_c, full line at g_c with simple tangent zero and uniformly Hurwitz normal pair.",
+          "Cao–Wang–Liu 2024 Theorems 3.1 and 4.1 treat nondegenerate equilibrium conditions and strictly stable isolated interior equilibrium; Section 5 focuses Hopf (imaginary pair).",
+          "Generic competitive Lotka–Volterra equality gives a neutral equilibrium segment in a two-species system but does not fix y=y_c through the predator balance or prove g0<g1<gc, the actual Jacobian spectra, and exclusion-branch invasion signs."
+        ],
+        "reasoning": "The reviewed complete statement is not an immediate corollary of the original sufficient RH/isolated-equilibrium theorem, nor of the inspected unlike-model bifurcation theorems. It relies on a model-specific reduction and three-case spectral factorization. A specialist may nevertheless derive it by short standard manipulations; significance and implicit-priority risk retained.",
+        "searches": [
+          "\"Hopf bifurcation in a predator-prey model under fuzzy parameters involving prey refuge and fear effects\" Cao Wang Liu pdf",
+          "\"Local Bifurcation and Global Stability of Two-Prey-One-Predator Model\" 2025 Ahmed PDF",
+          "\"Stability and bifurcation of a two competing prey-one predator system with anti-predator behavior\" Mukherjee pdf",
+          "symmetric two species Lotka Volterra equal interspecific intraspecific competition continuum equilibria neutrally stable line"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao–Wang–Liu equation (1.7) and Theorem 3.1: equilibrium condition involves a(y)=A/(1+ky), strict isolated-equilibrium existence condition, not the exact degeneracy.",
+          "The assigned ODE has reduced competitor ratio dynamics w_dot=-(s/2)(a(y)-b)w(1-w^2). The continuum is equivalent to predator level y_c with a(y_c)=b and G(y_c)=b sigma.",
+          "Resultary published record 2026/10/11/SCOPE-a-neutral-coexistence-segment-and-sharp-stability-exchange-in-a--dfdaa388c772 is the SAME assigned claim, not an independent earlier coverage result; other semantically ranked records address distinct equations.",
+          "General symmetric two-species Lotka–Volterra neutral competition at equal self/cross strength is background mechanism, not a published exact formula for this predator-coupled equation."
+        ],
+        "reasoning": "After eliminating the predator equilibrium, the coexistence segment requires simultaneous equality of effective self and cross competition and a prescribed total prey density. This mechanism resembles classical neutral symmetric competition, but the exact model-specific parameter threshold, existence ranges, full ambient spectra and two-sided boundary invasion transition do not follow as a directly quoted same mathematical model theorem from inspected literature. Similar terminology alone is not identity of statements.",
+        "searches": [
+          "symmetric two prey predator model continuous line equilibria neutral coexistence composition ratio stability exchange threshold",
+          "fear effect predator dependent competition equal cross competition line of equilibria transverse eigenvalues exclusion bistability",
+          "symmetric two species Lotka Volterra equal interspecific intraspecific competition continuum equilibria neutrally stable line",
+          "\"Hopf bifurcation in a predator-prey model under fuzzy parameters involving prey refuge and fear effects\" Cao Wang Liu pdf",
+          "two identical competitors shared predator ecological neutral line equilibria stability exchange transcritical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary queries returned the very assigned record (same title and path) as highest similarity and other different-model records such as SCOPE-mean-selection-laws-for-recurrent-states-in-a-shared-predation-f--59d5989bef46 and SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175.",
+          "Cao–Wang–Liu Section 3 lists seven equilibrium classes but its internal case assumes a nondegenerate algebraic sign product; not a tabulation of the whole segment at g_c."
+        ],
+        "reasoning": "No separate prior exact parameter table, database row, or published result for the target all-parameter neutral segment and its normal spectra was found. The same candidate item in Resultary is a self-hit and gives no independent priority evidence. Failed searches are not proof of global novelty.",
+        "searches": [
+          "symmetric two prey predator model continuous line equilibria neutral coexistence composition ratio stability exchange threshold",
+          "fear effect predator dependent competition equal cross competition line of equilibria transverse eigenvalues exclusion bistability",
+          "symmetric two competing prey one predator fear effect identical growth neutral coexistence equilibrium segment continuum transverse attracting exchange bifurcation",
+          "Cao Wang Liu 2024 10.3934/math.20241164 symmetric slice Lyapunov coexistence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with priority qualification. The 2024 exact-model paper displays the same source ODE and proves existence and Routh–Hurwitz conditions for isolated equilibria, but neither its Theorem 3.1 strict nondegeneracy hypothesis nor Theorem 4.1 strict characteristic positivity directly covers the critical equilibrium line and ambient normal spectrum. Two other primary full texts studied nearby three-species systems with mathematically different nonlinear responses; they do not imply this exact model-specific classification. Classic equal-competition neutral continua and predator-mediated competitive exclusion are prior concepts; the narrow assessed novelty is the complete threshold and symmetric/exclusion/line stability classification in the specified fear-dependent coefficient family, not symmetry itself. An implicit earlier deduction or stronger unindexed theorem remains a real risk; lack of search hits is not proof.",
+      "residual_risks": [
+        "The symmetric neutral segment is structurally analogous to classical equal-competition Lotka–Volterra degeneracy; an unindexed or implicit earlier general theorem could cover the model-specific threshold by specialization.",
+        "The Cushing 1984 continuum/vertical bifurcation paper was located by abstract only; full primary text not read, so no whole-paper NOT_COVERING conclusion.",
+        "Biologically varying g with fixed A generally changes the underlying primitive carrying-capacity parameter; it is a legitimate coefficient path but not a claim about independently tunable primitive parameters.",
+        "Normal attraction does not establish global attraction, basin geometry, persistence, robustness under asymmetry or an isolated-point attracting equilibrium at g=gc.",
+        "AIMS source PDF contains an internal sign typo in the exponent formula of the predator solution (2.1) versus equation (1.7); the theorem uses displayed equation (1.7), whose predator contributions are positive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model but not a statement of the degenerate exchange-symmetric continuum or the exact three-branch stability exchange. Theorem 3.1 requires nondegenerate g4*g5<0; Theorem 4.1 uses strict Hurwitz conditions excluding a zero root. A stronger implicit argument may be extractable, so originality is qualified.",
+          "evidence": [
+            "Eq. (1.7) displays fear-dependent within-prey competition A2/[K1(1+k1 y)] and constant cross-prey competition A3; likewise for second prey.",
+            "Theorem 3.1 g3>0 and g4*g5<0 (PDF page 6); Theorem 4.1 psi1>0, psi1 psi2>0, psi3>0 (PDF page 8).",
+            "No independently published exact g_c, critical u+v=sigma line with all endpoints, and normal quadratic found in the inspected article."
+          ],
+          "identifier_or_url": "doi:10.3934/math.20241164; https://www.aimspress.com/aimspress-data/math/2024/9/PDF/math-09-09-1164.pdf",
+          "material_read": "Publisher full-text PDF: model and coefficient conversion equation (1.7), page 4; Theorem 3.1 interior existence on PDF page 6; local stability Theorem 4.1 and Jacobian on PDF pages 8 onward; article introduction, Section 5 Hopf approach and conclusion from accessible PDF text. Equation-page and selected PDF pages inspected visually.",
+          "method": "Publisher open-access PDF parsed text and page screenshots; compared displayed parameter map, strict inequality hypotheses, equilibrium forms and characteristic polynomial against the submitted equations",
+          "title": "Hopf bifurcation in a predator-prey model under fuzzy parameters involving prey refuge and fear effects",
+          "trigger": "Identical motivating model equation (1.7); potential direct or indirect prior coverage of all equilibria and local stability"
+        },
+        {
+          "assessment": "Not equivalent or stronger coverage: extended Holling-II predator intake depends rationally on prey densities and has different competition assumptions; the analyzed finite equilibrium branches do not specialize to the target identity a(y)=b under the displayed hypotheses.",
+          "evidence": [
+            "Model formulation states intake alpha_i XZ/(1+alpha_1 T_1 X+alpha_2 T_2 Y).",
+            "Sections 3–4 classify seven isolated steady-state types and Sotomayor bifurcations; no target one-parameter equilibrium line or its normal spectrum."
+          ],
+          "identifier_or_url": "doi:10.1155/ijmm/9391001; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/9391001",
+          "material_read": "Wiley open full HTML, especially Sections 1.2 (model), 3 (steady states), 4 (local bifurcations and Jacobians), 5 (global stability) and 7 (conclusions).",
+          "method": "Read rendered full HTML and compared functional response and predator equation with assigned ODE.",
+          "title": "Local Bifurcation and Global Stability of Two-Prey-One-Predator Model",
+          "trigger": "Recent primary two-prey-one-predator fear paper with boundary equilibria and local bifurcations"
+        },
+        {
+          "assessment": "Different nonlinear competition and predator-intake model; global coexistence criterion presupposes a unique isolated equilibrium and does not imply the target normally attracting continuum.",
+          "evidence": [
+            "Equation (2): prey competition a12 x2/(1+a1 x1), prey predation p1 y/(1+b1 x1), predator anti-predator term -alpha x2/(1+beta y).",
+            "Section 5 (global stability) assumes unique coexistence state and compound-matrix/Bendixson conditions."
+          ],
+          "identifier_or_url": "doi:10.34312/jjbm.v3i1.13820; https://ejurnal.ung.ac.id/index.php/JJBM/article/download/13820/4530",
+          "material_read": "Open-access PDF, Section 2 equation (2), relevant Section 4 local coexistence/Hurwitz condition, Section 5 global stability and uniqueness premise; PDF page 2 inspected visually.",
+          "method": "Publisher-hosted full-text PDF parsed text and page screenshot; compared rational interference, predator conversion and anti-predator terms with the exact model.",
+          "title": "Stability and bifurcation of a two competing prey-one predator system with anti-predator behavior",
+          "trigger": "Primary paper on competition among two prey sharing a predator, including coexistence stability"
+        },
+        {
+          "assessment": "Abstract discusses vertical bifurcation/continuum in two predators competing for one prey, not this two-prey fear-dependent coefficient family. Does not suffice to rule out a more general covering theorem; retained as residual risk.",
+          "evidence": [
+            "Abstract states continuum of positive periodic solutions in periodic two-predator model and vertical bifurcation in autonomous case."
+          ],
+          "identifier_or_url": "doi:10.1137/0144026; https://epubs.siam.org/doi/abs/10.1137/0144026",
+          "material_read": "Public abstract only; full primary text not obtained or assessed.",
+          "method": "Bibliographic search and abstract reading, not a full-text inspection.",
+          "title": "Periodic Two-Predator, One-Prey Interactions and the Time Sharing of a Resource Niche",
+          "trigger": "Potential broad conceptual precedent for continua at symmetric competition thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural predator-induced equal-competition balance a(yc)=b; a complete local phase portrait of equilibria in the symmetric coefficient family.",
+        "Shows uniform normal attraction of entire critical continuum and opposite change of symmetric versus exclusion stability."
+      ],
+      "limitations": [
+        "Exact symmetry is required; does not imply global basin partition or generic robustness."
+      ],
+      "rationale": "PASS: The exact equality A/(1+k y)=b marks a natural ecological exchange between within-prey and cross-prey suppression generated by predator fear. The model-specific classification determines when a symmetric coexistence fixed point, two single-prey predator-positive states, and a continuum of neutral prey-composition states exist, with the complete local spectra and a sharp threshold gc. This supplies a motivated infinite-parameter bifurcation boundary and identifies a normally attracting equilibrium manifold rather than an isolated pitchfork; its endpoint and stable-branch information is mathematically usable even without global dynamics. It is substantially more than a numerical example or restating a standard eigenvalue criterion, though derivation uses elementary ODE methods and the symmetry is nongeneric. No claim of global basins or asymmetry robustness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.aimspress.com/aimspress-data/math/2024/9/PDF/math-09-09-1164.pdf",
+    "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/9391001",
+    "https://ejurnal.ung.ac.id/index.php/JJBM/article/download/13820/4530",
+    "https://epubs.siam.org/doi/abs/10.1137/0144026",
+    "Resultary published semantic searches: symmetric two prey predator model continuous line equilibria neutral coexistence composition ratio stability exchange threshold; fear effect predator dependent competition equal cross competition line of equilibria transverse eigenvalues exclusion bistability"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "This verdict assesses the complete SOURCE RESULT.md scientific claim only; public status changes or release are not performed.",
+    "All eight source entries were inspected semantically, but existing METADATA.json and AUDIT.json contain a confidential scope_run_id; AUDIT.json also exposes process-specific review fields and published-finding corpus identifiers. Publication cannot proceed without complete privacy-safe final bytes and guards.",
+    "No external expert or Lean certification is asserted; VERIFICATION.md retains its original null/not_performed channels."
+  ],
+  "residual_risks": [
+    "The symmetric neutral segment is structurally analogous to classical equal-competition Lotka–Volterra degeneracy; an unindexed or implicit earlier general theorem could cover the model-specific threshold by specialization.",
+    "The Cushing 1984 continuum/vertical bifurcation paper was located by abstract only; full primary text not read, so no whole-paper NOT_COVERING conclusion.",
+    "Biologically varying g with fixed A generally changes the underlying primitive carrying-capacity parameter; it is a legitimate coefficient path but not a claim about independently tunable primitive parameters.",
+    "Normal attraction does not establish global attraction, basin geometry, persistence, robustness under asymmetry or an isolated-point attracting equilibrium at g=gc.",
+    "AIMS source PDF contains an internal sign typo in the exponent formula of the predator solution (2.1) versus equation (1.7); the theorem uses displayed equation (1.7), whose predator contributions are positive."
+  ],
+  "schema_version": 1
+}
