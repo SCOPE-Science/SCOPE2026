@@ -1,11 +1,21 @@
-# Review of the two-cycle coexistence theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalization and period-two orbit identities are evaluated directly at both configurations, including the singular-denominator boundaries. All tangent-score derivatives vanish at collinearity, so the exact two-dimensional one-step Jacobians follow from the linearized normalized residual vectors. Their symmetric/antisymmetric eigenvalues give the exact strict hyperbolic stability thresholds, and the two-step derivatives are their squares. A separate standard-library verifier checks 32 Jacobian comparisons and local attraction in two distinct open neighborhoods. Equality boundaries are not claimed to be nonlinear sinks.
+## correctness
 
-**Originality — PASS, with residual risk.** The primary 2026 discrete-time source proves stability for fixed configurations under small-step restrictions; its Lemma 14 is specifically outside the flip-attraction regime and does not imply the large-step attracting antipodal two-cycle. The closest 2026 repulsive-attention source obtains a consensus flip for **masked self-attention**, not the fully self-inclusive indefinite-value system. The 2025 multistability source is a continuous-time flow. Targeted published-record searches and accessible previously established claims found no same-model two-cycle phase law. General large-step calculations not located remain a residual overlap risk.
+PASS
 
-**Mathematical value — PASS.** The sharp temperature/step-size boundary identifies a second, symmetry-distinct attracting periodic phase in the minimal full-attention model. This makes the distinction between fixed-point stability and finite-step sign-flipping dynamics explicit, and isolates a feedback-temperature mechanism absent from previously analyzed masked and continuous-time systems. The exact critical temperature separates one demonstrable local flip attractor from two, a natural and reusable phase diagram rather than an arbitrary numerical case.
+PASS: At collinear configurations token-score first derivatives vanish along S1 tangents, since all base vectors are parallel to e and tangent perturbations are orthogonal to e. At C and B self-inclusive attention averages equal ±e and ±t e, t=tanh(alpha). The sign-flip conditions are eta*b>1 and eta*b*t>1 (equality is undefined). The one-step tangent Jacobians have plus eigenvalues (1+eta*a)/(eta*b-1) and (1+eta*a)/(eta*b*t-1); minus eigenvalues 1/(eta*b-1) and (1+eta*a*t)/(eta*b*t-1). Exact squared return-map multipliers establish C stability iff eta>2/(b-a) and B iff b*t>a, eta>2/(b*t-a). Consequently B stability implies C stability; for eta>2/(b-a) critical alpha=atanh((a+2/eta)/b). Independent direct full-softmax centered-tangent finite difference agrees within 1.9e-13 for an interior parameter choice. No claim made about nonlinear neutral-equality stability or other attractors.
 
-**Scope:** Two explicitly specified period-two cycles; strictly hyperbolic local stability only. No global attractor census or equality-endpoint nonlinear stability is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: inspected Altafini 2026 defines this full self-inclusive normalized map but its analyzed hyperbolic stationary equilibria are under step restrictions and do not establish two attracting sign-flip two-cycles. Gao/Yang/Chen repulsive attention uses diagonal-masked convention and a different value map; the complete text was not obtainable, so no wholesale NOT_COVERING judgment is inferred from its abstract. Continuous-time normalized-attention flow cannot directly contain this finite-discrete-time alternating orbit. The precise large-step alpha/eta coexistence boundary was not found among Resultary hits.
+
+## value
+
+PASS
+
+PASS: Exhibits and exactly classifies an unusual coexistence of two distinct open basins of period-two attraction in the smallest full self-attention network, with an explicit sharp temperature onset. It is a diagnostic finite-step bifurcation distinct from a trivial fixed-point Jacobian exercise, and clarifies a phase omitted by small-step analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

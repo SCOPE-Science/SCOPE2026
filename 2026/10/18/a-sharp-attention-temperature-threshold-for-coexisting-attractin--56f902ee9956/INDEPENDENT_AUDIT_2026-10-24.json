@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:48:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At collinear configurations token-score first derivatives vanish along S1 tangents, since all base vectors are parallel to e and tangent perturbations are orthogonal to e. At C and B self-inclusive attention averages equal ±e and ±t e, t=tanh(alpha). The sign-flip conditions are eta*b>1 and eta*b*t>1 (equality is undefined). The one-step tangent Jacobians have plus eigenvalues (1+eta*a)/(eta*b-1) and (1+eta*a)/(eta*b*t-1); minus eigenvalues 1/(eta*b-1) and (1+eta*a*t)/(eta*b*t-1). Exact squared return-map multipliers establish C stability iff eta>2/(b-a) and B iff b*t>a, eta>2/(b*t-a). Consequently B stability implies C stability; for eta>2/(b-a) critical alpha=atanh((a+2/eta)/b). Independent direct full-softmax centered-tangent finite difference agrees within 1.9e-13 for an interior parameter choice. No claim made about nonlinear neutral-equality stability or other attractors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altafini 2026 works with the full self-inclusive nonlinear map but stated results concern fixed equilibria and Jacobian stability in a distinct small-step regime.",
+          "Altafini 2025 treats continuous-time flow; no discrete step-induced sign flip."
+        ],
+        "reasoning": "Broader dynamical frameworks do not by themselves state or imply this exact two-cycle temperature interval.",
+        "searches": [
+          "Resultary: self-inclusive normalized discrete two-token softmax attention negative eigenvalue value matrix attracting antipodal and synchronized 2-cycles sharp temperature threshold",
+          "https://arxiv.org/html/2610.13518v1",
+          "https://arxiv.org/abs/2511.11553"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.13518v1",
+        "https://arxiv.org/abs/2609.28448",
+        "https://arxiv.org/abs/2511.11553",
+        "Resultary 2026/10/4/SCOPE-curvature-selected-eigencycles-in-novograd--212ddf50591d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-attention source’s small-step equilibrium restriction excludes eta>2/(b*t-a).",
+          "The masked variant eliminates self-attention and changes the matrix at antipodal points, so its consensus flip does not imply B attraction."
+        ],
+        "reasoning": "The strict self-inclusive B-attraction threshold is not obtained simply by renaming the prior masked or fixed-point conditions.",
+        "searches": [
+          "Resultary: self-inclusive normalized discrete two-token softmax attention negative eigenvalue value matrix attracting antipodal and synchronized 2-cycles sharp temperature threshold",
+          "https://arxiv.org/html/2610.13518v1",
+          "https://arxiv.org/abs/2609.28448"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At C and B the relevant object is the derivative of T^2, not the equilibrium derivative studied in the prior source.",
+          "Repulsive attention with A_ii=0 has different signed attention averages, preventing direct substitution into t=tanh(alpha) criterion."
+        ],
+        "reasoning": "Checked flip orbit, 2-cycle, permutation-symmetry and antipodal terminology, including derivative of T² and model self-masking.",
+        "searches": [
+          "Resultary: self-inclusive normalized discrete two-token softmax attention negative eigenvalue value matrix attracting antipodal and synchronized 2-cycles sharp temperature threshold",
+          "https://arxiv.org/html/2610.13518v1",
+          "https://arxiv.org/abs/2609.28448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite periodic-orbit catalogue or parameter table used in the proof.",
+          "Resultary hit on eigenvector cycles is for NovoGrad, a different update and phase criterion."
+        ],
+        "reasoning": "Searched related normalized two-cycles for an exact table, but this is an all-real-parameter Floquet boundary, not a looked-up classification.",
+        "searches": [
+          "Resultary: self-inclusive normalized discrete two-token softmax attention negative eigenvalue value matrix attracting antipodal and synchronized 2-cycles sharp temperature threshold",
+          "Resultary 2026/10/4/SCOPE-curvature-selected-eigencycles-in-novograd--212ddf50591d"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: inspected Altafini 2026 defines this full self-inclusive normalized map but its analyzed hyperbolic stationary equilibria are under step restrictions and do not establish two attracting sign-flip two-cycles. Gao/Yang/Chen repulsive attention uses diagonal-masked convention and a different value map; the complete text was not obtainable, so no wholesale NOT_COVERING judgment is inferred from its abstract. Continuous-time normalized-attention flow cannot directly contain this finite-discrete-time alternating orbit. The precise large-step alpha/eta coexistence boundary was not found among Resultary hits.",
+      "residual_risks": [
+        "Full primary text of masked repulsive-attention manuscript remained inaccessible; secondary equivalent discrete two-token Floquet phase theorem could exist.",
+        "At equality largest two-step Floquet multiplier 1: no nonlinear classification. Model only two tokens and exact diagonal V."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated equilibrium results do not prove the large-step attracting B/C two-cycle coexistence",
+          "evidence": "Small-step Lemma 14 hypothesis eta<min(1/a,1/b) is disjoint from the asserted attracting flip regime.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13518v1",
+          "material_read": "Full accessible HTML text including dynamics, sections II, IV-B, V-B and cited stability conditions inspected",
+          "method": "Open arXiv HTML full text",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Identical fully self-inclusive map"
+        },
+        {
+          "assessment": "MODEL_DISTINCT in inspected material; cannot classify full inaccessible paper as noncovering",
+          "evidence": "Self-attention diagonal A_ii=0 as described differs from present fully self-inclusive attention.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+          "material_read": "ArXiv abstract, metadata and explicitly stated masking convention; full paper not obtained",
+          "method": "Open abstract/metadata; arXiv full-HTML/PDF retrieval attempted without success",
+          "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+          "trigger": "Repulsive attention flip comparator"
+        },
+        {
+          "assessment": "Different continuous-time model; no direct discrete return-map implication shown",
+          "evidence": "Continuous-time Oja/self-attention flow lacks finite-step normalization sign reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.11553",
+          "material_read": "Abstract and mathematical model type inspected",
+          "method": "ArXiv abstract/metadata",
+          "title": "Multistability of Self-Attention Dynamics in Transformers",
+          "trigger": "Potentially dominating multistability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exhibits and exactly classifies an unusual coexistence of two distinct open basins of period-two attraction in the smallest full self-attention network, with an explicit sharp temperature onset. It is a diagnostic finite-step bifurcation distinct from a trivial fixed-point Jacobian exercise, and clarifies a phase omitted by small-step analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.13518v1",
+    "https://arxiv.org/abs/2609.28448",
+    "https://arxiv.org/abs/2511.11553",
+    "Resultary 2026/10/4/SCOPE-curvature-selected-eigencycles-in-novograd--212ddf50591d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite-difference Jacobian check at an interior parameter point is corroborative only.",
+    "Potential additional periodic attractors and global basin geometry unclassified."
+  ],
+  "residual_risks": [
+    "Full primary text of masked repulsive-attention manuscript remained inaccessible; secondary equivalent discrete two-token Floquet phase theorem could exist.",
+    "At equality largest two-step Floquet multiplier 1: no nonlinear classification. Model only two tokens and exact diagonal V."
+  ],
+  "schema_version": 1
+}
