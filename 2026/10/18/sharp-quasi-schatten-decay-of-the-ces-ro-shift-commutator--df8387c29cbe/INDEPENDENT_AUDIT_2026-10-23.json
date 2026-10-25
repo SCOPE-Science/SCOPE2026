@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T08:10:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md/verify_commutator.py",
+        "Bellavita et al A_c identification Section6",
+        "independent_checks.py R4 n<=256 matrix sections and r<=49 block singular formulas"
+      ],
+      "rationale": "On ℓ²(N₀), K=CS-SC has exact strict lower matrix entries -[n(n+1)]^{-1} for k<n, n>=1, zero otherwise. Its dyadic within-block operators -D_j J_{2^j} have s_k~1/(2^j k), via exactly known singular values of the inclusive lower triangular summation L_r: s_k=[2sin((2k-1)π/(4r+2))]^-1. Summing nonzero singular-value counts over dyadic j gives N_B(t)~t^-1/2 and hence s_m(B)~m^-2. Cross-block terms R_j=P_j K Q_j each rank one, ||R_j||<=2^-j, giving exponentially decaying approximation numbers for R and no change in polynomial decay under Ky Fan inequalities both directions. K therefore has s_m~m^-2, S_p membership iff p>1/2, weak S_{1/2} endpoint but not strong; K trace class and zero diagonal yields trace zero. Independently checked finite commutator sections n=8..256 and exact L_r singular formulas r=2..49. No finite section is a proof of infinite decay.",
+      "residual_risks": [
+        "The constants in asymptotic lower/upper estimates are nonsharp; no exact limiting m²s_m coefficient claimed.",
+        "Finite section checks are not a theorem about infinite Hilbert-space singular values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rhaly general criteria are for p>1 and necessary/partial tests at p<=1; Mellin/Toeplitz work has Hilbert–Schmidt multiplication defects and commutator-ideal membership, not the specific s_m rate."
+        ],
+        "reasoning": "Neither stronger family-wide asymptotic nor endpoint is present in full relevant paper sections; a generic continuous Hardy/Volterra theorem is not directly applicable without proving discretization.",
+        "searches": [
+          "arXiv:2503.21930 Theorems1.3,5.5,5.7,5.8 Section7",
+          "arXiv:2609.09453 Theorems1.1–1.2",
+          "Resultary published-finding semantic search: singular values shift commutator Cesaro n^-2 critical Schatten one half"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.21930 Theorems1.3/5.8, Section6 and conclusion",
+        "arXiv:2609.09453 Theorems1.1/1.2",
+        "Resultary Cesàro self-commutator S_p and generalized Cesàro singular-value comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed s_m~m^-2 gives p>1/2 and weak p=1/2 and in particular strengthens some trace/HS membership statements; the inverse direction from general p>1 to s_m~m^-2 is invalid."
+        ],
+        "reasoning": "Compared implications at singular-value rather than operator-name level; published membership in e.g. S_2 gives no lower approximation-number bound or sharp threshold.",
+        "searches": [
+          "arXiv:2503.21930 Theorem5.5 Section6 Section7",
+          "arXiv:2609.09453 Theorems1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K is A_c with c_n=1/(n+1) in Bellavita–Dellepiane–Stylogiannis Section6, so a name-based search alone would miss it. No matching s_m~m^-2 in inspected full text."
+        ],
+        "reasoning": "Exact object alias resolved; the underlying matrix was known, but identifying a sharp quasi-Schatten singular spectrum is additional mathematical content.",
+        "searches": [
+          "arXiv:2503.21930 Section6 A_c row-difference family",
+          "arXiv:2609.09453 sampled-ratio Mellin matrices",
+          "Resultary published-finding semantic search: singular values shift commutator Cesaro n^-2 critical Schatten one half"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published qualitative tables and Rhaly operator criteria do not list the individual two-sided K singular-value order or weak quasi-Schatten endpoint."
+        ],
+        "reasoning": "Matrix entries being publicly tabulated does not automatically tabulate approximation numbers. Unindexed exact spectra remain a priority risk.",
+        "searches": [
+          "Resultary published-finding semantic search: singular values shift commutator Cesaro n^-2 critical Schatten one half",
+          "arXiv:2503.21930 Section6 exact triangular examples"
+        ]
+      },
+      "rationale": "The closest Rhaly paper studies the very difference-generated triangular family containing K but does not settle individual s_m asymptotics or small-p membership for this canonical member; the discrete Mellin Toeplitz paper proves separate algebraic inclusions. The dyadic spectral count and p=1/2 threshold remain substantively distinct from the published results.",
+      "residual_risks": [
+        "Older abstract Hardy operator approximation estimates might entail the special discrete singular spectrum if a nontrivial reduction exists; no such covering implication was identified.",
+        "Publication priority best of knowledge, not certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the matrix family and partial ideal bounds; no individually indexed s_m~m^-2 conclusion at the canonical Cesàro shift commutator.",
+          "evidence": "Section6 A_c row differences; general p>1 classification, quasi-Banach range flagged as open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.21930",
+          "material_read": "Full-text Theorems 1.3, 5.5, 5.7–5.8, Section6 Lemma6.2, concluding Section7 on p<=1; PDF screenshots incl concluding section",
+          "method": "Lawful full arXiv PDF read materially",
+          "title": "Boundedness, compactness and Schatten class for Rhaly matrices",
+          "trigger": "Exactly matching difference-generated triangular operator family and quasi-Schatten question"
+        },
+        {
+          "assessment": "C lies in Toeplitz algebra commutator ideal and related sampled-kernel algebra; not s_m of CS-SC.",
+          "evidence": "Theorem1.2 Toeplitz inclusion, Section1.3 HS defects.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09453",
+          "material_read": "Full-text abstract, Theorems1.1–1.2, Sections 1–4 and overview of sampled-ratio Hilbert–Schmidt multiplication estimates; page5 screenshot",
+          "method": "Lawful arXiv full-text and page image",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "Potential stronger operator-algebra treatment of discrete Cesàro commutators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2503.21930 Sections6/7",
+        "explicit weak Schatten endpoint and dyadic block argument"
+      ],
+      "rationale": "The commutator between two canonical, widely studied operators is a natural nonzero trace-class object; locating its optimal p=1/2 quasi-Schatten threshold and sharp indexed singular order resolves the poorly understood subunit-ideal behavior at a concrete matrix. This contributes an actual lower bound, not just a routine upper regularity observation; the explicit dyadic proof is structurally reusable.",
+      "residual_risks": [
+        "One operator on ℓ², not a full Rhaly matrix classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

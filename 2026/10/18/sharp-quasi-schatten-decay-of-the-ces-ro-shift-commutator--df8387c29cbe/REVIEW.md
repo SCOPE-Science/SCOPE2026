@@ -1,19 +1,21 @@
-# Scientific review: Sharp quasi-Schatten decay of the Cesàro–shift commutator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact strict-lower-triangular entry formula is checked from the operator definitions. The dyadic proof supplies all quantifiers and endpoints: diagonal blocks have \(s_k\asymp (2^jk)^{-1}\), a counting-function argument gives \(s_m\asymp m^{-2}\), and the rank-one crossband remainder has exponentially decaying singular numbers. Ky Fan inequalities in both directions prevent cancellation from invalidating the lower bound. For \(p=1/2\) the harmonic series diverges; for \(p>1/2\) it converges. The included code verifies finite exact identities but does not substitute for the infinite proof. No independent proof checking has occurred.
+PASS
 
-## Originality — PASS, with residual risks
+On ℓ²(N₀), K=CS-SC has exact strict lower matrix entries -[n(n+1)]^{-1} for k<n, n>=1, zero otherwise. Its dyadic within-block operators -D_j J_{2^j} have s_k~1/(2^j k), via exactly known singular values of the inclusive lower triangular summation L_r: s_k=[2sin((2k-1)π/(4r+2))]^-1. Summing nonzero singular-value counts over dyadic j gives N_B(t)~t^-1/2 and hence s_m(B)~m^-2. Cross-block terms R_j=P_j K Q_j each rank one, ||R_j||<=2^-j, giving exponentially decaying approximation numbers for R and no change in polynomial decay under Ky Fan inequalities both directions. K therefore has s_m~m^-2, S_p membership iff p>1/2, weak S_{1/2} endpoint but not strong; K trace class and zero diagonal yields trace zero. Independently checked finite commutator sections n=8..256 and exact L_r singular formulas r=2..49. No finite section is a proof of infinite decay.
 
-The closest inspected primary paper, Bellavita–Dellepiane–Stylogiannis (arXiv:2503.21930, first posted 2025-03-27), defines precisely the difference-generated triangular \(A_c\) form, which contains this matrix. Its Theorems 1.3 and 5.8 concern \(q>1\), while Theorem 5.5 gives only a necessary bound for quasi-Schatten exponents. Its conclusion explicitly identifies the missing \(q\le1\) general classification. Thus its published claims do not imply the new \(m^{-2}\) singular-value law at this natural specialization. Bellavita–Stylogiannis (arXiv:2609.09453) places the Cesàro operator inside the Toeplitz-algebra framework and proves Hilbert–Schmidt sampled-kernel multiplicativity defects, but the inspected theorems do not cover the canonical commutator with the shift. published-finding corpus searches of aliases, coefficients, and stronger classes found no dominating published claim. Older abstract weighted Hardy/Volterra theorems and uninspected manuscript portions remain bibliographic risks; no independence or exhaustive novelty certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The Cesàro–unilateral-shift commutator is intrinsic to a canonical averaging operator and to the generator of the Toeplitz algebra. Determining \(s_m\asymp m^{-2}\) is a global singular-number classification with a sharp quasi-Schatten transition, not a superficial restatement of compactness. The exact critical exponent answers a motivated special endpoint question and showcases the discrete dyadic occupancy mechanism.
+The closest Rhaly paper studies the very difference-generated triangular family containing K but does not settle individual s_m asymptotics or small-p membership for this canonical member; the discrete Mellin Toeplitz paper proves separate algebraic inclusions. The dyadic spectral count and p=1/2 threshold remain substantively distinct from the published results.
 
-## Scope and verification limits
+## value
 
-Complex Hilbert-space \(\ell^2\) only, with ordinary compact-operator singular values. A two-sided comparison is proved; an exact leading asymptotic constant is not. Abstract weighted Hardy results could conceivably imply a version after specialized reductions. Finite calculations corroborate the matrix identity and singular-value recurrence but do not establish infinite compactness, counting asymptotics, or originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The commutator between two canonical, widely studied operators is a natural nonzero trace-class object; locating its optimal p=1/2 quasi-Schatten threshold and sharp indexed singular order resolves the poorly understood subunit-ideal behavior at a concrete matrix. This contributes an actual lower bound, not just a routine upper regularity observation; the explicit dyadic proof is structurally reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

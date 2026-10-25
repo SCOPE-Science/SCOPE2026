@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify_commutator.py` using Python's standard library from the same directory as this file. The checked output is `CESARO_SHIFT_QUASI_SCHATTEN_FINITE_IDENTITIES_OK dimensions=28`.
+# Independent mathematical audit
 
-The checker constructs the finite-dimensional Cesàro and unilateral-shift matrices over exact rational numbers; compares their commutator to the predicted strict-lower-triangular coefficient formula for all dimensions 2 through 29; reconstructs the strict lower-triangle reduction to an ordinary summation matrix; verifies exact first-difference inverses and tridiagonal Gram identities; and checks the finite closed-form sine spectrum against the squared Frobenius norm.
+## correctness
 
-These tests do not certify the spectrum at infinite dimension. The analytical proof in RESULT.md supplies the global dyadic counting estimates, the exponentially low-rank off-block approximation, the two-sided Ky Fan transfer, and the critical ideal endpoint. The trace is the sum of diagonal entries only after trace-class membership is established analytically. No independent audit has been performed.
+PASS
+
+On ℓ²(N₀), K=CS-SC has exact strict lower matrix entries -[n(n+1)]^{-1} for k<n, n>=1, zero otherwise. Its dyadic within-block operators -D_j J_{2^j} have s_k~1/(2^j k), via exactly known singular values of the inclusive lower triangular summation L_r: s_k=[2sin((2k-1)π/(4r+2))]^-1. Summing nonzero singular-value counts over dyadic j gives N_B(t)~t^-1/2 and hence s_m(B)~m^-2. Cross-block terms R_j=P_j K Q_j each rank one, ||R_j||<=2^-j, giving exponentially decaying approximation numbers for R and no change in polynomial decay under Ky Fan inequalities both directions. K therefore has s_m~m^-2, S_p membership iff p>1/2, weak S_{1/2} endpoint but not strong; K trace class and zero diagonal yields trace zero. Independently checked finite commutator sections n=8..256 and exact L_r singular formulas r=2..49. No finite section is a proof of infinite decay.
+
+## originality
+
+PASS
+
+The closest Rhaly paper studies the very difference-generated triangular family containing K but does not settle individual s_m asymptotics or small-p membership for this canonical member; the discrete Mellin Toeplitz paper proves separate algebraic inclusions. The dyadic spectral count and p=1/2 threshold remain substantively distinct from the published results.
+
+## value
+
+PASS
+
+The commutator between two canonical, widely studied operators is a natural nonzero trace-class object; locating its optimal p=1/2 quasi-Schatten threshold and sharp indexed singular order resolves the poorly understood subunit-ideal behavior at a concrete matrix. This contributes an actual lower bound, not just a routine upper regularity observation; the explicit dyadic proof is structurally reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
