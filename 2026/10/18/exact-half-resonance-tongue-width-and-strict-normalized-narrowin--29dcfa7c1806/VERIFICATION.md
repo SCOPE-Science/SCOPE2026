@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof in RESULT.md is analytic. The accompanying `check_half_tongue.py` uses Python 3 and SciPy for one-dimensional roots, a bounded optimizer, and independent checks of the exact lifted second-iterate equation. Run `python check_half_tongue.py`; successful execution prints `CHECK_OK` and `DIRECT_ITERATE_OK`. The checked couplings are \(K=0.05,0.1,0.2,0.5,0.8,0.95,0.999\). The two width formulae agree to the stipulated numerical tolerance. At \(K=0.8\), off-center detunings inside the tongue give four lifted 2-periodic points (two cycles), while a detuning just outside gives none. The analytic derivation also supplies the exact implicit-root monotonicity and high-order expansion. No collection of numerical samples proves an infinite-domain assertion; those are proved by the mathematical argument. No external independent audit or validation has been conducted.
+## correctness
+
+PASS
+
+For the canonical increasing sine-circle lift with 0<K<1, the period-two equations sum and subtract to the reversible identities 2d=K cos(m)cos(d) and Omega-1/2=-K sin(m)sin(d)/(2 pi). Each midpoint has a unique d in [-K/2,K/2], proving the tongue is an interval. Eliminating m gives the compact one-dimensional width maximum; Q(d)=4d sec^2(d)(d sec^2(d)+tan(d)) is strictly increasing, so the sole critical point is the global maximizer. Rewriting 4 pi W/K^2 as max sin(2m)*sinc(2d) proves strict decrease in K (each maximizing m is interior), and uniform K->0 plus implicit expansion gives the coefficient 1 and terms -K^2/12+23K^4/1440. Fresh numerical implementation independently matches midpoint and critical-root computations at nine couplings to 1.43e-14; a finite numerical sample is not the all-K proof.
+
+## originality
+
+PASS
+
+The novelty is the global single-root exact width and strictly decreasing normalized width on the complete orientation-preserving interval, not the classical existence of the 1/2 tongue nor a second-order expansion. Searches of published mathematical records and prior sine-map work found numerical continuation and perturbative/asymptotic results, but no demonstrated implication of the all-coupling monotonicity. Davie's close 1996 width article could not be inspected in full and remains a material priority risk; this alone is not treated as scientific failure.
+
+## value
+
+PASS
+
+Mode-locking tongue width as a function of coupling is a central invariant for rotation maps. A sharp global inequality, an explicit unique-root evaluation and strict normalized monotonicity distinguish resonance growth from quadratic weak-coupling scaling, providing a non-routine analytic characterization over an entire natural parameter regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

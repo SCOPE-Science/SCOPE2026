@@ -1,15 +1,21 @@
-# Review: exact half-resonance Arnold tongue width
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is for the canonical real lift at \(0<K<1\), where the map is orientation preserving. A positively winding two-orbit gives the reversible midpoint/separation relations \(2d=K\cos m\cos d\) and \(\Omega-1/2=-K\sin m\sin d/(2\pi)\). The induced scalar width function has a unique interior maximum because its stationary equation \(Q(d)=K^2\) has \(Q'(d)>0\); boundary values vanish. The alternate normalized formula expresses \(4\pi W(K)/K^2\) as a maximum of a strictly \(K\)-decreasing sinc term with an interior maximizer, which proves global strict monotonicity. The order-six small-coupling expansion was reconstructed symbolically, and both width formulae and direct second-iterate roots were checked numerically. The symbolic and numerical checks are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with a recorded source-access risk
-Schilder and Peckham's publicly available 2006 manuscript studies the equivalent sine circle map in full and computes tongues by numerical continuation; its section 4.1 does not derive the exact half-resonance root formula or normalized-width monotonicity. Duchet and coauthors' 2023 small-amplitude formula overlaps at leading order, not globally in coupling. Davie's directly relevant 1996 *width of Arnold tongues* article was available only through its bibliographic abstract; it could conceivably contain earlier equivalent q=2 results. The absent full text is a real priority risk and is not described as NOT_COVERING. Semantic result searches and the available archival claims gave no substantive matching implication, but no claim of independence or world-wide uniqueness follows.
+PASS
 
-## Mathematical value — PASS
-The \(1:2\) tongue is the simplest genuinely quadratic mode-locking resonance of the classical circle map. Its exact all-coupling extent is a natural physical and dynamical invariant, while the strict decrease of \(W(K)/K^2\) quantifies finite-coupling suppression compared with the perturbative quadratic law. Both sides of the sharp envelope and its limiting attainment are proved. This is more informative than a numerical tongue plot or a routine low-order series calculation.
+For the canonical increasing sine-circle lift with 0<K<1, the period-two equations sum and subtract to the reversible identities 2d=K cos(m)cos(d) and Omega-1/2=-K sin(m)sin(d)/(2 pi). Each midpoint has a unique d in [-K/2,K/2], proving the tongue is an interval. Eliminating m gives the compact one-dimensional width maximum; Q(d)=4d sec^2(d)(d sec^2(d)+tan(d)) is strictly increasing, so the sole critical point is the global maximizer. Rewriting 4 pi W/K^2 as max sin(2m)*sinc(2d) proves strict decrease in K (each maximizing m is interior), and uniform K->0 plus implicit expansion gives the coefficient 1 and terms -K^2/12+23K^4/1440. Fresh numerical implementation independently matches midpoint and critical-root computations at nine couplings to 1.43e-14; a finite numerical sample is not the all-K proof.
 
-## Scope and remaining limitations
-Only the classical sine circle diffeomorphism with \(0<K<1\), detuning period one, and one positive turn in two iterates are treated. No higher-resonance generalization, global attractor-stability classification, noise result, or critical coupling assertion is made. Priority uncertainty especially concerns the inaccessible complete Davie 1996 paper. The numerical replay uses SciPy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty is the global single-root exact width and strictly decreasing normalized width on the complete orientation-preserving interval, not the classical existence of the 1/2 tongue nor a second-order expansion. Searches of published mathematical records and prior sine-map work found numerical continuation and perturbative/asymptotic results, but no demonstrated implication of the all-coupling monotonicity. Davie's close 1996 width article could not be inspected in full and remains a material priority risk; this alone is not treated as scientific failure.
+
+## value
+
+PASS
+
+Mode-locking tongue width as a function of coupling is a central invariant for rotation maps. A sharp global inequality, an explicit unique-root evaluation and strict normalized monotonicity distinguish resonance growth from quadratic weak-coupling scaling, providing a non-routine analytic characterization over an entire natural parameter regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
