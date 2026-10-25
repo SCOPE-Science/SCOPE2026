@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:57:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob d0545652b72ca5513f43f04efad92675419d6c6b §§1–4",
+        "Minkowski mixed-volume polynomial; Brunn–Minkowski equality; Rogers–Shephard 1957 bound",
+        "pinned check_pyramidal_difference.py blob b9f50b11121d96eee842bb9510d7af4e58f1e1d1 inspected but not treated as proof"
+      ],
+      "rationale": "For any d>=2, convex compact (d-1)-dimensional base B and oblique apex (p,h) with h>0, translate so 0∈B. At dimensionless height u∈[0,1] of P+s(-P), the maximal horizontal slice is (1-u)B+s(-B)+up, and at u∈[-s,0] it is B+(s+u)(-B)+up; both are attained, and all other feasible coefficient pairs are nested in those because the two base dilation factors decrease with the auxiliary height variable and 0∈B. Fubini gives exactly h[∫_0^1 vol_m((1-u)B+s(-B))du+∫_0^s vol_m(B+t(-B))dt]. Divide by h vol_m(B)/d, expand each integral by the standard Minkowski polynomial, and use binomial identities to obtain coefficient C(d,k)(M_(k-1)+M_k)/vol_m(B) for every k=0..d, with M_-1=M_d=0. Brunn–Minkowski vol_m(aB+b(-B))>=vol_m(B)(a+b)^m yields lower envelope 2(1+s)^d-1-s^d, equality for s>0 only when B and -B are translates, i.e. B centrally symmetric; at s=0 all bases give equality. Classical Rogers–Shephard upper bound at s=1 is attained iff P is simplex, equivalently B simplex. Minkowski interpolation of bases and continuity realize every intermediate ordinary-difference-body ratio d>=3; d=2 endpoints coincide. In dimension 3 M1/A=(q-2)/2 gives cubic 1+(3q/2)(s+s²)+s³, q∈[4,6]. No finite numeric testing is substituted for this exact all-d proof.",
+      "residual_risks": [
+        "The upper endpoint and equality for simplices are classical cited prior work, not a novel upper-bound theorem.",
+        "Finite hull numerical checker was inspected but not re-run; high-dimensional convexity proof is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rogers–Shephard gives all-body sharp s=1 upper endpoint and equality for simplices; that portion is already covered and explicitly acknowledged.",
+          "Artstein-Avidan et al. study Godbersen general mixed-volume inequalities, not an exact arbitrary-base pyramid lifting formula in examined main statements.",
+          "The indexed simplex-truncation result fixes simplex-derived bases and cannot cover arbitrary nonsymmetric smooth B."
+        ],
+        "reasoning": "General upper estimates (some potentially sharper than older inequalities) cannot imply this exact base-dependent polynomial and sharp lower equality condition without object-specific structure.",
+        "searches": [
+          "Resultary: mixed volume pyramid reflected body difference body volume exact base formula",
+          "arXiv:1408.2135",
+          "arXiv:2412.05308",
+          "arXiv:2607.20387",
+          "Resultary 2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+        ]
+      },
+      "checked_sources": [
+        "Rogers–Shephard 1957 Arch. Math. 8, 220–233 (classical inequality via later primary sources)",
+        "arXiv:1408.2135",
+        "arXiv:2412.05308",
+        "arXiv:2607.20387 (bibliographic/general upper bounds, not a full-text inspection for noncoverage)",
+        "Resultary dda979276949 and 3dbfdaf0b359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical upper inequality vol(P-P)/vol(P)<=C(2d,d) is acknowledged and is weaker information than the exact P+s(-P) polynomial for all pyramids.",
+          "Brunn–Minkowski yields the lower inequality once the new exact slices are proved, but it alone does not identify the sharp pyramid envelope or any individual coefficient."
+        ],
+        "reasoning": "Prior results are important ingredients, not the stated exact pyramid family profile; the proof has nontrivial maximal-slice identification and coefficient extraction. Historical identity rediscovery remains possible.",
+        "searches": [
+          "Resultary: mixed volume pyramid reflected body difference body volume exact base formula",
+          "Rogers–Shephard 1957",
+          "arXiv:1408.2135",
+          "arXiv:2412.05308"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A convex pyramid P is the join of B at one height and a point apex, so integration over horizontal sections reduces opposite-body mixed-volume coefficients by one dimension.",
+          "The normalization V_d(P[d-k],(-P)[k])/vol_d(P)=(M_(k-1)+M_k)/vol_m(B) is the exact central claim."
+        ],
+        "reasoning": "Examined Cayley/pyramid cone slicing, unbalanced difference bodies, reflected mixed volume and Godbersen coefficient formulations, rather than merely matching the special word pyramid.",
+        "searches": [
+          "Resultary: mixed volume pyramid reflected body difference body volume exact base formula",
+          "arXiv:1408.2135",
+          "arXiv:2412.05308",
+          "Rogers–Shephard 1957"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3D cubic formula is a parameterized continuum in planar difference-area q, not a finite known table.",
+          "General Rogers–Shephard endpoint is known, but it is only one coefficient combination at s=1 and does not determine all mixed volumes."
+        ],
+        "reasoning": "Tables of simplex or polygon examples cannot establish the universal all-dimensional adjacent-mixed-volume lifting identity.",
+        "searches": [
+          "Resultary: mixed volume pyramid reflected body difference body volume exact base formula",
+          "arXiv:2412.05308",
+          "Resultary: mixed volume pyramid reflected body difference body volume exact base formula"
+        ]
+      },
+      "rationale": "The new claim is the exact all-coefficient dimension-reducing pyramid-specific formula and lower-envelope rigidity, not the classical general Rogers–Shephard upper bound nor recent general Godbersen bounds. General inequalities for arbitrary convex bodies do not specify the exact dependence on base reflected mixed-volume sequence or full one-parameter polynomial. Related published frustum and simplex-truncation profiles concern more specialized/different families.",
+      "residual_risks": [
+        "Specialized older convex-pyramid chapter or 1957-era equality proof could already contain the exact coefficient lift; historical priority not exhaustively established.",
+        "The 2026 Kotrbatý–Mouamine paper was not fully read in this audit, so no whole-paper NOT_COVERING inference is made from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general coefficient inequality context, but examined results are not the claimed exact arbitrary-base pyramid lift",
+          "evidence": "arXiv:1408.2135, opening results on V(K[d-j],(-K)[j])",
+          "identifier_or_url": "arXiv:1408.2135",
+          "material_read": "Open arXiv readable full HTML, introduction, definitions and main estimates",
+          "method": "opened full primary HTML and read mathematical theorem statements",
+          "title": "On Godbersen's Conjecture",
+          "trigger": "General mixed-volume inequalities involving reflected convex bodies"
+        },
+        {
+          "assessment": "Studies general unbalanced bounds rather than exact pyramid coefficients depending on arbitrary base; qualified to examined sections",
+          "evidence": "Introduction and main theorems on unbalanced differences",
+          "identifier_or_url": "arXiv:2412.05308",
+          "material_read": "Accessible primary arXiv PDF opening theorem statements and introductory argument",
+          "method": "opened PDF and inspected rendered page(s)",
+          "title": "On unbalanced difference bodies and Godbersen's conjecture",
+          "trigger": "Same unbalanced P+s(-P) operation and potentially dominating volume theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md all-k coefficient identity and sharp equality cases",
+        "arXiv:1408.2135 Godbersen questions",
+        "Rogers–Shephard 1957 prior endpoint"
+      ],
+      "rationale": "Pyramids are a canonical dimension-raising convex-body operation. Determining the entire unbalanced difference-body polynomial and all reflected mixed-volume coefficients of a pyramid from adjacent mixed volumes of its arbitrary base is a structural identity with clear use in the Godbersen/Rogers–Shephard setting. The exact lower envelope, rigidity and complete 3D q-profile follow as meaningful family-specific implications. The acknowledged universal sharp upper inequality is old, but the claimed lifting identity and base-dependent profile are not textbook restatements of it.",
+      "residual_risks": [
+        "No new general Rogers–Shephard or Godbersen proof is claimed; originality contribution is family-specific identity and consequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nondegenerate convex pyramids with d>=2, positive apex height, arbitrary convex base and s>=0.",
+    "At s=0 equality in lower bound is not characteristic of base central symmetry."
+  ],
+  "schema_version": 1
+}
