@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The precise uncovered-cell identity separates never-used row-column intersections from selected isolated incidence edges. Every legal edge with two already-used endpoints must join different forest components, because it must destroy an isolated edge. Therefore any legal sequence yields a forest. If a spanning-tree sequence existed, the first moment one bipartition side is exhausted would leave b>=1 unused vertices on the other side. Subsequent legal moves each irreversibly destroy an isolated-edge component. If the prefix has c nontrivial components, s<=c isolated ones, completion requires b+c-1 moves, so b+c-1<=s<=c. Thus b=1 and all components at first exhaustion are edges of a matching, forcing q=p+1. Explicit sequences attain p+q-2 on all p<=q, and p+q-1 when q=p+1. The known duality supplies the skew-zero-forcing corollary. Finite checks verify 22 small boards but do not replace this proof. The implementation directly uses open adjacency and exhaustively reproduces the claimed optimum on 22 small boards and checks the structural lemma on six legal-prefix families.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar et al., arXiv:1712.08780v1, Section 5 (PDF pp.14-16), gives Cartesian-product bounds for paths and cycles; this does not cover two complete factors.",
+        "Fei-Huang Chang, arXiv:2608.27804 (2026), concerns Cartesian products of paths and cycles, a different collection of factors.",
+        "published-finding corpus nearest hit 2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1 uses closed neighborhoods on complete multipartite graphs."
+      ],
+      "reasoning": "The general product-paper framework and the 2026 path/cycle theorem do not contain a result that implies the exact rook-graph sequence length. Closed-neighborhood Grundy domination does not equal the open-neighborhood parameter studied here.",
+      "searches": [
+        "Web: \"Grundy total domination\" \"Cartesian product\" cliques",
+        "Web: \"Grundy total domination\" \"Hamming graph\"",
+        "Web: \"skew zero forcing\" \"Cartesian product\" \"complete graphs\"",
+        "published-finding corpus: Grundy total domination of Cartesian products of complete graphs exact formula, cycle-free incidence edge sequence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1712.08780v1 (2017-12-23); original full text, sections 1, 2 and 5",
+      "Abiad et al., Electronic Journal of Linear Algebra 38 (2022), pp.280-294, Section 3.2",
+      "Tim Kos, 2019 doctoral dissertation, DKUM landing-page abstract only",
+      "published-finding corpus returned 40 hits for each of three precise formulations; closest explicit IDs recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 preprint Section 5 Theorems 5.1-5.2 concern products of paths/cycles; its only complete-graph-factor mention in the inspected section is about *direct* product, not Cartesian rook graphs.",
+        "2022 paper Lemma 3.5 proves Z_+(K_r square K_r)=(r-1)^2+1. The present skew formula on a square board yields the same numerical expression for Z_-, but no equality between these two forcing parameters on rook graphs is stated or proved there.",
+        "Prior own-ledger rook claims address minimum forts and maximum edge-open-packing, not Grundy total domination."
+      ],
+      "reasoning": "The closest actual statements concern different graph factors or different parameters. Although the positive-semidefinite formula for square rook graphs matches the new skew formula numerically when p=q, the parameters have distinct color-change rules; this numerical coincidence supplies neither a proof of their equality on this family nor rectangular values. The new claim includes the incidence-forest mechanism and a consecutive-dimension exceptional case. Bibliographic completeness remains unproved.",
+      "searches": [
+        "Full text arXiv:1712.08780v1: search complete graph; Section 5 Cartesian product; Introduction skew zero forcing",
+        "Full text https://pure.tue.nl/ws/portalfiles/portal/206533710/vol38_pp280_294.pdf: Section 3.2 and Lemma 3.5",
+        "Web: \"Grundy total domination\" \"rook graph\" \"complete\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph R_{p,q} is L(K_{p,q}), so line-graph incidence results can cover the claim without stating the Cartesian-product notation.",
+        "Brešar et al., arXiv:1712.08780v1, Introduction (PDF pp.2-3), explicitly state the general identity between maximum total dominating sequence length and skew zero forcing.",
+        "Targeted results did not surface an exact L(K_{p,q}) formula, but retrieval failure cannot establish priority."
+      ],
+      "reasoning": "The theorem was compared under the exact line-graph identification and the skew forcing duality; those are genuine equivalent formulations, not independent novelty claims. Neither the targeted index results nor the inspected product-paper statements supply this particular rectangular result.",
+      "searches": [
+        "published-finding corpus: Grundy total domination number of rook graphs K_m square K_n or line graphs of complete bipartite graphs, exact m+n-2 and exceptional consecutive dimensions",
+        "published-finding corpus: Total dominating sequences of line graphs L(K_{p,q}) with p and q consecutive, spanning trees, footprinter and forest",
+        "Web: \"Grundy total domination\" \"line graphs\" \"bipartite\"",
+        "Web: \"Grundy total domination\" \"line graph\" \"complete bipartite\"",
+        "Web: \"skew zero forcing\" \"line graphs of complete bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest indexed rook-family hit 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f studies topological complexes, not total dominating sequences.",
+        "Abiad et al., Electronic Journal of Linear Algebra 38 (2022), Lemma 3.5, tabulate the positive-semidefinite zero forcing Z_+(K_r square K_r), not skew zero forcing Z_-."
+      ],
+      "reasoning": "No exact table or database row covering the stated two-parameter Grundy-total/skew-zero-forcing formula was found by the actual searches. The similarly named positive-semidefinite invariant is not equivalent.",
+      "searches": [
+        "published-finding corpus: Grundy total domination number of rook graphs K_m square K_n or line graphs of complete bipartite graphs, exact m+n-2 and exceptional consecutive dimensions",
+        "published-finding corpus: Total dominating sequences of line graphs L(K_{p,q}) with p and q consecutive, spanning trees, footprinter and forest",
+        "Web: \"skew zero forcing number\" \"rook\" \"m\" \"n\"",
+        "Web: \"zero forcing\" \"rook graph\" skew minimum"
+      ]
+    },
+    "rationale": "The exact two-parameter formula and incidence-forest principle are absent from the inspected closest primary source sections, and no result returned by targeted searches entails them. The 2022 square-rook-graph result concerns positive-semidefinite, rather than skew, zero forcing. Unindexed equivalents remain a priority risk.",
+    "residual_risks": [
+      "A full-text 2019 doctoral dissertation was not obtained, so an undiscovered equivalence there cannot be excluded.",
+      "The bibliographic search is not an exhaustive proof of priority, especially for older line-graph and skew forcing literature.",
+      "The skew zero-forcing corollary relies on a known duality and is not claimed independently novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and duality apply, but inspected product results do not state the two-complete-factor rook-graph formula",
+        "evidence": [
+          "First arXiv public date 2017-12-23 appears on PDF front page",
+          "Theorem 5.1 states bounds for cycle/path Cartesian products and its proof is specific to their layers"
+        ],
+        "identifier_or_url": "arXiv:1712.08780v1; https://arxiv.org/pdf/1712.08780",
+        "material_read": "PDF text: abstract, definitions and motivation in introduction; sections on direct and Cartesian products; Section 5 statements and proof, plus targeted complete-graph search; page images including title page and proof context",
+        "method": "Original open-access preprint text, page search, page screenshots",
+        "title": "On Grundy total domination number in product graphs",
+        "trigger": "Identical invariant and general graph-product setting; known skew-zero-forcing duality"
+      },
+      {
+        "assessment": "Lemma 3.5 concerns positive-semidefinite zero forcing, not skew zero forcing, and does not imply this theorem",
+        "evidence": [
+          "Section 2 distinguishes standard, skew and positive-semidefinite forcing",
+          "Lemma 3.5 computes Z_+(K_r square K_r)=(r-1)^2+1"
+        ],
+        "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/206533710/vol38_pp280_294.pdf",
+        "material_read": "PDF introduction on variant forcing rules, Section 3.2 and Lemma 3.5, including page screenshot",
+        "method": "Lawfully available full-text PDF text and page image",
+        "title": "Constructions of cospectral graphs with different zero forcing numbers",
+        "trigger": "Contains an exact zero-forcing formula for square rook graphs"
+      },
+      {
+        "assessment": "Abstract separately discusses Grundy variants on several special graph classes and ordinary total domination on Cartesian products; unresolved full-document coverage remains a residual risk",
+        "evidence": [
+          "Abstract names Grundy invariants on trees, split/interval/Sierpinski/Kneser graph classes",
+          "Abstract discusses Ho bound for ordinary total domination of Cartesian products"
+        ],
+        "identifier_or_url": "https://dk.um.si/IzpisGradiva.php?id=73378&lang=eng",
+        "material_read": "Public abstract and full table of landing-page metadata only; the thesis PDF was not inspected",
+        "method": "Institutional open landing page; PDF link leads to a use-terms page",
+        "title": "Contributions to the Study of Contemporary Domination Invariants of Graphs",
+        "trigger": "2019 dissertation mixes Grundy total domination and Cartesian products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13948cc3-f404-47fc-ac7b-9e00c93831a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Grundy total domination of Cartesian graph products is a motivated published research topic; the exact formula resolves the canonical two-clique product and gives a sharp exceptional dimension regime. The incidence-forest lemma is an explanatory structural mechanism, and the formula simultaneously determines the skew zero-forcing number on an infinite symmetric graph family. It is not a generic substitution or a numerically insignificant optimization without mathematical structure.",
+    "status": "PASS"
+  }
+}
