@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-parameter result is reconstructed from the open-neighborhood definition, the complete one-skeleton, the Mayer–Vietoris connected-link surjections, two-skeleton preservation, and explicit integral and mod-two cocycles. The finite bases are not inferred from rank over finite fields: packaged exact integer minors of orders \(26,54,105\) have verified determinants \(-1,+1,+2\). At \(3\times3\) two linearly independent integral cocycles rule out larger boundary rank, at \(3\times4\) one does; at \(4\times4\) a nonzero mod-two cycle pairing forces the finite group to have order exactly two. The attached verifier reproduces the actual integer witnesses, checks cochains and small links, and is not a substitute for the general link lemma.
+## correctness
 
-**Originality — PASS (same-model only).** The directly pertinent general theorem of Matsushita (arXiv:1210.2803) describes a fundamental-group correspondence but contains no all-rectangle first integral homology calculation in the inspected material. The indexed \(4\times4\) open-neighborhood homology and Kummer biplane homotopy results establish one isolated base and are explicitly acknowledged as known. The all-parameter rook higher-homology theorem stops at degree three and higher. The two-row statement is a distinct boundary case. Alias and implication comparisons cover rook/lattice/Cartesian/Hamming/line graph descriptions, including their relationship to stronger homotopy calculations restricted to four-by-four. No comparison proves absolute uniqueness; unindexed equivalent work remains possible and an intermittent database connection failure affected one query.
+PASS
 
-**Mathematical value — PASS.** The first integral homology exhibits a sharp free-to-two-torsion transition at the natural minimum width four, with stable two-torsion on all larger rectangular rook graphs. This gives an infinite-family structural boundary and a topological obstruction not seen from rational homology alone, and is not merely a numerical variation on a prior finite case.
+The open-neighborhood definition excludes the common center. Every pair of rook cells admits a common distinct neighbor for m,n>=3; hence the one-skeleton is complete and the triangle-boundary matrix on the cycle basis gives integral H1. The package supplies three explicit integer minor witnesses of orders 26,54,105 with determinants -1,+1,+2, proving the upper invariant-factor bounds. Row/column integer cocycles give independent free-rank lower bounds at (3,3), and the row cocycle gives a nonzero infinite pairing at (3,4). The crossing-edge mod-2 cocycle pairs nontrivially with a corner three-cycle at (4,4). Connected-link vertex attachments, with links computed in the *full graph* induced subcomplex and old two-skeleton unchanged, propagate quotient bounds and cocycle lower bounds to every m,n>=4 and m=3,n>=4. Independently regenerated triangle matrices have GF2/GF3/GF101 ranks: (3,3)26/26/26 of 28, (3,4)54/54/54 of 55, (4,4)104/105/105 of 105 and (4,5)170/171/171 of 171; finite link graphs connected for (3,5),(4,5),(5,4),(5,5),(6,7). These finite checks do not establish integral Smith invariants or all-size link assertions on their own; proof uses exact certificate minors and general connected-link argument.
 
-**Scope and limitations.** The conclusion is for the open complex only, when both board dimensions are at least three. It does not determine homotopy type, fundamental group, full homology, or equivariant actions. No independence claim is made. All three finite determinant certificates are provided and replayed with exact arithmetic. The global step rests on the written all-size connected-link proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-rectangular first integral homology transition is not implied by the known exact 4x4 base calculation, by higher-degree rook calculations, nor by a general fundamental-group equivalence. The open neighborhood convention is essential.
+
+## value
+
+PASS
+
+An exact natural H1 invariant of the Lovasz neighborhood complex for the entire rectangular rook family resolves a genuine 3-row/free versus >=4/torsion boundary, stronger than a single finite census. The nonvanishing persistent 2-torsion constrains wedge-of-spheres/homotopy modeling, and the induction mechanism via links can be reused for similar graph families. This is motivated topology, not isolated arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
