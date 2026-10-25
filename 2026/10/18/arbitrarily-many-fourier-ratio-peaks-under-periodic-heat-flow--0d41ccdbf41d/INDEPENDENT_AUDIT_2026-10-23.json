@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T15:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 03d9223fc4f44492c2ae41480ef2ff0bc2a76da2",
+        "independent_checks.py/output K=1..5 and q=4,16,100"
+      ],
+      "rationale": "At positive heat time t, Fourier magnitudes of the explicit ±jL frequencies are b_j=a_j exp(-j²L²t), giving R=√2 Σb_j/(Σb_j²)^{1/2}. Exact adjacent log-amplitude identity log(b_j/b_(j−1))=((2j−1)L²)(τ_j−t), τ_j=(m−j+1)T/m. At each of m−1 crossings exactly two neighboring amplitudes match and every other is ≤η² times them, so R>1.99. At the K+1 alternating separating endpoints/midpoints all other b_j are ≤η of one dominant b_j, so R<1.43. Real analytic, nonconstant R achieves strict extrema between separated comparison points, K maxima and K−1 minima in (0,T). For q synchronized Fourier pairs at t*, R(t*)=√(2q) while as L→∞ R(0)→√2, yielding amplification →√q; B arbitrary. Checked explicit finite K=1..5 and q=4,16,100 in fresh independent checks. No bound for fixed bandwidth/dynamic range is claimed.",
+      "residual_risks": [
+        "Individual bounded numerical/finite tests only corroborate their stated domains; proof uses explicit all-parameter or certified exhaustive structural arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iosevich et al. heat snapshot upper bounds involve regularity/nondegeneracy parameters.",
+          "Current construction allows unbounded initial amplitude dynamic range and frequency band."
+        ],
+        "reasoning": "A parameter-dependent upper bound at each t cannot contradict a class-free unbounded amplification relative to R(0), and gives no theorem asserting temporal unimodality.",
+        "searches": [
+          "Resultary: Fourier ratio L1 Fourier coefficients over L2 under periodic heat flow multiple local maxima nonmonotonic transient amplification trigonometric polynomial",
+          "arxiv:2603.07851"
+        ]
+      },
+      "checked_sources": [
+        "actual Resultary query: Fourier ratio L1 Fourier coefficients over L2 under periodic heat flow multiple local maxima nonmonotonic transient amplification trigonometric polynomial",
+        "arxiv:2603.07851",
+        "arxiv:2601.17493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem-level fixed-time Fourier-ratio sampling estimates do not assert monotonicity.",
+          "The ratio here develops crossings at τ_j at arbitrarily many prescribed separated times."
+        ],
+        "reasoning": "The new all-K counterexample is not a corollary of fixed-time sufficient sampling estimates; its comparison times are an additional constructive theorem.",
+        "searches": [
+          "Resultary: Fourier ratio L1 Fourier coefficients over L2 under periodic heat flow multiple local maxima nonmonotonic transient amplification trigonometric polynomial",
+          "arxiv:2603.07851",
+          "arxiv:2601.17493"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heat Fourier evolution multiplies amplitudes by exp(-n²t); Fourier ratio L1/L2 matches the ratio used in Iosevich et al.",
+          "Related published sampling work uses the same ratio but estimates fixed-time size, not its oscillation count."
+        ],
+        "reasoning": "Shared notation and heat semigroup allow comparison, yet a priori norm-control bounds depending on signal parameters do not force monotonicity of the actual ratio along an arbitrary heat trajectory.",
+        "searches": [
+          "Resultary: Fourier ratio L1 Fourier coefficients over L2 under periodic heat flow multiple local maxima nonmonotonic transient amplification trigonometric polynomial",
+          "arxiv:2603.07851",
+          "arxiv:2601.17493"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite Fourier class metric-entropy studies address stationary ratios or norm bounds on finite spectra; these are not K-extrema tables for the periodic heat semigroup."
+        ],
+        "reasoning": "No exact temporal-oscillation database or equivalent classification found in searched Resultary and named Fourier-ratio papers; absence is not novelty proof.",
+        "searches": [
+          "Resultary: Fourier ratio L1 Fourier coefficients over L2 under periodic heat flow multiple local maxima nonmonotonic transient amplification trigonometric polynomial",
+          "arxiv:2606.24229"
+        ]
+      },
+      "rationale": "The temporal trajectory assertion is not a restatement of static Fourier-ratio norm or sufficient sampling bounds. Iosevich et al. treat fixed-time a priori heat/sampling bounds with signal-regularity dependence and do not supply all-K oscillatory counterexamples or unbounded class-free transient amplification. Prior standard exponential-mode domination suggests the construction but does not imply the specific alternating extrema without its quantified gap proof.",
+      "residual_risks": [
+        "Unindexed exponential-sum transient-ratio examples might predate the precise many-peak statement.",
+        "Proof assumes no coefficient dynamic-range/bandwidth control; no claims for such subclasses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-time sampling/regularity control; no claim of a general temporal K-extrema bound",
+          "evidence": "Theorem 4.13 heat-snapshot control and sampling threshold with regularity factors differ from the time-series lower construction.",
+          "identifier_or_url": "arxiv:2603.07851",
+          "material_read": "Full accessible HTML main statements, heat-snapshot theorem context and parameter dependence",
+          "method": "Primary full-text search plus inspection of Theorem 4.13 and surrounding proof/interpretation",
+          "title": "PDE propagation, sampling, and the Fourier ratio",
+          "trigger": "Identical Fourier ratio and heat propagator"
+        },
+        {
+          "assessment": "Supports relevant background only; no whole-document noncoverage asserted",
+          "evidence": "Sampling/discretization emphasis and matching Fourier-ratio definition.",
+          "identifier_or_url": "arxiv:2601.17493",
+          "material_read": "Abstract and identified main sampling goals; not a full proof inspection",
+          "method": "ArXiv record and targeted comparison",
+          "title": "Discretization, sampling, and the Fourier ratio",
+          "trigger": "Earlier definition of exactly same ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2603.07851 theorem on heat-snapshot sampling",
+        "Pinned RESULT.md limitation discussion"
+      ],
+      "rationale": "Construction demonstrates an exact, structurally meaningful obstruction to a plausible monotonicity/unimodality heuristic for heat smoothing, and to signal-independent transient-amplification control; it informs the necessary bandwidth/regularity hypotheses of sampling or PDE estimates, rather than arbitrarily testing a small Fourier support.",
+      "residual_risks": [
+        "Mathematical value rests on the exact natural invariant and its contextual motivation, not code execution or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

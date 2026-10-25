@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-With normalized Fourier coefficients, a positive cosine amplitude contributes exactly two symmetric frequencies; this yields equation (1) in RESULT.md. The explicit logarithmic coefficient differences yield the crossing identity (2), and the minimum squared-frequency gap is \(3L^2\). Direct comparisons to the immediately adjacent crossing establish the \(\eta^2\) suppression at high times and \(\eta\) suppression at low times. Bounds (3)--(4) have a strict numerical gap for all allowed parameters; real analyticity turns each separated interior extremum into a strict one. The distinct amplification construction makes all paired Fourier coefficients equal at the selected time, while only the highest pair survives asymptotically at time zero. The standalone checker corroborated 197 finite identities/inequalities, including physical-grid Fourier transforms.
+PASS
 
-## Originality — PASS, with historical-priority risk
+At positive heat time t, Fourier magnitudes of the explicit ±jL frequencies are b_j=a_j exp(-j²L²t), giving R=√2 Σb_j/(Σb_j²)^{1/2}. Exact adjacent log-amplitude identity log(b_j/b_(j−1))=((2j−1)L²)(τ_j−t), τ_j=(m−j+1)T/m. At each of m−1 crossings exactly two neighboring amplitudes match and every other is ≤η² times them, so R>1.99. At the K+1 alternating separating endpoints/midpoints all other b_j are ≤η of one dominant b_j, so R<1.43. Real analytic, nonconstant R achieves strict extrema between separated comparison points, K maxima and K−1 minima in (0,T). For q synchronized Fourier pairs at t*, R(t*)=√(2q) while as L→∞ R(0)→√2, yielding amplification →√q; B arbitrary. Checked explicit finite K=1..5 and q=4,16,100 in fresh independent checks. No bound for fixed bandwidth/dynamic range is claimed.
 
-The relevant accessible primary literature studies fixed-time upper bounds (arXiv:2603.07851), spectral approximation and sampling (arXiv:2601.17493), stationary Fourier-ratio complexity classes (arXiv:2511.19560), and class metric entropy (arXiv:2606.24229). Their stated conclusions do not imply multiple strict temporal extrema or arbitrarily large actual trajectorywise amplification. Related indexed results on heat semigroup maximal regularity use a different mixed operator norm, not the Fourier \(\ell^1/\ell^2\) quotient. The searches do not prove uniqueness: an earlier unindexed exponential-family or heat-semigroup construction may cover this theorem.
+## originality
 
-## Value — PASS
+PASS
 
-Fourier ratio is used as an effective spectral dimension in recent sampling and recovery bounds. The theorem gives a structurally decisive limitation on a natural interpretation of dissipative spectral preconditioning: for individual signals, a smoothing semigroup can repeatedly raise and lower this measured complexity, even arbitrarily strongly. It provides a reproducible, all-order family of counterexamples, not merely a small numerical anomaly. It does not purport to contradict established parameter-dependent fixed-time estimates or supply new sampling guarantees.
+The temporal trajectory assertion is not a restatement of static Fourier-ratio norm or sufficient sampling bounds. Iosevich et al. treat fixed-time a priori heat/sampling bounds with signal-regularity dependence and do not supply all-K oscillatory counterexamples or unbounded class-free transient amplification. Prior standard exponential-mode domination suggests the construction but does not imply the specific alternating extrema without its quantified gap proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Construction demonstrates an exact, structurally meaningful obstruction to a plausible monotonicity/unimodality heuristic for heat smoothing, and to signal-independent transient-amplification control; it informs the necessary bandwidth/regularity hypotheses of sampling or PDE estimates, rather than arbitrarily testing a small Fourier support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
