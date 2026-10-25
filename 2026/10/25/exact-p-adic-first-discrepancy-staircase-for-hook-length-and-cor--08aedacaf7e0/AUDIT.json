@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "In Z[[q]], the two series differ by E(q)^(-1) times Delta=E(q)^(p^(2a))-E(q^(p^a))^(p^a). Frobenius plus power lifting shows Delta is 0 modulo p^(a+1) as an entire series. For every 0<=j<a, lifting at exponent p^j shows all positive degrees below p^j vanish modulo p^(2a-j+1), with coefficient at p^j congruent to -p^(2a-j), and the second summand has no positive degree below p^a. Multiplication by the unit E(q)^(-1) preserves this first nonzero degree and leading residue. For r>=2a+1 the x-linear difference -p^(2a) ensures first failure at 1. Covers p=2, a=1, all r; exact finite arithmetic verifies multiple finite cases but is not used to infer infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Frobenius congruence for formal series supplies a lemma used in the proof, but the inspected works do not state the specialized coefficientwise congruence filtration.",
+        "Han, arXiv:0805.1398v1, introduction and Theorems 1.2--1.4 develop general hook-length and t-core product identities, not this p-adic comparison."
+      ],
+      "reasoning": "A fully general preexisting formal-series theorem that includes the exact first-discrepancy coefficient for every p^j would logically imply this special case; none was identified in the checked sources. Its possible existence is explicitly a residual risk.",
+      "searches": [
+        "Euler product A(q)^{p^{2a}} and A(q^{p^a})^{p^a} p^{a+1} sharp congruence",
+        "t-core partition generating function Nekrasov Okounkov congruence coefficients modular vanishing order first noncongruent index p^{a-1}",
+        "Euler eta product congruence optimal p-adic exponent for a prime-power parameter, first failure at x^(p^(a-1))"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01422v1",
+      "arXiv:0805.1398v1",
+      "arXiv:0805.2461v1",
+      "DOI:10.5802/aif.2515",
+      "Related 2023 eta-quotient coefficient congruence article (Atmani, DOI:10.1002/mma.8816; abstract/preliminaries only)",
+      "Available historical claim ledgers and published mathematical-record semantic results (no direct matching claim found)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharma Proposition 2: mod p^a for all a>=1; Proposition 1: mod p^2 at a=1; Corollary 2 treats first failure for non-prime-power t.",
+        "Han--Ono Theorem 1.1: coefficient zero-set coincidence at t=3, not congruence modulo arbitrary prime powers."
+      ],
+      "reasoning": "The new modulus p^(a+1) for a>=2 is strictly stronger than the main all-a modulus p^a. The exact first-failure function for every r neither follows from the older t=3 zero-set equality nor from the non-prime-power obstruction. The a=1 uniform p^2 congruence is explicitly attributed to prior work and is not claimed as new by itself.",
+      "searches": [
+        "Sharma 2026 prime power dichotomy hook lengths t core p-adic congruence sharpened first discrepancy",
+        "arXiv:2610.01422v1 Proposition 1 Proposition 2 Corollary 2",
+        "arXiv:0805.2461v1 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The modular first-nonzero-index claim is equivalent to the q-adic order of E(q)^(p^(2a))-E(q^(p^a))^(p^a) modulo each p^r, since E(q) is invertible.",
+        "Sharma, arXiv:2610.01422v1, Sections 1--5, states only the uniform lower congruences and a separate non-prime-power failure index."
+      ],
+      "reasoning": "Exact-term and eta-series reformulations were compared; no equivalent all-r threshold staircase was found. Similarity of the series is not itself evidence of an identical theorem.",
+      "searches": [
+        "Nekrasov Okounkov hook length t-core partition congruence prime power optimal modulus p^{a+1} versus p^a first nonzero coefficient",
+        "F_{t^2}(q) C_t(q) eta products maximal uniform p-adic congruence at t=p^a and first discrepancy index p^{a-1}",
+        "Nekrasov Okounkov t core F_t^2 congruences prime powers p^{a+1} p^{2a} coefficient first failure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sharma Table 1 lists selected coefficients only at t=3; these certify small instances and the already known a=1 congruence, not the general a>=2 hierarchy.",
+        "Finite exact program verify.py checks 14 prime-power parameters but is original verification, not a claim of database novelty."
+      ],
+      "reasoning": "Neither the inspected table nor searches provided a complete database/table listing the all-prime all-exponent first-failure function; finite values are consistent checks only.",
+      "searches": [
+        "Nekrasov Okounkov hook length t-core partition congruence prime power optimal modulus p^{a+1} versus p^a first nonzero coefficient",
+        "Sharma 2026 prime power dichotomy hook lengths t core p-adic congruence sharpened first discrepancy",
+        "arXiv:2610.01422v1 Section 5 numerical table"
+      ]
+    },
+    "rationale": "No exact first-failure staircase for the specialized Nekrasov--Okounkov versus t-core pair was identified after comparing the motivating paper, the two foundational primary preprints, targeted exact-term literature searches, available historical claims and related published research records. Sharma gives mod p^a for every a and mod p^2 for a=1, which do not entail the claimed stronger sharp result at a>=2 or the all-r onset locations without further work. Residual implicit-general-theorem coverage risk is recorded.",
+    "residual_risks": [
+      "Generic Frobenius-lifting folklore or an older eta-quotient congruence result might implicitly cover the specialized staircase; targeted searches and read sources did not establish such coverage.",
+      "The later parts of Han 2008 were not read page by page; relevant introductory statements and a whole-text congruence term search were checked.",
+      "No external independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the optimal uniform p^(a+1) modulus for every a>=2 or the exact all-r first-incongruence staircase.",
+        "evidence": [
+          "Submitted 2026-10-01; primary 11P83/11P84.",
+          "Proposition 1 modulo p^2 at a=1; Proposition 2 modulo p^a at a>=1; Corollary 2 for non-prime-powers; Section 5 motivates stronger p-adic lifting."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01422v1",
+        "material_read": "Full accessible article HTML, introduction, propositions, proofs, non-prime-power section, first-failure corollary, numerical table, final perspective and references.",
+        "method": "Read the primary manuscript HTML, compared Proposition 1, Proposition 2, Theorem 1 and Corollary 2 as mathematical statements and implications.",
+        "title": "A Prime-Power Dichotomy for Nekrasov--Okounkov Hook Lengths and t-Core Partitions",
+        "trigger": "Same two generating functions and explicit prime-power coefficient congruences."
+      },
+      {
+        "assessment": "Gives product and combinatorial identities, not an explicitly covering p-adic first-discrepancy classification in the material inspected.",
+        "evidence": [
+          "Theorem 1.2 identifies Nekrasov--Okounkov Euler product.",
+          "Theorem 1.3 relates t-cores and the extended hook identity.",
+          "Remaining unexamined later material noted as a literature risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0805.1398",
+        "material_read": "PDF main introduction and Theorems 1.1--1.4 on pages 1--4, with whole-PDF text search for congruence/modulo.",
+        "method": "Read paper definitions and central product identities; searched extracted full-text for terms marking coefficient congruences.",
+        "title": "The Nekrasov-Okounkov hook length formula: refinement, elementary proof, extension and applications",
+        "trigger": "Foundational source for hook-length specialization and t-core Euler products."
+      },
+      {
+        "assessment": "Shows matching vanishing sets at t=3; that condition does not imply the new uniform filtration for all prime powers.",
+        "evidence": [
+          "Theorem 1.1 states a(n)=0 iff b(n)=0 for t=3.",
+          "Proof identifies CM form and 3-core Eisenstein series; no all-prime-power congruence threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0805.2461",
+        "material_read": "Seven-page primary PDF, title theorem, coefficient formulas, modular form proof, last-page conclusion and references; whole-PDF text search for congruence.",
+        "method": "Compared theorem statement and proof consequences with the new all-a and all-r claim.",
+        "title": "Hook Lengths and 3-Cores",
+        "trigger": "Exactly the coefficient-series pair in the base case t=3, and a plausible source of stronger consequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08aedaca-f7e0-4150-8ffb-aeb1424fc3f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This directly resolves the stronger-prime-power-lifting gap prompted by Sharma 2026 and provides a natural complete classification: the exact maximal uniform modulus and the first failure index for every p-adic exponent r, with exact leading residues for all intermediate scales. The infinitely many prime-power parameters and all modulus exponents form a canonical arithmetic family, not an arbitrary finite slice. Its conceptual object is the congruence filtration between the Nekrasov--Okounkov and t-core series; the known prime-case and p^a-level congruences neither give this optimal classification nor the staircase. Proof simplicity and finite reproducibility are not the sole value arguments.",
+    "status": "PASS"
+  }
+}
