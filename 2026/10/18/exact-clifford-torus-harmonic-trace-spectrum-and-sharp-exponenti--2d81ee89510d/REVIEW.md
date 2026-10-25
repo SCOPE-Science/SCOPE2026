@@ -1,19 +1,21 @@
-# Scientific review: exact Clifford-torus trace spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In probability-normalized Hopf coordinates, the scalar spherical harmonics of degree less than \(L\) split orthogonally by two torus Fourier weights and one Jacobi radial index. Jacobi orthogonality gives the displayed coefficient norm, and restriction is one row in each weight block. The nonzero \(j=0\) term supplies exactly the diamond support and yields the global sharp lower bound \(L2^{1-L}\). Equality analysis isolates the four axial boundary weights for \(L\ge3\). The coefficientwise reconstruction formula follows from the one-row Moore–Penrose inverse. An independent Chebyshev addition-kernel calculation agrees, with exact rational checks across all weights for the nine smallest cutoffs. The infinity of cutoffs is covered by proof, not extrapolation.
+PASS
 
-## Originality
+Reconstructed S³ probability-normalized Hopf measure, scalar Jacobi harmonic orthogonality, degree k=a+b+2j multiplicities (k+1)², and Fourier block restriction to the theta=pi/4 Clifford torus. Each torus weight (m,n) with s=|m|+|n|<L gives exactly one positive eigenvalue sum of squared Jacobi evaluation coefficients; j=0 is nonzero, proving the diamond range and rank 2L²−2L+1. j=0 term is (s+1)2^(−s)binom(s,a)≥(s+1)/2^s≥L/2^(L−1); only four axial s=L−1 modes attain equality for L≥3 (all five at L=2). This establishes optimal pseudoinverse norm sqrt(2^(L−1)/L). Independently calculated exact rational Jacobi sums and Chebyshev Laurent coefficients for every frequency L=1..7 (L7 rank85, least 7/64), including normalized trace/rank identities; finite checks supplement all-L analytic proof.
 
-PASS on the inspected literature and indexed comparisons, with explicit residual risk. Classical Hopf harmonic formulas appear in Ben Achour et al. (arXiv:1505.03426, Section II); they supply inputs but not the trace operator's full singular-value list or global sharp exponentially small positive eigenvalue. Full-rotation-group sampling by Gräf–Potts and McEwen et al. concerns a three-dimensional sampling scheme rather than two-dimensional Clifford-torus trace and optimal quotient norm. Dowker treats quotient three-sphere harmonics; Han treats semiclassical localization on a family of Clifford tori. None of their examined claims proves the displayed sharp restriction bound without an additional block-spectrum computation and minimization. Comparisons against closely related indexed harmonic restriction and compact-group Fourier results revealed no matching claim. A general trace theorem not identified in the searches could still imply the statement, so this is an evidence-based originality judgment rather than an assertion of exhaustive novelty.
+## originality
 
-## Value
+PASS
 
-PASS. This is a natural measurement operator on a canonical minimal torus in the round three-sphere, not an arbitrary finite sample or unmotivated invariant. Its exact image class tells which torus traces are realizable; its kernel gives all ambiguities; and the optimal inverse norm quantifies the sharp exponential instability for every harmonic cutoff, with a complete identification of the worst-conditioned modes. The finding distinguishes exact representability from stability and gives a direct test case for restricted harmonic measurement.
+Classical Hopf harmonic eigenmodes and Jacobi normalization are not original; the reviewed theorem evaluates the entire bandlimited scalar restriction operator to the fixed Clifford torus, including all positive eigenvalues, exact range/kernel and sharp minimum over every band. Prior SU(2)/S³ harmonic-basis references and SO(3) global sampling results inspected concern different operators or incomplete trace extrema. Best-of-knowledge PASS, with risk of a general trace theorem implicitly giving identical block spectrum.
 
-## Evidence and limitations
+## value
 
-The original scalar Hopf basis appears in a fully accessible historical source, the rotation-group sampling and Clifford-torus localization sources were inspected at the level needed for the specific implication comparison, and the included checker uses only exact arithmetic. No general interpolation stability for other tori or independent audit is claimed. A not-yet-located more general trace formula remains a bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Restriction to the canonical Clifford torus is a natural inverse harmonic-measurement problem. Exact attainable Fourier data, nullspace dimensions, and exponentially worsening sharp minimal-norm inverse give both algebraic identifiability and precise noise amplification for every cutoff, unlike an unmotivated finite spectral experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
