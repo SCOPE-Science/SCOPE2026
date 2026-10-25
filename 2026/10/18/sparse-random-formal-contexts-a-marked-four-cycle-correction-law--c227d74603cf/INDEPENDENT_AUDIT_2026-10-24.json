@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T04:54:05.046365Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 22303aba7f719d381f8e4f782b026a0fb4450934 and actual VERIFY.py blob 118a987afb97a2104092cdf2a6341df77b923e99.",
+        "Independently implemented both Galois derivation operators, maximal-star/cycle counting, isolation and induced biclique obstruction checks on all 66,066 square binary contexts of sizes 1 through 4: 1, 5, 91, 5005 qualifying graphs and no deterministic identity exceptions.",
+        "Reconstructed Git SHA-1 tree 2d240f02528443284ce8d811d9bcd60fa5783f63 from exact entry hashes."
+      ],
+      "rationale": "On the high-probability event of isolated vertices on both sides, no K2,3/K3,2, and vertex-disjoint four-cycles, every non-boundary concept is either a star, a single isolated edge, or a 2×2 four-cycle biclique. A degree-two vertex on a four-cycle creates a duplicate star that is not maximal. Consequently C=2+D+I+Σ_H(1-z(H)), with z exactly the number of degree-two cycle vertices. Expected counts of forbidden K2,3 and intersecting C4 are O(1/n); independent isolation indicators force boundary concepts. Method of factorial moments yields independent Poisson C4 types with mean (c^4/4) C(4,z)e^{-cz}(1-e^{-c})^{4-z}. Disjoint cycle cross-edges affect marks with o(1) probability. The displayed characteristic function follows. Degree≥2 and isolated-edge component counts have O(n) variance and their expectations give g(c) after division by n. All signs of the integer-valued residual are retained.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakurai 2021 Theorem 5.1 proves a dense q=1/2, random partition model expected-count superpolynomial lower bound.",
+          "Kovács 2018 Sections 2–3 use probability-weighted expected counts and numerical approximation; no all-fixed-c sparse compound-Poisson theorem."
+        ],
+        "reasoning": "The prior formulas treat expected count and different scalings/models. Even applying a general expectation formula at c/n would not identify the joint degree-centred random defect law, a distributional and dependency statement with nontrivial marks.",
+        "searches": [
+          "Resultary semantic: random formal contexts Bernoulli c/n concept count asymptotic marked Poisson four-cycle biclique correction",
+          "Resultary semantic: formal concepts sparse random bipartite graph four-cycle correction Poisson limiting distribution",
+          "arXiv:2101.11023",
+          "doi:10.18514/MMN.2018.2529"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.18514/MMN.2018.2529",
+        "arXiv:2101.11023",
+        "arXiv:2405.04428",
+        "Resultary index two recorded semantic queries",
+        "fresh combinatorial independent enumeration of 1+2+3+4 square boards"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed residual is random, O_P(1), and may take values -3 through 1 per cycle; its limit law includes external degree-two marks.",
+          "Sakurai shows large expected concept counts in a different dense regime, and Kovács derives a probabilistic approximation, neither controlling these local cycle marks."
+        ],
+        "reasoning": "A first-moment equation, even one exact for each finite n, does not imply convergence in distribution or its independently marked small cycle mechanism; no stronger same-parameter theorem was identified.",
+        "searches": [
+          "Resultary semantic: random formal contexts Bernoulli c/n concept count asymptotic marked Poisson four-cycle biclique correction",
+          "Resultary semantic: formal concepts sparse random bipartite graph four-cycle correction Poisson limiting distribution",
+          "arXiv:2101.11023",
+          "doi:10.18514/MMN.2018.2529"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The FCA concept count equals maximal complete-bipartite subgraph count plus two boundary concepts when each bipartition has an isolated vertex.",
+          "After centering at D_n+I_n+2, excess is a sum of local marked C4 contributions 1-z, not a naive Poisson number of bare 4-cycles."
+        ],
+        "reasoning": "Mapped the claim to sparse Erdős–Rényi bipartite maximal-biclique counts, Poisson small-subgraph vectors, and Galois closure operators; no equivalent marked residual theorem appeared in the inspected FCA literature or the real research-index results.",
+        "searches": [
+          "Resultary semantic: random formal contexts Bernoulli c/n concept count asymptotic marked Poisson four-cycle biclique correction",
+          "Resultary semantic: formal concepts sparse random bipartite graph four-cycle correction Poisson limiting distribution",
+          "arXiv:2101.11023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The labelled finite identity was checked for all 5,005 size-4 qualifying bipartite contexts rather than sampled data.",
+          "Baudin–Magnien–Tabourier 2024 develops large sparse bipartite maximal-biclique enumeration algorithms, not the Bernoulli sparse law."
+        ],
+        "reasoning": "A concept enumeration algorithm can compute any finite instance but does not constitute an all-n asymptotic table or the exact local Poisson characteristic function. Checked snippets do not serve as proof of noncoverage; primary FCA PDFs were read.",
+        "searches": [
+          "Resultary semantic: random formal contexts Bernoulli c/n concept count asymptotic marked Poisson four-cycle biclique correction",
+          "Resultary semantic: formal concepts sparse random bipartite graph four-cycle correction Poisson limiting distribution",
+          "arXiv:2405.04428"
+        ]
+      },
+      "rationale": "Concepts as maximal bicliques and formulae for expected concept counts are classical. Kovács 2018 studies an efficient approximation to expected concept number in independently sampled attributes; Sakurai 2021 derives expectation formula and an expected superpolynomial lower bound for constant-density random contexts. Neither inspected primary paper proves the sparse n×n, p=c/n law with an exact degree-statistic subtraction and a marked compound-Poisson residual. The correction is stronger than a first-moment count and not a formal consequence of previous expectation identities without sparse subgraph theory. Best of knowledge with normal bibliographic incompleteness.",
+      "residual_risks": [
+        "An unindexed probabilistic maximal-biclique or random formal-context theorem could subsume the same Poisson-marked defect.",
+        "No convergence of expectations for the centered correction, no CLT for full C_n, no statement beyond fixed c and balanced sides."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_MARKED_POISSON",
+          "evidence": "Provides numerical approximation of concept counts, not p=c/n degree-centred random corrections.",
+          "identifier_or_url": "https://real.mtak.hu/92004/1/2529.pdf",
+          "material_read": "Full 14-page OA primary PDF, definitions, expectation formula (3.1), approximations, performance graphs and conclusion",
+          "method": "Read extract and inspected rendered PDF page 7; compared parameters/estimands",
+          "title": "Efficient Approximation for Counting of Formal Concepts Generated from Formal Context",
+          "trigger": "Direct concept-count independent-incidence source"
+        },
+        {
+          "assessment": "NOT_COVERING_SPARSE_LIMIT",
+          "evidence": "Theorem 5.1 fixes p=q=1/2 and gives superpolynomial expected growth, not a sparse marked-Poisson distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.11023",
+          "material_read": "All seven pages of OA arXiv PDF, definitions, Proposition 4.1 and Theorem 5.1 with proof and conclusions",
+          "method": "Read PDF and rendered page 4; checked precise dense fixed-q hypotheses",
+          "title": "On Formal Concepts of Random Formal Contexts",
+          "trigger": "Random formal context primary mathematical predecessor"
+        },
+        {
+          "assessment": "NOT_DECISIVE_ON_DISTRIBUTION",
+          "evidence": "Automating finite maximal-biclique enumeration is not the random c/n distributional limit; full paper not claimed read.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.04428",
+          "material_read": "Bibliographic abstract and scope identifying enumeration rather than random limit theorem",
+          "method": "Compared object/invariant and claimed asymptotic to algorithmic output",
+          "title": "BBK: a simpler, faster algorithm for enumerating maximal bicliques in large sparse bipartite graphs",
+          "trigger": "Potential algorithmic domination of exact counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The concept lattice is a natural object in FCA and the sparse c/n regime is a canonical random graph limit. A linear law for total concepts is useful, but the genuinely discrete marked C4 defect quantifies exactly how local biclique overlap changes the count after subtracting directly observable degree statistics. The marks include negative contributions: simply counting cycles would be wrong. This is a motivated structural-plus-distributional correction, not a routine restatement of expected-count formulas or finite table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The deterministic identity holds only on a specified typical class; overlapping 4-cycles or K2,3 can invalidate it.",
+    "The finite Galois experiment does not establish distributional convergence or independence of marks.",
+    "No claims for unequal parts, p not proportional to 1/n, or variable c.",
+    "Finite independent tests and source self-checks supplement rather than establish infinite quantified mathematical statements.",
+    "Originality is assessed by real source statement comparisons and retained uncertainty; an unsuccessful search is not a proof of novelty.",
+    "No Lean proof, human expert attestation, external certification or claim of scientific independence of tools.",
+    "A scientific PASS is separate from public transport permission; material privacy blocker forces not_ready."
+  ],
+  "schema_version": 1
+}

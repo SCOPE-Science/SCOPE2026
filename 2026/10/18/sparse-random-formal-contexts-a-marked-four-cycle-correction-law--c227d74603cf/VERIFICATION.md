@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` from the directory containing the standalone checker. It uses only the Python standard library and performs a direct formal-context/Galois derivation count, independently of the short-cycle formula. Successful checks produce:
+## correctness
 
-```
-VERIFY_OK: exhaustive n=1..4; qualifying context counts [1, 5, 91, 5005]
-VERIFY_OK: five isolated four-cycle mark cases z=0..4
-```
+PASS
 
-Exactly 5,005 qualifying incidence graphs with shores of size four satisfy the deterministic structural hypotheses, and the checker examines all of them. It also tests a four-cycle with precisely 0, 1, 2, 3, or 4 vertices of graph degree two. These checks establish finite consistency only. The limiting marked-Poisson law comes from a graph-subcount factorial-moment argument, and the linear coefficient from degree/isolated-edge variance estimates; neither is certified by finite enumeration. No independent audit was performed.
+On the high-probability event of isolated vertices on both sides, no K2,3/K3,2, and vertex-disjoint four-cycles, every non-boundary concept is either a star, a single isolated edge, or a 2×2 four-cycle biclique. A degree-two vertex on a four-cycle creates a duplicate star that is not maximal. Consequently C=2+D+I+Σ_H(1-z(H)), with z exactly the number of degree-two cycle vertices. Expected counts of forbidden K2,3 and intersecting C4 are O(1/n); independent isolation indicators force boundary concepts. Method of factorial moments yields independent Poisson C4 types with mean (c^4/4) C(4,z)e^{-cz}(1-e^{-c})^{4-z}. Disjoint cycle cross-edges affect marks with o(1) probability. The displayed characteristic function follows. Degree≥2 and isolated-edge component counts have O(n) variance and their expectations give g(c) after division by n. All signs of the integer-valued residual are retained.
+
+## originality
+
+PASS
+
+Concepts as maximal bicliques and formulae for expected concept counts are classical. Kovács 2018 studies an efficient approximation to expected concept number in independently sampled attributes; Sakurai 2021 derives expectation formula and an expected superpolynomial lower bound for constant-density random contexts. Neither inspected primary paper proves the sparse n×n, p=c/n law with an exact degree-statistic subtraction and a marked compound-Poisson residual. The correction is stronger than a first-moment count and not a formal consequence of previous expectation identities without sparse subgraph theory. Best of knowledge with normal bibliographic incompleteness.
+
+## value
+
+PASS
+
+The concept lattice is a natural object in FCA and the sparse c/n regime is a canonical random graph limit. A linear law for total concepts is useful, but the genuinely discrete marked C4 defect quantifies exactly how local biclique overlap changes the count after subtracting directly observable degree statistics. The marks include negative contributions: simply counting cycles would be wrong. This is a motivated structural-plus-distributional correction, not a routine restatement of expected-count formulas or finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

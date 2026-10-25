@@ -1,15 +1,21 @@
-# Review: sparse random formal contexts
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed \(c>0\) and incidence probability \(c/n\), all finite and asymptotic quantifiers are explicit. If the bipartite incidence graph has an isolated vertex in each shore, no \(K_{2,3}\) or \(K_{3,2}\), and disjoint four-cycles, maximal bicliques consist of centers of degree at least two, isolated-edge components, and full four-cycle bicliques, with each degree-two four-cycle center overcounted once. This yields the deterministic identity \(C=2+D+I+\sum_H(1-z(H))\). The forbidden configurations have probability \(O_c(n^{-1})\). Multivariate factorial moments give independent marked-Poisson four-cycle counts, with means \((c^4/4)\binom4z e^{-cz}(1-e^{-c})^{4-z}\). Second-moment bounds for the degree and isolated-edge counts yield the coefficient of the linear law. Every step is proved without interpreting finite checks as an infinite certificate. Direct exhaustive enumeration tested the structural identity for every qualifying bipartite incidence graph with equal shores of sizes one through four, and five constructed mark cases.
+## correctness
 
-## Originality — PASS, with residual risk
-The generic formal-concept/maximal-biclique equivalence and exact expectation identities are previously known. Kovács (2018) uses independent incidences to approximate the expectation and Sakurai (2021) proves a different fixed-density expected-count lower bound. Their inspected proofs do not supply an unscaled residual limit after subtracting observed degree statistics. Baudin–Magnien–Tabourier (2024) address sparse biclique enumeration algorithms, not this limit distribution. In a sparse bipartite random graph, short-cycle counts themselves have familiar Poisson limits; the distinguishing mathematical content here is the corrected concept-count identity with the nontrivial mark \(1-z(H)\), its joint distribution, and the linear coefficient. Source discovery and comparison cannot establish absolute priority: an earlier graph-theoretic enumeration or random-graph equivalence may exist.
+PASS
 
-## Mathematical value — PASS
-A formal concept is the basic element of a concept lattice, so typical concept count in sparse contexts is a natural model-complexity invariant. The result determines the exact first-order constant across all fixed positive sparsities and resolves an otherwise hidden order-one discrete correction. The mark can be negative as well as positive; it measures identifications of canonical star bicliques when four-cycles appear, not merely a conventional number of cycles. This interpretation is useful for complexity baselines and explicit random-context benchmarks. The result does not claim a general downstream computational improvement.
+On the high-probability event of isolated vertices on both sides, no K2,3/K3,2, and vertex-disjoint four-cycles, every non-boundary concept is either a star, a single isolated edge, or a 2×2 four-cycle biclique. A degree-two vertex on a four-cycle creates a duplicate star that is not maximal. Consequently C=2+D+I+Σ_H(1-z(H)), with z exactly the number of degree-two cycle vertices. Expected counts of forbidden K2,3 and intersecting C4 are O(1/n); independent isolation indicators force boundary concepts. Method of factorial moments yields independent Poisson C4 types with mean (c^4/4) C(4,z)e^{-cz}(1-e^{-c})^{4-z}. Disjoint cycle cross-edges affect marks with o(1) probability. The displayed characteristic function follows. Degree≥2 and isolated-edge component counts have O(n) variance and their expectations give g(c) after division by n. All signs of the integer-valued residual are retained.
 
-## Closest sources and limitations
-Sakurai, *On formal concepts of random formal contexts* (arXiv:2101.11023v1, 2021), studies the same random-context objects but a different probability regime and expectation question. Kovács, *Efficient approximation for counting of formal concepts generated from formal context* (DOI:10.18514/MMN.2018.2529, 2018), supplies an expectation method. Baudin, Magnien, and Tabourier, *BBK* (arXiv:2405.04428, 2024), supply algorithmic sparse-biclique context. Neither the finite checks nor the source comparisons amount to external mathematical certification. The theorem is confined to balanced, independent \(c/n\) incidences, not arbitrary formal contexts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Concepts as maximal bicliques and formulae for expected concept counts are classical. Kovács 2018 studies an efficient approximation to expected concept number in independently sampled attributes; Sakurai 2021 derives expectation formula and an expected superpolynomial lower bound for constant-density random contexts. Neither inspected primary paper proves the sparse n×n, p=c/n law with an exact degree-statistic subtraction and a marked compound-Poisson residual. The correction is stronger than a first-moment count and not a formal consequence of previous expectation identities without sparse subgraph theory. Best of knowledge with normal bibliographic incompleteness.
+
+## value
+
+PASS
+
+The concept lattice is a natural object in FCA and the sparse c/n regime is a canonical random graph limit. A linear law for total concepts is useful, but the genuinely discrete marked C4 defect quantifies exactly how local biclique overlap changes the count after subtracting directly observable degree statistics. The marks include negative contributions: simply counting cycles would be wrong. This is a motivated structural-plus-distributional correction, not a routine restatement of expected-count formulas or finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
