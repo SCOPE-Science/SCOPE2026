@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The SSPRK(2,2) stage formula reduces each modal multiplier to (1-br)^2+r. Orthogonality gives Vb^2-2Ub+U=0 and real solvability iff V/U<=1, both roots b>=1/2. Exact energy transfer multiplies an active maximal mode r*>1 by at least 1+r*(r*-1)/4 on every feasible step, contradicting finite conserved total energy after finitely many steps. Conversely if r*<=1 the weighted mean V/U stays <=1. The two-mode boundary and rational discriminant -108 follow exactly; the supplied standard-library verifier replayed successfully. Random tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ketcheson 2019 rescales the entire RK increment and allows a changed effective time; Najafian–Vermeire 2024 quasi-orthogonal projection chooses a distinct correction direction."
+      ],
+      "reasoning": "The published techniques share a conservation objective but do not include the exact fixed-step SSPRK(2,2) scalar stage-weight equation and hence do not imply the spectral iff or all-branch finite failure.",
+      "searches": [
+        "arxiv:1905.09847 §§1.1,2,4.1",
+        "arxiv:2409.18328v1 §§1.1,2",
+        "Runge Kutta energy preserving weight correction multiple oscillators finite time loss solvability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.14508v1",
+      "arxiv:1905.09847",
+      "arxiv:2409.18328v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary RF-RK paper proves local solvability under a small-step nondegeneracy condition and allows individually infeasible steps for larger h; it does not analyze forward-invariant feasibility or branch-uniform impossibility. The 2019 relaxation and later quasi-orthogonal methods alter the correction mechanism."
+      ],
+      "reasoning": "A one-step quadratic solvability test does not by itself establish all-step solvability versus finite-time failure. The new monotone highest-frequency-energy argument proves that additional dynamical implication. The exact witness shows the distinction: a first valid conservation step changes the state into a second-step impossibility.",
+      "searches": [
+        "Najafian Vermeire 2024 relaxation free Runge Kutta lack real roots failure energy conservation oscillator",
+        "arxiv:2401.14508v1 §§2.3,3.1,4.1",
+        "arxiv:1905.09847",
+        "arxiv:2409.18328v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.14508v1 §2.3 supplies the zero-sum stage-weight perturbation and one-step discriminant; §4 notes possible absence of a real root for larger steps."
+      ],
+      "reasoning": "The equivalent energy equation is credited explicitly. Its local discriminant criterion does not imply that any initially feasible data with a positive high-frequency component must fail at some later finite step, nor yield the exact active-spectrum dichotomy. No independent identical finite-time classification was located.",
+      "searches": [
+        "\"relaxation-free Runge-Kutta\" \"two frequencies\" energy",
+        "\"relaxation-free Runge-Kutta\" \"no real\" oscillators",
+        "\"SSPRK(2,2)\" \"relaxation-free\" \"discriminant\" oscillator",
+        "arxiv:2401.14508v1 §2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantities are a universal all-iterations feasibility classification and rational two-step witness, not a tabulated numerical constant or finite database entry."
+      ],
+      "reasoning": "No numerical table, exact database or corresponding published collection was identified as expressing the claimed theorem. Search absence alone does not establish originality.",
+      "searches": [
+        "\"relaxation-free\" Runge Kutta multiple frequencies discriminant no real solution",
+        "finite-step loss of real energy-conserving correction on skew oscillator"
+      ]
+    },
+    "rationale": "The paper arxiv:2401.14508v1 already proves the scalar quadratic correction equation and discusses one-step nonexistence; these are not claimed as new. The assessed theorem adds the sharp entire-trajectory spectral dichotomy, finite-step breakdown for every branch even from initially feasible data, a quantitative upper bound, and a sharp two-mode energy-share frontier. Exact statement-level comparisons with the three primary papers and related public research results identified no covering statement. Earlier analysis of equivalent corrected-stage dynamics remains a residual risk.",
+    "residual_risks": [
+      "Equivalent sharp spectral threshold may be implicit in older research on fixed-step weight perturbations under alternative terminology. Literature searches and the accessible inspected works cannot certify global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes the quadratic and local existence, but not the spectral all-step classification, finite failure for all correction-root branches, or the rational two-step obstruction.",
+        "evidence": [
+          "arxiv:2401.14508v1 §§2.3,3.1,4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.14508v1",
+        "material_read": "Full accessible primary HTML relevant method and results: §§2.3, 3.1, 4 including SSPRK(2,2) specialization and loss-of-real-root discussion.",
+        "method": "Primary full-text inspection of definitions, equations, claims, and reported examples.",
+        "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+        "trigger": "Exact source defining the assessed stage-weight correction"
+      },
+      {
+        "assessment": "A full-step scalar relaxation method, not this fixed-time zero-sum stage-weight direction.",
+        "evidence": [
+          "arxiv:1905.09847 §§1.1,2,4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.09847",
+        "material_read": "Accessible primary text, especially §§1.1,2,4.1, including the modified physical-time interpretation.",
+        "method": "Primary-text comparison of update definition and time convention.",
+        "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+        "trigger": "Potential broader energy-conserving RK method with one scalar parameter"
+      },
+      {
+        "assessment": "A different projection subspace and invariants treatment; does not imply the specified fixed-direction RF-RK trajectory criterion.",
+        "evidence": [
+          "arxiv:2409.18328v1 §§1.1,2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.18328v1",
+        "material_read": "Full accessible HTML sections 1.1 and 2 on correction directions, solvability, and preservation.",
+        "method": "Primary full-text comparison of projection geometry and hypotheses.",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Potential projection-based correction superseding the scalar direction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b21777e-5740-4530-ba5b-1be51410a702",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp active-frequency threshold distinguishes indefinitely executable conservative steps from sequences forced to terminate; the result rules out interpreting a locally feasible real correction as an indefinitely feasible integration rule. Its all-branch finite-step failure, exact first-step-feasible counterexample, and sharp initial energy-share boundary constitute a structurally motivated numerical-solvability limitation, not a parameter substitution or merely a negative discriminant check.",
+    "status": "PASS"
+  }
+}
