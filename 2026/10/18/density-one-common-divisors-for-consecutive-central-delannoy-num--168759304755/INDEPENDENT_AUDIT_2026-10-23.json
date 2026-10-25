@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T16:00:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Delannoy formula D_n=Σ_k binom(n,k)^2 2^k obeys Lucas digit factorization modulo any odd prime p, including zero padding. End digits D_0≡D_{p−1}≡1, while the Legendre recurrence (j+1)D_{j+1}=3(2j+1)D_j−jD_{j−1} rules out adjacent zero digits 1≤j≤p−2. Adding 1 changes trailing (p−1) digits to zero and one first changed digit; adjacent roots impossible, so both D_n and D_{n+1} vanish iff an unchanged higher digit lies in Z_p. Unique position r of first non-(p−1) digit gives exception count E_p(L)=1+(p−1)Σ_{h=0}^{L−1}(p−z_p)^h exactly. For p≡3 mod4, m=(p−1)/2 odd and the Deuring-type binomial polynomial H_m(X)=Σ binom(m,j)^2 X^j solves a mod-p ODE invariant under X↦1−X; uniqueness by initial coefficient gives H_m(1−X)=−H_m(X), and H_m(−1)=0 by paired terms, so H_m(2)=D_m≡0. Thus z_p≥1; exceptional counts O_p(N^{log_p(p−z_p)}) at arbitrary N have density zero, and choosing arbitrarily large primes 3 mod4 proves gcd(D_n,D_{n+1})→∞ in natural density. Independent direct binomial Delannoy evaluation and prime-base digit simulation tested primes 3,5,7,11,13,19 and complete blocks up to 50,000, agreeing with all formulas. Finite checks support, not replace, proofs of infinite density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 24-page 2016 Sun primary PDF inspected: polynomial congruences and supercongruences, with no searchable gcd in its PDF text.",
+          "General Lucas/automaticity framework can make divisibility sets automata but does not by itself imply the explicit geometric exception formula plus density-one for every p≡3 mod4."
+        ],
+        "reasoning": "A general framework is not a covering theorem unless it yields the specific no-adjacent-zero and guaranteed-root facts; no such implication found in inspected primary results. The uninspected earlier Sun/Lengyel full papers remain residual risks.",
+        "searches": [
+          "Zhi-Wei Sun Arithmetic properties of Delannoy numbers and Schröder numbers arxiv:1602.00574",
+          "Zhi-Wei Sun On Delannoy numbers and Schröder numbers arxiv:1009.2486",
+          "Rowland Yassawi Automatic congruences for diagonals of rational functions arxiv:1310.8635",
+          "Tamás Lengyel 2021 Delannoy supercongruences"
+        ]
+      },
+      "checked_sources": [
+        "Sun arxiv:1602.00574 entire primary PDF",
+        "Sun arxiv:1009.2486 citation/abstract",
+        "Rowland–Yassawi arxiv:1310.8635 abstract",
+        "Lengyel 2021 Integers 21 A86 citation",
+        "OEIS A001850",
+        "Resultary semantic query: consecutive central Delannoy numbers gcd divisible primes 3 mod 4 density one Lucas congruences exact counting exception formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Digitwise factorization is known/elementary, and the Delannoy recurrence is classical; their combination with adjacent-carry criterion and mod-p Deuring involution supplies the new claimed conclusion.",
+          "Sun 2016 inspected polynomial/supercongruence claims do not directly assert p-divisibility of gcd(D_n,D_{n+1}) for density one n."
+        ],
+        "reasoning": "Lucas alone permits adjacent roots in general digit sequences and p with no zero digit; those barriers must be resolved before deducing gcd density one. The explicit root-existence proof and precise exception count provide the missing implications.",
+        "searches": [
+          "Lucas 1878 digitwise binomial theorem",
+          "Sun 2016 arxiv:1602.00574 Theorems on weighted Delannoy congruences",
+          "Rowland Yassawi 2013 arxiv:1310.8635 automatic congruences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A001850 is the Delannoy sequence itself, not the adjacent gcd set/exact exception count.",
+          "Sun and Lengyel Delannoy modular results concern terms, supercongruences or selected indices rather than the all-n adjacent gcd statistic."
+        ],
+        "reasoning": "Checked the natural equivalent formulation as simultaneous adjacent zero residues and a base-p regular-language/automaton set. General automaticity does not determine the exact adjacent-root exclusion or guarantee a zero digit for all primes 3 mod4.",
+        "searches": [
+          "Resultary:consecutive central Delannoy numbers gcd divisible primes 3 mod 4 density one Lucas congruences exact counting exception formula",
+          "Delannoy central consecutive gcd density one p divisibility Lucas p kernel automatic sequences",
+          "OEIS A001850 central Delannoy consecutive gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001850 lists D_n, which can mechanically produce finite gcd prefixes, not a table of all p and L exact exception exponents.",
+          "The package derives z_p from the first p Delannoy residues and proves a uniform formula from that invariant."
+        ],
+        "reasoning": "Known term tables are not identical to an all-L symbolic formula parameterized by local zero-digit sets or an arbitrary-threshold natural density theorem; no dominating exact database result found.",
+        "searches": [
+          "OEIS A001850 central Delannoy",
+          "Resultary:consecutive central Delannoy numbers gcd divisible primes 3 mod 4 density one Lucas congruences exact counting exception formula",
+          "central Delannoy consecutive gcd sequence primes 3 mod 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical-implication comparison: evaluated exact final statement against identified source claims, known ingredients and search aliases; where full primary texts are inaccessible only their actually inspected portions are assessed, and priority risks are stated, not hidden. The identified available sources do not establish a covering statement of the full final claim.",
+      "residual_risks": [
+        "An equivalent adjacent Delannoy gcd theorem may exist in unindexed number-theory literature or uninspected full 2010/2021 sources; full novelty not historically certified.",
+        "Density-one limit is not pointwise gcd growth; z_p not classified for all odd p; no valuations or quantitative simultaneous-prime density claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No adjacent-gcd or exact exception count identified, and no searchable gcd string in parsed text",
+          "evidence": "Theorems address divisibility and congruence sums but not the all-n gcd-statistic in the audited claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00574",
+          "material_read": "Full 24-page primary arXiv PDF, statements and calculations on polynomial identities and supercongruences; searched PDF for gcd",
+          "method": "complete PDF reading/search plus page screenshot",
+          "title": "Arithmetic properties of Delannoy numbers and Schröder numbers",
+          "trigger": "Same Delannoy sequence, possible stronger modular theorem"
+        },
+        {
+          "assessment": "General congruence background; cannot rule out implicit gcd-specialization",
+          "evidence": "Residual risk listed; no whole-document NOT_COVERING.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.2486",
+          "material_read": "ArXiv citation and bibliographic summary; complete primary proof not inspected",
+          "method": "bibliographic/abstract check",
+          "title": "On Delannoy numbers and Schröder numbers",
+          "trigger": "Earlier seminal congruences for the same sequence"
+        },
+        {
+          "assessment": "General automaticity is an antecedent, not itself an evaluated density-one counting formula",
+          "evidence": "Automaticity alone does not impose the zero-digit guarantee for p≡3 mod4.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "ArXiv source metadata/abstract and source-paper summary, not full text",
+          "method": "implication and generality check",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Could imply the p-automatic adjacent gcd language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It is a strong concrete arithmetic property of a classical combinatorial sequence: successive central Delannoy terms share arbitrarily large divisors for almost all indices, despite sharp local root restrictions. The exact exceptional set cardinality and fractal exponent for each prime are natural local statistics, connecting Lucas factorizations with additive carries and a polynomial symmetry. Neither a single finite gcd table nor routine rephrasing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent adjacent Delannoy gcd theorem may exist in unindexed number-theory literature or uninspected full 2010/2021 sources; full novelty not historically certified.",
+    "Density-one limit is not pointwise gcd growth; z_p not classified for all odd p; no valuations or quantitative simultaneous-prime density claimed.",
+    "Finite independent checks support specified cases only; unrestricted claims are assessed on their written proofs. No claim of formal proof-system verification, independent human expert attestation, or certification of historical novelty.",
+    "Operational public-file sanitization remains unresolved separately from the completed scientific assessment."
+  ],
+  "schema_version": 1
+}
