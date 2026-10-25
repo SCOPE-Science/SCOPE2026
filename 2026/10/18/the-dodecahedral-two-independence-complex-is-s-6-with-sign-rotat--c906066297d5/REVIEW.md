@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The precise result is \(\operatorname{Ind}_2(GP(10,2))\simeq S^6\) together with the rotation sign character on integral degree-six homology. Complete face enumeration finds 63,142 nonempty faces. A 31,565-pair staged acyclic matching is verified by topological sorting all 410,500 Hasse incidences, leaving critical cells in dimensions zero, five, six and seven with multiplicities 1,1,6,4. The exact signed Morse maps have a primitive degree-six-to-five row and a unit four-by-four minor in the restriction of degree-seven-to-six boundaries to the kernel. Consecutive CW cancellations produce one six-sphere. The rotation fixes no nonempty simplex, so the unreduced Lefschetz number is zero and the integral degree-six action is \(-1\). The standalone C++ and independent Python checks passed.
+## correctness
 
-## Originality (PASS, qualified)
-The foundational papers arXiv:2001.05448v1 and arXiv:2106.10863v1 classify higher-independence complexes for other graph families, not \(GP(10,2)\). Closest publicly indexed computations concern the ordinary dodecahedral independence complex or two-independence complexes of nonisomorphic symmetric graphs. The equivalent forbidden-connected-triple hypergraph formulation and potential broader classifications were searched. No claim implying this integral homotopy type or its cyclic action was identified. Unindexed equivalent work remains possible, and some indexed comparisons were abstract-level only.
+PASS
 
-## Mathematical value (PASS)
-The dodecahedral graph is a natural cubic symmetric benchmark outside the previously classified chordal and tree families. The complete homotopy type is unexpectedly one sphere despite the complex's dimension eleven and mixed facet dimensions. The cyclic sign representation adds intrinsic information about symmetry that cannot be recovered from Betti numbers alone.
+Ind2(D) means induced connected components of any selected vertex set have size at most 2, equivalently induced degree≤1 or exclusion of 60 connected triples, not ordinary independence. Independent forbidden-triple enumeration yields 63,142 nonempty faces and explicit facet vector. Reconstructed 31,565 staged face matches, complete acyclicity of 410,500 oriented Hasse covers, and critical cells one0, one5, six6, four7. The signed Morse ∂6=(0,0,-1,0,1,0) has rank1 primitive; the four-column ∂7 lies in its integer kernel and a specified maximal minor is ±1, giving primitive rank4. Homotopy cancels the unique 5-cell and four 6/7 pairs because π5(S5) and π6(wedge S6) classify cell attachments by degrees, leaving S6. Independent Python calculation rebuilt face list/matching/integral Morse matrices, not only stored output. Rotation ρ of order ten fixes no nonempty allowed face (vertex orbits of size10 each induce degree2), so L(ρ)=0 and on H0⊕H6 gives trace H6=-1; powers yield (-1)^t. Only integral homology action, not equivariant sphere equivalence.
 
-## Limitations
-Only the stated graph and its specified cyclic rotation are covered. Neither a generalized-Petersen-family classification nor a full equivariant sphere model follows. The result rests on a complete finite, reproducible integer Morse computation and a homotopy argument; it is not a new all-graph theorem. Bibliographic absence is not a proof of novelty, and independent mathematical audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The basic graph families and ordinary k=1 or matching results do not imply the exact integral 2-independence homotopy with nontrivial cyclic sign character.
+
+## value
+
+PASS
+
+PASS: Ind2 of the dodecahedral graph is a natural first higher-independence invariant on a canonical cubic polyhedral graph beyond chordal and tree formulas. Its integral homotopy S6 despite 11-dimensional, nonpure facets is a concrete structural phenomenon; the order-ten rotation sign is an intrinsic new homology-representation datum invisible to Betti numbers. A complete named finite classification has standalone mathematical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
