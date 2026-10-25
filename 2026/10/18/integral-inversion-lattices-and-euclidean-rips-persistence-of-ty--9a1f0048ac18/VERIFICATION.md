@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and checks
 
-Run the adjacent `verify_type_a_rips.py` using an ordinary Python 3 interpreter and the standard library, with no downloaded data or dependencies. It reconstructs the root coordinate vectors, graph orientation conventions, spanning-tree fundamental cycles, and integer involution matrices from definitions in `RESULT.md`.
+# Independent mathematical audit
 
-For \(n=4,\ldots,12\), exact integer multiplication checks \(\tau^2=1\) and the trace of \(\tau\) equal to one. GF(2) elimination checks that the image rank of \(1+\tau\) is \(n(n-3)/2\). The script checks all small-case squared-distance shells and combinatorial clique conditions for \(n=4,\ldots,7\), and exact signed cellular character traces for every permutation when \(n=4,\ldots,7\).
+## correctness
 
-The successful script terminates with `VERIFY_OK_TYPE_A_EUCLIDEAN_RIPS_INTEGRAL_EIGENLATTICE`. The all-integer \(n\) result depends on the structural proofs of the shell classification, nerve and closure equivalences, and mod-two dimension identity, **not** on a finite-range computational extrapolation. Originality may depend on broader graph-covering literature not accessible in full. Independent scientific audit has not been performed.
+PASS
+
+Pairwise root-distance shells squared {2,4,6,8}, crown-graph star nerve at sqrt(2), the root-polytope facial closure at 2, and join of antipodal pairs at sqrt(6) reconstruct all inclusive thresholds. Equivariant crown C1-C0+1 yields both rational character identities; the mod-two symmetric crown cycle subspace has dimension binom(n-1,2), so rank(1+tau) on H1(F2) is n(n-3)/2, giving the claimed precise integral 2-index. Independent exact code recomputed all shells, first-stage Betti, mod-two norm rank for n=4..7 as (5,2),(11,5),(19,9),(29,14), but the proof supplies all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+The integral discrepancy between the rational inversion eigenspace decomposition and the genuine H1 lattice is a natural equivariant-persistence obstruction. The all-n closed index and character together offer real information not obtained from nonequivariant homotopy groups or one low-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

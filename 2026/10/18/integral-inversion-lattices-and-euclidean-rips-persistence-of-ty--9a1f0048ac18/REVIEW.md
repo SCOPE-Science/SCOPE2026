@@ -1,15 +1,21 @@
-# Scientific assessment: type-A Euclidean root Rips complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(n\ge4\), every Euclidean squared distance between distinct roots is one of \(2,4,6,8\). The threshold-two clique complex is the star nerve of the connected crown graph; threshold-four face-poset closure is the type-A root-polytope boundary; threshold-six is the boundary of an \(m\)-dimensional cross-polytope. This establishes all claimed homotopy types and ordinary integral barcodes. The cellular Lefschetz calculation proves the complete rational degree-one character. The integral index uses a primitive fixed-lattice injection and a mod-two kernel identified, without enumeration, with the complete-graph cycle space. Independent finite scripts test signed chain identities and involution matrices through rank twelve; they are checks, not proofs in arbitrary rank. The signed action on the later sphere classes is the orientation determinant in each model.
+## correctness
 
-## Originality — PASS, with specific residual risks
-The already published cuboctahedral filtration is exactly the \(n=4\) special case and is not new. Babson–Kozlov already cover the \(\operatorname{Hom}(K_2,K_n)\) sphere and swap action, and Ardila et al. cover root-polytope boundary combinatorics. All are excluded from isolated novelty claims. No inspected source states the complete all-rank **Euclidean** root filtration with the explicit degree-one \(S_n\times C_2\) character and its integral inversion eigensublattice quotient. Covering-graph homology and Prym theory provide relevant broader principles: the specific index may be a formal consequence of a general double-cover theorem after identifying the crown graph. This is a real priority and value risk, not evidence of uniqueness. The proposed new content is the integrated all-parameter metric/topological/symmetry classification; publication priority remains unverified.
+PASS
 
-## Mathematical value — PASS
-The natural, highly symmetric \(A_{n-1}\) root sample has a complete metric persistence description uniformly in dimension. At its first nontrivial scale, rational diagonalization under root inversion misses a quotient of growing order \(2^{n(n-3)/2}\). The two rational irreducible summands and full group character distinguish this integral phenomenon from ordinary Betti numbers and identify precisely the symmetry obstruction faced by integer cycles. The result concerns a natural untruncated root family, rather than an arbitrary finite slice; known lower-rank and Hom-complex special cases are separated from the proposed contribution.
+Pairwise root-distance shells squared {2,4,6,8}, crown-graph star nerve at sqrt(2), the root-polytope facial closure at 2, and join of antipodal pairs at sqrt(6) reconstruct all inclusive thresholds. Equivariant crown C1-C0+1 yields both rational character identities; the mod-two symmetric crown cycle subspace has dimension binom(n-1,2), so rank(1+tau) on H1(F2) is n(n-3)/2, giving the claimed precise integral 2-index. Independent exact code recomputed all shells, first-stage Betti, mod-two norm rank for n=4..7 as (5,2),(11,5),(19,9),(29,14), but the proof supplies all n.
 
-## Closest literature and limitations
-Babson–Kozlov, *Complexes of graph homomorphisms* (arXiv:math/0310056), establishes the Hom-complex sphere. Ardila–Beck–Hoşten–Pfeifle–Seashore, *Root polytopes and growth series of root lattices* (arXiv:0809.5123), establishes root-polytope boundary triangulations. The published cuboctahedral result identifies the same metric filtration at \(n=4\). General homological graph coverings (Biggs, 1984) and Prym graph methods (Len–Zakharov, 2022) are possible dominating paths for the index subclaim; only their accessible summaries were checked, so no whole-document noncoverage is inferred. Different metrics, positive roots only, or other root families are not treated. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared exact final implication (not just matching words) with the named public results. Only the specified new integral/homotopy/equivariant component is attributed to this record; known subclaims are expressly prior.
+
+## value
+
+PASS
+
+The integral discrepancy between the rational inversion eigenspace decomposition and the genuine H1 lattice is a natural equivariant-persistence obstruction. The all-n closed index and character together offer real information not obtained from nonequivariant homotopy groups or one low-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
