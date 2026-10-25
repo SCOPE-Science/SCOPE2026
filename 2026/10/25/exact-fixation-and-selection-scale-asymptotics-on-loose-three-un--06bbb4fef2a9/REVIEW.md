@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact model specifies the parent, hyperedge choice and whole-edge overwrite. An updated petal permanently synchronizes its leaves; the unique mixed petal in leaf-singleton seeding has an exact three-rate first-resolution calculation. Conditioning on genuine changes yields two harmonic recurrences, solved by a geometric increment ratio and both absorbing boundaries. The formulas include neutrality explicitly. Fixed-fitness asymptotic expansions and the complete five-vertex suppression polynomial have separately checkable algebra. The included exact-rational full-chain and polynomial tests executed successfully. Risks: large-size results are pointwise in fitness; no theorem about other hypergraph structures follows.
+
+**Originality — PASS (provisional publication priority).** Liu–Masuda's relevant full primary text defines the update rule and analyzes the *dense* hub-and-all-leaf-pairs hypergraph; their formula is not the sparse disjoint-petal all-size law. Keller–Uğurlu's weighted graph process changes one neighbor per update, not an entire three-vertex group. Targeted literature and research-record searches found no identical loose-hyperstar formula or dominating theorem. Risk: not every paper in the field is searchable, and undiscovered equivalent formulations may exist.
+
+**Value — PASS.** The number and overlap pattern of group interactions is a natural structural variable in evolutionary dynamics. The result avoids exponential-state absorption solves for every population size and explicitly separates hub and leaf mutation success. Its two different fixed-selection asymptotic regimes quantify how finite hypergraph suppressor behavior approaches the Moran benchmark, while a five-vertex rational identity supplies a rigorous complete nonneutral comparison. These are nontrivial exact fixation and scaling facts, not relabelings of the dense-star findings.
+
+Closest literature: Liu and Masuda (2023, arXiv:2301.05343), Sections 2–3.1 and relevant supplement; Keller and Uğurlu (2024, arXiv:2403.12598), graph replacement framework. Neither covers disjoint two-leaf petals under whole-edge overwriting. Scientific limitations and residual priority uncertainty are recorded in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.
