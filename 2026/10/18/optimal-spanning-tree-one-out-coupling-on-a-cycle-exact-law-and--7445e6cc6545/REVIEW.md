@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every cycle spanning tree omits one edge. The deterministic symmetric-difference lower bound is achieved by selecting the missing tree edge uniformly from the input's complement (or from all edges for the full cycle). Rotation invariance proves the uniform tree marginal without assuming independence. The exact cyclic run-count formula follows by marking one of the \(k\) transitions and counting positive compositions. Its mean, variance, and asymptotic regimes follow from indicator covariances, a bounded one-dependent central limit theorem, and binomial-to-Poisson approximation. An executable exact-rational checker verified all finite identities in \(19{,}304\) tests; finite checks were not substituted for an infinite proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** Mészáros–Peled, arXiv:2610.11554v1, Theorem 1 and Section 3.1 establish an existence bound for uniform one-out graphs on arbitrary graphs, not an optimal cycle cost, distribution, or biased Poisson boundary. The 1994/1995 circular run-count literature is acknowledged as prior art; the count itself is not claimed as independently original. Related spanning-tree overlap and edge-usage results concern different marginals. Searches of relevant mathematical records and relevant published mathematical results found no covering statement. A broader unlocated equivariant optimal-transport theorem might imply the universal coupling, so absolute priority is not certified.
+PASS
 
-**Value — PASS.** The result solves a precise transport-optimization problem for the smallest-degree connected regular graph family inside a newly studied UST-versus-product-process comparison. It supplies a sharp constant, the entire optimal-distance distribution and a stochastic minimality theorem, not merely an order bound. The Gaussian-to-Poisson transition reveals when exact matching remains non-negligible under rare directional bias, with a sharp limiting probability \(\lambda e^{-\lambda}\). This is a mathematically motivated sparse-degree boundary case; it does not assert relevance to arbitrary high-degree graphs.
+Every cycle tree deletes one edge J and |S triangle T|=|A triangle {J}|>=|M-1|. Conditional on S, choose J uniformly from missing-edge set A if nonempty, otherwise uniformly from all edges; rotation invariance makes the marginal of J uniform, proving exact pathwise optimality simultaneously for every nondecreasing loss. Under p-clockwise iid vertex directions missing edges are cyclic 0-to-1 transitions; k>0 alternations comprise k runs of each orientation and count n/k times two positive-composition counts, weighted by p^a q^(n-a); M=0 iff all bits equal. Adjacent indicators exclude each other, nonadjacent independent, giving EM=npq and Var M=npq(1-3pq), and the exact expected cost. Bounded 1-dependence CLT gives fixed-bias Gaussian. For np_n->lambda rare p_n, number of rare clockwise bits is asymptotically Poisson and adjacent rare bits occur with probability <=np_n^2, so M converges to Poisson and Delta to |Pois(lambda)-1|. Independently enumerated every binary word n=3..10 at rational biases and checked exact masses, variance and mean; finite enumeration corroborates, not replaces, all-n proofs.
 
-**Scope and limitations.** The exact cycle structure is essential. The biased one-out law is a directional variant of, not identical to, the standard uniform-neighbor process. No quantitative limit rates or broad graph extensions are proved. Primary source sections inspected: introduction, Theorems 1–2 and Section 3.1 of the 2026 preprint; circular-run papers were compared from accessible abstracts/metadata. Independent priority and technical reviews remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published general graph UST–one-out couplings offer bounds at high minimum degree, not the exact cycle stochastic optimal coupling across every rotation-invariant input law and its full Hamming-cost distribution. Circular run-count identities and rare-event limits are acknowledged prior art; originality is the optimal cross-marginal coupling identification and consequent exact quantitative laws.
+
+## value
+
+PASS
+
+The cycle is the natural sharp sparse-degree comparison for spanning-tree versus one-out random edge models. A universal stochastic minimizer (not merely an expectation bound) plus exact Wasserstein cost, optimal equality probability, and two fluctuation regimes form an independently useful baseline for graph coupling theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

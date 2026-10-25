@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T09:54:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/18/optimal-spanning-tree-one-out-coupling-on-a-cycle-exact-law-and--7445e6cc6545/RESULT.md",
+        "2026/10/18/optimal-spanning-tree-one-out-coupling-on-a-cycle-exact-law-and--7445e6cc6545/verify_cycle.py"
+      ],
+      "rationale": "Every cycle tree deletes one edge J and |S triangle T|=|A triangle {J}|>=|M-1|. Conditional on S, choose J uniformly from missing-edge set A if nonempty, otherwise uniformly from all edges; rotation invariance makes the marginal of J uniform, proving exact pathwise optimality simultaneously for every nondecreasing loss. Under p-clockwise iid vertex directions missing edges are cyclic 0-to-1 transitions; k>0 alternations comprise k runs of each orientation and count n/k times two positive-composition counts, weighted by p^a q^(n-a); M=0 iff all bits equal. Adjacent indicators exclude each other, nonadjacent independent, giving EM=npq and Var M=npq(1-3pq), and the exact expected cost. Bounded 1-dependence CLT gives fixed-bias Gaussian. For np_n->lambda rare p_n, number of rare clockwise bits is asymptotically Poisson and adjacent rare bits occur with probability <=np_n^2, so M converges to Poisson and Delta to |Pois(lambda)-1|. Independently enumerated every binary word n=3..10 at rational biases and checked exact masses, variance and mean; finite enumeration corroborates, not replaces, all-n proofs.",
+      "residual_risks": [
+        "Independent bounded checks do not replace the analytic proof; scope limited to stated assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mészáros–Peled 2026 Theorem 1 offers O(log k/sqrt k) normalized expected coupling bound for min degree k>=2; for cycle k=2 gives nonsharp general bound.",
+          "The source theorem scope does not present a stochastic minimum and explicit biased cycle distribution."
+        ],
+        "reasoning": "The high-degree theorem includes cycles in its domain but is weaker in conclusion and does not dominate the exact optimizer. Full manuscript access was incomplete and is a priority risk.",
+        "searches": [
+          "cycle uniform spanning tree one-out random graph edge symmetric difference optimal coupling missing edge Poisson Gaussian",
+          "Mészáros Peled arxiv 2610.11554 product approximations uniform spanning trees determinantal processes",
+          "general UST one out coupling minimum degree 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_cycle.py, tree aa6e407323eda6bca5b3a034cbe5df127667a998",
+        "Mészáros–Peled (2026), arXiv:2610.11554",
+        "Koutras et al. (1995), doi:10.2307/3215295",
+        "Makri–Philippou (1994), Runs and Patterns in Probability",
+        "Albin et al. (2021), doi:10.1016/j.disc.2020.112282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mészáros–Peled compares UST and one-out at broad graph degree, not cycle-exact optimal transport; Albin et al optimize overlaps of random spanning trees under other marginals.",
+          "The exact deleted-edge conditional coupling J uniform A is a constructive marginal-preserving equality certificate."
+        ],
+        "reasoning": "Compared marginals, degree dependence, bias, objective stochastic order and exact distribution. General existence/bound does not imply full exact optimal law; a special earlier cycle statement remains residual possibility.",
+        "searches": [
+          "cycle uniform spanning tree one-out random graph edge symmetric difference optimal coupling missing edge Poisson Gaussian",
+          "Mészáros Peled 2026 Theorem 1 UST and one out graphs",
+          "Albin 2021 fairest edge usage minimum expected overlap random spanning trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A uniform cycle spanning tree is the full edge set minus uniform single edge; one-out missing set is cyclic 0-to-1 transition set.",
+          "The optimal transport identity W=E|M-1| is a set-coupling statement, not itself new circular run counting."
+        ],
+        "reasoning": "Examined equivalent missing-edge, symmetric-difference, transportation and cyclic-runs formulations. Existing runs laws do not automatically enforce the uniform deleted-edge marginal while realizing the pointwise minimum.",
+        "searches": [
+          "cycle uniform spanning tree one-out random graph edge symmetric difference optimal coupling missing edge Poisson Gaussian",
+          "one-out cycle missing 01 transitions uniform spanning tree optimal Hamming Wasserstein"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cyclic alternation/run counts are known combinatorial probability objects, and their counting distribution is not asserted separately novel.",
+          "The exact coupling and every-increasing-loss minimization is over all n and continuous bias, not an isolated table."
+        ],
+        "reasoning": "Existing exact run tables may imply M law but not by itself the optimal uniform-spanning-tree coupling/stochastic domination. Explicitly excluded known combinatorics from originality claim.",
+        "searches": [
+          "cycle uniform spanning tree one-out random graph edge symmetric difference optimal coupling missing edge Poisson Gaussian",
+          "Makri Philippou binomial distributions of order K on circle 1994",
+          "Koutras Papadopoulos Papastavridis runs on a circle 1995"
+        ]
+      },
+      "rationale": "Previously published general graph UST–one-out couplings offer bounds at high minimum degree, not the exact cycle stochastic optimal coupling across every rotation-invariant input law and its full Hamming-cost distribution. Circular run-count identities and rare-event limits are acknowledged prior art; originality is the optimal cross-marginal coupling identification and consequent exact quantitative laws.",
+      "residual_risks": [
+        "Full high-relevance 2026 Mészáros–Peled paper inaccessible in this run; an unindexed cycle-exact appendix or earlier graph-coupling analogue remains possible.",
+        "Cyclic run distribution, including rare-bias Poisson, is prior art in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important closely related source; bound does not establish exact cycle law in material read; full-text risk expressly retained.",
+          "evidence": [
+            "Mészáros and Peled (2026), arXiv:2610.11554, Theorem 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11554",
+          "material_read": "Indexed 2026-10-08 arXiv abstract and cited Theorem 1/high-degree bound/Section 3.1 descriptions; arXiv PDF/HTML variants not retrievable in this run.",
+          "method": "Primary index and source-identified theorem comparison, not complete article.",
+          "title": "Product approximations for uniform spanning trees and determinantal processes",
+          "trigger": "Same cross-law UST and one-out coupling, potentially dominating theorem"
+        },
+        {
+          "assessment": "Known combinatorial run theory can cover M distribution but not the constructed UST coupling without extra argument.",
+          "evidence": [
+            "Koutras–Papadopoulos–Papastavridis (1995), J. Applied Probability 32, 396–404."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3215295",
+          "material_read": "Abstract/bibliographic details and known run-count topic; full primary text not inspected.",
+          "method": "Bibliographic and claim-to-run-count comparison.",
+          "title": "Runs on a Circle",
+          "trigger": "Exact cyclic binary-run distribution potentially equivalent"
+        },
+        {
+          "assessment": "Focuses random spanning trees and edge use, different marginal pairing from UST versus one-out.",
+          "evidence": [
+            "Albin et al. (2021), Discrete Mathematics 344, 112282."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2020.112282",
+          "material_read": "Primary bibliographic abstract and stated optimization objective, not full article.",
+          "method": "Abstract and mathematical objective comparison.",
+          "title": "Fairest edge usage and minimum expected overlap for random spanning trees",
+          "trigger": "Potential sharp spanning tree overlap coupling framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact stochastic optimal coupling for all rotation-invariant edge-set marginals and one-out specialization with two fluctuation regimes."
+      ],
+      "rationale": "The cycle is the natural sharp sparse-degree comparison for spanning-tree versus one-out random edge models. A universal stochastic minimizer (not merely an expectation bound) plus exact Wasserstein cost, optimal equality probability, and two fluctuation regimes form an independently useful baseline for graph coupling theory.",
+      "residual_risks": [
+        "Cycle and rotational edge-transitivity essential; no claim of arbitrary-graph exact optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full high-relevance 2026 Mészáros–Peled paper inaccessible in this run; an unindexed cycle-exact appendix or earlier graph-coupling analogue remains possible.",
+    "Cyclic run distribution, including rare-bias Poisson, is prior art in isolation.",
+    "Cycle and rotational edge-transitivity essential; no claim of arbitrary-graph exact optimum.",
+    "Scientific pass does not imply publication, external certification, or stronger claims than the explicitly audited statement."
+  ],
+  "schema_version": 1
+}
