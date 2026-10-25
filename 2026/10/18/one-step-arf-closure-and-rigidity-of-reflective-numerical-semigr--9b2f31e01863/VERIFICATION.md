@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-20.md",
+      "INDEPENDENT_AUDIT_2026-10-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and mathematical scope
 
-Run `python3 verify_arf.py` with standard Python 3. The verifier generates the reflective semigroup for each admissible genus \(1\leq g\leq90\) and multiplicity \(2\leq a\leq g+1\) with \(a\nmid g\), using the generators of Shor's classification. It then checks the exact gap formula, computes all Arf consequences through the conductor using a separate saturation routine, compares the result with the claimed closure, and counts the added elements. For \(g\leq35\) it also evaluates the full ordered-triple operator directly rather than relying on the equivalent two-variable criterion.
+# Independent mathematical audit
 
-Recorded actual output of the packaged verifier:
+## correctness
 
-```
-PASS cases=3760, strict_closures=3626, added_gaps=9545, original_gap_checks=229753, direct_triple_cases=534, max_genus=90
-```
+PASS
 
-Finite checks detect numerical mistakes in the formulas and constructions but do not establish the theorem for unbounded parameters. The proof in RESULT.md derives the general closure from the published reflective gap characterization. No independent audit or external theorem-prover certification has been performed.
+Use Shor Proposition 3.4 for the exact gap set. For a=g+1 the semigroup is ordinary; for a=2 its positive elements are all evens and sufficiently large odds, each Arf. When q≥1,a≥3, each omitted high gap h=g+ka is produced by the legitimate first-step triple (h−1,h−1,h−2); the proposed oversemigroup T is Arf because triples with largest element >g stay in its conductor tail and all smaller selected elements are multiples of a. This gives A(S)=T, genus g−q and conductor g+1. Independent direct finite all-triple operator and fixed-point tests verified 263 admissible (g,a) pairs with g≤25, 226 nontrivial; unrestricted proof is the gap argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge family-wide closed formula and index≤1 are distinct from Shor’s established classification and general Arf closure algorithms. Restricted previously computed prime-multiplicity instances are not treated as new.
+
+## value
+
+PASS
+
+Uniform exact closure and zero/one stabilization index of the naturally classified reflective semigroup family, including genus drop and a precise count of Arf members; mathematically motivated bridge between two established semigroup properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
