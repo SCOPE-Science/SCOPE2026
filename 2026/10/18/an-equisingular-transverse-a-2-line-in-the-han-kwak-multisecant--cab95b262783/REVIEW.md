@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** On the parameter chart where the third target affine coordinate is nonzero, the inverse coordinates are rational and regular, proving smoothness. On the complementary neighborhood of the selected singular line, two explicit relations give a single irreducible hypersurface after eliminating one variable. Its singular equations have precisely the displayed reduced support. An invertible formal coordinate change gives the exact transverse \(A_2\) equation, with no extrapolation from finite samples. `verify.py` independently checks the polynomial equations and elimination identities in exact arithmetic.
+## correctness
 
-**Originality — PASS (self-review).** Han and Kwak, arXiv:2610.12078v1, Example 6.2, calculate the threefold's global singular-locus support as three lines and its multisecant properties, but their inspected Section 6 does not identify the local analytic type. The associated computational supplement likewise concerns equations and support. Database searches for the object, parameterization, analytic types, equivalent formulations and stronger general coverage found no matching local-model result. General ADE theory classifies the type only *after* the local equation is computed. Risk remains from a private, unindexed, or implicit computation of this specific example.
+PASS
 
-**Mathematical value — PASS.** Singularities, local normality and rationality are central to interpreting the singular counterexamples in projective multisecant geometry. This exact local model distinguishes the geometry of one entire singular stratum from merely listing its set-theoretic support; it also determines the transverse Jacobian thickness and exceptional-resolution configuration. The precision matters because the originating variety is globally nonnormal, whereas the displayed germs are normal.
+Checked the six original cubic-coordinate formulas, their affine parametrization (u,t,v,a,b), exact F=a(u−bv²)+u²+v³ and G=t(1+b²v)+uv+bv³−ab²v² identities, with independent SymPy substitutions. On H=1+b²v nonzero eliminate t, irreducible hypersurface F gives singular support u=v=a=0, t=0. On H=0, v≠0 and explicit inverse parametrization / exact Jacobian minor gives smoothness. At any b=b0, substitutions W=u−bv², U=a+u+bv², Z=v(1+b²v)^(1/3), B=b−b0 are formally invertible, and F=UW+Z³ identically, so completed local ring is A2 surface crossed with smooth 1-parameter line. Jacobian ideal (U,W,Z²) has transversal length two. Normal/rationality are standard for Du Val A2 singularity. These local results do not contradict global nonnormality.
 
-The conclusion concerns one affine piece of one of the three singular lines, not all singularities of the projective threefold. The primary text has been materially inspected; exhaustive novelty certification and independent audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Han–Kwak Example 6.2 supplies the same six cubics and identifies global singular support as three lines, but the inspected original Example 6.2 does not classify transverse completed local rings or scheme lengths on the chosen affine line. The local A2 classification is a proper refinement of that singular-set computation.
+
+## value
+
+PASS
+
+Exact, pointwise-uniform analytic type along an actual nontrivial singular stratum of a published degree-eight threefold; determines normal/rational local behavior and nonreduced Jacobian transverse thickness, a structural invariant rather than merely redoing singular support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
