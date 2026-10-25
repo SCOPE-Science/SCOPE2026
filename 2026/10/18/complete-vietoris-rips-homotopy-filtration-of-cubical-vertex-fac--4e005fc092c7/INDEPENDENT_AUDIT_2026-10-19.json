@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-19",
+  "audited_at_utc": "2026-10-19T02:59:31.165735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-vietoris-rips-homotopy-filtration-of-cubical-vertex-fac--4e005fc092c7",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-vietoris-rips-homotopy-filtration-of-cubical-vertex-fac--4e005fc092c7/RESULT.md"
+      ],
+      "rationale": "Exact BFS-distance logic: vertex-vertex and facet-facet distances are 2 except antipodal/opposite 4, and vertex-facet distance is 1 if incident or 3 otherwise. At scale1 the connected bipartite graph is one-dimensional with cycle rank (d-1)2^d-2d+1. At scale2, each compatible facet set F has cube fiber X_F of size 2^{d-|F|} forming a simplex; decreasing-|F| then decreasing-|U| free-face deletions of F∪U⊂F∪U∪{a_F} remove every facet-containing simplex, leaving the antipodal-pair cross-polytope join, sphere dimension 2^{d-1}-1. At scale3 all cross X-Y pairs appear and the exact join has sphere dimension 2^{d-1}+d-1; scale4 full simplex. Persistence follows from different nonzero homology dimensions for d>=3. Independent BFS and exhaustive 2^14 subset clique checks for d=3 recovered 240 and 2186 nonempty scale2/3 faces, and inspected actual exact d=3,4 free-collapse verifier script. Analytic all-d collapse establishes infinite theorem.",
+      "residual_risks": [
+        "Graph shortest path metric only, not Euclidean polytope or Hamming vertex-only metric.",
+        "All d>=3; no equivariant homology assertion.",
+        "No global proof of novelty from bounded searches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1104.0433",
+          "https://arxiv.org/abs/2103.01040",
+          "https://arxiv.org/abs/1503.03669"
+        ],
+        "reasoning": "Graph-power sufficient results requiring girth>=7 at scale2 do not cover this graph with four-cycles. Hamming cube paper operates on X alone without 2d facet vertices. Circle Rips classification uses cyclic metrics. None supplies the full incidence graph filtration.",
+        "searches": [
+          "Adamaszek clique complexes graph powers Proposition girth 3r+1",
+          "Adamaszek Adams Rips hypercube graphs 2021 Theorem 1",
+          "Vietoris Rips rhombic dodecahedron graph incidence cube facets"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1104.0433",
+        "https://arxiv.org/abs/2103.01040",
+        "https://arxiv.org/abs/1503.03669",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-mixed-dimensional-rips-wedge-for-the-truncated-cube--4fae71a21a80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2103.01040",
+          "https://arxiv.org/abs/1104.0433",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c"
+        ],
+        "reasoning": "The cited general theorems lack needed hypotheses or concern an inequivalent vertex set/metric. The explicit uniform facet-fiber simplicial collapse and scale3 join are not corollaries of the unrelated sphere results on different polyhedra.",
+        "searches": [
+          "hypercube Hamming metric versus cube vertex facet incidence graph Rips homotopy",
+          "Adamaszek graph power high girth theorem nonapplicable 4 cycles",
+          "rhombic dodecahedron matching complex versus graph metric Rips"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1104.0433",
+          "https://arxiv.org/abs/2103.01040"
+        ],
+        "reasoning": "Graph-metric Rips is equivalently a clique complex of graph distance powers. At d=3 the incidence graph is the 14-vertex rhombic-dodecahedral graph. The 24-vertex rhombicuboctahedral graph and the Hamming-only 2^d-vertex hypercube are different metric spaces despite similar names.",
+        "searches": [
+          "cube vertex facet incidence graph shortest-path Vietoris Rips scale two collapse sphere scale three join homotopy all dimensions",
+          "rhombic dodecahedral graph 14 vertex Vietoris Rips sphere 3 sphere 6",
+          "clique complex distance power hypercube incidence graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-mixed-dimensional-rips-wedge-for-the-truncated-cube--4fae71a21a80"
+        ],
+        "reasoning": "Published Rips tabulations for truncated cubes and the 24-vertex rhombicuboctahedron concern different graphs. No table with the 14-vertex scale2/3 face counts or uniform 2^d+2d formula was identified; a missing database hit does not establish novelty.",
+        "searches": [
+          "rhombic dodecahedron 14 vertex Vietoris Rips d3 S3 S6",
+          "published cube vertex facet incidence Rips persistent barcode",
+          "rhombicuboctahedron scale two Rips collapse comparison"
+        ]
+      },
+      "rationale": "Fresh comparison of exact statements and implications, with inspected primary mathematical sources, bounded Resultary searching, and recorded inaccessible potentially relevant sources. The cited general theorems lack needed hypotheses or concern an inequivalent vertex set/metric. The explicit uniform facet-fiber simplicial collapse and scale3 join are not corollaries of the unrelated sphere results on different polyhedra.",
+      "residual_risks": [
+        "An unindexed equivalent cube-incidence graph-power filtration may exist under a different graph name.",
+        "Full texts of several nearby published polyhedral Rips calculations were not accessed; their indexed mathematical objects demonstrably differ.",
+        "Finite d=3 checks do not replace symbolic d>=3 free-face ordering argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inapplicable strong girth criterion, not full incidence classification",
+          "evidence": [
+            "Girth lower bound 3r+1 fails for r=2 since this graph has 4-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "Primary arXiv PDF accessible; definitions, Proposition 2.2 and its girth assumptions, relevant graph-power results read",
+          "method": "Compared hypotheses with short four-cycles in cubical incidence graph",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Potentially dominating graph-distance Rips theory"
+        },
+        {
+          "assessment": "Uses cube vertices only with Hamming metric, not vertex–facet incidence metric",
+          "evidence": [
+            "Input set cardinality 2^d, versus 2^d+2d here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.01040",
+          "material_read": "Primary arXiv full PDF accessible; initial definitions, Theorem1 and proofs in relevant sections read",
+          "method": "Compared precise vertex sets and distance notions",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Same cube family title and potential stronger proof"
+        },
+        {
+          "assessment": "Different metric space, no covering theorem for this family",
+          "evidence": [
+            "Circle geodesic/chord metrics differ from incidence graph distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03669",
+          "material_read": "Primary arXiv paper introduction and metric/graph definitions read",
+          "method": "Compared cyclic metric object to bipartite incidence graph",
+          "title": "The Vietoris–Rips complexes of a circle",
+          "trigger": "Foundational complete sphere filtration comparison"
+        },
+        {
+          "assessment": "Different graph: 24-vertex rhombicuboctahedron S2 rather than 14-vertex rhombic dodecahedron S3",
+          "evidence": [
+            "Not the same incidence graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-explicit-scale-two-rips-collapse-onto-the-rhombicuboctahedral--333648c8216c",
+          "material_read": "Indexed published summary, not full primary text",
+          "method": "Compared graph vertices and expected homotopy dimension",
+          "title": "An explicit scale-two Rips collapse onto the rhombicuboctahedral sphere",
+          "trigger": "Potentially confusing named polyhedral Rips result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/f30f943587282d59c837419db4b41647621abfdb/2026/10/18/complete-vietoris-rips-homotopy-filtration-of-cubical-vertex-fac--4e005fc092c7"
+      ],
+      "rationale": "The complete five-stage persistence and uniform sphere dimensions give natural integral topological invariants of an infinite family of canonical polytope incidence graphs. The coordinate-fiber elementary collapse and exact next-stage join explain a structural transition unavailable from numerical Betti tables, and can serve as a benchmark for graph-metric Rips theory.",
+      "residual_risks": [
+        "Graph shortest path metric only, not Euclidean polytope or Hamming vertex-only metric.",
+        "All d>=3; no equivariant homology assertion.",
+        "No global proof of novelty from bounded searches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Graph shortest path metric only, not Euclidean polytope or Hamming vertex-only metric.",
+    "All d>=3; no equivariant homology assertion.",
+    "No global proof of novelty from bounded searches."
+  ],
+  "schema_version": 1
+}
