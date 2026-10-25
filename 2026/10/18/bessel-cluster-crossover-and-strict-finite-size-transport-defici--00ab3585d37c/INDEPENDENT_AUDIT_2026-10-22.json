@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T01:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed labelled circular run census A=N/r binom(K-1,r-1) binom(Z-1,r-1), explicit zero-flux frozen-state subtraction for N>=3K, and the allowed 110->101/101->011 counts averaged over positive compositions. The exact adjacent-weight identity eliminates the beta-current and yields the deficit Delta(r)=(r-1)[K(K-r-1)+Zr]/[(K-1)(Z-1)]; positive for r>=2 when K,Z>=2. The r=1 leading term establishes fixed-volume q->infinity saturation. At q/N^2->c, the relative weights converge to t^(r-1)/[r!(r-1)!] and have a factorial summable envelope controlling the first moment; frozen contribution is superexponentially small relative to q^(K-1), giving Bessel I_2/I_1 scaling without interchanging fixed-q infinite-volume limits. The stationarity of active-sector Gibbs q^(K-R) is an explicit primary-source premise, not silently reproved. Independently compared exact rational current over 84 small ring/parameter combinations; finite checks corroborate but do not prove all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 of Tandem Exclusion Process passes N->infinity at fixed hopping rates; this does not control q_N/N²->c or the scaled finite deficit.",
+          "Equilibrium Ising magnetization/domain papers do not address active-sector flux."
+        ],
+        "reasoning": "No inspected broader theorem implies the noncommuting double scaling and finite-N strict inequality, but a general canonical finite-size transfer-matrix expansion could imply the cluster law if separately established.",
+        "searches": [
+          "Resultary: tandem exclusion periodic ring run count Bessel finite size crossover current beta alpha N squared",
+          "arxiv:2606.01568v1",
+          "arxiv:cond-mat/0308442"
+        ]
+      },
+      "checked_sources": [
+        "GitHub pinned RESULT.md & verify.py, tree b9c3975f020f7d2cc11b592fbdef73500ef9ea77",
+        "arxiv:2606.01568v1 primary PDF sections 2–4 and appendix",
+        "Resultary query: Resultary: tandem exclusion periodic ring run count Bessel finite size crossover current beta alpha N squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Run enumeration with frozen subtraction and adjacent-weight ratio is necessary to recover the strict finite-volume deficit; the cited source thermodynamic limit alone does not imply its sign or coefficient."
+        ],
+        "reasoning": "Source stationary measure plus new combinatorics implies the finding; source stated results alone do not.",
+        "searches": [
+          "Resultary: tandem exclusion periodic ring run count Bessel finite size crossover current beta alpha N squared",
+          "arxiv:2606.01568v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen Ngoc et al. prove the active Gibbs weights q^(K-R); their theorem is a fixed-q infinite-volume current. Exact all-N positive deficit and q~N² cluster Bessel scaling are not supplied there.",
+          "Denisov–Hänggi treat equilibrium Ising chain domain statistics with free boundaries, not tandem exclusion stationary transport."
+        ],
+        "reasoning": "Canonical run-count Ising / transfer-matrix representations are plausible aliases, but neither supplies this active-ring finite-volume current observable as stated. The result uses the source Gibbs measure as premise.",
+        "searches": [
+          "Resultary: tandem exclusion periodic ring run count Bessel finite size crossover current beta alpha N squared",
+          "arxiv:2606.01568v1",
+          "arxiv:cond-mat/0603417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source contains thermodynamic current laws and active Gibbs measures, not the finite-ring Bessel cluster-limit current-deficit table."
+        ],
+        "reasoning": "This is an all-parameter analytic identity and singular scaling theorem, not a small numerical table; exact finite-ring values from the source would not automatically prove the joint scaling.",
+        "searches": [
+          "Resultary: tandem exclusion periodic ring run count Bessel finite size crossover current beta alpha N squared",
+          "arxiv:2606.01568v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.",
+      "residual_risks": [
+        "Novelty not guaranteed against unindexed canonical Ising finite-size scaling derivations.",
+        "Active stationary measure is imported from Nguyen Ngoc et al. and not independently reproven for all recurrent classes.",
+        "Proof assumes N>=4 and K,Z>=2; limit requires rho in (0,1), q/N²->c in (0,infinity)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Gibbs premise and fixed-q thermodynamic current, not the q~N² Bessel current lag",
+          "evidence": [
+            "Theorem 2: active-sector stationary weights; Theorem 4: fixed-q thermodynamic current; no joint q/N² theorem in inspected main text and appendices"
+          ],
+          "identifier_or_url": "arxiv:2606.01568v1",
+          "material_read": "11-page PDF: model transitions, Theorem 2 active Gibbs distribution, Theorem 4 fixed-rate current, active/frozen regime and appendix calculations",
+          "method": "arXiv primary full PDF text and page screenshots",
+          "title": "Tandem Exclusion Process",
+          "trigger": "Identical dynamics and active stationary law"
+        },
+        {
+          "assessment": "Related Ising domain counting but not evidence of exclusion flux coverage",
+          "evidence": [
+            "Distinct boundary and observable; full text not established as read"
+          ],
+          "identifier_or_url": "arxiv:cond-mat/0603417",
+          "material_read": "Abstract and source theorem descriptions only; no full document comparison asserted",
+          "method": "abstract/metadata",
+          "title": "Domain statistics in a finite Ising chain",
+          "trigger": "Possible matching canonical cluster law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict finite-volume lag is a natural transport observable in a well-defined stochastic exclusion model. q proportional N² selects an explicitly nondegenerate O(1) cluster-number window: its exact Bessel distribution and limiting N-scaled flux deficit quantify a singular crossover hidden by the fixed-q thermodynamic law. The all-volume strict sign and scaling coefficient are substantive structural information, not an arbitrary finite-n correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the active stationary class, not frozen absorbing components.",
+    "Finite computation covers bounded rings; all-N proof is analytic.",
+    "No claim for one-vacancy, open-boundary, vanishing density or q growing in another scaling window."
+  ],
+  "schema_version": 1
+}

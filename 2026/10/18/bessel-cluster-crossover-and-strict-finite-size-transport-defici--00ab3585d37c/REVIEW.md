@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ring-composition formula counts every labelled configuration at fixed run count. The frozen configurations have exactly the explicit isolated-particle count and zero flux. Conditioning the two composition families gives both local move counts, and the weight ratio transfers the recovery flux to a nonnegative polynomial deficit. Strict positivity follows from the existence of \(r=2\) active configurations. For joint \(q/N^2\) scaling, coefficientwise convergence is upgraded to convergence of the deficit moment by explicit summable domination. Independent rational state enumeration and weighted-generator checks corroborate the local identities, but the infinite conclusions rely on the stated proofs.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source, *Tandem Exclusion Process* (arXiv:2606.01568v1), supplies the active Gibbs distribution and the fixed-parameter thermodynamic current; it does not state an exact finite-ring current-deficit law or a Bessel-law critical window with a transport coefficient. Its thermodynamic limit is not uniform evidence for \(q\asymp N^2\). Relevant equilibrium Ising domain literature (Denisov–Hänggi; Antal–Droz–Rácz) addresses different observables or boundary conditions. Searches of mathematical records under the model name, finite-ring transport deficit, canonical cluster-count laws, Bessel scaling and joint \(q/N^2\) windows produced no stronger covering finding. The joint regime might conceivably follow from an unindexed canonical scaling theorem; this remains a specific residual risk, not a proof of universal novelty.
+PASS
 
-## Value — PASS
-An exclusion process's finite-size transport correction is physically relevant when collective recovery becomes sufficiently rapid that only finitely many occupied clusters remain. The exact strict deficit and its singular nontrivial scaling function quantify how a thermodynamic saturation law is approached in a regime where taking size and recovery limits in opposite orders conceals persistent cluster statistics. This is a natural motivated crossover, not an arbitrary finite-size lookup.
+Reconstructed labelled circular run census A=N/r binom(K-1,r-1) binom(Z-1,r-1), explicit zero-flux frozen-state subtraction for N>=3K, and the allowed 110->101/101->011 counts averaged over positive compositions. The exact adjacent-weight identity eliminates the beta-current and yields the deficit Delta(r)=(r-1)[K(K-r-1)+Zr]/[(K-1)(Z-1)]; positive for r>=2 when K,Z>=2. The r=1 leading term establishes fixed-volume q->infinity saturation. At q/N^2->c, the relative weights converge to t^(r-1)/[r!(r-1)!] and have a factorial summable envelope controlling the first moment; frozen contribution is superexponentially small relative to q^(K-1), giving Bessel I_2/I_1 scaling without interchanging fixed-q infinite-volume limits. The stationarity of active-sector Gibbs q^(K-R) is an explicit primary-source premise, not silently reproved. Independently compared exact rational current over 84 small ring/parameter combinations; finite checks corroborate but do not prove all N.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison; not a priority certificate. A full paper and targeted Resultary search were inspected as described below.
+
+## value
+
+PASS
+
+The strict finite-volume lag is a natural transport observable in a well-defined stochastic exclusion model. q proportional N² selects an explicitly nondegenerate O(1) cluster-number window: its exact Bessel distribution and limiting N-scaled flux deficit quantify a singular crossover hidden by the fixed-q thermodynamic law. The all-volume strict sign and scaling coefficient are substantive structural information, not an arbitrary finite-n correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
