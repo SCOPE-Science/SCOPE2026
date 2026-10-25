@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-19.md",
+      "INDEPENDENT_AUDIT_2026-10-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` with Python 3 and its standard library only. The checker enumerates exact rational outer and polar contact orbits for multiple cutoff parameters in dimensions two through seven, checks signed-permutation isotropic covariance, inverts exact nonscalar positive-definite matrices by rational Gaussian elimination, and verifies both supporting trace bounds. It checks sample branch monotonicity across cutoff breakpoints for dimensions two through 119 and the regular-octagon planar identity. The expected final line begins `VERIFY_OK`.
+## correctness
 
-The executable check is supplementary. The infinite-dimensional-family claims follow from (i) the exact fractional-coordinate optimizer for the squared Euclidean radius, (ii) the normalized distances to the defining facets, (iii) signed-permutation orbit covariance identities, (iv) the exact positive-definite-matrix variational formula for Euclidean Banach–Mazur distance, and (v) a piecewise derivative sign with boundary continuity. The order-\(d^{1/4}\) asymptotic is a binomial expansion of the exact minimum.
+PASS
 
-Computations cannot establish absence of an older equivalent published theorem. The uniqueness of the optimal ellipsoidal shape concerns centered symmetric-norm embeddings; arbitrary affine translations can be removed for these origin-symmetric bodies.
+Actual frozen RESULT.md 690cd5... correctly computes the outer radius R²=k+(t−k)² by transferring ℓ1 mass into saturated coordinates, and inradius r=min(1,t/√d) from coordinate/sign halfspaces for 1≤t≤d (end regimes t≤1,t≥d give √d). For any ellipsoidal metric A>0, signed-permutation orbit averages of an outer K-contact v and a polar K°-contact w are (R²/d)I and I/(dr²). Thus M(A)N(A)≥(R²/r²)trA trA⁻¹/d²≥R²/r²; equality requires A scalar. Piecewise derivative of D² decreases up to t=√d and increases thereafter, including integer cutoffs; nonsquare cusp and square second-order one-sided expansions correct. Independent support enumeration and nonspherical metrics in d=2..6 reproduce tabulated ratios, with d2 t√2 giving 1.0823922003 and d4 t2 giving √2. Numeric checks corroborative; contact averaging proves all d.
+
+## originality
+
+PASS
+
+General Banach–Mazur contact criteria and standard endpoint distances are prior, while a same-intersection signed Johnson graph record concerns one-skeleton metric for integer t, not all-real t Euclidean BM geometry. No inspected covering exact √d cutoff and cusp theorem.
+
+## value
+
+PASS
+
+The intersection cube∩cross-polytope is a natural high-dimensional unconditional body interpolating two classical norm balls. Its globally optimal Euclidean rounding uniquely occurs at the geometric threshold √d, and the arithmetic square/nonsquare cusp is a meaningful exact stability/phase phenomenon, not mere endpoint radius computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
