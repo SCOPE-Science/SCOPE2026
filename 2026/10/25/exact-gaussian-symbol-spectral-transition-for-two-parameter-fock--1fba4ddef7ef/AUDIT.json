@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "On the dense span of Fock kernels, exact Gaussian evaluation produces the positive Gram kernel D exp[P(z²+wbar²)/2+Q z wbar]. For Q-P<1, a squeezed Gaussian generating basis diagonalizes the induced positive trace-class operator with all eigenvalues lambda0*q^n; the Gaussian diagonal integral agrees with their sum. At equality, Bargmann conjugation gives (1/r) multiplication by exp(-eta x²), establishing bounded noncompact endpoint with continuous spectrum. For Q-P>1 normalized imaginary coherent states have divergent norms. Verified parameter inequalities, the geometric trace identity and the boundary constant independently in CHECK.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2509.16672v1 Theorem A is for original T(s,t) with no nonconstant Gaussian symbol",
+        "arxiv:2610.24318v1 Corollary 16 fully classifies radial exponentials only at s²=t²+1"
+      ],
+      "reasoning": "For beta nonzero the input quadratic coefficient scales by r^-2, while output quadratic coefficient is unchanged, unlike the canonical two-parameter kernel. No inspected primary theorem controls all singular values and critical spectral type for the weighted strict regime.",
+      "searches": [
+        "published-finding corpus: Dong Wang Zhu canonical integral operators Fock s t symplectic squeeze singular values geometric spectrum",
+        "web: Dong Zhu Canonical integral operators on Fock space 2024 singular values spectrum gaussian integral weighted diagonal Hermite",
+        "web: Canonical integral operators Fock space II 2025 Gaussian symbols spectrum singular values Hilbert Schmidt"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.24318v1 (relevant full HTML sections)",
+      "arxiv:2509.16672v1 (Theorem A and abstract via OA PDF)",
+      "arxiv:2208.06214 (abstract only)",
+      "published-finding corpus targeted semantic searches for radial Gaussian spectra, weighted canonical operators and equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem B covers every symbol below beta0; beta0 is strictly smaller than beta*=1-sqrt(1-2beta0)",
+        "Proposition 14 asserts the necessary/sufficient boundedness of normalized images of coherent kernels, not the boundedness of the full operator",
+        "Theorem A of the 2025 paper provides complete singular numbers at beta=0, which our formulas reproduce"
+      ],
+      "reasoning": "Neither a bounded coherent-state testing family nor the unweighted special case implies the new critical bounded extension or the explicit full beta-dependent eigensystem without the Gram-kernel and squeezed generating-function arguments.",
+      "searches": [
+        "arxiv:2610.24318v1 Sections 4-6 Proposition 14 Proposition 15 Corollary 16 Theorem B",
+        "arxiv:2509.16672v1 Theorem A and source-wide symbol/Toeplitz checks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.24318v1, Proposition 14 gives the SAME numerical threshold for normalized kernel divergence but not sufficiency",
+        "arxiv:2509.16672v1, Theorem A determines geometric singular values in the beta=0 case only"
+      ],
+      "reasoning": "The numerical threshold is already known and not counted as novelty. The proven if-and-only-if boundedness on the strict canonical region, exact beta-dependent singular values, and endpoint continuous multiplication model are stronger distinct conclusions.",
+      "searches": [
+        "published-finding corpus: two-parameter Fock Toeplitz operators Gaussian growing radial exponential symbols exact compactness Schatten spectrum critical growth beta Mehler",
+        "published-finding corpus: Bargmann quadratic Gaussian integral operator T(s,t) Gaussian symbol eigenvalue geometric singular values sharp critical beta Hilbert Schmidt",
+        "web: Gaussian Bargmann operators exp(az²+b z wbar+c wbar²) squeezed Hermite diagonalization Mehler spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest entries include generic radial Fock spectral-filter and Fock Toeplitz all-Schatten zero divisors, neither the stated operator nor its spectral data"
+      ],
+      "reasoning": "No indexed exact radial-symbol spectral table with this family was returned; indexing nonappearance is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: positive Gaussian symbol exp(beta abs(z)^2) Toeplitz-type Fock compactness critical threshold phase transition",
+        "published-finding corpus: Gaussian Bargmann operators exp(az²+b z wbar+c wbar²) squeezed Hermite diagonalization Mehler spectrum"
+      ]
+    },
+    "rationale": "The October 2026 motivating article already locates the coherent-state threshold in Proposition 14; it does not assert operator boundedness at that threshold or determine positive-radial Gaussian singular values. Its Corollary 16 concerns the different unitary parameter boundary; the 2025 predecessor computes singular values only for Gaussian symbol exponent zero. Complete boundedness/compactness and the critical Bargmann Gaussian multiplication model are distinct operator assertions, not equivalent to bounded normalized kernel images alone. Residual risk: general oscillator-semigroup theory or unpublished Fock results may imply the specialized spectrum.",
+    "residual_risks": [
+      "A general published Gaussian oscillator-semigroup theorem may imply the model-specific formulas after substitution; no such decisive identical comparison was found.",
+      "The 2022 canonical precursor was compared by abstract, not its full text.",
+      "The claim is restricted to real positive parameters; complex-parameter spectral phase behavior is unverified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers threshold location for coherent-state testing, not exact strict-regime operator spectra or sufficiency at endpoint",
+        "evidence": [
+          "Proposition 14 uses beta1=1-sqrt(1-2beta0)",
+          "Corollary 16 assumes s²=t²+1",
+          "Theorem B gives universal beta0 bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24318v1",
+        "material_read": "Introduction, Theorems A-C, Proposition 14 and proof, Proposition 15, Corollary 16, Schatten Section 5 and Section 6",
+        "method": "Read open arXiv full-text HTML sections and direct text search for radial symbols",
+        "title": "Two-parameter Toeplitz-type operators between Fock spaces",
+        "trigger": "Direct motivating 2026 article with radial exponential symbols and coherent-state threshold"
+      },
+      {
+        "assessment": "Covers unweighted beta=0 case; no Gaussian-symbol extension stated",
+        "evidence": [
+          "Theorem A lists all s_n(T(s,t)) and norm for canonical operator",
+          "No radial Gaussian multiplier appears in the theorem statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.16672",
+        "material_read": "Abstract, pages 1-2 theorem statement and exact singular value formula, scan for Toeplitz or symbol terms",
+        "method": "Opened OA PDF, inspected page 2 screenshot and searchable text",
+        "title": "Canonical integral operators on the Fock space II",
+        "trigger": "Direct predecessor establishes singular values for canonical kernels"
+      },
+      {
+        "assessment": "Boundedness/unitarity for the unweighted canonical integral operators; further comparisons to full text remain possible",
+        "evidence": [
+          "Abstract describes introduction and exact boundedness/unitarity of T(s,t)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.06214",
+        "material_read": "ArXiv abstract and scope statement",
+        "method": "Read abstract only; did not inspect full paper",
+        "title": "Canonical integral operators on the Fock space",
+        "trigger": "Predecessor defining canonical kernels and boundedness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fba4dde-f7ef-4816-9d1c-67e6a3d76549",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source derives a necessary coherent-state threshold but leaves operator-level sufficiency and singular spectrum undecided for the strict parameter region. The result supplies a natural complete spectral classification for positive radial Gaussian symbols, including exact all-Schatten singular numbers below, a previously unidentified noncompact continuous-spectrum endpoint, and unboundedness beyond. This fills a motivated gap in the paper rather than an arbitrary finite tabulation. The known numerical threshold is explicitly credited and not offered as an independently novel discovery.",
+    "status": "PASS"
+  }
+}
