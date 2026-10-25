@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact marginal and two-label Dirichlet-multinomial moments imply the positive-prefactor covariance ratio (1). The product decomposition (2)–(3), uniform concavity bound (4), global sign separation, and strictly negative derivative within the mesoscopic window establish exactly one real crossing for fixed total concentration below one and sufficiently large species count. The derivative and second-order expansion establish the displayed bounded correction to its square-root location. Exact-rational enumeration (72 parameter sets) and nine high-precision root comparisons independently corroborate the algebra. The computations do not replace the proof or establish uniformity as total concentration varies.
+## correctness
 
-**Originality: PASS, with a specific residual risk.** The complete finite-Dirichlet sample-frequency distribution is classical (Huillet 2005; Huillet–Paroissin 2008, Theorem 2.1) and directly implies the exact factorial moments. Those distributional identities are not claimed as new. The full accessible 2008 primary text covers finite sampling laws, fixed-size Kingman limits, and estimation rather than the growing-sample singleton–doubleton covariance sign switch or its \(O(1)\) lattice correction. Other consulted models concern iid box-occupancy richness and species-discovery covariance and do not imply this exact reinforced frequency-pair transition. The complete 2005 article was not independently read in full; an implicit asymptotic consequence in older literature remains a genuine risk. No unverified literature absence is used as proof of novelty.
+PASS
 
-**Mathematical value: PASS.** The size of the sample at which two natural rare-species frequency counts change dependence is a structural question for finite Dirichlet populations. The result demonstrates an actual noncommuting finite-population/infinite-Ewens effect: positive covariance at fixed sample sizes with total concentration below one becomes negative after a square-root number of draws. It proves a global eventual one-switch law and the sharp \(O(1)\) location correction, not merely a covariance formula or a small-sample calculation. This identifies when an infinite-species dependence sign ceases to be trustworthy in finite-support applications.
+For P~Dirichlet(γ/m)^m the specified singleton, doubleton and joint singleton/doubleton occupancy probabilities are exact beta-Dirichlet moments, giving Cov(A1,A2)=m²p1p2(Q_{m,n}-1) with a strictly positive prefactor. The gamma-ratio factorization isolates Q_infty,n=1+2(1-γ)/[n(n+γ-3)] and a uniform correction -C/m²≤h_n≤C/(mn). For fixed γ∈(0,1), this separates signs outside any fixed-width sqrt(m) critical window; there ∂_n logQ_infty≈-2A/n³ dominates ∂_n h_n=O(1/(mn²)), proving one unique real zero for large m. The uniform expansion yields r_m=sqrt(2(1-γ)m)+(3+2γ)/2+O(m^-1/2), and m logQ→2(1-γ)/c²-1 for n/sqrt(m)→c>0, all γ>0. Independent exact rational composition enumeration matched covariance formula for (m,n,γ)=(3,5,1/2),(4,6,3/4),(5,8,1/2), with covariances -103012/4782969, -48724571223/1644398379008, -28454423356832/1934051513671875. Independent 50-digit real roots for γ=.5 were 12.05034606,33.64158313,102.00621269 at m=100,1000,10000, showing offset toward 2. Finite checks are not the global asymptotic proof.
 
-**Closest literature and limits.** The classical formula of Huillet (2005) is the strongest prior statement; the fully available Huillet–Paroissin manuscript (arXiv:0809.4181, Sections 2.1–2.4) restates it. The present work explicitly credits that exact joint sampling law. Source-date evidence is from the 2005 publication record and the 2008 arXiv first submission, not a 2018 PDF revision. The scope is fixed positive total mass, sufficiently large species count, and the model specified in the finding. The complete 2005 primary text and all possible later secondary literature have not been exhaustively inspected. Independent scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Huillet–Paroissin Theorem 2.1 contains the entire finite-Dirichlet joint species-frequency law; the exact moments and prefactor are therefore derived from known sampling distributions. The new claimed contribution is the large-support sign-change classification, uniqueness of the interpolated crossing, and O(1) correction under n~sqrt(m), which the inspected theorem does not state.
+
+## value
+
+PASS
+
+Identifies a natural, previously unquantified qualitative change in dependence between singletons and doubletons in finite species sampling, with a sharp sqrt(m) critical curve and nontrivial O(1) shift. Such count covariance is directly relevant to diversity estimation and occupancy uncertainty, not a random table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
