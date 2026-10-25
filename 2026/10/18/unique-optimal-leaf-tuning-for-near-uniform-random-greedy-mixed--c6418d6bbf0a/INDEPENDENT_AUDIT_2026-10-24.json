@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T12:12:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a/VERIFICATION.md",
+        "/mnt/data/scope_worker_08_20261024T1154_delivery/independent_checks.py"
+      ],
+      "rationale": "A first-arrival calculation for the mixed-spider graph gives probability q_j=(ell+2j)/(2^k(ell+2j+1)) for each fixed noncenter independent set choosing j inner vertices. Relative to uniform 1/(2^k+1), its deviation is (ell+2j-2^k)/(2^k(2^k+1)(ell+2j+1)); center deviation is minus their sum. Total variation is max(P_ell,M_ell)/(2^k(2^k+1)), P strictly rising after positive terms and M strictly falling before vanishing. Binomial symmetry at ell0=2^k-k makes P-M negative and at ell0+1 positive; only those two integers can minimize (when ell0>=1). Exact small rational comparisons for k=1..6 decide exceptions, and 2^k+1>2k(k+1) for k>=7 gives ell0. The star k=0 is separately handled. At optimum, E|2J-k|~sqrt(2k/pi) proves bias ~sqrt(1/(2pi))*sqrt(k)/4^k. An independent exact-probability implementation checked 24 small cases and the optimizer at ten k values. Boundary k=1,2,3 explicitly included.",
+      "residual_risks": [
+        "Optimizes ell>=1 at each fixed k; graph order changes with ell, not an optimum over trees at fixed order.",
+        "No claim of exact uniformity for k>=1; finite tests supplement analytical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing same-object theorems discussed in https://arxiv.org/abs/2610.02276",
+          "Fairfax-Ball proves q_j and an upper bound at the proposed ell=2^k-k, but an upper bound at one candidate is insufficient for global integer optimizer or a matching asymptotic equivalence. General random greedy MIS local-limit results concern different scales and graph families."
+        ],
+        "reasoning": "Fairfax-Ball proves q_j and an upper bound at the proposed ell=2^k-k, but an upper bound at one candidate is insufficient for global integer optimizer or a matching asymptotic equivalence. General random greedy MIS local-limit results concern different scales and graph families.",
+        "searches": [
+          "greedy maximal independent sets mixed spiders random priority uniform distribution optimal leaf count total variation",
+          "https://arxiv.org/abs/2610.02276",
+          "https://doi.org/10.1002/rsa.21200"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a/RESULT.md",
+        "https://arxiv.org/abs/2610.02276",
+        "https://doi.org/10.1002/rsa.21200"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published q_j formula is input but the sign-balancing P versus M and strict monotonicity are required to decide the unique optimum; the exact constant additionally needs binomial absolute deviation asymptotics.",
+          "Frozen RESULT.md https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a/RESULT.md"
+        ],
+        "reasoning": "The published q_j formula is input but the sign-balancing P versus M and strict monotonicity are required to decide the unique optimum; the exact constant additionally needs binomial absolute deviation asymptotics.",
+        "searches": [
+          "greedy maximal independent sets mixed spiders random priority uniform distribution optimal leaf count total variation",
+          "https://arxiv.org/abs/2610.02276",
+          "https://doi.org/10.1002/rsa.21200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinned RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a; Matched random-order greedy maximal independent set, random sequential adsorption/first-arrival, total-variation bias from uniform on maximal independent sets, and mixed-spider parameterizations. Uniformity over all trees is different from fixed-k leaf tuning and is not claimed.",
+          "https://arxiv.org/abs/2610.02276",
+          "https://doi.org/10.1002/rsa.21200"
+        ],
+        "reasoning": "Matched random-order greedy maximal independent set, random sequential adsorption/first-arrival, total-variation bias from uniform on maximal independent sets, and mixed-spider parameterizations. Uniformity over all trees is different from fixed-k leaf tuning and is not claimed.",
+        "searches": [
+          "greedy maximal independent sets mixed spiders random priority uniform distribution optimal leaf count total variation",
+          "https://arxiv.org/abs/2610.02276",
+          "https://doi.org/10.1002/rsa.21200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table over all ell and k was seen proving the infinite unique optimizer. Finite exact fractions in the source are part of the proof for k<=6, not borrowed database coverage.",
+          "Published/available sources inspected or summarized: https://arxiv.org/abs/2610.02276, https://doi.org/10.1002/rsa.21200"
+        ],
+        "reasoning": "No table over all ell and k was seen proving the infinite unique optimizer. Finite exact fractions in the source are part of the proof for k<=6, not borrowed database coverage.",
+        "searches": [
+          "greedy maximal independent sets mixed spiders random priority uniform distribution optimal leaf count total variation",
+          "https://arxiv.org/abs/2610.02276",
+          "https://doi.org/10.1002/rsa.21200"
+        ]
+      },
+      "rationale": "Fairfax-Ball already derives the exact q_j law and evaluates/tunes ell=2^k-k to obtain only O(sqrt(k)/4^k). The primary source does not establish that ell is uniquely optimal over all positive integers, does not identify exceptional small k=1,3 choices or obtain the asymptotic lower leading constant. The optimization and sharp constant thus remain a nontrivial extension rather than reprinting the starting probability formula.",
+      "residual_risks": [
+        "A different random-sequential-adsorption optimization paper may imply the tuning theorem.",
+        "The exact law and particular near-uniform tuning are established prior work, credited not re-claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE (q_j and upper order), does not imply unique optimizer/constant",
+          "evidence": "The primary work chooses ell=2^k-k as an example and gives O(sqrt k /4^k); global leaf-count optimality and asymptotic leading coefficient are not shown.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02276",
+          "material_read": "Available primary HTML full relevant distribution, near-uniform construction, bound, scope/limitations and references read; q_j matched directly",
+          "method": "arXiv HTML full text, theorem and proof comparisons",
+          "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+          "trigger": "same graph and same random greedy probability law"
+        },
+        {
+          "assessment": "CONTEXT_ONLY, no exact two-parameter leaf-tuning implication established",
+          "evidence": "Local limit setting and graph-process statistics differ from exact per-maximal-set total variation minimization for fixed mixed spiders.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+          "material_read": "Bibliographic and abstract-level contextual material; not full text",
+          "method": "published record metadata and scholarly search",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "general random-order greedy MIS results possibly dominating the specific leaf-tuning problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/unique-optimal-leaf-tuning-for-near-uniform-random-greedy-mixed--c6418d6bbf0a/RESULT.md",
+        "https://arxiv.org/abs/2610.02276",
+        "https://doi.org/10.1002/rsa.21200"
+      ],
+      "rationale": "Within the published naturally near-uniform family, choosing the number of direct leaves is an actual optimization problem, and the precise unique global integer minimizer and sharp bias constant are interpretable and useful. The small exceptional values are substantive boundary structure, not arbitrary parameter slices.",
+      "residual_risks": [
+        "A different random-sequential-adsorption optimization paper may imply the tuning theorem.",
+        "The exact law and particular near-uniform tuning are established prior work, credited not re-claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
