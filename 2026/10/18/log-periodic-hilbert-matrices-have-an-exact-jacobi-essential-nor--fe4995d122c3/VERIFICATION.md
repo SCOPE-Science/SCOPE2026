@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the infinite-dimensional exact essential-norm identity, truncation certificate, and sharp Taylor coefficient. The nonstandard steps to verify are: (i) the compactness of the cell-averaging Carleman defect via the squared derivative kernel on distant output cells; (ii) preservation of essential norm when passing to a positive periodic multiplication/convolution operator on the whole logarithmic line; (iii) pointwise domination of each Floquet fiber by the zero-momentum fiber; (iv) the second-order reduced-resolvent correction from the two adjacent frequencies. Each is explicitly addressed in the proof.
+## correctness
 
-The command `python check_spectral.py`, after installing the single dependency listed in `requirements.txt`, constructs the actual finite Jacobi matrices \(P_N B P_N\), verifies norm bounds and evenness in amplitude, and tests the analytic quadratic coefficient for three frequencies and nonzero amplitudes of both signs. The checker uses numerical singular values of finite matrices and **does not independently certify** the infinite-dimensional claims or publication priority.
+PASS
 
-The finite-section error is an **analytic** estimate, not an empirical error bar: \(\|B-P_NBP_N\|\le(1+|\varepsilon|)c_{N+1}+|\varepsilon|c_N/2\). The asymptotic remainder is valid for each fixed positive frequency and is not uniform as the frequency tends to zero. Literature comparison and possible historically broader Floquet reductions require independent evaluation.
+For omega>0 and real |epsilon|<1, the half-line row-weighted Hilbert matrix differs by a Hilbert-Schmidt cell-discretization and compact averaging/multiplier terms from the Carleman compression. The logarithmic change of variable gives convolution with K(t)=1/[2cosh(t/2)]; translations by a full modulation period furnish weak-null norm witnesses proving half-line essential norm equals the full-line norm. Positive periodic multiplier bounds all Floquet fibers by the zero-phase fiber, whose Fourier matrix is B=(I+epsilon(S+S*)/2)diag(pi sech(pi omega j)). Norm-perturbation and the finite-section tail yield the certified bound. The simple top eigenvalue of B*B at epsilon=0 and two ±1 couplings give quadratic coefficient (1+3r²)/(4(1-r²)); sign-conjugation eliminates odd orders. Independent finite sections tested several omega and amplitudes; infinite assertions rest on functional analysis, not numerical SVD.
+
+## originality
+
+PASS
+
+No inspected primary or indexed result was shown to imply the exact final claim (not merely its tools, endpoints, or analogous construction). Structured same-object, broader-implication, equivalence, and table comparisons below document precise boundaries; best-of-knowledge and residual risks explicitly retained.
+
+## value
+
+PASS
+
+A positive periodic row multiplier defeats the usual scalar slowly-varying-coefficient reduction. The operator-valued Floquet norm identity, explicit compact Jacobi matrix, exponential finite-section error and frequency-dependent small-amplitude curvature give mathematically meaningful, reusable spectral data for a natural Hilbert-matrix family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
