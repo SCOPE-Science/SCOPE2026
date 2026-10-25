@@ -1,15 +1,21 @@
-# Scientific review: local de Bruijn factor covariances
+# Independent mathematical audit
 
-## Correctness — PASS
-The two indicator events prescribe four distinct edges of the order-two de Bruijn graph and two disjoint transitions through a common central vertex. Contraction gives an exact bijection of cyclic Euler tours; the BEST factorial ratio, directed Matrix-Tree cofactor and \(2\times2\) determinant lemma reconstruct the joint probability without probabilistic independence assumptions. Independent one-shortcut counting gives both marginals. Exhausting all injective equality-pattern types gives the four covariance formulae and all signs for every integer \(q\ge3\). Boundary alphabet sizes are addressed, and a standalone checker enumerates every cyclic tour at \(q=3,4\) and independently computes contracted cofactors through \(q=6\).
+## correctness
 
-## Originality — PASS within examined evidence
-The claim is the sharp *uniform covariance-sign classification*, not the joint factorial moment formula. Rødland (2006), Theorems 1 and 3, explicitly provides general joint-pattern counting and therefore subsumes raw joint probabilities; this prior coverage is acknowledged rather than presented as a novelty. Cowan (1991) provides marginal counts; Sawada and Gabrić (2025) provides the uniform sampling model. No inspected primary paper or searched research record states the sharp four-class sign transition at \(q=5\), the unique zero class there, or the exact negative-class changes at \(q=3,4\). General prior joint-count identities can be algebraically specialized, so potential earlier implicit derivation remains a material risk; the claim asserts that the all-alphabet sign synthesis is the contribution, not a new enumeration framework.
+PASS
 
-## Value — PASS
-The sign of correlation determines whether observing one next-order motif increases or decreases the chance of seeing another, a relevant issue for coverage properties of sampled de Bruijn cycles. The sharp alphabet threshold and complete equality/negative-case classification expose a qualitative dependence transition across the entire family rather than reporting a single small computational count. The closed forms and independence class are usable directly without evaluating general high-dimensional pattern-count formulae.
+PASS. Read the actual RESULT.md and verification code by their frozen Git blob SHA. The directed BEST and Matrix–Tree theorems give q^(q-2)((q-1)!)^q cyclic Euler tours; simultaneous contraction of two vertex-b turns with four distinct edges changes the factorial by 1/((q-1)(q-2)). The rooted Laplacian rank-two update leads to J=[q^2-q(2+x+y)+x+y+xy-u-v-uv]/[q^2(q-1)(q-2)]; a single shortcut gives p_abc=(q-1-x)/[q(q-1)]. Injective partial-match constraints on (a,d) and (c,e) leave only 0,1,direct-2,crossed-2 matches. Subtraction gives precisely the four listed covariance fractions, with their feasible q cutoffs; crossed becomes 0 at q=5 and >0 from q=6. An independently authored enumeration of Euler successor permutations checked all 24 and 20736 cyclic tours at q=3,4 and all corresponding ordered motifs against the joint formula. Those finite enumerations support, but do not establish, the all-q algebraic theorem.
 
-## Sources and limits
-Primary material inspected: Sawada–Gabrić (2025), arXiv:2510.16545, original full sixteen-page preprint, in particular the uniform-sampling theorem and algorithm; Rødland (2006), full eighteen-page article, especially its general Theorems 1 and 3 and determinant appendix; Cowan (1991), seven-page author-archived version, especially individual pattern expectations. Relevant indexed research-record hits treated as comparisons, not proof of uniqueness. Limits: only order-two cycles and the four-distinct-edge, common-center motif class; no independence or originality certification from another researcher.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete sharp four-pattern sign classification and its global alphabet cutoffs, not for the raw counting method or determinant probability formula. Rødland 2006 supplies broader general pattern-count formulas and indeed implies the joint-probability ingredients, while Sawada–Gabrić supplies the uniform de Bruijn ensemble. Checked primary results do not explicitly derive the uniform sign transition, its zero class and exceptional negative motifs as one theorem. Any implication via routine substitution is a real residual coverage risk; the classification requires equality-pattern exhaustion and sign analysis, not a new general counting technique.
+
+## value
+
+PASS
+
+PASS. A complete covariance sign law for two local motifs in uniformly sampled order-two de Bruijn cycles identifies exact positive, zero, and negative dependence, including a sharp q=5 all-nonnegative transition and q=6 strict-positivity transition. These are natural questions for assessing joint motif coverage in a random universal cycle, and the all-q classification avoids repeated casework from a general pattern-count formula. The value does not depend on treating the classical probability identities as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
