@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:52:19.844883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=1 and real a,b>0, the inverse PGF Q_alpha(z)=P_X(1-1/alpha+z/alpha) uniquely identifies an integer-valued latent Z supported on 0..n. Its q_k is binom(n,k)*alpha^{-n} E[W^k(alpha-W)^(n-k)]. Positivity is automatic for even n-k. For odd m, the Beta-Stein identity (vanishing endpoint terms for A,B>0), applied to (c-V)^(m-1), yields a nonnegative even-moment term and a size-biased Beta(A+1,B+1) term; induction at threshold L(A,B,m)=(A+m-1)/(A+B+m-1) succeeds. Size-bias W^k makes the threshold independent of k: alpha*=(a+n-1)/(a+b+n-1). q_{n-1} vanishes at alpha* and is strictly negative at every smaller positive alpha, giving sharpness. Q_alpha(1)=1 gives normalization including n=1. Independently rebuilt exact Fraction inverse/mass reconstruction and tested 28 rational (n,a,b) cases; this supports but does not prove real shape universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kella–Löpker Theorem 19 applies to arbitrary binomial mixtures, including Beta, but requires determining an unspecified finite root maximum; Examples include uniform only",
+          "Jones 2024 relates convolution thinning dualities"
+        ],
+        "reasoning": "A general implicit characterization dominates the definition of the problem but not necessarily the evaluated root threshold; the new independent odd Beta moment proof computes this special family, so the result is not simply claimed as novel thinning formalism.",
+        "searches": [
+          "Kella Löpker On Binomial Thinning and Mixing theorem 19 beta binomial minimal thinning index",
+          "Peyhardi On quasi Pólya thinning operator 2023 full text theorem beta binomial"
+        ]
+      },
+      "checked_sources": [
+        "Kella–Löpker arXiv:2202.10296 Theorem 19, Example 10 inspected PDF",
+        "Jones 2024 DOI 10.1111/stan.12337 accessible publisher full HTML",
+        "Peyhardi 2023 DOI 10.1214/23-BJPS585 accessible overview",
+        "Resultary semantic query beta binomial distribution binomial thinning minimal thinning index inverse pgf sharp beta mixing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kella–Löpker general root extremum and known uniform n/(n+1) specialization; Jones 2024 conditional beta-binomial relations in a different random operation"
+        ],
+        "reasoning": "Their claims imply the uniform special case and provide a search criterion but not the displayed beta(a,b) closed threshold by substitution alone; the common odd-moment sign lemma supplies the missing inequality.",
+        "searches": [
+          "Jones Duals of convolution thinned relationships beta binomial full text",
+          "Kella Löpker Theorem 19 Example 10 uniform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kella–Löpker arXiv:2202.10296 Theorem 19 implicit general inverse Bernoulli thinning criterion; Example 10 uniform law n/(n+1)",
+          "Peyhardi doi:10.1214/23-BJPS585 quasi-Pólya operator"
+        ],
+        "reasoning": "The same problem is expressible as nonnegative coefficients of inverse PGF or maximal positive odd shifted Beta-moment root. The known implicit criterion does not display the full-shape closed formula; quasi-Pólya operations are different.",
+        "searches": [
+          "beta binomial distribution binomial thinning minimal thinning index inverse pgf sharp beta mixing",
+          "Kella Löpker On Binomial Thinning and Mixing theorem 19 beta binomial minimal thinning index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary semantic beta-related hits are about Beta tail thresholds and count dispersion, not this inverse-PGF all-shapes boundary",
+          "No exact family table was located in checked literature"
+        ],
+        "reasoning": "No finite table encodes this all-real-parameter classification; failed retrieval alone does not prove priority.",
+        "searches": [
+          "beta binomial distribution binomial thinning minimal thinning index inverse pgf sharp beta mixing",
+          "\"beta binomial\" \"minimal thinning\" \"a+n-1\"",
+          "beta binomial sharp inverse coefficient database table"
+        ]
+      },
+      "rationale": "Kella & Löpker Theorem 19 (2022/2023) already gives an implicit root-maximization test for general binomial mixtures and Example 10 explicitly calculates uniform beta(1,1) case n/(n+1); both are recognized prior. No checked result evaluates the maximum for all real Beta(a,b) shapes or proves this common odd-moment threshold. Peyhardi and Jones concern generalized quasi-Pólya/convolution thinning rather than the fixed independent Bernoulli inverse scale. Inaccessible or older identity is residual priority risk.",
+      "residual_risks": [
+        "Peyhardi 2023 complete primary PDF was not verified in full; accessible operator comparison is bounded.",
+        "A classic unindexed beta-binomial inverse-thinning identity or an immediate corollary overlooked in Kella–Löpker could overlap the displayed closed-form threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implicit root optimization and uniform beta-binomial case are known; arbitrary real Beta shape formula not found in material inspected",
+          "evidence": "Theorem 19 and Example 10, n/(n+1) uniform law.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+          "material_read": "Primary full PDF read around Theorem 19, Example 10, supporting definitions and §§2–6",
+          "method": "Opened source PDF and viewed relevant page screenshots at pages 20–21",
+          "title": "On Binomial Thinning and Mixing",
+          "trigger": "Closest paper explicitly defines minimal thinning index for mixtures"
+        },
+        {
+          "assessment": "Studies dual convolution/quasi-Pólya thinning relations, not minimum independent Bernoulli thinning of marginal beta-binomial X",
+          "evidence": "The operator transforms conditional/marginal convolution relationships instead of the inverse composition PGF here.",
+          "identifier_or_url": "https://doi.org/10.1111/stan.12337",
+          "material_read": "Accessible full publisher article with principal results §§2–3 and abstract",
+          "method": "Read full-text publisher HTML including operator definition",
+          "title": "Duals of convolution thinned relationships",
+          "trigger": "Beta-binomial relations in thinning duality literature"
+        },
+        {
+          "assessment": "No whole-document noncoverage asserted; relevant generalization may deserve full-text inspection",
+          "evidence": "Peyhardi studies quasi-Pólya convolution thinning, as distinguished from fixed Bernoulli thinning.",
+          "identifier_or_url": "https://doi.org/10.1214/23-BJPS585",
+          "material_read": "Accessible summary/cited statements only; publisher PDF not fully inspected",
+          "method": "Examined available overview and Jones related discussion",
+          "title": "On quasi Pólya thinning operator",
+          "trigger": "Possible equivalent ordinary thinning under another name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural beta-binomial exchangeable count family is completely classified by a simple rational minimum over a continuum of real shape parameters, avoiding an implicit polynomial root search and pinpointing a structural endpoint obstruction. Not merely the known uniform law or a plug-in reparametrization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kella–Löpker arXiv:2202.10296 Theorem 19, Example 10 inspected PDF",
+    "Jones 2024 DOI 10.1111/stan.12337 accessible publisher full HTML",
+    "Peyhardi 2023 DOI 10.1214/23-BJPS585 accessible overview",
+    "Resultary semantic query beta binomial distribution binomial thinning minimal thinning index inverse pgf sharp beta mixing"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent bounded exact tests from reconstructed formulas corroborate finite identities; they are not substitutes for all-parameter analytic proof.",
+    "No Lean verification or expert attestation asserted; no GitHub write or external certificate created.",
+    "Peyhardi 2023 complete primary PDF was not verified in full; accessible operator comparison is bounded.",
+    "A classic unindexed beta-binomial inverse-thinning identity or an immediate corollary overlooked in Kella–Löpker could overlap the displayed closed-form threshold."
+  ],
+  "residual_risks": [
+    "Peyhardi 2023 complete primary PDF was not verified in full; accessible operator comparison is bounded.",
+    "A classic unindexed beta-binomial inverse-thinning identity or an immediate corollary overlooked in Kella–Löpker could overlap the displayed closed-form threshold."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Implicit root optimization and uniform beta-binomial case are known; arbitrary real Beta shape formula not found in material inspected",
+      "evidence": "Theorem 19 and Example 10, n/(n+1) uniform law.",
+      "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+      "material_read": "Primary full PDF read around Theorem 19, Example 10, supporting definitions and §§2–6",
+      "method": "Opened source PDF and viewed relevant page screenshots at pages 20–21",
+      "title": "On Binomial Thinning and Mixing",
+      "trigger": "Closest paper explicitly defines minimal thinning index for mixtures"
+    },
+    {
+      "assessment": "Studies dual convolution/quasi-Pólya thinning relations, not minimum independent Bernoulli thinning of marginal beta-binomial X",
+      "evidence": "The operator transforms conditional/marginal convolution relationships instead of the inverse composition PGF here.",
+      "identifier_or_url": "https://doi.org/10.1111/stan.12337",
+      "material_read": "Accessible full publisher article with principal results §§2–3 and abstract",
+      "method": "Read full-text publisher HTML including operator definition",
+      "title": "Duals of convolution thinned relationships",
+      "trigger": "Beta-binomial relations in thinning duality literature"
+    },
+    {
+      "assessment": "No whole-document noncoverage asserted; relevant generalization may deserve full-text inspection",
+      "evidence": "Peyhardi studies quasi-Pólya convolution thinning, as distinguished from fixed Bernoulli thinning.",
+      "identifier_or_url": "https://doi.org/10.1214/23-BJPS585",
+      "material_read": "Accessible summary/cited statements only; publisher PDF not fully inspected",
+      "method": "Examined available overview and Jones related discussion",
+      "title": "On quasi Pólya thinning operator",
+      "trigger": "Possible equivalent ordinary thinning under another name"
+    }
+  ]
+}

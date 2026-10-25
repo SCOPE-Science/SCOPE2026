@@ -1,11 +1,21 @@
-# Scientific review: exact beta-binomial thinning threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The Beta(a,b) mixture PGF and its uniquely invertible composition identify every coefficient of any latent pre-thinned count. Even residual exponents are automatically nonnegative. For odd residual exponents a Beta integration-by-parts identity and induction imply a common sufficient threshold of \((a+n-1)/(a+b+n-1)\) for every coefficient; the degree-\(n-1\) coefficient is a positive factor times the difference from that threshold, proving necessity and sharpness. The proof covers all real \(a,b>0\) and all integers \(n\ge1\), including endpoints. The standalone exact-rational program passed 288 shape/count instances; enumeration is supportive rather than the universal argument.
+## correctness
 
-**Originality — PASS on inspected evidence.** Kella and Löpker's *On Binomial Thinning and Mixing* (arXiv:2202.10296; Theorem 19 and Example 10) supply the implicit general root criterion and explicitly settle only the uniform mixing specialization \(a=b=1\). The present claim evaluates the maximum across *all* Beta shapes via an odd-moment inequality not in their inspected calculation. Peyhardi (doi:10.1214/23-BJPS585) and Jones (doi:10.1111/stan.12337) treat quasi-Pólya/convolution thinning and its duals, not this minimal Bernoulli de-thinning scale. Specific mathematical-record searches and accessible historical comparisons found no equivalent full-shape formula. The uniform case is recognized as known, not newly claimed. Risk: possible unindexed classical Beta-binomial inverse-thinning identities; the Peyhardi publisher PDF was not fully accessible, although author-uploaded relevant passages and Jones' main results were examined.
+PASS
 
-**Value — PASS.** The result is a sharp full-family classification of the minimal standard thinning parameter for an important overdispersed exchangeable count family, replacing a search over roots of increasing odd-degree polynomials with one rational formula. The endpoint is sharp even against arbitrary nonnegative integer-valued latent preimages, not just Beta mixtures. The exact zero at the next-highest preimage cell isolates the obstruction and explains the boundary structurally.
+For all n>=1 and real a,b>0, the inverse PGF Q_alpha(z)=P_X(1-1/alpha+z/alpha) uniquely identifies an integer-valued latent Z supported on 0..n. Its q_k is binom(n,k)*alpha^{-n} E[W^k(alpha-W)^(n-k)]. Positivity is automatic for even n-k. For odd m, the Beta-Stein identity (vanishing endpoint terms for A,B>0), applied to (c-V)^(m-1), yields a nonnegative even-moment term and a size-biased Beta(A+1,B+1) term; induction at threshold L(A,B,m)=(A+m-1)/(A+B+m-1) succeeds. Size-bias W^k makes the threshold independent of k: alpha*=(a+n-1)/(a+b+n-1). q_{n-1} vanishes at alpha* and is strictly negative at every smaller positive alpha, giving sharpness. Q_alpha(1)=1 gives normalization including n=1. Independently rebuilt exact Fraction inverse/mass reconstruction and tested 28 rational (n,a,b) cases; this supports but does not prove real shape universality.
 
-**Scope and limits.** Ordinary independent Bernoulli thinning only, finite positive sample sizes and real-positive Beta shapes. The supplement covers finitely many rational choices; continuous-shape correctness is analytical. No exhaustive literature priority certificate or independent examination is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kella & Löpker Theorem 19 (2022/2023) already gives an implicit root-maximization test for general binomial mixtures and Example 10 explicitly calculates uniform beta(1,1) case n/(n+1); both are recognized prior. No checked result evaluates the maximum for all real Beta(a,b) shapes or proves this common odd-moment threshold. Peyhardi and Jones concern generalized quasi-Pólya/convolution thinning rather than the fixed independent Bernoulli inverse scale. Inaccessible or older identity is residual priority risk.
+
+## value
+
+PASS
+
+A natural beta-binomial exchangeable count family is completely classified by a simple rational minimum over a continuum of real shape parameters, avoiding an implicit polynomial root search and pinpointing a structural endpoint obstruction. Not merely the known uniform law or a plug-in reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

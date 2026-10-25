@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-22.md",
+      "INDEPENDENT_AUDIT_2026-10-22.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification summary
 
-The core universal proof is the Beta integration-by-parts induction, followed by coefficientwise nonnegativity of \(P_X(1-1/\alpha+z/\alpha)\) and an exact negative coefficient below the boundary. Independent validation has not been performed.
+# Independent mathematical audit
 
-Run `python3 check_beta_binomial.py` using Python 3 standard library only. The exact-rational check covered \(n=1,2,\ldots,8\) and all 36 pairs of shape values in \(\{1/3,1/2,1,2,5/2,3\}\), totaling 288 cases. Each case verifies: normalization and positivity of inverse-PGF coefficients at the predicted threshold; exact zero of the degree-\(n-1\) coefficient; negativity of that coefficient at \(99/100\) of the predicted threshold; reconstruction of all beta-binomial masses by forward thinning.
+## correctness
 
-Finite tests are neither an exhaustive real-parameter proof nor a guarantee of originality. Scientific limits and closest literature comparisons are recorded in the mathematical result and review.
+PASS
+
+For all n>=1 and real a,b>0, the inverse PGF Q_alpha(z)=P_X(1-1/alpha+z/alpha) uniquely identifies an integer-valued latent Z supported on 0..n. Its q_k is binom(n,k)*alpha^{-n} E[W^k(alpha-W)^(n-k)]. Positivity is automatic for even n-k. For odd m, the Beta-Stein identity (vanishing endpoint terms for A,B>0), applied to (c-V)^(m-1), yields a nonnegative even-moment term and a size-biased Beta(A+1,B+1) term; induction at threshold L(A,B,m)=(A+m-1)/(A+B+m-1) succeeds. Size-bias W^k makes the threshold independent of k: alpha*=(a+n-1)/(a+b+n-1). q_{n-1} vanishes at alpha* and is strictly negative at every smaller positive alpha, giving sharpness. Q_alpha(1)=1 gives normalization including n=1. Independently rebuilt exact Fraction inverse/mass reconstruction and tested 28 rational (n,a,b) cases; this supports but does not prove real shape universality.
+
+## originality
+
+PASS
+
+Kella & Löpker Theorem 19 (2022/2023) already gives an implicit root-maximization test for general binomial mixtures and Example 10 explicitly calculates uniform beta(1,1) case n/(n+1); both are recognized prior. No checked result evaluates the maximum for all real Beta(a,b) shapes or proves this common odd-moment threshold. Peyhardi and Jones concern generalized quasi-Pólya/convolution thinning rather than the fixed independent Bernoulli inverse scale. Inaccessible or older identity is residual priority risk.
+
+## value
+
+PASS
+
+A natural beta-binomial exchangeable count family is completely classified by a simple rational minimum over a continuum of real shape parameters, avoiding an implicit polynomial root search and pinpointing a structural endpoint obstruction. Not merely the known uniform law or a plug-in reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
