@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional Gaussian parity and chi-square sixth moments yield the coupled scalar recurrences. Fixed points and strict r<1 requirement are derived algebraically, with r=1 positive-increment divergence and r>1 geometric divergence. Three rational exact Wick-moment tests and seeded simulation reproduce the expressions; finite tests are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "CV-ZOD Lemma 3.3 gives an O(d³ τ²) upper bound, without exact floor or probe support comparison",
+        "PISO Lemma 5 gives a general Gaussian mean-square contraction already known"
+      ],
+      "reasoning": "A general variance inequality is not equivalent to an exact stationary recursion under one-sided finite differences. The full two-sided PISO scheme is not the stated one-sided scheme. Explicitly exclude previously known contraction as an originality component.",
+      "searches": [
+        "Ryabchenko Qian Mou CV-ZOD fixed stepsize oracle projected gradient isotropic quadratic exact mean square threshold 2/(d-k+2) noise floor",
+        "Gaussian stochastic gradient forward differences projected known gradient rank k fixed subspace same mean square stability yet Θ(d^3) bigger noise floor than residual-only probing",
+        "arxiv:2610.13871v1 Lemma 5",
+        "arxiv:2609.08277v1 Lemma 3.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.08277v1 source §3.1 §3.3 appendices A C D",
+      "arxiv:2610.13871v1 source §2 §3 appendices B C D",
+      "Published mathematical research summaries on Haar stochastic subspaces, STORM covariance, and randomized linear-system smoothing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] provides estimator and bounds but not a closed-form affine recursion for second moments of iterates",
+        "Source [2] supplies Gaussian contraction factor, not source-[1] finite-radius stationary covariance for two different probe supports"
+      ],
+      "reasoning": "The new claim needs both exact additive Gaussian sixth moments and a fixed-step affine stationary solution. Prior work provides some ingredients, especially q+2, but the inspected statements do not imply the two explicit floors, strict ratio and cubic separation without additional model-specific calculation.",
+      "searches": [
+        "arxiv:2609.08277v1 Eq. (2) & Lemma 3.3",
+        "arxiv:2610.13871v1 Appendix B Lemma 5",
+        "Exact steady state second moment forward difference Gaussian CV-ZOD on isotropic quadratic with oracle gradient projection P and rank k, compare full Gaussian versus residual-subspace Gaussian probes and cubic dimension penalty",
+        "Gaussian stochastic gradient forward differences projected known gradient rank k fixed subspace same mean square stability yet Θ(d^3) bigger noise floor than residual-only probing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-sided source formula identical to G_F after m=Px specialization",
+        "PISO centered residual-tracking step is a distinct recurrence; uses symmetric differences"
+      ],
+      "reasoning": "Compared the estimator covariance/second-moment recurrence, not merely titles; CV-ZOD sources do not state its fixed-step stationary quadratic solution or complement-only support formula. Mean-square contraction alone does not imply finite-radius noise-floor ratio.",
+      "searches": [
+        "Mean square stability and stationary error exact covariance of control variate zeroth-order Gaussian gradient with hint subspace projection on isotropic quadratic finite forward difference smoothing, effective residual dimension d-k",
+        "Exact steady state second moment forward difference Gaussian CV-ZOD on isotropic quadratic with oracle gradient projection P and rank k, compare full Gaussian versus residual-subspace Gaussian probes and cubic dimension penalty",
+        "arxiv:2609.08277v1 §3.1, §3.3",
+        "arxiv:2610.13871v1 §2, Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Haar stochastic-subspace descent has exact moments but no finite-difference stationary floor",
+        "STORM stationary covariance depends on different additive-noise/momentum mechanism"
+      ],
+      "reasoning": "Actual indexed semantic searches of full formula, aliases, and dimension separation surfaced non-covering near neighbors. Indexed retrieval cannot certify the absence of an unindexed exact calculation.",
+      "searches": [
+        "CV-ZOD forward one-sided Gaussian control variate oracle m=Px isotropic strongly convex quadratic exact stationary mean-square error α τ²(d+2)(d+4)[2d-α(d+k)]/[4(2-α)(2-α(d-k+2))] versus complement-only Gaussian probing",
+        "finite difference Gaussian random directional gradient descent quadratic sharp steady-state risk chi-square sixth moments residual dimension q",
+        "Published research abstract: Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+        "Published research abstract: Exact stationary covariance and stability factorization for constant-template STORM"
+      ]
+    },
+    "rationale": "The exact one-sided quadratic stationary floor and full-versus-complement probing ratio were compared with material sections of both closest 2026 papers and actual indexed mathematical result records. Generic Gaussian q+2 contraction, quadratic moments and the control-variate estimator are known and not individually claimed as new. The combined sharp nonzero-radius and probe-support comparison was not found; residual specialized-literature risk persists.",
+    "residual_risks": [
+      "Searches of indexed abstracts and inspected source sections do not rule out equivalent old Gaussian finite-difference stationary analyses outside this bibliography.",
+      "Standard Gaussian moment identities and mean-square contraction are known; novelty is solely the combined exact nonzero-radius floor and support comparison.",
+      "Quadratic violates the bounded-gradient hypothesis of the initiating CV-ZOD global theorem; finding is an independent exact estimator model, not an extension of that theorem to its original function class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the control-variate estimator and an order-cubic smoothing bound, but inspected text does not state the exact stationary full/complement finite-radius ratio on the quadratic.",
+        "evidence": [
+          "§3.1 Equation (2) and Lemma 3.3: one-sided Gaussian reference estimator and 8 τ²L²d³ variance term",
+          "§2 assumes globally bounded gradient; quadratic here is a distinct exact model",
+          "§3.3 oracle projected-gradient reference, no complement-probe stationary calculation"
+        ],
+        "identifier_or_url": "arxiv:2609.08277v1 | https://arxiv.org/html/2609.08277v1",
+        "material_read": "Introduction; Section 2 assumptions; Section 3.1 estimator (2), Lemma 3.3 and variance bound; Section 3.3 oracle reference; Section 4; Appendix A; Appendix C proof; Appendix D relevant steps",
+        "method": "Material full HTML text inspected and mathematical formulas/quantifiers compared",
+        "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+        "trigger": "Exact source estimator and oracle projection benchmark"
+      },
+      {
+        "assessment": "Provides Gaussian residual-step mean-square factor 1−2α+(q+2)α² (known mechanism); uses different tracked state and central-difference scheme, not exact one-sided stationary floor comparison.",
+        "evidence": [
+          "Appendix B Lemma 5: Gaussian q+2 contraction and window already known",
+          "Appendix C Gaussian probe moment table",
+          "Appendix D analyzes symmetric finite differences and Taylor bias; no full-versus-complement one-sided quadratic stationary theorem"
+        ],
+        "identifier_or_url": "arxiv:2610.13871v1 | https://arxiv.org/html/2610.13871v1",
+        "material_read": "Introduction; Section 2 tracking update; Section 3 convergence; Appendix B Lemma 5 and proof; Appendix C probe distributions; Appendix D finite-difference bias; relevant tracking appendix",
+        "method": "Full HTML sections inspected and update/statements compared directly",
+        "title": "Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking",
+        "trigger": "Closest newer partial-gradient method and possible dominating mean-square contraction result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25504f3a-ca16-47cb-b3d7-e1558f71ee94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite one-sided difference radii carry irreducible noise even when an exact hint removes most gradient uncertainty. The theorem quantitatively identifies a Θ(d³) ambient-dimension penalty at fixed unknown rank and the same perturbed-query count, while preserving the exact mean-square contraction factor under projected probes. This is a motivated solver-design distinction, not merely a repackaged moment formula.",
+    "status": "PASS"
+  }
+}
