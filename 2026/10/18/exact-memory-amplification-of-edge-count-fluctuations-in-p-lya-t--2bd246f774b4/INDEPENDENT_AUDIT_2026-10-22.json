@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T09:52:19.844872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed integer M>=1 and a,b>0, the initial M-window has the stationary beta-binomial exchangeable distribution; the finite binary shift chain is irreducible, aperiodic, and exponentially mixing. Its binary covariance equals v at lag 0, v/(kappa+1) for 1..M, and thereafter satisfies the finite-memory linear recurrence with denominator M+kappa. Absolute summability permits summing the recurrence to integrated variance v*(M+kappa)*(M+kappa+1)/(kappa*(kappa+1)). The functional Markov CLT plus summation by parts yields the n^(-3/2) weighted edge-count CLT with variance one-third this value; dominated covariance summation establishes the separate n^(-3) variance limit. The fixed-M ergodic n^(-2) limit rho/2 differs from Beta-random infinite-memory limit Theta/2. Checked the conditional law, lag normalization, variance weights, terminal universal-vertex O(n) perturbation, and distinction between fixed and growing M. Independent exact SymPy finite-state Poisson checks for M=1..4 and (a,b)=(1,1),(2,3) corroborated the integrated factor, not the infinite CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2603.18452 §4.2.2 introduces finite-memory graph simulations and consensus, not the all-memory edge-count limit; standard Markov FCLT is a general technique"
+        ],
+        "reasoning": "The broad Markov FCLT ensures Gaussianity for an additive functional under standard conditions but requires a model-specific integrated covariance and weighted edge limit; old queue results could still imply the coefficient as an immediate corollary, residual risk.",
+        "searches": [
+          "finite-memory Polya threshold graphs Yu Alajaji Gharesifard edge count CLT Mori autocorrelation",
+          "finite-memory Polya contagion queue 2007 exact variance autocorrelation finite window Zhong Alajaji Takahara"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.18452 PDF §4.2.2 and conclusion",
+        "arXiv:2105.10653 accessible full scientific text",
+        "Zhong–Alajaji–Takahara 2007 finite-queue paper",
+        "Resultary semantic query finite memory Pólya urn threshold graph edge-count central limit theorem integrated covariance memory length exact multiplier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2105.10653 provides a general autocorrelation equation including rectangular memory, while arXiv:2603.18452 has the graph construction"
+        ],
+        "reasoning": "The recurrence and model are covered; the closed sum, factor and graph-weighted CLT require further derivation; any earlier exact long-run variance formula for this process would narrow originality.",
+        "searches": [
+          "finite memory Pólya urn threshold graph edge-count central limit theorem integrated covariance memory length exact multiplier",
+          "Mori Hisakado Nakayama memory kernel autocorrelation Polya arxiv:2105.10653"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhong, Alajaji & Takahara (2007) finite-queue equivalent urn autocorrelation recurrence; Mori et al. arXiv:2105.10653 rectangular kernel recurrence"
+        ],
+        "reasoning": "Queue/communication-channel formulations share the underlying stationary binary process, but their checked statements do not explicitly give the weighted graph edge-count CLT; mere different title is not the distinction.",
+        "searches": [
+          "finite memory Pólya urn threshold graph edge-count central limit theorem integrated covariance memory length exact multiplier",
+          "finite memory Pólya contagion urn exact integrated autocorrelation time quadratic memory window edge count central limit theorem random threshold graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results concerned other graph/probability fluctuation results without the same edge-count all-M coefficient; no exact table in retrieved sources"
+        ],
+        "reasoning": "The claimed coefficient is an all-integer closed formula, not an entry imported from a finite table. Nonmatching index results are weak negative evidence, not priority proof.",
+        "searches": [
+          "finite memory Pólya urn threshold graph edge-count central limit theorem integrated covariance memory length exact multiplier",
+          "Pólya threshold graph edge count variance multiplier memory length formula Resultary"
+        ]
+      },
+      "rationale": "The stationary queue process, its memory recurrence and the general finite-state CLT preexist; the actual proposed addition is the all-M evaluated integrated covariance and its weighted Pólya-threshold-graph edge-count Gaussian limit. Inspected the motivating graph and queue/autocorrelation work and queried published mathematical findings under statistical/urn and graph aliases; no checked source directly states or dominates the full graph-statistic theorem. Priority risk remains for older communication-channel variance identities and related finite-memory urn papers.",
+      "residual_risks": [
+        "A prior exact integrated-autocorrelation identity in older communication-channel literature could reduce novelty despite the new weighted graph application.",
+        "Only fixed M with n→infinity; no uniform growing-memory regime or degree/spectral CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-memory graph and consensus simulations are prior; no inspected edge-count Gaussian law",
+          "evidence": "§4.2.2 describes the urn extension; conclusion discusses finite-memory stochastic asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18452",
+          "material_read": "Primary PDF §§2–5, especially finite-memory §4.2.2 and conclusion",
+          "method": "Read opened PDF text and page screenshot near §4.2.2",
+          "title": "Pólya Threshold Graphs",
+          "trigger": "Same graph construction, finite-memory urn"
+        },
+        {
+          "assessment": "Provides autocorrelation self-consistency and general kernels; not the particular weighted graph theorem",
+          "evidence": "Uniform finite rectangular kernel appears in the general recurrence framework.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.10653",
+          "material_read": "Accessible scientific manuscript sections covering kernels, rectangular finite memory and long-time autocorrelation",
+          "method": "Read accessible primary full text and relevant model/recurrence sections",
+          "title": "Pólya urn with memory kernel and asymptotic behaviours of autocorrelation function",
+          "trigger": "Potential general coverage of uniform-window autocorrelation"
+        },
+        {
+          "assessment": "Found closely corresponding queue model; whether old identities imply coefficient fully is residual risk",
+          "evidence": "Finite-queue predictive correlations supply a previously known stochastic construction.",
+          "identifier_or_url": "https://mast.queensu.ca/~communications/Papers/it-qbc.pdf",
+          "material_read": "Available scientific article sections on stationarity and correlations; not exhaustive of all appendices",
+          "method": "Compared model statement with covariance derivation",
+          "title": "A Binary Communication Channel with Memory Based on a Finite Queue",
+          "trigger": "Equivalent finite-queue contagion process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The central statistic of a natural random threshold-graph model receives a sharp all-memory fluctuation coefficient, revealing a quadratic fixed-M memory cost and separating finite from infinite memory behavior. This is an infinite family analytic fluctuation theorem rather than a low-order parameter substitution or finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.18452 PDF §4.2.2 and conclusion",
+    "arXiv:2105.10653 accessible full scientific text",
+    "Zhong–Alajaji–Takahara 2007 finite-queue paper",
+    "Resultary semantic query finite memory Pólya urn threshold graph edge-count central limit theorem integrated covariance memory length exact multiplier"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent bounded exact tests from reconstructed formulas corroborate finite identities; they are not substitutes for all-parameter analytic proof.",
+    "No Lean verification or expert attestation asserted; no GitHub write or external certificate created.",
+    "A prior exact integrated-autocorrelation identity in older communication-channel literature could reduce novelty despite the new weighted graph application.",
+    "Only fixed M with n→infinity; no uniform growing-memory regime or degree/spectral CLT."
+  ],
+  "residual_risks": [
+    "A prior exact integrated-autocorrelation identity in older communication-channel literature could reduce novelty despite the new weighted graph application.",
+    "Only fixed M with n→infinity; no uniform growing-memory regime or degree/spectral CLT."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Finite-memory graph and consensus simulations are prior; no inspected edge-count Gaussian law",
+      "evidence": "§4.2.2 describes the urn extension; conclusion discusses finite-memory stochastic asymptotics.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.18452",
+      "material_read": "Primary PDF §§2–5, especially finite-memory §4.2.2 and conclusion",
+      "method": "Read opened PDF text and page screenshot near §4.2.2",
+      "title": "Pólya Threshold Graphs",
+      "trigger": "Same graph construction, finite-memory urn"
+    },
+    {
+      "assessment": "Provides autocorrelation self-consistency and general kernels; not the particular weighted graph theorem",
+      "evidence": "Uniform finite rectangular kernel appears in the general recurrence framework.",
+      "identifier_or_url": "https://arxiv.org/abs/2105.10653",
+      "material_read": "Accessible scientific manuscript sections covering kernels, rectangular finite memory and long-time autocorrelation",
+      "method": "Read accessible primary full text and relevant model/recurrence sections",
+      "title": "Pólya urn with memory kernel and asymptotic behaviours of autocorrelation function",
+      "trigger": "Potential general coverage of uniform-window autocorrelation"
+    },
+    {
+      "assessment": "Found closely corresponding queue model; whether old identities imply coefficient fully is residual risk",
+      "evidence": "Finite-queue predictive correlations supply a previously known stochastic construction.",
+      "identifier_or_url": "https://mast.queensu.ca/~communications/Papers/it-qbc.pdf",
+      "material_read": "Available scientific article sections on stationarity and correlations; not exhaustive of all appendices",
+      "method": "Compared model statement with covariance derivation",
+      "title": "A Binary Communication Channel with Memory Based on a Finite Queue",
+      "trigger": "Equivalent finite-queue contagion process"
+    }
+  ]
+}
