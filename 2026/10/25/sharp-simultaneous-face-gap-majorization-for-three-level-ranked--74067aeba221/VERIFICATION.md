@@ -22,4 +22,4 @@ The source package contains `verify.py`, a standalone Python 3 standard-library 
 
 Checks recompute polynomial counts for 169 pairs, verify 68 exact Jacobi–Trudi comparisons, and enumerate facets/vertices to recover eight small face vectors independently of the stated formulas. All computations use integer arithmetic, including modular row reduction at prime 1000003 for small 0–1 vertex configurations. In the tested dimensions the determinant bounds are below the modulus, so those ranks agree with rational affine ranks.
 
-Finite checks do not establish the theorem in all dimensions. The generating-function and Schur-tableau arguments in `RESULT.md` provide the universal proof. The historical-priority assessment is same-model only; no independent external validation was performed.
+Finite checks do not establish the theorem in all dimensions. The generating-function and Schur-tableau arguments in `RESULT.md` provide the universal proof. The historical-priority assessment is self-review only; no independent external validation was performed.

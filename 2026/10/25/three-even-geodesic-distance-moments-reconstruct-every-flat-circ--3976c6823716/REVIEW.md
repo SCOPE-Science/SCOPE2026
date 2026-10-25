@@ -10,6 +10,6 @@ The nearest investigated complete sources are Herman–Pakianathan (arXiv:1407.5
 The first consecutive global even-moment cutoff is an exact natural inverse-geometric invariant for all positive parameter values, with complete classification of the nonidentifiability region below the cutoff and an explicit collision. It establishes what information is retained by three scalar population expectations rather than by an entire distance histogram or short-distance coefficients. The sharp ambiguity interval and its cubic resolution motivate this exact fact beyond a routine moment evaluation.
 
 ## Unproved scope and checks
-Population moments are assumed exact; no noisy-estimation stability, general surface extension, or independence from prior mathematical literature has been proved. Same-model scrutiny establishes only the stated analytic claim; no outside referee has checked it.
+Population moments are assumed exact; no noisy-estimation stability, general surface extension, or independence from prior mathematical literature has been proved. Self-review scrutiny establishes only the stated analytic claim; no outside referee has checked it.
 
 Self-review: passed. Independent audit: not yet performed.

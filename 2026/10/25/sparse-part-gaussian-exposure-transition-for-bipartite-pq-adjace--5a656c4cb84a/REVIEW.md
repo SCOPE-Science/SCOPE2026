@@ -14,6 +14,6 @@ The full distribution of random Euclidean widths and the fraction of the sphere 
 
 ## Scope and limitations
 
-The theorem treats the intrinsic Euclidean realization, part-size power regimes, and the specified critical window. It gives no uniform finite-size convergence rate or independent external validation. Closest literature was evaluated by scientific implication, not by name similarity alone. Same-model correctness and originality assessments do not amount to independent mathematical certification.
+The theorem treats the intrinsic Euclidean realization, part-size power regimes, and the specified critical window. It gives no uniform finite-size convergence rate or independent external validation. Closest literature was evaluated by scientific implication, not by name similarity alone. Self-review correctness and originality assessments do not amount to independent mathematical certification.
 
 Self-review: passed. Independent audit: not yet performed.

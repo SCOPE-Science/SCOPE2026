@@ -28,4 +28,4 @@ The listed instances comprise all labeled forests on two through five original v
 For all finite forests, the theorem relies on the induction in `RESULT.md`, not on finite enumeration. The local domination argument uses the original leaf and the inserted degree-two midpoint. Every deletion is an elementary simplicial collapse, preserving integral and simple homotopy type. The reversal sign comes from the absence of invariant nonempty faces and the Lefschetz trace formula. No higher-dimensional torsion conclusion is inferred from finite-field tests. The proof does not cover nonforests or arbitrary edge subdivisions.
 
 ## Review boundary
-The scientific assessment is same-model only. An independent audit has not been performed, and literature indexing cannot rule out every independently discovered equivalent theorem.
+The scientific assessment is self-review only. An independent audit has not been performed, and literature indexing cannot rule out every independently discovered equivalent theorem.

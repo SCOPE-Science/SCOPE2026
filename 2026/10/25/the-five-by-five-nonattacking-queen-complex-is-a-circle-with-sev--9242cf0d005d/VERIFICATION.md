@@ -22,4 +22,4 @@ Run `python3 verify_queens5.py` with a standard Python 3 interpreter. The script
 
 Expected final line: `VERIFY_OK_QUEENS5_INTEGRAL_HOMOTOPY`.
 
-The verification report `verification_output.txt` records the actual execution from this package's source. The proof's input enumeration and its computational steps are finite and exhaustively checked; no unsupported extrapolation to other board orders is made. The associated scientific literature comparison is same-model only; no independent validation has been performed.
+The verification report `verification_output.txt` records the actual execution from this package's source. The proof's input enumeration and its computational steps are finite and exhaustively checked; no unsupported extrapolation to other board orders is made. The associated scientific literature comparison is self-review only; no independent validation has been performed.

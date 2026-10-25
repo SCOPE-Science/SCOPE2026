@@ -6,6 +6,6 @@
 
 **Mathematical value — PASS.** Tight bounding rectangles are canonical geometric enclosures, and a universally sharp law for all convex orientation penalties answers a natural extremal question rather than an arbitrary parameter slice. It also reveals that every rectangle, however elongated, has precisely the same normalized rotation risk, and supplies an explicit first-harmonic rigidity diagnostic. The novelty is the sharp distributional comparison and geometric equality structure, not the classical Cauchy or Jensen identities on their own.
 
-The scope is planar Euclidean convex bodies with uniform orientation and bounding-rectangle perimeter. The result does not apply to the minimum-area rectangle, enclosing-box area, or arbitrary dimension. The same-model analysis cannot establish historical priority or independent certification.
+The scope is planar Euclidean convex bodies with uniform orientation and bounding-rectangle perimeter. The result does not apply to the minimum-area rectangle, enclosing-box area, or arbitrary dimension. The self-review analysis cannot establish historical priority or independent certification.
 
 Self-review: passed. Independent audit: not yet performed.

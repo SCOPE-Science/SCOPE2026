@@ -10,6 +10,6 @@
 **PASS.** A paper introducing a new tuple construction explicitly identifies homology representations as a direction of interest. The result answers this for a natural infinite class of non-simplex input complexes, with all part sizes and every natural relabeling action, including orientation-reversing edge stabilizers. At \(r=2\), five part sizes two give a 201-dimensional homology module whose trace at a double transposition is \(-7\), information not contained in the rank or connectivity theorem. It is a complete natural parameter-space calculation, not a routine isolated small example.
 
 ## Scope and risks
-The result concerns the natural part-respecting action and rational characters, not arbitrary complex automorphisms or integral isotypic splittings. Undiscovered equivalent literature would affect originality. Verification is same-model only.
+The result concerns the natural part-respecting action and rational characters, not arbitrary complex automorphisms or integral isotypic splittings. Undiscovered equivalent literature would affect originality. Verification is self-review only.
 
 Self-review: passed. Independent audit: not yet performed.
