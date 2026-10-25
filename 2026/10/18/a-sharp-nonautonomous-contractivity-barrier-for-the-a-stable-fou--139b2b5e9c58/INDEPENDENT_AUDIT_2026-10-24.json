@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T13:53:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob be3beae180a08362e685564a03a7586b2f3498a1 and verify.py blob 2aca3c6b9f1fbc55fa428b8aa359d4c4c1df8de9",
+        "independent_checks.json nirk4 block: rational matrix symbolic identities, exact cubic, Gauss algebraic-stability identities"
+      ],
+      "rationale": "From the pinned nIRK4 tableau, with D=diag(a,2a/3,a/3,0), exact stage elimination gives det(I+AD)=(13a²+224a+1080)/1080>0 and R_var(a)=(1080−316a+36a²−2a³)/(1080+224a+13a²). The sign factor R−1=−a(2a²−23a+540)/Dnum (quadratic discriminant −3791), while R+1=−(2a³−49a²+92a−2160)/Dnum. Cubic derivative 2(a−1)(3a−46), extrema both negative, yields one positive crossing a*=24.426867812..., hence nonexpansivity iff a≤a*, and R_var(25)=−346/329, diverging magnitude as a→infty. The exact ODE flow is exp(−a/2). Independently reconstructed Gauss nodes/tableau from cardinal polynomials and its nine b_i Aij + b_j Aji = b_i b_j identities, proving energy decrement −2∑b_i lambda_i Y_i²<0 on this damping profile, with stage invertibility. Both autonomous functions equal diagonal [3/3] Padé; this does NOT imply variable-coefficient equality. Exact symbolic rederivation in independent_checks.py agreed. All-rate claims rely on algebra, not samples.",
+      "residual_risks": [
+        "Real scalar y′=−a(1−t)y on [0,1], a≥0, exact stage solve; no arbitrary nonautonomous systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General algebraic-stability theorem covers Gauss comparator, but nIRK4 tableau does not satisfy the same bA+bA^T−bb^T condition."
+        ],
+        "reasoning": "Gauss positivity identity is inherited classical; it cannot by itself imply nIRK4 sharp failure at a*=24.426...",
+        "searches": [
+          "Resultary semantic query: four-stage nIRK4 Mizerova Tvrda repeated integral Runge Kutta nonautonomous contractivity Gaussian Pade A-stability",
+          "Hairer–Wanner Gaussian algebraic stability",
+          "arXiv:2404.16665v1"
+        ]
+      },
+      "checked_sources": [
+        "H. Mizerová and K. Tvrdá, A new way of deriving implicit Runge–Kutta methods based on repeated integrals, arXiv:2404.16665v1, full arXiv HTML §2.1, §3–4, Appendix A5",
+        "E. Hairer and G. Wanner, Solving Ordinary Differential Equations II, 2nd ed., classical algebraic stability of Gauss collocation",
+        "Original independent_checks.py symbolic tableau inversion and Gauss energy identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published stability function [3/3] Padé agrees for nIRK4 and Gauss.",
+          "A-stability is an autonomous complex-halfplane statement; the claimed inequality is an all-a variable-coefficient contractivity statement."
+        ],
+        "reasoning": "The standard premises do not imply the new all-a threshold without a tableau-specific calculation, whose exact symbolic proof was reproduced.",
+        "searches": [
+          "Resultary semantic query: four-stage nIRK4 Mizerova Tvrda repeated integral Runge Kutta nonautonomous contractivity Gaussian Pade A-stability",
+          "arXiv:2404.16665v1",
+          "Hairer–Wanner Gauss symplectic identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original method is A-stable for autonomous scalar y′=lambda y; nonautonomous damping samples distinct lambda_i within one RK step.",
+          "Both tableaux have same rational Padé stability function but different stage coefficient matrices."
+        ],
+        "reasoning": "Autonomous equivalent stability functions do NOT imply same nonautonomous amplification or contractivity. The exact variable-profile one-parameter threshold is the new object.",
+        "searches": [
+          "Resultary semantic query: four-stage nIRK4 Mizerova Tvrda repeated integral Runge Kutta nonautonomous contractivity Gaussian Pade A-stability",
+          "arXiv:2404.16665v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original authors report A-stability and stiff numerical experiments, not a table of variable-damping critical values."
+        ],
+        "reasoning": "No verified exact prior table of affine-time damping multiplier or cubic root; exact original full text inspected.",
+        "searches": [
+          "Resultary semantic query: four-stage nIRK4 Mizerova Tvrda repeated integral Runge Kutta nonautonomous contractivity Gaussian Pade A-stability",
+          "arXiv:2404.16665v1"
+        ]
+      },
+      "rationale": "Inspected full arXiv HTML of Mizerová–Tvrdá 2404.16665v1, especially §3/§4 and Appendix A5: the exact A, b, c and autonomous stability function originate there; their experiments and A-stability claim are prior. The distinct parameter-dependent damping profile and exact noncontractivity frontier are not the same as autonomous A-stability and were not presented in the inspected primary account. Classical Gauss algebraic stability is credited. Resultary related published [2/2] Padé Markov positivity concerns stochastic endpoint positivity, not this nonautonomous scalar RK contractivity.",
+      "residual_risks": [
+        "An earlier study may have considered precisely the Mizerová–Tvrdá affine-time damping profile under another terminology.",
+        "The example is one scalar problem on one unit step and does not assert general nonlinear instability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD_NOT_PRESENT_EXACT_BARRIER",
+          "evidence": "Appendix A5 prints the method, §2.1.1 defines classical scalar A-stability and §4 gives finite test problems; no all-a exact one-step affine-time damping barrier was identified in the inspected text.",
+          "identifier_or_url": "https://arxiv.org/html/2404.16665v1",
+          "material_read": "Complete arXiv HTML §§1–4 and appendices, including Appendix A5 Butcher tableau, linear stability experiment and autonomous stability discussion",
+          "method": "full primary HTML source reading",
+          "title": "A new way of deriving implicit Runge–Kutta methods based on repeated integrals",
+          "trigger": "Identical unusual nIRK4 tableau and autonomous Padé stability"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_GAUSS_PROPERTY",
+          "evidence": "The identity b_i Aij+b_j Aji=b_i b_j for Gauss is credited and verified independently; novelty is the particular nIRK4 contrast, not Gauss stability.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-05221-7",
+          "material_read": "Known statement and algebraic-stability symplectic identities; full book not retrieved",
+          "method": "classical theorem statement plus independent algebraic proof",
+          "title": "Solving Ordinary Differential Equations II",
+          "trigger": "Gaussian collocation contraction identity might already imply comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob be3beae180a08362e685564a03a7586b2f3498a1 and verify.py blob 2aca3c6b9f1fbc55fa428b8aa359d4c4c1df8de9",
+        "H. Mizerová and K. Tvrdá, A new way of deriving implicit Runge–Kutta methods based on repeated integrals, arXiv:2404.16665v1, full arXiv HTML §2.1, §3–4, Appendix A5",
+        "E. Hairer and G. Wanner, Solving Ordinary Differential Equations II, 2nd ed., classical algebraic stability of Gauss collocation"
+      ],
+      "rationale": "A-stability alone is a common but invalid proxy for nonautonomous contractivity; the explicit sharp finite barrier for a published fourth-order tableau, with an exactly matched autonomous Padé function for a contractive comparator, is a useful numerical-analysis counterexample and reproducible benchmark.",
+      "residual_risks": [
+        "Value is specific to the natural stated model/invariant and is not asserted as a general theorem across all dynamics or algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob be3beae180a08362e685564a03a7586b2f3498a1 and verify.py blob 2aca3c6b9f1fbc55fa428b8aa359d4c4c1df8de9",
+    "H. Mizerová and K. Tvrdá, A new way of deriving implicit Runge–Kutta methods based on repeated integrals, arXiv:2404.16665v1, full arXiv HTML §2.1, §3–4, Appendix A5",
+    "E. Hairer and G. Wanner, Solving Ordinary Differential Equations II, 2nd ed., classical algebraic stability of Gauss collocation",
+    "Original independent_checks.py symbolic tableau inversion and Gauss energy identities"
+  ],
+  "disposition": "passed",
+  "final_claim": "A sharp nonautonomous contractivity barrier for the A-stable four-stage nIRK4 method",
+  "limitations": [
+    "Real scalar y′=−a(1−t)y on [0,1], a≥0, exact stage solve; no arbitrary nonautonomous systems.",
+    "An earlier study may have considered precisely the Mizerová–Tvrdá affine-time damping profile under another terminology.",
+    "The example is one scalar problem on one unit step and does not assert general nonlinear instability."
+  ],
+  "residual_risks": [
+    "An earlier study may have considered precisely the Mizerová–Tvrdá affine-time damping profile under another terminology.",
+    "The example is one scalar problem on one unit step and does not assert general nonlinear instability."
+  ],
+  "schema_version": 1
+}
