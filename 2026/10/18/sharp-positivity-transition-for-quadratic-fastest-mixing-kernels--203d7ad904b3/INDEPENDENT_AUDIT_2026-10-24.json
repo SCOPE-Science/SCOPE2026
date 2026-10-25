@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T18:54:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Spectrum of complete bipartite Laplacian has three nonzero values p,q,p+q (two when p=q); block square gives four necessary/sufficient positivity conditions beta>=0, alpha>=(p+q)beta, both holding diagonals nonnegative. Unconstrained equioscillating quadratic f has f(p)=f(p+q)=tau, f(q)=-tau with beta=2/[p(p+3q)] and alpha=(2p+q)beta. Weak sign changes of h(t)/t, an affine function, prove strict uniqueness. Its high-degree holding probability is nonnegative iff (p-2)q<=p². Above, alpha=(q+2p)/[q(2p-1)], beta=1/[q(2p-1)] saturate this diagonal; then f(p)=f(p+q)=((p-1)q-p²)/[q(2p-1)] and f(q)=-1/(2p-1). Perturbation u,v constrained u<=(q+1)v produces strict SLEM increase for any v sign, proving uniqueness. At p=q exact degree-two interpolation kills two positive modes. Two separately nonnegative Euler factors require 0<=gamma_i<=1/q and retain p-eigenvalue >=(1-p/q)², while quadratic rate tends (p-1)/(2p-1). Independently checked 78 integer instances with exact fractions and an LP formulation; universal result is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Squared graph of K_{p,q} is complete, so completely unrestricted two-hop stochastic matrices can average uniformly (SLEM 0).",
+          "The audited family is strictly restricted to quadratic functions of the fixed combinatorial Laplacian, so that broader existence does not calculate its optimum."
+        ],
+        "reasoning": "Dominating design-space optimum cannot imply optimum under the polynomial constraints; exact active positivity boundary and second branch need constrained optimization.",
+        "searches": [
+          "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian",
+          "Boyd–Diaconis–Xiao DOI:10.1137/S0036144503423264",
+          "Apers–Sarlette arXiv:1503.01269",
+          "Boyd et al arXiv:0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "Pinned 2026/10/18/sharp-positivity-transition-for-quadratic-fastest-mixing-kernels--203d7ad904b3/RESULT.md @ f101fc3761bc351be4021819977ac0c43c24dcd0",
+        "Pinned 2026/10/18/sharp-positivity-transition-for-quadratic-fastest-mixing-kernels--203d7ad904b3/verify_quadratic_biclique.py @ 9cf2e0e4e51e88a4130164e73b43d86e5b9789a9",
+        "https://arxiv.org/abs/1503.01269",
+        "https://arxiv.org/abs/0709.0955",
+        "https://doi.org/10.1137/S0036144503423264",
+        "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unconstrained optimum becomes entrywise negative on the high-degree diagonal precisely when (p-2)q>p².",
+          "Boyd one-hop transition optimal alpha=min(1/q,2/(q+2p)); contains no quadratic beta and within-part mixing."
+        ],
+        "reasoning": "Old results supply input spectra or relaxed solution, but not the exact crossing, unique positivity-saturated optimum or two-step factor separation; a new feasibility/LP argument is required.",
+        "searches": [
+          "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian",
+          "Apers–Sarlette original Sections 1–2 and footnote removing positivity",
+          "Boyd et al 2007 §3.1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Apers–Sarlette explicitly relax intermediate/total entrywise Markov constraints while optimizing spectral polynomial filters.",
+          "Boyd et al solve one-hop Markov probabilities on K_{p,q}."
+        ],
+        "reasoning": "Polynomial spectral relaxation and one-hop Markov optimum differ from the constrained degree-two Markov class with within-part two-hop entries. The unconstrained branch is prior art, correctly credited.",
+        "searches": [
+          "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian",
+          "Apers–Sarlette arXiv:1503.01269 Sections 1–2",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §3.1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest semantic Resultary records give Laplacian spectra and other complete-bipartite invariants, not constrained polynomial Markov positivity.",
+          "Known one-hop K_{p,q} tables are not the degree-two polynomial class."
+        ],
+        "reasoning": "No matching formula table found in examined resources, but existing constrained polynomial literature may be unindexed.",
+        "searches": [
+          "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian",
+          "Resultary top-12 semantic search polynomial biclique fastest mixing",
+          "arXiv:1503.01269"
+        ]
+      },
+      "rationale": "The unconstrained polynomial equioscillation and one-hop fastest-mixing solutions are already known and specifically excluded from novelty. The additional contribution is the constrained polynomial Markov positivity frontier, unique second branch and holding transition, and first-order factor obstruction for bicliques.",
+      "residual_risks": [
+        "A specialized fastest-mixing quadratic Markov polynomial result could independently solve this biclique LP in older or unindexed literature.",
+        "Positive completed polynomial may have signed intermediate calculations; not a product of valid Markov steps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNCONSTRAINED_BRANCH_PRIOR_ART",
+          "evidence": [
+            "Known polynomial equioscillation, but filters need not be Markov nonnegative."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.01269",
+          "material_read": "Accessible 15-page arXiv PDF; pp.1–4, Section 2, polynomial filtering and explicit relaxation of positivity; theorem-level equations",
+          "method": "Read original PDF and inspected page screenshot",
+          "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+          "trigger": "Exact second-order polynomial filter family and complete bipartite example"
+        },
+        {
+          "assessment": "ONE_HOP_NOT_TWO_HOP",
+          "evidence": [
+            "Known one-edge transition rates not the degree-two positive polynomial optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Accessible 39-page arXiv PDF, Section 3.1.2 pp.8–9, explicit K_pq symmetric one-hop transition",
+          "method": "Read original PDF and screenshot",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Complete bipartite exact fastest-mixing law"
+        },
+        {
+          "assessment": "GENERAL_SDP_DIFFERENT_FEASIBLE_SET",
+          "evidence": [
+            "One-hop graph-supported chains and general SDP do not specify exact fixed degree-two polynomial positivity specialization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Primary publication bibliographic/abstract and Markov support formulation, not complete article in this run",
+          "method": "Theorem-scope comparison through sources and original references",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Potential general SDP domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a natural sharp design constraint separating signed-intermediate spectral filters from valid completed stochastic transitions, with exact achievable mixing versus extreme part imbalance. Useful to spectral consensus and Markov kernel design rather than merely recomputing Laplacian eigenvalues.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned 2026/10/18/sharp-positivity-transition-for-quadratic-fastest-mixing-kernels--203d7ad904b3/RESULT.md @ f101fc3761bc351be4021819977ac0c43c24dcd0",
+    "Pinned 2026/10/18/sharp-positivity-transition-for-quadratic-fastest-mixing-kernels--203d7ad904b3/verify_quadratic_biclique.py @ 9cf2e0e4e51e88a4130164e73b43d86e5b9789a9",
+    "https://arxiv.org/abs/1503.01269",
+    "https://arxiv.org/abs/0709.0955",
+    "https://doi.org/10.1137/S0036144503423264",
+    "Resultary semantic query: complete bipartite graph quadratic polynomial Markov chain fastest mixing positivity threshold two hop Laplacian"
+  ],
+  "disposition": "passed",
+  "final_claim": "Unique fastest-mixing entrywise-nonnegative quadratic Laplacian filter on K_{p,q}, p>=2<=q, with exact positivity transition (p-2)q=p², closed-form two branches, zero high-degree holding beyond threshold, and separation from two individually stochastic one-hop factors.",
+  "limitations": [
+    "Only unweighted complete bipartite K_pq with 2<=p<=q and degree-two f(L), not arbitrary Markov matrix on squared graph or edge-weight perturbations.",
+    "Exact rational/LP tests for 78 samples corroborate general proof only."
+  ],
+  "residual_risks": [
+    "A specialized fastest-mixing quadratic Markov polynomial result could independently solve this biclique LP in older or unindexed literature.",
+    "Positive completed polynomial may have signed intermediate calculations; not a product of valid Markov steps."
+  ],
+  "schema_version": 1
+}

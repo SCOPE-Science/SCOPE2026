@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The block identity for the Laplacian square accounts for all transition types and yields necessary and sufficient entrywise nonnegativity inequalities. Three spectral values determine SLEM. The alternating-sign affine-polynomial argument establishes the unconstrained minimax unique solution; an active-constraint perturbation certificate proves the saturated branch is globally and uniquely optimal without relying on numerical optimizers. The boundary regimes and equal-part case are treated explicitly. Exact rational and independent matrix/linear-program calculations yielded 14,188 passing finite checks. Limitation: finite checks are corroboration, not an infinite-parameter proof.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The unconstrained degree-two polynomial minimax is established background in Apers–Sarlette and is not claimed as new. Boyd–Diaconis–Xiao and Boyd–Diaconis–Parrilo–Xiao solve a different, one-hop Markov transition design problem, including the biclique. The present positive-kernel constraint is a different mathematical feasible set; the source's unconstrained polynomial can acquire a negative diagonal, requiring a distinct branch. Examined full sections and published-result searches found no exact positive-kernel classification with the sharp holding boundary. Remaining risk: an unindexed or differently formulated constrained-polynomial specialization may cover it; this assessment is not an independence certification.
+PASS
 
-**Value — PASS.** A polynomial Markov filter that permits only two-hop interactions is a natural constrained communication design. The all-size exact optimizer and sharp activation of zero holding probabilities explain precisely where spectral Chebyshev filtering violates a physical probability constraint. The rigorous separation from composing two individually stochastic first-order kernels quantifies why Markov-valid total filters can be substantially faster than stagewise Markov updates. This is an intrinsic structural classification rather than a numerical instance or mere algebraic reformulation.
+Spectrum of complete bipartite Laplacian has three nonzero values p,q,p+q (two when p=q); block square gives four necessary/sufficient positivity conditions beta>=0, alpha>=(p+q)beta, both holding diagonals nonnegative. Unconstrained equioscillating quadratic f has f(p)=f(p+q)=tau, f(q)=-tau with beta=2/[p(p+3q)] and alpha=(2p+q)beta. Weak sign changes of h(t)/t, an affine function, prove strict uniqueness. Its high-degree holding probability is nonnegative iff (p-2)q<=p². Above, alpha=(q+2p)/[q(2p-1)], beta=1/[q(2p-1)] saturate this diagonal; then f(p)=f(p+q)=((p-1)q-p²)/[q(2p-1)] and f(q)=-1/(2p-1). Perturbation u,v constrained u<=(q+1)v produces strict SLEM increase for any v sign, proving uniqueness. At p=q exact degree-two interpolation kills two positive modes. Two separately nonnegative Euler factors require 0<=gamma_i<=1/q and retain p-eigenvalue >=(1-p/q)², while quadratic rate tends (p-1)/(2p-1). Independently checked 78 integer instances with exact fractions and an LP formulation; universal result is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The unconstrained polynomial equioscillation and one-hop fastest-mixing solutions are already known and specifically excluded from novelty. The additional contribution is the constrained polynomial Markov positivity frontier, unique second branch and holding transition, and first-order factor obstruction for bicliques.
+
+## value
+
+PASS
+
+Identifies a natural sharp design constraint separating signed-intermediate spectral filters from valid completed stochastic transitions, with exact achievable mixing versus extreme part imbalance. Useful to spectral consensus and Markov kernel design rather than merely recomputing Laplacian eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
