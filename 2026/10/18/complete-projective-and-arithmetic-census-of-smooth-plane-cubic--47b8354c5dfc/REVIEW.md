@@ -1,11 +1,21 @@
-# Scientific review: complete classification of binary smooth cubic nets
+# Independent mathematical audit
 
-**Correctness (PASS).** The geometric smoothness criterion is exact: a ternary cubic in characteristic two is smooth over the algebraic closure if and only if the degree-four Macaulay map for its three quadratic partial derivatives has rank 15. The regular-sequence Hilbert series proves the converse, so finite-extension tests are merely independent corroboration. Exhaustion covers all 1,023 nonzero cubics, all 5,544 smooth pencils, the resulting 864 nets and every putative fourth generator. The full group of 168 projective substitutions certifies eight disjoint orbits, and direct rational evaluation plus an incidence identity proves the spectrum and rational-base-point statements. The two included scripts reproduce the key finite counts.
+## correctness
 
-**Originality (PASS, with limitations).** The maximal smooth-net dimension was previously proved by Asgarli--Ghioca--Reichstein (arXiv:2207.00918, Theorem 2) and is explicitly recalled as known in Asgarli--Ghioca (arXiv:2407.18104, Theorem 2). It is **not** claimed as a new theorem here. The independent contribution is the complete census of 864 maximizing nets, eight projective orbits, all five point-count spectra and absence of rational base points, none of which is stated or implied by those existence/dimension theorems. Asgarli--Ghioca (arXiv:2407.18104) investigate geometrically irreducible members, a weaker condition than smoothness. Ishitsuka (arXiv:1604.00115) classifies individual cubics, which does not imply a net classification. Hattori--Papazachariou--Zanardini (arXiv:2603.17521) examine GIT-stable nets, but their GIT results do not imply this census. Targeted research-record and literature searches did not identify equivalent counts. Indexing omissions and uninspected equivalent computations remain residual risks.
+PASS
 
-**Value (PASS).** The exact count, eight projective orbits and five arithmetic strata classify the **entire extremal family** at the already-known sharp smoothness dimension and reveal its rational base-point structure. These natural moduli and arithmetic invariants are not implied by existence, maximality, the count of individual smooth cubics, or generic Bertini statements.
+Characteristic-two Euler identity makes simultaneous vanishing of the three partials equivalent to singularity on the projective cubic. The three homogeneous quadratic partials define a regular sequence exactly when smooth; rank 15 of the map (S_2)^3→S_4 is equivalent to no geometric projective singularity. Independently recomputed over all 1023 nonzero coefficient vectors: 336 smooth cubics; all 5544 all-smooth two-dimensional subspaces; all 864 all-smooth three-dimensional subspaces; five claimed rational-point-count histogram multiplicities 168,168,336,168,24. The repository code explicitly exhausts all 168 invertible binary 3x3 coordinate substitutions and checks eight orbits of sizes 168x5 and 8x3. The seven-point incidence identity sum_member N_F=21+4b gives b=0 since every listed spectrum sums to 21. Enumeration over finite F2 parameter space is exhaustive; geometric smoothness is certified algebraically by the Macaulay rank criterion rather than finitely many extension fields.
 
-The scientific report makes no claim of third-party certification or of completeness beyond the finite parameter space described.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asgarli–Ghioca–Reichstein Theorem 2 previously proves maximum projective dimension two for all-smooth plane-cubic systems over F2. This is credited and not new. Asgarli–Ghioca 2024 studies the weaker property of geometric irreducibility; Ishitsuka classifies single cubic representations. Neither source inspected gives a simultaneous seven-smooth-member, coordinate-equivalence orbit and point-spectrum census. Resultary exact-concept search found no dominating census. Best-of-knowledge originality of the complete net classification, not smooth-system existence/maximality.
+
+## value
+
+PASS
+
+A complete finite small-field classification of maximal smooth linear systems is a naturally posed problem following the maximal-dimension theorem. Distinguishing eight projective equivalence classes and five arithmetic point spectra is an intrinsic geometric classification, not a purposeless numerical slice; rational-basepoint absence is structurally linked to the spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
