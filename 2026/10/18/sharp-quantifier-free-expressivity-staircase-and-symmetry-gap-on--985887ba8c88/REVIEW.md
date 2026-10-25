@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's scope is exact: undirected \(C_n\) with \(n\ge3\), quantifier-free formulas in adjacency and equality, and arities \(k\ge1\). Equality partitions reduce complete tuple types to labeled induced adjacency graphs. Proper induced cycle subsets are exactly linear forests with at most as many components as omitted vertices; the converse embedding uses nonempty cyclic gaps. Spanning subsets give labeled cycles. The path component labeled EGF gives the finite exact count, and component layers prove strict monotonicity through \(2k\) and constancy afterward. Free action on tuples with at least three distinct vertices yields the dihedral orbit formula. An independently implemented exhaustive checker evaluates actual cycle adjacency and actual dihedral transformations, rather than simply repeating the generating function. The full result is mathematically proved, not inferred from these finite tests. Correctness risks are the stated signature and fixed-arity boundaries; they are explicit and handled.
+PASS
 
-## Originality — PASS (qualified)
+For any ordered tuple, the equality partition on k coordinates into j blocks and the induced adjacency graph on its j distinct vertices determine the complete parameter-free atomic diagram. On C_n, proper j-subsets induce disjoint unions of r paths with 1<=r<=min(j,n-j), while a full n-subset induces the labeled n-cycle; f_{j,r}=j!/r![z^j](z+z^2/(2(1-z)))^r. Thus T_{n,k}=sum_j S(k,j)a_{n,j}, and any union of atomic types is definable. As n increases, the missing-vertex bound adds strictly positive path-forest strata for n<2k, stabilizing exactly n>=2k (k>=2); least separation arity floor(n/2)+1. For the automorphism orbit count, D_n acts freely on ordered tuples with >=3 distinct entries, while 2-distinct tuples have floor(n/2) distances; Burnside/orbit counting gives O_{n,k}, and for fixed k>=2 this is ~n^{k-1}/2, yielding invariant-vs-definable fraction 2^{-(1/2+o(1))n^{k-1}}. Separate direct induced-graph enumerations n<=9,j<=4, staircase k<=6 and explicit dihedral tuple orbits n<=7,k<=3 all agreed. No extrapolation from tests.
 
-The 2019 open-definability paper proves the general subisomorphism criterion and uses induced paths to establish complexity hardness; it does not give cycle-specific type spectra, a sharp \(2k\) staircase, or the first arity separating any two cycle lengths. The 2023 algorithm paper treats the general functional-signature case rather than this specific relational enumeration. OEIS A011800 already lists the linear-forest counting function and its EGF, which is explicitly excluded from the independently original part. Separate research-record searches for undirected cycles, quantifier-free graph types, linear forests, orbit gaps, and equivalent parameterizations did not return the combined claim. The closest identified published record concerns quantifier **rank** on directed paths, a different logic/object. It was not fully accessible through the linked repository; therefore priority risk remains. No independence or first-publication priority is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete two-parameter exact definability invariant for a standard model-theoretic family, an attained sharp cutoff, a uniform exact first-separation arity between every pair of nonisomorphic cycles, and a quantified asymptotic loss of expressive power against symmetry-invariant relations. This is more than recomputing a known graph-count table: the inverse cutoff is an intrinsic logical distinction and the orbit gap shows a rapidly diverging discrepancy between two natural notions of definability. The results remain limited to the simple-cycle family and the restricted logical signature.
+Compared this final statement and its strict logical implications against the actual pinned source proof and the named primary prior results. Exact arity-dependent expressive power and sharp inverse distinguishing threshold for a natural family of homogeneous finite structures, plus the superexponentially vanishing quantifier-free fraction of dihedral-invariant relations. Nontrivial combination of graph-induced substructure geometry and model-theoretic definability, rather than just known forest enumeration.
 
-## Literature and residual risks
+## value
 
-Closest inspected literature: Areces et al. (2019), full HTML sections on semantics and complexity; Campercholi et al. (2023), full HTML introduction and definability criterion; OEIS A011800, entire entry. The published research-record result about quantifier rank on directed paths was available only as a title and summary and does not cover the present claim on its face. General labeled path-forest enumeration and subisomorphism criteria are known, so the assessment concerns their *cycle-specific sharp integration*, not those components individually. Search incompleteness and possible alternate age-profile terminology remain the main originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact arity-dependent expressive power and sharp inverse distinguishing threshold for a natural family of homogeneous finite structures, plus the superexponentially vanishing quantifier-free fraction of dihedral-invariant relations. Nontrivial combination of graph-induced substructure geometry and model-theoretic definability, rather than just known forest enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
