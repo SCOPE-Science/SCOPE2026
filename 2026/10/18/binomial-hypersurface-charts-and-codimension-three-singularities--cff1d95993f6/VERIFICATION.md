@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-23.md",
+      "INDEPENDENT_AUDIT_2026-10-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The self-contained program `verify_cycle_zonotope.py` uses Python's standard library only. Invoke `python verify_cycle_zonotope.py`; the expected final line is `VERIFY_OK`. It verifies every orientation of a cycle of size \(3\) through \(8\), the primitive signed circuit of oriented incidence roots, every maximal incidence minor as a unimodular basis, the orientation counts, and the predicted singular torus-fixed-point multiplicities. The recorded output is in `verification_output.txt`.
+# Independent mathematical audit
 
-The program does **not** prove normality of every semigroup, algebraic equality of all toric ideals in arbitrary size, or global purity by finite enumeration. The mathematical proof relies on the standard total-unimodularity integrality theorem and the Jacobian criterion in the explicit charts. There is no claim of independent audit or of a completed classification of singular-component incidences.
+## correctness
+
+PASS
+
+For a cycle, acyclic orientations are all 2^n−2 nonconstant cyclic edge choices; its incidence matrix is totally unimodular, so the normal-cone dual semigroup is saturated. The rank-one circuit has primitive signs on the k forward and n−k backward edges; its toric ideal is a single binomial product(a)−product(b), yielding entire affine charts. The Jacobian vanishes exactly with at least two zero coordinates in each block; these are (n−4)-planes, codimension three in dim n−1. Fixed-point count 2^n−2n−2 and Hilbert–Samuel order min(k,n−k) follow; normal toric hypersurface is Gorenstein. Independently checked orientation and singular fixed-count numerics for n=3..8. Full arbitrary-characteristic proof supplied by incidence and Jacobian, not experiments.
+
+## originality
+
+PASS
+
+Earlier face-vector work for graphical zonotopes establishes the arrangement/chamber combinatorics; broader braid-cone results can cover the Gorenstein corollary, which is therefore not separately novel. The exact cycle affine binomial charts and full singular-strata census are not stated in inspected comparable sources; literature under toric graphic arrangement aliases remains a risk.
+
+## value
+
+PASS
+
+A uniform complete affine chart classification and codimension-three singularity description for a natural infinite toric family are mathematically useful intrinsic invariants, not merely a small graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
