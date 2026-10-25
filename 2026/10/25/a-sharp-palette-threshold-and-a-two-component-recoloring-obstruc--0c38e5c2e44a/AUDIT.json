@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The graph is defined unambiguously by the six quadratic-residue steps modulo 13. An exhaustive independent-subset partition implementation establishes chi=5, 377 unordered optimal color partitions and exactly 45,240 labeled colorings. It constructs every legal recoloring, obtains two components of 22,620 each, and checks 98,280 edges and global color-transposition swapping. A logically distinct vertex-by-vertex C++ enumeration reconstructs all 45,240 five-color and 4,502,160 six-color assignments, tests all recoloring edges by arithmetic state encoding, and finds respectively two and one components with matching five-color counts and 27,626,040 six-color edges. A third complete Grundy checker fixes a color-seven vertex using the graph translation action, permutes its six neighbors and checks all proper completions and lower-neighbor-color conditions, finding zero seven-Grundy colorings; degree six bounds Grundy at most seven. Hence the Grundy number is at most six and the cited Bonamy-Bousquet theorem gives connectivity for all k>=7. The checker programs and exact outputs are included. Finite computation is used only for finite exhaustive statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy–Bousquet arXiv:1403.6386v1 Theorem 1 gives k-mixing for k at least the Grundy number plus one; the graph-specific Grundy bound is established independently here.",
+        "Cereceda–van den Heuvel–Johnson 2005 treat general coloring-graph connectivity and warn that connectivity need not be monotone in colors."
+      ],
+      "reasoning": "A general Grundy theorem implies the k>=7 portion only after a new graph-specific Grundy certificate; it does not imply R_5 component cardinalities, palette-permutation parity, or the crucial six-color connectedness.",
+      "searches": [
+        "Bonamy Bousquet Recoloring graphs via tree decompositions 2014 theorem Grundy k-mixing",
+        "Paley graph order 13 chromatic five coloring reconfiguration original published result"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.6386v1",
+      "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+      "arxiv:1412.3493v1",
+      "https://cs.indstate.edu/ge/Paley/chromatic.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonamy and Bousquet establish a general upper connectivity guarantee expressed using a Grundy parameter but not the exact threshold for P_13.",
+        "Cereceda et al. give reconfiguration concepts and general phenomena rather than this thirteen-vertex labeled configuration census.",
+        "Brewster and Noel treat general homomorphism mixing and do not supply the computed P_13 obstruction or exact threshold."
+      ],
+      "reasoning": "The theorem requires independent graph-specific finite lemmas: full enumeration of the two R_5 components, exact R_6 connectedness, and exclusion of a seven-color Grundy coloring. None follows from the inspected prior results on its own. The general mixing theorem is explicitly used only for k>=7.",
+      "searches": [
+        "arxiv:1403.6386 Theorem 1 Grundy bound",
+        "LSE-CDAM-2005-11 graph of vertex-colourings Paley thirteen",
+        "arxiv:1412.3493 mixing homomorphisms Paley"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact claim concerns connected components of graph of homomorphisms into K_5, equivalently single-site legal recoloring of proper labeled five-colorings. Cereceda et al. consider the color graph generally, and Brewster–Noel discuss mixing homomorphisms. Neither examined treatment supplied P_13-specific component enumeration."
+      ],
+      "reasoning": "Equivalent terminology (coloring graph, homomorphism reconfiguration, Glauber state graph, single-vertex recoloring, k-mixing) was explicitly considered. The state-space component split is strictly more specific than a general definition or chromatic value.",
+      "searches": [
+        "Paley graph order thirteen P(13) proper five-colorings recoloring components single vertex reconfiguration Kempe",
+        "Paley graph 13 proper colorings count chromatic five 5-coloring reconfiguration Glauber dynamics",
+        "quadratic residue graph order thirteen 5-colouring Glauber dynamics 6-mixing 5-mixing parity global colour permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exoo, Chromatic Numbers of Small Paley Graphs, reports independence number three and chromatic number five. Neither is asserted to be new.",
+        "The complete numeric reconfiguration counts were not located in the inspected available primary sources or targeted scientific records."
+      ],
+      "reasoning": "Previously tabulated chromatic data are weaker and cannot determine the connectivity of recoloring graphs. A missing match alone is not a proof of priority; tables or repositories not indexed remain a concrete risk.",
+      "searches": [
+        "Paley graph order 13 chromatic number independent set size Exoo table",
+        "Paley 13 5-coloring reconfiguration 45240 22620 two connected components proper coloring single-site Glauber threshold 6"
+      ]
+    },
+    "rationale": "The exact two 22,620-state R_5 components, palette-sign action, and sharp k=6 connectivity threshold for P_13 were not implied by the inspected general recoloring results, Paley chromatic tables, or distinct Paley homotopy results. The k>=7 step is correctly attributed to Bonamy-Bousquet after verifying its additional Grundy hypothesis. Related scientific-record searches for analogous aliases and exact counts yielded no covering mathematical claim. Originality remains same-review best-knowledge, not externally certified.",
+    "residual_risks": [
+      "Unindexed finite Paley-13 recoloring tables or equivalent homomorphism computations could independently contain the result.",
+      "Access and keyword coverage do not constitute exhaustive novelty proof; independent priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General theorem applies above the checked graph-specific Grundy bound; does not settle k=5 or k=6.",
+        "evidence": [
+          "Theorem 1 asserts that k>=Grundy(G)+1 is k-mixing."
+        ],
+        "identifier_or_url": "arxiv:1403.6386v1",
+        "material_read": "Abstract, statement of Theorem 1, definitions of Grundy coloring and connected recoloring graphs, proof-context pages",
+        "method": "Accessible open preprint full-text inspection",
+        "title": "Recoloring graphs via tree decompositions",
+        "trigger": "Exact all-larger-palette claim and general mixing theorem"
+      },
+      {
+        "assessment": "General recoloring theory and nonmonotonicity phenomena; no demonstrated Paley-13 state counts.",
+        "evidence": [
+          "The report analyzes the graph whose vertices are proper k-colorings and edges single-vertex changes."
+        ],
+        "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+        "material_read": "Available full-paper definitions, introduction, examples and connectivity discussion",
+        "method": "Accessible original report PDF page inspection",
+        "title": "Connectedness of the Graph of Vertex-Colourings",
+        "trigger": "Plausible foundational covering theorem for labeled recoloring graph"
+      },
+      {
+        "assessment": "Addresses general recoloring/mixing, without the exact Paley-13 census.",
+        "evidence": [
+          "Includes graph homomorphism recoloring and mixing definitions."
+        ],
+        "identifier_or_url": "arxiv:1412.3493v1",
+        "material_read": "Accessible preprint abstract, introductory definitions and theorem summaries",
+        "method": "Accessible preprint PDF text inspection",
+        "title": "Mixing Homomorphisms, Recolourings, and Extending Circular Precolourings",
+        "trigger": "Equivalent homomorphism language, possible stronger mixing guarantee"
+      },
+      {
+        "assessment": "Known alpha=3 and chi=5, credited rather than claimed; no recoloring-state enumeration.",
+        "evidence": [
+          "Paley-13 independence number 3 and chromatic number 5."
+        ],
+        "identifier_or_url": "https://cs.indstate.edu/ge/Paley/chromatic.html",
+        "material_read": "Paley-13 chromatic and independence-number table entries",
+        "method": "Published online numerical table inspection",
+        "title": "Chromatic Numbers of Small Paley Graphs",
+        "trigger": "Known numerical graph values and potential exact table domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c38e5c2-e44a-47f0-8b68-afb362a190a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the intrinsic chromatic palette size of a canonical vertex-transitive, strongly regular graph, the full recoloring state space has two equal nontrivial components even though there are no frozen optimal colorings. The global permutation parity identifies a structural obstruction. The precise palette increase to six restores connectivity, and a separate Grundy argument extends it to every larger palette, answering a natural graph-specific mixing-threshold question. The exact degree strata distinguish configurations and support future structural/reconfiguration analysis; a finite result is adequate because the defined graph and invariant are natural, not an ad hoc sliced table.",
+    "status": "PASS"
+  }
+}
