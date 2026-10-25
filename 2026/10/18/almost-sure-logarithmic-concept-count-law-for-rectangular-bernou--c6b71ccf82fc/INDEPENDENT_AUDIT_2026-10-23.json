@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-23",
+  "audited_at_utc": "2026-10-23T13:02:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim assumes r_n=n^{alpha+o(1)}, m_n=n^{beta+o(1)}, alpha,beta>0, fixed p in (0,1) and independence of entries INSIDE each matrix, without cross-index independence. For k=floor((1-epsilon)log r/lambda), every k-attribute subset has Bin(r,p^k) support, mean at least r^epsilon. Conditional independence of outside columns gives closure-failure <=exp(-r^epsilon/8)+m exp(-lambda r^epsilon/2); union over m^k=exp(O(log^2 n)) makes failures summable. The lower bound log binom(m,k)~(1-epsilon)log r log m/lambda follows. A concept with extent >=A=ceil((1+epsilon)log m/lambda) and intent >=B=ceil((1+epsilon)log r/lambda) induces a distinct all-one rectangle. Its first-moment sum is <=rm exp(A log r+B log m-lambda AB), with high-high exponent <=(1-epsilon^2)log r log m/lambda+O(log n); Markov plus Borel-Cantelli and smaller-side deterministic counts prove the upper a.s. and expectation bounds. The argument needs no independence across n. Independently computed all incidence matrices at p=1/2 for 2x2,3x3,4x4, obtaining expectations 39/16,1977/512,386463/65536; these are checks, not a substitute for the universal argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovacs 2018 gives expected-value counting/approximation rather than almost-sure sharp concentration.",
+          "Sakurai 2021 Theorem 5.1 supplies a superpolynomial EXPECTED lower bound in a special model, not matching upper/lower a.s."
+        ],
+        "reasoning": "Neither known mean statement entails concentration for arbitrary cross-n coupling; the present proof supplies summable deviations and the full rectangular coefficient.",
+        "searches": [
+          "https://real.mtak.hu/92004/1/2529.pdf",
+          "https://arxiv.org/pdf/2101.11023",
+          "Resultary semantic: random Bernoulli formal context number of concepts maximal bicliques almost surely log count squared coefficient alpha beta log p rectangular"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2101.11023",
+        "https://real.mtak.hu/92004/1/2529.pdf",
+        "Resultary semantic: random Bernoulli formal context number of concepts maximal bicliques almost surely log count squared coefficient alpha beta log p rectangular",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/7950194252196f55438640b78f7ae65dc98a35fb/2026/10/18/almost-sure-logarithmic-concept-count-law-for-rectangular-bernou--c6b71ccf82fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An expectation lower bound alone can coexist with rare extreme counts; it cannot imply the a.s. exponent.",
+          "The present simultaneous k-intent closure and summable large-rectangle upper tail supply ingredients not furnished by earlier mean formulas."
+        ],
+        "reasoning": "The inspected prior works are relevant to the same random incidence model, but their logical consequences fall short of the sharp a.s. law.",
+        "searches": [
+          "https://arxiv.org/abs/2101.11023",
+          "https://real.mtak.hu/92004/1/2529.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Formal concepts biject inclusion-maximal all-one rectangles (with empty-side conventions); that alias was used in searches.",
+          "The closed-intent combinatorics yields structural simultaneous closure absent from previously inspected expectation theorems."
+        ],
+        "reasoning": "The biclique alias is a true equivalence, not a separate theorem; we searched under both names and compared typical count rather than expected count.",
+        "searches": [
+          "Resultary semantic: random Bernoulli formal context number of concepts maximal bicliques almost surely log count squared coefficient alpha beta log p rectangular",
+          "maximal bicliques random bipartite graph asymptotic log count almost surely",
+          "https://arxiv.org/abs/2101.11023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact closed-pair expectation formula predates this claim; the accompanying small-table values 39/16,1977/512,386463/65536 were recomputed and are not asserted novel."
+        ],
+        "reasoning": "Finite mean tables do not determine the (log n)^2 almost-sure asymptotic; no exact table subsumes an unrestricted theorem.",
+        "searches": [
+          "https://real.mtak.hu/92004/1/2529.pdf",
+          "Resultary semantic: random Bernoulli formal context number of concepts maximal bicliques almost surely log count squared coefficient alpha beta log p rectangular"
+        ]
+      },
+      "rationale": "The almost-sure SHARP exponent and simultaneous closure of ALL logarithmically subcritical intents are not supplied by the inspected expected-value literature. Known exact means and lower bounds are acknowledged; an unindexed random maximal-biclique theorem remains possible.",
+      "residual_risks": [
+        "Potential equivalent theorem in random bipartite maximal-complete-biclique literature not fully indexed.",
+        "No distributional fluctuations or second-order terms are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE, not theorem coverage",
+          "evidence": "Theorem 5.1 establishes a superpolynomial expectation lower bound in the half-density case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.11023",
+          "material_read": "Full primary PDF with introduction and Theorem 5.1 on PDF page 3; comparison of expectation-only conclusion",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "On formal concepts of random formal contexts",
+          "trigger": "Same random formal context and number of concepts"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE, not almost-sure coverage",
+          "evidence": "An exact/approximate expected number formulation is previously known; no matching a.s. limit appears in inspected theorem statements.",
+          "identifier_or_url": "https://real.mtak.hu/92004/1/2529.pdf",
+          "material_read": "Full published PDF, methods and counting formula sections",
+          "method": "Open-access primary PDF; full-text mathematical section inspection with page images when available",
+          "title": "Efficient approximation for counting of formal concepts generated from formal context",
+          "trigger": "Same object and explicit concept mean"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This establishes the typical logarithmic output-size scale in a standard random formal-context model and a simultaneous-intent structural theorem. The sharp exponent in polynomially rectangular regimes distinguishes typical from merely expected complexity. Both variables and the exact invariant are natural.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential equivalent theorem in random bipartite maximal-complete-biclique literature not fully indexed.",
+    "No distributional fluctuations or second-order terms are established."
+  ],
+  "schema_version": 1
+}

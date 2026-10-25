@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every attribute subset of logarithmically subcritical size has an independently binomial number of supporting rows with polynomially growing mean. Conditioned on the supporting rows, the outside attribute indicators remain independent, so Chernoff and union bounds establish simultaneous closure with summable failure probability. For the upper bound, each concept is uniquely determined by either projection, and those with large extents and intents inject into all-one rectangles; their expected count has a maximum at the double logarithmic cutoff and summable Markov tail. Borel–Cantelli and countably many cutoffs yield the almost-sure limit without cross-size independence. The bounds also yield the expectation exponent. Exhaustive small cases provide independent consistency checks but not a substitute for the analytic argument.
+PASS
 
-## Originality
+The final claim assumes r_n=n^{alpha+o(1)}, m_n=n^{beta+o(1)}, alpha,beta>0, fixed p in (0,1) and independence of entries INSIDE each matrix, without cross-index independence. For k=floor((1-epsilon)log r/lambda), every k-attribute subset has Bin(r,p^k) support, mean at least r^epsilon. Conditional independence of outside columns gives closure-failure <=exp(-r^epsilon/8)+m exp(-lambda r^epsilon/2); union over m^k=exp(O(log^2 n)) makes failures summable. The lower bound log binom(m,k)~(1-epsilon)log r log m/lambda follows. A concept with extent >=A=ceil((1+epsilon)log m/lambda) and intent >=B=ceil((1+epsilon)log r/lambda) induces a distinct all-one rectangle. Its first-moment sum is <=rm exp(A log r+B log m-lambda AB), with high-high exponent <=(1-epsilon^2)log r log m/lambda+O(log n); Markov plus Borel-Cantelli and smaller-side deterministic counts prove the upper a.s. and expectation bounds. The argument needs no independence across n. Independently computed all incidence matrices at p=1/2 for 2x2,3x3,4x4, obtaining expectations 39/16,1977/512,386463/65536; these are checks, not a substitute for the universal argument.
 
-**PASS, subject to specialist-literature risk.** Kovács (2018) derives a corresponding exact *expectation* expression, not a concentration theorem. Sakurai (arXiv:2101.11023v1, 2021) proves an *expected-value* superpolynomial lower bound using a related random-context model; Theorem 5.1 does not establish a matching typical-count exponent or simultaneous closure of logarithmically many attributes. Felde–Hanika–Stumme (2020) investigates the Bernoulli coin-toss null model and more general sampling, not the almost-sure concept-count exponent. Searches of published mathematical findings and synonym-based primary-literature searches found no statement implying the combined theorem. Equivalent maximal-biclique-count results outside these accessible sources remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In a standard probabilistic baseline for formal concept analysis, the new law identifies the sharp logarithmic-size exponent of the *typical* full concept lattice, rather than a moment bound. The uniform subcritical-intent result is a concrete structural strengthening. The balanced law provides a sharp baseline for judging the likely output size of concept enumeration. The result addresses a motivated asymptotic gap without claiming an algorithmic running-time bound.
+The almost-sure SHARP exponent and simultaneous closure of ALL logarithmically subcritical intents are not supplied by the inspected expected-value literature. Known exact means and lower bounds are acknowledged; an unindexed random maximal-biclique theorem remains possible.
 
-## Limitations and residual risks
+## value
 
-The theorem does not give lower-order terms, concentration width, varying incidence probabilities, or dependent incidence patterns. The almost-sure assertion presumes a joint coupling of marginals for each positive integer; cross-size independence is expressly not assumed. Novelty cannot be guaranteed against all unindexed or inaccessible random bipartite maximal-biclique literature. Verification code tests finite consistency only. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This establishes the typical logarithmic output-size scale in a standard random formal-context model and a simultaneous-intent structural theorem. The sharp exponent in polynomially rectangular regimes distinguishes typical from merely expected complexity. Both variables and the exact invariant are natural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
