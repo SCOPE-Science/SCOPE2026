@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Finite partition functions give \\(\\operatorname{Cov}_q(F,J)=q(d/dq)\\mathbb E_q F\\). At \\(q=1\\), conditioning on fixed locations gives \\(-(n+1)/6\\). Single adjacent swaps at the identity and reversal have first-order summed fixed-point shifts \\(-2(n-1)\\) and \\(-2\\) or \\(+2\\) according to parity. The inversion-sequence coefficient bound and two-fixed-point adjacent-swap Lipschitz inequality prove \\(|Z^2(d\\mathbb E F/dx)-b_1|<1\\) for \\(0<x\\le1/(100n^2)\\), establishing the strict all-size bias-endpoint signs. The endpoint series and exact \\(n=3\\) rational factorization follow algebraically. The standalone checker passed 393 exact assertions through \\(n=8\\); only the analytic inequalities establish infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He (2021) treats fixed \\(q\\) large-sample cycle-count limits and a fixed-point limiting mean; no finite-size q-derivative sign bound is stated in inspected sections.",
+        "He–Müller–Verstraaten (2022) prove an odd/even limit law for large-sample and limiting expectations at \\(q\\) tending to infinity, but not uniform finite-size derivative bounds as q varies."
+      ],
+      "reasoning": "Strong asymptotic parity results could motivate the phenomenon but do not imply that covariance is positive for every finite odd n at all \\(q\\ge100n^2\\); limits in n and differentiations in \\(q\\) cannot be interchanged without additional uniform control. The proof here directly establishes that missing finite-parameter control.",
+      "searches": [
+        "arxiv:2112.09789 A central limit theorem for cycles of Mallows permutations Theorems 1.1-1.2 and Proposition 5.3",
+        "arxiv:2201.11610 Cycles in Mallows random permutations Theorems 1.3, 1.6, §2 and §6",
+        "Web: Mallows permutations fixed points expected number q inversion covariance derivative fixed points 2023"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Closest published asymptotic Mallows cycle work, finite-n statement not covered",
+        "id": "arxiv:2112.09789"
+      },
+      {
+        "assessment": "Odd/even fixed-point asymptotics, without q derivative finite-n sign bound",
+        "id": "arxiv:2201.11610"
+      },
+      {
+        "assessment": "Direct motivating conjecture, contradicted by odd-size high-q phase",
+        "id": "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations"
+      },
+      {
+        "comparison": "Computes uniform-permutation covariance of total cycle count with inversion indicators, not Mallows-tilted fixed-point/inversion covariance.",
+        "title": "Linear inversion-gap profile for cycle count in a uniform random permutation"
+      },
+      {
+        "comparison": "Studies fixed points versus descents at \\(q=1\\); no inversion-tilted sign reversal.",
+        "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation"
+      },
+      {
+        "comparison": "Concerns covariance/precision among inversion indicators under uniform permutation, not fixed-point response to q.",
+        "title": "Incidence precision law for inversion indicators of a uniform random permutation"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published research claim gives Cov(total cycle count, inversion indicators) at \\(q=1\\); the new object F is only 1-cycles, and the new covariance varies with q.",
+        "The closest fixed-point research claim concerns descents at uniform q, not inversion tilt or strong reverse-order bias.",
+        "The 2024 motivating question explicitly suggests the antitone relationship that the positive finite-size covariance disproves."
+      ],
+      "reasoning": "Compared parameter ranges, statistics, and logical implications: \\(q=1\\) identities do not force \\(q>1\\) signs, and asymptotic n limits lack the uniform derivative estimates required here. No checked stronger claim has been found that subsumes the full quantified new theorem.",
+      "searches": [
+        "Literature search: Mallows q model counterexample fixed point inversion covariance flips positive odd n and negative even n high q",
+        "Literature search: Mallows permutation high q fixed point derivative sign parity odd even finite n",
+        "Literature search: MathOverflow conjecture expected fixed points monotone decreasing in inversion count Mallows permutation false for odd size high inversion parameter",
+        "Semantic literature search: Mallows q permutation covariance fixed points inversion number sign parity n even odd derivative mean fixed points",
+        "Semantic literature search: Mallows permutations covariance fixed points inversions under q-weighted permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The covariance equals q times the derivative of expected fixed points under Mallows inversion tilt; because inversion expectation increases strictly, its positive sign is equivalent to failure of the proposed antitone response.",
+        "MathOverflow discussion (February 2024) states the monotonicity conjecture in terms of mean fixed points versus mean inversions, but its answers concern uniform conditioned inversion classes.",
+        "The arXiv:2201.11610 primary text establishes limiting fixed-point expectations as n tends to infinity, not finite-size covariance response."
+      ],
+      "reasoning": "Checked covariance, derivative, expected-Kendall-distance, fixed-point monotonicity, and parity formulations, not merely matching titles. The conjecture appears posed rather than answered by the material inspected; the finite covariance phase and explicit bound go beyond the asymptotic results.",
+      "searches": [
+        "Literature search: Mallows q permutation covariance fixed points inversion number sign parity n even odd derivative mean fixed points",
+        "Literature search: Mallows permutations covariance fixed points inversions under q-weighted permutations",
+        "Web: Mallows permutation expected fixed points number nonmonotone parameter q finite n odd even",
+        "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathOverflow presents an unproved exact conditional-inversion-mean formula and sample-level inversion strata; these are distinct from the tilted covariance family.",
+        "Exact \\(n=3\\) formula derives from complete 6-permutation weights, giving first odd bias threshold \\(1+\\sqrt{3}\\); no matching table or identity was identified in searched resources."
+      ],
+      "reasoning": "Finite enumerations and q-factorials are classical; they are not asserted novel. The all-odd-size covariance sign switch with an explicit valid cutoff was checked for exact match or implication by existing tables and claims and was not found.",
+      "searches": [
+        "Literature search: Mallows fixed point inversion monotonicity counterexample conjecture",
+        "Web: Relationship between fixed points and inversions in permutations MathOverflow Feb 7 2024",
+        "Web: Mallows q inversion count covariance with fixed points cycle statistics"
+      ]
+    },
+    "rationale": "The February 2024 fixed-point/inversion monotonicity question is explicitly contradicted for every odd size. Previous primary Mallows papers prove odd/even \\(n\\to\\infty\\) cycle laws, not this finite-size covariance sign reversal or uniform q-bound. Published nearby uniform-permutation claims concern total cycles/inversion or fixed-points/descents at \\(q=1\\), and their statements do not logically imply the new quantified theorem. Residual historical priority remains possible, without an identified stronger covering source.",
+    "residual_risks": [
+      "A different q-enumerative proof in the older ranking-model literature might contain the same finite derivative result; priority is not formally certified.",
+      "The quantitative cutoff \\(100n^2\\) is not optimal and the sign for intermediate q is not fully classified.",
+      "The MathOverflow monotonicity question is informal rather than a peer-reviewed conjecture.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background on odd/even asymptotic cycle laws; no finite-n derivative sign or explicit universal high-q threshold in inspected material",
+        "evidence": [
+          "Initial arXiv public date 2021-12-17; Theorem 1.2 concerns q>1 with \\(n\\to\\infty\\).",
+          "§5 gives limiting asymptotic fixed-point means, not derivative with n held fixed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.09789",
+        "material_read": "Abstract, introduction, Theorems 1.1–1.2, section about fixed points, targeted passages on covariance and additivity",
+        "method": "Open-access full HTML/text and targeted in-document search",
+        "title": "A central limit theorem for cycles of Mallows permutations",
+        "trigger": "Mallows cycles, 1-cycles, odd/even q>1 asymptotics"
+      },
+      {
+        "assessment": "Establishes fixed-q limiting n-dependent odd/even laws, not the claimed finite-n covariance response or \\(q\\ge100n^2\\) cutoff",
+        "evidence": [
+          "Theorem 1.6 treats limits of fixed-point counts after \\(n\\to\\infty\\) and q->infinity, different quantifier order.",
+          "§2 reversal identity under q↔1/q is known and used as background, not claimed new."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.11610",
+        "material_read": "Full open text available; examined introduction, Theorems 1.1–1.7, reversal relation in §2, and fixed-point expansions in §6, searched covariance/monotonicity",
+        "method": "Open-access arXiv HTML/text with sectional inspection and in-document term search",
+        "title": "Cycles in Mallows random permutations",
+        "trigger": "Highly relevant q-tilted permutations and fixed-point count"
+      },
+      {
+        "assessment": "States an expectation-monotonicity conjecture, with partial uniform-permutation observations; the odd-size Mallows covariance reversal supplies a negative answer to the unrestricted statement",
+        "evidence": [
+          "The posted Feb 8 answer revises the question to monotonic fixed-point means as inversion means vary.",
+          "The other answer gives a numerical conditional inversion-mean formula for uniform permutations, not an answer about q varying in Mallows."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/463675/relationship-between-fixed-points-and-inversions-in-permutations",
+        "material_read": "Entire question, both answers, and visible substantive comments, dated February 7–14, 2024",
+        "method": "Open web discussion read to end",
+        "title": "Relationship between fixed points and inversions in permutations",
+        "trigger": "Explicit finite-n statistical monotonicity conjecture addressed by new theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d60ba98-8c46-4041-8085-a9e09a6b123d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies an infinite, finite-size counterfamily to a concrete monotonicity proposal about permutation rankings, not just a numerical example: parity determines high-bias local response for all finite sizes, \\(q\\ge100n^2\\) is an explicit guaranteed regime, and \\(n=3\\) has an exact transition \\(1+\\sqrt{3}\\). Fixed points and Kendall inversions are primary observables in ranking models; the finite response differs qualitatively from the limiting cycle-count statements. The result does not overstate the unclassified intermediate region.",
+    "status": "PASS"
+  }
+}
