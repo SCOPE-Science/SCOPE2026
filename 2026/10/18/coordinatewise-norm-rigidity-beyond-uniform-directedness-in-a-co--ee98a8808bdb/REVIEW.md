@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies a covering family with exponentially sized blocks, lacunary support indices and exact secondary-block quotas. Its capture lemma uses a top-\(k\) averaging inequality and yields the key tail bound. A bounded sequence's block masses tend to zero by an anchored sparse-chain contradiction, while secondary portions of any higher-anchored admissible set also fit into an anchored-one set. These two facts produce a fixed norming anchor for every element. Tail capture with that anchor proves coordinatewise norm rigidity, equality of the finite-norm and vanishing-tail spaces, and relative compactness of bounded equinormed sets. Uniform directedness is contradicted with two fully occupied blocks and explicit incompatible cardinality requirements. Disjoint dyadic windows give exact norm-one projections onto isometric \(\ell_\infty^N\) spaces. The finite checker passes; the infinite conclusions are proved independently of its samples.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic risk
-Gulgowski--Sawicki, *Compactness in Combinatorial Banach Spaces and Beyond*, arXiv:2610.09810v1, Section 6, Theorems 12--14 and Examples 3--4, is the closest primary source. Theorem 12 and Theorem 13 require a positive **uniform** tail capture fraction. Their Example 4 gives a non-\(\ell_1\) example still satisfying a positive uniform class. The present construction demonstrably fails every \((\lambda,\gamma)\) class with \(\lambda<1/2\) and \(\gamma>0\), so those theorems do not logically imply the finding. The 2024 *ZOO of combinatorial Banach spaces* establishes general geometrical constructions, but its inspected introduction, structural results and examples do not state this coordinatewise norm-rigidity/absence-of-uniform-directedness conjunction. Published record and indexed-search comparisons disclosed no equivalent or strictly dominating claim. A non-indexed or differently phrased construction remains a bibliographic risk; absence in search is not independent certification.
+PASS
 
-## Value — PASS
-A current primary paper asks how weak directedness conditions affect compactness and supplies explicit examples that retain a uniform positive tail fraction. The constructed space shows a qualitatively different outcome: compactness of every bounded equinormed set, indeed a coordinatewise Radon--Riesz implication, survives when no positive uniform fraction in the near-directed range exists. The isometrically complemented \(\ell_\infty^N\) blocks prevent an explanation by mere equivalence to \(\ell_1\). This is an explicit structural boundary separating an analytic compactness principle from the literature's combinatorial sufficient conditions. It does not solve the separate open question concerning families that belong to classes approaching \((0,0)\).
+Under the explicit block definition |I_j|=2^j, successive occupied block indices at least double and secondary quota |F cap I_j|<=2^(j-i) for principal i, the local tail-capture argument enlarges any finite anchored D by choosing top-weight coordinates in distant blocks; it bounds the tail norm by 2^i times the norm deficit at D. An independent algebraic check reproduced the exact captured mass ratio 2^-i across representative anchor/far blocks. Finiteness of the norm forces whole-block mass b_j(x)→0: otherwise choose widely doubled high-mass blocks and sample at least half into an anchor-1 set, contradicting finite norm. Thus K_i(x)<=b_i+K_1 shows a fixed finite norming anchor for x; choosing D from that anchor proves norm convergence from coordinatewise/norm convergence, then FIN=EXH by truncations and compactness via diagonal extraction. Taking D=I_i, j≫2i and gamma>2^-i gives the obstruction to every specified uniform positive-fraction class. In each window j in [N,2N), at most one occupied block contributes, giving an explicit isometric 1-complemented ell_infty^N, which rules out isomorphism to ell_1 by uniform cotype. Infinite claims follow from quantified analytical arguments, not the finite checker.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Gulgowski–Sawicki arXiv:2610.09810v1 is the closest plausible source on compactness of combinatorial Banach spaces and positive uniform directedness, but the accessible bibliographic abstract does not state this lacunary-block example. arXiv HTML/OA full text was unavailable and the authorized Oxford full-text request returned vpn_disconnected; no entire-paper negative comparison is asserted. The source RESULT.md describes the explicit family and an argument separating every (lambda,gamma) with lambda<1/2; the earlier paper supplies sufficient directedness criteria and related examples, not a demonstrated identical weighted-lacunary coordinate-rigidity counterexample on current evidence. Resultary semantic searches yielded no matching class, and exact originality remains best-of-knowledge with a significant named residual risk.
+
+## value
+
+PASS
+
+The construction isolates a mathematically meaningful boundary of known equinormed compactness sufficient conditions: pointwise norm rigidity survives despite failure of every uniform positive tail-capture fraction near lambda zero, in spaces far from ell_1. Explicit complemented ell_infty^N witnesses its genuinely nonclassical geometry, making the counterexample structural rather than arbitrary finite parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
