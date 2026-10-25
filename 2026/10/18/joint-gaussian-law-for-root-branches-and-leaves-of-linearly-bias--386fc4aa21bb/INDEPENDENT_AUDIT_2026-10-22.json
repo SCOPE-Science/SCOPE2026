@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-22",
+  "audited_at_utc": "2026-10-22T13:52:56.664703Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n root parameter θ=θ_n stays fixed during that tree; θ/n→c>0. Conditional attachment probabilities p_j=θ/(θ+j−1), q_j=L_j/(θ+j−1), and disjoint root and leaf-parent categories yield bounded centered martingale increments ξ_B=I−p, ξ_L=−(J−q). Leaf centered recursion multiplies prior value by 1−1/(θ+j−1), telescoping to terminal coefficient b_{j,n}=(θ+j−1)/(θ+n−2). Exact joint conditional covariance matrix has entries p(1−p), b p q, b² q(1−q); the positive off diagonal is justified by mutually exclusive categories. Var(L_j)≤(j−2)/4 yields uniformly vanishing q_j−E q_j in L1 for θ∼cn; predictable quadratic variations are Riemann sums over p(x)=c/(c+x),q(x)=x(x+2c)/[2(c+x)²],b(x)=(c+x)/(c+1). Integrals give U(c)=c[log(1+1/c)−1/(c+1)],K(c)=c/[2(c+1)²],V(c)=(6c²+4c+1)/[12(c+1)³]. Bounded increments satisfy martingale Lindeberg; Cramér–Wold gives bivariate CLT. Three strictly positive attachment-category probabilities for x>0 ensure positive definite Σc. Finite exact E L and Cov formula verified independently by enumerating all n=4,θ=2 parent choices, yielding E L=9/4,Cov=3/8. This is finite corroboration, not proof of CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General weighted recursive trees include Hoppe model in fixed vector parameters, but the cited theorem studies marginal branches/leaves, not their joint triangular CLT."
+        ],
+        "reasoning": "No inspected theorem gives a two-dimensional covariance matrix and verifies predictable covariations uniformly over θ_n∼cn; fixed-θ asymptotics cannot be substituted when θ grows with n.",
+        "searches": [
+          "Hoppe recursive tree root weight proportional to n joint gaussian limit first generation root branches and leaves covariance",
+          "arXiv:1712.03572 Section 6",
+          "arXiv:1202.2439 Theorem 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Hoppe recursive tree root weight proportional to n joint gaussian limit first generation root branches and leaves covariance",
+        "Hoppe tree branch number leaf number covariance positive root weight theta",
+        "Leckey Neininger asymptotic analysis Hoppe trees 2012 full pdf leaf central limit theorem arxiv 1202.2439",
+        "arXiv:1202.2439",
+        "arXiv:1712.03572",
+        "Resultary ab0acf44833f",
+        "Frozen repository at f30f943587282d59c837419db4b41647621abfdb; RESULT.md and source checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed θ leaf CLT and separately root-branch CLT concern different parameter scalings; covariance is not obtained by multiplying marginal Gaussian laws."
+        ],
+        "reasoning": "A new triangular martingale array and simultaneous predictable quadratic cross-variation limit are essential for the joint claim; prior marginal limit theorems do not imply dependence or positive off diagonal.",
+        "searches": [
+          "arXiv:1202.2439 Theorem 2.5",
+          "arXiv:1712.03572 Theorem 6.1",
+          "Hoppe recursive tree root weight proportional to n joint gaussian limit first generation root branches and leaves covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Root degree/first-generation Hoppe branches/Chinese-restaurant table count are aliases for B; nonroot leaves L are not table count."
+        ],
+        "reasoning": "Under these aliases, prior papers address each marginal separately for fixed weight, not the correlated triangular θ_n/n→c bivariate Gaussian with exact Σc.",
+        "searches": [
+          "Hoppe recursive tree root weight proportional to n joint gaussian limit first generation root branches and leaves covariance",
+          "Hoppe tree branch number leaf number covariance positive root weight theta",
+          "arXiv:1202.2439",
+          "arXiv:1712.03572"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exact leaf expectation is known; fixed θ=1 covariance root/leaves is previously recorded. Σc continuous functions U,K,V and its c>0 regime were not found in these sources."
+        ],
+        "reasoning": "Known scalar finite expectation/covariance does not tabulate or imply the bivariate CLT covariance at order-n root attraction.",
+        "searches": [
+          "Hoppe tree branch number leaf number covariance positive root weight theta",
+          "Resultary ab0acf44833f",
+          "arXiv:1202.2439 Theorem 2.5"
+        ]
+      },
+      "rationale": "Best-of-knowledge original relative to the named same-object, general-method and neighboring-formulation publications inspected. Exact statement/implication comparisons do not establish prior coverage; limitations on partially read related records remain recorded explicitly. Under these aliases, prior papers address each marginal separately for fixed weight, not the correlated triangular θ_n/n→c bivariate Gaussian with exact Σc. No inspected theorem gives a two-dimensional covariance matrix and verifies predictable covariations uniformly over θ_n∼cn; fixed-θ asymptotics cannot be substituted when θ grows with n.",
+      "residual_risks": [
+        "Other specialized multivariate weighted recursive-tree literature could already state an equivalent triangular limit; the authorized full primary texts do not show this.",
+        "No assertion at c=0,∞ or quantitative rates; finite checker cannot prove martingale CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_ROOT_WEIGHT_MARGINAL_ONLY",
+          "evidence": "Parameter θ is stated arbitrary and fixed throughout asymptotic result; no joint root branch/leaf Gaussian law for triangular θ_n/n→c in the source.",
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/leckey.pdf",
+          "material_read": "Full 11-page author-posted 2012 arXiv v3 PDF: section 2 explicitly fixes θ for n→∞ and Theorem 2.5 gives marginal leaf moments and CLT; leaf recursion and proof context examined",
+          "method": "full lawful author OA PDF text and theorem-page screenshot",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "Same Hoppe-tree model and exact leaf moment/marginal limit"
+        },
+        {
+          "assessment": "MARGINAL_STATISTICS_NOT_SPECIFIC_JOINT_LIMIT",
+          "evidence": "Related weighted-tree marginal theorems, fixed weight schemes; no statement of Σc for joint root children and leaves in a triangular θ_n∼cn family found.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.03572",
+          "material_read": "Full accessible PDF including Section 3 leaf results and Section 6 root branches; theorem-page screenshot read",
+          "method": "full preprint PDF and visual inspection",
+          "title": "Asymptotic results on Hoppe trees and its variations",
+          "trigger": "General weighted recursive trees might dominate triangular joint CLT"
+        },
+        {
+          "assessment": "FIXED_THETA_NOT_THETA_PROPORTIONAL_N",
+          "evidence": "With θ=1 the root degree fluctuations have different scale; c>0 excludes the θ/n→0 regime, so fixed-weight covariance does not imply K(c)>0 after n normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "material_read": "Published mathematical summary states Cov→1/2 for fixed unit root weight; full external record not read in this run",
+          "method": "Resultary published statement mathematical comparison",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Nearest published explicit covariance between same statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First explicit joint branch/leaf Gaussian scaling regime at θ_n of order n, with nonzero positive covariance and a nondegenerate matrix distinct from fixed-weight asymptotics. Root attraction and terminal leaf fluctuations are natural coupled observables in weighted recursive trees; their explicit dependence is useful beyond marginal limits.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hoppe recursive tree root weight proportional to n joint gaussian limit first generation root branches and leaves covariance",
+    "Hoppe tree branch number leaf number covariance positive root weight theta",
+    "Leckey Neininger asymptotic analysis Hoppe trees 2012 full pdf leaf central limit theorem arxiv 1202.2439",
+    "arXiv:1202.2439",
+    "arXiv:1712.03572",
+    "Resultary ab0acf44833f",
+    "Frozen repository at f30f943587282d59c837419db4b41647621abfdb; RESULT.md and source checker"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Other specialized multivariate weighted recursive-tree literature could already state an equivalent triangular limit; the authorized full primary texts do not show this.",
+    "No assertion at c=0,∞ or quantitative rates; finite checker cannot prove martingale CLT."
+  ],
+  "residual_risks": [
+    "Other specialized multivariate weighted recursive-tree literature could already state an equivalent triangular limit; the authorized full primary texts do not show this.",
+    "No assertion at c=0,∞ or quantitative rates; finite checker cannot prove martingale CLT."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "FIXED_ROOT_WEIGHT_MARGINAL_ONLY",
+      "evidence": "Parameter θ is stated arbitrary and fixed throughout asymptotic result; no joint root branch/leaf Gaussian law for triangular θ_n/n→c in the source.",
+      "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/leckey.pdf",
+      "material_read": "Full 11-page author-posted 2012 arXiv v3 PDF: section 2 explicitly fixes θ for n→∞ and Theorem 2.5 gives marginal leaf moments and CLT; leaf recursion and proof context examined",
+      "method": "full lawful author OA PDF text and theorem-page screenshot",
+      "title": "Asymptotic analysis of Hoppe trees",
+      "trigger": "Same Hoppe-tree model and exact leaf moment/marginal limit"
+    },
+    {
+      "assessment": "MARGINAL_STATISTICS_NOT_SPECIFIC_JOINT_LIMIT",
+      "evidence": "Related weighted-tree marginal theorems, fixed weight schemes; no statement of Σc for joint root children and leaves in a triangular θ_n∼cn family found.",
+      "identifier_or_url": "https://arxiv.org/abs/1712.03572",
+      "material_read": "Full accessible PDF including Section 3 leaf results and Section 6 root branches; theorem-page screenshot read",
+      "method": "full preprint PDF and visual inspection",
+      "title": "Asymptotic results on Hoppe trees and its variations",
+      "trigger": "General weighted recursive trees might dominate triangular joint CLT"
+    },
+    {
+      "assessment": "FIXED_THETA_NOT_THETA_PROPORTIONAL_N",
+      "evidence": "With θ=1 the root degree fluctuations have different scale; c>0 excludes the θ/n→0 regime, so fixed-weight covariance does not imply K(c)>0 after n normalization.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "material_read": "Published mathematical summary states Cov→1/2 for fixed unit root weight; full external record not read in this run",
+      "method": "Resultary published statement mathematical comparison",
+      "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+      "trigger": "Nearest published explicit covariance between same statistics"
+    }
+  ]
+}
