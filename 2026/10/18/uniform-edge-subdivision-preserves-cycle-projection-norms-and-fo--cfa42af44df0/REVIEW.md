@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite connected loopless graph and positive integer subdivision vector, degree-two flow conservation identifies the new cycle space with a replication of the original cycle space. The Gram matrix of this replication is the diagonal path-length matrix. Orthogonal-projection algebra gives its exact block-constant entries. The weighted cycle projector has diagonal strictly below the reciprocal path lengths (no single loopless edge carries a nonzero circulation), which proves the strict columnwise comparison after every edge is subdivided. Absolute column sums give the endpoint norms; uniform lengths give both invariance and the exact cut norm formula. The complete-graph example is evaluated directly from its incidence Laplacian. These deductions include trees, bridges, disconnected cycle blocks within a connected graph, and all edge orientations. Exact-rational tests corroborate 35 finite graph/subdivision configurations (10,264 entries), including the sharp reversal on the complete graph with five vertices.
+PASS
 
-## Originality — PASS, with stated residual risk
+For any finite connected loopless simple graph (trees included), consistency of subdivision path flows yields Z(G_r)=UZ(G), UᵀU=diag(r_e). Orthogonal projection is U B(Bᵀ R B)^{-1}BᵀUᵀ, entries H_fe replicated on each path, so ℓ1 norm C is max_e Σ_f r_f|H_fe| and Q column sum is 1+A_e−2H_ee. Weighted projection diagonal satisfies 0≤r_e H_ee<1 because no one-edge circulation. Thus all r_e≥2 force strict per-column cut domination. For uniform r, H=C_G/r gives invariant cycle norm, exact monotone cut norm, limit 1+∥C_G∥, gap≤2/r. Direct independent incidence-Laplacian calculation for K5 reproduces cut 8/5, cycle 9/5 before and cut 11/5, cycle 9/5 after r=2; source verify_subdivision.py was read as corroboration, not proof. Boundary case tree gives C=0,Q=I.
 
-The closest primary source is Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost* (arXiv:2305.12582). Its projection framework and graph-family calculations do not state the transformation of canonical endpoint norms under arbitrary series subdivisions. Their *Analysis on Laakso graphs* (arXiv:2007.07949) uses recursive graph replacements and different projection estimates, not the asserted all-graph identities. A published record on coordinate projections of cactus transportation-space bases addresses a different map and cannot directly imply the canonical orthogonal cycle/cut transformation. Searches for electrical transfer currents, edge subdivisions, series reductions, endpoint norms, and equivalent cut–cycle projector formulations did not identify a covering statement. General transfer-current matrix identities are standard background, so an implicit earlier observation remains possible; absence from searches is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This establishes a general operation law for a natural Banach-space invariant of **every** finite connected graph, rather than recomputing constants for another graph family. It proves a sharp global phenomenon: a single subdivision of each edge reverses all possible cases where the canonical cycle projection is larger, while preserving the cycle projection norm. The exact nonuniform formula and uniform limiting law offer usable transfer principles for graph refinements and comparisons of Lipschitz/transportation-space quotient constructions. The sharp counterexample before subdivision demonstrates the substantive change. It does not establish minimal projection constants; that stronger and different question is left open.
+Novelty appears to be the explicit weighted subdivision transfer law for the canonical ℓ1/ℓ∞ orthogonal cycle/cut projections on any finite connected graph, plus strict cut dominance for all lengths≥2 and sharp K5 reversal. Existing graph cycle projection texts include different graph families and projection minimization questions.
 
-## Closest literature and limitations
+## value
 
-Primary comparators: arXiv:2305.12582 (2023), arXiv:2007.07949 (2020). The uninspected full content of some less-direct published mathematical records creates residual overlap risk. The proof is finite-dimensional and pertains only to the canonical orthogonal projections; numerical tests are corroborative, not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same graph after series subdivision has exact canonical projection ℓ1 norms; universal r=2 reversal of cut/cycle dominance is a sharp structural boundary for graph-flow and transportation-space projections. Distinct from routine basis change because absolute column norms and strict inequality demand an additional argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

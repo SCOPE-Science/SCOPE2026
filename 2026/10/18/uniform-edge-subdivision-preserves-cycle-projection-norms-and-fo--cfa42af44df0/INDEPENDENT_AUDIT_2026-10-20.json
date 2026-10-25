@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-20",
+  "audited_at_utc": "2026-10-20T05:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite connected loopless simple graph (trees included), consistency of subdivision path flows yields Z(G_r)=UZ(G), UᵀU=diag(r_e). Orthogonal projection is U B(Bᵀ R B)^{-1}BᵀUᵀ, entries H_fe replicated on each path, so ℓ1 norm C is max_e Σ_f r_f|H_fe| and Q column sum is 1+A_e−2H_ee. Weighted projection diagonal satisfies 0≤r_e H_ee<1 because no one-edge circulation. Thus all r_e≥2 force strict per-column cut domination. For uniform r, H=C_G/r gives invariant cycle norm, exact monotone cut norm, limit 1+∥C_G∥, gap≤2/r. Direct independent incidence-Laplacian calculation for K5 reproduces cut 8/5, cycle 9/5 before and cut 11/5, cycle 9/5 after r=2; source verify_subdivision.py was read as corroboration, not proof. Boundary case tree gives C=0,Q=I.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary orthogonal/invariant projector source emphasizes Hamming/discrete torus structures; recursively edge-replaced diamond/Laakso graphs are different operations."
+        ],
+        "reasoning": "General projection formula does imply the matrix UHUᵀ by elementary linear algebra, but does not explicitly supply the ℓ1 cut versus cycle norm law or sharp universality over any graph in material checked.",
+        "searches": [
+          "arXiv:2305.12582",
+          "Dilworth–Kutzarova–Ostrovskii 2020 diamond Laakso graph projection work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.12582 primary PDF relevant projection sections",
+        "Dilworth–Kutzarova–Ostrovskii edge replacement prior scope",
+        "Resultary query: Orthogonal cycle cut projections ell_1 norms uniformly subdividing graph edges complete graph transfer resistance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known orthogonal cycle projectors give the starting C_G, but weighted UᵀU and replication must be tracked to compute induced ℓ1 norms."
+        ],
+        "reasoning": "The complete statement follows from an explicit natural algebraic lemma, not from changing wording of a published finite-graph norm; the scientific value lies in identifying universal preservation/reversal and sharp threshold.",
+        "searches": [
+          "arXiv:2305.12582 Section on orthogonal graph projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "UHUᵀ is equivalent to the diagonal series-resistance Green/cycle projector formula with replicated columns, and yields the stated absolute column norms."
+        ],
+        "reasoning": "Compared the exact weighted transfer and column-sum implication, not merely labels; recognized series reduction is standard while its ℓ1 norm consequence and reversal were not found explicitly.",
+        "searches": [
+          "Orthogonal cycle cut projections ell_1 norms uniformly subdividing graph edges complete graph transfer resistance",
+          "arXiv:2305.12582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cactus theorem concerns coordinate/suppression maps of spanning-tree bases, not orthogonal cycle/cut projections under subdivision."
+        ],
+        "reasoning": "An exact table for K5 norms is easy to derive but the record claims an all-graph transformation, not a new database entry; no exact all-r result was found.",
+        "searches": [
+          "Orthogonal cycle cut projections ell_1 norms uniformly subdividing graph edges complete graph transfer resistance",
+          "Resultary 2026/10/11 sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans"
+        ]
+      },
+      "rationale": "Novelty appears to be the explicit weighted subdivision transfer law for the canonical ℓ1/ℓ∞ orthogonal cycle/cut projections on any finite connected graph, plus strict cut dominance for all lengths≥2 and sharp K5 reversal. Existing graph cycle projection texts include different graph families and projection minimization questions.",
+      "residual_risks": [
+        "A known general network-reduction/projector identity might already imply all formulas in an uninspected standard reference.",
+        "No exhaustive survey of pre-2023 Banach graph complementability papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies invariant projections in special graph families; series-subdivision law for arbitrary finite connected G was not found in inspected material",
+          "evidence": "Prior graph projection definitions/invariant context; present identity UHU^T and cut/cycle reversal are separate.",
+          "identifier_or_url": "arXiv:2305.12582",
+          "material_read": "Full primary PDF consulted, introduction and primary orthogonal projection sections including Hamming cases; searched subdivision",
+          "method": "arXiv lawful primary PDF; mathematical comparison",
+          "title": "Invariant and orthogonal projections onto graph cycle spaces",
+          "trigger": "Same canonical orthogonal cycle projections and induced norms"
+        },
+        {
+          "assessment": "Recursive diamond/Laakso replacements differ from simple series edge subdivision and do not alone imply asserted column-norm identity",
+          "evidence": "Different graph construction and target projections; residual full-text priority risk.",
+          "identifier_or_url": "Dilworth–Kutzarova–Ostrovskii 2020 edge-replacement work",
+          "material_read": "Research record citation and available bibliographic description; no complete full-text reading claimed",
+          "method": "Known-result conceptual comparison",
+          "title": "Projection methods for diamond and Laakso graphs",
+          "trigger": "Potential stronger graph transformation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same graph after series subdivision has exact canonical projection ℓ1 norms; universal r=2 reversal of cut/cycle dominance is a sharp structural boundary for graph-flow and transportation-space projections. Distinct from routine basis change because absolute column norms and strict inequality demand an additional argument.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and verify_subdivision.py",
+    "arXiv:2305.12582 primary PDF orthogonal projection sections",
+    "Resultary cycle projection semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only canonical Euclidean orthogonal projections measured as real ℓ1/ℓ∞ maps, not optimal projection constants or common ambient-space infinite graph limits. Finite check K5 is evidence not universal proof."
+  ],
+  "residual_risks": [
+    "A known general network-reduction/projector identity might already imply all formulas in an uninspected standard reference.",
+    "No exhaustive survey of pre-2023 Banach graph complementability papers."
+  ],
+  "schema_version": 1
+}
