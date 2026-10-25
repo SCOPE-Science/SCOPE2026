@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-24.md",
+      "INDEPENDENT_AUDIT_2026-10-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite statement can be regenerated from `verify.py` and `SPECTRUM.tsv` using `python3 verify.py`. The program uses prefix doubling for suffix-array order, a linear adjacent-LCP computation, exact extension-set enumeration for all LCP cores, and direct containment tests of each output. It checks the complete spectra and ten full-output digests. It also checks the sequence against a separate binary decimation recurrence, compares the complete antidictionaries to direct all-substrings enumeration at the two smallest stated levels, and tests both enumeration methods on pseudorandom finite words with a fixed seed.
+# Independent mathematical audit
 
-All calculations are exact string operations and integer arithmetic; there are no numerical approximations or statistical estimates. The mathematical candidate-reduction argument appears in `RESULT.md`. The finite computation covers precisely the claimed integer range, not an infinite extension. Independent audit and independent validation have not been performed.
+## correctness
+
+PASS
+
+PASS for exactly m=7..16: complete minimal-absent-word candidate lemma is sound for any finite word; all ten asserted finite parameters and complete digests were independently recomputed, including boundaries and endpoint behavior. No unbounded generalization is accepted.
+
+## originality
+
+PASS
+
+Classical Rudin–Shapiro subword/factor complexity and generic minimal-absent-word algorithms do not present the ten prefix-dependent antidictionary size distributions or sorted-digest data. The algorithm is acknowledged as standard; claim is a specialized exact finite table with completeness proof.
+
+## value
+
+PASS
+
+Finite antidictionaries specify the minimal forbidden contiguous patterns of a canonical automatic sequence prefix. The complete ten-level length spectrum, exactly linear total 8m−5 and uniquely longest word are useful natural combinatorial invariants and rigorous test data for factor-recognition/automatic-sequence algorithms, even without an infinite-m theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

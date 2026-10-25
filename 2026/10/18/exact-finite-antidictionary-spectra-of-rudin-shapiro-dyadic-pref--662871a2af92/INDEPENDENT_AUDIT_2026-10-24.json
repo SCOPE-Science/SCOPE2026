@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-24",
+  "audited_at_utc": "2026-10-24T23:58:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md candidate-reduction lemma",
+        "verify.py 65eacf4872f833a41526ead64489e498955f7251",
+        "SPECTRUM.tsv 98b10278353eac79d1bdff730a1f52fe2286238c",
+        "independent_checks.log C2_MAW each m=7..16"
+      ],
+      "rationale": "PASS for exactly m=7..16: complete minimal-absent-word candidate lemma is sound for any finite word; all ten asserted finite parameters and complete digests were independently recomputed, including boundaries and endpoint behavior. No unbounded generalization is accepted.",
+      "residual_risks": [
+        "Full exact finite input range only; tempting linear m-pattern for arbitrarily large prefixes remains unproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Infinite RS factor complexity counts present subwords but do not determine finite-prefix boundary-sensitive simultaneous left/right extension failures. Generic MAW algorithms imply enumerability for any finite word, not these explicit spectra."
+        ],
+        "reasoning": "Neither inspected antecedent already supplies the exact output numbers or theorem for these ten finite prefixes; their general methods underlie the computation.",
+        "searches": [
+          "Allouche--Bousquet-Mélou 1994 original factor-complexity article",
+          "Barton et al 2014 general MAW enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Allouche--Bousquet-Mélou 1994 original article",
+        "Barton et al arXiv:1406.6341 full OA",
+        "OEIS A005943",
+        "Resultary SCOPE079 string-attractor result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinite factor counts are global and lose the finite truncation positions. Suffix-array algorithm can compute this table from the prefix but does not state it."
+        ],
+        "reasoning": "Current exact census requires explicit finite enumeration; it is not an immediate numeric corollary of the cited infinite factor formula.",
+        "searches": [
+          "Allouche--Bousquet-Mélou 1994 infinite factor language",
+          "Barton et al 2014 suffix-array MAW theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General two-sided extension characterization of MAWs and LCP candidates is a known algorithmic framework, not a novel theorem by itself."
+        ],
+        "reasoning": "Terminological aliases antidictionary/minimal forbidden words/minimal absent factors are checked; the current claim is specialized finite RS dyadic *word* spectra, not a new universal algorithm.",
+        "searches": [
+          "Barton et al arXiv:1406.6341 minimal absent words suffix array",
+          "Allouche--Bousquet-Mélou 1994 Rudin--Shapiro factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A005943 counts present factors rather than minimal absent factors. Resultary SCOPE079 concerns string-attractor sizes of short RS prefixes, a different invariant."
+        ],
+        "reasoning": "This specific ten-length histogram/digest table was not observed in cited databases; absence does not establish absolute novelty.",
+        "searches": [
+          "OEIS A005943 Rudin--Shapiro factor complexity",
+          "Resultary: Rudin Shapiro finite dyadic prefixes minimal absent words length spectrum antidictionary"
+        ]
+      },
+      "rationale": "Classical Rudin–Shapiro subword/factor complexity and generic minimal-absent-word algorithms do not present the ten prefix-dependent antidictionary size distributions or sorted-digest data. The algorithm is acknowledged as standard; claim is a specialized exact finite table with completeness proof.",
+      "residual_risks": [
+        "Older differently indexed RS antidictionary tables or mechanically derivable formulas in unexplored literature may cover finite numbers; independent priority is best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies factor languages and subword complexity; inspected statements differ from prefix minimal-absent extension spectra.",
+          "evidence": "1994 article factor complexity theorem on generalized Rudin–Shapiro",
+          "identifier_or_url": "Allouche and Bousquet-Mélou, 1994, https://ftp.gwdg.de/pub/EMIS/journals/BBMS/Bulletin/bul942/ALLBOU.PDF",
+          "material_read": "Original 20-page PDF obtained; inspected introduction, factor-complexity statements and related finite factor discussion.",
+          "method": "lawful open-access primary PDF, page screenshot and extracted text",
+          "title": "Facteurs des suites de Rudin-Shapiro généralisées",
+          "trigger": "Same automatic word, potentially stronger language complexity classification"
+        },
+        {
+          "assessment": "Gives general enumeration theorem, not this specified RS finite-spectrum table; methodological novelty is not asserted.",
+          "evidence": "Definition of MAW and LCP/suffix-array extension criteria",
+          "identifier_or_url": "Barton--Heliou--Mouchard--Pissis, arXiv:1406.6341, BMC Bioinformatics 15:388 (2014)",
+          "material_read": "Full article openly accessible; inspected definitions, principal algorithm and Lemmas 1–2 in HTML and PDF.",
+          "method": "primary OA HTML and PDF read",
+          "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+          "trigger": "Closest method and definition of minimal absent words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md stated complete finite spectrum",
+        "Allouche--Bousquet-Mélou 1994 automatic-word combinatorics",
+        "Barton et al 2014 minimal forbidden words"
+      ],
+      "rationale": "Finite antidictionaries specify the minimal forbidden contiguous patterns of a canonical automatic sequence prefix. The complete ten-level length spectrum, exactly linear total 8m−5 and uniquely longest word are useful natural combinatorial invariants and rigorous test data for factor-recognition/automatic-sequence algorithms, even without an infinite-m theorem.",
+      "residual_risks": [
+        "Limited to ten preselected dyadic levels and potential known-table recomputation risk; value lies in complete motivated exact natural census, not algorithmic novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full exact finite input range only; tempting linear m-pattern for arbitrarily large prefixes remains unproved.",
+    "Older differently indexed RS antidictionary tables or mechanically derivable formulas in unexplored literature may cover finite numbers; independent priority is best-of-knowledge only.",
+    "Limited to ten preselected dyadic levels and potential known-table recomputation risk; value lies in complete motivated exact natural census, not algorithmic novelty.",
+    "All conclusions are local to the checked exact final claim; no Lean/expert independent attestation is claimed; public sanitization not completed."
+  ],
+  "schema_version": 1
+}
