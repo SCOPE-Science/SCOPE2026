@@ -1,0 +1,11 @@
+# Scientific review: icosahedral perfect-matching complex
+
+**Correctness — PASS.** The graph and complex are explicitly defined, and a self-contained Python verifier performs two perfect-matching counts, exhaustive face enumeration, full discrete-Morse acyclicity checking, and signed integral Morse projection. Its 38-by-62 boundary reduces through 19 exact unit pivots and no residual entries. Because the Morse CW model has only zero-, two-, and three-cells, the attaching maps lie in the free second homotopy of the two-sphere wedge; unimodular cancellations give the full homotopy equivalence, not just field homology. The separate mod-two simplicial ranks corroborate the dimensions and multiplicities.
+
+**Originality — PASS with limits.** Indexed comparisons for perfect matching, one-factor, dimer, and extendability formulations found no exact complex's homotopy classification. The nearest graph-specific indexed result treats the ordinary matching complex and does not imply the homotopy type of its proper perfect-matching subcomplex. The full accessible papers on honeycomb graphs and polygonal line tilings cover other graph families. Plummer's older work concerns matching extension rather than simplicial homotopy, but its full text remained inaccessible and an unpublished or unindexed equivalent computation remains possible.
+
+**Value — PASS.** The icosahedron is a canonical five-regular planar triangulation with exceptionally strong matching-extendability properties in the claw-free setting. Its perfect-matching complex agrees with the ordinary matching complex through the one-skeleton, but loses 140 three-edge matchings; the exact mixed wedge classification measures the topological consequences. The known ordinary complex's three-primary torsion and the present subcomplex's torsion-free homology provide a mathematically motivated distinction, not an arbitrary numerical slice.
+
+**Scope and residual risks.** Results apply to one specified finite graph; no general family or inclusion-map theorem follows. No external independent validation has occurred; the previously published graph-specific ordinary result and an older matching-extension article could not both be inspected in full text.
+
+Self-review: passed. Independent audit: not yet performed.
