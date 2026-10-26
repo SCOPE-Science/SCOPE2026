@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs OR iterations as length-exact weight-two Cayley walks; builds length r and r+1 representations for every nonzero even-weight vector and length two/three return walks at zero, covering all t >= 2. At T=floor(n/2) the full parity component is reached; at T-1 only the antipodal shell can be missing. Singleton vs common-neighborhood subset counts, including double-counted pairs, give A_n and independent-component inclusion-exclusion gives E_n. No finite checks are substituted for this unrestricted construction. The actual package verifier reproduced 36 walk-shell tests, 246494 state tests and A_n for n=6..9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Hernández (2000), sections on OR-net basins and primitive graph generality; no displayed specialized halved-cube maximal-depth count in examined material.",
+        "Jarrah et al. (2008), Lemma 2.7 general height/exponent, Theorem 1.3 OR–AND duality; qualitative stronger generality for height, but no closed extremal state count.",
+        "Aledo et al. (2015), section 3.1 describes known fixed-point/diameter bounds for OR parallel graph systems."
+      ],
+      "reasoning": "Those papers substantially cover fixed-point structure, walks and height and hence are acknowledged as prior; they do not state a formula equivalent to A_n or E_n for all even and odd n, nor a combinatorial count of Hamming-neighborhood-contained subsets. The original contribution claimed is the exact maximal-transient labelled-state census, not the general attractor theorem.",
+      "searches": [
+        "The Dynamics of Conjunctive and Disjunctive Boolean Networks arxiv 0805.0275 exponent transient",
+        "Goles Hernandez Dynamical behavior Kauffman networks with AND-OR gates open access full text",
+        "Parallel Dynamical Systems over Graphs and Related Topics: A Survey OR height",
+        "uniform Boolean networks conjunctive disjunctive networks convergence time primitive exponent graph connected nonbipartite hypercube"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0805.0275 (initial public posting 2008-05-02)",
+      "doi:10.1142/S0218339000000109 (Goles–Hernández 2000)",
+      "doi:10.1155/2015/594294 (Aledo et al. survey)",
+      "https://mathworld.wolfram.com/HalvedCubeGraph.html (graph nomenclature, not originality)",
+      "published-finding corpus: 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238",
+      "Own accessible private ledger claims: 0ad04620-0340-4336-9bb7-87de8dffca2e, 69a62e02-7bca-487e-baff-3cc55b322501, c4bf7451-81f9-43ad-ba49-e0fe901994bc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jarrah et al. 2008 provides a height/exponent implication; the asserted extremizer count is strictly more specialized information not entailed numerically by a scalar exponent.",
+        "Goles and Hernández 2000 characterizes generic basins by connectivity/primitivity; it does not supply the numerical Hamming-sphere union count needed for E_n.",
+        "Own accessible ledger entries 0ad04620-0340-4336-9bb7-87de8dffca2e (distance-three XOR), 69a62e02-7bca-487e-baff-3cc55b322501 (higher-distance XOR) and c4bf7451-81f9-43ad-ba49-e0fe901994bc (OR on cyclic one-dimensional ring) have different maps or underlying graphs."
+      ],
+      "reasoning": "Prior general reachability theorems imply convergence once enough walks exist; they do not logically specify how many initial seed supports fail to cover at the penultimate step. Counting those supports requires the singleton and common-neighborhood subset classification with center multiplicities. The accepted claim is this numerical census with exact domain; different operators/graphs do not subsume it.",
+      "searches": [
+        "disjunctive Boolean dynamical networks OR over connected undirected graphs exact phase space height and number configurations at maximum transient",
+        "Goles Hernandez OR-nets synchronous Boolean dynamics transient number 1988 graph",
+        "Sharp convergence times and extremal initial states for deterministic synchronous majority dynamics on trees or cycles",
+        "published-finding corpus: For disjunctive OR Boolean network on halved hypercube graph H(n,2), exact maximum preperiod floor(n/2), number initial states attaining maximal transient odd n even n antipodal Hamming shell"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jarrah et al., arXiv:0805.0275, Theorem 1.3: complement conjugacy between AND and OR network dynamics; Lemma 2.7: height equals Boolean adjacency exponent.",
+        "Goles and Hernández, DOI:10.1142/S0218339000000109, OR-net basin theorem for connected undirected graphs.",
+        "published-finding corpus: 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 concerns XOR, not OR."
+      ],
+      "reasoning": "Complementation converts OR to AND without changing the count, so both names were considered. Boolean-matrix path powers also give the same activation sets. Neither generic reformulation directly states the number of extremizers on this halved-cube family. The closely named parity/XOR network counts linear algebraic orbits and cannot imply this nonlinear OR census without an unprovided reduction.",
+      "searches": [
+        "disjunctive Boolean networks graph dynamics orbit convergence period 2012 2015",
+        "For disjunctive OR Boolean network on halved hypercube graph H(n,2), exact maximum preperiod floor(n/2), number initial states attaining maximal transient odd n even n antipodal Hamming shell",
+        "halved n-cube OR-neighbor Boolean network convergence fixed points maximal transient Hamming-distance two antipodes",
+        "Jarrah Laubenbacher Veliz-Cuba arxiv:0805.0275 The Dynamics of Conjunctive and Disjunctive Boolean Networks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Halved Cube Graph, MathWorld: graph decomposes into even and odd Hamming-parity components, each with 2^(n-1) vertices; does not tabulate initial-state transient counts.",
+        "published-finding corpus nearest SCOPE-a-mod-four-orbit-census... is parity/XOR update, not this OR rule.",
+        "published-finding corpus SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238 gives Hamming-ball dilation constants, not disjunctive dynamical extremizers."
+      ],
+      "reasoning": "No exact-count table or database row supplying the assessed A_n/E_n was recovered. This absence is not treated as proof of uniqueness, and generic halved-cube structural tables are not claimed as new.",
+      "searches": [
+        "Boolean OR cellular automaton distance two hypercube Hamming graph transient stabilization time",
+        "\"halved cube\" \"exponent\" primitive graph matrices",
+        "\"disjunctive\" \"halved cube\" transient count Boolean",
+        "published-finding corpus: Boolean adjacency OR dynamics halved cube / distance-two hypercube exact convergence time primitive exponent seed coverage",
+        "published-finding corpus: OR Boolean network on hypercube distance-two graph, Hamming parity components, extremizers unique antipodal supports and one-sphere subsets"
+      ]
+    },
+    "rationale": "The exact all-dimensional count of configurations with maximal transient time is not provided by the inspected general OR/AND dynamics results. The generic relation between Boolean walks and transient height, and the existence of fixed attractors, are explicitly treated as prior. Direct comparison of the geometric support characterization and A_n/E_n formulas against inspected materials and published-finding corpus results did not find an equivalent or dominating exact count; archival coverage outside this search remains a risk.",
+    "residual_risks": [
+      "The specialized Hamming-neighborhood extremizer count could exist in unindexed graph theory or Boolean-network work not recovered by these searches.",
+      "General OR network papers have implications for reachability and cutoff; the assessed novelty is the exact count of maximally slow labelled states, not those general methods.",
+      "No independent expert priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General qualitative basin and transient coverage acknowledged; no specialized A_n/E_n formula in examined sections",
+        "evidence": [
+          "OR-net basin Lemma 3 classifies primitive and nonprimitive graph basins; section 4 provides linear transient bound, not labelled maximal-depth count for halved cubes."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/263905866_DYNAMICAL_BEHAVIOR_OF_KAUFFMAN_NETWORKS_WITH_AND-OR_GATES",
+        "material_read": "Accessible full-text rendering; OR-net section, Lemma 3 on basin structure, primitive-property Theorem 2, and section 4 on transient Lyapunov bounds",
+        "method": "Read the retrieved accessible scientific text and compare its statements to the specialized Hamming-shell extremizer count",
+        "title": "Dynamical behavior of Kauffman networks with AND-OR gates",
+        "trigger": "Closest earlier general OR network basin and transient theory"
+      },
+      {
+        "assessment": "Graph-exponent method covers the generic height principle; not the halved-cube maximal-transient count",
+        "evidence": [
+          "Theorem 1.3 establishes OR/AND conjugacy; Lemma 2.7 relates height to graph exponent."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+        "material_read": "Accessible arXiv full text, Introduction, Theorem 1.3, Section 2 on Boolean adjacency powers, Lemma 2.7 and exponent definition",
+        "method": "Read theorem statements and compare graph-loop-number/exponent implications with E_n",
+        "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+        "trigger": "Primary general disjunctive-Boolean network paper with height/exponent statements"
+      },
+      {
+        "assessment": "Describes fixed-point and upper-bound results, not the count of maximal-delay Hamming supports",
+        "evidence": [
+          "The survey says OR-PDS trajectories are eventually fixed and bounds first-entry time by graph diameter."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2015/594294",
+        "material_read": "Open full-text survey section 3.1 on OR/AND graph systems, attractors, and diameter bounds",
+        "method": "Compare qualitative orbit and diameter results with explicit state-count formula",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Review of potentially dominating OR-network results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52e59b45-71bb-49b1-b25a-575fb373cad5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit all-dimensions count for a natural first-entry maximal-depth stratum in a highly symmetric Boolean network quantifies rare extremal initial states beyond any diameter/height scalar. A sharply different structure in even (singleton supports) and odd (arbitrary nonempty subsets of Hamming neighborhoods) dimensions explains the exact formula. It is a motivated structural classification rather than a small table or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
