@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The result is established for the symmetric origin-started continuum sluggish diffusion with \(\alpha\ge0\), independent Poisson resets of rate \(r>0\), and the positive occupation fraction over a growing interval. The key inputs are the exact Lamperti free-cycle Stieltjes transform and the positive renewal kernel. Its unique exponential tilt and the nonlattice renewal theorem establish the cumulant exponent without relying on a numerical pole. Implicit differentiation proves strict convexity and analyticity; compact support and the differentiable cumulant limit yield the full large-deviation principle. Regular variation of the positive root at large conjugate field supplies the sharp endpoint coefficient. The Brownian specialization and independently evaluated transform integrals provide cross-checks. Finite diagnostics do not replace the proof.
+
+## Originality — PASS (best-knowledge)
+The 2024 free-sluggish paper supplies the Lamperti law and transform, while the October 2026 resetting paper supplies the exact two-variable Laplace transform and Gaussian central regime. The 2018/2019 Brownian-reset theory already supplies the Brownian full rate; general renewal-reward large-deviation theory was established in 2022. The present contribution is limited to the explicit non-Brownian all-sluggishness cumulant root, the computable full rate, and especially the sharp \(\mu\)-dependent rare-occupation endpoint. Statement-level comparisons of the inspected relevant sources and published mathematical-research records did not locate that coefficient or classification. General frameworks can imply the existence of a rate without stating the non-Brownian sharp law. Residual risk remains from an unlocated specialization of general Lamperti-renewal theory; priority is not independently certified.
+
+## Value — PASS
+The source reports a Gaussian central limit but leaves the exponentially small probabilities of almost-one-sided trajectories unresolved. The present rate quantifies precisely that observable: its endpoint cost is the reset rate, yet its approach to that cost exhibits a continuously variable exponent \(\mu=1/(\alpha+2)\). This distinguishes sluggishness classes at large-deviation scales that their common reset-controlled central limit cannot resolve. The full explicit parametric rate can be evaluated over the entire physical occupation interval.
+
+## Closest literature and scientific limits
+The closest sources are arXiv:2610.21962v1 (resetting occupation transform and Gaussian limit), arXiv:2410.22097v1 (free Lamperti law), arXiv:1801.09909 (Brownian reset large deviations), and arXiv:2207.07521 (abstract renewal-reward large deviations). The assumptions exclude non-Poisson and threshold resets and discrete finite-step dynamics. There is no uniform finite-time large-deviation error estimate. Literature-wide priority and independent verification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
