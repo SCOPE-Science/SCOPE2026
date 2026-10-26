@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The Strehl identity is rearranged by exact factorial cancellation. Each resulting summand has 2-adic valuation s_2(j)+s_2(n-j)+nu_2(C(n,2j)); its minimum is s_2(n). Both equality criteria are necessary and sufficient: j and 2j are binary submasks of n. Thus minimum terms correspond to freely chosen adjacent-one positions and number exactly 2^{a_2(n)}. Parity after normalization gives the universal congruence. Fibonacci recurrence counts no-adjacent-one binary indices. Independent recurrence and direct-sum checks for n<=6000 support but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Calkin 1998 lower bound is 2^{s_2(n)} dividing sum of arbitrary positive binomial powers; no sharp-case criterion present in accessible indexed Lemma 12 passage",
+        "2014 MSRI-UP abstract states 2-adic valuations of Franel numbers have interesting properties; section 3 addresses 2-adic roots but relevant whole pages could not be read"
+      ],
+      "reasoning": "A more general 2-adic formula for cubic binomial sums might imply the present theorem. Calkin's explicitly inspected claim supplies divisibility only, so does not logically imply equality for or against any index. The 2014 report has not been ruled out as stronger coverage and is recorded as residual risk.",
+      "searches": [
+        "Web fast: \"Lemma 12\" \"Calkin\" \"binomial\" \"2\" odd powers",
+        "Web fast: \"Factors of sums of powers of binomial coefficients\" Calkin 1998 lemma 12 proof",
+        "Web fast: \"2014 MSRI-UP\" \"valuations of Franel\" \"digit\"",
+        "Web fast: \"Schulte\" \"VanSchalkwyk\" \"Yang\" \"binary\" \"Franel\"",
+        "Web fast: \"On the divisibility and valuations of the Franel numbers\" \"2-adic\" Section 3"
+      ]
+    },
+    "checked_sources": [
+      "Neil J. Calkin, Acta Arithmetica 86 (1998), DOI:10.4064/aa-86-1-17-26, indexed Lemma 12 excerpts",
+      "OEIS A000172 complete web-visible entry",
+      "OEIS A003714 complete web-visible entry",
+      "2014 MSRI-UP Franel chapter indexed abstract and contents; full text inaccessible",
+      "Published-research semantic query: three specific Franel sharpness queries with 25 hits each; no matching statements",
+      "An existing numerical-binomial valuation result with different subject and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Calkin implies nu_2(F_n)>=s_2(n), which leaves equality cases undetermined",
+        "Strehl rewrites F_n as a sum of products of binomial coefficients, but requires an additional parity count of minimum-valuation terms to derive the claimed equivalence",
+        "2014 report coverage remains unresolved because only its abstract and table of contents were accessible",
+        "Nearest external result: d55c1da5b110 concerns shifted Domb sums, not Franel sharpness"
+      ],
+      "reasoning": "Neither the lower bound alone nor the decomposition alone entails the target statement without the proved Lucas-carry counting lemma. No examined published finding semantically dominates it. A full-text 2014 comparison remains an acknowledged possible source of dominance.",
+      "searches": [
+        "Web OEIS A000172 comments and citations for Strehl and Calkin",
+        "Web search indexed full text Calkin 1998 Lemma 12",
+        "Web 2014 MSRI-UP research report indexed title/abstract/contents",
+        "Published-research semantic query: Exact congruence Franel sums mod 2^{popcount(n)+1} using identity sum binomial(n,2j) binomial(2j,j) binomial(2n-2j,n-j)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nearest external result: 8d0b08903313 (Thue-Morse power coefficients, different sequence)",
+        "Nearest external result: 2cde9accbbd3 (different coefficients)",
+        "OEIS A003714 provides the no-consecutive-ones language, not the Franel connection",
+        "Calkin 1998 Lemma 12 gives lower bound for general powers"
+      ],
+      "reasoning": "The exact equality criterion could appear under the names sharpness of Calkin bound, Franel 2-adic minimal valuation, or Fibbinary indices. The checked source statements do not assert the equivalence. Similar digital and Thue-Morse valuations are not implication-equivalent.",
+      "searches": [
+        "Published-research semantic query: Franel numbers f_n=sum_{k=0}^n binomial(n,k)^3: 2-adic valuation equals number of 1 bits of n if and only if the binary expansion of n has no adjacent ones; equality in Calkin's 2^{popcount} divisibility",
+        "Published-research semantic query: 2-adic valuation Franel numbers binary digit adjacent ones Calkin 1998 sharpness, v2 Franel(n) = popcount(n) iff n bitwise n<<1 =0",
+        "Web slow: \"Franel\" \"2-adic\" \"adjacent\" digits",
+        "Web slow: \"Franel numbers\" \"binary expansion\" \"valuation\" equality",
+        "Earlier published statements were compared for Franel, binomial-power, binary-adjacency and Calkin-bound aliases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000172 states F_n=sum_k C(n,k)^3 and explicitly records the Strehl identity (comment dated 2013-03-21)",
+        "OEIS A003714 lists indices with no adjacent binary ones and a Fibonacci census, with no occurrence of Franel on that entry",
+        "The closest distinct result is a valuation polynomial for C(3n,n), which does not classify Franel-number valuation sharpness"
+      ],
+      "reasoning": "One known table supplies Franel numbers, a second supplies the Fibbinary set, but neither states that the Franel valuation lower bound is sharp exactly on those indices. The criterion is not an entrywise table extension and applies to infinitely many indices.",
+      "searches": [
+        "Web open OEIS A000172 https://oeis.org/A000172",
+        "Web open OEIS A003714 https://oeis.org/A003714",
+        "Web search: \"Franel\" \"Fibbinary\" valuation",
+        "Earlier related research statements compared by claim and source ID"
+      ]
+    },
+    "rationale": "The claim is the necessary-and-sufficient characterization of sharpness of the known Calkin valuation bound for the cubic case, plus an exact Fibbinary cutoff census. Calkin proves the lower bound, Strehl the identity, and A003714 describes the index language; none of the accessed statements explicitly identifies the Franel sharpness set. A 2014 report specifically about Franel 2-adic valuations could contain a covering formulation but its full text was inaccessible. This is a material residual risk, not evidence of independence or guaranteed novelty.",
+    "residual_risks": [
+      "The 2014 Schulte–VanSchalkwyk–Yang Franel valuation report could contain an equivalent equality criterion; its full chapter was not accessible.",
+      "An unindexed theorem or a general higher-power binomial valuation theorem may subsume the classification; novelty is not independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN_PRIOR_COMPONENTS_NOT_TARGET",
+        "evidence": [
+          "Entry gives the Franel sum and Strehl identity, explicit comment dated 2013-03-21; no valuation-sharpness criterion identified in inspected page.",
+          "Recurrence dated 2001-01-31 used as earliest precise publicly dated Franel-source evidence."
+        ],
+        "identifier_or_url": "https://oeis.org/A000172",
+        "material_read": "Full web-visible OEIS entry including comments, formulas, linked references, and original dated recurrence note",
+        "method": "Web page read",
+        "title": "OEIS A000172: Franel numbers",
+        "trigger": "Same object, recurrence and Strehl identity"
+      },
+      {
+        "assessment": "KNOWN_LOWER_BOUND_ONLY_IN_INSPECTED_EXCERPTS",
+        "evidence": [
+          "Lemma 12 states 2^{l(n)} divides sum binomial(n,k)^a for all positive n,a; the inspected passage does not characterize equality in cubic case."
+        ],
+        "identifier_or_url": "DOI:10.4064/aa-86-1-17-26",
+        "material_read": "Indexed full-text excerpts including Lemma 12 statement, its proof end, and the main introduction; article PDF fetch failed",
+        "method": "Web search indexed PDF and publisher record",
+        "title": "Factors of sums of powers of binomial coefficients",
+        "trigger": "Establishes the exact lower bound under examination"
+      },
+      {
+        "assessment": "NOT_RESOLVED_PLAUSIBLE_FULL_TEXT",
+        "evidence": [
+          "2014 abstract explicitly calls out interesting 2-adic properties; indexed excerpt locates a section on 2-adic roots. No basis to label full work NOT_COVERING."
+        ],
+        "identifier_or_url": "https://legacy.slmath.org/system/cms/files/81/files/original/Research_Reports_2014_MSRI-UP_%28Single_File%29.pdf",
+        "material_read": "Indexed title, abstract, table of contents and search excerpts; full chapter PDF not accessible",
+        "method": "Web indexed PDF extracts, attempted open original and redirected storage URL",
+        "title": "On the divisibility and valuations of the Franel numbers",
+        "trigger": "Potential same-object 2-adic results"
+      },
+      {
+        "assessment": "KNOWN_INDEX_SET_NOT_FRANEL_CONNECTION",
+        "evidence": [
+          "Classifies binary words without consecutive ones and Fibonacci counts; page search found no Franel mention."
+        ],
+        "identifier_or_url": "https://oeis.org/A003714",
+        "material_read": "Full web-visible OEIS entry: definition, comments, formulas and references",
+        "method": "Web page read and find for Franel",
+        "title": "OEIS A003714: Fibbinary numbers",
+        "trigger": "Exact index-language alias and cutoff counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ceccdde-4657-4476-a792-659d829cb4ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural sharpness problem for Calkin's classical power-of-two divisor is resolved completely in the first nontrivial odd-power case, and the equality set has a Fibonacci-language structure and an exact infinite dyadic census. This is a motivated boundary classification rather than a generic substitution or arbitrary computational slice; the theorem neither requires nor claims a paper-sized contribution.",
+    "status": "PASS"
+  }
+}
