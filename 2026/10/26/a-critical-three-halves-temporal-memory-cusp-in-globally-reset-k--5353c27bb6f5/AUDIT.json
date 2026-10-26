@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact Markov reset-age conditioning yields the stationary two-time covariance identity. The subcritical/supercritical cubic flow solutions were reconstructed and expanded with uniform-in-age error; monotone covariance signs prove strict positive coefficients, with the equilibrium reset case isolated. At criticality the constant order t^{-1/2} cancels upon centering, leaving a t^{-3/2} term; exponential age integrates the Taylor remainder and the incomplete-gamma coefficient follows by substitution. Standalone mpmath checker replayed all 37 independent assertions; computations are supportive, not infinity proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2401.03501 gives global-reset amplitude PDMP and stationarity; no inspected theorem directly provides its critical centered two-time decay.",
+        "Generic renewal laws make the exact covariance identity an elementary consequence of the known flow, but deriving the exponent and coefficient requires the critical Taylor cancellation."
+      ],
+      "reasoning": "The strongest plausible domination is a general theorem for Poisson-regenerative deterministic flows that yields complete polynomial critical autocorrelation expansion. Such a theorem may exist but was not found in inspected sources; the identified broad sources specify different observable classes or one-time statistics.",
+      "searches": [
+        "arxiv:2401.03501 Section V.3 full text",
+        "arxiv:2203.00339 Section III full text",
+        "arxiv:2504.08510 Section VII full text",
+        "published-finding corpus: Stochastic resetting nonlinear deterministic flow fixed reset state stationary two-time covariance at pitchfork criticality exponent 3/2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.00339, Sarkar--Gupta (2022), full relevant primary text",
+      "arxiv:2401.03501, Bressloff (2024), full relevant primary text",
+      "arxiv:2504.08510, Acharya--Sarkar--Gupta (2025), full relevant primary text",
+      "arxiv:1806.09113, Das--Gupta (2018), relevant full primary text",
+      "Published published-finding corpus semantic searches in four synonym families, closest result IDs given in database check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2203.00339 establishes deterministic relaxation and stationary one-time distribution; neither alone gives the claimed centered cross-time power.",
+        "arxiv:2401.03501 establishes global-reset PDMP but the inspected stationary formulas omit cross-time asymptotics.",
+        "arxiv:1806.09113 computes correlations for continuously noisy single-oscillator phase observables in a different dynamics."
+      ],
+      "reasoning": "Stationary marginal laws are insufficient to determine lag correlations. Combining the known deterministic trajectory with the Poisson regenerative identity recovers the claimed covariance; our distinct result is the precise positive critical coefficient, three-halves exponent (not one-half), and complete sub/supercritical limits. We found no source already carrying this full implication as a stated specialization.",
+      "searches": [
+        "published-finding corpus: Kuramoto globally resetting Lorentzian Ott Antonsen order-parameter stationary two-time autocovariance temporal correlations critical coupling algebraic t^{-3/2} exponential",
+        "published-finding corpus: Kuramoto synchronization resetting at critical K=2sigma stationary lag covariance e^{-lambda t} t^{-3/2}",
+        "arxiv:2203.00339 (full text, stationary order parameter and resetting)",
+        "arxiv:2401.03501 (full text, global-reset Ott--Antonsen)",
+        "arxiv:2504.08510 (full text, Section VII correlations)",
+        "arxiv:1806.09113 (full text, noisy Kuramoto correlations)",
+        "arxiv:1806.09113 noisy Kuramoto autocorrelations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The prior globally reset Kuramoto literature writes the trajectory as a cubic autonomous order-parameter flow or as a Poisson-driven piecewise deterministic process.",
+        "In arxiv:2504.08510 Section VII, the presented C(t) is equal-time order-parameter variance, not a lagged stationary covariance."
+      ],
+      "reasoning": "Equivalent terminology includes Ott--Antonsen amplitude, Lorentzian synchronization order parameter, phase coherence, globally reset PDMP, renewal age, and stationary temporal covariance. These were checked by statement implication, not title alone; no directly equivalent rate/prefactor theorem was identified.",
+      "searches": [
+        "published-finding corpus: Kuramoto globally resetting Lorentzian Ott Antonsen order-parameter stationary two-time autocovariance temporal correlations critical coupling algebraic t^{-3/2} exponential",
+        "published-finding corpus: Kuramoto synchronization resetting at critical K=2sigma stationary lag covariance e^{-lambda t} t^{-3/2}",
+        "arxiv:2203.00339 (full text, stationary order parameter and resetting)",
+        "published-finding corpus: Poisson globally reset Kuramoto population synchronization order parameter R(t), Lorentzian Ott Antonsen, autocorrelation covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results with closest semantic proximity: 2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95; 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a.",
+        "No reported exact stationary Kuramoto two-time decay entry among actual returned ranked records."
+      ],
+      "reasoning": "This is an analytic time-asymptotic theorem, not an invariant ordinarily indexed in a numerical table. Search absence has limited sensitivity, and is not treated as proof of novelty.",
+      "searches": [
+        "Kuramoto globally resetting Lorentzian Ott Antonsen order-parameter stationary two-time autocovariance temporal correlations critical coupling algebraic t^{-3/2} exponential",
+        "Poisson resetting deterministic nonlinear logistic Riccati flow stationary autocorrelation algebraic critical relaxation",
+        "Kuramoto resetting synchronization mean-field temporal covariance stationary non-exponential critical memory",
+        "Poisson globally reset Kuramoto population synchronization order parameter R(t), Lorentzian Ott Antonsen, autocorrelation covariance",
+        "Stochastic resetting nonlinear deterministic flow fixed reset state stationary two-time covariance at pitchfork criticality exponent 3/2",
+        "Kuramoto synchronization resetting at critical K=2sigma stationary lag covariance e^{-lambda t} t^{-3/2}"
+      ]
+    },
+    "rationale": "The same Ott--Antonsen flow and its one-time stationary law are established by Sarkar--Gupta 2022 and Bressloff 2024, and the later Acharya--Sarkar--Gupta 2025 correlation discussion concerns a one-time variance. Against inspected complete primary text and searched claim-level published findings, the present claim is distinct: it supplies the stationary cross-time covariance and a three-regime, positive-coefficient long-lag asymptotic with a nontrivial critical three-halves factor. This is best-knowledge originality, not proof of exhaustive priority; standard regenerative facts constitute a reduction risk.",
+    "residual_risks": [
+      "A published general theorem on stationary covariance of regenerative deterministic semiflows could specialize to this explicit exponent and dominate the result despite not appearing in the reviewed sources.",
+      "Searches are neither comprehensive indexing nor independent peer review; scholarly priority may change with further source inspection.",
+      "The exact renewal identity is standard; its novelty is not asserted in isolation from the critical coefficient and exponent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The one-time stationary law and deterministic flow are prior results; no explicit stationary lagged two-time covariance or critical three-halves covariance asymptotic was identified in material inspected.",
+        "evidence": [
+          "Sarkar--Gupta 2022, Sections III.2--III.3, stationary density near Eq. (56); Ott--Antonsen amplitude flow near Eq. (20)."
+        ],
+        "identifier_or_url": "arxiv:2203.00339; https://arxiv.org/abs/2203.00339",
+        "material_read": "Full accessible arXiv text, introduction and model, Sections III.2 and III.3 and the stated stationary formulas, with searches for lagged correlation and autocorrelation.",
+        "method": "Read source derivation of the cubic order-parameter ODE and age-mixture stationary distribution; compare each claim to stationary two-time covariance identity and long-lag rates.",
+        "title": "Synchronization in the Kuramoto model in presence of stochastic resetting",
+        "trigger": "The same Poisson-global-reset Ott--Antonsen Kuramoto equation and stationary synchrony problem."
+      },
+      {
+        "assessment": "Provides broad dynamic model and stationary-law framework; inspected part did not state the lagged critical asymptotic or its positive coefficient.",
+        "evidence": [
+          "Bressloff 2024, Section V.3, globally reset Kuramoto Ott--Antonsen dynamics (Eq. 5.52)."
+        ],
+        "identifier_or_url": "arxiv:2401.03501; https://arxiv.org/abs/2401.03501",
+        "material_read": "Accessible full arXiv text with emphasis on Section V.3, Eq. (5.52), and its stationary distributions.",
+        "method": "Compare PDMP order-parameter equation and calculated stationary statistics against lagged centered covariance and sharp critical power.",
+        "title": "Global density equations for interacting particle systems with stochastic resetting: from overdamped Brownian motion to phase synchronization",
+        "trigger": "Later analysis of global-reset Kuramoto order-parameter paths on Ott--Antonsen manifold."
+      },
+      {
+        "assessment": "The source uses a time-dependent equal-time variance (fluctuation of order parameter at one time); that observable does not determine the claimed two-time stationary-lag asymptotic.",
+        "evidence": [
+          "Acharya--Sarkar--Gupta 2025, Section VII: variance-type C(t)=E|R(t)|^2-|ER(t)|^2, not E[(R(0)-m)(R(t)-m)]."
+        ],
+        "identifier_or_url": "arxiv:2504.08510; https://arxiv.org/abs/2504.08510",
+        "material_read": "Accessible full text, introduction, stationary coherence analysis, Section VII on correlations, and searches for lagged/two-time/autocorrelation expressions.",
+        "method": "Distinguish its equal-time order-parameter variance from the covariance at distinct stationary times.",
+        "title": "Stationary-state dynamics of interacting phase oscillators in presence of noise and stochastic resetting",
+        "trigger": "Plausibly relevant newer study emphasizes correlations in resetting oscillators."
+      },
+      {
+        "assessment": "Its autocorrelation concerns phase observables in a Kuramoto system driven by continuous microscopic noise, without population-wide Poisson resets, and does not cover a stationary reset-age coherence-amplitude covariance.",
+        "evidence": [
+          "Das--Gupta 2018, stochastic noisy Kuramoto model and individual phase-observable correlation; contrast with globally reset deterministic reduced amplitude."
+        ],
+        "identifier_or_url": "arxiv:1806.09113; https://arxiv.org/abs/1806.09113",
+        "material_read": "Accessible arXiv text including introductory model and correlation-results section.",
+        "method": "Check noise/reset mechanisms and the random observable undergoing autocorrelation.",
+        "title": "Exact correlations in the nonequilibrium stationary state of the noisy Kuramoto model",
+        "trigger": "Title suggests an exact temporal correlation result for Kuramoto systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5353c27b-b6f5-432e-a8e0-8e9dac05d915",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Time-lagged collective synchrony is a physically motivated observable not determined by the already known resetting stationary density. A new exact critical three-halves memory exponent and strictly positive coefficient exhibit the difference between stationary instantaneous coherence and long-time memory, and distinguish coupling regimes even when resetting makes stationary mean coherence positive. The leading critical t^{-1/2} trajectory disappears only after centering, a nontrivial feature with direct implications for temporal observables. Not a mere normalization or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
