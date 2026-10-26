@@ -1,0 +1,103 @@
+{
+  "claim": "Among all full-rank binary \\(3\\times8\\) generator matrices whose columns are sampled uniformly with replacement until they span \\(\\mathbb F_2^3\\), the minimum expected number of draws is \\(422/105\\), attained exactly when each of the seven nonzero column directions occurs and one direction occurs twice; this exceeds the \\([7,3]\\) binary simplex code's mean \\(47/12\\) by \\(43/420\\).",
+  "correctness": {
+    "rationale": "The Fano-plane inclusion-exclusion identity gives the exact expectation from point and line masses. Replacing a zero column by a nonzero column weakly decreases coverage time. The checker enumerates all 3003 weak compositions of eight into seven directions, retains every spanning profile, and uses exact rational arithmetic; it verifies 2702 spanning profiles, minimum 422/105, exactly seven minimizers, and next distinct value 88/21.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected paper gives a general expectation formula, a uniform-projective lower bound, optimality results for specified simplex/Hamming families, and an exact expected-depth expression for the random-code ensemble.",
+        "The paper cites a related 2026 article titled “The random variables of the DNA coverage depth problem”; only its citation metadata and contextual description were accessible here."
+      ],
+      "reasoning": "The stated results in the inspected paper do not directly imply the exact integer profile optimum for binary (n,k)=(8,3). The related article remains a plausible but unresolved overlap risk; no stronger covering result was found in the accessible material.",
+      "searches": [
+        "The random variables of the DNA coverage depth problem Bodur Lia Lopez Ludhani Ravagnani Seccia 2026 distribution variance tail",
+        "DNA coverage depth random variables probability distribution variance coverage time full recovery linear codes",
+        "arXiv:2610.07370, Sections III, IV, and VII"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.07370, abstract/introduction, Theorem III.2, Theorem IV.1, Section VII.",
+      "The citation metadata for “The random variables of the DNA coverage depth problem” as listed in arXiv:2610.07370."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The uniform-projective lower bound yields 47/12 for the length-seven binary simplex profile.",
+        "The new exact enumeration yields 422/105 for the minimum over length-eight binary dimension-three profiles, with exactly seven minimizers and next distinct value 88/21."
+      ],
+      "reasoning": "The prior lower bound is attained by a uniform distribution on seven directions, but eight columns cannot assign equal integer multiplicity to all seven directions. It does not determine which integer profile minimizes expected depth; the finite exact census resolves that separate question.",
+      "searches": [
+        "exact optimal coverage depth binary linear [8,3] code repeated columns simplex code length eight expected full recovery",
+        "rank-three binary coverage-depth optimization Fano plane column multiplicities expected number of samples to span",
+        "arXiv:2610.07370, Theorem IV.1 and Section VII"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected coverage-depth paper defines full recovery as the first draw count at which sampled generator columns span the information space.",
+        "For binary dimension three, nonzero column directions are the seven points of the Fano plane; the exact claim is a multiplicity-profile optimization over those points."
+      ],
+      "reasoning": "The projective-direction and sampled-column formulations are equivalent by the definition of span. The inspected paper supplies the general coverage-depth framework, but its uniform-distribution lower bound does not determine the integer optimum at length eight.",
+      "searches": [
+        "exact optimal coverage depth binary linear [8,3] code repeated columns simplex code length eight expected full recovery",
+        "binary [n,3] linear code minimum expected coverage depth columns span rank three projective plane Fano plane",
+        "arXiv:2610.07370, model definition and Theorem IV.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest surfaced coverage-depth result concerns exact optima for all [n,2]_q codes, not dimension three.",
+        "The inspected primary paper identifies the length-seven binary simplex benchmark but does not state the length-eight binary dimension-three multiplicity optimum in its stated results."
+      ],
+      "reasoning": "No matching [8,3]_2 exact optimum or table entry surfaced in these searches. The exact finite census here covers all 2702 spanning profiles at this parameter set.",
+      "searches": [
+        "exact optimal coverage depth binary linear [8,3] code repeated columns simplex code length eight expected full recovery",
+        "binary [n,3] linear code minimum expected coverage depth columns span rank three projective plane Fano plane",
+        "rank-three binary coverage-depth optimization Fano plane column multiplicities expected number of samples to span",
+        "append one column to binary simplex [7,3] code coverage depth expected sampling with replacement"
+      ]
+    },
+    "rationale": "The inspected primary literature treats general coverage-depth formulas and specified code families, but no equivalent exact binary [8,3] optimum was found in the searches. The conclusion is limited to this finite parameter set, and a related 2026 distributional paper remains an explicit residual risk.",
+    "residual_risks": [
+      "The full text of “The random variables of the DNA coverage depth problem” was not inspected; it may contain related distributional formulas or small-parameter examples.",
+      "Search failure is not proof of novelty; the originality assessment is restricted to the inspected sources and actual searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected paper gives the coverage-depth framework, the simplex benchmark, and expected-depth results for random codes, but does not state the exact integer multiplicity optimum for binary [8,3] codes. Its uniform-projective lower bound does not imply the finite integer optimum.",
+        "evidence": [
+          "First public date: 2026-10-05.",
+          "Theorem IV.1 and Section VII of arXiv:2610.07370."
+        ],
+        "identifier_or_url": "arXiv:2610.07370",
+        "material_read": "arXiv HTML abstract and introduction; model definition; general expectation formula (Theorem III.2); uniform-projective lower bound (Theorem IV.1); and the random-code section VII, including its exact expected-depth formula and constant-rate bound.",
+        "method": "Compared the stated results and parameter regimes with the exact binary 3-by-8 profile objective.",
+        "title": "Optimal Codes for the Coverage Depth Problem and the Performance of Random Codes",
+        "trigger": "Recent literature on coverage-depth optimization and random linear codes."
+      },
+      {
+        "assessment": "Potentially relevant to coverage-time distributions, but the accessible material does not establish that it contains the exact optimal multiplicity profile for binary [8,3] codes.",
+        "evidence": [
+          "The title and citation metadata appear in the reference list of arXiv:2610.07370."
+        ],
+        "identifier_or_url": "Citation metadata in arXiv:2610.07370; no direct identifier retrieved",
+        "material_read": "Citation metadata and contextual description in the primary paper only; the full text was not retrieved or read.",
+        "method": "Compared the visible citation context with the exact finite optimization claim and retained the source as an unresolved overlap risk.",
+        "title": "The random variables of the DNA coverage depth problem",
+        "trigger": "The inspected primary paper cites this as related coverage-depth literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7401a8be-219f-4486-9eec-96c2528f7bc6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length-eight binary dimension-three case is the first one-column extension beyond the seven-column simplex profile. The exact optimum and unique multiplicity pattern provide a concrete base case for non-MDS coverage-depth optimization. The result also quantifies the non-obvious increase of 43/420 in expected reads when a duplicate direction is appended under uniform with-replacement sampling.",
+    "status": "PASS"
+  }
+}
