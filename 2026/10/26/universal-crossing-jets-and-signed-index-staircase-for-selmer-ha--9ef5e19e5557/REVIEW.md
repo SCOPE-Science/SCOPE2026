@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For all integers \(n>k\ge1\), both independent signs and all positive wall parameters, two unit vectors summing to a nonzero real number force conjugate pairing, producing the exact finite wall list. The harmonic Jacobian at every unit root is \(n^2-k^2>0\); two differentiations of the real-analytic zero branch yield a unique first and second logarithmic radial derivative. A careful calculation of the real-linear inverse gives the displayed universal two-jet. The sign threshold is exact. Since the boundary is nonzero off the known walls and every crossing is outward and orientation-preserving, the winding staircase follows rigorously from homotopy invariance. The example has exact signed indices and opposite curvature signs. Computations are diagnostics, not substitutes for the analytic proof.
+
+## Originality — PASS, with risk
+The primary 2026 Selmer-trinomial paper classifies the unit-circle roots only at the fixed coefficient, without quantitative deformation jets. The February 2026 parameter-space paper contains much broader raw zero-count theory (Bohl) and root-modulus parameter curves; its counting results may cover the staircase as an implication, which is acknowledged, but its inspected mathematical development does not state the universal local second derivative or acceleration transition. The 2020 one-parameter trinomial paper varies a different coefficient. Semantic index searches covering harmonic-trinomial root motion, zero walls, winding, radial sensitivity, and phase transitions returned no indexed equivalent two-jet. Searches do not prove priority. Inaccessible specialized papers and an unindexed derivation of the same local formulas are residual risks.
+
+## Value — PASS
+The unit-circle zeros in the 2026 theorem are a discrete slice of a natural coefficient deformation. A full, exact all-exponent local stability response is mathematically motivated: it determines orientation, first-order speed and a previously unrecorded nonlinear acceleration switch of actual harmonic zeros as the parameter crosses every possible boundary wall. Its combination with a finite signed-index phase diagram distinguishes local root geometry from total root count, and the explicit \((n,k)=(9,1)\) example exhibits both curvature phases in one family. The result is not proposed as an unrelated coefficient substitution or a stronger version of the already known raw counting theorem.
+
+## Closest sources and limits
+Barrera–Barrera–Navarrete, arXiv:2610.22132v1, full 5-page article; Barrera–Campa–Navarrete, arXiv:2602.11296v1, full HTML text on Bohl counts and trochoid coefficient loci; Brilleslyper et al., Proc. Amer. Math. Soc. B 7 (2020), full article on varying the anti-analytic coefficient. Mayya–Verma–Kumar, *Unimodular zeros of certain complex harmonic polynomials* (2026), was only available bibliographically and cannot be definitively ruled out. The result does not determine unsigned zero counts, off-wall continuation or non-real coefficient perturbations.
+
+Self-review: passed. Independent audit: not yet performed.
