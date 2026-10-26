@@ -1,0 +1,55 @@
+# Sharp three-voter Pareto-efficient separation for temporal full justified representation
+
+## Finding
+In offline temporal approval voting, define **FJR+**, **FJR** and **EJR+** as in the cited temporal representation literature, and **Pareto efficiency** with respect to each voter's total number of approved chosen decisions. Then:
+
+**Theorem.** Every Pareto-efficient EJR+ outcome satisfies FJR+ if there are at most two voters, for any number of rounds and candidates (empty approval ballots allowed). With three voters, the same implication holds for elections of at most two rounds, with any number of candidates. With one candidate, FJR+ holds trivially regardless of the number of voters and rounds. But there is a Pareto-efficient outcome with three voters, three rounds and two candidates which satisfies **both** FJR and EJR+ and violates FJR+. Thus three voters are necessary and sufficient for such a Pareto-efficient separation; at this smallest electorate, three rounds and two candidates are simultaneously sharp.
+
+The witness has candidates \(a,b\), voters \(1,2,3\), and rounds \(1,2,3\). In round \(1\), only voter \(1\) approves \(a\), and voter \(3\) approves \(b\). Round \(2\) is identical to round \(1\). In round \(3\), only voter \(2\) approves \(a\), and voter \(3\) approves \(b\). All unmentioned approvals are empty. The outcome \((b,b,b)\) gives satisfactions \((0,0,3)\). The separation is valid in the standard model allowing empty approval ballots; it does **not** claim a smaller witness when every voter must approve something in every round.
+
+## Assumptions and scope
+Let \(N\) consist of \(n\geq1\) voters, \(C\) of \(m\geq1\) candidates, and let \(L\geq1\) denote the number of rounds. Each voter \(i\) supplies an approval set \(A_{i,r}\subseteq C\) in each round \(r\), possibly empty. An outcome \(o\in C^L\) selects exactly one candidate per round; \(s_i(o)=|\{r:o_r\in A_{i,r}\}|\) is voter \(i\)'s satisfaction. An outcome is Pareto efficient if no other outcome weakly increases every satisfaction while strictly increasing at least one.
+
+For nonempty \(S\subseteq N\), set \(h_r(S)=\max_{c\in C}|\{i\in S:c\in A_{i,r}\}|\). The group is \((\sigma,\tau)\)-cohesive when \(h_r(S)\geq\sigma\) in at least \(\tau\) rounds. EJR+ demands, for every such group and every round with a candidate approved by **all** of \(S\), that either some group member have satisfaction at least \(\lfloor\sigma\tau/n\rfloor\), or the chosen candidate in that round be approved by all of \(S\).
+
+For each integer target \(1\leq\beta\leq L\), FJR+ requires \(s_i(o)\geq\beta\) for some \(i\in S\) whenever: (i) \(\sum_r h_r(S)>n\beta\); or (ii) \(S\) is \((\sigma,\tau)\)-cohesive with \(\sigma\tau\geq n\beta\); or (iii) \(S=N\) and \(\sum_rh_r(S)\geq n\beta\). The three triggers are exactly those of Definition 3.1 in Teh (2026).
+
+FJR uses, for every group \(S\) and rounds subset \(T\), the benchmark \(\mu_S(T)=\min_{R\subseteq T,\ |R|=\lfloor |T||S|/n\rfloor}\ \max_{x\in C^R}\ \min_{i\in S}\,s_i(x_R)\); FJR requires \(\max_{i\in S}s_i(o)\geq\mu_S(T)\). For an empty \(R\), the guaranteed satisfaction is zero.
+
+## Proof
+**One voter.** Pareto efficiency requires that the unique voter receive a satisfying candidate in every round with a nonempty approval set. Consequently, the chosen candidate realizes \(h_r(N)\) in each round. Since there is only one voter, any FJR+ target is already reached.
+
+**Two voters, any horizon.** Fix a Pareto-efficient EJR+ outcome. In each round, its chosen candidate has exactly \(h_r(N)\) supporters: if the maximum is two, the unanimously approved candidate Pareto-dominates a candidate with fewer supporters; if the maximum is one, a candidate approved by somebody Pareto-dominates a candidate approved by nobody. Therefore
+\[s_1(o)+s_2(o)=\sum_{r=1}^{L}h_r(N).\]
+For the whole group \(S=N\), each of the three FJR+ triggers at level \(\beta\) entails \(\sum_rh_r(N)\geq2\beta\), so at least one voter has satisfaction at least \(\beta\).
+
+Now take a proper nonempty group \(S=\{i\}\), and let \(t_i\) be the number of rounds in which voter \(i\) approves at least one candidate. Then \(h_r(S)\in\{0,1\}\) and \(\sum_rh_r(S)=t_i\). Either FJR+ trigger (i) or (ii) at a positive target \(\beta\) requires \(t_i\geq2\beta\); trigger (iii) does not apply. The singleton is \((1,t_i)\)-cohesive. EJR+ with that group, at target \(\lfloor t_i/2\rfloor\geq\beta\), implies that the voter already has satisfaction at least \(\beta\): otherwise EJR+ would require the chosen candidate to be approved in *every* round in which this voter approves anything, which would yield satisfaction \(t_i\geq\beta\), a contradiction. Thus no group witnesses an FJR+ violation.
+
+**Three voters and at most two rounds.** Consider a Pareto-efficient EJR+ outcome, with \(L\leq2\). An FJR+ violation at target \(\beta\geq1\) cannot be witnessed by a singleton, since \(\sum_rh_r(S)\leq2<3\beta\) and \(\sigma\tau\leq2\).
+
+For a two-voter group \(S\), a positive target can only be \(\beta=1\). Since each \(h_r(S)\leq2\), either trigger (i), requiring \(\sum_rh_r(S)>3\), or trigger (ii), requiring \(\sigma\tau\geq3\), forces \(L=2\) and \(h_1(S)=h_2(S)=2\). Both voters have a common approved candidate in each round; they form a \((2,2)\)-cohesive group. If both received zero satisfaction, EJR+ would be violated, because the chosen candidate would not be approved by both in either round. Hence no two-voter group witnesses an FJR+ violation.
+
+For \(S=N\), an FJR+ violation at \(\beta=1\) would mean that all three voters have satisfaction zero. Pareto efficiency then forces every candidate in every round to have zero supporters, so none of the FJR+ triggers could apply. If \(\beta=2\), which only matters for \(L=2\), each trigger forces \(\sum_rh_r(N)=6\), i.e. a unanimously approved candidate exists in both rounds. Pareto efficiency requires choosing a unanimously approved candidate in each round, giving everyone satisfaction two. The claim follows.
+
+**Only one candidate.** For every group, the number \(\sum_rh_r(S)\) equals \(\sum_{i\in S}s_i(o)\), because every approved candidate is selected. If all voters in \(S\) had satisfaction below \(\beta\), then \(\sum_rh_r(S)\leq|S|(\beta-1)<n\beta\), ruling out all FJR+ triggers. Hence any outcome satisfies FJR+.
+
+**Sharp witness.** For the election specified above, voter \(3\) attains maximum satisfaction \(3\) under \(o=(b,b,b)\). Any change of outcome to improve voter \(1\) or \(2\) lowers voter \(3\)'s satisfaction, proving Pareto efficiency. For \(S=\{1,2\}\), each \(h_r(S)=1\), so \(S\) is \((1,3)\)-cohesive, with \(\sigma\tau=3=n\cdot1\). FJR+ demands that one of these voters obtain satisfaction one, but both obtain zero. Thus FJR+ fails by its equality-boundary trigger (ii), not by the strict-sum trigger (i).
+
+EJR+ nevertheless holds. Any group containing voter \(3\) contains someone with satisfaction \(L\), enough for all EJR+ levels. The group \(\{1,2\}\) has no round with a candidate unanimously approved by both voters, so EJR+ has no possible common-candidate round to test. For each singleton among \(\{1\}\) and \(\{2\}\), the number of rounds with any approval is at most two; hence every applicable \(\lfloor\sigma\tau/n\rfloor\) is zero. Thus no group violates EJR+.
+
+Finally, FJR holds. A group containing voter \(3\) includes a voter with maximal satisfaction \(L\), always meeting \(\mu_S(T)\leq L\). For a singleton \(\{1\}\) or \(\{2\}\), any proper \(T\subsetneq[3]\) has proportional entitlement zero; for \(T=[3]\), one can choose a singleton round where this voter has an empty approval ballot, and the minimization defining \(\mu_S(T)\) gives zero. For \(S=\{1,2\}\), any \(|T|\leq2\) has entitlement at most one round, in which no candidate simultaneously satisfies both members, so \(\mu_S(T)=0\). For \(T=[3]\), the entitlement is two rounds, and the subset \(R=\{1,2\}\) gives voter \(2\) no approved candidate in either round. Again \(\mu_S(T)=0\). Thus FJR holds. The preceding lower bounds and the one-candidate argument establish all claimed sharpness statements. \(\square\)
+
+## Verification
+The standalone `verify.py` computes FJR, EJR+, FJR+, and Pareto efficiency directly from the above definitions for the explicit witness. It also exhaustively checks all approval profiles and all outcomes over two candidates for \((n,L)=(1,1),(2,1),(2,2),(2,3),(3,1),(3,2)\), retaining only outcomes that are Pareto efficient and satisfy EJR+. It finds no FJR+ violation in those bounded domains; it establishes the witness has the advertised properties. The infinite-horizon and arbitrary-candidate lower bounds are established by the proof, **not** by the finite enumeration.
+
+## Relationship to prior work
+Teh, *Full Justified Representation in Temporal Voting* (arXiv:2609.35826, first posted 22 September 2026), introduces temporal FJR+, proves it strictly strengthens FJR and EJR+ together, and exhibits a Pareto-efficient witness with five voters, three rounds and three candidates **each voter approving exactly one candidate each round** (Example 3.3). The present theorem identifies a sharp smaller electorate and candidate count in the paper's general model allowing empty ballots, and proves an all-horizon boundary at two voters. It does not improve the number of voters within the nonempty-singleton-ballot subdomain of that example.
+
+Phillips, Elkind, Teh and Wąs, *Strengthening Proportionality in Temporal Voting* (arXiv:2505.22513, first posted 28 May 2025), introduces the temporal FJR and EJR+ conditions used here, but predates the new temporal FJR+ notion and therefore does not by itself establish this three-way sharp separation. The new implication and sharpness proof do not follow solely from the existence or algorithmic verification results for FJR+.
+
+## Limitations
+The construction crucially permits empty approval ballots, and it is not a claim about elections where every voter must approve a candidate every round. Only Pareto-efficient outcomes are covered by the universal two-voter and short-horizon statements; no analogous equivalence is asserted for arbitrary, Pareto-dominated outcomes. These are logical implications for particular outcomes, not existence or algorithmic-complexity results. The standalone finite checks do not establish the quantified arbitrary-horizon theorems independently of the written proof. Historical originality is assessed against the material inspected and mathematical-record searches; absence of a search match is not a proof of publication priority.
+
+## References
+1. Nicholas Teh, *Full Justified Representation in Temporal Voting: Efficient Computation and Verification*, arXiv:2609.35826v1 (22 September 2026), https://arxiv.org/abs/2609.35826 . See Definition 3.1, Theorem 3.2, Example 3.3 and Sections 3–5.
+2. Bradley Phillips, Edith Elkind, Nicholas Teh and Tomasz Wąs, *Strengthening Proportionality in Temporal Voting*, arXiv:2505.22513v1 (28 May 2025), https://arxiv.org/abs/2505.22513 . See its definitions and existence results for temporal FJR and EJR+.
