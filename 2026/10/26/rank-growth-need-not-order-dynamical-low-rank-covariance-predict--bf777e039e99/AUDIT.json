@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The fixed-rank factor equations yield global rank preservation and PSD from a positive-semidefinite derivative for the small factor. The identity Q-a positive-semidefinite complement of the projected vector field proves each rank stays below the full covariance. Differentiating P Q+Q P-P Q P gives exact Taylor jets: D11 second order zero, D13 coefficient -q12 q23/(2a), D33 coefficient q23^2/b. The witness e1+(b q12)/(2a q23)e3 has strictly negative quadratic term -b q12^2/(4a^2), whereas e2 has a strictly positive zeroth-order gap b. Rank two in dimension two coincides with the full exact covariance, proving dimension minimal. Independent SymPy reconstructions verify 11 symbolic identities, with 54 numerical assertions as supplementary checks; proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt et al. 2023: continuous dynamical-low-rank prediction and a discrete BUG procedure are presented as method and construction.",
+        "Ceruti and Lubich 2020: general tangent projected matrix differential equations, without a rank-dependent Loewner covariance comparison.",
+        "Carrel et al. 2023: different time-stepping approach, error bounds expressed in norms rather than PSD order between exact tangent flows."
+      ],
+      "reasoning": "The conventional facts that each projected flow is PSD, or that both approximate the full solution, do not imply one dominates the other. A general theorem asserting rank-monotonicity would be contradicted by the explicit exact Taylor certificate, so source comparisons targeted specific objects, projection equations, and quantifiers rather than titles.",
+      "searches": [
+        "arxiv:2306.07774 projected covariance Lyapunov tangent rank reduced Kalman",
+        "arxiv:2010.02022 rank dynamical low rank tangent projector",
+        "Low-rank Parareal 2023 variable ranks covariance matrix stability",
+        "\"Lyapunov\" \"low rank approximation\" \"Loewner\" ordering",
+        "\"rank-one\" \"rank-two\" \"Lyapunov\" \"Loewner\" dynamical low rank",
+        "\"rank reduced Kalman\" \"increasing rank\" \"variance\" \"ordering\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.07774 full accessible HTML methodological text",
+      "arxiv:2010.02022 accessible HTML introduction and dynamical-low-rank sections",
+      "doi:10.1007/s10543-023-00984-4 open-access full HTML low-rank solver/convergence sections",
+      "Published web mathematical literature queries on Loewner ordering and low-rank Lyapunov projections",
+      "Searches of published mathematical records under covariance Loewner ordering and dynamical rank-projection aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present exact covariance-order defect is \\(z^T(Y_2-Y_1)z=-bq_{12}^2 t^2/(4a^2)+O(t^3)\\).",
+        "Prior related positive preservation does not impose nested ranges at later times; the evolving rank-one and rank-two subspaces rotate differently."
+      ],
+      "reasoning": "The closest source specifies projection dynamics but neither directly states nor entails a sign classification of the difference between distinct-rank projected solutions. A stronger generic matrix approximation comparison would have to cover evolving tangent subspaces; the exact one-dimensional negative witness here rules out blanket positive ordering, not norm convergence.",
+      "searches": [
+        "arxiv:2306.07774 covariance projected Lyapunov rank reduction Loewner",
+        "arxiv:2010.02022 tangent projected evolution covariance rank 1 rank 2",
+        "rank-one rank-two dynamical low rank Lyapunov tangent projection cross coupling h squared indefinite difference",
+        "Loewner monotonicity PSD rank-truncated Kalman covariance prediction dynamical low rank projector",
+        "dynamical low rank Lyapunov covariance rank one rank two differing covariance forecast not Loewner ordered second order negative coupling all ones"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact claim equivalently states that for nested spectral initial truncations, the continuous tangent-projected covariance predictions do not form a chain in Loewner order.",
+        "The computed mixed second-order coefficient \\(-q_{12}q_{23}/(2a)\\) in entry (1,3) is accompanied by positive \\(q_{23}^2/b\\) in entry (3,3); no matching rank-comparison theorem found in inspected methods."
+      ],
+      "reasoning": "Aliasing with positive-preserving low-rank Lyapunov, rank-monotone uncertainty, and covariance Galerkin approximations was explicitly searched. Distinct positive semidefinite rank-r solutions need not have positive semidefinite differences: positive semidefiniteness of both is not a proof of comparability. Search absence is not proof of global priority.",
+      "searches": [
+        "rank reduced Kalman filtering covariance rank monotonicity uncertainty variance ordering higher rank smaller rank counterexample",
+        "rank-one rank-two dynamical low rank Lyapunov tangent projection cross coupling h squared indefinite difference",
+        "Loewner monotonicity PSD rank-truncated Kalman covariance prediction dynamical low rank projector",
+        "dynamical low rank Lyapunov covariance rank one rank two differing covariance forecast not Loewner ordered second order negative coupling all ones",
+        "\"Loewner\" \"dynamical low rank\" Lyapunov rank monotone covariance",
+        "\"rank\" \"covariance\" \"Loewner order\" \"dynamical low rank\"",
+        "\"rank-reduced Kalman\" \"monotonic\" covariance rank",
+        "\"dynamical low-rank\" \"covariance\" \"non-monotone\" approximation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published records on positive-cone preservation in low-rank numerical methods concern either a single discretization, another differential equation, or norm-error bounds.",
+        "The inspected original rank-reduced Kalman construction and dynamical-low-rank integration papers do not tabulate the explicit 3-by-3 Loewner-sign Taylor certificate."
+      ],
+      "reasoning": "No exact numerical database or table is directly relevant to a universal short-time analytic statement. Searches of published mathematical records on covariance-order monotonicity and rank-dependent Lyapunov projections did not identify the same statement. Nonappearance in a database does not establish originality.",
+      "searches": [
+        "low-rank Parareal rank truncation positivity semidefinite covariance matrices can produce negative eigenvalues even with positive fine coarse propagators",
+        "Randomized low-rank Parareal matrix evolution invariant positivity failure rank coarse fine",
+        "dynamical low rank covariance Lyapunov projected tangent flow increasing rank does not preserve positive semidefinite Loewner ordering rank one versus rank two",
+        "rank reduced Kalman filtering covariance rank monotonicity uncertainty variance ordering higher rank smaller rank counterexample",
+        "rank-one rank-two dynamical low rank Lyapunov tangent projection cross coupling h squared indefinite difference",
+        "Loewner monotonicity PSD rank-truncated Kalman covariance prediction dynamical low rank projector",
+        "dynamical low rank Lyapunov covariance rank one rank two differing covariance forecast not Loewner ordered second order negative coupling all ones"
+      ]
+    },
+    "rationale": "The exact continuous-time rank-one/rank-two Loewner nonordering theorem, including the mixed second-order certificate, was compared by implication with accessible primary full texts, published mathematical searches, published mathematical-record searches and comparisons with related numerical results. General projection methods and other PSD failures are antecedents but do not imply this claim. No directly covering result was identified, with nonzero priority risk acknowledged.",
+    "residual_risks": [
+      "Publication-priority uncertainty: equivalent cross-rank projected Lyapunov statements may occur in uninspected numerical filtering or operator-order literature.",
+      "The proposed certificate applies to exact tangent-projected flow, not a specific fully discrete implementation; it does not establish quality ordering of approximation errors.",
+      "A fixed-subspace Galerkin covariance approximation could exhibit different monotonicity and is not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines target projected Lyapunov flow and numerical algorithm. Does not state an exact Loewner nonordering theorem for different continuous-time ranks nor the quadratic-form coefficient in this claim.",
+        "evidence": [
+          "arxiv:2306.07774; covariance prediction section and accompanying projected dynamics",
+          "The claim here explicitly does not assess the published discrete BUG integrator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+        "material_read": "Accessible arXiv HTML article: method introduction, projected covariance-flow construction, filtering algorithm discussion and appendix context.",
+        "method": "Inspected article text and searched covariance projection, rank changes, monotonicity and matrix-order claims.",
+        "title": "The Rank-Reduced Kalman Filter: Approximate Dynamical-Low-Rank Filtering In High Dimensions",
+        "trigger": "Foundational closest method: projected continuous covariance prediction and BUG rank-reduced covariance integration."
+      },
+      {
+        "assessment": "Provides the established tangent-projected differential equation framework, not a rank-one versus rank-two covariance-order comparison.",
+        "evidence": [
+          "arxiv:2010.02022; dynamical low-rank projection and matrix ODE sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.02022",
+        "material_read": "Accessible arXiv HTML article: introduction and dynamical low-rank formulation/integration sections.",
+        "method": "Compared definition of tangent projection and method guarantees with cross-rank covariance Loewner ordering.",
+        "title": "An unconventional robust integrator for dynamical low-rank approximation",
+        "trigger": "General Frobenius tangent-projection framework and matrix evolution."
+      },
+      {
+        "assessment": "Different rank-dependent time discretization, with norm-error/convergence theory; no full coverage of this exact short-time PSD rank-order counterexample.",
+        "evidence": [
+          "BIT Numerical Mathematics 2023, low-rank Parareal algorithm and analysis sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-023-00984-4",
+        "material_read": "Open-access full HTML article, especially low-rank Parareal definition and convergence analysis.",
+        "method": "Read rank-varying integrator and associated error analysis, distinguishing it from the exact differential tangent-projected Lyapunov equation.",
+        "title": "Low-rank Parareal: a low-rank parallel-in-time integrator",
+        "trigger": "Comparison with different-rank time-dependent low-rank solvers and convergence conditions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf777e03-9e99-4497-af14-7fd24c8c0596",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A rank-reduced covariance forecast is interpreted as uncertainty, so a natural potential assumption is that increasing the rank yields larger variance in every direction when both approximate the same exact PSD covariance. The explicit counterexample proves that this monotonic confidence intuition is false for exact projected continuous dynamics even though each individual prediction is PSD and conservatively below the full covariance. It isolates the rank-dependent rotation mechanism independent of discretization or observation correction, giving a substantive structural boundary for rank adaptivity.",
+    "status": "PASS"
+  }
+}
