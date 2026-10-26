@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The equal-weight two-source recursion has exact drift (I+P)QP/2 and conditionally independent bounded Bernoulli innovations. For even d, PQ=-QP gives 4B^2=P^4-P^2. Fourier-pair eigenvalues imply every |lambda|<=1/sqrt(2), ensuring a.s. convergence to half, and yield rho_2=0, rho_6=sqrt(sqrt(3)/8)<1/2, rho_4=1/sqrt(2)>1/2, and rho_d>1/2 for every even d>=8 by the stated cos(pi/8) inequality. Martingale SA CLT with asymptotic variance I/4 gives positive-definite Gaussian covariance at d=2,6 even with nilpotent zero blocks. For every other even d, a selected right eigenprojection divided by its exact gamma product is an L2-bounded martingale because sum t^(-2 Re lambda)<infinity. Its first increment has strictly positive variance ||u||^2/(4|2+lambda|^2), giving sharp nonzero random amplitude. A finite verifier independently tests the polynomial identity and spectrum, not the infinite-time argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper states O(t^{Re lambda-1}) superdiffusive upper rates and a general Gaussian theorem, but does not state a nonzero amplitude or the even-size classification.",
+        "Zhang 2016 provides general complex-mode stochastic approximation machinery.",
+        "The 2023 paper uses one-input signed cycles, not an equal-weight two-input kernel."
+      ],
+      "reasoning": "General stochastic-approximation machinery is credited, not claimed as new. The genuinely model-dependent results are the noncommuting two-tap spectral identity, the exact classification d=2,6 versus all other even sizes, and a proof that the leading random amplitude has positive second moment. No inspected broader result states or directly certifies these specific conclusions; generic upper-rate estimates do not imply nonzero limiting amplitudes.",
+      "searches": [
+        "arxiv:2610.13884v1 Theorem 3.5 and Section 7",
+        "arxiv:1602.05708v1 Theorems 2.1, 2.2",
+        "arxiv:2312.02096v1 Theorem 4.1",
+        "alternating preferential de preferential urn with one half self one half neighbor sampling cycle diffusion superdiffusion six nodes exceptional size",
+        "signed two tap cyclic stochastic averaging Bernoulli urn deterministic equilibrium anomalous fluctuations exceptional six-cycle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13884v1",
+      "arxiv:2312.02096v1",
+      "arxiv:1602.05708v1",
+      "published-finding corpus semantic record index via actual listed queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Theorem 3.5 bounds superdiffusive modes but does not prove their limiting amplitude is nonzero.",
+        "2023 identifies cycle signed-permutation eigenvalues and discusses generalized stochastic approximation; the present mixed kernel does not satisfy that reduction.",
+        "2016 theory motivates, but the strict second-moment positivity follows from a first-step conditional-variance calculation specific to this urn model."
+      ],
+      "reasoning": "The claim is not a restatement of a generic Gaussian limit: it locates the sharp model-specific, nonmonotone exceptional sizes and proves the slower amplitude is genuinely stochastic. Limit existence without nondegeneracy and a rate upper bound are weaker than the complete statement. Priority risk remains for unpublished equivalent specialized computations.",
+      "searches": [
+        "arxiv:2610.13884v1, full HTML Sections 2, 3, 7 and Appendix A",
+        "arxiv:2312.02096v1, sections on cycle eigenvalues and fluctuations",
+        "arxiv:1602.05708v1, general complex-mode theorem",
+        "alternating preferential de preferential urn with one half self one half neighbor sampling cycle diffusion superdiffusion six nodes exceptional size",
+        "signed two tap cyclic stochastic averaging Bernoulli urn deterministic equilibrium anomalous fluctuations exceptional six-cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2312.02096v1 considers signed single-neighbour permutation cycles whose characteristic polynomial is a root of ±1.",
+        "arxiv:2610.13884v1 distinguishes general products of sampling and reinforcement operators and notes unknown longer-range structure."
+      ],
+      "reasoning": "A pure signed permutation can be relabelled as disjoint ordinary signed cycles and is therefore NOT used as a novelty claim. The actual matrix (I+P)QP/2 is a sum of two shifted signed updates, not a signed permutation; its nilpotent zero blocks and nonmonotone d=6 spectral island do not reduce to single-neighbour cycle parity.",
+      "searches": [
+        "long-range directed signed cycle reinforced urn gcd step length parity product signs independent orbit martingale random limit conjecture",
+        "complex oscillatory superdiffusive mode signed urn directed four cycle e pi over 4 logarithmic rotation martingale",
+        "arxiv:2312.02096v1, Sections 2-4",
+        "arxiv:2610.13884v1, Sections 2-4 and 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned unrelated nearest hits including 2026/10/11/SCOPE-sharp-real-ell-4-frustration-deficit-for-a-signed-cycle--dbc0fa0dc606, a signed-cycle operator-norm result, and 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878, a signSGD urn result."
+      ],
+      "reasoning": "Neither these mathematical objects nor their conclusions imply the two-tap urn spectral threshold or a martingale amplitude law. No matching entry was observed in actual semantic searches; absence of a match is not an originality proof.",
+      "searches": [
+        "published-finding corpus search: long-range directed signed cycle reinforced urn gcd step length parity product signs independent orbit martingale random limit conjecture",
+        "published-finding corpus search: complex oscillatory superdiffusive mode signed urn directed four cycle e pi over 4 logarithmic rotation martingale",
+        "published-finding corpus search: alternating preferential de preferential urn with one half self one half neighbor sampling cycle diffusion superdiffusion six nodes exceptional size",
+        "published-finding corpus search: signed two tap cyclic stochastic averaging Bernoulli urn deterministic equilibrium anomalous fluctuations exceptional six-cycle"
+      ]
+    },
+    "rationale": "After inspection of the 2026 initiating paper, the 2023 signed single-neighbour-cycle article, Zhang 2016 general stochastic approximation results, and actual published-finding corpus searches, no statement was found giving the sharp exceptional six-cycle classification and strictly positive limiting complex spectral amplitude for this two-source signed kernel. Generic CLTs and rate upper bounds are fully credited; nondegeneracy and the explicit noncommuting spectral calculation are additional results.",
+    "residual_risks": [
+      "A different historical statement might already specialize the generic stochastic approximation result to this exact two-tap signed cycle.",
+      "Generic spectral limit theory provides much of the probabilistic framework; the model-dependent spectral classification and positive amplitude are the incremental content.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General model and estimates are prior art; no reported exact two-tap exceptional-size phase diagram or positive complex martingale amplitude.",
+        "evidence": [
+          "Eq. (8), Theorem 3.5, Conjecture 7.1 and Section 7, Appendix A.1"
+        ],
+        "identifier_or_url": "arxiv:2610.13884v1 | https://arxiv.org/html/2610.13884v1",
+        "material_read": "HTML Introduction, model recursion, spectral fluctuation Theorems 3.1 and 3.5, Section 7, Appendix A alternating cycles",
+        "method": "Full-text HTML navigation and direct examination of stated formulas and relevant proofs",
+        "title": "Interacting Stochastic Systems with Agent-Based Sampling and Connection-Based Reinforcement",
+        "trigger": "2026 source defining the separated sampling and reinforcement model"
+      },
+      {
+        "assessment": "Covers ordinary signed single-neighbour cycles, not the two-source noncommuting kernel.",
+        "evidence": [
+          "Cycle example and characteristic polynomial in Section 4"
+        ],
+        "identifier_or_url": "arxiv:2312.02096v1 | https://arxiv.org/abs/2312.02096",
+        "material_read": "Full preprint parsed text, particularly cycle examples, Theorems 3.1 and 4.1, and spectral remark",
+        "method": "OA parsed primary preprint text, direct theorem comparison",
+        "title": "Interacting Urns on Directed Networks with Node-Dependent Sampling and Reinforcement",
+        "trigger": "Potential coverage via signed permutation cycles"
+      },
+      {
+        "assessment": "General methodology yields generic conditions, not an explicit two-tap urn spectrum or first-step nondegeneracy in this family.",
+        "evidence": [
+          "Theorems 2.1 and 2.2; discussion of complex modes"
+        ],
+        "identifier_or_url": "arxiv:1602.05708v1 | https://arxiv.org/abs/1602.05708",
+        "material_read": "Preprint Sections 1-2, statements of Theorems 2.1-2.3, spectral expansion proof portions",
+        "method": "OA full parsed primary preprint and theorem matching",
+        "title": "Central Limit Theorems of a Recursive Stochastic Algorithm with Applications to Adaptive Designs",
+        "trigger": "General CLT and complex-mode results could dominate statistical conclusions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60252b9f-2ab4-4793-9939-8b2b924dd985",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equal-weight averaging of two adjacent sampling inputs is a natural minimal departure from the published single-input signed-urn setting. It creates a nonmonotonic sharp threshold: only the six-site ring among sizes greater than two returns to Gaussian fluctuations, while both smaller four and every larger even ring retain a nonzero slower stochastic eigenmode. Proving its amplitude does not vanish is required to distinguish genuine anomalous fluctuations from merely slow deterministic bounds, a motivated unresolved feature of the newer framework.",
+    "status": "PASS"
+  }
+}
