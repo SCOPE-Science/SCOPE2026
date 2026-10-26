@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The analytic proof derives the unique stable Gaussian invariant covariance using a convergent discrete Lyapunov series; validates the sharp covariance feasibility inequality; parametrizes every symmetric square root and its Grassmannian repeated-eigenvalue branches; interpolates the precision matrix as a linear function of step size to recover the common SPD drift and unknown noise intensity and prove the exact pair-consistency criterion; proves the precision perturbation constant by a matching witness; and explicitly calculates the continuous-time scaling defect and opposite rotational-drifts counterexample. Strict boundary cases, dimensions and quantifiers were checked. The local standalone standard-library exact-rational checker passed 63 configurations after extraction/inspection, but general completeness rests on proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2604.14543, Sections 2-5, Theorems 2.1-2.4",
+        "arxiv:2601.20268, Methods Theorem 3 and eqs. (11)-(16)",
+        "arxiv:1701.05892 (abstract only) Bayesian Static Parameter Estimation for Partially Observed Diffusions via Multilevel Monte Carlo",
+        "arxiv:1807.10259 (abstract only) Unbiased inference for discretely observed hidden Markov model diffusions"
+      ],
+      "reasoning": "Wang--Wu establish existence/forward accuracy of stationary numerical laws; their result does not identify an unknown inverse drift/noise pair from two invariant marginals. Tran et al. identify from ordered trajectories with conditional increments, strictly richer data than independent one-time stationary snapshots. Multilevel Bayesian work treats coupled trajectory/posterior inference, not a universal stationary covariance-only reconstruction and realizability criterion. Neither generic numerical invariant-measure convergence nor transition-likelihood results logically imply the full stated inverse fiber by the published theorem statements alone.",
+      "searches": [
+        "matrix Ornstein Uhlenbeck symmetric drift A Euler Maruyama stationary covariance inverse P_h=A-hA^2/2 two timestep sizes exactly identify drift",
+        "Gaussian stationary marginal one-grid ambiguity multi-resolution Euler invariant measure unknown isotropic diffusion drift identification",
+        "arxiv 2601.20268 Robust SDE Parameter Estimation Under Missing Time Information Setting stationary covariance versus transition",
+        "stationary covariance Euler Maruyama Ornstein Uhlenbeck drift matrix recover using two step sizes inverse parameters identifiability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.14543, Sections 2-5, Theorems 2.1-2.4",
+      "doi:10.1137/S0036144500378302, Euler--Maruyama and numerical stability sections",
+      "arxiv:2601.20268, Methods Theorem 3 and eqs. (11)-(16)",
+      "arxiv:2609.02072, adjoint-gradient and Fokker--Planck optimization sections",
+      "published-finding corpus 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+      "published-finding corpus 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "published-finding corpus 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2601.20268, Methods Theorem 3 and eqs. (11)-(16)",
+        "arxiv:2604.14543, Sections 2-5, Theorems 2.1-2.4",
+        "doi:10.1137/S0036144500378302, Euler--Maruyama and numerical stability sections",
+        "arxiv:2609.02072, adjoint-gradient and Fokker--Planck optimization sections"
+      ],
+      "reasoning": "Higham -> Euler recursion/stability and scalar AR(1) variance (a necessary premise), but not (2)-(4) by a stated theorem. Wang--Wu Theorem 2.2 -> invariant measure existence and numerical Wasserstein accuracy, not inverse identification. Tran et al. Theorem 3 -> parameter identification when ordered transitions are known; an exact conditional kernel determines dynamics, while one stationary marginal does not; multiple resolutions of independent stationary marginals is a different weaker observation channel. Hellmuth et al. compare adjoint gradients, not stationary OU inverse statistics. The complete inverse-family and two-grid consistency/recovery are not a corollary of any inspected published statement without carrying out the new spectral/interpolation analysis.",
+      "searches": [
+        "arxiv 2601.20268 Robust SDE Parameter Estimation Under Missing Time Information Setting stationary covariance versus transition",
+        "Desmond Higham numerical simulation stochastic differential equations Euler Maruyama linear mean-square stability OU stationary variance",
+        "Zhen Wang Mingyan Wu Euler Maruyama method for invariant measures of McKean Vlasov SDE 2604.14543 numerical invariant law parameter identifiability",
+        "Robust SDE Parameter Estimation Under Missing Time Information Setting Methods Theorem 3",
+        "Euler Maruyama method for invariant measures of McKean Vlasov SDE Theorem 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1137/S0036144500378302, Euler--Maruyama and numerical stability sections",
+        "published-finding corpus 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+        "Explicit prior published-finding corpus analog: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b"
+      ],
+      "reasoning": "The one-grid covariance equation is equivalent to a symmetric matrix square-root equation, so prior discrete Lyapunov and sign-splitting formulations are plausible aliases. Higham provides underlying Euler recursion, and scalar AR(1) gives a standard sign ambiguity; neither inspected source states the matrix spectral projector fiber with sharp covariance existence threshold jointly with unknown-noise two-grid inversion. published-finding corpus paired-autocovariance sign loss concerns time-reversible chain autocovariances, not Euler Gaussian stationary-marginal precision lines. Historical spectral-fiber work remains possible.",
+      "searches": [
+        "Euler Maruyama Ornstein Uhlenbeck stationary covariance variance invariant measure drift parameter identifiability ambiguity aliasing kappa and 2/h minus kappa",
+        "orthogonal projector Grassmannian stationary distribution nonidentifiability Euler Maruyama OU covariance repeated eigenvalues",
+        "Euler Maruyama inverse stationary invariant Gaussian covariance drift matrix identifiability two step sizes square root orthogonal projector",
+        "published-finding corpus semantic search of matrix OU stationary-law inverse fibers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest related summary 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "published-finding corpus closest 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+        "published-finding corpus closest 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4"
+      ],
+      "reasoning": "The finding is a symbolic inverse classification, not a tabulated numerical constant. Actual semantic-result summaries concern harmonic Langevin integrator covariance bias and random-sensor OU fluctuations, not the exact Euler stationary marginal inverse fiber, two-resolution unknown-noise recovery, or algebraic consistency test. Accessible own ledger names and recoverable claim descriptions were checked for the same mathematical statements; unrelated stationary and optimization entries were not treated as substantive overlap. Lack of a table hit is not a priority proof.",
+      "searches": [
+        "Euler Maruyama Ornstein Uhlenbeck stationary covariance variance invariant measure drift parameter identifiability ambiguity aliasing kappa and 2/h minus kappa",
+        "Euler Maruyama inverse stationary invariant Gaussian covariance drift matrix identifiability two step sizes square root orthogonal projector",
+        "Gaussian stationary marginal one-grid ambiguity multi-resolution Euler invariant measure unknown isotropic diffusion drift identification",
+        "published-finding corpus semantic OU invariant covariance square-root fiber; inspection of accessible same-slot research ledgers for OU/Euler/stationary reconstruction claim"
+      ]
+    },
+    "rationale": "Compared the mathematical assumptions and conclusions of the target exact theorem against the primary full texts and published mathematical-record summaries: high-relevance sources establish forward invariant-measure convergence, standard Euler/AR(1) stationarity, or transition-data parameter identification, not the specified complete spectral one-grid inverse fiber plus two-grid exact joint drift/noise identification from time-unordered stationary marginals. A paired-autocovariance record has a different observation operator. The existence of a classical implication is a genuine residual risk, not ruled out by missing search hits. The claimed contribution excludes the classical scalar AR(1) formula, Lyapunov series and bare sign ambiguity as independent novelty.",
+    "residual_risks": [
+      "Classical AR(1) variance and branch ambiguity are known and could yield a previously published matrix square-root equivalence in control/inverse Lyapunov literature.",
+      "The two-grid identification formula is an affine interpolation of inverse covariance and may be implicit in an overlooked general system-identification theorem.",
+      "published-finding corpus semantic search is not exhaustive, and full-text inspection covered selected high-relevance works rather than all historical Gaussian autoregressive literature.",
+      "The results concern exact invariant marginals and do not imply identifiability from arbitrary finite samples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FORWARD_COVERAGE_ONLY",
+        "evidence": "Theorem 2.2 shows numerical invariant measure existence and Wasserstein approximation; no two-scale inverse drift/noise or stationary Gaussian inverse-fiber classification is claimed.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.14543",
+        "material_read": "Introduction, sections 2-5, Theorems 2.1-2.4, invariant-measure arguments and numerical-experiment material",
+        "method": "Full accessible HTML text and section/theorem comparison",
+        "title": "The Euler-Maruyama method for invariant measures of McKean-Vlasov stochastic differential equations",
+        "trigger": "Recent direct source on numerical invariant laws and discretization-scale convergence"
+      },
+      {
+        "assessment": "CLASSICAL_FOUNDATION_NOT_FULL_COVERAGE",
+        "evidence": "Provides the Euler numerical scheme and scalar stability framework; no asserted matrix inverse stationary law parametrization and unknown-noise recovery from two independent stationary marginals.",
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/S0036144500378302",
+        "material_read": "Euler--Maruyama formulation and numerical stability sections of accessible full HTML",
+        "method": "Full-text section reading, comparison with exact discrete Lyapunov/AR(1) identities",
+        "title": "An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations",
+        "trigger": "Canonical source for Euler--Maruyama linear recursion and stability"
+      },
+      {
+        "assessment": "DIFFERENT_DATA_MODEL_NOT_COVERING",
+        "evidence": "Theorem 3 uses ordered sample paths and observed increments. Present observations are stationary marginal covariances at two numerical resolutions without paths.",
+        "identifier_or_url": "https://arxiv.org/html/2601.20268v1",
+        "material_read": "Introduction, Methods, Theorems 1-3, transition-observation estimators equations (11)-(16), experiments",
+        "method": "Full accessible HTML section reading and hypothesis-level implication comparison",
+        "title": "Robust SDE Parameter Estimation Under Missing Time Information Setting",
+        "trigger": "Direct potential broader SDE drift and diffusion identifiability theorem"
+      },
+      {
+        "assessment": "ADJACENT_OPTIMIZATION_NOT_COVERING",
+        "evidence": "Studies adjoint gradient representations for Fokker--Planck control, without stationary-only OU inverse fiber or multi-resolution parameter reconstruction.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.02072",
+        "material_read": "Accessible full text, introduction and adjoint method and discretization comparison sections",
+        "method": "Theorem and method comparison",
+        "title": "Two Adjoint Perspectives on Fokker-Planck Optimization",
+        "trigger": "Numerical-to-continuum optimization/gradient comparison for stochastic dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8adcc9e-12f0-4fe7-8873-c2f5d3f5206e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural question in numerically approximated invariant-measure calibration is whether independent stationary samples at one or two simulator resolutions identify the underlying dissipative linear diffusion parameters. The full inverse-fiber geometry shows exponential or continuous ambiguity even with noise strength known; a second resolution resolves unknown drift and noise exactly, while the exact OU stationary law and nonsymmetric Euler variants retain genuine nonidentifiability. The result supplies an exact two-resolution experimental-design and feasibility certificate with a sharp noise-amplification denominator. This is a structural characterization motivated by inverse numerical statistics, not an arbitrary isolated numerical example or a claim that the elementary scalar AR(1) formula is novel.",
+    "status": "PASS"
+  }
+}
