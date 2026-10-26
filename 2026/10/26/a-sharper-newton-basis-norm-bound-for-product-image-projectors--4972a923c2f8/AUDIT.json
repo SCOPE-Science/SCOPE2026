@@ -1,0 +1,110 @@
+{
+  "claim": "For every finite-dimensional bipartite space \\(B\\otimes E\\), orthogonal projection \\(P\\), integer \\(n\\ge6\\), and degree parameter \\(3\\le D\\le n/2\\), let \\(p_{n,D}\\) be a polynomial of degree at most \\(D\\) with \\(p_{n,D}(0)=1\\) and \\(|p_{n,D}(k)|\\le\\epsilon:=2^{-cD^2/n}\\) for integers \\(1\\le k\\le n\\), where \\(c>0\\) is the universal constant in the established NOR-approximation lemma. Put \\(P_i\\) for the copy of \\(P\\) on pair \\(B_iE_i\\), \\(q(x)=p_{n,D}(n-x)\\), \\(\\widetilde P=q(\\sum_{i=1}^n P_i)\\), and \\(\\mu=\\|P\\|_\\pi\\), the projective tensor norm induced by local operator norms across \\(B:E\\). Then \\(\\widetilde P P^{\\otimes n}=P^{\\otimes n}\\widetilde P=P^{\\otimes n}\\), \\(\\|\\widetilde P-P^{\\otimes n}\\|_\\infty\\le\\epsilon\\), and \\[\\|\\widetilde P\\|_\\pi\\le\\epsilon\\sum_{s=0}^{D}\\binom ns(2\\mu)^s.\\] In particular, with \\(\\kappa=\\min\\{(\\dim B)^2,(\\dim E)^2\\}\\), the known dimension bound \\(\\mu\\le\\kappa\\) yields \\(\\|\\widetilde P\\|_\\pi\\le\\epsilon(2\\kappa)^D2^{n h(D/n)}\\), improving the published bound for this same approximation by the factor \\(\\epsilon\\), where \\(h(t)=-t\\log_2t-(1-t)\\log_2(1-t)\\).",
+  "correctness": {
+    "rationale": "For each integer \\(s\\le D<n\\), the Newton finite difference samples only \\(q(j)=p(n-j)\\) with \\(1\\le n-j\\le n\\), hence \\(|a_s|\\le\\epsilon 2^s\\). The exact binomial identity for commuting projections and tensor-product submultiplicativity give the norm estimate. The joint spectrum proves the approximation error and the two identities on \\(P^{\\otimes n}\\). No computation is being used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.11771v1, Lemma 3, gives the baseline bound \\(\\Gamma\\le (2\\kappa)^D2^{n h(D/n)}\\) using the complementary-projection expansion.",
+        "The same polynomial's error is \\(\\epsilon=2^{-cD^2/n}\\), and the new bound is \\(\\epsilon\\) times the corresponding binomial sum."
+      ],
+      "reasoning": "No searched source gave a stronger bound for this exact approximant and norm. The new bound improves the existing one for every admissible epsilon<1; it does not dominate unrelated channel-specific estimates in all settings.",
+      "searches": [
+        "published-finding corpus: projective tensor norm Stinespring image projector erasure channel quantum blowing-up lemma",
+        "published-finding corpus: channel-specific projective tensor norm polynomial approximation strong converse quantum capacity Beigi Tomamichel 2609.11771",
+        "Web: projective tensor norm induced by operator norm positive operators bipartite projection"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2609.11771 — full text, §§2 and 4; Fact 2; Lemmas 2–3; Theorem 4; conclusion.",
+      "https://arxiv.org/abs/1304.2328 — full text checked for the norm definition and scope.",
+      "https://doi.org/10.1016/j.jfa.2014.07.028 — abstract and section-1 excerpt checked; not treated as full-text coverage.",
+      "published-finding corpus searches for the claim, aliases, projection variables, Newton/binomial expansion, projective norm, and strong-converse context; closest result IDs are recorded above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper's dimension bound is \\(\\kappa=\\min\\{(\\dim B)^2,(\\dim E)^2\\}\\); its approximation proof uses products of complementary projections and coefficient magnitudes at most \\(2^s\\).",
+        "Johnston–Kribs discuss a projective norm based on trace-norm local spaces; Palazuelos studies a related trace-norm tensor formulation. Neither inspected statement implies the operator-norm bound proved here."
+      ],
+      "reasoning": "The baseline theorem implies only the weaker upper bound. The finite-difference calculation for \\(q(j)=p(n-j)\\) yields \\(|a_s|\\le\\epsilon 2^s\\), which is not the coefficient estimate used in the source proof. No direct implication covering this stronger norm bound was identified.",
+      "searches": [
+        "arXiv:2609.11771v1, §§2 and 4, especially Lemma 2, Fact 2, Lemma 3, and Theorem 4",
+        "arXiv:1304.2328, sections defining the projective tensor norm and Theorem 0.1",
+        "DOI:10.1016/j.jfa.2014.07.028, abstract and section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2609.11771v1, the operator is \\(p(nI-S)\\) with \\(S=\\sum_i P_i\\); the present \\(q(S)=p(nI-S)\\) is the same operator.",
+        "The published proof expands in products of \\(I-P_i\\) and bounds coefficients by \\(2^s\\); the alternative Newton expansion uses \\(q(j)=p(n-j)\\), which is \\(\\epsilon\\)-small for \\(j\\le D<n\\)."
+      ],
+      "reasoning": "The claim is not a different polynomial or a reparameterized object: it is a new certified norm estimate for the same operator obtained from a different exact expansion. The source does not state the epsilon-improved coefficient bound in the inspected proof.",
+      "searches": [
+        "published-finding corpus: low-degree polynomial approximation product projections projective tensor norm Stinespring image projector expand in projections rather than complements",
+        "arXiv:2609.11771v1, Fact 2 and Lemma 3; https://arxiv.org/pdf/2609.11771",
+        "Web: \"Stinespring image projector\" \"projective tensor norm\" polynomial approximation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus entries were unrelated endpoint projection-norm results, including 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2 and 2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e.",
+        "published-finding corpus also returned 2026/10/4/SCOPE-exact-approximate-degradability-parameter-of-the-d-dimensional-q--31f58dc442c5, which concerns erasure-channel degradability, not this polynomial expansion."
+      ],
+      "reasoning": "No exact table/database entry was found for the claimed coefficient improvement. These are actual bounded search results, not evidence that the result is globally unique.",
+      "searches": [
+        "published-finding corpus: low-degree polynomial approximation product projections projective tensor norm Stinespring image projector expand in projections rather than complements",
+        "published-finding corpus: binomial Newton expansion of polynomial approximating AND on Boolean cube small finite differences projective tensor norm",
+        "published-finding corpus: channel-specific projective tensor norm polynomial approximation strong converse quantum capacity Beigi Tomamichel 2609.11771"
+      ]
+    },
+    "rationale": "The closest primary paper supplies the same NOR polynomial and a weaker coefficient estimate in the complementary-projection Newton basis. The projection-variable Newton basis gives an exact finite-difference estimate smaller by \\(\\epsilon\\). No direct equivalent was found in the bounded published-finding corpus and primary-literature searches; this supports but does not prove originality.",
+    "residual_risks": [
+      "The new coefficient estimate is elementary and may be implicit in an unindexed source or in a different treatment of the same polynomial.",
+      "The broader literature search is bounded; absence from search results is not proof of uniqueness.",
+      "The inherited NOR approximation constant is not optimized, and the resulting norm bound is not claimed sharp.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant; all passages governing the approximation and its norm estimate were inspected. The published proof uses the complementary-projection expansion and does not state the epsilon-improved coefficient bound found here.",
+        "evidence": "arXiv:2609.11771v1, §§2 and 4, Fact 2, Lemmas 2–3, Theorem 4.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.11771",
+        "material_read": "Relevant full-text sections of the arXiv PDF: the projective-norm definition, Lemma 2, Fact 2, Lemma 3, Theorem 4, and the concluding discussion of channel-specific norm bounds.",
+        "method": "Reconstructed the polynomial and its operator spectrum; independently derived the Newton finite-difference coefficients in the variable \\(S=\\sum_i P_i\\).",
+        "title": "Strong Converse for Quantum Capacity via a Fully Quantum Blowing-Up Lemma",
+        "trigger": "Primary source for the NOR polynomial, the projective norm, and the prior approximation bound."
+      },
+      {
+        "assessment": "Related background, not a covering theorem: its principal projective norm uses trace-norm local spaces, so it does not directly imply the claimed operator-norm estimate.",
+        "evidence": "arXiv:1304.2328, §§3–5 and Theorem 0.1.",
+        "identifier_or_url": "https://arxiv.org/abs/1304.2328",
+        "material_read": "Relevant accessible full-text sections containing the norm definitions and the discussion of pure-state values.",
+        "method": "Compared the local Banach-space norms and the tensor product being normed with the operator-norm projective tensor norm in the claim.",
+        "title": "Duality of Entanglement Norms",
+        "trigger": "Search result on projective tensor norms in quantum information."
+      },
+      {
+        "assessment": "Adjacent but not direct coverage; retained as a residual literature risk rather than used to claim global novelty.",
+        "evidence": "DOI:10.1016/j.jfa.2014.07.028, abstract and section 1.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jfa.2014.07.028",
+        "material_read": "Publisher abstract and the accessible section-1 excerpt; the complete article was not needed for the norm comparison and was not treated as fully inspected.",
+        "method": "Checked the stated norm formulation and its local trace-class spaces against the norm used in the primary strong-converse paper.",
+        "title": "On the largest Bell violation attainable by a quantum state",
+        "trigger": "Search result relating projective tensor norms to quantum-information applications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4972a923-c2f8-480e-8cdc-765804a35279",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The bound is an exponential factor \\(\\epsilon\\) smaller than the existing binomial-sum estimate for the same approximation. With \\(D\\) proportional to \\(n\\), it improves the norm penalty \\(-2\\log_2\\Gamma\\) in the one-shot blowing-up lemma by \\(2cD^2/n\\) bits. The gain is a concrete quantitative refinement of a step identified by the primary source as relevant to the strong-converse tradeoff; it does not claim a new capacity theorem.",
+    "status": "PASS"
+  }
+}
