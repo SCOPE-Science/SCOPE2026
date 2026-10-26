@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every proposed selected set, the selected edge-vertices must form an edge cover because original vertices have no original-vertex neighbors. Once this is so, the unselected edge-vertices have an incident selected edge-vertex; a selected edge-vertex is dominated except when its original edge is isolated in the cover. Exactly those pairwise disjoint isolated edges force nonempty endpoint choices. This proves the full polynomial factorization. In the signed multivariate expression, a free original vertex cancels by toggling it; a cover with no free original vertices is exactly a perfect matching, and the sign per matched pair is -1 canceled by its selected edge-vertex sign. This yields unit coefficient at each perfect-matching monomial and zero elsewhere. Isolated original vertices give no feasible sets and no perfect matching. The supplied independent direct-definition enumeration tests 725 small labeled graphs and 1,246,184 candidate subsets, including nonconnected cases; the infinite proof does not rely on the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2204.07040 Lemma 2.1 replaces original-vertex choices by edge-vertices only for minimum-cardinality bounding and does not retain all total dominating sets.",
+        "arXiv:1607.00400 develops general recurrence identities and special evaluations for paths, cycles, and trees; those are formally applicable procedures but do not assert the present identity or edge-cover parameterization.",
+        "Full 2025 PDF DOI:10.9734/arjom/2025/v21i7954 uses the general open-neighborhood hypergraph to compute total-domination polynomials of three-arm trees; the general hypergraph transversal identity alone is not a signed perfect-matching identity for middle graphs."
+      ],
+      "reasoning": "A general recursion can in principle compute an arbitrary graph polynomial, but such an algorithm is not a previously stated closed multivariate matching identity. A minimum-size middle-graph total-domination bound cannot imply the parity-signed enumeration of every set.",
+      "searches": [
+        "\"total domination polynomial\" \"middle graph\" polynomial",
+        "\"middle graph\" \"total dominating sets\" \"edge cover\"",
+        "total domination polynomial of middle graph of arbitrary graph edge covers isolated edge components generating function",
+        "total dominating sets of middle graphs edge-cover isolated edges generating polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.07040 (full accessible HTML, relevant statements and proof portions)",
+      "arXiv:1607.00400 (accessible full HTML, relevant statements and specializations)",
+      "Public mathematical research records: semantic searches for middle graph, total domination, signed polynomial, and perfect matching",
+      "DOI:10.9734/arjom/2025/v21i7954 (complete open-access publisher PDF, 10 pages)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2204.07040, Sections 1–5: numerical total-domination number, bounds, coronas and Nordhaus–Gaddum inequalities.",
+        "arXiv:1607.00400: general total-domination-polynomial recurrences and selected evaluations.",
+        "Closest published mathematical records concerning 2-rainbow domination of middle graphs use different feasibility conditions and do not imply the signed ordinary-total-domination matching sieve.",
+        "The 2025 general vertex-cover hypergraph equivalence includes all total domination polynomials formally, but its concrete family results do not imply the coefficientwise middle-graph perfect-matching specialization."
+      ],
+      "reasoning": "The tested claim involves every feasible total dominating set and its selected edge-vertex monomial. Changing the domination rule, optimizing only size, or specializing to a graph class loses the information required for the coefficientwise matching identity. No inspected stronger theorem entails the claim by a direct parameter substitution.",
+      "searches": [
+        "site:arxiv.org \"Total domination number of middle graphs\"",
+        "\"total domination polynomials of graphs\" \"-1\"",
+        "middle graph M(G), total domination polynomial, signed evaluation at minus one and perfect matching number; comparison to 2-rainbow domination on middle graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact multivariate statement is a coefficientwise equality between an alternating total-domination enumerator and the perfect-matching generating polynomial.",
+        "The scalar equivalent is D_t(M(G);-1)=pm(G); the sign-convention equivalent is #even total dominating sets minus #odd total dominating sets = pm(G).",
+        "Relevant 2016 full text arXiv:1607.00400 addresses total-domination-polynomial specializations but not the middle-graph perfect-matching sieve."
+      ],
+      "reasoning": "The equivalences were tested at the implication level, not by only matching titles: all coefficients of selected-edge-vertex monomials are zero unless the chosen edges are a perfect matching, when the coefficient is one. No inspected source implies that exact statement.",
+      "searches": [
+        "\"middle graph\" \"perfect matching polynomial\" \"domination\"",
+        "\"signed\" \"total dominating sets\" \"perfect matchings\" graph",
+        "\"middle graph\" \"-1\" domination polynomial matching",
+        "evaluation at minus one of total domination polynomial of middle graph equals number of perfect matchings",
+        "signed difference even odd total dominating sets middle graph one factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2022 paper arXiv:2204.07040 tabulates numerical total-domination values for individual graph families, not the all-graph polynomial.",
+        "The 2016 paper arXiv:1607.00400 gives family polynomials, not an exact general middle-graph matching table."
+      ],
+      "reasoning": "A table of minimum values, or a list of recurrence-evaluable polynomials, neither counts signed total dominating sets coefficientwise nor resolves the universal perfect-matching-enumerator identity. No covering exact table or database entry was found in actual searches.",
+      "searches": [
+        "\"total domination polynomials of middle graphs\"",
+        "\"total domination polynomial\" \"-1\" \"perfect matchings\"",
+        "\"middle graph\" \"perfect matchings\" \"total domination polynomial\"",
+        "perfect matching counting from total domination polynomial edge cover expansion"
+      ]
+    },
+    "rationale": "Direct comparison of the combinatorial statements with the inspected arXiv full texts found no counting formula for all total dominating sets of middle graphs and no signed multivariate perfect-matching sieve. The 2022 paper studies the minimum cardinality and graph-family bounds; the 2016 paper gives general recurrence formulas and evaluations for other graph classes. The 2025 open-neighborhood hypergraph article gives general transversal equivalence and particular tree enumerations but no middle-graph or perfect-matching identity. Separate research-record searches on both the original formulation and algebraically equivalent parity-signed and edge-cover statements found different invariants or transforms, not a dominating theorem. Novelty remains best-knowledge rather than a proof of absolute priority.",
+    "residual_risks": [
+      "Unindexed earlier identity under the aliases middle graph, semi-total graph, line-graph extension, or total-domination parity.",
+      "The bibliographic review is substantive but not an exhaustive publication-priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Lemma 2.1 guarantees edge-vertex-only replacement of selected original vertices for minimum cardinality; it does not preserve counts or signed weights.",
+          "Sections 2–5 characterize total-domination numbers and bounds rather than all-cardinality generating functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.07040v1",
+        "material_read": "Accessible full HTML, Sections 1–5: definition of middle graph, Lemmas 2.1–2.2, values for paths and graph families, tree bounds, graph operations, and Nordhaus–Gaddum relations.",
+        "method": "Inspected full HTML equations and result statements with targeted searches for polynomial, matching, and cover; compared exact mathematical implications.",
+        "title": "Total domination number of middle graphs",
+        "trigger": "Same graph construction and same underlying total domination property; likely direct coverage."
+      },
+      {
+        "assessment": "NOT_COVERING_RELEVANT_RESULTS",
+        "evidence": [
+          "Reduction methods are formulated for general graphs, with explicit applications to paths, cycles and trees.",
+          "No inspected result identifies the signed total domination polynomial of a middle graph with a perfect-matching count or polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.00400v1",
+        "material_read": "Accessible full HTML: introductory definitions, reduction theorems, special evaluations at minus one, and family polynomial statements.",
+        "method": "Read relevant results and compared graph domain and resulting formulas, including whether general recurrence asserts a matching specialization.",
+        "title": "Total domination polynomials of graphs",
+        "trigger": "General total-domination-polynomial machinery, special values at minus one and possible stronger recurrence."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Theorem 1.8 restates an ordinary polynomial equivalence between total domination and transversals of the open-neighborhood hypergraph; it is a broadly applicable conceptual formalism, not an explicit signed middle-graph matching identity.",
+          "Theorems 3.1–3.5 compute formulas for paths and rooted three-arm trees and include no middle-graph transform or perfect-matching monomials."
+        ],
+        "identifier_or_url": "https://journalarjom.com/index.php/ARJOM/article/download/954/2024/1481",
+        "material_read": "All ten pages of the publisher open-access full PDF (introduction, general hypergraph-cover equivalence, Theorems 3.1–3.5 on paths and three-arm trees, and references). Page images of pages 1, 4 and 7 were also visually checked for content and formulas.",
+        "method": "Inspected searchable full-PDF text and page screenshots, checked the actual result statements and searched for middle graphs and perfect matchings.",
+        "title": "On a New Approach to Total Domination Polynomials (Latheesh Kumar, 2025)",
+        "trigger": "Potential broader polynomial-enumeration formalism applicable to graph transformations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d429ac2-b8f4-40ee-9c39-6e8d613726f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An unexpected identity connects two different all-graph invariants: a signed total domination generating function of the middle graph and the perfect-matching polynomial of the original graph, with coefficientwise support and positivity as direct consequences. It holds without connectivity or planarity assumptions, and its elementary involutive cancellation provides a reusable structural tool; it is not an arbitrary finite census or a renamed minimum number. The ordinary complete polynomial edge-cover expansion independently refines all cardinalities, though direct evaluation can be exponentially costly.",
+    "status": "PASS"
+  }
+}
