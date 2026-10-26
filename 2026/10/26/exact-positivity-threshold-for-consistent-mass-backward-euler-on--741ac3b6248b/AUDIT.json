@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof scales the consistent mass and stiffness matrices exactly; establishes positivity via a nonsingular \\(M\\)-matrix for \\(r\\ge1/6\\); handles \\(n=3\\) by exact eigenvalues; and proves a strictly negative distance-two coefficient for every \\(n\\ge4\\) and \\(0<r<1/6\\) using the periodic Green function. The finite script is supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin–Lazarov–Thomée–Zhou, arXiv:1510.02825, Theorems 4.1–4.3 (full text inspected): for bounded-domain \\(P_1\\) finite elements with Dirichlet boundary conditions, a nondiagonal mass matrix can lose positivity at small steps and a sufficient threshold follows from a Stieltjes-matrix condition; this gives a sufficient bound, not necessity for all smaller steps on a periodic cycle.",
+        "Chatzipantelidis–Horváth–Thomée (2015) publication record and abstract concern the heat equation with homogeneous Dirichlet boundary conditions and discuss general positivity thresholds. Full author-posted article retrieval timed out; the full text was not inspected."
+      ],
+      "reasoning": "The broader literature explains eventual positivity and gives a sufficient timestep scale. It does not, in the accessible material, exclude an additional positive window below that bound on a periodic uniform mesh. The Green-function sign proof supplies that missing necessity statement and the n=3 exception.",
+      "searches": [
+        "mass matrix inverse finite element uniform periodic mesh positive semigroup heat equation",
+        "finite element backward Euler positivity threshold nonnegative matrix exact condition for all time steps",
+        "https://arxiv.org/abs/1510.02825",
+        "https://doi.org/10.1515/cmam-2015-0018"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1515/cmam-2015-0018",
+      "https://papers.sze.hu/research-portal/publications/10.1515/cmam-2015-0018",
+      "https://arxiv.org/abs/1510.02825",
+      "https://doi.org/10.1090/S0025-5718-07-02021-2",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The finite-element sufficient condition in the related 2015 subdiffusion preprint corresponds to the same dimensional scale \\(\\tau/\\ell^2\\ge1/6\\) for a uniform \\(P_1\\) mesh, but it only proves safety above the bound; it does not prove failure at every smaller positive step.",
+        "The inspected periodic-lattice record proves positivity for a different filtered Crank–Nicolson map, and the Markov-chain record assumes a generator with nonnegative off-diagonal entries; neither has the consistent mass matrix used here."
+      ],
+      "reasoning": "Prior work motivates and bounds the positivity threshold but does not imply the exact necessity direction. The cyclic inverse formula proves \\((T_\\tau)_{0,2}<0\\) for every \\(n\\ge4\\) and every \\(0<\\tau/\\ell^2<1/6\\), closing the possible lower-window gap; the \\(n=3\\) case is handled separately by its two nonconstant eigenmodes.",
+      "searches": [
+        "consistent mass P1 finite element periodic one dimensional mesh backward Euler exact entrywise positivity threshold",
+        "mass matrix inverse finite element uniform periodic mesh positive semigroup heat equation",
+        "finite element backward Euler positivity threshold nonnegative matrix exact condition for all time steps",
+        "https://arxiv.org/abs/1510.02825",
+        "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus record 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac proves positivity for a backward-Euler-filtered Crank–Nicolson operator on the standard discrete Laplacian of a periodic lattice, not for the consistent-mass finite-element resolvent.",
+        "published-finding corpus record 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a concerns Crank–Nicolson applied to a finite Markov generator and reduces positivity to diagonal resolvent entries."
+      ],
+      "reasoning": "The objects differ at the matrix level: here \\(T_\\tau=(M+\\tau K)^{-1}M\\) with a nondiagonal consistent mass matrix, whereas the closest periodic-lattice result uses rational functions of the graph Laplacian and the Markov-chain result assumes a generator with nonnegative off-diagonal entries. Neither statement yields the exact negative displacement-two entry for this finite-element matrix.",
+      "searches": [
+        "consistent mass P1 finite element periodic one dimensional mesh backward Euler exact entrywise positivity threshold",
+        "exact entrywise positivity threshold of backward Euler consistent-mass P1 finite element heat equation on uniform periodic one-dimensional mesh; periodic cycle Green function negative entries",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic published-finding corpus searches returned the two positivity-related records above and nearby records for BDF2, Richardson extrapolation, and Lanczos positivity; none has the consistent-mass P1 periodic-cycle matrix or its threshold \\(1/6\\).",
+        "Deduplication-only search of the accessible current ledger and the accessible earlier library ledger found no claim for the consistent-mass periodic P1 heat step."
+      ],
+      "reasoning": "No exact database/table record found in the searched material matches both the operator (M+tau K)^(-1)M and the if-and-only-if threshold with the three-node exception. This is a scoped comparison, not a claim that an exhaustive mathematical literature census has been completed.",
+      "searches": [
+        "consistent mass P1 finite element periodic one dimensional mesh backward Euler exact entrywise positivity threshold",
+        "finite element backward Euler positivity threshold nonnegative matrix exact condition for all time steps",
+        "cyclic tridiagonal matrix inverse times consistent finite element mass matrix positivity periodic grid",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ]
+    },
+    "rationale": "The closest accessible finite-element result supplies a sufficient positivity bound, not the necessity direction for every smaller positive step on a periodic cycle. Closest published numerical-method positivity records concern different rational maps or generator hypotheses. A residual full-text risk is explicitly retained.",
+    "residual_risks": [
+      "The full text of the closest 2015 heat-equation paper could not be obtained; its accessible metadata identifies a homogeneous-Dirichlet setting, but an uninspected special-case remark cannot be ruled out.",
+      "The related arXiv preprint gives a general sufficient positivity threshold and closely related scale; the exact periodic necessity proof appears not to be implied by its inspected theorems.",
+      "The comparison searches were semantic and targeted, not an exhaustive search of every historical finite-element publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant prior work, but the accessible material does not state the exact periodic-cycle necessity threshold. Full-text comparison remains a residual risk.",
+        "evidence": [
+          "The publication record dates the article 2015-10-01 and describes homogeneous Dirichlet conditions; the exact periodic uniform one-dimensional matrix is not specified in the abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+        "material_read": "Publication metadata and abstract only. The author-posted open-access full text was unavailable, so no full-text inspection was completed.",
+        "method": "Compared the stated homogeneous-Dirichlet heat-equation scope and the reported discussion of positivity thresholds with the periodic-cycle assumptions of the claim.",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Closest primary publication on fully discrete positivity for standard Galerkin finite elements and timestep thresholds."
+      },
+      {
+        "assessment": "Does not cover the exact if-and-only-if periodic-cycle classification. Its general threshold is sufficient; it does not prove strict negativity for every sub-threshold positive step in the periodic case.",
+        "evidence": [
+          "Theorem 4.3 gives a Stieltjes-matrix sufficient threshold for non-diagonal mass matrices; the paper treats bounded-domain Dirichlet finite elements and related subdiffusion time stepping."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+        "material_read": "Full HTML text inspected, including the introduction, fully discrete results in Section 4, Theorems 4.1–4.4, and the sufficient timestep bound in Theorem 4.3.",
+        "method": "Compared matrix assumptions, boundary conditions, time stepping, and the exact logical direction of the sufficient threshold with the periodic consistent-mass theorem.",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Accessible primary preprint that states and proves general finite-element positivity thresholds for a related time-discretization family."
+      },
+      {
+        "assessment": "Not covering: it treats a filtered Crank–Nicolson rational function of the standard graph Laplacian, whereas the present transition uses a consistent finite-element mass matrix.",
+        "evidence": [
+          "The prior record's operator is \\(C_sR_s\\) on the standard nearest-neighbor lattice; the present operator is \\((M+\\tau K)^{-1}M\\)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Full RESULT.md retrieved and read.",
+        "method": "Compared the exact operator and kernel formula, not just the shared positivity vocabulary.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Closest published record returned by the semantic search for periodic-lattice positivity."
+      },
+      {
+        "assessment": "Not covering: the prior theorem is for Crank–Nicolson on finite Markov generators; the consistent-mass finite-element generator is not assumed Metzler, and the update is backward Euler.",
+        "evidence": [
+          "The prior criterion uses diagonal entries of \\((I-sQ)^{-1}\\) for a CTMC generator \\(Q\\); the present proof requires the cyclic inverse of a non-diagonal mass-plus-stiffness matrix."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Full RESULT.md retrieved and read.",
+        "method": "Compared the generator hypotheses and the one-step rational map with the consistent-mass finite-element matrix.",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Closest returned result about exact positivity thresholds for a resolvent-based time integrator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "741ac3b6-248b-492a-8aa9-1e1dd46480a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact cutoff is a useful structure-preserving timestep rule for a natural finite-element discretization of the heat equation. It explains a genuine small-step positivity failure, rules out all sub-threshold positive windows for every cycle size \\(n\\ge4\\), and isolates the minimal three-node exception with an analytic reason.",
+    "status": "PASS"
+  }
+}
