@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "PASS: Every Hamiltonian cycle is enumerated by a vertex-simple closed walk rooted at 0, canonicalized by orientation; a second exact enumeration via pairs of perfect matchings produces the identical 1344 masks. A valid 2-switch between distinct spanning cycles has symmetric difference a facial four-cycle, so testing all 24 square masks is complete. Independently generated adjacency lists agree. Full component searches, 1104 breadth-first searches, and all 384 symmetry actions verify 241 components, 240 isolated cycles, the sole 1104-vertex component, radius 10, diameter 12 and all orbit/degrees/counts. The actual embedded verifier ran successfully; no unbounded or statistical inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kleer–Patel–Stroh 2020, Theorem and introductory scope: sufficient minimum degree at least half the order plus seven; Q4 has degree 4 and order 16, while 8+7=15.",
+        "The 2026 rectangular-grid result concerns double-switch moves on planar rectangular grids, not single-square switches in Q4.",
+        "Chebiryak–Kroening extend edge-weight classification to dimensions five and six, and report established four-cube totals."
+      ],
+      "reasoning": "Existing positive connectivity theorems do not imply connectivity or components here; the broad Hamiltonian cycle classification totals do not determine the switch graph or its metric. The 2020 paper exhibits different dense-graph obstructions and has no Q4 instance.",
+      "searches": [
+        "Switch-based Markov chains for sampling Hamiltonian cycles in dense graphs Kleer Patel Stroh 2020",
+        "Reconfiguration of Hamiltonian Cycles in Rectangular Grid Graphs double-switch 2026",
+        "Towards a Classification of Hamiltonian Cycles in the 6-Cube Chebiryak Kroening 2008"
+      ]
+    },
+    "checked_sources": [
+      "Gray Codes and Paths on the n-Cube (10.1002/j.1538-7305.1958.tb03887.x)",
+      "Towards a Classification of Hamiltonian Cycles in the 6-Cube (10.3233/SAT190038)",
+      "Switch-based Markov Chains for Sampling Hamiltonian Cycles in Dense Graphs (10.37236/9503)",
+      "A066037: Number of undirected Hamiltonian cycles in binary n-cube (https://oeis.org/A066037)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gilbert 1958 establishes the already-known nine symmetry types; full original text could not be verified in this round.",
+        "Chebiryak–Kroening 2008 full text focuses on SAT classification by coordinate-change counts; no square-switch graph construction or component counts appears in its inspected sections and appendices.",
+        "Kleer–Patel–Stroh 2020 sections 1–2 define general k-switch irreducibility and prove general dense-graph statements, but no special 16-vertex Q4 classification."
+      ],
+      "reasoning": "Knowing that there are 1344 cycles or nine symmetry types cannot force the reconfiguration degree sequence or components. The general switch irreducibility literature does not imply a numerical component classification for this sparse graph. Missing full access to Gilbert is a disclosed residual risk, not claimed negative evidence.",
+      "searches": [
+        "\"Gray Codes and Paths on the n-Cube\" Gilbert 1958 pdf",
+        "\"Towards a Classification of Hamiltonian Cycles in the 6-Cube\" Chebiryak Kroening",
+        "\"Switch-Based Markov Chains for Sampling Hamiltonian Cycles in Dense Graphs\" PDF",
+        "Hamiltonian cycle square switch graph Q4 disconnected isolated reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kleer–Patel–Stroh 2020, section 1, defines two-switch adjacency through four changed edges. On the triangle-free four-cube the difference of any two Hamiltonian cycles with four changed edges must be one facial square.",
+        "Chebiryak–Kroening 2008, section 2 and Table 1, concerns change-number equivalence of cycles, rather than switch adjacency."
+      ],
+      "reasoning": "The square-face flip graph and the standard Hamiltonian 2-switch graph coincide exactly for Q4. The object was searched under both names and under Gray-code/edge-exchange terminology; the inspected classification and switch-chain papers do not state this finite adjacency classification.",
+      "searches": [
+        "\"Hamiltonian cycles\" \"4-cycle\" \"hypercube\" \"switch\" reconfiguration",
+        "Hamiltonian cycle flip graph hypercube Q4 square move 4-cycle exchange Hamiltonian Gray code reconfiguration",
+        "Kleer Patel Stroh 2020 two-switch Markov chain Hamiltonian cycles hypercube Q4 4-dimensional cube reducibility 241 components"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A066037 records 1344 undirected four-cube Hamiltonian cycles.",
+        "Chebiryak–Kroening 2008 Table 1 records 1344 and nine automorphism types, both already known.",
+        "No located table gives 240 isolated states, a 1104-state switch component, or switch-diameter 12."
+      ],
+      "reasoning": "The pre-existing totals and symmetry count are explicitly excluded from the novelty claim. The new assertion is a different table defined by transitions, not by the original cycle count.",
+      "searches": [
+        "\"240\" \"1104\" \"Hamiltonian\" \"hypercube\" cycles",
+        "\"1344\" \"square\" \"Hamiltonian\" \"switch\" cube",
+        "OEIS A066037 number of undirected Hamiltonian cycles Q4",
+        "four dimensional hypercube Gray code nine symmetry classes Gilbert 1958"
+      ]
+    },
+    "rationale": "PASS subject to residual risk: the 1344 cycles and nine symmetry orbits are known from Gilbert 1958 and tabulated by Chebiryak–Kroening 2008, and the concept of k-switch is known from Kleer–Patel–Stroh 2020. Their statements, inspected where available, do not imply the complete Q4 2-switch component/metric profile. Exact and alias searches of published records located no covering table; full original Gilbert text was not accessible, leaving an explicitly acknowledged risk of earlier unindexed computations.",
+    "residual_risks": [
+      "Gilbert 1958 full paper inaccessible: an earlier tabulated switch relation within its nine classes cannot be ruled out from accessible excerpts.",
+      "Earlier unindexed or unpublished local-switch calculations may exist; database searches cannot establish mathematical uniqueness.",
+      "Published dense-graph irreducibility theorems are inapplicable to the degree-four four-cube, but their absence of a Q4 table is based on inspected text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes that the nine four-cube symmetry types are prior; no claim that uninspected text lacks switching analysis.",
+        "evidence": [
+          "1958 article explicitly catalogs cycles up to cube symmetry; accessible page excerpt states nine Hamiltonian-cycle types for dimension four."
+        ],
+        "identifier_or_url": "10.1002/j.1538-7305.1958.tb03887.x",
+        "material_read": "Publisher abstract, official publication listing, indexed page excerpts including pages 815–816 and 823; the complete article was not available for reading.",
+        "method": "Bibliographic page and searchable indexed excerpts; attempted public PDF retrieval, unavailable.",
+        "title": "Gray Codes and Paths on the n-Cube",
+        "trigger": "Historical full classification of Hamiltonian four-cube cycles"
+      },
+      {
+        "assessment": "Explicitly attributes 1344 cycles and nine symmetry types to earlier work; derives change-count based equivalences, not switch-component or metric facts.",
+        "evidence": [
+          "Table 1: dimension four, 1344 cycles, nine automorphism classes, four change-number classes; Sections 2–4 describe SAT equivalence classification."
+        ],
+        "identifier_or_url": "10.3233/SAT190038",
+        "material_read": "Accessible complete 18-page article text in public full-text HTML, including Table 1, definitions, SAT classification, discussion, references and appendices; checked for square/flip/switch/reconfiguration terminology.",
+        "method": "Full-text HTML reading and targeted in-document term comparisons.",
+        "title": "Towards a Classification of Hamiltonian Cycles in the 6-Cube",
+        "trigger": "Counts and equivalence classes for precisely the same four-cube Hamiltonian objects"
+      },
+      {
+        "assessment": "Defines the operation and establishes dense graph results and other nonirreducibility examples; its thresholds and examples do not determine Q4 components.",
+        "evidence": [
+          "Pages 2–3: k-switch defined by symmetric difference of at most 2k edges; connectivity results assume large minimum degree; no four-cube or hypercube treatment found in full-text term search."
+        ],
+        "identifier_or_url": "10.37236/9503",
+        "material_read": "Open-access 25-page article PDF, introduction pages 1–4, definitions, theorem statements and counterexample sections, with page images checked.",
+        "method": "Direct primary PDF text inspection, targeted term search and visual page inspection.",
+        "title": "Switch-based Markov Chains for Sampling Hamiltonian Cycles in Dense Graphs",
+        "trigger": "Exact operation: a Hamiltonian 2-switch and its reconfiguration irreducibility"
+      },
+      {
+        "assessment": "Records known cycle count 1344 only, not adjacency components.",
+        "evidence": [
+          "The n=4 undirected Hamiltonian-cycle value is 1344."
+        ],
+        "identifier_or_url": "https://oeis.org/A066037",
+        "material_read": "Sequence values and definition for undirected Hamiltonian cycles.",
+        "method": "Public sequence record and table comparison.",
+        "title": "A066037: Number of undirected Hamiltonian cycles in binary n-cube",
+        "trigger": "Exact database or table could contain the asserted four-cube numbers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c53bef92-be95-4ee8-9935-6b675d7260b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The smallest nontrivial hypercube two-edge switch instance exhibits a severe irreducibility obstruction (240 isolated Hamiltonian states) alongside a single large connected class, despite only nine symmetry types. The exact component sizes, degrees and diameter directly inform feasibility of local reconfiguration and switch-based sampling; they refine historically studied cyclic Gray-code enumerations, rather than simply recomputing a familiar count. No general-dimension assertion is claimed.",
+    "status": "PASS"
+  }
+}
