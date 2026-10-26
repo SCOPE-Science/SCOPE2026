@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Uniform all-parameter proof uses a verified classification of pairwise Hamming-graph neighborhood intersections: any nontrivial positive response after a positive root leaves either at most two candidate centers or a subset of one coordinate line. In either case its Littlestone dimension is at most one, giving local dimension at most two and global dimension at most three. Exceptional H(1,q), H(2,2), H(3,2) upper bounds are separately justified; explicit complete trees for H(2,3), H(4,2) and H(3,2), then induced-coordinate embeddings, prove sharp lower bounds. A separate exact game solver and tree verifier completed every declared finite test with ALL_CHECKS_OK. Finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chase–Freitag–Reyzin, arXiv:2310.04812, analyzes general bounds using Littlestone dimension, including query learning and compression, but gives no Hamming-neighborhood exact evaluation in its inspected sections.",
+        "VC dimension three alone does not bound Littlestone dimension from above; the distinction is witnessed at H(2,3) by VC dimension two and Littlestone dimension three."
+      ],
+      "reasoning": "General Littlestone framework/results are method background, not a stronger parameter-specific theorem. The primary VC classification does not dominate the adaptive invariant: the special H(2,3) depth-three witness is absent from static shattering data.",
+      "searches": [
+        "online mistake bound for Hamming graph neighborhoods, distance-one spheres, arbitrary alphabet size",
+        "Applications of Littlestone Dimension to Query Learning and to Compression arxiv 2024 Chase Freitag Reyzin",
+        "Littlestone dimension Hamming graph adjacency relation exact class of neighborhoods"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042v1 Section 4 original full text and pages 21–22",
+      "arxiv:2505.14641 primary full-text HTML",
+      "arxiv:2310.04812 / 10.1016/j.ic.2026.105424 relevant published full text",
+      "Published-result searches for Hamming graph adjacency, q-ary distance-one spheres, rook-graph online mistake bounds and Littlestone aliases; nearby records on Lovász neighborhood-complex homotopy of ternary Hamming graphs have a different invariant",
+      "Relevant previously recorded Hamming radius-two ball and sphere dimension claims compared by statement, not by matching keywords"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2007.16042v1, Lemmas 4.2–4.5: intersections of two open neighborhoods have sizes q−2, 2, or 0 according to Hamming distance. This is explicitly reused.",
+        "Theorem 4.7 of the same paper implies VCdim(H(4,2))=3 and hence a prior Ldim lower bound three there; it also implies VCdim(H(2,3))=2.",
+        "Previously recorded closed or exact distance-two Boolean Hamming ball/sphere results concern a different incidence relation and do not imply the radius-one q-ary formula."
+      ],
+      "reasoning": "Pairwise intersections are useful premises but do not, without the new line-restricted version-space recursion, establish an all-parameter Ldim upper bound. VCdim(H(4,2))=3 already gives one lower case, so that isolated component is not claimed original. The distinguishing adaptive tree on H(2,3), where VC=2, is genuinely extra; no cited source gives it or the complete exact Ldim exceptions.",
+      "searches": [
+        "arxiv:2007.16042v1 Lemma 4.5 Theorem 4.7 Hamming adjacency VC dimension",
+        "arxiv:2505.14641 H(2,q) VC dimension subsets Littlestone",
+        "Exact Littlestone dimension of Hamming distance two spheres in binary hypercubes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson, arXiv:2007.16042v1, §4, contains pairwise intersection lemmas and VC results, with no Littlestone theorem (term absent from its searchable full text).",
+        "Housholder–Mangiapanello–Senger, arXiv:2505.14641, works with static VC-dimension of vertex subsets in Hamming graphs, not adaptive mistake trees.",
+        "The search results from published research records on the same Hamming or rook graph families centered on neighborhood-complex homotopy, not the Littlestone-dimension set system."
+      ],
+      "reasoning": "Aliases checked include thicket dimension/online shattering, graph adjacency formula, open-neighborhood range family, q-ary distance-one spheres, rook graph, Cartesian power of complete graphs. No inspected equivalent exact Ldim statement was found, although search absence does not prove priority.",
+      "searches": [
+        "\"Littlestone dimension\" \"Hamming graphs\" neighborhoods",
+        "\"Littlestone\" \"rook graph\" adjacency",
+        "\"Littlestone dimension\" \"H(2,3)\"",
+        "Littlestone dimension of open neighborhoods of Hamming graphs Cartesian products of cliques at Hamming distance one",
+        "The Littlestone dimension of the edge relation on Hamming graphs is three, H(2,3) separates VC dimension from Littlestone dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact VC threshold table in arXiv:2007.16042v1, Theorem 4.7, classifies static VC dimension; it places H(2,3) below VC dimension three.",
+        "No matching exact Littlestone table occurs in either inspected arXiv:2007.16042v1 or arXiv:2505.14641."
+      ],
+      "reasoning": "A table using the same graph names but a different invariant is not duplicate coverage. The searched published-result titles and summaries did not identify an exact adaptive dimension table; hidden or unindexed exact tables remain a residual priority risk.",
+      "searches": [
+        "online mistake-bound H(2,3) rook graph adjacency predicate",
+        "\"Littlestone dimension\" \"H(2,3)\"",
+        "Hamming graph adjacency open neighborhood concept Littlestone dimension rank three classification"
+      ]
+    },
+    "rationale": "The exact all-parameter Littlestone-dimension classification, especially the depth-three adaptive shattering of H(2,3) where VC dimension is only two, is not implied by the inspected VC-dimension classifications. The 2020 primary source supplies the pairwise neighborhood-intersection lemmas and the H(4,2) VC lower bound, and these are credited. The additional line-restricted Littlestone argument and explicit adaptive witness are assessed as distinct, non-covered contributions. Priority risk persists for unindexed teaching material and alternate terminology.",
+    "residual_risks": [
+      "A structurally equivalent parameterization may occur in older unpublished teaching notes or an unindexed thesis.",
+      "The direct counting lemmas are already published; independent priority assessment may classify the remaining adaptive deduction as a known observation.",
+      "No formal external independent mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG RELATED PRIOR, NOT COMPLETE COVERAGE. The intersection lemmas and VC classification are already published and fully credited. No adaptive Littlestone classification or H(2,3) depth-three tree occurs in examined results.",
+        "evidence": [
+          "Lemma 4.5 gives |N(v)∩N(w)| = q−2 at distance one, 2 at distance two, zero beyond two.",
+          "Theorem 4.7 classifies VC dimension three and excludes H(2,3).",
+          "Paper explicitly focuses on VC-dimension and VC-density, not Littlestone dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Original arXiv v1 preprint, abstract and introduction, Section 4 including Lemmas 4.1–4.5 and Theorems 4.6–4.8, pages 20–23, with original page-image checks of printed pages 21–22.",
+        "method": "Primary arXiv PDF text plus visual pages inspected for hypotheses, pairwise intersection sizes, parameter cutoffs and theorem statements.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Same exact graph and same open-neighborhood set system; decisive proximity."
+      },
+      {
+        "assessment": "NOT COVERING the present adaptive formula. The paper bounds static VC dimension of arbitrary induced vertex subsets, a different invariant.",
+        "evidence": [
+          "Theorems 1.2–1.3 concern VC thresholds for H(2,q) induced subsets.",
+          "No Littlestone-dimension statement appears in the searchable text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.14641",
+        "material_read": "Primary open-access HTML abstract, introduction, exact theorem statements and portions of Sections 2–3 on VC thresholds; document text searched for Littlestone.",
+        "method": "Full-text accessible arXiv HTML with targeted section reading and in-document terminology search.",
+        "title": "VC-dimension of subsets of Hamming graphs",
+        "trigger": "Later paper on precisely the same Hamming graphs, including the small rook-graph subfamily."
+      },
+      {
+        "assessment": "FRAMEWORK ONLY. Does not evaluate Littlestone dimension of any Hamming-graph open-neighborhood class.",
+        "evidence": [
+          "Paper treats query learning, random counterexamples and compression schemes in general concept classes.",
+          "No parameter-specific Hamming-neighborhood calculation or exact rook-graph table in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+        "material_read": "Open-access publisher full-text introduction, dimension definition, Section 2 max-min discussion, Section 3 example, Section 4 compression discussion and theorem descriptions.",
+        "method": "Read publicly accessible ScienceDirect open-access full-text contents corresponding to arXiv:2310.04812.",
+        "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+        "trigger": "Plausible stronger general framework for the same online complexity measure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3de5288-07a1-447a-8bcb-608dc6fcee48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines exactly a natural learning invariant for every finite Hamming graph and reveals the smallest q-ary two-factor graph H(2,3) with VC dimension two but adaptive Littlestone dimension three. The dimension-independent optimal mistake bound controls a concept family whose size grows exponentially with graph dimension. This specific sharp classification and exceptional online/static separation give reusable structural information beyond the published VC results.",
+    "status": "PASS"
+  }
+}
