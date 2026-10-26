@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The Lindblad generator and initial state are explicitly stated. Positivity plus the nonzero nearest-neighbor couplings prove eventual absorption for every allowed parameter and guarantee integrability. All nine integrated-density equations are solved algebraically, establishing the exact mean-time identity. Its second derivative has a strictly positive factor for any nonzero detuning, and endpoint slopes give a complete unique global optimizer; threshold ordering is forced by strict convexity. A symbolic checker verifies all nine real equations and the second derivative; 900 independent nine-dimensional Liouvillian solves and 650 optimization checks agree. Finite tests are supplementary, not an infinite proof. Potential numerical instability near zero damping is excluded from the theorem, which remains algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behzadi et al. arXiv:1412.3745 studied selective incoherent transport in a different network.",
+        "Lawrence, Wang and Segal arXiv:2604.23005v1 III.1 fix site-1 rate to zero and vary sites 2 and 3, deriving approximate analytical flux."
+      ],
+      "reasoning": "A broad formulation of noise-assisted transport is not automatically a theorem for the present constraint. The closest site-dependent three-site treatment restricts different noise sites and uses an approximate analytical regime, whereas the current result is nonperturbative for dephasing on endpoints 1 and 3 with the middle dephasing zero.",
+      "searches": [
+        "triple quantum dots dephasing rate site 1 site 3 optimal distribution first passage time",
+        "dephasing distribution constraint sum gamma three site trap transfer optimal",
+        "arXiv:1412.3745 selective local dephasing",
+        "arXiv:2604.23005 three site site dependent dephasing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1201.5202v1",
+      "arXiv:1407.0924v1",
+      "arXiv:1412.3745v1",
+      "arXiv:1706.09524v1",
+      "arXiv:2604.23005v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform noise formulas relate to the diagonal slice of a higher-dimensional dephasing parameter space and do not supply the function on the fixed-budget line (u,G-u,0).",
+        "arXiv:2604.23005 treats 0/Gamma2/Gamma3 and perturbative tunneling instead of independent endpoint 1/3 dephasing with no site 2 noise."
+      ],
+      "reasoning": "A general Lindblad matrix-inverse method can rederive the claimed formula but is not a published stronger specialized theorem; it requires solving a different nine-equation parameter constraint and checking global convexity. The prior printed conclusions do not logically imply the specific two-threshold placement diagram without new calculation.",
+      "searches": [
+        "arXiv:1706.09524 Appendix A trimer exact mean time",
+        "arXiv:2604.23005 Section III.1.2 nearest-neighbor transport analytical solution",
+        "arXiv:1407.0924 Eq. (4) triple-dot current"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Contreras-Pulido et al. arXiv:1407.0924: stationary current is governed by equal noise at all dots.",
+        "Zhang et al. arXiv:1706.09524 Appendix A gives uniform-noise trimer absorption time."
+      ],
+      "reasoning": "A stationary pump-and-recycle current may equal the reciprocal of a renewal mean time, but a formula with a single common noise rate cannot independently vary the two endpoint rates under a fixed budget. Neither prior uniform-noise formula determines the endpoint budget optimizer.",
+      "searches": [
+        "trimer dephasing budget sink allocation mean survival time gamma_1 gamma_3 detuning kappa",
+        "end to end three site quantum network nonuniform dephasing optimize trapping time source sink",
+        "arXiv:1407.0924",
+        "arXiv:1706.09524"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact endpoint-only fixed-budget optimal-allocation table was found in the five inspected full-text sources.",
+        "Semantic database search returned nearest unrelated transfer/noise or allocation statements; private source IDs and comparisons are recorded separately."
+      ],
+      "reasoning": "The new result is a closed analytical parametric phase diagram rather than a computed list. Exact comparison was made against primary equations and known finite-trimer formula contexts, rather than relying on search-result titles.",
+      "searches": [
+        "trimer dephasing budget sink allocation mean survival time gamma_1 gamma_3 detuning kappa",
+        "end to end three site quantum network nonuniform dephasing optimize trapping time source sink",
+        "triple quantum dots dephasing rate site 1 site 3 optimal distribution first passage time",
+        "dephasing distribution constraint sum gamma three site trap transfer optimal",
+        "arXiv:1201.5202 original order-chain",
+        "arXiv:1407.0924 triple-dot dephasing-assisted transport"
+      ]
+    },
+    "rationale": "The claim concerns a specific, exact constrained noise-allocation optimizer. Classical three-site current calculations and noise-assisted transport are not claimed new. Closely related full texts for 2012, 2014, 2017 and 2026 were inspected at the level of model assumptions and mathematical implications. Their uniform/noise-at-different-sites or perturbative formulas do not state or imply the unrestricted endpoint fixed-budget formula or its sharp three-way optimum under the present assumptions. Semantic literature and database searches found no matching stronger statement. Residual priority risk from unindexed or specialized past work remains.",
+    "residual_risks": [
+      "Search coverage is incomplete; an unindexed specialized three-level transport article may contain an equivalent exact endpoint-dephasing optimization.",
+      "The 2026 site-dependent-noise paper studies a nearby but different dephasing allocation. Its future mathematical extensions or alternate analytical forms could reduce the degree of novelty.",
+      "The result is for one minimal single-excitation network and is not automatically universal for larger systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats homogeneous dephasing and transport efficiency, not a fixed sum of endpoint-only dephasing rates or the exact endpoint allocation phase diagram.",
+        "evidence": [
+          "arXiv:1201.5202, original first public 2012-01-25, full-text sections on model and transport efficiency"
+        ],
+        "identifier_or_url": "arXiv:1201.5202 / https://arxiv.org/html/1201.5202v2",
+        "material_read": "Full-text HTML model and transport-efficiency sections, uniform site-noise setting and competing loss discussion",
+        "method": "Direct comparison of model equations, dephasing location, objective and optimizer constraints",
+        "title": "Environment-assisted quantum transport in ordered systems",
+        "trigger": "Earliest eligible ordered-chain environment-assisted transport model"
+      },
+      {
+        "assessment": "Dephasing acts with equal strength on all three dots and the objective is stationary current/shot noise, so the stated closed-form allocation theorem is not a corollary of the printed uniform-noise results.",
+        "evidence": [
+          "arXiv:1407.0924 Eq. (4) and Fig. 1: equal dephasing rate on all dots; detuned center"
+        ],
+        "identifier_or_url": "arXiv:1407.0924 / https://arxiv.org/html/1407.0924v2",
+        "material_read": "Full-text introduction, Lindblad model, Sections 3.1 and 3.2, and analytical current formula Eq. (4); PDF pages including derivation were inspected",
+        "method": "Checked whether equal dephasing and stationary source-drain current imply a fixed-budget endpoint mean first-passage optimum",
+        "title": "Dephasing-assisted transport in linear triple quantum dots",
+        "trigger": "Same three-site detuned Hamiltonian and explicit finite quantum-transport currents"
+      },
+      {
+        "assessment": "Selective noise engineering is established, but the network and reported transfer analysis do not contain the constrained trimer exact mean-time optimizer.",
+        "evidence": [
+          "arXiv:1412.3745 full PDF network configuration and comparative transfer plots"
+        ],
+        "identifier_or_url": "arXiv:1412.3745 / https://arxiv.org/abs/1412.3745",
+        "material_read": "Lawful open-access full PDF including network setup and selective-noise transport experiments, with figure pages inspected",
+        "method": "Compared network topology, trap objective, tunable noise sites, and allocation constraint",
+        "title": "Dephasing-assisted selective incoherent quantum transport",
+        "trigger": "Potentially stronger coverage through selected-site noise engineering"
+      },
+      {
+        "assessment": "Exact finite-trimer calculations use globally uniform site-dephasing and related averaged objectives; no independent endpoint rate allocation appears in the inspected equations, so the two-threshold classification does not follow by specializing their stated result.",
+        "evidence": [
+          "arXiv:1706.09524 Appendix A exact mean trapping-time treatment with uniform dephasing"
+        ],
+        "identifier_or_url": "arXiv:1706.09524 / https://arxiv.org/abs/1706.09524",
+        "material_read": "Full-text model and analytical Appendix A for trimer, average over static detuning disorder, noise-dependence results",
+        "method": "Compared the rate assignments in the exact trimer formula and fixed-budget boundary derivatives",
+        "title": "Optimal Dephasing for Ballistic Energy Transfer in Disordered Linear Chains",
+        "trigger": "Exact trimer transfer-time formula might imply a stronger theorem"
+      },
+      {
+        "assessment": "For its three-site ramp, the source site is fixed without dephasing, while sites 2 and 3 are tuned; its analytical equations are perturbative at weak hopping and loss. The exact budget constraint for site 1 and site 3 with site 2 unnoised and center-only detuning is outside that treatment.",
+        "evidence": [
+          "arXiv:2604.23005v1 Section III.1 lines 117-123, III.1.2, Appendices A-B"
+        ],
+        "identifier_or_url": "arXiv:2604.23005 / https://arxiv.org/html/2604.23005v1",
+        "material_read": "Full-text Sections II and III.1 including III.1.2 and Appendices A and B",
+        "method": "Inspected analytical trimer regime and dephasing-site restrictions, checked whether its results dominate the exact fixed-budget two-endpoint theorem",
+        "title": "Design Principles for Enhanced Quantum Transport with Site-Dependent Noise",
+        "trigger": "Closest recent treatment of optimizing site-dependent dephasing in a 3-site network"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a95340a-7690-4d51-a528-4ef4c3d9a28e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Noise resources are constrained in transport engineering, making the spatial allocation at fixed dephasing budget a natural design problem. The exact mean-time law, global strict convexity, three distinct optimization phases, and two sharp detuning thresholds specify when environmental noise belongs on the injection endpoint, on the collection endpoint, or must be divided. These are not generic textbook monotonicity claims: a nontrivial parameter-dependent change of optimal control is proved without perturbation. The value is an exact complete classification for a physically motivated minimal system; extrapolation is not asserted.",
+    "status": "PASS"
+  }
+}
