@@ -1,0 +1,9 @@
+# Scientific assessment: sharp quadratic Hardy Hankel kernel-testing constant
+
+**Correctness: PASS.** The two-dimensional Hankel matrix and normalized Szegő kernel give exact formulas. A concrete radius \(r=1/(2\Lambda)\) produces an explicit nonnegative polynomial certificate for the universal bound. Its unique zero forces the candidate coefficient ratio, and the strictly negative second derivative of the kernel profile verifies actual sharpness and uniqueness. Boundary cases are included. The extracted, stand-alone Python program passed 9,853 supplemental tests; the proof is analytic and does not rely on finite sampling.
+
+**Originality: PASS, with residual priority risk.** The 2026 motivating manuscript explicitly raises strong reproducing-kernel testing and mentions the quadratic strict-gap family but does not state the optimal uniform constant. Earlier work on maximal/minimal Hankel norms addresses different comparisons. Indexed qualitative theorems classify symbols with testing quotient equal to one, not the new sharp minimum across all quadratic symbols. Search results for exact quadratic ratios and the constant \(5/(3\sqrt3)\) disclosed no covering numerical estimate. The 2026 paper's first version was inspected throughout; some related complete texts remain uninspected, so independent publication-priority certification is not claimed.
+
+**Mathematical value: PASS.** This is the exact sharp comparison constant in the smallest nontrivial polynomial Hankel class, directly quantifying a strict counterexample family singled out in a current open problem. The concrete optimizers, complete modulus equality condition, and exact norm gap make the benchmark usable for quantitative reproducing-kernel-testing estimates. It is neither a reformulation of the qualitative equality classification nor an arbitrary coefficient slice. No extension to unrestricted BMOA symbols is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
