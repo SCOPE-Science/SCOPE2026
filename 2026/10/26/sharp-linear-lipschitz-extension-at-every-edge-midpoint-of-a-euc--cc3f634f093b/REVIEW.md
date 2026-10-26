@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The all-positive-real-parameter theorem follows from reflection symmetrization of arbitrary signed one-point evaluations, two explicit corner distance witnesses with opposite affine slopes, and a matching positive measure. The midpoint-pair bounds use convexity of the four-point Kantorovich distance and the four extreme couplings of top/right/uniform measures. The side-length comparison is a rationalized triangle inequality. Strict log-convexity of the denominator factors in logarithmic aspect ratio establishes one and only one interior maximizer. A separate finite dual-polytope enumeration confirms 418 target pairs across 19 aspect ratios; it is not used as an infinite proof.
+
+**Originality — PASS, subject to bibliographic risk.** The general random-projection construction of Bruè–Di Marino–Stra (arXiv:1801.07533) proves existence bounds, not this exact configuration. Basso (arXiv:2104.14238) studies finite projection constants and discusses a distinct rectangle in the max metric with only two added points; this does not imply the specified Euclidean eight-point norm. A prior sharp *square* midpoint result is an explicitly acknowledged specialization and does not provide the non-square formula or the unique worst aspect ratio. Searches for anisotropic rectangles, four simultaneous edge midpoint measures, equivalent transportation problems and stronger extension results did not reveal coverage. Concealed or uncatalogued specialized exact computations remain possible.
+
+**Value — PASS.** Euclidean rectangular cells are canonical anisotropic refinements, and simultaneous stability cannot generally be inferred from independent one-point feasibility. This result supplies an all-aspect-ratio sharp benchmark, proves simultaneous attainment of four distinct optimal one-point measures, and identifies a genuine worst-shape effect: the square is *not* worst. The non-square maximizer is unique analytically and changes the interpretation of shape-regularity error bounds. It is not a routine numerical variation of the square case.
+
+**Limits.** Real scalar values, exact Euclidean distances, positive side lengths, and only four side midpoints; no arbitrary parallelogram or vector-valued claims. Independent validation is unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
