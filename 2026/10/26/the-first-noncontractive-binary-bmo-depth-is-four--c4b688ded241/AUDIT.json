@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every x, the 8-leaf root oscillation after folding is the maximum of linear forms indexed by two binary sign patterns. The pair patterns reduce exhaustively to 1540 orbits under subtree swaps. Every representative has a rational feasible dual of the 63x32 integer linear program with b·y<=64 and correct free/nonnegative variable dual conditions. Exact independent Python Fraction verification passed all 1540 duals; this proves the root inequality for arbitrary real inputs, not a numerical sample. Four-atom descendant folding is covered by arxiv:2610.14459v1 Theorem 4.1. Nonnegative input attains ratio 1, and the published depth4 witness independently has exact ratio 41/40. Domain, normalization and quantifiers are explicit; no infinite-depth claim is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1501.00097 Theorem 1.8 proves a sharp comparison between L1 and L2 tree-BMO; it does not assert pointwise L1 contraction under absolute value.",
+        "arxiv:1905.00144 Sections 5-6 discuss absolute values, rearrangements, and upper bounds for general averaging bases; they do not give the exact depth-three binary constant."
+      ],
+      "reasoning": "L2-BMO folding contractivity is elementary by variance comparison, but L1-BMO does not inherit this from equivalence of norms; the published four-depth counterexample blocks any unrestricted contraction inference. Interval BMO contraction does not cover dyadic-tree averaging families. Hence the relevant broad results do not imply the new 8-leaf contraction.",
+      "searches": [
+        "\"Inequalities for BMO on α-trees\" Slavin Vasyunin arxiv 2016",
+        "\"BMO on shapes and sharp constants\" Dafni Gibara 2020 PDF arxiv",
+        "binary dyadic BMO modulus absolute value first three generations exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.14459v1 (primary motivating full text)",
+      "arxiv:1501.00097 (primary comparison full-text sections)",
+      "arxiv:1905.00144 (primary comparison full-text sections)",
+      "published-finding corpus query hits associated with recorded searches",
+      "Accessible current-week own ledger g000042, 42 existing claims, for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.14459v1 Corollary 4.1 gives c1(2)=c2(2)=1; Theorem 4.2 supplies c4(2)>=41/40; Section 6 explicitly leaves c3(2) undetermined.",
+        "arxiv:1905.00144 Theorem 5.18 obtains interval-BMO absolute value contraction, an inequivalent set system; dyadic estimates in Section 5 concern rearrangement and broad bounds."
+      ],
+      "reasoning": "A bound c3(2)<=1 cannot follow from the equal-atom scalar bound for 8 leaves (which allows 2-4/8=3/2), nor from c2=1 or c4>=41/40. The new exact duals exploit the simultaneous multigeneration constraints and close that logical gap; the earlier depth-four example is acknowledged as prior.",
+      "searches": [
+        "arxiv:2610.14459v1 Sections 4.2, 4.4, 6",
+        "binary rooted tree depth three absolute value map mean-centered L1-BMO exact constant c3(2) contractivity",
+        "arxiv:1905.00144 section 5 absolute value"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.14459v1 Section 6 explicitly says c_3(2) is unknown and asks for the least failing binary depth; Section 4.2 gives c_2(2)=1; Section 4.4 constructs a depth-four failure.",
+        "No indexed result with the equivalent assertion that every real 8-leaf binary datum satisfies F_3(|x|)<=F_3(x) appeared in the queried published-finding corpus hits."
+      ],
+      "reasoning": "The phrases exact depth-three constant, 8-equal-atom binary folding, and first noncontractive binary depth are equivalent in the presence of the independently checked known c_4>1 datum and known c_1=c_2=1. The motivating source explicitly lacks the 8-leaf statement. No matching published-finding corpus hit was identified, but search failure is not priority proof.",
+      "searches": [
+        "binary rooted tree depth three absolute value map mean-centered L1-BMO exact constant c3(2) contractivity",
+        "first binary tree depth where absolute value increases BMO seminorm 3 4",
+        "folding mean oscillation eight leaves binary depth 3 sharp contractivity",
+        "\"c_3(2)\" \"BMO\" \"absolute value\" \"binary\"",
+        "\"binary\" \"depth three\" \"absolute value\" \"BMO\" contractive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2610.14459v1 Section 6 describes the c3 finite linear-programming value as undetermined, rather than tabulating it.",
+        "published-finding corpus closest indexed BMO-related item 2026/10/11/SCOPE-exact-one-jump-constant-in-the-discrete-reverse-hardy-bmo-proble--68ba9671e942 is a discrete Cesàro reverse-BMO one-jump problem, not mean-centered binary tree folding."
+      ],
+      "reasoning": "The primary author did not include c_3(2) in the available calculations. Related BMO index hits concern different operators or variables and their sharp constants do not determine this one. A prior unindexed exact computation remains a residual risk.",
+      "searches": [
+        "Mohammadreza Mohajer Sharp Constants and Extremizers in Homogeneous Tree BMO depth 3 2026",
+        "tree BMO mean absolute deviation |f| binary 8 leaves 4 generations c3 c4",
+        "smallest depth noncontractivity folding dyadic BMO",
+        "\"Sharp Constants and Extremizers in Homogeneous Tree BMO\" \"c3\""
+      ]
+    },
+    "rationale": "Mohajer arXiv:2610.14459v1, Section 6, explicitly identifies c_3(2) and the first noncontractive depth as unresolved, while Section 4.2 proves c_1=c_2=1 and Section 4.4 gives c_4>=41/40. The exact depth-three inequality here is not a restatement of the general finite-depth LP reduction: the new part is a complete, verifiable dual proof of all 1540 cases. Direct comparisons with arXiv:1501.00097 and arXiv:1905.00144 found different, broader-but-weaker norm comparisons that do not imply contraction at eight leaves. Searches of indexed findings yielded no covering statement; historical or unindexed priority overlap remains possible.",
+    "residual_risks": [
+      "Undiscovered historical or unindexed computation of the same 8-leaf sharp constant remains possible; semantic search is not a uniqueness guarantee.",
+      "A newer revision or independent contemporary study after the inspected v1 could overlap; dates and source scope were bounded at this run."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: c3(2) explicitly left undetermined; c1,c2 and the depth4 counterexample are known",
+        "evidence": "arxiv:2610.14459v1 Section 6 items (1)-(2) and Sections 4.2 and 4.4",
+        "identifier_or_url": "https://arxiv.org/abs/2610.14459",
+        "material_read": "Rendered full text, introduction and sections 4.1-4.5, especially Theorem 4.1, Corollary 4.1, Theorem 4.2, and section 6 open problems",
+        "method": "Read the arXiv full-text rendition, compared theorem statements and implication directions",
+        "title": "Sharp Constants and Extremizers in Homogeneous Tree BMO",
+        "trigger": "Exact motivating problem with 8/16-leaf binary mean-centered L1 BMO folding"
+      },
+      {
+        "assessment": "NOT_COVERING: compares oscillation exponents, not absolute-value folding at depth three",
+        "evidence": "arxiv:1501.00097 Theorem 1.8 and its proof in Section 4",
+        "identifier_or_url": "https://arxiv.org/abs/1501.00097",
+        "material_read": "Rendered preprint full-text portions covering definitions, Theorem 1.8 and Section 4 proof comparing L1 and L2 oscillations",
+        "method": "Read mathematical theorem and proof material from arXiv full text",
+        "title": "Inequalities for BMO on α-Trees",
+        "trigger": "Potential stronger uniform tree BMO comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: interval contraction and general basis bounds do not determine the binary depth-three constant",
+        "evidence": "arxiv:1905.00144 Theorems 5.18 and 5.23 and Section 6",
+        "identifier_or_url": "https://arxiv.org/abs/1905.00144",
+        "material_read": "Rendered preprint introduction and Sections 5-6, including interval contraction theorem, dyadic remarks, and truncation estimates",
+        "method": "Read arXiv full-text relevant sections and checked the dyadic/interval distinction",
+        "title": "BMO on shapes and sharp constants",
+        "trigger": "Potential theorem for absolute-value composition and dyadic BMO"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4b688de-d241-45e4-8977-d0ee59a34698",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating October 2026 paper lists c3(2) and the least depth of failure as concrete open problems, after determining c1,c2 and exhibiting c4>1. Computing c3(2) exactly determines the first branching scale where the nonlinear absolute-value map ceases to contract mean-centered L1-BMO, resolving a motivated structural cutoff. The exact verified finite certificate has direct utility for further level-by-level investigations; it is not merely a renamed known estimate or an arbitrary table slice.",
+    "status": "PASS"
+  }
+}
