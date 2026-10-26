@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each N the boundary shift E_N obeys E_N^k(X)=(I_2/2)^tensor k tensor Tr_last-k(X) through k=N, then E_N^k=D_N thereafter. The uniform one-qubit rotation commutes with E_N, so t-fold channel powers are exactly a binomial mixture of the shift powers up to final unitary conjugation. This yields an upper half-diamond-norm bound P(Bin(t,g)<N) by the elementary maximal distance 2 between quantum channels, uniformly over arbitrary reference ancillas. The all-zero product input and the rightmost-L-zero projector yield a lower bound P(Bin(t,g)<=N-L)-2^{-L}; this is a legitimate trace-distance witness and therefore a diamond witness. Choosing L=floor(N^{1/4}) provides a vanishing measurement baseline with L=o(sqrt N). The binomial CLT at t=floor((N+s sqrt(N(1-g)))/g) makes both bounds converge to the same Gaussian tail G(-s). Monotonicity follows by CPTP postcomposition and invariance of D_N; inversion gives the stated expansion for every fixed tolerance in (0,1). Endpoints g=1 and g=0 follow from exact powers. Numerical checks reproduced 2732 assertions using the bundled standalone program, but these finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kastoryano, Reeb, Wolf, arxiv:1111.2123, Theorems 6 and 7 and discussion of Section IV: commuting Liouvillians and tensor-product semigroups, not this discrete nilpotent shift.",
+        "Levin and Tankala, arxiv:2109.05387, Section 1 and Section 5: XOR-feedback register permutations and distinct coordinate update dynamics, no diamond norm.",
+        "Temme et al., arxiv:1005.2358, abstract: general quantum chi-squared mixing methods; no matching channel-specific profile established from accessible abstract."
+      ],
+      "reasoning": "A generic spectral-gap bound or tensor-product pre-cutoff does not supply an exact centered Gaussian window for a highly nonnormal discrete global shift. A generic binomial CLT alone does not settle the ancilla-uniform channel norm. Broader theorems remain a stated residual priority risk, not dismissed as impossible.",
+      "searches": [
+        "Web: quantum cutoff phenomenon quantum channel mixing time diamond norm examples discrete shift finite chain",
+        "Web: Markov chain lazy shift left adding unbiased bit cutoff binomial profile",
+        "Published mathematical findings search: Quantum channel shift register erasure replacement random shift with holding binomial-tail mixing cutoff Gaussian profile completely depolarizing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.37523 (main and supplement relevant sections)",
+      "arxiv:1111.2123 (relevant theorem sections)",
+      "arxiv:2109.05387 (shift-rule and comparison)",
+      "arxiv:1005.2358 (abstract only; insufficient to assert full-paper exclusion)",
+      "Published mathematical-finding record 2026/10/4/SCOPE-exact-approximate-degradability-parameter-of-the-d-dimensional-q--31f58dc442c5",
+      "Published mathematical-finding record 2026/10/4/SCOPE-exact-gaussian-timing-jitter-law-for-the-analytic-perfect-state--a2adc1874d32"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source spin-wave expression Eq. (S43) determines local single-site expectation, whereas the theorem concerns the full many-qubit channel and its diamond norm.",
+        "Kastoryano et al. trace-norm pre-cutoff for tensor powers applies to a different channel family and only supplies a general framework.",
+        "The discrete channel has nonstationary multiplier moduli independent of system size, while the proved mixing time scales linearly with N."
+      ],
+      "reasoning": "The source channel construction plus elementary binomial probability allows the exact-power decomposition, but the stated two-sided diamond inequality and sharp profile are not published claims of the source or shown to follow from a broader inspected result. They require additional global quantum distinguishability analysis. If an uncatalogued general shift-channel cutoff theorem directly implies the inequalities, this PASS must be revisited by an independent review.",
+      "searches": [
+        "Primary text arxiv:2609.37523 III.1, S2.1, S2.2",
+        "Primary text arxiv:1111.2123 IV and V",
+        "Primary text arxiv:2109.05387 introduction and Section 5",
+        "Published mathematical findings search: For Xie Shi Ma Chu Gong arXiv 2609.37523 dissipative shift qubit channel Phi=Ad_R[(1-g)Id+g E], E(X)=I/2 tensor Tr_last X, show sharp Gaussian cutoff in half diamond distance to maximally depolarizing channel at t=N/g+s sqrt[N(1-g)]/g, profile Phi(-s), quantum mixing time Bernoulli binomial tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie et al., arxiv:2609.37523, Eq. (10) and supplement Eq. (S43): global channel formula and local magnetization binomial recursion, but no half-diamond mixing law.",
+        "Closest published mathematical-finding record 2026/10/4/SCOPE-exact-approximate-degradability-parameter-of-the-d-dimensional-q--31f58dc442c5 concerns erasure-channel degradability defect, not global reset-channel mixing.",
+        "Closest published mathematical-finding record 2026/10/4/SCOPE-exact-gaussian-timing-jitter-law-for-the-analytic-perfect-state--a2adc1874d32 concerns timing jitter in an XX state-transfer chain, not the proposed quantum mixing metric."
+      ],
+      "reasoning": "Classical distributional convergence of a random shift count is not equivalent on its face to the supremum over all quantum states and ancillas. The upper bound uses completely bounded channel contraction and the lower bound a matching product-state witness. None of the inspected candidate statements provides this pair of bounds or this specific Gaussian profile.",
+      "searches": [
+        "Published mathematical findings search: Gaussian cutoff diamond norm mixing profile probabilistic dissipative shift channel insertion maximally mixed spin discard endpoint Bernoulli shifts binomial 2026",
+        "Published mathematical findings search: Quantum channel shift register erasure replacement random shift with holding binomial-tail mixing cutoff Gaussian profile completely depolarizing",
+        "Published mathematical findings search: For Xie Shi Ma Chu Gong arXiv 2609.37523 dissipative shift qubit channel Phi=Ad_R[(1-g)Id+g E], E(X)=I/2 tensor Tr_last X, show sharp Gaussian cutoff in half diamond distance to maximally depolarizing channel at t=N/g+s sqrt[N(1-g)]/g, profile Phi(-s), quantum mixing time Bernoulli binomial tail",
+        "Web: quantum random shift register depolarization cutoff diamond norm gaussian profile 2026",
+        "Web: diamond norm cutoff quantum shift register channel random shift depolarization Bernoulli classical Markov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Xie et al. report Floquet eigenvalues 1 and four rotational classes, disk residual regimes Eq. (11), and local signal propagation Eq. (S43), but no diamond-distance table or cutoff coefficient.",
+        "Published mathematical-finding records were compared by exact source identifier, alias and implication; no checked record supplied a matching quantum-shift diamond-cutoff theorem."
+      ],
+      "reasoning": "The new result is an exact asymptotic operational distance profile, not a lookup of an existing spectrum or a fixed finite-sample table. Existing source data are re-used as premises with their provenance.",
+      "searches": [
+        "Published mathematical findings search: For Xie Shi Ma Chu Gong arXiv 2609.37523 dissipative shift qubit channel Phi=Ad_R[(1-g)Id+g E], E(X)=I/2 tensor Tr_last X, show sharp Gaussian cutoff in half diamond distance to maximally depolarizing channel at t=N/g+s sqrt[N(1-g)]/g, profile Phi(-s), quantum mixing time Bernoulli binomial tail",
+        "Published mathematical findings search: Gaussian cutoff diamond norm mixing profile probabilistic dissipative shift channel insertion maximally mixed spin discard endpoint Bernoulli shifts binomial 2026",
+        "Web: dissipative shift chain Xie Shi Ma Wei Chu Gong trace norm cutoff 2026",
+        "Source arxiv:2609.37523, main III and supplement S2 for exact formulas and listed conclusions"
+      ]
+    },
+    "rationale": "The model is Xie et al. arxiv:2609.37523 Eq. (10). Its main-text Section III and supplemental Section S2 analyze Floquet residual/pseudospectral disks and local-operator binomial propagation Eq. (S43). Neither part establishes the full-channel diamond-distance cutoff or matching Gaussian profile against all ancillas. Kastoryano--Reeb--Wolf arxiv:1111.2123 establishes quantum cutoff frameworks and tensor-power/commuting-generator estimates but no such assertion for this nonnormal non-tensor-power shift. Levin--Tankala arxiv:2109.05387 concerns different classical XOR-feedback shift-register processes; its Section 5 is exact finite-time classical mixing under another update. Published mathematical-finding searches found similar quantum erasure, timing-jitter and mixing-norm work, none with the same shift channel and time-profile implication. The claim is restricted to the sharp global operational profile, not to the source channel formula or binomial local propagation. The proof is short and an unlocated general quantum mixing/coupling theorem could subsume it; originality is best-knowledge, not independently certified.",
+    "residual_risks": [
+      "An earlier general quantum cutoff result for nested conditional-expectation channels or probabilistic shifts might imply the same diamond-norm profile.",
+      "Source Eq. (S43) already displays a binomial local-observable propagation; novelty is limited to the global complete-bounded mixing metric and matching asymptotic witness, not to the stochastic shift mechanics.",
+      "Relevant literature search is best-knowledge rather than exhaustive; independent priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS channel definition, shift nilpotence and local binomial observable propagation; DOES NOT STATE or bound full-channel ancilla-assisted diamond mixing cutoff, the Gaussian profile, or its mixing-time constant",
+        "evidence": [
+          "Eq. (10), channel Phi_N=Ad_R(a Id+g E_N)",
+          "Eq. (11), singular residual classes rather than quantum mixing distance",
+          "Eq. (S43), binomial propagation for local magnetization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.37523",
+        "material_read": "Full accessible arXiv text consulted with emphasis on main Section II and Section III.1 (Eq. 10-17) and supplemental Sections S2.1 and S2.2 (Eq. S43), plus searches for mixing, cutoff, trace-distance and diamond norm",
+        "method": "arXiv public rendered full text, section inspection and full-text term search",
+        "title": "Asymptotic Pseudospectra in Dissipative Floquet Quantum Systems: Geometric Structures and Observable Dynamics",
+        "trigger": "Identical quantum channel and physical model; highest overlap risk"
+      },
+      {
+        "assessment": "Provides quantum cutoff terminology and general results for semigroups, commuting generators and tensor products, not this discrete nilpotent shift channel or its Gaussian diamond profile",
+        "evidence": [
+          "Theorem 7 is pre-cutoff for tensor powers with logarithmic times",
+          "Theorem 6 concerns commuting Liouvillians",
+          "Section V studies examples unlike homogeneous boundary quantum reinjection"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.2123",
+        "material_read": "Introduction; Sections III and IV, including theorems on commuting Liouvillians and tensor powers; Section V applications",
+        "method": "arXiv public rendered full text, theorem/hypothesis comparison",
+        "title": "A Cutoff Phenomenon for Quantum Markov Chains",
+        "trigger": "Potential broad quantum cutoff theorem that could dominate the claim"
+      },
+      {
+        "assessment": "Its chains use XOR-feedback invertible shift register and stochastic bit updates, whereas the evaluated dissipative shift discards a boundary qubit and inserts the maximally mixed state; no quantum ancilla-uniform Gaussian profile",
+        "evidence": [
+          "Eq. (3), XOR-feedback shift register",
+          "Theorem 1, mixing near n with an O(n^{1/2+delta}) window for a different chain",
+          "Theorem 2, finite-time exact mixing of another classical model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.05387",
+        "material_read": "Introduction and Theorem 1; Section 5 and Theorem 2, including descriptions of update and feedback rules",
+        "method": "arXiv public rendered full text, explicit transition-rule comparison",
+        "title": "Fast mixing of a randomized shift-register Markov chain",
+        "trigger": "Classical shift register with a potentially stronger cutoff claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f1c94f5-7a44-45a1-bc88-a03079913462",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source model explicitly studies system-size dependent nonnormal Floquet response and spectrum, but its spectral atlas does not answer when the entire quantum memory loses distinguishability from complete depolarization. The half-diamond norm is the operational distinguishability of channels with entangled reference inputs. The theorem gives all fixed switch probabilities, a genuine mixing cutoff, a sharp order sqrt N window, a universal Gaussian profile, and the tolerance-dependent leading correction to mixing time. This is a complete naturally motivated observable for the full many-spin chain, and it highlights a linear storage-time scale despite all nonstationary eigenvalue moduli remaining size independent. The finite-N sandwich is reproducible and quantitatively useful. It is not an arbitrary finite slice or mere reproduction of the source spectrum; it does not claim a general theorem beyond the exactly solvable model.",
+    "status": "PASS"
+  }
+}
