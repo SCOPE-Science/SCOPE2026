@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For every block \\(j\\), a base \\(j\\)-colouring of \\(K_{m_j}\\) without a monochromatic triangle exists by \\(m_j<R_j(3)\\). The first-differing-coordinate rule prevents a monochromatic triangle: if the first nonconstant coordinate has three distinct values, the base colouring rules it out; if exactly two values agree, the equal pair receives a later-block colour. The count \\(P_{j-1}e_{j,c}Q_j^2\\) gives colour density at most \\(((m_j-1)/(P_{j-1}m_j))(N_L/(N_L-1))<2/P_{j-1}\\). Finally, \\(\\log P_{j-1}=(1/8)j^2\\log j+O(j^2)\\), while \\(i\\log i=j^2\\log j+O(j^2)\\) throughout block \\(j\\), proving the stated decay and the unbounded sequence of countercolourings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The lower bound \\(R_j(3)\\ge j^{j/3-o(j)}\\) implies \\(R_j(3)>\\lfloor j^{j/4}\\rfloor\\) for all sufficiently large \\(j\\).",
+        "The paper’s Proposition 1.5 concludes failure of arrowing for every fixed exponential rate, and explicitly asks about \\(i^{-\\Omega(i)}\\)."
+      ],
+      "reasoning": "The result is stronger than a fixed exponential counterexample: it gives a specific asymptotic exponent \\(1/8\\) in the superexponential scale. The varying-block product construction is not an implication of the fixed-base lemma as stated; it uses block lengths \\(j\\) and a cumulative product of base orders.",
+      "searches": [
+        "published-finding corpus query: \"variable radix product coloring complete graph triangle-free color classes nonuniform multicolor Ramsey sequence capacities\".",
+        "arXiv:2608.02537, §1, lower bound for multicolour triangle Ramsey numbers.",
+        "arXiv:2610.20577, §5, Lemma 5.1 and Proposition 1.5."
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.20577",
+      "arXiv:2608.02537",
+      "published-finding corpus MCP semantic searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior fixed-base lemma produces \\(a_i=m^{1-i/r}\\), whose logarithm is affine in \\(i\\).",
+        "The present construction uses \\(r_j=j\\) colours at stage \\(j\\) and \\(m_j=\\lfloor j^{j/4}\\rfloor\\) base vertices, with \\(a_i=2/P_{j-1}\\) on block \\(j\\); this yields \\(\\log a_i=-(1/8+o(1))i\\log i\\)."
+      ],
+      "reasoning": "The prior paper states the superexponential case as an open question and does not derive the variable-block sequence. The current proof supplies the missing construction, subject to the cited Ramsey lower bound.",
+      "searches": [
+        "arXiv:2610.20577, Lemma 5.1, Proposition 1.5, and the explicit question at the end of §1.",
+        "arXiv:2608.02537, §1, theorem on multicolour Ramsey lower bounds.",
+        "published-finding corpus MCP query: \"Decay-Ramsey sequence a_i = i^{-Omega(i)} fails arrow K3 superexponential decay multicolor Ramsey\"."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.20577, §1 asks whether there is a sequence \\(a_i=i^{-\\Omega(i)}\\) with \\(a\\not\\to K_3\\).",
+        "arXiv:2610.20577, Lemma 5.1 gives a fixed-base product construction with exponential budget \\(m^{1-i/r}\\)."
+      ],
+      "reasoning": "The equivalent target is a sequence whose colour-density caps decay as \\(\\exp(-\\Omega(i\\log i))\\) while admitting a triangle-free bounded colouring for infinitely many orders. The inspected fixed-base construction has only linear decay in \\(\\log a_i\\) as a function of \\(i\\), so it does not itself establish the target.",
+      "searches": [
+        "published-finding corpus MCP query: \"Decay-Ramsey sequence a_i = i^{-Omega(i)} fails arrow K3 superexponential decay multicolor Ramsey\"; no direct matching result returned.",
+        "published-finding corpus MCP query: \"variable radix product coloring complete graph triangle-free color classes nonuniform multicolor Ramsey sequence capacities\"; no direct matching result returned.",
+        "published-finding corpus MCP query: \"superexponentially decaying sequence not Decay-Ramsey answer open question Decay-Ramsey Sequences\"; no direct matching result returned.",
+        "Primary literature: arXiv:2610.20577, Introduction (explicit open question) and §5 (Lemma 5.1, Proposition 1.5).",
+        "Supporting primary text: arXiv:2608.02537, §1 (statement of the lower bound R_j(3) >= j^(j/3-o(j)))."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching published-finding corpus record was returned. The closest returned combinatorics records were unrelated complete-multipartite colouring results, including 2026/10/4/SCOPE-sequence-b-colorings-of-complete-multipartite-graphs-are-rigid--3d19e234dc3b and 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655.",
+        "The accessible current-week own ledger was checked for claim/ID overlap; no Decay-Ramsey or superexponential triangle-colouring claim was present."
+      ],
+      "reasoning": "No exact matching database or table was found. These searches are overlap checks, not a proof of global uniqueness or absolute priority.",
+      "searches": [
+        "published-finding corpus MCP query: \"Decay-Ramsey sequence a_i = i^{-Omega(i)} fails arrow K3 superexponential decay multicolor Ramsey\".",
+        "published-finding corpus MCP query: \"superexponentially decaying sequence not Decay-Ramsey answer open question Decay-Ramsey Sequences\"."
+      ]
+    },
+    "rationale": "The inspected primary paper explicitly leaves existence of a non-Decay-Ramsey sequence with \\(a_i=i^{-\\Omega(i)}\\) as a question. Its fixed-base product lemma only gives an exponential budget. The new variable-block construction changes the palette size and base order at each block and proves the requested superexponential decay with exponent \\(1/8\\). published-finding corpus searches and the accessible own ledger found no matching claim; the priority assessment remains bounded by those searches.",
+    "residual_risks": [
+      "A bounded semantic database search cannot establish absolute priority; a later or unindexed source may contain the same variable-block extension.",
+      "The base colourings and threshold j0 are existential, not explicitly enumerated.",
+      "The exponent 1/8 is a construction-dependent value; no optimality claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the motivating open question and an exponential-rate construction, but does not state the variable-block superexponential result.",
+        "evidence": "§1, final paragraph before §2; §5, Lemma 5.1 and Proposition 1.5.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.20577",
+        "material_read": "Full eight-page arXiv text, especially §1 and §5, including the fixed-base product lemma and the proof of Proposition 1.5.",
+        "method": "Compared the target statement and asymptotic scale with the paper’s exact product-colouring formula and conclusion.",
+        "title": "Decay-Ramsey Sequences",
+        "trigger": "Directly states the open question whether some sequence \\(a_i=i^{-\\Omega(i)}\\) fails to arrow \\(K_3\\)."
+      },
+      {
+        "assessment": "The stated lower bound implies \\(R_j(3)>j^{j/4}\\) for all sufficiently large \\(j\\), which is exactly the existence input used in the proof.",
+        "evidence": "§1 states \\(R_j(3)\\ge j^{j/3-o(j)}\\) and identifies it as the triangle case of the superexponential lower bound.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.02537",
+        "material_read": "Full HTML text with particular attention to §1 and the statement of the Ramsey lower bound.",
+        "method": "Checked the exponent in the stated lower bound and compared it with j^(j/4).",
+        "title": "Multicolor Ramsey numbers of odd cycles are superexponential",
+        "trigger": "Needed a verified asymptotic lower bound to guarantee base colourings of \\(K_{\\lfloor j^{j/4}\\rfloor}\\) with \\(j\\) colours."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58268766-dce2-4cba-94b0-b66c251aa077",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The construction answers an explicit recent Ramsey-theory question with a quantitative superexponential decay rate, rather than only reproducing a fixed exponential counterexample. The block-product argument is a reusable method for converting superexponential multicolour Ramsey lower bounds into highly nonuniform colour-density budgets.",
+    "status": "PASS"
+  }
+}
