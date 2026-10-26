@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The four-point inverse discrete Fourier transform gives exact heat coefficients a,b,c with a+2b+c=1 and 4c=(1-q)(1-q-q^2-q^3). The strictly monotone polynomial has exactly one root, so H_t>=0 precisely beyond theta. Cube invariance follows from stochasticity and the exact cubic reaction flow. Below theta, the opposite output from a coordinate impulse tends to 1-2a<0 as reaction duration tends to infinity, providing a finite-duration strict counterexample; below theta/2, expansion at the origin makes failure hold for each finite fixed duration. Full-heat H_{2t} gives the half threshold. The proof quantifies all t>0, rho>=0 and all cube inputs. A standalone standard-library verifier passed 3533 checks and does not stand in for the universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2107.09438",
+        "https://arxiv.org/html/2610.14867v1"
+      ],
+      "reasoning": "General self-adjoint three-eigenvalue eventual-positivity structure may cover the existence of a positive-time ray for H_t, and Li covers approximately sharp spectral maximum principles on broad grids. Neither statement gives the exact universal nonlinear Strang threshold or shows the interval where H_{2t}>=0 yet H_t R H_t fails. Discrete-maximum-principle results for Toeplitz fractional stencils use a different Metzler operator.",
+      "searches": [
+        "eigenvalues 0 1 4 1 circulant heat kernel positivity threshold nonlinear splitting",
+        "Fourier spectral pseudospectral heat semigroup positivity discrete kernel five grid points time threshold",
+        "periodic Fourier spectral discrete heat semigroup non-positive off-diagonal sharp threshold spectral differentiation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.14867v1",
+      "https://arxiv.org/abs/2107.09438",
+      "https://arxiv.org/abs/2209.08437"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.14867v1",
+        "https://arxiv.org/abs/2107.09438",
+        "https://arxiv.org/abs/2209.08437"
+      ],
+      "reasoning": "The new claim asserts an iff over t and every cubic reaction duration, plus the sharp half-threshold for heat and all-fixed-duration local failure below theta/2. The main 2026 source gives Fourier experiments and continuum-error analysis; Li gives effective maximum principles, not these exact finite parameter implications. The three-level semigroup result addresses linear operator times only. The positive lattice Crank–Nicolson filter uses a finite-difference Laplacian and different rational propagator. Existing related results therefore do not imply all the new quantified conclusions.",
+      "searches": [
+        "Fourier pseudospectral Strang reaction diffusion exact positivity threshold four sites all reaction rates",
+        "nonlinear cubic reaction saturates negative Fourier heat half-step creates negative Allen Cahn collocation for small times",
+        "Strang splitting Allen Cahn spectral spatial discretization positivity five points anti-CFL",
+        "Fourier spectral pseudospectral heat semigroup positivity discrete kernel five grid points time threshold",
+        "periodic Fourier spectral discrete heat semigroup non-positive off-diagonal sharp threshold spectral differentiation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.14867v1",
+        "https://arxiv.org/abs/2107.09438",
+        "Dong Li 2021 sec. 6 (Fourier-collocation Strang equation 6.1) and remark 5.2 (small-grid negative resolvent behavior)"
+      ],
+      "reasoning": "Equivalent descriptions include positivity of all four circulant heat kernel weights, minimum-principle preservation of the full nonlinear composition, and eventual positivity of a discretized heat semigroup. Prior effective maximum principles control approximate bounds and do not establish this universal all-reaction iff threshold. The linear criterion alone is different because reaction saturation can defeat H_{2t} even when it is positive.",
+      "searches": [
+        "four-node Fourier collocation heat e^{-t k^2} Strang Allen Cahn critical time q+q^2+q^3=1 maximum principle",
+        "Fourier pseudospectral Strang reaction diffusion exact positivity threshold four sites all reaction rates",
+        "nonlinear cubic reaction saturates negative Fourier heat half-step creates negative Allen Cahn collocation for small times",
+        "https://arxiv.org/abs/2107.09438"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2107.09438",
+        "https://arxiv.org/html/2610.14867v1"
+      ],
+      "reasoning": "Searches and the inspected primary literature yielded neighboring positivity theorems rather than the precise four-node Fourier spectral heat/cubic-saturation classification. No published exact four-node positivity-versus-reaction-strength table was identified in the inspected sources. This limited negative comparison does not prove no such table exists.",
+      "searches": [
+        "four-node Fourier collocation heat e^{-t k^2} Strang Allen Cahn critical time q+q^2+q^3=1 maximum principle",
+        "eigenvalues 0 1 4 1 circulant heat kernel positivity threshold nonlinear splitting",
+        "periodic Fourier spectral discrete heat semigroup non-positive off-diagonal sharp threshold spectral differentiation",
+        "Fourier spectral pseudospectral heat semigroup positivity discrete kernel five grid points time threshold"
+      ]
+    },
+    "rationale": "The highly pertinent full-text 2021 Fourier-collocation effective-maximum-principle study already addresses general failure of sharp spectral maximum principles and contains the same class of Strang schemes, but inspected portions do not give an exact four-node if-and-only-if nonlinear all-reaction threshold or factor-of-two separation. The 2026 motivating source analyzes continuous-space Strang bounds and Fourier numerics without this exact finite-grid classification. A published broad three-spectral-level semigroup result subsumes qualitative structure for the linear heat positivity times but not the strong-reaction nonlinear iff or quantitative factor-two. Searches are not proof of unique priority; unexamined specialized accounts remain residual risk.",
+    "residual_risks": [
+      "A specialized older small-grid Fourier-collocation maximum-principle classification not retrieved could already imply this exact theorem.",
+      "General eventual positivity of finite Fourier semigroups is known; the linear half-step positivity ray alone is not claimed as a new general result.",
+      "The proof is for exactly four nodes and one cubic reaction; no broader-grid claim is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Continuous-space Strang Sobolev/error theory and Fourier numerical tests; no complete four-point nonlinear positivity horizon stated in inspected text",
+        "evidence": [
+          "arXiv:2610.14867v1, lines 28-79, sec 5.2; source submitted 2026-10-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.14867v1",
+        "material_read": "Full publicly accessible HTML sections 1, 3, 5.2, scheme equation (3), nonlinear subflow equations, section 5 numerical parameters, references",
+        "method": "Read mathematical setup and numerical experiments and compare quantifiers with four-node exact positivity claim",
+        "title": "Stability and Error Estimates with Optimal ε-Dependence for Strang Splitting of the Allen–Cahn Equation",
+        "trigger": "Newest primary Strang/Allen-Cahn source with Fourier-pseudospectral numerics and maximum-principle experiments"
+      },
+      {
+        "assessment": "Substantial precedent for effective versus strict maximum principles and Fourier-collocation nonlinear splitting; no exact four-node all-reaction duration cutoff and factor-two linear/nonlinear classification found",
+        "evidence": [
+          "arXiv:2107.09438v1, sec 6 (Fourier collocation Strang), remark 5.2; 2021-07-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.09438",
+        "material_read": "Lawfully accessible 119-page arXiv PDF; targeted material read: section 6 near pp. 80-82, equation (6.1); section 5 remark 5.2 near p.66; abstract and introduction. The other pages were not read line by line",
+        "method": "Inspect primary full document mathematical definitions, small-grid positivity examples and theorem targets",
+        "title": "Effective maximum principles for spectral methods",
+        "trigger": "Highest-priority existing treatment of Fourier-collocation Strang splitting and near/sharp maximum principles"
+      },
+      {
+        "assessment": "Unconditionally positive discrete scheme based on a different operator; no implication that the canonical pseudospectral Laplacian has positive heat kernel for every t",
+        "evidence": [
+          "arXiv:2209.08437v1, abstract and scheme; first submitted 2022-09-18"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.08437",
+        "material_read": "Public full HTML, abstract, method/operator construction, maximum-principle statements",
+        "method": "Compare Toeplitz spatial fractional difference stencil and matrix splitting with exact Fourier-spectral Laplacian",
+        "title": "A fast two-level Strang splitting method for multi-dimensional spatial fractional Allen-Cahn equations with discrete maximum principle",
+        "trigger": "Potential theorem of unconditional discrete max principle for Strang and Fourier-based implementation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cda4c447-dd61-4d56-9fd7-22ad61508e5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact classification addresses whether a Fourier-collocation implementation preserves the physically relevant nonnegative invariant region, not just norm stability or convergence. The smallest failing periodic spectral grid exhibits a sharp anti-CFL-type universal lower bound, and the factor-of-two gap shows nonlinear saturation can spoil positivity after a full heat step that alone is perfectly positive. The quantified interval and explicit robust negative witness give nontrivial design and diagnostic information absent from generic warnings about spectral overshoots. Its narrow scope is deliberate, analytically natural and completely classified; no unsupported higher-dimensional generalization is claimed.",
+    "status": "PASS"
+  }
+}
