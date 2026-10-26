@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The two-survey model and m,n quantifiers are explicit. Independent survey sampling gives diagonal covariance a^2(1-a)^2, off-diagonal a^2(1-a)^2-(a-b)^2, and a=(1-1/m)^n,b=(1-2/m)^n. These yield the claimed closed form. Its sign is that of R_n^2-t; \\(R_x\\) is strictly increasing by an analytic logarithmic derivative, is below sqrt(t) at x=1 and above it eventually; \\(\\sqrt{(m-1)/m}\\) irrational rules out ties at integer n. Uniform fixed-c expansions prove \\(n_*(m)/m\\) tends to the unique positive root \\(e^{\\alpha}=1+2\\alpha\\). An independent complete two-survey exact rational census for 25 (m,n) pairs matches the formula, plus finite sign checks through m=50. Finite checking supports but is not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Colwell et al. full author PDF treats unconditional single-survey richness variance and rarefaction estimators, not the S–U covariance across surveys.",
+        "Published one-switch occupancy result studies \\(\\operatorname{Cov}(K,K_r)\\) for counts of r-frequency species in one experiment, with its switch indexed by r; the result does not quantify a switch in n for two independent survey supports.",
+        "Occupied-box precision result proves covariance signs of individual occupancy indicators and matrix-inverse positivity; the nonlinear intersection and union pair is not a coordinate pair of that matrix."
+      ],
+      "reasoning": "Known occupancy indicator covariance ingredients can derive finite terms through new combinations, but the compared statements neither yield nor dominate the cross-survey sign/no-tie/effort-scaling classification. No implicit stronger-covering theorem was identified.",
+      "searches": [
+        "covariance common shared observed species and total pooled observed richness two independent equal-length surveys uniform multinomial sign change sample size",
+        "shared-species overlap union diversity covariance sampling effort negative positive uniform species",
+        "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+        "doi:10.1093/jpe/rtr044"
+      ]
+    },
+    "checked_sources": [
+      "Chao et al. (2005), first public 2004-12-17, DOI 10.1111/j.1461-0248.2004.00707.x, primary author full text; exact shared/pooled incidence numerator-denominator.",
+      "Colwell et al. (2012), first public 2012-01-12, DOI 10.1093/jpe/rtr044, primary author full text relevant sections; richness rarefaction means and variances.",
+      "Published published-finding corpus record 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813; full RESULT.md read; \\(\\operatorname{Cov}(K,K_r)\\) sign versus r.",
+      "Published published-finding corpus record 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac; full RESULT.md read; covariance of successive discoveries.",
+      "Published published-finding corpus record 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166; full RESULT.md read; covariance and inverse of occupied indicators."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chao et al. derive incidence Jaccard A/(A+B+C), not covariance between A and A+B+C as effort varies.",
+        "Colwell et al. treat individual-based multinomial rarefaction curves and unconditional variances of observed richness; they do not state joint S/U moments.",
+        "Published \\(\\operatorname{Cov}(K,K_r)\\) single-survey formula cannot be identified with \\(\\operatorname{Cov}(S,U)\\) merely by renaming K or r."
+      ],
+      "reasoning": "Two surveys are independent at the individual-draw level but S and U are joint functions of both; neither the denominator ratio formula nor single-survey marginal covariance results imply the derivative inequality, irrational non-tie or asymptotic threshold absent additional derivation. Stronger general two-sample occupancy claims were explicitly searched for but not found.",
+      "searches": [
+        "covariance common shared observed species and total pooled observed richness two independent equal-length surveys uniform multinomial sign change sample size",
+        "intersection size and union size of independent coupon collector occupancy sets covariance sign switch",
+        "shared-species overlap union diversity covariance sampling effort negative positive uniform species",
+        "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+        "doi:10.1111/j.1461-0248.2004.00707.x",
+        "doi:10.1093/jpe/rtr044"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chao et al., PDF p.3 (printed p.150): Jaccard numerator is observed shared count, denominator is pooled count. Formula is a ratio of counts, not their joint covariance.",
+        "No direct corresponding covariance and monotone effort threshold appeared in the checked publication; published single-sample richness formulas concern different moments."
+      ],
+      "reasoning": "The ecological count pair is also the intersection/union of occupancy support sets and the numerator/denominator of the incidence Jaccard index. A ratio definition does not entail a moment formula or its strict sign classification.",
+      "searches": [
+        "covariance common shared observed species and total pooled observed richness two independent equal-length surveys uniform multinomial sign change sample size",
+        "intersection size and union size of independent coupon collector occupancy sets covariance sign switch",
+        "\"shared species\" \"pooled richness\" \"covariance\" samples",
+        "\"covariance\" \"shared species\" \"total species\" two samples overlap",
+        "doi:10.1111/j.1461-0248.2004.00707.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claimed result ranges over every integer \\(m\\ge2\\) and \\(n\\ge1\\); it is not a finite sequence value or a tabulated small graph or species count.",
+        "The published-finding corpus matches returned distinct occupancy, species discovery, and rarity questions but no matched exact table for n_*(m)."
+      ],
+      "reasoning": "The test values m=2..50 are numerical validation of the unbounded theorem, not a claim that an external table establishes or refutes it. The significance is the universal phase rule and analytic constant.",
+      "searches": [
+        "intersection size and union size of independent coupon collector occupancy sets covariance sign switch",
+        "hypergeometric overlapping taxa Jaccard richness covariance sample size threshold",
+        "\"covariance\" \"intersection\" \"union\" number distinct species sampling",
+        "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+      ]
+    },
+    "rationale": "Relevant full scientific treatments of ecological shared/pooled counts, single-sample rarefaction variances and published occupancy covariance questions do not give the two-independent-survey intersection–union covariance, its strict single effort switch, or the universal scaling root \\(e^{\\alpha}=1+2\\alpha\\). Searches covered lexical aliases, the ratio relationship, indicator reductions, stronger coverage and published results. Remaining classical urn-literature risk acknowledged; this is best-knowledge, not globally certified uniqueness.",
+    "residual_risks": [
+      "The exact elementary indicator covariance may exist in a classical multinomial occupancy or ecological similarity variance source under different notation, and all literature cannot be exhaustively checked.",
+      "Chao et al. mention additional estimator-variance details available from authors on request; those uninspected materials could conceivably include related moments, although for different estimators.",
+      "The value assessment concerns the strict effort sign law and its scale, not an assertion that the basic inclusion–exclusion identity is unprecedented."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scientific source establishes S,U as natural ecological observables but gives estimators and Jaccard ratios rather than exact sampling covariance sign across integer effort.",
+        "evidence": [
+          "Printed p.150: classic Jaccard index A/(A+B+C), A shared, B,C unique species counts.",
+          "Printed p.152: bootstrap variance estimators for different abundance-adjusted Jaccard/Sørensen indices; no stated intersection–union count covariance formula.",
+          "Publisher confirms first public online date 2004-12-17."
+        ],
+        "identifier_or_url": "https://www.robertkcolwell.org/publications/7597.pdf",
+        "material_read": "Twelve-page author-hosted primary PDF parsed; introduction, incidence-count definitions and Table 1 on printed p.150, estimation methods and p.152 variance discussion, discussion p.158 read closely; keyword checks for covariance and variance.",
+        "method": "Primary PDF full-text read with page-image inspection of printed p.150 and searches for covariance/variance and occurrence definitions.",
+        "title": "A new statistical approach for assessing similarity of species composition with incidence and abundance data",
+        "trigger": "Exact shared species and pooled species incidence counts used in ecological Jaccard similarity; potential stronger coverage."
+      },
+      {
+        "assessment": "Unconditional variance and rarefaction models for one-sample richness, not a strict effort-transition theorem for shared/pooled two-sample richness.",
+        "evidence": [
+          "Abstract: mean and unconditional variance of expected observed richness under multinomial, Poisson and sample-based rarefaction.",
+          "Article DOI 10.1093/jpe/rtr044, first online 2012-01-12."
+        ],
+        "identifier_or_url": "https://www.robertkcolwell.org/publications/6855-models-and-estimators-linking-individual-based-and-sample-based-rarefaction-extrapolation-and-comparison-of-assemblages",
+        "material_read": "Author-hosted full-text PDF relevant abstract, sample model, single-survey richness mean and unconditional variance derivations, and conclusions; not every appendix read.",
+        "method": "Primary full-text scientific sections and targeted term searches for cross-survey covariance/shared sets.",
+        "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+        "trigger": "Multinomial species richness moments and multi-assemblage comparison may cover S/U covariance."
+      },
+      {
+        "assessment": "\\(\\operatorname{Cov}(K,K_r)\\) within one occupancy sample, not \\(\\operatorname{Cov}(|A\\cap B|,|A\\cup B|)\\) across two independent samples; switch parameter r differs from n.",
+        "evidence": [
+          "Its formula uses counts of boxes occupied exactly r times; the sign switch is indexed by frequency r, not survey length n."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "material_read": "Entire publicly available RESULT.md, including exact covariance formula and proof of its frequency-class sign switch.",
+        "method": "Public primary scientific record, direct full RESULT.md fetch.",
+        "title": "A one-switch covariance law for occupancy richness and frequency counts",
+        "trigger": "Closest keyword match: one-switch covariance and species richness in occupancy."
+      },
+      {
+        "assessment": "Successive discovery indicators and their covariance under iid species laws, rather than overlap and union of two surveys.",
+        "evidence": [
+          "Its covariance is Var(missing mass) minus a depletion term, with sign varying across species laws; the present sign changes with n while species law remains fixed uniform."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "material_read": "Entire public RESULT.md including conditional missing-mass variance formula.",
+        "method": "Public primary scientific record, direct full RESULT.md fetch.",
+        "title": "Exact missing-mass covariance identity and sign reversal for successive species discoveries",
+        "trigger": "Shared literature on species discovery and covariance sign reversal."
+      },
+      {
+        "assessment": "Pairwise covariance of single-sample indicator coordinates and inverse covariance; does not cover joint statistics S,U of two independently sampled species supports.",
+        "evidence": [
+          "Its off-diagonal covariance is (1-p_i-p_j)^n-(1-p_i)^n(1-p_j)^n, ingredient-level but not the new S/U sign law."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+        "material_read": "Entire public RESULT.md including pairwise covariance formula, rank and matrix inverse proof.",
+        "method": "Public primary scientific record, direct full RESULT.md fetch.",
+        "title": "Occupied-box indicators have a strictly positive precision matrix",
+        "trigger": "Potential stronger theorem for covariance structure of occupancy indicators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84dc0e14-7f89-4d53-95c2-f2ede68ae6f9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shared and pooled species counts are the primary incidence objects behind Jaccard biodiversity comparison. The covariance between them affects joint uncertainty, but the two marginal expected richness curves alone do not provide its sign. The theorem identifies an unexpected strict negative-to-positive dependence reversal purely from survey effort for every equal-abundance community, proves no integer-neutral case, and gives a sharp universal leading threshold approximately \\(1.256431m\\) observations per survey. This is a motivated structural sampling-design limit, not an arbitrary finite lookup or a tiny parameter increment. It does not claim finite-data estimation guarantees.",
+    "status": "PASS"
+  }
+}
