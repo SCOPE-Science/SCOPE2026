@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=3 and every supported symmetric stochastic P, orbit averaging does not increase norm(P-J); the two-weight spectrum is 1, 1-2b, and 1-b-ma/2 +/- sqrt(b^2+(ma/2)^2), each contrast eigenvalue multiplicity m-1. The larger contrast eigenvalue is at least the explicitly minimized one-variable bound. Its derivative sign is strictly increasing and crosses zero exactly once. At the chosen weights, 0<b<1/2 and lambda_plus+lambda_minus=(m-2)(1-b)/(m-1)>0, so no negative eigenvalue obstructs attainment. The heuristic and limiting formulas are exact. The delivered verify.py was run and printed the supplied VERIFY_OK line, verifying finite spectra and feasible competitors without replacing the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. arXiv:0709.0955v1 establish automorphism averaging and solve several graph families, including hypercubes, complete multipartite and clique-bridge examples. No complete-core leaf corona closed optimum is stated in the inspected sections.",
+        "Jafarizadeh arXiv:2501.02421 contains a general CCS-star reduction to a path-related problem but presents conditional explicit weights."
+      ],
+      "reasoning": "A generic SDP computes this optimizer implicitly, but it does not supply the exact all-order radical formula or m/5 spectral-gap ratio; the closest broader path reduction may imply it after a new boundary-constrained minimization, which is retained as a novelty risk.",
+      "searches": [
+        "Fastest mixing Markov chain exact edge weights diameter-three trees double star",
+        "fastest mixing Markov chain lollipop barbell graph exact analytic",
+        "arxiv:0709.0955v1 Sections 3 and 5",
+        "arxiv:2501.02421 Section 7.4 and Appendix E",
+        "doi:10.1137/S0036144503423264 Sections 1,3,7"
+      ]
+    },
+    "checked_sources": [
+      "Boyd--Diaconis--Xiao 2004 author-hosted PDF https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf, FMMC problem and heuristic comparison; Sections 3 and 7.",
+      "Boyd--Diaconis--Parrilo--Xiao arXiv:0709.0955v1, Sections 1-5, PDF page 1 and orbit reduction; particular graph families in Sections 3 and 5.",
+      "Jafarizadeh arXiv:2501.02421 author full-text HTML, Section 7.4, Appendix E, original journal DOI 10.1109/TSIPN.2020.2964211.",
+      "published-finding corpus hits 2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642 and 2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe: no FMMC corona formula in retrieved claims."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Substituting equal masses into the CCS-star hypothesis (m-1)pi1<=pi0 yields m<=2. For m>=3 its displayed weight recipe would produce core outgoing non-loop sum (m-1)/m+1/2>1, so that recipe is not feasible in the claimed regime.",
+        "Prior general symmetry and matrix reduction imply a 2-variable convex subproblem, but do not state the exact boundary minimizer, limiting 4/5 optimum and m/5 relative-gap growth."
+      ],
+      "reasoning": "The new explicit optimum is not an instance of the conditional reported optimal weights. It is an exact resolution of a residual inequality-constrained regime of the established broader problem. The general optimization framework and other-family qualitative heuristic failure are not claimed as new.",
+      "searches": [
+        "Jafarizadeh complete cored symmetric star n=1 m>=3 uniform equilibrium fastest mixing boundary case",
+        "Complete-cored symmetric star path length one equal stationary mass formula optimal SLEM square root",
+        "arxiv:2501.02421 Section 7.4 Appendix E",
+        "arxiv:0709.0955v1 Sections 2 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2501.02421 (Section 7.4), CCS-star order (m,n) with n=1 is K_m with one leaf at every core vertex. The explicit displayed q0 and q1 assume (m-1) pi1<=pi0; for equal pi this is m<=2.",
+        "The result reported here instead treats all m>=3 and gives the feasible boundary weights a=(1-b)/(m-1), b=(c+(1-c)sqrt(2c))/(2+(1-c)sqrt(2c))."
+      ],
+      "reasoning": "Compare optimization domains, graph isomorphism, admissible stationary masses and resulting weights, rather than titles. Prior CCS-star result is the same object but its explicit branch excludes the uniform-mass m>=3 case; generic reductions are acknowledged rather than called inapplicable.",
+      "searches": [
+        "Fastest mixing Markov chains on clique corona complete graph with one pendant leaf attached to each vertex, exact second eigenvalue modulus",
+        "Fastest-mixing graph corona K_n circle K_1, optimal symmetric Markov weights and asymptotic spectral contraction 4/5",
+        "Jafarizadeh complete cored symmetric star n=1 m>=3 uniform equilibrium fastest mixing boundary case",
+        "Complete-cored symmetric star path length one equal stationary mass formula optimal SLEM square root",
+        "arxiv:2501.02421 Section 7.4 Appendix E"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus complete-graph corona result concerns strict log-concavity of a general-position polynomial, not Markov chain SLEM.",
+        "Neither primary paper presents an exact graph-order table with the proposed optimal a_m,b_m and limit."
+      ],
+      "reasoning": "No exact overlapping table or indexed family formula was identified from actual sources; absence of search hits is not a uniqueness proof.",
+      "searches": [
+        "Fastest mixing Markov chains on clique corona complete graph with one pendant leaf attached to each vertex, exact second eigenvalue modulus",
+        "Fastest-mixing graph corona K_n circle K_1, optimal symmetric Markov weights and asymptotic spectral contraction 4/5",
+        "Fastest mixing Markov chain on corona of complete graph K_m with leaves optimal rate 4/5",
+        "fastest mixing Markov chain \"corona\" graph clique leaves",
+        "exact optimal fastest mixing symmetric Markov chain clique corona graph pendant vertices K_n ∘ K_1",
+        "published-finding corpus 2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+      ]
+    },
+    "rationale": "The 2004 general FMMC SDP and 2007 symmetry paper yield methodology, not the exact closed corona optimum. A much closer 2020 paper explicitly treats complete-cored symmetric stars, but its displayed simple optimal weights are under (m-1) pi1<=pi0, which fails at uniform masses for m>=3. Its full-text Section 7.4 and Appendix E instead reduce the problem to a path-related optimization. The present work supplies a closed formula and full asymptotic heuristic-gap law for that excluded regime. Actual published-finding corpus searches found only unrelated graph-corona and different-graph mixing claims. The implicit reduction creates a documented residual risk, and exhaustive literature uniqueness is not claimed.",
+    "residual_risks": [
+      "The 2020 CCS-star path reduction can implicitly compute the m>=3 optimum. A prior author may have algebraically specialized that reduction elsewhere without indexing.",
+      "The published CCS-star text contains a generic n=1 expression near conditional formulas, potentially leading to ambiguity about its intended coverage. Only the explicitly stated feasibility hypothesis is used in the scientific comparison.",
+      "Mathematical databases and web search are not exhaustive; unindexed specialized mixing-chain literature may have equivalent weights."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHODOLOGY_AND_OTHER_GRAPH_EXAMPLES; no explicit complete-core leaf corona optimum in inspected material.",
+        "evidence": [
+          "SIAM Review 46 (2004), DOI 10.1137/S0036144503423264, PDF Section 7.2 general unbounded heuristic-gap discussion."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "PDF first page, formulation and example sections, maximum-degree heuristic and strong-gap discussion in Section 7, including the K_n-K_n bridge example.",
+        "method": "Opened full 23-page author-hosted PDF text and visually inspected its title page; searched relevant terms and compared specific formulae.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general SDP formulation and standard maximum-degree/Metropolis benchmarks."
+      },
+      {
+        "assessment": "GENERAL_SYMMETRY_REDUCTION; the paper provides prior global averaging but the inspected graph classes do not supply the present family formula.",
+        "evidence": [
+          "arXiv:0709.0955v1 first public 2007-09-06; Sections 2,3,4,5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "39-page PDF: mathematical setup Sections 1 and 2, analytic graph classes in Sections 3 and 5, orbit theory Section 4, and graph-family searches; visual checks of PDF pages 1 and 15.",
+        "method": "Opened author preprint PDF, read relevant mathematical text and section descriptions, searched corona/pendant/leaf and inspected examples, not merely abstract.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetric graph optimization and possible stronger family inclusion."
+      },
+      {
+        "assessment": "PARTIAL_EXPLICIT_COVERAGE; the presented simple optimal weights are conditional on (m-1)pi1<=pi0, and its path reduction remains a residual implication risk for the presently excluded uniform-mass m>=3 case.",
+        "evidence": [
+          "Published IEEE Transactions on Signal and Information Processing over Networks 6 (2020), DOI 10.1109/TSIPN.2020.2964211; arXiv author text Section 7.4 lines 465-474 and Appendix E lines 585-596."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+        "material_read": "Accessible full-text author HTML: Section 7.4 including definition, explicit parameter condition, and formulas, together with Appendix E reduction and mathematical derivation; Section 1 contribution list.",
+        "method": "Read primary preprint full-text HTML, searched complete-cored star and inspected exact displayed formulas and their stationary-mass conditions. PDF was not required because author full text was available.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Closest same-topology source: complete-cored symmetric star includes exactly this corona when branch length is one."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce99a32b-12f5-40ee-b861-5b47ef91becd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One private leaf per clique vertex is an intrinsically motivated dense-core/sparse-periphery mixing network. The sharp global optimizer is not a chosen arbitrary numerical slice: it gives exact edge probabilities, active core self-loop constraints, asymptotic SLEM 4/5, and an m/5 growing spectral-gap separation from both standard edge-weight heuristics, on the entire m>=3 infinite family. This is a meaningful complete natural classification; no claim that qualitative heuristic failure is newly discovered.",
+    "status": "PASS"
+  }
+}
