@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Inductive max-plus identity on every finite path; stationary law by Pollaczek–Khinchine; arbitrary continuous-S asymptotic by non-exponential validity of primary-paper derivative Eq(14), Borel n=2 extraction, uniform M^X/G/1 bound for n>=3, and uniform integrability of stationary queues near c=0. Exact rational script verified 20,736 four-customer paths. Critical assumptions and unproved heavy-tail extension explicitly bounded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao–Hu–Wang, arXiv:2610.22837v1, Theorem 2.1 shows mean waiting nonincrease for renewal arrivals, but does not identify the second-order coefficient.",
+        "The paper's Eq(14) includes the Borel-group derivative; here the first two-customer term is evaluated as c→0 under nonexponential downstream service."
+      ],
+      "reasoning": "Monotonicity for a larger arrival class does not imply the exact coefficient or the universal floor identity. The published exponential-service proof does not state this general downstream-service asymptotic.",
+      "searches": [
+        "universal second derivative at zero deterministic upstream M/D/1 general downstream M/G/1 tandem waiting time rho c squared small c",
+        "Poisson deterministic exponential tandem small c perturbation curvature second station waiting time light first server service"
+      ]
+    },
+    "checked_sources": [
+      "Cao, Hu, Wang, arxiv:2610.22837v1 (complete source HTML)",
+      "Ciucu, Mehri, DOI:10.1145/3727140 (abstract only)",
+      "Palomo, Pender, Winter Simulation Conference 2021 (tandem Lindley reference and implementing technical documentation)",
+      "Published mathematical research record summaries returned for targeted tandem service floor, zero-upstream duration, and quadratic limit queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary arXiv HTML §§2–4 and Appendix A.1–A.2 were read. Their Eq(14) was traced back to reversibility and mass transport; its non-exponential validity is explicitly justified in the proof.",
+        "Ciucu–Mehri (2025) studies tail bounds for tandem sojourns, not the local c-curvature statement in its accessible abstract."
+      ],
+      "reasoning": "The current claim is not inferred from absence of similar titles: it establishes a different logical conclusion, the universal second derivative, via an explicit nontrivial asymptotic extraction from a prior identity. The older recursion potentially contains the floor lemma implicitly, which is a recorded risk.",
+      "searches": [
+        "Niu's conjecture tangent flat at c zero quadratic waiting-time benefit despite strict monotonicity",
+        "On Niu's Conjecture for Two-Station Tandem Queues stationary mean waiting time c group Borel formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Palomo–Pender (2021) supplies the general tandem Lindley recursion; no exact floor-shift theorem appears in the available result description.",
+        "The deterministic induction derives equality of every final departure, stronger than queueing-delay expectation identities."
+      ],
+      "reasoning": "Equivalent formulations include max-plus departure recursions and downstream bottleneck interchange; compared at implication level. The classical recursion enables, but does not itself state, the service-floor and stationary-law package.",
+      "searches": [
+        "pathwise delay transfer conservation tandem FIFO slower downstream service s >= first deterministic c exact departures shift c",
+        "tandem queue Lindley recursion equal service downstream bottleneck exact shift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic matches were not tandem queueing laws; closest sample records concerned renewals and other unrelated waiting-time models.",
+        "The target has infinitely many continuous service laws and cannot be covered by a finite data table alone."
+      ],
+      "reasoning": "Searched for exact asymptotic constants and tandem queueing aliases; no matching stored result or tabulation was identified. Search absence does not establish novelty.",
+      "searches": [
+        "universal second derivative at zero deterministic upstream M/D/1 general downstream M/G/1 tandem waiting time rho c squared small c",
+        "Niu's conjecture tangent flat at c zero quadratic waiting-time benefit despite strict monotonicity"
+      ]
+    },
+    "rationale": "Primary full text proves monotonicity, not the floor-equivalence identity or law-independent order-c² improvement. Comparing implications and derivative formulas confirms the latter requires a new small-c evaluation. Nearby historical queueing work may implicitly include the simpler pathwise lemma but no stronger covering curvature theorem was identified.",
+    "residual_risks": [
+      "Older queuing/max-plus literature could implicitly cover the elementary pathwise transfer (full Palomo–Pender proceedings text not examined).",
+      "The direct 2025 general-tandem sojourn-time paper was accessible only via its abstract, not full text.",
+      "Unindexed literature or an implicit special case of an older tandem perturbation theorem could cover the universal curvature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state floor-transfer or universal quadratic coefficient; Eq(14) supplies the derivative structure and is generalized by inspecting the independence assumptions",
+        "evidence": [
+          "Theorem 2.1: nonincreasing downstream waiting",
+          "Eq (14): sum over Borel first-stage busy groups",
+          "Appendix A.1: marked group reversal with independent iid stage-two service times"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22837v1",
+        "material_read": "Complete HTML sections 1–5 and Appendix A.1–A.2, particularly equations (1),(2),(7)–(14) and busy-group conditioning",
+        "method": "Direct theorem/assumption/equation and proof-dependency comparison",
+        "title": "On Niu's Conjecture for Two-Station Tandem Queues",
+        "trigger": "Same FIFO tandem, same upstream deterministic service c, downstream mean-waiting comparison"
+      },
+      {
+        "assessment": "Accessible description concerns sojourn-time tail bounds, not station-two c-curvature; full-text overlap remains open",
+        "evidence": [
+          "Published ACM SIGMETRICS 2025, DOI:10.1145/3727140"
+        ],
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/190706/",
+        "material_read": "Abstract and bibliographic record; full text not examined",
+        "method": "Compare stated tail-bound objects and claimed moment formula",
+        "title": "On the Distribution of Sojourn Times in Tandem Queues",
+        "trigger": "General tandem sojourn time formulas might dominate a mean-waiting identity"
+      },
+      {
+        "assessment": "Classical recursion is compatible and may implicitly cover the deterministic identity, but available text does not supply the universal downstream mean-curvature law",
+        "evidence": [
+          "Tandem Lindley recursion and downstream interdeparture identity in developer documentation"
+        ],
+        "identifier_or_url": "https://line-solver.sourceforge.net/javadoc/jline/api/qsys/Qsys_tandem_lindley.html",
+        "material_read": "Algorithm documentation and reference to 2021 proceedings; original complete paper not examined",
+        "method": "Compare exact published recursion with pathwise transfer and derivative implications",
+        "title": "Learning the Tandem Network Lindley Recursion",
+        "trigger": "Potential pathwise max-plus bottleneck theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7dca26d2-a8db-4550-ae71-50f4beace368",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact first nonzero sensitivity of downstream waiting at an upstream zero-service boundary, independent of any details of a continuous downstream service distribution, resolves quantitative information left undetermined by the strict monotonicity conjecture. Full service-floor equality characterizes a meaningful robust regime and exposes the mechanism. The result is a continuum-level structural queueing property, not a finite sample or routine numerical increment.",
+    "status": "PASS"
+  }
+}
