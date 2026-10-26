@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact F2 cubic coefficient domain of 1048575 forms, 35 lines, and six squarefree restriction masks is fully specified. Both separately implemented C++ and NumPy runs agree on all 840 rationally nonsingular eight-transversal forms and exclude every smaller candidate. Full PGL4(F2) orbit of mask 67194 has size 840 and equals the entire certificate, with 20160 group elements. Its four partials give a triangular absolute-smoothness proof. Therefore all 840 are genuinely geometrically smooth, and no smooth form has T<8. Actual scripts and outputs are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asgarli–Duan–Lai Theorem 0.1 imposes q≥1.7808d for reflexive surfaces; the all-smooth theorem imposes q≥d². Here q=2,d=3.",
+        "Karaoğlu, DOI 10.3906/mat-2102-10, Section 3 classifies the 36 geometrically smooth cubic-surface types over F2; Section 5 treats contained lines, not transverse ambient line sections.",
+        "Kadyrsizova et al., arXiv:2007.12018, sections 1,5 classify the Frobenius-splitting and triangle-of-lines criteria, not T(S)."
+      ],
+      "reasoning": "The known field-size bounds are inapplicable at q=2,d=3. Existing exhaustive type lists allow additional computation but do not assert or immediately imply the new exterior transverse-line invariant; no general bound was found that dominates eight in this case.",
+      "searches": [
+        "Projective classification of binary smooth cubic surfaces and rational trisecants or separable hyperplane restrictions",
+        "minimum number of transverse Fq lines cubic surface degree 3",
+        "\"F_2\" \"cubic surface\" \"transverse\" \"lines\" 8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1903.08845",
+      "doi:10.3906/mat-2102-10",
+      "arxiv:2007.12018",
+      "arxiv:2101.08217"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asgarli–Duan–Lai, arXiv:1903.08845, Example 0.2 constructs degree q+2 examples without rational transverse lines; it does not cover the cubic degree q+1 at q=2.",
+        "McKean, arXiv:2101.08217 concerns rational lines contained in cubic surfaces; these lines are, by definition, not transverse to the surface."
+      ],
+      "reasoning": "Distinguishing contained rational lines from transverse rational lines is essential. A count of 0,1,2,3,5,9,15 contained lines gives no direct count of the remaining lines with squarefree cubic intersections. The new lower bound is not a corollary of published bounds at q2.",
+      "searches": [
+        "Finite field characteristic two cubic surfaces rational lines with squarefree cubic intersection, transverse Grassmannian line count minimum eight",
+        "Projective classification of binary smooth cubic surfaces and rational trisecants or separable hyperplane restrictions",
+        "2019 2021 transverse lines cubic surfaces F2 sharp squarefree line sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asgarli–Duan–Lai, arXiv:1903.08845, Def. transverse iff the intersection consists of degree d distinct geometric points (Introduction).",
+        "No equivalent q=2,d=3 sharp count or orbit appears in inspected sections of Asgarli–Duan–Lai or Karaoğlu."
+      ],
+      "reasoning": "Aliases checked included squarefree binary cubic line restrictions, separable degree-three line sections, finite-field Bertini and rational transverse Grassmannian points; their definition is equivalent to the new T(S) but the inspected theorems do not supply its sharp F2 cubic minimum.",
+      "searches": [
+        "Smooth cubic surface over F2 has at least eight transverse F2-rational lines, and equality forms one PGL4(F2) orbit of 840 cubic equations",
+        "Finite field characteristic two cubic surfaces rational lines with squarefree cubic intersection, transverse Grassmannian line count minimum eight",
+        "\"cubic surfaces\" \"transverse lines\" \"F_2\" eight",
+        "\"cubic surface\" \"square-free\" \"line\" F2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Karaoğlu Table 1 and Section 5 list F2 cubic-surface types and their rational contained-line/point/stabilizer data, not a table of the transverse intersection count.",
+        "The arithmetic line-count tables distinguish lines contained in a cubic surface from exterior lines with three distinct geometric intersection points."
+      ],
+      "reasoning": "The exhaustive source catalogues and accessible prior claims were compared for the exact invariant; none records or entails the sharp eight and the single 840-equation transverse extremal orbit as an immediate table entry. Other historical records, when incomplete, were not reconstructed.",
+      "searches": [
+        "Smooth cubic surface over F2 has at least eight transverse F2-rational lines, and equality forms one PGL4(F2) orbit of 840 cubic equations",
+        "classification smooth cubic surfaces GF2 20 variables projective orbits rational lines Eckardt",
+        "\"complete set of representatives\" \"isomorphism types\" \"cubic surfaces\" \"F2\""
+      ]
+    },
+    "rationale": "The 2019 transverse-line paper proves asymptotic/sufficient field-size bounds, not a sharp q=2 cubic theorem; the inspected 2021 complete small-field cubic-surface taxonomy studies contained lines and configurations, not transverse exterior intersection counts. A direct, geometric equivalence/stronger-results search gave no coverage. Exact new interval and rigid orbit are not merely renamed prior results. A previously unindexed finite-field enumeration remains a publication-priority risk.",
+    "residual_risks": [
+      "Unindexed earlier arithmetic incidence computations might have evaluated transverse-line counts on the Dickson/Karaoğlu surface representatives.",
+      "The older 2021 equation lists make extraction straightforward, so publication priority requires external specialist confirmation; searches alone never certify uniqueness or novelty.",
+      "McKean's full paper was not inspected because its contained-line focus was not decisively relevant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds do not reach q2,d3; introduces exactly same geometric definition, no sharp census.",
+        "evidence": "Theorem 0.1 requires q≥1.7808d; introduction states unrestricted all-smooth bound q≥d²; Example 0.2 is degree q+2.",
+        "identifier_or_url": "https://arxiv.org/html/1903.08845v3",
+        "material_read": "Full HTML Introduction, Theorems 0.1,1.1,2.2, Example 0.2, definitions and proof setup in Sections 1–2.",
+        "method": "Read accessible full HTML text, not merely abstract.",
+        "title": "Transverse Lines to Surfaces over Finite Fields",
+        "trigger": "Direct transverse-line existence and small-field obstruction results"
+      },
+      {
+        "assessment": "Entire smooth-surface list and line counts are related but do not tabulate squarefree exterior line sections.",
+        "evidence": "Introduction and Sections 3,5 tabulate rational points, contained lines, Eckardt points, stabilizers, and extension fields.",
+        "identifier_or_url": "https://www.researchgate.net/publication/363258280_Nonsingular_cubic_surfaces_over_F2k",
+        "material_read": "Available full HTML article through Section 3 classification, Section 5 line configurations and Section 7 data discussion; searched for transverse and separable.",
+        "method": "Read HTML text with full-text phrase search, compared enumerated invariants and scope.",
+        "title": "Non-Singular Cubic Surfaces over \\(\\mathbf F_{2^k}\\)",
+        "trigger": "Plausible complete arithmetic tabulation of all F2 cubic-surface types"
+      },
+      {
+        "assessment": "Frobenius-splitting and line triangles, not transversal ambient line sections.",
+        "evidence": "Main classification distinguishes non-Frobenius-split cubics via lines and Eckardt configurations, without sharp T(S).",
+        "identifier_or_url": "https://arxiv.org/abs/2007.12018",
+        "material_read": "Full indexed web text Introduction, F-purity theorem statements, definitions and geometric lines comparison.",
+        "method": "Inspected full arXiv text rendition (not a PDF download).",
+        "title": "Cubic Surfaces of Characteristic Two",
+        "trigger": "Plausible stronger characteristic-two cubic-surface classification"
+      },
+      {
+        "assessment": "Counts lines *on* the cubic, mathematically disjoint from transverse exterior lines; limited inspection noted.",
+        "evidence": "Statement gives possible rational contained-line counts, not geometric intersections with exterior lines.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.08217",
+        "material_read": "Abstract and stated line-count theorem, not the full paper.",
+        "method": "Abstract/full bibliographic metadata checked.",
+        "title": "Rational Lines on Smooth Cubic Surfaces",
+        "trigger": "Nearby rational-line count and arithmetic monodromy literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70eacfb0-afaf-458d-a456-3400d0468585",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp small-field Bertini invariant T(S) is a natural, coordinate-invariant finite-field line-section statistic, not an arbitrary subfamily enumeration. q=2 lies far below previously sufficient field-size criteria, and the unique extremal embedded type with projective stabilizer 24 captures unexpected rigidity. Full exact classification of the sharp boundary may support further arithmetic-geometric computations.",
+    "status": "PASS"
+  }
+}
