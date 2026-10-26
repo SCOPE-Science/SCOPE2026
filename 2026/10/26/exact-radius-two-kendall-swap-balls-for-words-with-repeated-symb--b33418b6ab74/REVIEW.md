@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The exact cardinality follows by partitioning one- and two-swap histories into unique-support classes: single edges, disjoint edge pairs, all-distinct overlapping triples, and one-equal-neighbor overlapping triples. The proof handles no-op swaps, backtracking, equality patterns, and every boundary length \(n\ge2\). A local correction statistic yields a sharp, equality-classified maximum for \(q\ge3\); exact indicator expectations yield the mean. A second algorithm explicitly enumerated all two-swap outputs for 88,397 test words, independently checking the formulas and extremizer counts. These finite tests do not substitute for the general proof.
+
+**Originality (PASS with residual risk).** The most relevant checked primary sources establish (i) Kendall tau sequence distance and pairwise algorithms on repeated-letter strings, (ii) the distinct-symbol permutation setting and its ball/packing framework, and (iii) coding against a deletion or an adjacent transposition. The precise center-specific repeated-symbol radius-two formula, its equality characterization, and its mean were not found in the compared material or in the recorded published-finding searches. The known all-distinct specialization is explicitly excluded from the novelty claim. A reformulation in multiset-permutation graph theory may exist outside the examined sources.
+
+**Mathematical value (PASS).** Adjacent transpositions are a natural synchronization-error model. In the repeated-symbol setting, distance balls are not vertex-transitive, so their cardinalities depend on the center. The theorem replaces per-center quadratic-size output enumeration with a linear scan, gives the exact largest ambiguity count and its complete equality cases, and determines the global radius-two graph edge count. These are useful exact structural benchmarks for finite-alphabet swap channels; no coding-capacity improvement is claimed.
+
+**Closest literature and scope.** Cicirello (arXiv:1905.02752), Buzaglo et al. (arXiv:1408.4963), and Gabrys et al. (arXiv:2112.09971) are discussed with specific claim comparisons in the accompanying structured review. Open risk: a previously published equivalent radius-two word-ball formula under another name.
+
+Self-review: passed. Independent audit: not yet performed.

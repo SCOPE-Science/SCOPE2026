@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Swaps are partitioned exactly by uniquely identifiable changed-coordinate supports: singleton edge, two disjoint edges, all-distinct overlapping triple, or one-equal-neighbor overlapping triple. The special cases aba/aaa, repeat swaps, and no-ops contribute nothing extra. Counts yield the exact formula for every n>=2. Pointwise bounds on triple contributions prove sharp maximum and equality characterization; indicator expectations yield exact mean and graph-edge total. An independent two-step BFS checked 88,397 words, exact finite means, max values and extremizer multiplicities. Finite exhaustive checks are supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buzaglo–Etzion arxiv:1408.4963 treats distinct-element permutations, right-invariant Kendall distance, balls and permutation codes; in §II it fixes the vertex set to the symmetric group."
+      ],
+      "reasoning": "An all-distinct permutation radius-two count is a specialization; in contrast a repeated-symbol word has nonuniform center-dependent volumes. The cited permutation code bounds do not entail the displayed local repeated-symbol formula, extremizers, or average by logical substitution.",
+      "searches": [
+        "\"multiset permutations Kendall sphere cardinality radius 2\"",
+        "\"multi-permutation Kendall tau ball size radius\"",
+        "arxiv:1408.4963 §II and weight-two discussion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1905.02752",
+      "arxiv:1408.4963",
+      "arxiv:2112.09971"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrys–Guruswami–Ribeiro–Wu arxiv:2112.09971 studies codes correcting a deletion OR one adjacent transposition; its Theorem 3 is an asymptotic binary code-existence result."
+      ],
+      "reasoning": "This is not a corollary of the cited mixed-error code theorem: one-edit correction says nothing about precise two-swap ball sizes. Distinct-permutation coverage does not transfer to repeated symbols because quotienting by equal-letter permutations causes input-dependent collapses.",
+      "searches": [
+        "arxiv:2112.09971 §1.3–1.4",
+        "\"adjacent transposition distance two ball size word statistics\"",
+        "arxiv:1905.02752 and arxiv:1408.4963 compared for same distance/objects"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicirello arxiv:1905.02752 defines minimum adjacent swaps for equal-content strings and supplies two O(n log n) point-distance algorithms in §3.3."
+      ],
+      "reasoning": "The proposed cardinality is a local count of all distance-at-most-two neighbors, not a two-word distance formula or general inversion-counting procedure. The inspected sections give no equivalent explicit radius-two neighborhood count.",
+      "searches": [
+        "\"Kendall tau sequence distance radius two ball exact cardinality adjacent swaps arbitrary repeated letters alphabet\"",
+        "\"cardinality radius two Kendall tau sequence metric string multiset permutations adjacent swaps ball cardinality\"",
+        "arxiv:1905.02752 §3.2–3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table covering arbitrary repeated-symbol centers was identified in targeted text searches; absence of a search result is not a uniqueness or novelty proof."
+      ],
+      "reasoning": "The theorem is for arbitrary n and q and is structurally stronger than any finite count table. Unindexed exact tables or OEIS-style sequences are a residual risk.",
+      "searches": [
+        "\"size of balls Kendall tau distance multisets words radius 2\"",
+        "\"two adjacent swap errors ball size words q ary repeated symbols sphere\"",
+        "\"adjacent transposition radius two ball size words repeated symbols exact formula\""
+      ]
+    },
+    "rationale": "The exact local radius-two volume of a repeated-symbol word, sharp largest-center characterization, and exact mean do not follow from the specific results inspected: one provides distance algorithms, one considers distinct-symbol permutations, and one constructs edit-error codes without the proposed neighborhood enumeration. Closely related records from the indexed mathematical corpus address permutation code census and mixed adjacent-transposition channels, not this all-center formula. Residual risk of an equivalent result in multiset-permutation literature is explicitly retained.",
+    "residual_risks": [
+      "An earlier radius-two multiset-permutation neighborhood formula may exist under inversion-ball, adjacent-interchange, or word Cayley-graph terminology.",
+      "Only material explicitly listed under source_inspections was read; an uninspected appendix or other primary article could alter the comparison.",
+      "Database searches cannot establish absolute priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same distance, but the material inspected develops two-sequence distance algorithms rather than radius-two neighborhood volume or extremizers. Does not decisively exclude an unstated formula elsewhere.",
+        "evidence": [
+          "arxiv:1905.02752, Eq. (10), §§3.2–3.3; material addresses two-sequence distance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.02752",
+        "material_read": "Abstract, introduction and Sections 3.2–3.3 (definition and algorithms), pdf pp. 6–8 (printed pages 7–9).",
+        "method": "Read primary PDF rendered text and visually inspected metric-definition and algorithm pages.",
+        "title": "Kendall Tau Sequence Distance: Extending Kendall Tau from Ranks to Sequences",
+        "trigger": "Exact matching metric on repeated-symbol sequences, so strongest plausible coverage source."
+      },
+      {
+        "assessment": "The paper is explicitly on full permutations without repeated symbols; its right-invariant ball framework supports the all-distinct case but does not supply the exact center-dependent word formula.",
+        "evidence": [
+          "arxiv:1408.4963, §II states vertices are S_n with all distinct labels."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.4963",
+        "material_read": "Introduction, §II basic concepts and ball definition, and weight-two operation discussion near the closing sections.",
+        "method": "Read searchable primary PDF text and visually inspected printed pages 3–4.",
+        "title": "Bounds on the Size of Permutation Codes with the Kendall τ-Metric",
+        "trigger": "Permutation-radius-two specialization and potential stronger ball-enumeration results."
+      },
+      {
+        "assessment": "Addresses a code correcting one deletion or one adjacent transposition, not exact two-swap neighborhood counts; no implication of the asserted formula from its stated result.",
+        "evidence": [
+          "arxiv:2112.09971, Theorem 3 is existence of a binary code with redundancy log n + O(log log n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.09971",
+        "material_read": "Abstract, §§1.2–1.4, and the formulation of Theorem 3 on printed pp. 3–4.",
+        "method": "Read primary PDF text and visually inspected pp. 3–4.",
+        "title": "Beyond Single-Deletion Correcting Codes: Substitutions and Transpositions",
+        "trigger": "Potentially broader coding theory covering adjacent transposition errors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b33418b6-ab74-48f3-95be-6f079627e6ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Repeated-letter adjacent-transposition balls are not vertex-transitive, so exact center-dependent radius-two ball volumes are a nontrivial parameter of the natural swap channel. The result supplies a linear-time exact evaluator, identifies every largest-ambiguity center for any alphabet size at least three, and determines the average and graph-edge density for arbitrary lengths, with plausible uses in packing/covering bounds and reliability of finite-alphabet synchronization codes. It does not assert any unproved packing optimum.",
+    "status": "PASS"
+  }
+}
