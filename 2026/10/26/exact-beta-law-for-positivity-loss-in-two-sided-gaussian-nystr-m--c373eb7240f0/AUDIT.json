@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact orthogonal QR coordinate block [[I,b],[0,0]] follows from independent Gaussian sketches; top singular value sqrt(1+||b||^2) is almost surely unique, and symmetrized rank-one SVD has minimum eigenvalue (1-sqrt(1+||b||^2))/2. Wishart-integrated regression b=g/sqrt(V), V chi-squared with ell+1 df, produces the Beta law and explicit CDF, tail, and moment iff condition. The executable verifier passed 812 checks; finite checks do not replace the analytic derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam et al. [1] bounds \\(L_q\\) Frobenius approximation error with \\(q=\\min(p,\\ell)\\); this neither states nor implies the exact rank-one symmetric-part beta law and sharp \\(\\ell+1\\) tail exponent.",
+        "Tropp et al. [3] motivate separate positive-semidefinite sketch constructions; the different structure-preserving estimator is not the two-sided independent-sketch SVD truncation studied here."
+      ],
+      "reasoning": "Broader approximation-error bounds do not determine signed eigenvalues of the symmetrized truncated output. A structure-preserving algorithm does not imply a distributional law for the non-structure-preserving estimator. No inspected theorem dominates this exact statement.",
+      "searches": [
+        "\"randomized low rank Runge Kutta positive semidefinite preservation Nyström independent Gaussian sketches\"",
+        "\"matrix exponential low rank splitting positivity stochastic Markov numerical schemes 2023\"",
+        "Lam–Ceruti–Kressner arXiv:2409.06384v1 Section 2.3 and 4.1",
+        "Tropp–Yurtsever–Udell–Cevher arXiv:1609.00048 Sections 5–6"
+      ]
+    },
+    "checked_sources": [
+      "Lam–Ceruti–Kressner arxiv:2409.06384v1 Sections 2.3,3,4.1",
+      "Nakatsukasa arxiv:2009.11392 Sections 1–5",
+      "Tropp et al arxiv:1609.00048 PSD and general sketching sections",
+      "DOI:10.1002/nla.2576 Section 3.1",
+      "Tropp et al arxiv:1706.05736 title/abstract only",
+      "Published mathematical-record search: oblique projection, Student/beta tails, PSD sketch rank-one, aliases and stronger exact laws",
+      "Accessible prior local research ledger through prior generation, for claim/ID deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published deflation-history claim concerns deterministic pivot residuals; it does not imply an independent-Gaussian two-sided sketch positivity law.",
+        "The multistage ARP result concerns expected pivot-approximation error, not signed spectra after rank-one singular truncation.",
+        "The prior own exchangeable-magnitude rank-one sketch theorem compares Euclidean Frobenius risks with aligned probes; it uses neither two-sided oblique interpolation nor symmetrized PSD defects."
+      ],
+      "reasoning": "Comparing object, randomization, functional, and quantifiers separates this statement from the closest recorded claims. The original sketching methods are acknowledged as sources of the object, but their error-bound statements do not imply the exact distributional positivity failure.",
+      "searches": [
+        "\"generalized Nystrom approximations non-symmetric positive semidefinite constraints positivity covariance\"",
+        "\"Gaussian two-sided generalized Nystrom identity input target I rank one truncation negative symmetric eigenvalue Student t Beta exact tail oversampling\"",
+        "published finding 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+        "published finding 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "internal prior claim 33674298-e324-4c60-bd41-23ac76e0db79"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakatsukasa [2] defines the generalized Nyström oblique projection and analyzes approximation quality; the Gaussian-regression Beta law for the least singular-eigenvalue of its rank-one symmetric part is not stated in the inspected text.",
+        "The present statement concerns top singular truncation plus symmetric-part negative eigenvalues; a generic oblique-projector norm identity does not by itself give the transformed-Beta distribution."
+      ],
+      "reasoning": "The known oblique block and multivariate Student regression identities are included as proof ingredients and not independent novelties. The specific top-rank-one PSD defect distribution and its full moment boundary were not found under these aliases. Residual equivalence risk: matrix-variate Student or principal-angle studies.",
+      "searches": [
+        "\"Gaussian two-sided generalized Nystrom identity input target I rank one truncation negative symmetric eigenvalue Student t Beta exact tail oversampling\"",
+        "\"oblique projector P=Omega(Psi^T Omega) pseudoinverse Psi^T singular truncation rank-one indefinite symmetric part tail exponent ell+1\"",
+        "Nakatsukasa arXiv:2009.11392 Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original sources [1–4] give no observed exact table of negative-eigenvalue probabilities/expectations for rank-one identity-input Gaussian sketches in the full inspected materials.",
+        "Analytic examples and tests in verifier.py are not used to claim a historical database census."
+      ],
+      "reasoning": "The claimed family is a closed-form law for arbitrary stated oversampling integers, not a recomputation of a tabulated finite case. No covering exact table was identified; catalog indexing cannot prove absence.",
+      "searches": [
+        "\"generalized Nystrom oblique projection positive semidefinite input produces indefinite symmetric part positive definiteness random sketches 2024\"",
+        "\"Gaussian two-sided generalized Nystrom identity input target I rank one truncation negative symmetric eigenvalue Student t Beta exact tail oversampling\"",
+        "\"randomized low rank Runge Kutta Lyapunov PSD symmetry Gaussian independent sketch rank-one projection positivity failure\""
+      ]
+    },
+    "rationale": "The original Gaussian generalized Nyström and Runge-Kutta method, classical oblique projector, positive-semidefinite competitor, and Gaussian regression laws are acknowledged as known. The exact transformed-Beta distribution for rank-one symmetrized negative eigenvalues, oversampling-dependent moment threshold, and explicit mean are not implied by checked approximation-error theorems or closest recorded sketches. Unchecked specialist principal-angle literature and an abstract-only PSD streaming source create stated residual risk.",
+    "residual_risks": [
+      "An exact or stronger equivalent codimension-one oblique-projector principal-angle law may exist outside the inspected references.",
+      "A separate PSD-streaming full text was not inspected; only abstract/metadata are assessed.",
+      "The isotropic full-rank identity is not near the target rank, limiting extrapolation to approximation-error-regime usefulness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_OBJECT_NOT_COVERING_THE_NEGATIVE_EIGENVALUE_LAW",
+        "evidence": [
+          "Section 2.3 defines Gaussian right and left sketches, oblique projector, rank-r truncation and \\(L_q\\) Frobenius error bounds; no exact negativity distribution is stated in the inspected material.",
+          "The source arXiv v1 public date is 2024-09-10 and first MSC is 65F30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.06384v1",
+        "material_read": "Full accessible HTML Sections 1–4, especially Sections 2.3 (equations 8–9, Theorem 2), 3, and 4.1; publication history on version-1 abstract",
+        "method": "Read definition, error assumptions, proof comparisons, and Lyapunov experiment description",
+        "title": "Randomized low-rank Runge-Kutta methods",
+        "trigger": "Exact source of the two-sketch rank-truncation operator and Lyapunov-matrix example"
+      },
+      {
+        "assessment": "GENERAL_OBLIQUE_FORM_KNOWN; EXACT_TRUNCATED_PSD_DEFECT_NOT_STATED",
+        "evidence": [
+          "Defines generalized Nyström and its oblique-projector form and distinguishes classical same-sketch PSD Nyström; the claimed beta negativity law for truncated identity input is not among the observed theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.11392",
+        "material_read": "Full accessible text Sections 1–5, focus 2–3 and 4.1; explicit oblique-projector notation",
+        "method": "Read and compare GN statement and approximation/stability estimates to rank-one signed-spectrum distribution",
+        "title": "Fast and stable randomized low-rank matrix approximation",
+        "trigger": "Same generalized Nyström oblique projector and its Gaussian stabilization"
+      },
+      {
+        "assessment": "SEPARATE_PSD_PRESERVING_CONSTRUCTION_NOT_COVERING_DISTRIBUTIONAL_DEFECT",
+        "evidence": [
+          "The structural PSD algorithm differs from the two-sided independent Gaussian Nyström rank-one SVD truncation; its positivity results do not imply the stated beta law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.00048",
+        "material_read": "Full accessible text sections including Sections 5.4 and 6.4 on PSD approximation and general sketching",
+        "method": "Compare output operator, sketch sharing, and positivity condition against two-sided SVD truncation",
+        "title": "Practical sketching algorithms for low-rank matrix approximation",
+        "trigger": "Structure-aware positive semidefinite sketching might imply coverage"
+      },
+      {
+        "assessment": "EXPECTED_ERROR_IDENTITY_KNOWN; PSD_DEFECT_DISTRIBUTION_NOT_STATED",
+        "evidence": [
+          "The source evaluates expected Frobenius-type approximation error; such an estimate neither gives the leading SVD truncation symmetric eigenvalue nor its full tail law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.2576",
+        "material_read": "Accessible article Section 3.1, derivation of oblique error and Frobenius expectation",
+        "method": "Check identity input and compare mean-squared oblique gain with the exact signed-spectrum law",
+        "title": "Randomized low-rank approximation of parameter-dependent matrices",
+        "trigger": "Potentially stronger expected-error formula for oblique projection"
+      },
+      {
+        "assessment": "NOT_DECISIVE; DIFFERENT_PSD_PRESERVING_OBJECT_BUT_FULL_TEXT_UNCHECKED",
+        "evidence": [
+          "Source describes PSD-focused streaming low-rank sketches. A complete theorem-level noncoverage assessment of this particular paper is not claimed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05736",
+        "material_read": "Title, abstract, and available metadata only; full paper not inspected",
+        "method": "Identify method family and note unresolved possible specialized overlap",
+        "title": "Fixed-rank approximation of a positive-semidefinite matrix from streaming data",
+        "trigger": "Plausible structure-preserving competitor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c373eb72-40f0-4b9b-ae3f-db8ee8f68417",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical identity input isolates a concrete PSD-preservation property of a published randomized compression primitive; the complete negative-eigenvalue law and sharp oversampling-controlled heavy-tail moment boundary provide quantitatively useful structure diagnostics. This is not merely a change of normalization or a numerical example; no general integrator convergence or low-rank accuracy inference is made.",
+    "status": "PASS"
+  }
+}
