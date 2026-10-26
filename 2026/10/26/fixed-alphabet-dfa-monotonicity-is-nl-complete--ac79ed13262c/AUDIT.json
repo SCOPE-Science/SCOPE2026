@@ -1,0 +1,89 @@
+{
+  "correctness": {
+    "rationale": "The upper bound uses an NFA for the upward closure and a product with the complement DFA; emptiness is reachability in NL and NL=coNL. The lower bound maps a DFA with nonaccepting initial state to a complete fixed-binary DFA whose language is monotone exactly when the source language is empty. The one-hot code has polynomial size and a logspace construction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The prior theorem states NL-completeness for DFA input but its lower-bound construction introduces a new top letter above an arbitrary source alphabet.",
+        "The fixed-length one-hot encoding uses only empty-set and singleton letters and rejects malformed blocks."
+      ],
+      "reasoning": "The prior theorem does not itself establish hardness when the alphabet is fixed independently of the input. The new reduction removes that dependence and works for every fixed \\(k\\ge1\\).",
+      "searches": [
+        "monotonicity problem DFA fixed binary alphabet upward-closed languages NL-complete",
+        "regular languages over binary alphabet monotone with respect to 0<1 DFA monotonicity complexity",
+        "positive first order logic on words monotonicity one predicate DFA NL completeness",
+        "arXiv:2406.17693, Proposition 4.5 and Appendix B.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.17693, Sections 2 and 4.2, Appendix B.3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kuperberg–Moreau reduce emptiness to monotonicity by adding a new top letter to the input alphabet.",
+        "The present proof replaces that variable alphabet with a one-hot code over the fixed alphabet {empty set, {p}}; emptiness is equivalent to monotonicity of the encoded DFA."
+      ],
+      "reasoning": "The earlier statement for input-dependent alphabets does not imply the fixed-alphabet restriction. The explicit encoding supplies the missing implication; a nonempty accepted source word yields a codeword and a one-bit upward extension rejected by the target DFA.",
+      "searches": [
+        "monotonicity problem DFA fixed binary alphabet upward-closed languages NL-complete",
+        "regular languages over binary alphabet monotone with respect to 0<1 DFA monotonicity complexity",
+        "positive first order logic on words monotonicity one predicate DFA NL completeness",
+        "arXiv:2406.17693, Appendix B.3, DFA monotonicity lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a single unary predicate, letters are subsets of {p}, so the alphabet is exactly {empty set, {p}} ordered by inclusion.",
+        "The prior paper defines monotonicity by pointwise inclusion of letters and studies DFA-presented regular languages."
+      ],
+      "reasoning": "The fixed-binary problem is precisely the one-predicate instance of word-language monotonicity, with equal-length words ordered coordinatewise. The claim is about the decision problem for explicit DFAs, not logical definability.",
+      "searches": [
+        "monotonicity problem DFA fixed binary alphabet upward-closed languages NL-complete",
+        "regular languages over binary alphabet monotone with respect to 0<1 DFA monotonicity complexity",
+        "positive first order logic on words monotonicity one predicate DFA NL completeness",
+        "arXiv:2406.17693, Section 2 definition of monotonicity; Proposition 4.5; Appendix B.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No numerical database or table is involved; the claim is a complexity classification proved by reductions.",
+        "Targeted searches returned related automata-complexity results but no exact fixed-alphabet monotonicity statement."
+      ],
+      "reasoning": "An exact-table comparison is inapplicable to this theorem. The relevant comparison is between the reduction hypotheses and the fixed-alphabet restriction.",
+      "searches": [
+        "monotonicity problem DFA fixed binary alphabet upward-closed languages NL-complete",
+        "regular languages over binary alphabet monotone with respect to 0<1 DFA monotonicity complexity",
+        "positive first order logic on words monotonicity one predicate DFA NL completeness"
+      ]
+    },
+    "rationale": "The closest primary result gives NL-completeness when the alphabet varies with the DFA input. The inspected lower-bound proof adds a top symbol to that variable alphabet. The fixed-binary one-hot encoding proves the stronger fixed-vocabulary restriction. Searches did not surface this exact statement; absolute priority is not claimed.",
+    "residual_risks": [
+      "Searches are not exhaustive; unindexed literature may already contain a fixed-binary reduction.",
+      "The alphabet-coding technique is standard, so absolute priority is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected complexity result and displayed reduction establish NL-completeness for DFA input with an alphabet that can vary. The reduction adds a new top symbol above the source alphabet; those sections do not state the fixed-binary restriction.",
+        "evidence": "arXiv:2406.17693, Proposition 4.5 and Appendix B.3; especially the reduction from DFA emptiness using a new top letter.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.17693",
+        "material_read": "Relevant arXiv HTML sections: the monotonicity definition in Section 2, Proposition 4.5, and Appendix B.3.",
+        "method": "Compared the formal definition and the exact lower-bound reduction with the fixed-alphabet statement; reconstructed the new encoding directly.",
+        "title": "Positive and monotone fragments of FO and LTL",
+        "trigger": "Closest primary source for DFA monotonicity complexity and the distinction between semantic monotonicity and positive syntax."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac79ed13-262c-4b60-88fe-fc220211d579",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed one-predicate alphabet is the smallest nontrivial vocabulary for monotonicity. The result rules out an explanation of NL-hardness based solely on an unbounded number of predicates, and the zero-predicate case gives the exact trivial boundary. This is relevant to semantic monotonicity testing in regular specifications.",
+    "status": "PASS"
+  }
+}
