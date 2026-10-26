@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "All feasible local selections are partitioned by parent/self-selection and self-domination into four exhaustive state cases. The min-plus two-state OR aggregator exactly imposes at least one selected child and is associative; two tree traversals cover all directed edges in O(n). Full constrained minima follow by excluding an external parent. The independent brute enumerator checked 18,729 tree inputs up to 13 vertices (exhaustive labelled through 7) and the predicted subdivision property on all 1,441 trees through 6 vertices. The infinite theorem is supported by structural induction, not numerical extrapolation. The subdivision criterion is explicitly a previously proved Theorem 3.2, used with correct nonstar hypothesis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang/Zhang/Lu, arXiv:2605.10487, address minimum vertex-edge domination optimization on bounded treewidth graphs; the abstract does not give all optimal-membership costs.",
+        "Bartolo et al., arXiv:2602.22980, introduction and §4 address the universal quantifier over subdivided edges and derive a different constructive tree-recognition result.",
+        "Dettlaff et al., arXiv:2606.21190, §4, explicitly contrast their quadratic time bound with desired linear-time processing."
+      ],
+      "reasoning": "General bounded-treewidth optimization does not by itself give the claimed O(n) output of both constrained minima for every tree vertex, absent rerooting sharing. The known universally subdivision-critical tree condition has a different quantifier (every versus some). The present algorithm uses the specific published existential characterization.",
+      "searches": [
+        "web: 2026 June isolation subdivision number tree linear time algorithm nonessential isolating set membership vertex-edge domination",
+        "web: minimum vertex edge dominating set tree all vertices inclusion in some minimum isolating set linear time reroot",
+        "arXiv:2605.10487 algorithm for finding vertex-edge domination number bounded treewidth",
+        "arXiv:2602.22980 isolation critical graphs under multiple edge subdivision"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.21190 (full text section 3.1, section 4)",
+      "https://doi.org/10.7494/OpMath.2025.45.6.841 (abstract, PDF text pages 841-844)",
+      "https://arxiv.org/abs/2605.10487 (abstract)",
+      "https://arxiv.org/html/2602.22980 (full text definitions and relevant algorithm claims)",
+      "Information Processing Letters 187 (2025), 106521 (citation and secondary description in primary)",
+      "published-finding corpus: three semantic searches of rerooting / isolation / optimal vertex-edge domination statuses and top hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.21190 §4: rerooting predicted, formal proof explicitly postponed; baseline O(n^2).",
+        "2025 Opuscula Math. 45(6) Theorem 1.1: three-way membership for ordinary domination, not vertex-edge domination.",
+        "arXiv:2602.22980 defines (ι,1)-critical by increase under every edge subdivision, while existential sd_ι(T)=1 needs at least one."
+      ],
+      "reasoning": "The published source theorem 3.2 plus a new linear-time computation of the nonessential set logically implies the recognition corollary. The theorem alone plus one-vertex-at-a-time optimization only gives quadratic time; generic rerooting suggests but does not supply the explicit constant-state, 5-coordinate associative operator or its correctness proof. The stronger three-way classification is also not claimed in those inspected statements.",
+      "searches": [
+        "arXiv:2606.21190 §3.1 theorem 3.2 and §4 algorithmic aspects",
+        "doi:10.7494/OpMath.2025.45.6.841 Theorem 1.1 and §2.1",
+        "arXiv:2605.10487 abstract tree and bounded treewidth algorithm",
+        "arXiv:2602.22980 §4 (iota,1)-critical trees algorithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dettlaff et al., arXiv:2606.21190, §4, explicitly describe quadratic algorithm and anticipate but do not formulate linear rerooting.",
+        "Ziemann and Żyliński, doi:10.7494/OpMath.2025.45.6.841, theorem 1.1 computes all/some/no membership for domination number γ rather than isolation number ι."
+      ],
+      "reasoning": "Membership in optimum vertex-edge dominating/isolating sets is not equivalent to membership in optimum ordinary dominating sets: isolating sets allow undominated isolated vertices. A different boundary state is needed. Existing 2026 paper predicts the method but leaves the recurrence and proof unavailable; the present state and associative aggregate supply them.",
+      "searches": [
+        "published-finding corpus: Linear-time rerooting dynamic programming isolation subdivision number one trees forbidden vertices all minimum isolating sets",
+        "published-finding corpus: Tree minimum vertex-edge dominating sets anticore nonessential vertices all optimal solutions linear time",
+        "web: \"isolating sets\" \"belong to all\" \"trees\" linear time",
+        "web: \"vertex-edge dominating\" \"belong to\" \"all\" \"some\" \"none\" trees",
+        "arXiv:2606.21190 §4: O(n^2) computation of N_iota(T) and projected rerooting approach"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic response for first rerooting query: leading id 2026/9/17/SCOPE002, zero-forcing polynomial on trees, not isolation.",
+        "published-finding corpus semantic response for optimum-membership query: leading id 2026/9/20/SCOPE-exact-total-domination-formula-central-graphs--f6679e0fe594, a distinct total domination parameter.",
+        "Searches returned no directly matching all-tree isolation profile or rerooting formula."
+      ],
+      "reasoning": "No finite table could subsume a theorem for arbitrary tree orders with per-vertex optima. Negative database searches do not prove uniqueness; checked closest items are for other parameters. The 2026 primary explicitly articulates the unsolved algorithmic formulation.",
+      "searches": [
+        "published-finding corpus: Compute N_iota(T) nonessential vertices in all minimum isolating sets, O(n), Dettlaff Lemanska Mora Ziemann Zylinski",
+        "published-finding corpus: Linear-time rerooting dynamic programming isolation subdivision number one trees forbidden vertices all minimum isolating sets",
+        "web: \"isolation subdivision number\" \"linear time\" \"reroot\"",
+        "web: \"vertex-edge dominating\" \"belong to\" \"all\" \"some\" \"none\" trees"
+      ]
+    },
+    "rationale": "The June 2026 primary explicitly leaves formal linear-time computation of N_iota(T) to future work and states the existing quadratic bound. The 2025 all/some/no membership algorithm is for ordinary domination, not isolating sets. The 2026 broader vertex-edge domination algorithm computes an optimum, not per-vertex constrained optima, and the distinct February 2026 subdivision-critical tree result uses the universal quantifier. Semantic database searches did not surface direct prior coverage, with residual risks explicitly recorded.",
+    "residual_risks": [
+      "The main 2026 source explicitly predicts the linear-time rerooting solution and characterizes it as technical, so the conceptual novelty is limited to a fully specified and proved recurrence and constructive classification.",
+      "The cited 2025 isolation-optimization paper was not read in full; its details could include a comparable two-pass optimal-status routine.",
+      "A relevant 2025 PDF was read for introduction and algorithmic statement but visual screenshot retrieval failed after redirect, and later pages were not scrutinized.",
+      "Unindexed unpublished implementations, general weighted-tree constraint-satisfaction algorithms or equivalent presentations may cover the recurrence.",
+      "Self-review is not independent validation or priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact all-tree linear-time membership algorithm is expressly expected but not established; quadratic baseline and existential-subdivision equivalence are established.",
+        "evidence": [
+          "Theorem 3.2: existence of vertex with closed neighborhood contained in no-optimum-membership set iff subdivision number one (nonstars).",
+          "Section 4: describes quadratic recognition and explicitly defers formal linear-time rerooting proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.21190",
+        "material_read": "Web accessible 342-line full-text HTML, especially Theorem 3.2 at lines 220-233, §4 lines 293-303, and introduction/definitions",
+        "method": "Read substantive proof statement, definition, open-problem and algorithmic passages in arXiv text view",
+        "title": "Isolation subdivision number of a graph",
+        "trigger": "Primary source for tree subdivision characterization and algorithmic gap"
+      },
+      {
+        "assessment": "Handles dominating sets, not isolating/vertex-edge dominating sets. Rerooting idea is acknowledged precursor.",
+        "evidence": [
+          "Theorem 1.1 classifies minimum dominating set membership in linear time.",
+          "Definition is vertex domination, requiring all vertices dominated; isolation only forbids edges between two undominated vertices."
+        ],
+        "identifier_or_url": "https://doi.org/10.7494/OpMath.2025.45.6.841",
+        "material_read": "Journal full citation and abstract plus PDF text through introduction and first DP recurrence (pages 841-844); PDF screenshot endpoint redirect failed; remaining pages not read.",
+        "method": "Compared exact definitions and theorem 1.1 and basic recurrence from PDF text and journal HTML",
+        "title": "A linear time algorithm to compute vertices that belong to all, some and no minimum dominating sets in a tree and its consequences",
+        "trigger": "Closest optimal-membership re-rooting result for a neighboring invariant"
+      },
+      {
+        "assessment": "Computes minimum vertex-edge dominating set; no found claim of simultaneous all-vertex inclusion/exclusion optima in linear time.",
+        "evidence": [
+          "Abstract states trees have a linear-time minimum vertex-edge dominating set algorithm and develops bounded-treewidth optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.10487",
+        "material_read": "ArXiv abstract and bibliographic details, not full theorem proofs.",
+        "method": "Compared stated computational outputs and classes",
+        "title": "Algorithm for finding vertex-edge domination number on graphs with bounded treewidth and related problems on planar graphs",
+        "trigger": "Same optimization objective on trees and bounded treewidth"
+      },
+      {
+        "assessment": "Recognizes when every single-edge subdivision increases isolation number, a distinct universal condition.",
+        "evidence": [
+          "The paper defines (ι,1)-critical by increase for every one-edge subdivision and states linear-time tree recognition."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.22980",
+        "material_read": "ArXiv HTML abstract, definitions, §1 and introduction to §4; full text accessible but not all proof passages scrutinized.",
+        "method": "Checked criticality quantifier and tree algorithm statement",
+        "title": "Isolation critical graphs under multiple edge subdivision",
+        "trigger": "Potential stronger subdivision recognition for trees"
+      },
+      {
+        "assessment": "Known scalar/tree optimization is acknowledged, no accessible claim of complete optimum-membership profile.",
+        "evidence": [
+          "Dettlaff et al. §4 credit this 2025 work with a linear-time minimum isolating set algorithm."
+        ],
+        "identifier_or_url": "Information Processing Letters 187 (2025), 106521",
+        "material_read": "Bibliographic title and primary 2026 source précis only; full text not inspected.",
+        "method": "Read source context citing linear-time calculation of a minimum isolating set",
+        "title": "Algorithmic aspects of P_k-isolation in graphs and extremal graphs for a P_3-isolation bound",
+        "trigger": "Earlier efficient isolation optimization for trees cited in primary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c94128c3-c19c-4437-bd84-2201abb3c3b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicitly requested algorithmic gap is closed: linear time, optimal for reading the tree input, replaces the quadratic characterization-based check while simultaneously returning the complete all/some/none optimum-membership classification and all constrained optimum costs. This is a substantive sharp-complexity and structural-output result on arbitrary trees. The generic rerooting concept is known and anticipated, but the concrete isolating-set boundary states and rigorous closure of the open algorithmic task are useful; this is not a numerical tweak or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

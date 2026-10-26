@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The local dynamic-programming state records whether the boundary parent and child are selected, whether the child is dominated, and whether each internal edge has a dominated endpoint. The proof exhausts all feasible cases, then applies an associative min-plus/Boolean-OR aggregate to produce every directed message using prefix/suffix rerooting. The complete all-tree vertex-membership costs follow from the global root decomposition. An independently written brute-force subset enumerator agreed on 18,729 tree instances, and single-subdivision recognition agreed on all 1,441 labelled trees through six vertices. These experiments check implementation; the general proof is mathematical. The final subdivision equivalence uses [1, Theorem 3.2], not an unproved new lemma.
+
+## Originality — PASS, with historical limitations
+Primary-source comparison: Dettlaff et al. (arXiv:2606.21190, Section 4) state a quadratic-time check and explicitly leave formal linear-time development open. Ziemann and Żyliński (2025, DOI 10.7494/OpMath.2025.45.6.841) handle minimum **dominating** sets; Wang et al. (arXiv:2605.10487) handle optimization of **vertex-edge dominating** sets, not the complete per-vertex optimum-membership profile. Bartolo et al. (arXiv:2602.22980) treat the distinct universal-edge-subdivision condition. Three semantic published-finding corpus searches for isolation, vertex-edge domination membership and rerooting returned no equivalently quantified result in their inspected leading records; absence of an indexed result is not proof of novelty. A generic rerooting strategy is anticipated in [1] and is not presented as a newly invented technique. Unseen code and equivalent formulations remain genuine risks.
+
+## Value — PASS
+The new deliverable is an explicit linear-time algorithm with proof, executable recurrence and the full all/some/no classification for minimum *isolating* sets, not just a scalar optimum. It closes the specific algorithmic task stated in a 2026 research paper, improves the stated quadratic bound asymptotically to the optimal order needed to read a tree, and makes the published single-edge subdivision characterization testable at that order. The required tree-wide classification avoids repeating an optimization run for each vertex. The approach is a predictable rerooting technique, so the contribution is the precise nontrivial constant-state construction and formally closed algorithmic gap, not a new general algorithmic paradigm.
+
+## Residual risks
+The main 2026 paper expressly anticipates a rerooting solution and calls its development technical; this limits conceptual novelty. The 2025 analogue for dominating sets was compared, but other unpublished or unindexed isolation-specific implementations may exist. Neither scientific argument nor priority has received external independent assessment. The verifier cannot replace the universal induction proof.
+
+Self-review: passed. Independent audit: not yet performed.
