@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact Wronskian excludes imaginary-axis crossings; Bessel perturbation gives the strict initial half-plane direction for every fixed zero; a uniform high-frequency endpoint/Rouché estimate controls all escaping branches; finite-zero multiset continuation then gives every-zero sign. Root and Wronskian diagnostics corroborate selected parameters without replacing proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boussaada–Mazanti–Niculescu (2021), Corollary 1, explicitly requires b>=2.",
+        "DLMF §13.9 provides classical high-frequency Kummer-zero asymptotics."
+      ],
+      "reasoning": "High-frequency localization does not by itself rule out low-index counterexamples. The present result is confined to the complementary 0<b<2 positive-beta range. Historic Tricomi/Tsvetkov coverage is a residual risk.",
+      "searches": [
+        "arXiv:2106.03378v2 Corollary 1 Whittaker Kummer b>=2",
+        "DLMF section 13.9 Kummer zeros asymptotics",
+        "On the zeros of confluent hypergeometric functions Tricomi Tsvetkov Hille beta positive parameter"
+      ]
+    },
+    "checked_sources": [
+      "Wynn (1973), Theorem 1 and full primary PDF",
+      "Boussaada, Mazanti, Niculescu (2021), arXiv:2106.03378v2 full primary PDF",
+      "NIST DLMF §13.9, Kummer zeros and classical asymptotics",
+      "Classical Bessel zero identities and Euler-beta integral representation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fourier-axis zero exclusion and individual perturbative zero shifts do not control low-index zeros elsewhere in the complex plane.",
+        "The 2021 full text, pp. 9–10, acknowledges Wynn subcritical lines and states the general corollary only for b>=2."
+      ],
+      "reasoning": "Imaginary-axis exclusion and individual local drift alone allow unobserved opposite-half-plane zeros; the new parameter-uniform high-frequency control plus homotopy excludes these. Classical asymptotics rule out infinitely distant wrong-side zeros but not all finite ones.",
+      "searches": [
+        "Beta(a,b) distribution characteristic function has no real zeros unless a=b; 1F1(a;a+b; i t) zero-free imaginary axis, Kummer Wronskian phase",
+        "confluent hypergeometric function M(a,b,i t) zeros on imaginary axis if and only if b=2a, Wronskian nonzero for real parameters",
+        "arXiv:2106.03378v2, Wynn 1973 Theorem 1, DLMF 13.9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wynn (1973) Theorem 1 concerns M(alpha;2alpha+1;z) and M(alpha+1;2alpha+1;z).",
+        "Boussaada et al. (2021) Corollary 1 assumes b>=2, unlike 0<b<2 here."
+      ],
+      "reasoning": "The equivalent formulations are Kummer zeros and complex zeros of beta Fourier/Laplace transforms. A common imaginary-axis zero-free conclusion is weaker than every-zero half-plane control.",
+      "searches": [
+        "Kummer confluent hypergeometric M(a,b,z) for 0<a<b<2 all zeros lie half-plane Re z sign(b-2a) extension Wynn Boussaada",
+        "Wynn 1973 On the zeros of certain confluent hypergeometric functions full text doi:10.1090/S0002-9939-1973-0318529-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1973 Wynn half-plane statements are restricted to two specific parameter lines.",
+        "The full 2021 Kummer zero-location statement requires b>=2; classical DLMF zero asymptotics concern large zeros."
+      ],
+      "reasoning": "These sources supply no matching two-parameter all-index subcritical zero table. A real-frequency nonvanishing theorem does not imply a global complex-zero half-plane constraint.",
+      "searches": [
+        "Kummer confluent hypergeometric M(a,b,z) for 0<a<b<2 all zeros lie half-plane Re z sign(b-2a) extension Wynn Boussaada",
+        "asymmetric beta density Fourier transform all complex zeros in one half-plane and real axis zero-free"
+      ]
+    },
+    "rationale": "The new open positive-beta strip 0<s<2 is not covered by Wynn 1973 one-dimensional lines nor Boussaada et al. 2021 Corollary 1 restricted to s>=2. Classical asymptotic information does not alone imply exclusion of all finite wrong-half-plane zeros. Historical-source priority remains qualified.",
+    "residual_risks": [
+      "Some older Tricomi, Tsvetkov, Saff–Varga or equivalent entire-function statement may cover the positive subcritical family under different notation.",
+      "An earlier uniform all-parameter complex-zero theorem cannot be excluded without exhaustive historical full-text retrieval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers two special one-parameter lines; not a direct two-parameter theorem.",
+        "evidence": [
+          "Theorem 1: M(alpha;2alpha+1;z), M(alpha+1;2alpha+1;z)."
+        ],
+        "identifier_or_url": "doi:10.1090/S0002-9939-1973-0318529-7; https://artefacts-discovery.researcher.life/full_text/DA-2/20/20742ae066e23c7584094356ba9bce1a/full_text/1623f378aea8b570bf83b8c9c6e1d499.pdf",
+        "material_read": "Full ten-page primary PDF; Theorem 1, continued-fraction proof and accompanying results, pp. 173–182",
+        "method": "Read theorem, proof and explanatory passages, compared exact Kummer parameter lines",
+        "title": "On the zeros of certain confluent hypergeometric functions",
+        "trigger": "Closest classical special-function half-plane theorem"
+      },
+      {
+        "assessment": "Corollary 1 explicitly assumes b>=2; its proof does not supply the missing subcritical open region.",
+        "evidence": [
+          "Corollary 1 p. 9: b>=2; Remark 7 acknowledges Wynn extends below b=2 on special lines."
+        ],
+        "identifier_or_url": "arXiv:2106.03378v2; https://arxiv.org/pdf/2106.03378",
+        "material_read": "Full 12-page arXiv primary preprint, especially Proposition 4 and Corollary 1, pages 6–10",
+        "method": "Read hypotheses, derivation, boundary conditions and Wynn comparison",
+        "title": "Some Remarks on the Location of Non-Asymptotic Zeros of Whittaker and Kummer Hypergeometric Functions",
+        "trigger": "Potential strongest published half-plane theorem"
+      },
+      {
+        "assessment": "Contains asymptotic information, but no all-index half-plane result for the subcritical positive-beta family identified.",
+        "evidence": [
+          "Section 13.9(i) discusses asymptotic Kummer zero distribution and classical references."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/13.9",
+        "material_read": "Section 13.9(i) on zero enumeration and asymptotic locations",
+        "method": "Compared large-index quantifiers with all-complex-zero claim",
+        "title": "DLMF §13.9 Zeros, Kummer Functions",
+        "trigger": "Canonical complex zero asymptotics could imply the statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b12e5e10-0db4-4be2-8917-8dae4932c9ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All-index half-plane rigidity for canonical asymmetric beta Fourier transforms fills a nontrivial open parameter strip between Wynn special lines and the known s>=2 theorem. It provides global complex-zero geometry, stronger than Fourier-axis nonvanishing, classical asymptotics, or isolated finite examples.",
+    "status": "PASS"
+  }
+}
