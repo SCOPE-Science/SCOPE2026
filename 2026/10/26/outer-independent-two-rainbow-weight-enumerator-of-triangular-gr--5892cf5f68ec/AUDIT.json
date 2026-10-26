@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "All empty vertices are exactly a matching of K_n. Each chosen bad color-absence event forces \\(2(n-2)\\) singleton labels; union over k disjoint matching edges has precisely \\(U_k=2k(n-k-1)\\) edges. Different forbidden-color families have empty intersections via the four interpair connecting edges. Inclusion-exclusion gives all coefficients with no omitted cases. A split-part 2-color construction attains the vertex-cover lower bound, and extracting the lowest coefficient gives the exact optimizer count. Definition-level exhaustive tests through \\(n=5\\) and minimum checks through \\(n=6\\) agree, while the combinatorial proof supplies the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Samadi–Soltankhah (arXiv:2208.02340), Theorem 2.1 and Section 3, concern claw-free equality and graph-product bounds.",
+        "Cabrera-Martínez (2022), Theorems 2 and 5, concern bounds and product graphs."
+      ],
+      "reasoning": "The claw-free and general vertex-cover theorems can constrain the minimum weight but do not enumerate all labelings. An all-2-rainbow polynomial on complete multipartite graphs cannot imply the proposed all-weight invariant for T_n (n >= 5), because the latter is not in that graph class and imposes an additional empties-independent condition.",
+      "searches": [
+        "\"outer independent 2 rainbow domination\" \"polynomial\"",
+        "\"outer independent 2 rainbow\" \"line graph\"",
+        "outer independent 2 rainbow dominating functions of line graphs complete graphs exact enumeration empty edges matching"
+      ]
+    },
+    "checked_sources": [
+      "Cabrera-Martínez (2022), doi:10.3390/math10132287",
+      "Samadi–Soltankhah (2022 preprint), arxiv:2208.02340",
+      "Mansouri–Mojdeh (2020), doi:10.7494/OpMath.2020.40.5.599",
+      "Kang et al. (2019), doi:10.1080/16583655.2019.1655255",
+      "All 2-rainbow dominating functions of complete multipartite graphs (indexed statement)",
+      "Other scientific results on paired domination and power domination of triangular graphs (distinct predicates)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic vertex-cover lower bound proves only w >= N - floor(n/2).",
+        "Other results on power domination and paired domination of triangular graphs address different predicates and contain no two-color labeling enumeration.",
+        "Complete multipartite specialization may capture n=3,4, but the stated new domain is n >= 5."
+      ],
+      "reasoning": "Even if the minimum follows from prior bounds plus a simple construction, the entire weight polynomial and optimizer multiplicity remain extra information. The checked results neither state nor logically imply the new coefficient identity without further nontrivial matching/color-event enumeration.",
+      "searches": [
+        "\"outer-independent 2-rainbow domination\" \"triangular\" graph",
+        "\"outer-independent 2-rainbow\" \"line graph\" \"complete\"",
+        "all 2-rainbow dominating functions complete multipartite graphs enumerator versus triangular graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In L(K_n), independent empty vertices are matchings in K_n; line-graph, Johnson J(n,2), and triangular-graph formulations were compared.",
+        "2020 Mansouri–Mojdeh and 2022 Cabrera-Martínez study the same invariant but report minimum bounds rather than the matching-indexed full polynomial."
+      ],
+      "reasoning": "Every candidate equivalent formulation refers to pairwise disjoint empty edges and the full four-label weight distribution. The located literature states numeric domination parameters or other graph families, not this matching/colored-neighborhood polynomial.",
+      "searches": [
+        "\"outer-independent 2-rainbow domination\" \"line graph\" complete graph",
+        "\"outer-independent 2-rainbow\" \"triangular graph\" \"Johnson graph\"",
+        "outer independent rainbow domination line graph complete graph matching empty vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published all-2-rainbow function result for complete multipartite graphs was the closest all-weight indexed result.",
+        "No direct indexed triangular-graph outer-independent 2-rainbow coefficient table or formula was found."
+      ],
+      "reasoning": "The target coefficients depend on matching size in K_n and exclusions of two colors from edge neighborhoods. A table for small n or a complete multipartite counting theorem does not establish this uniform infinite-family coefficient identity. Search nonhits are not proofs of priority.",
+      "searches": [
+        "outer-independent 2-rainbow domination polynomial of triangular graphs Johnson graphs",
+        "outer independent rainbow domination of line graph of complete graph K_n matching empty vertices",
+        "enumerator outer independent rainbow dominating functions all weights line graph rook graph"
+      ]
+    },
+    "rationale": "The 2019-2023 primary literature establishes bounds, minimum values, claw-free equality structures, and graph-product results rather than an exact weight polynomial for n >= 5 triangular graphs. The nearest database result enumerates ordinary 2-rainbow labels on complete multipartite graphs and cannot directly cover this different domain and outer-independent condition. No covering statement was found in the scientific searches, with full-text access and indexing limitations explicitly retained.",
+    "residual_risks": [
+      "Unindexed or differently named equivalent full-weight results might exist.",
+      "The 2019 publisher article could not be read completely through the available access path.",
+      "The indexed complete-multipartite result was compared by its statement and graph domain, not a full-text exclusion of every appendix.",
+      "Independent mathematical and literature validation has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact invariant, improves bounds, and treats joins, lexicographic products and corona products; no all-weight enumeration for triangular graphs in inspected material.",
+        "evidence": [
+          "Published 2022-06-30; primary MSC 05C69.",
+          "Theorem 2 compares the parameter to vertex cover and domination; Theorem 5 discusses graph products."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10132287",
+        "material_read": "Publisher full-text indexed sections: introduction and definitions, bounds, graph-product results, conclusions.",
+        "method": "Read HTML-indexed article and compared theorem objects and quantifiers.",
+        "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+        "trigger": "Same invariant; primary bibliographic source and generic vertex-cover bounds."
+      },
+      {
+        "assessment": "Studies a claw-free lower bound with equality families and product minimum bounds; it does not give the weight enumerator for line graphs of complete graphs.",
+        "evidence": [
+          "Theorem 2.1 characterizes equality to half the order for connected claw-free graphs.",
+          "Section 3 concerns direct/Cartesian/rooted/corona products and minimum values."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.02340",
+        "material_read": "Thirteen-page author preprint, introduction, Section 2 claw-free characterization, Section 3 products, results and closing references.",
+        "method": "Inspected accessible primary full-text PDF, extracted statements, and page images.",
+        "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+        "trigger": "Direct contemporary paper covering claw-free graphs (triangular graphs are claw-free)."
+      },
+      {
+        "assessment": "Observations give minimum values for paths, cycles, complete and multipartite graphs; later theorems concern numerical bounds and extremal graph structure, not triangular-graph full-weight enumeration.",
+        "evidence": [
+          "Observation 2.3 records complete and complete multipartite minimum values.",
+          "Proposition 5.1 treats a two-times-vertex-cover bound."
+        ],
+        "identifier_or_url": "https://journals.bg.agh.edu.pl/OPUSCULA/2020.40.5/OpMath.2020.40.5.599.pdf",
+        "material_read": "17-page author article; examined the sections defining the parameter and treating elementary families, extremal values, bounds, complexity, and tree results.",
+        "method": "Read accessible full text including original PDF sections and images.",
+        "title": "Outer independent rainbow dominating functions in graphs",
+        "trigger": "Foundational same-invariant priority source."
+      },
+      {
+        "assessment": "The presented results are generic k-rainbow bounds, not confirmed to contain any triangular all-weight enumerator. Inaccessible full text remains a residual priority risk.",
+        "evidence": [
+          "Published online 20 Aug 2019; journal abstract says the paper initiates the invariant and presents sharp lower/upper bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/16583655.2019.1655255",
+        "material_read": "Publisher bibliographic and indexed early-page excerpts; complete publisher PDF could not be inspected directly.",
+        "method": "Reviewed search-indexed source extracts and publication metadata; recorded access limitation.",
+        "title": "Outer-independent k-rainbow domination",
+        "trigger": "Original invariant and potential general domination bounds."
+      },
+      {
+        "assessment": "Its object is ordinary 2-rainbow on complete multipartite graphs, whereas n >= 5 triangular graphs are not complete multipartite; this is a structural inapplicability, not a claim about every possible appendix.",
+        "evidence": [
+          "The indexed theorem concerns complete multipartite graph parts and unrestricted 2-rainbow labeling.",
+          "In T_n (n >= 5), disjointness of edges is not transitive: edges {1,2} and {3,4} are disjoint, as are {3,4} and {1,5}, but {1,2} and {1,5} intersect."
+        ],
+        "identifier_or_url": "Publicly indexed mathematical result under this exact title",
+        "material_read": "Indexed statement/abstract only, not a whole-document inspection.",
+        "method": "Compared described scope and predicate with the new triangular graph for n >= 5.",
+        "title": "All 2-rainbow dominating functions of complete multipartite graphs",
+        "trigger": "Potentially stronger full-weight result that could cover special graph families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5892cf5f-68ec-4ac7-8f5d-0659f1a0d2e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact weight enumerator is a natural full-classification invariant on the canonical infinite family of triangular graphs. A matching expansion plus nontrivial color-deficiency overlaps supplies every coefficient and closed optimum multiplicities; it reveals exponentially dense admissible optimum bicolorings for a fixed empty maximum matching. The count does not follow from the generic vertex-cover lower bound and is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
