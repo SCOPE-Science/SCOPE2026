@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+The statement concerns all ideals of the specified alternating class-two Lie algebra. Every ideal is uniquely described by a projected subspace, a central subspace containing its commutator, and a lift map. The commutator depends only on the two projection ranks and has dimension \(rb+as-rs\). A vector-space Goursat classification counts subspaces of fixed projections with a common quotient dimension. Each factor and its range are justified in the proof. Independent full RREF enumeration matches six finite parameter cases; the universal claim rests on the proof, not those experiments. Characteristic two is included and is checked explicitly.
+
+## Originality
+Closest substantive prior work: Carnevale–Schein–Voll, arXiv:1903.03090, Section 5.3 treats the **same family** as free class-two products of abelian Lie rings and derives local p-adic ideal zeta functions, with a refined lattice-projection method in Section 4. That is a significant precedent, not merely a title-level similarity. Paajanen arXiv:0802.1796 is cited for the \(g_{2,2}\) local ideal-zeta case; its introductory material and Theorem 11.1 in Section 11 were inspected; they state a local normal zeta function, and another finite-field refinement remains possible. The new claimed object is a finite-field ideal **dimension polynomial**, a rank-refined count not determined by the one-variable p-adic index series alone. Their methods could conceivably be specialized to derive it, and that is the main residual priority risk. Godoy Molina–Lagos, arXiv:2308.00272, Sections 3 and 5.2 study selected graph ideals and graded derivations of the same graph family, without the full rank enumerator. Bauer–Schein, arXiv:2202.10865, studies amalgamated p-adic ideal zeta functions, again a different invariant. Searches for finite-field all-ideal rank polynomials and Goursat Gaussian formulas did not reveal an equal theorem, but failed searches do not establish priority.
+
+## Value
+The invariant counts every ideal in each dimension for a natural two-parameter graph-Lie family and every finite field, refining graph-selected ideal data and aggregative p-adic index counts into an exact finite-object distribution. The formula supplies a uniform positivity-preserving count and allows evaluations across characteristics. It is not an isolated low-order census, nor a mere identity involving only previously tabulated counts. The derivation is deliberately self-contained rather than asserting a broad new method for p-adic zeta functions.
+
+## Scope and risks
+The primary conceptual risk is derivability from the substantial earlier projection-counting methods of Carnevale–Schein–Voll, even though their stated local ideal-zeta result does not explicitly give this dimension distribution. No generic-graph theorem, integral ideal-zeta refinement, or external audit is claimed. Finite experiments do not certify universal validity.
+
+Self-review: passed. Independent audit: not yet performed.

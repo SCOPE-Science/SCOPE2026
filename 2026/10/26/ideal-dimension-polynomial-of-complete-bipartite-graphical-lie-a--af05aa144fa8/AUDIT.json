@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a bijection between ideals and triples (W,D,f) with commutator contained in D, including all nongraded lifts. The tensor commutator rank is exactly rb+as-rs. Vector-space Goursat counts all fixed-projection subspaces by quotient dimension h, and Gaussian coefficients count D; multiplying counts and dimensions gives the universal formula. Embedded verify.py separately checks all RREF subspaces for six small cases; tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1903.03090v3, Theorem 4.21 and Section 5.3, gives a broad local ideal-zeta framework for precisely the free class-two product family.",
+        "arXiv:2202.10865, Theorem 1.1, concerns index-counting ideals over compact DVRs of characteristic zero or sufficiently large."
+      ],
+      "reasoning": "These are broader in field-of-coefficients/index-growth scope and reuse projections, but their stated univariate index-zeta output does not retain the finite-field ideal dimensions or single out elementary quotients. The present all-q positive finite Gaussian polynomial supplies that missing statistic, while acknowledging possible extraction from their underlying proof.",
+      "searches": [
+        "Generalized Igusa functions and ideal growth in nilpotent Lie rings Section 5.3 free class-2 products of abelian Lie rings",
+        "arXiv:2202.10865 Section 1.1 amalgamated powers theorem 1.1",
+        "ideal zeta complete bipartite graphical Lie algebras"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1903.03090v3 (Sections 4.2–4.4 and 5.3)",
+      "arXiv:2308.00272v2 (Sections 2, 3 and 5.2)",
+      "arXiv:2202.10865 (Sections 1.1–1.2)",
+      "arXiv:0802.1796 (abstract, introduction, Section 11 Theorem 11.1 and beginning of calculation read; remainder not inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.2 of arXiv:1903.03090 counts DVR lattices with fixed projection data, and Section 5.3 applies commutator elementary-divisor data to the same family.",
+        "Proposition 3.4 of arXiv:2308.00272 detects certain graph-induced ideals, whereas this claim counts every subspace ideal."
+      ],
+      "reasoning": "The 2019 p-adic theorem is strongest and most concerning: it studies a richer class of ideals in the identical integral family, and its proof may be specialized. However a univariate local zeta series of index counts does not itself imply a rank-refined finite-field polynomial, and the inspected theorem/table contains no such specialization. The 2023 graph-ideal criterion covers a proper, selected class of ideals. The proposed new statement is a finite-field rank refinement, not new identification of the family or a claim to supersede p-adic results.",
+      "searches": [
+        "arXiv:1903.03090 Proposition 4.2 Theorem 4.21 Section 5.3",
+        "arXiv:2308.00272 Proposition 3.4 Section 5.2",
+        "free class 2 nilpotent products Gaussian Goursat finite field ideals rank distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carnevale–Schein–Voll arXiv:1903.03090v3, Definition 1.1, Sections 4.2 and 5.3 explicitly identify identical free class-two product of abelian Lie rings and count all finite-index ideals over a DVR by index.",
+        "Godoy Molina–Lagos arXiv:2308.00272v2, Sections 2, 3, 5.2 identify the same all-distinct-edge-label graphical object, selected graph ideals and its graded derivations."
+      ],
+      "reasoning": "Both presentations of the Lie algebra coincide exactly under A⊕B⊕(A⊗B). The p-adic ideal zeta series is not the finite-field dimension polynomial: it mixes ideals with elementary and higher-exponent quotients at the same index. The prior work has closely related projection counts, so derivability by specialization remains a material risk, not a proved disjointness.",
+      "searches": [
+        "finite field ideal-count polynomial for graphical Lie algebra complete bipartite K2,2",
+        "free class two product abelian Lie rings g_{d,d'} finite field ideal dimension distribution, projection Goursat",
+        "arXiv:1903.03090 Sections 4.2 and 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1903.03090v3, Section 5.3.2 tabulates Dyck-word rational terms for the p-adic local ideal zeta of g_{2,2}, not the 9 finite-field dimension coefficients.",
+        "The displayed finite-field polynomial is independently checked in the package for q=2 when a=b=2."
+      ],
+      "reasoning": "The visible closest exact table is of p-adic zeta terms rather than finite-field ideal dimension distributions. A failed text/database search is not evidence of absence in all historical tables; priority risk remains.",
+      "searches": [
+        "\"complete bipartite\" \"graphical Lie\" \"ideal\" enumeration",
+        "\"ideal zeta\" \"complete bipartite\" graphical",
+        "rank enumeration all ideals graphical Lie complete bipartite finite fields",
+        "arXiv:1903.03090v3 Section 5.3.2 g_2,2"
+      ]
+    },
+    "rationale": "The finite-field ideal dimension polynomial is not stated in inspected primary material. Closest and strongly overlapping arXiv:1903.03090 identifies exactly this abstract family and computes its p-adic ideal zeta function, but the latter aggregates by index and does not distinguish finite-field elementary-quotient ideal ranks; Section 4 does supply closely related projection-counting machinery, a serious priority/derivability risk. arXiv:2308.00272 treats selected graph-ideals and graded derivations. Claims of uniqueness are avoided.",
+    "residual_risks": [
+      "The 2019 p-adic ideal-zeta paper studies the identical family; although its stated univariate zeta does not imply the finite-field dimension distribution, its projection-counting proof could yield this specialization with limited additional work.",
+      "An equivalent finite-field rank enumerator might appear in older Lie ideal-lattice or group normal-subgroup literature not recovered by query searches.",
+      "Paajanen arXiv:0802.1796 Section 11 studies the identical g_2,2 case through local normal-zeta functions. Its Theorem 11.1 and initial calculation were read (not the entire 39-page paper); a rank-refined finite-field consequence deeper in the remaining text cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same integral algebra is fully covered by existing p-adic ideal-zeta analysis. Their stated invariant is aggregated finite-index ideal zeta; the exact all-finite-field ideal dimension polynomial is not explicitly supplied. Nontrivial possible specialization remains.",
+        "evidence": [
+          "Section 5.3, presentation g_{d,d'} with [x_i,y_j]=z_ij",
+          "Proposition 4.2 on projection-data lattice counts",
+          "Section 5.3.2 Dyck-word zeta expression for g_2,2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1903.03090v3",
+        "material_read": "Abstract; Definition 1.1; Section 1.1; Sections 4.2–4.4; Section 5.3, especially Lemma 5.6 and example 5.3.2 on g_2,2",
+        "method": "Read accessible full-text HTML at the relevant definitions, theorem and example and compared algebra presentations and outputs",
+        "title": "Generalized Igusa functions and ideal growth in nilpotent Lie rings",
+        "trigger": "Exact same free class-two product family and potentially dominating ideal-zeta count"
+      },
+      {
+        "assessment": "Provides selected graph-induced ideal constructions and graded derivations, not the full finite-field ideal dimension polynomial.",
+        "evidence": [
+          "Section 3 Proposition 3.4 and Definition 3.3 graph-ideals",
+          "Section 5.2 all-distinct-label case and Proposition 5.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.00272v2",
+        "material_read": "Abstract, Section 2, complete Section 3 graph-ideals, and Sections 5.1–5.2 complete bipartite derivations",
+        "method": "Read online primary full-text HTML and compared exact graph family and invariants",
+        "title": "Lie algebras associated with labeled directed graphs",
+        "trigger": "Explicit K_{a,b} with all different labels and earlier selected ideals"
+      },
+      {
+        "assessment": "A p-adic rationality theorem for amalgamated powers, not a stated finite-field rank polynomial for complete-bipartite graphical ideals.",
+        "evidence": [
+          "Theorem 1.1 compact DVR setting",
+          "Explicit class-two Heisenberg amalgamated example in Section 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10865",
+        "material_read": "Full-text introduction Sections 1.1–1.2 and Theorem 1.1 via accessible web transcription",
+        "method": "Read accessible primary text and compared quantified base rings and output statistics",
+        "title": "Ideal growth in amalgamated powers of nilpotent rings of class two and zeta functions of quiver representations",
+        "trigger": "Broad possible implication from general class-two ideal growth"
+      },
+      {
+        "assessment": "Explicitly treats the same eight-dimensional (a,b)=(2,2) presentation and gives a local p-adic normal zeta. The inspected theorem is not a finite-field ideal dimension polynomial, but the full paper was not exhausted.",
+        "evidence": [
+          "Section 11 identifies G_S via four cross commutator relations",
+          "Theorem 11.1 gives zeta as rational expression involving W0,W1,W2 for almost all primes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0802.1796",
+        "material_read": "Abstract, opening introduction, Section 11 presentation of G_S, Theorem 11.1 on page 33, and beginning of Section 11.1 calculation",
+        "method": "Inspected accessible primary PDF text together with page images 1, 32 and 33",
+        "title": "Geometric structure of class two nilpotent groups and subgroup growth",
+        "trigger": "Theorem 11.1 cited for the same g_2,2 integral class-two Lie ring in arXiv:1903.03090"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af05aa14-4fa8-4ef3-9571-9dafb88dddf8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All ideals in every dimension of a natural graph-based two-parameter class-two Lie family over every finite field are enumerated with one positive Gaussian sum. It refines graph-selected ideals and aggregated p-adic index counts by an exact finite-field object invariant, includes nongraded lifts and characteristic two, and supports direct structural counts. It is a full family result rather than a narrow arbitrary parameter slice or a simple low-order record.",
+    "status": "PASS"
+  }
+}
