@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Theorem 6 of arXiv:2307.05168 gives exact avoidance of Hamming-distance-two pairs. Parity splits Q8 into two independent 128-vertex halved cubes. The C++17 source exhaustively enumerates anchored independent sets of sizes 5-8, with candidate counts 611100, 2984625, 7490595, 9234285 and respective dominating counts 0,0,0,142380; sizes <=4 fail the 128/29 neighborhood lower bound. Zero-anchored code census transfers by even-XOR transitivity: 128*142380/8=2278080 per component; squaring yields 5189648486400. The independent Python BFS checks the explicit 16-point witness and all cube vertex pairs. Finite exact result, no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.05650 reports upper total mutual-visibility at Q8 as 32",
+        "arXiv:2307.02951, Problem 1 leaves lower cube invariants as a question"
+      ],
+      "reasoning": "Maximizing size across all feasible families does not determine the least cardinality of a maximal family, nor count least maximal families. Closest primary coverage is therefore not dominating, subject to unidentified work.",
+      "searches": [
+        "\"lower total mutual visibility\" hypercubes n 8",
+        "\"total mutual visibility\" hypercube 8 maximum minimum 2024",
+        "arXiv:2405.05650 entire hypercube total-visibility table"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.02951 (full PDF)",
+      "arXiv:2307.05168 (full PDF)",
+      "arXiv:2405.05650 (full PDF)",
+      "OEIS:A323447 (entry)",
+      "OEIS:A288986 (entry)",
+      "Blass–Litsyn 1999 article abstract (full text unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Yero pose exactly the invariant as open in the hypercube family",
+        "Bujtás–Klavžar–Tian give the feasibility reduction; they do not compute lower maximal sets",
+        "Korže–Vesel compute maximum total visibility, not minimum-maximal",
+        "Blass–Litsyn global binary covering codes are not parity-constrained independent sets"
+      ],
+      "reasoning": "The claim is a new finite optimum and census beyond a known equivalence: neither a feasibility lemma nor an upper extremal maximum logically implies the lower extremal size and count. Ordinary covering sets of size seven may not be independent, and full-space covering codes have a different covering domain.",
+      "searches": [
+        "arXiv:2307.02951 lower total-visibility hypercube Problem 1",
+        "arXiv:2307.05168 Theorem 6 Hamming graph distance two",
+        "arXiv:2405.05650 Q8 upper total visibility",
+        "1999 minimum covering code length 8 radius 2 12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.05168, Theorem 6, proves the exact distance-two correspondence",
+        "arXiv:2307.02951, Problem 1 poses lower (total) visibility for hypercubes"
+      ],
+      "reasoning": "One parity half is the halved eight-cube. Inclusion maximal distance-two avoiding sets are independent dominating sets; coding theory calls them maximal parity-constrained distance-four codes covering same-parity vertices at radius two. The prior characterization proves the correspondence, but does not supply this finite minimum and census.",
+      "searches": [
+        "\"halved cube\" \"independent domination number\"",
+        "\"minimum maximal total mutual visibility\" \"hypercube\"",
+        "\"binary covering codes even weight length 8 radius 2 minimum distance 4\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A323447 provides 71680 minimum *ordinary* dominating sets in the eight-halved cube, updated 2025",
+        "OEIS A288986 counts all ordinary dominating sets and does not list minimum independent dominating subsets"
+      ],
+      "reasoning": "A dominating set may contain adjacent vertices. Known ordinary domination size seven differs from the independently dominating minimum eight, and its numerical table gives neither the eight-code count 2278080 nor its square.",
+      "searches": [
+        "OEIS A323447 halved cube minimum dominating sets",
+        "OEIS A288986 number of dominating sets halved cubes",
+        "\"2278080\" \"halved\" \"cube\"",
+        "\"142380\" \"codes\" domination"
+      ]
+    },
+    "rationale": "The 2023 originator explicitly poses lower total-visibility in hypercubes; 2023 Hamming graphs characterize feasibility but not minimal maximality; 2024 Q8 table gives a maximum value of 32. The ordinary halved-cube domination number 7 and count 71680 are different from independent domination i=8 and count 2278080. The 1999 global covering-code radius-two minimum K(8,2)=12 is not a parity-restricted independent covering code. Exact claimed count and aliases were searched in external literature and a published mathematical index, with residual unindexed-priority risk.",
+    "residual_risks": [
+      "Possible unindexed coding-theory tables of parity-constrained covering distance-four codes at length eight",
+      "The 1999 covering-code article full text was not inspected; an incidental classification might contain related information",
+      "Finite enumeration is logically complete if the source is faithfully compiled and executed; independent external code certification is not claimed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: directly poses lower total mutual visibility of hypercubes as a research problem; does not enumerate Q8 minima.",
+        "evidence": "Problem 1 on PDF page 18 asks to determine lower (total) mutual-visibility numbers of hypercubes.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.02951",
+        "material_read": "Definitions, product results, Section 6 / p. 18 Problem 1, end of paper",
+        "method": "Accessible arXiv complete PDF text with page inspection",
+        "title": "Lower (total) mutual visibility in graphs",
+        "trigger": "Defines lower parameter and explicitly states hypercube question"
+      },
+      {
+        "assessment": "PARTIAL_BACKGROUND: proves feasibility correspondence but not Q8 independent-domination minimum or 2278080 count.",
+        "evidence": "Theorem 6 equivalence (i)-(iii), page 5 of PDF.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.05168",
+        "material_read": "Section 2, Theorem 6 proof and subsequent Hamming-graph upper extremal results",
+        "method": "Accessible arXiv complete PDF text with page inspection",
+        "title": "Total mutual-visibility in Hamming graphs",
+        "trigger": "Exact reduction from total-visibility sets to distance-two avoiding codes"
+      },
+      {
+        "assessment": "NOT_COVERING: enumerates largest feasible sets and reports mu_t(Q8)=32; not lower parameter or minimum maximal census.",
+        "evidence": "Total mutual-visibility Q8 upper value 32 in table of the full text.",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05650",
+        "material_read": "Definitions, numerical Qn table and surrounding commentary, concluding statements",
+        "method": "Accessible arXiv complete PDF text with page inspection",
+        "title": "Variety of mutual-visibility problems in hypercubes",
+        "trigger": "High similarity Q8 total-visibility values"
+      },
+      {
+        "assessment": "NOT_COVERING: counts 71680 non-independent ordinary minimum dominating sets, at size 7; claim requires independent size 8.",
+        "evidence": "A323447 gives n8=71680, extended Mar 23 2025.",
+        "identifier_or_url": "https://oeis.org/A323447",
+        "material_read": "Definition, eight-dimensional count, extension note and linked graph entry",
+        "method": "Complete accessible sequence entry",
+        "title": "OEIS A323447: Number of minimum dominating sets in the n-halved cube graph",
+        "trigger": "Closest specific-graph numerical table"
+      },
+      {
+        "assessment": "RELATED_RISK: K(8,2)=12 is a different full-space covering problem; text not inspected, so cannot rule out an incidental same-parity code table in the full paper.",
+        "evidence": "1999 abstract establishes global radius-two cover size 12 and describes even-weight codeword classification.",
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-052-ars-articles/the-smallest-covering-code-of-length-8-and-radius-2-has-12-words/",
+        "material_read": "Article bibliographic record and abstract only; full text not accessible in this attempt",
+        "method": "Journal research-page abstract inspection, NOT a full-text exclusion",
+        "title": "The smallest covering code of length 8 and radius 2 has 12 words",
+        "trigger": "Possible covering-code stronger parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d8ff5a2-2a90-4ce8-bd7c-c12b2d197548",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a stated research challenge at a natural next hypercube dimension with an exact minimum and all 5,189,648,486,400 minimum-maximal sets counted, not a routine upper maximum. It distinguishes ordinary halved-cube domination at 7 from independent domination at 8 and supplies structural distance-six profile data for future classification. It has a reproducible finite proof and clearly bounded dimension-eight scope.",
+    "status": "PASS"
+  }
+}
