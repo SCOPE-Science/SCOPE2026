@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Munn-tree walks from shifted roots have exact optimal cost 2E-distance. The cited conjugacy criterion ensures the admissible pairs are exactly the conjugates. First occurrence and endpoint equality in free groups compute E in deterministic L; edge-crossing parity computes pair distances in deterministic L, and pair maximization uses only logarithmic counters. Explicit finite independent enumerations up to length 6 support but do not prove the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018/2019 conjugacy algorithm enumerates canonical conjugates and asserts decidability, not a logarithmic-space conjugacy-geodesic minimum.",
+        "The 2012 logspace result concerns word problems and normal forms in other settings; those statements do not directly bound conjugacy class minimization."
+      ],
+      "reasoning": "Neither original theorem directly implies the new bound by a stated containment or bound. Distinct Green-relation languages are not substitutes for the i-conjugacy language.",
+      "searches": [
+        "Logspace recognition of conjugacy geodesic languages of finitely generated free inverse monoids",
+        "i-conjugacy free inverse monoids shortest representative algorithm logspace conjugacy geodesic",
+        "arXiv:1810.03208 §3 conjugacy decision",
+        "arXiv:1201.3174 §1 logspace free partially commutative inverse monoid word problems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.10379",
+      "arXiv:1810.03208",
+      "arXiv:2609.35251",
+      "arXiv:1201.3174",
+      "doi:10.1145/322017.322031"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ConjGeo is neither CF nor co-CF for rank at least two, according to arXiv:2608.10379.",
+        "Green-language results apply to Green relations (H/R/L/D) rather than i-conjugacy."
+      ],
+      "reasoning": "The new L upper bound is compatible with non-CF/non-co-CF and cannot be inferred from a grammar nonmembership result. It uses the previous geometric criterion as a lemma, and adds explicit on-input equality/edge-parity simulation needed to obtain a work-space theorem.",
+      "searches": [
+        "arXiv:2608.10379 Theorems 2.4,3.5,3.6, Remark 3.4",
+        "arXiv:2609.35251 Green geodesic results",
+        "arXiv:1201.3174 logspace inverse monoid word problem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.10379 Theorem 2.4 gives root shifts and Remark 3.4 states that maximizing main-path length characterizes shortest conjugates."
+      ],
+      "reasoning": "The Munn-tree expression for the minimum is a prior implication, not an original part of the claim. The resource upper bound requires a new representation of edge counts/distances by nested logspace scans.",
+      "searches": [
+        "conjugacy geodesic language free inverse monoid deterministic logarithmic space Munn tree i-conjugacy shifted roots maximum distance",
+        "free inverse monoid conjugacy geodesic language logspace deterministic logarithmic space",
+        "arXiv:2608.10379 Theorem 2.4 and Remark 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed records concern ordinary Green geodesics, group language inclusion, or abstract conjugacy; no indexed exact space classification was retrieved.",
+        "The exact finite test enumerates 5,461 words only; it cannot establish originality for unbounded length."
+      ],
+      "reasoning": "There is no published exact conjugacy-geodesic logspace table in the inspected materials. Failure to find one is not a global nonexistence argument.",
+      "searches": [
+        "conjugacy geodesic language free inverse monoid deterministic logarithmic space Munn tree i-conjugacy shifted roots maximum distance",
+        "Logspace recognition of conjugacy geodesic languages of finitely generated free inverse monoids",
+        "ConjGeo FIM i-conjugacy Munn trees deterministic space",
+        "Green geodesic representative languages free inverse monoid computational complexity"
+      ]
+    },
+    "rationale": "The 2026 geometric root-shift and optimality criteria imply the 2E-M expression; this formula is acknowledged as prior. The new, separately supported assertion is that E and M can be evaluated deterministically in logarithmic work space using first-occurrence edge enumeration and parity, and hence ConjGeo belongs to L. Primary literature and published-record semantic searches did not yield a directly stronger coverage statement. The remaining risk is a previously unindexed equivalent algorithm.",
+    "residual_risks": [
+      "A separately indexed or unpublished equivalent deterministic logspace conjugacy-geodesic algorithm may predate this theorem.",
+      "The explicit geometric 2E-M minimum is implied by Carvalho–Monteiro (2026); only algorithmic space bound is asserted new.",
+      "The verifier exhausts a finite input range, not all word lengths; the infinite theorem depends on proof and classical free-group logspace word equality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source for the geometric formula and grammar complexity; no explicit L space upper bound found.",
+        "evidence": [
+          "Theorem 2.4: equal unrooted labelled Munn trees and matching shift labels characterize i-conjugacy.",
+          "Remark 3.4: maximal main path characterizes conjugacy-geodesic choices.",
+          "Theorems 3.5–3.6: neither CF nor co-CF for rank at least two."
+        ],
+        "identifier_or_url": "arXiv:2608.10379",
+        "material_read": "HTML abstract, introduction, §2 Munn-tree definitions and Theorem 2.4, §3 Remark 3.4 and Theorems 3.5–3.6, and §4 representative-language discussion",
+        "method": "read publicly accessible full-text HTML and inspect key theorem sections, search for logspace terminology",
+        "title": "Conjugacy languages in free inverse monoids",
+        "trigger": "same language and closest geometric characterization"
+      },
+      {
+        "assessment": "Provides general conjugacy representation and decidability; does not assert the new logspace minimization algorithm in the inspected sections.",
+        "evidence": [
+          "§3 contains an effective conjugacy procedure enumerating canonical conjugates.",
+          "2019 criterion quoted in 2026 manuscript as Theorem 7.9."
+        ],
+        "identifier_or_url": "arXiv:1810.03208",
+        "material_read": "public full-text HTML §3 on canonical words, finite conjugacy classes and decision algorithm, with theorem citations reviewed",
+        "method": "read primary HTML sections relevant to free inverse semigroups",
+        "title": "Conjugacy in inverse semigroups",
+        "trigger": "original inverse-semigroup i-conjugacy criterion and conjugacy algorithm"
+      },
+      {
+        "assessment": "Green relation geodesics rather than i-conjugacy; different minimization domain.",
+        "evidence": [
+          "Classifies H/R/L/D-Geo grammar complexity for free inverse monoids."
+        ],
+        "identifier_or_url": "arXiv:2609.35251",
+        "material_read": "abstract and main language-characterization discussion available in public HTML",
+        "method": "read public source and inspect Green-language objects/definitions",
+        "title": "Green languages and growth of free inverse monoids",
+        "trigger": "nearby geodesic-language problem in the same monoid"
+      },
+      {
+        "assessment": "Supplies comparison and word-problem methods; no conjugacy-geodesic space bound reported there.",
+        "evidence": [
+          "Reports logspace free partially commutative inverse-monoid word problem and cites free-inverse-monoid word problem."
+        ],
+        "identifier_or_url": "arXiv:1201.3174",
+        "material_read": "abstract and introductory explanation of deterministic logspace and free partially commutative inverse monoids",
+        "method": "read public HTML abstract and introduction",
+        "title": "Logspace Computations in Coxeter Groups and Graph Groups",
+        "trigger": "logarithmic-space inverse monoid and group word problem tools"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6071d58f-4514-45fe-a1f3-de650511b74b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This assigns a precise deterministic logarithmic-space bound to a natural i-conjugacy-geodesic language that is known to lie outside CF and co-CF in rank at least two. The implicit-tree edge-parity method removes the apparent need to retain linear-sized trees and computes a natural entire-conjugacy-class exact length invariant. This is a motivated algorithmic gap rather than a finite-table computation.",
+    "status": "PASS"
+  }
+}
