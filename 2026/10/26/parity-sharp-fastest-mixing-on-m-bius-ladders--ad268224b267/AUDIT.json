@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each integer \\(n\\ge4\\) and every feasible nonuniform symmetric stochastic matrix, dihedral conjugation averaging cannot increase the operator norm from the stationary projector. The invariant family is \\(P=(1-2a-b)I+a(S+S^{-1})+bS^n\\). Its exact Fourier modes yield three linear SLEM lower constraints with strictly positive multipliers \\(v/d\\), \\((w-u)/d\\), \\(v/d\\), summing to one and annihilating both edge-weight variables. The resulting global lower bound is \\((w-u)/d\\). The proposed \\(a=1/d\\), \\(b=(v-u)/d\\) attains the three equalities. All other odd Fourier modes interpolate between the extremes, and every remaining even mode is bounded by a positive margin \\(2v/d\\) or \\(2(v-2u)/d\\). The identity \\(v-2u=2u(1-u)>0\\) for even \\(n\\ge4\\) proves the last case. The holding probabilities are positive, and all three complementary equalities determine the unique invariant solution. Symbolic identities and the bundled 98-size, 30-LP/dense-spectrum, 980-dual-stress program were checked. Computation is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2009) theorem 2.1 proves averaging, and §3.1 gives an explicit single-edge-orbit optimum; §3.2 discusses Cartesian product spectra; §5.4 evaluates K_{m,n} and wheel graphs.",
+        "For every \\(n\\ge4\\), each antipodal matching edge lies on two four-cycles while each cycle edge lies on one; consequently there are distinct automorphism edge orbits.",
+        "2004 general SDP implies numerically computable optimum for any fixed graph, but contains no closed all-n Möbius-ladder analysis in the inspected source."
+      ],
+      "reasoning": "A general convex SDP solver or orbit decomposition does not imply this specific two-orbit exact formula or its sharp parity/heuristic comparison without further spectral-mode ordering and a sharp dual argument. The one-orbit theorem only covers \\(n=3\\), isomorphic to \\(K_{3,3}\\), excluded from the new scope.",
+      "searches": [
+        "web: fastest mixing Markov chain circulant graphs two edge orbits circulants optimal weights",
+        "web: fastest mixing Markov chain Möbius ladder exact transition probabilities eigenvalues optimization",
+        "Boyd et al (2009), Theorem 2.1, §3.1, §3.2 and §5.4, DOI 10.1137/070689413",
+        "Boyd et al (2004), symmetric FMMC spectral norm/SDP, DOI 10.1137/S0036144503423264"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), SIAM Rev. 46:667–689, DOI 10.1137/S0036144503423264, author PDF https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2005), Internet Math. 2:31–71, DOI 10.1080/15427951.2005.10129100, author PDF https://web.stanford.edu/~boyd/papers/pdf/symmetry_analysis.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2009), SIAM J. Optim. 20:792–819, DOI 10.1137/070689413, author PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "arXiv:0709.0955v1, original publicly day-dated symmetry preprint (2007-09-06)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.1 of the 2009 paper applies to edge-transitive graphs, but every Möbius ladder with \\(n\\ge4\\) has edge orbits separated by counts of four-cycles through an edge (two for an antipodal chord, one for a rim edge).",
+        "The 2009 Cartesian-product section handles cycles/products; Möbius ladders and prisms have opposite bipartiteness parity.",
+        "The \\(n=3\\) graph is \\(K_{3,3}\\) and already covered by the 2009 paper, §5.4.2; the new scope starts at \\(n=4\\).",
+        "2005 paper treats eigenvalue bounds of reversible walks and flower/lollipop examples, not the exact antipodal-cycle FMMC design."
+      ],
+      "reasoning": "A published general method can be specialized by further mathematical work, but the inspected implications do not contain a direct formula dominating the claim for all \\(n\\ge4\\). The new lower bound combines three different Fourier modes with positive coefficients to solve the two-orbit optimization and yields explicit parity-specific finite and asymptotic consequences.",
+      "searches": [
+        "Boyd et al (2004) full-text examples and SDP, DOI 10.1137/S0036144503423264",
+        "Boyd et al (2005) full-text symmetry tools, DOI 10.1080/15427951.2005.10129100",
+        "Boyd et al (2009) full text relevant pp 792–800, 813–814, DOI 10.1137/070689413",
+        "Mathematical-record query: Möbius ladder graph circulant Cayley Z_2n symmetric Markov chain fastest mixing optimal SLEM chord weight cosine parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Relevant Möbius-ladder Indexed hit 2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314 studies matching-complex homology, not transition eigenvalue minimization.",
+        "Relevant Wagner-graph hit 2026/10/11/SCOPE-the-wagner-graph-matching-complex-and-its-two-edge-orbit-splitti--1b0ec7f839cb concerns simplicial matching complexes, not symmetric stochastic chains.",
+        "In 2009 PDF §3 (pp. 799–800) cycle and Cartesian-product formulas are structurally different; Möbius ladder is the cycle with opposite chords, not a prism."
+      ],
+      "reasoning": "Equivalent names Möbius ladder, Wagner graph at eight vertices, antipodal/chorded even cycle and circulant Cayley graph with generators +1,-1,n were searched. No retrieved mathematical record asserted the candidate exact SLEM or optimal two edge weights. The standard C_n Cartesian K_2 prism is non-isomorphic for the same n: its bipartiteness parity is opposite. Absence in ranked records alone is not treated as proof.",
+      "searches": [
+        "Mathematical-record query: Möbius ladder graph circulant Cayley Z_2n symmetric Markov chain fastest mixing optimal SLEM chord weight cosine parity",
+        "Mathematical-record query: Wagner graph generalized Petersen G(n,1) twisted prism mixing time Markov SLEM optimal weights",
+        "web: optimal fastest mixing Mobius ladder circulant C(2n;1,n) transition",
+        "web: Cayley graph cyclic order 2n generators 1 n fastest mixing Markov chain eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Möbius-ladder indexed searches returned unrelated homology/invariant studies rather than SLEM design tables; closest concrete IDs given above.",
+        "The 2009 symmetry paper solves cycle, Cartesian torus, hypercube, complete-bipartite and wheel examples but lists no Möbius-ladder SLEM table for \\(n\\ge4\\)."
+      ],
+      "reasoning": "No exact table with all \\(n\\ge4\\), both parity formulas, optimal probabilities and sixfold asymptotics was found in the bounded scientific-record and primary-literature checks. This does not certify absence from unindexed sources.",
+      "searches": [
+        "Mathematical-record query: Möbius ladder graph circulant Cayley Z_2n symmetric Markov chain fastest mixing optimal SLEM chord weight cosine parity",
+        "Mathematical-record query: Wagner graph generalized Petersen G(n,1) twisted prism mixing time Markov SLEM optimal weights",
+        "Mathematical-record query: fastest mixing chorded cycle 2n vertices antipodal matching edge probabilities symmetric stationary",
+        "web: Mobius ladder fastest mixing Markov chain optimal weights",
+        "web: optimal fastest mixing Mobius ladder circulant C(2n;1,n) transition"
+      ]
+    },
+    "rationale": "The Möbius ladder family \\(n\\ge4\\) has two distinct edge classes. Its parity-dependent exact optimum, three-mode sharp dual certificate, sixfold even-order gap gain and odd-order periodicity correction are not stated in the inspected relevant portions and full-text searches of the foundational 2004, 2005 and 2009 primary works or retrieved scientific-record results. The previously solved \\(n=3\\) edge-transitive \\(K_{3,3}\\) case is expressly excluded. These are claim/implication comparisons, not proof of exhaustive database uniqueness.",
+    "residual_risks": [
+      "Search-index and disciplinary coverage cannot exhaust all Möbius-ladder or two-generator circulant optimization literature.",
+      "2003 technical report has earlier month-only archival dating; exact earliest public day not independently established.",
+      "General SDP theory computes any fixed graph instance, so conceptual method overlap is substantial; the originality claim concerns the explicit solution for all \\(n\\ge4\\), sharp dual certificate and asymptotic/periodicity results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general convex symmetric FMMC formulation; does NOT directly state the claimed all-n Möbius-ladder two-weight optimum in examined passages.",
+        "evidence": "SIAM Review 46(4):667–689; DOI 10.1137/S0036144503423264, published electronically October 29 2004; original general formulation, no identified Möbius-ladder table.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Visually examined journal first page containing the 2004-10-29 electronic release; read relevant general SDP and example text in searchable 23-page PDF, queried for Möbius and circulant/ladder terminology.",
+        "method": "lawful author PDF, page visual and indexed-text inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "same objective and historical source"
+      },
+      {
+        "assessment": "COVERS reversible-chain orbit/spectral tools but does not state Möbius-ladder FMMC parity formulas in inspected mathematical content.",
+        "evidence": "Revised author preprint November 29, 2004; Internet Mathematics 2(1), 31–71 (2005); DOI 10.1080/15427951.2005.10129100.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/symmetry_analysis.pdf",
+        "material_read": "Inspected preprint title/abstract and introduction, symmetry and orbit representation sections, flower and lollipop example material and full-text searches for Möbius/ladder.",
+        "method": "lawful author PDF, page visual inspection and searchable text",
+        "title": "Symmetry Analysis of Reversible Markov Chains",
+        "trigger": "potentially stronger spectral symmetry/orbit result"
+      },
+      {
+        "assessment": "DIRECTLY COVERS the \\(n=3\\) \\(K_{3,3}\\) boundary and generic symmetry reduction, but does not give the explicit all-\\(n\\ge4\\) two-orbit Möbius optimization in the inspected relevant sections.",
+        "evidence": "Theorem 2.1 and §§3.1–3.2, 5.4.2–5.4.3, DOI 10.1137/070689413; edge-transitive formula has a single orbit and the Cartesian examples do not describe the Möbius ladder.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Read visually the introduction and methods pp.792–797, §§3.1–3.2 pp.799–800 and §5.4 pp.813–814; searched indexed full 28-page PDF for Möbius, ladder, prism, Cartesian, wheel, and extracted claims of examples.",
+        "method": "lawful primary author PDF, indexed section extraction, visual page inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "direct most-plausible general or special-case domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad268224-b267-4fbb-8573-c3083e98349a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact globally optimal assignment applies to a natural non-edge-transitive cubic interconnection network for all integers \\(n\\ge4\\). It exposes a topologically forced parity difference: equal-weight transitions are nonmixing for odd \\(n\\), while for even \\(n\\) their spectral gap is asymptotically a factor of \\(6\\) below the exact optimum. The three-mode certificate yields an explicit design principle for finite consensus and uniform-stationary random walks rather than an arbitrary finite computation, cosmetic substitution or known one-orbit graph result.",
+    "status": "PASS"
+  }
+}
