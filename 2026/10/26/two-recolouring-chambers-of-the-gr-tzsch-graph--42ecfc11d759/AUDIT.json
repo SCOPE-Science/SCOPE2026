@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The eleven-vertex twenty-edge graph is explicitly reconstructed. The verifier enumerates all \\(4^{11}\\) assignments via base-four decoding, independently recursively lists proper colourings and checks totals, constructs every one-vertex recolouring, verifies undirected symmetry, BFS-enumerates both complete components, performs all-root BFS for exact diameters, and tests every palette and dihedral symmetry on a representative. The finite exhaustive proof has explicit coverage and is replayable. The degeneracy bound provides the separate 5-colour connectivity corollary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cereceda et al. Theorem 3 gives k-mixing for k at least degeneracy+2; here that gives k at least 5 but does not determine k=4 components.",
+        "Brewster–Noel arXiv:1412.3493 develops bounds for other targets and general mixing."
+      ],
+      "reasoning": "General upper bounds yield the five-colour mixing upper bound only. They do not decide whether the 4-colouring state graph is connected, the exact component cardinalities, degrees, diameter, or odd-palette action.",
+      "searches": [
+        "Exact proper vertex recoloring graph of Grötzsch graph Mycielskian C5, disconnected 4-colorings, two components each 6240, diameter 17",
+        "Mycielski graphs 4-mixing Grötzsch"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.3493, Brewster–Noel, v1 2014-12-10",
+      "LSE-CDAM-2005-11, Cereceda–van den Heuvel–Johnson, 2005",
+      "Matpic, No triangle, and four colours",
+      "DOI:10.1002/jgt.20007, Collins–Tysdal (abstract only)",
+      "Published relevant research records for Hom-complex, recolouring, graph colouring and Grötzsch graph checked by mathematical query"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cereceda et al. establishes graph-of-colourings definitions and a general connectedness sufficient condition, not Grötzsch four-colouring components.",
+        "Matpic provides the prior vertex count without exchange-edge structure.",
+        "Collins–Tysdal 2004 abstract analyzes dependent edges in acyclic orientations, not vertex recolouring dynamics."
+      ],
+      "reasoning": "Neither the cardinality of the vertex set nor k>=d+2 mixing implies disconnection at k=d+1, degree counts or exact diameters. The closest direct Grötzsch paper has only abstract-level access and a different stated invariant; overlap risk is acknowledged, not treated as disproven.",
+      "searches": [
+        "Grötzsch graph Mycielskian five-cycle all proper four-vertex-colorings reconfiguration single vertex recolor 2 components 6240 colorings parity of permutation",
+        "Exact proper vertex recoloring graph of Grötzsch graph Mycielskian C5, disconnected 4-colorings, two components each 6240, diameter 17",
+        "Recoloring, homomorphism connected components, graph of proper 4-colourings of Grötzsch graph, exact numerical degree spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cereceda et al. (2005): the k-colour graph is the Hom(G,K_k) one-vertex-change graph, and k-mixing means connectedness.",
+        "Brewster–Noel (arXiv:1412.3493) defines k-colour recolouring graphs, homomorphism mixing and their connected components."
+      ],
+      "reasoning": "Searches covered recolouring/reconfiguration/Glauber/homomorphism synonyms; definitions are equivalent for target K_4. Neither inspected source specifies the Grötzsch component partition or 17 diameter.",
+      "searches": [
+        "Grötzsch graph Mycielskian five-cycle all proper four-vertex-colorings reconfiguration single vertex recolor 2 components 6240 colorings parity of permutation",
+        "4-coloring recoloring graph of 11-vertex Grötzsch graph: two components distinguished by color-permutation parity or reflection; degree distribution",
+        "Recoloring, homomorphism connected components, graph of proper 4-colourings of Grötzsch graph, exact numerical degree spectra"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Matpic, No triangle, and four colours, explicitly lists 12,480 proper Grötzsch four-colourings (520 up to colour relabelling).",
+        "The archived open primary recolouring papers provide no Grötzsch-specific recolouring table in their inspected relevant portions."
+      ],
+      "reasoning": "The known count 12,480 is excluded from novelty. It does not determine 45,240 edges, two components, each diameter17, or palette parity. No matching published component table was located.",
+      "searches": [
+        "Grötzsch 4-color color-reconfiguration graph 12480 vertices 45240 edges two components of 6240; parity chirality of colors reflections",
+        "Grötzsch graph recolouring graph 4 colouring mixing 4 reconfiguration components"
+      ]
+    },
+    "rationale": "The single-vertex recolouring graph is not implied by the known total of proper four-colourings or the general mixing/dependency literature. Actual record/literature searches for the same graph, 4-colouring homomorphism, component-count equivalence, palette parity, and diameter yielded no covering statement; a direct finite exact proof supports the new assertion. Priority remains fallible because the full Collins–Tysdal paper and unindexed works were inaccessible.",
+    "residual_risks": [
+      "Inaccessible Collins–Tysdal 2004 complete article might contain non-abstract side results.",
+      "Equivalent finite reconfiguration census may exist in unindexed literature or alternate terminology.",
+      "Finite algorithm and C++ implementation have been inspected and replayed but have not undergone external independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General mixing sufficient theorem only; explicit examples do not cover Grötzsch recolouring components",
+        "evidence": [
+          "Definition of k-colour graph on page1; Theorem3 on page3 gives connectivity for k >= col(G)+2."
+        ],
+        "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+        "material_read": "Full 8-page PDF, especially pp.1–5 covering definitions, Theorem 3, and 4-chromatic examples",
+        "method": "Read mathematical statements/definitions and compare hypotheses, target graphs, and logical implications",
+        "title": "Connectedness of the Graph of Vertex-Colourings",
+        "trigger": "Primary earliest explicit definition and degeneracy bound for vertex recolouring graph"
+      },
+      {
+        "assessment": "Framework and broad bounds, no asserted Grötzsch K4 chamber counts in material read",
+        "evidence": [
+          "arXiv v1 dated 2014-12-10; Introduction defines single-vertex recolouring and mixing threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1412.3493v1",
+        "material_read": "Accessible HTML abstract, introduction, definitions and main results descriptions in sections 1–3; other section headings and topic coverage",
+        "method": "Compare Hom(G,K4) recolouring definition, graph-specific statements, and upper bounds",
+        "title": "Mixing Homomorphisms, Recolourings, and Extending Circular Precolourings",
+        "trigger": "Archive-date eligible primary homomorphism recolouring paper"
+      },
+      {
+        "assessment": "12,480 proper colourings known; no reported exchange component graph in inspected material",
+        "evidence": [
+          "Caption states Grötzsch graph, 11 vertices, 20 edges, proper 4-colourings 12,480, 520 modulo relabelling."
+        ],
+        "identifier_or_url": "https://www.matpic.com/essays/no-triangle-and-four-colours/",
+        "material_read": "Section “Eleven vertices, no triangle, four colours”, and other topical discussion of chromatic invariants",
+        "method": "Compare exact counted object to exchange-graph invariants; search for component/recolouring content",
+        "title": "No triangle, and four colours",
+        "trigger": "Same graph and an exact proper-four-colouring count"
+      },
+      {
+        "assessment": "Different primary stated problem; lack of full-text access remains a specific residual risk, not taken as proof of noncoverage",
+        "evidence": [
+          "Abstract describes d_min(G), acyclic orientations, girth chromatic extremal ratios and Mycielski dependent edges; publication 2004."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20007",
+        "material_read": "Publisher abstract, bibliographic metadata and references only; full text not accessible for inspection",
+        "method": "Compare actual abstract invariants (dependent arcs of acyclic orientations) against recolouring components; seek arXiv/open text",
+        "title": "Dependent edges in Mycielski graphs and 4-colorings of 4-skeletons",
+        "trigger": "Plausible same graph and 4-colouring term, possible unknown stronger treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42ecfc11-d759-4600-83a9-0ad74f9ce1d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest triangle-free four-chromatic graph is a canonical sharp test of recolouring at the minimum palette. Disconnectedness despite all 12,480 states having at least five possible local moves is a nontrivial boundary phenomenon; odd colour renaming/reflection exchanges chambers while palette quotient becomes connected. The exact component size, 17 diameter and degree profile document mobility rather than merely recompute a known colouring number.",
+    "status": "PASS"
+  }
+}
