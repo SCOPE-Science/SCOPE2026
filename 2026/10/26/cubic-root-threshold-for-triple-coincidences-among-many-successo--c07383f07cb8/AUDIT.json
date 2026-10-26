@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact arc contraction proves per-order joint edge probabilities; factorial-moment pattern analysis controls repeated arcs and overlapping order indices at critical scale. Exact second factorial moment gives concentration above the threshold. Fourfold arc counts and pair collision estimates give isolation; the formula is deterministically equivalent to a triple-hit arc. check.py exhaustively corroborates 1692 prescribed-arc cases and exact rational first/second moments over 347112 collections of orders (216+1296+13824+331776). These finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bender--Canfield 1999 Theorem 1 explicitly fixes t independent graph embeddings, and counts edges common to all t, so it does not supply a uniform growing family of triples selected from r(n) paths.",
+        "2016 generalized birthday collision laws concern independent allocations; within one randomly selected order all successor edges are constrained to form a spanning path.",
+        "2026 finite satisfiability paper concerns whether some finite model exists and a 2EXPSPACE decision bound; no uniform probability sampling in relevant inspected text."
+      ],
+      "reasoning": "The main Poisson proof requires bounding shared-edge/overlapping-index patterns while r grows as n^(1/3). Fixed-t common-edge Poisson approximation and independent-ball occupancy estimates do not directly imply that dependency estimate. The finite-moment identity is separately proven. A more general dependent-event Poisson approximation remains a plausible subsuming source.",
+      "searches": [
+        "Intersections of Randomly Embedded Sparse Graphs are Poisson Bender Canfield Theorem 1 degree n 1999",
+        "Asymptotic distribution birthday problem multiple coincidences Arratia Garibaldi Kilian 2016",
+        "Bender Canfield Intersections of Randomly Embedded Sparse Graphs are Poisson directed Hamiltonian paths three of growing number of samples",
+        "arXiv:2610.19943 finite satisfiability arbitrary number of successor orders"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19943 (available HTML full-text sections)",
+      "arXiv:2610.09758 (abstract, full text inaccessible)",
+      "DOI:10.37236/1468 (primary text Theorem 1 and Section 3)",
+      "DOI:10.1002/rsa.20591 (abstract)",
+      "Published mathematical research-record title and summary searches for common-order triple adjacencies",
+      "Accessible prior research claims from previous and current UTC weeks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.19943 Section 2 interprets each designated S_i as a directed spanning path and notes overlap in common endpoint pairs; it provides decidability, no probabilistic r-growth regime.",
+        "1999 Theorem 1 has t fixed and concerns intersection of all t randomly embedded graphs.",
+        "The closest own prior describes a jointly independent unit-Poisson vector for each pair when r is fixed; passage to r growing requires additional uniform bounds, and triples have a new, different critical scale."
+      ],
+      "reasoning": "Neither fixed-r pair-overlap convergence nor the fixed-number graph-intersection theorem asserts a triple among r(n) paths; one cannot substitute r(n) into a fixed-r limit without uniform estimates. The current theorem obtains those estimates directly and adds exact moments and critical isolation. No claim of a new satisfiability decision procedure.",
+      "searches": [
+        "arXiv:2610.09758 abstract adjacency loss and many successors",
+        "arXiv:2610.19943 HTML related work, 2 preliminaries, and 7 conclusion",
+        "Bender Canfield 1999 Theorem 1 text and proof",
+        "own accessible weekly ledger claims for random successor orders Poisson shared pairwise edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.19943, introduction and section 2: adjacent-pair masks may overlap for independent successor relations, but paper investigates finite satisfiability and certificates, not uniform-random truth probabilities.",
+        "Bender--Canfield (1999) Theorem 1: edges shared by all members of fixed-size graph families with independently random embeddings.",
+        "Arratia--Garibaldi--Kilian (2016) abstract: multiple-collision birthday stopping-time asymptotics for independent draws into bins."
+      ],
+      "reasoning": "Equivalent primitive statement is a triple-hit occupancy count for directed arcs, with entire Hamiltonian successor paths sampled independently. No searched item states the growing-index-family Poisson theorem, exact directed-path factorial moments, and joint world/index isolation; search absence alone does not demonstrate historical novelty.",
+      "searches": [
+        "\"three permutations\" \"common adjacency\" \"Poisson\" random permutations",
+        "\"random Hamiltonian paths\" \"multiple\" \"common edges\" Poisson",
+        "independent random permutations Hamiltonian paths r growing n triple shared directed adjacency Poisson threshold n to one third",
+        "arXiv:2610.09758 Two-Variable Logic with Arbitrarily Many Successor Relations r independent uniform random orders growing cubic threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published search results contained classical fixed-t intersection and independent-birthday formulations, not an exact table for the present r-dependent statistic.",
+        "Own available current-period claims include fixed-r pairwise signed collision statistics, not triple coincidences when r scales as n^(1/3).",
+        "The checker computes exact moments on n=3,4 for r=3,4, rather than relying on a published lookup table."
+      ],
+      "reasoning": "No queried exact table identified the displayed n,r second-factorial-moment formula; this is a limited search result, not proof of nonexistence of earlier data.",
+      "searches": [
+        "\"threefold coincidences\" \"Hamiltonian paths\" \"orders\" probability",
+        "\"random permutations\" \"edges common to at least three\"",
+        "Poisson triple collisions common successor edges three orders independently chosen random linear orders input dependent",
+        "random many successor relations distinct signed adjacency collisions triple intersections first-order threshold"
+      ]
+    },
+    "rationale": "Comparisons made at the implication level against inspected 2026 successor-logic source, fixed-t graph-intersection theorem, birthday-collision theory, the current available ledger (especially its fixed-r signed pair-overlap claim), and published research record searches. The growing-r(n), three-order, directed-arc Poisson/isolation statement is not supplied by those statements. Historical priority remains qualified, not absolute.",
+    "residual_risks": [
+      "An older general theorem on dependent multiple birthdays or intersections of many randomly relabelled paths may subsume the critical Poisson law.",
+      "Original full text of arXiv:2610.09758 was not available, though its abstract and close later successor-logic source were compared.",
+      "The result concerns a varying input signature, not a fixed FO2 formula, and the probabilistic interpretation must not be confused with a full first-order limit law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state triple-hit Poisson probability or the critical r(n) scaling in the material inspected; focuses on satisfiability and finite bounds",
+        "evidence": [
+          "In section 1, overlapping directed adjacencies are acknowledged but the theorem is a 2EXPSPACE finite satisfiability bound.",
+          "Section 2 specifies one directed spanning path per successor relation and no access to the full orders."
+        ],
+        "identifier_or_url": "arXiv:2610.19943; https://www.paperpeel.com/paper/2610.19943",
+        "material_read": "Full-text HTML rendering: introduction, our result, overlap-mask discussion, section 2 successor semantics, related work, and conclusion",
+        "method": "Read HTML text at sections 1, 1.1 and 2 and searched within source for random-probability statements",
+        "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+        "trigger": "Exactly the same finite independent successor relations and input-dependent vocabulary"
+      },
+      {
+        "assessment": "Theorem 1 treats intersection common to all t fixed randomly embedded graphs; it is related but does not cover three among growing r(n) nor index-disjoint critical witnesses",
+        "evidence": [
+          "Theorem 1 begins Let t≥2 be an integer and defines Y as edges common to t embeddings.",
+          "Section 3 uses fixed-t factorial moments and partitions edge configurations by dependence."
+        ],
+        "identifier_or_url": "DOI:10.37236/1468; https://www.researchgate.net/publication/2509835_Intersections_of_Randomly_Embedded_Sparse_Graphs_are_Poisson",
+        "material_read": "Transcribed full text: Theorem 1, definitions and Section 3 proof through edge-independent and edge-dependent cases",
+        "method": "Read author-posted HTML text of the primary article, including Theorem 1 and proof",
+        "title": "Intersections of Randomly Embedded Sparse Graphs are Poisson",
+        "trigger": "Potential stronger coverage of Poisson overlaps for random embedded paths"
+      },
+      {
+        "assessment": "Abstract concerns algorithmic satisfiability, not a random collision limit; NOT a full-text negative novelty comparison",
+        "evidence": [
+          "First public submission 2026-10-07 09:45:43 UTC.",
+          "Theorem summary describes 2NEXPTIME algorithm and finite adjacency-loss-budget result."
+        ],
+        "identifier_or_url": "arXiv:2610.09758; https://borowiecki.dev/abs/2610.09758",
+        "material_read": "Abstract and submission metadata only; original PDF/TeX not retrievable here",
+        "method": "Read abstract, submission history and cross-reference from arXiv:2610.19943 related-work section",
+        "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+        "trigger": "Motivating input-dependent successor-language source"
+      },
+      {
+        "assessment": "Independent-ball collision model, not sampling a family of dependent-edge random Hamiltonian paths; possible general techniques and historical subsumption risk",
+        "evidence": [
+          "Abstract studies balls thrown into equally sized bins until c collisions; it does not mention random embedded linear orders."
+        ],
+        "identifier_or_url": "DOI:10.1002/rsa.20591",
+        "material_read": "Abstract and model description only",
+        "method": "Read publisher abstract",
+        "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+        "trigger": "Potential generic triple-collision theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c07383f0-7cb8-457b-b165-9894d78aadf4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural input-dependent successor signature raises the mathematical question of when a 2-variable adjacency-overlap sentence becomes typically true. The exact cubic-root window and nontrivial 1-exp(-c^3/6) curve expose the first three-way overlap transition beyond fixed-pair phenomena; isolated rare witnesses make its local model structure explicit. Exact finite second moments support quantitative diagnostics for arbitrary numbers of traversals. It neither asserts fixed-signature zero-one laws nor solves satisfiability complexity; the result is a meaningful structural random-model boundary in its own right.",
+    "status": "PASS"
+  }
+}
