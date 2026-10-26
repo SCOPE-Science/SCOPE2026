@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For unitary U, each row and column has norm one and the cross-update residual squared Frobenius norm is exactly n-2+1/|U_ij|^2. The strict event is an entry-magnitude threshold δ; row normalization forces at most n(n-1) qualifying pivots, giving probability <(n-1)δ. The explicit unitary I+(exp(iθ)-1)11*/n realizes n(n-1) offdiagonal pivots with squared amplitude (1-η)δ for any η>0 in the stated threshold regime, yielding the exact supremum. The limit t^2T→(n-1)/n follows algebraically. The verified standalone program passed 34,902 deterministic checks, not used to certify infinite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.22344 Theorem 3 compares expected squared errors to best low-rank approximation; not an extremal tail law.",
+        "arXiv:2609.06287 title/abstract concerns singular-value-dependent convergence rates; complete text inaccessible."
+      ],
+      "reasoning": "Neither inspected theorem covers an exact strict tail supremum over well-conditioned unitary inputs; the follow-up is an explicit residual risk rather than claimed noncoverage of its unread pages.",
+      "searches": [
+        "published-finding corpus: exact worst-case probability one pivot randomized LU Frobenius residual exceeds t on unitary input n by n tail (n-1)/(n(t squared-1)+2)",
+        "published-finding corpus: randomized pivoted LU unitary matrices rare entry pivot norm inverse entry exact tail quantile confidence",
+        "Web: arXiv 2609.06287 Convergence rates randomly pivoted methods"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.22344, accessible full text Section 3.1",
+      "arXiv:2609.06287, abstract only (full text inaccessible)",
+      "Published deterministic complete-pivot ACA result 71dd3abf0659, summary only",
+      "Published multistage adaptive randomized pivoting result 77e11f8220ee, summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gives an expected Gram comparison and one dense-unitary second-moment equality; no strict-tail minimax extremality.",
+        "The named published-finding corpus comparison is for deterministic largest entry pivot rather than squared-entry random pivot.",
+        "A two-dimensional Gaussian-sketched LU analysis uses sketch sampling and relative error normalized by smallest singular value rather than the unitary Frobenius n-dimensional tail."
+      ],
+      "reasoning": "A distribution-free Markov inequality from mean-square does not determine the exact n-dependent tail; a separate entry-counting inequality and feasible complex unitary extremal construction are necessary.",
+      "searches": [
+        "arXiv:2601.22344 equation (9), Section 3.1 and dense-unitary example",
+        "published-finding corpus: 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "published-finding corpus: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.22344 Section 3.1 gives expected Gram operator and dense-unitary squared mean error; no tail minimax statement in inspected section.",
+        "Direct comparison uses the same squared-entry pivot and one-step cross update, but the target is a strict quantile extremum over all complex unitaries."
+      ],
+      "reasoning": "A second-moment bound does not imply the sharp strict-tail constant; the optimized support bound and near-extremal unitary realization are additional mathematical statements.",
+      "searches": [
+        "published-finding corpus: randomly pivoted LU unitary matrices rare entry pivot norm inverse entry exact tail quantile confidence",
+        "Web: Low-Rank Approximation by Randomly Pivoted LU unitary matrix tail probability",
+        "arXiv:2601.22344 Section 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A two-dimensional Gaussian-sketched LU result has a two-by-two sketch-width moment and relative-tail example; it did not state the sharp unitary Frobenius tail for general n.",
+        "published-finding corpus top nearby hits discuss expected multistage pivoting and deterministic complete-pivot ACA growth, not unitary extremal tail tables."
+      ],
+      "reasoning": "No exact numerical table or database was identified that already specifies the n-parameterized large-threshold supremum and its complex phase-family approach; unindexed coverage remains possible.",
+      "searches": [
+        "published-finding corpus: unitary dense squared-entry sampling rank-one Schur complement Frobenius error upper tail optimal Householder complex phase",
+        "published-finding corpus: sharp finite dimensional randomized LU squared entry pivot Frobenius expected amplification sqrt(2 - 2/min(m,n)) partial isometries equality"
+      ]
+    },
+    "rationale": "The first 2026 RPLU paper derives the expected residual Gram bound and a unitary second-moment example, not the sharp extremal strict exceedance probability over U(n), finite-n threshold or extremal phase family. Related sampled-QR/ACA papers involve distinct distributions and error criteria; previous known high-moment and relative-error results do not supply the exact all-n unitary tail. Priority risk remains for inaccessible follow-up full text and unindexed older work.",
+    "residual_risks": [
+      "Full text of arXiv:2609.06287 could not be inspected; possible implicit high-probability overlap.",
+      "An unindexed older tail-extremal statement remains possible; search failure does not prove novelty.",
+      "Exact closed form applies only for the specified high-threshold regime; below it the extremal problem is unresolved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the algorithm and expectation bounds, does not state or imply the sharp strict-tail minimax without additional support-counting and extremal family work.",
+        "evidence": [
+          "Section 3.1 eq. (9), Theorem 3, dense-unitary mean-square paragraph."
+        ],
+        "identifier_or_url": "arXiv:2601.22344 / https://www.researchgate.net/publication/400339985_Low-Rank_Approximation_by_Randomly_Pivoted_LU",
+        "material_read": "Full-text Section 3.1, especially expected Gram bound (9), Theorem 3 and explicit dense-unitary mean-square example; introduction and conclusion.",
+        "method": "Accessible lawful full-text HTML reading with targeted search and adjacent sections.",
+        "title": "Low-Rank Approximation by Randomly Pivoted LU",
+        "trigger": "Same one-step randomized entrywise LU pivot and complex matrices."
+      },
+      {
+        "assessment": "No whole-document not-covering conclusion; source is a residual historical-priority risk.",
+        "evidence": [
+          "arXiv abstract: singular-value-dependent convergence rates and approximate pivoting distributions."
+        ],
+        "identifier_or_url": "arXiv:2609.06287",
+        "material_read": "Title and abstract only; full paper could not be retrieved.",
+        "method": "Open-access abstract and full-text access attempts; additional institutional access disconnected.",
+        "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+        "trigger": "Direct follow-up covering randomized pivoted LU convergence rates."
+      },
+      {
+        "assessment": "Deterministic maximum-entry pivot, not the squared-entry randomized unitary-tail extremum.",
+        "evidence": [
+          "Record summary bounds deterministic complete-pivot one-step growth."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "material_read": "Published title and abstract/summary.",
+        "method": "Published semantic research record.",
+        "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+        "trigger": "Similar cross-update norm growth."
+      },
+      {
+        "assessment": "Expected orthogonal column-subset projection error, different sampling and metric.",
+        "evidence": [
+          "Record summary concerns multistage expected-error factors."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "Published title and abstract/summary.",
+        "method": "Published semantic research record.",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Related randomized pivot error optimality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e9f8214-1f87-4bc5-8472-d563f889265b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives the exact finite-dimensional worst-case confidence tail for a natural low-rank numerical algorithm even when input conditioning is ideal. The nontrivial sharpness requires a feasible complex unitary whose offdiagonal probabilities simultaneously approach the tail cutoff. Provides a precise dimension-dependent rare-error risk that expectation-only convergence theorems do not supply; not merely an ad hoc arithmetic example.",
+    "status": "PASS"
+  }
+}
