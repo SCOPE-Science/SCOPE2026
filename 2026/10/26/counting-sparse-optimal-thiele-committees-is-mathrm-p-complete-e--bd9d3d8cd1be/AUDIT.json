@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The score bound u(d) <= c*d is strict at degrees 2 and 3; double counting n chosen 2-supported candidates gives exactly 2n incidences. Equality requires voter-degree 1 at all 2n vertices, a perfect matching. Every cubic bipartite graph has such a matching by Hall. The mapping is a bijection, graph-input recognition and matching-based winner verification are polynomial, and source #P-completeness of 3-regular bipartite perfect-matching counting is a published theorem. The standalone program verified 351,348 exact-rational score evaluations on 12 separate small graphs across four strict-sublinear score rules. Finite checks are supporting evidence, not a complexity proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ai 2026 Thm. 5.1 shows unrestricted #·OptP hardness and Section 6 explicitly lists structural restrictions as future work.",
+        "Lassota–Sornat 2026 Section 5.1 and Section 6 prove polynomial-time optimization under at most two supporters, not exact tie counting.",
+        "Janeczko–Faliszewski 2023 Proposition 3.1 and Theorem 4.3 establish different unrestricted/greedy hardness regimes."
+      ],
+      "reasoning": "The general counting hardness result has a larger instance domain but does not by itself entail hardness of its degree-two-supporter subclass. The optimization algorithm does not enumerate maximizers. The greedy selection algorithm and exact global objective define different winner sets. None provides an implication-equivalent sparse exact counting hardness theorem in its inspected statement.",
+      "searches": [
+        "Yizhou Ai 2026 #OptimalPAV theorem 5.1 sparse supporters",
+        "Lassota Sornat 2026 Thiele two supporters per candidate polynomial-time winner",
+        "Janeczko Faliszewski 2023 PAV #Winning committees Theorem 4.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08884",
+      "DOI:10.1609/aaai.v40i20.38757",
+      "arXiv:2305.01769",
+      "DOI:10.1016/0304-3975(92)90234-7",
+      "https://dopal.cs.uec.ac.jp/okamotoy/PDF/matchchordal.pdf",
+      "2025 Journal of Information Processing 33:954-973"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ai 2026 constructs unrestricted elections using auxiliary variable and clause voters; no maximum-degree-two-support premise.",
+        "Lassota–Sornat 2026 show an optimizer is computable on the sparse class but their polynomial matching-matrix algorithm is not a polynomial algorithm for counting optimal integer solutions.",
+        "Janeczko–Faliszewski Thm. 4.3 counts greedy winners using a graph construction; their greedy path mechanism is different from global maximization.",
+        "Dagum–Luby proves source perfect-matching counting hardness; it becomes the target result only after a separate exact score identity and identification of committees."
+      ],
+      "reasoning": "A hardness theorem on all inputs does not transfer to an easy optimization subdomain; tractable optimization does not transfer to counting; greedy tie counting does not imply global PAV tie counting; and counting a graph permanent is not already counting approval committees until the mathematical correspondence is made. Implicit derivability and later rediscovery remain residual historical-priority risks.",
+      "searches": [
+        "arXiv:2609.08884 Sections 1,5,6 proof hypotheses and score reductions",
+        "AAAI 2026 Lassota Sornat Sections 5.1 and 6",
+        "arXiv:2305.01769 Theorem 4.3 algorithm is greedy",
+        "Dagum Luby 1992 three regular bipartite #perfect matching theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the constructed family the election incidence graph on voters with edge-candidates is exactly the original cubic bipartite graph; exact score maximizers are its 1-factors, so their count equals the permanent of its 0-1 biadjacency matrix.",
+        "Janeczko–Faliszewski (arXiv:2305.01769, Thm. 4.3) uses edge candidates and vertex voters but studies greedy winners and subtracts counts; it does not classify exact PAV maximizers in the cubic class."
+      ],
+      "reasoning": "Equivalent graph formulations include perfect matchings, 1-factors, and 0-1 matrix permanents. The direct equality of the winning set and matchings is established by the new strict harmonic-score argument. The known graph hardness source alone does not state or imply an assertion about approval voting without this reduction.",
+      "searches": [
+        "counting optimal PAV committees two approvals per candidate cubic bipartite perfect matchings",
+        "counting Thiele winners permanent sparse incidence 3 regular bipartite",
+        "arXiv:2305.01769 section 4.3 greedy Thiele matching encoding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Among the closest published record hits were Exact five-candidate majority-tournament fibers for three voters (majority tournaments, not PAV), Sharp four-agent boundary for rank-maximal matchings to lose popularity (ordinal matching rankings), and Exact Schrijver-sharpness census of 3-regular 7 by 7 permanents (value census with no approval-election statement).",
+        "Accessible own historical claim summaries involve voting power, committee core+, opinion dynamics, network games and epidemics, not this exact PAV-winner counting correspondence."
+      ],
+      "reasoning": "Neither the retrieved mathematical record summaries nor the accessible own previous claims stated or implied the two-supporter exact PAV counting correspondence. A semantic search failure is not exhaustive and does not certify priority.",
+      "searches": [
+        "exact optimal PAV counting two supporters three approvals permanent; targeted published mathematical-record semantic searches",
+        "prior published research-claim inventory searched for exact PAV sparse counting"
+      ]
+    },
+    "rationale": "The primary 2026 counting theorem concerns unrestricted PAV and its construction uses high-support auxiliary voters; its conclusion calls for sparse-restriction classifications. The 2026 degree-two-support theorem solves finding a winner, not counting all optima. The 2023 graph-based reduction concerns greedy Thiele selection and does not logically imply the global-score maximizer bijection. The classical permanent hardness is credited as an input. The exact sparse counting classification was not found in the inspected sources, though an earlier implicit or explicit observation remains a plausible priority risk.",
+    "residual_risks": [
+      "The 2023 greedy-Thiele paper uses the same basic graph-to-election encoding; the global-maximizer matching corollary could have been noted independently in other literature.",
+      "Dagum–Luby original full article was not accessible in this execution; corroborating statements were inspected, so the hardness-source proof is invoked rather than recertified.",
+      "Semantic published-record searches and access to one historical ledger are not exhaustive; historical priority needs independent literature confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unrestricted #·OptP and Turing-hardness for the full counting problem, not sparse exact-score #P completeness",
+        "evidence": [
+          "Section 1.2 cites Lassota–Sornat for degree-two winner determination.",
+          "Theorem 5.1 uses formula-derived auxiliary voters.",
+          "Section 6 calls for membership, uniqueness and counting under structural restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.08884",
+        "material_read": "HTML full primary text: introduction/related work, theorem 5.1 and reduction outline/proof, Section 6 conclusion and references",
+        "method": "Read accessible HTML sections and compared supported-degree restrictions and claimed complexity classes",
+        "title": "The Complexity of Membership, Uniqueness, and Counting for Optimal Proportional Approval Voting Committees",
+        "trigger": "Most direct 2026 research on counting exact PAV optima and explicit sparse-profile open direction"
+      },
+      {
+        "assessment": "A polynomial-time algorithm for determining one optimal committee, no counting-hardness or all-tie classification in the inspected result",
+        "evidence": [
+          "Section 5.1 describes generalized matching ILP for at most two supporters per candidate.",
+          "Conclusion Section 6 presents the counting/ties direction as prospective rather than established."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/38757/42719",
+        "material_read": "Full published 9-page primary PDF, particularly Sections 1, 5.1, 6, including its explicit algorithm model and conclusion",
+        "method": "Read parsed text and inspected page-6 PDF image; compared optimization with exact winning-committee counting",
+        "title": "Algorithms for Structured Elections under Thiele Voting Rules",
+        "trigger": "Closest possible domination by existing degree-two-candidate-supporter result"
+      },
+      {
+        "assessment": "Same basic edge–vertex election encoding used in the proof of greedy-rule hardness; exact global PAV maxima on cubic bipartite graphs were not the subject of that theorem",
+        "evidence": [
+          "Theorem 4.3 explicitly states Phragmén or greedy variants and uses a dummy candidate.",
+          "Proposition 3.1 concerns general Thiele rule reductions via independent sets, not bounded two-supporter global-optimum counting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+        "material_read": "Full arXiv HTML text, especially Proposition 3.1 and Theorem 4.3, proof using edge candidates/vertex voters, conclusions",
+        "method": "Compared greedy selection winners, PAV global maximizers, matching-size hypotheses, and approval incidence degrees",
+        "title": "Ties in Multiwinner Approval Voting",
+        "trigger": "Direct prior work on Thiele/PAV winning-committee counting and closely related matching reduction"
+      },
+      {
+        "assessment": "The #P-completeness of cubic bipartite perfect matching counting is established and cited, but source proof not directly rechecked; not a source of claims about PAV",
+        "evidence": [
+          "Okamoto–Uehara, Counting Matchings in Chordal and Chordal Bipartite Graph Classes (2008), introduction attributes cubic bipartite #P-completeness to Dagum–Luby.",
+          "2025 Journal of Information Processing paper states Dagum–Luby supplies a parsimonious counting reduction to 3-regular bipartite perfect matching."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90234-7",
+        "material_read": "Journal bibliographic record and abstract plus explicit theorem statements cited by published later papers; original PDF inaccessible",
+        "method": "Tried arXiv/preprint/OA lookup, publisher DOI retrieval, and authorized institutional download; latter reported VPN disconnected; corroborated exact theorem by independent published work",
+        "title": "Approximating the Permanent of Graphs with Large Factors",
+        "trigger": "Classical source of the cubic bipartite perfect matching counting hardness used as a lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd9d3d8c-d1be-4010-810f-5724b29b7081",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 literature specifically distinguishes finding one optimal sparse Thiele committee (polynomial) from counting all optima (not classified). The theorem gives a complete, parsimonious graph/election correspondence in a sparse regular domain, establishes #P-complete counting despite a known exact optimum and easy optimum construction, and applies to the full class of fixed rational scores with strictly sublinear second and third representations. This is a motivated computational boundary relevant to exact tie multiplicity, not a tiny numerical exercise. Simple proof does not make the counting-hardness classification trivial.",
+    "status": "PASS"
+  }
+}
