@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Layer rigidity follows because every trim accepting path has length exactly two; each middle state contributes a full rectangular portion of the relation. If a final state had three middle neighbors then two four-cycles would share vertices s,u,f, contrary to cactus. Thus f>=ceil(m/2) and m>=b. Pairing rectangle states gives edge-disjoint four-cycles sharing only the initial state and meets the count. Sperner antichain proof yields the inequality-language cover rank. Executed checker covers all 526 nonempty binary/ternary relations and inequality sizes 2..14, returning VERIFY_OK; finite checks are corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grobler–Koziel–Siebertz arXiv:2610.11717 (2026-10-08), available abstract, asserts cactus representation for every regular language but not exact state minima in the abstract.",
+        "Iván et al. arXiv:1406.0017 Proposition 7 (full authored text read on ResearchGate, §5) addresses minimal transition count of epsilon-free two-letter NFAs."
+      ],
+      "reasoning": "A universal existence theorem is broader in the class of languages but does not by itself imply an exact minimal-state formula. An older biclique-weight theorem optimizes transitions, which is a different objective. The inaccessible newest full text remains an explicit residual risk.",
+      "searches": [
+        "cactus nondeterministic automata length two relation rectangle cover rank graph optimal number states",
+        "Every Regular Language Has a Bipartite Cactus Automaton state complexity",
+        "\"Every Regular Language Has a Bipartite Cactus Automaton\" size state complexity minimization",
+        "\"cactus automata\" \"optimal\" state count finite language"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11717 abstract (Grobler–Koziel–Siebertz, 2026-10-08)",
+      "arXiv:1406.0017 author-posted full text (Iván et al., §2 and §5 Proposition 7)",
+      "Bipartite dimension / crown-graph literature (Fishburn–Hammer 1996 via bibliographic and secondary summaries)",
+      "Diagonal-relation exact state-complexity special case considered for implication comparison",
+      "Other mathematical literature about state minimization and biclique covers reviewed using named search queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the diagonal relation b=k, the known special formula k+1+ceil(k/2) is implied by the present theorem, while that special case does not imply the full-relation theorem.",
+        "arXiv:1406.0017 Proposition 7 equates biclique-cover *weight* with NFA *transition count*; it does not state minimum cactus *state count*.",
+        "arXiv:2610.11717 abstract proves existence for general regular languages without a state-optimality assertion."
+      ],
+      "reasoning": "Specialization to the diagonal reproduces the earlier exact formula, so the diagonal case is not claimed as new. The essential new implication for arbitrary relations is the sharp cactus final-neighborhood constraint and universal pairing construction. Novelty is conditioned on the accessible comparisons, not inferred from search failure.",
+      "searches": [
+        "exact cactus-NFA state complexity for a diagonal finite language",
+        "boolean rank biclique cover full characterization epsilon free bipartite cactus NFA length two language",
+        "arXiv:1406.0017 Proposition 7",
+        "arXiv:2610.11717 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present statement is equivalent to a tight state cost for covering every binary relation by bicliques, with the cactus restriction enforcing at most two middle states per final state.",
+        "Fishburn–Hammer (1996) and standard biclique-cover terminology concern b(R), but not the additional cactus state surcharge.",
+        "The exact Sperner/crown cover number is known and explicitly not asserted novel."
+      ],
+      "reasoning": "Boolean-cover rank, nondeterministic communication rectangles, and biclique edge-cover language were compared as alternate descriptions. Only the cactus state surcharge and its uniform tight construction are asserted as new.",
+      "searches": [
+        "boolean rank biclique cover full characterization epsilon free bipartite cactus NFA length two language",
+        "all length-two languages bipartite cactus NFA exact state complexity Boolean rank biclique cover number",
+        "\"cactus\" \"NFA\" \"biclique\" rank relation",
+        "bipartite dimension crown graph Sperner"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected mathematical sources do not contain a general relation-to-cactus-state formula; a diagonal special case is narrower than the present statement.",
+        "Known crown graph / antichain biclique rank is an established special input, not the state-complexity theorem."
+      ],
+      "reasoning": "No exact tabulated general relation-to-cactus-state correspondence was found. Database retrieval is not a uniqueness guarantee and incomplete older indexes remain possible.",
+      "searches": [
+        "bipartite cactus automaton minimization state complexity rectangle rank",
+        "off-diagonal inequality relation NFA cactus state complexity Sperner",
+        "bipartite dimension crown graph inverse central binomial coefficient",
+        "all length-two languages bipartite cactus NFA exact state complexity"
+      ]
+    },
+    "rationale": "The theorem gives a new state-minimal bipartite-cactus formula uniformly for every two-letter relation, beyond prior diagonal-only case, and distinct from earlier transition-weight biclique correspondence and general cactus existence. No full-text coverage found in sources actually inspected; inaccessible full text leaves residual risk.",
+    "residual_risks": [
+      "The full 2026 cactus-automata paper was inaccessible via open full-text attempts; its abstract does not settle possible overlap in a proof appendix.",
+      "An unindexed or differently phrased minimization result may exist; database search cannot prove novelty.",
+      "The classical crown-biclique count is not new and is only an example of the formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract addresses existence, not state-optimality; cannot assert entire paper omits exact two-letter case",
+        "evidence": [
+          "Posted 2026-10-08; states that every regular language has an epsilon-free bipartite-cactus representation.",
+          "Full text not obtained; residual overlap risk retained."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+        "material_read": "Official arXiv abstract, title, authors, public posting date; attempted arXiv HTML/PDF and EPTCS alternatives; no accessible full text",
+        "method": "arXiv abstract and targeted lawful open-text retrieval; full paper unavailable",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Main recent existence theorem for graph-constrained NFAs"
+      },
+      {
+        "assessment": "Proposition 7 is about transition weight and does not impose cactus graph; not a covering statement of the new state-optimal theorem",
+        "evidence": [
+          "§2 defines automaton size |M| to be number of transitions.",
+          "§5 Proposition 7 proves equality with minimal weighted biclique cover for length-two languages.",
+          "No occurrence of cactus in accessible complete author text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.0017",
+        "material_read": "Full author-posted text on ResearchGate; introduction, §2 definitions, §5 Proposition 7 and proof, discussion/conclusion",
+        "method": "HTML full-text reading and targeted find for cactus and state/transition size",
+        "title": "Biclique coverings, rectifier networks and the cost of ε-removal",
+        "trigger": "Exact biclique/automata correspondence is a plausible broader covering result"
+      },
+      {
+        "assessment": "Exact crown biclique-cover formula is prior mathematics, acknowledged as such; no basis to claim a new Sperner rank",
+        "evidence": [
+          "Standard biclique-cover terminology and inverse central binomial coefficient for crown graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(95)00154-O",
+        "material_read": "Citation metadata and secondary reference describing bipartite dimension, including crown graph formula; original full article not inspected",
+        "method": "Search and graph-theory reference survey",
+        "title": "Bipartite dimensions and bipartite degrees of graphs",
+        "trigger": "Established biclique-cover invariants and crown graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e779bd7-230c-4287-b9e6-b8779f46f488",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete minimization classification for all nonempty two-letter languages under a current graph-topological automata restriction; exact structural surcharge uniformly in Boolean rank. It determines both a logarithmic family of off-diagonal languages and the linear diagonal regime and gives sharp all-size constructions. Not a mere isolated small computation or restatement of a previously known transition-count equivalence.",
+    "status": "PASS"
+  }
+}
