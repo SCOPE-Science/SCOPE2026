@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The sixteen independent signed-Bernoulli matrices were classified by occupied-entry count. This gives exactly four possible squared least singular values and yields the stated expectation and determinant-zero probability algebraically. A completed-square inequality proves the sharp relative floor uniquely at (a,b)=(1/2,1/2). On fixed norm s<=1, the derivative of the loss is controlled by h(u)=(3u^2-1)/(4u(u^2-1)), strictly decreasing to 5/(4 sqrt(2)), proving exactly the symmetric-to-asymmetric optimizer transition. Symbolic full enumeration, 121 exact rational tests, 1000 direct-SVD comparisons and six orientation checks were actually rerun from the embedded verification script. Infinite/general claims rest on the analytic proof, not simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma, Yu, Drineas, arXiv:2606.00312v1, Sections 2.2 and 4, Theorem 6, Corollaries 7 and 9: independent bounded noise, large spectral gap, and full-rank assumptions in the expected-tail comparison; Section 5 lists uncovered regimes.",
+        "Dexter et al., arXiv:2403.12278 (2024), abstract: full-rank regularization for tall-and-thin matrices with high probability.",
+        "Boutsikas, Drineas, Ipsen, arXiv:2303.03547 (2023), abstract and Ma et al. reference/related-work summary: small-singular-value perturbation under lower precision, without the present complete two-by-two probability classification in inspected evidence."
+      ],
+      "reasoning": "The principal positive spectral-tail conclusions require a separating gap at index k, whereas both original squared singular values in the present matrix coincide. The 2026 general lower-bound result also imposes aspect-ratio/variance conditions unsuited to the 2x2 case. The 2024 regularization theorem is tall-and-thin; neither is a stronger uniform theorem for this exact finite independent rounding law.",
+      "searches": [
+        "Stochastic rounding of rank deficient matrices, singular-value regularization and exact determinant zeros; expected inverse error and probability of full rank",
+        "Robust conditioning spectral gap for unbiased quantization and stochastic rounding",
+        "Stochastic rounding can decrease expected tail singular-value energy despite increasing Frobenius norm; spectral gap necessity",
+        "arxiv:2606.00312v1 Section 4 Theorem 6 Corollary 9",
+        "arxiv:2403.12278 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.00312v1",
+      "arxiv:2403.12278",
+      "arxiv:2303.03547",
+      "published-finding corpus 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+      "published-finding corpus 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "published-finding corpus 2026/9/19/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma, Yu, Drineas, arXiv:2606.00312v1, Sections 2.2 and 4, Theorem 6, Corollaries 7 and 9: independent bounded noise, large spectral gap, and full-rank assumptions in the expected-tail comparison; Section 5 lists uncovered regimes.",
+        "Ma et al. Theorem 4 supplies total expected squared singular-value growth for independent zero-mean perturbations, which does not imply growth of the smallest singular value; the present example explicitly separates them.",
+        "Dexter et al., arXiv:2403.12278 (2024), abstract: full-rank regularization for tall-and-thin matrices with high probability.",
+        "Boutsikas, Drineas, Ipsen, arXiv:2303.03547 (2023), abstract and Ma et al. reference/related-work summary: small-singular-value perturbation under lower precision, without the present complete two-by-two probability classification in inspected evidence."
+      ],
+      "reasoning": "Expected Frobenius growth is a sum of all squared singular values; it places no lower bound on the least term after sorting. Under equal original singular values the source spectral-gap hypothesis fails; the rounded matrix can even lose rank. None of the inspected original estimates logically implies the candidate exact loss or its sharp angular bifurcation. Conversely this small model does not refute the earlier conditional theorems.",
+      "searches": [
+        "arxiv:2606.00312v1 noise model, Theorem 4, Theorem 6, Corollary 7, Corollary 9 and Section 5",
+        "Unbiased stochastic rounding orthogonal two-by-two matrix rank loss probability (1-a^2)(1-b^2); angular orientation phase transition at 5/(4sqrt2)",
+        "Stochastic rounding can decrease expected tail singular-value energy despite increasing Frobenius norm; spectral gap necessity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma, Yu, Drineas, arXiv:2606.00312v1, Sections 2.2 and 4, Theorem 6, Corollaries 7 and 9: independent bounded noise, large spectral gap, and full-rank assumptions in the expected-tail comparison; Section 5 lists uncovered regimes.",
+        "published-finding corpus published record 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c describes a deterministic stale-basis SOAP preconditioning collapse, not independent Bernoulli entry rounding.",
+        "The quantized Gram eigenvalues have exact support {0,(3-sqrt(5))/2,1,2}; no retrieved spectral-quantization item reported this law or its derived expectation."
+      ],
+      "reasoning": "Equivalent claims could appear as a Bernoulli 2x2 determinant/singular-value expectation, random rounding of a planar rotation, or golden-ratio smallest-root formula. None of the accessible closest published records establishes these formulas; the closest 2x2 spectral-collapse record refers to SOAP, not rounding. Absence of a hit is not a proof of uniqueness.",
+      "searches": [
+        "Exact 2x2 stochastic rounding of scaled rotations orthogonal matrices: expected smallest singular value squared decreases; formula golden ratio (sqrt(5)-1) a b (a+b-2ab)",
+        "Unbiased stochastic rounding orthogonal two-by-two matrix rank loss probability (1-a^2)(1-b^2); angular orientation phase transition at 5/(4sqrt2)",
+        "Stochastic rounding of orthogonal 2x2 rotation matrices at unit grid, exact expected squared least singular value; golden ratio loss and rank-deficiency",
+        "Quantization of planar rotations: exact eigenvalue distribution singular value 0 1 golden ratio, rank loss",
+        "Published database hit 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed results concern normalized spectral filtering and multistage randomized pivoting, not unit-grid Bernoulli rounding and a 16-state matrix ensemble.",
+        "Ma, Yu, Drineas, arXiv:2606.00312v1, Sections 2.2 and 4, Theorem 6, Corollaries 7 and 9: independent bounded noise, large spectral gap, and full-rank assumptions in the expected-tail comparison; Section 5 lists uncovered regimes."
+      ],
+      "reasoning": "Exact-eigenvalue and exact-table aliases were checked; no accessible table for this specialized two-by-two distribution was found. Small exhaustive enumeration is not itself a claim of newness; the novelty is the provable sharp relative bound and orientation classification motivated by spectral regularization.",
+      "searches": [
+        "Stochastic rounding of orthogonal 2x2 rotation matrices at unit grid, exact expected squared least singular value; golden ratio loss and rank-deficiency",
+        "Phase transition of optimal angle for minimizing small singular value under independent Bernoulli entrywise rounding at 5/(4sqrt(2))",
+        "Quantization of planar rotations: exact eigenvalue distribution singular value 0 1 golden ratio, rank loss",
+        "Published database hit 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+        "Published database hit 2026/9/19/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ]
+    },
+    "rationale": "The 2026 source analyses regularization under high-dimensional, spectral-gap and rank hypotheses, while the present theorem gives exact expected degradation for a smallest square, spectrally flat input and an orientation bifurcation. Both published antecedents examined address different regimes or perturbation conclusions. Focused published-finding corpus searches for the complete formulas, their aliases and the sharp threshold identified no equivalent implication or dominating parameter theorem. This is a provisional literature-based originality judgment, with explicit residual priority risk.",
+    "residual_risks": [
+      "Another published specialized two-by-two stochastic-quantization calculation may already imply this result and escape semantic searches.",
+      "Original full text of the 2023 lower-precision antecedent was not comprehensively inspected.",
+      "Independent confirmation of historical priority has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes expected spectral tail lift in high-dimensional separated settings but not exact countervailing 2x2 distribution or orientation optimum; Section 4 explicitly assumes spectral gap and full column ranks.",
+        "evidence": "Section 2.2 independent centered entries, Theorem 4 expected total energy, Section 4 spectral gap/full-rank, Corollary 9 conditional square case, Section 5 uncovered near-square and spectral-gap regimes.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.00312",
+        "material_read": "Full-text accessible version: noise model in Section 2.2; Sections 3 and 4, including Theorems 4 and 6 and Corollaries 7 and 9; limitations Section 5; relevant proof appendices A.14 and A.17.",
+        "method": "Read publicly accessible full-text transcription at https://www.researchgate.net/publication/405685346_Stochastic_Rounding_Increases_Small_Singular_Values and checked first-public arXiv date.",
+        "title": "Stochastic Rounding Increases Small Singular Values",
+        "trigger": "Motivating current literature; same stochastic rounding noise and directly competing tail-singular-value conclusions"
+      },
+      {
+        "assessment": "Tall-and-thin high-probability theorem; no directly observed exact two-by-two independent Bernoulli expectation or critical-angle law.",
+        "evidence": "arXiv:2403.12278 abstract describes extremely tall-and-thin matrix regularization; SIAM DOI 10.1137/24M1647679.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.12278",
+        "material_read": "Open arXiv abstract and available journal abstract; relevant relationship discussion in full main source.",
+        "method": "Read primary abstract and the bibliography/related-work discussion in the motivating full text, not the entire antecedent.",
+        "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+        "trigger": "Earlier singular-value SR regularization theorem cited by main source"
+      },
+      {
+        "assessment": "Potential related antecedent, but available evidence does not demonstrate the same exact rounded-rotation probability classification. Priority risk retained.",
+        "evidence": "arXiv:2303.03547 and bibliography of arXiv:2606.00312.",
+        "identifier_or_url": "https://arxiv.org/abs/2303.03547",
+        "material_read": "Bibliographic/abstract evidence and summary in the full 2026 primary paper; complete original paper not inspected.",
+        "method": "Read available abstract and main paper reference discussion; attempted alternative open full text was not accessible in prior retrieval.",
+        "title": "Small Singular Values Can Increase in Lower Precision",
+        "trigger": "Earlier lower-precision small-singular-value perturbation results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c3cad39-4502-41e6-a8f9-1c905b05c55a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Recent numerical-analysis work treats stochastic rounding as a possible tail-spectrum regularizer. The complete minimum-dimensional, perfectly conditioned, independent-rounded rotation exposes why such a claim cannot be unconditional: the smallest squared singular value loses up to (sqrt(5)-1)/4 of its expectation, even as total squared energy increases; the rounded system is singular with probability 9/16 at the unique worst relative input. The additional exact orientation bifurcation gives a concrete coordinate-system sensitivity criterion. This is a structural boundary and sharp design law for a natural model, not a textbook deduction or an arbitrary small parameter instance. Claims are limited to this model and do not imply real-hardware instability.",
+    "status": "PASS"
+  }
+}
