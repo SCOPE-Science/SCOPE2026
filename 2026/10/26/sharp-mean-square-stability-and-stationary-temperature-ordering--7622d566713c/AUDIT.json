@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Original 2024 predictor indexing checked on page images; exact affine OU step unrolled, Gaussian noise coefficients and Bernoulli versus onehot indicator moments proved; Q derivative uniformly negative on s>=0 and K>=2; invariant variance recursion gives sharp thresholds. Replayed standalone exact checker: 65 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 Poisson-midpoint paper establishes general W2 oracle-complexity inequalities under strong log concavity; no direct all-step uniform stability guarantee follows from its small-step sufficient conditions.",
+        "2024 paper compares selection variance qualitatively."
+      ],
+      "reasoning": "The general sampling convergence results have distinct assumptions and bounds and do not imply exact mean-square thresholds or strict finite-step covariance ranking; qualitative reduced update variance does not alone imply the denominator 1-m stability reversal.",
+      "searches": [
+        "Poisson Midpoint Langevin Option 1 independent Bernoulli Option 2 one-hot fixed count covariance mean-square stability Gaussian quadratic drift",
+        "Poisson midpoint Kandasamy Nagaraj 2024 2025 Gaussian Ornstein-Uhlenbeck exact stationary temperature covariance mean-square stability thresholds independent Bernoulli versus one uniformly sampled time index",
+        "arXiv:2506.07614 Sections 1-3",
+        "arXiv:2405.17068 full primary PDF"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.17068 (2024 original PLMC full PDF, key sections and appendix)",
+      "arXiv:2506.07614 (2025 full accessible HTML, relevant sections)",
+      "published-finding corpus published semantic matches listed in source_inspections and closest_results",
+      "Own ledger preceding 52 claims (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known 2024 statement: without-replacement Option 2 lower variance error.",
+        "Novel compared statement: for all K>=3, two different exact cubic thresholds and invariant-temperature error ordering."
+      ],
+      "reasoning": "The qualitative claim is expressly excluded from novelty, as is the published algorithm. General variance reduction cannot by itself prove the exact mean-square root comparison or nonattainment of a finite stationary second moment in the interval between roots; these follow from the newly reconstructed explicit moment polynomials.",
+      "searches": [
+        "arXiv:2405.17068 Appendix A.6 and Section 2.2",
+        "arXiv:2506.07614 Sections 1.1-3",
+        "Poisson midpoint Kandasamy Nagaraj 2024 2025 Gaussian Ornstein-Uhlenbeck exact stationary temperature covariance mean-square stability thresholds independent Bernoulli versus one uniformly sampled time index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All-K stability interval iff E[A_H²]<1; invariant second moment N/(1-m); OU harmonic oscillator equivalent.",
+        "Original 2024 source explicitly notes lower variance of Option 2 but does not identify complete sharp roots or thermal bias."
+      ],
+      "reasoning": "Recast as scalar random-coefficient AR(1), Gaussian quadratic Langevin, random midpoint stochastic numerical stability, and with- vs without-replacement variance comparison. General AR(1) second-moment criteria are standard ingredients; their explicit simultaneous use for these two published algorithms and their exact all-K order is not a previously found conclusion.",
+      "searches": [
+        "Poisson Midpoint method Kandasamy Nagaraj 2024 Poisson versus single uniformly selected midpoint overdamped Ornstein Uhlenbeck random linear amplification stationary variance exact stability",
+        "Poisson Midpoint Langevin Option 1 independent Bernoulli Option 2 one-hot fixed count covariance mean-square stability Gaussian quadratic drift",
+        "Poisson midpoint Kandasamy Nagaraj 2024 2025 Gaussian Ornstein-Uhlenbeck exact stationary temperature covariance mean-square stability thresholds independent Bernoulli versus one uniformly sampled time index",
+        "published-finding corpus closest IDs: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "arXiv:2405.17068 Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned records analyze unrelated OU observability, underdamped random-step integrators, or noisy stochastic optimizers, not an exact K-table for PLMC."
+      ],
+      "reasoning": "No directly matching exact stability polynomials, roots, or stationary variance table was observed; database nonhits do not prove uniqueness.",
+      "searches": [
+        "Poisson Midpoint method Kandasamy Nagaraj 2024 Poisson versus single uniformly selected midpoint overdamped Ornstein Uhlenbeck random linear amplification stationary variance exact stability",
+        "Bernoulli subsampling versus fixed size sampling Poisson midpoint method exact Ornstein Uhlenbeck mean square stationary variance 2024",
+        "Poisson midpoint Kandasamy Nagaraj 2024 2025 Gaussian Ornstein-Uhlenbeck exact stationary temperature covariance mean-square stability thresholds independent Bernoulli versus one uniformly sampled time index",
+        "published-finding corpus 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "published-finding corpus 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+        "published-finding corpus 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "rationale": "Not the known fact that without-replacement has lower update variance; target is the sharp all-K mean-square stability thresholds, their strict inclusion, and exact stationary-temperature bias ordering. Original primary and follow-up full text compared with claim implications; no covering claim identified. Residual priority risk retained.",
+    "residual_risks": [
+      "A specialized scalar Gaussian analysis of Poisson midpoint might already contain equivalent all-K roots under another name.",
+      "A general stochastic AR(1) variance-reduction comparison might imply the inequalities when explicit PLMC moments are supplied.",
+      "The 2025 follow-up uses a differently displayed noisy interpolation; conclusions here are restricted to the explicit 2024 original algorithm, not that variant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative variance reduction and original schemes covered; all-K sharp mean-square stability threshold separation and stationary temperature bias comparison not stated or derived in inspected relevant material.",
+        "evidence": [
+          "PDF pp. 4-5: interpolation (7) uses increments j=0,...,i-1, update (8), OPTION 1 and 2 definitions.",
+          "Appendix A.6: OPTION 2 incurs lower update-variance error (known, not claimed new)."
+        ],
+        "identifier_or_url": "arXiv:2405.17068; https://papers.nips.cc/paper/2024/file/796455f65fd2cbe049112a2d2d4488cb-Paper-Conference.pdf",
+        "material_read": "Full paper accessed in HTML/PDF; inspected Section 2.2 exact interpolation equations on original PDF pages 4-5, Appendix A.2/A.6 selection and variance comparisons, theoretical results.",
+        "method": "Read method displays and full-text passages, including original PDF page images, then compared the explicit finite-step moment polynomials and sharp roots.",
+        "title": "The Poisson Midpoint Method for Langevin Dynamics: Provably Efficient Discretization for Diffusion Models",
+        "trigger": "Defines exactly the two midpoint sampling options, and explicitly asserts lower variance without replacement."
+      },
+      {
+        "assessment": "Quantifies general sampling convergence rates for Bernoulli PLMC, not the two-law all-step scalar threshold or stationary-temperature ordering. Its displayed predictor convention differs in Gaussian indexing, so the original 2024 theoretical formula controls the present scope.",
+        "evidence": [
+          "Sections 1.1, 2.2, 3 concern W2 sampling complexity and published Bernoulli PLMC recursion; the original paper fixes the scope of the analyzed method."
+        ],
+        "identifier_or_url": "arXiv:2506.07614; https://arxiv.org/html/2506.07614",
+        "material_read": "Accessible full HTML; read introduction, contributions, methods Section 2.2, stationary-target discussion, Section 3 overview and searched for stationary moment and variance comparisons.",
+        "method": "Compared coupling and oracle-complexity theorems to the exact independent-Bernoulli/one-choice scalar stationary second-moment and stability comparisons.",
+        "title": "Poisson Midpoint Method for Log Concave Sampling: Beyond the Strong Error Lower Bounds",
+        "trigger": "Follow-up sharp convergence analysis of Poisson midpoint for log-concave sampling."
+      },
+      {
+        "assessment": "Different underdamped numerical schemes do not give the present Bernoulli/one-choice Poisson midpoint formulas.",
+        "evidence": [
+          "Database abstract concerns LC-REI, ALUM, RMM and Gaussian harmonic position/velocity covariance; no two-option PLMC thresholds."
+        ],
+        "identifier_or_url": "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "material_read": "Published database title and substantive claim summary; full text not read because propagators differ.",
+        "method": "Compare algorithm objects and implication structure.",
+        "title": "Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC",
+        "trigger": "published-finding corpus semantic similarity to Gaussian equilibrium bias."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7622d566-713c-4439-a542-1e76ba513aa8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact admissible step-size frontiers give a practical method choice for a published Langevin discretization at fixed expected midpoint budget; the strictly positive intermediate region only single-choice can sample with finite second moment is a qualitative stability separation. Exact thermal overdispersion shows the variance reduction is a genuine stationary covariance-bias improvement here, not merely lower fluctuation. Scalar benchmark limitation explicit.",
+    "status": "PASS"
+  }
+}
