@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the spherical caps \(C_{d,h}=\{(y,s):|y|^2+s^2<1,\ s>h\}\) and axial angular frequency, transverse integration reduces the Fourier transform to a truncated polynomial Fourier integral. Repeated integration by parts gives an exact endpoint-polynomial formula. Exact derivative expansions establish the positive endpoint-modulus differences in dimensions three and five, so neither can vanish at nonzero real axial frequency; the zero-frequency integral is positive. In dimension seven the difference has a positive-frequency branch when \(h\) is sufficiently close to \(-1\), and its endpoint quotient tends to \(e^{i\pi/3}\). The continuous unbounded phase mismatch therefore hits every sufficiently large \(2\pi n\) exactly. Expansions give the stated height and frequency asymptotics, and an integration-by-parts tail proves that each fixed proper cap has only finitely many axial real zeros. The symbolic checker verifies all three polynomial factorizations; quadrature and three high-precision examples are supplementary.
+
+## Originality — PASS (qualified)
+The inspected Benguria–Levitin–Parnovski paper concerns Fourier-null varieties of convex domains and includes a distinct directional zero-free solid of revolution in §4.11, but it does not give the truncated-ball three/five/seven contrast or the dimension-seven phase-matched sequence. The Dimitrov–Rusev survey discusses Pólya's Fourier-integral nonvanishing criteria, which do not cover the nonmonotone negative-height sections and do not imply this counterexample. Semantic research-record queries and available historical claims found related bipyramid/spherical-shell/complete-beta results, not this claim. Neither nonappearance in a search nor geometrical differences alone prove novelty; incompletely digitized older Fourier-integral results remain a real priority risk. Relevant primary text was actually inspected, and the original 1918 Pólya article was not.
+
+## Mathematical value — PASS
+The symmetry axis of a spherical cap is a canonical directional Fourier restriction of a convex domain, and its real zeros relate to diffraction/null varieties. The theorem identifies a nontrivial first failure of zero-free behavior among three consecutive odd-dimensional cap geometries: rigidity in dimensions three and five, but zeros at explicitly quantified heights and frequencies in dimension seven. It exposes an endpoint-modulus and phase-matching mechanism not visible from monotonic-kernel arguments. The result is not asserted to classify all higher dimensions or off-axis behavior.
+
+## Closest literature and limitations
+Benguria–Levitin–Parnovski (2008), arXiv:0801.1617v1, relevant introduction and §4.11; Dimitrov–Rusev (2011), *Zeros of entire Fourier transforms*, relevant Pólya/nonvanishing sections; Pólya's original 1918 article was not separately inspected. An equivalent result hidden in older work remains a qualification. Numerical witnesses cannot certify all heights, and no independent mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
