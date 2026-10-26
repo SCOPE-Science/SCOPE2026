@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Published prime-power-square support implies uniform O(sqrt X) reduction to p*k² with p prime; both exceptional p^(4j+1),j>=1 and nonprimitive p|k layers have convergent p-power upper bounds. The strong max_y prime Bombieri–Vinogradov theorem yields the bounded-small-k error after summing over moduli; trivial progression counting gives X log(Q)/K+Q sqrt X large-k tail; choosing K=(log X)^(R+4) and B sufficiently large completes all quantifiers. Verifier independently checks 20000 indices but is not used as infinite evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard Bombieri–Vinogradov controls primes, with maximum over y and classes; it does not itself state the reciprocal-support result.",
+        "General Bombieri–Vinogradov theorems for multiplicative functions have different input functions; the indicator of this unique-odd-prime-factor set is not multiplicative."
+      ],
+      "reasoning": "A broader prime distribution theorem supplies a proof ingredient, not a direct assertion of the particular square-convolution theorem. General multiplicative-function coverage was considered, but no identified theorem is shown to imply the claimed statement without the new decomposition and weighted tail argument.",
+      "searches": [
+        "Bombieri Vinogradov theorem for reciprocal of binary sum of divisors generating function A192717 support n=p^(4j+1)k^2 3 modulo 8",
+        "level of distribution one half arithmetic progressions of A192717 Cooper Riasanovsky reciprocal parity divisor sum",
+        "arXiv:2510.18891v3 Theorem 2.3",
+        "Granville Shao Bombieri-Vinogradov for multiplicative functions 2019"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A192717: https://oeis.org/A192717",
+      "Cooper–Riasanovsky full HTML: https://arxiv.org/html/1409.2909v1",
+      "Journal metadata: https://cs.uwaterloo.ca/journals/JIS/VOL16/Cooper/cooper3.html",
+      "Bombieri–Vinogradov standard statement: https://arxiv.org/html/2510.18891v3",
+      "Published mathematical-result index: six subject and equivalent-form queries, with no confirmed direct overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From exact known representation, the counted family splits into p k² plus O(sqrt X) exceptional prime-power terms.",
+        "Standard BV, together with the finite-square cutoff and tail bounds in RESULT.md, implies the new distribution conclusion."
+      ],
+      "reasoning": "The prime theorem plus exact support are sufficient to derive this statement, and the result is explicitly presented as a new transfer rather than as an independent new prime number theorem. No located earlier text states the transferred quantitative assertion. This close implication is an originality risk, not concealed.",
+      "searches": [
+        "Bombieri Vinogradov theorem for reciprocal of binary sum of divisors generating function A192717 support n=p^(4j+1)k^2 3 modulo 8",
+        "prime square multiplicative convolution Bombieri Vinogradov q≤sqrt X polylog reciprocal parity support",
+        "arXiv:1409.2909v1 Proposition 16 and Theorem 17",
+        "arXiv:2510.18891v3 Theorem 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A192717 identifies both prime-square form and parity of representations by two odd squares for the same support; the source Proposition 16 derives it from D(q)^3.",
+        "Both equivalent objects were searched for progression and distribution conclusions; no such statement occurred in the inspected material."
+      ],
+      "reasoning": "The prime-square and x²+2y² odd-representation-parity formulations are equivalent, so they were not counted as two different novelty claims. The accepted claim is level-1/2 averaged equidistribution of this one set.",
+      "searches": [
+        "OEIS A192717 parity odd representations x^2+2y^2 equidistribution arithmetic progressions asymptotic x/log x Siegel Walfisz",
+        "Reciprocal binary generating function sum of divisors 3 mod 8 class uniform prime square asymptotic in reduced residue classes mod logarithmic moduli",
+        "arXiv:1409.2909v1 §3 Proposition 16",
+        "OEIS:A192717 comments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A192717 lists explicit prime-power-square membership and a finite term table, not a uniform X-dependent progression theorem.",
+        "2013 Proposition 16 proves density zero for the slice."
+      ],
+      "reasoning": "The finite OEIS table and exact support classification do not tabulate or subsume the uniform level of distribution over growing moduli.",
+      "searches": [
+        "OEIS:A192717 table and comments",
+        "Count of numbers p^(4j+1) m^2 with p=3 mod8 equidistribution fixed congruence classes",
+        "Cooper–Riasanovsky 2013 Journal of Integer Sequences full text"
+      ]
+    },
+    "rationale": "The exact sparse support, alternative x²+2y² parity formula and density-zero fact are credited to 2012 OEIS/2013 Cooper–Riasanovsky; the standard prime BV theorem is also credited. The new specific averaged distribution assertion is not stated by any inspected primary source or returned published-finding corpus records. Its transfer is relatively short and could have been implicitly covered in unlocated work; this is an explicit residual risk.",
+    "residual_risks": [
+      "A pre-existing but unlocated application of Bombieri–Vinogradov to prime-square parity reciprocal coefficients may imply the same distribution theorem.",
+      "The claim is an elementary quantitative transfer of an existing prime theorem and a known factorization, not a new proof of the Bombieri–Vinogradov theorem.",
+      "Independent scholarly validation is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT SUPPORT KNOWN; QUANTITATIVE CLAIM NOT STATED",
+        "evidence": "Section 3 Proposition 16 explicitly gives p^(4j+1) k², p3mod8, j≥0, k odd, p∤k and concludes natural density zero; the results do not give uniform prime-square progression counts.",
+        "identifier_or_url": "https://arxiv.org/html/1409.2909v1",
+        "material_read": "Full HTML manuscript, definitions and Section 3 including Lemmas 9–10, Proposition 16, Theorem 17, corollary 18 and concluding discussion",
+        "method": "Read source HTML and checked the support characterization, its proof and stated density limits",
+        "title": "On the Reciprocal of the Binary Generating Function for the Sum of Divisors",
+        "trigger": "Exact subject of the parity-reciprocal distribution claim"
+      },
+      {
+        "assessment": "EXACT SUPPORT AND FINITE DATA KNOWN; NO BV STATEMENT",
+        "evidence": "A192717 describes p^e k², e≡1 mod4 and equivalence to odd x²+2y² representation counts; author date 2012-12-31.",
+        "identifier_or_url": "https://oeis.org/A192717",
+        "material_read": "Complete displayed OEIS entry: definition, alternate quadratic-form and reciprocal descriptions, terms, program, citations and author date",
+        "method": "Examined canonical table and comments in live HTML",
+        "title": "A192717",
+        "trigger": "Same objects and alternative characterizations; potential exact database coverage"
+      },
+      {
+        "assessment": "STANDARD PRIME BV AVAILABLE; DIFFERENT MATHEMATICAL OBJECT",
+        "evidence": "Theorem 2.3 states ∑_{q≤sqrt(x)/log^B x} max_(a,q)=1 max_(y≤x)|π(y;q,a)-Li(y)/φ(q)|≪_A x/log^A x; paper concerns an LCM recurrence.",
+        "identifier_or_url": "https://arxiv.org/html/2510.18891v3",
+        "material_read": "Section 2.3 Theorem 2.3 and related Section 4 analytic application, plus introduction and main claims",
+        "method": "Inspected HTML statements and source formulas",
+        "title": "Primes in LCM recurrences",
+        "trigger": "Authoritative directly-readable strong max_y formulation of classical Bombieri–Vinogradov"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61f2c16b-fe11-4bbc-afd6-9eaf68341c76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original study stops at density zero for a naturally characterized reciprocal parity slice. This theorem provides its full averaged level-1/2 distribution over a growing range of moduli and the exact prime-like total leading constant, a meaningful analytic invariant beyond finite tables. It does not settle the separate positive-density 7mod16 conjecture.",
+    "status": "PASS"
+  }
+}
