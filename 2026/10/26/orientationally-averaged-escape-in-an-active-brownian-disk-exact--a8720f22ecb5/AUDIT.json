@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The backward generator and absorbing boundary normalize to T0=(1-r^2)/4. The first harmonic solves a modified-Bessel ODE; its angle-averaged second-order forcing is the exact radial divergence derivative -(r f)′/(2r). This yields G′=-f/2 and the closed Bessel antiderivative, including the finite gamma=0 polynomial. Positivity of the Dirichlet first-harmonic Green operator establishes the strict signs and parameter derivative via A_gamma^-2. Uniform Bessel ratios at r=1-z/sqrt(gamma) prove the wall-layer profile. A new standalone mpmath checker validates equations, quadratures, sample signs, and asymptotic values; finite tests are not treated as proofs. Claims exclude simultaneous p/gamma scaling and nonlinear activity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2306.12702v1 exact propagator and FPT distribution",
+        "https://arxiv.org/html/2506.15813v1 full 2-D MFPT equation and numerics"
+      ],
+      "reasoning": "A fully general propagation series determines the MFPT implicitly and 2025 numerically solves its PDE. Neither material inspected provides an explicit sharp gamma^-1/2 wall-layer law for the weak-propulsion second derivative or the strict global gamma monotonicity. Their generic solvability is acknowledged rather than passed off as missing.",
+      "searches": [
+        "large rotational diffusivity boundary layer universal 1-exp(-z)-z profile mean exit time disk active Brownian",
+        "Mean first passage time of active Brownian particle in circular disk fast rotational diffusion boundary layer 1 sqrt gamma",
+        "\"active Brownian\" \"second order\" \"first passage\" \"disk\" Péclet"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2306.12702v1",
+      "https://arxiv.org/html/2506.15813v1",
+      "https://arxiv.org/abs/2310.04446",
+      "https://doi.org/10.1137/23M1593917",
+      "https://doi.org/10.1137/140968604",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=82C31"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2506.15813v1 Eq.(12) first-order coefficient only; explicit remark about O(Pe^2)",
+        "https://arxiv.org/html/2306.12702v1 FPT distributions to second order; future mean-moment calculation",
+        "https://arxiv.org/abs/2310.04446 different 1-D model"
+      ],
+      "reasoning": "Published first-order f plus standard perturbative averaging yields the scalar equation for g but does not state the integrated closed form, strict rotational diffusivity ordering, or uniform fast-rotation absorbing-wall profile. The 2023 general FPT distribution could be postprocessed to recover the MFPT, but the structural global comparisons require the separate positive-resolvent and uniform Bessel-asymptotic proof included here. The 1-D second-order formula is not this 2-D statement.",
+      "searches": [
+        "uniformly random starting orientation active Brownian mean escape time second order activity negative monotonic rotational diffusion",
+        "Active Brownian particle absorbing circular disk mean exit time weak propulsion Péclet expansion modified Bessel I0 I1 rotational diffusivity",
+        "https://arxiv.org/html/2506.15813v1",
+        "https://arxiv.org/html/2306.12702v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2506.15813v1 disk §3 Eq.(12) and following paragraph",
+        "https://arxiv.org/html/2306.12702v1 equations (43)-(44)"
+      ],
+      "reasoning": "Searched equivalent forms as small-Pe orientation-averaged MFPT, weak swim speed sensitivity, and Bessel I0/I1 perturbations. Prior exact Eq.(12) equals the linear harmonic f and is expressly credited; the new quadratic g and its strict parameter law are absent there.",
+      "searches": [
+        "closed second-order weak-activity Péclet correction to orientation-averaged first passage time of active Brownian particle in absorbing circular disk, Bessel I0 I1 expression",
+        "\"Iyaniwura\" \"Peng\" \"second-order\" \"disk\" mean first passage"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2306.12702v1, first-passage distribution and propagator, no table of the second-order angular-average mean-exit coefficient",
+        "arXiv:2506.15813v1, disk §3 Eq.(12) and text after Fig.2 explicitly giving only the linear harmonic and noting nonzero second-order angular-average term"
+      ],
+      "reasoning": "The inspected published mathematical physics sources furnish a full formal propagator and a first-order two-dimensional MFPT formula, respectively; neither presents an exact table for the angle-averaged second-order Bessel coefficient, the strict rotation-rate order, or the universal absorbing-wall layer. Absence of an exact table by itself is not a proof of originality; implication comparisons and source inspections are separately recorded.",
+      "searches": [
+        "closed second-order weak-activity Péclet correction to orientation-averaged first passage time of active Brownian particle in absorbing circular disk, Bessel I0 I1 expression",
+        "uniformly random starting orientation active Brownian mean escape time second order activity negative monotonic rotational diffusion",
+        "\"I_0\" \"I_1\" \"Pe\" \"mean first passage\" \"disk\" active Brownian second order",
+        "For active Brownian first passage in a fully absorbing disk with uniformly random initial heading, exact Pe squared mean exit time coefficient in Bessel I0 and I1, strictly monotone in rotational diffusivity, gamma^-1/2 absorbing wall layer (1-exp(-z)-z)/4"
+      ]
+    },
+    "rationale": "The 2023 source determines the full FPT distribution implicitly, and the 2025 exact disk calculation already supplies the first-order Bessel term. The assessed claim goes beyond those results: an explicit second-order orientational average, strict global sign and monotonicity with rotational diffusion, and a uniform fast-turning boundary profile 1-exp(-z)-z. The 2025 authors explicitly identify O(Pe^2) as first nonvanishing angle-average contribution without evaluating it (disk §3). Full primary source comparisons and searched mathematical ledgers supplied no prior theorem with this coefficient-and-boundary-layer statement. General formulas imply it can be computed, but do not explicitly prove the parameter monotonicity and boundary-layer structural transition.",
+    "residual_risks": [
+      "The 2023 source provides a full second-order FPT spectral/recursive representation, from which the MFPT second derivative is formally extractable; an unreported manipulation of its general formula might subsume the isolated coefficient.",
+      "Supplemental/unindexed or newer literature could separately state this exact rotational parameter monotonicity and boundary profile.",
+      "The 2025 manuscript was inspected in its accessible arXiv HTML main text, not a hypothetical unpublished supplementary calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published general propagator and second-order FPT distribution implicitly determine any weak-activity MFPT coefficient, but do not explicitly state the closed angle-averaged second-order coefficient, strict rotational monotonicity, or sharp fast-turning absorbing-wall layer. The general formalism is not claimed new.",
+        "evidence": "https://arxiv.org/html/2306.12702v1 : model and equations (1-3), (43-44), discussion, supplementary appendices",
+        "identifier_or_url": "arXiv:2306.12702v1",
+        "material_read": "Model, backward/forward operators, perturbation machinery, FPT results, conclusions and appendices were read as full open-access arXiv HTML",
+        "method": "Read HTML article equations, first passage and discussion, appendices",
+        "title": "Di Trapani, Franosch and Caraglio, Active Brownian Particles in a Circular Disk with an Absorbing Boundary",
+        "trigger": "exact stochastic model, propagator and second-order FPT distributions"
+      },
+      {
+        "assessment": "Disk Eq.(12) already supplies the identical first-order Bessel f, which is credited as prior work. The main text explicitly states that uniform angular starting data suppress O(Pe) and that first correction is O(Pe^2), but it does not calculate the coefficient or fast-turning boundary-layer profile. Its numerical MFPT solutions do not prove rotational monotonicity of the quadratic coefficient.",
+        "evidence": "https://arxiv.org/html/2506.15813v1 : disk §3, Eq.(12), paragraph after Fig.2",
+        "identifier_or_url": "arXiv:2506.15813v1",
+        "material_read": "Read full arXiv HTML sections 1-6 including disk Eq.(12), annulus and ellipse and references",
+        "method": "Read complete main body and inspect equations, figures, discussion",
+        "title": "Iyaniwura and Peng, Mean first passage time of active Brownian particles in two dimensions",
+        "trigger": "exact same backward MFPT equation and first weak-propulsion coefficient"
+      },
+      {
+        "assessment": "Their O(Pe²) expansion is for a one-dimensional active particle and does not imply the two-dimensional angular-diffusion Bessel coefficient or its absorbing-disk boundary layer. Its methodology is related.",
+        "evidence": "https://arxiv.org/abs/2310.04446 ; https://doi.org/10.1137/23M1593917",
+        "identifier_or_url": "arXiv:2310.04446",
+        "material_read": "Read arXiv abstract and SIAM abstract describing one-dimensional process and Pe^2 expansion",
+        "method": "Inspect available primary abstracts and stated domain and order",
+        "title": "Iyaniwura and Peng, Asymptotic Analysis and Simulation of Mean First Passage Time for Active Brownian Particles in 1-D",
+        "trigger": "potential stronger second-order weak-activity theory"
+      },
+      {
+        "assessment": "Passive diffusion with a rotating interior trap and a reflecting exterior circle; not self-propelled Brownian motion with a fully absorbing wall, so its rotating-trap boundary layers do not imply this coefficient.",
+        "evidence": "https://doi.org/10.1137/140968604",
+        "identifier_or_url": "DOI:10.1137/140968604",
+        "material_read": "Read publisher abstract and setup",
+        "method": "Inspect primary publisher abstract and boundary conditions",
+        "title": "Tzou and Kolokolnikov, Mean First Passage Time for a Small Rotating Trap inside a Reflective Disk",
+        "trigger": "plausible circular-disk boundary-layer literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8720f22-ecb5-4591-a7dd-717383b7bee2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For isotropically prepared active particles the already-published linear Pe term averages to zero, making the exact quadratic coefficient the physically leading activity response. Its strict negativity and monotonic relaxation with rotational diffusion give a nonperturbative-in-gamma sign law for this response. The sharp gamma^-1/2 absorbing-wall profile quantifies the failure of the naive bulk effective-diffusivity approximation near the first-passage boundary and supplies a meaningful uniform spatial scaling with a universal function. This is more than a normalization or low-order Taylor exercise.",
+    "status": "PASS"
+  }
+}
