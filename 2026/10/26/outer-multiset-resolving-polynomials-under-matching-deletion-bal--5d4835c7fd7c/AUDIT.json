@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Complete pairwise-distance lemma yields two-feature signatures for every omitted vertex; no side can omit >=3 vertices. Exhaustive by-hand case partition for omitted counts 0 through 4 proves the precise A2,A3,A4, including q=p+1 cross-side obstruction and p=q crown gap. Independent BFS subset enumeration of 31936 cases across 46 parameter trials agrees. Finite checks support but are not the proof. p>=3 essential.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full Gil-Pons et al. (2019), complete multipartite and small cycle results.",
+        "Full Klavžar–Kuziak–Yero (2022/23), Theorem 2.1 regular diameter-at-most-two criterion and further graph families.",
+        "Araujo-Pardo et al. (2026), sections on circulants and bounds; no implication to matching-deleted bipartite polynomial."
+      ],
+      "reasoning": "Complete multipartite general theorems require the undeleted edge relation; for t>0, diameter becomes 3 and cross-pair exceptional signature is present. A general diameter bound or exact values for C6 cannot determine all coefficients of this t-dependent family.",
+      "searches": [
+        "complete polynomial of outer multiset resolving sets for graph obtained by removing t independent edges from complete bipartite graph",
+        "crown graph outer multiset landmark basis missing matching distance signatures graph",
+        "outer multiset resolving polynomial sensitivity to edge deletion bipartite graphs and nonmonotone code sets",
+        "web: \"outer multiset dimension\" \"matching\" \"bipartite\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1902.03017",
+      "doi:10.1007/s00025-022-01829-8",
+      "doi:10.1007/s40590-026-00973-3",
+      "published-finding corpus:2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd",
+      "published-finding corpus:2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior undeleted complete-multipartite theorem is recovered by setting t=0, which loses distance-three entries entirely.",
+        "The 2022/23 theorem resolves the order-minus-one threshold for regular diameter≤2: crown graphs have diameter 3, so that theorem does not determine the crown polynomial.",
+        "C6 value from 2019 paper covers n=3 minimum only, not n>3 family or all coefficients."
+      ],
+      "reasoning": "A theorem for K_{p,q}, a single small crown instance, or global bounds cannot imply the stated t>=1 polynomial and its sharp balance-dependent support gap without an additional graph-specific structural argument. Under the derived signature lemma, these are genuinely extra cases; no stronger relevant original result was found in the read sources.",
+      "searches": [
+        "outer multiset dimension complete bipartite graphs with a matching removed crown K_{n,n}-M_t resolving polynomial nonmonotone",
+        "complete polynomial of outer multiset resolving sets for graph obtained by removing t independent edges from complete bipartite graph",
+        "outer multiset resolving polynomial sensitivity to edge deletion bipartite graphs and nonmonotone code sets",
+        "web: outer multiset dimension complete multipartite graph resolved sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Definition is outer multiset resolving (all omitted vertices have pairwise distinct multisets of distances to landmarks), unlike ordinary metric, local outer multiset or edge metric dimension.",
+        "Gil-Pons et al., arxiv:1902.03017, sections introducing outer multiset dimension and known C6 case."
+      ],
+      "reasoning": "Queries used crown graph, matching-deleted complete bipartite graph, landmark bases and nonmonotone polynomial synonyms. Ordinary resolving sets distinguish distance vectors rather than multisets; local variants compare only adjacent omitted pairs; these are not equivalent. The familiar K_{n,n} part-size argument does not cover distance-three deleted partners.",
+      "searches": [
+        "outer multiset dimension complete bipartite graphs with a matching removed crown K_{n,n}-M_t resolving polynomial nonmonotone",
+        "outer multiset resolving sets crown graph K_{n,n} minus perfect matching exact number bases",
+        "outer multiset dimension partial matching deletion bipartite graph polynomial largest nonresolving"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published finding on complete multipartite outer multiset dimension, identifier 2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd, gives undeleted family and count of bases.",
+        "published-finding corpus 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8 gives edge metric bases, not outer multiset bases.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb studies non-CIS pairs, not landmarks."
+      ],
+      "reasoning": "Searches for the precise 2n(n-1) crown optimum, missing 2n-2 layer, full polynomial and near-bipartite t parameter did not return an exact covering table. The database is nonexhaustive; failed searches are not proofs of originality.",
+      "searches": [
+        "outer multiset resolving sets crown graph K_{n,n} minus perfect matching exact number bases",
+        "crown graph outer multiset landmark basis missing matching distance signatures graph",
+        "outer multiset resolving polynomial sensitivity to edge deletion bipartite graphs and nonmonotone code sets"
+      ]
+    },
+    "rationale": "Primary literature read establishes only the t=0 complete-multipartite boundary, selected cycle cases and general bounds; published-finding corpus records on matching-deleted bipartite graphs concern other graph properties. The new full polynomial and missing cardinality layer for t>=1 are not a corollary of these claims. Priority remains defeasible because search coverage is incomplete.",
+    "residual_risks": [
+      "An unpublished or unindexed article might have considered the same matching-deleted family using an alias.",
+      "A 2026 survey or conference manuscript on outer multiset dimension was identified but its full text was not accessible; no snippets asserting specific coverage were found.",
+      "No independent literature-priority audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces invariant and supplies baselines but not matching-deleted polynomial",
+        "evidence": [
+          "arxiv:1902.03017, publicly posted 2019-02-08; PDF sections on outer multiset dimension"
+        ],
+        "identifier_or_url": "arxiv:1902.03017",
+        "material_read": "PDF introductory definitions, exact outer-multiset examples and the relevant complete-multipartite discussion, including page images",
+        "method": "Read lawful open preprint text and a page screenshot",
+        "title": "Distance-based vertex identification in graphs: the outer multiset dimension",
+        "trigger": "Foundational definition and C6/complete multipartite special cases"
+      },
+      {
+        "assessment": "Characterizes maximal outer multiset dimension via regular diameter <=2; deleted matching case has distance-three pairs; no equivalent complete enumerator",
+        "evidence": [
+          "doi:10.1007/s00025-022-01829-8, theorem 2.1 and subsequent family sections"
+        ],
+        "identifier_or_url": "doi:10.1007/s00025-022-01829-8",
+        "material_read": "Lawful full OA PDF (15 pages), theorem 2.1, graph family results and conclusions",
+        "method": "Read full-text extracted material and screenshot PDF page 2",
+        "title": "Further Contributions on the Outer Multiset Dimension of Graphs",
+        "trigger": "Potential diameter-based coverage of dense bipartite graphs"
+      },
+      {
+        "assessment": "No matching-deleted complete bipartite enumerator or dominating general theorem",
+        "evidence": [
+          "doi:10.1007/s40590-026-00973-3, published 2026-10-17"
+        ],
+        "identifier_or_url": "doi:10.1007/s40590-026-00973-3",
+        "material_read": "Accessible full HTML article, main claims on circulant graphs and diameter bounds",
+        "method": "Read full HTML sections and results",
+        "title": "On the outer multiset dimensions of graphs",
+        "trigger": "Recent same-invariant primary research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d4835c7-fd7c-4bd8-9cd2-d7beb3ded547",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact infinite-family enumeration for dense bipartite graphs under matching deletion, not obtainable by substituting the undeleted case. The balancing transition of maximum omittable landmarks and missing full cardinality layer for balanced crown graphs constitute nontrivial structural counterexamples to upward closure and give complete extremal counts.",
+    "status": "PASS"
+  }
+}
