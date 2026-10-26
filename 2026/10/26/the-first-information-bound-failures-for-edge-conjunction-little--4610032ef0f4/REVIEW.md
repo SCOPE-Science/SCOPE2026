@@ -1,0 +1,9 @@
+# Review of the seven-vertex edge-conjunction cutoff
+
+Correctness — PASS. The displayed minimax recurrence is an exact induction on strict version-space masks. The standalone C++17 program exhausts all 2,097,151 nonempty labeled graphs on seven vertices, and its recorded output identifies exactly 147 failures, all with sixteen edges and dimension three. A separate Python construction proves that the two exhibited isomorphism types supply exactly 42 and 105 disjoint labeled masks, none admitting a root split of eight versus eight; their union equals the exhaustive exception set. The result is finite and depends on correct execution of the included source; no unrestricted-graph conclusion is claimed.
+
+Originality — PASS, with residual historical priority risk. The inspected closure-bounds preprint and full published text establish general statements about dimensions under Boolean aggregation, not the exact edge-conjunction obstruction. Related vertex-induced-edge ranges address primal VC shattering rather than the dual Littlestone problem; this distinction is material. Searches for the precise 16-edge cutoff, the two graph shapes, monotone two-variable conjunctions, and adaptive containment tests did not identify dominating statements. Uninspected historical online-learning literature could still contain an equivalent finite classification.
+
+Value — PASS. This establishes the first graph order where the hypothesis-cardinality information bound stops determining optimal realizable online mistake complexity, and gives a complete sharp classification at that order. The two obstructions are structurally simple but nonisomorphic, and the 147-mask census makes the boundary reproducible. This is a natural finite learning-theoretic cutoff, not an arbitrary graph sample or a claim to a general theorem.
+
+Self-review: passed. Independent audit: not yet performed.
