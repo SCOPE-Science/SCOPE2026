@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The Pearson divergence is explicitly oriented and normalized, and the generalized family is identified from \((f')^{-1}\) at the uniform reference. Cauchy--Schwarz proves the oracle projection uniquely; exact rational identities give the full divergence, the sharp moment-dependent ratio, and the excess loss. Convexity in the unknown outer mass reduces the robust game to two endpoint branches. Strict monotonicity on either side of their crossing proves a unique minimax rule. The explicit fixed-outer-mass path makes the global quasi-projection constant vanish without any positivity violation. The bundled exact-rational checker passed 3,651 sampled instances and supports, but does not substitute for, the algebraic proof.
+
+**Originality — PASS, with residual literature risk.** Bec, Le Corre and Garivier, arXiv:2610.21872v1, Sections 2.3 and 5–6, prove KL-only exact projection and display finite Pearson failures. Their conclusion leaves the weaker multiplicative quasi-projection question open. The precise Pearson factor, its zero infimum, and the distinct unique minimax moment-only rule are not implied by simply knowing that exact moment projection sometimes fails. Nielsen and Nock, arXiv:1309.3029v2, compute parametric chi-square distances rather than this minimax reconstruction problem. Similar elementary ternary identities might remain implicit in less directly indexed sources.
+
+**Mathematical value — PASS.** The negative result sharply settles the proposed universal multiplicative relaxation for one canonical non-KL divergence at the smallest nontrivial alphabet, while the positive minimax characterization supplies an optimal robust substitute using exactly the available information. Both exact constants, equality, nonattainment, and boundary behavior are relevant to rigorous error comparisons in moment-based distribution reconstruction.
+
+The scope is restricted to Pearson divergence, a uniform ternary reference, and a single known moment. The minimax criterion is additive oracle excess risk, not divergence to the unknown full distribution. A small sample of numerical checks does not certify all real parameters.
+
+Self-review: passed. Independent audit: not yet performed.
