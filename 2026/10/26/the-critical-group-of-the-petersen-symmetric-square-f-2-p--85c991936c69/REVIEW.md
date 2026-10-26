@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The ten Kneser vertices, 45 two-token states, and 120 legal transitions are fully specified. The verifier reconstructs the integer 45-by-45 Laplacian, checks connectedness, and computes an exact 44-by-44 reduced determinant by fraction-free elimination. The independently computed Laplacian characteristic polynomial has the requisite linear coefficient equal to 45 times that determinant. A modular Smith reduction at every prime dividing the determinant supplies all 44 local invariant valuations, and the resulting factors form a divisor chain with the prescribed product. The proof states the pivot divisibility argument needed to interpret this as the exact integral cokernel. Risks: a software error shared by calculations could affect the finite result, but the determinant, trace and modular operations are separate exact checks. There is no claim of an infinite family classification.
+
+## Originality — PASS
+The closest known results concern the adjacency-spectral symmetric square of a strongly regular graph (Audenaert et al.), general token-graph geometry (Fabila-Monroy et al.), rook graph critical groups (Ducey et al. 2015), the critical group of the ten-vertex base Kneser graph (Ducey et al. 2017), and general token-graph Laplacian spectral inclusion (Dalfó et al. 2020). The input graphs or invariants differ. None of the relevant inspected results gives the integral cokernel of the 45-vertex symmetric square, and its prime-power Smith data do not follow merely from the base graph's critical group or the token graph's characteristic polynomial. Exact-name, numerical and alias searches found no covering statement. Remaining risk: older computational files not indexed by the searched sources could contain the group.
+
+## Value — PASS
+The Petersen graph is a canonical small strongly regular graph; its symmetric square is the first natural interacting two-particle configuration graph at this complexity and is nonregular. The complete invariant-factor decomposition gives the structure, not merely the order, of its recurrent sandpile states, exhibiting torsion at five primes and a highly nontrivial divisibility chain. This finite arithmetic benchmark is useful for testing how symmetric-square operations transform critical groups and for evaluating candidate integral representation-theoretic descriptions. It is not asserted to solve a general problem.
+
+Self-review: passed. Independent audit: not yet performed.

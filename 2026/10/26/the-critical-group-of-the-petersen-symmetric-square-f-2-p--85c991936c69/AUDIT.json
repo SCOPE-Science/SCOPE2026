@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The finite object is fully defined by two-subsets and disjointness. Its 45-by-45 Laplacian is exhaustively reconstructed. Exact Bareiss determinant and Newton-identity characteristic polynomial independently agree through the matrix-tree theorem. Local modular row/column Smith eliminations at all five determinant primes yield all 44 elementary valuations, whose assembled invariant factors are a divisor chain with product equal to the determinant; standalone verify.py replays each step. Risk: ordinary implementation error, mitigated by algebraically distinct determinant and trace checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Audenaert et al. arXiv:math/0507251: Sections 1 and 4 study symmetric squares and adjacency-spectral behavior of strongly regular graphs, not integral cokernels.",
+        "Dalfó et al. arXiv:2012.00808: abstract, Sections 3/6/7 establish token Laplacian-spectral relationships, not Smith factors.",
+        "Ducey, Hill and Sin arXiv:1707.09115: introduction and Sections 3/4 compute critical group of KG(n,2) itself (10 vertices for n=5), not F2(KG(5,2)) (45 vertices).",
+        "Ducey, Gerhard and Watson arXiv:1507.06583: Theorem 1.1 computes square rook graph and complement, which are not the Petersen symmetric square."
+      ],
+      "reasoning": "The closest general theorems give structural, spectral, or different-graph results. They do not determine the integral Smith factor chain for the specified 44-by-44 reduced Laplacian. Even knowledge of eigenvalues and determinant gives only its critical-group order, not its isomorphism type.",
+      "searches": [
+        "Audenaert Godsil Royle Rudolph Symmetric Squares of Graphs 2006 arxiv",
+        "On the Laplacian spectra of token graphs arxiv 2012.00808",
+        "Ducey Hill Sin critical group Kneser 2-subsets 1707.09115",
+        "The Smith and Critical Groups of the Square Rook graph 1507.06583"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0507251",
+      "https://arxiv.org/abs/0910.4774",
+      "https://arxiv.org/abs/1507.06583",
+      "https://arxiv.org/abs/1707.09115",
+      "https://arxiv.org/abs/2012.00808",
+      "https://arxiv.org/abs/1409.0170"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The base KG(n,2) critical-group formula arXiv:1707.09115 applies to vertices that are 2-subsets of an n-set with disjointness adjacency; here the vertices are 2-subsets of the ten vertices of KG(5,2), with one-edge token motion adjacency.",
+        "The original symmetric-square paper arXiv:math/0507251 discusses adjacency spectra, which do not encode integral Smith factors.",
+        "The token-graph Laplacian paper arXiv:2012.00808 gives eigenvalue inclusion and related spectral assertions, not a complete modular Smith decomposition."
+      ],
+      "reasoning": "A base-graph group and a token-graph group are not the same functorial value, and the spectrum or spanning-tree count is insufficient to derive a finite abelian group decomposition. The new 2-, 3-, 5-, 7- and 19-primary valuation multiplicities require integral matrix information absent from the compared statements.",
+      "searches": [
+        "graph critical group of symmetric powers (Audenaert Godsil Royle Rudolph) and Kneser KG(5,2)",
+        "spanning trees of the symmetric square token graph Petersen graph sandpile invariant factors",
+        "critical group token graph F_2(KG(5,2)) symmetric square of Petersen"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Audenaert et al., arXiv:math/0507251, Section 1 defines the symmetric square by changing one vertex of a 2-subset along an edge; Fabila-Monroy et al., arXiv:0910.4774, Section 1 defines the equivalent two-token graph.",
+        "Full-text text searches within Dalfó et al., arXiv:2012.00808, for Petersen, Smith and spanning did not identify a critical-group table; its explicit focus is the Laplacian spectrum."
+      ],
+      "reasoning": "The same 45-state graph can be called the symmetric square, the two-token graph, the hard-core two-particle state graph, or the two-particle exclusion configuration graph. The search covered these aliases. The claim is its integral critical group, not a token-graph diameter, a configuration-space homology group, or the base Petersen critical group.",
+      "searches": [
+        "Smith normal form Laplacian sandpile critical group 2-token graph Petersen graph 45 vertices 120 edges",
+        "Symmetric square of Petersen graph 45 vertices 120 edges critical group smith normal form Laplacian characteristic polynomial",
+        "\"sandpile group\" \"two token graph\"",
+        "\"critical group\" \"symmetric square\" graphs Petersen"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical table for this graph was identified by the actual numerical, Petersen, symmetric-square and two-token searches.",
+        "The closest ranked public mathematical research item was a two-particle Petersen configuration-space homology result (a different homology functor and complex) rather than an electrical critical group."
+      ],
+      "reasoning": "The characteristic-polynomial and prime-power invariant factors were searched as both mathematical objects and distinctive numbers. A negative result does not establish uniqueness; sources might be unindexed or use alternate encodings.",
+      "searches": [
+        "\"49253533675382566432014336000\" token graph",
+        "\"191520\" \"38304\" Petersen sandpile critical group",
+        "\"two-token\" Petersen \"critical group\"",
+        "the exact spanning tree number 49253533675382566432014336000 of two-token Petersen configuration graph",
+        "full invariant-factor decomposition sandpile group of the 45-state two-token exclusion graph F2(Petersen) with factors 2 4 28 1596 38304 191520"
+      ]
+    },
+    "rationale": "Relevant token/symmetric-square papers establish the construction, adjacency and Laplacian spectra, while critical-group papers concern the original Kneser graph or rook graphs. None of the inspected relevant sections and exact-source searches supplies the 45-state integral cokernel. New evidence is an exact 44-factor Smith profile, finer than spectrum and tree count. Residual risk is unindexed prior computation.",
+    "residual_risks": [
+      "An earlier computation in an unindexed data file, appendix or unpublished work could give the same factors.",
+      "The finite result admits a computational proof rather than a closed representation-theoretic derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact graph construction and adjacency-spectral properties, not an integral Smith decomposition for F2(P).",
+        "evidence": [
+          "arXiv:math/0507251 Section 1 describes X{2} and adjacency spectra; Section 4 constructs as quotient of a Cartesian product with diagonal deleted."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0507251",
+        "material_read": "Title/abstract, introduction and the structural construction in Sections 3-5, with full-text scope search.",
+        "method": "Inspected primary arXiv PDF, first pages and constructing-symmetric-square section, including rendered page images.",
+        "title": "Symmetric Squares of Graphs",
+        "trigger": "Exact same symmetric-square object and strongly regular graph class."
+      },
+      {
+        "assessment": "Gives reconfiguration model and connectivity and graph-theoretic properties, not critical-group factors.",
+        "evidence": [
+          "arXiv:0910.4774 Sections 1-2 define F_k(G) using symmetric-difference adjacency and describe diameter, connectivity and clique results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.4774",
+        "material_read": "Primary PDF introduction, definitions, list of main results and Section 2.",
+        "method": "Inspected text and rendered PDF page 2.",
+        "title": "Token Graphs",
+        "trigger": "Alias and original move definition."
+      },
+      {
+        "assessment": "Different graph families, with no Petersen two-token formula.",
+        "evidence": [
+          "arXiv:1507.06583 Theorem 1.1 gives Smith and critical groups of R_n and its complement."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.06583",
+        "material_read": "Primary PDF first two pages including Theorem 1.1 and scope of critical groups of rook graphs.",
+        "method": "Opened full text, inspected theorem and rendered page 2.",
+        "title": "The Smith and Critical Groups of the Square Rook’s Graph and its Complement",
+        "trigger": "Closest graph critical-group calculation and integral invariant-factor methodology."
+      },
+      {
+        "assessment": "Computes KG(n,2), not the symmetric-square F2(KG(5,2)); cannot imply the 45-state group.",
+        "evidence": [
+          "arXiv:1707.09115 Introduction and Section 4 identify the ten-vertex n=5 base Kneser graph as the theorem target."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1707.09115",
+        "material_read": "Primary PDF introduction, formal definitions, and resulting decomposition in Section 4.",
+        "method": "Inspected text and rendered title page.",
+        "title": "The Critical Group of the Kneser Graph on 2-Subsets of an n-Element Set",
+        "trigger": "Critical group of the base Petersen graph as KG(5,2)."
+      },
+      {
+        "assessment": "Focuses on eigenvalues, spectral inclusion and related identities; does not give the present integral Smith factors.",
+        "evidence": [
+          "arXiv:2012.00808 Sections 3, 6 and 7: Laplacian-spectral inclusion and algebraic connectivity; no reported Petersen Smith formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.00808",
+        "material_read": "Abstract, introduction, sections on binomial matrices, relationships and concluding algebraic connectivity, with full-text text search for Petersen and Smith terminology.",
+        "method": "Inspected primary PDF text and screenshot of page 1.",
+        "title": "On the Laplacian Spectra of Token Graphs",
+        "trigger": "Strongest direct general Laplacian structural results for token graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85c99193-6c69-41c6-91bc-868c7680c0be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This computes a natural complete integral invariant of a canonical nonregular 45-vertex two-particle configuration graph, beyond known spectra and chip-firing group orders. It determines all prime-primary torsion and the exact 49,253,533,675,382,566,432,014,336,000 recurrent-state count, supporting candidate structural arithmetic formulas for symmetric powers. The full invariant-factor list is not forced by a known base-graph group or spectral theorem. No infinite-family claim is made.",
+    "status": "PASS"
+  }
+}
