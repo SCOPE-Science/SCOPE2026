@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The substitution identities force distinct starting parities to give different factors at length at least four; same-parity factors are injective encodings of source factors of lengths \\(m\\) or \\(m+1\\). These establish \\(I(n)=2I(\\lfloor n/2\\rfloor)\\), with exact lifting of the unique previous collision position. The three base cases then imply the claimed all-length formula. Independently generated prefixes and literal first-collision checks agree for \\(1\\le n\\le1024\\); finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit slides 37–39 characterize lengths for which some window contains all factors once, without an initial starting index restriction.",
+        "A366462 gives the longest window having distinct length-n factors at any position.",
+        "Nicholson–Rampersad provide broad definitions and general linear bounds, while their explicit evaluations concern other words."
+      ],
+      "reasoning": "Grouped-factor existence and maximal non-repetitive complexity anywhere do not determine the first collision of the prefix in general. The general bounds in the original paper do not specialize to the sharp two-plateau formula.",
+      "searches": [
+        "\"period doubling\" \"grouped factors\" 2^n",
+        "Shallit:Decidability-and-Enumeration-in-Automatic-Sequences:slides-37-39",
+        "OEIS:A366462",
+        "arXiv:1507.08206"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.08206v1 (and available full v3 PDF)",
+      "OEIS:A366462",
+      "OEIS:A367184",
+      "OEIS:A096268",
+      "Shallit:Decidability-and-Enumeration-in-Automatic-Sequences slides 37–39",
+      "Published mathematical record:2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+      "Published mathematical record:2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+      "Published mathematical record:2026/9/8/SCOPE079"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published mathematical record 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 studies an attractor set, not first collisions.",
+        "Published mathematical record 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 concerns a finite group extension of the period-doubling subshift, not first-occurrence complexity.",
+        "Published mathematical record 2026/9/8/SCOPE079 analyzes minimal string attractors for Rudin–Shapiro and paperfolding prefixes, not initial factor repetition for period doubling.",
+        "The 2015 work computes initial nonrepetitive complexity only for three other named sequences, not period doubling."
+      ],
+      "reasoning": "The closest database hits share the substitution, finite-word scanning, or broader symbolic-complexity context, but do not entail the all-n initial repetition index. The OEIS tables directly cover the dyadic slice; the new claim is strictly stronger for the anchored invariant and includes exact earlier collision starts.",
+      "searches": [
+        "Published-record search: Exact initial nonrepetitive complexity of period doubling fixed point",
+        "Published-record search: Period-doubling word factor first collision positions",
+        "Published-record search: Period-doubling inrc(n)=2 inrc(floor(n/2)) recurrence",
+        "arXiv:1507.08206",
+        "OEIS:A366462",
+        "OEIS:A367184"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson–Rampersad arXiv:1507.08206 pp.1–2 defines initial non-repetitive complexity by the first repeated length-n factor; pp.8–11 analyzes three other substitutions.",
+        "The full-text term search found no period-doubling treatment in arXiv:1507.08206.",
+        "OEIS A367184 measures the first starting position of a *maximal unique-factor window*, not the first repeated prefix factor."
+      ],
+      "reasoning": "The equivalent first-collision, first repeated factor and initial non-repetitive complexity phrasings were searched. None of the identified works supplies the all-positive-length origin-anchored formula with the unique earlier start; the maximal-anywhere window invariant is different.",
+      "searches": [
+        "Exact initial nonrepetitive complexity of period doubling fixed point 0→01, 1→00; first repeated length-n substring is at 3*2^(k-1) or 2^(k+1) according to leading binary digits",
+        "Period-doubling word factor first collision positions prefix 2^k 3*2^(k-1) and initial non-repetitive complexity",
+        "Grouped factors period doubling 2^j or binary prefix 11; exact initial window uniqueness, initial non-repetitive complexity",
+        "Period-doubling inrc(n)=2 inrc(floor(n/2)) recurrence",
+        "arXiv:1507.08206 full-text search for \"period-doubling\" and \"period doubling\"",
+        "OEIS:A367184"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A367184 specifically states that at powers of two, the longest unique-factor windows begin at index zero.",
+        "A366462 lists unrestricted maximal unique-factor window lengths, with data to length 8192 linked; it is not an all-length initial complexity sequence.",
+        "At \\(n=3\\), A367184 starts its maximal window at position 1, whereas the initial first collision is position 4, illustrating the difference of invariants."
+      ],
+      "reasoning": "Dyadic lengths are partially covered by combining A366462 and A367184. The asserted all-n first repeated positions and their earlier matches are not entries or consequences of the tables without new origin-anchored analysis; numerical finite values by themselves would not prove the general rule.",
+      "searches": [
+        "OEIS:A096268",
+        "OEIS:A366462",
+        "OEIS:A367184",
+        "\"period doubling\" \"first repeated\" \"factor\""
+      ]
+    },
+    "rationale": "An all-length initial non-repetitive complexity computation for period doubling and exact prior-collision locations were not found in the inspected primary literature, checked OEIS entries, or the targeted research-record searches. The prior OEIS maximal-window tables partly imply the dyadic slice and are explicitly acknowledged; they are not the origin-anchored invariant. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "The dyadic subfamily was already inferable from a pair of OEIS entries; originality applies to the complete origin-anchored formula and exact first-collision antecedents.",
+      "The Shallit slides give a stronger-looking but fundamentally existential window property; a hidden relation not identified here may merit independent comparison.",
+      "An unindexed paper or unpublished automaton output might cover the all-length result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the invariant and method, but not the period-doubling specialization",
+        "evidence": "Abstract lists exactly Thue–Morse, Fibonacci, Tribonacci; theorem 6 treats Thue–Morse, theorem 10 Fibonacci; find searches for period-doubling yielded no matches.",
+        "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+        "material_read": "Full PDF available; title, abstract, definition pp.1–2, general theorem pp.4–5, Thue–Morse computation pp.8–9, Fibonacci and Tribonacci sections; searchable text scanned for period-doubling aliases.",
+        "method": "Open-access PDF full text with page inspection and within-PDF term searches",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Primary introduction and explicit evaluations of the target invariant"
+      },
+      {
+        "assessment": "Different maximal-anywhere invariant; partially overlaps at special lengths through accompanying A367184",
+        "evidence": "Definition explicitly maximizes the unique-factor window over all starts.",
+        "identifier_or_url": "https://oeis.org/A366462",
+        "material_read": "Complete HTML entry: definition, terms, example, links, and Walnut predicates.",
+        "method": "Read complete entry including code predicate meaning",
+        "title": "A366462: longest unique-factor window in the period-doubling sequence",
+        "trigger": "Potential covering maximal-repeat database table for exactly the same word"
+      },
+      {
+        "assessment": "Directly verifies a dyadic overlap but not the first collision for arbitrary fixed-origin factors",
+        "evidence": "States \\(a(2^m)=0\\) and \\(n=3\\) earliest maximal window starts at 1.",
+        "identifier_or_url": "https://oeis.org/A367184",
+        "material_read": "Complete HTML entry including table, comments and Walnut predicates.",
+        "method": "Read complete entry",
+        "title": "A367184: first start of a longest unique-factor window",
+        "trigger": "Possible exact first-location statement with overlap"
+      },
+      {
+        "assessment": "Existential complete-factor windows, not anchored first-collision indices",
+        "evidence": "Slides 37 and 39 define grouped-factor windows and give qualifying period-doubling lengths.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/~shallit/Talks/csr.pdf",
+        "material_read": "Title slide and slides 37–39, both PDF text and rendered page images.",
+        "method": "PDF text and visual page inspection",
+        "title": "Decidability and Enumeration in Automatic Sequences",
+        "trigger": "Grouped-factor property could dominate first-occurrence uniqueness"
+      },
+      {
+        "assessment": "Confirms source word, not a first-repeat formula",
+        "evidence": "Defines fixed point 0→01,1→00 and lists arithmetic valuation description.",
+        "identifier_or_url": "https://oeis.org/A096268",
+        "material_read": "Definition, recurrence, leading terms and related primary bibliography.",
+        "method": "Read HTML entry",
+        "title": "A096268: period-doubling sequence",
+        "trigger": "Confirm exact substitution and normalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "948f6e2e-1e0e-46b5-a187-610df595a455",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Initial non-repetitive complexity is a natural established invariant for identifying how long a sequence supplies fresh local information. The finding closes a missing classical substitution example at all positive lengths, gives exact collisions not merely bounds, and proves a sharp two-regime dyadic law with normalized lower and upper accumulation values. This is a motivated complete classification rather than a finite or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
