@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The binomial response cutoffs and exact drift factorizations match the source model. For every payoff u>1 and max observation count <=4, h is concave with h(1)>0 unless all learners sample 1, ruling out two-sided stable zeros; for u>=3 h>0. For 1<u<3/2, the exact 2/5 cubic produces two simple roots precisely for 1/2<alpha<7sqrt(7)/(18+7sqrt(7)), with the prescribed stability signs, basins and a semistable fold at equality. Critical polynomial identities and rational signs were replayed with standard-library exact fractions in check_sampling.py; finite checks are explicitly not taken as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arigapudi–Heller–Schreiber Theorem 2: for appropriate heterogeneous distributions using substantially increased sample sizes, stable miscoordination exists; no first attainable finite budget or exact two-vs-five threshold is specified.",
+        "Oyama–Sandholm–Tercieux (2015) derive sufficient selection conditions and sample-size effects, not this sharp nonexistence/existence boundary."
+      ],
+      "reasoning": "The published theorem gives a qualitative existence class, not an upper bound five or universal lower bound four. The established dominance criteria for global selection do not determine the sign changes of the mixed five-draw cubic at the specified payoff ratios. Classical one-dimensional polynomial stability tools are methods, not prior covering statements.",
+      "searches": [
+        "sampling best response dynamics mixed equilibrium coexistence bimodal sample sizes 2 and 5 exact saddle node proportion square root seven",
+        "doi:10.3982/TE1405 Sections 3.2–3.3",
+        "arxiv:2305.10301v2 Theorems 1 and 2, Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.10301v2 (full text and appendix); v1 date verified arxiv:2305.10301",
+      "doi:10.3982/TE1405 (full PDF sections 3.2–3.3)",
+      "Izquierdo & Izquierdo author manuscript (abstract/introduction/Section 3.6)",
+      "Sawa & Wu, Statistical Inference in Evolutionary Dynamics, Games and Economic Behavior 137 (2023), DOI:10.1016/j.geb.2022.11.008 (abstract only)",
+      "Published finding comparisons: \"Exact centering in the smallest nontrivial balanced binomial top-selection case\"; \"Sample size two is the exact boundary for three-point uniform-probability extremality\"; \"A quadratic pairwise game where assortativity creates an evolutionary branching point\"."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of the source rules out stable mixed states when all learners use the same sample size, while its Theorem 2 constructs heterogeneous examples with sufficiently large observations.",
+        "The source mentions five-draw learners in a two-population asymmetric example (Section 3.5), not the symmetric one-population 2-versus-5 model.",
+        "The published quadratic-assortativity branching finding studies a different evolutionary invasion model; it contains no binomial sampling mixture cutoff."
+      ],
+      "reasoning": "A theorem about homogeneous agents is logically weaker than impossibility under every heterogeneous 1–4 mixture. An unspecified-large-sample existence theorem is not an exact minimum of five, and a two-population five-draw example cannot establish the single-population cutoff or its exact fold. Distinct pure-equilibrium stability criteria do not classify interior attractors.",
+      "searches": [
+        "Heterogeneous Noise and Stable Miscoordination Arigapudi Heller Schreiber sampling best response coordination games five sample cutoff sample sizes 2 5",
+        "arxiv:2305.10301v2 Theorem 1, Theorem 2, Section 3.5, Appendix A",
+        "Izquierdo Izquierdo Statistical Inference in Games Stability of Pure Equilibria Section 3.6",
+        "\"A quadratic pairwise game where assortativity creates an evolutionary branching point\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2305.10301v2, Sections 2.2, 2.4–2.5 and Appendix A: response is a binomial tail and prior conclusions concern homogeneous instability or existence under sufficiently large heterogeneous samples.",
+        "Exact new identity H_alpha(p)=2alpha-1-(1-alpha)(6p^3-9p^2+p), with critical fold alpha=7sqrt(7)/(18+7sqrt(7))."
+      ],
+      "reasoning": "The comparison uses the same transition map, not merely matching game labels. Neither a homogeneity theorem nor existence with unspecified large samples implies a uniform four-sample impossibility or an exact five-sample fold. Algebraically equivalent binomial-mixture folds could exist in literature under different terminology; this remains a risk.",
+      "searches": [
+        "sampling best response coordination one population heterogeneous draws five versus two stationary equilibrium saddle-node",
+        "Arigapudi Heller Schreiber stable miscoordination smallest sample cardinality heterogeneous sampling dynamics",
+        "\"Heterogeneous Noise and Stable Miscoordination\" sample size five saddle node",
+        "arxiv:2305.10301v2 Sections 2.2,2.4,2.5,Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding titled \"Exact centering in the smallest nontrivial balanced binomial top-selection case\" optimizes binomial top-selection over four Bernoulli populations, not a coordination best-response drift.",
+        "The finding \"Sample size two is the exact boundary for three-point uniform-probability extremality\" concerns correlations of discrete extreme order statistics, not interior-stationary-state stability.",
+        "Exact 2/5 response-polynomial and radical threshold follow algebraically from the cited primary model."
+      ],
+      "reasoning": "No identified exact table/database contains the asserted classification. The keyword-similar records concern structurally different probability optimization problems and do not imply the sharp bound. Database nonretrieval does not itself prove novelty.",
+      "searches": [
+        "coordination payoff u one-point-two two-draw five-draw binomial response attracting interior stationary state",
+        "smallest maximum sample size stable miscoordination sampling dynamics symmetric coordination game binomial",
+        "\"Exact centering in the smallest nontrivial balanced binomial top-selection case\"",
+        "\"Sample size two is the exact boundary for three-point uniform-probability extremality\""
+      ]
+    },
+    "rationale": "Full primary model paper and its formal appendix, prior sampling-selection literature, and published-mathematics alias/parameter/equivalence searches do not imply the sharp maximum size 5 or exact two/five fold. The source proves homogeneous instability and large-sample heterogeneous existence and gives a distinct two-population five-draw example. Available finding histories were searched by claims for sample response, sharp budget, and fold, with no matching prior claim. Abstractly equivalent hidden literature remains a specified residual risk; novelty is not certified by a failed search.",
+    "residual_risks": [
+      "An older paper may hide an equivalent sharp bounded-cardinality statement in a different parameterization or via mixture-of-binomial tails; independent exhaustive scholarly validation has not been performed.",
+      "Sawa & Wu (2023) was accessed only at abstract level, not used as evidence for absence of a covering result; its possible relevance is low but uneliminated.",
+      "The fixed favorable tie-breaking rule matters on parameter thresholds; conclusions outside the specified u ranges are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces model and qualitative existence but no exact single-population maximum-budget-five result or universal four-sample exclusion",
+        "evidence": [
+          "Section 2.2 equation (2.2) supplies w(p); Theorem 1 homogeneous instability; Theorem 2 sufficient-large heterogeneity; Section 3.5 five-observation example for a different two-population game."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.10301v2",
+        "material_read": "Full primary HTML, baseline and binomial sampling equations, main Theorems 1–4, two-population example and formal proof appendix, plus related-literature and online-appendix sections",
+        "method": "Direct reading and statement-by-statement implication check against finite bound and cubic fold",
+        "title": "Heterogeneous Noise and Stable Miscoordination",
+        "trigger": "Source game and strongest plausible covering result"
+      },
+      {
+        "assessment": "Sufficient conditions for equilibrium selection, no exact first bounded heterogeneous sampling budget or 2-vs-5 fold",
+        "evidence": [
+          "Oyama, Sandholm, Tercieux, Theoretical Economics 10 (2015), 243–281; DOI 10.3982/TE1405."
+        ],
+        "identifier_or_url": "https://www.oyama.e.u-tokyo.ac.jp/papers/sBRD.140328.pdf",
+        "material_read": "Introduction and mathematical criteria of Sections 3.2–3.3 (PDF pages surrounding the main selection theorems)",
+        "method": "Direct PDF textual analysis and visual-page check of game and theorem statements",
+        "title": "Sampling Best Response Dynamics and Deterministic Equilibrium Selection",
+        "trigger": "Foundational potentially covering sampling-selection criteria"
+      },
+      {
+        "assessment": "Pure-equilibrium stability, no interior-attractor minimum-sample proof",
+        "evidence": [
+          "The paper examines how alternative statistical-inference rules affect pure equilibria; its conclusions do not impose the exact cubic sign test."
+        ],
+        "identifier_or_url": "https://www.segis.izqui.org/files/Izquierdo_Statistical_Inference_Stability.pdf",
+        "material_read": "Abstract, introductory framework, and discussion of heterogeneous sample sizes in Section 3.6",
+        "method": "Direct author-manuscript reading and PDF visual-page check",
+        "title": "Statistical Inference in Games: Stability of Pure Equilibria",
+        "trigger": "Potential inference-rule generalization with sample-size mixtures"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a353cdd2-6e78-474a-846e-c19b47c31cba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source establishes qualitatively that sampling heterogeneity can stabilize a mixed population without specifying the least viable observation budget. A universal small-sample impossibility combined with a constructive exact five-sample onset supplies the natural sharp minimal information requirement. Its precise fold and basin classification is a meaningful quantitative design insight not obtained from the original existence result; it is not a routine substitution or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
