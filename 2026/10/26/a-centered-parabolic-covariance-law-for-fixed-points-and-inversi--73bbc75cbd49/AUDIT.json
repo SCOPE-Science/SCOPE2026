@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any fixed position, deleting its one-cycle leaves Ewens(theta) on n-1 labels. Every non-fixed image has marginal probability 1/(theta+n-2). This yields conditional inversion mean M_{n-1}+2(i-1)(n-i)/(theta+n-2); combine with exact known M_n and Pr(fixed)=theta/(theta+n-1), then factor. All denominators positive at n>=3, theta>0. The nonstandard marked-point reduction and rational factorization were checked independently by exact Ewens-weight permutation enumeration through n=8, 5 rational parameters, and algebraic tests through n=150; the general proof is the deletion/marginal argument, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pinsky-Schickentanz Theorem 1(b) supplies known M_n(theta); its Proposition 10 supplies E[Inv|number of fixed points=m].",
+        "Özdemir treats spectral mixing of a Markov chain with Ewens increments, not marked fixed-point/inversion covariance."
+      ],
+      "reasoning": "The known scalar mean is a genuine strict ingredient and explicitly credited, not asserted new. Count-conditioning does not imply the marked-index mixed moment as a stated corollary without another specified-index deletion argument and algebra; the exact position-dependent phase law is not among the inspected statements.",
+      "searches": [
+        "arXiv:2510.20654v2 Theorem 1 and Proposition 10",
+        "arXiv:2505.02058v1 Theorems 1-2",
+        "arXiv:1811.02039v1 Theorem 1.1",
+        "Ewens random permutation covariance of a fixed position indicator with total inversion count parabolic profile critical central window square root n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2510.20654v2",
+      "https://arxiv.org/abs/2505.02058",
+      "https://arxiv.org/abs/1811.02039",
+      "https://alco.centre-mersenne.org/articles/10.5802/alco.290/",
+      "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+      "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A closest public finding gives Cov(cycle count, a single inversion indicator) for UNIFORM permutations.",
+        "Another gives fixed-point DEScent dependence under UNIFORM permutations.",
+        "Pinsky-Schickentanz provides unconditioned Ewens inversion means and fixed-count-conditioned laws, but not the marked-index conditional law."
+      ],
+      "reasoning": "Cycle count differs from a fixed-position indicator, inversions differ from descents, and uniform sampling differs from the theta-continuum. The claim is proved by adding a new marked-point conditional regression; no inspected result gives its statement or supplies an immediately indexed stronger theorem. Algebraic compatibility with prior means is acknowledged.",
+      "searches": [
+        "Ewens random permutation covariance of a fixed position indicator with total inversion count parabolic profile critical central window square root n",
+        "Ewens conditioned on the event pi(i)=i inversion expectation other labels fixed index i double crossing term",
+        "position-resolved fixed point inversion dependence Ewens theta less than one central positive region",
+        "arXiv:2510.20654v2 Theorem 1(b) and Proposition 10",
+        "published-finding corpus SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random",
+        "published-finding corpus SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both full-text papers condition on the count |Fix(pi)|=m, rather than a single specified event pi(i)=i.",
+        "A fixed-point indicator has a position index absent from the count-only conditional means."
+      ],
+      "reasoning": "A prescribed total fixed-point count does not determine a prescribed position: the former averages over random placements, while inversion counts depend on the location of a fixed index. Conjugation symmetry of Ewens laws does not preserve inversions. Neither inspected theorem states the parabola, exact zeros or sqrt(n) sign window.",
+      "searches": [
+        "Ewens conditioned on the event pi(i)=i inversion expectation other labels fixed index i double crossing term",
+        "Ewens permutation specified fixed point inversion count covariance position symmetry theta sign reversal",
+        "arXiv:2510.20654v2 Section 1.2 and Proposition 10",
+        "arXiv:2505.02058v1 Theorems 1-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant articles provide inversion means, conditional totals, or pairwise inversion probabilities rather than a table indexed by (n,theta,i) of Cov(1{pi(i)=i},Inv)."
+      ],
+      "reasoning": "No matching exact covariance table was located in these sources; this negative observation is not evidence of global uniqueness. The accompanying exact enumeration independently checks rather than sources the infinite identity.",
+      "searches": [
+        "Ewens random permutation covariance of a fixed position indicator with total inversion count parabolic profile critical central window square root n",
+        "position-resolved fixed point inversion dependence Ewens theta less than one central positive region",
+        "arXiv:2510.20654v2 Theorem 1(b) inversion expectation table",
+        "arXiv:2505.02058v1 exact fixed-count means"
+      ]
+    },
+    "rationale": "A specific-index conditional covariance is not the same as conditioning on the TOTAL fixed-point count. The closest full primary text (Pinsky-Schickentanz 2025) proves the unconditioned mean and total-count-conditional inversion probabilities, and Pinsky 2025 proves total-count-conditional means for uniform permutations. The known mean is acknowledged as a premise. Actual semantic searches of public mathematics results and a dedup comparison against accessible prior exact findings revealed only distinct cycle-count/inversion and fixed-point/descent work; no inspected stronger result entails the exact indexed sign law without the new marked-cycle deletion calculation. Earlier undiscovered statements remain a priority risk.",
+    "residual_risks": [
+      "Independently undiscovered literature may state a position-marked Ewens inversion relation under alternative terminology.",
+      "Because this proof uses a known scalar inversion mean and familiar Ewens deletion, a closely related but unlocated corollary could exist. No claim of bibliographic exhaustion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the scalar inversion mean M_n and inverse-pair probabilities plus conditioning on the total fixed-point count, but not prescribed-index indicator covariance or position-parabolic sign phases",
+        "evidence": [
+          "Theorem 1(b), equation (1.2); Proposition 10, equations (3.2)–(3.3); D_{n,m} defined as |Fix|=m"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.20654v2",
+        "material_read": "Full HTML Theorem 1, Sections 1.1 and 1.2, Section 2 mean derivation, Proposition 10 and its conditional-count framework in Section 3",
+        "method": "Read theorem statements, exact expressions and hypotheses; compared the conditioning events and free indices with the proposed mixed covariance",
+        "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+        "trigger": "Most direct paper on both inversion and fixed-point statistics in Ewens permutations"
+      },
+      {
+        "assessment": "Count-conditioned uniform permutations do not provide the theta-dependent marked-index covariance profile",
+        "evidence": [
+          "Theorems 1–2 state E[Inv | |Fix|=k], not E[Inv | pi(i)=i]"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.02058",
+        "material_read": "Full rendered primary text Sections 1–3, including Theorems 1 and 2 and the definition of D_{n,k}",
+        "method": "Compared the conditioning event |Fix|=k and its permutation-index scope with marked-index event",
+        "title": "The inversion statistic in derangements and in other permutations with a prescribed number of fixed points",
+        "trigger": "Independent predecessor on interactions of inversion and fixed points"
+      },
+      {
+        "assessment": "Different problem: one-step Ewens increment probability and random-walk mixing, no fixed-point/inversion covariance phase",
+        "evidence": [
+          "Submitted 2018-11-05 UTC; journal record DOI 10.5802/alco.290 lists MSC 60C05, 05E10; Theorem 1.1 is mixing-time bound/cutoff"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.02039",
+        "material_read": "Full OA arXiv text introduction, Markov-chain construction, spectral theorems and proof architecture; journal classification and dates cross-checked",
+        "method": "Compared random-walk spectral results with marked-inversion covariance",
+        "title": "Random walks generated by the Ewens distribution on the symmetric group",
+        "trigger": "Foundational cohort-compatible Ewens sampling source with verified primary MSC 60C05"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73bbc75c-bd49-4f95-9983-b7bb85188b6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sign of covariance with the same global statistic changes across positions within one permutation exactly when theta<1, with an explicit centered parabolic law and a sqrt(n)-scale crossing window; at theta=1 the unique central zero is explicit, and for theta>1 every position has negative covariance. This complete natural dependence classification quantifies why marking a central fixed point is different from forcing an endpoint fixed point, a motivated refinement of previously studied aggregate inversion/fixed-point dependence.",
+    "status": "PASS"
+  }
+}
