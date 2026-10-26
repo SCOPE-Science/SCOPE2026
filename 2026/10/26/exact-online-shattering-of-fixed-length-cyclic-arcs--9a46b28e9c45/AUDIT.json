@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For n>=2, 1<=k<n, complementation reduces to s=min(k,n-k)<=n/2. Exactly s positive hypotheses at any root bound complete depth by 1+floor(log2 s); two length-2^r center blocks on opposite root branches and arbitrary prefix tests supply a matching full binary tree. The VC proof establishes no triple is shattered and an adjacent pair is shattered for s>=2, with singleton/complement cases s=1. Explicit program replay, 120 all-k direct finite minimax cases, 10 larger finite minimax cases, 190 VC trace cases and 6 full-path tree certificates passed. Finite checks supplement, rather than replace, the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier four-point cyclic-translate classification gives Littlestone dimensions of supports of cardinality exactly four and implies the s=4 special case only.",
+        "Earlier exact recurrence for all intervals on a finite linear chain concerns a different hypothesis family; no subset relation to fixed-length circular translates supplies an exact value.",
+        "Earlier cycle-power open-neighborhood VC results concern open neighborhoods and variable radius, not the closed sliding-window Littlestone computation.",
+        "Malliaris–Moran establish general structural results, and Chase–Freitag–Reyzin general compression/query-learning bounds, not an exact arc-length classification."
+      ],
+      "reasoning": "The adjacent four-point special case is genuinely covered and is not claimed novel. General Ldim bounds or superset interval bounds cannot supply equality for each cyclic window length; even with n fixed, different s give different ranks. The new statement quantifies simultaneously over every n>=2 and 1<=k<n, and includes the sharp VC comparison.",
+      "searches": [
+        "Four-element cyclic-translate Littlestone classification: precise implications compared",
+        "All finite-chain intervals: statement of exact Littlestone recurrence compared",
+        "Cycle-power open-neighborhood VC dimension classification: hypotheses and conclusions compared",
+        "arxiv:2108.05569 sections 1-2; arxiv:2212.05050 sections 1-2; arxiv:2310.04812 sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.05569 first public 2021-08-12, PDF v3 examined in relevant sections",
+      "arxiv:2212.05050 first public 2022-12-09, PDF v3 examined in relevant sections",
+      "arxiv:2310.04812 first public 2023-10-07, PDF v1 examined in relevant sections",
+      "Semantic searches for cyclic arcs, Littlestone dimension and sliding windows; closest scientific results are compared in named check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The disjoint-interval family of Chase–Freitag–Reyzin has Ldim=1 because any two hypotheses are disjoint; cyclic windows of s>=2 overlap and have Ldim>=2.",
+        "The general cardinality bound Ldim<=floor(log2 n) cannot imply the dependence on shorter arc s, since n can be arbitrarily larger than s.",
+        "The previous four-point translate classification determines only s=4; for s=8 our formula gives depth four, outside its hypotheses."
+      ],
+      "reasoning": "Neither quoted general theorem nor known special case implies the complete quantitative formula. The new proof supplies both the uniform positive-branch obstruction and a two-sided explicit full binary witness; the VC upper bound is separately proved by a forced middle-point trace obstruction.",
+      "searches": [
+        "Full-text comparison arxiv:2310.04812 Section 3 disjoint intervals against overlapping translated cyclic intervals",
+        "Statement comparison: arbitrary four-point cyclic translates versus every interval length",
+        "Statement comparison: all linear-chain intervals versus fixed circular interval length",
+        "Malliaris–Moran arxiv:2212.05050 Section 2 model-theoretic 2-rank definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2108.05569 (original 2021-08-12), general Littlestone/stability and excellent-set theorems, no appearance of cyclic interval formulas in inspected text/keyword checks.",
+        "arxiv:2212.05050 (original 2022-12-09), Section 2 identifies Littlestone dimension with model-theoretic 2-rank, but the paper concerns equivalence of learning-theoretic/stability conditions.",
+        "arxiv:2310.04812 (original 2023-10-07), Section 3 discusses pairwise disjoint real intervals with dimension one, not overlapping equal cyclic translates."
+      ],
+      "reasoning": "Aliases include sliding windows, circular arcs, equal-length translates, finite cycle-power closed neighborhoods, and model-theoretic 2-rank of the cyclic membership incidence relation. In the relevant material inspected there is no exact function of n,k or a theorem that implies it. Title/keyword search alone is not treated as evidence of complete absence; unlocated prior work is a residual risk.",
+      "searches": [
+        "Littlestone dimension of circular arcs fixed length cyclic interval translate hypothesis class",
+        "finite circular interval concept class exact mistake bound Littlestone dimension VC dimension",
+        "Littlestone dimension fixed-length intervals on cycle periodic sliding windows hypothesis class",
+        "Littlestone dimension equal-length intervals VC dimension 2 circular",
+        "arxiv:2108.05569 full-text searches interval, cyclic, circle; arxiv:2212.05050 searches interval, cyclic, arc; arxiv:2310.04812 searches interval, cyclic, circular"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus search results included cyclic-interval-barriers for chainlink-polytope inradius (2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4) and cyclic-boxcar Gabor operator ranks (2026/10/11/SCOPE-exact-operator-span-rank-and-arithmetic-thresholds-for-cyclic-bo--98526b581328); neither discusses Littlestone dimension.",
+        "The available prior scientific four-point record provides a single-length special case, not an all-length table. No matching published table appeared in retrieved results."
+      ],
+      "reasoning": "No asserted table novelty is inferred merely from an unsuccessful search. No enumerated external database with the same objects and all n,k dimension values was located, and the available nearest records concern different invariants.",
+      "searches": [
+        "Littlestone dimension",
+        "cyclic interval set system VC dimension online shattering",
+        "online learning cycle intervals fixed size radius neighborhood concept Littlestone dimension",
+        "Earlier cyclic translate, interval, cycle-power range-system theorems: published statement comparisons"
+      ]
+    },
+    "rationale": "Best-knowledge priority comparison on actual published-finding corpus records, accessible earlier claims and inspected primary full text found no statement or stronger theorem implying the joint all-length cyclic-arc Ldim and VC classification. The known four-point case is acknowledged as covered. There remains an explicit unindexed-literature priority risk.",
+    "residual_risks": [
+      "Unindexed or hard-to-find literature under circular thresholds, translated arcs, sliding windows or online rank could supply an equivalent formula.",
+      "published-finding corpus semantic ranking returned many unrelated geometry/linear algebra items; it is not a definitive exhaustive priority index.",
+      "No independent mathematical referee has reviewed the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General stable/Littlestone and excellent-set properties, not exact dimensions for the parameterized cyclic-window class",
+        "evidence": [
+          "arxiv:2108.05569 introductory theorem descriptions pp.1-2",
+          "PDF indexed text has no occurrence of interval or cyclic"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.05569",
+        "material_read": "PDF pages 1-3 including abstract, introduction, listed main theorem locations; PDF text searches for interval, cyclic and circle",
+        "method": "Opened original public scholarly source in PDF viewer, read identified sections and searched full indexed PDF text",
+        "title": "Agnostic Online Learning and Excellent Sets (later Model Theory and Agnostic Online Learning via Excellent Sets)",
+        "trigger": "Primary 2021 model-theory and Littlestone interface; plausible stronger structural coverage"
+      },
+      {
+        "assessment": "Defines and characterizes Littlestone/stability but does not calculate it for fixed-length cyclic arcs",
+        "evidence": [
+          "arxiv:2212.05050 Section 2 pp.2-3",
+          "No cyclic or arc match in indexed PDF text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.05050",
+        "material_read": "PDF pages 1-3, including Section 2 Littlestone definition and model-theoretic 2-rank relation; PDF text searches for interval, cyclic and arc",
+        "method": "Read the relevant model-theoretic definitions in the PDF and searched its full indexed text",
+        "title": "The unstable formula theorem revisited via algorithms",
+        "trigger": "2022 model-theoretic 2-rank equivalence could imply the proposed formula"
+      },
+      {
+        "assessment": "Intervals used are pairwise disjoint real intervals; their one-dimensional argument does not apply to overlapping cyclic windows",
+        "evidence": [
+          "arxiv:2310.04812 Section 3 p.6, disjoint-interval example",
+          "Theorem 3.1 is about distributional query learning, not exact fixed-arc Ldim"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.04812",
+        "material_read": "PDF introductory Section 1, Section 2 setup and Section 3 page 6 interval example; full-text searches interval, cyclic, circular",
+        "method": "Read theorem statements and the interval construction directly from PDF page 6 and searched the indexed full text",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "A highly relevant paper explicitly mentioning intervals and Littlestone dimension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a46b28e-9c45-46b9-83a9-c059b960c9da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural fixed-length cyclic-arc incidence family has a precise yet previously unlocated online rank law controlled by the shorter arc. It gives every finite parameter, a constructive optimal adversarial tree, and exact characterization of when n concepts meet their cardinality-limited maximum depth. Its VC dimension stays at most two while its optimal deterministic online mistake bound diverges with s; this sharp gap is mathematically motivated without requiring a downstream paper-sized theorem.",
+    "status": "PASS"
+  }
+}
