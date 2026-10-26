@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The star spectral projectors at eigenvalues 0, 1, and m+1 reproduce all four exact transfer-matrix entry formulas. Each denominator is positive; both off-diagonal entry classes have positive polynomial numerators for h>0. The hub quadratic has two positive zeros exactly when integer m>=11. The leaf quartic is positive for m=2..10 by a positive concavity-endpoint certificate, and for m>=11 has exactly two positive simple roots by sign changes, a negative witness at h=m, and positivity at h=3 and infinity. The two forbidden diagonal intervals are disjoint. Pure-Python Fraction verification checks 176 rational full-matrix identities, row sums and signs, without substituting finite tests for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor (2001) develops sufficient SSP frameworks and limitations of higher-order unrestricted SSP; it does not analyze a fixed star matrix.",
+        "Kovács–Li–Lubich, arXiv:1511.07823, Sections 1 and 5, prove A-stability-related maximal parabolic regularity for Radau methods, a different operator property.",
+        "Chertock–Cui–Kurganov–Wu (2015) design a separate sign-preserving semi-implicit scheme for stiff damping.",
+        "Reversible-chain diagonal bound bc717cab-35cb-4a0c-b3f5-efe9e67ff662 covers diagonals for small graphs but does not establish the star large-size full positivity set."
+      ],
+      "reasoning": "A-stability and maximal regularity do not imply entrywise positivity. Classical SSP impossibility or sufficient-positivity bounds do not determine exact positivity windows of one fixed matrix family. The prior reversible-chain diagonal bound is partially stronger in generality, but weaker in the step-specific conclusion needed for the present theorem.",
+      "searches": [
+        "Radau IIA methods positivity preserving matrix exponential stochastic graph article 2012",
+        "Radau IIA two stage positivity heat equation graph Laplacian order preserving time step matrix 2015",
+        "two stage Radau IIA Markov chain transition matrix positivity graph star",
+        "2010 positivity preservation implicit Runge Kutta Radau IIA semidiscrete parabolic max principle"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+      "https://arxiv.org/abs/1511.07823",
+      "https://math.sustech.edu.cn/uploads/20191111/b5c4c650b214165c4ac5e6704e72b8d9.pdf",
+      "earlier statement ID 8c0d50ef-8119-4cad-9204-e557b9dc3205",
+      "earlier statement ID bc717cab-35cb-4a0c-b3f5-efe9e67ff662",
+      "earlier statement ID 69d675da-c0d5-42d1-8b77-a9ec42c172f5",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a (search summary only)",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (search summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general diagonal bound gives h-independent lower bounds and a cone witness but no stepwise polynomials; the present two independent diagonal polynomials create separate forbidden windows.",
+        "The balanced multipartite [1/2] Padé result assumes r>=3 equal parts; the star has unequal sizes and r=2.",
+        "The rook-graph Radau classification has one diagonal orbit; a star has two.",
+        "The cited published papers analyze SSP, maximal regularity, or different semi-implicit schemes; none contains the star projector calculation."
+      ],
+      "reasoning": "Neither prior statement logically implies both sharp zero pairs of H_m and F_m with disjoint negative intervals. This assertion is limited to the compared material and is not a claim of complete literature uniqueness.",
+      "searches": [
+        "Earlier mathematical statement IDs bc717cab-35cb-4a0c-b3f5-efe9e67ff662; 8c0d50ef-8119-4cad-9204-e557b9dc3205; 69d675da-c0d5-42d1-8b77-a9ec42c172f5",
+        "arXiv:1511.07823 Sections 1 and 5",
+        "Gottlieb–Shu–Tadmor (2001) Sections 2 and 6",
+        "Chertock–Cui–Kurganov–Wu (2015) Sections 1 and 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The star K_{1,m} is a complete bipartite graph with unequal part sizes. Its two-stage Radau IIA transfer map is the [1/2] Padé map on the star Laplacian.",
+        "Own claim bc717cab-35cb-4a0c-b3f5-efe9e67ff662 gives a reversible-chain per-state lower bound rather than an exact step-by-step sign diagram.",
+        "Own claim 8c0d50ef-8119-4cad-9204-e557b9dc3205 requires equal parts and at least three parts; the star lies outside its hypotheses."
+      ],
+      "reasoning": "Searches included scheme aliases, Markov generators, rational Padé approximation, and complete bipartite aliases. The all-entry, two-forbidden-interval theorem is not reducible to the cited diagonal lower bound or to equal-part graph formulas; no equivalent statement was identified.",
+      "searches": [
+        "two-stage Radau IIA third order graph heat diffusion entrywise positivity sharp stepsize star complete bipartite graph Laplacian",
+        "2-stage Radau IIA star graph Markov semigroup positivity diagonal entries two separate negative windows m leaves threshold",
+        "two stage third order [1/2] Padé graph Laplacian positivity nonmonotone step size disconnected admissible set",
+        "Previously recorded mathematical statements: search within recoverable claims for Radau, Padé/Pade, Runge and positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest IDs include 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab and 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7; neither uses the Radau star scheme.",
+        "A statement-level comparison identified Radau results for cycles, balanced multipartite graphs and rook graphs, plus a reversible-chain diagonal bound and Markov dimension cutoffs, without an exact star three-band classification.",
+        "Web searches combining Radau IIA with star, Markov chain, positivity and disjoint step sets identified no exact prior table."
+      ],
+      "reasoning": "The proposed theorem is a continuous-step all-size algebraic classification, not a known finite numerical table. Database retrieval incompleteness remains a risk; unreturned results are not proof of absence.",
+      "searches": [
+        "two-stage Radau IIA third order graph heat diffusion entrywise positivity sharp stepsize star complete bipartite graph Laplacian",
+        "2-stage Radau IIA star graph Markov semigroup positivity diagonal entries two separate negative windows m leaves threshold",
+        "two stage third order [1/2] Padé graph Laplacian positivity nonmonotone step size disconnected admissible set",
+        "Radau IIA two stage complete bipartite positivity h n stage L-stable disjoint intervals",
+        "site:github.com published-finding corpus Radau IIA star graph h",
+        "Previously recorded mathematical statements with claim IDs bc717cab-35cb-4a0c-b3f5-efe9e67ff662, 8c0d50ef-8119-4cad-9204-e557b9dc3205, 69d675da-c0d5-42d1-8b77-a9ec42c172f5"
+      ]
+    },
+    "rationale": "Full relevant portions of primary SSP, A-stability/Radau, and sign-preserving semi-implicit papers were inspected. Exact comparison with earlier recorded mathematical statements found no star Radau three-band theorem. The closest reversible-chain diagonal bound establishes some diagonal positivity but not the two distinct forbidden intervals or the full sign criterion; balanced multipartite and rook graph Radau formulas apply to different graph structures. Multiple mathematical-record and primary-literature searches produced no stronger covering statement. Residual specialized-literature risk remains, and absence of a search result is not proof of originality.",
+    "residual_risks": [
+      "Specialized independent work on entrywise positivity of [1/2] Padé rational graph Laplacian functions may not be indexed or returned by semantic search.",
+      "Published published-finding corpus search summaries for different methods were not relied on as full-text coverage exclusions.",
+      "Earlier related theorem statements were used for implication comparison without re-evaluating their proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed exact star-domain classification in inspected relevant sections; general SSP sufficient-conditions/obstructions do not supply two fixed-star forbidden intervals.",
+        "evidence": "SIAM Review 43 (2001), 89–112, Sections 2 and 6; explicitly investigates implicit strong-stability behavior, not a star-Laplacian Radau [1/2] rational transfer matrix.",
+        "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "PDF abstract, introduction, Section 2 and Section 6 (including pp. 108–109 and the implicit Runge–Kutta discussion).",
+        "method": "Searched PDF text and inspected rendered pages 1, 20 and 21.",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Foundational 2001 full paper on strong stability and implicit Runge–Kutta, with verified electronic-publication date."
+      },
+      {
+        "assessment": "NOT_COVERING for exact entrywise star positivity; A-stability/maximal regularity does not imply entrywise nonnegativity.",
+        "evidence": "arXiv initial submission 2015-11-24; Section 5 Example 5.1 reports Radau IIA A-stability and R(infinity)=0, Theorem 10 concerns maximal regularity.",
+        "identifier_or_url": "https://arxiv.org/abs/1511.07823",
+        "material_read": "HTML full-text introduction, method definitions, Section 5 Example 5.1 and Theorem 10, and discussion of Radau IIA in Sections 6–7.",
+        "method": "Read the rendered full HTML math text and searched for positivity and Radau.",
+        "title": "A-stable time discretizations preserve maximal parabolic regularity",
+        "trigger": "Radau IIA and Gauss collocation methods directly discussed in primary text."
+      },
+      {
+        "assessment": "NOT_COVERING; uses a modified semi-implicit SSP-RK construction for diagonal damping instead of classical two-stage Radau IIA on a star Laplacian.",
+        "evidence": "SIAM Journal on Numerical Analysis 53 (2015), 2008–2029, published electronically 2015-08-18; methods of Section 2 are different.",
+        "identifier_or_url": "https://math.sustech.edu.cn/uploads/20191111/b5c4c650b214165c4ac5e6704e72b8d9.pdf",
+        "material_read": "PDF abstract, pp. 2008–2011, setup (1.1) and method (2.9)/(2.12), and sign-preservation motivation.",
+        "method": "Read PDF text and inspected rendered title and Section 2 pages.",
+        "title": "Steady State and Sign Preserving Semi-Implicit Runge–Kutta Methods for ODEs with Stiff Damping Term",
+        "trigger": "Potential broader sign-preserving implicit RK result with parabolic/stiff relevance."
+      },
+      {
+        "assessment": "NOT_IMPLYING; requires r>=3 equal parts, excludes K_{1,m}, and gives one rather than two forbidden intervals.",
+        "evidence": "Prior claim states K_{m,...,m} for r>=3, m>=2, with a two-window nonnegative set for its nonexceptional cases.",
+        "identifier_or_url": "8c0d50ef-8119-4cad-9204-e557b9dc3205",
+        "material_read": "Recoverable prior claim text, including graph hypotheses and exact positivity intervals.",
+        "method": "Compared the recoverable mathematical statement and its parameter hypotheses; no proof-level assessment of that earlier result.",
+        "title": "Accessible prior two-stage Radau IIA balanced-multipartite classification",
+        "trigger": "Exactly the same rational RK stability function in an adjacent graph family."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE only: predicts uniform diagonal positivity for graph order at most 11 and a negative hub witness for larger cone graphs, but cannot determine the two disjoint negative intervals on star graphs.",
+        "evidence": "Claim gives a bound depending on stationary mass and h-independent equality conditions, but does not characterize leaf diagonal zeros or global admissible step sets.",
+        "identifier_or_url": "bc717cab-35cb-4a0c-b3f5-efe9e67ff662",
+        "material_read": "Recoverable prior claim text, including sharp per-state diagonal lower bound and cone counterexamples.",
+        "method": "Compared the recoverable mathematical statement and its parameter hypotheses; no proof-level assessment of that earlier result.",
+        "title": "Accessible prior reversible-chain Radau IIA diagonal bound",
+        "trigger": "Potential broader theorem on same method and graph positivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f7550ad-b019-4b35-94aa-8e7fc061449f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a complete sharp time-step classification for an infinite, naturally parameterized stiffness family. The m=11 onset and two successive, disjoint sign-failure mechanisms produce three admissible positivity bands rather than an ordinary single bound; the safe middle band and large-step restoration matter in deciding whether A-/L-stability can be trusted to preserve physical nonnegativity. The conclusion is more than evaluation of one matrix or a textbook SSP corollary and does not follow from the related h-independent reversible-chain diagonal bound. Its limits are explicit: one unweighted graph family and one completed-step integrator.",
+    "status": "PASS"
+  }
+}
