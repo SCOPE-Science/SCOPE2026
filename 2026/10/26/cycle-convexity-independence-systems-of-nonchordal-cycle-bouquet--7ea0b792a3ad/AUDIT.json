@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a one-vertex union of cycle blocks, bridge vertices can never be generated. Each outer-cycle vertex is generated exactly if its center and all remaining outer-cycle vertices are present; the center is generated exactly if one whole peripheral block is present. This proves a necessary-and-sufficient classification based on whether the center is selected and whether zero, one, or more whole blocks are selected. One partition side always has static hull, proving Radon independence; exterior vertices have a blocking deletion witness, proving Helly independence. Exhaustive direct-hull checks on 12 small graphs confirm every enumerated set and the generating polynomial, but the infinite theorem follows from the case proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nair et al. investigate Helly, Radon and rank and describe characterizations for values |V|-1 and |V|-2, not the all-size independence systems for k>=3.",
+        "Aráujo et al. state polynomial-time rank algorithms for chordal and starlike graph classes; the present declared family contains an induced cycle of length at least four and is nonchordal.",
+        "The all-triangle bouquet special case is chordal and its numerical rank is not claimed as a separate contribution."
+      ],
+      "reasoning": "An algorithm for the numeric rank on chordal or other specified graph classes is not a theorem equating Helly, Radon and convex independence for every vertex subset on the nonchordal bouquets or giving the complete polynomial. The present maximum |V|-k for k>=3 falls strictly below the |V|-2 extremal classification. A full rank report was not inspectable and remains a priority risk.",
+      "searches": [
+        "arXiv:2609.34236v1, introduction and Section 4 extremal discussion",
+        "DOI:10.1007/978-3-032-27732-9_6, Springer abstract",
+        "web: \"cycle convexity\" \"rank\" \"cactus\" graph",
+        "web: \"cycle convexity\" \"Helly\" \"Radon\" \"cactus\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.34236 (v1, 2026-09-28)",
+      "https://arxiv.org/html/2609.34236 (accessible portions)",
+      "https://link.springer.com/chapter/10.1007/978-3-032-27732-9_6 (publisher abstract)",
+      "https://inria.hal.science/hal-05378038 (full report record, PDF unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aráujo et al. prove the general-position number equals the maximum induced-forest size; on this family it is |V|-1.",
+        "Nair et al. focus on computational complexity and top two extremal cardinalities, whereas this theorem counts every possible cardinality of three different independence families with maximum |V|-k.",
+        "The main proof uses an exact per-cycle hub-conditioned closure classification; a generic induced-forest argument alone gives only the looser bound |V|-1."
+      ],
+      "reasoning": "Neither the rank/general-position inequality nor the known |V|-1 and |V|-2 classifications imply equality of the three independent-set systems or their generating polynomial in the nonchordal family. The known complete-multipartite coincidence does not transfer because the local cycle-completion closure rule is different.",
+      "searches": [
+        "arXiv:2609.34236v1 §2 and §4",
+        "DOI:10.1007/978-3-032-27732-9_6 abstract and references",
+        "Search query: cycle convexity rank Helly Radon of cactus and cycle block graphs; vertex-disjoint and common articulation",
+        "web: \"On the Rank and the General Position Number in Cycle Convexity\" arxiv pdf 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cycle-interval closure is equivalent to selecting a vertex with two neighbors in the same component of the selected induced graph; arXiv:2609.34236v1, §2.",
+        "The graph family is also described as a one-vertex sum or Dutch windmill of cycles, with arbitrary bridge-tree attachments.",
+        "The accessible searches returned no matching cycle-convexity set-system polynomial; web-index absence is not proof of priority."
+      ],
+      "reasoning": "The claim is invariant under relabeling of cycles and under the common flower/windmill/bouquet representation. Its essential object is the simultaneous three-system independence polynomial, not an ordinary vertex-independence or ordinary convexity number.",
+      "searches": [
+        "web: \"cycle convexity\" \"independence polynomial\" \"windmill\" 2026",
+        "web: \"cycle convexity\" \"bouquet of cycles\" \"Helly\"",
+        "Search query: all cycle-convex independent vertex sets in graphs formed by multiple chordless cycles sharing one hub; polynomial enumeration; Helly Radon rank coincide as set systems",
+        "arXiv:2609.34236v1, Section 2 cycle-convexity definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit three-four-cycle polynomial, with top coefficient 54, was independently computed by direct convex-hull testing rather than taken from a published table.",
+        "A previously recovered complete-multipartite result concerns the same three independence notions but a different graph family and does not imply the cycle-bouquet polynomial."
+      ],
+      "reasoning": "The complete-multipartite comparison concerns graphs with every cross-part edge and does not imply the polynomial for bouquets with cut vertices and induced long cycles. No exact database or table containing these three-system bouquet counts was identified. Absence from search is not itself novel evidence.",
+      "searches": [
+        "Search query: exact Helly number Radon number and rank of cycle convexity on windmill graphs friendship graphs bouquets with common center",
+        "Search query: all cycle-convex independent vertex sets in graphs formed by multiple chordless cycles sharing one hub; polynomial enumeration",
+        "Search query: Three cycle-convex independence complexes coincide on complete multipartite graphs Helly Radon convexity full simplex polynomial face polynomial",
+        "web: \"cycle convexity\" \"Helly-independent\" \"Radon-independent\" \"cactus\""
+      ]
+    },
+    "rationale": "The assessed statement is a full set-system coincidence and exact generating polynomial for a family with nonchordal cycles. Earlier rank algorithms on chordal/starlike classes and top-two extremal invariants, and an own complete-multipartite-system result, do not supply that nonchordal all-cardinality result. Restricted author-report access and possible terminology equivalences are stated as residual risks.",
+    "residual_risks": [
+      "The full technical report on cycle-convexity rank was not accessible; a hidden equivalent statement could affect publication priority.",
+      "An alternative formulation for nonchordal cycle-bouquet independence polynomials might exist in an unindexed source.",
+      "The accessible recent preprint was inspected in substantial sections, not in its entirety after subsequent fetch failures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No matching independent-set polynomial or bouquet classification appears in the material read; later inaccessible portion means absence from the entire article was not asserted.",
+        "evidence": [
+          "Definitions of Helly, Radon and rank in §2; extremal n-1 and n-2 scope described in abstract and §4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.34236",
+        "material_read": "ArXiv HTML abstract, Introduction, Preliminaries, complexity proof, and the start of the extremal section including its n-1 theorem.",
+        "method": "Accessible primary HTML text reviewed against each part of the candidate claim.",
+        "title": "Computing the Helly Number, Radon Number and Rank in Cycle Convexity",
+        "trigger": "The recent primary paper defines all three invariants and states extremal characterizations."
+      },
+      {
+        "assessment": "General-position=maximum induced forest is prior work and reused. Rank algorithms include chordal/starlike classes; no full three-system polynomial stated in abstract, but inaccessible body creates priority risk.",
+        "evidence": [
+          "Publisher abstract states induced-forest general-position equality and rank computability on chordal, starlike, grid, and other classes."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-032-27732-9_6",
+        "material_read": "Publisher abstract and references, not the subscription-only chapter body.",
+        "method": "Read publisher abstract, its list of graph classes, and reference to full technical report.",
+        "title": "On the Rank and the General Position Number in Cycle Convexity",
+        "trigger": "A directly relevant paper that might give stronger rank coverage and equivalent graph classes."
+      },
+      {
+        "assessment": "Unavailable; not used to assert noncoverage. A lawful full-text comparison could not be completed, so proof and appendix overlap remain an originality risk.",
+        "evidence": [
+          "The linked open version returned access denied; the publisher acknowledges this full report."
+        ],
+        "identifier_or_url": "https://inria.hal.science/hal-05378038v1/file/The_rank_and_general_position_number_in_cycle_convexity-11.pdf",
+        "material_read": "No PDF text could be retrieved; access restriction page observed.",
+        "method": "Attempted publicly linked author report following arXiv/open-access search.",
+        "title": "On the Rank and the General Position Number in Cycle Convexity (technical report)",
+        "trigger": "The publisher specifically cites its fuller author report; a plausible stronger coverage source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ea0b792-a3ad-47d2-91a8-281bf3fd0907",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies the entire three-system independent-set complex and all coefficients on a natural infinite, nonchordal cactus family; it also classifies every optimizer. It produces an unbounded gap k-1 between maximum induced-forest/general-position size and all three cycle-convexity invariants, precisely motivated by the recently studied distinction between these quantities. These are nontrivial structural and enumerative facts, not isolated small numerical calculations.",
+    "status": "PASS"
+  }
+}
