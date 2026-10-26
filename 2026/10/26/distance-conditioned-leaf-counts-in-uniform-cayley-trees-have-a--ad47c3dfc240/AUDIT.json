@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For each fixed length-k marked path in a uniform Cayley tree, the rooted-forest count gives (k+1)n^(n-k-2) extensions. Deleting a marked endpoint leaf gives k(n-1)^(n-k-2) extensions, and deleting a specified nonpath leaf then choosing one of n-1 attachment vertices gives (k+1)(n-1)^(n-k-2). Summing exact conditional leaf probabilities proves F_n(k) for all 1<=k<=n-1; Prüfer coding independently yields the unconditional mean. Direct subtraction factors as 2r^(n-k-3)(n-N_k)/(n(k+1)(k+2)), with strictly increasing N_k; this proves the exact unique/double peaks and n^(1/3) scale. Uniform Taylor expansions from the exact F_n(k)/mean identity give the stated peak correction and k/sqrt(n) limit. Every boundary 1,n-1 and n>=4 is handled. A standalone verifier independently enumerates all labeled trees up to n=8 and passes 44755 checks; finite checks are supplementary, not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman proves general uniform labeled-forest completion counts but not a leaf-marked pair-distance bivariate statistic.",
+        "Berzunza Ojeda and Janson discuss asymptotic distance profiles including marked leaves, not finite conditional leaf-number expectations.",
+        "Entringer et al. and Neininger analyze Wiener indices and path lengths, not the full conditional leaf total at a fixed marked distance."
+      ],
+      "reasoning": "General tree enumeration can in principle be specialized to many conditional statistics and is foundational, but the cited theorems contain no directly dominating statement for E[total leaves | fixed pair distance=k] across all n and k or its cubic optimizer; the new off-path enumeration, phase comparison, and asymptotic threshold are necessary deductions rather than formal parameter substitution.",
+      "searches": [
+        "covariance Wiener index leaf count uniform Cayley labeled tree exact finite n",
+        "random labeled tree number of leaves and Wiener index distance covariance conditional leaf",
+        "Berzunza Ojeda and Janson 2020 arXiv:2009.00572 sections 6-8",
+        "Pitman technical report 457 section 2"
+      ]
+    },
+    "checked_sources": [
+      "Pitman, Coalescent random forests, Berkeley Statistics Technical Report 457, publicly dated 1996-09-01, https://statistics.berkeley.edu/tech-reports/457",
+      "Entringer, Meir, Moon and Szekely, On the Wiener index of trees from certain families, Australasian Journal of Combinatorics 10 (1994), 211-224",
+      "Neininger, The Wiener index of random trees, Combinatorics, Probability and Computing 11 (2002), 587-597",
+      "Berzunza Ojeda and Janson, The distance profile of rooted and unrooted simply generated trees, arXiv:2009.00572",
+      "Exact negative regression between endpoint degree and distance in a uniform Cayley tree, publicly indexed finding d9ddfb06a9ae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published endpoint-degree law gives a Binomial-plus-Bernoulli conditional representation and strict decreasing endpoint degree regression.",
+        "Pitman 1996 states the rooted-forest formula used to count path extensions; no total-leaf-vs-distance regression stated.",
+        "New count has exact off-path leaf probability ((n-1)/n)^(n-k-2) for each of n-k-1 off-path vertices, yielding a global signal different from the marked endpoint alone."
+      ],
+      "reasoning": "The endpoint law determines two endpoint contributions but not the conditional leaf status of all other vertices. While general forest-extension machinery allows their direct computation, the cubic threshold requires a new global mixed-statistic sum and nontrivial comparison of consecutive k. None of the inspected prior statements is stronger in the sense of already determining the complete sign/plateau classification; implicit reuse of classic machinery remains possible.",
+      "searches": [
+        "Uniform Cayley tree conditional expected leaf count given distance between two marked vertices; unimodal distance order n^(1/3)",
+        "Cayley tree global number of leaves conditional on distance between two marked vertices: exact conditional expectation nonmonotone cubic-scale maximum tie n=(k+2)(k*k+1)/2",
+        "published d9ddfb06a9ae full RESULT.md",
+        "Pitman 1996 forest-extension lemma and root-set determinant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "d9ddfb06a9ae: formula for marked endpoint degree conditional on marked distance; its endpoint leaf probability is k/(k+1) ((n-1)/n)^(n-k-2).",
+        "The new formula adds n-k-1 conditional non-endpoint leaves each with probability ((n-1)/n)^(n-k-2), giving a sum not present in the inspected endpoint-only result."
+      ],
+      "reasoning": "Endpoint-degree regression does not by definition equal conditional total-leaf regression. Its one-endpoint leaf probability decreases with k, but the unobserved off-path vertices supply a nonconstant additional contribution. The total regression changes from increasing to decreasing near n^(1/3), whereas the endpoint-degree regression is monotone decreasing. Thus the cited endpoint-only statement does not itself state or logically imply the total regression without further enumeration of a separate observable.",
+      "searches": [
+        "Uniform Cayley tree conditional expected leaf count given distance between two marked vertices; unimodal distance order n^(1/3)",
+        "random labelled tree distance conditioned leaf number E[L | dist(1,2)=k], tree leaves endpoint degree path forest",
+        "published finding d9ddfb06a9ae (full RESULT.md)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Seven exact-topic and alias semantic searches of published mathematical finding records found the endpoint-degree record d9ddfb06a9ae as closest, but no record presenting the total-leaf conditional law or the exceptional n=(k+2)(k^2+1)/2 peak ties.",
+        "The small n exhaustive verifier gives calculated conditional means, not a preexisting table claiming all n."
+      ],
+      "reasoning": "There is no identified existing exact table of the same bivariate conditional statistic; a failure to retrieve a table does not prove that no such table exists. The full exact all-size classification is assessed against primary sources, not inferred merely from database absence.",
+      "searches": [
+        "random Cayley trees total pairwise distance leaf count joint mixed moment",
+        "degree distributions conditional geodesic distance Cayley tree third vertex pendant, leaf regression finite sample threshold cubic",
+        "Cayley tree global number of leaves conditional on distance between two marked vertices: exact conditional expectation nonmonotone cubic-scale maximum tie n=(k+2)(k*k+1)/2"
+      ]
+    },
+    "rationale": "Classical labeled-forest extension counts are not presented as new. A full directly relevant published endpoint-degree conditioned-on-distance result was inspected and yields only one endpoint leaf probability; it does not provide off-path leaf contributions, total-leaf regression, cubic-root peak, precise double-peak orders, or the square-root baseline sign limit. The primary full texts examined address root-forest enumeration, Wiener indices, and leaf-marked distance profiles, without stating or directly covering this joint conditional expectation. Search nonmatches alone are not a proof of novelty; implicit consequences of general multivariate forest enumerators remain a historical-priority risk.",
+    "residual_risks": [
+      "Classical multivariate enumerations for Cayley trees may contain implicit differentiation identities yielding the same conditional expected leaf count.",
+      "Precise first public day of the related 1994 Wiener-index article is unavailable, so archive eligibility uses the independently verified 1996-09-01 root-forest source.",
+      "No independent specialist historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical root-forest enumeration is established prior work and is used explicitly; no conditional global leaf regression or maximizing distance is given in inspected material.",
+        "evidence": [
+          "Technical Report 457, first public date 1996-09-01",
+          "Section 2 formula for rooted complete-graph forests"
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+        "material_read": "Full 31-page report, especially Section 2 and root-set forest count/extension formula",
+        "method": "Read searchable public full text and visually inspect relevant mathematical PDF page",
+        "title": "Coalescent random forests",
+        "trigger": "Exact spanning rooted-forest count used in proof"
+      },
+      {
+        "assessment": "Discusses pair distances and Wiener-index statistics, not conditional total leaf number given a fixed pair distance.",
+        "evidence": [
+          "Australasian Journal of Combinatorics 10 (1994), 211-224; precise public posting date not available"
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/on-the-wiener-index-of-trees-from-certain-families-4vmfpkb2xt.pdf",
+        "material_read": "Complete 14-page paper, with review of Sections 1, 3, and 4 and relevant displayed formulas",
+        "method": "Full-text PDF review and visual inspection of key page",
+        "title": "On the Wiener index of trees from certain families",
+        "trigger": "Potential coverage by Wiener-index distance enumeration"
+      },
+      {
+        "assessment": "Studies global distance moments and random tree indices, not the full Cayley conditional leaf count profile in the passages inspected.",
+        "evidence": [
+          "Neininger, CPC 11 (2002), 587-597"
+        ],
+        "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf",
+        "material_read": "Primary full text retrieved; inspected introduction and early main-theorem pages 1-3",
+        "method": "Text inspection of lawful public PDF",
+        "title": "The Wiener index of random trees",
+        "trigger": "Possible stronger joint distance/global tree-statistic result"
+      },
+      {
+        "assessment": "Contains related asymptotic distance and size-bias studies; no exact all-n conditional expected total leaves for fixed marked pair separation was identified.",
+        "evidence": [
+          "arXiv:2009.00572, first public preprint 2020-09-01",
+          "Section 8: Mark a leaf; MSC 60C05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.00572",
+        "material_read": "Full Cambridge open article and especially sections 6-8, including section 8 Mark a leaf",
+        "method": "Full-text open article inspection and checking marked-leaf statements",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Distance profile and marked-leaf law might dominate special statistic"
+      },
+      {
+        "assessment": "Strongest neighbor: proves endpoint-degree law and strict negative regression, not total-leaf conditional means or their nonmonotone cubic-scale peak. Endpoints overlap as a partial ingredient only.",
+        "evidence": [
+          "Published result d9ddfb06a9ae, equations (1)-(8), endpoint conditional-degree pgf"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+        "material_read": "Full RESULT.md, all main conditional degree equations, proof, and limitations",
+        "method": "Read complete published primary mathematical result",
+        "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+        "trigger": "Direct same mathematical model and same-distance conditioning"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad47c3df-c240-4cc1-a748-0b53d2c84498",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The global number of leaves measures the abundance of terminal vertices and tree branching, while the separation of two specified vertices measures global geometry. Unlike the local endpoint-leaf regression, total leaf expectation peaks at an intermediate distance with an exact cubic-root law, infinitely many discrete two-point ties, and a distinct square-root-scale baseline sign reversal. The result is a full finite-sample classification of two standard Cayley-tree observables rather than an arbitrary small enumerated instance, and it helps distinguish local and global effects in distance-conditioned tree statistics.",
+    "status": "PASS"
+  }
+}
