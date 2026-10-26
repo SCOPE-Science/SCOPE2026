@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact source/sink indicator enumeration yields the all-graph covariance identity; the subdivision contribution and exhaustive degree-sign cases prove the sharp threshold. For every r-regular graph, handshaking gives the two explicit n,r formulas. Exact independent exhaustive tests include the 2^20 orientations of subdivided K5 and all isolate-free simple graphs on up to four vertices. Finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2504.12693 Theorem 2.3, Proposition 3.2 and sections 1–3 give a general degree-constrained orientation enumerator, implicitly encoding these moments.",
+        "arxiv:1910.10920 Sections 2–4 restrict to acyclic orientations."
+      ],
+      "reasoning": "A broad orientation-generating polynomial could be differentiated or specialized to recover some moment statements, but its inspected claims do not provide the nontrivial all-graph local subdivision sign threshold or regular-graph reversal. This is the most important historical-priority risk, not treated as a novelty proof by search failure.",
+      "searches": [
+        "web: source sink polynomial orientations arbitrary graph joint generating function",
+        "web: enumerating orientations of graph by number sources and sinks bivariate generating polynomial arbitrary graph",
+        "arxiv:2504.12693"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0905.2881",
+      "arxiv:2504.12693",
+      "arxiv:1910.10920",
+      "doi:10.1016/j.dam.2017.08.002 (partial accessible sections)",
+      "doi:10.1007/978-3-030-96731-4_29 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Linusson 2009 Lemma 2.2 and Theorems 3.2–3.6 apply to reachability clusters",
+        "Yu–Zhu 2025 Theorem 2.3 and Proposition 3.2 encode outdegree selections",
+        "Hwang et al. 2019 sink theorem concerns acyclic orientation restriction",
+        "Conte et al. 2018 source-constrained enumeration algorithms"
+      ],
+      "reasoning": "Path cluster correlations and acyclic-only sink distribution do not imply this fair-all-orientations covariance sign classification. General orientation polynomials encode the joint distribution and could allow a derivation, but the sharp subdivision-degree boundary requires further nontrivial local reduction and is not stated in the inspected sections.",
+      "searches": [
+        "arxiv:0905.2881",
+        "arxiv:2504.12693",
+        "arxiv:1910.10920",
+        "web: \"correlation\" \"sources and sinks\" \"random orientation\" graph",
+        "web: random orientations sources sinks second moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0905.2881 sections 1–3: oriented reachability events rather than in/out-degree-zero count statistics",
+        "arxiv:2504.12693 sections 1–3: outdegree constraint enumeration and orientation polynomial"
+      ],
+      "reasoning": "The equivalent statistics are in-degree-zero and out-degree-zero vertex counts, or extrema of the vertex-outdegree polynomial. Neither inspected work directly states their joint covariance, the edge-subdivision difference, or the 4-degree sign classification.",
+      "searches": [
+        "published-finding corpus: random orientations of a graph, number of sources and sinks covariance, exactly depends on vertex degrees and edge degree pairs; subdivision increases covariance iff endpoint degrees at most three",
+        "web: \"sources and sinks\" \"random orientation\" covariance",
+        "web: \"number of sources\" \"number of sinks\" random orientation covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching claimed source-sink covariance threshold was returned by the listed actual research-record or literature queries; closest published-finding corpus records concern path reachability and other degree-covariance problems."
+      ],
+      "reasoning": "No exact published numerical covariance table was found claiming the complete graph-local sign classification. Negative retrieval is not proof of uniqueness; the formula and edge-degree reasoning supply mathematical content.",
+      "searches": [
+        "published-finding corpus: randomly orient each edge graph number indegree zero and number outdegree zero cross covariance, sign graph-specific subdivision threshold degree 4",
+        "published-finding corpus: uniformly random edge orientation number sources sinks correlation tree star regular graph covariance sign",
+        "web: \"subdivision\" \"sources\" \"sinks\" \"random orientation\" regular"
+      ]
+    },
+    "rationale": "Relevant first-public 2009 independent-orientation paper concerns paths, not source/sink count covariances. The 2019 sink polynomial restricts to acyclic orientations. The 2025 arbitrary-degree orientation polynomial is a significant implicit-coverage risk: it encodes all orientation distributions, but the sharp structural subdivision covariance sign classification is not a stated result or direct parameter specialization without further degree calculations. Exact titles and claimed implications were compared; full-text access limits are explicitly preserved.",
+    "residual_risks": [
+      "The 2025 general orientation enumerator may allow routine recovery of the covariance through a specialization not explicitly recorded in its manuscript.",
+      "The full 2022 source-sink-free orientation paper was not read; only its abstract was accessible.",
+      "Broad prior orientation enumerators may imply the exact sign threshold without matching terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state source/sink-count covariance; concerns oriented path reachability and percolation cluster correlations",
+        "evidence": [
+          "ArXiv v1 publicly dated 2009-05-18",
+          "Section 1 defines model O; sections 2–3 concern reachability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0905.2881",
+        "material_read": "Full HTML text, Sections 1–3, including Lemma 2.2 and Theorems 3.2–3.6",
+        "method": "Primary arXiv HTML full text, mathematical statement/implication comparison",
+        "title": "A note on correlations in randomly oriented graphs",
+        "trigger": "Same uniform edge-orientation probability model and correlation theorem"
+      },
+      {
+        "assessment": "Contains a general degree-constraint enumerator and an auxiliary subdivided factor graph; does not directly state the source/sink covariance degree-four threshold. Implicit derivation remains priority risk.",
+        "evidence": [
+          "Theorem 2.3 counts prescribed outdegrees",
+          "Proposition 3.2 gives orientation polynomial",
+          "Auxiliary subdivision encodes orientations rather than sampling independent orientations of the subdivided graph"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.12693",
+        "material_read": "Full HTML Sections 1–3, including Theorem 2.3, Proposition 3.2, and the subdivision encoding discussion",
+        "method": "Primary arXiv HTML, general-to-specific implication analysis",
+        "title": "Counting degree-constrained orientations",
+        "trigger": "General all-orientation counting polynomial could subsume source/sink moments"
+      },
+      {
+        "assessment": "Counts sinks under restriction to acyclic orientations; does not cover all independently oriented edges or the mixed source/sink covariance sign reversal",
+        "evidence": [
+          "Theorem 4.5 counts sinks in acyclic orientations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+        "material_read": "Full HTML text, especially sections 2–4 and Theorem 4.5",
+        "method": "Primary arXiv HTML, comparison of probability ensembles and counted statistics",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "Sink-count generating polynomials for arbitrary fixed graphs"
+      },
+      {
+        "assessment": "Algorithms enumerate orientations with prescribed sources, without an explicit joint source/sink covariance subdivision law in the accessible material",
+        "evidence": [
+          "2018 journal source describes enumeration algorithms and source constraints"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.08.002",
+        "material_read": "Available full-text extraction in public indexing of abstract, introduction, sections 3 and 9; DOI full fetch blocked",
+        "method": "Source indexing and accessible sections; not represented as a full original-PDF inspection",
+        "title": "Efficient enumeration of graph orientations with sources",
+        "trigger": "Specific source constraints and all graph orientations"
+      },
+      {
+        "assessment": "The abstract addresses counting restrictions on chordal graphs, not a stated all-graph subdivision covariance formula; material is insufficient to exclude implicit coverage",
+        "evidence": [
+          "2022 WALCOM abstract discusses source-sink-free orientations and inclusion-exclusion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-030-96731-4_29",
+        "material_read": "Public abstract and metadata; complete text inaccessible after an initial request and one alternate attempt",
+        "method": "Abstract-only assessment with explicit unresolved full-text risk",
+        "title": "Counting and Sampling Orientations on Chordal Graphs",
+        "trigger": "Source-sink-free orientations may encode joint moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "916b3afa-12fa-430b-a4ad-1f83200bcc54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Source-sink covariance is a natural joint statistic under random edge orientation. The result classifies the effect of subdividing any edge by its two endpoint degrees with a sharp, universal threshold at degree four, then shows a topology-independent reversal for every r-regular graph with r>=4. This is a motivated structural boundary, not a marginal numerical improvement or restatement of an enumerator.",
+    "status": "PASS"
+  }
+}
