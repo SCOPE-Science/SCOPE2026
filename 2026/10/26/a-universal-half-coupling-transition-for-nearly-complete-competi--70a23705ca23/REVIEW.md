@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The positive-definite interaction decomposition establishes subcritical global stability. Exact paired/unmatched dynamics identify the stationary critical simplex and the invariant initial-ratio selection law. Potential monotonicity, finiteness of reduced equilibria, and the strictly amplifying pair-ratio identity establish convergence in the stated domain. Invasion eigenvalues exclude all other linearly stable configurations. The standalone exact/symbolic and numerical tests agree. At no point are finite tests substituted for a universal proof.
+
+**Originality — PASS under accessible-source comparison.** The 2026 Mooij et al. graph theorem bounds critical coupling but does not provide the complete-minus-matching exact transition or critical selection. The 2025 Mooij–Kryven paper treats general maximal-independent-set outcomes and explicit bipartite/path cases, but does not imply the matching-deletion initial-condition classification. The existing graph-family spectrum and classical Lotka–Volterra methods are acknowledged. Searches of earlier mathematical results and relevant research records did not find a stronger statement covering all components. The remaining risk is an unindexed or differently named classification of complete multipartite competition systems; independent priority validation is pending.
+
+**Value — PASS.** The single-edge calculation establishes a nonvanishing loss of ecological robustness from an asymptotically vanishing network edit, a structural boundary absent from the general bounds. The matching generalization additionally identifies the neutral critical manifold, the exact initial-data selection law, and all linearly stable postcritical states. These are population-survival predictions, rather than merely an adjacency-matrix calculation.
+
+**Scientific limitations.** Results require symmetric, unweighted competition and finite graphs; winner selection for multiple missing edges assumes equal initial densities within each noninteracting pair and a uniquely largest pair. The source literature's graph-universal results and general independent-set theorem retain priority for their own claims.
+
+Self-review: passed. Independent audit: not yet performed.
