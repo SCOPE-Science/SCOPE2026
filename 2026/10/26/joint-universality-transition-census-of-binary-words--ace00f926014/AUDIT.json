@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Greedy last-letter witness proves index equals completed arches; exact two-state transition recurrence with explicit last-symbol memory establishes all-length 3-variable generating function. Coefficient extraction proves N(n,k,r) and strict support. Independent defining-subsequence enumeration through n=11 and coefficient histogram through n=17 passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson §3 counts k-universal strings by dynamic programming; no run/switch-count refinement in inspected full text.",
+        "The closest published published-finding corpus record gives \\((1+z)/(1-z-2uz^2)\\), obtained here at t=1."
+      ],
+      "reasoning": "An algorithm for counting all k-universal words does not mathematically specify the number with each transition count, although it could be adapted. The stronger joint law contains the known marginal but is not its consequence; the other records count different word observations.",
+      "searches": [
+        "arXiv:2304.04583v1 Sections 3–5 full HTML",
+        "published-finding corpus: exact q-ary distribution of scattered subsequence universality index number of arches all lengths generating function coupon collector",
+        "published-finding corpus: exact binary r=2 length-limited composition reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1511.01807v4",
+      "https://arxiv.org/abs/2003.04629",
+      "https://arxiv.org/html/2304.04583v1",
+      "https://github.com/Resultary/2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At t=1, the proposed result specializes exactly to the known length/index marginal \\((1+z)/(1-z-2uz^2)\\).",
+        "At u=1, it specializes to the elementary run-count marginal \\(1+2z/(1-z(1+t))\\).",
+        "All source theorems inspected omit correlation between those two statistics."
+      ],
+      "reasoning": "The two marginals alone do not determine the joint array. The three-variable rational function and its strict support constraints are not direct consequences of published marginal formulas; separate two-state accounting is needed. The source definitions and arch theorem are attributed, not claimed as new.",
+      "searches": [
+        "Published published-finding corpus RESULT.md: Closed-form law for binary subsequence universality",
+        "arXiv:1511.01807v4 §§3.1–3.3",
+        "arXiv:2003.04629v1 §4",
+        "arXiv:2304.04583v1 §3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rich-factorization count equals universality index (Karandikar–Schnoebelen; Barker et al.); results inspected do not count adjacent changes.",
+        "The new variable tracks r(w)=number of adjacent unequal pairs; run count equals r(w)+1 for nonempty words."
+      ],
+      "reasoning": "Considered the synonymous terms arches, rich factors, runs of equal letters, alternations, and binary switches. The law concerns their joint count with universality, not merely a rephrasing of the known unrefined index distribution.",
+      "searches": [
+        "published-finding corpus: joint distribution of k subsequence universality index and number of runs transitions binary words exact two variable rational generating function",
+        "published-finding corpus: binary arch factorization number of letter changes switch counts universality exact joint run statistic",
+        "arXiv:1511.01807v4 §3.2 rich word factorization",
+        "arXiv:2003.04629v1 §4 arch factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact marginal record explicitly gives N(n,k), moments, and total universal-word counts, not N(n,k,r).",
+        "Related search results include run-test covariance and shortest absent subsequences but no exact joint statistic."
+      ],
+      "reasoning": "No matching exact three-parameter table or generating function was found in inspected research records or primary full text. This is evidence of no identified overlap, not proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: Hébrard arch factorization binary words transitions alternations distribution",
+        "web: binary k universal words number runs transitions generating function arches alternating blocks",
+        "published-finding corpus: closed-form law for binary subsequence universality"
+      ]
+    },
+    "rationale": "Earlier full texts give rich factorization and unrefined universality-word enumeration; nearest published result gives t=1 specialization. The new joint transition-count distribution is not determined by these statements or their marginals. Actual published-finding corpus alias queries and full-text inspections did not identify coverage; residual historical-priority risk remains.",
+    "residual_risks": [
+      "An earlier formula under a different name for symbol-transition count may exist.",
+      "The 2015 archival rich-factor source was inspected in a later authorized open-text revision, not v1; the publicly recorded v1 date is exact and precedes the archive cutoff."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides rich factorization but no transition-refined length-index census in examined sections",
+        "evidence": [
+          "§3.2 defines richness and shortest rich-factor cuts",
+          "§3.3 uses richness in small-subword theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1511.01807v4",
+        "material_read": "Abstract, §§3.2–3.3 and definitions of rich factorizations, with searches for runs/arches/binary; v1 first posted 2015-11-05",
+        "method": "Full-text HTML relevant sections and targeted term search",
+        "title": "The height of piecewise-testable languages and the complexity of the logic of subwords",
+        "trigger": "Archive-era primary rich-factor framework"
+      },
+      {
+        "assessment": "Establishes universality indexed by arches, algorithms and structural constructions, no exact joint transition counts found",
+        "evidence": [
+          "Definition 4 and Remark 3 link arches and universality",
+          "No occurrence of switch in full-text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "Open full preprint, Introduction, §4 arch factorization, universality index, find for run/switch",
+        "method": "HTML text full preprint and targeted term searches",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Main subsequence-universality and arch method"
+      },
+      {
+        "assessment": "Counts all k-universal words and ranks/unranks them, but does not give counts at fixed adjacent-change budget",
+        "evidence": [
+          "§3 recursion CountSuffixes(q,m,c) without transition marker",
+          "No transition or runs hits"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "Complete HTML overview and §§2–5 with §3 explicit recurrence, searched transitions/runs",
+        "method": "Open full-text HTML and relevant-section comparison",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Potentially dominating general counting algorithm"
+      },
+      {
+        "assessment": "Marginal z,u generating function and finite counts, not the new z,u,t joint law",
+        "evidence": [
+          "F(z,u)=(1+z)/(1-z-2uz²)",
+          "No run/switch parameter in RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026",
+        "material_read": "Entire published RESULT.md through authorized public GitHub read action",
+        "method": "Exact statement/implication comparison",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest published record by same binary universality statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ace00f92-6014-478c-9855-7e27ed299039",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete all-parameter joint census links universal scattered subsequence coverage and adjacent-symbol changes, an independently meaningful constraint for code and test-string design. Sharp support gives quantitative feasibility for limited-switch universal strings and the distribution separates cases invisible to either marginal.",
+    "status": "PASS"
+  }
+}
