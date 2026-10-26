@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For n>=5, dihedral averaging preserves feasibility and does not increase the norm. A c>0 first-mode Loewner comparison and r-independent positive Rayleigh vector yield the claimed universal bound. The proposed weights exactly realize the Rayleigh equality; elementary n=5,6 and uniform n>=7 inequalities ensure 0<r<1/2 and feasibility; comparison to B_- plus 1-p controls every negative Fourier mode; the radial characteristic quadratic controls both remaining modes. Unique invariant equality follows from strict positive coordinates and eigenvector matching. Exact-symbolic checks and dense reproductions on the packaged verify.py supported the proof, without treating finite tests as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao 2007 provides general SDP and orbit methods, not the result of evaluating them on every helm graph",
+        "Jafarizadeh 2020 full text §§I, subgraph examples, symmetric-tree discussion: clique lifting and path/tree structures"
+      ],
+      "reasoning": "A general numerical SDP can in principle compute individual instances but contains neither the closed-form trigonometric optimum nor the infinite-n attainability/equality argument. The clique-lift reduction does not encompass a leaf attached to each wheel rim because clique lifting would also connect each leaf clone to its parent rim neighbors, absent in a helm.",
+      "searches": [
+        "\"helm graph\" \"fastest mixing\" Markov",
+        "\"optimal\" \"second largest eigenvalue\" \"helm\" Markov",
+        "\"wheel corona\" \"fastest mixing\" \"pendant\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/0709.0955v1",
+      "https://web.stanford.edu/~boyd/papers/fmmc.html",
+      "https://www.researchgate.net/publication/338414306_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_Subgraphs",
+      "https://mathworld.wolfram.com/HelmGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0709.0955v1 §5.3.3 gives the wheel weights p=1/n with a single rim orbit and a 2x2 radial block.",
+        "Jafarizadeh 2020 describes star, windmill and rooted-tree families but no helm graph or cyclic rim with independent leaf orbit."
+      ],
+      "reasoning": "Adding leaf vertices changes the Fourier modes to 2x2 and the radial matrix to 3x3, introducing a new nontrivial leaf transition. Neither the wheel solution nor a symmetric-tree theorem implies the exact helm weights without a substantive new spectral inequality and matching construction.",
+      "searches": [
+        "Wheel graph with one pendant leaf at every rim vertex FMMC fastest mixing symmetric transition stochastic matrix",
+        "Known fastest mixing wheel graph formula p=1/n q spectral Fourier compared to wheel corona helm",
+        "\"helm graph\" \"fastest mixing\" Markov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0709.0955v1 §§1–2, 5.3.3: convex/Fourier approach and explicit wheel optimum",
+        "MathWorld Helm Graph: a wheel with a private pendant edge at each rim node"
+      ],
+      "reasoning": "The helm is also describable as the wheel graph with a pendant corona on the rim, and its fastest symmetric walk is a two-sided SLEM minimization. The pre-existing wheel formula concerns n+1 rather than 2n+1 vertices and has no leaf-edge transition orbit. The inspected sources do not state an algebraically equivalent three-orbit helm formula.",
+      "searches": [
+        "Sharp globally fastest mixing Markov chain on helm graph H_n, cycle vertices with common hub and pendant leaves, explicit probabilities and exact optimal spectral gap",
+        "Wheel graph with one pendant leaf at every rim vertex FMMC fastest mixing symmetric transition stochastic matrix",
+        "Helm graph spectral optimization second largest eigenvalue modulus hub spokes rim and pendant weights",
+        "\"fastest mixing\" \"helm\" \"pendant\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available results comprised a standard helm graph definition and general FMMC papers, not an n-indexed helm transition-weight table.",
+        "Search results for fastest mixing on helm graphs contained no identified helm-SLEM table."
+      ],
+      "reasoning": "No exact database or table covering the weights for all n>=5 was identified; finite numerical SDP availability or generic graph records do not imply the closed formula.",
+      "searches": [
+        "Sharp globally fastest mixing Markov chain on helm graph H_n, cycle vertices with common hub and pendant leaves, explicit probabilities and exact optimal spectral gap",
+        "Helm graph spectral optimization second largest eigenvalue modulus hub spokes rim and pendant weights",
+        "\"helm graphs\" \"mixing time\" \"transition probabilities\""
+      ]
+    },
+    "rationale": "The 2007 primary full text solves a two-edge-orbit wheel, not a wheel with n additional leaves; the 2020 full text covers clique lifts and assorted tree-like families but does not supply the three-orbit helm optimum. Targeted mathematical-record and literature searches did not identify an exact helm SLEM formula, though an unindexed equivalent result remains possible. The global all-n>=5 formula and its equality case were compared by their implications, not merely by names.",
+    "residual_risks": [
+      "Relevant FMMC literature beyond the inspected sources could contain an equivalent closed formula under a different name; negative searches are not novelty proof.",
+      "A few closest sources were read by relevant full-text sections, not literally every paragraph, while the general Boyd 2004 work was inspected at the author landing-page scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "WHEEL_ONLY_NOT_HELM",
+        "evidence": [
+          "§5.3.3 explicitly models hub plus n ring vertices and optimizes only hub and cycle edges",
+          "No helm or pendant occurrence in the indexed full text"
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1",
+        "material_read": "Full-text HTML introductory definitions, symmetry principles in §2 and detailed wheel computation in §5.3.3; searched entire indexed text for helm/pendant.",
+        "method": "Read arXiv HTML full text and located wheel equations and result sections.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Closest wheel-graph explicit FMMC formula and symmetry theorem"
+      },
+      {
+        "assessment": "NO_INSPECTED_HELM_SPECIALIZATION",
+        "evidence": [
+          "Clique lifts preserve complete bipartite connections between lifted vertex classes",
+          "Its tree theorems require an acyclic base, while the helm has a rim cycle",
+          "No indexed helm or wheel entry"
+        ],
+        "identifier_or_url": "DOI:10.1109/TSIPN.2020.2964211",
+        "material_read": "Accessible author full text: introduction, contribution list, subgraph remarks and symmetric-tree subsection; searched indexed text for helm, pendant and wheel.",
+        "method": "Inspected accessible full-text HTML transcription and relevant named sections.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Possible stronger general result for branched/lifted networks"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_AN_EXPLICIT_HELM_THEOREM_IN_MATERIAL_READ",
+        "evidence": [
+          "Defines symmetric stochastic optimization of second-largest eigenvalue modulus via convex SDP"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Stanford landing page abstract, scope, cited manuscript and examples; not every page of the full paper.",
+        "method": "Read primary author landing page and its description.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original convex SDP formulation of FMMC"
+      },
+      {
+        "assessment": "OBJECT_MATCH_NO_MIXING_FORMULA",
+        "evidence": [
+          "The helm is formed from a wheel by attaching a pendant edge to each cycle vertex"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/HelmGraph.html",
+        "material_read": "Definition and graph construction section.",
+        "method": "Read MathWorld graph definition.",
+        "title": "Helm Graph",
+        "trigger": "Confirm canonical object and naming"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86abff07-ba76-4474-b1fb-04b047ae4e0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The helm graph is a canonical wheel-plus-leaves family, and the third transition orbit produces a genuinely nonlinear exact optimum rather than the known wheel formula. The result gives an all-size SLEM and optimizer, proves precise zero-holding saturation and uniqueness within invariant weights, and establishes a quantitative large-size spectral-gap advantage over maximum-degree weighting. This is an exact network-design classification with a clear application to fast uniform-stationary mixing.",
+    "status": "PASS"
+  }
+}
