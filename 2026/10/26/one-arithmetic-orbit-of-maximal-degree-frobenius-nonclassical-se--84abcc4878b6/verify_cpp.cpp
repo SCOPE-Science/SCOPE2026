@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;using ull=unsigned long long;
+int mul(int a,int b){int c=0;for(int i=0;i<2;i++)for(int j=0;j<2;j++)if((a>>i&1)&&(b>>j&1))c^=(1<<(i+j));if(c&8)c^=12;if(c&4)c^=7;return c;}
+int pw(int a,int n){int r=1;while(n--)r=mul(r,a);return r;}
+int divi(int a,int b){return mul(a,pw(b,2));}
+struct P{int x,y,z;};
+int main(){vector<P> ps;map<int,int> index;for(int x=0;x<4;x++)for(int y=0;y<4;y++)for(int z=0;z<4;z++)if(x||y||z){int m=x?x:y?y:z,t=pw(m,2),xx=mul(x,t),yy=mul(y,t),zz=mul(z,t);int code=xx+4*yy+16*zz;if(!index.count(code)){index[code]=ps.size();ps.push_back({xx,yy,zz});}}
+int terms[10][3]={{3,0,0},{2,1,0},{2,0,1},{1,2,0},{1,1,1},{1,0,2},{0,3,0},{0,2,1},{0,1,2},{0,0,3}}; int v[21][10],h[21];for(int i=0;i<21;i++){auto p=ps[i];int x=pw(p.x,2),y=pw(p.y,2),z=pw(p.z,2);for(int j=0;j<10;j++)v[i][j]=mul(mul(pw(x,terms[j][0]),pw(y,terms[j][1])),pw(z,terms[j][2]));h[i]=mul(mul(p.x,p.y),p.z);}
+auto eval=[&](int id){ull key=0;for(int i=0;i<21;i++){int f=h[i];for(int j=0;j<10;j++)f^=mul((id>>(2*j))&3,v[i][j]);key|=((ull)f<<(2*i));}return key;};unordered_map<ull,int> ids; for(int id=0;id<(1<<20);++id){ull e=eval(id);bool ok=true;for(int i=0;i<21;i++)if(((e>>(2*i))&3)==0){ok=false;break;}if(ok)ids[e]=id;}int first=270339;ull e0=eval(first);
+set<int> images;long long invmat=0,stab=0; map<int,int> orbit_nums;for(int a=0;a<(1<<18);a++){int M[3][3];for(int i=0;i<9;i++)M[i/3][i%3]=(a>>(2*i))&3;int det=0;for(int k=0;k<3;k++)for(int j=0;j<3;j++)if(j!=k)for(int l=0;l<3;l++)if(l!=k&&l!=j)det^=mul(mul(M[0][k],M[1][j]),M[2][l]);if(!det)continue; invmat++;int detinv=pw(det,2);ull k=0;for(int i=0;i<21;i++){auto p=ps[i];int x=mul(M[0][0],p.x)^mul(M[0][1],p.y)^mul(M[0][2],p.z),y=mul(M[1][0],p.x)^mul(M[1][1],p.y)^mul(M[1][2],p.z),z=mul(M[2][0],p.x)^mul(M[2][1],p.y)^mul(M[2][2],p.z);int e=x?x:y?y:z;int m=pw(e,2);int pointcode=mul(x,m)+4*mul(y,m)+16*mul(z,m);int j=index.at(pointcode);int value=(e0>>(2*j))&3;value=mul(value,detinv);k |=((ull)value <<(2*i));}auto it=ids.find(k);if(it==ids.end()){cerr<<"missing transformed in FNC family! a="<<a<<" k="<<k<<"\n";return 1;}images.insert(it->second);if(it->second==first)stab++;}
+cout<<"smooth_forms="<<ids.size()<<"\n";cout<<"original="<<first<<" invertible_GL3="<<invmat<<" orbit_size="<<images.size()<<" stabilizer_GL3="<<stab<<"\n"; if(ids.size()!=960 || images.size()!=960 || stab!=189 || invmat!=181440) return 1;
+}
