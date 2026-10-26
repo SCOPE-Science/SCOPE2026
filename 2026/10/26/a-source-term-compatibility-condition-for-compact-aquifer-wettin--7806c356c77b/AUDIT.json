@@ -1,0 +1,104 @@
+{
+  "claim": "On any time interval \\(I\\) for which the zero-extended aquifer profile is identically dry on a fixed open spatial interval \\(U\\), a distributional solution of the printed full-line Boussinesq equation \\(h_t=k\\partial_x(h\\partial_x h)+v_s\\partial_x h-\\phi h+N(t)/n\\) must satisfy \\(N(t)=0\\) almost everywhere on \\(I\\). Therefore a compactly supported zero extension is incompatible with a spatially uniform additive source/sink whenever \\(N\\) is nonzero on a positive-measure subset of \\(I\\), unless the equation is restricted to the wet region or the source is explicitly localized there.",
+  "correctness": {
+    "rationale": "The proof is a direct distributional restriction of the printed PDE to \\(U\times I\\). On that cylinder \\(h\\), \\(h_t\\), \\(h_x\\), and \\(\\partial_x(h\\,h_x)\\) vanish; with \\(n>0\\), the remaining equation forces \\(N=0\\) almost everywhere. The statement explicitly limits itself to a full-line PDE interpretation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General porous-medium literature discusses finite propagation for the unforced equation; see the reference work The Porous Medium Equation: Mathematical Theory, propagation-properties chapter.",
+        "A related free-boundary treatment with source term proportional to the state uses an equation of the form \\(u_t-\nu\\partial_{xx}(u^p)=\\lambda u\\); that source vanishes on the dry set, unlike additive \\(N(t)\\).",
+        "Troch et al. review exact Boussinesq solutions and discuss the limited exact-solution literature and recharge setting."
+      ],
+      "reasoning": "These sources do not dominate the model-specific claim: unforced equations and sources vanishing at h=0 do not test the residual created by a spatially uniform additive N(t) on a dry open set. The finding does not claim novelty for the general distributional argument.",
+      "searches": [
+        "Web query: \"porous medium equation positive source term support free boundary compact support theorem\"",
+        "Web query: \"porous medium equation constant positive forcing compact support source term wetting front\"",
+        "Troch et al. (2013), DOI 10.1002/wrcr.20407, section on exact Boussinesq solutions"
+      ]
+    },
+    "checked_sources": [
+      "Bartlett, M. S. & Porporato, A. (2018), https://doi.org/10.1002/2017WR022056",
+      "Troch, P. A. et al. (2013), https://doi.org/10.1002/wrcr.20407",
+      "The Porous Medium Equation: Mathematical Theory, propagation-properties chapter (background only; not used as a proof of the specific claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source equation contains the additive term \\(N(t)/n\\) even when \\(h=0\\), while the stated zero extension makes \\(h\\) and all local spatial terms vanish on dry open intervals.",
+        "The background review discusses exact solutions and recharge limitations but does not give this compatibility check for the particular formula."
+      ],
+      "reasoning": "The source paper's own equations plus the zero extension imply the necessary condition \\(N=0\\) on any persistent dry interval. The result narrows the source paper's broad interpretation; it does not contradict a formulation that explicitly restricts the PDE to the wet set or localizes recharge.",
+      "searches": [
+        "Bartlett & Porporato (2018), DOI 10.1002/2017WR022056, equations (3)–(4), (24)–(27)",
+        "Troch et al. (2013), DOI 10.1002/wrcr.20407, section 3.1",
+        "Web query: \"porous medium equation positive source term support free boundary compact support theorem\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the full equation through its equation (3) and the source/sink term through equation (4); the article then gives an exact profile and says the water table is zero beyond its finite wetting fronts.",
+        "The source is dated 11 January 2018 and is freely accessible at the DOI above."
+      ],
+      "reasoning": "The equivalent mathematical form is the distributional equation \\(h_t=k\\partial_x(h\\partial_x h)+v_s\\partial_x h-\\phi h+N(t)/n\\) together with zero extension. The necessary condition follows directly on a dry open cylinder. No alternate formulation in the inspected source removes the additive term outside the wet region; if such a restriction was intended, it must be stated.",
+      "searches": [
+        "Bartlett & Porporato (2018), DOI 10.1002/2017WR022056, full text: https://doi.org/10.1002/2017WR022056",
+        "Web query: \"Boussinesq equation aquifer exact solutions sloping horizontal groundwater free boundary separation of variables\"",
+        "Web query: \"Bartlett Porporato 2018 Boussinesq aquifer source sink N(t) wetting fronts weak solution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite census or named mathematical table is relevant: this is a symbolic PDE compatibility claim, not an enumeration or numerical classification.",
+        "The inspected search results contained general porous-medium/free-boundary material but no exact source-specific treatment of the 2018 aquifer profile."
+      ],
+      "reasoning": "The appropriate exact comparison object is the source paper's governing equation and its zero-extended profile. The claim is verified by a distributional identity, so no numerical database can establish or replace the proof.",
+      "searches": [
+        "Web query: \"compactly supported wetting fronts Boussinesq aquifer uniform recharge source term nonzero outside support\"",
+        "Web query: \"porous medium equation constant positive forcing compact support free boundary source outside support weak solution\""
+      ]
+    },
+    "rationale": "The accepted contribution is the source-specific compatibility diagnosis, not the elementary general observation in isolation. No directly equivalent published analysis of the Bartlett–Porporato zero extension with additive \\(N(t)\\) was found in the inspected literature. The conclusion is carefully conditional on the full-line PDE interpretation.",
+    "residual_risks": [
+      "The original authors may have intended the PDE to hold only on the saturated region; under that interpretation the issue is a missing domain/source qualification, not failure of the interior formula.",
+      "The proof establishes a necessary compatibility condition only. It does not prove that localizing N(t) to the wet set is sufficient for existence or for all free-boundary conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source-specific compatibility condition follows if the printed PDE is interpreted on the full line. A wet-domain-only interpretation would need an explicit qualification.",
+        "evidence": [
+          "The article states first publication date 2018-01-11.",
+          "Equation (4) gives \\(\\Lambda(h,t)=-\\phi n h+N(t)\\); equation (3) therefore has additive \\(N(t)/n\\).",
+          "The discussion after equations (26)–(27) sets the profile to zero beyond finite wetting fronts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/2017WR022056",
+        "material_read": "Relevant full-text sections read: Introduction, section 2, sections 3.1–3.2, governing equation (3), source/sink definition (4), exact profile (24), wetting-front equations (26)–(27), and the statement that the profile is zero beyond the fronts; the entire article was not read.",
+        "method": "Substitute the source definition into the PDE and test the equation on an open set where the zero-extended profile vanishes.",
+        "title": "A class of exact solutions of the Boussinesq equation for horizontal and sloping aquifers",
+        "trigger": "The paper advertises an exact solution with source/sink terms and finite wetting fronts."
+      },
+      {
+        "assessment": "Background on exact-solution limitations; it does not directly state the compatibility condition proved here.",
+        "evidence": [
+          "Section 3.1 reviews exact solutions and notes the restricted set of exact-solution settings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/wrcr.20407",
+        "material_read": "Relevant section on exact and approximate Boussinesq solutions read; not treated as a source of the distributional lemma.",
+        "method": "Compare its stated scope with the additive-source, compact-support claim.",
+        "title": "The importance of hydraulic groundwater theory in catchment hydrology: The legacy of Wilfried Brutsaert and Jean-Yves Parlange",
+        "trigger": "Needed background on the scope of exact Boussinesq solutions and recharge settings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7806c356-c77b-4ecc-9346-951c7737fead",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The condition marks a concrete validity boundary for a published groundwater profile intended to represent recharge and other source/sink fluxes. It tells model users exactly when a finite zero-extended wetting-front solution cannot represent the printed equation, and what modeling qualification is needed for \\(N(t)\\). This is a narrow model-specific correction, not a claim of a new general porous-medium theorem.",
+    "status": "PASS"
+  }
+}
