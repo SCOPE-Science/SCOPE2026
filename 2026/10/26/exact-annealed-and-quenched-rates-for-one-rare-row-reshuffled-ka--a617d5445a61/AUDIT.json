@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary integer a>=1 and 0<x<1, projectors act on two lines; exact enumeration of all row-position/previous-endpoint cases proves the path exponent 2k-A_k-2C_k and the positive two-state expectation matrix. Independent permutations make even and odd boundary-event subsequences independent, proving the a.s. strong-law rate. The trace and determinant yield the positive Perron eigenvalue for mean-square rate; a strict concavity inequality proves q_as<q_ms and the characteristic polynomial at x proves q_ms<x. The common worst epoch norm squared is x. The attached standard-library checker passed 11752 assertions, including exhaustive exact-rational products, expected transfer entries, characteristic identities, and short path enumeration; universality relies on the proof, not finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han–Xie 2024 prove a general upper bound that controls every reshuffled permutation, but do not specify the exact expectation or almost-sure exponents in this redundant-row case.",
+        "Bai–Wu 2018 abstract says it obtains exact mean-square expressions for the randomized Kaczmarz method, but its sampling protocol is sampling with replacement, rather than a uniform complete epoch permutation."
+      ],
+      "reasoning": "A general rate upper bound is not equivalent to the exact mean-square Perron root or a.s. boundary-pair strong-law rate; the strict inequality q_ms<x establishes non-implied refinement. Sampling with replacement lacks the precisely once-per-epoch rare row position and the corresponding two-state transfer.",
+      "searches": [
+        "random reshuffling Kaczmarz consistent two-dimensional linear system one row direction occurs a times and second row once exact expected squared error epoch Lyapunov rate",
+        "annealed quenched rates gap independent permutation Kaczmarz orthogonal projections duplicated rows one minority angle",
+        "arXiv:2410.01140v1 §3",
+        "DOI:10.1016/j.laa.2018.05.009"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.01140v1 (full HTML; algorithm and all main analysis)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1/RESULT.md (complete public RESULT.md)",
+      "DOI:10.1016/j.laa.2018.05.009 (bibliographic abstract only)",
+      "arXiv:math/0702226 (bibliographic abstract background)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Xie 2024 yields uniform squared per-epoch contraction no worse than x in this family, while the new mean-square eigenvalue lies strictly below x and the almost-sure rate is strictly below that eigenvalue.",
+        "The closest fully inspected public result gives a deterministic cyclic overrelaxation singular-value formula; its hypotheses and measured quantities differ materially from the iid-permutation epoch product."
+      ],
+      "reasoning": "The exact path identity, expectation transfer, and strict annealed–quenched separation are not corollaries of a uniform worst-case contraction statement, and no stochastic output is implied by the deterministic cyclic power-norm theorem. The proof directly derives these quantities from the row-position random variables.",
+      "searches": [
+        "arXiv:2410.01140v1 §§2–3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "annealed quenched rates gap independent permutation Kaczmarz orthogonal projections duplicated rows one minority angle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full 2024 RRK preprint studies fresh independent epoch permutations but proves uniform spectral-operator bounds; it does not give the two-state squared-error transfer or a pathwise endpoint-adjacency identity.",
+        "The public two-row cyclic overrelaxation result treats a deterministic iteration matrix and its operator powers, with no probability law or separate almost-sure exponent."
+      ],
+      "reasoning": "The candidate is invariant under row sign changes and coordinate rotation, so it is compared as a stochastic product of two orthogonal line projectors. Unlike exact cyclic or iid-with-replacement formulations, the probability law couples the last row of each epoch to the first of the next; these boundary events determine the pathwise exponent and cannot be inferred as an identical statement from cyclic spectra.",
+      "searches": [
+        "random reshuffling Kaczmarz consistent two-dimensional linear system one row direction occurs a times and second row once exact expected squared error epoch Lyapunov rate",
+        "sampling without replacement orthogonal projections random permutations duplicate directions almost sure convergence exponent mean square Perron two state",
+        "exact almost sure and mean square Lyapunov exponent randomized reshuffling Kaczmarz two dimensions one repeated row one rare row x squared 2 by 2 transfer matrix",
+        "arXiv:2410.01140v1 §§2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published mathematical-record searches produced nearest Kaczmarz records on two-row cyclic overrelaxation, greedy residual spikes, and reverse-cyclic least-squares bias; no hit tabulated this family’s exact pair of stochastic exponents."
+      ],
+      "reasoning": "No matching numerical catalogue, exact table, or encoded formula was identified by the actual searches. This is limited negative evidence, not proof of novelty or comprehensive coverage.",
+      "searches": [
+        "random reshuffling Kaczmarz consistent two-dimensional linear system one row direction occurs a times and second row once exact expected squared error epoch Lyapunov rate",
+        "sampling without replacement orthogonal projections random permutations duplicate directions almost sure convergence exponent mean square Perron two state",
+        "Kaczmarz random reshuffling boundary pair consecutive epochs same row collapse transition one outlier exact logarithmic rate",
+        "exact almost sure and mean square Lyapunov exponent randomized reshuffling Kaczmarz two dimensions one repeated row one rare row x squared 2 by 2 transfer matrix",
+        "annealed quenched rates gap independent permutation Kaczmarz orthogonal projections duplicated rows one minority angle"
+      ]
+    },
+    "rationale": "Primary full text of arXiv:2410.01140v1 proves general RRK uniform contraction but not exact separate stochastic exponents in the one-rare-row setting. The closest fully inspected public Kaczmarz result concerns cyclic relaxed iteration, not iid reshuffled epochs. With-replacement randomized Kaczmarz mean-square literature cannot provide this per-epoch transition directly. Actual published-result and primary-literature queries found no covering implication. Residual priority risk from older random-product work remains.",
+    "residual_risks": [
+      "The 2018 Bai–Wu full text was not accessible, although its advertised iid-with-replacement setting differs from the present complete-reshuffle law.",
+      "An equivalent two-line stochastic projection product computation might occur in older probability or iterative-projection literature under other terminology.",
+      "Search and metadata evidence does not establish global publication novelty; independent priority assessment remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general reshuffling scheme and a sharp uniform convergence upper bound; does not cover the exact stochastic two-state/quenched formulas.",
+        "evidence": [
+          "arXiv:2410.01140v1, 2024-10-02, §2 uniform epoch-permutation scheme; §3 tight uniform matrix-norm convergence bound; no Bernoulli boundary-pattern process or squared-error Perron transfer."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.01140v1",
+        "material_read": "Entire accessible v1 HTML text, especially algorithm §2, all bounds §3, comparison §3.1, and conclusion",
+        "method": "Direct theorem, recurrence, and definition comparison",
+        "title": "A simple linear convergence analysis of the reshuffling Kaczmarz method",
+        "trigger": "Identical random epoch reshuffling algorithm, preprint with correct primary MSC and date"
+      },
+      {
+        "assessment": "Not covering: distinct deterministic cyclic relaxation framework; no repeated-row random reshuffling, transfer matrix, or separated almost-sure/mean-square rates.",
+        "evidence": [
+          "Its RESULT.md explicitly assumes two rows and deterministic cyclic Kaczmarz, computes an overrelaxed spectral-radius-optimal parameter and Euclidean operator powers."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "material_read": "Full RESULT.md proof, theorem, assumptions, relationship to literature, and limitations",
+        "method": "Compare statements, normalization, row sampling, and deterministic versus stochastic asymptotics",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Nearest public Kaczmarz record under full-formula semantic searches"
+      },
+      {
+        "assessment": "Not a direct match to a fresh complete-permutation epoch; uninspected full text leaves limited residual priority uncertainty.",
+        "evidence": [
+          "Bai and Wu, Linear Algebra Appl. 553 (2018), 252–269, DOI 10.1016/j.laa.2018.05.009: advertised RK mean-square formula, not a verified RRK epoch formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+        "material_read": "Indexed abstract and bibliographic record only; full text was inaccessible through available public browsing",
+        "method": "Compare explicitly identified iid row-sampling law from abstract and bibliographic context to complete without-replacement reshuffling",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Published paper advertises exact mean-squared-error formula for randomized Kaczmarz"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a617d544-5a61-4ffb-9436-619043fc2ce0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is the minimal coherent planar redundant-row test for complete random reshuffling, motivated directly by tight worst-permutation estimates in the cited 2024 RRK theory. It yields an exact finite-horizon transfer identity and complete quantitative classification of mean-square versus almost-sure exponential rates for every duplicate count and overlap, including a universal strict gap and divergent scale separation near orthogonality. The distinction guides interpretation of conservative rate bounds and typical-versus-expected convergence in randomized linear solvers, without claiming general systems or superior per-row complexity.",
+    "status": "PASS"
+  }
+}
