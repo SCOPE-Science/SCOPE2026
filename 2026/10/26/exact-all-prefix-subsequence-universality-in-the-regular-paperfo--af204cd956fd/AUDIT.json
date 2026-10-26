@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For the specified fixed binary alphabet, greedily completed two-symbol arches both embed every shorter binary word and produce a specific absent word one symbol longer. The arithmetic paperfolding definition gives exactly four eight-position templates 110a100b. A complete two-state scan yields completed arches 2+b or 3+b and an outgoing state set by b, telescoping to U(8k)=3k+p(k-1)-1. All offsets 1..7 yield 3k+h_r(a), with h=(0,0,1,1,2-a,2,2). This proves the floor formula and both sharp discrepancy constants for all positive N; the included executable independently checks two generators, the full small transition table, 262143 prefixes, and brute universality up to length 28. Finite experiments alone are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2412.17930 §1--3: general synchronized automata for maximal constant-letter run positions/lengths; arches (minimal two-letter windows) are not single runs.",
+        "arXiv:2003.04629 §4: generic arch-factorization algorithms, does not supply constant-order explicit paperfolding all-prefix identity.",
+        "published-finding corpus 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3: paperfolding prefix-normal defect is a comparison of contiguous-factor letter counts.",
+        "published-finding corpus 2026/9/8/SCOPE079: minimal string attractors of dyadic paperfolding prefixes concern hitting every contiguous factor."
+      ],
+      "reasoning": "An automaton deciding run endpoints or a generic linear-time arch algorithm can be used in a fresh derivation but does not logically state the exact formula with both corrections and sharp O(1) discrepancy. Prefix-normality and string attractors describe unrelated invariants. These distinctions were checked by statement implication rather than title or numeric similarity.",
+      "searches": [
+        "published-finding corpus: Baum Sweet Rudin Shapiro paperfolding subsequence universality local prefix",
+        "published-finding corpus: exact subsequence universality regular paperfolding prefix length 2^k",
+        "web: \"paperfolding\" \"arch factorization\"",
+        "web: Runs in Paperfolding Sequences Shallit arXiv:2412.17930",
+        "web: Scattered Factor-Universality of Words arXiv:2003.04629"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.2856",
+      "https://arxiv.org/abs/2003.04629",
+      "https://arxiv.org/abs/2108.13968",
+      "https://arxiv.org/html/2412.17930v2",
+      "https://oeis.org/A014577",
+      "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "published-finding corpus 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+      "published-finding corpus 2026/9/8/SCOPE079",
+      "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1208.2856 §2--4: abelian *factor* complexity of the infinite paperfolding word is 2-regular, not universal scattered-subsequence coverage of its first N letters.",
+        "arXiv:2108.13968 Theorem 4.1: generic computation of arch count from an input string; no closed form for the canonical infinite paperfolding prefixes.",
+        "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28: extremal shortest-absent-subsequence multiplicities among arbitrary binary words, not canonical paperfolding input."
+      ],
+      "reasoning": "A generic algorithm gives each value after reading a length-N prefix, not an all-N arithmetic identity. The source word and its basic recursion are published, but deriving a quantitative completeness law, sharp bounds and exact exceptional residues requires the explicit eight-symbol transition/telescoping computation given here. Previous adjacent ledger findings are on different words or invariants and do not imply this assertion.",
+      "searches": [
+        "published-finding corpus: regular paperfolding word universality index of prefixes 3/8 shortest absent scattered subsequences exact floor (3n+1)/8",
+        "published-finding corpus: paperfolding word arch factorization 8-block automaton count arches sequence",
+        "published-finding corpus: Baum Sweet Rudin Shapiro paperfolding subsequence universality local prefix",
+        "web: The abelian complexity of the paperfolding word arXiv:1208.2856",
+        "web: Absent Subsequences in Words arXiv:2108.13968"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2003.04629 §2--4: scattered factor universality, also called richness or subsequence completeness; full finite-word algorithm, not paperfolding-specific all-prefix values.",
+        "arXiv:2108.13968 §2 and §4: a shortest absent subsequence has length one plus the universality/arch index; no paperfolding instance or 3/8 law found.",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37: finite-length distribution over ALL binary input words, not the paperfolding prefix sequence."
+      ],
+      "reasoning": "The theorem is equivalent to an exact shortest-absent-subsequence LENGTH formula, or exact greedy-arch counts for regular paperfolding prefixes. These aliases and the rational rate were included in searches. Neither a generic algorithm nor a full-word enumerative distribution fixes the index of every specific paperfolding prefix.",
+      "searches": [
+        "published-finding corpus: regular paperfolding word universality index of prefixes 3/8 shortest absent scattered subsequences exact floor (3n+1)/8",
+        "published-finding corpus: paper folding dragon word all binary subsequences universality count asymptotic 0.375",
+        "published-finding corpus: paperfolding word arch factorization 8-block automaton count arches sequence",
+        "web: regular paperfolding word subsection subsequence universality index arches 3/8",
+        "web: paperfolding sequence scattered subsequences shortest absent subsequence 3/8",
+        "web: paperfolding shortest absent subsequences index factor prefix 3/8",
+        "web: \"paperfolding\" \"universality index\" subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014577 is the regular paperfolding SYMBOL sequence and contains an odd-part rule and a folding construction, not the derived prefix universality-index table.",
+        "No directly matching paperfolding subsequence-universality index entry was returned by these exact searches."
+      ],
+      "reasoning": "One can compute a prefix-index table from the OEIS symbol sequence, but this is not the same as a pre-existing exact evaluated-index table or unrestricted formula. Absence of a search hit is not proof that no index exists elsewhere.",
+      "searches": [
+        "web: OEIS \"paperfolding\" \"subsequence universality\"",
+        "web: OEIS \"paperfolding\" \"3/8\" arches",
+        "web: \"paperfolding\" \"shortest absent subsequence\"",
+        "OEIS A014577 exact entry"
+      ]
+    },
+    "rationale": "The searched general arch algorithms and paperfolding factor/run literature neither state nor imply without an additional new paperfolding-specific scanner argument the exact all-N fixed-origin subsequence index and sharp fluctuation law. A separate arithmetic table of paperfolding letters does not tabulate the claimed index. The published-finding corpus records closest in object/invariant concern different quantified objects and parameters. Search cannot establish absolute novelty; unindexed or inaccessible full texts remain residual priority risks.",
+    "residual_risks": [
+      "Absolute novelty is not proved by web, mathematical-record, or sequence-database search; earlier unindexed and privately communicated derivations may exist.",
+      "Some matching research-record GitHub full texts were not retrievable from the public web interface: the scientific comparison used their indexed summaries, not uninspected full text.",
+      "The 2024 paperfolding run automata could conceivably be specialized to compute the same arch index via additional derived machinery, though its inspected results do not provide the formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING by mathematical invariant; computes factor Parikh-class complexity rather than subsequence completeness of fixed-origin prefixes.",
+        "evidence": [
+          "2012 preprint initial public date 2012-08-14; Introduction and Theorems 1--2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.2856",
+        "material_read": "HTML full text sections 1--4, including odd-part definition (zero-one complement), main 2-regularity claims and proof structure.",
+        "method": "Direct HTML reading of theorem statements and paperfolding definitions.",
+        "title": "The abelian complexity of the paperfolding word",
+        "trigger": "Same infinite object and classical archived primary source."
+      },
+      {
+        "assessment": "RELATED_METHOD_NOT_IMPLICATION; it gives a generic finite-input linear-time computation and several operations on words, not an exact identity for all paperfolding prefixes.",
+        "evidence": [
+          "2020 preprint §1--4; definition of universality index, arch factorization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "HTML full text introduction, definitions, universality/arch sections and stated results.",
+        "method": "Read §1, §2, relevant §4 descriptions and algorithms.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Core definition and more general algorithm."
+      },
+      {
+        "assessment": "RELATED_METHOD_NOT_IMPLICATION; no paperfolding example, 3/8 rate, or full-prefix arithmetic formula.",
+        "evidence": [
+          "2021 preprint Definition 2.3 and Theorem 4.1; paperfolding search returned no match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+        "material_read": "HTML full text introduction, §2 definitions, arch factorization, §§3--4 characterizations and Algorithm 6.",
+        "method": "Read paper sections and search the complete HTML for paperfolding terminology.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Same minimum absent-subsequence length and arch vocabulary."
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE; maximal constant-letter runs differ from greedy arches. A hidden reduction is not categorically excluded.",
+        "evidence": [
+          "2024 preprint Proposition 1 and Theorems 3--4 on run positions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.17930v2",
+        "material_read": "HTML full text introduction, definitions, sections 2 and 3 on run-position/length automata.",
+        "method": "Read source mathematical statements and compare object and quantified property.",
+        "title": "Runs in Paperfolding Sequences",
+        "trigger": "Plausible later work about paperfolding runs/sequence arithmetic."
+      },
+      {
+        "assessment": "BASE_SEQUENCE_ONLY; not an evaluated subsequence-universality-index formula.",
+        "evidence": [
+          "OEIS A014577 symbol sequence; no universality table identified."
+        ],
+        "identifier_or_url": "https://oeis.org/A014577",
+        "material_read": "Sequence definition, comments, initial terms and arithmetic description.",
+        "method": "Direct source entry inspection.",
+        "title": "OEIS A014577: regular paper-folding sequence",
+        "trigger": "Potential exact database or prior tabulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af204cd9-56fd-4705-9b86-68b26ad3d941",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Subsequence universality (equivalently shortest absent scattered-subsequence length minus one) is a standard natural invariant of finite strings, and evaluating it at every prefix of a canonical aperiodic automatic sequence is a motivated structural classification. Unlike ordinary linear-time input algorithms or a selected finite cutoff, the result provides an all-N closed form, an exact 3/8 rate, and sharp two-sided bounded fluctuations with infinite families of equality. It discriminates a deterministic low-complexity word by a completeness invariant and does not depend on unsupported applications or trivial parameter substitution.",
+    "status": "PASS"
+  }
+}
