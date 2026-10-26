@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The proof independently derives the exact Erlang-vs-Erlang vaccine/infection event-race probability, uses the source descendant reward convention, verifies strict log-concavity of both complete-tree descendant counts and negative-binomial cumulative sums, and proves all adjacent crossing endpoints/monotonicity. The one-stage first-layer theorem, two-stage branching cutoff, exact binary height-four threshold, and rational witness follow rigorously, including equality boundaries and arbitrary positive rates. Exact rational verification checks 1,920 finite parameter families using an independent dynamic programming race recurrence. Sampled code is supplementary, not a substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li et al. full accessible manuscript https://arxiv.org/abs/2307.06889, Theorem 1: general reward functional and greedy algorithm, not universal explicit optimal layer for regular trees.",
+        "DeLegge et al. (2015), DOI:10.1007/s11538-015-0069-5, accessible abstract: deterministic population-level multistage-vaccine compartments and herd immunity.",
+        "Nguyen and Carlson (2016), DOI:10.1371/journal.pone.0152950, accessible abstract: two-city stochastic SIR allocation with deployment delay."
+      ],
+      "reasoning": "The source general single-vaccine formula lets one calculate rewards, so the identity for each specific level is prior-implied. It does not state or give the monotonic-ratio structural theorem that solves optimal depth simultaneously for all heights, branching degrees, maturation orders, and positive rates. The other cited models do not have the same rooted-tree SI single-target optimization, so their full-population optimization theorems do not dominate the claim.",
+      "searches": [
+        "Li Huang Lee Eun 2307.06889 controlling epidemic spread under immunization delay constraints reward tree submodularity",
+        "rooted b-ary tree Erlang immunization delay complete vaccination depth threshold",
+        "\"Controlling Epidemic Spread Under Immunization Delay Constraints\" \"optimal\"",
+        "vaccination delayed immunity regular tree optimal level phase type delay immunization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.06889",
+      "https://networking.ifip.org/2023/index.php/program.html",
+      "https://pubmed.ncbi.nlm.nih.gov/25698086/",
+      "https://www.icb.ucsb.edu/publications/1970",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e",
+      "https://networking.ifip.org/2023/index-2.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source equation E[R_i]=n_i P(Z_i>tau) in Li et al., https://arxiv.org/abs/2307.06889, directly implies the level reward formula after inserting an Erlang distribution and full-tree descendant counts.",
+        "The strictly log-concave level rewards and exact ordered critical-parameter existence theorem follow from distinct inequalities proved in RESULT.md §Proof 2–3.",
+        "The sharp h=2 binary height-four threshold and equal-mean distribution contrast are proved in RESULT.md §Proof 4, not stated in the source text or its random-tree experiments."
+      ],
+      "reasoning": "We do not claim novelty for the source reward identity, positive vaccine probability, Erlang-vs-Erlang negative-binomial identity, generic submodularity, or any isolated computation. The assessed final claim is the complete global depth-optimization structure and sharp phase diagram; these require the two log-concavity arguments plus strict rate-monotonicity and are not a mere change of variables or directly stated corollary in inspected results.",
+      "searches": [
+        "Erlang multiple immunization stage vaccination delay on rooted complete binary regular trees optimal vaccine depth level thresholds one dose expected saved descendants",
+        "single vaccine exponential delay always optimal to vaccinate root child balanced tree versus two-stage delay vaccinates grandchildren",
+        "Li Huang Lee Eun 2307.06889 controlling epidemic spread under immunization delay constraints reward tree submodularity",
+        "balanced tree immunization delay optimal depth infectious source one vaccine"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. (2023), https://arxiv.org/abs/2307.06889, Eq. (1) and Theorem 1, evaluates any selected node via descendants and the probability that immunity beats infection; source explicitly focuses on exponential maturation in numerical tests.",
+        "Exact NB/Erlang race reformulation — the new classification concerns the ordered ratios of finite cumulative negative-binomial polynomials over depth, not merely the race law.",
+        "Published comparison titled “Mean matching exposes a systematic waiting-time bias in vaccination models”, public record 2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e, concerns success-probability differences for waiting times at fixed mean, not vaccination target-depth ordering."
+      ],
+      "reasoning": "Changing from an Erlang race to a negative-binomial CDF is an equivalent representation of the success probability; this alone is not claimed as new. The final theorem further proves an all-parameter strictly log-concave sequence of tree-level rewards, exact adjacent switch existence and ordering, and sharp stage-count/height/branching boundaries. The published waiting-time comparison involves a different hazard configuration and does not imply these ordering statements.",
+      "searches": [
+        "Erlang multiple immunization stage vaccination delay on rooted complete binary regular trees optimal vaccine depth level thresholds one dose expected saved descendants",
+        "full b-ary tree root source SI model one vaccination Erlang gamma delay optimal depth log concavity level switching infection vaccination race",
+        "\"Erlang\" \"binary tree\" \"vaccination\" \"optimal\" \"depth\" epidemic",
+        "\"gamma-distributed\" \"immunization time\" tree network one vaccine optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li et al., https://arxiv.org/abs/2307.06889, §V/Figs. 7–12: sampled Galton–Watson/random binary-tree experiments with exponentially distributed immunization time; these are not complete-tree Erlang stage transition tables.",
+        "published-finding corpus query for rooted complete-tree gamma/Erlang switching returned comparison records about distinct vaccination models, not an exact table of all switch thresholds."
+      ],
+      "reasoning": "The source contains random-tree numerical experiments and a general formula, not a table or database enumerating all integer branching/depth and continuous rate cases. A specific witness table is an implication of the new formula, not the novelty basis. No exact published transition table was found, with remaining possibility of unindexed literature noted.",
+      "searches": [
+        "\"multistage\" \"immunization\" tree optimal vaccination depth",
+        "\"Controlling Epidemic Spread Under Immunization Delay Constraints\" Erlang complete tree phase transition",
+        "\"Li\" \"Huang\" \"Lee\" \"Eun\" \"complete binary tree\" immunization"
+      ]
+    },
+    "rationale": "The full 2023 Li–Huang–Lee–Eun preprint (model §II, Theorem 1, §III and numerical §V) provides the exact one-vaccine expected-descendant formula and tree submodularity but not a proof of strict level log-concavity or a classification of all Erlang maturation-stage optimal-depth transitions, which require additional nontrivial sequence inequalities. The 2015 multistage-vaccine compartment paper and 2016 coupled-city SIR allocation paper do not have this same rooted-tree objective. published-finding corpus searches for the source, formula, gamma/Erlang aliases, rate thresholds and log-concavity did not return a directly covering published claim. Novelty remains provisional because searches cannot prove uniqueness and the 2015 full article was not accessed.",
+    "residual_risks": [
+      "The 2015 multistage-vaccination article was compared through its abstract, not its full primary text; it is a different compartmental model but uninspected theorems could potentially have a remote implication.",
+      "published-finding corpus semantic ranking and web search are finite and incomplete; claims of first publication are provisional.",
+      "The source was presented in June 2023; official program fixes June 14 as the date of scheduled public dissemination, but private availability before that date cannot be excluded.",
+      "The reward counts strict descendants only, exactly as in the motivating single-vaccine formulation; counting the selected vertex changes finite cutoffs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source model and baseline one-target reward formula fully credited; no complete-regular-tree Erlang-stage global layer-optimization theorem identified.",
+        "evidence": [
+          "https://arxiv.org/abs/2307.06889",
+          "Eq. (1) (one vaccine), Theorem 1 (reward formula), §V (random-tree numerical experiments)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06889",
+        "material_read": "Full accessible HTML rendition of the preprint: introduction, §II model and single-vaccine Eq. (1), §III Theorems 1–2/proof and optimization algorithm, §IV multiple-source cases, §V random-tree numerical tests; full text through references.",
+        "method": "Full-text direct reading and targeted in-document searches for regular/complete/binary trees, optimal level, exponential delay, and analytic optimization.",
+        "title": "Controlling Epidemic Spread Under Immunization Delay Constraints",
+        "trigger": "Exact SI tree infection and delayed-immunization model and closest candidate for prior general coverage"
+      },
+      {
+        "assessment": "Presentation of the named paper was scheduled for June 14, 2023, preceding the July 13 arXiv posting; date is supported by official public event schedule.",
+        "evidence": [
+          "https://networking.ifip.org/2023/index.php/program.html",
+          "Day 2 – June 14, Session 8: Resource Management"
+        ],
+        "identifier_or_url": "https://networking.ifip.org/2023/index.php/program.html",
+        "material_read": "June 14, 2023 Day 2 11:00–13:00 Session 8 presentation listing Li, Huang, Lee and Eun.",
+        "method": "Direct official program text inspection.",
+        "title": "IFIP Networking 2023 official scientific program",
+        "trigger": "Determine earliest verified public dissemination date for the motivating paper"
+      },
+      {
+        "assessment": "Describes a compartmental multistage vaccination/herd-immunity model, not obviously a one-target finite rooted-tree expected-descendant optimization; no whole-article noncoverage claim is made.",
+        "evidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25698086/",
+          "DOI:10.1007/s11538-015-0069-5"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/25698086/",
+        "material_read": "PubMed bibliographic entry and abstract only; full article not accessed.",
+        "method": "Read descriptive abstract and model scope.",
+        "title": "An epidemic model with a multistage vaccine",
+        "trigger": "Multistage-vaccine concept could overlap source assumptions"
+      },
+      {
+        "assessment": "Two-population stochastic SIR coupled-city allocation, rather than one-root SI complete-tree Erlang maturation; not a direct same-parameter exact phase table in accessible material.",
+        "evidence": [
+          "https://www.icb.ucsb.edu/publications/1970",
+          "DOI:10.1371/journal.pone.0152950"
+        ],
+        "identifier_or_url": "https://www.icb.ucsb.edu/publications/1970",
+        "material_read": "Institutional publication entry and abstract concerning vaccination among coupled cities; full article not inspected.",
+        "method": "Read abstract and compare modeled objects and objective.",
+        "title": "Optimizing real time vaccine allocation in a stochastic SIR model",
+        "trigger": "Earlier stochastic allocation under deployment delay"
+      },
+      {
+        "assessment": "Different objective and no ordered multi-level optimal selection in indexed summary; could not certify complete-document noncoverage from summary alone.",
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e",
+          "published-finding corpus public record 2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e",
+        "material_read": "Public indexed title and detailed summary; not full proof.",
+        "method": "Compare its summarized object (waiting-time probability at fixed hazard) and quantifiers against the present tree-depth ordering theorem.",
+        "title": "Mean matching exposes a systematic waiting-time bias in vaccination models",
+        "trigger": "Closest semantically related published published-finding corpus delay-comparison finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52717cca-3b24-41b3-8e85-93bff12a8fa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit and natural vaccination target-location optimization problem remains nontrivial because proximity to an infected root increases descendants protected but decreases immunization success. For every balanced branching factor, finite height, Erlang stage count and two positive rates, the proof provides a full and interpretable global switch-phase classification, ties included; the sharp two-stage binary-tree transition shows a distributional modeling choice can reverse the selected level at fixed mean vaccine time. This extends beyond a tiny numerical gain or reformatting of a known table, and supplies a reproducible exact benchmark while excluding unrealistic generalizations.",
+    "status": "PASS"
+  }
+}
