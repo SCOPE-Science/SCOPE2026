@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The proof explicitly fixes the concept domain and query semantics. The at-most-one-query-per-vertex argument and the four-consecutive-position obstruction are unconditional for three colours; the alternating run construction and one-vertex separator extension prove its sharpness for all lengths. The online lower bound is an explicit adaptive sequential strategy, and the upper bound is an induction on unfixed coordinates. Boundary cases \(n=1\) and \(q=2\) are included. Exhaustive small examples independently agree. Risk: no independent audit.
+
+**Originality — PASS under available evidence, with historical-priority risk.** published-finding corpus and primary-source searches considered graph colouring concepts, unary literal queries, path colouring, VC/Littlestone dimensions, four-position obstructions and palette thresholds. Closest material on graph-structure learning from proper colourings, tree shattering, and general dimension computation treats different questions. The logical distinction is clear: identification of a fixed unknown colouring under Boolean literals differs from recovering an unknown graph from random samples; generic VC/online bounds do not imply the closed exact formulas. Risk: uncatalogued antecedents may exist and the general-hardness primary article was inspected at abstract level.
+
+**Value — PASS.** The natural palette threshold \(q=3\) gives an exact, linear-in-order gap on one connected path, while the gap vanishes for \(q=2\) and \(q\ge4\). The local obstruction and separator-splicing construction explain the phase transition and provide a complete classification for all palette sizes, not a numerical slice or a generic restatement of shattering definitions.
+
+Self-review: passed. Independent audit: not yet performed.
