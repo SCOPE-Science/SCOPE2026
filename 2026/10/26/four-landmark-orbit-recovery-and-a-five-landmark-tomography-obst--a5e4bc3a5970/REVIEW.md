@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The automorphism action classifies coordinate-status profiles by weak compositions. The neighbour-displacement identity is derived coordinatewise; full rational column rank for one through four markers is certified by modular minors, and the exact five-dimensional rational nullspace at five markers is certified by five independent integer kernel vectors together with a modular lower rank bound. A direct 12-coordinate collision and 3,131 small graph configurations were checked against independently formed graph-neighbour signatures. The proof distinguishes a one-neighbour tomography obstruction from a potential full-refinement failure. The iteration bound is an upper bound and is not claimed optimal.
+
+**Originality — PASS, with residual publication risk.** The full text of Gillespie–Praeger (2014) concerns neighbour-transitive codes and wreath-product symmetries; the full text of Kersting et al. (2014) treats generic counting refinement and equitable partitions. The 2026 Tinhofer-hierarchy work gives an abstract orbit-partition characterization, not the quaternary four/five-marker rank threshold. The directly inspected materials do not imply the claimed exact ranks or local collision. Earlier Hamming embedding characterizations do not furnish the invariant either. Specialized unindexed literature could cover an equivalent linear-algebraic formulation; independent publication-priority audit is outstanding.
+
+**Value — PASS.** The four-to-five marker boundary is a natural identifiability threshold for single-neighbour observations in Hamming-space reconstruction. It establishes a dimension-independent orbit-recovery result with class and size formulas and, at the next marker count, a concrete structural limit to the method. This is more than an unmotivated finite count, while remaining narrower than a five-marker failure theorem.
+
+Self-review: passed. Independent audit: not yet performed.
