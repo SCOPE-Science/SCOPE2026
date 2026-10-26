@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every binary p the greedy embedding in 0101... ends at e(p)=|p|+r(p)+first_bit(p); greediness proves minimality. For a palindrome adjacent equalities reflect, with a forced center equality at even length, giving binomial endpoint multiplicities and an exact formal geometric summation. An independent enumerator checks all palindromes in prefixes through 21; a different interval DP and a rational-series recurrence agree through prefix 150. These finite checks support but are not substituted for the all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Pandoh 2021 derives general upper bounds and a conjecture for total maximum; the known case of at least half as many alphabet symbols as word length does not cover long binary prefixes.",
+        "Holub–Saari 2009 reconstruction theorem does not imply the cardinalities stratified simultaneously by earliest embedding and palindrome length."
+      ],
+      "reasoning": "A general theorem proving each length-by-first-appearance count would subsume the new result. Examined broader published theorems concern scalar upper bounds or different length/maximality invariants, and no implication to the claimed refined coefficients follows. The global extremal conjecture is deliberately not asserted.",
+      "searches": [
+        "Maximum number of distinct scattered palindromic subsequences in a binary word of length n attained by alternating word and Fibonacci formula, Mahalingam Pandoh conjecture 2021",
+        "Counting scattered palindromes in finite words 2021 fixed binary alphabet q=2 sharp maximum all lengths Fibonacci",
+        "Mahalingam Pandoh Counting scattered palindromes in a finite word 2021 alternating binary 0101 formula conjecture",
+        "arXiv:2108.02729 full text Section 4 and Conjecture 5.6",
+        "Holub-Saari 2009 full primary text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.02729",
+      "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+      "https://oeis.org/A238374",
+      "https://oeis.org/A204026",
+      "Published mathematical record searches for equivalent bivariate enumerations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary 2021 claim is extremal total counts; the new statement is exact all-length graded enumeration for the alternating witness and never asserts the unproved global extremal bound.",
+        "OEIS A238374 coefficient a(n) is the y=1 specialization of a bivariate series, whose values cannot recover the coefficients indexed by palindrome length without additional information.",
+        "The proof gives exact minimal embedding e(p)=|p|+r(p)+b, a stronger per-palindrome fact than the total count."
+      ],
+      "reasoning": "Specialization of this finding at y=1 is prior knowledge and is not claimed as a new corollary. Conversely the prior scalar sequence neither implies the mirrored-adjacency classification nor the bivariate coefficients; any proof of those features would need additional mathematics. No stronger indexed result was found in the inspected primary sources.",
+      "searches": [
+        "bivariate generating function (1+x)(xy+x^3*y^2)/(1-x^2*y^2-x^4*y^2) for distinct palindromic subsequences of alternating binary words length profile first occurrence",
+        "length-resolved spectrum distinct palindromic subsequences binary alternating words exact binomial coefficient first occurrence",
+        "arXiv:2108.02729 Proposition 4.7 / Theorem 5.4 / Conjecture 5.6",
+        "Holub-Saari 2009 Theorems 2–4",
+        "OEIS A238374 and A204026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.02729 Theorem 4.2 counts total scattered palindromes and Section 5 Conjecture 5.6 addresses maxima, but the exact joint first-birth-position/palindrome-length series is not stated there.",
+        "Holub–Saari 2009 studies shortest minimal-palindromic extensions and palindrome-set reconstruction; it does not give the joint alternator census."
+      ],
+      "reasoning": "Equivalent terminology could be scattered palindromic subword length distribution, birth profile, or earliest subsequence embedding. In the inspected primary works those statements are not proved; the explicit bivariate formula follows from a new parametrization by mirrored equal-adjacency flags. Lack of indexed matches is not a guarantee of uniqueness.",
+      "searches": [
+        "bivariate generating function (1+x)(xy+x^3*y^2)/(1-x^2*y^2-x^4*y^2) for distinct palindromic subsequences of alternating binary words length profile first occurrence",
+        "palindromic scattered subwords alternating word 010101 minimum embedding length equal adjacent pairs generating function Fibonacci Mahalingam Pandoh",
+        "length-resolved spectrum distinct palindromic subsequences binary alternating words exact binomial coefficient first occurrence",
+        "number distinct scattered palindromic subsequences alternating binary word exact length distribution generating function",
+        "arXiv:2108.02729 Sections 2, 4, 5",
+        "Holub-Saari 2009 Sections 2–6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A238374 has exactly the scalar count 1,2,4,6,9,12,17,22,30,38,... and exactly the univariate generating function (with indexing shift).",
+        "OEIS A204026 rows are antidiagonals of min(F(i+1),F(j+1)); their row sums agree with A238374, but the rows are not palindrome-length spectra.",
+        "Mahalingam–Pandoh Table 4 contains the same binary scalar maxima through length ten."
+      ],
+      "reasoning": "The univariate count and generating function are fully covered and excluded from the novelty claim. The known Fibonacci table shape does not coincide with the length-refined palindrome coefficient array (for example prefix length five gives 2,2,3,1,1, versus A204026 row 1,2,3,2,1). None of those recorded scalar facts logically specifies the full bivariate length-first-appearance distribution.",
+      "searches": [
+        "OEIS \"1, 2, 4, 6, 9, 12, 17, 22, 30, 38\" palindromic subsequences",
+        "\"1,2,4,6,9,12,17,22,30,38\" scattered palindrome Fibonacci",
+        "https://oeis.org/A238374",
+        "https://oeis.org/A204026",
+        "arXiv:2108.02729 Table 4"
+      ]
+    },
+    "rationale": "Primary full-text comparisons show prior bounds and the extremal conjecture, but do not state the length-by-first-appearance enumeration. OEIS A238374 exactly precedes the scalar count and generating function: they are expressly excluded from originality. The new claim is the joint rational generating function and bijective binomial first-occurrence formulas. Different terminology elsewhere remains a real residual risk.",
+    "residual_risks": [
+      "Equivalent length-refined enumeration could be present in work not indexed by search results or in sections of tangentially relevant literature not examined.",
+      "The exact scalar Fibonacci sequence and univariate rational generating function are already known in OEIS A238374; novelty is strictly confined to the first-occurrence-by-length refinement.",
+      "No independent external mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SCALAR_COUNT_PRECEDENT_BUT_BIVARIATE_NOT_STATED",
+        "evidence": "Definitions SP_t and SP; Theorem 4.2 upper bound, Proposition 4.17, Theorem 5.4 for q>=n/2, Table 4 n<=10, Conjecture 5.6; no palindrome-length/first-prefix joint generating function.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+        "material_read": "Text of abstract, definitions, results in Sections 3–4, and Section 5 including Table 4, Conjecture 5.6 and conclusion; 460-line rendered primary text.",
+        "method": "Open and read primary arXiv full-text rendering and compare theorem/proposition statements and table entries.",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Direct 2021 mathematical source for the distinct scattered-palindrome length and alphabet-size extremal problem"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+        "evidence": "Theorem 2 reconstructs a word up to reversal from its full palindrome-subsequence set; Theorems 3–4 govern minimal-palindromic extension ratios, not length-birth enumerations.",
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Author-hosted nine-page PDF sections on definitions, reconstruction theorem, minimal-palindromic words, extension bounds and discussion, read via extracted page text and first-page image.",
+        "method": "Read original author PDF, compare Theorems 1–4 and their exact parameters.",
+        "title": "On highly palindromic words",
+        "trigger": "Cited prior binary scattered-palindrome primary paper with a potentially broader assertion"
+      },
+      {
+        "assessment": "SCALAR_SPECIALIZATION_EXACTLY_COVERED",
+        "evidence": "A238374 records (1+x)(1+x^2)/[(1-x)(1-x^2-x^4)] with coefficients beginning 1,2,4,6,9,12,...; this matches the nonempty-prefix scalar sequence as an index shift, so it is NOT claimed new.",
+        "identifier_or_url": "https://oeis.org/A238374",
+        "material_read": "Sequence entry, offset, term list, rational univariate generating function, formulas and cross-references.",
+        "method": "Compared generating function algebraically after accounting for the stated OEIS offset.",
+        "title": "OEIS A238374",
+        "trigger": "Exact apparent match for the scalar coefficients 1,2,4,6,9,12,..."
+      },
+      {
+        "assessment": "NOT_SAME_BIVARIATE_TABLE",
+        "evidence": "The A204026 row 1,2,3,2,1 has sum 9; the n=5 distinct palindrome lengths give 2,2,3,1,1, also sum 9, so the table is not the claimed graded distribution.",
+        "identifier_or_url": "https://oeis.org/A204026",
+        "material_read": "Entry definition f(i,j)=min(F(i+1),F(j+1)), antidiagonal rows and worked matrix.",
+        "method": "Compared documented rows to independently enumerated palindrome-length rows.",
+        "title": "OEIS A204026",
+        "trigger": "A238374 explicitly identifies its sequence as row sums of this triangle, potentially dominating an array refinement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0fb160e-b596-4b58-9ffe-9683326687cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2021 literature explicitly studies maximal distinct scattered-palindrome counts, for which alternating binary words provide the motivating canonical witness, but only total scalar counts were tabulated. This result determines every palindrome-length and earliest-prefix multiplicity for all lengths, and characterizes the exact length-2k threshold for covering the full k-palindrome language. Its natural bivariate first-occurrence invariant is not specified by the already-known scalar sequence. No global extremal theorem is needed or claimed.",
+    "status": "PASS"
+  }
+}
