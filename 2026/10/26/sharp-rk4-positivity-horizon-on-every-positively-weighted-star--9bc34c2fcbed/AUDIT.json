@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Laplacian products through fourth power are reconstructed for arbitrary conductances. Center-leaf terms equal h w_i F_{w_i}; leaf-pair terms are positive because 3W-(A+w_i+w_j)^2>0. All diagonal terms are strictly positive by the positive scalar RK4 polynomial on the nonnegative spectrum. Differences of F are negative multiples of the same positive quadratic, and 9TV-4U²>0 proves all F strictly decreasing. Unique maximum-spoke crossing gives exact iff range. Standalone symbolic exact-rational checker verified formulas and representative signs; the general conclusions use inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ketcheson–Gottlieb–Macdonald arXiv:1106.3626v1, lines 13–35, 63–66, 173–204, 1746–1762: general SSP framework and two-step methods",
+        "Gottlieb–Shu–Tadmor, SIAM Review 43 (2001), DOI 10.1137/S003614450036757X (background review)"
+      ],
+      "reasoning": "A general SSP coefficient or forward-Euler sufficient condition does not yield a necessary endpoint threshold or identify first-negative entries; even a condition valid for arbitrary generators must include sharpness on the actual given star to cover the theorem. A known RK3 tree-bound classification does not imply the RK4 fourth-degree result.",
+      "searches": [
+        "Web: classical fourth order Runge Kutta graph Laplacian entrywise nonnegative star network sharp threshold",
+        "published-finding corpus: SSP fourth-order Runge Kutta positivity weighted star graph sharp timestep endpoint positive",
+        "published-finding corpus: explicit RK4 heat diffusion star graph weighted Laplacian largest edge optimal positivity step CFL positivity off diagonal"
+      ]
+    },
+    "checked_sources": [
+      "Ketcheson–Gottlieb–Macdonald, arXiv:1106.3626v1 (18 June 2011) full-text selected sections",
+      "Gottlieb–Shu–Tadmor 2001 SIAM Review DOI 10.1137/S003614450036757X (abstract only)",
+      "Published published-finding corpus returned records relevant to positivity numerical time integrators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1106.3626v1, sections 1–2,4 and 6: convex forward-Euler decompositions and TSRK optimization, no weighted star classification",
+        "published-finding corpus: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (implicit [2/2] Padé) and 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 (SSP-SDIRK2)"
+      ],
+      "reasoning": "Implicit Padé and SDIRK stability functions differ from the explicit RK4 polynomial; corresponding positivity statements do not logically entail this exact classification. SSP sufficient bounds are weaker than, and do not imply, the exact new iff threshold and maximum-weight bottleneck. No strong same-object coverage was identified.",
+      "searches": [
+        "published-finding corpus: Classical explicit Runge Kutta fourth order RK4 positivity preservation nonnegative heat kernel complete multipartite graph graph Laplacian exact timestep thresholds",
+        "Web: Gottlieb Shu Tadmor 2001 strong stability preserving high order time discretization methods pdf",
+        "arxiv:1106.3626v1: SSP theory two-step RK and appendix search for star/positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1106.3626v1, sections 1–2,4,6: SSP notions and two-step methods rather than star-graph RK4 positivity",
+        "published-finding corpus closest: 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 (two-step Lanczos, not RK4)"
+      ],
+      "reasoning": "The final-step fourth Taylor polynomial is the stability polynomial of classical RK4, so Taylor exponential truncation and graph heat positivity are aliases; no inspected result gives the exact heavy-spoke cubic and iff statement.",
+      "searches": [
+        "published-finding corpus: classical fourth-order Runge Kutta exact positivity preservation timestep threshold arbitrary weighted star graph center leaf maximal conductance cubic root",
+        "published-finding corpus: fourth degree Taylor polynomial of matrix exponential negative Laplacian weighted star graph nonnegative threshold maximal spoke",
+        "Web: RK4 positivity preservation star graph weighted edges explicit Runge Kutta diffusion Markov nonnegative timestep"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: no exact entry for classical RK4 on arbitrary positive weighted star among returned nearest hits"
+      ],
+      "reasoning": "No checked database or numerical table supplies these arbitrary-real-weight exact cubics or the maximum-edge ordering.",
+      "searches": [
+        "published-finding corpus: 4th order exponential Taylor truncation positivity on weighted star graph sharp step edge maximum",
+        "Web: SSPRK(3,3) positivity complete bipartite graph Laplacian timestep",
+        "Archival mathematical-record comparisons: weighted-star RK4, cubic positivity horizon, maximal spoke ordering"
+      ]
+    },
+    "rationale": "Archival SSP literature gives method-general sufficient monotonicity machinery but not the exact RK4 final-step threshold for any positive weighted star; distinct archived related results treat RK3, Gauss Padé or Radau. Direct published-finding corpus and public-literature searches for equivalent claims did not identify stronger covering results. Remaining indexing risks are documented.",
+    "residual_risks": [
+      "No comprehensive historical full-text database is available; a specialized earlier weighted-star RK4 result may exist outside checked literature.",
+      "The 2001 SSP review was inspected only at abstract level; it is a general review, and its complete technical contents were not checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING examined theorem; study is about SSP two-step RK method design and lacks weighted-star RK4 exact entrywise horizon. Its general sufficiency does not imply the claimed sharpness.",
+        "evidence": [
+          "arxiv:1106.3626v1, PDF pages 1–4 and 12–13 and 19–20, with no star or positivity text hits"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+        "material_read": "arXiv v1 PDF 24 pages; first pages (definition and motivation, sections 1–2), higher-order SSP conditions around page 12, method optimization around page 13, conclusion around page 19, and document text searches for star and positivity",
+        "method": "Full PDF text inspection of specified sections, visually inspected first page, searched document for star and positivity",
+        "title": "Strong Stability Preserving Two-Step Runge–Kutta Methods",
+        "trigger": "Closest archival full primary text on SSP versus exact graph-specific completed Runge–Kutta positivity"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND_ONLY; full text not inspected, so no full-document absence is asserted",
+        "evidence": [
+          "SIAM Review 43(1), pp. 89–112, MSC 65L06; abstract treats general SSP time discretizations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+        "material_read": "Abstract and bibliographic/MSC page, not full article",
+        "method": "Publisher abstract and bibliographic inspection",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Foundational prior SSP general method framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bc34c2f-cbed-4545-89f1-9a720c07c4eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For any number of spokes and completely arbitrary positive real conductances, the result gives a necessary-and-sufficient, computable exact timestep cutoff; proves only heaviest spokes cause first sign loss, eliminates all leaf-leaf negativity and reentry, and improves strictly on the standard forward-Euler positivity bound. This is a structurally motivated exact numerical safety classification rather than a finite case enumeration.",
+    "status": "PASS"
+  }
+}
