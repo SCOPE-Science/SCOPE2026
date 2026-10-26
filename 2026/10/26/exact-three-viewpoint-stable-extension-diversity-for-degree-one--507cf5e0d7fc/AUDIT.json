@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Under indegree/outdegree at most one every component is a finite path/cycle; Dung stability forces one alternating path selection and exactly two complementary even-cycle phases. Three phase bits on a cycle either coincide or have exactly one agreeing pair; replacing a constant column by a nonconstant one weakly increases all pairwise distances. Classifying cycles by agreeing pair gives distances W-w1, W-w2, W-w3 and the exact identity, with every partition realized. For r at least two positive weights the optimum has maxload less than W, hence gives distinct extensions. The DP recurrence is exhaustive. The standalone finite checker directly enumerated 35 examples, but no finite enumeration was used as the infinite-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fichte et al., Section 3, Definition 2 and pages 3848–3852, quantify two extension sets S,T and pose two-extension optimization questions; Lemma 24 provides componentwise stable-extension composition.",
+        "Matsuoka–Ito, Problem 1, includes arbitrary families of feasible sets and k solutions, but the proven main algorithm is approximate in expectation and is not an exact description of all finite degree-one argumentation frameworks."
+      ],
+      "reasoning": "The 2026 theory strongly motivates the new invariant but its two-extension maximization cannot determine a three-extension bottleneck. The general 2023 optimization problem contains the same objective but does not state the specialized exact optimum or the graph-semantic reduction. The prior general applicability is acknowledged, not ignored.",
+      "searches": [
+        "https://www.ijcai.org/proceedings/2026/0428.pdf",
+        "https://arxiv.org/html/2605.13332v1",
+        "abstract argumentation simultaneous diversity k extensions min pairwise Hamming distance",
+        "Matsuoka Ito 2024 maximization of minimum weighted Hamming distance k 3 boolean cube exact equal bin partition"
+      ]
+    },
+    "checked_sources": [
+      "https://www.ijcai.org/proceedings/2026/0428.pdf",
+      "https://arxiv.org/html/2605.13332v1",
+      "https://arxiv.org/abs/2605.13332",
+      "https://proceedings.mlr.press/v222/matsuoka24a/matsuoka24a.pdf",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=03B38",
+      "Accessible published claim summaries and exact claim texts from earlier work in the same research area"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fichte et al. Lemma 24 implies product decomposition of extension spaces, but contains no optimization over three simultaneous extensions.",
+        "Matsuoka–Ito establishes a general weighted Hamming objective and approximate algorithm, not its exact specialized optimization on the cube with coordinates equal to even-cycle lengths.",
+        "Cyclic Hamming code generation profiles concern linear code spans and symbol-pair distance, not the entire weighted cube."
+      ],
+      "reasoning": "Combining the known product decomposition with the explicitly proved column-pattern lemma yields the new expression. It requires an additional exact optimization argument: on each even cycle three phase bits either all coincide or nominate one agreeing pair; these nominations form three bins. Neither inspected primary theorem states or automatically specializes to this exact bottleneck identity.",
+      "searches": [
+        "arXiv:2605.13332v1 Section 3 pairwise diversity and IJCAI26 Lemma 24",
+        "PMLR222:Matsuoka-Ito Problem 1 and Theorem 1",
+        "three pairwise diverse stable extensions framework cycles equal length sharp two thirds bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matsuoka–Ito, Problem 1 and Sections 1–2, defines generic maximum-minimum weighted Hamming optimization for multiple sets; the paper provides approximation results, not an exact three-bin value for the complete binary choice cube.",
+        "The standard three-codeword distance-sum inequality yields only the upper bound two-thirds of total coordinate weight, without resolving unequal-length cycle partitions.",
+        "No exact weighted-binary-cube three-bin equality appeared among returned indexed similarity results."
+      ],
+      "reasoning": "The present stable-choice problem is equivalent to three-point max-min weighted Hamming packing on a full binary cube. This exact equivalence is stated openly and is not claimed as itself new. In the inspected broader works, neither the exact closed three-bin formula nor its stable-semantics interpretation is stated; an unlocated older exact coding-theory treatment remains a genuine priority risk.",
+      "searches": [
+        "three codewords weighted binary Hamming cube exact max min pairwise distances equals total weight minus minimum 3 way partition maximum bin load",
+        "weighted binary code 3 codewords max-min Hamming distance 3-way partition weighted hypercube cycle stable semantics",
+        "https://proceedings.mlr.press/v222/matsuoka24a/matsuoka24a.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite-directed-path quantifier-rank finding concerns logical indistinguishability, not Dung stable extensions.",
+        "The ternary coding-support finding concerns generalized Hamming weights of a fixed linear code, not a full weighted binary choice cube or attack graphs.",
+        "A related degree-one grounded-semantics theorem concerns unique-extension acceptance, not simultaneous triple distances for stable semantics."
+      ],
+      "reasoning": "No inspected indexed item or accessible own claim gives the exact three-bin expression, a table of this invariant, or a stronger statement of which this is a corollary. Index incompleteness limits the negative conclusion.",
+      "searches": [
+        "Dung stable semantics even cycle graph 3 stable extensions max min symmetric difference polynomial dynamic programming",
+        "degree-one abstract argumentation frameworks finite directed path even cycle stable extensions bit cube exact diversity"
+      ]
+    },
+    "rationale": "The primary 2026 argumentation paper treats pairs of stable extensions and disjoint-product composition, not simultaneous three-way max-min diversity; the 2023 weighted Hamming article poses the more general optimization but provides approximation, not the exact three-bin identity on the full binary cube or its application to stable semantics. Actual indexed comparisons, source texts and examined published mathematical claims did not show a covering implication. Equivalent formulations are openly identified and residual coding-theory priority risk retained.",
+    "residual_risks": [
+      "The exact full-cube weighted three-point max-min formula may have appeared in older coding theory, partitioning, or generic diversification literature under a different name; searches do not prove priority.",
+      "The arXiv technical report appendix was not independently reviewed page by page; the nine-page IJCAI version was examined, including the problem definitions and component lemma.",
+      "Search coverage of historical mathematical literature is incomplete; no absolute priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies symmetric-difference distances of a pair of extensions and a product lemma, not simultaneous min-distance among three or the exact three-bin computation.",
+        "evidence": [
+          "Definition 2 and the k-Div-Ext problem define diversity for S,T; Lemma 24 states union-product of extensions for disjoint frameworks."
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2026/0428.pdf",
+        "material_read": "Nine-page proceedings paper, including Definition 2 (page 3848), complexity scope (pages 3847–3852), componentwise decomposition Lemma 24 (page 3851), experiments and references.",
+        "method": "Read parsed full text, inspected rendered PDF pages, and searched its occurrences of three extensions, triples, pairwise, and Lemma 24.",
+        "title": "Diversity of Extensions in Abstract Argumentation",
+        "trigger": "Direct primary source defining argumentation extension diversity and stable semantics"
+      },
+      {
+        "assessment": "Confirms earliest public date 2026-05-13 and original focus on pairwise diversity, with appendix-reading limitation.",
+        "evidence": [
+          "arXiv 2605.13332v1 lists 2026-05-13 and defines pairwise symmetric-difference diversity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.13332v1",
+        "material_read": "Public first-version abstract, metadata, rendered text for definitions and related discussion; technical-report appendix not fully inspected separately.",
+        "method": "Read lawful open HTML and publication metadata.",
+        "title": "Diversity of Extensions in Abstract Argumentation (arXiv first version)",
+        "trigger": "Earlier public version and source-date confirmation"
+      },
+      {
+        "assessment": "Covers general optimization formulation and approximation methods; no exact complete-binary-cube three-bin bottleneck formula located.",
+        "evidence": [
+          "Problem 1 maximizes minimum of weighted Hamming distances across k feasible sets; Theorem 1 gives a conditional approximation, not an exact special-case identity."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v222/matsuoka24a/matsuoka24a.pdf",
+        "material_read": "Abstract, Problems and Definitions in Sections 1–2, related work, main approximation theorem, and searched the document for partition, hypercube and triple-specific claims.",
+        "method": "Read publicly accessible PDF parsed text and rendered page, compared objective and output guarantees.",
+        "title": "Maximization of Minimum Weighted Hamming Distance between Set Pairs",
+        "trigger": "Strongest generic max-min multi-solution weighted Hamming comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "507cf5e0-d7fc-4aa0-b959-90e887e974a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural three-viewpoint worst-pair extension-diversity invariant is not determined by the known pairwise diameter; it depends on the distribution of actual even-cycle lengths. The theorem gives a complete exact structural evaluation and polynomial algorithm on a natural nonbranching argumentation class with potentially exponentially many stable extensions. Its balance criterion and equal-cycle formula identify genuine parameter effects and possible extremizers; no downstream general theorem is claimed.",
+    "status": "PASS"
+  }
+}
