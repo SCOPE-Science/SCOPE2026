@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact exchange difference \\(T w_i[h(\\rho-1)-(1-1/r)]\\) excludes nonsuffix minimizers below the limiting threshold; the telescoping cost identity excludes all non-global competitors at and above it. Strict monotonicity of \\(\\theta_i\\) yields the complete suffix minimizer/tie classification. The cases \\(\\rho=1\\) and \\(\\rho>1\\) follow from arithmetic versus geometric series. Exact rational enumeration passed 1,790 distinct parameter/depth settings through \\(L=8\\); these finite checks supplement rather than replace the all-depth proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The more general prescribed-schedule comparison in Hyman is an identity, not a minimization theorem.",
+        "Nyx uses a broader practical cost-and-timestep search but documents no exact shape theorem for the present restricted model."
+      ],
+      "reasoning": "One may evaluate this model for each pattern from Hyman, or enumerate it using Nyx methodology, but neither directly implies the universal suffix property, strict threshold ties, or positive-feature-dimension boundary without new optimization arguments.",
+      "searches": [
+        "local time stepping schedule minimization geometric hierarchical work synchronization interface cost global versus local cutoff",
+        "adaptive mesh refinement partial subcycling phase boundary refinement feature dimension per-interface overhead optimal level cutoff",
+        "Hyman Section 6 remaining overhead-sensitive scheduling question; Nyx Section 4.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.15143v1",
+      "https://doi.org/10.1088/0004-637X/765/1/39",
+      "https://amrex-astro.github.io/Nyx/docs_html/NyxInputs.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hyman gives global-versus-full standard-subcycling speedup for geometric counts; its arbitrary schedule comparison includes an unspecified overhead.",
+        "Almgren et al. describe work-based optimal schedule selection by implementation rather than a theorem for additive interface charges."
+      ],
+      "reasoning": "Our theorem is neither a corollary of a preselected schedule threshold nor automatically implied by enumerating candidate schedules: it proves a local inversion-exchange identity and a global relative-cost decomposition, classifying all \\(2^L\\) patterns. Those are new mathematical deductions beyond the cited identities.",
+      "searches": [
+        "optimal partial subcycling adaptive mesh refinement AMR locked coarse prefix feature dimension geometric cell counts synchronization overhead phase transition",
+        "local time stepping schedule minimization geometric hierarchical work synchronization interface cost global versus local cutoff",
+        "AMR local time stepping all optimal subcycling patterns suffix finest levels locked coarsest geometric per-level synchronization overhead threshold",
+        "Hyman Proposition 2 and Section 6",
+        "Almgren et al. 2013 Section 4.2",
+        "Globally optimal one-switch partial AMR subcycling coarse locked prefix with geometric level weights and fine-side synchronization overhead threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hyman Section 2.2 has a work identity for a prescribed schedule but has a single unspecified overhead H, not the optimum for all binary choices.",
+        "Nyx Section 4.2 selects schedules by estimated cost but states no closed-form geometric-work one-switch classification."
+      ],
+      "reasoning": "The same claim would require a classification of all binary schedules with an additive charge proportional to fine-side updates. Neither primary text derives that theorem; source identity and terminology variations alone do not imply it.",
+      "searches": [
+        "optimal partial subcycling adaptive mesh refinement AMR locked coarse prefix feature dimension geometric cell counts synchronization overhead phase transition",
+        "AMR local time stepping all optimal subcycling patterns suffix finest levels locked coarsest geometric per-level synchronization overhead threshold",
+        "Hyman 2026 Section 2.2 equations (5)-(6); Nyx 2013 Section 4.2",
+        "Globally optimal one-switch partial AMR subcycling coarse locked prefix with geometric level weights and fine-side synchronization overhead threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Multiple semantic published-record searches returned nearest entries on unrelated scheduling, refinement and synchronization questions; no identical theorem/table surfaced.",
+        "Own available prior claims were searched for subcycling, adaptive meshes and synchronization work, with no matching claim."
+      ],
+      "reasoning": "No matching parameter table, exact solver database or recorded derivation was identified. Semantic search failure is not proof of uniqueness; the conclusion relies also on explicit source/implication comparisons.",
+      "searches": [
+        "AMR multilevel integer subcycling cost per coarse fine interface unique optimal suffix pattern threshold h= (r-1)/(r(r^delta-1))",
+        "cost optimal subcycling strategies Nyx greedy prefix locked levels uniform geometric refinement",
+        "geometric AMR subcycling schedule two-level overhead exact enumeration analytical optimizer",
+        "Globally optimal one-switch partial AMR subcycling coarse locked prefix with geometric level weights and fine-side synchronization overhead threshold"
+      ]
+    },
+    "rationale": "The closest full primary mathematical source analyzes geometric multilevel work and any given schedule but expressly leaves overhead-dependent schedule optimization as further work. A Nyx implementation paper permits all adjacent patterns but supplies neither this charge-specific exchange law nor the threshold characterization. Seven targeted semantic published-record queries and accessible prior-claim checks returned no equivalent. Originality remains provisional against possibly unpublished or differently formulated implementation results.",
+    "residual_risks": [
+      "The 2013 Nyx article refers to a separate optimal-subcycling algorithm then in preparation; any unpublished analytic special cases of that method have not been excluded.",
+      "The simple per-fine-side work charge may appear under different names in other implementation analyses despite targeted searches.",
+      "No general nonadditive-overhead or irregular-level-count novelty is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its multilevel identity and geometric counts underlie the setup. It does not optimize the 2^L patterns with the particular additive fine-update interface charge; its conclusion identifies overhead-sensitive schedule optimization as an open direction.",
+        "evidence": [
+          "Section 2.2: arbitrary prescribed schedule work identity (5)-(6).",
+          "Section 3.3: geometric count Proposition 2 for standard/full subcycling.",
+          "Section 6: finding optimal schedule once measured overhead is included remains to be studied."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15143v1",
+        "material_read": "Accessible full-text HTML, materially inspected Introduction, Section 2.2 equations (5)–(6), Section 3.3 Proposition 2, Section 4.2 overhead/accuracy qualifications, and Section 6 conclusions/open questions.",
+        "method": "Direct inspection of accessible primary HTML and statement-level comparison with the newly stated functional.",
+        "title": "When Is Local Time Stepping Worthwhile? A Cost Analysis for Nested Adaptive Mesh Refinement",
+        "trigger": "Same cost accounting, all prescribed multilevel schedules, and geometric feature-dimension weights."
+      },
+      {
+        "assessment": "Gives an automatic scheme that assesses candidate patterns under actual timestep constraints but supplies neither the stated geometric cost functional nor a universal one-switch theorem for it.",
+        "evidence": [
+          "Section 4.2 explicitly describes heterogeneous partial patterns, an optimal-subcycling mode, and an algorithm reported as in preparation.",
+          "Section 4.3 chooses timestep ratios also subject to physically imposed step limits."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/0004-637X/765/1/39",
+        "material_read": "Accessible journal full-text page, materially inspected the introductory subcycling discussion, Section 4.2 on available patterns and automatic selection, and Section 4.3 time-step constraints.",
+        "method": "Direct inspection of primary journal HTML and comparison of optimization criteria.",
+        "title": "Nyx: A Massively Parallel AMR Code for Computational Cosmology",
+        "trigger": "Primary implementation literature permits arbitrary adjacent locked/subcycling patterns and automated schedule selection."
+      },
+      {
+        "assessment": "Documents local choices 1 or refinement ratio but no analytical cost-optimality or feature-dimension threshold.",
+        "evidence": [
+          "Manual mode uses adjacent step-count choices 1 or ref_ratio."
+        ],
+        "identifier_or_url": "https://amrex-astro.github.io/Nyx/docs_html/NyxInputs.html",
+        "material_read": "Subcycling modes Auto, None, Manual, and permitted `subcycling_iterations` values.",
+        "method": "Inspected software documentation page.",
+        "title": "Nyx documentation: Inputs, Subcycling",
+        "trigger": "Verification that binary adjacent-step patterns are implementation-motivated rather than artificially chosen."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b1d553a-c12b-46ca-af86-7cadcba9774f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The actual binary-schedule search contains \\(2^L\\) patterns. The one-switch proof reduces exact global minimization to a monotone threshold, with explicit tie boundaries and a structurally different overhead response for pointlike versus positive-dimensional refinement. Both AMR cost analysis and Nyx implementation literature motivate optimizing partial subcycling rather than just comparing full with no subcycling. The result has an exact self-contained scope despite idealized costs; no empirical performance claim is needed.",
+    "status": "PASS"
+  }
+}
