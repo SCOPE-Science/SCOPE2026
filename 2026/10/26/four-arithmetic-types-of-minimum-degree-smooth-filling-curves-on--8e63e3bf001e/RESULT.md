@@ -1,0 +1,45 @@
+# Four arithmetic types of minimum-degree smooth filling curves on the binary split quadric
+
+## Finding
+Let \(Q=\mathbf P^1_{\mathbf F_2}\times\mathbf P^1_{\mathbf F_2}\). Exactly **66** nonzero bidegree-\((3,4)\) bihomogeneous polynomials over \(\mathbf F_2\) vanish at all nine rational points of \(Q\) and cut out a geometrically smooth curve. Under the bidegree-preserving group \(\operatorname{PGL}_2(\mathbf F_2)\times\operatorname{PGL}_2(\mathbf F_2)\), they form exactly **four orbits**, with orbit sizes **18, 6, 36, 6** and stabilizer orders **2, 6, 1, 6**, respectively. Their representatives have, in this order, rational-point profiles over extensions of degrees \(1,2,3,4\):
+
+| Encoded representative | Orbit size | Stabilizer order | \(\#C(\mathbf F_2),\#C(\mathbf F_4),\#C(\mathbf F_8),\#C(\mathbf F_{16})\) |
+| ---: | ---: | ---: | --- |
+| 216682 | 18 | 2 | (9, 9, 9, 21) |
+| 216742 | 6 | 6 | (9, 9, 9, 9) |
+| 216874 | 36 | 1 | (9, 9, 12, 17) |
+| 223206 | 6 | 6 | (9, 11, 9, 23) |
+
+In particular, the four embedded equivalence classes have mutually distinct point-count profiles, hence are not isomorphic to each other over \(\mathbf F_2\). Each is a geometrically integral curve of arithmetic and geometric genus \((3-1)(4-1)=6\). There is no two-dimensional \(\mathbf F_2\)-linear subspace of bidegree-\((3,4)\) forms for which all three nonzero members define geometrically smooth filling curves.
+
+## Assumptions and scope
+Use homogeneous pairs \([X_0:X_1]\), \([Y_0:Y_1]\). A coefficient mask \(m\) encodes the form
+\[
+ F_m=\sum_{i=0}^{3}\sum_{j=0}^{4}c_{ij}X_0^{3-i}X_1^iY_0^{4-j}Y_1^j,\qquad c_{ij}=\lfloor m/2^{5i+j}\rfloor\bmod2.
+\]
+Over \(\mathbf F_2\) a nonzero coefficient vector is already unique up to nonzero scalar. Here *filling* means vanishing at every one of the nine points of \(Q(\mathbf F_2)\). Geometrically smooth means smooth after algebraic closure, not merely nonsingular at rational points. The acting 36-element group preserves the ordered bidegree; exchanging the two ruling factors sends bidegree \((3,4)\) to \((4,3)\) and is not part of this action. The theorem classifies embedded curves on a fixed split quadric, not all abstract genus-six curves.
+
+## Proof
+**1. Complete coefficient space.** A bidegree-\((3,4)\) form has 20 coefficients. Restriction of homogeneous forms of degree at least two on each factor surjects onto values on the three rational points of that factor. Therefore the tensor-product evaluation map has rank \(3\cdot3=9\). Its kernel, the filling space, has dimension \(20-9=11\); there are exactly \(2^{11}-1=2047\) nonzero filling forms. The two programs explicitly construct independent bases and check all nine evaluation equations.
+
+**2. Restriction and reduction.** Fix a rational point \(q\in\mathbf P^1(\mathbf F_2)\) of the second factor. A filling form restricted to \(\mathbf P^1\times\{q\}\) is a binary cubic vanishing at all three rational points. The space of such cubics is the one-dimensional span of \(P=X_0X_1(X_0+X_1)\). If a smooth filling curve had zero restriction, it would contain the entire fiber as a component. A residual divisor with positive intersection against that fiber would then force a geometric singular point (and a repeated fiber would itself be nonreduced). Thus each smooth restriction is the *nonzero* cubic \(P\). Requiring that restriction at each of three rational second-factor points is exactly \(P\) cuts the 11-dimensional filling space to an affine space of \(256\) forms (confirmed by exhaustive linear algebra); no smooth filling form lies outside it.
+
+**3. Geometric smoothness.** For every one of the 256 remaining forms, dehomogenize on each of the four product charts obtained by setting one coordinate in each factor equal to 1. Let \(f\) be that chart's polynomial. A curve is geometrically singular on the chart precisely when \(f=\partial_xf=\partial_yf=0\) has a common zero over an algebraic closure. The weak Nullstellensatz makes this equivalent to the ideal \((f,\partial_xf,\partial_yf)\) being proper in \(\mathbf F_2[x,y]\). Exact characteristic-two Buchberger reduction of all four ideals accepts exactly 66 forms. A logically separate SymPy Gröbner-basis scan directly tests all 2047 filling equations after rational first-derivative rejection, and produces exactly the same list of 66 coefficient masks (not just the same count). There is no finite-extension cutoff in this smoothness test.
+
+**4. Group orbits and arithmetic separation.** Enumerate the six invertible \(2\times2\) matrices over \(\mathbf F_2\) in each factor and substitute both pairs of transformed homogeneous coordinates into every surviving equation. The resulting 36 transformations preserve the exact 66-element set. Disjoint orbit enumeration gives representative masks and sizes \((216682,18)\), \((216742,6)\), \((216874,36)\), \((223206,6)\), with sum 66. Orbit–stabilizer gives the stated stabilizer orders. Direct polynomial arithmetic in irreducible binary extensions of degrees 1 through 4 and evaluation on the \((2^n+1)^2\) points of the product yield the displayed point-count profiles. Because isomorphic curves over \(\mathbf F_2\) have the same point counts over all finite extensions, the four different profiles prove the stated pairwise nonisomorphism.
+
+**5. Integrality, genus and absence of smooth pencils.** A geometrically smooth divisor of positive bidegree in each direction on \(\mathbf P^1\times\mathbf P^1\) must be geometrically integral: two nonzero effective components of complementary bidegrees intersect unless they are parallel ruling fibers; a divisor of positive degree along both rulings cannot be a disjoint union of parallel fibers. Its genus is \((3-1)(4-1)=6\) by adjunction. If \(F\) and \(G\) were two distinct smooth filling equations, their restrictions to each rational second-factor fiber would both equal \(P\), so \(F+G\) would restrict identically to zero and hence contain those fibers, making it geometrically singular. Thus the three members of a binary pencil cannot all be smooth.
+
+## Verification
+Run `python verify_exact.py` and `python verify_sympy.py` from the directory containing the accompanying files (the latter requires SymPy). `verify_exact.py` independently constructs the filling basis, exactly tests the four Jacobian ideals with a characteristic-two Buchberger implementation, enumerates the full 36-element coordinate-change group, verifies all four projective orbits, and evaluates extension-field point counts. Its exact output is in `exact_output.json`, and `smooth_masks.txt` contains the complete 66-mask certificate. `verify_sympy.py` uses a separately constructed filling basis and SymPy exact characteristic-two Gröbner bases on all forms; both programs were executed successfully and give exactly the same 66 masks. The point-count profile is a distinguishing invariant, not a substitute for the geometric-smoothness test.
+
+## Relationship to prior work
+Homma and Kim (arXiv:2203.11595v1, 22 March 2022) prove that the exceptional minimal filling bidegrees for the binary split quadric are \((3,4)\) and \((4,3)\), and construct a smooth example. Their inspected construction does not supply the complete 66-form, four-orbit census or arithmetic separation presented here. Ahammed, Campbell and Moon (arXiv:2512.02796v1, 2 December 2025) extend smooth-existence and enumerative investigations, especially in other field sizes; their inspected enumerations do not settle this binary exceptional census. The finite-field algebraic curve problem also differs from tropical refined counts of genus-zero curves of the same toric bidegree and from enumerations of plane-filling curves in \(\mathbf P^2\). The arXiv dates here are first-public-source dates rather than later journal publication dates.
+
+## Limitations
+This is a complete *fixed-embedded-coordinate* classification only under the bidegree-preserving automorphism group; it does not classify abstract genus-six curves or their complete zeta functions. The four extensions distinguish the four listed classes but do not classify each automorphism group as an abstract-curve automorphism group. The absence of a discovered earlier enumeration does not establish publication priority, and unindexed computational classifications remain a residual risk. Both executable verifiers constitute reproducible finite proof checks rather than independent external audit.
+
+## References
+1. M. Homma and S. J. Kim, *Filling curves for \(\mathbf P^1\times\mathbf P^1\)*, arXiv:2203.11595v1 (22 March 2022), especially the exceptional binary-degree construction. https://arxiv.org/abs/2203.11595
+2. M. Ahammed, M. Campbell, H.-B. Moon, *Minimal algebraic space filling curves on the product of projective lines*, arXiv:2512.02796v1 (2 December 2025), especially the construction and enumeration sections. https://arxiv.org/abs/2512.02796
+3. A. Campbell et al., *On algebraic space filling curves*, arXiv:2310.09293 (2023), for related ambient-projective-space constructions. https://arxiv.org/abs/2310.09293
