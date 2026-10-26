@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (C): PASS.** The codimension-one isometry has an explicit left inverse; the operator and its inverse are continuous. Its exact orbit decomposition has disjoint supports, giving a max-norm identity for every forward time and all parameter values. Geometric growth gives positive expansivity when \(|\lambda|>1\); the two-sided bounded orbit of a unit-coordinate vector excludes even ordinary metric expansivity otherwise. All quantifiers and finite/infinite cardinal endpoints are covered. The separate code check confirms finite-support identities but is not used as proof.
+
+**Originality (O): PASS, subject to historical-priority risk.** The motivating López-Martínez–Menet theorem assumes a complemented Schauder basic sequence, excluding the canonical \(\ell_\infty\) setting; its examples explicitly cover \(\ell^p\), finite \(p\), and \(c_0\), not the complemented \(\ell_\infty\) criterion. Their product-space examples are different objects. Their stated classification problem motivates the gap. Searches of closely related operator-shift and expansivity records did not reveal the asserted basis-free criterion or its exact scalar boundary. A 2024 general framework treats different expansivity notions; an accessible abstract of Wu–Wang does not settle the infinite-dimensional summand case. This is a best-knowledge distinction, not uniqueness certification; an unindexed older construction remains possible.
+
+**Mathematical value (V): PASS.** The new criterion handles a nonseparable Banach geometry beyond the existing complemented basic-sequence hypothesis, and settles the existence question for an entire cardinal family. The sharp parameter phase and exact orbit law distinguish the failure of two-sided expansivity from strong forward expansion without reducing the theorem to a single example. It is a focused extension, not a complete solution of the classification problem.
+
+**Scientific limits.** No independent audit; no arbitrary operator classification on general \(E\oplus\omega\); no shadowing or stability consequences. The closest accessible preprint supplies a coordinate-transfer philosophy, so the mathematical novelty is the basis-free sufficient condition and exact boundary, not the use of shifts per se.
+
+Self-review: passed. Independent audit: not yet performed.
