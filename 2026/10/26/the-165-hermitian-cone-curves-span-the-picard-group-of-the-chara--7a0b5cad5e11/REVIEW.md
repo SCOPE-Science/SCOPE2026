@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The 165 point count follows exactly from parity of nonzero entries over \(\mathbb F_4\). The Hermitian tangent-cone model constructs smooth genus-one curves, the first-order Grassmannian calculation proves their pairwise intersections are transverse when nonempty, and adjunction proves diagonal intersection \(-3\). The finite generalized-quadrangle relation gives eigenvalues \(33,0,-12\) of multiplicities \(1,120,44\). The rank \(45\), combined with the published \(\ell\)-adic Betti number \(45\), proves rational Néron–Severi spanning. The standalone finite enumerator ran successfully.
+
+**Originality — PASS (best-knowledge, with risk).** Roulleau (2010) proves a rank-25 and 30-curve intersection/lattice theorem over characteristic zero; its hypotheses do not cover characteristic two. Debarre–Laface–Roulleau (2015) already determines Fano surface Picard ranks over \(\mathbb F_2\) and \(\mathbb F_4\), which are explicitly excluded from the new claim. Cheng (2023, 2024) provides the later smoothness and Hermitian cone geometry, not in the checked passages the \(165\times165\) curve intersection spectrum or rational generation. There remains a possible equivalent formulation in finite Hermitian-polar or Deligne–Lusztig geometry; indexed search absence is not proof of priority.
+
+**Value — PASS.** The intersection matrix supplies an explicit rank-saturating set of natural algebraic curves on a supersingular Fano surface, explaining its Picard rank geometrically. The complete graph spectrum and its \(120\)-dimensional space of rational curve-class relations provide structure not supplied by the existing zeta formula alone. No integral index or independent certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
