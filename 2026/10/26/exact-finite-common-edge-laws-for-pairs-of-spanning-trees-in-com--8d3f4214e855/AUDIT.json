@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every spanning tree of K_{a,b}, the degree excess on the b-side equals a-1. The unique nonleaf skeleton is connected and acyclic; conditional on it, every other b-side vertex chooses an a-side neighbour independently and uniformly. For two trees, at most 2(a-1) b-side vertices occur in either skeleton, so conditioning extracts an independent Bin(b-2a+2,1/a) factor with nonnegative residual coefficients. Since the total overlap degree is at most a+b-1, the residual degree is at most 3(a-1). For a=3, classifying the degree-excess partitions 2 and 1+1 gives the I/II skeleton enumeration; an exhaustive eight-relation skeleton-pair table, with exact conditional probabilities, yields the displayed Q_n polynomial and ordered disjoint pair count. Independent exact tree-pair enumeration agrees for n=4,5 (4,287,249 ordered pairs), and exact rational polynomial identities check n=4..40. These finite checks are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dong–Ge, arXiv:2103.05294, fixed-forest tree-extension count.",
+        "Wang–Ge, arXiv:2602.03602, multipartite fixed-forest extension determinant.",
+        "Kundu, Bounds on the number of disjoint spanning trees (1974), an existence/bounds rather than enumeration result."
+      ],
+      "reasoning": "A formula for extensions of a prescribed forest does not immediately state or subsume an all-parameter closed distribution of a pair of random trees; using it would still require a nontrivial weighted sum over possible common forests and does not yield the explicit bounded binomial factor as a direct corollary. Tree-packing existence cannot determine a pair count.",
+      "searches": [
+        "\"spanning trees\" \"K_{3,n}\" intersection distribution probability generating",
+        "\"edge-disjoint spanning trees\" \"complete bipartite\" counting pairs",
+        "random spanning trees complete bipartite common edges overlap exact probability generating function"
+      ]
+    },
+    "checked_sources": [
+      "Bóna–Burghart–Wagner, arXiv:2501.18570v4, §4–5",
+      "Dong–Ge, arXiv:2103.05294, fixed-forest theorem",
+      "Wang–Ge, arXiv:2602.03602, multipartite forest-extension theorem",
+      "Hartsfield–Werth, Spanning Trees of the Complete Bipartite Graph (single-tree count)",
+      "Kundu, Bounds on the number of disjoint spanning trees (1974)",
+      "Related exact K_{2,b} overlap identity (two-row specialization)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bóna–Burghart–Wagner, arXiv:2501.18570v4, lines in §5 explicitly say approximately binomial for fixed k, but supply no finite K_{3,n} coefficient law.",
+        "Dong–Ge, arXiv:2103.05294, contains explicit fixed forest extension formula rather than the claimed pair overlap probability polynomial."
+      ],
+      "reasoning": "The new expression implies a strong exact decomposition, bounded correction, all finite probabilities and exact zero-overlap counts. The prior asymptotic observation implies none of those identities. The fixed-forest extension formula can be an ingredient in a new derivation but does not without substantial aggregation imply the stated closed forms.",
+      "searches": [
+        "pairwise overlap probability generating function random spanning trees K3n exact binomial convolution factor (2+t)/3^(n-4)",
+        "\"edge-disjoint spanning trees\" \"complete bipartite\" counting pairs",
+        "common edges two independently uniformly random spanning trees complete bipartite binomial law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bóna–Burghart–Wagner, arXiv:2501.18570v4, §5 (exact object and approximately binomial assertion).",
+        "Related two-row identity for K_{2,b} gives a different smaller parameter range."
+      ],
+      "reasoning": "Alternative phrases common edges, overlap, intersection size and spanning-tree collisions refer to the same random variable. The 2025/2026 paper studies precisely that variable but asserts approximate binomial behaviour on fixed-side K_{k,n-k}, not the exact finite convolution or K_{3,n} law. The K_{2,b} specialization cannot be substituted for the a=3 enumeration.",
+      "searches": [
+        "\"two random spanning trees\" \"K_{3,n}\" common edges exact",
+        "\"bipartite trees\" \"shared edges\" exact joint distribution",
+        "two random uniform spanning trees common edges fixed small-side complete bipartite K_mn distribution exact finite n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical K_{3,n} pair-count formula or complete finite overlap polynomial located in the examined article and indexed research summaries.",
+        "Hartsfield–Werth, Spanning Trees of the Complete Bipartite Graph, counts single trees rather than pairs."
+      ],
+      "reasoning": "The classical number of individual spanning trees, n^2 3^(n-1), is insufficient to fix the distribution of intersections. An exact ordered pair count for zero overlap and the full overlap coefficients are different enumerative data.",
+      "searches": [
+        "\"edge-disjoint spanning trees\" \"K_{3,n}\" number ordered pairs",
+        "count ordered pairs of edge disjoint spanning trees of complete bipartite graph K_{3,n}: 9 n(n-1)(n-2)(n-3) 6^(n-4)",
+        "Prüfer bipartite code fixed three vertex part exact overlap count binomial correction histogram"
+      ]
+    },
+    "rationale": "The nearest directly relevant source (Bóna, Burghart and Wagner, arXiv:2501.18570v4, Section 5) describes approximately binomial overlap for fixed small bipartition size but does not give the exact independent binomial factor, a three-by-n correction polynomial or the zero-overlap enumeration. Earlier complete-bipartite and multipartite forest-extension identities count completions of a fixed forest, not the full overlap law of two independent trees. A known two-row overlap formula does not determine the three-row correction or its tree-packing corollary. Related tree-packing existence bounds do not give the number of ordered tree pairs. The exact statement was not found in the accessed literature comparisons; historical priority may still be revised.",
+    "residual_risks": [
+      "Older exact pair-overlap formulas may exist under alternative tree-packing, reliability or matrix-tree terminology.",
+      "General forest-extension identities could support a different derivation of the same finite polynomial after significant additional enumeration.",
+      "No independent specialist priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct approximate-binomial motivation without the finite convolution theorem or explicit K_{3,n} law.",
+        "evidence": "Section 5 states that for fixed k the number of common edges approximately follows Bin(n-k,1/k), while the earlier sections prove Poisson regimes.",
+        "identifier_or_url": "https://arxiv.org/html/2501.18570v4",
+        "material_read": "Full accessible HTML article, especially introduction, complete-multipartite section 4, general-graphs section 5 and references.",
+        "method": "Compared exact versus limiting distribution assertions and inspected the fixed-side K_{k,n-k} remark.",
+        "title": "On the intersection of pairs of trees",
+        "trigger": "Same random variable; complete multipartite and fixed-side remarks."
+      },
+      {
+        "assessment": "Counts trees containing each specified forest, not a closed form for the random pair-overlap polynomial.",
+        "evidence": "Theorem gives an expression from bipartition sizes of components of the prescribed forest.",
+        "identifier_or_url": "https://arxiv.org/html/2103.05294",
+        "material_read": "Accessible full-text exposition of the fixed-forest counting theorem and proof.",
+        "method": "Compared forest-extension input/output with ordered random tree-pair intersection polynomial.",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Closest general tree-extension count that could dominate enumerative claims."
+      },
+      {
+        "assessment": "Broader class of hosts but a different counted object; no identified direct finite K_{3,n} overlap identity.",
+        "evidence": "The stated determinant evaluates the number of extensions of a fixed forest.",
+        "identifier_or_url": "https://arxiv.org/html/2602.03602",
+        "material_read": "Accessible main determinantal formula, abstract and proof outline in HTML.",
+        "method": "Compared a determinantal extension formula with extraction of a nonnegative independent binomial component for pairs.",
+        "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "More general multipartite forest-extension theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d3f4214-e855-423c-9ca1-1b81124e9187",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-small-side bipartite regime was explicitly identified as non-Poisson in recent research, yet the approximation leaves finite distribution, small-n corrections and the zero-overlap probability undetermined. Theorem 1 supplies a structurally motivated independent binomial factor for all fixed small-side sizes, and Theorem 2 determines every coefficient for the first nontrivial three-row family. The zero-overlap specialization independently counts an infinite family of ordered edge-disjoint tree pairs, a natural exact tree-packing invariant; the law and correction polynomial are not isolated low-order numerics.",
+    "status": "PASS"
+  }
+}
