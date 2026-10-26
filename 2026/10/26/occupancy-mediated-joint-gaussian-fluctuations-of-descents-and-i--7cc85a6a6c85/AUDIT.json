@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional ordered-prefix/sorted-tail coupling from [Clay 2026] keeps the descent and inversion statistics on the same uniforms. The inversion Hoeffding projection has coefficients n-2t+1 on t<=k and -k afterwards; orthogonal canonical kernels give remainder variance k(2n-k-1)/24=O(n²). Prefix-descent covariance with the inversion projection equals (k-1)/6, negligible at sqrt(n) by n^(3/2) joint scaling. Bounded 1-dependent triangular-array blocking gives independent conditional Gaussian order noise. Occupancy count obeys its classical CLT and independently perturbs the means by slopes 1/2 and (1-a)/2. Mean-square random-index bounds complete the joint CLT. The actual package verifier independently checks 202 exact finite algebra and coupling cases; finite checks are not invoked as asymptotic proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clay’s critical-scale theorems are univariate",
+        "Dörr–Heiny joint-extremes results concern uniform rather than partially shuffled permutation law",
+        "Published inversion/cycle-count covariance concerns other statistics"
+      ],
+      "reasoning": "A general stationary-permutation CLT does not dominate the nonstationary move-to-top limit. Published record on inversion indicator covariances determines covariances of comparisons in a uniform permutation and has no random coupon-count component; the prospective joint theorem remains unresolved by those broader-looking results.",
+      "searches": [
+        "\"random-to-top shuffled permutations joint descents inversions Gaussian limit coupon collector\"",
+        "\"permutation descents inversions asymptotic independence multivariate central limit theorem prefix inversion truncated permutation\"",
+        "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.09008v1",
+      "https://arxiv.org/html/2309.17314v2",
+      "https://arxiv.org/abs/1303.2387",
+      "Related published inversion-indicator, fixed-point/descent and inversion/cycle-count records, checked by their indexed statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.09008v1 proves marginal but not joint weak limits in critical time r=cn",
+        "arXiv:2309.17314v2 derives joint uniform-permutation results, without intermediate density c",
+        "arXiv:1303.2387 concerns riffle shuffle statistics"
+      ],
+      "reasoning": "Marginal CLTs do not determine any joint law. Uniform shuffle cross-covariance asymptotically vanishes as c tends to infinity, whereas the stated cross term is positive for all finite c>0. Changing from riffle to move-to-top shuffling changes distribution, so riffle theorems do not imply this covariance. No published claim observed implies the exact positive finite-c cross term.",
+      "searches": [
+        "\"joint central limit theorem for number of descents and inversions in repeated random-to-top card shuffles, asymptotic covariance due solely to coupon occupancy\"",
+        "\"joint bivariate fluctuations inversions descents random-to-top shuffles random number of touched cards, occupancy-induced covariance\"",
+        "\"conditional independence Gaussian fluctuations descent and inversion under randomly truncated uniformly random permutations or prefix inversion statistics\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clay arXiv:2603.09008v1, Theorems 1.2 and 1.3, and conditional prefix Proposition 4.1 read in full HTML",
+        "Dörr and Heiny arXiv:2309.17314v2 studies uniform permutations"
+      ],
+      "reasoning": "A possible alternative formulation is a joint coupon-count/move-to-front descent-inversion CLT or occupancy-mediated multivariate fluctuation law. Neither the source’s two separate marginal CLTs nor the Gaussian limit of a uniform permutation specifies the off-diagonal covariance, so the candidate is not their renaming or a direct corollary.",
+      "searches": [
+        "\"joint asymptotic normality descents inversions random-to-top shuffle covariance\"",
+        "\"random to top shuffle conditional number moved cards descents exact variance descent boundary covariance after r shuffles\"",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Clay [1] finite-time variance formulas for each statistic match the diagonal of the present covariance matrix",
+        "Published fixed-point/descent comparison does not involve move-to-front joint law"
+      ],
+      "reasoning": "No identified exact covariance table or database lists the joint intermediate-time Gaussian cross term; two marginal variance expressions cannot determine it. The finite exact moment computations are cross-checks rather than a new table claim.",
+      "searches": [
+        "\"random-to-top shuffle descent variance exact formula number of descents\"",
+        "\"joint distribution descents inversions in random permutations asymptotically independent central limit theorem\"",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "rationale": "The primary March 2026 full-text paper states separate descent and inversion CLTs but no bivariate limit or intermediate-time cross-covariance. The full uniform-permutation joint-extremes paper treats a distinct fully randomized measure and does not imply the intermediate move-to-top positive covariance. The riffle-shuffle paper refers to a different transition kernel. Searches were evaluated by statement implication, not just matching titles; previous published related comparisons do not dominate this claim. Older or differently named joint Markov-chain shuffle CLTs pose a residual priority risk.",
+    "residual_risks": [
+      "Older multivariate limit theorems for partially mixed move-to-front chains may yield the same joint law under different terminology.",
+      "The riffle-shuffle primary full text was not inspected; the known different transition kernel limits any assertion about noncoverage.",
+      "Literature and published-record search are not proof of absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides separate asymptotic normality theorems and conditional representation, not the two-statistic joint Gaussian covariance",
+        "evidence": [
+          "Theorems 1.2 and 1.3 concern marginal limits",
+          "Proposition 4.1 gives conditional uniform ordered-selected-prefix representation",
+          "March 9, 2026 submission date"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.09008v1",
+        "material_read": "Introduction, Theorems 1.2 and 1.3, Proposition 4.1, sections on descents and inversions and closing discussion",
+        "method": "Open-access complete arXiv HTML v1, text of mathematical statements and proof sections inspected",
+        "title": "On the statistics of random-to-top shuffles",
+        "trigger": "Primary source for the exact nonstationary random-to-top model and conditional ordered-prefix construction"
+      },
+      {
+        "assessment": "Studies unconditional uniform permutations, not the transient random-to-top shuffled measure or distinct-card occupancy fluctuations",
+        "evidence": [
+          "Uniform permutation joint inversion-descent analysis, covariance order n rather than n² when scales are sqrt(n), n^(3/2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.17314v2",
+        "material_read": "Introduction and main joint limit results for uniform random permutations, including Hájek projection arguments",
+        "method": "Open-access arXiv full HTML read",
+        "title": "Joint extremes of inversions and descents of random permutations",
+        "trigger": "Plausible domination by a joint Gaussian theorem for same two permutation statistics"
+      },
+      {
+        "assessment": "Riffle shuffle kernel is mathematically different; no claim of full-document noncoverage from abstract alone",
+        "evidence": [
+          "Abstract identifies riffle-shuffle setting; precise full text not inspected"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.2387",
+        "material_read": "Abstract and bibliographical information, not full text",
+        "method": "arXiv abstract page",
+        "title": "Descent-inversion statistics in riffle shuffles",
+        "trigger": "Title names both statistics and a shuffle, inviting a direct coverage comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7cc85a6a-6c85-443e-a856-7b90f52edc66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The interaction between two canonical card-shuffle observables cannot be inferred from the two known marginal Gaussian laws. The identified strictly positive finite-c covariance is quantitatively controlled by fluctuations in coupon occupancy even though order noise is asymptotically independent. The result gives a precise joint law and an occupancy-canceling linear combination, mathematically natural for separating mixing diagnostics; not a routine restatement of known univariate variance formulas.",
+    "status": "PASS"
+  }
+}
