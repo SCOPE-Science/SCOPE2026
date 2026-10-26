@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every fixed-first-one-position row contains a consecutive-pair conflict path, giving the exact upper bound by rowwise independence. The odd-gap family saturates each row; splitting pairs by parity of the first one proves common deletion descendant intersection <=1 using distinct parity patterns of the three possible weight-two descendants and the two possible weight-one descendants. All empty-prefix/suffix cases only delete candidate descendants. Exact finite checker passed through n=18; proof is all-n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Levenshtein 2001 abstract defines multiple-read reconstruction generally but does not provide weight-two optimal size in the accessible abstract.",
+        "Available 2002 Sloane full-text HTML focuses on classical one-deletion-correcting codes; its Section 6 surveys related work.",
+        "A published unrestricted two-read deletion-graph edge-count study concerns edge totals, which do not imply exact restricted independence numbers."
+      ],
+      "reasoning": "Unrestricted optimal reconstruction codes could dominate the claim only if a stronger theorem specifically gives the weight-two slice or a tight local subgraph bound; none was located in the inspected material.",
+      "searches": [
+        "Levenshtein 2001 efficient reconstruction of sequences multiple deletions N=2 1 deletion constant weight",
+        "2012 constant weight deletion correcting graph optimal colorings",
+        "two read one deletion reconstruction codes constant weight two half n choose two floor n squared four"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0207197v1 (relevant full text)",
+      "arXiv:1211.4056v1 (abstract plus accessible article excerpts)",
+      "doi:10.1109/18.904499 (abstract only)",
+      "Published unrestricted binary two-read single-deletion graph edge-count summary (not full text)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The one-read weight-two optimum known in archival claims equals floor((3n-2)/4), smaller than the two-read optimum for sufficiently large n, and therefore cannot determine the two-read maximum.",
+        "The accessible introductory account of 2012 constant-weight colorings makes no claim of the row-path upper bound for two reads."
+      ],
+      "reasoning": "This theorem combines a two-read row-conflict upper bound with an odd-gap construction proved feasible through a parity disjointness argument. Neither follows from the standard one-read code formulas.",
+      "searches": [
+        "arXiv:math/0207197v1",
+        "arXiv:1211.4056v1",
+        "doi:10.1109/18.904499",
+        "binary one deletion two read weight two reconstruction floor n squared 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane arXiv:math/0207197v1 Section 1 defines single-read deletion-disjoint codes, not two-read overlap-at-most-one codes.",
+        "Cullina--Kulkarni--Kiyavash arXiv:1211.4056v1 abstract and accessible displayed article excerpts study optimal coloring of single-deletion-confusability graphs."
+      ],
+      "reasoning": "Changing the intersection threshold from zero to at most one changes the graph, so ordinary one-deletion fixed-weight capacities or colorings do not imply the claimed optimum.",
+      "searches": [
+        "two-read one deletion reconstruction codes binary sequences two common subsequences 2012 2015",
+        "reconstruction codes constant weight two single deletion two reads exact size",
+        "binary weight two two read one deletion reconstruction code maximum size all n two common deletions",
+        "For binary length n constant weight two words under single deletion two-read reconstruction, exact maximum size floor(n^2/4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches of accessible archival claim histories produced closely related one-read weight-two optimal-code claims but did not return an equivalent two-read exact formula.",
+        "The exact full-graph two-read edge-count record is a distinct enumerative invariant."
+      ],
+      "reasoning": "The claimed formula is an all-length optimum, not a lookup at one numerical parameter; no inspected table or archived claim states it.",
+      "searches": [
+        "\"two-read\" \"weight-two\" \"floor(n^2/4)\"",
+        "\"two-read\" \"constant-weight-two\"",
+        "binary constant weight two single deletion reconstruction code optimal all lengths odd gap"
+      ]
+    },
+    "rationale": "The claim is the exact all-length optimal capacity of the constant-weight-two binary layer under two distinct one-deletion reads. Primary 2002 and 2012 sources concern ordinary one-read codes and weight-restricted colorings rather than this two-read independent-set number. Accessible related published reconstruction graph data count edges of an unrestricted graph, not optimal independent sets of its weight-two induced subgraphs. Foundational 2001 full text remains a caveat.",
+    "residual_risks": [
+      "The full text of Levenshtein 2001 was not inspected and might contain an implied optimal fixed-weight theorem.",
+      "No exhaustive historical uniqueness search is claimed; unindexed specialist sources may cover the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single-read code problem with disjoint deletion balls, not two-read overlap <=1 weight-two optimum.",
+        "evidence": [
+          "arXiv HTML lines 37-84, 1-deletion-correction definition and VT family; section 6 related work."
+        ],
+        "identifier_or_url": "arXiv:math/0207197v1",
+        "material_read": "Full accessible arXiv HTML, including introduction, VT codes, and related-work sections.",
+        "method": "Compared intersection threshold and the definitions of induced-graph independent sets.",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Primary original literature on one-deletion descendants and codes"
+      },
+      {
+        "assessment": "An explicit restricted one-read coding and coloring study; no matching two-read exact formula was observed in inspected material.",
+        "evidence": [
+          "ArXiv abstract dated 2012-11-16; research copy abstract and conclusion on weight partitioning and chromatic number."
+        ],
+        "identifier_or_url": "arXiv:1211.4056v1",
+        "material_read": "ArXiv abstract and accessible research copy front material, conclusion, and appendices excerpts.",
+        "method": "Compared restriction to weight two and single-read graph-coloring objective against two-read code capacity.",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Most directly relevant fixed-Hamming-weight graph paper"
+      },
+      {
+        "assessment": "Plausible broader reconstruction source; its full text was not inspected and remains a literature risk.",
+        "evidence": [
+          "2001 IEEE Transactions on Information Theory 47:2-22 abstract introduces minimum-read sequence reconstruction, not fixed-weight exact extremal code size."
+        ],
+        "identifier_or_url": "doi:10.1109/18.904499",
+        "material_read": "Abstract and bibliographic metadata only.",
+        "method": "Assessed whether its accessible statement specifies optimal restricted-weight codebooks.",
+        "title": "Efficient reconstruction of sequences",
+        "trigger": "Foundational 2001 general multiple-read reconstruction problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d25cc21-af64-4539-919d-ed843dd65a60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact capacity valid for every blocklength for the natural sparse two-one source is a motivated reconstruction-coding invariant. It quantifies the benefit of two distinct deletion reads versus ordinary deletion correction and supplies an elementary explicit rate-optimal construction. Both the exact upper bound and construction are structural, not a finite table or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
