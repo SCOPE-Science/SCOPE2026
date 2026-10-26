@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive structural classification of high-side incidence configurations yields exact Z_n, single- and two-edge containing counts for all three orbits. Polynomial factorization gives strictly positive Rayleigh gaps at all integer n>=3. An independently implemented union-find enumerator and rational/coefficientwise algebra checker passed 4,825 assertions; finite experiments are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Erickson Theorem 1.2 gives an SOS Rayleigh difference for series-parallel graphs.",
+        "Stark Theorem 3 assumes both part sizes tend to infinity with restrictive growth, and reports no nonadjacent edge verification.",
+        "Huang 2023 studies all finite graphs only in a sufficiently large-fugacity regime for adjacent pairs."
+      ],
+      "reasoning": "The present K3n graphs lie outside series-parallel; fixed part size three lies outside Stark asymptotic hypotheses; disjoint edge pairs lie outside Huang adjacent edge theorem. These earlier broader-sounding statements do not imply the exact all-n, all-orbit claim.",
+      "searches": [
+        "arxiv:1008.3660v3",
+        "https://doi.org/10.1016/j.disc.2012.10.026",
+        "uniform forest complete bipartite graph edge correlation strict all n"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.00965v1",
+      "arxiv:1008.3660v3",
+      "https://doi.org/10.1016/j.disc.2012.10.026",
+      "https://math.stackexchange.com/questions/3235160/3248773",
+      "arxiv:math/0302185"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stark Theorem 3 explicitly notes unresolved nonadjacent edge case in its asymptotic regime.",
+        "The exact three-orbit rational covariance formulas and positivity factorizations are derived from forced-edge completions, not stated in the cited forest total formula.",
+        "published-finding corpus nearest records concern forest-count ratios or different stochastic variables."
+      ],
+      "reasoning": "Neither a published forest total, a large-fugacity adjacent-pair result, nor a series-parallel I-Rayleigh theorem forces the proposed disjoint-edge numerical formula. No logically dominating theorem with applicable hypotheses was identified.",
+      "searches": [
+        "uniform random spanning forests K_{3,n} complete bipartite edge pair negative correlation Rayleigh polynomial 3 n 2023 2026",
+        "uniform forest complete bipartite graph edge correlation strict all n",
+        "https://www.researchgate.net/publication/256694176_The_asymptotic_number_of_spanning_forests_of_complete_bipartite_labelled_graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pairwise uniform-forest edge covariance is the fugacity-one arboreal-gas pairwise negative-correlation question; Theorem 2.1 of arxiv:2311.00965v1 restricts adjacent edges and sufficiently large fugacity.",
+        "Erickson defines I-Rayleigh as uniformly weighted-in-all-fugacities edge negative correlation; his theorem assumes series-parallel."
+      ],
+      "reasoning": "Equivalent formulations through the forest partition function and conditional Bernoulli bond percolation were checked. The stronger weighted I-Rayleigh result cannot transfer from series-parallel hosts to K3n, which has a K4 minor. The present unweighted conclusion is not asserted to imply I-Rayleigh.",
+      "searches": [
+        "uniform random spanning forests K_{3,n} complete bipartite edge pair negative correlation Rayleigh polynomial 3 n 2023 2026",
+        "arboreal gas 3 by n bipartite complete graph exact pairwise covariance within same leaf and across leaves, 3n^2+13n+16",
+        "arxiv:2311.00965v1",
+        "arxiv:1008.3660v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Speyer 2019 explicitly gives Z_n=4^(n-2)(3n^2+13n+16), cited as prior in RESULT.md.",
+        "Grimmett–Winkler and Erickson report finite small-graph enumeration of pairwise negative correlation, not a symbolic infinite K3n family."
+      ],
+      "reasoning": "Known exact forest-count table is normalized input, not the claim. Brute-force finite tables cannot imply exact negative covariances for every n. No table showing the new rational formulas was encountered.",
+      "searches": [
+        "random spanning forests K3n forest partition function 4^n plus 4 n 4^(n-1) plus 6 binomial(n,2) 4^(n-2)",
+        "https://math.stackexchange.com/questions/3235160/3248773",
+        "arxiv:math/0302185"
+      ]
+    },
+    "rationale": "All-size fixed-side-3 uniform-forest edge negative correlation with exact disjoint-edge formula is not implied by inspected large-fugacity, series-parallel, or two-growing-side asymptotic results. Exact total forest count was already published and is not claimed as new. published-finding corpus searched; priority remains best-knowledge, not exhaustive proof.",
+    "residual_risks": [
+      "An unlocated historical exact edge-correlation calculation or stronger theorem on complete bipartite forests could subsume some claims.",
+      "Grimmett–Winkler full text not read; available abstract and Erickson characterization limit assessment of its finite scope.",
+      "The exact unweighted forest total is known (Speyer 2019); originality attaches only to pairwise edge covariance and strict all-size classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates claim; does not imply all-size unweighted edge-pair classification on K3n",
+        "evidence": [
+          "https://arxiv.org/html/2311.00965v1",
+          "https://arxiv.org/abs/2311.00965"
+        ],
+        "identifier_or_url": "arxiv:2311.00965v1",
+        "material_read": "Full accessible HTML, abstract, Sections 1–3, statements of Theorems 2.1, 2.2, 2.6, and relevant proofs and scope",
+        "method": "Read primary HTML article, checked theorem hypotheses and graph families",
+        "title": "On Negative Correlation of Arboreal Gas on Some Graphs",
+        "trigger": "Motivating open arboreal-gas pairwise negative-correlation question at fugacity one"
+      },
+      {
+        "assessment": "Theorem covers series-parallel hosts; K3n has a K4 minor, so no implication",
+        "evidence": [
+          "https://arxiv.org/html/1008.3660v3"
+        ],
+        "identifier_or_url": "arxiv:1008.3660v3",
+        "material_read": "Full accessible HTML including Introduction, Theorem 1.2, sections on series-parallel closure",
+        "method": "Read primary arXiv HTML; compared graph-minor hypotheses",
+        "title": "Sums of squares and negative correlation for spanning forests of series parallel graphs",
+        "trigger": "Possible stronger I-Rayleigh theorem subsuming the candidate"
+      },
+      {
+        "assessment": "Theorem 3 assumes both parts diverge under n=o(m^(8/7)) and only proves adjacent edge negativity; neither covers fixed side 3 or disjoint edges",
+        "evidence": [
+          "https://www.researchgate.net/publication/256694176_The_asymptotic_number_of_spanning_forests_of_complete_bipartite_labelled_graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.10.026",
+        "material_read": "Complete publicly accessible preprint body from author-posted ResearchGate full text, including Theorems 2 and 3 and Section 5",
+        "method": "Inspected theorem bounds, scaling assumptions and open disjoint-edge comparison",
+        "title": "The asymptotic number of spanning forests of complete bipartite labelled graphs",
+        "trigger": "Same graph class and explicit forest-edge correlations in primary thesis"
+      },
+      {
+        "assessment": "Establishes the Z_n forest total, expressly acknowledged as prior; does not give edge-pair covariance or negativity",
+        "evidence": [
+          "https://math.stackexchange.com/questions/3235160/3248773"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/3235160/3248773",
+        "material_read": "Full question and all relevant answers, especially Speyer 2019 construction for m=3 and enumeration polynomial",
+        "method": "Inspected original web answer and itemized fixed-side decomposition",
+        "title": "Spanning forests of bipartite graphs and distinct row/column sums of binary matrices",
+        "trigger": "Exact K3n unweighted forest enumerator is already known"
+      },
+      {
+        "assessment": "Finite small-graph evidence cannot subsume an all-n exact K3n theorem; residual priority risk",
+        "evidence": [
+          "https://arxiv.org/abs/math/0302185",
+          "https://arxiv.org/html/1008.3660v3"
+        ],
+        "identifier_or_url": "arxiv:math/0302185",
+        "material_read": "Abstract and the cited small-graph scope reported in Erickson Introduction; full primary paper not inspected",
+        "method": "Primary abstract and secondary cross-check",
+        "title": "Negative association in uniform forests and connected graphs",
+        "trigger": "Foundational computational verification may cover small examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a38351eb-7b27-4414-8df8-1b2467f5b580",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "General uniform-forest pairwise edge negative correlation is a motivated open question. The proposed claim resolves all three edge-pair orbits for an infinite 3-connected non-series-parallel family, including the previously troublesome vertex-disjoint case, and gives two distinct quantitative decay regimes. This adds meaningful structural information beyond known forest counts.",
+    "status": "PASS"
+  }
+}
