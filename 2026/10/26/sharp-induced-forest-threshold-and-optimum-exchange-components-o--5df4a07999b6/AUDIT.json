@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The bipartition of an induced forest into two intersecting two-subset families and the elementary star-or-triangle lemma exhaust every case. C4 obstructions sharpen all equality possibilities; direct constructions attain the bound. Fixed-ground-4-set and fixed-center intersections prove the exchange component classification. An independently written C++17 exhaustive checker tests both adjacent cardinality layers and all extremals for n=5,6,7,8, with a second DFS forest check and full exchange-edge check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alishahi–Taherkhani 2018, Theorem 1, gives sufficiently-large-n extremal forbidden-subgraph shape; Theorem 2 gives an explicit but much larger threshold for K_{2,2}-free families.",
+        "Every forest is K_{2,2}-free, making that result genuinely stronger for eventual maximum size and its star shape."
+      ],
+      "reasoning": "Prior theorem covers eventual star-plus-edge extremality as a corollary and that portion is excluded from the originality claim. It does not establish the sharp all-parameter threshold n=8, exceptional n=5..7 four-clique-with-pendant optima, or the exchange graph decomposition.",
+      "searches": [
+        "Extremal G-free induced subgraphs of Kneser graphs Theorem 1 Theorem 2 K2,2",
+        "Katona Nagy K_{s,t} free Kneser graph family",
+        "Kneser graph induced C4 forest star plus edge"
+      ]
+    },
+    "checked_sources": [
+      "Chappell–Pelsmajer (2013), DOI 10.37236/3826, published open PDF.",
+      "Alishahi–Taherkhani (2018), arXiv:1801.03972, especially Theorems 1–2.",
+      "Indexed studies on K_{s,t}-free Kneser subgraphs and union-intersecting two-subset families; only directly inspected texts used for document-level inference."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 Theorems 1–2 imply star-plus-edge extremality only under sufficiently large ground-set assumptions, not at n=8 or the boundary n=7.",
+        "2013 induced-forest treewidth estimates concern a different general graph parameter regime."
+      ],
+      "reasoning": "The new exact threshold, exception geometry, labeled family enumerator and exchange components are not stated or implied by the cited theorems without further work. The asymptotic large-n shape is implied and is transparently credited.",
+      "searches": [
+        "Alishahi Taherkhani Kneser G-free induced theorem k=2 G=K2,2",
+        "maximum induced forest Kneser graph KG(n,2) feedback vertex set 7 n complete classification",
+        "(2,2)-union intersecting families Kneser C4 free sharp threshold n=8 reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chappell–Pelsmajer 2013 introduction explicitly identifies feedback vertex set as the complement of maximum induced forest.",
+        "Alishahi–Taherkhani 2018, sections 1–2, identifies a Kneser K_{s,t}-free family with an (s,t)-union-intersecting family."
+      ],
+      "reasoning": "Feedback vertex set and induced forest are equivalent by vertex complementation; two-subsets are edges of the auxiliary K_n and disjointness is exactly Kneser adjacency. Exact sharp threshold and exchange classes were compared after these translations.",
+      "searches": [
+        "maximum induced forest Kneser graph KG(n,2) feedback vertex set 7 n complete classification",
+        "decycling number Kneser graphs second order complete edge disjointness graph",
+        "maximum vertex induced acyclic subgraph Kneser graph K(n,2) star triangle",
+        "maximum induced forest Kneser KG(n,2) decycling number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted graph-family, sharp-bound and parameter searches yielded no exact table matching the 20,120,525,168 optimum-set counts or clique component profile.",
+        "The finite cases were computed independently by exhaustive distinct implementations, not copied from a database."
+      ],
+      "reasoning": "No checked exact table directly subsumes the asserted exception counts or reconfiguration structure. Absence from indexed results is evidence of limited reach, not a uniqueness proof.",
+      "searches": [
+        "Kneser graph KG(n,2) feedback vertex set minimum decycling maximum induced forests exact n=5 6 7 8",
+        "(2,2)-union intersecting families Kneser C4 free sharp threshold n=8 reconfiguration",
+        "Kneser graph induced forest exact n 5 6 7 8 count minimum feedback vertex set"
+      ]
+    },
+    "rationale": "The exact first threshold n=8, all small exceptional families and full exchange-component decomposition extend the inspected eventual Kneser forbidden-subgraph extremality; large-n star-plus-edge extremality itself is covered by Alishahi–Taherkhani and not claimed anew. Published records and accessible historical claims were searched by disjointness graph, induced forest, feedback vertex set, decycling, K2,2-free and union-intersecting aliases. Residual risk includes sharper unindexed results in extremal set-family literature.",
+    "residual_risks": [
+      "A pre-2018 sharp (2,2)-union-intersecting-family classification may imply the parameter threshold or type enumeration in different language.",
+      "Some earlier or unindexed finite Kneser induced-forest calculations or optimization tables may already give exceptional cases.",
+      "Eventual star-plus-edge extremality is known and is not itself novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "background formulation and bounded-treewidth graph bounds; does not establish the claimed Kneser extremal families in examined material",
+        "evidence": [
+          "PDF first page reports published 2013-10-28, primary MSC 05C35.",
+          "Introduction explains complement of maximum induced forest is minimum feedback-vertex set."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i4p8/pdf",
+        "material_read": "front matter including public date and MSC, abstract, introduction and definitions and inspected main result statements; searched searchable text for Kneser",
+        "method": "open-access publisher PDF textual reading plus page-image check",
+        "title": "Maximum Induced Forests in Graphs of Bounded Treewidth",
+        "trigger": "foundational induced-forest definition, source date and primary MSC"
+      },
+      {
+        "assessment": "substantial partial prior coverage: eventual star-plus-one-edge forbidden-K2,2 extremality, but no exact n=8 sharp threshold, n5..7 optimum classification or optimum-exchange components",
+        "evidence": [
+          "Theorems 1–2 require sufficiently large n and state K_{s,t}-free family extremality.",
+          "Theorem 2 says at equality family is full star plus s−1 extra vertices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.03972",
+        "material_read": "full accessible 11-page preprint located, read abstract, introduction, all named main results, proofs of Theorems 1–2 and discussion of K_{s,t} families, inspected text for C4 and forests",
+        "method": "arXiv PDF textual reading and page-image check",
+        "title": "Extremal G-free induced subgraphs of Kneser graphs",
+        "trigger": "same graph family, stronger C4-free prohibition relative to induced forests"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5df4a079-99b6-4a58-afea-94465c7624b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Induced forest is the complement of a minimum feedback vertex set, a natural NP-hard graph invariant. This completes the natural k=2 Kneser family at the first crossover n=7, identifies exactly where 7-point nonstar optima beat or tie stars, and describes all optimum reconfiguration components. Explicit disconnected cliques reveal an obstruction to local exchange search; the exceptional coexistence is a structural phenomenon, not an arbitrary isolated computation.",
+    "status": "PASS"
+  }
+}
