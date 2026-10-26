@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For finite real B1B2=0, orthogonal singular pairs split the weighted Euler matrix into exact 2-by-2 blocks and scalar zero modes. An explicit computation of both singular values of [[a,-b],[-c,a]] gives norm sqrt(a²+(b-c)²/4)+(b+c)/2. Since it increases with singular value sigma, the attained top s mode controls the whole matrix. Convexity and exact squaring with strict boundary signs yield hcrit; differentiation gives unique hstar, and minimization of a one-dimensional convex expression in log(r) over the exact condition interval yields rK, CK and Kcrit. Real Dirac eigenvalues give separate sharp Schur interval. A seven-dimensional filled-triangle incidence witness confirms the strict Euclidean-versus-weighted distinction. Symbolic stationarity substitutions and the checker run directly from packaged material corroborate arithmetic; the infinite-parameter theorem is proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1137/19M1290346: general conditions for numerical energy stability of RK methods, abstract/metadata inspected.",
+        "https://doi.org/10.1137/S0363012992238680: general convex optimization for minimizing scaled matrix condition numbers, abstract and metadata inspected.",
+        "arxiv:2610.22628v1: continuous weighted Lyapunov bound using exact symmetrizer."
+      ],
+      "reasoning": "General energy-stability and matrix-scaling frameworks supply relevant general principles but their accessible descriptions do not imply the explicit optimization over r and h with conditioning budget for this reciprocal incidence family. The sharp budget formula needs the nonnormal two-by-two singular-value computation and piecewise constrained optimization. Full specialized reduction of all broad older literature was not available; this is a residual risk, not a novelty certification.",
+      "searches": [
+        "condition number constrained diagonal Lyapunov weight topological Dirac gradient flow finite-step optimal metric budget",
+        "Euler discretization topological Dirac synchronization directional coupling gamma0 gamma1 sharp 2 norm monotonic Euclidean contraction arithmetic geometric means optimal step size",
+        "explicit Euler nonnormal symmetrizable Dirac gradient flow sharp norm contraction threshold singular values complex coupling",
+        "Ranocha and Ketcheson energy stability explicit Runge Kutta nonautonomous nonlinear 2020",
+        "Braatz Morari Minimizing the Euclidean Condition Number 1994"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.22628v1",
+      "https://arxiv.org/abs/2410.15338",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+      "https://doi.org/10.1137/19M1290346",
+      "https://doi.org/10.1137/S0363012992238680",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65-00"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.22628v1: Theorems 9-10 derive the continuous threshold nu>s sqrt(gamma0 gamma1), a weighted full symmetrizer and the Euclidean arithmetic-mean continuous criterion; Section 5 uses fixed-step fourth-order Runge Kutta.",
+        "https://arxiv.org/abs/2410.15338: describes continuous nonlinear topological synchronization, singular pair decomposition, and master stability.",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f: analogous but different SPD weighted-Jacobi matrices."
+      ],
+      "reasoning": "The parent continuous theory implies the Schur interval of the Euler matrix after applying the standard scalar stability function, so that interval alone is not asserted original. Neither the parent continuous Lyapunov theorem nor the older topological synchronization theorem states or entails without new singular-value and constrained-optimization arguments the exact induced norm for all h,r, the unique one-step optimal h, the clipped degree metric, the strict conditioning budget Kcrit, or the bounded Euclidean transient prefactor. Distinct algorithm families in the closest records have no inclusion relation that would yield these quantities.",
+      "searches": [
+        "Euler discretization topological Dirac synchronization directional coupling gamma0 gamma1 sharp 2 norm monotonic Euclidean contraction arithmetic geometric means optimal step size",
+        "explicit Euler nonnormal symmetrizable Dirac gradient flow sharp norm contraction threshold singular values complex coupling",
+        "topological distributed optimization isotropic Dirac Euler one-step spectral norm formula minimax stepsize",
+        "arxiv:2610.22628v1 Theorems 9-10; section 5 RK4 experiments",
+        "arxiv:2410.15338 master stability singular-vector equations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.22628v1: weighted Dirac operator, Hodge modes, continuous Lyapunov symmetrization P at gamma1/gamma0; does not give condition-number-constrained Euler induced norm.",
+        "https://arxiv.org/abs/2410.15338: continuous time singular-mode master stability; no positive Euler step or degree-metric budget."
+      ],
+      "reasoning": "A change of coordinates P_r^{1/2} transforms each Dirac incidence mode to a nonnormal 2x2 matrix. The continuous-time Lyapunov statement fixes r=gamma1/gamma0 and does not give the exact one-step singular norm or the optimizers for general r under a metric condition bound. Euler eigenvalue stability is directly reducible to the prior continuous spectral calculation, and is treated as context, not the novelty-bearing contribution.",
+      "searches": [
+        "Dirac simplicial complex directional couplings gamma0 gamma1 explicit Euler sharp contraction conditioned weighted norm",
+        "matrix 2x2 off diagonal positive entries weighted Euclidean norm exact optimal Euler stepsize numerical radius norm contraction",
+        "weighted Euler stability metric conditioning arithmetic geometric interpolation Dirac incidence B1 B2",
+        "arxiv:2610.22628v1 Sections 4.1-4.3 (full HTML)",
+        "arxiv:2410.15338 Sections 4-7 (full manuscript)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f: published sharp damping formula for weighted Jacobi on 2x2 SPD systems, not a three-degree Dirac chain or metric budget.",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57: published affine Jordan norm pencil for nilpotent blocks, not reciprocal-weight symmetrizable Dirac Euler."
+      ],
+      "reasoning": "Published mathematical finding records surfaced matrix-norm and conditioning analogies, but no exact listing or statement implying a K-dependent Dirac Euler contraction frontier. Database partitioning and negative search results cannot prove novelty.",
+      "searches": [
+        "Dirac simplicial complex directional couplings gamma0 gamma1 explicit Euler sharp contraction conditioned weighted norm",
+        "condition number constrained diagonal Lyapunov weight topological Dirac gradient flow finite-step optimal metric budget",
+        "matrix 2x2 off diagonal positive entries weighted Euclidean norm exact optimal Euler stepsize numerical radius norm contraction",
+        "weighted Euler stability metric conditioning arithmetic geometric interpolation Dirac incidence B1 B2",
+        "Published mathematical finding-record searches by source, claim, and eigenvalue/norm aliases"
+      ]
+    },
+    "rationale": "The recent motivating source provides the continuous-time Dirac spectrum and symmetrizing Lyapunov weight, not the novel finite-step norm/conditioning tradeoff. The earlier GTDS source provides Hodge modes, not Euler tuning. Targeted published mathematical-record searches found no dominating statement, and implications rather than words were compared. Classical diagonal scaling and RK energy theory might implicitly contain a more general reformulation: originality is therefore a bounded best-knowledge conclusion, not proof of uniqueness.",
+    "residual_risks": [
+      "Unindexed or historical broad diagonal-scaling inequalities could entail some or all constrained two-by-two formulas after specialization; the accessible abstract of Braatz-Morari is not full-text coverage evidence.",
+      "Some broader RK strong-stability results were checked by accessible abstract, not entire full text; possible direct corollaries have not been exhaustively excluded.",
+      "The result is specific to reciprocal degree-metric family and exact quadratic flow; no generality outside that family is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers continuous-time spectral stability, Hodge decomposition and full symmetrizer but not the exact Euler induced norm or conditioning-budget optimization; source premises are explicitly credited.",
+        "evidence": [
+          "arxiv:2610.22628v1 2026-10-15, definitions/equations 4, 10, 17, 19, 22, Theorems 9-10",
+          "Section 4.3 discusses Euclidean arithmetic-mean Lyapunov criterion; Section 5 uses fourth-order Runge Kutta"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22628v1",
+        "material_read": "Accessible arXiv HTML: Definitions 2 and 4, equations (4), (10), (17), (19), (22), Theorems 9–10 and Sections 4.1–4.3 and 5 read at relevant passages; no assertion of line-by-line reading of every unrelated section.",
+        "method": "Targeted full-text HTML inspection of all scientifically pertinent stated results and premises, with equation-by-equation parameter/implication comparison",
+        "title": "Distributed Optimization over Simplicial Complexes via Topological Dirac Synchronization",
+        "trigger": "Exact same weighted Dirac incidence object, anisotropic couplings, and isotropic quadratic flow"
+      },
+      {
+        "assessment": "Contains continuous synchronization master stability and singular-mode mechanism; no finite Euler/metric-condition budget formula identified.",
+        "evidence": [
+          "arxiv:2410.15338 Sections 4-7; K=1 mode matrix (45), Proposition 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.15338",
+        "material_read": "Accessible arXiv manuscript: abstract, introduction, Section 4 boundary operators and Section 7 singular-mode equations/Proposition 1, with targeted searches for discrete time and Euler; not a cover-to-cover 560-line reading.",
+        "method": "Primary arXiv full-text targeted reading and claim implication comparison, not abstract-only, but not every section was read.",
+        "title": "Global Topological Dirac Synchronization",
+        "trigger": "Antecedent Dirac singular-mode reduction could contain general covered spectral/contractivity results"
+      },
+      {
+        "assessment": "General RK strong-stability method background; complete text was not compared, so any specialized implication is left as explicit risk.",
+        "evidence": [
+          "Ranocha and Ketcheson, SIAM J Numer Anal 58 (2020), 3382-3405; arxiv:1909.13215"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/19M1290346",
+        "material_read": "Publisher abstract/keywords/MSC and accessible author bibliographic description, not full manuscript.",
+        "method": "Targeted bibliographic and abstract reading",
+        "title": "Energy Stability of Explicit Runge--Kutta Methods for Nonautonomous or Nonlinear Problems",
+        "trigger": "Broader numerical strong-stability conditions may subsume the finite-step stability half"
+      },
+      {
+        "assessment": "General matrix condition-number optimization background; not treated as having been shown not to cover the specialization.",
+        "evidence": [
+          "Braatz and Morari, SIAM J Control Optim 32 (1994), 1763-1768; DOI 10.1137/S0363012992238680"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+        "material_read": "Open repository and publisher abstract/metadata only; full 1994 text not read.",
+        "method": "Targeted abstract comparison, no claim of exhaustive full-document absence",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Broader optimal matrix scalings could implicitly solve a component of the metric budget"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d33e8d7-c3b5-4919-ad78-37f06baaed48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An asymptotically stable explicit Euler discretization can amplify Euclidean errors at every positive step, whereas a fully symmetrizing metric may have a large condition number. The exact K-dependent minimal coupling C_K, critical budget, optimal step, and sqrt(K) transient prefactor give a mathematically natural implementation tradeoff. A concrete filled triangle needs K>256/9 but full symmetry requires K=256. The complete sharp classification handles all positive parameters, metric budgets, and equality cases rather than an arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
