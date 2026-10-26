@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Every Dyck path has exact area deficit twice its down-before-up inversion count. The reverse-down-count staircase bijection identifies the partition normalization, with excluded partitions only at size at least n. Deterministic padding preserves the defect labels and establishes squared overlap Z_n/Z_m. The trace-normalized Pauli second moment equals Hilbert–Schmidt purity, yielding a dimension-free 4 alpha Lipschitz bound on the 2 alpha moment; the diagonal-Pauli Jensen inequality yields its positive P(q)^(-2 alpha) lower bound. This makes the log Lipschitz uniformly and proves both the finite thermodynamic limit and the explicit q^(n/4) error. Independent small-n enumeration via verify.py agrees. No inference from finite tests to infinity is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salberger et al., arXiv:1611.04983, Section 3.1 Lemma 1 and equation (3.5): Young-diagram partition bound in the colorless t>1 entanglement-entropy analysis; stabilizer Rényi entropy not treated.",
+        "Haug and Piroli, arXiv:2207.13076, abstract: stabilizer Rényi entropy calculation by MPS transfer matrices, for integer order and finite bond dimension; no claim of fixed-t convergence and real-order rate for this family verified.",
+        "Dimension-free moment Lipschitz and positive moment floor explicitly derived from Pauli orthogonality and maximum computational probability in the present proof."
+      ],
+      "reasoning": "The earlier partition bound supplies a real input but is an entanglement statement, not a bound on Pauli fourth or real-order moments. An MPS transfer method does not itself supply a uniform estimate for an increasing-dimensional weighted staircase family. The new thermodynamic inference combines those prerequisites with a separate dimension-independent Pauli functional bound. A general result with stronger coverage was not found; this is a best-knowledge assessment.",
+      "searches": [
+        "Stabilizer Renyi entropy SRE magic t-deformed Dyck Fredkin spin chain rigorous bound area weighted Dyck t>1",
+        "Rigorous stabilizer Renyi entropy area law for t-deformed Dyck Fredkin chain constant phase",
+        "\"stabilizer Rényi entropy\" \"continuity bound\" trace distance",
+        "\"stabilizer Rényi\" \"continuity\" \"dimension independent\" Pauli moments"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09545 full accessible text, Sections 2–5",
+      "arXiv:1611.04983 full accessible text, Sections 2–3.1",
+      "arXiv:2207.13076 abstract only",
+      "arXiv:2106.12587 definition context only",
+      "Semantic research-record searches of same object, aliases, q-Pochhammer, finite-size rate and generic quantum magic"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lee, arXiv:2609.09545 (2026-09-09), equation (2.14) and Fig. 3 / Section 4: weighted ground state and finite-size numerically indicated t>1 constancy; Section 5 discusses future asymptotic work.",
+        "Salberger et al., arXiv:1611.04983, Eq. (3.5): normalization below t^(n^2) P(t^(-2)), without Pauli moment thermodynamic estimates.",
+        "Haug and Piroli, arXiv:2207.13076, generic MPS method: neither a same family statement nor a superior uniform real-alpha theorem established from inspected material."
+      ],
+      "reasoning": "Lee supplies precisely the numerical phenomenon; its finite recurrence is not an infinite-volume error bound. Salberger provides the partition enumeration and an entanglement theorem, neither of which implies a Pauli Rényi thermodynamic limit without controlling exponentially many Pauli expectations. The proof here adds that missing control, but its constants are not optimal and it does not prove a nonzero limiting value.",
+      "searches": [
+        "arXiv:2609.09545 full text, sections Formulation and analysis, Results, Discussion",
+        "arXiv:1611.04983 full text, Sections 2 and 3.1",
+        "arXiv:2207.13076 abstract and paper metadata",
+        "\"Sub-extensive non-stabilizerness in the Dyck-Fredkin spin chain\" \"proof\" \"t>1\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lee, arXiv:2609.09545, Sections 2–5: same state and Pauli-moment definition; even-index finite dynamic programming and numerical t>1 constancy, no explicit all-real-order limit/rate theorem.",
+        "Direct comparison of the weighted Dyck wavefunction with the defect-partition representation: same physical object; new claim is infinite-volume control, not a relabeling of the finite-size formula."
+      ],
+      "reasoning": "Aliases include nonstabilizerness/magic/SRE and high-area/t>1 deformed/colorless Dyck Fredkin. Lee states constant phase numerically, whereas the present theorem proves existence, explicit global size bound and exponential convergence for every real alpha>1. No equivalent statement was located in the checked corpus.",
+      "searches": [
+        "Uniform in system size stabilizer Renyi entropies all real orders alpha>1 of t>1 weighted Dyck Fredkin states converge to a finite thermodynamic limit exponentially quickly by staircase partitions and Pauli moments",
+        "Exponential convergence of deformed Fredkin spin chain magic stabilizer Renyi entropy to thermodynamic limit q Pochhammer infinite partition and finite-size error bound",
+        "\"Fredkin\" \"stabilizer Rényi\" \"bounded\" \"deformed\" 2026",
+        "\"magic\" \"deformed Fredkin\" \"thermodynamic\" \"proof\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest semantically ranked research record on primitive Dyck excursions concerns symbolic topological entropy deficits rather than quantum spin-chain Pauli moments.",
+        "The nearby dephasing Ising quantum-information record proves a relative-entropy rate in an unrelated model; it does not contain an SRE limit for weighted Fredkin states.",
+        "No exact database or numerical table for the claimed real-order convergence estimate was found in the checked primary works."
+      ],
+      "reasoning": "Similarity of the word Dyck is not sufficient for coverage: symbolic-language topological entropy differs from area-weighted quantum-spin Pauli moments. Other nearest matches analyze different physical quantities. Matching relevant actual source claims rather than titles yielded no dominating bound; database incompleteness remains a risk.",
+      "searches": [
+        "Area weighted Dyck paths t deformation Fredkin chain nonstabilizerness constant scaling q Catalan partition function",
+        "Stabilizer Renyi entropy computational basis largest coefficient min entropy universal upper bounds",
+        "\"Fredkin\" \"magic\" \"q-Pochhammer\" entropy"
+      ]
+    },
+    "rationale": "Lee (2026) establishes numerical t>1 constant-scale behavior for the same model but not the explicit size-uniform all-real-order convergence theorem. Salberger et al. (2016) provide the integer-partition normalization estimate only for entanglement. MPS SRE methods cover a different generic calculation and do not supply the stated bound from inspected evidence. Database and primary-literature comparisons found no stronger implication; an unindexed equivalent analysis is a residual risk.",
+    "residual_risks": [
+      "Abstract-only inspection of Haug–Piroli does not exclude a related full-text general continuity result.",
+      "General estimates for Pauli moments or area-weighted path limits might exist under different terminology outside bounded indexing.",
+      "No priority or uniqueness certificate is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source. Reports numerical constant-scale t>1 magic, not the claimed all-order finite limit and explicit rate.",
+        "evidence": [
+          "Equation (2.14): state; equation (3.2): exact finite-size replica sum; Fig. 3 and Section 4: empirical t>1 constant behavior; Discussion: further asymptotic analysis suggested."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09545",
+        "material_read": "Full accessible arXiv article text: definitions in Section 2, numerical replica computations in Section 3, Results in Section 4 and Discussion in Section 5",
+        "method": "Full text section-by-section comparison, including Eq. (2.14), Sections 3–5",
+        "title": "Sub-extensive non-stabilizerness in the Dyck-Fredkin spin chain",
+        "trigger": "Same model and precisely the numerically observed bounded magic phase"
+      },
+      {
+        "assessment": "Contains the integer partition control used here, but its conclusion concerns bipartite entanglement, not stabilizer Rényi moment limits.",
+        "evidence": [
+          "Eq. (2.7) defines weighted ground state; Eq. (3.5) bounds the area partition function using partition numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.04983",
+        "material_read": "Accessible full arXiv text, Sections 2 and 3.1 with partition diagrams and Lemma 1",
+        "method": "Compared state equation (2.7), normalization bound (3.5), and entanglement claims",
+        "title": "Deformed Fredkin Spin Chain with Extensive Entanglement",
+        "trigger": "Origin of the weighted state and partition majorant; possible stronger coverage"
+      },
+      {
+        "assessment": "Describes finite-MPS transfer-matrix evaluation; unresolved risk of a stronger result deeper in text.",
+        "evidence": [
+          "Abstract describes SRE for integer order via MPS with bond dimension raised to the relevant power."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.13076",
+        "material_read": "arXiv abstract and submission metadata; full article not materially inspected",
+        "method": "Compared abstract-level hypotheses and conclusions; did not infer full-text noncoverage",
+        "title": "Quantifying nonstabilizerness of matrix product states",
+        "trigger": "Potential broader generic SRE technique or limit theorem"
+      },
+      {
+        "assessment": "Foundational definition, not relied upon for absence of a result.",
+        "evidence": [
+          "Lee (2026) Eq. (2.1) gives the normalized Pauli-moment functional."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.12587",
+        "material_read": "arXiv bibliographic/definition context only; full text not inspected",
+        "method": "Used only as background citation; definition checked directly in Lee (2026)",
+        "title": "Stabilizer Rényi Entropy",
+        "trigger": "Foundational normalization and index conventions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa3244b8-a5ca-44a8-b189-65cbef67deaa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-size numerics for the high-area deformed Fredkin phase suggest bounded magic, but do not justify a thermodynamic limit of an exponentially large nonlinear Pauli sum. The theorem gives an explicit controlled infinite-volume limit at all real orders greater than one, together with an exponential finite-volume error and explicit product bound. This is a useful rigorous bridge to thermodynamic comparison and finite-chain approximation; it deliberately leaves positivity and exact value open.",
+    "status": "PASS"
+  }
+}
