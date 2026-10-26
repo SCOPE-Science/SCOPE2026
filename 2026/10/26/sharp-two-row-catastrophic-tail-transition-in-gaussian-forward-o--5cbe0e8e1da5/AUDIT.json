@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For each row, the normal equation gives e_i=(h^T g_i)/||g_i||^2. Gaussian orthogonality makes h independent of the correlated g_i. Its one-row squared error is F_{1,q}/q. In the distinct-line case the 2q-dimensional Gaussian joint density at zero, after scaling g_i by sqrt(t), yields t^{-q} times an explicit two-ball integral. Cauchy--Schwarz bounds each scaled sketch vector by ||h||, so dominated convergence follows from the finite 2q-th Gaussian moment. The polar integral J_q(h) and radial chi moment produce K_q, with all constants checked independently. At exact alignment g_2=+/-g_1 and Y_2=Y_1, giving exponent q/2. Individual error means are finite for q>=3. The finite numerical suite (2,759 assertions) checks the algebra and constants but is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Browne and Andrews, arXiv:2306.03593, pp. 2-4, prove a single-design Gaussian sketch Student regression law.",
+        "Classical matrix-t results describe common regression designs; the two distinct design directions here yield different random Gaussian denominators."
+      ],
+      "reasoning": "Matrix-t and Student regression results cover important marginal/common-design variants but the checked material does not provide the fixed-angle paired exceedance constant or the nonuniform collapse to common row space. Specialized Gaussian-ratio tail theory remains a residual coverage risk.",
+      "searches": [
+        "\"Gaussian\" sketch shared multiple responses \"matrix t\" \"Frobenius\" error",
+        "\"joint tails\" \"ratios\" \"correlated Gaussian vectors\" norms",
+        "generalized F distribution quadratic forms student t spectrum majorization tail probability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.07513v1",
+      "arxiv:2402.09379v1",
+      "arxiv:2306.03593v1",
+      "published mathematical records: row-coherence and angular phase results on different algorithms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gallmeier--Otto, arXiv:2610.07513, Theorem 1 controls expected squared Frobenius loss by k/(q-k-1); such a mean does not determine a paired upper-tail exponent.",
+        "Amsel et al., arXiv:2402.09379, Theorem 1 / Corollary 1 give expected squared error and Markov bound, not joint exact limits.",
+        "Browne--Andrews, arXiv:2306.03593, marginal Gaussian-sketch Student distribution is acknowledged as prior knowledge."
+      ],
+      "reasoning": "Mean-error and Markov bounds cannot imply the stated nonzero sharp joint-tail constant or its angle dependence. The classical marginal t law gives each individual tail but not the dependence under unequal known row-space directions; the new joint asymptotic requires the multivariate small-ball calculation and singular-alignment comparison.",
+      "searches": [
+        "\"Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries\" \"Theorem 1\" arxiv Gallmeier Otto",
+        "\"Fixed-sparsity matrix approximation from matrix-vector products\" Markov expectation Gaussian",
+        "\"Statistical inference for sketching algorithms\" multivariate Student law repeated sketching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Browne and Andrews, arXiv:2306.03593, Section 2.1: single-response Gaussian sketch coefficients have Student laws.",
+        "Gallmeier and Otto, arXiv:2610.07513, Algorithm 1: common Gaussian queries, separate rowwise least-squares solves."
+      ],
+      "reasoning": "The known single-row marginal Student law does not specify the two-row joint law when the regression directions differ and a common Gaussian residual sketch couples the numerators. The exact paired tail depends on the determinant 1-rho^2, and at alignment the exponent itself changes.",
+      "searches": [
+        "Gaussian one-sided forward-only row subspace recovery joint rare failure large deviations shared queries angle phase transition rows",
+        "correlated Gaussian denominators rowwise least squares two predictions simultaneous huge errors tail exponent q and singular alignment phase",
+        "\"dependent t ratios\" \"joint tail\" \"Gaussian\" denominators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records about reciprocal p-value Gaussian edge tails concern different ratios and source objects.",
+        "The 2026 source does not tabulate simultaneous squared coefficient exceedances across two prescribed row directions."
+      ],
+      "reasoning": "No exact table for the stated pair of sketched rowwise coefficient errors was identified. Database search nonhits alone are not proof of uniqueness.",
+      "searches": [
+        "two-row forward sketch exact joint catastrophic least squares coefficient tails correlation determinant singular q/2 to q",
+        "Gaussian one-sided forward-only row subspace recovery joint rare failure large deviations shared queries angle phase transition rows"
+      ]
+    },
+    "rationale": "The 2026 Algorithm 1 establishes expected Frobenius error and Markov bounds, and the 2024 fixed-sparsity precursor similarly addresses expectation/probability bounds. Prior Gaussian sketch inference already covers the one-row Student distribution, which is explicitly excluded from novelty. The candidate instead asserts an exact simultaneous two-row catastrophic-tail coefficient for heterogeneous row spaces and a discontinuous exponent at alignment. Searches of mathematical literature and published mathematical records for joint ratios, Gaussian sketches and angle-dependent extreme probabilities found related but non-equivalent results. Novelty is a best-knowledge self-review rather than an independence or exhaustive-priority guarantee.",
+    "residual_risks": [
+      "Older specialized joint-tail theorems for correlated Gaussian self-normalized ratios may contain equivalent or stronger asymptotics not located by the bounded search.",
+      "The asymptotic is for fixed nonaligned rho; a near-alignment crossover at a rho that depends on threshold is not established.",
+      "Proof is self-reviewed; no independent scientific audit or external priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines shared Gaussian sketch and separate row least squares, but stated numerical guarantee is expectation and Markov probability, not paired angle-dependent extreme tails.",
+        "evidence": [
+          "Algorithm 1 forms G and Z=AG and fits each fixed row subspace; Theorem 1 bounds E||P[A]-Atilde||_F^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.07513v1",
+        "material_read": "Full online paper sections 1, 2 (Algorithm 1 and Theorem 1 plus proof), Section 5 and inspected text-search coverage of paper; Appendix theorem relationships",
+        "method": "Read original public full HTML, including algorithm, theorem and proof; searched exact high-tail terms",
+        "title": "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries",
+        "trigger": "Direct primary algorithm on which the claim is modeled"
+      },
+      {
+        "assessment": "Covers coordinate-pattern Gaussian rowwise recovery and first moment/Markov probability; not the specific joint-angle paired-tail coefficient.",
+        "evidence": [
+          "Theorem 1 expected loss and Corollary 1 Markov-based high-probability bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.09379",
+        "material_read": "Primary PDF introductory theorem and corollary (pages 1-3), proof of error bound and Markov analysis (pages 8-9), related remarks",
+        "method": "Read original public arXiv PDF text and viewed page screenshot; inspected tail terminology",
+        "title": "Fixed-sparsity matrix approximation from matrix-vector products",
+        "trigger": "Precursor to the rowwise Gaussian sketching algorithm"
+      },
+      {
+        "assessment": "Establishes that single-design marginal Student behavior is classical; heterogeneous two-direction paired exceedance not found in inspected material.",
+        "evidence": [
+          "Section 2.1 derives multivariate Student estimator from a Wishart law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.03593",
+        "material_read": "Original PDF pages 1-4, especially Section 2.1 and the Gaussian regression sketch law; viewed rendered page image",
+        "method": "Inspected multivariate Student exact regression-estimator law and matrix-t representation",
+        "title": "Statistical inference for sketching algorithms",
+        "trigger": "Potential stronger Student / multivariate ratio coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5cbe0e8e-1da5-4c6c-a231-85c19b6713f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A shared nonadaptive query matrix is reused across differently oriented row subspaces in the motivating numerical algorithm. Individual row risks are identical at every angle, so marginal Student guarantees and expected Frobenius error are insensitive to a structural risk variable. The theorem gives the sharp simultaneous catastrophic-failure rate, its explicit angle coefficient and singular aligned exponent, showing that even orthogonal row-space templates retain correlated rare-event risk. This is a motivated complete fixed-angle classification for two-row shared-residual configurations and a meaningful reliability boundary, not an arbitrary parameter-table exercise. It does not claim a full multirank operator guarantee.",
+    "status": "PASS"
+  }
+}
