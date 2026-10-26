@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For each long branch, the cotangent map has at most one nonzero coefficient in its row. Invertibility forces the long block to be monomial, and the power relations force the branch permutation to preserve each \\(d_i\\). The annihilator of \\(x_j\\) times a unit in \\(k[x_j]/(x_j^{d_j})\\) is exactly \\(k x_j^{d_j-1}\\), which proves the unique off-principal terms. Conversely the displayed maps preserve all defining relations and have invertible cotangent map, so they are automorphisms. The finite-field formula counts the independent parameters in that normal form.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The accessible abstract of arXiv:2609.13741v1 specifies algebraically closed characteristic zero.",
+        "The inspected predecessor audit describes arXiv:2408.02197 and arXiv:2409.15081 as characteristic-zero results; no positive-characteristic mixed-length formula was located."
+      ],
+      "reasoning": "General characteristic-zero monomial-algebra theory may imply the characteristic-zero specialization and is not claimed as novel. It does not, on the accessible evidence, imply the explicit normal form and exact order over every field, including positive characteristic.",
+      "searches": [
+        "Web query: finite-dimensional monomial algebra automorphism group positive characteristic truncated polynomial branches",
+        "arXiv:2609.13741v1, The structure of automorphism groups of zero-dimensional monomial algebras",
+        "arXiv:2408.02197, The Automorphism groups of zero-dimensional monomial algebras",
+        "arXiv:2409.15081, Finite-dimensional monomial algebras are determined by their automorphism group"
+      ]
+    },
+    "checked_sources": [
+      "SCOPE-20261004-625ba30274cb (full RESULT.md and metadata/AUDIT comparison read)",
+      "arXiv:2609.13741v1 (abstract and bibliographic record read; full text inaccessible through bounded open-access attempts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The uniform result has one common exponent and gives \\(n!(q-1)^n q^{n(n+d-3)}\\) for \\(d\\ge3\\).",
+        "The mixed formula reduces to that count when every \\(d_i=d\\ge3\\), and reduces to \\( |\\operatorname{GL}_n(\\mathbb F_q)| \\) when all \\(d_i=2\\).",
+        "For unequal \\(d_i\\), the long-branch permutation factor becomes the product of factorials of equal-length multiplicities, while the short branches contribute \\(\\operatorname{GL}_r\\) and the additional \\(q^{rs}\\) linear-mixing factor."
+      ],
+      "reasoning": "The prior uniform formula is a special case and does not by itself imply the mixed normal form. The added classification follows from the block-triangular cotangent map and branchwise annihilator argument, and is valid over arbitrary fields. General characteristic-zero theory remains a coverage risk only for that characteristic-zero slice.",
+      "searches": [
+        "SCOPE-20261004-625ba30274cb, RESULT.md and AUDIT.json",
+        "arXiv:2609.13741v1, abstract and bibliographic record",
+        "published-finding corpus query: automorphism group truncated coordinate axes different nilpotency lengths k[x_i]/(x_i^{d_i}) pairwise products zero",
+        "published-finding corpus query: automorphisms of fiber products of Artinian local algebras different nilpotency indices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding corpus result: SCOPE-20261004-625ba30274cb, which assumes a common exponent \\(d\\).",
+        "Searches for fiber-product, truncated-coordinate-axis, and heterogeneous-branch formulations returned no record stating the mixed-length normal form."
+      ],
+      "reasoning": "The algebra is naturally also a fiber product of the branch algebras \\(k[x_i]/(x_i^{d_i})\\) over \\(k\\) and a truncated coordinate-axis/Artinian Stanley–Reisner algebra. The exact mixed-length claim is not the same statement as the equal-exponent result; absence of a search hit is not treated as novelty proof.",
+      "searches": [
+        "published-finding corpus query: automorphism group truncated coordinate axes different nilpotency lengths k[x_i]/(x_i^{d_i}) pairwise products zero",
+        "published-finding corpus query: automorphisms of fiber products of Artinian local algebras different nilpotency indices",
+        "published-finding corpus query: published-finding corpus mixed truncated coordinate-cross automorphism group heterogeneous branch lengths",
+        "Web query: automorphism group truncated coordinate axes different nilpotency lengths k[x_i]/(x_i^{d_i}) pairwise products zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only close published-finding corpus formula returned was the uniform-exponent case SCOPE-20261004-625ba30274cb.",
+        "The available research-record search returned no matching mixed-length family formula."
+      ],
+      "reasoning": "No exact mixed-length table or finite-field order formula was returned. The verifier provides a small-case consistency check, while the proof supplies the general result; neither is represented as an exhaustive literature census.",
+      "searches": [
+        "published-finding corpus query: finite-dimensional monomial algebra automorphism group positive characteristic truncated polynomial branches",
+        "published-finding corpus query: published-finding corpus mixed truncated coordinate-cross automorphism group heterogeneous branch lengths",
+        "published-finding corpus query: automorphism group fiber product of truncated polynomial branches with different exponents exact finite-field order"
+      ]
+    },
+    "rationale": "The closest exact family result is the uniform-exponent case. The present claim permits unequal branch lengths and includes a mixed \\(\\operatorname{GL}_r\\) block and \\(q^{rs}\\) linear mixing absent from the uniform formula. General characteristic-zero monomial-algebra theory is acknowledged as broader coverage for characteristic zero; no matching arbitrary-field mixed-length formula was found in the documented searches.",
+    "residual_risks": [
+      "General characteristic-zero monomial-algebra automorphism theory may imply the characteristic-zero specialization.",
+      "Older positive-characteristic work using fiber products, truncated coordinate axes, or Artinian Stanley–Reisner terminology may contain an equivalent mixed-length result.",
+      "The exhaustive verifier covers only the listed small prime-field cases; the arbitrary-field claim depends on the written proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected result treats a single common exponent \\(d\\) on every branch. It does not state the mixed-length normal form, the exponent-preserving subgroup product, or the additional \\(\\operatorname{GL}_r\\) and \\(q^{rs}\\) factors when square-zero and longer branches coexist.",
+        "evidence": "Its formula is \\(n!(q-1)^n q^{n(n+d-3)}\\) for the uniform case \\(d\\ge3\\), with \\(\\operatorname{GL}_n(k)\\) at \\(d=2\\). Setting all \\(d_i=d\\) in the present formula recovers this exactly.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+        "material_read": "Full RESULT.md, METADATA.json, and the relevant AUDIT.json sections of the public record.",
+        "method": "Read the public result and its metadata directly through the repository file endpoint; compared the stated normal form and order formula term by term.",
+        "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+        "trigger": "Closest family-specific predecessor returned by published-finding corpus for mixed branch lengths and truncated coordinate-cross aliases."
+      },
+      {
+        "assessment": "The accessible abstract states an algebraically closed characteristic-zero hypothesis and describes a general structural theory. It plausibly covers the characteristic-zero specialization in principle; the accessible material does not establish the arbitrary-field normal form or mixed-length finite-field count. This is recorded as an access limitation, not as proof of noncoverage.",
+        "evidence": "The arXiv record identifies arXiv:2609.13741v1, first posted 2026-09-12, and explicitly restricts the general theorem to algebraically closed fields of characteristic zero.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.13741",
+        "material_read": "ArXiv search result, abstract, and bibliographic record. Full-text HTML/PDF endpoints and an alternative open-access mirror were attempted but did not yield the paper text.",
+        "method": "Fresh web search and bounded attempts to open arXiv HTML/PDF and an alternative open-access page.",
+        "title": "The structure of automorphism groups of zero-dimensional monomial algebras",
+        "trigger": "Recent general monomial-algebra automorphism theory that might dominate the proposed family classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99cbf103-e009-4dd7-a0eb-da22dec541fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mixed-length coordinate-cross algebra is a natural finite-dimensional family of fiber products of truncated one-variable branches. The theorem gives a complete normal form and exact finite-field order for every length vector, exposing the precise interaction between square-zero branches, longer branches of equal nilpotency index, and socle shears. This is a complete classification of a natural family, not an arbitrary parameter slice or a mere numerical recomputation.",
+    "status": "PASS"
+  }
+}
