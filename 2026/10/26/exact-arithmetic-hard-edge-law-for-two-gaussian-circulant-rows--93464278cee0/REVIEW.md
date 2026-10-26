@@ -1,0 +1,11 @@
+# Review of the two-row Gaussian circulant hard-edge law
+
+**Correctness — PASS.** The stated Gram reduction and cyclic Fourier spectrum give two exact nonnegative Gaussian quadratic forms. A finite-dimensional Gaussian ellipsoid small-ball identity supplies their constants, and the overlap is strictly lower order; singular-value and condition-number moment cutoffs follow from radial/angular integration. The reproducibility code checks the key matrix identities in representative dimensions and is not substituted for the dimension-free proof.
+
+**Originality — PASS, best-knowledge assessment.** The exact coefficient and shift-gcd/parity inverse-moment classification were compared with the partial-circulant restricted-isometry results of Krahmer–Mendelson–Rauhut and the independent-column randomized-sketch bounds of Saibaba–Międlar. The former are high-probability sparse recovery bounds, and the latter require independence conditions absent for cyclically shifted rows. Neither implies this exact Gaussian hard-edge law. A previously published Gaussian-Hankel two-row result has a different observation dependence and does not imply the cyclic-gcd law. No covering equivalence was found among checked sources; an unindexed older Gaussian autocorrelation/structured-sketch paper could contain the same formula.
+
+**Value — PASS.** This is a sharp structural benchmark for numerical stability of a dependent two-row sketch. Changing only the sampling offset changes the exponent from the coprime value to as little as half the number of columns. The exact coefficient and parity effect also distinguish almost-sure full row rank from the existence of expected pseudoinverse or condition-number moments. Those are natural quantities for stable inversion and sketch design; this is not an arbitrarily selected finite table entry.
+
+The claim concerns fixed dimension, exactly two rows, standard real Gaussian entries and unnormalized sketches. It makes no statement about uniform high-dimensional constants, complex generators or general circulant submatrices. Verification is analytical with finite computational checks, not external validation.
+
+Self-review: passed. Independent audit: not yet performed.
