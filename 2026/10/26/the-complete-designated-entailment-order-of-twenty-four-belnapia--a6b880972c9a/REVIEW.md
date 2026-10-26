@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The original designated-truth semantic clauses reduce each formula's local behavior to exactly thirty-two realizable pointed truth-status profiles, including arbitrary infinite models. The three subset/disjointness conditions are proved directly from these clauses. Distinctness, completeness of the remaining 536 comparison cases, forty strict arrows, and the 144/340/28 minimum-witness census follow from an exhaustive implementation of those exact finite profiles and actual finite-world valuations. The two-witness support argument proves the universal three-world limit; the explicit disjoint-status example proves optimality. The attached script reports `BELNAP_24_IMPLICATIONS_OK 24 40 512 144 340 28`. No inference from a finite sample to an infinite statement is needed.
+
+**Originality — PASS, with qualified historical priority.** The underlying twenty-four operators and several particular transformations are defined and proved in Petrukhin (2026). The present result does not relabel those statements as new; it classifies all same-argument designated-entailment comparisons between those twenty-four operations and obtains a sharp countermodel threshold and distribution. The inspected primary paper's Definition 6, Propositions 8–9 and the main translation and decidability discussion do not give this full implication graph or countermodel histogram. Fan's classical two-valued essence-and-accident results address a different signature. An unlocated specialized four-valued implication classification could affect priority.
+
+**Value — PASS.** The twenty-four-operator family is a natural recently introduced object. An exact inclusion poset among all its members determines which proposed same-argument designated entailments are valid or redundant and gives optimal finite falsification sizes. The complete three-part set criterion is structural rather than a name substitution, and the three-world boundary is witnessed by a concrete configuration.
+
+The scope is limited to designated-truth consequence on universal frames with one shared input argument. Countermodel counts were checked computationally; independent replication has not been done.
+
+Self-review: passed. Independent audit: not yet performed.
