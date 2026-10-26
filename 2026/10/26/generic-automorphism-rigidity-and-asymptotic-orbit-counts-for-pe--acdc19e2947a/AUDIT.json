@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For any invertible structure matrix, independent squares force monomial automorphisms. Exact coefficient comparison gives t_i a_ij=t_j² a_{σ(i)σ(j)}. A nonidentity diagonal candidate forces a zero in every column; a permutation of support k moves k(2n-k) entry coordinates and permits at most half that many free orbit variables. Count fixed matrices, divide by |GL_n(F_q)|≥γ_q q^{n²}, sum nonidentity candidates, then apply Markov/union bound and Burnside, including uniform-orbit weighting. Split k≤n/2 and k>n/2 to obtain O_q((1-1/q)^n+n²q^{-n/2}). Proof includes every q>=3 and n>=2; exact finite checks q,n=(2,2),(2,3),(3,2),(3,3),(5,2),(2,4) passed and verify fixed-point equations, rank, class counts, rational bounds. These are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei–Zou, arXiv:2310.12368v1, entire primary PDF consulted with relevant introduction, Sections 2–3, exact low-dimension computations and concluding results inspected. Their general Burnside summation is an exact framework, with no fixed-q asymptotic error theorem found in inspected passages.",
+        "Survey arXiv:2610.22248v1 §§1.3.4, 1.6.1, Questions 21–22 formulates broader asymptotic enumeration and random automorphism directions as questions.",
+        "Previously established binary-field, growing-dimension behavior and increasing-field, fixed-dimension behavior were compared; neither states the fixed-q>=3, growing-dimension claim."
+      ],
+      "reasoning": "A full all-dimensional exact Burnside character formula can in principle be the starting point for the present result, but absent an evaluated large-n bound it does not imply the displayed concentration. Neither q=2 nor fixed-n increasing-q analysis covers all fixed q>=3 with n→∞. The survey questions concern larger spaces including singular algebras and do not settle the perfect stratum.",
+      "searches": [
+        "finite field idempotent evolution algebra labeled nonsingular matrix generic monomial stabilizer trivial as dimension tends infinity isomorphism orbit asymptotic |GL(n,q)| / n!(q-1)^n",
+        "Yangjiang Wei Yi Ming Zou 2310.12368 asymptotic orbit-count n-dimensional idempotent evolution algebras finite fields",
+        "arxiv:2310.12368v1 Theorem 1.1 Section 2 Section 3 Theorem 6.1",
+        "arxiv:2610.22248v1 Questions 21–22"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.12368v1",
+      "arxiv:2202.01333",
+      "arxiv:2610.22248v1",
+      "A single symmetry jump in the E_lambda evolution-algebra family (published comparative abstract)",
+      "Every finite field admits a two-dimensional idempotent-free perfect evolution algebra (published comparative abstract)",
+      "Previously established fixed-binary and fixed-dimension large-field comparison claims (historical deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sriwongsa–Zou arXiv:2202.01333 Theorem 2.1: monomial description; classifications concern specified symmetry patterns, not a uniform fixed-field random law.",
+        "Wei–Zou §2 supplies orbit equivalence and Burnside, §3 fixed-matrix constraints; these are explicitly treated as foundational inputs, while the per-support fixed-point bounds, vanishing expectation, and uniform-class estimates are proved separately here.",
+        "An unrelated finite-field Dedekind Poisson algebra enumeration does not imply evolution-algebra generic stabilizer bounds."
+      ],
+      "reasoning": "The monomiality and Burnside lemmas alone do not quantitatively exclude exceptional stabilizers; deriving generic freeness at each fixed q≥3 requires the new coordinate-orbit defect bounds. No inspected stronger or equivalent theorem dominates the claimed scope. Residual unsurveyed literature is a genuine risk.",
+      "searches": [
+        "isomorphism classes idempotent perfect evolution algebras generic trivial automorphism group random invertible structure matrix asymptotic",
+        "automorphism group of a random idempotent evolution algebra over finite field monomial matrices asymptotic",
+        "finite field idempotent evolution algebra labeled nonsingular matrix generic monomial stabilizer trivial as dimension tends infinity isomorphism orbit asymptotic |GL(n,q)| / n!(q-1)^n",
+        "random perfect evolution algebra almost surely rigid automorphism group trivial q fixed n grows Burnside fixed matrices",
+        "arxiv:2202.01333 Theorem 2.1 Sections 3-4",
+        "arxiv:2310.12368v1 equation (3.1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wei–Zou arXiv:2310.12368v1 §2 identifies the monomial orbit model and §3 eq. (3.1) determines fixed points; inspected Results/low-dimension sections do not state the fixed-q, growing-n stabilizer concentration.",
+        "A related published result on an exceptional symmetry jump in a one-parameter evolution-algebra family concerns a specialized low-dimensional situation, not random high dimension."
+      ],
+      "reasoning": "The identical invariant can be described as generic freeness of the weighted monomial action on GL_n(F_q), generic trivial stabilizer, or Burnside asymptotic for perfect evolution algebras. The exact orbit formula is previously known, but it does not state or itself bound the asymptotic error at fixed q>=3. The new quantitative fixed-field bound uses matrix-coordinate orbit supports and yields both matrix and class sampling results.",
+      "searches": [
+        "isomorphism classes idempotent perfect evolution algebras generic trivial automorphism group random invertible structure matrix asymptotic",
+        "automorphism group of a random idempotent evolution algebra over finite field monomial matrices asymptotic",
+        "random perfect evolution algebra almost surely rigid automorphism group trivial q fixed n grows Burnside fixed matrices",
+        "\"idempotent evolution algebras\" \"almost all\" automorphisms",
+        "\"asymptotic number\" \"evolution algebras\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wei–Zou Tables in lower dimensions and published enumeration for n=4,q=2; exact N_{4,2}=908 reproduced by new verifier.",
+        "A related published result on two-dimensional idempotent-free perfect evolution algebras concerns existence rather than asymptotic isomorphism-class counting."
+      ],
+      "reasoning": "Finite tables of small-dimensional orbit counts neither provide n→∞ error bounds nor determine limiting nonrigidity over fixed q>=3. Direct finite computations here are verification only, not the mathematical novelty.",
+      "searches": [
+        "Yangjiang Wei Yi Ming Zou 2310.12368 asymptotic orbit-count n-dimensional idempotent evolution algebras finite fields",
+        "arxiv:2310.12368v1 Theorem 6.1"
+      ]
+    },
+    "rationale": "Compared identical object and the stronger exact Burnside framework in primary full text; structural lemmas and low-dimensional class counts are credited. The new result is the fixed-field large-dimensional explicit bound for generic automorphism rigidity and its class-count corollary, not the existing exact orbit formula. Semantic publication and historical claim comparisons showed only distinct small-dimensional, q=2, or fixed-n regimes. Residual risk of unsurveyed equivalent asymptotics acknowledged.",
+    "residual_risks": [
+      "Unindexed equivalent generic-stabilizer asymptotic under matrix-tensor or random-algebra terminology may exist.",
+      "The primary exact Burnside framework subsumes the problem computationally but was not found to imply an evaluated fixed-q growing-n estimate in the passages inspected.",
+      "q=2 has an earlier stronger finding and is deliberately excluded from novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Structural orbit action and exact low-dimensional count are prior; no stated fixed-q>=3, n→∞ quantitative stabilizer concentration found in inspected sections.",
+        "evidence": [
+          "Theorem 1.1 and Section 2 classify orbit action; eq. (3.1) agrees with the coordinate equation; Theorem 6.1 addresses finite counts."
+        ],
+        "identifier_or_url": "arxiv:2310.12368v1; https://arxiv.org/pdf/2310.12368",
+        "material_read": "Abstract, introduction, Sections 2–3 including equation (3.1), lower-dimensional enumeration and conclusions; the 37-page accessible original was inspected at relevant passages.",
+        "method": "Read freely accessible arXiv full text, checked matching variables, theorem statements, tables, fixed-equation and implications.",
+        "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+        "trigger": "Same objects, same orbit count and exact Burnside framework"
+      },
+      {
+        "assessment": "Monomiality is prior; studied structural examples do not state the sampled-matrix high-dimensional limit.",
+        "evidence": [
+          "Theorem 2.1 proves monomiality, used as conceptual antecedent; the new proof also derives it independently."
+        ],
+        "identifier_or_url": "arxiv:2202.01333; https://arxiv.org/pdf/2202.01333",
+        "material_read": "Introduction, monomial-automorphism theorem, Sections 3–4 dealing with special automorphism groups.",
+        "method": "Read freely accessible arXiv full text and compare quantified scope and parameter asymptotics.",
+        "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+        "trigger": "Potential full automorphism classification covering generic case"
+      },
+      {
+        "assessment": "Raises related broad problems rather than a fixed-field perfect-algebra solution; motivates but is not proof of novelty.",
+        "evidence": [
+          "Questions 21–22 concern random automorphism and enumerative directions."
+        ],
+        "identifier_or_url": "arxiv:2610.22248v1; https://arxiv.org/pdf/2610.22248",
+        "material_read": "Sections 1.3.4, 1.6.1 and Questions 21–22 on automorphisms and asymptotic enumeration.",
+        "method": "Read arXiv full text relevant subsections and the actual open questions.",
+        "title": "Evolution algebras: a survey of results and a list of open problems",
+        "trigger": "Potential up-to-date broader statement or coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acdc19e2-947a-444b-9acd-dcbf9fe563fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact isomorphism-class invariant previously given by an unwieldy orbit sum is resolved asymptotically for every fixed q>=3, with an explicit quantified error. Proves two genuinely distinct probabilistic statements—uniform labeled matrices and uniform isomorphism classes—and resolves a motivated perfect-stratum special case of surveyed asymptotic enumeration and typical-symmetry directions. Not an arbitrary finite slice or normalization exercise.",
+    "status": "PASS"
+  }
+}
