@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The graph Laplacian has exactly four orthogonal tensor spectral modes at eigenvalues 0,q,q,2q. The Radau multiplier yields three exact orbit formulas over a positive denominator. The diagonal numerator D_q has no positive zeros for q=2,3 and exactly two for every integer q>=4 by two sign changes and D_q(q)<0. The adjacent-entry numerator F_q is positive for x<=6 and for x>=q; its possible negativity at 6<x<q lies strictly within the already-negative diagonal range since D_q(6),D_q(q)<0. Nonadjacent entries are positive. The scalar stability multiplier has modulus <=1 on the nonnegative axis; the zero Laplacian eigenvalue yields norm exactly one. Dominant-coefficient scaling proves the endpoint asymptotics. Standalone SymPy exact tests reproduced 5,879 matrix-entry identities; not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor 2001 Section 6 gives general SSP limitations, not entrywise signs on the Cartesian product graph.",
+        "Blanes–Iserles–Macnamara 2021/2022 Sections 1–3, 6 construct graph-Laplacian positivity-preserving methods and state general barriers, but do not furnish the exact two-stage Radau transition formulas here.",
+        "Previously available graph-specific Radau classes include cycles, hypercubes, balanced complete multipartite graphs and paths; their mathematical scopes do not contain H(2,q) for every q."
+      ],
+      "reasoning": "General impossibility for a method on all systems allows many graph-specific exceptions and does not determine the exact nonnegative-step set. Rook graphs are not balanced complete multipartite for q>=3; cycles/hypercubes cover at most the q=2 case. No broader theorem in inspected text forces this complete family classification.",
+      "searches": [
+        "Radau IIA A-stable integrator transient negative diagonal entries reversible finite graph heat equation L stable regained positivity large timestep",
+        "Gauss Radau rational Markov matrix no positivity for medium timestep returns Markov for very large timestep",
+        "Radau IIA discretization positivity lost regained large timestep Markov transition graph",
+        "Radau IIA positivity preserving Markov generator Metzler graph Laplacian rational function inverse positivity"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+      "https://arxiv.org/html/2102.08242v2",
+      "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+      "https://mathworld.wolfram.com/RookGraph.html",
+      "Published numerical-method and graph-related mathematical records with title summaries (no equivalent theorem identified)",
+      "Published mathematical comparison: diagonal Padé Markov positivity barrier (fourth-order Gauss method; different rational function)",
+      "Published mathematical comparison: positivity-horizon two-step Lanczos exponential (different approximation and output)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2001 primary source analyzes implicit SSP conditions; endpoint positivity of a particular rational matrix on one graph family does not follow from its method-wide result.",
+        "The 2021 primary source uses alternative positivity-preserving approaches and describes general high-order restrictions, rather than a Radau II A graph-specific spectral projector identity.",
+        "Closest published mathematical records on RK4 Cartesian rook graphs use a degree-four polynomial, not the third-order two-stage Radau rational function. The available Radau path/hypercube/multipartite claims use different graph spectra."
+      ],
+      "reasoning": "The claim gives a disconnected exact positivity set and finite intermediate sign gap, not merely stability or eventual positivity. None of the cited statements implies the specific negative diagonal and two positive quartic roots for every q>=4; q=2 is acknowledged as covered by cycle/hypercube cases.",
+      "searches": [
+        "two stage Radau IIA completed numerical diffusion matrix square rook graph K_q Cartesian K_q discrete positivity window nonnegative small and large steps but negative intermediate diagonal threshold q=4",
+        "two-stage Radau IIA positivity Cartesian product complete graphs rook graphs diffusion reentrant positivity",
+        "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "https://arxiv.org/html/2102.08242v2",
+        "For square rook graph K_q square K_q Hamming graph H(2,q), 2-stage Radau IIA diffusion has exact nonnegative step set [0,a_q/q] union [b_q/q,infinity), q>=4; diagonal sign quartic 2x^4+(18-4q-2q^2)x^3+(18+18q-5q^2)x^2+36qx+18q^2 and positivity reenters for large steps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-stage Radau IIA has scalar stability function (1+z/3)/(1-2z/3+z^2/6), equivalent to r(x)=(6-2x)/(6+4x+x^2) on z=-x.",
+        "Square rook graphs are Hamming graphs H(2,q), Cartesian products of two complete graphs, or square lattice/rook graphs; MathWorld describes this graph identity."
+      ],
+      "reasoning": "Equivalent method and graph aliases were explicitly tested; no observed result established both positivity intervals or D_q. General Radau stability is a weaker norm statement and cannot imply the sign law.",
+      "searches": [
+        "two stage Radau IIA completed numerical diffusion matrix square rook graph K_q Cartesian K_q discrete positivity window nonnegative small and large steps but negative intermediate diagonal threshold q=4",
+        "Radau IIA rook lattice graph 4x4 q=4 rational approximation heat semigroup positivity gap quartic",
+        "Radau IIA method graph Laplacian positivity counterexample Cartesian product complete graphs diffusion",
+        "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "For square rook graph K_q square K_q Hamming graph H(2,q), 2-stage Radau IIA diffusion has exact nonnegative step set [0,a_q/q] union [b_q/q,infinity), q>=4; diagonal sign quartic 2x^4+(18-4q-2q^2)x^3+(18+18q-5q^2)x^2+36qx+18q^2 and positivity reenters for large steps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld identifies rook graphs and their Cartesian-product representation but tabulates graph properties rather than step-matrix positivity.",
+        "Relevant published numerical-method records returned general scheme positivity/barriers, not a table of paired positive roots of D_q or a Radau rook diffusion sign chart."
+      ],
+      "reasoning": "No exact Radau IIA parameter table or polynomial matching D_q was found. This is limited search evidence, not proof that no such table exists.",
+      "searches": [
+        "Radau IIA rook lattice graph 4x4 q=4 rational approximation heat semigroup positivity gap quartic",
+        "Runge Kutta Padé rook graphs lattice graph complete graph Cartesian product preservation of positivity",
+        "https://mathworld.wolfram.com/RookGraph.html"
+      ]
+    },
+    "rationale": "No mathematically covering result for two-stage Radau IIA reentrant endpoint positivity on all square rook graphs was identified. General SSP impossibility does not imply the sharp pair of parameterized interval boundaries; published path and hypercube Radau results are different network spectra, and prior RK4 rook-graph results concern a different stability function. Actual semantic and literature queries were compared by mathematical implications; specialized unindexed work remains a risk.",
+    "residual_risks": [
+      "Historical specialized numerical-analysis literature may contain an equivalent graph-specific rational matrix positivity result not indexed or not accessible.",
+      "Numipedia method entry was available only as search-indexed summary; no whole-document noncoverage inference was made from it.",
+      "No independent external correctness or originality review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the rook-graph two-interval endpoint theorem",
+        "evidence": [
+          "First-page footnote says first electronic publication 2001-02-02.",
+          "Section 6 concerns general implicit SSP methods, using convexity/order restrictions; neither square rook graph nor its rational projector formulas appears in inspected relevant material."
+        ],
+        "identifier_or_url": "doi:10.1137/S003614450036757X; https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "Full PDF searchable text; front matter, introduction, and Section 6 (pp. 107–111), including Proposition 6.2",
+        "method": "Read primary author-hosted PDF text and page images, compared theorem statements",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Historically foundational method-wide monotonicity and implicit RK positivity barriers"
+      },
+      {
+        "assessment": "Different preservation schemes; not a covering Radau rook-graph positivity classification",
+        "evidence": [
+          "Defines a graph Laplacian operator framework and explains limitations of classical RK positivity.",
+          "Section 3 develops splitting, Magnus, Patankar and related methods rather than the claimed Radau II A square rook graph interval."
+        ],
+        "identifier_or_url": "arxiv:2102.08242; https://arxiv.org/html/2102.08242v2",
+        "material_read": "Accessible full HTML, especially Sections 1, 1.1, 3, and 6 and bibliography",
+        "method": "Read full HTML sections and search for Radau, Runge–Kutta, and graph Laplacian",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Most relevant graph-Laplacian positivity method-family comparison"
+      },
+      {
+        "assessment": "Confirms scheme, but insufficient for any whole-document noncoverage claim",
+        "evidence": [
+          "Indexed function (1+z/3)/(1-2z/3+z^2/6) matches the multiplier in the proof."
+        ],
+        "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "material_read": "Search-indexed short method entry; direct full-page retrieval unavailable",
+        "method": "Read indexed method tableau, order-three classification and rational stability expression",
+        "title": "Numipedia: Radau IIA2",
+        "trigger": "Confirm exact two-stage Radau IIA stability function and method alias"
+      },
+      {
+        "assessment": "Graph definitions, not an exact Runge–Kutta sign classification",
+        "evidence": [
+          "Rook graph is the Cartesian product K_m square K_n; square case sets m=n=q."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/RookGraph.html",
+        "material_read": "Full public graph-definition page and precomputed-property description",
+        "method": "Read definition and discussion of Cartesian product, lattice graph and rook terminology",
+        "title": "Rook Graph",
+        "trigger": "Graph alias and possible exact tabulated family comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69d675da-c0d5-42d1-8b77-a9ec42c172f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural square rook graph family and third-order L-stable Radau scheme yield a complete, exact phase diagram rather than a finite example: q=2,3 always nonnegative and q>=4 have a bounded forbidden interval, with positivity returning for large steps despite unit Euclidean norm at every step. The exact q=4 witness and divergent small/large cutoff scales explain a practical numerical hazard that endpoint checks at very small or very large steps miss. Results are intrinsically motivated by preservation of mass/nonnegative heat states, and are neither a mere table lookup nor a routine stability polynomial evaluation.",
+    "status": "PASS"
+  }
+}
