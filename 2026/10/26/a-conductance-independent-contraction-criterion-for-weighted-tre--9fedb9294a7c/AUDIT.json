@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Tree incidence surjectivity identifies the exact quotient operator as the edge matrix exponential. All generator entries yield the claimed column logarithmic norm; the exact first-order expansion and global exponential inequality follow from standard finite-dimensional matrix norm estimates. A cut signal attains the offending column to first order. Perron–Frobenius strict spectral-radius monotonicity gives path/claw classification, and degree inequalities give path/star classification. The packaged standard-library checker passed 18,248 finite tree cases and 150 rational-weight identities; finite tests are supportive only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ollivier arXiv:math/0701886, §2.5, Proposition 29: general Lipschitz contraction equivalence for Markov kernels; Bauer et al. arXiv:1306.2561, §§1–2: curvature-dimension and quadratic gradient/heat kernel inequalities."
+      ],
+      "reasoning": "These are powerful general frameworks, and the present work does not claim their ideas. Neither inspected theorem implies the edge-l1 BV contraction inequality with three independent weights without a new edge-space reduction and explicit local analysis; nor does either stated result include the topological admissibility classifications.",
+      "searches": [
+        "Ollivier 2007 Ricci Markov chains path coupling Lipschitz contraction general metric space",
+        "Bauer 2013 Li Yau inequality on graphs weighted trees gradient semigroup"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0701886, journal PDF §2.5 Proposition 29 and introduction",
+      "arxiv:1306.2561, PDF introduction §§1–2 and targeted gradient portions",
+      "arxiv:1502.07770, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kolmogorov–Pock–Rolinek arXiv:1502.07770 abstract: optimization of tree total variation with unary terms; differs from matrix exponential diffusion. Ollivier §2.5: extremal vertex-Lipschitz contraction, not l1 total variation."
+      ],
+      "reasoning": "General existence of Markov semigroups, curvature contraction of Lipschitz functions, and nonlinear proximal TV algorithms do not by themselves provide the asserted exact positive-weight criterion or topology dichotomy. The inclusion of an elementary matrix measure is not represented as a separately novel theorem; its application and classification are the new claim.",
+      "searches": [
+        "heat equation graph total variation tree difference signal semigroup l1 edge contractivity",
+        "tree total variation dynamic programming linear diffusion heat semigroup"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ollivier arXiv:math/0701886, Proposition 29, establishes contraction of the vertex Lipschitz (supremum of edge slopes) norm under lower coarse Ricci curvature, not contraction of the sum of absolute edge slopes."
+      ],
+      "reasoning": "The theorem concerns an l1 edge-gradient seminorm of the forward vertex heat semigroup. The classical vertex-Lipschitz norm is an l-infinity edge-gradient seminorm. Their exact operator norms are generally not identical with nonuniform weights; vertex heat reversibility alone does not identify these norms. No equivalent l1 formula found in checked sources.",
+      "searches": [
+        "weighted tree graph heat semigroup total variation contraction local edge balance criterion",
+        "continuous time reversible Markov chain edge l1 gradient norm tree incidence semigroup"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked arXiv:math/0701886; arXiv:1306.2561; arXiv:1502.07770 abstract; relevant published mathematical-result search summaries did not identify an exact tree heat BV table."
+      ],
+      "reasoning": "The exact criterion is a local algebraic formula for arbitrary tree size and weights, rather than a lookup of small graphs. Failure to locate a database entry is not treated as a uniqueness proof; unindexed classical tabulations remain a risk.",
+      "searches": [
+        "tree heat flow sharp bounded variation norm conductance independent graph",
+        "line graph Perron Frobenius critical value 2 weighted TV heat paths claws"
+      ]
+    },
+    "rationale": "A direct search and implication comparison found prior general Lipschitz/transport-curvature equivalences (Ollivier 2007), heat-kernel gradient bounds (Bauer et al. 2013), and tree TV optimization methods (Kolmogorov et al. 2015). None of the examined statements gives the separate edge-l1 semigroup criterion in three independently weighted arrays or the dual path/claw versus path/star positive-weight classifications. The general contraction-curvature principle is credited, not claimed as novel. An implicit antecedent remains a stated risk.",
+    "residual_risks": [
+      "An implicit equivalent matrix-measure argument may exist in earlier semigroup, curvature, or signal-processing literature.",
+      "Full text of the related tree-TV optimization paper was unavailable; only its abstract was inspected.",
+      "Published-result search cannot establish global novelty and the theorem requires independent scholarly review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_PREDECESSOR_NOT_SAME_NORM",
+        "evidence": "Proposition 29 concerns the Lipschitz constant (edge l-infinity type) of a vertex Markov averaging operator; the new claim uses an independent edge l1 total-variation norm and sharp tree weights.",
+        "identifier_or_url": "arxiv:math/0701886; https://www.math.uchicago.edu/~shmuel/QuantCourse%20/Metric%20Space/Olliver,%20Ricci%20curvature%20of%20markov%20chains.pdf",
+        "material_read": "Journal PDF: abstract, introduction, §2.5 Proposition 29 and its proof on pages 20–21; text search for tree and variation; page 20 visually inspected",
+        "method": "Readable public PDF text plus direct page view",
+        "title": "Ricci curvature of Markov chains on metric spaces",
+        "trigger": "Strong general Markov contraction implication potentially covering the new result"
+      },
+      {
+        "assessment": "DIFFERENT_GRADIENT_NORM",
+        "evidence": "Uses quadratic carré-du-champ and nonlinear square-root heat-kernel gradient, rather than induced edge l1 matrix norms for arbitrary variation weights.",
+        "identifier_or_url": "arxiv:1306.2561",
+        "material_read": "PDF abstract, §§1.1–1.2, introduction to curvature-dimension inequalities; page 2 visually inspected; targeted gradient and tree text inspected",
+        "method": "Open-access PDF text and page visualization",
+        "title": "Li-Yau inequality on graphs",
+        "trigger": "Graph heat evolution gradient inequality and tree examples"
+      },
+      {
+        "assessment": "APPARENTLY_DIFFERENT_OPERATION_BUT_INCOMPLETE_INSPECTION",
+        "evidence": "Abstract identifies optimization of TV with unary terms via direct algorithms; no explicit linear heat semigroup stability statement in material read.",
+        "identifier_or_url": "arxiv:1502.07770",
+        "material_read": "Only arXiv abstract and bibliographic metadata; full PDF not read",
+        "method": "Public abstract; available full-text routes did not yield accessible paper text",
+        "title": "Total variation on a tree",
+        "trigger": "Same keywords tree and total variation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fedb929-4a7c-4efe-931f-0c710ebc2528",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, sharply formulated all-time weighted-BV diffusion stability problem is reduced to a local complete criterion, with an unexpectedly conductance-independent phase boundary. The two separate positive-weight topology classifications explain why freely choosing edge variation weights and freely choosing vertex masses produce distinct families of admissible trees, a structurally motivated contrast beyond simple normalized examples.",
+    "status": "PASS"
+  }
+}
