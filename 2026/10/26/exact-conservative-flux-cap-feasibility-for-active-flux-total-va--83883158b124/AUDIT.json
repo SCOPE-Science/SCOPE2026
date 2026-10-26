@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The interval-distance decomposition is pointwise exact; compact convex-concave LP duality gives equality, signed coarea proves reduction to ternary labels, 3-state cyclic DP gives an exact maximum in O(n), and connected-component decomposition of indicator cut edges proves the sharp proper-cyclic-interval threshold. General budget and large-cap laws follow from zero-transition labels and the image of the cycle incidence matrix. Every special case, sign and normalization were independently checked against 504 rational exhaustive dual cases and independently solved primal LPs (n=2..8) and six sharp bottleneck instances. Finite tests support but do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Hochbaum Section 8 gives general convex-convex O(n^2 log^2(U/epsilon)) method and formulates MRF problems with box constraints; abstract image-TV optimization methods extend beyond this application.",
+        "Classical max-flow/min-cut yields abstract conservation cut constraints but not the three-state full-variation formula as stated."
+      ],
+      "reasoning": "Generic convex feasibility and generic max-flow cut optimality are broader mechanisms and could imply the restricted no-extra-variation cut criterion. Accordingly the discovery is not convex solvability or graph cuts themselves; it is the explicit sharp Active Flux TV frontier, full budget formula, and exact linear-time evaluation under the correct two-DOF discrete variation, not present as a stated or automatically matched theorem in inspected sources.",
+      "searches": [
+        "A unified approach for a 1D generalized total variation problem Cheng Lu Dorit Hochbaum 2021 O(n^2)",
+        "flux correction minimal l infinity bound local maximum principle mass conservation max flow min cut 1d scheme",
+        "conservative repair bounded cell means flux correction cyclic interval inequalities sharp necessary sufficient",
+        "doi:10.1007/s10107-021-01633-2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.05920v1",
+      "doi:10.1007/s10107-021-01633-2",
+      "doi:10.1137/070696143",
+      "arxiv:2411.12627",
+      "published-finding corpus semantic search (multiple formulas and source identifiers)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barsukow Harten-type inequalities are sufficient conditions on an evolver and flux limiter with CFL assumptions, while the candidate is necessary and sufficient only for an independently capped post-endpoint correction space.",
+        "General convex path optimization of Lu--Hochbaum includes several transformed objectives; its worst-case algorithms and conclusions do not assert the exact special linear-time formula.",
+        "Weiss et al. treat general TV minimization under constraints by epsilon-accurate algorithms; material available was abstract only."
+      ],
+      "reasoning": "Barsukow does not imply the candidate at matching quantifiers because his physical restrictions are stronger while his result is sufficient only. Classical convex duality/min-cut can be used as proof machinery but does not alone state the endpoint-conditioned piecewise-linear value and O(n) ternary DP; Lu--Hochbaum generic algorithm does not claim such a special bound. Uninspected broad literature may nonetheless subsume the result, noted in residual risks.",
+      "searches": [
+        "network flow capacity cut conditions cyclic finite-volume flux limiter cell-wise bounds mean conservation",
+        "exact cut formula minimal bounded divergence on cycle with coordinate box constraints",
+        "doi:10.1137/070696143",
+        "arxiv:2411.12627",
+        "doi:10.1007/s10107-021-01633-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barsukow Eq. (5) + Eq. (13) exactly match the target TV and conservative divergence; Lu--Hochbaum Eq. (1)-(2) includes general convex problems as mathematical optimization classes."
+      ],
+      "reasoning": "The primal is a finite-dimensional polyhedral convex program in face-flux corrections, equivalent to minimizing total distance of conservative means to frozen endpoint intervals. Abstract convex minimax/min-cut tools are known and not claimed new; no prior statement was found giving its exact {-1,0,1} cycle formula, O(n) dynamic-program value, or explicit sharp local-interval bottleneck for this Active Flux target.",
+      "searches": [
+        "TVD Active Flux global minimum total variation fixed point values conservative cell averages mass interval feasible projection",
+        "minimum infinity norm conservative flux correction to put scalar cell averages between prescribed neighboring interface states on a periodic one-dimensional mesh; exact maximum cyclic interval deficit",
+        "minimum total variation for alternating interface point values and cell averages with fixed total mass; optimal interval projection",
+        "exact optimal uniform flux correction bound fixed Active Flux interface values cyclic TVD ternary dynamic programming",
+        "arxiv:2610.05920v1",
+        "doi:10.1007/s10107-021-01633-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned ranked records including SCOPE backward-Euler-filtered Crank--Nicolson lattice positivity (2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac) and SCOPE weighted graphical zonotope inradius cut formula (2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab), with different objects/claims."
+      ],
+      "reasoning": "Actual published-record searches on the specific source and target formula produced no equivalent record in the returned lists. Search incompleteness and undiscovered archival results remain risks; this is not a proof of global novelty.",
+      "searches": [
+        "Barsukow 2026 TVD Active Flux discrete total variation exact global feasible flux region Harten",
+        "A TVD Active Flux method for scalar conservation laws Barsukow 2610.05920 direct full discrete total variation minimal flux cap",
+        "exact cut formula minimal bounded divergence on cycle with coordinate box constraints",
+        "A TVD Active Flux method for scalar conservation laws Barsukow 2610.05920 direct full discrete total variation minimal flux cap"
+      ]
+    },
+    "rationale": "Directly read Barsukow arXiv:2610.05920v1 (the same two-DOF TV and update), compared Lu--Hochbaum general convex path optimization and other constrained-TV/FCT literature, searched published published-finding corpus for the source and formula with aliases. The explicit global capped-flux minimum-TV ternary identity, exact O(n) cyclic DP, and mass-feasible sharp interval threshold were not identified as stated or implied in inspected primary results. General convex duality and maxflow mincut as methods are classical; residual risk of a stronger older statement remains.",
+    "residual_risks": [
+      "General constrained TV minimization and max-flow/min-cut theory may contain an equivalent exact cyclic specialization under alternative vocabulary; absence in indexed results is not proof of originality.",
+      "Weiss et al. SIAM 2009 and Rider--Liles 2024 full texts were not inspected; only metadata and abstracts, so cannot assert entire-document noncoverage.",
+      "Under physically restricted active-flux quadratures, the admissible correction set may be smaller and the theorem cannot be applied without checking it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves TVD for a specified local flux-limiter construction from sufficient inequalities, not minimal achievable global TV at frozen endpoints for arbitrary capped signed conservative flux corrections; it restricts realizable parametrizations beyond current model.",
+        "evidence": [
+          "arxiv:2610.05920v1, Definition 1 Eq. (5), Eq. (13), Sections 3 and 5, Theorem 4, Section 7; source available at https://arxiv.org/html/2610.05920v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05920v1",
+        "material_read": "Entire HTML was available; materially examined introduction and Definition 1 Eq. (5), updates Eqs. (13)-(14), generalized Harten lemma in Section 3, examples in Section 4, Section 5 flux parametrization and Theorems 3-4, Section 7 conclusion.",
+        "method": "Open-access arXiv full HTML read and equation/assumption comparison.",
+        "title": "A TVD Active Flux method for scalar conservation laws",
+        "trigger": "Exact same definition of Active Flux variation and conservative average update; first-public date and primary MSC."
+      },
+      {
+        "assessment": "General convex optimization covers a transformed form of the primal and supplies approximate algorithms, so convex solvability is not claimed new. The full text reports general cc-class O(n^2 log^2(U/epsilon)) worst-case complexity and no ternary identity or closed exact cyclic-interval cap for the stated Active Flux variation functional; special linear-time exact value formula not dominated by the cited theorem.",
+        "evidence": [
+          "Lu--Hochbaum (2021), Eq. (1)-(2), Sections 5 and 8, https://doi.org/10.1007/s10107-021-01633-2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10107-021-01633-2",
+        "material_read": "Full open-access HTML Introduction, Eq. (1) path problem and Eq. (2) MRF problem, Section 5 convex-convex algorithm, Section 8 conclusions and complexity.",
+        "method": "Publisher full HTML inspection.",
+        "title": "A unified approach for a 1D generalized total variation problem",
+        "trigger": "Potentially broader general convex difference-penalty optimization formulation, including arbitrary convex penalties and box domains."
+      },
+      {
+        "assessment": "Generic epsilon-approximation convergence rates for TV and l1-constrained image optimization are described. Cannot treat the unavailable full text as verified not-covering; unresolved equivalence is a residual originality risk.",
+        "evidence": [
+          "Weiss--Blanc-Féraud--Aubert, SIAM J Sci Comput (2009), abstract, https://doi.org/10.1137/070696143"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070696143",
+        "material_read": "Accessible journal metadata, abstract, keywords and bibliography. Full paper text inaccessible through the source page.",
+        "method": "Publisher metadata/abstract and bibliography inspection only.",
+        "title": "Efficient Schemes for Total Variation Minimization Under Constraints in Image Processing",
+        "trigger": "Broad class of constrained total variation optimization, possible statement-level coverage."
+      },
+      {
+        "assessment": "Reports an algorithm shown TVD under conditions, not a specified cyclic post-endpoint minimum-TV signed-flux cap identity. A full-document noncoverage conclusion is not drawn.",
+        "evidence": [
+          "Rider--Liles, arXiv:2411.12627, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.12627",
+        "material_read": "ArXiv bibliographic page and full abstract; full text not inspected.",
+        "method": "Search and abstract inspection.",
+        "title": "A Generalized Flux-Corrected Transport Algorithm I: A Finite-Difference Formulation",
+        "trigger": "Classical TVD flux-corrected transport method might preexist."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83883158-b124-4393-b35b-56ee61983060",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The central recent numerical issue is preventing global TV growth when correcting conservative cell means without changing interface data; a local sufficient Harten condition does not determine reachability. The result gives exact O(n) minimum achievable TV for any cap, sharp O(n) exact no-extra-variation cap determined by collective cyclic mass bottlenecks, and a quantified 2m-cell family whose worst necessary correction grows as m/(2 lambda) despite all single-cell defects being one. These facts guide feasibility diagnostics and explain collective obstructions that independently clipped corrections miss. The claim explicitly limits itself to the algebraic correction problem rather than promising a new time integration scheme.",
+    "status": "PASS"
+  }
+}
