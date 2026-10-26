@@ -1,0 +1,105 @@
+{
+  "claim": "For every finite candidate set with at least two alternatives, the rule that minimizes each candidate's largest pairwise defeat margin after excluding Condorcet losers is nonempty and satisfies the Condorcet-winner criterion, Condorcet-loser exclusion, single-voter resolvability, ordinal-margin invariance, and bullet-vote positive involvement; it does not satisfy full positive involvement.",
+  "correctness": {
+    "rationale": "The construction is well-defined because at most one candidate can be a Condorcet loser. The score inequalities under a bullet-vote update are exact: mu'(x)=mu(x)-1 and mu'(y)>=mu(y) for all y!=x. These prove the participation guarantee and resolvability; the Condorcet and ordinal-margin properties follow directly from the definitions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holliday (2024) proves impossibility for full positive involvement plus the Condorcet-winner and Condorcet-loser criteria, resolvability, and ordinal-margin invariance.",
+        "Holliday (2026), arXiv:2601.10506, states an impossibility result for full positive involvement and related criteria, including versions without ordinal-margin invariance; the abstract does not state a bullet-vote result."
+      ],
+      "reasoning": "The prior impossibility statements do not dominate the present claim because they assume the stronger participation axiom. The 2026 source is a relevant risk but its stated theorem does not imply impossibility under bullet-vote participation.",
+      "searches": [
+        "Query: bullet-vote positive involvement minimax Condorcet loser criterion resolvability ordinal margin invariance",
+        "Query: positive involvement Condorcet winner loser criteria margin invariance voting impossibility",
+        "Primary source: arXiv:2601.10506 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Holliday (2024), arXiv:2401.05657 v5, full text",
+      "Holliday (2026), arXiv:2601.10506, abstract and bibliographic record",
+      "MaRDI Q6498749, MSC classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 theorem's axiom is full positive involvement; the same paper's footnote 1 separately names bullet-vote positive involvement.",
+        "The current rule satisfies bullet-vote positive involvement by a one-unit margin update and fails full positive involvement along the cited Q3-to-Q2 transition."
+      ],
+      "reasoning": "Neither cited impossibility theorem covers the exact weaker axiom in the claim. The rule's properties are proved directly rather than inferred from a failure to find prior art.",
+      "searches": [
+        "Primary source: arXiv:2401.05657, full PDF, pp. 1-6",
+        "Primary source: arXiv:2601.10506, abstract and bibliographic record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holliday (2024), arXiv:2401.05657, footnote 1 defines bullet-vote positive involvement as a weaker formalization; Theorem 4 uses full positive involvement.",
+        "The exact construction F(P)=argmin over non-Condorcet-losers of the maximum defeat margin was not found in the closest retrieved records."
+      ],
+      "reasoning": "The current rule is a specific constructive realization of the weaker axiom, not an equivalent restatement of the full-positive-involvement impossibility theorem. The distinction is substantive because the rule's Q3-to-Q2 witness chain violates full positive involvement.",
+      "searches": [
+        "Query: bullet-vote positive involvement minimax Condorcet loser criterion resolvability ordinal margin invariance",
+        "Query: Minimax rule excluding Condorcet loser candidates max defeat margin social choice voting",
+        "Query: positive involvement if added voter ranks winner first all other candidates tied below bullet vote impossibility",
+        "Primary source: arXiv:2401.05657, footnote 1 and Theorem 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved records concern other voting-rule boundaries, including three-candidate maximin reinforcement and manipulation thresholds; none states this rule or axiom combination."
+      ],
+      "reasoning": "No exact matching database record or table was identified in the searches performed. A negative search result is not treated as proof of novelty.",
+      "searches": [
+        "Query: Minimax rule excluding Condorcet loser candidates max defeat margin social choice voting",
+        "Query: bullet-vote positive involvement minimax Condorcet loser criterion resolvability ordinal margin invariance"
+      ]
+    },
+    "rationale": "The primary theorem in the 2024 source concerns full positive involvement, whereas its footnote distinguishes the weaker bullet-vote axiom. The current claim constructs a rule satisfying that weaker axiom alongside the other four properties. Literature searches returned adjacent voting-theory findings but no same statement or construction; this supports a provisional originality assessment, not a proof of absolute novelty.",
+    "residual_risks": [
+      "The full text of arXiv:2601.10506 was not inspected; its abstract states a theorem for full positive involvement, so no decisive conflict is apparent, but a separate bullet-vote result could be missed.",
+      "Searches did not establish absolute novelty. A prior rule with a different name or a less-indexed treatment could cover the same construction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers full positive involvement, not the bullet-vote-only construction; the Q3-to-Q2 transition verifies that the proposed rule does not claim the stronger axiom",
+        "evidence": "Theorem 4 lists full positive involvement among the incompatible axioms; Figure 3 gives Q3 and Q2 and adds four voters ranking b>d>a>c.",
+        "identifier_or_url": "arXiv:2401.05657 v5; DOI 10.1016/j.econlet.2024.111589",
+        "material_read": "Full PDF, including definitions, footnote 1, Theorem 4, proof, and margin-profile figures 1-5",
+        "method": "Compared the exact participation axiom and the theorem's hypotheses with the proposed rule; recalculated the rule's scores on the Q3 and Q2 margin lists",
+        "title": "An impossibility theorem concerning positive involvement in voting",
+        "trigger": "Primary source for the impossibility theorem and the bullet-vote variant"
+      },
+      {
+        "assessment": "Relevant but not directly covering: the abstract states a full-positive-involvement impossibility, including without ordinal-margin invariance for five or more candidates; it does not state a bullet-vote theorem",
+        "evidence": "The abstract specifies the stronger positive-involvement axiom, Condorcet criteria, and n-voter resolvability.",
+        "identifier_or_url": "arXiv:2601.10506",
+        "material_read": "Abstract and bibliographic record; full text not inspected",
+        "method": "Compared the stated axioms and domain size to the exact bullet-vote claim",
+        "title": "The incompatibility of the Condorcet winner and loser criteria with positive involvement and resolvability",
+        "trigger": "Current follow-up on the same axiom family"
+      },
+      {
+        "assessment": "Supports primary MSC 91B12 (voting theory), with 91B14 also listed",
+        "evidence": "The record lists 91B12 and 91B14.",
+        "identifier_or_url": "MaRDI Q6498749",
+        "material_read": "Bibliographic classification entry",
+        "method": "Checked the listed MSC codes against the paper's subject",
+        "title": "MaRDI classification record for the 2024 voting paper",
+        "trigger": "Verification of the primary MSC ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d7e1a14-b640-4427-935c-4e76be88193f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a meaningful boundary in a standard social-choice axiom family. It shows that replacing arbitrary added rankings by bullet votes changes the compatibility result, with an explicit rule and a proof of the four accompanying properties.",
+    "status": "PASS"
+  }
+}
