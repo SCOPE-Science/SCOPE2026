@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "An exact greedy alternating-subsequence embedding-cost formula was reconstructed. Deleting a letter reduces equal-boundary count by at most one; initial-run analysis rules out e=4 with first symbol one; deleting nonfirst letters of repeated runs supplies all allowed cases. Compositions of run lengths give the closed polynomial. The included executable independently enumerates all 2^n binary strings for n=2,4,...,12 with dynamic-programming LCS and all balanced counts; finite checks are supplementary rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kong arXiv:1712.03639v2 Table III, sections V–VII and conclusion: arbitrary-center exact formula at radius one, sorted-center at any radius; no general alternating-center radius-two formula (https://arxiv.org/pdf/1712.03639).",
+        "Kong and Hagiwara arXiv:1701.03896v1 sections IV–VII likewise treat sorted-center arbitrary-radius and arbitrary-center radius-one (https://arxiv.org/pdf/1701.03896).",
+        "Fleischmann et al. arXiv:2610.17910v1 Lemma 8 yields a uniform upper bound, not an exact count."
+      ],
+      "reasoning": "General Ulam radius-one formulas do not directly give two-error counts; arbitrary-radius RSK formula centers at the sorted multipermutation rather than alternating, which cannot be transformed by global alphabet relabeling for m>1. The general two-jumble upper bound is not tight here and does not determine the run classification.",
+      "searches": [
+        "published-finding corpus: Levenshtein two-deletions two-insertions constant-composition alternating words count sphere radius two",
+        "Web: Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors alternating radius 2 arxiv 1712.03639",
+        "Web: jumbled neighborhood alternating word two jumbles exact size"
+      ]
+    },
+    "checked_sources": [
+      "Fleischmann–Huch–Kim–Koß–Wiards, arxiv:2610.17910v1",
+      "Kong, arxiv:1712.03639v2",
+      "Kong–Hagiwara, arxiv:1701.03896v1",
+      "published-finding corpus semantic entries 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71, 2026/10/4/SCOPE-exact-variance-of-binary-radius-one-fixed-length-levenshtein-bal--b7dfe5d9ff47 and related hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fleischmann et al. arXiv:2610.17910v1 §2 Definition 6 and Lemma 8 give LCS criterion and \\(\binom{n}{2}^2 2!\\) upper bound, not the alternating-center exact count.",
+        "Kong and Hagiwara arXiv:1701.03896v1 §V Theorem 13 covers any center only for radius one.",
+        "Published indexed finding a3ecc4df-a117-4309-86a8-d7c4494dbdbe classifies one-jumble four-Simon equivalence rather than cardinality of two-jumble radius-two neighborhood."
+      ],
+      "reasoning": "The current proof uses the general LCS definition but supplies a new exact alternating embedding-cost characterization and a balanced run-composition enumeration. The listed earlier statements do not imply the formula without these additional lemmas. Related finite-word equivalence data concern different quantified objects.",
+      "searches": [
+        "published-finding corpus: binary two-jumble neighborhood of alternating word (01)^m cardinality (m^4 - 2m^3 + 5m^2 + 4)/4 Ulam radius 2 constant composition",
+        "published-finding corpus: 2026 finite automata synchronization distinguishability exact bounds state complexity permutation group regular language",
+        "Web: Jumbled Simon's Equivalence and Embeddings Definition 6 Lemma 8 neighborhood",
+        "Web: arxiv 1712.03639 Theorem V.1 Table III and conclusions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fleischmann et al. arXiv:2610.17910v1 Definitions 4,6 identify two-jumble neighborhoods through LCS; see https://arxiv.org/html/2610.17910v1",
+        "Kong arXiv:1712.03639v2 Remark II.1 identifies multipermutation Ulam distance with length minus LCS."
+      ],
+      "reasoning": "With fixed Parikh content this statement is precisely a two-error multipermutation Ulam sphere count, not a separate novel metric; searches examined both aliases. Neither exact formula nor the run-boundary membership criterion appeared in the comparisons.",
+      "searches": [
+        "published-finding corpus: binary two-jumble neighborhood of alternating word (01)^m cardinality (m^4 - 2m^3 + 5m^2 + 4)/4 Ulam radius 2 constant composition",
+        "published-finding corpus: binary multipermutation Ulam sphere radius 2 alternating center balanced words quartic polynomial exact",
+        "Web: alternating multipermutation Ulam ball radius 2 binary exact formula sphere size two translocations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest result 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 concerns window-two output multispectra, not Ulam LCS balls.",
+        "published-finding corpus close 2026/10/4/SCOPE-exact-variance-of-binary-radius-one-fixed-length-levenshtein-bal--b7dfe5d9ff47 treats radius-one edit balls averaged over centers, not radius-two multipermutation spheres.",
+        "Kong arXiv:1712.03639v2 Table III explicitly itemizes its sphere formulas; alternating radius-two counts absent."
+      ],
+      "reasoning": "No identified exact database row or published table records the alternating binary radius-two count as the exact sequence 2,6,19,53,126,262 or the polynomial; negative indexed searches alone are not treated as proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: binary multipermutation Ulam sphere radius 2 alternating center balanced words quartic polynomial exact",
+        "published-finding corpus: 2-jumbled factors alternating binary word maximal common subsequence same length radius two repeated equal adjacencies",
+        "Web: alternating Ulam sphere radius two multipermutation count closed form"
+      ]
+    },
+    "rationale": "Compared both formal-word jumbled-neighborhood and multipermutation Ulam sphere aliases, checked full 2026 source and original 2017/2019 Ulam papers, and compared substantive parameter and implication coverage. Their LCS definitions, generic upper bounds, radius-one any-center formulas and sorted-center arbitrary-radius formulas do not cover this alternating-center radius-two exact count. Exact novelty beyond searched corpus is not guaranteed.",
+    "residual_risks": [
+      "An unindexed or differently named exact two-error alternating Ulam-sphere formula could be missed.",
+      "Larger sphere formulas beyond the inspected papers might subsume the result; this search did not survey every coding-theory monograph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides problem definition, embedding interpretation, general upper bound; no matching alternating-center exact count",
+        "evidence": [
+          "Definition 6, Lemma 8, https://arxiv.org/html/2610.17910v1"
+        ],
+        "identifier_or_url": "arxiv:2610.17910v1; https://arxiv.org/html/2610.17910v1",
+        "material_read": "Full HTML article: introduction, Definitions 4–6, Proposition 7, Lemma 8, algorithmic sections and conclusions; searched for alternating and neighborhood occurrences",
+        "method": "Full-text article inspection and targeted term search",
+        "title": "Jumbled Simon's Equivalence and Embeddings",
+        "trigger": "New 2026 jumbled-neighborhood definition and possible direct counting result"
+      },
+      {
+        "assessment": "General-center radius one and sorted-center arbitrary-radius, not center-alternating radius two",
+        "evidence": [
+          "Table III PDF page 2; conclusion PDF page 23; Remarks II.1; Theorem V.1"
+        ],
+        "identifier_or_url": "arxiv:1712.03639v2; https://arxiv.org/pdf/1712.03639",
+        "material_read": "PDF 31 pages, introduction, Table III, metric definitions, Sections V–VII including Theorem V.1, conclusion and targeted binary/radius searches",
+        "method": "PDF text extraction and page 2 visual table inspection",
+        "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+        "trigger": "Strongest plausible covering theory on multipermutation Ulam sphere sizes"
+      },
+      {
+        "assessment": "No direct alternating radius-two count; any-center formula is radius one",
+        "evidence": [
+          "Sections IV–VII; PDF page 1"
+        ],
+        "identifier_or_url": "arxiv:1701.03896v1; https://arxiv.org/pdf/1701.03896",
+        "material_read": "11-page PDF, abstract/introduction, Sections IV–VII and conclusion, targeted radius-one and any-center occurrences",
+        "method": "PDF text and original first-page visual inspection",
+        "title": "Multipermutation Ulam Sphere Analysis Toward Characterizing Maximal Code Size",
+        "trigger": "Earlier sphere-counting results and possible exact any-radius theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79265e1e-f491-4c5f-893b-922c77640fa1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The size of radius-two balls for fixed-multiplicity Ulam metrics is a natural input to sphere packing and exact jumbled-neighborhood enumeration. Existing principal sources explicitly supply arbitrary-center radius-one and sorted-center arbitrary-radius formulas, leaving this non-sorted center and error radius unresolved in those frameworks. The result is a closed uniform all-m formula and structural membership boundary, not an arbitrary small parameter or mere table recomputation; no claim of global optimality of the center is made.",
+    "status": "PASS"
+  }
+}
