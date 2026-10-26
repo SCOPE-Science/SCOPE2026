@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every r>0, 0<a<1, 0<q<min(a,1-a), t>0, the cubic-flow variational identity gives Phi_t''/Phi_t' = r(int_0^t Phi_s' ds)[2(1+a)-3(x+Phi_t(x))]. The integral is strictly positive; x+Phi_t(x) is strictly increasing from 0 to 2, so Phi_t' has one strict maximum. Its sliding-window integral Phi_t(x+q)-Phi_t(x) is strictly unimodal. The difference from q is negative at 0 and 1-q, positive at a-q and a, forcing exactly two simple equality roots with the claimed ordering. The normalized non-overstocking domain follows from inverse monotonicity. Uniform small-time expansion gives two explicit simple quadratic roots; convergence to the two Allee basin attractors yields long-time limits. The symbolic cubic derivative and 96 randomized numerically integrated parameter cases plus exactly soluble symmetric example were independently checked. The universal proof does not depend on numerical tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "For a scalar autonomous ODE, order preservation alone gives Phi_t increasing, but does not imply uniqueness of finite-difference crossings. The new proof uses the special exact factorization of the cubic derivative and the sign of Phi_t''.",
+        "The 2008 full text presents Pontryagin adjoints and numerical optimal continuous transfer schedules; its necessary control conditions do not directly yield two crossings for the endpoint-only fixed-dose comparison."
+      ],
+      "reasoning": "A sufficiently general published theorem for unimodality of finite differences of S-shaped autonomous flows might imply the structural step; no such covering result was identified in searches. This remains a residual originality risk, explicitly retained.",
+      "searches": [
+        "\"scalar differential equation cubic bistable flow S shaped map single inflection derivative comparison\"",
+        "\"strong Allee equation bistable cubic flow convex concave optimal pulse intervention time\"",
+        "\"finite horizon early versus late immigration single pulse x'=r x(x-a)(1-x) two crossing points initial density\""
+      ]
+    },
+    "checked_sources": [
+      "Bodine, Gross and Lenhart (2008), DOI 10.3934/mbe.2008.5.669, full text",
+      "Bodine, Gross and Lenhart (2012), DOI 10.1080/17513758.2012.697197, full manuscript text",
+      "Armstrong and Wittmer (2011), DOI 10.1007/s11284-011-0849-9, abstract",
+      "Lewis and Kareiva (1993), DOI 10.1006/tpbi.1993.1007, abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2008 p.671 Eq. (1) gives the same cubic growth mechanism; pp.672–678 derive continuous-time optimal-control conditions and numerical trajectories, not the fixed-pulse input-output formula.",
+        "2012 p.36 onward derives discrete optimal control conditions and compares growth/augmentation operations; p.47 concludes by emphasizing selected parameter scenarios rather than the exact universal continuous-flow two-root law.",
+        "Armstrong and Wittmer (2011) publisher abstract motivates Allee-sensitive translocation design without stating a deterministic cubic response classification."
+      ],
+      "reasoning": "The mathematical implication of existing conclusions is not the same: numerical differences between two optimally controlled discrete models, or necessary conditions for continuously controlled donor-to-target transfer, cannot directly imply exactly two fixed-initial-density equality points for every positive horizon under a prescribed single pulse. The claimed theorem adds a specific all-parameter sign law and both asymptotic boundary limits.",
+      "searches": [
+        "\"Optimal control applied to a model for species augmentation\" (DOI 10.3934/mbe.2008.5.669)",
+        "\"Order of events matter comparing discrete models for optimal control of species augmentation\" (DOI 10.1080/17513758.2012.697197)",
+        "\"Incorporating Allee effects into reintroduction strategies\" (DOI 10.1007/s11284-011-0849-9)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodine, Gross and Lenhart (2012), DOI 10.1080/17513758.2012.697197, Sections 2–5: two discrete time growth/augmentation orderings and numerical optimal-control comparisons; no continuous prescribed-pulse flow crossing classification.",
+        "Bodine, Gross and Lenhart (2008), DOI 10.3934/mbe.2008.5.669, Eq. (1) uses identical cubic target growth, but intervention is continuously controlled donor transfer, not a prescribed beginning/end impulse."
+      ],
+      "reasoning": "The mathematically equivalent comparison is Phi_t(x+q)-Phi_t(x)>q, a finite-difference slope criterion. The closest inspected continuous paper has the same autonomous drift but does not prove its single-inflection flow property or classify the equality set of this finite difference; the 2012 order-of-events model differs by discrete seasonal population maps and two coupled populations.",
+      "searches": [
+        "\"Allee effect population rescue release timing single pulse early late two pulse intervention strong Allee dynamics\"",
+        "\"early versus late stocking pulse strong Allee effect finite horizon bistable population logistic exact thresholds\"",
+        "\"Bodine Gross Lenhart 2012 augmentation before versus after growth\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of the two transition densities for the specified cubic flow was located in the inspected 2008 and 2012 source documents.",
+        "The 2012 article reports selected scenarios and observes the absence of an obvious general parameter trend in its distinct discrete optimal-control setting (Section 5)."
+      ],
+      "reasoning": "No matching published exact-threshold table was found. Negative search results do not independently establish novelty; the claim is compared by direct mathematical implication with closest papers.",
+      "searches": [
+        "\"two thresholds optimum timing stocking Allee effect early late nonmonotone\"",
+        "\"Allee effect population augmentation early late timing single pulse strong Allee dynamics\"",
+        "\"population rescue pulse timing double crossover cubic model\""
+      ]
+    },
+    "rationale": "Exact all-horizon two-switch classification is not stated in the materially examined 2008 continuous augmentation study or 2012 discrete augmentation ordering study. Searches for exact finite-dose cubic Allee pulse comparison, density thresholds and broader S-shaped-flow implications did not identify a covering theorem. This is a best-knowledge literature assessment, not proof of historical uniqueness. The key difference from prior work is global quantification over all initial densities, all r>0, all t>0 and the whole stated q-range, rather than a characterization of optimal controls or selected numerical scenarios.",
+    "residual_risks": [
+      "A broad monotone/sigmoidal scalar-semiflow comparison theorem might subsume the single-inflection and fixed-increment argument.",
+      "The full texts of the Armstrong–Wittmer review and Lewis–Kareiva paper were not inspected. Neither was used to conclude entire-document noncoverage.",
+      "The mathematical literature search and historical record survey cannot prove global originality; expert review may uncover equivalent antecedents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THE_SPECIFIC_CLAIM: shares the drift but does not classify finite-dose early-versus-late terminal population differences.",
+        "evidence": [
+          "p.671 Eqs. (1)–(2): cubic target population drift plus continuous donor transfer",
+          "pp.672–678: Pontryagin optimal-control and parameter-dependent examples"
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2008/4/PDF/1551-0018_2008_4_669.pdf",
+        "material_read": "Full 12-page paper: normalized target and reserve dynamics (p.671), optimal control formulation and adjoint conditions, numerical examples and closing limitations. The relevant model page was checked visually.",
+        "method": "Open lawful publisher full PDF; read parsed page text and inspect equation page image",
+        "title": "Optimal control applied to a model for species augmentation",
+        "trigger": "Same cubic Allee model and population augmentation"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_SPECIFIC_CLAIM: discrete control equations and numerical optimal-strategy comparisons do not establish continuous fixed-pulse two-density boundaries.",
+        "evidence": [
+          "Theorem 2.1 characterizes discrete optimal controls by adjoint variables",
+          "Section 5 reports parameter-scenario sensitivity and describes no general parameter trend for the discrete optimal strategy"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/230653856_Order_of_events_matter_comparing_discrete_models_for_optimal_control_of_species_augmentation",
+        "material_read": "Readable full-length article text including model Eqs. (19)–(24), Theorem 2.1, numerical comparative examples, and Section 5 conclusions.",
+        "method": "Read accessible author-posted full-text HTML reproduction and its mathematical paragraphs",
+        "title": "Order of events matter: comparing discrete models for optimal control of species augmentation",
+        "trigger": "Directly studies order of growth versus augmentation in strong-Allee target/reserve models"
+      },
+      {
+        "assessment": "Ecological motivation verified; full-text coverage unresolved and not asserted.",
+        "evidence": [
+          "Review advocates examining release-size benefits, costs and threshold effects under Allee population dynamics"
+        ],
+        "identifier_or_url": "doi:10.1007/s11284-011-0849-9",
+        "material_read": "Publisher abstract and reference list, not full text.",
+        "method": "Search-indexed publisher abstract",
+        "title": "Incorporating Allee effects into reintroduction strategies",
+        "trigger": "Potential direct conservation planning antecedent"
+      },
+      {
+        "assessment": "Foundational invasion/spatial threshold study; cannot make whole-document noncoverage judgment.",
+        "evidence": [
+          "The 1993 article concerns spread of Allee-affected invaders and critical area for propagation"
+        ],
+        "identifier_or_url": "doi:10.1006/tpbi.1993.1007",
+        "material_read": "Bibliographic record and abstract only; full text not available from checked lawful source.",
+        "method": "Search-indexed bibliographic entry",
+        "title": "Allee dynamics and the spread of invading organisms",
+        "trigger": "Foundational classic strong-Allee dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8154f80d-f1a3-48be-82b4-a4a7cdb3a17f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Species augmentation is used to rescue small Allee-limited populations (2008 and 2012 population-augmentation studies). Exact finite-horizon choice between equally costly beginning and end releases is a natural decision problem. The theorem gives a complete two-threshold classification for the full a,r,t domain under the ecologically meaningful pulse bound, not an arbitrary one-off parameter case. It proves that neither universally earlier nor universally later stocking is optimal and identifies a shrinking Allee-crossing interval as the horizon lengthens; both crossings remain in a terminal carrying-capacity-feasible region. The derivative-shape structural lemma and short/long-time boundaries give a useful analytical benchmark for more involved conservation controls.",
+    "status": "PASS"
+  }
+}
