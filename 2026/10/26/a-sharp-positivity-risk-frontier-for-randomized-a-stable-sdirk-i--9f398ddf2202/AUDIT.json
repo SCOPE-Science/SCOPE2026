@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The tableau-stage inversion gives the rational multiplier. Quotient differentiation and the two endpoint values yield the full signed parameter interval. The expected order-three conditions reduce to one second-moment identity. The sharp infimum follows from \\(\\mathbb E U\\ge a\\Pr(U\\ge a)\\) and explicit two-atom saturation; binomial parity, geometric first passage, regular-variation endpoint scaling, and a uniform modulus bound complete the proof. A standard-library independent algebra checker passed 25,594 rational/precision test cases; finite checks are not used to justify the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. N. Spijker, Stepsize Conditions for General Monotonicity in Numerical Initial Value Problems, SIAM J. Numer. Anal. 45 (2007), doi:10.1137/060661739",
+        "2014 optimized SSP IMEX RK source, Section 2.3: absolute-monotonicity radii give monotonicity sufficient conditions for prescribed deterministic methods.",
+        "Eisenmann, Jans, Kruse and Podhaisky, arXiv:2607.18928v1, Sections 3 and 5 (tableau, randomized uniform law, rational stability function and A-stability)"
+      ],
+      "reasoning": "A-stability is an upper bound on amplification magnitude, not sign. General SSP/absolute-monotonicity bounds do not determine the probability of sign failure in a specified random law or optimize that probability subject to a stochastic order-condition moment. The result is confined to scalar decay, avoiding any unjustified claim of general nonlinear positivity.",
+      "searches": [
+        "published-finding corpus: randomized implicit Runge Kutta positive scalar test equation asymptotic stability complete monotonicity",
+        "web search: positivity strong stability preserving Runge Kutta absolute monotonicity radius Spijker Kraaijevanger 1991"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.18928v1 (full accessible HTML, relevant sections inspected)",
+      "arXiv:2404.19059 (PDF text and inspected page images)",
+      "Spijker 2007, doi:10.1137/060661739 (abstract only)",
+      "Optimized SSP IMEX Runge–Kutta methods (accessible Section 2.3 discussing Kraaijevanger coefficient)",
+      "Published published-finding corpus semantic-search hits for SSP-SDIRK2(2), BDF2 positivity delay, Richardson positivity barrier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eisenmann, Jans, Kruse and Podhaisky, arXiv:2607.18928v1, Sections 3 and 5 (tableau, randomized uniform law, rational stability function and A-stability)",
+        "Bochacik and Przybyłowicz, arXiv:2404.19059, pp. 3 and 7–8 (different randomized implicit RK2 methods and amplitude \\(1+z/(1-z\\tau)\\))",
+        "M. N. Spijker, Stepsize Conditions for General Monotonicity in Numerical Initial Value Problems, SIAM J. Numer. Anal. 45 (2007), doi:10.1137/060661739",
+        "The present theorem adds an extremal measure across all supported sampling laws with fixed expected third-order condition and an exact geometric, square-root waiting-time transition."
+      ],
+      "reasoning": "The printed amplifier and uniform randomizer are premises of the new computation and already imply the possibility of negative factors; that observation alone is not novel. The stronger result compares all admissible randomization laws via a sharp inequality with attaining measures, and proves a critical scaling law for first sign loss. Neither was found asserted or dominatingly characterized in the examined sources.",
+      "searches": [
+        "published-finding corpus: 2607.18928 Eisenmann Jans Kruse Podhaisky randomized two-stage SDIRK sign changes positivity probability scalar decay first negative time square root",
+        "published-finding corpus: random trapezoidal Runge Kutta stability function positivity radius sharp sign-change probability for Dahlquist",
+        "web search: \"2607.18928\" positivity threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eisenmann, Jans, Kruse and Podhaisky, arXiv:2607.18928v1, Sections 3 and 5 (tableau, randomized uniform law, rational stability function and A-stability)",
+        "Bochacik and Przybyłowicz, arXiv:2404.19059, pp. 3 and 7–8 (different randomized implicit RK2 methods and amplitude \\(1+z/(1-z\\tau)\\))",
+        "The new statement is equivalently a one-dimensional signed-amplification distribution/first-passage theorem and an extremal moment problem for a squared random parameter."
+      ],
+      "reasoning": "The older randomized RK2 has one-stage rational amplifier \\(1+z/(1-z\\tau)\\), not the source two-stage rational multiplier. The published formula for the present family does not state its sign distribution, Bernoulli parity process, endpoint rarity or extremal sampling among distributions sharing the third-order moment.",
+      "searches": [
+        "published-finding corpus: 2607.18928 Eisenmann Jans Kruse Podhaisky randomized two-stage SDIRK sign changes positivity probability scalar decay first negative time square root",
+        "published-finding corpus: randomized SDIRK2 x uniform one half to one sign flip stability function rational first negativity waiting time",
+        "web search: \"randomized implicit two-stage Runge Kutta\" \"positivity\" \"sign\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search hits included published records titled Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2); Exact delayed sign loss just beyond BDF2 positivity boundary; Richardson acceleration creates a sharp positivity barrier for backward Euler. These are different integrators/claims.",
+        "The motivating source identifies the standard deterministic third-order parameter but no table of negative-step probabilities or extremizing laws."
+      ],
+      "reasoning": "The closest indexed works concern deterministic or different multistep positivity limits. No matching table or record was identified. This negative database search is not treated as proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: random trapezoidal Runge Kutta stability function positivity radius sharp sign-change probability for Dahlquist",
+        "published-finding corpus: randomized singly diagonally implicit Runge Kutta random trapezoidal Eisenmann Jans Kruse Podhaisky stability positivity scalar"
+      ]
+    },
+    "rationale": "The source gives the tableau, rational amplifier, pathwise A-stability and uniform third-order condition in expectation, not a sign-risk probability or extremal law over nonuniform moment-constrained sampling. The prior randomized implicit RK2 family has a different amplifier. Classical monotonicity gives deterministic sign safeguards but no inspected source provides this probability optimization or critical first-passage scale. The new phase diagram is supported by an exact quadratic zero and sharp two-point moment construction; priority remains subject to independent literature review.",
+    "residual_risks": [
+      "The multiplier is already given explicitly in the motivating paper; the originality assessment depends on the combined sharp probability law, sampling optimization and scaling theorem rather than rediscovery of that multiplier.",
+      "Unexamined classical absolute-monotonicity literature or an uncatalogued randomized integrator paper could contain equivalent extremal probability calculations.",
+      "The 2007 general monotonicity paper was checked at abstract level, not conclusively excluded by a full-text comparison.",
+      "An independent priority and proof review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact tableau and rational stability function are already present; source establishes A-stability, not positivity probability, moment-optimal sampling law, or first-negative-index scaling.",
+        "evidence": [
+          "Tableau (Rand), Section 3; Remark 3.3 for expected order three",
+          "Remark 5.6 gives R(z,x); Proposition 5.8 proves A-stability",
+          "Section 8 evaluates error and stiff-example performance, without a sign-risk phase diagram"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.18928v1",
+        "material_read": "Sections 3, 5 and 8, including the exact tableau, Remark 3.3, Remark 5.6, Proposition 5.8, and numerical examples; introduction and references",
+        "method": "Inspected complete freely accessible primary HTML at the mathematical statements and relevant applications.",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge-Kutta Method",
+        "trigger": "Identical randomized two-stage SDIRK tableau and source order-conditions"
+      },
+      {
+        "assessment": "Defines S1/S2 random-implicit updates with scalar multiplier \\(1+z/(1-z\\tau)\\), unlike the two-stage SDIRK amplifier studied here; analyzes stability regions, not moment-constrained sign-risk minimization.",
+        "evidence": [
+          "Page 3 defines S1/S2 with \\(\tau\\sim U(0,1)\\)",
+          "Page 8, Eq. (11), gives \\(1+z/(1-z\\tau)\\) and discusses probabilistic stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.19059",
+        "material_read": "Primary full text pages 1–3 and the scheme/probabilistic stability material on pages 7–8; conclusions and cross-reference to distinct amplitude",
+        "method": "Read arXiv PDF extracted text and inspected page images 3 and 8.",
+        "title": "Convergence and stability of randomized implicit two-stage Runge-Kutta schemes",
+        "trigger": "Highly relevant randomized implicit two-stage integrators and stochastic stability"
+      },
+      {
+        "assessment": "Addresses sharp step-size conditions for general deterministic monotonicity, not an inspected sign-probability law for random RK coefficients. Full-text priority comparison remains a residual risk.",
+        "evidence": [
+          "Abstract explicitly frames TVD/SSP general monotonicity and step-size bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060661739",
+        "material_read": "Published abstract and bibliographic/keyword description (not full text)",
+        "method": "Publisher landing-page inspection",
+        "title": "Stepsize Conditions for General Monotonicity in Numerical Initial Value Problems",
+        "trigger": "Potential broader generic monotonicity coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f398ddf-2202-4bbf-9050-5ea928b33cfb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source advertises pathwise A-stability for stiff equations, which does not entail positive computed concentrations/populations. This result quantifies the complete sign-risk law, rare first negative-step waiting scale, and the sharp possibility of reducing sign risk while retaining the formal third-order expectations. A natural one-moment optimization exhibits a nontrivial 2.24582949… frontier beyond the uniform safe radius of 2, and a singular endpoint at 1+sqrt(3). It is scientifically specific to scalar decay and does not claim preserved global low-regularity order after redesigning sampling.",
+    "status": "PASS"
+  }
+}
