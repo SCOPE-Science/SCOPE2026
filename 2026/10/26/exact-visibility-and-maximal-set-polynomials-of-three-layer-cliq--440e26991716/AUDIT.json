@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "All graph distances are additive; every shortest path of length 2 or 3 between selected coordinates is handled explicitly, giving necessary and sufficient disjoint column patterns. Maximal sets follow from exhaustive one-vertex extension conditions, and generating functions count disjoint patterns. A packaged independent BFS oracle verifies all 37,440 subsets for 2<=n<=5 and every coefficient; infinite validity rests on the proof rather than finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cicerone, Di Stefano and Klavžar, arXiv:2112.13024v2, Theorem 3.4 and Lemma 3.5 (full HTML Section 3)",
+        "Brešar and Yero, arXiv:2307.02951v2, Sections 2.1, 2.3 and 4 (full HTML)",
+        "Theorem 3.4 already gives the maximum 2n and is explicitly excluded from novelty; it does not give the maximal-set count or visibility polynomial."
+      ],
+      "reasoning": "The strongest applicable general theorem gives only the maximum cardinality; complete-multipartite, grid, Hamming and connected-visibility papers have different hypotheses or invariants. Neither implication yields the two enumerators or the lower cardinality.",
+      "searches": [
+        "mutual visibility of clique chains K_n square P_m all maximal mutual visibility sets",
+        "lower visibility in Cartesian product K_n square P_3 number",
+        "lower mutual visibility complete clique prism path of three vertices maximal visibility n+1 2n 3^n",
+        "arxiv:2112.13024 Theorem 3.4",
+        "Semantic search for complete-multipartite visibility polynomials"
+      ]
+    },
+    "checked_sources": [
+      "Cicerone, Di Stefano and Klavžar, arXiv:2112.13024v2, Theorem 3.4 and Lemma 3.5 (full HTML Section 3)",
+      "Brešar and Yero, arXiv:2307.02951v2, Sections 2.1, 2.3 and 4 (full HTML)",
+      "Bujtás, Klavžar and Tian, arXiv:2412.03066 (full HTML definitions/polynomial sections)",
+      "Iršič Chenoweth et al., doi:10.1007/s40840-026-02083-9 (open-access full HTML Sections 3-4)",
+      "Targeted mathematical literature index comparisons under seven exact search strings",
+      "Prior accessible results on other visibility variants and graph families, compared at statement level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cicerone, Di Stefano and Klavžar, arXiv:2112.13024v2, Theorem 3.4 and Lemma 3.5 (full HTML Section 3)",
+        "Brešar and Yero, arXiv:2307.02951v2, Sections 2.1, 2.3 and 4 (full HTML)",
+        "Bujtás, Klavžar and Tian, arXiv:2412.03066 (full HTML definitions/polynomial sections)",
+        "Iršič Chenoweth et al., doi:10.1007/s40840-026-02083-9 (open-access full HTML Sections 3-4)",
+        "Known maximum 2n follows from Theorem 3.4, but requires additional length-three avoidance and one-column pivot maximality to prove the new all-set/maximal enumerators."
+      ],
+      "reasoning": "A result implying the maximum 2n does not classify exponentially many submaximum sets. The four-cycle avoidance equivalence is proved only for K_m square K_n, not K_n square P_3. Prior lower-number statements concern other graph classes; later publication of generic polynomial machinery neither lists nor implies the present coefficient values without a new classification.",
+      "searches": [
+        "maximal mutual visibility sets Cartesian product complete graph and path of length 2 K_n square P_3 lower mutual visibility number",
+        "mutual visibility of clique chains K_n square P_m all maximal mutual visibility sets",
+        "lower visibility in Cartesian product K_n square P_3 number",
+        "complete three layer clique path K_n cartesian P_3 mutual visibility polynomial every set maximal set count (1+3z+z²)^n",
+        "arxiv:2307.02951 sections on Cartesian grids and Hamming graphs",
+        "arxiv:2112.13024 Theorem 3.4 and Lemma 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicerone, Di Stefano and Klavžar, arXiv:2112.13024v2, Theorem 3.4 and Lemma 3.5 (full HTML Section 3)",
+        "Brešar and Yero, arXiv:2307.02951v2, Sections 2.1, 2.3 and 4 (full HTML)",
+        "The mixed product has length-three obstructions: chosen {A_i,B_i,A_j,C_j} evades the Cartesian 4-cycle necessary condition but blocks A_i to C_j."
+      ],
+      "reasoning": "Equivalent aliases include three-layer clique chain, Cartesian K_n by three-vertex path, layered cliques with identity matching, and lower mutual visibility. No indexed equivalent; the Hamming K_n square K_m four-cycle rule fails when P_3 replaces K_3.",
+      "searches": [
+        "maximal mutual visibility sets Cartesian product complete graph and path of length 2 K_n square P_3 lower mutual visibility number",
+        "mutual visibility of clique chains K_n square P_m all maximal mutual visibility sets",
+        "lower visibility in Cartesian product K_n square P_3 number",
+        "mutual visibility graph P_3 Cartesian K_n distinguish shortest paths length three",
+        "Semantic search for high-girth Cartesian-product connected mutual-visibility results"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bujtás, Klavžar and Tian, arXiv:2412.03066 (full HTML definitions/polynomial sections)",
+        "Indexed checks returned unrelated visibility-polynomial families and did not identify a table for the hybrid Cartesian product."
+      ],
+      "reasoning": "The two n-parameter coefficient arrays were compared by graph/invariant equivalence rather than exact numbers. Failed search is not proof of priority; indexing and alternative encodings remain risks.",
+      "searches": [
+        "complete three layer clique path K_n cartesian P_3 mutual visibility polynomial every set maximal set count (1+3z+z²)^n",
+        "three layers matched cliques K_n □ P_3 mutually visible sets 2n3^(n-1)",
+        "Semantic search for hypercube distance-limited mutual-visibility results"
+      ]
+    },
+    "rationale": "The full paper comparison identifies and explicitly credits the known maximum mu(K_n square P_3)=2n by Theorem 3.4 of arXiv:2112.13024. The new proposition gives the exact two-family enumeration, the maximality classification and the lower number n+1, none implied by that scalar maximum or the 4-cycle characterization restricted to two complete factors. The 2023 lower-number and 2024 visibility-polynomial works and 2026 Builder-Blocker work inspected do not state or cover the full hybrid factor enumerators. Targeted mathematical literature and indexed-result comparisons found no equivalent; unresolved unindexed coverage is documented.",
+    "residual_risks": [
+      "A differently named or unindexed result may classify the same clique-by-three-path product and imply the new enumerators.",
+      "Generic visibility-polynomial identities may admit a hidden specialization; no exhaustive database search establishes priority.",
+      "The known maximum 2n must not be presented as new and is explicitly credited throughout the finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar maximum 2n covered; new hybrid set-enumerators and lower maximality number not stated or implied by inspected theorem",
+        "evidence": [
+          "Cicerone, Di Stefano and Klavžar, arXiv:2112.13024v2, Theorem 3.4 and Lemma 3.5 (full HTML Section 3)",
+          "Theorem 3.4: if mu(H)=mu_i(H) then mu(K_n square H)=n mu(H). Lemma 3.5 requires both complete factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.13024v2",
+        "material_read": "Full article HTML including Section 3, Theorem 3.4 and Lemma 3.5, proof and hypotheses",
+        "method": "Read article and compared implications and factor hypotheses",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "General theorem on clique Cartesian products and four-cycle equivalence"
+      },
+      {
+        "assessment": "Motivating definition covered; this mixed-product all-set/maximal polynomial not provided",
+        "evidence": [
+          "Brešar and Yero, arXiv:2307.02951v2, Sections 2.1, 2.3 and 4 (full HTML)",
+          "Lower number defined as smallest cardinality of inclusion-maximal MV set; grid lower 3 and Hamming lower m+n-1 given."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.02951v2",
+        "material_read": "Full article HTML, sections on grids, Hamming complete products, lower maximality and open directions",
+        "method": "Compared definitions, lower-number statements, graph families and corollaries",
+        "title": "Lower (total) mutual visibility in graphs",
+        "trigger": "Defines lower maximum-set invariant and studies graph products"
+      },
+      {
+        "assessment": "Polynomial notion and generic properties covered; specific hybrid full and maximal enumerators not stated",
+        "evidence": [
+          "Bujtás, Klavžar and Tian, arXiv:2412.03066 (full HTML definitions/polynomial sections)",
+          "Defines ordinary visibility polynomial but not the displayed two hybrid Cartesian-product identities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+        "material_read": "Accessible full HTML supplied with the arXiv entry, inspected definitions and visibility polynomial sections",
+        "method": "Compared polynomial type and investigated possible specialization to K_n square P_3",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Potential general visibility-polynomial or graph-product coverage"
+      },
+      {
+        "assessment": "Game outcomes are different mathematical quantities; no classification of the K_n square P_3 maximal ordinary mutual visibility sets",
+        "evidence": [
+          "Iršič Chenoweth et al., doi:10.1007/s40840-026-02083-9 (open-access full HTML Sections 3-4)",
+          "Section 4 treats Cartesian products of two complete factors and cites the four-cycle characterization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40840-026-02083-9",
+        "material_read": "Open-access full HTML, sections on game bounds, multipartite graphs, Hamming graphs and conclusion",
+        "method": "Compared static inclusion-maximal-set cardinalities with minimax game outcomes",
+        "title": "Builder-Blocker Mutual-Visibility Game",
+        "trigger": "Very recent paper treating maximal game terminations and Cartesian products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "440e2699-1716-43c3-9d42-8e45122436e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact classification and complete counts of ALL feasible and ALL inclusion-maximal selected-pair visibility sets on the natural clique-layer path K_n square P_3. Determines exact worst greedy termination n+1 and maximality-count 2n*3^(n-1)+2^n-1 despite already-known largest cardinality 2n. The lower-versus-upper gap n-1 and complete maximal size spectrum are motivated, nontrivial consequences of the structural theorem, not a scalar recomputation.",
+    "status": "PASS"
+  }
+}
