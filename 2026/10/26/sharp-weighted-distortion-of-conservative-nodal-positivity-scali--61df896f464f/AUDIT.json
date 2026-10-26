@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "PASS: The statement fixes positive weights summing to one, N>=2, positive weighted mean and a negative node. Derivation factors u=(m+a)p-a1 and L=mp, bounds the ray displacement by the smallest remaining quadrature weight and every conservative feasible correction below by weighted Cauchy--Schwarz. Their quotient is maximized by the two smallest weights. An explicit family with one small negative component and a small positive buffer elsewhere reaches the bound, with the exact metric projection obtained by KKT thresholding. The LGL endpoint formula gives N(N-1)-1. Exact-rational checks independently exercise the formulas; no finite run is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu proves positivity/entropy radius framework but does not supply the comparison factor in the inspected material.",
+        "Fu--Cheng--Shu discuss stronger damping for scaling, explicitly recognize competing constrained projection."
+      ],
+      "reasoning": "The newer entropy frameworks are more general about *admissibility*, but not about the sharp quantitative norm comparison. An earlier limiter-consistency analysis remains partially inaccessible and is a specific unresolved bibliographic risk, not evidence of a covering theorem.",
+      "searches": [
+        "polynomial degree positivity limiter cell average ray projection smallest quadrature weights sharp L2 approximation ratio",
+        "Zhang Shu scaling bound comparison nearest nonnegative simplex projection error weights two smallest",
+        "arXiv:2604.00301",
+        "doi:10.1007/s10915-018-0790-y"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.27478v1 full HTML, §§1--4",
+      "arXiv:2604.00301 full HTML, positivity radius and main framework",
+      "Fu--Cheng--Shu 2026 April full 52-page PDF (especially §§3.3 and experimental comparisons)",
+      "Laiu--Hauck, doi:10.1007/s10915-018-0790-y: only indexed abstract available; full download failed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 scaling produces positivity/entropy at nodal points; it does not rank the size of corrections.",
+        "Fu--Cheng--Shu (2026) say scaling *may* cause stronger damping, not that its precise worst-case factor equals a two-smallest-weights formula or a quadratic LGL law."
+      ],
+      "reasoning": "The assessed theorem neither improves entropy admissibility nor simply restates that projection is best: it identifies the exact universal approximation ratio, proves sharpness with a single-negative-node family, and exposes growing nodal-degree distortion. Those conclusions are not logical corollaries of the inspected general limiter guarantees or qualitative damping observations.",
+      "searches": [
+        "arXiv:2603.27478 full limiter sections",
+        "Fu--Cheng--Shu 2026 §§3.3.1--3.3.3",
+        "Zhang Shu positivity preserving limiter orthogonal projection onto positivity cone compare scaled solution error efficiency",
+        "Gauss Lobatto weights geometric positivity limiter optimal L2 correction distance to positive coefficients",
+        "sharp approximation factor polynomial positivity scaling limiter vs optimal conservation positivity projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Known equivalent operator: Zhang--Shu cell-average linear scaling along the ray; the present ratio is a comparison to the orthogonal projection onto the positive weighted-mean slice.",
+        "In Fu--Cheng--Shu the optimization is performed on weighted nodal data using the unweighted norm, not the same metric here."
+      ],
+      "reasoning": "Alternative phrases (linear scaling, affine contraction, nodal ray limiter, convex correction, orthogonal simplex projection) were compared at the level of both objective functionals and sharp conclusions. Known limiter identities do not state or imply the exact two-minimum-weight ratio without the additional extremal optimization argument.",
+      "searches": [
+        "sharp approximation ratio positivity-preserving Zhang Shu scaling limiter versus Euclidean simplex projection Gauss Lobatto quadrature weights n(n-1)-1",
+        "weighted nodal conservative positivity limiter radial scaling optimal nearest feasible correction sharp distortion",
+        "arXiv:2603.27478",
+        "arXiv:2604.00301"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical results on affine least-squares positivity defect and simplex projection Lipschitz behavior concern distinct optimization quantities, not the exact worst-case ratio of corrections.",
+        "Standard LGL endpoint-weight formula gives weights but not this optimized correction ratio."
+      ],
+      "reasoning": "Checked claim semantics rather than numerical coincidences: positivity defect of an affine projector and Lipschitz modulus of a metric projector neither entails the present radial-versus-nearest positive correction ratio. No exact value for this invariant was identified in these searches.",
+      "searches": [
+        "sharp approximation ratio positivity-preserving Zhang Shu scaling limiter versus Euclidean simplex projection Gauss Lobatto quadrature weights n(n-1)-1",
+        "weighted nodal conservative positivity limiter radial scaling optimal nearest feasible correction sharp distortion",
+        "polynomial degree positivity limiter cell average ray projection smallest quadrature weights sharp L2 approximation ratio",
+        "Zhang Shu scaling bound comparison nearest nonnegative simplex projection error weights two smallest"
+      ]
+    },
+    "rationale": "PASS with named residual source risk: Actual research-record searches and full reading of the closest recent scaling/positivity and projection-comparison papers found source definitions and a qualitative warning about scaling damping, but no stated or logically dominating theorem for the exact two-smallest-weights approximation factor and its LGL N(N-1)-1 specialization. This conclusion is best-knowledge, not an assertion of uniqueness; the older Laiu--Hauck manuscript could not be inspected in full and is retained as a specific risk.",
+    "residual_risks": [
+      "The pre-2026 Laiu--Hauck work compares limiter consistency; its full text was unavailable and may contain a specialized comparison bound.",
+      "Broad published literature not exhaustively indexed; a classical optimization approximation-ratio result with another name could dominate the two-weight formula.",
+      "The exact weighted metric is not the same as the ordinary norm of already weighted coordinates in Fu--Cheng--Shu; conclusions cannot be transferred between them without analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source uses the scaling mechanism to enforce entropy inequalities but does not, in the examined full text, calculate the sharp ratio to the best weighted-norm conservative positive correction.",
+        "evidence": [
+          "arXiv:2603.27478v1, §§1,3,4 and compatibility with positivity limiting; primary MSC 65M60; first version 2026-03-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.27478v1",
+        "material_read": "Full arXiv HTML including introduction, entropy stability construction, positivity compatibility, quadrature description, and stated lemmas.",
+        "method": "Compared corrected object (full DG entropy limiter) against proposed exact weighted nodal positivity distortion constant and sharp limit.",
+        "title": "A limiter-based approach to construct high-order fully-discrete entropy stable explicit DG schemes for hyperbolic conservation laws",
+        "trigger": "Identical cell-average-anchored scaling operation and LGL quadrature; verified primary MSC 65M60."
+      },
+      {
+        "assessment": "Broader admissibility guarantees do not imply the exact ratio of radial vs optimally projected nodal positivity corrections.",
+        "evidence": [
+          "arXiv:2604.00301, framework and positivity-radius sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.00301",
+        "material_read": "Accessible arXiv full HTML, framework and positivity-radius construction, multientropy properties.",
+        "method": "Compared radial admissibility derivation and entropy/positivity guarantees to weighted-nearest-point distortion and LGL sharpness.",
+        "title": "EPO: A Unified Framework for Entropy Stability, Positivity, and Oscillation Suppression",
+        "trigger": "Same mean-anchored ray and positivity radius; potential broader coverage."
+      },
+      {
+        "assessment": "Qualitative possible extra damping was already known. The exact sharp general weighted-norm ratio and degree-quadratic LGL formula do not appear in the read comparisons; the actual projection norm in their implemented method differs.",
+        "evidence": [
+          "Fu--Cheng--Shu (2026), equations (3.16),(3.23), §3.3 discussion p.22."
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2026/04/High-order-positivity-preserving-filtered-PN-methods.pdf",
+        "material_read": "Full 52-page PDF with detailed §§3.3.1--3.3.3 (pp. 18--22), methods/experiments; page image inspected.",
+        "method": "Checked exact optimization objective (ordinary norm on already weighted nodal values) and scaling formula (3.23), plus statement comparing damping.",
+        "title": "High order positivity-preserving filtered PN methods for the gray model of thermal radiative transfer equations",
+        "trigger": "Very close: explicitly compares scaling and constrained positivity projection, reports stronger damping of scaling."
+      },
+      {
+        "assessment": "Unresolved: a specialized earlier comparison theorem may be contained in the uninspected full text. It is not asserted to be absent.",
+        "evidence": [
+          "Laiu--Hauck, J. Sci. Comput. 78 (2019), 918--950, doi:10.1007/s10915-018-0790-y, abstract and repository metadata."
+        ],
+        "identifier_or_url": "https://www.osti.gov/servlets/purl/1810030",
+        "material_read": "ORNL publisher abstract and indexed summary; public manuscript download attempted but returned server failure, not full inspected.",
+        "method": "Searched exact title with projection/scaling/consistency terms, attempted open-access full text; relied only on abstract for provisional relation.",
+        "title": "Positivity Limiters for Filtered Spectral Approximations of Linear Kinetic Transport Equations",
+        "trigger": "Direct historical comparative study of positivity limiters with consistency estimates, potentially dominating claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61df896f-464f-4d03-8a2f-3cb43752a294",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: This is a natural and actionable numerical-design invariant: it quantifies exactly how much perturbation a commonly used, cheap positivity limiter can cause relative to the best correction respecting the same nodal positivity and conservative mean. The quadratic growth N(N-1)-1 at standard LGL nodes is a structural, unbounded-in-degree limitation not conveyed by the routine fact that orthogonal projection minimizes distance, and directly motivates alternative corrections or weight-aware analysis. It does not claim a downstream PDE error theorem or transfer to additional entropy constraints.",
+    "status": "PASS"
+  }
+}
