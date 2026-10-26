@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Full reduced Hessian recomputation, scalar diagonalization, derivative sign, strictly monotone endpoint-ratio proof, angle identity and sharp 3-mode construction establish all quantified claims, including PSD singular A. Seven direct examples plus 500 seeded spectra passed finite diagnostics from the enclosed source file; none is used in place of infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Preuster et al., arXiv:2607.11835, Eq. (16) and Section 4.2 give general upper-bound optimization.",
+        "Wang et al., doi:10.3390/math11122599, Eq. (matching S_2), records eigenvalue inclusion [1/2,1] for standard matching."
+      ],
+      "reasoning": "The general bounds cover at most a uniform factor-two conclusion in the relevant symmetric specialization and are compatible with, but do not imply, the exact positive-gain minimizer, strict gain monotonicity, or sharp endpoint-angle profile. The current theorem does not generalize to nonsymmetric or partially controlled problems.",
+      "searches": [
+        "optimal scalar feedback shift preconditioner exact spectral condition number sqrt(1+alpha lambda squared)/(lambda+k) self-adjoint elliptic two endpoints secant",
+        "feedback shift Hessian (A+k I)^-1 (I+alpha A^2) (A+k I)^-1 optimal condition number <=2",
+        "\"optimal matching\" \"shift\" \"Schur complement\" \"PDE-constrained optimization\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.11835v1 (manuscript relevant Sections 3.1 and 4.2 read)",
+      "doi:10.3390/math11122599 (full text Sections 2 and 3 read)",
+      "doi:10.1002/nla.814 (metadata/abstract only; matching theorem independently reproduced in 2023 full text)",
+      "Published mathematical record searches for exact free scalar optimal shift, Schur matching equivalences, and source name"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pearson and Wathen, doi:10.1002/nla.814, accessible abstract; 2023 Wang et al. full text reproduces the fixed matched preconditioner and [1/2,1] eigenvalue inclusion.",
+        "Preuster et al., arXiv:2607.11835, Eq. (16) is an upper bound and Section 4.2 optimizes this bound in a particular limiting example."
+      ],
+      "reasoning": "Knowledge that one shift achieves condition <=2 does not imply it is optimal, nor identify the optimal shift for a given spectrum or the best sharp endpoint constant. Nor does optimizing a non-sharp abstract bound imply exact eigenvalue equioscillation. The theorem also explicitly credits the known factor-two guarantee.",
+      "searches": [
+        "Stabilize-then-optimize Feedback transformations as preconditioners in optimal control Preuster Schaller Schiela Stoll scalar optimal shift exact eigenvalue condition number 2026 arxiv 2607.11835",
+        "Pearson Wathen 2012 matching Schur complement optimal free shifted preconditioner spectrum eigenvalue endpoints choose lambda shift",
+        "\"optimal matching\" \"shift\" \"Schur complement\" \"PDE-constrained optimization\"",
+        "\"optimal shift\" \"matched\" preconditioner \"Schur complement\" eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Preuster et al., arXiv:2607.11835, Section 3.1; feedback Hessian and generic norm bound.",
+        "Wang et al., doi:10.3390/math11122599, Section 2.2; fixed matching shift."
+      ],
+      "reasoning": "A Schur-complement matching preconditioner is the algebraic equivalent of the commuting reduced Hessian up to inversion and scaling. Existing matching work has a fixed coefficient tied to regularization, whereas this claim minimizes over every positive coefficient and proves a unique spectral-endpoint formula.",
+      "searches": [
+        "Stabilize-then-optimize Feedback transformations as preconditioners in optimal control Preuster Schaller Schiela Stoll scalar optimal shift exact eigenvalue condition number 2026 arxiv 2607.11835",
+        "Schur complement (A^2+alpha I)(A+kI)^-2 unique optimal k spectral eigenvalue weighted sec squared half angle",
+        "\"shift parameter\" \"matching strategy\" \"Schur complement\" optimal eigenvalue condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches returned related but not corresponding papers, including 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, on stagewise Richardson contraction.",
+        "Accessible same-slot current-week claim texts/source identifiers contained no instance of arxiv:2607.11835, scalar spectral feedback tuning, or matching Schur-complement result."
+      ],
+      "reasoning": "The result is a universal algebraic theorem with a sharp three-mode witness rather than an entry in a finite table. No directly covering database result was located; absent search hits cannot establish novelty.",
+      "searches": [
+        "Stabilize-then-optimize Feedback transformations as preconditioners in optimal control Preuster Schaller Schiela Stoll scalar optimal shift exact eigenvalue condition number 2026 arxiv 2607.11835",
+        "Pearson Wathen 2012 matching Schur complement optimal free shifted preconditioner spectrum eigenvalue endpoints choose lambda shift",
+        "Schur complement (A^2+alpha I)(A+kI)^-2 unique optimal k spectral eigenvalue weighted sec squared half angle",
+        "minimax shift optimized Tikhonov regularization exact cond number 2 Hilbert diagonal spectrum"
+      ]
+    },
+    "rationale": "Relevant 2026 source gives a feedback-reduced Hessian and generic condition-number bound, not an exact finite-spectrum optimum. Full 2023 matching-preconditioning paper attributes a regularization-fixed shift and eigenvalue containment to the 2012 construction; those already cover the general factor-two guarantee but do not identify the unique optimal freely tuned gain or sharp endpoint-sensitive envelope. Direct published-record searches and accessible own-claim deduplication found no equivalent; earlier full text access is a disclosed risk.",
+    "residual_risks": [
+      "Pearson and Wathen original 2011/2012 matching paper could not be read in full due to access restrictions; a freely optimized parameter theorem inside cannot be decisively ruled out.",
+      "Some older shifted-preconditioner parameter literature might derive an equivalent endpoint-optimal tuning under other notation.",
+      "No statement about the cost of shifted solves or robustness under nonnormality is justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic bound and specific bound optimization, but no claim of exact optimized scalar Hessian spectral condition over fixed given endpoints.",
+        "evidence": [
+          "Equation (15) defines transformed reduced Hessian; Equation (16) estimates condition number; Section 4.2 optimizes (16) for limiting Neumann case."
+        ],
+        "identifier_or_url": "arxiv:2607.11835; https://www.researchgate.net/publication/409442943_Stabilize-then-optimize_Feedback_transformations_as_preconditioners_in_optimal_control",
+        "material_read": "Accessible 22-page text including reduced-Hessian derivation in Section 3.1, Proposition 3.3, elliptic Section 4.2, numerical discussion, and appendix context.",
+        "method": "Full-text HTML extraction of publicly available manuscript",
+        "title": "Stabilize-then-optimize: Feedback transformations as preconditioners in optimal control",
+        "trigger": "2026 source motivates feedbacked reduced-Hessian conditioning"
+      },
+      {
+        "assessment": "Documents regularization-fixed matching Schur complement and eigenvalue bounds, not the exact free-feedback optimum.",
+        "evidence": [
+          "Section 2.2 quotes Pearson–Wathen matched shift and interval [1/2,1]; Sections 3.1–3.2 analyze a different permuted Schur complement."
+        ],
+        "identifier_or_url": "doi:10.3390/math11122599; https://www.researchgate.net/publication/371387435_A_Matching-Strategy-Inspired_Preconditioning_for_Elliptic_Optimal_Control_Problems",
+        "material_read": "Complete accessible article text, in particular Section 2.2 and Section 3 on matching shifts and eigenvalue bounds.",
+        "method": "Open full-text HTML",
+        "title": "A Matching-Strategy-Inspired Preconditioning for Elliptic Optimal Control Problems",
+        "trigger": "Possible dominating earlier spectral preconditioning"
+      },
+      {
+        "assessment": "Known fixed matched spectral bounds are covered; exact alternative parameter optimization cannot be ruled out from the unavailable original full text.",
+        "evidence": [
+          "Publisher bibliographic abstract and Wang et al. (2023) Section 2.2 attribution; full article not materially inspected."
+        ],
+        "identifier_or_url": "doi:10.1002/nla.814; https://doi.org/10.1002/nla.814",
+        "material_read": "Publisher abstract and bibliographic page only; relevant formulas available through subsequent 2023 open full-text exposition.",
+        "method": "Checked arXiv and open-access copies; open archive retrieval denied, institutional full-text route unavailable.",
+        "title": "A new approximation of the Schur complement in preconditioners for PDE-constrained optimization",
+        "trigger": "Original introduction of the matching strategy, potential exact prior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e27f751-ca0b-4b3e-9877-4781cdfe686d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated exact gain-selection theorem for the scalar feedback family in fully observed quadratic control. Unlike a fixed matching shift or an abstract bound, it gives a unique optimal parameter, sharp endpoints-only conditioning envelope and concrete strict improvement (kappa 1.51949 versus 1.94868 for a 0/0.72076/3 spectrum). A two-mode equality and a three-mode worst-case isolate the role of interior spectrum, useful for finite-dimensional elliptic feedback preconditioning without suggesting a generic PDE theorem.",
+    "status": "PASS"
+  }
+}
