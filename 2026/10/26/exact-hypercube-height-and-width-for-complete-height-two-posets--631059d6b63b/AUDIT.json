@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For any embedding, the lower-level sets form an antichain on their union U, so Sperner gives |U|>=mu(a). At least two pairwise incomparable upper-level sets must each properly contain U, giving h*>=mu(a)+1. Minimality of mu(a) ensures a chosen middle-layer antichain of size a covers all mu(a) coordinates; adjoining b distinct new coordinates constructs an induced copy at rank mu(a)+1. At that rank, any embedding forces exactly b distinct coordinates outside the union, so w*=mu(a)+b. The central-binomial inequality gives equality with a+b exactly for a=2,3,4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source proves w*(P)<=|P| for every finite poset and provides a general construction for two-layered posets.",
+        "The source’s concluding Question 8 asks which finite posets attain w*(P)=|P|."
+      ],
+      "reasoning": "The formula evaluates both h* and w* for every complete height-two poset with a,b>=2, a full infinite family. It refines the general upper bound by giving an exact value, often strictly below a+b, and a precise equality criterion within this family.",
+      "searches": [
+        "query: \"hypercube-height\" \"K_{a,b}\" poset",
+        "arXiv:2509.26630v1, Theorem 3 (two-layered posets) and Theorem 4 (all finite posets)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.26630v1",
+      "Sperner 1928",
+      "Bounded literature-database query: \"hypercube-width\" \"complete bipartite\" poset",
+      "Bounded literature-database query: \"w^*(P)\" \"complete bipartite poset\"",
+      "Bounded literature-database query: \"hypercube-height\" \"K_{a,b}\" poset",
+      "Bounded literature-database query: \"Question 8\" \"w^*(P)\" poset hypercube-width"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 gives only w*(P)<=|P| for arbitrary finite P.",
+        "Theorem 3 proves the same upper bound for two-layered posets, without an exact formula for this family in the inspected text.",
+        "Sperner’s theorem bounds an antichain of a subsets of a u-set by binom(u,floor(u/2))."
+      ],
+      "reasoning": "The cited general upper bound does not imply the exact value mu(a)+b or the matching formula h*=mu(a)+1. The lower bounds here require the union-of-minimal-sets argument and the need for b distinct one-coordinate extensions; the upper bounds use a middle-layer antichain with full union. The equality criterion is then a consequence of the explicit formula, not of the general theorem alone.",
+      "searches": [
+        "arXiv:2509.26630v1, Theorem 4 and Question 8",
+        "arXiv:2509.26630v1, Section 2, Theorem 3",
+        "Sperner 1928, antichain bound in the Boolean lattice"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.26630v1 defines h*(P) as the minimum rank bound admitting an induced embedding and w*(P) as the least dimension at that rank bound.",
+        "The The bounded search did not return an exact formula for P_{a,b}; the closest related result concerns interval endomorphism global dimension, a different invariant."
+      ],
+      "reasoning": "The claim uses the source’s exact hypercube-height/width definitions. The poset is the complete height-two order with level sizes a and b; it is not a graph-theoretic biclique invariant. The formula is invariant under relabeling within each level but is asymmetric under swapping levels, consistent with the rank-bounded embedding definitions.",
+      "searches": [
+        "query: \"hypercube-width\" \"complete bipartite\" poset",
+        "query: \"w^*(P)\" \"complete bipartite poset\"",
+        "arXiv:2509.26630v1, pp. 1–6: definitions of hypercube-height/width and Question 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest related record: a complete height-two bipartite poset appears, but the result is about a different invariant.",
+        "Closest related record: a finite-space configuration invariant, not hypercube-width.",
+        "arXiv:2509.26630v1, Question 8, explicitly asks for the class of posets attaining equality."
+      ],
+      "reasoning": "No exact database/table entry for the formula was returned by the recorded bounded literature-database searches. Semantic search is not exhaustive and failure to retrieve a match is not proof of novelty; the primary paper was inspected for the closest relevant theorem and its open question.",
+      "searches": [
+        "query: \"hypercube-width\" \"complete bipartite\" poset",
+        "query: \"w^*(P)\" \"complete bipartite poset\"",
+        "query: \"hypercube-height\" \"K_{a,b}\" poset",
+        "query: \"Question 8\" \"w^*(P)\" poset hypercube-width"
+      ]
+    },
+    "rationale": "The primary paper proves a general upper bound and poses the equality-classification question; the exact two-parameter formula for complete height-two posets is not stated in the inspected material. Bounded semantic literature searches returned no exact match. This is a bounded best-knowledge originality assessment, not a proof that no prior source exists.",
+    "residual_risks": [
+      "The primary source states that other equality examples are easy to construct; equality subcases alone may be known informally.",
+      "The recorded searches are semantic and cannot establish exhaustive novelty.",
+      "No source located in the bounded search stated the exact formula for every pair a,b>=2; an unindexed or differently phrased source may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives w*(P)<=|P| and poses equality classification but does not state the exact formula mu(a)+b in the inspected material. It remarks that other equality examples are easy to construct, so no novelty is claimed for isolated equality examples; the claimed extension is the exact formula for all a,b>=2.",
+        "evidence": [
+          "arXiv:2509.26630v1, definitions on pp. 1–2; Theorems 3–4; Question 8 on p. 6."
+        ],
+        "identifier_or_url": "arXiv:2509.26630v1",
+        "material_read": "Abstract; definitions of h* and w*; Section 2 two-layered-poset argument and Theorem 3; Theorem 4 statement; concluding Questions 6–8 (arXiv PDF pp. 1–6).",
+        "method": "Compared definitions, theorem scope, and explicit open questions against the single claimed formula; checked whether the exact level-size formula or its equality criterion is stated.",
+        "title": "Optimal Embeddings of Posets in Hypercubes",
+        "trigger": "Its Theorem 4 establishes the general hypercube-width bound and Question 8 asks which posets attain equality; complete height-two posets are a natural test family."
+      },
+      {
+        "assessment": "Supports the only non-definitional inequality used in the proof; the remaining steps are set-inclusion and rank arguments given explicitly in RESULT.md.",
+        "evidence": [
+          "Sperner 1928; the theorem states that the largest antichain in 2^[u] has size binom(u,floor(u/2))."
+        ],
+        "identifier_or_url": "E. Sperner, Mathematische Zeitschrift 27 (1928), 544–548",
+        "material_read": "Classical theorem statement and its standard middle-layer extremal formulation; no claim is made that this historical source contains the hypercube-width result.",
+        "method": "Applied the antichain cardinality bound on a ground set of size s and on a ground set of size u-1.",
+        "title": "Sperner’s theorem on antichains in a Boolean lattice",
+        "trigger": "Needed for the lower bound on the union size of the a minimal elements and for the full-union middle-layer construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "631059d6-b63b-4f9c-b742-c9041d7785f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly asks which posets attain w*(P)=|P|. This result gives an exact two-parameter evaluation for the natural complete height-two family, and identifies exactly when that family attains the general bound. It is more than a single equality example and is a useful test case for the structural classification question.",
+    "status": "PASS"
+  }
+}
