@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "An unselected two-subset is undominated exactly when it is a two-vertex cover of the selected edge graph; a selected cover would be isolated in the induced Kneser graph, precluding a perfect matching. Four-edge component decompositions yield exactly four candidates of cover number >=3, and the triangle-plus-isolated-edge case has induced star K1,3 and is excluded. The three survivors have explicit pairings. Their support automorphism denominators 4,16,384 give the three binomial counts for every \\(n\\ge6\\). For \\(n=4\\) the disjoint 3K2 structure is decisive. For \\(n=5\\) a complete 210-complement census separates six induced Petersen types and 125 matching/dominating complements in 3 S5-orbits. The exact standalone verifier independently checks all four-subsets through n=10, both predicates, all \\(n=4,5\\) minimum sizes, and \\(n=5\\) symmetry.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cornet and Torres (2024 revision), Section 4, Lemma 18 and Appendix B: every k-tuple domination condition and ordinary dominating number three.",
+        "Henning, McCoy and Southey, Discrete Applied Mathematics 170 (2014), Theorem 2: upper extremal graph size for paired domination four, with listed extremal families."
+      ],
+      "reasoning": "The 2024 characterization potentially provides a route to checking ordinary domination of any four selected edges, but not the additional matching criterion or structural isomorphism classification; it does not state or count the current paired minima. The 2014 extremal edge bound is a different quantifier (varying whole host graph), not a covering theorem for selected sets in \\(\\operatorname{KG}(n,2)\\). Neither implies the claimed binomial enumeration without an additional structural classification.",
+      "searches": [
+        "\"paired domination\" \"Kneser graph\" KG(n,2)",
+        "Minimum paired domination sets Kneser graph KG(n,2) classification induced perfect matching edge families complete graph",
+        "\"paired domination\" \"complement of the triangular graph\"",
+        "arxiv:2308.15603 Section 4 Lemma 18",
+        "doi:10.1016/j.dam.2014.01.019 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "Haynes–Slater 1998 Networks 32, doi as above (abstract/metadata)",
+      "Henning–McCoy–Southey 2014 Discrete Applied Mathematics 170, DOI 10.1016/j.dam.2014.01.019 (full HTML sections relevant to theorem)",
+      "Cornet–Torres arxiv:2308.15603v2 (primary full-text sections 3–5 and Appendix B)",
+      "Östergård–Shao–Xu 2015 Ars Mathematica Contemporanea 9 (repository abstract)",
+      "Ivančo–Zelinka 1993 Mathematica Bohemica 118 (index abstract)",
+      "published-finding corpus record 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+      "published-finding corpus record 2026/10/4/SCOPE-the-franklin-graph-is-the-unique-twelve-vertex-cubic-bipartite-e--f490f3f3f842"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cornet and Torres (2024), pages 2, 9, 12-13 and 29: ordinary k-tuple parameter and selected-vertex occurrence inequalities.",
+        "Henning, McCoy and Southey (2014), Theorems 2-3 and Observation 4: extremal edge counts and generic bound from ordinary domination.",
+        "Ivančo and Zelinka (1993): ordinary and total domination for a Kneser family (abstract)."
+      ],
+      "reasoning": "The prior ordinary domination number three gives only a lower bound and a possible general upper bound six for paired domination; the full matched-family formula and its three distinct support types are not numeric or verbal corollaries of that fact. The 2024 degree inequalities characterize coverage but do not select the induced matching structures. The current proof adds a four-edge cover decomposition and a separate matching exclusion, then counts embeddings. This is a genuine refinement, though its elementary derivability from general definitions is a novelty/value risk explicitly retained.",
+      "searches": [
+        "paired domination Kneser graphs two-subset disjointness graph complement triangular graph complete classification minimum paired dominating sets",
+        "Minimum paired domination sets Kneser graph KG(n,2) classification induced perfect matching edge families complete graph",
+        "Minimum paired domination KG(n,2) n≥6 exactly three types P4+K2 P3+2K2 4K2 and count 180 binomial n6 +315 binomial n7 +105 binomial n8, Petersen 125 minimum size six",
+        "\"paired domination\" \"Petersen graph\"",
+        "\"paired domination\" \"Kneser graph\" KG(n,2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haynes and Slater (1998), introduction of paired domination: induced perfect matching in a dominating set.",
+        "Cornet and Torres, arxiv:2308.15603, Section 4, Lemma 18; ordinary k-tuple conditions for KG(n,2).",
+        "published-finding corpus hit 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528."
+      ],
+      "reasoning": "The same object may be called the complement of the triangular graph, a two-set disjointness graph, or a Kneser graph. Search of these aliases and the equivalent vertex-cover-plus-matching formulation did not yield this three-type classification. Ordinary domination characterizations do not specify the perfect matching of the induced selected graph.",
+      "searches": [
+        "Minimum paired domination sets Kneser graph KG(n,2) classification induced perfect matching edge families complete graph",
+        "paired domination Kneser graphs two-subset disjointness graph complement triangular graph complete classification minimum paired dominating sets",
+        "Kneser K(n,2) paired domination polynomial induced matching perfect matching four-edge families",
+        "Kneser paired dominating four edges three matching subgraphs path P4 plus K2",
+        "\"paired dominating\" \"Kneser\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cornet and Torres (2024), Appendix B Table 1 tabulates k-tuple domination number, not paired domination minimum counts.",
+        "published-finding corpus nearest records on chain graphs and Franklin equality have no KG(n,2) minimum-family polynomial in their returned statements."
+      ],
+      "reasoning": "No exact table with the three coefficients or the Petersen 125 optimum count appeared in the targeted indexed searches. Absence from search is not treated as proof of global novelty; inaccessible tables and earlier computations remain risks.",
+      "searches": [
+        "Paired domination number of the Kneser graph KG(n,2) for n≥6 is four, and all minimum paired dominating four-edge subsets correspond to three disjoint matched edges (4K2, P3+2K2, P4+K2), with count 180 C(n,6)+315 C(n,7)+105 C(n,8)",
+        "Minimum paired-dominating sets Petersen KG(5,2) count 125 and n4 count 1",
+        "Minimum paired domination KG(n,2) n≥6 exactly three types P4+K2 P3+2K2 4K2 and count 180 binomial n6 +315 binomial n7 +105 binomial n8, Petersen 125 minimum size six",
+        "\"180\" \"315\" \"105\" \"paired domination\" Kneser",
+        "published-finding corpus published findings nearest 50 for paired domination KG(n,2)"
+      ]
+    },
+    "rationale": "Searched same-family and alias formulations in published research and published-finding corpus. The strongest full-text Kneser source (Cornet–Torres Lemma 18) characterizes ordinary k-tuple coverage without a matching requirement; its table gives ordinary minima, not paired four-edge types or the all-n polynomial. The 2014 extremal paired-domination paper varies the host graphs rather than classifying paired sets in \\(\\operatorname{KG}(n,2)\\). published-finding corpus closest studies concern other graph families. No direct equivalent or stronger covering classification was identified; residual index/full-text risk is explicit.",
+    "residual_risks": [
+      "Unknown unindexed prior enumeration for two-subset Kneser paired domination.",
+      "Full texts for the 1993 and 2015 direct-Kneser studies were not accessible in the attempted channels; the available abstracts concern ordinary/total domination.",
+      "The 2024 general domination criterion can be used as a starting point for a short independent derivation. The additional perfect-matching classification and polynomial appear unstated, but discoverability/priority cannot be certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes k-tuple domination and ordinary dominating sets, not the paired-domination minimum families or multiplicities.",
+        "evidence": [
+          "arxiv:2308.15603, Introduction pages 1-3; Lemma 18 on PDF pages 12-13; Appendix B page 30 ordinary domination row."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+        "material_read": "33-page searchable PDF; inspected abstract, introduction, Sections 3 and 4 (including Lemma 18), Discussion, and Appendix B table, plus page images for introduction and Section 4 material.",
+        "method": "Opened primary open-access PDF, read supplied text around relevant theorems and appendix, inspected page images.",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Most plausible same-family theorem, potentially subsuming domination constraints."
+      },
+      {
+        "assessment": "Maximal-edge host graph theorem, not a complete family of minimum paired-dominating subsets of Kneser graphs.",
+        "evidence": [
+          "Henning–McCoy–Southey (2014), Theorems 1-3."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.01.019",
+        "material_read": "Open accessible full HTML: abstract, Sections 2-3, Theorems 1-3, Observation 4 and proof of Theorem 2.",
+        "method": "Read publisher-hosted article HTML.",
+        "title": "Graphs with maximum size and given paired-domination number",
+        "trigger": "Explicit minimum parameter four might dominate the proposed result."
+      },
+      {
+        "assessment": "Original general definition, no Kneser-specific claim visible; no whole-paper absence claim made.",
+        "evidence": [
+          "Networks 32 (1998), 199–206, publisher publication history."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291097-0037%28199810%2932%3A3%3C199%3A%3AAID-NET4%3E3.0.CO%3B2-F",
+        "material_read": "Publisher abstract, bibliographic details and first-publication date 1998-12-07; full text not accessed.",
+        "method": "Read publisher abstract and metadata.",
+        "title": "Paired-domination in graphs",
+        "trigger": "Original definition and earliest verified public source date."
+      },
+      {
+        "assessment": "Explicitly ordinary domination and tabulated bounds, no paired family stated in accessible material; full-text coverage remains unverified.",
+        "evidence": [
+          "Östergård–Shao–Xu (2015), abstract and 2015 bibliographic metadata."
+        ],
+        "identifier_or_url": "https://www.dlib.si/details/URN:NBN:SI:doc-G3YP01PE",
+        "material_read": "Open repository metadata and abstract; direct full text redirected to landing page.",
+        "method": "Inspected repository landing text, attempted direct TXT and publisher access.",
+        "title": "Bounds on the domination number of Kneser graphs",
+        "trigger": "Directly related graph family and domination, potentially prior bounds."
+      },
+      {
+        "assessment": "Ordinary/total domination in 1993, before the named 1998 paired-domination parameter; not asserted fully excluded.",
+        "evidence": [
+          "Ivančo–Zelinka, Mathematica Bohemica 118 (1993), 147–152."
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/articles/10.21136/MB.1993.126050/",
+        "material_read": "Primary index abstract, references and description; original PDF/notice timed out.",
+        "method": "Inspected mathdoc bibliographic entry; attempted digital library original.",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Early closest titled paper; could contain related classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "785c3730-4582-47b3-a33e-a8fc747931f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural paired-monitoring optimization problem on the entire two-subset Kneser family receives a complete classification of all equality cases, not merely the minimum number. Three graph-structural support classes give a closed, parameter-uniform enumerator and precisely determine when each optimal symmetry type first appears. The exceptional Petersen graph yields an exact count and orbit refinement. This distinguishes backup-compatible domination from ordinary minimum domination, a gap motivated by the original paired-domination definition and ongoing Kneser domination literature. The statement is not an arbitrary local numerical slice or a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
