@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact mixed factorial decomposition (1), strict conditional-tail monotonicity under Dirichlet conditioning, and the strictly positive initial variance determine the unique covariance zero over every real positive concentration. The gamma-density expansion uses explicit first-order polynomials; the identity between their difference and the negative product of centered Gamma variables gives the stated limit. The limiting one-crossing law follows from the strictly increasing Gamma tail-to-boundary density ratio. The bundled exact-rational tests are independent finite checks, not an infinite proof.
+
+**Originality — PASS on examined records; historical priority not independently certified.** The 2024 primary paper already contains asymptotic Gaussian theory for uniform spacings, so the uniform-spacing covariance mechanism and related first-order limits are not claimed new. The asserted distinction is a finite-sample uniform-in-concentration exactly-one-crossing covariance classification and its sharp zero interval, absent from the inspected primary text and retrieved nearest published records. A classical spacings monograph/chapter could contain an equivalent formulation and was not fully accessible. Exhaustive novelty cannot be inferred from unsuccessful searches.
+
+**Value — PASS.** Simultaneously varying nested empirical exceedance thresholds is a natural dependence problem for random simplex weights and circular spacings. A count that is pointwise bounded by another nonetheless becomes negatively correlated past an exact, unique threshold; the positive/negative/zero trichotomy holds for all sample sizes and Dirichlet concentrations and clarifies threshold design for spacing-based statistics. The gamma limit supplies a nontrivial reproducible continuum phase curve rather than just a pointwise covariance calculation.
+
+**Limitations.** Only symmetric Dirichlet vectors and scaled-threshold asymptotics are proved; an independent audit and historical-priority certification have not been performed. Closest full-text primary source: Mirakhmedov (2024), arXiv:2404.09581. Classical Pyke and Shorack–Wellner references remain a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
