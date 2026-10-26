@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Derived exact 2-by-2 block inversion and both propagator blocks; rigorously showed negative entries on both subcritical sign phases using strict symbolic polynomial inequalities and a cyclic signed Green function bound, and positivity above cutoff using the inverse-positive Stieltjes matrix. Checked the four-node exception by exact inversion; 116 exact rational numerical cases corroborate but do not substitute for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Huang, arXiv:1209.5657, Theorem 3.1: sufficient mesh/time-step Stieltjes criterion; no converse shown for two-phase periodic coefficient steps.",
+        "Chatzipantelidis–Horváth–Thomée (2015), DOI:10.1515/cmam-2015-0018, abstract: related Dirichlet heat positivity, full text inaccessible at comparison time."
+      ],
+      "reasoning": "General sufficient conditions on arbitrary meshes do not imply necessity on periodic alternating coefficients. The available 2015 abstract and related literature address heat positivity, but inaccessible full text leaves a documented risk of a stronger theorem that could cover this special case.",
+      "searches": [
+        "Finite element positivity threshold for anisotropic diffusion with weighted consistent mass matrices and variable conductivities",
+        "Finite element heat equation alternating two phase diffusivity uniform periodic mesh consistent mass matrix sharp nonnegativity backward Euler",
+        "Two-periodic tridiagonal cyclic positive resolvent finite element stiffness mass matrix, exact monotonicity threshold variable diffusion",
+        "doi:10.1515/cmam-2015-0018"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.5657 (manuscript theorem and proof)",
+      "doi:10.2478/cmam-2010-0025 (article positivity section)",
+      "doi:10.1515/cmam-2015-0018 (record and abstract only)",
+      "doi:10.1090/S0025-5718-07-02021-2 (abstract only)",
+      "Related indexed published summaries on backward-Euler-filtered Crank–Nicolson, Markov resolvent positivity, and two-periodic recurrence stability, none matching the consistent-mass alternating finite-element operator."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Huang, arXiv:1209.5657, Theorem 3.1: sufficient mesh/time-step Stieltjes criterion; no converse shown for two-phase periodic coefficient steps.",
+        "Schatz–Thomée–Wahlbin (2010), DOI:10.2478/cmam-2010-0025, section 5: sufficient positivity and resolvent/Stieltjes conditions, not this explicit alternating-medium equality.",
+        "The named indexed Crank–Nicolson result concerns standard finite Markov generators and a diagonal resolvent return threshold, not a generalized consistent mass matrix."
+      ],
+      "reasoning": "A sufficient step bound does not imply an exact iff; arbitrary-spatial-discretization statements do not directly imply the negative-entry witness for all layered periodic even meshes. The four-node positive subcritical example directly falsifies an unqualified converse, so the new size-dependent necessity is not a trivial restatement.",
+      "searches": [
+        "A sharp necessary and sufficient lower bound on backward-Euler time step positivity of consistent-mass P1 periodic finite element heat discretization with alternating conductivities on 2m nodes: tau >= h^2/(6 min(kappa_a,kappa_b)), m>=3",
+        "Two-periodic tridiagonal cyclic positive resolvent finite element stiffness mass matrix, exact monotonicity threshold variable diffusion",
+        "arxiv:1209.5657",
+        "doi:10.2478/cmam-2010-0025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Huang, arXiv:1209.5657, Theorem 3.1: sufficient mesh/time-step Stieltjes criterion; no converse shown for two-phase periodic coefficient steps.",
+        "Schatz–Thomée–Wahlbin (2010), DOI:10.2478/cmam-2010-0025, section 5: sufficient positivity and resolvent/Stieltjes conditions, not this explicit alternating-medium equality."
+      ],
+      "reasoning": "Equivalent formulations include nodal one-step positivity, nonnegativity of a generalized resolvent (M+tau K)^(-1) M, and discrete maximum-principle preservation. Earlier Stieltjes criteria imply only the sufficient half of the iff; the mixed-sign propagator converse needs separate proof.",
+      "searches": [
+        "Discrete maximum principle for time-dependent finite elements with a consistent mass matrix on one-dimensional nonuniform meshes, exact thresholds for backward Euler positivity",
+        "A sharp necessary and sufficient lower bound on backward-Euler time step positivity of consistent-mass P1 periodic finite element heat discretization with alternating conductivities on 2m nodes: tau >= h^2/(6 min(kappa_a,kappa_b)), m>=3",
+        "arxiv:1209.5657",
+        "doi:10.2478/cmam-2010-0025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The adjacent indexed result concerns a backward-Euler-filtered Crank–Nicolson heat-lattice convolution, not the consistent-mass finite-element backward-Euler operator.",
+        "An exact rational 116-case test suite is supplied to reproduce signs; tests are not a literature database or proof."
+      ],
+      "reasoning": "No consulted source or table lists the all-size alternating-diffusivity iff transition or the four-node exception. An indexed positivity filter on uniform lattices does not dominate a layered generalized mass-matrix resolvent.",
+      "searches": [
+        "Exact strongest positivity time step conditions finite element semidiscrete heat equation nonuniform mesh",
+        "A sharp necessary and sufficient lower bound on backward-Euler time step positivity of consistent-mass P1 periodic finite element heat discretization with alternating conductivities on 2m nodes: tau >= h^2/(6 min(kappa_a,kappa_b)), m>=3"
+      ]
+    },
+    "rationale": "Full material comparison with Li–Huang (2012/13) and Schatz–Thomée–Wahlbin (2010) finds sufficient finite-element positivity criteria but no necessary-and-sufficient threshold for all two-phase periodic layered meshes. The new negative propagator witness in the intermediate mixed-sign regime proves a converse not implied by matrix Stieltjes sufficiency. Published and same-domain searches show no equivalent stated result; the uninspected relevant 2015 paper is a residual risk, not asserted absent coverage.",
+    "residual_risks": [
+      "Full text of Chatzipantelidis–Horváth–Thomée (2015) was not accessible; it might contain a dominating special case.",
+      "Full text of Thomée–Wahlbin (2008) was not inspected; abstract did not give a direct equivalence.",
+      "Search and accessible primary literature comparison cannot prove priority; independent literature review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant sufficient positivity guarantee; did not find necessity or exact two-periodic alternating diffusivity iff claim",
+        "evidence": [
+          "First public arXiv v1 September 25, 2012",
+          "Theorem 3.1 establishes sufficient off-diagonal sign/time-step constraints, and mass lumping eliminates its lower time-step condition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.5657",
+        "material_read": "Accessible manuscript theorem on lower and upper step bounds, underlying sufficient Stieltjes criterion, first public submission metadata and surrounding discussion",
+        "method": "Read arXiv source manuscript and inspect its proof conditions and numerical-analysis theorem",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Closest consistent-mass parabolic finite-element discrete-maximum-principle theorem"
+      },
+      {
+        "assessment": "Related sufficient/general framework; no inspected statement equivalent to the exact layered periodic iff result",
+        "evidence": [
+          "Section 5 and its sufficient positivity conditions for parabolic finite-element time stepping"
+        ],
+        "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+        "material_read": "Accessible section on positivity and maximum-norm properties, including Stieltjes-based time-stepping sufficient conditions",
+        "method": "Read rendered article sections and compare the logical direction of guarantees",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Classic fully discrete finite-element positivity theory"
+      },
+      {
+        "assessment": "Undecided exact coverage; source-access risk explicitly retained",
+        "evidence": [
+          "2015 journal abstract addresses homogeneous Dirichlet heat problems and consistent/lumped/FV element discretizations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+        "material_read": "Accessible journal record and abstract, not full article",
+        "method": "Checked bibliographic abstract and attempted lawful open full text; full text unavailable",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Possibly stronger full-discrete positivity results for the same numerical method"
+      },
+      {
+        "assessment": "No abstract-level implication, but unseen detailed results remain a residual risk",
+        "evidence": [
+          "2008 article on existence of maximum principles in parabolic finite-element equations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "material_read": "Bibliographic abstract, not full paper",
+        "method": "Compared abstract's semidiscrete positivity framing against a fully discrete alternating periodic resolvent threshold",
+        "title": "On the existence of maximum principles in parabolic finite element equations",
+        "trigger": "Earlier finite-element maximum-principle obstructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8fc1aa3-3551-4186-a39c-cd4286e1e535",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact necessary-and-sufficient nodal positivity threshold for layered diffusion coefficients, including its independence from contrast and cell number and the sharp four-cell exception, closes a structurally motivated gap between sufficient Stieltjes criteria and practical monotonicity in a heterogeneous medium. The result covers an infinite family rather than a finite table or routine single-case calculation.",
+    "status": "PASS"
+  }
+}
