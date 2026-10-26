@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The exact held-input flow reduces the trigger to a strictly increasing scalar ratio on the stated interval. Uniform upper and lower root bounds are proved. The sampled projective recurrence sends every nonzero initial direction to the unique eigenline, and solving the trigger equation on that eigenline yields the exact limit. The determinant and interval bounds rule out zero samples and Zeno accumulation; the upper-triangular products decay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 paper proves results for complex-conjugate, real-distinct, and semisimple repeated eigenvalues, while expressly omitting the defective repeated-eigenvalue case.",
+        "The 2023 paper explicitly labels the defective-case asymptotic statement a conjecture and reports simulation evidence rather than a proof."
+      ],
+      "reasoning": "No broader theorem in the inspected primary texts implies the exact limit for this realization. The new result is a strict specialization of the unresolved case, not a claim to cover all defective matrices or all sampled-data plants.",
+      "searches": [
+        "event-triggered control inter-event time Jordan block nilpotent part convergence exact asymptotic",
+        "event-triggered control sampled-data stability input-to-state stable event condition dwell time",
+        "DOI:10.1109/CDC40024.2019.9028888, full text, Section IV-A",
+        "DOI:10.1109/TAC.2022.3147009, full text, Section V-A"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/CDC40024.2019.9028888 (full text)",
+      "DOI:10.1109/TAC.2022.3147009 (full open-access text)",
+      "2026/9/9/SCOPE008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 proposition gives only \\(\tau_\\sigma(x)=\\sigma\\|x\\|_2/\\|Jx\\|_2+O(\\sigma^2)\\).",
+        "The 2023 time-regularized proposition gives only a max-with-T leading-order expression with an \\(O(\\sigma^2)\\) remainder; Section V-A conjectures the defective case.",
+        "On the limiting eigenline, the exact threshold equation is \\(as=\\sigma(1-as)\\), giving \\(s=\\sigma/[a(1+\\sigma)]\\), not exactly \\(\\sigma/a\\)."
+      ],
+      "reasoning": "The prior \\(O(\\sigma^2)\\) estimates are compatible with the new formula but do not imply its exact coefficient or convergence of every sampled direction. The projective recurrence supplies the missing infinite-time argument in the canonical model.",
+      "searches": [
+        "DOI:10.1109/CDC40024.2019.9028888, full text, Proposition 1 and Section IV-A",
+        "DOI:10.1109/TAC.2022.3147009, full text, Proposition 3 and Section V-A",
+        "event-triggered control inter-event time Jordan block nilpotent part convergence exact asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 paper defines the same relative-error event rule and proves an \\(O(\\sigma^2)\\) leading-order expansion, but its Section IV-A explicitly says the repeated eigenvalue with geometric multiplicity one is not handled.",
+        "The 2023 time-regularized paper uses the same trigger with a minimum wait T and explicitly conjectures convergence for the defective case; it does not prove the canonical exact limit."
+      ],
+      "reasoning": "The present claim is not a restatement of the semisimple repeated-eigenvalue result: the nilpotent shear makes the eigendirection only projectively attracting, and the proof must establish that the sampled projective recurrence eventually enters and remains on the attracting side. The general \\(O(\\sigma^2)\\) estimate does not identify the exact correction \\(-\\sigma^2/a+O(\\sigma^3)\\).",
+      "searches": [
+        "defective repeated eigenvalue Jordan block event-triggered control inter-event time relative threshold sampling",
+        "Postoyan Sanfelice Heemels planar linear event-triggered controlled systems repeated eigenvalue Jordan form",
+        "DOI:10.1109/CDC40024.2019.9028888, full text, Sections III–IV-A",
+        "DOI:10.1109/TAC.2022.3147009, full text, Sections III and V-A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed record is 2026/9/9/SCOPE008 on finite-horizon transient peaks of stable Jordan blocks; it concerns a different quantity and does not state an event-time limit."
+      ],
+      "reasoning": "A finite database or exact table is not applicable to this analytical control claim. The closest records concern operator-norm transient peaks or a different nonlinear system and do not state an inter-event-time limit for the specified relative-threshold Jordan realization.",
+      "searches": [
+        "defective repeated eigenvalue Jordan block event-triggered control inter-event time relative threshold sampling",
+        "networked control packet dropout zero-order hold exact stability threshold sampled feedback",
+        "switched linear control dwell time stability scalar two modes exact threshold"
+      ]
+    },
+    "rationale": "The primary full texts explicitly omit or conjecture the defective repeated-eigenvalue case. The new theorem gives an exact limit for a fully specified canonical realization and does not claim generality beyond it.",
+    "residual_risks": [
+      "The theorem is a canonical-case result; it does not resolve the general defective-eigenvalue conjecture for arbitrary A, B, and K.",
+      "The novelty comparison is targeted to indexed records and the two closest primary full texts, not an exhaustive search of every control literature database. Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the semisimple repeated-eigenvalue case and explicitly says the geometric-multiplicity-one case is not handled. Its \\(O(\\sigma^2)\\) expansion is insufficient to give the exact limit.",
+        "evidence": "Section IV-A, printed pp. 1664–1665; Proposition 1, printed pp. 1663–1664.",
+        "identifier_or_url": "DOI:10.1109/CDC40024.2019.9028888",
+        "material_read": "Full six-page conference PDF; problem statement and trigger equations (1)–(8), Proposition 1, and Section IV-A were read.",
+        "method": "Compared the model, repeated-eigenvalue assumptions, exact claim, and theorem boundaries.",
+        "title": "Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems",
+        "trigger": "Closest primary literature on the exact relative-threshold event rule and planar inter-event-time behavior."
+      },
+      {
+        "assessment": "The paper explicitly conjectures the defective-case limit near \\(\\max\\{T,\\sigma/a\\}\\); it does not prove it. The present result supplies an exact limit only for the canonical plant.",
+        "evidence": "Sections II–III and V-A, especially the defective-case discussion at printed p. 918.",
+        "identifier_or_url": "DOI:10.1109/TAC.2022.3147009",
+        "material_read": "Full 17-page open-access publisher PDF; trigger definition, Proposition 3, Section V-A, and the relevant proof appendices were read.",
+        "method": "Compared the exact event rule, the \\(O(\\sigma^2)\\) approximation, and the stated defective-case boundary.",
+        "title": "Explaining the “Mystery” of Periodicity in Inter-Transmission Times in Two-Dimensional Event-Triggered Controlled Systems",
+        "trigger": "Final time-regularized extension of the same relative-threshold event-time problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0c59523-6377-4026-addc-93131df9b0f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defective repeated-eigenvalue case is explicitly left untreated in the 2019 primary paper and conjectured in the 2023 extension. The exact limit supplies a closed-form event interval and the second-order correction to the generic leading-order estimate for a natural canonical realization, with direct relevance to transmission-rate prediction.",
+    "status": "PASS"
+  }
+}
