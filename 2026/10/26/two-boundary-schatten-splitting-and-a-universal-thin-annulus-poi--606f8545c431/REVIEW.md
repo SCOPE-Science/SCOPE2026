@@ -1,0 +1,11 @@
+# Review: two-boundary thin-annulus harmonic extension
+
+**Correctness — PASS.** The Dirichlet problem separates into two explicit hyperbolic-sine profiles in each angular Fourier order. The normalization produces an exact positive Gram matrix. The uniform comparison of radial densities is multiplicative and hence controls **both** eigenvalues, including the smaller one. Endpoint Laplace integrals give the claimed two branch constants and exponential suppression of cross-channel mixing. The iff Schatten test and convergent thin-width Riemann sum follow. The packaged checker corroborates the exact algebra and selected asymptotic regimes; finite experiments are not a proof.
+
+**Originality — PASS, provisional historical priority.** Auchmuty's abstract Poisson SVD does not give this weighted two-channel asymptotic; Ureyen's weighted Bergman paper studies another harmonic setting. Rozenblum's broader harmonic Sobolev spectral study warns that boundary-power exponents can be consequences of general calculus, but addresses a different operator and weight distribution. The accepted focus is the one-sided two-component relative-in-all-Fourier-modes profile and the sharp normalized thin-annulus Schatten coefficient, not bare familiarity of a polynomial exponent. published-finding corpus comparisons and available same-slot claim history did not reveal an implication of the full assertion. Older annular calculations may remain unknown.
+
+**Value — PASS.** Equal-strength boundary measurements in an asymmetric weighted interior lose high frequencies at two different rates, a natural structural question for annular harmonic continuation. Identifying the sharp Schatten boundary and the width-renormalized spectral mass gives reproducible quantitative control of this asymmetry. The theorem applies to a canonical continuum family, not an arbitrary isolated parameter.
+
+**Limitations.** The domain is concentric, the boundary input weights are normalized angular measures, and the range weight vanishes or diverges only at the outer circle. Infinite-dimensional conclusions rest on the analytic argument; numerical tests establish only finite checks. No independent priority audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
