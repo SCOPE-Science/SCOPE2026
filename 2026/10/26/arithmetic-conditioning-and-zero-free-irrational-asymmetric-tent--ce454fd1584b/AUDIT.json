@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "Independent analytic reconstruction of the exact normalized Fourier formula, equality case for convexity, quadratic Taylor cancellation, and real-cell sine estimate prove the universal constant for all parameters and frequency cells. The Diophantine limsup and badly approximable equivalence follow from the bounded cell ratios; the compact t regime has no zeros for irrational c. Executed symbolic and numerical checker agrees; no claim of infinite computational certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1606.05011v1, Sections 2 and 4: general Wiener theorem used on Wronskian kernels and symmetric tent; not the claimed knot-parameter quantitative inequality"
+      ],
+      "reasoning": "The general qualitative Wiener theorem does not supply asymptotic rates or distinguish irrationality exponents; the symmetric tent case has exact zeros and lies outside irrational mode.",
+      "searches": [
+        "piecewise linear bump Wiener Tauberian irrational knot frequencies Diophantine",
+        "Fourier transform asymmetric tent function lower bounds small divisors irrational parameter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1606.05011v1 (relevant sections read)",
+      "https://rdrr.io/cran/CharFun/src/R/cfX_Triangular.R (complete implementation read)",
+      "Published mathematical-record analogues: tent-spline Gabor bound; sharp three-point smoothest averages; rational Rudin-Shapiro filter mixtures"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dimitrov and Xu, Sec. 4: the known symmetric tent has sinc-square zeros; Wiener theorem connects real Fourier zeros with L1 cyclicity",
+        "CharFun explicit CF: covers the formula but not the new quantitative estimate"
+      ],
+      "reasoning": "The known transform plus triangle inequality alone gives qualitative cancellation obstruction. Full-cell control follows from an additional quadratic flatness argument and produces genuinely stronger Diophantine lower bounds and exact exponents. The qualitative cyclicity claim is correctly described as classical consequence.",
+      "searches": [
+        "triangular density Fourier transform irrational mode real zeros diophantine Wiener Tauberian",
+        "one knot linear spline Fourier transform zero free iff vertex irrational and irrationality exponent controls Fourier decay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "CharFun cfX_Triangular.R: explicit CF formula, but no quantitative cellwise estimate",
+        "Dimitrov-Xu arxiv:1606.05011v1: Section 4 symmetric tent and Wiener translation density"
+      ],
+      "reasoning": "An exact CF identity and absence of zeros do not imply uniform near-zero polynomial conditioning; the new cell lower bound needs simultaneous control of convex-combination modulus loss and phase drift.",
+      "searches": [
+        "triangular probability characteristic function badly approximable diophantine Fourier nonvanishing",
+        "asymmetric tent piecewise linear Fourier transform irrational mode zeros",
+        "Diophantine approximation irrational triangular tent compact spline Fourier transform small divisors polynomial lower bound badly approximable",
+        "one knot linear spline Fourier transform zero free iff vertex irrational and irrationality exponent controls Fourier decay"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "CharFun source implements CF on interval (a,b) with arbitrary mode c, but provides no minima over frequency cells",
+        "Mathematical-record searches returned tent-Gabor and cyclic-filter items listed as nearby rather than an explicit cell inequality"
+      ],
+      "reasoning": "A tabulated characteristic function is not a table of full-cell minima nor a uniform constant; no exact database of these values was identified.",
+      "searches": [
+        "triangular probability characteristic function badly approximable diophantine Fourier nonvanishing",
+        "asymmetric tent piecewise linear Fourier transform irrational mode zeros",
+        "Diophantine approximation irrational triangular tent compact spline Fourier transform small divisors polynomial lower bound badly approximable",
+        "one knot linear spline Fourier transform zero free iff vertex irrational and irrationality exponent controls Fourier decay"
+      ]
+    },
+    "rationale": "A directly published transform formula covers the elementary identity and its qualitative zero-set corollary, which are credited; the claimed new statement is the parameter-uniform full-cell Fourier modulus lower estimate and exact Diophantine conditioning classification. Primary tent/Wiener literature and targeted mathematical-record queries did not provide that inequality or a dominating statement. An unindexed earlier equivalent is a residual priority risk.",
+    "residual_risks": [
+      "No independent publication-priority verification; older asymmetric spline/small-divisor work could contain equivalent estimates.",
+      "The exact characteristic function and simple real-zero criterion are already elementary consequences of published formulas; novelty assessment rests on the simultaneous parameter-uniform full-cell estimate and Diophantine classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Symmetric tent and Wronskian correlation kernels, not asymmetric triangular knot Diophantine conditioning",
+        "evidence": "Proposition 2.15 discusses the symmetric tent Fourier transform; Section 4 states its translates are not dense in L1 owing to real zeros.",
+        "identifier_or_url": "arxiv:1606.05011v1",
+        "material_read": "PDF page 1–2, Proposition 2.15 on page 9, Section 4 and references on pages 15–17, including the symmetric squared-sinc comparison",
+        "method": "Direct inspection of PDF parsed text and title-page visual image",
+        "title": "Wronskians of Fourier and Laplace Transforms",
+        "trigger": "Explicit discussion of tent Fourier zeros, Wiener cyclicity, and prior work possibly dominating the zero statement"
+      },
+      {
+        "assessment": "The basic Fourier identity is explicitly in prior art. No near-zero uniform frequency-cell estimate, badly approximable threshold, or irrationality exponent is present.",
+        "evidence": "Function documentation lines 57–85 give the triangular characteristic function; documentation built May 2, 2019.",
+        "identifier_or_url": "https://rdrr.io/cran/CharFun/src/R/cfX_Triangular.R",
+        "material_read": "All 35 substantive source/documentation lines, including displayed explicit three-exponential characteristic function and implementation",
+        "method": "Opened and read published documentation and complete function source",
+        "title": "CharFun cfX_Triangular.R",
+        "trigger": "Direct exact formula for the same triangular probability family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce454fd1-584b-43b6-bba6-8f77c5bfc7df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Triangular probability kernels are natural compactly supported approximation kernels. The full-cell Fourier noncancellation constant and irrationality-exponent law classify the severity of near-zeros even under Wiener cyclicity, distinguishing badly approximable, typical, and Liouville knot positions. This supplies precisely motivated global conditioning information absent from the classical characteristic function and from a pure qualitative zero test.",
+    "status": "PASS"
+  }
+}

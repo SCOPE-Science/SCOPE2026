@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The result includes a fully reconstructed distributional Fourier transform, strict-convexity zero classification, and the complete proof of a universal cellwise inequality. The key cancellation of first-order terms in \(e^{icu}[(1-c)+ce^{-iu}]\) and the explicit sine bound give \(1+\pi^2/4\) uniformly in the apex, all cells, and both boundaries. The cell comparison proves the irrationality-exponent formula and the exact badly-approximable criterion. Analytic, not numerical, reasoning proves the infinite scope; the finite checker agrees on sampled cases.
+
+**Originality: PASS, subject to priority risk.** The triangular transform itself is known and is explicitly credited to the published CharFun formula. The related 2016 Dimitrov–Xu paper directly discusses the symmetric tent, its zero-bearing squared-sinc transform, and Wiener's approximation theorem; its inspected sections do not imply the new apex-dependent Fourier cell comparison. Searches for asymmetric triangular small divisors, badly approximable knot locations, and Fourier zero conditioning did not identify a stronger result. The claimed distinction is the *parameter-uniform full-cell lower estimate* and its sharp Diophantine phase classification, not the known characteristic function or a mere classical Wiener corollary. A possible older equivalent quantitative bound is a residual priority risk.
+
+**Value: PASS.** The result computes a natural conditioning invariant of a standard compactly supported piecewise-linear probability kernel, and distinguishes qualitative Wiener cyclicity from arbitrarily severe small divisors. In particular, zero-free kernels can have Fourier magnitudes decaying faster than every power along selected frequencies, whereas badly approximable apex positions satisfy a global sharp-order cubic lower bound. This supplies a complete structural classification beyond a finite computation or routine zero check.
+
+**Limitations.** The universal numerical factor is not asserted optimal. No complex-zero result or bounded inverse Fourier multiplier is claimed. No independent mathematical verification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
