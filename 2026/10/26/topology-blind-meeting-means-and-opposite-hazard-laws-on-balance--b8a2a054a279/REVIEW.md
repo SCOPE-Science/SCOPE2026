@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The ordered-pair Markov generator reduces exactly to a two-class transient chain; its backward Laplace equations give the stated rational transforms. Differentiation gives moments; the two real positive poles and strict intermediate-rate inequality prove the opposing hazard directions, with the complete-graph boundary treated separately. The proof covers all integers in the specified range. Full-generator exact arithmetic checks corroborate 1,190 equalities but cannot prove the infinite parameter statement.
+
+**Originality — PASS, with residual priority risk.** The closest methodological predecessor is Ohwa (2015), whose generic backward equation could imply the result after a graph-family reduction, but whose inspected worked results concern different graph families. Oliveira (2011), Cooper et al. (2013), Zhang et al. (2014), and Pickering–Lim (2014) address asymptotic coalescence, general bounds, synchronized discrete-time meeting, or bipartite voter consensus, respectively. None of those inspected materials states the evaluated two-condition distribution together with the mean/variance topology dichotomy and the opposite hazard laws. Existing complete-graph results are credited, not claimed anew. A previously unlocated explicit meeting-time formula remains a substantive risk. Independent priority verification has not occurred.
+
+**Mathematical value — PASS.** The exact collision-time law resolves an interpretable kinetic observable on a natural infinite two-parameter class of reaction/interaction networks. Particularly, means alone cannot distinguish the graph partition while variance and hazard can, and the hazard is strictly increasing or decreasing according to the relative starting position. This is more informative than an isolated small-graph calculation.
+
+**Limitations.** Exactly two rate-one independent walkers, balanced complete multipartite networks, before first collision. The calculation does not extend automatically to simultaneous discrete-time walkers, all-particle coalescence, unbalanced graphs, or general reaction kinetics. Generic finite-state backward methods are prior work; the present claim is an evaluated classification, not a new general technique.
+
+Self-review: passed. Independent audit: not yet performed.
