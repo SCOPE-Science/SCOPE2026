@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Graph-codebook equivalence is exact for every word pair including self-pairs and all proper overlap lengths. Ordered bitset search exhausts all maximum cliques with strict size-bound pruning; pivot Bron–Kerbosch independently enumerates 121728 maximal cliques at n=9. Both produce the entire same optimum set at n=2..9 (24 and 12 maxima at n=9); all maxima pass direct overlap checks and group-orbit validation. A standard-library script embedded in the package implements and replays the complete finite proof. No claim beyond n=9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1007/s40314-024-03055-0, Sections 4 and 7: maximal-code construction and bounds for run-limited codes; general structural coverage.",
+        "arXiv:2307.12593, Table 1: the unconstrained S(3,9)=656 and N(3,9)=6."
+      ],
+      "reasoning": "The general construction includes any run-one code as a subset of a maximal constrained code, but it does not assert the numerical optimum 24 or the 12 maximizing sets or two orbits. Those require a nontrivial complete evaluation. General algorithmic computability of a finite invariant alone is not an explicit numerical theorem; this is a real residual originality risk, noted separately.",
+      "searches": [
+        "run-length limited cross-bifix-free codes exact optimization homopolymer-free",
+        "non overlapping codes restricted run lengths max size exact 9 three letter adjacent distinct strings",
+        "2025 On maximal almost balanced non-overlapping codes restricted run-lengths Construction 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.06934v1",
+      "arXiv:2307.12593v1",
+      "DOI:10.1007/s40314-024-03055-0",
+      "Published research record e8e2fd1a9e7a (unrestricted n=5)",
+      "Published research record a4c76833d8cb (unrestricted length 6, q=7..9)",
+      "Published research record effa1409f1ac (variable-length stationary occupancy bound)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2108.06934, Sections II–IV and fixed-length construction tables: no homopolymer-constrained exact maximum and census.",
+        "arXiv:2307.12593, Table 1 and maximal-code partitions: exact unconstrained results, no homopolymer condition.",
+        "DOI:10.1007/s40314-024-03055-0, Section 4 Construction 5 and conclusion: strong general structural coverage, no evaluated ternary length-nine value in inspected text."
+      ],
+      "reasoning": "Neither an unrestricted optimum nor a construction family directly implies the claimed constrained optimum and entire extremizer orbit census without an additional exact search. The source with the same run-length constraint offers a route for enumeration, but no explicit value or dominating numerical statement was found. No assertion of absolute uniqueness is made.",
+      "searches": [
+        "Q-ary non-overlapping codes a generating function approach arXiv 2108.06934",
+        "In search of maximum non-overlapping codes arXiv 2307.12593",
+        "On maximal almost balanced non-overlapping codes restricted run lengths 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cross-bifix-free and non-overlapping have the same prefix/suffix condition: arXiv:2108.06934 Definition 2.",
+        "Stanovnik–Moškon–Mraz 2025, Section 4 studies no long runs (maximum run length one is a special case) but does not give the eight exact ternary maxima and orbits."
+      ],
+      "reasoning": "Alias searches include cross-bifix-free, non-overlapping, homopolymer-free, and run-length limited. Comma-free in a different framing convention is not assumed synonymous without comparing definitions. The 2025 paper is the closest equivalent model, but no evaluated matching claim was located.",
+      "searches": [
+        "homopolymer-free cross-bifix-free codes ternary exact size n=9",
+        "run length limited cross bifix free codes DNA forbidden consecutive letters max",
+        "ternary alphabet q=3 homopolymer free run length 1 cross-bifix-free non-overlapping codes length nine exact maximum size 24 12 optimum codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2307.12593 Table 1 is explicitly unconstrained and gives 656 maximum words at (q,n)=(3,9).",
+        "The 2025 paper Table 2 compares run-limited polarity-balanced constructions, rather than the unbalanced ternary run-one exact maxima.",
+        "Published record “Exact size and enumeration of maximum length-five non-overlapping codes” (identifier e8e2fd1a9e7a) concerns unrestricted n=5."
+      ],
+      "reasoning": "The closest numeric tables have different constraints or parameters. Searches did not identify an exact table with H(2..9)=(2,2,2,4,5,8,16,24) or 12 constrained length-nine maximizers.",
+      "searches": [
+        "ternary nine-letter mutually uncorrelated codes no two adjacent equal letters 24 maximum",
+        "homopolymer-free cross-bifix-free codes ternary exact size n=9",
+        "arXiv:2307.12593 Table 1 S(q,n) N(q,n)",
+        "DOI:10.1007/s40314-024-03055-0 Table 2"
+      ]
+    },
+    "rationale": "The precise constrained optimum profile and n=9 complete symmetry classification were not found in the inspected published primary literature or in the research record searches. Existing works cover general non-overlapping constructions, unconstrained optima, or structural run-limited constructions; none of the inspected material supplies these evaluated numbers. The 2025 run-limited theorem is a meaningful strong adjacent result and a documented residual implication risk, not ignored.",
+    "residual_risks": [
+      "An unpublished or unindexed finite computation might already give the same 24/12/two-orbit result.",
+      "The strong 2025 structural characterization could furnish another computation of this finite table; its paper does not explicitly list the present answers.",
+      "No independent scientific validation has been performed; the finite certificate should be rerun before reliance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General prefix/suffix model is identical but reported enumeration addresses unconstrained constructions; the run-one ternary optimum/census is not supplied.",
+        "evidence": [
+          "arXiv v1 submitted 2021-08-16; Definition 2",
+          "Construction I-prime; numeric fixed-length construction tables."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.06934",
+        "material_read": "Accessible full HTML text: Definitions 1–2, Construction I/I-prime and related proofs, fixed-length data tables and conclusion.",
+        "method": "Read online textual full article at arxiv.org/abs/2108.06934 (HTML-rendered content).",
+        "title": "Q-ary non-overlapping codes: a generating function approach",
+        "trigger": "Definitions and generating functions for the same synchronization condition, a primary dated anchor."
+      },
+      {
+        "assessment": "Table 1 counts unrestricted ternary n=9 codes, reporting 656, and does not enforce adjacent inequality.",
+        "evidence": [
+          "arXiv v1 submitted 2023-07-24",
+          "Table 1 S(3,9)=656, N(3,9)=6",
+          "arXiv:2307.12593 Table 1 and Appendix A."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.12593v2",
+        "material_read": "Accessible complete article HTML, including definitions, general construction, exact Table 1, conclusions and optimization appendix.",
+        "method": "Read arXiv HTML sections on optimal code sizes, parameter tables, and algorithms.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Exact code optima and maximal code census may dominate a small finite benchmark."
+      },
+      {
+        "assessment": "Structural characterization of run-constrained maximal codes is directly applicable, but no exact ternary length-nine optimum or full maximizing-codebook count was found.",
+        "evidence": [
+          "Published 2025-01-08",
+          "Section 4 Construction 5 and Section 7 conclusions",
+          "Table 2 concerns balanced run-limited constructions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-024-03055-0",
+        "material_read": "Open-access full HTML: introduction, Sections 4–5, Construction 5, balance-related Table 2 and conclusions; original statements inspected, not only abstract.",
+        "method": "Read Springer full-text HTML and compared numerical and structural assertions for run limit one.",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Same homopolymer restriction and cross-bifix structure, the most plausible source of direct coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bf1a47a-6de0-4f90-81d0-e2d20702d635",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The intersection of a physically motivated no-homopolymer constraint and a synchronization-overlap constraint has a natural maximum cardinality, unknown from the closest numerical tables. The exact early profile and the two structurally distinct length-nine optimal-codebook classes are usable as sharp finite benchmarks for constrained encoders, with a severe gap from the known unconstrained 656. This is a complete exact classification over a motivated finite regime, not a tiny cosmetic variant. No broader theoretical consequence is asserted.",
+    "status": "PASS"
+  }
+}
