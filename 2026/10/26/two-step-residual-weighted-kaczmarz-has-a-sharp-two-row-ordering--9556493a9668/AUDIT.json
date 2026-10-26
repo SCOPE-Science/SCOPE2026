@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A direct algebraic identity compares the only two nonrepeating two-row paths; stochastic weights are ordered by residual magnitude. Uniform sampling additionally repeats rows. For the three-row full-rank witness exact rational row-pair errors give uniform E2=65572/6561; first selecting row 2 under p=40 alone certifies E2>774800/73629>21/2. The embedded standard-library verifier independently recomputes all key finite certificates. The infinite statement is proved symbolically, not by finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Steinerberger bounds one-step-based worst-case contraction; Zhang et al. bound expected Bregman convergence; Nutini et al. use an orthogonality graph for multi-step rate bounds; SCOPE coherence hit concerns total residual spikes under maximal-distance Kaczmarz."
+      ],
+      "reasoning": "No such bound orders unconditional exact two-step risks between two exponent choices at the same deterministic start; step-dependent conditional dominance does not imply multi-step stochastic dominance.",
+      "searches": [
+        "weighted randomized Kaczmarz two step finite horizon expectation greedy uniform three rows exact exponent",
+        "two-row exact two-iteration residual power weighted Kaczmarz error monotonicity 40",
+        "https://arxiv.org/abs/2306.06813",
+        "https://arxiv.org/abs/1612.07838",
+        "published-finding corpus hit: 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.02910",
+      "https://arxiv.org/abs/2306.06813",
+      "https://arxiv.org/abs/1612.07838",
+      "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "Accessible own week2 ledger p0001_g000131 and week3 ledger p0001_g000024, claim text checked for duplicates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two-step reversal: exact rational certificate 65572/6561 < 10 < 21/2 < E40; broader known rate inequalities stay true.",
+        "Own closest week3 claim item a617d544-5a61-4ffb-9436-619043fc2ce0 treats iid uniformly reshuffled repeated rows across complete epochs, not residual-proportional replacement sampling.",
+        "Own closest week2 claim item 7f8afbea-556e-4ba9-ad25-a6040cd20904 treats momentum Kaczmarz with independent uniform selection, not exponent-dependent finite-horizon dominance."
+      ],
+      "reasoning": "The new theorem is logically consistent with all cited rate bounds: better universal upper factors do not compare realized expectations from two different iteration distributions. Previously archived row-sampling claims fix different sampling laws, stopping horizons, or dynamics, so no implication covers this sharp two-versus-three-row result.",
+      "searches": [
+        "Steinerberger residual power Kaczmarz p power two-step stochastic ordering 3x3 counterexample",
+        "two-row exact two-iteration residual power weighted Kaczmarz error monotonicity 40",
+        "https://arxiv.org/abs/1612.07838",
+        "https://arxiv.org/abs/2306.06813",
+        "own week2 p0001_g000131 131 claims; own week3 p0001_g000024 24 claims"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching exact two-step risk comparison in inspected Steinerberger theorem/proof. Closest two-row record concerns cyclic overrelaxation and asymptotic-vs-finite sweep norm, not selection probabilities."
+      ],
+      "reasoning": "The statement is about the law of a random row sequence with probability proportional to the current residual power, not deterministic cyclic relaxation. Equivalence through a simple change of parameters was not identified.",
+      "searches": [
+        "weighted randomized Kaczmarz two step finite horizon expectation greedy uniform three rows exact exponent",
+        "Steinerberger residual power Kaczmarz p power two-step stochastic ordering 3x3 counterexample",
+        "published-finding corpus exact similarity hit: 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "https://arxiv.org/abs/2007.02910"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary results inspected contain illustrative simulation curves and rate constants, not the Gram matrix with entries 4/9 and -4/9 or the exact rational two-step table in equation (5).",
+        "Closest database results concerned other Kaczmarz variants and unrelated finite-horizon bounds."
+      ],
+      "reasoning": "This is an exact result about a concrete algorithm rather than a tabulated external invariant; known-table coverage was not found.",
+      "searches": [
+        "three-row normalized Kaczmarz gram 4/9 -4/9 finite exponent 40 expected squared error",
+        "published-finding corpus full-rank 3-row finite-exponent weighted Kaczmarz searches",
+        "https://arxiv.org/abs/2007.02910"
+      ]
+    },
+    "rationale": "Relevant primary full-text results concern conditional progress/global rate bounds or other multi-step graph estimates, none logically implies a pointwise exact comparison across different exponent-powered sampling policies at two updates. Four structured implication and equivalence checks and own-claim overlap searches are recorded. Priority uncertainty remains for unindexed sources.",
+    "residual_risks": [
+      "Unindexed finite-horizon Kaczmarz variants could contain an equivalent row-count boundary or numerical witness.",
+      "The result does not establish a universal long-horizon effect or rank-sparse regularized behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the actual theorem controls a global convergence-rate upper bound derived from conditional one-step progress; no pointwise finite-horizon ordering or three-row exponent reversal is stated.",
+        "evidence": [
+          "Theorem in Section 2.2; conditional error identity Section 4.1; remarks Sections 2.3–2.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.02910",
+        "material_read": "Abstract, algorithm Section 2.1, main theorem and discussion Sections 2.2–2.4, rate-bound proof Section 4 and experiment captions.",
+        "method": "Accessible full-text HTML on arXiv",
+        "title": "S. Steinerberger, A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+        "trigger": "Direct origin of row probability proportional to absolute residual to exponent p; main claim could dominate."
+      },
+      {
+        "assessment": "NOT_COVERING: lambda=0 agrees with the studied update, but the source proves geometric expected Bregman error rate bounds and not this two-update row-count boundary or exact reversal.",
+        "evidence": [
+          "Equations (4), (9), (10), Algorithm 1, Theorem 1 and Remark 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.06813",
+        "material_read": "Introduction, normalization and Bregman projection definitions, Algorithm 1 Section 3.2, Theorem 1 and Remarks 1–2 Section 3.3.",
+        "method": "Accessible full-text HTML on arXiv",
+        "title": "L. Zhang et al., A Weighted Randomized Sparse Kaczmarz Method for Solving Linear Systems",
+        "trigger": "Direct extension with same residual probabilities and lambda=0 reduction."
+      },
+      {
+        "assessment": "NOT_COVERING: studies worst-case convergence bounds and graph-based multi-step rate improvements, not exact expected two-step error ordering over residual-power exponents or the explicit three-row counterexample.",
+        "evidence": [
+          "Sections 4.1, 4.3, 9.1–9.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.07838",
+        "material_read": "Sections 1, 3–4 (definitions and one-step norm identity), Section 9 (multi-step rate analysis and orthogonality graph), experiment discussion Section 10.",
+        "method": "Accessible full-text HTML on arXiv",
+        "title": "J. Nutini et al., Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+        "trigger": "Potentially dominating earlier multi-step maximal-residual result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9556493a-9668-4e27-a2ae-243268a252dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Residual-power p is a central control parameter designed to interpolate uniform and maximal-residual sampling. This exact two-update row-count threshold proves one-step advantage does not induce finite-horizon dominance and gives a minimal-size full-rank rational benchmark; it distinguishes the actual risk from a rate bound. It is a structural yes/no boundary, not an arbitrary table entry.",
+    "status": "PASS"
+  }
+}
