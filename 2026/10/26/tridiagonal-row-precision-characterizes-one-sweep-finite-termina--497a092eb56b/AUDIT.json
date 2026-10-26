@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Rank-one kernels of the oblique projection factors force exactly one rank loss per row; because n losses are necessary and sufficient for zero first-sweep error, every KO direction must be orthogonal to all previous rows. This gives the explicit chain Gram identity, equivalent by positive-definite bidiagonal factorization to tridiagonal precision. The n=3 Schur complement derives the operator norm with strict positivity bounds. The proof addresses n>=2, all invertible real A, all initial errors and right-hand sides, and precisely excludes threshold-skipped and finite-precision cases. The actual CHECK.py uses exact fractions to test both statements and exercises boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brust and Saunders arXiv:2207.07615 sections 1.3 and 3 show finite termination for accumulated-history projections, including row sketches.",
+        "Li et al. arXiv:2106.13368 Theorem 2.1 establishes convergence as iteration count tends to infinity, not the first-sweep iff."
+      ],
+      "reasoning": "A solver with projection memory of all preceding constraints is stronger and can terminate without tridiagonal precision; it cannot imply that this specific one-predecessor method terminates only for Markov row covariance. Generic asymptotic convergence likewise does not imply an exact finite horizon.",
+      "searches": [
+        "For cyclic Kaczmarz with oblique projection (KO), n by n invertible square matrix, its very first n row visits solve exactly for all starting states if and only if the inverse row Gram matrix is tridiagonal; n=3 exact sweep norm partial correlation",
+        "oblique Kaczmarz finite exact termination one ordered sweep iff inverse row Gram is tridiagonal Markov covariance chain pairwise projections",
+        "two-subspace projection Kaczmarz finite step convergence positive definite inverse Gram tridiagonal",
+        "PLSS projected linear systems solver finite termination Kaczmarz prior residuals 2207.07615"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.13368 (public full HTML)",
+      "arXiv:2106.13606 (public full text)",
+      "arXiv:2207.07615 (public full HTML)",
+      "published-finding corpus semantic database, 9 specific KO/Markov-equivalence queries",
+      "Published mathematical research records compared by mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2106.13368 Theorem 2.1 and Example 2.1 are general asymptotic convergence and n=2 cases respectively.",
+        "arXiv:2106.13606 analyzes greedy randomized and maximal weighted oblique-projection Kaczmarz updates, not deterministic first-sweep spectral norms.",
+        "arXiv:2207.07615 characterizes finite termination in the accumulated-sketch PLSS method.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 quantifies relaxation of ordinary 2-row Kaczmarz; 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 treats underrelaxation bias of inconsistent block Kaczmarz."
+      ],
+      "reasoning": "The n=2 outcome is already covered by the original work and is not claimed separately as novel. Neither the n>=3 iff in terms of precision sparsity nor the exact n=3 partial-correlation norm is a direct logical corollary of the cited convergence bounds, altered selection variants, or general direct projection solver. Inaccessible full text from earlier direct-solver studies is a residual source risk.",
+      "searches": [
+        "For cyclic Kaczmarz with oblique projection (KO), n by n invertible square matrix, its very first n row visits solve exactly for all starting states if and only if the inverse row Gram matrix is tridiagonal; n=3 exact sweep norm partial correlation",
+        "Consecutive-row oblique Kaczmarz exact one-sweep finite termination conditional independence Gaussian Markov covariance tridiagonal inverse gram",
+        "Li Wang Bao Liu KO 2021 algorithm three row oblique projection first sweep contraction equal conditional partial correlation precision entry",
+        "oblique Kaczmarz finite exact termination one ordered sweep iff inverse row Gram is tridiagonal Markov covariance chain pairwise projections",
+        "two-subspace projection Kaczmarz finite step convergence positive definite inverse Gram tridiagonal",
+        "recursive two-hyperplane Kaczmarz orthogonal innovations Markov covariance finite termination after n projections",
+        "exact operator norm after three cyclic two-row oblique Kaczmarz steps equals absolute partial correlation -inverse Gram (1,3) / sqrt precision diagonal",
+        "finite termination cyclic KO Kaczmarz with oblique projection in n row projections equivalent Gaussian Markov covariance tridiagonal precision",
+        "KO-type Kaczmarz first cycle Markov row Gram Toeplitz AR1 orthogonal innovations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2106.13368 Algorithm 2.1 uses only consecutive rows; Theorem 2.1 is asymptotic convergence.",
+        "arXiv:2207.07615 develops a longer sketch/row history to guarantee finite termination; current characterization is for a one-row memory method.",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "reasoning": "The main equivalence is also phrased as zero partial correlations and Gram Markov factorization. Equivalent Gaussian-process conditional-independence results give tridiagonal precision, but do not by themselves establish the necessary and sufficient first-sweep convergence criterion for the published KO update. The two-row relaxed method studies a different iteration.",
+      "searches": [
+        "Consecutive-row oblique Kaczmarz exact one-sweep finite termination conditional independence Gaussian Markov covariance tridiagonal inverse gram",
+        "oblique Kaczmarz finite exact termination one ordered sweep iff inverse row Gram is tridiagonal Markov covariance chain pairwise projections",
+        "recursive two-hyperplane Kaczmarz orthogonal innovations Markov covariance finite termination after n projections",
+        "finite termination cyclic KO Kaczmarz with oblique projection in n row projections equivalent Gaussian Markov covariance tridiagonal precision",
+        "KO-type Kaczmarz first cycle Markov row Gram Toeplitz AR1 orthogonal innovations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search returned the 2-row Kaczmarz overrelaxation record 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 and maximal-distance one-step residual record 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f as closest named methods.",
+        "Relevant published mathematical records address ordinary two-row Kaczmarz and finite-horizon weighted Kaczmarz, but do not state the target memory-one KO precision criterion."
+      ],
+      "reasoning": "No retrieved exact theorem or database table matches the arbitrary-dimension finite-termination criterion or three-row norm identity. The absence of a search hit cannot establish global uniqueness.",
+      "searches": [
+        "For cyclic Kaczmarz with oblique projection (KO), n by n invertible square matrix, its very first n row visits solve exactly for all starting states if and only if the inverse row Gram matrix is tridiagonal; n=3 exact sweep norm partial correlation",
+        "Li Wang Bao Liu KO 2021 algorithm three row oblique projection first sweep contraction equal conditional partial correlation precision entry",
+        "exact operator norm after three cyclic two-row oblique Kaczmarz steps equals absolute partial correlation -inverse Gram (1,3) / sqrt precision diagonal",
+        "KO-type Kaczmarz first cycle Markov row Gram Toeplitz AR1 orthogonal innovations"
+      ]
+    },
+    "rationale": "Original KO work proves asymptotic convergence and special two-row finite termination, not the new if-and-only-if for arbitrary dimensions with tridiagonal inverse Gram; greedy oblique variants and stronger all-history finite-step solvers do not imply the memory-one KO boundary. Full arXiv source sections were materially inspected and distinct statements compared. Query results are negative evidence only, and publication-priority risk remains for uncatalogued equivalent formulations.",
+    "residual_risks": [
+      "Full text of some earlier direct Kaczmarz projection solver literature was not available.",
+      "Unindexed or terminology-different publications may have observed the same partial-correlation norm identity.",
+      "The criterion applies only to square invertible ordered exact-arithmetic one-sweep KO, not a generic randomized or overdetermined solver."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original method, infinite-horizon convergence and two-row examples; no tridiagonal-precision iff or 3-row partial-correlation norm in inspected text.",
+        "evidence": [
+          "Algorithm 2.1 equations for consecutive-row oblique direction and denominator; Theorem 2.1 limit as iterations tend to infinity; Example 2.1 discusses exactly two equations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.13368",
+        "material_read": "Full accessible HTML Sections 2.1–2.2, Algorithm 2.1, full statements/proofs Theorem 2.1 and Example 2.1, and randomized extension in Section 3",
+        "method": "Read publicly accessible complete arXiv HTML at arxiv.org/html/2106.13368; compared formulas and conclusions",
+        "title": "On Kaczmarz method with oblique projection for solving large overdetermined linear systems",
+        "trigger": "Defines the exact KO method and nearest possible covering theorem"
+      },
+      {
+        "assessment": "Analyses different greedy/random row selection rules; no comparable deterministic first-sweep memory-one exactness theorem found in inspected sections.",
+        "evidence": [
+          "Paper DOI 10.3934/era.2022062; Section 2 oblique-projection greedy algorithm; convergence estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.13606",
+        "material_read": "Full publicly available Electronic Research Archive paper/PDF, algorithm statements and relevant convergence theorems including numerical-comparison discussion",
+        "method": "Read open-access paper text and inspected the first two PDF-page screenshots",
+        "title": "Greedy randomized and maximal weighted residual Kaczmarz methods with oblique projection",
+        "trigger": "Same oblique Kaczmarz object with modified row selection"
+      },
+      {
+        "assessment": "Finite-step convergence exploits accumulated sketch constraints, whereas KO uses only immediately preceding row. Does not logically establish exact criterion for memory-one KO.",
+        "evidence": [
+          "Section 1.3 notes finite termination in at most min(m,n) under the scheme; Section 2 builds growing sketch S_k; Section 3 proves termination."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.07615",
+        "material_read": "Full public arXiv HTML Introduction, sketch-augmentation construction, and finite-step convergence results of Section 3",
+        "method": "Read accessible full arXiv HTML and compared theorem implication",
+        "title": "PLSS: A Projected Linear Systems Solver",
+        "trigger": "Potential stronger direct finite-step solver dominating target claim"
+      },
+      {
+        "assessment": "Direct-solver method plausibly uses different supplementary directions; uncatalogued implications and inaccessible full content remain a publication-priority risk.",
+        "evidence": [
+          "Bibliographic title and abstract indicating direct Kaczmarz-type solver, but no accessible full comparison."
+        ],
+        "identifier_or_url": "Popa et al. (2012), On Kaczmarz projection iteration as a direct solver for linear least squares problems; abstract only",
+        "material_read": "Search-result abstract/description only; full paper not accessible for decisive assessment",
+        "method": "Bibliographic identification and abstract comparison; not treated as whole-document noncoverage",
+        "title": "On Kaczmarz projection iteration as a direct solver for linear least squares problems",
+        "trigger": "Potential earlier general finite-step projection literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "497a092e-b56b-4d80-97e9-0b919779cb21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, infinite-family, exact iff separates when one-row memory suffices for finite termination from when full prior-row memory is essential. The dense Markov covariance example and sharp n=3 conditional-correlation norm provide concrete structurally interpretable benefits for row-order analysis and solver design, beyond the n=2 anecdote or a computed table.",
+    "status": "PASS"
+  }
+}
