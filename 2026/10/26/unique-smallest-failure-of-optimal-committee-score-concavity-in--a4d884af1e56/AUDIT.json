@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Exact proof uses saturation-aware integer coverage increments, a three-candidate submodular exchange, six-voter bounds, and private-voter pigeonhole counting. A three-pair transversal gives (0,3,4,6,6); partition/transversal counting yields 15*8=120 unlabeled-candidate, 2880 labeled profiles. Voter-deletion orderings prove criticality. Standalone Python completed 823086 exact committee-profile enumerations and all voter-interval deletion checks. Finite tests supplement, do not establish, the any-number-of-candidates statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manurangsi–Sornat, arXiv:2604.05953v1, 7 April 2026, Section 3, Theorem 5 and Corollary 9; interval-family interpolation",
+        "Barman–Fawzi–Fermé, arXiv:2010.00970v3, pp. 1–3, definitions and Theorem 1; Poisson concavity ratio, not size-optimum curvature"
+      ],
+      "reasoning": "The stronger interval-family interpolation implies CC concavity on voter intervals but has inapplicable interval hypothesis for the candidate witness. Submodularity alone cannot imply cardinality-optimum concavity: the explicit profile violates it. The 2020 generalization optimizes elementwise concave coverage at fixed size and does not assert the present cardinality-spectrum classification.",
+      "searches": [
+        "maximum k stabbing points weighted intervals submodular coverage concavity optimal value counterexample",
+        "voter interval approval election one voter deletion minimal forbidden concavity counterexample",
+        "smallest non-concavity maximum coverage optimal value by cardinality voter interval deletion critical"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.05953v1, Theorem 5 and Corollary 9",
+      "arxiv:2010.00970v3, abstract, introduction and Theorem 1",
+      "Published mathematical finding records queried for the same voter-coverage cardinality obstruction; nearest records concern unrelated tournament selection notions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manurangsi–Sornat, arXiv:2604.05953v1, 7 April 2026, Section 3, Theorem 5 and Corollary 9; precise Corollary 9 statement and hypotheses",
+        "Barman–Fawzi–Fermé, arXiv:2010.00970v3, pp. 1–3, definitions and Theorem 1; explicit Section 1 objective"
+      ],
+      "reasoning": "Prior sufficient theorem: voter-interval profiles have concave optimal Thiele score, which does not constrain a non-interval profile. New theorem: in unit coverage, six voters/four candidates are the unique first failure and every single-voter deletion restores intervality. The approximation literature concerns fixed-size optimization, so its results do not imply this sharp minimal obstruction.",
+      "searches": [
+        "Candidate Interval Thiele optimal score function concavity failure size k Chamberlin Courant PAV",
+        "Chamberlin Courant optimal committee score nonconcave four candidates six voters minimal counterexample",
+        "six voters four candidates Chamberlin Courant optimal committee score 3 4 6 nonconcavity three disjoint pairs transversal",
+        "smallest non-concavity maximum coverage optimal value by cardinality voter interval deletion critical"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manurangsi–Sornat, arXiv:2604.05953v1, 7 April 2026, Section 3, Theorem 5 and Corollary 9; generalized Thiele optimal size score",
+        "Barman–Fawzi–Fermé, arXiv:2010.00970v3, pp. 1–3, definitions and Theorem 1; ordinary maximum coverage is an instance"
+      ],
+      "reasoning": "Recast the claim equivalently as the first counterexample to cardinality concavity of maximum set coverage, and as the first approval-CC size-score failure. Source theorem applies only to interval supporter sets; abstractly similar titles from published records concern other voting rules. No retrieved statement gives the six-voter unique transversal class.",
+      "searches": [
+        "Candidate Interval Thiele optimal score function concavity failure size k Chamberlin Courant PAV",
+        "max coverage on consecutive-one approval ballots marginal committee size nonconcave",
+        "maximum coverage value by cardinality smallest non-concavity four sets six voters disjoint pairs transversal",
+        "Chamberlin Courant optimal committee score nonconcave four candidates six voters minimal counterexample",
+        "six voters four candidates Chamberlin Courant optimal committee score 3 4 6 nonconcavity three disjoint pairs transversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct independent complete enumeration: 823086 four-candidate multiset profiles for 1..6 voters, exactly 120 nonconcave instances at n=6; no retrieved record of an existing identical table"
+      ],
+      "reasoning": "The 120 and 2880 numbers are derived analytically from the unique disjoint-pair/transversal structure; finite enumeration independently agrees. Database absence is not proof of historical novelty; no equivalent published table was located in the searched material.",
+      "searches": [
+        "maximum coverage value by cardinality smallest non-concavity four sets six voters disjoint pairs transversal",
+        "maximum coverage cardinality exact six element four sets unique nonconcavity pattern",
+        "six voters four candidates Chamberlin Courant optimal committee score 3 4 6 nonconcavity three disjoint pairs transversal"
+      ]
+    },
+    "rationale": "The 2026 voter-interval theorem proves a positive sufficient condition for concavity, not this minimum-cardinality noninterval obstruction; the exact six-voter/four-candidate uniqueness, 120/2880 counts, and voter-deletion criticality were not found in the inspected source or searched mathematical records. The 2020 concave-coverage paper treats concavity of per-element utility and approximability, not concavity of the cardinality-optimal value. Broader set-system literature remains a real priority risk.",
+    "residual_risks": [
+      "A classical set-cover, submodular-optimization, or consecutive-ones obstruction theorem not retrieved here could imply the small four-set classification.",
+      "Only selected portions of the broader concave-coverage literature were read; absence from an abstract or search result is not a universal noncoverage certificate.",
+      "There has been no independent mathematical review or global historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers positive concavity under interval-support hypothesis, not a classification of minimal departures from that hypothesis.",
+        "evidence": "Theorem 5/Proposition 8 give interval-family interpolation; Corollary 9 states the concavity of optimal Thiele score for VI profiles.",
+        "identifier_or_url": "https://arxiv.org/pdf/2604.05953",
+        "material_read": "PDF title/date and pp. 1–2; Section 3 pp. 5–11 including Theorem 5, Proposition 8 and Corollary 9; conclusion excerpt",
+        "method": "Read arXiv open full-text PDF pages and relevant theorem/proof passages",
+        "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+        "trigger": "Exact motivating 2026 positive concavity theorem for voter-interval approval elections"
+      },
+      {
+        "assessment": "Defines elementwise concave coverage objectives and proves approximation guarantees at fixed cardinality; no relevant small-instance cardinality-spectrum theorem in the inspected passages.",
+        "evidence": "Theorem 1 is an approximation result for fixed-cardinality phi-MaxCoverage, with phi applied separately per element.",
+        "identifier_or_url": "https://arxiv.org/pdf/2010.00970",
+        "material_read": "PDF pp. 1–3 including abstract, setup, Theorem 1, and applications to approval voting",
+        "method": "Read arXiv open PDF relevant introduction and main theorem",
+        "title": "Tight Approximation Guarantees for Concave Coverage Problems",
+        "trigger": "Possible stronger general maximum-coverage theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4d884af-1e56-49bd-a178-bab81b5c0431",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object and invariant are motivated directly by the recent voter-interval cardinality-concavity theorem. The complete smallest failing layer proves a sharp stability boundary of that theorem, isolates the unique transversal incidence geometry, counts every first-layer labeled example, and demonstrates removal of any one voter restores the source hypothesis. This is a structural minimal-obstruction classification rather than a routine numerical instance.",
+    "status": "PASS"
+  }
+}
