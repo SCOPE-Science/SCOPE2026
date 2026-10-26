@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The claim is rigorously reduced by convex automorphism averaging to three edge weights; a complete eigenvalue decomposition yields the hub contrast, class contrast, and all cycle Fourier eigenvalues. The extremal Fourier minimax has a unique feasible optimum; the remaining one-variable minimax gives closed forms for a and b and the exact admissible interval for c. The integer threshold follows from exact parity-sensitive trigonometric bounds. The supplementary checker independently agrees with 209 phase cases, 98 linear programs, and 50 direct spectra; these finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), SIAM Rev. 46:667-689, supplies a convex semidefinite formulation on arbitrary finite graphs, not an exact graph-family-specific optimum (DOI 10.1137/S0036144503423264).",
+        "Boyd, Diaconis, Parrilo, Xiao (2009) proves symmetry reduction and a wheel r=1 formula (DOI 10.1137/070689413); Section 5.4.3 displays its two orbit weights."
+      ],
+      "reasoning": "The general SDP is algorithmic characterization and can in principle compute these optima, but it does not state their closed forms, full invariant optimizer intervals, or the integral hub-saturation threshold. The r=1 wheel theorem does not dominate the r>=2 family.",
+      "searches": [
+        "fastest mixing symmetric Markov chain wheel graph spoke rim optimal transitions uniform stationary",
+        "fastest mixing Markov chain wheel hub rim cyclic graph eigenvalue optimization closed form",
+        "fastest mixing reversible Markov chain wheel graph 90C22",
+        "Fastest mixing Markov chain on graphs with symmetries Section 5 wheel graph",
+        "\"fastest mixing\" \"join\" \"cycle\" \"clique\""
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), SIAM Review 46:667-689, DOI 10.1137/S0036144503423264",
+      "Boyd, Diaconis, Parrilo, Xiao (2009), SIAM J. Optim. 20:792-819, Section 5.4.3, DOI 10.1137/070689413",
+      "Olesker-Taylor and Zanetti, arXiv:2111.05816 (abstract/introduction only)",
+      "Mathematical record searches with multiwheel, generalized wheel, complete graph join cycle, and exact saturation parameter variants."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published wheel formula: a=1/n for r=1 (Boyd et al., 2009, Section 5.4.3).",
+        "The new K_2 join C_4 has a=1/5<1/4 and optimal SLEM 1/5.",
+        "The exact new phase boundary for r>=2 is n>=2r+2 for r<=4, and n>=2r+1 for r>=5."
+      ],
+      "reasoning": "The new statements cannot be read as special cases of the r=1 result: extra hub vertices change the class-constant eigenmode, introduce hub-contrast modes, and force a previously absent unsaturated spoke phase. They are not corollaries of the numerical SDP existence theorem without further exact minimax and integer threshold analysis.",
+      "searches": [
+        "fastest mixing Markov chain wheel hub rim cyclic graph eigenvalue optimization closed form",
+        "complete-join K_r+C_n multiple universal hubs fastest mixing Markov chain exact spectral radius spoke saturation crossover",
+        "Boyd Diaconis Parrilo Xiao 2009 section 5.4.3 wheel optimum",
+        "\"fastest mixing\" \"double wheel\" Markov chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2009 paper, Section 5.4.3, gives closed-form probabilities for the single-hub wheel, explicitly involving one hub and one cycle (arXiv:0709.0955, SIAM J. Optim. 20:813-814).",
+        "The new graph has at least two adjacent hub vertices and an additional hub-contrast eigenmode, whose magnitude depends on hub-hub transition probability."
+      ],
+      "reasoning": "Renaming K_r join C_n as multiwheel, generalized wheel or clique-cycle join does not identify a matched result in the inspected sources. The single-hub formula lacks the hub-clique mode and has a saturated spoke budget for every allowed rim size, unlike the new interior phase.",
+      "searches": [
+        "complete-join K_r+C_n multiple universal hubs fastest mixing Markov chain exact spectral radius spoke saturation crossover",
+        "fastest mixing Markov chain complete clique joined to cycle generalized wheel symmetry eigenvalue optimizing",
+        "fastest mixing Markov chain rim wheel multiple hub vertices Markov SLEM optimal",
+        "multiwheel K_r join C_n fastest mixing Markov chain optimization",
+        "fastest mixing Markov chain generalized wheel K_m join C_n graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined mathematical record hits include wheel symmetric-edge-polytope ellipsoids and a tetrahedral orbit-polytope walk; these concern distinct invariants/graphs and not the SLEM of K_r join C_n.",
+        "No identified table in the inspected sources supplies the exact all-size hub saturation classification."
+      ],
+      "reasoning": "Equivalent parameter tables were sought, including the exact thresholds 2r+1 and 2r+2. None of the inspected results implies the claim. Negative search evidence is limited and is not treated as proof that no table exists.",
+      "searches": [
+        "for K_r join cycle C_n SLEM optimal hub spoke 1/n at n=2r+1 or 2r+2 complete graph of hubs",
+        "fastest mixing Markov chain clique-cycle join two hub contrast Fourier transition saturation threshold",
+        "multi-hub wheel symmetric Markov fastest mixing phase transition number of hub clique vertices",
+        "exact fastest mixing join of clique and cycle symmetric transition eigenvalues"
+      ]
+    },
+    "rationale": "The 2004 general convex FMMC method and the 2009 exact single-hub wheel result are prior art. Full relevant wheel-section material was inspected, and the present r>=2 clique-cycle join is distinguished by a new hub-contrast mode, exact full interval of invariant optimizers, and an integer hub-saturation threshold absent from the single-hub statement. Targeted alternative graph-name searches and mathematical-record comparisons found no dominating same-domain claim; incomplete indexing remains a genuine risk.",
+    "residual_risks": [
+      "A generalized-wheel or clique-cycle exact formula could be embedded in less-indexed or differently named specialized work not located by the searches.",
+      "The prior 2007 technical report is listed to month precision and may have small textual differences; the open full published version and dated arXiv abstract were inspected.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers K_1 join C_n exactly and general symmetry reduction; does not state the at-least-two-hub K_r join C_n optimal phase diagram.",
+        "evidence": [
+          "SIAM J. Optim. 20 (2009) pp. 813-814, eq. (5.9) and ensuing optimal formulas",
+          "DOI 10.1137/070689413"
+        ],
+        "identifier_or_url": "arxiv:0709.0955; https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text searchable 28-page PDF; Introduction and scope (pp. 792-796), Section 5.4.3 and surrounding spectral reductions (pp. 813-815), including displayed wheel optimizer and formulas; full-text searches for wheel and clique.",
+        "method": "Read open-access full-text PDF with text and page images.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Contains an exact solution for the one-hub wheel, the closest topology and objective."
+      },
+      {
+        "assessment": "Provides globally applicable convex formulation but not a closed-form multi-hub wheel solution.",
+        "evidence": [
+          "SIAM Rev. 46 (2004) pp. 667-670, Section 1.1.3 and Eq. (3)"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf; DOI 10.1137/S0036144503423264",
+        "material_read": "Open-access full PDF, problem and SDP formulation (pp. 667-670), practical examples and statements of scope; text search for wheel found no matching named example.",
+        "method": "Full-PDF searchable-text inspection with page images of the objective and constraints.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general formulation and potential broader dominating theorem."
+      },
+      {
+        "assessment": "Its global bounds and lazy-chain formulation do not provide the exact non-lazy SLEM optimizer for the clique-cycle join.",
+        "evidence": [
+          "arXiv:2111.05816, abstract and introductory definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05816",
+        "material_read": "Abstract and accessible web introduction about vertex conductance bounds and lazy-chain setting.",
+        "method": "Read abstract/introduction of available open paper page, not complete PDF.",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "Potentially stronger later general result about fast mixing on arbitrary graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cfb82814-916f-48b4-9382-cc19b20fbdd6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Clique-cycle joins are a natural multiple-hub generalization of the classical wheel, motivated by symmetric constrained Markov mixing. The exact all-parameter rate, edge probability formulas, complete invariant optimizer interval and sharp n=2r+1 versus n=2r+2 spoke-saturation boundary resolve a nontrivial network-design question that differs from the known saturated single-hub solution. The boundary and extra hub-contrast mode have clear structural content beyond a routine substitution.",
+    "status": "PASS"
+  }
+}
