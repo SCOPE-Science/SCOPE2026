@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact Gaussian-moment expansion produces a nonnegative irreducible five-dimensional fourth-moment operator; its determinant and resolvent yield the quartic and fourth-moment rational function. Descartes' rule after an interval-to-halfline change proves a unique critical root. Perron monotonicity, a positive forcing vector, and conditional Jensen establish the finite/infinite fourth-moment dichotomy, including the critical point. The standalone verifier reproduces the key exact identities. The claim is restricted to the causal stationary law.
+
+**Originality — PASS, with residual priority risk.** Shaikhet (1997) already proves the general one-lag mean-square threshold, and Lan–Liu (2023) develops stability theory for stochastic-delay Euler schemes. Both are excluded from the novelty claim. Classical random-coefficient AR moment-operator theory is also acknowledged. The narrow result is the explicit algebraic **fourth**-moment boundary and exact stationary fourth-moment/pole classification for the balanced delay-Euler benchmark; no equivalent explicit result was found in the searched primary sources and mathematical records. The inaccessible full text of Truquet–Yao (2012), and other possible time-series treatments, prevent publication-priority certainty.
+
+**Value — PASS.** This is a sharp, interpretable exact test model for the distinction between mean-square stability and reliable fourth-moment/kurtosis estimation in numerical stochastic-delay dynamics. The interval between the two thresholds is substantial, not an infinitesimal perturbation. The specialization p=q=1/3 gives equal current and delayed weights with strict deterministic contraction and an exact integer-coefficient polynomial cutoff; fourth-moment finiteness is directly relevant to sampling uncertainty and validation of long-time stochastic numerical output. No extension to arbitrary coefficients or non-Gaussian noise is claimed.
+
+**Limitations.** A matrix-spectral moment criterion in full generality is known, and the exact cutoff does not certify independent novelty without exhaustive specialized literature review. The stationary law is an Euler-iteration stationary law, not the continuous SDDE's invariant law.
+
+Self-review: passed. Independent audit: not yet performed.
