@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For cubic prisms the precise tie-handled update flips iff >=2 neighbors agree, decreasing monochromatic-edge count. A same-colored rung forces global alternating same-colored rungs, exactly two for even n; otherwise all rungs are opposite and stable configurations correspond bijectively (two-to-one) to cyclic independent equality-transition sets of parity k=n mod 2. Cyclic independent-set coefficients prove the polynomial and Lucas/mod-six reduction for all n>=3. Direct exhaustive raw-state tests at n=3..9 independently confirm each energy coefficient. Nontrivial cycles are impossible, and waiting for at most 3n productive updates proves E[T]<=6n^2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1011.5119: generic odd-degree vertices inactive in recurrent states; no exact prism count stated in inspected passages",
+        "arxiv:0801.1224: Gaussian random-bond spin-glass estimates, with ladder exponent table",
+        "arxiv:0706.2479: four-neighbor torus has stable checkerboard bands with a different local degree"
+      ],
+      "reasoning": "General energy descent subsumes the absence of nontrivial recurrence on odd-degree graphs, and is explicitly credited. Neither it nor the approximate random-bond ladder formulas implies the energy-resolved deterministic prism coefficient formula. The earlier grid stable-band statement is for a different neighborhood.",
+      "searches": [
+        "\"Stochastic Minority on Graphs\" arxiv:1011.5119 full-text §2 and §4",
+        "\"Counting metastable states of Ising spin glasses on arbitrary graphs\" arxiv:0801.1224 §VII ladders",
+        "\"Progresses in the Analysis of Stochastic 2D Cellular Automata\" arxiv:0706.2479 Proposition 6",
+        "Indexed-literature semantic search: exact coefficient zero-temperature antiferromagnetic Ising circular ladder local-maxcut prism"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0706.2479 (2007-06-17)",
+      "arxiv:0801.1224 (2008-01-08)",
+      "arxiv:1011.5119 (2010-11-23)",
+      "DOI 10.1002/jgt.21868 (abstract only)",
+      "Indexed circular-ladder homology and parity-automata records (non-equivalent)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior energy monotonicity yields absorption but no coefficient counts",
+        "Earlier 2D grid bands do not impose a simple cubic vertical-rung dichotomy",
+        "Random Gaussian ladder metastability exponents do not fix all coefficients at deterministic equal negative coupling"
+      ],
+      "reasoning": "The accepted claim is the exact energy-resolved absorbing configuration classification. Only its qualitative convergence component is inherited from prior work. A common mechanism or potentially applicable transfer-matrix technique is not a result that logically entails the explicit stated coefficients without the nontrivial rung and parity classification.",
+      "searches": [
+        "arxiv:1011.5119 odd degree recurrence theorem",
+        "arxiv:0706.2479 Proposition 6 stable checkerboard bands",
+        "arxiv:0801.1224 ladder section random couplings",
+        "Indexed-literature semantic search: exact stochastic minority circular prism recurrent singleton energy spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1011.5119, §2: stochastic minority rule and energy monotonicity",
+        "arxiv:0801.1224, §VII: random-coupling infinite ladder estimates, not equal-coupling stable-state polynomial",
+        "Indexed work on circular-ladder independence-complex homology concerns a different object, despite graph name overlap"
+      ],
+      "reasoning": "Equivalent language is one-spin-flip-stable antiferromagnetic Ising colorings, local max-cut configurations and 1-defective two-colorings on a cubic prism. The source methods establish the energy principle or handle random couplings; the inspected relevant passages do not display this finite labelled energy spectrum. Matching graph or Lucas numbers alone does not imply equivalence.",
+      "searches": [
+        "\"prism graph\" \"one spin flip\" \"stable\" antiferromagnetic",
+        "\"cyclic ladder\" \"monochromatic\" \"at most one\" coloring",
+        "Indexed-literature semantic search: On prism graphs C_n square K_2 asynchronous stochastic minority dynamics has Lucas-number plus periodic correction; 2-colorings with monochromatic degree at most one",
+        "Indexed-literature semantic search: Cyclic circular ladder 1-defective two-coloring enumeration Lucas correction independent sets phase parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct new exhaustive counts for n=3..9: 6,8,10,22,28,48,78; no exact matching finite-volume table was identified by these searches",
+        "arxiv:0801.1224 Table I reports numerical growth exponents for Gaussian spin glasses on infinite ladders, not the same integer count"
+      ],
+      "reasoning": "No exact identical table was returned by the specified searches. A separate comprehensive enumeration-database search was not performed; absence of a hit is not proof of novelty and that remains a residual risk.",
+      "searches": [
+        "\"6,8,10,22,28,48,78,124\" prism Lucas",
+        "\"prism\" \"locally maximal cut\" counting",
+        "Indexed-literature semantic search: asynchronous minority rule on prism C_n square K_2 Lucas number of recurrent states plus mod-six oscillation",
+        "Indexed-literature semantic search: exact coefficient for zero-temperature antiferromagnetic Ising circular ladder local maxima cut"
+      ]
+    },
+    "rationale": "Published odd-degree minority energy facts cover the general convergence step, not the exact prism absorbing-energy polynomial. Related four-neighbor torus stable bands and Gaussian random-bond infinite-ladder metastability do not logically imply the full finite, deterministic cubic-prism formula. Indexed research and focused searches returned no equivalent statement; residual literature risks remain.",
+    "residual_risks": [
+      "Focused web and indexed searches cannot rule out an unindexed equal-coupling antiferromagnetic-prism metastability enumeration or a table under graph-coloring terminology.",
+      "The publisher full text of DOI 10.1002/jgt.21868 was not inspected; its abstract suggests chromatic bounds rather than this explicit enumeration.",
+      "The underlying circular-independent-set formula is classical, so novelty concerns the dynamical correspondence and energy-resolved application, not the combinatorial identity itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the general strict-descent mechanism applicable to cubic prisms, but the passages inspected treat other graph families and do not exhibit the energy polynomial or circular-prism count",
+        "evidence": [
+          "arxiv:1011.5119, §§2,4, Remark 1, conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1011.5119",
+        "material_read": "Open full-text HTML; §1 model and graph classes, §2 formal flip and energy rule, odd-degree remark, cycle/path and tree results in §4, conclusion and tree appendix passages",
+        "method": "Ar5iv lawful public full text, targeted full-text reading and section searches",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Same closed-neighborhood stochastic minority rule on general graphs; possibility of a theorem covering all cubic prisms"
+      },
+      {
+        "assessment": "Graph is a four-neighbor two-dimensional torus, and classified stable bands use a different degree and rule neighborhood from the 3-regular circular prism; no direct implication to the claimed coefficient formula",
+        "evidence": [
+          "arxiv:0706.2479, model §3 and Proposition 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0706.2479",
+        "material_read": "Original PDF model and von Neumann neighborhood at pp. 1–4; Proposition 6 and proof at p. 7; associated checkerboard-band analysis at pp. 7–9",
+        "method": "Original public arXiv PDF text with image inspection",
+        "title": "Progresses in the Analysis of Stochastic 2D Cellular Automata: a Study of Asynchronous 2D Minority",
+        "trigger": "Earlier 2007 analysis of minority on periodic two-dimensional lattice and stable-state classifications"
+      },
+      {
+        "assessment": "Uses Gaussian random couplings, numerical/semi-analytic asymptotic complexity for infinite ladders; this is not an exact equal-coupling finite circular-prism energy polynomial",
+        "evidence": [
+          "arxiv:0801.1224, §§I–II, VII–VIII, Table I"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0801.1224",
+        "material_read": "Public PDF title/abstract/introduction and Ising Hamiltonian in §§I–II, §VII ladder construction, numerical Table I, and §VIII conclusion",
+        "method": "Original arXiv PDF text and PDF-page image inspection",
+        "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+        "trigger": "One-spin-stable state enumeration and explicit infinite-ladder section are closely related through antiferromagnetic Ising metastability"
+      },
+      {
+        "assessment": "Discusses general fractional and circular chromatic parameters, not an identified finite circular-prism color-count formula; access/scope gap retained as risk",
+        "evidence": [
+          "DOI 10.1002/jgt.21868 abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.21868",
+        "material_read": "Publisher abstract and available main-result summary only; full paper not materially inspected",
+        "method": "Publisher search results",
+        "title": "Fractional, Circular, and Defective Coloring of Series-Parallel Graphs",
+        "trigger": "General 1-defective coloring language potentially subsumes stable configurations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c642dc5-22a7-4245-8c19-8d939f4feabc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire natural one-spin-stable/absorbing energy spectrum of the smallest periodic cubic strip is determined, with exact frustrated ground-state multiplicity, mod-six finite-size correction and Lucas exponential metastable growth. This answers a complete finite-volume dynamical census, supplies a normalization for frozen-state ensembles, and contrasts many absorbing configurations with a uniform polynomial expected hitting-time bound. The specific energy statistic is the canonical monochromatic-edge Lyapunov energy, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
