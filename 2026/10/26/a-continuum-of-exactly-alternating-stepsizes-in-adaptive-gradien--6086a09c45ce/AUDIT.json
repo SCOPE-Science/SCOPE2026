@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For the scalar quadratic L_k=lambda at every nonstationary step. Algebra reconstructs the exact two-branch recurrence, cap involution and single fixed point; the high-to-low transition must use the cap, the reverse transition is feasible precisely when r³-2r/3-1≤0, giving exhaustive classification. The paper verifies the specified theta0 startup, proves iterates never hit the minimizer at finite time and proves a two-step geometric contraction. Strict inequalities imply a genuine neighborhood mapped in two steps to the cap-involution curve with Jacobian eigenvalues 0,1. Exact rational checks and 80-digit program independently diagnose formulas, not replace proof. Boundary tie and finite precision are excluded where necessary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2 of arXiv:2308.02261 proves convergence of primal iterates for convex objectives, not convergence or nonconvergence of stepsizes.",
+        "PMLR 119 (2020) analyzes a different adaptive-gradient rule with a curvature cap of another form."
+      ],
+      "reasoning": "Primal convergence does not entail the asserted periodic parameter dynamics or cutoff. The cycle is an original-algorithm specialization, but no stronger earlier result covering this continuum was located in inspected relevant texts.",
+      "searches": [
+        "Adaptive Proximal Gradient Method for Convex Optimization Malitsky Mishchenko Algorithm 2 scalar quadratic cycling",
+        "arXiv:2308.02261v2 Theorem 2 primal convergence",
+        "arXiv:2301.04431v4 §4.3 oscillatory stepsizes",
+        "Adaptive Gradient Descent without Descent PMLR 119 original algorithm"
+      ]
+    },
+    "checked_sources": [
+      "Malitsky & Mishchenko, arXiv:2308.02261v2, Algorithm 2, Lemma 5, Theorem 2",
+      "Latafat et al., arXiv:2301.04431v4, equations (1.4), §4.3",
+      "Malitsky & Mishchenko, PMLR 119 (2020), original method overview"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inverse-square identity is already proved in Malitsky–Mishchenko Lemma 5.",
+        "The same source separately imposes an active growth branch, which creates a nontrivial polynomial inequality at two-cycles.",
+        "The other work explicitly describes observed cycling as needing further rigorous explanation."
+      ],
+      "reasoning": "Combining the source cap identity with the other branch, rather than merely restating Lemma 5, yields the sharp cubic ratio cutoff and sufficiency of the full family. The unproved classification is not an immediate corollary of the stated convergence theorem, although algebraically accessible from the algorithm.",
+      "searches": [
+        "arXiv:2308.02261v2 Lemma 5 inverse-square active curvature cap",
+        "arXiv:2308.02261v2 Algorithm 2 growth factor sqrt(2/3+theta)",
+        "arXiv:2301.04431v4 Section 4.3 empirical cyclic behavior"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Malitsky–Mishchenko 2023 Algorithm 2 prescribes the exact two-branch stepsize recurrence; Lemma 5 already states the reciprocal-square identity on active caps.",
+        "Latafat–Themelis–Stella–Patrinos 2024 §4.3 reports apparent cyclic stepsizes but uses a distinct cocoercivity cap and growth coefficient."
+      ],
+      "reasoning": "The source reciprocal-square identity is a necessary ingredient, not an orbit classification. The new claim specifies all prime-two cycles, the exact ratio cutoff, an actual open startup interval and local transverse phase map. The other proximal method is not equivalent at the update level, so its empirical observations do not imply this quantitative result.",
+      "searches": [
+        "\"Malitsky\" \"Mishchenko\" \"cycle\" \"stepsize\" \"Algorithm 2\"",
+        "\"Adaptive gradient descent-2\" \"periodic\" \"stepsize\"",
+        "\"Malitsky\" \"Mishchenko\" \"period two\" \"stepsize\"",
+        "\"Adaptive gradient descent-2\" \"cycle\" quadratic",
+        "arXiv:2308.02261v2 Algorithm 2, Lemma 5, Theorem 2; full-text cycle/period scan",
+        "arXiv:2301.04431v4 Section 4.3 stepsize cyclic behavior"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact orbit table or enumeration for the scalar Algorithm 2 recurrence was present in the inspected complete HTML manuscripts.",
+        "The original paper derives only a local cap identity in Lemma 5, with no two-cycle parameter table."
+      ],
+      "reasoning": "This concerns a symbolic dynamical classification rather than an externally maintained fixed database. Searches by method, period, scalar quadratic, and inverse-square cap did not yield exact tabulations; that absence is not in itself a uniqueness proof.",
+      "searches": [
+        "Malitsky Mishchenko 2023 Adaptive Gradient Descent-2 AdGD-2 scalar quadratic continuum of stable stepsize two cycles reciprocal inverse squared steps",
+        "Malitsky Mishchenko Algorithm 2 gamma step 2/3 plus theta previous constant local L nonconvergent periodic step lengths",
+        "AdProxGD adaptive gradient descent squared reciprocal stepsize involution exact periodic orbit",
+        "two cycle continuum for variable step gradient descent local curvature recurrence square-root 2/3 previous step ratio",
+        "\"Adaptive Proximal Gradient Method for Convex Optimization\" \"periodic\" step"
+      ]
+    },
+    "rationale": "The original algorithm and its reciprocal-square cap relation are explicitly credited as established. The new science is its sharp complete prime-two orbit family, open exact-startup interval and transverse absorbing dynamics. Full primary HTML inspections reveal convergence proofs and the cap identity but no mathematically dominating explicit classification; another related paper discusses empirical cycling with a different update and leaves rigorous analysis open. The result remains best-knowledge originality, not an independently guaranteed uniqueness claim.",
+    "residual_risks": [
+      "The cap involution is simple once the source reciprocal-square identity is known; a previously unnoticed implicit classification could exist in a closely related proof.",
+      "Related studies of adaptive parameter cycles may use different nomenclature or unpublished notes.",
+      "The earlier 2020 paper was available as a landing-page abstract for this comparison, not inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTAINS METHOD AND INVERSE-SQUARE IDENTITY, NO IDENTIFIED EXACT PRIME-TWO CLASSIFICATION",
+        "evidence": "Algorithm 2 has the two-branch update with theta0=1/3; Lemma 5 contains 1/alpha_{k-1}²+1/alpha_k²=2L_k² for active curvature updates; Theorem 2 is about convergence of iterates.",
+        "identifier_or_url": "https://arxiv.org/html/2308.02261v2",
+        "material_read": "Algorithm 1 vs Algorithm 2 (lines 233–261); §3 method and Remark 2 (268–276); Lemma 5 (349–356); Theorem 2 (376–414); further stepsize analysis and appendices",
+        "method": "Full public HTML text inspected in relevant sections and searched for cycling or period-two statements",
+        "title": "Adaptive Proximal Gradient Method for Convex Optimization",
+        "trigger": "Exact original adaptive gradient descent-2 method and possible prior theorem"
+      },
+      {
+        "assessment": "RELATED EMPIRICAL CYCLING IN DIFFERENT UPDATE; NOT A COVERING EXACT THEOREM",
+        "evidence": "Section 4.3 reports oscillatory stepsizes and calls rigorous explanation interesting future work; its formula (1.4) differs in both growth and cap.",
+        "identifier_or_url": "https://arxiv.org/html/2301.04431v4",
+        "material_read": "Introduction, adaptive update (equations 1.1 and 1.4), §2 update, §4.3 observations and stated unresolved rigorous explanation; conclusions",
+        "method": "Full public HTML text, close comparative reading of formulas and passage",
+        "title": "Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient",
+        "trigger": "Explicit discussion of cycling and stronger proximal coverage"
+      },
+      {
+        "assessment": "EARLIER RELATED FRAMEWORK, DIFFERENT RULE; NO GENERAL CLASSIFICATION IN MATERIAL READ",
+        "evidence": "Published 2020 foundational method, later article identifies distinct more permissive cap; landing-page abstract concerns convergence, not exact stepsize periodic orbits.",
+        "identifier_or_url": "https://proceedings.mlr.press/v119/malitsky20a.html",
+        "material_read": "Public original publication abstract, bibliographic record, and the later papers’ explicit comparison to the older update",
+        "method": "Primary published landing page plus direct mathematical update comparisons in the above full texts",
+        "title": "Adaptive Gradient Descent without Descent",
+        "trigger": "Earlier gradient-based local-curvature adaptation and potential stronger general theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6086a09c-45ce-432a-ade1-5ec80086f8cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full continuum (not an isolated unstable witness) of nonconvergent adaptive stepsizes arises under exact normal initialization on the simplest strongly convex optimization problem, with a sharp nontrivial cubic frontier imposed by the growth safeguard. The invariant family has a transverse zero eigenvalue and a neutral tangent; this quantifies stable algorithmic parameter cycling while primal optimization contracts. This information matters for analyzing stepsize stabilization, diagnostics and extrapolations. It is neither a renamed source lemma nor a routine objective-convergence corollary. Applicability is explicitly restricted to the original scalar update.",
+    "status": "PASS"
+  }
+}
