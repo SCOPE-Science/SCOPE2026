@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For distinct positive loads, the mixed occupancy moment counts ordered pairs of distinct boxes. The exact multinomial factorial counting gives the normalized ratio (1). Dividing consecutive ratios yields factor (2), strictly decreasing for all finite m>=3 and n>=r+s, proving strict log-concavity, a bounded superlevel set, and the covariance sign interval. Exact rational computations show three alternating signs for fixed ten-box singleton/eight-ball counts. Fixed-load asymptotic Taylor expansions with n/m tending to positive lambda yield the covariance limit and quadratic load thresholds, with no boundary sign claimed when its leading coefficient vanishes. The standalone independent checker passed 13383 exact assertions on actual code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sevastyanov and Chistyakov (1964) abstract states a multivariate local normal limit in a fixed equal-box model; the full text was inaccessible.",
+        "Barbour and Gnedin arXiv:0809.4387v1, introduction, section 3, section 5 formula (5.1), and section 6 discuss infinite box schemes with nonuniform frequencies.",
+        "Harris and Park (1971) expressly cites companion work on linear combinations; complete primary text of the companion was not retrieved."
+      ],
+      "reasoning": "A general joint normal theorem can cover the leading asymptotic covariance but a limiting covariance matrix alone does not imply exact finite sample-size log-concavity; the 2008 infinite-urn assumptions differ. The inaccessible companion remains a possible source of a dominating general formula, but no statement establishing the claimed one-window law was found.",
+      "searches": [
+        "\"Asymptotic Normality in the Classical Ball Problem\" pdf 1963",
+        "\"The distribution of linear combinations of the sample occupancy numbers\" Harris Park pdf",
+        "\"Small counts in the infinite occupancy scheme\" covariance correlation",
+        "https://arxiv.org/pdf/0809.4387"
+      ]
+    },
+    "checked_sources": [
+      "Harris and Park, Ann. Inst. Stat. Math. 23 (1971), 125--133, full primary PDF inspected.",
+      "Barbour and Gnedin, arXiv:0809.4387v1, 2008, accessible primary text sections inspected.",
+      "Sevastyanov and Chistyakov, Theory Probab. Appl. 9 (1964), publisher abstract only.",
+      "Harris and Park, Indagationes Mathematicae 33 (1971), 121--134, citation only.",
+      "Published occupancy-richness versus occupancy-frequency finding, short summary only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Observed richness is the total box count minus the zero-frequency count; its covariance with a frequency class is therefore a zero-versus-positive-class relation, not a positive-versus-positive-class relation.",
+        "Harris and Park (1971) supplies the broad joint distribution, and Sevastyanov and Chistyakov (1964) cover limiting Gaussian behavior, but neither accessible statement asserts the finite strict log-concavity result.",
+        "For the ten-box singleton/eight-ball instance the exact covariance signs at sample sizes 9, 20, 70 are negative, positive, negative."
+      ],
+      "reasoning": "The asserted contribution is not the already-known joint moment nor merely an asymptotic covariance. It requires controlling the sequence of normalized moments as sample size varies while keeping box count and both positive load classes fixed. A one-switch theorem involving the zero-size class and a general limiting theorem do not logically force this finite cross-positive-class sign-window property without the new exact adjacent comparison.",
+      "searches": [
+        "classical balls in bins count occupancy cells size r size s covariance off diagonal sign transition two roots finite exact n m",
+        "A one-switch covariance law for occupancy richness and frequency counts",
+        "The limiting distribution of the sample occupancy numbers from the multinomial distribution with equal cell probabilities",
+        "\"The distribution of linear combinations of the sample occupancy numbers\" Harris Park pdf 1971"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harris and Park (1971), equations (2) and (3) on page 126 and Theorem 1 on page 131: general profile probabilities, fixed-class factorial moments, and univariate limits.",
+        "The adjacent-ratio calculation (2) concerns variation of two distinct positive size classes with sample count at fixed box count, rather than one-class moments."
+      ],
+      "reasoning": "A classical joint profile law yields the raw second moments but does not by statement establish a strictly decreasing adjacent-sample-size cross-moment ratio or a complete finite covariance-sign interval. The proof performs a new parameter comparison across sample sizes. Independent historical priority is not certified.",
+      "searches": [
+        "Uniform occupancy spectrum with m boxes, factorial moment correlation ratio E[N_r N_s]/(E[N_r]E[N_s]) strictly log-concave in sample size n for distinct r,s>=1; positive covariance intervals",
+        "Covariance of number of singletons and octupletons in random allocations changes sign twice when number of balls increases",
+        "\"sample occupancy numbers\" \"covariance matrix\" lambda r s",
+        "https://www.ism.ac.jp/editsec/aism/pdf/023_1_0125.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest returned published occupancy-spectrum records concern observed richness against one frequency count, occupied-cell indicator precision, and multinomial modes; none supplies an exact distinct-positive-frequency count-pair window in its available statement.",
+        "The explicit ten-box three-sign comparisons were recomputed with exact rational integers rather than relying on any tabulation."
+      ],
+      "reasoning": "No exact table or record covering the finite window and its demonstrated two flips was identified in the actual searches. Absence of a search match is not treated as proof of priority.",
+      "searches": [
+        "Occupancy spectrum multinomial fixed equal boxes: normalized cross-factorial moment of two distinct positive frequency class counts is strictly log-concave as ball sample size increases, and their covariance has at most one positive interval, with two negative-positive-negative reversals for singleton vs octupleton classes",
+        "Uniform occupancy frequencies number of boxes with exactly r and s balls can have positive covariance in intermediate load range, two negative to positive to negative sign changes as number of balls grows; exact unimodal normalized cross moment",
+        "\"occupancy numbers\" \"covariance\" \"positive\" \"negative\" r s balls bins"
+      ]
+    },
+    "rationale": "The checked 1971 uniform-multinomial primary article contains classical occupancy frequencies and univariate moment asymptotics, so the joint allocation formula is not claimed as new. The 1964 multivariate CLT can imply an asymptotic cross-covariance after specialization; it does not directly state the finite exact adjacent-sample-size log-concavity and one-positive-window law. The inspected 2008 infinite-occupancy paper concerns a different nonuniform infinite-box asymptotic regime. The nearest published occupancy-richness sign theorem treats the complement of the zero-size class; it does not imply a pairwise positive-size frequency covariance sign pattern. Actual semantic record searches yielded no directly dominating theorem. Risk of implicit classical derivation remains, especially in inaccessible related older full texts.",
+    "residual_risks": [
+      "Historical classical general generating-function or linear-combination results may make the simple exact adjacent ratio implicitly known even if not explicitly stated.",
+      "Complete texts of Sevastyanov--Chistyakov 1964 and Harris--Park companion 1971 were inaccessible in this assessment.",
+      "The limiting covariance formula is likely derivable from classical multivariate central limit results and is not presented as a standalone novel priority result.",
+      "No independent specialist priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives classical profile distribution and univariate moment limits; the claimed sample-size adjacent-ratio log-concavity and two-reversal finite sign example were not stated in the inspected pages.",
+        "evidence": [
+          "PDF pp. 125--127 gives profile and factorial moments; p. 131 Theorem 1 gives one-class asymptotics; p. 126 cites a separate companion article on linear combinations."
+        ],
+        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/023_1_0125.pdf",
+        "material_read": "The nine primary-paper pages (125--133), including equations (2)--(4) and Theorem 1.",
+        "method": "Visual inspection of original journal PDF page images (born-scanned).",
+        "title": "The limiting distribution of the sample occupancy numbers from the multinomial distribution with equal cell probabilities",
+        "trigger": "Exact same uniform multinomial occupancy spectrum, classical factorial moments and possible covariance coverage."
+      },
+      {
+        "assessment": "Deals with infinite generally nonuniform box probabilities and limit covariance structure; no finite equal-box adjacent-n ratio or sign-window theorem in the inspected material.",
+        "evidence": [
+          "Preprint arXiv:0809.4387v1 dated 2008-09-25; introduction; section 5 formula (5.1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+        "material_read": "Abstract, introduction, probability/counting definitions, multivariate approximation statements, section 5 covariance formula, section 6 covariance convergence discussion.",
+        "method": "Open-access arXiv primary PDF parsed sections and visually examined representative pages.",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Published joint covariance literature for counts of boxes with different occupancies."
+      },
+      {
+        "assessment": "Broad limit theorem plausibly implies part of the leading limiting covariance, but no inspected material establishes the finite sample-size log-concavity. Historical-priority residual risk explicitly retained.",
+        "evidence": [
+          "1964 Theory of Probability and Its Applications article abstract describes joint normality for fixed occupancy-size counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1109034",
+        "material_read": "Publisher abstract, bibliographic dates, and available citations only; complete primary paper not accessed.",
+        "method": "Publisher article page; alternative access searches and institutional request were unsuccessful.",
+        "title": "Asymptotic Normality in the Classical Ball Problem",
+        "trigger": "Same finite equal-probability multinomial scheme and multivariate frequency-count law."
+      },
+      {
+        "assessment": "Plausible implicit classical covariance coverage; direct finite log-concavity or sign window not verifiable from accessible material; residual risk.",
+        "evidence": [
+          "Harris and Park (1971) AISM p. 126 references the companion as a study of linear combinations."
+        ],
+        "identifier_or_url": "Indagationes Mathematicae (Proceedings) 74 (1971), 121--134",
+        "material_read": "Bibliographic records and reference description from Harris and Park companion paper only; complete primary article not retrieved.",
+        "method": "Original-paper cross-reference and bibliographic search; alternative access was unavailable.",
+        "title": "The distribution of linear combinations of the sample occupancy numbers",
+        "trigger": "Potential stronger general formula covering cross moments for exactly the same occupancy statistics."
+      },
+      {
+        "assessment": "The stated comparison is between observed richness and one frequency class. Since richness is the complement of the zero-size count, its implication concerns a zero-versus-positive pair, not the distinct positive-size pair proved here.",
+        "evidence": [
+          "Summary states a single sign switch as the occupancy frequency index varies, at fixed occupancy parameters."
+        ],
+        "identifier_or_url": "Published research-record summary (title only; full article not inspected)",
+        "material_read": "Published short summary only.",
+        "method": "Semantic scientific-record search.",
+        "title": "A one-switch covariance law for occupancy richness and frequency counts",
+        "trigger": "Same uniform occupancy model with a covariance sign switch."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46bdb4d9-ec77-4f7e-afd3-9e002cf410a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Occupancy-frequency counts are the classical cell-frequency spectrum used in uniform multinomial goodness-of-fit and species-frequency problems. A complete finite sign-window classification across sample sizes, together with an exhibited negative-positive-negative reversal, gives a nontrivial structural boundary: two distinct positive-count classes can cooperate despite mutually exclusive per-cell classifications, yet cannot exhibit arbitrarily many alternating dependence phases. The quadratic limiting load window explains the role of separation of frequency classes and provides a usefully interpretable asymptotic envelope. The result is not merely a tabulated covariance or textbook single-moment calculation.",
+    "status": "PASS"
+  }
+}
