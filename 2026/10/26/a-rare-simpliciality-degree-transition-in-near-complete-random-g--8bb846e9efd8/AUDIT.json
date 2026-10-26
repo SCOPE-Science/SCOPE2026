@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact weight w(n,d)=C(n-1,d)p^[d(d+1)/2]q^[n-1-d] follows from incident-edge counting and independent clique edges. Uniform log-weight error o(n log n) gives a rigorous one-dimensional Laplace principle and full conditional LDP, with boundary minimizer checked for c<=1 and interior minimizer for c>1. Conditioning on neighbors leaves the non-clique-constrained edges independent, so a binomial Chernoff union bound proves every unmarked normalized degree tends to one. The exact finite verifier passed 70 assertions across exhaustive graphs n=2..6 and five c-parameter convergence tests. Computation does not establish the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grimmett–Janson arXiv:0712.0270, Sections 1–2, explicitly uses sparse p=lambda/n and global restrictions to a prescribed set of degrees; its main theorem concerns bounded-average-degree regimes.",
+        "Hébert-Johnson–Lokshtanov–Vigoda arXiv:2308.09703 develops exact counting and sampling over the globally chordal graph family, not tilted independent-edge G(n,p) given a local clique neighborhood.",
+        "The mathematical Laplace principle for finite sums is standard; its use here requires an object-specific energy F_c with a boundary-to-interior minimizer transition."
+      ],
+      "reasoning": "The inspected prior frameworks do not dominate the claim through a stronger theorem with matching probability ensemble, conditioning and parameter scale. An undiscovered generalized conditioning theorem could imply parts, so independent priority checks remain necessary.",
+      "searches": [
+        "Random graphs with forbidden vertex degrees Grimmett Janson arXiv 0712.0270",
+        "conditional degree large deviations given neighborhood clique in random graph G(n,p), probability exponent inf 1-a+c a^2/2",
+        "large-deviation phase transition of local graph neighborhood being a clique when edge probability tends to one",
+        "Counting and Sampling Labeled Chordal Graphs in Polynomial Time arXiv 2308.09703"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0712.0270",
+      "arXiv:2012.05287",
+      "arXiv:2308.09703",
+      "Public mathematical-record comparison with “Three-point connectivity exactly controls component–triangle covariance” (distinct claim)",
+      "Public mathematical-record comparison with “Exact negative regression between endpoint degree and distance in a uniform Cayley tree” (different model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0712.0270 Section 2 describes an empirical Poisson degree law under all-vertex forbidden-degree conditioning in sparse G(n,lambda/n).",
+        "arXiv:2012.05287 Theorem 1.2 proves deterministic simplicial-clique existence for even-hole-free, claw-free graphs.",
+        "arXiv:2308.09703 Sections 1–3 describe global chordal graph sampling using simplicial elimination, not the independent Bernoulli near-complete model."
+      ],
+      "reasoning": "The present claim prescribes a single vertex local clique event in dense G(n,p_n), obtains a particular exponential rate at speed n log n, and identifies a unique conditional degree fraction and unmarked-degree localization. None of these cited conclusions follows just by specializing any stated source theorem; the conditional exact weight is derived independently.",
+      "searches": [
+        "arXiv:0712.0270 random graphs with forbidden vertex degrees",
+        "arXiv:2012.05287 A note on simplicial cliques",
+        "arXiv:2308.09703 Counting and Sampling Labeled Chordal Graphs in Polynomial Time",
+        "random graphs simplicial vertices neighborhood clique conditional large deviations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional event is exactly that the marked open neighborhood is a clique; arXiv:2308.09703, introductory definition, and arXiv:2012.05287, Section 1, use the same graph-theoretic term.",
+        "The exact conditional degree weights are binomial coefficients times p to d(d+1)/2 and (1-p) to n-1-d; none of the inspected papers displays or applies this tilt in the logarithmically near-complete regime."
+      ],
+      "reasoning": "Aliases included simplicial vertex, clique neighborhood, local chordal elimination, and conditional degree of a marked vertex. A generic neighborhood complex is a different object. Matching graph terminology alone is not coverage of a conditional large-deviation theorem.",
+      "searches": [
+        "simplicial vertex",
+        "near-complete Erdős–Rényi graph conditioned on a given vertex having a clique neighborhood; normalized root degree",
+        "simplicial vertices random graphs G(n,p) expected number local extrema edge density",
+        "random graph simplicial vertex probability nonmonotone derivative edge count threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest public mathematical-record results retrieved concerned graph connectivity, clique-polytopes, neighborhood-complex homotopy, and degree regression in uniform Cayley trees, rather than the same local event in G(n,p).",
+        "A nearest random-graph result, “Three-point connectivity exactly controls component–triangle covariance,” concerns finite-edge bond percolation and graph connectivity states, with no simplicial-neighborhood conditioning."
+      ],
+      "reasoning": "No same-object exact table, energy-rate formula, or conditional degree phase theorem was identified in the records actually queried. Failure to find a database hit is not itself proof of novelty.",
+      "searches": [
+        "rare simplicial vertices in nearly complete Erdos-Renyi graphs conditioned on neighborhood clique, degree fraction phase transition at p = 1 - c log n/n",
+        "random graph induced neighbor subgraph is complete conditional degree location phase transition",
+        "random graph simplicial vertex near-complete regime conditioned degree large deviations",
+        "simplicial vertex",
+        "simplicial vertices G(n,p) threshold",
+        "Explicit rate function I_c(a)=1-a+c a^2/2 - min for the degree of a simplicial vertex conditional its neighbor set is clique in Erdős Rényi p=1-c log n/n",
+        "Degree condensation at a rare clique neighborhood in dense binomial random graph: boundary-to-interior minimizer at c=1 and conditional localization of defect"
+      ]
+    },
+    "rationale": "Full-text comparisons of arXiv:0712.0270, arXiv:2012.05287 and arXiv:2308.09703 revealed different probability ensembles, deterministic existence statements or global chordal graph counts, not a covering conditional degree LDP for rare simpliciality in dense G(n,p). Public mathematical-record searches by claim, aliases, parameters and equivalences returned no directly covering result. Standard large-deviation machinery itself is not claimed new. Historical priority is provisional.",
+    "residual_risks": [
+      "Earlier general local-pattern large-deviation formulas or conditioned graphon principles may implicitly derive the rate after nontrivial specialization; no independent priority audit was performed.",
+      "The sampling theorem for globally chordal graphs is not a complete catalog of all simplicial-vertex results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the stated theorem; conditioned all-vertex degree-set graph in sparse p=lambda/n differs fundamentally from a marked clique-neighborhood event in near-complete p.",
+        "evidence": "Theorem 2.1 and introductory scope assume lambda_n/n and a global S-graph; Section 1 explicitly limits treatment to bounded average degree.",
+        "identifier_or_url": "https://arxiv.org/pdf/0712.0270",
+        "material_read": "Full-text pages 1–4 (introduction, definitions, main theorem), plus whole-document searched for simplicial; theorem scope and hypotheses inspected.",
+        "method": "Read arXiv primary PDF text and first-page rendered view; checked probability scaling and conditioning assumptions.",
+        "title": "Random graphs with forbidden vertex degrees",
+        "trigger": "Potential stronger conditioned random-graph degree law."
+      },
+      {
+        "assessment": "NOT_COVERING; deterministic forbidden-induced-subgraph existence result, no independent-edge model or conditional probability law.",
+        "evidence": "Theorem 1.2 concerns even-hole-free and claw-free graphs; simplicity of a marked random neighborhood is not analyzed.",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.05287",
+        "material_read": "Full-text pages 1–4 including Theorem 1.2, definitions and beginning of its proof.",
+        "method": "Read arXiv primary PDF text and local theorem statements.",
+        "title": "A note on simplicial cliques",
+        "trigger": "Same simplicial terminology and plausible stronger structural results."
+      },
+      {
+        "assessment": "NOT_COVERING; uniform labeled chordal sampling, not rare conditioning in Erdos-Renyi G(n,p).",
+        "evidence": "Introductory paragraphs define uniform chordal graph counting and use simplicial vertex elimination; no parameter p_n=1-c log n/n or conditional root degree LDP.",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.09703",
+        "material_read": "Primary text title/abstract, Section 1 graph-distribution descriptions, simplicial vertex definition and evaporation-sequence mechanism in pages 2–5, and Section 7 split-graph definitions around pages 30–32.",
+        "method": "Read arXiv primary PDF text and rendered title page; compared the random ensemble and graph objects.",
+        "title": "Counting and Sampling Labeled Chordal Graphs in Polynomial Time",
+        "trigger": "Simplicial vertices enter global chordal random-graph sampling; potential stronger probability model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bb846e9-efd8-4117-898e-033d8efe07ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A simplicial vertex is a natural local structural feature tied to chordal elimination; the near-complete G(n,p) benchmark offers a natural competition between deleting marked incident edges and forcing edges among its neighbors. The resulting variational law has an exact critical c=1, a C1/non-C2 rare-event rate, all-macroscopic-degree large deviations, and a tagged-only defect while other vertices remain asymptotically full-degree. This phase classification is more than an arbitrary finite computation or algebraic rephrasing.",
+    "status": "PASS"
+  }
+}
