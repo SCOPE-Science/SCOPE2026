@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Three disjoint descendant weights are counted respectively by bounded three-gap compositions, an exact union of two one-marker position intervals, and a unique all-zero descendant. Double counting source/descendant pairs yields the all-radius mean, including boundary values. Coefficientwise gap balancing plus discrete threshold convexity yields the finite optimum; three independent deleted-gap allocations characterize saturation. A Python checker independently enumerated 3,003 distinct-subsequence sets and checked 1,101,870 finite maximum/plateau cases. Finite checks corroborate but do not prove the universal identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1202.1644 establishes r-run extrema and run-balancing; balanced-run results are more general but for fixed runs rather than fixed Hamming weight.",
+        "Hirschberg–Regnier uniform-source mean has a different probability space."
+      ],
+      "reasoning": "The broad maxima and balancing facts may imply the qualitative maximizer shape, but cannot by themselves be cited as the explicit conditional fixed-weight-two exact mean. The numerical plateau limit follows from bounded source weight and was checked separately.",
+      "searches": [
+        "published-finding corpus: fixed-weight-two deletion sphere sharp max plateau binomial(t+2,2)+2t+1 at n>=3t+2, iff all three zero gaps at least t",
+        "Liron and Langberg 2012 sections II and IV",
+        "Hirschberg Regnier 2000 section 4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1202.1644",
+      "https://www.ics.uci.edu/~dan/pubs/JDA.pdf",
+      "doi:10.1109/TIT.2008.924730",
+      "published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+      "published-finding corpus 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+      "published-finding corpus 2026/10/4/SCOPE-exact-inverse-ball-law-for-one-zero-deletion-and-one-adjacent-tr--53d4e9f05204"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liron–Langberg Lemma II.7 implies broad monotonicity of balancing, so balancing per se is previously covered.",
+        "Mercier–Khabbazian–Bhargava 2008 is bibliographically verified but unavailable in full text for detailed direct comparison.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc gives unconditional t=2 variance, not this conditional exact t-general mean."
+      ],
+      "reasoning": "The all-radius source weight-two mean is not a corollary of merely substituting a parameter into the cited published unrestricted mean, since conditioning changes the source distribution; a new direct source/descendant double count proves it. The pointwise formula and sharp plateau are structurally related but distinct statements. Risk remains that older general formulas imply or contain the same closed identity after unsupplied algebra.",
+      "searches": [
+        "published-finding corpus: exact t deletion descendant set size maximum fixed Hamming weight two binary word n deletion ball",
+        "published-finding corpus: sharp maximum 2 deletion sphere 11 fixed weight binary words two ones",
+        "Mercier Khabbazian Bhargava 2008 deletion subsequences DOI:10.1109/TIT.2008.924730"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liron–Langberg arxiv:1202.1644 Lemma II.7 provides general monotonicity under balancing, unlike the conditional exact all-radius mean.",
+        "Hirschberg–Regnier JDA 1(1) 2000 addresses the unconditional uniform-source average."
+      ],
+      "reasoning": "Run-balancing under deletion is indeed an older stronger result, so the new theorem does not claim it. A general dynamic program for all inputs could calculate the special case, but the reviewed general results do not state the evaluated all-parameter conditional mean T_(n,t) or the complete saturated plateau on weight two.",
+      "searches": [
+        "published-finding corpus: deletion sphere cardinality fixed weight two at arbitrary deletion radius gap composition",
+        "published-finding corpus: average number distinct deletion subsequences fixed Hamming weight two binary words any t exact mean",
+        "arxiv:1202.1644"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantically close published search result listed a table or all-length exact formula for conditional weight-two deletion sphere averages.",
+        "The directly computed exhaustive tables for n=2..12 match the formula."
+      ],
+      "reasoning": "The present statement is an all-length identity, not an isolated recomputation of a known tabulated finite result. Database nonretrieval is not taken as proof of novelty.",
+      "searches": [
+        "published-finding corpus: For binary weight-2 words length n, sum of size of t-deletion descendant sets equals binomial(t+2,2) binomial(n-t,2)+t(n-t)^2+binomial(t,2)(n-t)+indicator(t>=2) binomial(n,2)",
+        "published-finding corpus: exact finite-length max t-deletion ball on binary strings with exactly two ones achieved by balanced outer and middle zero gaps",
+        "arxiv 1202.1644 PDF"
+      ]
+    },
+    "rationale": "The distinct assessed statement is the exact conditional weight-two deletion-sphere sum for arbitrary deletion radius, alongside the self-contained gap formula and saturated threshold. Full-text primary comparison credits the earlier general balancing monotonicity and unrestricted mean; no inspected statement supplies this conditional identity. A possibly relevant inaccessible 2008 paper leaves genuine priority uncertainty.",
+    "residual_risks": [
+      "The 2008 Mercier–Khabbazian–Bhargava primary text was inaccessible for a theorem-by-theorem comparison.",
+      "A general historical deletion-count recurrence might implicitly yield the specialized conditional mean under additional algebra not present in reviewed text.",
+      "Semantic searches cannot establish universal literature priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers balancing as prior work; does not present the evaluated conditional mean of weight-two strings in the inspected material.",
+        "evidence": [
+          "Run-balancing Lemma II.7; Section IV balanced r-run bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "Full-text PDF introduction, Section II including Lemma II.7, and Section IV extremal analyses and Corollary IV.1",
+        "method": "Read accessible arXiv PDF and examined proof statements and hypotheses",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Direct general result about t-deletion spheres, run balance and extrema"
+      },
+      {
+        "assessment": "Studies the mean over all source strings, not weight-two source conditioning.",
+        "evidence": [
+          "The definition of the uniform source measure and mean in §4; upper bounds §§1–3"
+        ],
+        "identifier_or_url": "https://www.ics.uci.edu/~dan/pubs/JDA.pdf",
+        "material_read": "Author-hosted PDF introduction, general upper bounds in sections 1–3 and the stated unrestricted-source mean of section 4",
+        "method": "Read accessible author-hosted primary PDF",
+        "title": "Tight Bounds on the Number of String Subsequences",
+        "trigger": "Foundational average and maximum deletion sphere size"
+      },
+      {
+        "assessment": "Plausible earlier stronger or equivalent formulas; direct exclusion is not established.",
+        "evidence": [
+          "DOI bibliographic record only; no full-text novelty assertion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+        "material_read": "Title, bibliographic abstract and available secondary descriptions only; full text NOT read",
+        "method": "Searched arXiv and public open-access sources; institutional access attempt did not yield a PDF",
+        "title": "On the Number of Subsequences When Deleting Symbols From a String",
+        "trigger": "Older primary paper containing general exact/algorithmic counts for deletion spheres"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "998990bf-0c5f-4e2a-9697-173530a230de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For sparse constant-composition sources, precise distinct deletion-output counts govern the diversity of a deletion channel. The theorem supplies both exact arbitrary-radius mean over all weight-two inputs and an all-extremizer saturation threshold, revealing that for fixed deletion radius almost every long weight-two word reaches the maximum bounded descendant diversity. It is an infinite exact fixed-composition structure and distribution not merely an arbitrary small numerical slice.",
+    "status": "PASS"
+  }
+}
