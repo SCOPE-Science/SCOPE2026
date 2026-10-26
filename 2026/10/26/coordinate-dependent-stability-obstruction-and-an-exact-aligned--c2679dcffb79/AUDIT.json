@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution of the printed Algorithm 1 gives the stated block map. Symmetric spectral decomposition proves identity-controller no-go even for arbitrary fixed real beta. SVD proves aligned normal blocks, exact stability ceiling, and the endpoint convexity/crossing analysis proves the unique two-regime optimum, including equality and mu=L. check.py passed symbolic and 340 matrix cases; finite tests only corroborate the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Azizian et al. 2020, AISTATS, Section 6.2 provides rate bounds and acceleration of consensus optimization but not an explicit two-regime exact minimizer at fixed b,delta",
+        "Mescheder et al. 2017, Section 4 analyzes general Euler and consensus convergence, not this 2026 fixed-coordinate controller"
+      ],
+      "reasoning": "General spectral theory encompasses polynomial spectral maps and may allow derivation of the aligned optimization, but inspected sources do not directly state a dominating theorem supplying both the paper-specific no-go and the displayed exact fixed-gain phase diagram.",
+      "searches": [
+        "bilinear minimax gradient descent ascent cross-coupled same-sign positive beta parameter updates instability Schur disk",
+        "consensus optimization bilinear games exact optimal stepsize gain simultaneous Jacobian transpose fixed learning rate damping kappa spectral radius phase transition",
+        "Euler controlled minimax K singular values mixed signed eigenvalues identity cross gradient controller stabilization impossibility"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.12915 full HTML",
+      "arxiv:1705.10461 full primary PDF",
+      "PMLR:108:azizian20a full primary PDF",
+      "arxiv:1908.05699 full primary HTML",
+      "Indexed published mathematical finding records searched for 11 scientific claim/source queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Luo et al. 2026 Section 7 explicitly lists discrete stability as future work",
+        "Mescheder et al. 2017 supplies the CONSENSUS idea (aligned correction), already conceded as prior",
+        "Azizian et al. 2020 Section 6.2 derives approximate/accelerated rates for consensus but not the exact conditional step optimizer"
+      ],
+      "reasoning": "One paper predating 2026 cannot directly cover its specific printed Algorithm 1 by reference; algebraic equivalence is checked anyway. The aligned half may be deducible by old spectral-shape methods, so originality is attributed only to the scoped comparison and exact fixed-parameter phase diagram, not the general notion of consensus stabilization.",
+      "searches": [
+        "exact convergence condition simultaneous cross-gradient gain beta positive negative for bilinear saddle SPD K and optimal step size",
+        "Controlled-Minimax discretized positive coupling spectral radius unit circle counterexample bilinear Dirac GAN",
+        "Controlled-Minimax 2610.12915 Algorithm 1 discrete bilinear indefinite symmetric K identity cross-coupling beta no gain global convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.12915 Algorithm 1 explicitly specifies u_x=lambda g_x+beta A_c g_y and simultaneous parameter update",
+        "arxiv:1705.10461 presents consensus Jacobian-transpose regularization, not fixed identity-matrix gain for the later algorithm"
+      ],
+      "reasoning": "Substitution maps the 2026 algorithm to explicit Euler on a gain-altered bilinear gradient field. Prior consensus update is equivalent only to the ALIGNED variant, already credited; it is not equivalent to default A_c=I on an indefinite K.",
+      "searches": [
+        "Controlled-Minimax Luo Chen Zhu 2026 positive beta bilinear game discrete algorithm eigenvalues stability",
+        "arxiv 2610.12915 Luo Chen Zhu Controlled-Minimax Algorithm 1 bilinear positive beta eigenvalues divergence",
+        "Controlled-Minimax 2610.12915 Algorithm 1 discrete bilinear indefinite symmetric K identity cross-coupling beta no gain global convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed titles: sharp coupling frontier for sequential implicit proximal minimax; underdamped rate law for pure single-loop feedback; normal extragradient degree-two minimax; scalar PDHG fixed-product phase diagram",
+        "Researches on sequential implicit proximal saddle dynamics, pure single-loop feedback, normal extragradient, and PDHG report distinct maps and thresholds"
+      ],
+      "reasoning": "The submitted conclusion is a universal analytic matrix-map classification, not a finite database or known-table invariant. No matching indexed exact classification was found; a search miss is not uniqueness proof.",
+      "searches": [
+        "second-order minimax velocity-feedback controller continuum stationary equilibria discrete algorithm stability 2026",
+        "two endpoint minimax spectral factor 1 - b eta s squared plus i eta delta s singular values optimal step phase transition"
+      ]
+    },
+    "rationale": "The 2026 motivating source presents the parameter update but explicitly reserves discrete-time stability analysis; its continuous velocity theorem is not applicable to the map. Earlier consensus optimization establishes the aligned mechanism and prior spectral geometry bounds, which are acknowledged and not claimed. The joint sharp basis-dependence no-go for that particular identity controller and exact fixed-gain two-branch learning-rate threshold were not located as statements or direct implications in inspected primary text or indexed public research; residual implicit-special-case coverage is recognized.",
+    "residual_risks": [
+      "Known consensus and polynomial spectral-shape methods could yield the aligned exact tuner as an implicit corollary; a complete theorem-implication census is impossible.",
+      "Literature beyond searched/indexed records may have equivalent finite-dimensional controller-map and learning-rate formulas.",
+      "The no-go applies to a fixed default controller representation; it is not a claim about all equivalent coordinate parameterizations or continuous-time control."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact map and its unaddressed discrete-time issue; no signed-spectrum result or optimized stepsize",
+        "evidence": [
+          "Algorithm 1 gradient/controller/parameter formulas",
+          "Section 7: future work on discrete-time stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.12915",
+        "material_read": "Full accessible HTML, emphasis on continuous theorem Section 4, Algorithm 1 steps 3–12, numerical examples, conclusion and discrete-stability caveat",
+        "method": "Read primary arXiv full HTML text and independently substituted gradient symbols",
+        "title": "Controlled-Minimax: Stabilizing Adversarial Optimization via Control Theory",
+        "trigger": "Same discrete controller, exact Algorithm 1"
+      },
+      {
+        "assessment": "Predates and motivates aligned correction; no exact later default-controller sign no-go or fixed-gain phase boundary",
+        "evidence": [
+          "Consensus update and Jacobian-transpose gradient correction",
+          "Local discrete stability condition for Euler"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.10461",
+        "material_read": "Full 11-page open-access primary PDF, especially consensus optimization and local Euler stability sections",
+        "method": "Inspected PDF text and visually inspected the relevant displayed formulas",
+        "title": "The Numerics of GANs",
+        "trigger": "Original consensus optimization and potential aligned-control equivalence"
+      },
+      {
+        "assessment": "Broad framework and momentum acceleration; exact fixed-gain two-regime optimizer for specified 2026 map is not stated, but implicit coverage risk remains",
+        "evidence": [
+          "Section 6.2 defines consensus F+tau J^TF and momentum",
+          "Proposition 8 is asymptotic big-O rate bound"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v108/azizian20a/azizian20a.pdf",
+        "material_read": "Full 10-page OA primary PDF; abstract, context, Sections 5 and 6.2 on consensus and proposition 8",
+        "method": "Inspected extracted full-text including formula statements, page screenshot and detailed Section 6.2",
+        "title": "Accelerating Smooth Games by Manipulating Spectral Shapes",
+        "trigger": "Potential dominating full spectral-shape convergence theory"
+      },
+      {
+        "assessment": "Different gradient algorithms; does not state identity-cross-controller sign obstruction",
+        "evidence": [
+          "GDA/extragradient/optimistic and momentum iteration analyses"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.05699",
+        "material_read": "Accessible primary full HTML, algorithm and bilinear results across Sections 2–4",
+        "method": "Read complete HTML text of core methods",
+        "title": "Convergence of Gradient Methods on Bilinear Zero-Sum Games",
+        "trigger": "Exact bilinear-map stability and algorithm aliases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2679dcf-fb79-4aad-9323-1d30c8f2b7b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The specific recent practical method uses A_c=I without an exact discrete analysis. The negative theorem shows a basis-dependent universal impossibility on natural, nonsingular symmetric indefinite bilinear games (even though these games are isometrically equivalent to stable all-positive instances), not merely an isolated numerical divergence. The complementary aligned correction and sharp two-regime fixed-gain optimizer identify how coupling geometry, singular-value spread, and residual rotational gain determine feasible and optimal learning rates, enabling quantitative algorithm design; this is more than a trivial sign check.",
+    "status": "PASS"
+  }
+}
