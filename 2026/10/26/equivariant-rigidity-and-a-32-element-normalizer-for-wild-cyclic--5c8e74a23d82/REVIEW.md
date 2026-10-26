@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (C): PASS.** The claim quantifies over every nonzero parameter in an algebraically closed field of characteristic two, and over geometric isomorphisms of curve/subgroup pairs. The proof verifies that the quotient's unique branch point forces an affine base map, that the first Witt class forces scale one, and that Witt coboundaries cannot alter the cubic coefficient. It then computes the exact translation obstruction, identifies generator inversion as the linear-coefficient shift by one, and counts all permitted translations with a separable quartic. The explicit finite-field checker corroborates rather than replaces the universal proof.
+
+**Originality (O): PASS, with priority caveat.** Kazemifard and Tafazolian (arXiv:2610.04702v1, Theorem 5.7) supply the normal form but explicitly decline to assert uniqueness of the parameter. Cardona, Nart and Pujolàs (arXiv:math/0210105v1) provide a stronger classification for unmarked genus-two curves and full automorphism groups; however, forgetting the cyclic-four subgroup is not the same as the marked-pair equivalence relation established here. No retrieved matching or stronger statement implying this complete equivariant claim was found. Historical-priority risk remains for earlier work on marked actions, and parts of the normalizer count may be consequences of classical group presentations.
+
+**Mathematical value (V): PASS.** Resolving uniqueness of a parameter explicitly left open by a contemporary normal-form theorem is a natural algebraic-moduli question. The exact normalizer, its centralizer, and its elementary-abelian quotient additionally give a complete stabilizer profile for the marked wild action. The result does not classify unmarked genus-two curves or their full automorphism groups.
+
+Self-review: passed. Independent audit: not yet performed.
