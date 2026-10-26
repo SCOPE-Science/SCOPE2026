@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction of S_h=I+h exp(alpha hQ)Q from arXiv:2303.15861 Eq. (4); exact three-state eigenvalues and semigroup coefficients; for equal rates sharp center-diagonal minimum sets alpha=2/(3e), while every off-diagonal derivative and endpoint diagonal is nonnegative above it. Unequal rates yield one positive and one negative decaying exponential in the larger-edge transition derivative, with a unique sign crossover; the asymptotic coefficient expansion gives the claimed logarithmic delay. The standalone verifier reports 18,052 deterministic check units; finite tests supplement rather than establish universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1807.03728 Section 2 Proposition 2.2 supplies positivity of a different kinetic exponential Runge–Kutta method under positivity-preserving subflows and coefficient constraints.",
+        "arXiv:2303.15861 Theorem 2.3 proves negative-real scalar spectral stability for the SLE method but not entrywise positivity.",
+        "published-finding corpus: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab."
+      ],
+      "reasoning": "A generic theorem guaranteeing nonnegative updates for this particular SLE formula on every weighted path would dominate the claim; source methods and matched records use different update functions and assumptions. The source spectral theorem is weaker than positivity and cannot imply it. The kinetic positive exponential RK construction is not SLE, and its coefficient constraints do not apply to the sign-changing semigroup derivative.",
+      "searches": [
+        "published-finding corpus query: positivity preserving stabilized Lawson Euler path graph exponential nonnegative all step parameter 2/(3e)",
+        "Web query: \"stabilized Lawson\" \"positivity\" Euler",
+        "Web query: positivity-preserving exponential Runge-Kutta Lawson numerical integrators Markov chain nonmonotone transition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.15861v2 (source method, Section 2, appendix)",
+      "arXiv:1807.03728v2 (related positivity RK, Section 2)",
+      "doi:10.1177/0272989X17696997 (Markov transition formulas)",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2303.15861 Section 2 Eqs. (4), Theorem 2.3: modal |1+z exp(alpha z)| <= 1; it places no sign restriction on individual matrix entries.",
+        "Jones et al. 2017 Section Kolmogorov’s Equations: the exact continuous-time probability P(t) is nonnegative, which does not imply its derivative has nonnegative off-diagonal entries.",
+        "published-finding corpus: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a; 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7."
+      ],
+      "reasoning": "The claimed iff criterion and logarithmically delayed failure are statements about P′(t), not positivity of P(t) or spectral power boundedness. The closest numerical statements concern rational method kernels; their conclusions neither imply nor are implied by this exponential SLE path classification. A general published characterization of entrywise monotonicity for all birth-death semigroup transitions could reduce novelty; such a covering source was not found among inspected material, so this remains a risk.",
+      "searches": [
+        "published-finding corpus query: nonmonotone transition probabilities symmetric three state path weighted Laplacian edge rates perturbation logarithmic threshold",
+        "published-finding corpus query: three-state symmetric birth-death continuous-time Markov chain transition probability overshoot nonmonotonic offdiagonal derivative p12(t) path unequal weights a b",
+        "Web query: \"monotonicity of transition probabilities\" continuous-time birth death chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caliari et al. arXiv:2303.15861 Section 2 Eq. (4) gives the exact SLE stability function; Jones et al. DOI:10.1177/0272989X17696997 Kolmogorov section derives P(t)=exp(tQ) and P′(t)=P(t)Q.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a."
+      ],
+      "reasoning": "Equivalent formulation is nonnegativity of I+hP′(alpha h), requiring off-diagonal transition probabilities to be nondecreasing at every positive time and diagonals to obey a sharp derivative bound. The identified published-finding corpus statement concerns Crank–Nicolson rational resolvents, not this exponential derivative update. No exact equivalent stabilized Lawson result was returned; absence of a hit is not itself proof of novelty.",
+      "searches": [
+        "published-finding corpus query: stabilized Lawson Euler positive Markov semigroup I+h exp(lambda h Q)Q graph Laplacian three-state stochasticity path unequal edge weights",
+        "Web query: \"I+h e^{hA}A\" positivity numerical",
+        "Web query: \"e^{tQ} Q\" \"nonnegative\" Markov positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Caliari et al. arXiv:2303.15861 Table 1 tabulates method-specific scalar stability constants including 1/(2e), not a positivity threshold 2/(3e).",
+        "Jones et al. DOI:10.1177/0272989X17696997 develops ordinary transition-probability formulas; no SLE numerical threshold or exact logarithmic step-crossing table.",
+        "published-finding corpus: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 covers SSP-SDIRK2(2) with a different stability function."
+      ],
+      "reasoning": "The exact fraction 2/(3e) is a diagonal-positivity boundary for the balanced 3-vertex path. It is not the known 1/(2e) scalar spectral-stability value, nor one of the tabulated Padé, SSP-SDIRK, Crank–Nicolson thresholds. None of the found tables supplies the a=b iff criterion or the edge derivative crossing.",
+      "searches": [
+        "published-finding corpus query: 2303.15861 stabilized Lawson-Euler scalar decay alpha lambda unconditionally stable sharp Markov positivity symmetric weighted path a b",
+        "Web query: \"stabilized Lawson-Euler\" \"mass preservation\"",
+        "Web query: \"transition probabilities\" \"overshoot\" \"birth-death\" 3 states"
+      ]
+    },
+    "rationale": "Source arXiv:2303.15861 provides SLE and scalar negative-axis spectral stability, but no entrywise nonnegative Markov-step classification. The other directly inspected primary papers and identified published-finding corpus nearest results involve different integrators or semigroup background; none implies the complete symmetric three-node rate rigidity, 2/(3e) threshold and logarithmic crossing.",
+    "residual_risks": [
+      "Unindexed equivalent three-state Markov transition derivative monotonicity calculations could already imply the path classification.",
+      "Only explicitly inspected relevant sections of full source papers; broad literature searches and semantic search cannot prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_METHOD_NOT_COVERING_THE_CLAIM",
+        "evidence": "Eq. (4) gives u^+=u+h exp(hA)F(u), Theorem 2.3 gives alpha>=1/(2e) for scalar negative-real stability. Neither establishes Markov entrywise nonnegativity on weighted paths or its sharp rate-rigidity boundary.",
+        "identifier_or_url": "https://arxiv.org/pdf/2303.15861",
+        "material_read": "Abstract; introduction; Section 2 including equations (3)–(9), Theorem 2.3 and Table 1; conclusion; defining integrator appendix. Inspected source PDF page 5 image and searchable adjacent pages.",
+        "method": "Read indexed complete source document relevant sections, cross-checked equation (4) and appendix against page image, text searched for positivity.",
+        "title": "Accelerating exponential integrators to efficiently solve semilinear advection-diffusion-reaction equations",
+        "trigger": "Original SLE method and relevant negative-axis unconditional-stability theorem"
+      },
+      {
+        "assessment": "DIFFERENT_METHOD_AND_ASSUMPTIONS",
+        "evidence": "Uses compositions of positivity-preserving exact kinetic subflows and forward-Euler transport steps with coefficient sign constraints; no all-step SLE formula or Markov derivative identity.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.03728",
+        "material_read": "Abstract, introduction, Section 2 defining Eq. (2.6), positivity hypotheses (2.3)–(2.5), Proposition 2.2 and the corresponding page image.",
+        "method": "Inspected open-access original PDF text and page 4 image.",
+        "title": "A second-order asymptotic-preserving and positivity-preserving exponential Runge-Kutta method for a class of stiff kinetic equations",
+        "trigger": "Possible broad positivity theorem for exponential methods"
+      },
+      {
+        "assessment": "BACKGROUND_DOES_NOT_COVER_THE_NUMERICAL_METHOD",
+        "evidence": "Section Kolmogorov derives P(t)=exp(tQ) from the Markov generator, not I+hP′(alpha h), and does not give the unique positivity criterion for the SLE step.",
+        "identifier_or_url": "https://journals.sagepub.com/doi/full/10.1177/0272989X17696997",
+        "material_read": "Abstract; Kolmogorov’s Equations and the Matrix Exponential; the beginning of the three-state transition-probability examples and discussion of eigen-decomposition.",
+        "method": "Read publisher HTML full-text relevant sections.",
+        "title": "A Procedure for Deriving Formulas to Convert Transition Rates to Probabilities for Multistate Markov Models",
+        "trigger": "Three-state Markov transition probabilities and potential equivalent spectral derivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7eed3d14-9684-44ee-9dc1-62f955c0d63e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating diffusion integrator is spectrally stable for alpha>=1/(2e), yet all-step positivity fails for every stabilization fraction under arbitrarily small edge-weight heterogeneity. The complete iff classification and exact rate crossing specify the structural obstruction. Logarithmic delay explains why finite-step positivity testing can misleadingly suggest robustness. This is a nontrivial threshold motivated by transport nonnegativity of a published method, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
