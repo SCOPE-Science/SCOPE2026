@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every D,b,mu>0, the self-adjoint positive Feynman–Kac rate operator H=(lambda+mu)I-mu P has essential spectrum [mu,infinity). Its unique simple eigenvalue below the continuum is mu-s_* with mu F_b(s_*)=1, because F_b is strictly decreasing and diverges at zero. The eigenvector (s_*+lambda)^-1 has squared projection B=1/(mu^2 M2)=b s_*/(mu(mu-s_*)). Cox-age survival equals the Feynman–Kac expectation; its spectral measure provides a positive Gaussian heat-kernel mixture. The continuous spectral support gives the explicit exponential error bound using the first spectral moment b. Stieltjes inversion recovers the continuum density. Exponential-integral asymptotics prove the rare-refresh essential singularity and distinguish strict tail from variance. The packaged verifier numerically compares the spectral inversion and the independent renewal transform; computations are checks, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rose–Touchette–Lesanovsky–Garrahan, arXiv:1806.01298v2, equations (12)–(14) and (49)–(51), assume one fixed Poisson reset rate",
+        "Classical spectral theorem and rank-one perturbation theory could subsume an abstract operator lemma, but do not by themselves state this model-specific exponential-integral pole and amplitude"
+      ],
+      "reasoning": "The constant-rate spectral shift is not a theorem about a fluctuating persistent reset intensity; here the rate environment is neither erased nor resampled at a reset. An unlocated abstract theorem on rank-one Feynman–Kac operators may implicitly imply the mechanism, so implicit coverage is an explicit residual originality risk.",
+      "searches": [
+        "Markov modulated resetting diffusion fluctuating rate exponential tail eigenvalue renewal resolvent",
+        "\"fluctuating resetting rate\" \"exponential decay\" exact eigenvalue",
+        "\"Cox\" \"rate\" \"resetting\" \"spectral\" particle Brownian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.25365v1 (full accessible body)",
+      "arXiv:1806.01298v2 (full HTML)",
+      "MSC2020 official classification 82C31: stochastic methods in time-dependent statistical mechanics",
+      "Related published mathematical-research records and source citations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arutkin–Reuveni arXiv:2509.25365v1 equations (23)–(24) exactly encode the position law, and text near equations (16)–(17), (24) describes a small-k effective tail",
+        "Derived pole solves mu F_b(s)=1 and lies strictly to the right of the branch threshold; at slow refresh its squared inverse length scales as mu while the second-moment surrogate scales as b/log(b/mu)"
+      ],
+      "reasoning": "The new strict-tail exponent is a singularity statement, not a restatement of the known low-frequency moment. The exact known transform logically contains the information, but the claimed result requires locating an isolated pole and proving positive dominance with a nonzero residue, and gives a different answer from the published surrogate. No assertion of priority beyond inspected comparisons is made.",
+      "searches": [
+        "\"Arutkin\" \"Reuveni\" \"far tail\" exact 2025 2026",
+        "\"doubly stochastic resetting\" \"correction\" \"tail\"",
+        "\"stationary\" \"doubly stochastic resetting\" \"poles\" \"tails\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.25365v1 sections 3–4 gives a known Fourier transform (23) but no separated stationary Cox-survival spectral atom",
+        "arXiv:1806.01298v2 section IV.2 analyzes constant-rate Brownian resetting"
+      ],
+      "reasoning": "Cox survival, resolvent-pole, and rank-one-operator formulations describe the same theorem; comparison targeted the actual smallest positive spectral rate, residue and rate-refresh parameters, not just titles. The original transform is an input, but its reported far-tail estimate does not match the isolated eigenvalue; no inspected work states the complete claimed equivalent.",
+      "searches": [
+        "Arutkin Reuveni doubly stochastic resetting Markov rate resampling exponential law exact stationary density far tail pole renewal equation mu E 1/(lambda+s) = 1",
+        "\"Diffusion with doubly stochastic resetting\" far tail spectral pole mu F 1 2026",
+        "\"random resetting rates\" \"pole\" \"stationary\" diffusion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an exact continuum-parametric asymptotic, not a finite tabulation or isolated numeric constant",
+        "Indexed mathematical-research searches did not return a scientific record with the motivating arXiv ID or those principal phrase aliases"
+      ],
+      "reasoning": "Query matches and nearest indexed mathematical results were compared by implication; closest results concerned unrelated stationary renewals, sensor thresholds and other processes, not the specific characteristic equation. Failure to find an indexed record is not uniqueness proof.",
+      "searches": [
+        "Exponential resetting intensities independently refreshed by Poisson events during Brownian diffusion: stationary law isolated spectral pole mu E[(lambda+s)^(-1)]=1, true extreme-distance exponential rate mu-s, residue exp(-b/mu), variance-based rate does not describe far tail",
+        "2509.25365",
+        "doubly stochastic",
+        "spectral pole"
+      ]
+    },
+    "rationale": "The model and exact characteristic function are existing results in Arutkin–Reuveni (arXiv:2509.25365v1, equations 23–24); this theorem isolates and quantifies the hidden pole and its nonperturbatively small weight. The paper instead uses a small-k/variance surrogate to characterize the far-field decay. The previous full-transform formula mathematically permits an asymptotic derivation but does not explicitly report the actual pole, residue, positive spectral split, or divergent difference from that surrogate. The constant-rate spectral result of Rose et al. does not cover independent Cox rate-refresh dynamics. General rank-one spectral theories are acknowledged as existing tools, and implicit equivalent coverage remains a material residual risk.",
+    "residual_risks": [
+      "The originating paper’s separately referenced supplementary derivation could not be read; it may implicitly discuss additional singularities.",
+      "An unlocated general rank-one/Feynman–Kac or Markov-modulated Cox result might contain an equivalent tail formula.",
+      "The prior exact Fourier transform already fixes the full distribution, so the mathematical contribution is the sharp asymptotic extraction/correction, not creation of a new exact transform."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME model and exact transform are prior; the claimed isolated root, weight, full positive spectral tail split and nonperturbative residue are not stated; moment-based far-tail assertion differs from strict exponent",
+        "evidence": [
+          "arXiv:2509.25365v1 equations (16)–(17), (23)–(24), sections 3–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.25365",
+        "material_read": "Accessible full manuscript HTML body: introduction, model, equations (1)–(24), sections 3–5 including far-tail statements; separate supplemental derivation not accessible",
+        "method": "Read manuscript body and compared assumptions, Fourier denominator, reported limiting tail and parameter regimes line by line",
+        "title": "Diffusion with doubly stochastic resetting",
+        "trigger": "Identical Poisson-refreshed exponential intensity model and published exact stationary Fourier law"
+      },
+      {
+        "assessment": "Constant-rate unconditional Poisson resetting, not a persistent stochastic rate independently refreshed while resetting the position",
+        "evidence": [
+          "arXiv:1806.01298v2 equations (12)–(14) and (49)–(51)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1806.01298v2",
+        "material_read": "Full accessible HTML with focus on sections II–III and IV.2; exact constant-rate generator and Brownian stationary law",
+        "method": "Compared reset-generator assumptions, spectral shifts and Brownian Fourier inversion",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Most plausible earlier generic spectral-reset theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78880747-3647-48d7-8680-e6cac6e0a8b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Far-tail decay rates are central measurable localization properties for fluctuating-reset diffusion. The existing paper links a small-frequency estimate to the far-tail localization scale; the theorem proves their asymptotic inequivalence, supplies the exact corrected exponent and coefficient with a uniform exponentially faster remainder, and identifies an exponentially faint spectral mode. The square-decay-rate discrepancy diverges in the physically natural slow-refresh limit; this resolves a substantive distinction between moment-based and extreme-event observables.",
+    "status": "PASS"
+  }
+}
