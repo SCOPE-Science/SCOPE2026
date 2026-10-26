@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact block decomposition uses only the two binary-digit recursions for sampling nodes and frequencies. The even-base phase operator is the identity; the odd-base phase operator flips the first spatial digit. Row elimination reduces the determinant to products of explicitly evaluated two-phase sums. The induction, normalization, and Gram-volume consequence have been checked, with direct finite-size numerical corroboration from `verify.py`.
+
+**Originality — PASS, qualified.** The relevant full-text sections of de Dios Pont–Liehr–Taylor (arXiv:2607.08656) explicitly discuss the closely related ternary frequency digits in an unsuccessful infinite-frame construction. They establish the absence of a Fourier frame on the limiting odd-base Cantor measure, not the exact determinants of the finite atomic sampling matrices studied here. Lai–Wang's almost-Parseval-frame tower work addresses sufficient conditions for infinite Fourier frames. The public finite even-base Cantor-spectrum census concerns a different invariant. Searches over available research records, equivalent formulations, and general literature found no direct statement or stronger result that supplies the displayed odd-base determinant. This is a best-knowledge priority assessment, not a proof of historical novelty.
+
+**Value — PASS.** The same natural binary-digit Fourier design is exactly unitary at every even base yet has a closed-form exponentially decaying Gram-volume per mode at every odd base. This makes the parity obstruction quantitative at all finite resolutions and gives a reproducible benchmark for finite-stage Cantor Fourier interpolation. The precise invariant is motivated by frame stability; no unproved downstream theorem is needed.
+
+**Closest literature and limits.** arXiv:2607.08656 treats the limiting nonexistence theorem and discusses nearby candidate digit frequencies, making it the principal priority risk. The new formula neither generalizes that theorem nor follows from its mere conclusion. All statements concern a single finite frequency design. A complete historical priority determination and independent mathematical validation remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
