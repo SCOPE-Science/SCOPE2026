@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all finite connected positive-weight undirected graphs with pinned leaders, the stationary covariance has trace P=tr(L_ground^{-1}Σ)/2. Differentiation yields d_iP=-(GΣG)_ii/2<=0 for PSD Σ and d_ijP=G_ij(GΣG)_ij. A grounded Laplacian has nonnegative inverse; entrywise-nonnegative Σ gives every mixed derivative nonnegative and hence finite-set supermodularity. For any Σ_ij<0 a graph with large s grounding and one i-j follower edge has d_ijP=cΣ_ij s^-4+O(s^-5)<0, uniformly over a pair of unit candidate-edge additions. Direct 2x2 inversion gives the sharp rho_* criterion and the exact negative gap -1/200 for a positive-definite Σ. The packaged standard-library checker passed 8686 exact-rational assertions; it corroborates but does not establish infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clark--Bushnell--Poovendran explicitly assume independent link noises (arxiv:1208.0946v1, system model).",
+        "Summers et al. work with independent node noise and ungrounded pseudoinverse coherence (arxiv:1411.4884v1, Section II-A).",
+        "Mackin--Patterson use leader-node selection under unweighted inverse-trace objective (arxiv:1712.08212, Section II)."
+      ],
+      "reasoning": "The closest stronger-looking optimization settings change the controllable object, noise covariance, or state metric. Their stated results do not logically imply the iff sign characterization for fixed correlated forcing, although general inverse-M-matrix techniques may independently derive it.",
+      "searches": [
+        "fast: topology design network coherence covariance correlated noise edge additions",
+        "fast: general noise leader selection supermodularity fixed covariance",
+        "slow: covariance weighted grounded Laplacian trace inverse supermodularity correlation",
+        "slow: nonnegative covariance noise correlations supermodularity grounded Laplacian leader edges",
+        "arxiv:1208.0946v1",
+        "arxiv:1411.4884v1",
+        "arxiv:1712.08212"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2308.07008v1",
+      "https://arxiv.org/html/1208.0946v1",
+      "https://arxiv.org/html/1411.4884v1",
+      "https://arxiv.org/abs/1712.08212",
+      "https://arxiv.org/abs/2309.17019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At Σ=I, the mixed-sensitivity identity reduces to a nonnegative quantity and recovers the source independent-noise diminishing-returns property.",
+        "At Σ=[[1,-4/5],[-4/5,1]], baseline L=[[2,-1],[-1,2]] and unit leader-edge additions have four values 2/5,17/50,17/50,11/40, yielding discrete gap -1/200."
+      ],
+      "reasoning": "The new result includes source independent noise as one parameter point, but proves the maximal covariance cone robust uniformly over graph topology and establishes failure outside it. The prior theorems have no quantifier over all positive-semidefinite covariances, so neither their special cases nor their algorithmic claims alone imply the necessary direction or sharp correlation frontier.",
+      "searches": [
+        "arxiv:2308.07008v1 Theorem 4.3 and Lemma 5.1",
+        "arxiv:1208.0946v1 Appendix A",
+        "arxiv:1712.08212 Section II",
+        "fast: leader follower correlated noise supermodular covariance off diagonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source model has same fixed-leader diagonal edge increments but covariance equal to the identity: arxiv:2308.07008v1, sections 4.1 and 4.3.",
+        "The candidate supplies the distinct condition Σ off-diagonal nonnegative iff universal supermodularity, while all Σ positive semidefinite preserve monotonicity."
+      ],
+      "reasoning": "Equivalent stationary covariance/grounded-effective-resistance notation does not hide the new universal covariance quantifier. The cited model proves its claim only for independent forcing, a special case; the negative-definite-gap example and necessity are not implied by that special case.",
+      "searches": [
+        "leader follower noisy gossip cycle optimal grounded resistance leader placement exact arc lengths",
+        "leader follower opinion polarization positive correlated noise covariance all graphs supermodularity leader link additions off-diagonal nonnegative covariance characterization",
+        "fast: leader follower noisy opinion covariance correlated noise supermodular grounded Laplacian edge additions counterexample",
+        "fast: trace inverse positive semidefinite noise covariance grounded Laplacian supermodular leader selection fails",
+        "arxiv:2308.07008v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus closest hit 2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661 concerns diffusion covariance normalization in an SIRS model, not leader-edge response.",
+        "Actual published-finding corpus closest hit 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 concerns gradient tracking, not grounded polarization.",
+        "Accessible own-ledger claim/title keyword searches yielded no matching claim about covariance-weighted grounded inverse traces."
+      ],
+      "reasoning": "These are actual bounded searches of published research records and recoverable own claims, not a global absence proof. No exact table/formula/record covering the covariance-sign iff and two-follower threshold was identified.",
+      "searches": [
+        "leader follower opinion polarization positive correlated noise covariance all graphs supermodularity leader link additions off-diagonal nonnegative covariance characterization",
+        "negative correlated stochastic perturbations grounded Laplacian inverse trace loses supermodularity two follower counterexample",
+        "Stieltjes inverse weighted trace submodular covariance matrix nonnegative entries necessary sufficient graph optimization",
+        "Minimizing Polarization in Noisy Leader-Follower Opinion Dynamics Xu Zhang 2023 extension to correlated white noise covariance supermodularity",
+        "trace of grounded Laplacian inverse weighted by stochastic forcing covariance pairwise-negative correlation breaks diminishing returns for leader-edge augmentation",
+        "Own week2/week3 and accessible week1/2026-09_week4 research ledgers: claim/title searches for leader-follower, noise covariance, grounded Laplacian, inverse trace, supermodularity"
+      ]
+    },
+    "rationale": "The closest same-object paper Xu--Zhang 2023 uses independent white noise and derives supermodularity for an unweighted inverse trace. The present result characterizes exactly which correlated, fixed covariance matrices preserve that guarantee over every positive-weight grounded network, and proves loss for every negative cross-covariance. Earlier independent-noise leader-selection and ungrounded-coherence papers do not cover this iff statement. Standard inverse-positivity and differentiation are not independently novel; related unindexed theorems remain a priority risk.",
+    "residual_risks": [
+      "Generality of inverse-positive matrix derivatives means a differently phrased existing result may imply the nonnegative-covariance sufficiency statement.",
+      "The available literature search and published research-record search are bounded, so uniqueness/publication priority is not certified.",
+      "The characterization is universal over graphs; negative noise correlations do not force failure for each individual fixed graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independent, unit-variance forcing yields half the unweighted inverse trace and supermodularity; no fixed correlated covariance sign iff or negative-correlation sharp witness is stated in those sections.",
+        "evidence": [
+          "arxiv:2308.07008v1, Section 4.1 equations (3),(5): unit white noise and half the unweighted inverse trace.",
+          "Section 4.3 Theorem 4.3: supermodularity for source objective.",
+          "Section 5 Lemma 5.1: diagonal update for candidate leader edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.07008v1",
+        "material_read": "Abstract; Introduction and Related Work; Section 4.1 equation (3) and Lemma 4.1 equation (5); Section 4.3 Theorems 4.2-4.3; Section 5 Lemma 5.1.",
+        "method": "Inspected accessible full-text HTML at the original arXiv version and compared model parameters and quantified conclusions.",
+        "title": "Minimizing Polarization in Noisy Leader-Follower Opinion Dynamics",
+        "trigger": "Same leader-edge intervention and stochastic stationary-variance objective; direct plausible coverage."
+      },
+      {
+        "assessment": "Assumes independent link noise (not a general cross-correlated node covariance) and changes the leader-node set rather than adding edges to fixed leaders.",
+        "evidence": [
+          "arxiv:1208.0946v1, system model states noise values on different links independent.",
+          "Appendix A uses diagonal link-noise covariance; Lemma 6 gives unweighted inverse-Laplacian error."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1208.0946v1",
+        "material_read": "Abstract; Introduction and Section III system model; discussion of independence; Appendix A covariance derivation and steady-state inverse trace.",
+        "method": "Inspected accessible arXiv full-text HTML, including explicit assumptions about noise statistics.",
+        "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+        "trigger": "Earlier supermodularity framework for leader-follower systems might subsume generalized noise."
+      },
+      {
+        "assessment": "Studies ungrounded consensus variance about a moving mean with independent Brownian disturbances. Does not present a grounded fixed-leader universal covariance-sign classification.",
+        "evidence": [
+          "arxiv:1411.4884v1, Section II-A equation (1): vector of independent Gaussian white noise.",
+          "Section II-A equation (4): pseudoinverse trace of full Laplacian, not covariance-weighted grounded inverse trace."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1411.4884v1",
+        "material_read": "Abstract; Sections I, II-A and III-A addressing noise specification, coherence objective and edge-addition objective.",
+        "method": "Inspected accessible full-text HTML from original arXiv version.",
+        "title": "Topology Design for Optimal Network Coherence",
+        "trigger": "Potential stronger theorem for arbitrary edge additions and noisy coherence."
+      },
+      {
+        "assessment": "Optimizes selecting which nodes become noisy leaders; its displayed objective is unweighted half inverse trace, not the covariance-weighted leader-edge-addition set function.",
+        "evidence": [
+          "arxiv:1712.08212, Section II: leader selection objective H(S)=1/2 tr(Q_S^{-1}).",
+          "Section III analyzes leader-node choice; not the sign of off-diagonal correlations in a fixed external-noise covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.08212",
+        "material_read": "Introduction; Section II system model and inverse-trace objective; Section III problem definition and relation to earlier graph design.",
+        "method": "Inspected accessible arXiv text with displayed mathematical model and objective.",
+        "title": "Submodular Optimization for Consensus Networks with Noise-Corrupted Leaders",
+        "trigger": "Another formulation of submodular noisy leader optimization might dominate the candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a89e8f70-ed3d-4107-9d1d-83042dda62d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Supermodularity provides the diminishing-returns structure behind greedy edge-selection guarantees in published noisy DeGroot leader-follower design. Shared disturbances can have negative cross-correlations, raising a motivated robustness question. The iff identifies the exact covariance sign class that preserves this guarantee on all networks, separates it from unconditional variance monotonicity, and yields an explicit positive-definite two-follower counterexample plus sharp tunable correlation boundary. This is a model-level structural boundary, not an arbitrary parameter slice, elementary normalization check or standalone known-table recomputation.",
+    "status": "PASS"
+  }
+}
