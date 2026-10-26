@@ -1,0 +1,15 @@
+# Scientific review: three-segment staircase type-profile law
+
+## Correctness
+PASS. The complete-type criterion is the standard finite-poset ideal/filter characterization. A disjoint classification by first omitted lower element, or by first included upper element for mixed profiles, proves the exact bivariate polynomial. The normalized three-class decomposition provides an explicit coupling proving the Wasserstein \(O(n^{-1/2})\) estimate. Direct integration yields the covariance and limiting correlation; the support is bounded and both marginal variances are nonzero. Independent small-size ternary transitivity enumeration reproduces every coefficient for dimensions one through five.
+
+## Originality
+PASS, qualified. An earlier height-two bipartite independent-set formula covers the unrefined scalar type count by specialization; only the joint law is a novelty candidate. The closest available published published-finding corpus theorem classifies all one-point profiles as ideal/filter pairs and proves generic counting hardness; it does **not** state the staircase bivariate distribution or its limit. The two inspected 2010 interval-order papers enumerate unlabelled \((2+2)\)-free posets and related statistics, not pointwise-stabilizer one-types over an explicitly named staircase. The inspected 2010 ultrahomogeneous-structure preprint gives the established model-theoretic extension machinery. No equivalent three-segment law or \(-23/33\) correlation was found in the performed semantic and targeted literature searches. Residual risk: an implicit or independently known special-purpose enumerative derivation, especially in specialized Ferrers-poset work. Lack of a search hit does not prove novelty.
+
+## Mathematical value
+PASS. The parameter family is the canonical one-step staircase of nested neighborhoods, a tractable representative of interval orders; the generic type-count problem is hard in general. The **joint** predecessor/successor size profile, not just the scalar total, reveals three coexisting macroscopic classes with different supports and an exact negative limiting correlation. The quantitative distributional theorem distinguishes a naturally constrained yet asymptotically mixed two-sided class from one-sided extensions and makes the precise normalized type-shape law reusable for comparisons with other poset parameter families. No general unknown downstream theorem is required for this finite-family classification.
+
+## Related literature and limits
+Kitaev–Remmel (arXiv:1004.3220) and Dukes–Kitaev–Remmel–Steingrímsson (arXiv:1006.2696) address the interval-order setting; Dolinka–Mašulović (arXiv:1009.2892) treats relevant Fraïssé extension context. The 2026 published published-finding corpus scalar-counting record provides a stronger general **decision/counting framework**, not an explicit bivariate or asymptotic profile. This work is confined to named staircase parameter posets; no conclusion is drawn for general height-two or interval-order parameters.
+
+Self-review: passed. Independent audit: not yet performed.
