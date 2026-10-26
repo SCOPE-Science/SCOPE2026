@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Direct model reduction gives conditional drift c tanh(alpha arctanh(d/(2w+n))), with |d|<2w+n. Shared-uniform outward/inward coupling preserves absolute order because both states have the same parity, and strict second-moment ordering starts on event two. Poisson splitting and sign symmetry yield exact covariance and correlation identities. Concavity tanh(alpha u)>=alpha tanh(u) for 0<=alpha<=1 gives v_{n+1}>=(1+2b/(2w+n))v_n+1; telescoping at 2b=1 and product growth above it force E v_{N(t)}/(Lambda t)->infinity and correlation -1. All hypotheses and t>0 boundaries checked. Program verify.py replayed: 650 finite diagnostics; no finite computation substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qin proves almost-sure edge-weight homogenization throughout α<1 with positive rates, but gives no covariance or stochastic ordering theorem in the inspected text.",
+        "Couzinié–Hirsch establishes homogenization for specified graph/exponent regimes, not an edge-count correlation comparison.",
+        "Interacting generalized Friedman urn literature gives asymptotic fluctuation regimes for different urn models, and does not identify the present three-vertex vertex-clock path and its finite-time monotonicity."
+      ],
+      "reasoning": "General stochastic-approximation methods might yield quantitative fluctuation limits in a finite graph, but deterministic proportion convergence does not imply any Pearson-correlation limit. The proof here establishes the divergence needed for correlation -1 directly from a nonlinear drift inequality.",
+      "searches": [
+        "arxiv:2610.11780v1 §1.1 Theorem 1.1 and §1.2",
+        "arxiv:2010.03347v2 Theorem 2.2",
+        "Web: \"weakly reinforced\" \"perfect anticorrelation\" urn",
+        "Web: \"reinforced urn\" \"asymptotically\" \"perfect\" \"negative correlation\" counts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11780v1; accessible HTML and main proof/related-work sections",
+      "arxiv:2010.03347v2; PDF model, introduction, Theorem 2.2",
+      "doi:10.1016/j.spa.2016.12.003; available theorem extract",
+      "published-finding corpus semantic search outputs on WARM, three-vertex path, Poissonized covariance and absolute imbalance",
+      "Two accessible own current-week JSONL parts, recoverable claim/id overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 theorem supplies convergence of normalized edge weights but does not bound the count-covariance ratio, which can be dominated by second-order deviations.",
+        "2021 article treats law-of-large-numbers homogenization, not the signed covariance of Poissonized edge counts.",
+        "Cycle linear fluctuations do not imply the nonlinear two-edge pathwise order, and the present proof does not reuse the cycle eigenmode theorem."
+      ],
+      "reasoning": "The deterministic LLN can hold simultaneously with correlation -1, so neither published LLN implies this claim. Generic stochastic approximation theory is a possible route to the large-time sufficient case after a nontrivial model-specific eigenvalue computation; the finite-time stochastic order and monotone Poisson covariance are separate claims not implied by that generic framework.",
+      "searches": [
+        "arxiv:2610.11780v1 full accessible HTML, terms covariance/variance",
+        "arxiv:2010.03347v2 full PDF, terms covariance/correlation",
+        "Web: WARM weak reinforcement central limit theorem edges urn",
+        "published-finding corpus: WARM weakly reinforced edge urn three vertex path asymptotic Gaussian central limit phase transition fluctuations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem concerns a three-vertex WARM embedded absolute-imbalance birth-death chain and unconditional Poisson-time edge-count covariance.",
+        "Classical Dirichlet-multinomial negative fixed-total count covariance does not directly imply monotonicity in a nonlinear power exponent or a positive-leaf-rate large-time correlation limit."
+      ],
+      "reasoning": "The absolute difference of two reinforced counts is a natural alternative formulation; both conditional fixed-count and unconditional clock-time versions were compared. Standard multinomial covariance has fixed total and no independent Poisson clock noise, so it is not an equivalent result.",
+      "searches": [
+        "published-finding corpus: two color edge WARM reinforced urn path graph absolute imbalance stochastic domination reinforcement exponent pathwise coupling firing rates",
+        "published-finding corpus: Poissonized reinforced urn two color counts negative covariance monotone reinforcement strength stochastic dominance difference",
+        "Web: \"Polya urn\" poissonization \"negative covariance\" counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest identified own claim is a fixed-cycle Gaussian/logarithmic fluctuation result, without three-vertex path, leaf-driven count covariance or stochastic monotone ordering.",
+        "No published-finding corpus match returned an equivalent pathwise coupling plus Poissonized anticorrelation criterion."
+      ],
+      "reasoning": "This is an infinite family of probability laws and asymptotic correlations, not a finite tabulated invariant. Checked nearest research-record statements by implication, including the cycle fluctuation theorem, rather than relying on titles alone.",
+      "searches": [
+        "published-finding corpus: three vertex path WARM reinforced urn Poisson clocks edge count asymptotically perfect negative correlation despite deterministic proportions",
+        "published-finding corpus: Homogenization weakly reinforced Polya urn countable graphs fluctuation covariance path graph CLT logarithmic regimes",
+        "Own accessible ledger claims in both current-week parts, including cycle WARM fluctuation result"
+      ]
+    },
+    "rationale": "The strongest directly matching model literature establishes edge-weight homogenization, not unconditional Poisson-time count-covariance monotonicity or a perfect-anticorrelation regime at positive leaf rates. The exact coupling and second-moment comparison are mathematically separate from deterministic LLN statements. No matching claim found in targeted published-finding corpus, accessible current-week claims or literature. Remaining classical comparison-priority risk acknowledged.",
+    "residual_risks": [
+      "A classical two-color reinforced-urn stochastic monotonicity theorem could subsume the finite-time coupling although no specific matching source was located.",
+      "General stochastic approximation may imply portions of the correlation regime once this model’s slope is computed; the coupled finite-time order is additional.",
+      "Historical-priority assessment is not independent and was limited to accessible literature and search results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes deterministic homogenization, not the finite parameter stochastic order or count correlation; direct closest model source",
+        "evidence": [
+          "Theorem 1.1, §1.1; related work §1.2; no occurrences of covariance or variance in accessible HTML"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11780v1",
+        "material_read": "Abstract, model and main Theorem 1.1, related work, limiting ODE, proof strategy and searched full HTML for covariance and variance",
+        "method": "Full accessible HTML read and targeted in-document searches",
+        "title": "Homogenization of weakly reinforced Pólya urns on countable networks",
+        "trigger": "Same WARM process and unequal firing rates; strongest recent primary result"
+      },
+      {
+        "assessment": "Prior homogenization regimes, no matching claim in inspected passages; full-document keywords absence is supporting but not complete priority certification",
+        "evidence": [
+          "§2 Theorem 2.2 and model; page images 1 and 3; variance/correlation text searches had no matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.03347",
+        "material_read": "Abstract, introduction, full model and Theorem 2.2 on pages 1–3; in-document searches for variance and correlation",
+        "method": "PDF text plus inspected screenshots of pages 1 and 3",
+        "title": "Weakly reinforced Pólya urns on countable networks",
+        "trigger": "Original foundational WARM weak-reinforcement work"
+      },
+      {
+        "assessment": "General interacting Friedman urns with linear replacement rather than the nonlinear path WARM; not same count covariance ordering",
+        "evidence": [
+          "Theorem 4.2 excerpt reports three fluctuation regimes for the paper’s replacement-matrix model"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spa.2016.12.003",
+        "material_read": "Online abstract/theorem extract on asymptotic Gaussian, critical and slow regimes",
+        "method": "Primary publisher accessible theorem excerpt",
+        "title": "Interacting generalized Friedman’s urn systems",
+        "trigger": "Generic urn fluctuation regimes and possible dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ac94d22-f363-484a-80b3-6feef0e2d090",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In a natural minimal network with competing edge reinforcements, the deterministic homogeneous long-run shares conceal increasingly negative unconditional count dependence. The exact parameter monotonicity is an all-time stochastic-order property, while sufficiently dominant central firing forces a limiting Pearson correlation of -1 despite positive endpoint immigration. This is a structural fluctuation/dependence phenomenon not a routine change of notation, finite enumeration, or unmotivated narrow invariant.",
+    "status": "PASS"
+  }
+}
