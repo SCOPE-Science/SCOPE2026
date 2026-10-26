@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, k=1..n-2 and ell=2..n, row independence gives P(given directed cycle)=p^ell, P(Z_v=0-indegree)=q^(n-1), and P(Z_v=0-indegree | cycle)=q^(n-1)((n-1)/(n-2))^ell outside the cycle, zero inside it. The (n)_ell/ell sum proves the exact covariance. Elementary f_ell=(n-ell)A^ell is strictly decreasing for ell>=2, with f_2-n=1/(n-2)>0 and f_3-n=-(2n-3)/(n-2)^3<0. The k=n-1 boundary is deterministic. The independent-arc comparison and fixed-k expansions are derived separately. Exact rational exhaustive enumeration covers 10 (n,k) strata and all ell therein, plus all 4096 Bernoulli graphs at n=4; this is not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:cond-mat/0302375 Section II eqs. (4)–(5) are approximate EXPECTATIONS of motifs with prescribed indegree/outdegree; arxiv:1911.05147 proves undirected connectivity and giant-component results."
+      ],
+      "reasoning": "A general motif expectation or connectivity threshold does not determine covariance with random zero-indegree counts; the ensembles and statistics differ. A full historical joint-moment formula could still cover the claim but was not located.",
+      "searches": [
+        "Exact joint moment/covariance of directed cycles and zero indegree vertex count under independent row constrained random digraphs, finite n",
+        "random k-out digraph joint distribution indegree zero cycles 2019 2020",
+        "Subgraphs in random networks Itzkovitz Milo Kashtan Ziv Alon 2003 arxiv full text",
+        "arxiv:cond-mat/0302375; arxiv:1911.05147"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.10638",
+      "arxiv:1911.05147",
+      "arxiv:1810.09921",
+      "arxiv:cond-mat/0302375",
+      "arxiv:1504.06840 (abstract and model only; directed multigraph with replacement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing accessible own claim 6f007fa8-98a3-49c7-820f-15007a8370db gives covariances between reciprocal pairs C2 and LONGER C_ell, not between Z and C_ell. arxiv:1810.09921 has second moments for isolated two-vertex components in an undirected projection."
+      ],
+      "reasoning": "Cov(C2,C_ell) and the marginals E[Z],E[C_ell] cannot in general determine Cov(Z,C_ell). Undirected isolated component counts differ from directed indegree-zero counts. Thus the known statements are not stronger coverage, although other unsurveyed joint laws might imply the result.",
+      "searches": [
+        "In uniform loop-free directed k-out graphs, covariance between number of indegree-zero vertices and directed simple cycles of each length ell: positive for 2-cycles and negative for all ell at least 3; exact moments",
+        "Reciprocal pairs and indegree-zero vertices sign reversal random k-out versus directed Erdos Renyi, positive for 2-cycles negative for 3-cycles",
+        "arxiv:1810.09921 Section 5 isolated two-vertex components; arxiv:2006.10638 Section V-B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2006.10638 defines the row-choice model and studies connectivity; arxiv:1810.09921 has second moments of pairwise isolated UNDIRECTED components, not zero indegree in the directed selection graph."
+      ],
+      "reasoning": "Reciprocal selections are 2-cycles, zero-indegree means no incoming selected arc, and counting cycles up to rotation equals summing event indicators. Rephrased searches did not locate the mixed covariance; the isolated-component event requires additional absent arcs and is not equivalent.",
+      "searches": [
+        "Random k-out directed graph with fixed outdegree k, covariance number of reciprocal edges (mutual pairs, 2-cycles) and indegree zero vertices, exact positive correlation",
+        "Random functional graph k-out indegree zero zero-in-degree vertices reciprocal arcs 2-cycles",
+        "indegree zero directed cycles random k-out graph covariance count",
+        "arxiv:2006.10638; arxiv:1810.09921"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Itzkovitz et al. Table 1 reports approximate means of selected small motifs, not a cycle-length indexed mixed-moment table; Sood–Yağan 2020 tables/results report connectivity bounds."
+      ],
+      "reasoning": "No inspected exact database or table contains the all-n, all-k, all-ell sign spectrum or the reported anomalous triangle order. A negative search is only bounded evidence, not uniqueness proof.",
+      "searches": [
+        "random k out digraph indegree zero cycles moment joint distribution",
+        "directed random graph fixed out-degree covariance cycles indegree distributions",
+        "random mapping empty boxes cycles covariance random mapping",
+        "arxiv:cond-mat/0302375 Table 1; arxiv:2006.10638 Section III"
+      ]
+    },
+    "rationale": "The inspected primary literature treats undirected connectivity of k-out graphs, component separation, approximate directed motif means, or a different directed multigraph model. None of the inspected statements establishes the exact joint covariance of directed zero-indegree vertices with every cycle length or the unique positive 2-cycle length. Searches of published scientific findings and own accessible claim records found no implication that covers this mixed statistic. The remaining risk is a general historical joint-moment identity not located in these searches.",
+    "residual_risks": [
+      "Historical exact joint-moment/occupancy formulas for fixed-row-sum digraphs or random mappings may have an equivalent implication not discovered in the bounded search.",
+      "arxiv:1504.06840 concerns a directed r-out multigraph (different replacement/loop conventions); its full primary text was not materially inspected, so it cannot support a negative whole-document coverage conclusion.",
+      "Novelty rests on bounded text inspections and semantic search, not exhaustive literature coverage or independent priority adjudication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on the inspected material: bounds for undirected connectivity and isolated components do not give the directed mixed covariance of zero indegree and cycle counts.",
+        "evidence": [
+          "Section II outgoing subset probability 1/binomial(n-1,K), eq. (2); Section III connectivity bounds; Section V-B isolated-set probabilities eqs. (32)–(35)."
+        ],
+        "identifier_or_url": "arxiv:2006.10638",
+        "material_read": "Rendered article text, including model definitions in Section II, main theorems in Section III, and connectivity proofs using isolated-subset events in Sections IV–V.",
+        "method": "Open-access arXiv full article text; inspected theorem statements, model law and proof steps, including the separated-set probability and its bounds.",
+        "title": "Tight Bounds for the Probability of Connectivity in Random K-out Graphs",
+        "trigger": "Exact same model of independent uniform distinct outgoing-neighbor subsets, with orientation subsequently discarded; plausible finite-parameter results."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material: the network is symmetrized and the outcomes are connectivity, minimum undirected degree and giant component; neither directed cycle counts nor directed indegree-zero mixed moments appear in the relevant statements.",
+        "evidence": [
+          "Section II row-choice independence; Section III k-connectivity/giant-component theorems; Section V minimum undirected degree argument and conditional negative association context."
+        ],
+        "identifier_or_url": "arxiv:1911.05147",
+        "material_read": "Open-access HTML article, Sections I–III model and theorems and Sections V–VII proofs/appendices about connectivity, minimum degree and giant components.",
+        "method": "Full accessible arXiv HTML; examined Section II and main results, checked occurrences of directed cycles, reciprocity and in-degree, and sampled relevant proofs.",
+        "title": "On the Strength of Connectivity of Inhomogeneous Random K-out Graphs",
+        "trigger": "Generalization with row-independent uniform outgoing selections and finite probability estimates that might dominate a homogeneous special case."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material: an isolated two-vertex connected component in the undirected projection is not the number of reciprocal pairs, and a directed indegree-zero vertex may have outgoing undirected incident edges; the cross-covariance with cycles of each length is not derived.",
+        "evidence": [
+          "Section 5 defines pairwise isolated components and applies their second moments; Section 6 eq. (34) is the probability of a separated vertex set."
+        ],
+        "identifier_or_url": "arxiv:1810.09921",
+        "material_read": "Open-access full article text, especially Sections 2, 5, 6 on model and isolated component counts.",
+        "method": "Read model definition, pairwise isolated-component event and second-moment method, and probability of separated vertex sets.",
+        "title": "Connectivity of Inhomogeneous Random K-out Graphs",
+        "trigger": "Plausible hidden coverage via pairwise mutual selections and second moments of two-vertex isolated components."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material: equations (4)–(5) approximate marginal motif expectations with prescribed indegree/outdegree/mutual degree; these do not imply exact finite mixed covariances with the random zero-indegree count under a fixed-outdegree-only ensemble.",
+        "evidence": [
+          "Section II explicitly describes sparse approximation, equations (4)–(5) and Table 1 of motif means, not cycle/zero-indegree cross moments."
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0302375",
+        "material_read": "Open-access full article text, particularly Introduction and Section II with subgraph formulas and examples.",
+        "method": "Examined degree assumptions and the equations for expected directed subgraph counts, their approximation status, and tables of small motifs.",
+        "title": "Subgraphs in random networks",
+        "trigger": "Possible broader motif-moment method in directed networks with degree constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "608993d6-b3da-4625-ab08-05113bde2f90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite sign boundary is a nontrivial structural dependence classification for two intrinsic directed network observables, distinguishable from marginal counts. Only reciprocation has positive cross-covariance with the number of indegree-zero vertices under fixed outgoing degrees, reversing its sign under independently sampled arcs with matching expected outdegree. All longer feedback cycles have negative covariance, with three-cycles unusually O(n^-2) rather than O(n^-1) when k is fixed. The boundary reflects an exact competition between forced incoming edges on a cycle and enhanced avoidance outside it; the statement is a motivated finite structural lemma, not an arbitrary parameter slice or mere Monte Carlo observation.",
+    "status": "PASS"
+  }
+}
