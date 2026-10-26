@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Exact spectral projections for the crown Laplacian and a two-edge Woodbury update produce all four failure-pair values. A complete orbit argument proves the list exhaustive, exact positive quadratic and cubic expressions establish connectivity, and explicit factorizations with positive shifted coefficients prove both strict orderings. The unique middle-class crossover follows from a cubic negative on integer orders 4–11 and positive from 12 onward. Independent exact reduced-Laplacian inverses across all two-edge pairs for orders 4–7 confirm the formulas; the proof, rather than the experiments, supplies the infinite-family quantifiers.
+
+**Originality: PASS, with residual risk.** The closest full texts are Schaub et al. (arXiv:1303.6241), which derives line-outage flow redistribution; Klee–Stamps (arXiv:2008.01669), which establishes the undeleted crown spectrum; and Tamura (arXiv:2608.05924), whose generic complete-graph edge-defect tools do not resolve the four crown-specific comparisons. Specific published-result searches, synonyms, and comparisons of accessible historical mathematical claims found no equivalent infinite-family four-orbit ranking or sharp threshold. Generic matrix identities and the \(n=4\) hypercube special case are covered or known; neither implies the newly stated all-orders ranking. A specialist result not surfaced by the searches remains a risk.
+
+**Value: PASS.** Joint link outages are a natural finite-budget network vulnerability question. The theorem provides the complete exact optimization over every two-link attack on a nontrivial infinite regular bipartite family. It classifies all optimal attacks and reveals an unexpected change in the strongest nonincident attack at eleven versus twelve matched labels, a qualitative structural phenomenon that generic robustness bounds do not capture.
+
+**Limitations.** Only unit-weight crowns with exactly two link failures, for \(n\ge4\), are covered. This does not assert a probabilistic failure model, an extension to arbitrary conductances, or new results about generic complete graphs. No independent mathematical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
