@@ -1,0 +1,173 @@
+{
+  "checked_sources": [
+    "arXiv:2610.15877 (full text inspected)",
+    "arXiv:2212.11666 (full text inspected)",
+    "arXiv:2401.16707 (full text inspected)"
+  ],
+  "claim": "For \\(q\\ge2\\), let \\(W_q(y\\mid x)=1/(q-1)\\) when \\(y\\ne x\\) and zero otherwise on \\([q]\\). In the common-randomness-assisted, fixed-codebook, worst-case total-variation model, the exact minimum codebook size for two independent uses is \\(M_0^\\star(W_q^{\\otimes2})=4\\) for \\(q=2\\) and \\(M_0^\\star(W_q^{\\otimes2})=3\\) for every \\(q\\ge3\\).",
+  "correctness": {
+    "rationale": "The lower bound is an exact support-covering argument. For \\(q\\ge3\\), any two neighborhoods cover at most \\(q^2-2\\) inputs, while three diagonal codewords with independent random coordinate injections cover every input. The stabilizer of each input acts transitively on its target support, so uniform tie-breaking yields the exact target law. For \\(q=2\\) the target supports are four distinct singletons, forcing four outputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The nearest retrieved covering results concern a radius-two covering-seed statistic and a projective code coverage-depth problem, both different objects.",
+        "The 2026 asymptotic theorem is restricted to positive dispersion; the 2022 paper includes a \\(q=3\\) one-use channel but no two-use support-cover optimum in the inspected text."
+      ],
+      "reasoning": "No checked source states a broader theorem that implies this exact q-independent two-use optimum. A general covering theorem in uninspected literature remains a risk; literature indexes are incomplete and failed searches do not prove uniqueness.",
+      "searches": [
+        "minimum size of a support-covering set for q-ary length-two words at Hamming distance two",
+        "minimum dominating set in the graph on q-ary pairs where two words are adjacent exactly when they differ in both coordinates",
+        "zero-error channel simulation codebook size determined by a support hitting set for a q-ary symmetric channel",
+        "arXiv:2212.11666 full text lines 47–56",
+        "arXiv:2610.15877 full text lines 118–128"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15877 (full text inspected)",
+      "arXiv:2212.11666 (full text inspected)",
+      "arXiv:2401.16707 (full text inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.15877: positive-dispersion, fixed-positive-error asymptotics only.",
+        "arXiv:2212.11666: includes \\(W(y\\mid x)=1/2\\) for \\(x\\ne y\\) on a ternary alphabet as a one-use example, but the inspected result statements do not give the exact two-use fixed-codebook optimum.",
+        "arXiv:2401.16707: exact synthesis for an i.i.d. input with average prefix-free length, not a fixed-size worst-case-TV codebook."
+      ],
+      "reasoning": "The claim requires a separate support-covering lower bound and a three-output randomized construction. Neither the asymptotic expansion nor the one-use example implies the exact two-use optimum; the exact-synthesis paper uses a different operational objective.",
+      "searches": [
+        "q-ary symmetric channel crossover probability one, blocklength two, exact approximate channel simulation with shared randomness and minimum codebook size",
+        "exact channel simulation of zero-dispersion q-ary symmetric channels at crossover probability one",
+        "exact common-randomness simulation cost of the ternary anti-identity channel with output uniform over symbols different from the input",
+        "arXiv:2610.15877 full text lines 8–13, 63–92, 181–190",
+        "arXiv:2212.11666 full text lines 47–56, 101–105",
+        "arXiv:2401.16707 full text lines 9–12, 41–55, 67–87"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.15877 lines 8–13, 63–92: common-randomness worst-case TV model; main theorem assumes 0<epsilon<1 and positive dispersion.",
+        "arXiv:2212.11666 lines 47–56 and 101–105: fixed-size common-randomness simulation model and ternary off-diagonal one-use channel."
+      ],
+      "reasoning": "The claim is an exact zero-error, two-use codebook optimum. It is not equivalent to the third-order expansion (which excludes epsilon=0 and zero dispersion), nor to the cited one-use ternary example. The fixed-codebook common-randomness model matches the operational setting.",
+      "searches": [
+        "q-ary symmetric channel crossover probability one, blocklength two, exact approximate channel simulation with shared randomness and minimum codebook size",
+        "exact common-randomness simulation cost of the ternary anti-identity channel with output uniform over symbols different from the input",
+        "arXiv:2610.15877 full text §§1–2",
+        "arXiv:2212.11666 full text lines 47–56 and 101–105"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No public parameter table is applicable: the claim is a specific exact support-covering number rather than a standard tabulated code parameter. The three inspected primary papers do not state this value."
+      ],
+      "reasoning": "No exact database/table entry matching M*_0(W_q^{⊗2}) for W_q(y|x)=1/(q-1) on y≠x was returned. The proof supplies a closed-form exact value rather than a table extrapolation.",
+      "searches": [
+        "q-ary symmetric channel crossover probability one, blocklength two, exact approximate channel simulation with shared randomness and minimum codebook size",
+        "minimum size of a support-covering set for q-ary length-two words at Hamming distance two",
+        "exact channel simulation of zero-dispersion q-ary symmetric channels at crossover probability one",
+        "finite block channel simulation codebook size shared randomness worst-case total variation for q-ary symmetric channel",
+        "exact common-randomness simulation cost of the ternary anti-identity channel with output uniform over symbols different from the input"
+      ]
+    },
+    "rationale": "The exact finite-block value is not stated in the inspected primary channel-simulation papers or in the closest retrieved records. The recent asymptotic result excludes zero error and zero dispersion; the older source includes only the one-use ternary example. Residual risk from uninspected general support-covering results is recorded.",
+    "residual_risks": [
+      "An uninspected general theorem on support covering or zero-error simulation may imply this two-use case.",
+      "Literature indexes are incomplete; absence of a matching result is not proof of global novelty.",
+      "The theorem is intentionally limited to blocklength two and exact simulation; no general blocklength formula is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant but not covering: its main asymptotic result assumes fixed \\(0<\\epsilon<1\\) and positive dispersion; it does not state the zero-error two-use codebook optimum.",
+        "evidence": [
+          "arXiv:2610.15877, introduction and definitions",
+          "arXiv:2610.15877, §§2–3 and Theorem 3.2"
+        ],
+        "identifier_or_url": "arXiv:2610.15877",
+        "material_read": "Full arXiv HTML: introduction and definitions, lines 8–13 and 63–92; main theorem setup and statement, lines 181–190.",
+        "method": "Read the primary full text and compared the stated model, error range, dispersion hypotheses, and theorem scope against the exact finite-block claim.",
+        "title": "Fine asymptotics for approximate simulation of symmetric channels",
+        "trigger": "Fresh recent literature on channel simulation and zero-dispersion boundary cases."
+      },
+      {
+        "assessment": "Closest source but not covering the exact claim in the inspected statements: it provides the operational model and a one-use ternary example, not the two-use q-ary optimum.",
+        "evidence": [
+          "arXiv:2212.11666, introduction and simulation model",
+          "arXiv:2212.11666, ternary off-diagonal example and one-shot bounds"
+        ],
+        "identifier_or_url": "arXiv:2212.11666",
+        "material_read": "Full arXiv HTML: simulation model and error criterion, lines 37–56; ternary off-diagonal channel example, lines 99–105; one-shot and asymptotic scope, lines 56–75.",
+        "method": "Read the primary full text and checked whether it gives the exact two-use fixed-size optimum or a stronger support-covering statement.",
+        "title": "Channel Simulation: Finite Blocklengths and Broadcast Channels",
+        "trigger": "Primary foundational source for common-randomness-assisted worst-case TV channel simulation; it explicitly names the ternary off-diagonal channel."
+      },
+      {
+        "assessment": "Not directly comparable: it assumes an i.i.d. input source and minimizes average prefix-free communication length, whereas this claim minimizes a fixed message-alphabet size under worst-case total variation.",
+        "evidence": [
+          "arXiv:2401.16707, introduction",
+          "arXiv:2401.16707, problem setup and main asymptotic results"
+        ],
+        "identifier_or_url": "arXiv:2401.16707",
+        "material_read": "Full arXiv HTML: abstract and introduction, lines 9–21; exact synthesis definition and model, lines 41–73; asymptotic result scope, lines 118–137.",
+        "method": "Compared objective, source assumptions, and message-length metric with fixed-size worst-case channel simulation.",
+        "title": "Optimal Redundancy in Exact Channel Synthesis",
+        "trigger": "Plausible exact-synthesis literature that could appear to dominate an exact simulation claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "An uninspected general theorem on support covering or zero-error simulation may imply this two-use case.",
+    "Literature indexes are incomplete; absence of a matching result is not proof of global novelty.",
+    "The theorem is intentionally limited to blocklength two and exact simulation; no general blocklength formula is claimed."
+  ],
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bcf81f31-8b8f-4df7-98b4-8fd6073d42c5",
+  "self_review_status": "passed",
+  "source_inspections": [
+    {
+      "assessment": "Highly relevant but not covering: its main asymptotic result assumes fixed \\(0<\\epsilon<1\\) and positive dispersion; it does not state the zero-error two-use codebook optimum.",
+      "evidence": [
+        "arXiv:2610.15877, introduction and definitions",
+        "arXiv:2610.15877, §§2–3 and Theorem 3.2"
+      ],
+      "identifier_or_url": "arXiv:2610.15877",
+      "material_read": "Full arXiv HTML: introduction and definitions, lines 8–13 and 63–92; main theorem setup and statement, lines 181–190.",
+      "method": "Read the primary full text and compared the stated model, error range, dispersion hypotheses, and theorem scope against the exact finite-block claim.",
+      "title": "Fine asymptotics for approximate simulation of symmetric channels",
+      "trigger": "Fresh recent literature on channel simulation and zero-dispersion boundary cases."
+    },
+    {
+      "assessment": "Closest source but not covering the exact claim in the inspected statements: it provides the operational model and a one-use ternary example, not the two-use q-ary optimum.",
+      "evidence": [
+        "arXiv:2212.11666, introduction and simulation model",
+        "arXiv:2212.11666, ternary off-diagonal example and one-shot bounds"
+      ],
+      "identifier_or_url": "arXiv:2212.11666",
+      "material_read": "Full arXiv HTML: simulation model and error criterion, lines 37–56; ternary off-diagonal channel example, lines 99–105; one-shot and asymptotic scope, lines 56–75.",
+      "method": "Read the primary full text and checked whether it gives the exact two-use fixed-size optimum or a stronger support-covering statement.",
+      "title": "Channel Simulation: Finite Blocklengths and Broadcast Channels",
+      "trigger": "Primary foundational source for common-randomness-assisted worst-case TV channel simulation; it explicitly names the ternary off-diagonal channel."
+    },
+    {
+      "assessment": "Not directly comparable: it assumes an i.i.d. input source and minimizes average prefix-free communication length, whereas this claim minimizes a fixed message-alphabet size under worst-case total variation.",
+      "evidence": [
+        "arXiv:2401.16707, introduction",
+        "arXiv:2401.16707, problem setup and main asymptotic results"
+      ],
+      "identifier_or_url": "arXiv:2401.16707",
+      "material_read": "Full arXiv HTML: abstract and introduction, lines 9–21; exact synthesis definition and model, lines 41–73; asymptotic result scope, lines 118–137.",
+      "method": "Compared objective, source assumptions, and message-length metric with fixed-size worst-case channel simulation.",
+      "title": "Optimal Redundancy in Exact Channel Synthesis",
+      "trigger": "Plausible exact-synthesis literature that could appear to dominate an exact simulation claim."
+    }
+  ],
+  "value": {
+    "rationale": "This exact operational invariant addresses the zero-dispersion boundary of recent channel-simulation asymptotics. The alphabet-independent optimum \\(3\\) for all \\(q\\ge3\\), with binary exception \\(4\\), is a structural finite-block result with a sharp construction and obstruction, not merely a numerical example.",
+    "status": "PASS"
+  }
+}
