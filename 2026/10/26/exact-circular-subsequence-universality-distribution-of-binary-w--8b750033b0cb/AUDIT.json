@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "An explicit two-way bijection identifies the maximum number of binary rich arches over all cyclic rotations with the matching number of unlike adjacent cyclic pairs. Parity-even transition vectors have two binary lifts. Non-full-transition cyclic runs contribute ceil(length/2) and admit a pointed logarithmic GF, while the all-transition even-length cycles have a separately counted correction. Coefficient extraction establishes every n>=1 and every k>=0, including constants and n=2; 262,142 brute-force word cases and the independent GF recurrence to n=256 have been executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al. 2020: rich blocks, cyclic index, and power-index comparison.",
+        "Fleischmann et al. 2021: arch remainders and algorithms for circular index.",
+        "Schnoebelen and Veron 2023: efficient index determination for arbitrary/encoded words, not a distribution over all binary inputs."
+      ],
+      "reasoning": "A more general input algorithm is not a generating function for the entire input language. Rich arch decomposition is an established lemma, while the matching-count translation and cycle-enumeration distribution are additional deductions not directly covered by those cited theorems.",
+      "searches": [
+        "Scattered Factor-Universality of Words full text arxiv:2003.04629",
+        "Scattered Factor Universality The Power of the Remainder full text arxiv:2104.09063",
+        "On Arch Factorization and Subword Universality arxiv:2304.11932"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629 (primary full HTML, relevant sections)",
+      "arxiv:2104.09063 (primary full PDF, relevant sections)",
+      "arxiv:2304.11932 (full HTML, relevant algorithms)",
+      "Semantic search of published mathematical records: precise formula, aliases, cycle matching",
+      "Semantic search of mathematical records: precise circular-index formula, aliases, cycle matching, and comparison with ordinary binary universality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published-research record is the linear binary universality law with GF (1+z)/(1-z-2uz²), which differs from the new circular maximum-index distribution.",
+        "The inspected published original sources formulate the index and algorithms but not the proposed indexed generating function."
+      ],
+      "reasoning": "One-word index computability plus binary transition counting does not constitute an existing exact distribution theorem; taking the maximum over cuts changes the count. The new distribution cannot be obtained by substituting the linear GF without additional cycle-matching and parity counting arguments.",
+      "searches": [
+        "binary circular subword universality index cyclic runs matching independence number",
+        "Enumeration of cyclic binary words by maximum matching of cut edges, circular rich-factor decomposition, circular subsequence universality.",
+        "arxiv:2003.04629",
+        "arxiv:2104.09063",
+        "arxiv:2304.11932"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2003.04629 provides circular universal factorization, but no all-length indexed enumeration in inspected text.",
+        "arxiv:2104.09063 concerns remainder-dependent circular universality; inspected text lacks a two-variable word-count series."
+      ],
+      "reasoning": "The new invariant uses the maximum over one common cyclic rotation; the same rotation must support every target subsequence. A target-adaptive rotation is a different quantified condition. Neither an algorithm for one input nor a linear index distribution supplies the number of inputs at each circular index.",
+      "searches": [
+        "The circular subsequence universality index zeta of every binary cyclic word equals matching number of adjacent unequal cyclic positions. Exact bivariate generating function z(1+4zu)/(1-z-2uz^2)+z/(1-z)-2z^2u/(1-z^2u) counts all indexed binary words by zeta.",
+        "For binary strings the number of length n words with circular scattered subsequence universality k is 2^k*(binom(n-k-1,k)+2binom(n-k-1,k-1))-2 if n=2k.",
+        "arxiv:2003.04629 §4; arxiv:2104.09063 §§2–4; arxiv:2304.11932 §§2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No OEIS or primary-literature table attributing the exact joint count to circular subsequence universality was located.",
+        "A numerical OEIS sequence of a similar shape was returned for an unrelated topic; numeric agreement is not equivalent coverage."
+      ],
+      "reasoning": "The statement counts indexed words by two natural parameters for all lengths and supplies a structural proof. A coincident numerical sequence in an unrelated context does not imply equivalent invariant coverage, but existing unpublished or unindexed cyclic run tables remain a risk.",
+      "searches": [
+        "exact binary cyclic subsequence universality distribution bivariate generating function",
+        "site:oeis.org 2,6,14,30,62,126 cyclic universality",
+        "For binary strings the number of length n words with circular scattered subsequence universality k is 2^k*(binom(n-k-1,k)+2binom(n-k-1,k-1))-2 if n=2k."
+      ]
+    },
+    "rationale": "Primary papers introduce and algorithmically characterize the circular index but do not enumerate the full indexed binary distribution; the exact new bivariate distribution is not implied merely by those algorithms or ordinary binary universality counts. No equivalent mathematical statement was found in inspected primary texts or actual similarity/web searches. Possible unindexed equivalent enumeration remains a residual risk.",
+    "residual_risks": [
+      "An equivalent bivariate cycle-enumeration result may appear under alternate circular-run/marked-cycle terminology in literature not indexed or inspected.",
+      "Current similarity searches and inspected publications cannot prove universal priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_BUT_NOT_COVERING",
+        "evidence": "Definition and general properties of circular universality; no explicit full indexed binary GF in inspected passages.",
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Abstract, relevant definition/arch discussion and circular-index section (§4) of accessible arXiv full text",
+        "method": "HTML full text read by section",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational definition of circular scattered-factor universality and arch decompositions"
+      },
+      {
+        "assessment": "SUPPORTING_BUT_NOT_COVERING",
+        "evidence": "Remainder and power-index results do not state a counting distribution across all source words.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Introduction, preliminary definitions, §§2–4, concluding discussion on pages 17–18 of 20-page PDF",
+        "method": "Full-text PDF extraction/sections with visual first-page inspection",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Closest all-word theorem on circular index and arch remainders"
+      },
+      {
+        "assessment": "SUPPORTING_BUT_NOT_COVERING",
+        "evidence": "Circular index determined algorithmically on inputs; indexed two-variable binary word census not given in inspected sections.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+        "material_read": "Accessible full arXiv HTML, §2–§4 algorithms, claims and concluding discussion",
+        "method": "Full arXiv HTML section inspection and searched terms enumeration/generating function",
+        "title": "On Arch Factorization and Subword Universality for Words and Compressed Words",
+        "trigger": "Chronologically qualifying research source, efficient circular-index algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b750033-b0cb-453c-855d-413e6f8357e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-length two-variable distribution gives exact probabilities of the circular scattered-subsequence universality index for uniformly sampled binary words, not merely a bound or one small instance. It gives sharp extremal multiplicities for every source length and a graph-matching interpretation enabling independent calculation; the binary restriction and common-rotation quantifier define a natural pre-existing problem.",
+    "status": "PASS"
+  }
+}
