@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Binary 21-jet matrix ranks are exactly computed; the degree-five injectivity has an additional restriction-to-Fano-lines proof. Every one of the 24 admissible tangent bijections is tested in degrees four and five. The 128 degree-six lifts of a fixed bijection are exhaustively checked for geometric smoothness using exact Jacobian Gröbner bases on all three affine charts. The three elementary projective generators produce 3048 distinct smooth sextics in 19 orbits, confirming the transitively propagated total. The packaged verifier and output match; a finite computation is used only for a rigorously finite parameter domain.
+
+**Originality (O): PASS, qualified.** Asgarli–Ghioca (2023) provide the natural tangent-filling and prescribed tangent-interpolation framework, not the exact rational Gauss-bijection census. Their plane-filling paper concerns low-degree existence. The genus-six census of Huang–Kedlaya–Lau is relevant to quintics but does not cover degree-six genus-ten sextic orbits. The novel claim is the combined smoothness gap and complete 3048-sextic, 19-orbit classification, not the general definitions or isolated classical quartic example. Relevant database and literature searches did not identify an equivalent theorem; a preexisting unindexed census remains a publication-priority risk.
+
+**Value (V): PASS.** The rational Gauss restriction is an intrinsic projective dual-incidence invariant for an embedded curve, and tangent interpolation is explicitly motivated in the primary literature. Degrees four, five and six form the first three possible smooth plane-filling degrees over the binary field; a nonmonotonic gap at five alongside an exact sextic symmetry classification is not an arbitrary parameter slice. The 19-orbit classification distinguishes objects beyond the bare existence of tangent-filling curves and provides a small-field benchmark for Gauss incidence constraints.
+
+**Limitations:** These are counts of defining equations and ambient projective orbits, not abstract moduli or a general theorem for all degrees. No independent external mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
