@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact two-risk percolation kernel has a unique threshold for finite excess-degree factor above one. The first-order perturbation at simultaneous weak heterogeneity and strong assortativity is a concrete \(2\times2\) matrix with distinct real eigenvalues; its Perron shift gives the stated square-root crossover. The fixed-assortativity derivative follows from the stationary left/right vectors of the stochastic contact matrix, whereas full segregation decouples the two classes. The determinants, large-degree trace correction, signs, and endpoint limits are derived explicitly. A standalone direct-kernel and exact-arithmetic checker passed; numerical tests are corroboration, not proof.
+
+**Originality — PASS within identified literature, with residual risk.** The motivating 2026 primary source gives the exact threshold determinant equation and a trace-only approximation; it does not state the joint \(1-h\asymp\delta\) singular scaling, the noncommuting first-order sensitivities, or the sharp degree-asymptotic trace-error law. General two-group spectral-threshold theory is acknowledged as pre-existing. Exact source-equation implication and parameter coverage were compared, as were searches for alternative homophily, reproduction-number and spectral formulations. A potential unindexed singular-perturbation lemma and differences between the open preprint and earlier journal article remain risks.
+
+**Value — PASS.** Near-perfect social assortativity changes the practical interpretation of small differences in transmission behavior: any fixed amount of cross-group mixing has first-order impact \(p\), whereas complete segregation gives coefficient \(1\), joined by an explicit nontrivial transition. This is a motivated threshold-stability question and exposes an order-one limit to a natural scalar screening approximation, rather than an arbitrary parameter substitution. No empirical epidemiological inference is claimed.
+
+**Closest literature:** Mazza et al., Physical Review E 113, 014306 (2026), doi:10.1103/xps9-qqvp, exact Eq. (3) and trace-only Eq. (4); open arXiv:2601.21743, Appendix A; classical multitype SIR spectral analysis. Independent publication-priority confirmation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
