@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Directly derived single-part update trichotomy from disagreeing-neighbour counts; classified the nine class pairs, proved F^4=F^2, separated exact periodic and entry-time cases, and counted disjoint basins. Both degree-below-threshold regimes handled. Standalone exhaustive checker passes 301 parameter triples but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1311.6126v1: arbitrary-graph eventual period-two theorem and general transient bounds.",
+        "arxiv:2202.01580: periodic state classification on trees only."
+      ],
+      "reasoning": "Arbitrary-graph eventual period-two coverage does not entail a size-independent sharp entry time two; a characterization for trees does not subsume non-tree complete bicliques. Special star cases may be covered by tree theory and are not the novelty argument.",
+      "searches": [
+        "Complete bipartite graph K_{a,b} k-reversible threshold process synchronous exact number fixed points 2 cycles and transient depth",
+        "Oliveira Barbosa Protti k-reversible process all states on complete bipartite graph after two steps exact period-2 census",
+        "k-reversible process complete bipartite graph transient two updates period 2 fixed point count"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1311.6126v1",
+      "arxiv:1307.7259v1",
+      "arxiv:2202.01580 (abstract)",
+      "doi:10.1016/j.tcs.2012.05.042 (abstract)",
+      "Relevant indexed findings on Boolean parity automata and bipartite systems (semantic summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1311.6126v1 gives eventual period bound but not exact finite settling time for K_{a,b}.",
+        "arxiv:1307.7259v1 addresses predecessor existence; no explicit global biclique basins are stated in its inspected text.",
+        "arxiv:2202.01580 treats trees rather than arbitrary complete bicliques."
+      ],
+      "reasoning": "Knowing that trajectories eventually reach a fixed state or a 2-cycle does not imply F^4=F^2 or the closed period-state, time-to-cycle and basin formulas. The dynamics are explicitly computed here, so the structural strengthening is mathematical, not just changed notation.",
+      "searches": [
+        "Complete bipartite graph K_{a,b} k-reversible threshold process synchronous exact number fixed points 2 cycles and transient depth",
+        "Oliveira Barbosa Protti k-reversible process all states on complete bipartite graph after two steps exact period-2 census",
+        "Every synchronous k-reversible process on complete bipartite graphs K_{a,b} enters a fixed point or two-cycle within at most two iterations, F^4=F^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1311.6126v1: general periodicity, not two-step transient and full biclique census.",
+        "arxiv:1307.7259v1: predecessor-existence and counting algorithms, not complete orbit enumeration."
+      ],
+      "reasoning": "Reversing the Boolean bit labels or interchanging the bipartition classes yields equivalent descriptions and is subsumed in the symmetric formula. Search also considered threshold-flip, k-reversible, dynamic colouring and 2-cycle terminology; the closest indexed records used parity rather than threshold-flip dynamics.",
+      "searches": [
+        "Complete bipartite graph K_{a,b} k-reversible threshold process synchronous exact number fixed points 2 cycles and transient depth",
+        "Oliveira Barbosa Protti k-reversible process all states on complete bipartite graph after two steps exact period-2 census",
+        "Every synchronous k-reversible process on complete bipartite graphs K_{a,b} enters a fixed point or two-cycle within at most two iterations, F^4=F^2",
+        "Exact number of fixed points and 2-cycles of synchronous threshold-flip automata on complete bipartite graphs, binomial tails, basins"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2013 primary papers do not list a biclique fixed/2-cycle/entry-time/basin table.",
+        "Related indexed results concern complete multipartite parity automata, a different update rule."
+      ],
+      "reasoning": "The proposed expression is a family-wide analytical enumeration over all positive a,b,k, not a restatement of a finite existing table; no equivalent published all-size table was identified in the inspected sources.",
+      "searches": [
+        "Every synchronous k-reversible process on complete bipartite graphs K_{a,b} enters a fixed point or two-cycle within at most two iterations, F^4=F^2",
+        "Exact number of fixed points and 2-cycles of synchronous threshold-flip automata on complete bipartite graphs, binomial tails, basins",
+        "Oliveira Barbosa Protti k reversible complete bipartite k threshold 2 cycles"
+      ]
+    },
+    "rationale": "The 2013 primary result only supplies eventual period<=2 with graph-dependent transient estimates. The exact universal two-step bound and complete all-size labelled biclique orbit/entry-time/basin formulas are not implied by its statements. Full primary 2013 texts and relevant indexed findings were compared; residual literature uncertainty explicitly retained.",
+    "residual_risks": [
+      "A 2012 reversible-graph-process article was not available in full, so a hidden special-case overlap cannot be excluded by its abstract.",
+      "Search coverage is bounded; unindexed or differently named complete-biclique classifications may exist.",
+      "The tree-classification article was checked by abstract, not full text; special star cases are not used to claim novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General eventual period-two result does not give a uniform two-step entry bound or exact biclique orbit and basin counts.",
+        "evidence": [
+          "https://arxiv.org/pdf/1311.6126",
+          "General-graph transient estimates depend on graph order and degree; no biclique-wide exact census identified."
+        ],
+        "identifier_or_url": "arxiv:1311.6126v1",
+        "material_read": "Full preprint: abstract, definitions, general eventual-period theorem, transient bounds, conclusions",
+        "method": "Read the publicly available full preprint and compared theorem hypotheses and quantifiers",
+        "title": "An energy function and its application to the periodic behavior of k-reversible processes",
+        "trigger": "Defines the exact same synchronous flip rule and proves general eventual period at most two"
+      },
+      {
+        "assessment": "Counts or detects one-step predecessors algorithmically in selected graph classes; no closed complete-biclique orbit and transient-depth census found.",
+        "evidence": [
+          "https://arxiv.org/pdf/1307.7259",
+          "Complexity results and tree algorithms differ from explicit all-parameter biclique formulas."
+        ],
+        "identifier_or_url": "arxiv:1307.7259v1",
+        "material_read": "Full preprint: problem statements, graph-class results, conclusions and bipartite NP-hardness construction",
+        "method": "Read the publicly available full preprint and compared scope of its predecessor-counting results",
+        "title": "The Predecessor-Existence Problem for k-Reversible Processes",
+        "trigger": "Same update rule; predecessor counting could subsume basin enumeration"
+      },
+      {
+        "assessment": "Tree classification can overlap special star cases but does not cover non-tree bicliques with both part sizes at least two.",
+        "evidence": [
+          "https://arxiv.org/abs/2202.01580"
+        ],
+        "identifier_or_url": "arxiv:2202.01580",
+        "material_read": "Public abstract and bibliographic metadata",
+        "method": "Compared stated graph-family scope in abstract",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "Possibly related full periodic-state classifications for threshold processes"
+      },
+      {
+        "assessment": "The available abstract does not resolve whether a relevant equivalent exists; material access limitation retained as originality risk.",
+        "evidence": [
+          "https://doi.org/10.1016/j.tcs.2012.05.042"
+        ],
+        "identifier_or_url": "doi:10.1016/j.tcs.2012.05.042",
+        "material_read": "Public bibliographic abstract only; full publisher text unavailable",
+        "method": "Searched preprint and lawful open-access routes, then attempted institutional access; did not retrieve full paper",
+        "title": "Reversible iterative graph processes",
+        "trigger": "Earlier work on reversible graph updates could contain dominating formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c428c6ca-7d8e-44b1-abc1-a5d8b87e7c99",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural dense graph class under the original synchronous threshold-flip rule has a sharp universal two-step relaxation bound, uniformly improving general size-dependent bounds, and an exact all-parameter partition into fixed points, primitive two-cycles and entrance-time basins. These formulas distinguish substantial qualitative phases (middle identity versus complement) and are motivated, not arbitrary finite recomputations.",
+    "status": "PASS"
+  }
+}
