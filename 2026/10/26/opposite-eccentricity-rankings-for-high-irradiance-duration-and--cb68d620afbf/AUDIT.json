@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The high-flux inequality is exactly \\(e\\cos E>\\delta\\), the orbital-time measure is \\((1-e\\cos E)dE/(2\\pi)\\), and the duration derivative has exact sign \\(\\delta-e^2\\), proving a single global interior maximum. For cumulative excess dose, the moving-endpoint integrand vanishes at the flux crossing and the remaining derivative integral is strictly positive since \\(0<E_0<\\pi/2\\). Boundary \\(e=0\\), onset \\(e=\\delta\\), and the excluded limit \\(e\\uparrow1\\) are addressed. The standalone verification code passed 90 independent orbital quadrature comparisons; the code is not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dressing et al. (2010) studies eccentric climate dynamics and annual mean flux at fixed semimajor axis, not a global eccentricity optimizer of fixed-flux exceedance duration.",
+        "Kane–Gelino (2012) computes time-in-zone for individual eccentric planets, including physical-time weighting, but does not provide the competing excess-dose ranking theorem."
+      ],
+      "reasoning": "The prior works cover a broader physical setting (climate and habitable-zone fractional orbit lengths), but the exact two-functional, all-eccentricity comparison is not reported in inspected claims and is not an immediate corollary of any explicit optimizer therein. That meaningful numerical algorithms can generate the duration curve does not by itself settle the global analytic ranking; remaining reduction risk is disclosed.",
+      "searches": [
+        "Astrobiology insolation eccentric orbit peak insolation threshold exceedance duration non-monotonic dose climate",
+        "For a planet on a Keplerian eccentric orbit at fixed semimajor axis, the fraction of orbital time with stellar flux exceeding a fixed threshold has unique maximum at eccentricity sqrt(1 - sqrt(Fcircular/Fthreshold)); the cumulative excess radiation increases with eccentricity",
+        "arxiv:1002.4875v1 climate models; arxiv:1205.2429v1 orbital fraction; arxiv:1202.2377v1 habitable-zone catalogue"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1202.2377 (complete 6-page text, screenshot p4)",
+      "https://arxiv.org/pdf/1205.2429 (complete 22-page text, screenshot p13)",
+      "https://arxiv.org/pdf/1002.4875 (main model/results, screenshot p2)",
+      "Published mathematical finding records: 2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22, 2026/10/11/SCOPE-exact-average-normal-multiplicity-of-ellipses-and-a-fractional-p--e9302961a0c9, 2026/10/11/SCOPE-exact-angular-return-and-physical-time-floquet-rigidity-for-cont--7c00337eaa41"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kepler equation and inverse-square flux are acknowledged as known premises.",
+        "The new strict signs are \\(\\operatorname{sgn}(H_\\eta\\prime)=\\operatorname{sgn}(\\delta-e^2)\\) and \\(J_\\eta\\prime>0\\) for every \\(e>\\delta\\)."
+      ],
+      "reasoning": "Prior pointwise time-in-zone calculation implies the closed duration formula once a fixed upper flux boundary is chosen, but the global optimum and opposite ordering of excess dose require comparing derivatives of two different functionals across the entire parameter range. We claim only this optimization/comparison, not novelty of the Kepler map, flux inverse-square law, or duration computation. A more general comparison theorem could still subsume the result.",
+      "searches": [
+        "arxiv:1202.2377v1 equations (5)-(9)",
+        "arxiv:1205.2429v1 §3.2",
+        "Kepler eccentric orbit time spent above habitable zone flux limit optimal eccentricity sqrt 1 minus square root flux ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kepler eccentric anomaly yields both \\(M=E-e\\sin E\\) and \\(r=a(1-e\\cos E)\\), which determine phase duration for any flux threshold in arxiv:1202.2377v1 §§3.3-4.3.",
+        "The exact duration optimizing eccentricity \\(\\sqrt{1-\\eta^{-1/2}}\\) plus monotone excess-dose ordering was not stated in the inspected sections or results."
+      ],
+      "reasoning": "The known Kepler fraction can be expressed through mean anomaly at a crossing radius; ours is algebraically equivalent for a fixed eccentricity. However pointwise computation of an orbital fraction does not state or automatically compare the unique optimum over all eccentricities, nor rank the distinct integrated excess-dose functional. This conclusion is derivative-level structural information, with clear risk of implicit equivalence to unexamined general mathematical sources.",
+      "searches": [
+        "Elliptical Kepler eccentric planetary orbits orbit fraction above stellar irradiance threshold versus eccentricity maximum finite exposure dose, two thresholds duration reversal",
+        "Kepler eccentric orbit time spent above habitable zone flux limit optimal eccentricity sqrt 1 minus square root flux ratio",
+        "arxiv:1202.2377v1 §§3.3-4.3; arxiv:1205.2429v1 §3; arxiv:1002.4875v1 introduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Habitable Zone Gallery published computed percentages of time in zone for known planets and a parameter plotting service, not a table of eccentricity maximizing a fixed above-circular irradiation threshold or excess-dose derivatives."
+      ],
+      "reasoning": "The published table and database are orbital-object values at their measured eccentricities, not an optimized threshold invariant indexed by a chosen fixed circular-flux ratio. No dominating exact table or formula was found in the inspected source; this is not a claim of exhaustive database coverage.",
+      "searches": [
+        "arxiv:1202.2377v1 Table 2 and §4.3",
+        "Elliptical Kepler eccentric planetary orbits orbit fraction above stellar irradiance threshold versus eccentricity maximum finite exposure dose, two thresholds duration reversal"
+      ]
+    },
+    "rationale": "Searches of indexed publicly posted mathematical findings for orbital eccentricity, above-threshold irradiation, Kepler phase duration and mean excess dose yielded no same-observable result; the closest ranked records concern phase statistics in unrelated oscillators and normal counts on ellipses. Primary full texts establish general time-in-habitable-zone computation, but the inspected articles do not state the unique global maximizing eccentricity for a fixed super-circular flux cutoff together with the strict opposite ordering of cumulative excess flux. The new comparison requires an all-eccentricity derivative argument beyond a tabulated specific-orbit duration. Important risk remains that broader HZ algorithms or orbital-radiation comparison theory already imply this mathematically elementary specialization; no historical-uniqueness certification is claimed.",
+    "residual_risks": [
+      "General time-in-zone formulas from Kane and Gelino imply pointwise duration, so the claimed advance is specifically its global optimizer plus the opposing dose ordering, not the orbit-time formula.",
+      "The exact optimization could be implicit in a database algorithm, an earlier planetary irradiation analysis or a more general mathematical inequality.",
+      "Climate interpretation cannot be drawn directly from incident-flux statistics, and the physical high-eccentricity range is restricted by finite stellar radius."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the known orbital-time fraction calculation and Kepler anomaly parameterization; no statement of the sharp eccentricity optimizer or opposite excess-dose ranking in its article.",
+        "evidence": [
+          "arxiv:1202.2377v1 §3.3, equations (5)–(9)",
+          "arxiv:1202.2377v1 §4.3, Table 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.2377",
+        "material_read": "Full six-page preprint: §§1–5; equations (5)–(9), time-in-zone data and tables.",
+        "method": "Open full arXiv PDF; examine text and page 4 screenshot.",
+        "title": "The Habitable Zone Gallery",
+        "trigger": "Calculates the exact fraction of an eccentric planetary orbit within insolation-defined boundaries; central equivalence risk."
+      },
+      {
+        "assessment": "Describes orbital time-in-habitable-zone for case studies and climate caveats; no fixed-threshold, all-eccentricity duration optimizer coupled with monotone excess-dose theorem stated.",
+        "evidence": [
+          "arxiv:1205.2429v1 §3.2 pp.12–14",
+          "arxiv:1205.2429v1 §3.3 pp.15–16"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1205.2429",
+        "material_read": "Full 22-page preprint especially §§2–4 and Figures 4–5, plus bibliography.",
+        "method": "Open full arXiv PDF; inspect source text and page 13 screenshot.",
+        "title": "The Habitable Zone and Extreme Planetary Orbits",
+        "trigger": "Directly compares short periastron and long apastron exposure of eccentric exoplanets."
+      },
+      {
+        "assessment": "Models atmospheric habitability and annual mean flux; it does not state the idealized two-statistic theorem; results do not logically imply this threshold-specific duration maximizer without additional derivation.",
+        "evidence": [
+          "arxiv:1002.4875v1 abstract and §1; later v2 available full PDF"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1002.4875",
+        "material_read": "Main abstract, extensive introduction and stated model/results; model context and atmospheric assumptions.",
+        "method": "Open full arXiv PDF; inspect extracted sections and page 2 screenshot.",
+        "title": "Habitable Climates: The Influence of Eccentricity",
+        "trigger": "Potentially stronger account of eccentricity and mean stellar irradiation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb68d620-afbf-4002-8612-2901323b194a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In exoplanet irradiation comparisons at matched semimajor axis, the time spent above a hazardous flux and the accumulated excess energy are two natural, mutually non-equivalent metrics. This theorem supplies the exact threshold-dependent global maximizer for the duration and proves that above it greater eccentricity reduces duration while increasing excess dose. The opposing ordering is a substantive classification, not an arbitrary parameter slice or numerical recomputation of a known orbit table; atmospheric and astrophysical application limits are explicit.",
+    "status": "PASS"
+  }
+}
