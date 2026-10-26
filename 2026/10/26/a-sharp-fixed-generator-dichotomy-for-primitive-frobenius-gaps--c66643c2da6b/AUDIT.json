@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For even L, N=product(aj-1) is 1 mod a; b is -1 mod a. Any solution N=ax+by forces y=aj-1 with 1<=j<=L via by<=N and b>N/(aL). This y divides N, is coprime to a, and hence divides x; it is >=2. Thus every solution has gcd>1. The chosen b is within a above N/(aL), yielding g(a,b)/b>=aL/(1+a^2 L/N). Since N>=(a-1)^L, the ratio diverges and b tends to infinity. The endpoint a=1,2 follows exactly from credited Jaffe Propositions 5.1–5.2. The standalone stdlib checker confirms 77 finite parameter pairs and 616 ordinary nonprimitive representations; the proof covers all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaffe Theorem 4.3 establishes finite g(a,b) for each fixed coprime pair; it has no uniform upper bound linear in b for a fixed a.",
+        "Jaffe Theorem 6.5 supplies an explicit upper bound via the Jacobsthal function only under its stated size condition.",
+        "Jaffe Theorem 7.1 is a lower bound when the other generator a is multiplied by u at fixed b."
+      ],
+      "reasoning": "Theorem 7.1 varies a, not b with a fixed. The stated finiteness and upper bounds do not give unbounded g(a,b)/b, nor do the cited source results imply an obstruction with all representations sharing nontrivial coefficient gcd.",
+      "searches": [
+        "'primitive Frobenius number' 'limsup' a b",
+        "'coprime coefficients' 'no linear bound' Frobenius number",
+        "'relatively prime multipliers' Frobenius unbounded ratio fixed a",
+        "Jaffe Frobenius problem with relatively prime multipliers g(a,b) fixed generator a unbounded ratio construction 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.17267v1 original full HTML, mathematical introduction and §§2–7",
+      "arXiv:2610.17267v1 initial publication date 2026-10-12 and MSC 11N99",
+      "Relevant indexed public research record: 2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594 (title and abstract only)",
+      "Published and preprint web searches on coprime coefficients, primitive Frobenius, fixed-generator slope, Stern/Farey denominator gaps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jaffe Propositions 5.1 and 5.2 exactly give the bounded cases a=1,2; their role is cited background, not claimed new.",
+        "Jaffe Theorem 4.3 proves existence, not a uniform growth classification; its Figures 5–7 are finite and heuristic.",
+        "The explicit product witness N_{a,L} forces each possible coefficient y to divide both x and y; that obstruction is not in the compared source statements."
+      ],
+      "reasoning": "The novel quantified claim is not a finite example, nor the known boundary formulas. Comparing quantifiers reveals it asserts failure of any C_a b bound for every fixed a>=3, whereas the source existence theorem concerns each fixed pair and the known exact formulas concern a=1,2.",
+      "searches": [
+        "'Grace Natalie Jaffe' 'Denominators in the Farey Sequence' 2026 theorem g",
+        "fixed a at least 3 primitive Frobenius g(a,b) divided by b unbounded limsup as b varies coprime coefficients all representations share gcd divisible factors product (aj-1) Jaffe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jaffe, arXiv:2610.17267v1, Theorem 2.1 identifies exactly the nonnegative coprime-coefficient representations with entries of the Stern diatomic array.",
+        "Jaffe §§5–7 develop exact low-generator cases and parameter studies; no theorem there asserts divergent normalized gaps for every fixed generator >=3."
+      ],
+      "reasoning": "Stern/Farey formulations are genuinely equivalent through the cited theorem, so searches considered these aliases rather than only the phrase primitive Frobenius. The found statements do not settle the fixed-generator limsup. Search absence does not establish global uniqueness.",
+      "searches": [
+        "'Stern diatomic' 'gap' 'unbounded' initial pair a b",
+        "'Z(a,b)' 'g(a,b)' 'ratio' Stern diatomic",
+        "Stern sequence primitive Frobenius normalized gaps infinitely large fixed a 3",
+        "primitive Frobenius coin problem with coprime representation coefficients g(a,b) unbounded relative to b for each fixed a at least 3 using product of aj-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jaffe Figure 5 tabulates computational values for coprime generators up to 200, not an unbounded family or all even L.",
+        "Published research record 2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594 concerns Frobenius corrections for a primitive Pythagorean-quadruple numerical semigroup, a different object and different primitive condition."
+      ],
+      "reasoning": "The source finite tables cannot cover a universal result along unbounded explicitly constructed b. The indexed Pythagorean-semigroup result cannot imply the present coefficient-coprimality theorem via its displayed statement, despite sharing Frobenius terminology. No exact database of these witnesses was identified.",
+      "searches": [
+        "prescribed coprime coefficients Frobenius number b varying for fixed a exact growth lower bound",
+        "'Stern diatomic' 'gap' 'unbounded' initial pair a b",
+        "primitive semigroup representations ax+by=n gcd(x,y)=1 obstruction lcm arithmetic progression fixed generator unbounded slope"
+      ]
+    },
+    "rationale": "The mathematical claim is a sharp fixed-generator dichotomy in the relatively-prime-coefficient two-generator Frobenius problem. The inspected Jaffe original proves existence for each pair and formulas for a=1,2, but not an unbounded g(a,b)/b for fixed a>=3. A search of equivalent Stern/Farey terminology and broader Frobenius bounds found no covering claim. The closest indexed Frobenius result addresses a different semigroup of primitive Pythagorean quadruples. Residual bibliographic risk remains; semantic retrieval is not a uniqueness certificate.",
+    "residual_risks": [
+      "Older or unindexed work on Farey denominators, Stern diatomic sequences, or restricted Frobenius problems might imply the same construction.",
+      "Search records include abstracts; an abstract match alone is not proof of noncoverage and no global literature exhaustiveness is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object. Finiteness, first two generators, and computational surveys are known; the universal fixed-a>=3 divergent ratio and product construction were not stated in the inspected paper.",
+        "evidence": [
+          "Theorem 2.1 equivalence of Stern array and primitive representations.",
+          "Theorem 4.3 finite g(a,b).",
+          "Propositions 5.1–5.2 exact g for a=1,2.",
+          "§7 Theorem 7.1 and Conjectures 7.2–7.3 concern other parameter comparisons."
+        ],
+        "identifier_or_url": "arXiv:2610.17267v1; https://arxiv.org/html/2610.17267v1",
+        "material_read": "Original full HTML text including §§1–7, Theorems 2.1, 4.3, 6.5, 7.1, Propositions 5.1–5.2, and future directions; original arXiv submission date and primary MSC confirmed.",
+        "method": "Direct full-text HTML inspection and theorem/quantifier comparison; bibliographic record cross-check.",
+        "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+        "trigger": "Defines exactly the primitive Frobenius invariant and its known boundary formulas; likely dominating primary source."
+      },
+      {
+        "assessment": "Different primitive Pythagorean numerical semigroup; indexed theorem is not about gcd of representation coefficients for two fixed generators.",
+        "evidence": [
+          "Indexed summary gives a correction for a Hwang–Song formula in a semigroup generated by primitive Pythagorean quadruple coordinates."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594",
+        "material_read": "Public indexed title and abstract only, not full article.",
+        "method": "Definition-level comparison of indexed scientific summary.",
+        "title": "Exact subthreshold Frobenius correction for primitive Pythagorean quadruples",
+        "trigger": "Retrieved by semantic search through shared Frobenius terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c66643c2-da6b-405f-99c4-6c22cbf88de3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural structural gap after existing formulas for a=1,2 is the effect of fixing one generator and varying the other. The result provides a sharp yes/no dichotomy, with a systematic product construction that forces all possible ordinary representations to be nonprimitive. It invalidates any uniform linear-in-b extrapolation for all fixed a>=3; this is a meaningful infinite parameter-growth boundary, not a table recomputation or arbitrary slice. It does not claim exact g or density over all b.",
+    "status": "PASS"
+  }
+}
