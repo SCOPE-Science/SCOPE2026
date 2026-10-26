@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+In characteristic two, the four partial derivatives of the quartic product restrict every singular point to a coordinate edge, and the nonzero diagonal coefficients exclude the vertices. The six separable edge quadratics each have two distinct nonzero roots. The explicit local tangent quadratic has the smooth conic \((b_{ij}u+\alpha v+\beta w)^2+t_0vw=0\), proving that all twelve are ordinary nodes. The Artin–Schreier trace equivalence determines arithmetic Frobenius descent; the six edge coefficients vary independently after diagonal coefficients are fixed. Finally, each exceptional conic is \(\mathbb P^1\) over its finite residue field, establishing the stated zeta quotient through exact extension-field point-count differences. The checked `verify.py` independently exhausts all 59,049 presentations over \(\mathbb F_4\) and tests the 64 masks over \(\mathbb F_8\). No finite test is used in place of the general proof.
+
+## Originality — PASS, with residual risk
+The principal geometric antecedent is Example 19 of Catanese–Schütt, arXiv:2206.03295, which explicitly states the general 12-node construction but not the independent finite-field trace profile, the complete labeled coefficient census, or the Frobenius-weighted zeta correction. Catanese, arXiv:2106.09988, Section 4, classifies symmetric quartic singular-locus types, not these six independent labeled finite-field profiles. Research-record searches and accessible earlier claims did not identify an equivalent arithmetic theorem. This is not a proof of global novelty: the main residual risk is an unindexed specialization of the known construction or general Artin–Schreier arithmetic that already packages the same precise result.
+
+## Mathematical value — PASS
+The result supplies a complete finite-field arithmetic stratification of the natural explicit twelve-node architecture at the known upper bound for non-supersingular normal quartic surfaces in characteristic two. It goes beyond checking existence: it realizes every possible independent six-edge descent pattern, counts each coefficient-marked stratum over all \(\mathbb F_{2^m}\), and converts the classification into an exact correction for the K3 resolution's zeta function. The natural six edges are structural, not an arbitrary parameter slice. The formula does not determine absolute zeta functions and does not count isomorphism classes.
+
+Self-review: passed. Independent audit: not yet performed.
