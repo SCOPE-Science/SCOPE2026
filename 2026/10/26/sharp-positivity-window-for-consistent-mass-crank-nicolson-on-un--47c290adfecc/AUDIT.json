@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "From exact P1 mass/stiffness matrices, derive P=cI+dA^-1. Alternating-sign similarity forces distance-two negativity for 0<z<1/3; at z=1/3 P=(I+T)/3. For z>1/3, the inverse of irreducible Stieltjes path matrix is strictly positive; the Green diagonal formula proves endpoints are least, and the endpoint determinant identity yields a unique root because every Dirichlet spectral amplification has strictly negative derivative. Schur complements make finite-n roots increase; a half-line Green limit and unsquared boundary equation give the unique selected cubic root. Exact-rational independent assembly/inversion passes 90 tests, including n=3 positive witness at 7/10. Infinite claims use analytic argument, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faragó–Horváth 2006, DOI 10.1137/050627241, §§4–6, Theorems 4.2, 6.4–6.5 develops broad DMP conditions; Theorem 6.5 quotes the 2001 necessary/sufficient full-DMP interval [1/3,2/3] at θ=1/2.",
+        "Li–Huang, arXiv:1209.5657, §3, Theorem 3.1, pp. 6–8 obtains sufficient upper and lower step-size estimates using coefficient-matrix sign and M-matrix arguments."
+      ],
+      "reasoning": "Broader input classes and sharper output invariants do not automatically settle the specific finite-size homogeneous interior map. The cited sufficient estimates alone cannot determine the true sharp upper boundary, and the full-DMP claims do not state the finite-n polynomial threshold or half-line cubic. The 2001 underlying result remained inaccessible, noted as a residual risk.",
+      "searches": [
+        "theta method semidiscrete finite element heat equation positivity exact time step interval nonlumped mass matrix",
+        "Crank Nicolson finite elements tridiagonal positivity overshoot maximum principle critical time step",
+        "Farago Horvath 2006 discrete maximum principle homogeneous boundary sharp positivity threshold Crank Nicolson Galerkin finite element",
+        "Farago Horvath finite element Crank Nicolson necessary sufficient 1/3 2/3 nonnegativity finite interior dimension extended range",
+        "arxiv:1209.5657 (Theorem 3.1, finite element θ step)",
+        "Faragó–Horváth 2006, DOI 10.1137/050627241, §§4–6, Theorems 4.2, 6.4–6.5"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/050627241 (full-text portions including Theorems 4.2/6.4/6.5)",
+      "arxiv:1209.5657 (25-page full PDF and Theorem 3.1)",
+      "GAKUTO Int. Ser. Math. Sci. Appl. 15 (2001) 76–84 (citation only)",
+      "doi:10.1016/j.apnum.2004.09.001 (abstract and metadata only)",
+      "Published finding, Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson (identifier 1f6f56bd0eac, 2026-09-20)",
+      "Published finding, A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (identifier d475df91cd2a, 2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Faragó–Horváth 2006, DOI 10.1137/050627241, §§4–6, Theorems 4.2, 6.4–6.5 states the 1/3-to-2/3 interval for full DMP and uses a broader data/boundary framework; positive n=3,z=7/10 exhibits a distinct interior statement.",
+        "Li–Huang, arXiv:1209.5657, §3, Theorem 3.1, pp. 6–8 is a sufficient theorem for general mesh conditions.",
+        "Published finding, Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson (identifier 1f6f56bd0eac, 2026-09-20) uses a backward-Euler filter.",
+        "Published finding, A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (identifier d475df91cd2a, 2026-10-04) assumes Markov structure."
+      ],
+      "reasoning": "Neither a sufficient [1/3,2/3] bound nor a differently quantified full-DMP statement logically yields the exact root rho_n>0.7475 for each n with zero boundary and forcing. Neither filtered Crank–Nicolson nor Markov-resolvent positivity implies the present unfiltered consistent-mass matrix positivity. Inaccessible early proceedings sources prevent a blanket novelty guarantee.",
+      "searches": [
+        "Crank Nicolson consistent mass linear finite elements 1D Dirichlet uniform mesh entrywise nonnegative transition matrix exact timestep interval positivity threshold Chebyshev",
+        "theta method semidiscrete finite element heat equation positivity exact time step interval nonlumped mass matrix",
+        "Farago Horvath 2006 discrete maximum principle homogeneous boundary sharp positivity threshold Crank Nicolson Galerkin finite element",
+        "Farago Horvath finite element Crank Nicolson necessary sufficient 1/3 2/3 nonnegativity finite interior dimension extended range",
+        "doi:10.1137/050627241 (Theorems 4.2 and 6.5)",
+        "arxiv:1209.5657 (Theorem 3.1)",
+        "Published finding, Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson (identifier 1f6f56bd0eac, 2026-09-20)",
+        "Published finding, A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (identifier d475df91cd2a, 2026-10-04)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Faragó–Horváth 2006, DOI 10.1137/050627241, §§4–6, Theorems 4.2, 6.4–6.5 characterizes PO-iteration DNP with the nonnegativity of the full iteration blocks; here the interior block only is studied.",
+        "Published finding, A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (identifier d475df91cd2a, 2026-10-04) assumes an entrywise Markov generator; the consistent-mass FE generator is not such a generator for n>=3."
+      ],
+      "reasoning": "Entrywise positivity of a fixed interior Crank–Nicolson map is not the same as positivity of a time step for a finite Markov chain or unconditional DMP for arbitrary boundary/source vectors. Exact matrix P3(7/10)>0 falls above the usual 2/3 sufficient bound, and the candidate finite-size Green recurrence and cubic limit are not equivalent formulations in the examined material.",
+      "searches": [
+        "Crank Nicolson consistent mass linear finite elements 1D Dirichlet uniform mesh entrywise nonnegative transition matrix exact timestep interval positivity threshold Chebyshev",
+        "uniform one-dimensional Dirichlet finite element Crank Nicolson consistent mass exact nonnegativity interval 0.333 0.7476 algebraic upper endpoint",
+        "tridiagonal inverse Green function endpoint diagonal Crank Nicolson Galerkin finite element heat positivity cutoff finite n",
+        "doi:10.1137/050627241 (equivalent DMP/DNP and homogeneous one-step nonnegativity comparison)",
+        "Published finding, A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (identifier d475df91cd2a, 2026-10-04)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational n=3,z=7/10 positive witness and cubic 27z³−207z²+141z−1 not present in examined primary full-text sections.",
+        "Published finding, Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson (identifier 1f6f56bd0eac, 2026-09-20) concerns different filtered infinite/periodic lattice map."
+      ],
+      "reasoning": "No identical numerical/cubic cutoff table or statement was identified among the directly inspected full texts or ranked public claims. A failed search cannot prove absence; exact cutoff tables in specialized earlier sources remain a risk.",
+      "searches": [
+        "uniform one-dimensional Dirichlet finite element Crank Nicolson consistent mass exact nonnegativity interval 0.333 0.7476 algebraic upper endpoint",
+        "sharp timestep 1/3 to approximately 0.7476 for positivity of Crank Nicolson FEM tridiagonal inverse",
+        "Crank Nicolson consistent-mass 1D Dirichlet mesh nonnegative interval from tau/h²=1/3 to algebraic cutoff 0.747597827128",
+        "arxiv:1209.5657 (search exact upper cutoff)",
+        "Published finding, Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson (identifier 1f6f56bd0eac, 2026-09-20)"
+      ]
+    },
+    "rationale": "Direct conceptual and implication comparisons against two primary sources read materially and public mathematical findings reveal no established finite-n tridiagonal interior Crank–Nicolson cutoff or limiting cubic. A rational step beyond 2/3 and a full all-size recurrence differentiate the claim from known sufficient matrix-sign criteria. Earlier full-DMP iff statements were considered explicitly rather than equated with the narrower problem. Residual 2001/2005 inaccessible full-text risk remains and originality is not independently certified.",
+    "residual_risks": [
+      "The 2001 Faragó–Horváth proceedings manuscript, quoted by the 2006 paper, could contain a more specialized classification; full text was inaccessible.",
+      "The 2005 hybrid-mesh paper was not inspected beyond abstract and bibliographic metadata due restricted full-text access.",
+      "The 2006 full-DMP iff wording requires careful quantifier and boundary-data comparison and might invite a stronger prior-coverage interpretation; fixed homogeneous interior positivity was proved independently rather than assumed from that theorem.",
+      "Mathematical literature search, even including direct full texts, cannot certify absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Has strong related full-DMP claims and classical [1/3,2/3] bound, but not the n-dependent homogeneous-interior cutoff and cubic limit. Detailed boundary/DMP scope reconciliation remains a risk.",
+        "evidence": [
+          "DOI 10.1137/050627241, Theorem 4.2 states DNP needs both interior iteration block and boundary transfer block nonnegative.",
+          "Theorem 6.5 states a uniform-grid bound of [1/3,2/3] at theta=1/2.",
+          "The exact P3(7/10) matrix in RESULT.md is strictly positive."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050627241",
+        "material_read": "Full author-provided textual article including definitions of DNP/DMP, (3.9), Theorem 4.2, Sections 6.1–6.2 and Theorems 6.4–6.5.",
+        "method": "Read accessible author-provided full-text transcription and publisher bibliographic history; independently compared quantifiers, boundary terms, timestep normalization, and rational z=7/10 example.",
+        "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+        "trigger": "Nearest historical uniform-mesh θ-method result; full-DMP necessity and sufficiency potentially dominating."
+      },
+      {
+        "assessment": "Theorem 3.1 derives sufficient M-matrix/time-step conditions for arbitrary admissible meshes; no equivalent exact uniform 1D homogeneous upper cutoff.",
+        "evidence": [
+          "arXiv 1209.5657, original posting 2012-09-25.",
+          "Theorem 3.1 p. 8 gives sufficient lower/upper step-size bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Complete available 25-page arXiv text, specifically introduction, the mass/stiffness semidiscretization, Sections 2–3, Theorem 3.1 and proof; title and theorem pages visually inspected.",
+        "method": "Read lawful OA full PDF and visually inspected theorem and classification pages.",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Direct primary literature on theta time discretization plus consistent FEM mass matrix."
+      },
+      {
+        "assessment": "Unresolved specialized prior-coverage risk, not treated as inspected full text.",
+        "evidence": [
+          "Faragó–Horváth (2006), reference [7] and Theorem 6.5 referring to earlier one-dimensional DNP work."
+        ],
+        "identifier_or_url": "Faragó–Horváth, GAKUTO Int. Ser. Math. Sci. Appl. 15 (2001), pp. 76–84",
+        "material_read": "Bibliographic entry and references to its result in the fully inspected 2006 paper; original full text unavailable.",
+        "method": "Searched title and versions for lawful open full text; compared quotation in 2006 article.",
+        "title": "On the nonnegativity conservation of finite element solutions of parabolic problems",
+        "trigger": "Underlying reference for the strong iff claim quoted as Theorem 6.5 in the 2006 article."
+      },
+      {
+        "assessment": "Cannot conclude noncoverage from title/abstract alone; residual literature risk. Geometrical hybrid meshes differ from exact uniform Dirichlet path focus.",
+        "evidence": [
+          "DOI 10.1016/j.apnum.2004.09.001; 2005 journal record."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.09.001",
+        "material_read": "Title, bibliographic record and abstract only; full text inaccessible.",
+        "method": "Bounded arXiv and OA full-text attempts before institutional download route; restricted institutional connection unavailable.",
+        "title": "Discrete maximum principle for linear parabolic problems solved on hybrid meshes",
+        "trigger": "Earlier foundational source in same historical research program."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47c290ad-fecc-4ae7-bfbc-58423c5ec595",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete, naturally parameterized positivity classification for every mesh size in a standard consistent-mass CN heat scheme; supplies an exact finite-size threshold recurrence, universal lower obstruction, and asymptotic algebraic cutoff that sharpens conventional sufficient [1/3,2/3] restrictions. This helps judge when a standard heat propagator preserves the positive cone without unnecessary timestep conservatism, and is not a trivial renaming or arbitrary isolated sample.",
+    "status": "PASS"
+  }
+}
