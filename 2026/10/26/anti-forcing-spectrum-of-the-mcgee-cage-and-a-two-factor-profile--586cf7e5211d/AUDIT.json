@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Every perfect matching of the explicit 24-vertex cubic graph is recovered by an exhaustive vertex-covering recursion (60 distinct 12-edge matchings). For each matching, deleting \\(S\\subseteq E\\setminus M\\) isolates it exactly when S hits each other perfect matching; all \\(\\binom{24}{k}\\) deletion subsets for k=0 through the first feasible k≤6 are enumerated. This proves both optimum lower/upper bounds and counts all minimal S; outputs yield 40 optima 5, 20 optima 6, refined counts 8/4 for three 8-cycles, 0/6 for two 12-cycles, 32/10 for one 24-cycle. A separate explicit edge-list recursion and exact MILP replicates all 60 optima, with all stored witnesses directly checked. Computations are finite proof steps and executable artifacts are present.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lei–Yeh–Zhang establishes general equivalences and bipartite planar minimax bounds, but the McGee graph is nonbipartite; neither its 60-matchings count nor exact five/six deletion optimization is supplied.",
+        "Deng–Zhang establishes a cyclomatic-number upper bound and extremal bipartite properties. For this graph the cyclomatic number is 13, a bound too weak to determine five versus six or their multiplicities."
+      ],
+      "reasoning": "Generic theorems give a valid optimization model and weak upper bounds, not the exact values, their distribution, or the failure of two-factor cycle type to determine anti-forcing. The claimed finite enumeration is not a restatement or special case of any explicit numerical theorem seen in the primary texts.",
+      "searches": [
+        "arxiv:1406.3796v1 Lemma 2.1, Theorem 2.2 and Section 3",
+        "arxiv:1607.05392v1 Theorems 1.1, 1.2, 3.1 and section on polygonal chains",
+        "published-finding corpus: anti-forcing spectra cubic cages 2-factor cycle type cannot determine anti forcing number",
+        "Web: \"anti-forcing spectra cubic cages 2-factor cycle type\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1406.3796v1",
+      "arxiv:1607.05392v1",
+      "doi:10.22052/IJMC.2017.60978.1235",
+      "https://mathworld.wolfram.com/McGeeGraph.html",
+      "Published-research semantic search for McGee cage anti-forcing and matching-related aliases; closest topical title: The McGee graph independence complex is a five-sphere (different invariant)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior alternating-cycle transversality is directly reused as a lemma, credited; the package itself computes the specific McGee hitting optima.",
+        "Alikhani–Soltani classifies anti-forcing for paths/cycles/wheels, links and chains, corona graphs and dendrimers, not this named cage.",
+        "A published-finding corpus paper on the McGee independence complex computes homotopy S^5, which has no stated implication determining the minimum deletion sets for 60 individual perfect matchings."
+      ],
+      "reasoning": "The new assertion includes the full matching-by-matching optimum distribution and a concrete pair of equal 2-factor profiles with unequal anti-forcing numbers. The other works do not imply those numbers without executing the new exhaustive optimization. Prior McGee maximum packing (accessible own-history claim) concerns vertex packings, not matchings and deletion uniqueness.",
+      "searches": [
+        "arxiv:1406.3796v1 full primary PDF with alternating-cycle equivalence",
+        "arxiv:1607.05392v1 full HTML, exact extremal results",
+        "doi:10.22052/IJMC.2017.60978.1235 full PDF, Sections 1–4",
+        "published-finding corpus: 3-regular 24-vertex McGee graph near matching anti-forcing spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lei–Yeh–Zhang 2014, Lemma 2.1: deletion sets are exactly edge sets meeting every matching-alternating cycle; the 20-page preprint treats general relations and plane bipartite minimax, with no McGee instance.",
+        "Search hits on the McGee graph instead describe the cage and its independence complex, not its anti-forcing numbers.",
+        "Web exact-phrase searches for McGee plus anti-forcing returned general anti-forcing theory, with no identified McGee calculation."
+      ],
+      "reasoning": "Equivalent terminology includes uniquely determining edge-deletion sets, anti-Kekulé/matching anti-forcing, alternating-cycle transversals, and minimum cardinality edge sets yielding one perfect matching. Those searches and inspected texts did not produce the 40/20 spectrum or two-factor separation. This is not a proof of publication uniqueness.",
+      "searches": [
+        "published-finding corpus: McGee graph (3,7)-cage anti-forcing number anti-forcing spectrum perfect matchings counts 60 40 20",
+        "published-finding corpus: The McGee graph anti-forcing polynomial is 40 z^5 + 20 z^6. Every perfect matching requires 5 or 6 nonmatching edge deletions to become unique, refined by complement 2-factor types 8+8+8, 12+12, and 24.",
+        "Web: \"McGee\" \"anti-forcing\"",
+        "Web: \"McGee graph\" \"anti-forcing polynomial\"",
+        "Full-text term searches McGee/cage in arxiv:1406.3796v1, arxiv:1607.05392v1 and doi:10.22052/IJMC.2017.60978.1235"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld records the unique (3,7)-cage, its 24 vertices, 36 edges, girth seven, 32-element automorphism group and LCF representation; it does not list the claimed anti-forcing polynomial.",
+        "The closest published-finding corpus McGee record describes the homotopy type of the independence complex; it is a different object with no anti-forcing claim."
+      ],
+      "reasoning": "No inspected table or database supplies the exact 40/20 distribution, 2-factor cross-tabulation or 18,200 minimal deletion sets. Lack of a search result alone does not eliminate other published tables.",
+      "searches": [
+        "Web: site:oeis.org \"McGee graph\" \"perfect matchings\"",
+        "Web: site:houseofgraphs.org/graphs/1223 \"anti-forcing\"",
+        "Web: \"McGee graph\" \"60\" \"perfect matchings\"",
+        "MathWorld McGeeGraph page, full graph description and bibliography",
+        "published-finding corpus: 24 vertex McGee graph 60 perfect matchings anti-forcing number five six 2-factor cycles"
+      ]
+    },
+    "rationale": "The claim is an exact anti-forcing distribution and a two-factor-profile separation for the McGee (3,7)-cage, not the prior definitions or universal hitting condition. The earliest relevant anti-forcing theory (Lei–Yeh–Zhang, 2014) gives an exact set-cover characterization for any graph but not the computed McGee spectrum or its refined 2-factor table. Deng–Zhang (2016) and Alikhani–Soltani (2017) have different objects, with no McGee statement in the inspected material. published-finding corpus matching-related records and accessible historical claims concern different invariants; direct searches for this theorem found no covering result. The possibility of an unindexed or inaccessible equivalent result remains a residual risk.",
+    "residual_risks": [
+      "An equivalent McGee anti-forcing distribution may be indexed under another name or missing from the inspected databases.",
+      "Some non-open historical work and broad later surveys may contain computations not visible in the inspected material.",
+      "The theorem is finite; no uniform claim about all cubic cages follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "Section 2, Lemma 2.1 equates anti-forcing with alternating-cycle transversals; Theorem 2.2 gives f(G,M)≤af(G,M)≤(Δ−1)f(G,M), neither the McGee distribution nor the refined cycle-type count.",
+        "identifier_or_url": "arxiv:1406.3796v1; https://arxiv.org/pdf/1406.3796",
+        "material_read": "20-page PDF text: title/abstract, introduction, Section 2 through Theorem 2.2, descriptions of plane-bipartite setting, whole-document term search for McGee and cage; PDF page 3 inspected visually.",
+        "method": "Accessible PDF full text extraction plus page-image inspection and term search.",
+        "title": "Anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "Foundational exact matching anti-forcing framework and potential universal theorem."
+      },
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "Theorem 3.1: maximum anti-forcing number at most cyclomatic number (strict for nonbipartite graphs); separate plane-bipartite and polygonal-chain results do not calculate the McGee spectrum.",
+        "identifier_or_url": "arxiv:1607.05392v1; https://ar5iv.labs.arxiv.org/html/1607.05392",
+        "material_read": "Accessible article HTML: abstract, Sections 1–3 with formal Theorems 1.1, 1.2, 3.1, and section descriptions for polygonal chains; full-document searches for McGee and 3-cage.",
+        "method": "Accessible open-access article HTML section inspection and full-document targeted term searches.",
+        "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "Potential stronger extremal theorem or tabulation of graphs with matching anti-forcing spectra."
+      },
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "Section 2 covers paths, cycles, wheels, friendship/Dutch windmill, graph links/chains, followed by coronas and dendrimers; no McGee calculation.",
+        "identifier_or_url": "doi:10.22052/IJMC.2017.60978.1235; https://ijmc.kashanu.ac.ir/article_49785_5762b32f4d73311e1b30d195fe19f9ba.pdf",
+        "material_read": "13-page article: introduction, Section 2 named graph examples, Sections 3 and 4 graph operations/dendrimers, full-document McGee text search; page 2 examined as image.",
+        "method": "Publisher PDF full-text inspection and PDF screenshot.",
+        "title": "Anti-Forcing Number of Some Specific Graphs",
+        "trigger": "Plausible title explicitly claiming anti-forcing for particular graphs."
+      },
+      {
+        "assessment": "GRAPH_REFERENCE_NOT_ANTI_FORCING_COVERAGE",
+        "evidence": "The entry gives 24 vertices, 36 edges, girth 7, group order 32, and LCF [-12,7,-7]^8, equivalent to [12,7,-7]^8 modulo 24.",
+        "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+        "material_read": "Graph description, structural parameters, LCF model and bibliography.",
+        "method": "Accessible full encyclopedia entry text.",
+        "title": "McGee Graph",
+        "trigger": "Confirm canonical cage identity and standard LCF representation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "586cf7e5-211d-4a25-a9b7-0459a368182e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unique (3,7)-cage is a natural, non-vertex-transitive smallest high-girth cubic graph; matching anti-forcing measures the minimum edge damage required to isolate a perfect matching. Exact distribution over all 60 matchings and 18,200 minimal deletion certificates determines the first complete benchmark for this graph, and the sharp two-factor table supplies a motivated counterexample to the idea that complementary cycle partition controls robustness. The values are not implied by general anti-forcing inequalities or basic cage parameters.",
+    "status": "PASS"
+  }
+}
