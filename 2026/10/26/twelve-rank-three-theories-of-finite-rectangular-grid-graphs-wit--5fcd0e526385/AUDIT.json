@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The theorem follows from three independently inspectable ingredients: (i) an exact atomic-extension first-order type recursion valid for every finite graph, (ii) a direct proof that paths of order at least seven share a three-round type and that Cartesian products preserve three-round equivalence, and (iii) exhaustive enumeration of the 28 path-product canonical graphs. The attached code constructs all adjacencies and type signatures and plays the direct three-round EF game for all 66 pairs of distinct representatives. The sharp representative bound equals the largest class-minimum graph order, ten. Computed finite claims are verified at their supplied actual package paths, not extrapolated to infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Logical Methods in Combinatorics, Lecture 5 (2009/10), p. 3 explicitly poses product preservation as an exercise.",
+        "Brown–Hoshino (2007), Theorem 3.9 and related path results provide the seven-vertex cutoff for paths at rank three.",
+        "Kopczyński (2019), Theorems 3.2–3.4 address expressibility and axiomatization of enriched grid structures, not a rank-three taxonomy in adjacency alone."
+      ],
+      "reasoning": "Factorwise Ehrenfeucht–Fraïssé preservation and the path cutoff imply a reduction to 28 grids but do not distinguish the 12 classes or imply surprising collisions between different factor sizes. The exact canonical census adds information not entailed by the cited broader theorems alone.",
+      "searches": [
+        "Ehrenfeucht Fraisse games cartesian product graph preserved product operation rank q",
+        "first order logic rectangular grid graphs three variable adjacency structure",
+        "paths Cartesian product Ehrenfeucht first order"
+      ]
+    },
+    "checked_sources": [
+      "Brown and Hoshino, Ars Combinatoria 83 (2007), 193–212, public PDF: https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+      "Logical Methods in Combinatorics, Lecture 5 (2009/10), p.3: https://janos.cs.technion.ac.il/COURSES/236605-09/lec05.pdf",
+      "Kopczyński, arXiv:1912.09797 (2019) and Fundamenta Informaticae 176 (2020): https://arxiv.org/abs/1912.09797",
+      "Targeted historical bibliographic searches for three-round EF equivalence on Cartesian path products and rectangular grid graphs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known path cutoff plus product congruence yields only an upper bound of 28 possible rank-three grid types.",
+        "The new exact recursion shows 17 of the 28 canonical dimension pairs collapse into one class, leaving 12 classes with a sharp ten-vertex representative threshold."
+      ],
+      "reasoning": "The result is not a corollary of product preservation alone, because converse preservation is false: the factors of 2-by-5 and 3-by-4 have different depth-three path types yet their Cartesian products share one depth-three graph type. A finite exact census, with independent adversarial-game comparisons for distinct classes, supplies the missing implication.",
+      "searches": [
+        "Brown Hoshino 2007 the Ehrenfeucht Fraisse game for paths and cycles Theorem 3.9",
+        "Logical Methods in Combinatorics lecture 5 2009 Cartesian product Ehrenfeucht game",
+        "Kopczynski Axiomatizing rectangular grids with no extra non-unary relations arxiv 1912.09797"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown–Hoshino (2007), Theorem 3.9, concerns the case where both structures are paths.",
+        "Kopczyński (arXiv:1912.09797), Section 2, uses four directed neighbor predicates and unary predicates, unlike the lone adjacency predicate here."
+      ],
+      "reasoning": "Equivalent formulations considered include three-round Ehrenfeucht–Fraïssé games, exact depth-three FO graph types, and low-rank indistinguishability of rectangular lattice graphs. The accessible sources do not provide the twelve-class equivalence relation for the pure graph vocabulary.",
+      "searches": [
+        "first order logic Ehrenfeucht Fraisse games rectangular grid graphs cartesian product paths quantifier rank",
+        "complete low-rank first-order type classification for finite grid graphs with unlabelled adjacency and equality",
+        "quantifier rank three graphs 2-by-5 ladder equivalent 3-by-4 rectangular grid with graph adjacency"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table matching the 12 class keys or the 2-by-5 versus 3-by-4 collision was identified in the indexed results examined.",
+        "The full self-contained 28-case table accompanies the finding as canonical_table.json."
+      ],
+      "reasoning": "Targeted exact-number and parameter searches were compared against the specific scientific statement; unrelated grid homology, game-colouring, and factorisation records do not imply first-order type equivalence. Negative search is limited evidence, not a novelty certificate.",
+      "searches": [
+        "Exactly twelve rank-three theories of finite Cartesian products of paths P_m square P_n in unlabelled graph adjacency",
+        "First-order Ehrenfeucht Fraisse games grid graph rectangular P_m box P_n three quantifiers 12 theories sharp seven vertices",
+        "finite rectangular grid graph first order quantifier rank three exact classification",
+        "quantifier rank first-order equivalence classes of finite rectangular grid graphs P_m Cartesian product P_n"
+      ]
+    },
+    "rationale": "Accessible primary comparisons do not state or imply the full twelve-class rank-three classification of undirected rectangular grid graphs. Brown–Hoshino classify paths and cycles separately; a known Cartesian-product game congruence yields a finite reduction but not a converse or the exact cross-dimensional collapse; Kopczyński studies axiomatization in a different, richer signature. Targeted scientific-index and bibliographic searches did not locate a covering classification. This is a best-knowledge assessment, not a proof of absolute novelty.",
+    "residual_risks": [
+      "Unindexed older mathematical-logic literature or unpublished notes could have an equivalent exact rank-three grid classification.",
+      "General finite-model-theory literature may package the same twenty-eight-case census under a different vocabulary; no general absence can be certified from indexed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes path/cycle equivalence criteria, not exact Cartesian-product grid types; supplies historical context for the path cutoff.",
+        "evidence": "Theorem 3.9 discusses P_m versus P_n and explicitly gives the rank-three path threshold seven.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+        "material_read": "Abstract/introduction, path lower/upper bound discussion (page 9), Theorem 3.9 and its proof (page 15).",
+        "method": "Read public full-paper PDF and inspect relevant theorem pages.",
+        "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+        "trigger": "Primary classical source on three-round path games and possible direct logical coverage."
+      },
+      {
+        "assessment": "Contains the product congruence as a standard exercise, but no grid-specific class count, exact equivalence or sharp least-order classification.",
+        "evidence": "Explicit exercise asks for analogue of equivalence preservation under Cartesian graph product.",
+        "identifier_or_url": "https://janos.cs.technion.ac.il/COURSES/236605-09/lec05.pdf",
+        "material_read": "Page 3, theorem on disjoint-union preservation and associated exercise on Cartesian products.",
+        "method": "Read and inspect the original lecture PDF.",
+        "title": "Logical Methods in Combinatorics, Lecture 5",
+        "trigger": "Potential source of general product preservation that could subsume the finite reduction."
+      },
+      {
+        "assessment": "Uses four directed neighbor relations and unary relations for finite-spectrum axiomatization; gives no rank-three pure-adjacency classification.",
+        "evidence": "Section 2 explicitly defines L,R,U,D and unary counters; Theorem 3.4 concerns impossibility of full grid axiomatization in that enriched signature.",
+        "identifier_or_url": "https://arxiv.org/pdf/1912.09797",
+        "material_read": "Introduction, Section 2 grid signature, Theorems 2.1 and 3.2–3.4, Section 4 and conclusions/references.",
+        "method": "Read the lawful open-access preprint including the mathematical signature and central theorems.",
+        "title": "Axiomatizing rectangular grids with no extra non-unary relations",
+        "trigger": "Highly relevant paper with rectangular grids and first-order logic in its title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fcd0e52-6385-4264-8219-a24bef084638",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete classification of a classical natural graph family in pure first-order adjacency logic, with a sharp optimal test-set size, is a precise reusable finite-model-theory invariant. Factorwise stabilization gives only a loose 28-case canonical bound; the exact 12-case collapse and 2-by-5 versus 3-by-4 equivalence reveal unexpected loss of shape at low logical depth. The classification lets every depth-three graph sentence on any finite rectangular grid be tested on twelve small representatives. The exact invariant and its optimal bound, not an arbitrary numerical slice, motivate the finite computation.",
+    "status": "PASS"
+  }
+}
