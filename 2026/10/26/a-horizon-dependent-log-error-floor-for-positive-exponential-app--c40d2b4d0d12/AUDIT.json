@@ -1,0 +1,92 @@
+{
+  "claim": "For the Gaussian droplet-survival kernel \\(\\phi_b(t)=\\exp(-\\pi t^2/(4b^2))\\), with \\(b>0\\), let \\(g(t)=\\sum_{j=1}^{m} a_j e^{-\\lambda_j t}\\) be any finite positive exponential mixture with \\(a_j>0\\), \\(\\lambda_j\\ge0\\), and \\(\\sum_{j=1}^{m}a_j=1\\). For every \\(T>0\\), its uniform log-error \\(E_T(g)=\\sup_{0\\le t\\le T}|\\log(g(t)/\\phi_b(t))|\\) obeys \\[E_T(g)\\ge \\frac{\\pi T^2}{24b^2}.\\] Consequently, \\(\\sup_{0\\le t\\le T}|g(t)/\\phi_b(t)-1|\\ge 1-\\exp(-\\pi T^2/(24b^2))\\). The bound is independent of the number and rates of the exponential terms; it concerns uniform relative/log accuracy, not absolute error or general state-space realizations.",
+  "correctness": {
+    "rationale": "Let F=log g. Its second derivative is the variance of the rates under weights proportional to a_j exp(-lambda_j t), hence F is convex and F(0)=0. If E is the uniform log-error, then F(T)<=-cT^2+E and F(T/2)>=-cT^2/4-E, while convexity gives F(T/2)<=-cT^2/2+E/2. Therefore E>=cT^2/6=pi T^2/(24b^2). The relative-error corollary follows from exponentiation. This proof covers every finite positive mixture and every stated parameter.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Satterthwaite result concerns transform gaps for independent-Gamma sums, not a positive exponential-mixture approximation to a Gaussian survival kernel.",
+        "The exact uniform-convexity result concerns a different function class and does not imply the displayed horizon coefficient."
+      ],
+      "reasoning": "The broader retrieved statements do not dominate the claimed quantifiers or constant. A general theorem on convex approximation could subsume it, and that possibility remains an explicit residual risk.",
+      "searches": [
+        "exponential sum approximation Gaussian kernel completely monotone log convex approximation error lower bound",
+        "uniform logarithmic approximation error convex log-sum-exp versus concave quadratic Gaussian survival kernel positive exponential mixture horizon lower bound",
+        "published-finding corpus closest result 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5194/egusphere-2026-2648",
+      "2026/10/4/SCOPE-exact-uniform-convexity-phase-boundary-for-exponentially-convex--8b684117a07f",
+      "2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source specifies \\(\\phi_b(t)=\\exp(-\\pi t^2/(4b^2))\\) and its use in the memory integral, but the inspected model setup does not state an approximation lower bound.",
+        "For any normalized finite positive exponential mixture, \\(F=\\log g\\) is convex and \\(F(0)=0\\); the midpoint inequalities force \\(E_T(g)\\ge\\pi T^2/(24b^2)\\)."
+      ],
+      "reasoning": "The inequality requires a midpoint convexity argument and its coefficient is not stated in the inspected source or the closest retrieved records. The mathematical implication is proved here, while priority beyond searched sources remains unverified.",
+      "searches": [
+        "Gaussian survival kernel log-concave positive sum of exponentials log-convex approximation lower bound uniform relative error",
+        "exponential sum approximation Gaussian kernel completely monotone log convex approximation error lower bound",
+        "uniform logarithmic approximation error convex log-sum-exp versus concave quadratic Gaussian survival kernel positive exponential mixture horizon lower bound",
+        "doi:10.5194/egusphere-2026-2648, model equations (13)-(17) and Gaussian kernel equation (15)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target source defines a Gaussian survival kernel, while the claimed inequality concerns uniform log-error of normalized positive exponential mixtures.",
+        "The closest retrieved SCOPE entry classifies a uniform-convexity threshold for an exponentially-convex class; its searchable claim gives no Gaussian-kernel approximation error bound."
+      ],
+      "reasoning": "The object, norm, and quantifiers are materially different: this claim compares a concave quadratic log-kernel with a convex log-mixture over a finite time horizon. No equivalent formulation was found in the actual searches; failed retrieval is not proof of novelty.",
+      "searches": [
+        "Gaussian survival kernel log-concave positive sum of exponentials log-convex approximation lower bound uniform relative error",
+        "exponential sum approximation Gaussian kernel completely monotone log convex approximation error lower bound",
+        "uniform logarithmic approximation error convex log-sum-exp versus concave quadratic Gaussian survival kernel positive exponential mixture horizon lower bound",
+        "published-finding corpus closest result 2026/10/4/SCOPE-exact-uniform-convexity-phase-boundary-for-exponentially-convex--8b684117a07f"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an analytic inequality, not an empirical table or database lookup.",
+        "published-finding corpus returned no indexed exact coefficient or table for the same kernel, approximation class, and uniform log-error objective."
+      ],
+      "reasoning": "No external database/table is mathematically applicable to the proof. The exact comparison is between the source kernel and the finite mixture class, and the lower bound follows directly from convexity; absence of a search hit is not used as a novelty proof.",
+      "searches": [
+        "Gaussian survival kernel log-concave positive sum of exponentials log-convex approximation lower bound uniform relative error",
+        "Gaussian memory kernel droplet residence time Volterra atmospheric convection mean residence time b",
+        "uniform logarithmic approximation error convex log-sum-exp versus concave quadratic Gaussian survival kernel positive exponential mixture horizon lower bound"
+      ]
+    },
+    "rationale": "The exact source-to-claim and approximation-class searches returned no implication-equivalent record. The retrieved closest items address different mathematical objects. The proof is self-contained; a residual priority risk remains for classical convex-approximation literature not fully inspected.",
+    "residual_risks": [
+      "Classical approximation-theory literature on positive exponential sums and convex approximation was not fully text-compared; an earlier general lower bound may imply this special case.",
+      "The lower-bound constant is not claimed to be optimal.",
+      "The result concerns uniform log/relative error only and does not establish error in an atmospheric trajectory or oscillation frequency."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the kernel definition and physical motivation only; it does not state the positive-exponential-mixture approximation bound.",
+        "evidence": "The paper defines \\(\\phi(\\tau)=\\exp(-\\pi\\tau^2/(4b^2))\\) and \\(b=\\int_0^\\infty\\phi(\\tau)d\\tau\\), then uses the kernel in the liquid-water memory integral.",
+        "identifier_or_url": "https://doi.org/10.5194/egusphere-2026-2648",
+        "material_read": "Title and abstract; parsed full-text pages covering the model equations (13)-(17), the Gaussian kernel in equation (15), the definition of b as the integral of the survival function, and the stationary memory expression. Later sections were not needed for the claimed approximation inequality.",
+        "method": "Public CC BY preprint text from the source record; a direct PDF download attempt did not yield the document in this execution.",
+        "title": "Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere",
+        "trigger": "Primary applied source for the Gaussian droplet-survival kernel and its interpretation as a memory term."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c40d2b4d-0d12-41d6-b330-99eae4a21b39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a horizon-dependent, term-count-independent fidelity floor for a concrete memory kernel used in an atmospheric model. It can reject infeasible uniform relative-error targets for positive parallel-exponential reductions before calibration, while explicitly avoiding claims about absolute error or trajectory stability.",
+    "status": "PASS"
+  }
+}
