@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact stopping-before-relocation urn representation includes the Bernoulli-distributed side ball created before the first relocation; omitting it would give an incorrect transform and tail. The Yule and signed martingale limits use finite predictable quadratic variation, the smoothing equation is solved with its initial derivative, and exponential Laplace uniqueness establishes the conditional second moment used in the tail argument. The almost-sure interpolation uses uniformly bounded excursion lengths. The self-contained verifier passes the finite Markov checks and independent numerical integral checks. The result is not based on a finite extrapolation.
+
+**Originality — PASS, with historical-priority risk.** The 2026 primary source's Theorem 1.1 treats relocation strictly below one, and its general urn construction does not give this endpoint's explicit signed martingale limit. The 2019 predecessor predicts a symmetric two-neighbour limiting stationary profile under self-consistency assumptions, so the leading equality of neighbour masses is not asserted as original. Janson's 2024 triangular-urn theorem already implies broad logarithmic rates; these alone are not asserted as novel. The specific joint transform, conditional dependence and universal index-one imbalance tail were not identified in the inspected primary texts or searched research records. Further independent historical-literature review remains advisable.
+
+**Mathematical value — PASS.** The signed second-order limit is a meaningful, previously unresolved observable for a natural singular boundary of a current reinforced-walk model. Its explicit transform gives the full limiting law and the unexpected \(1/x\) tail coefficient independent of the local escape parameter, despite bounded finite-time normalized imbalances. The result sharply distinguishes leading deterministic occupation from persistent asymmetric fluctuations.
+
+**Limits.** Strict complete-relocation endpoint; one dimension; symmetric origin steps; fixed \(a\in(0,1)\). The proof does not cover approach to the boundary from below. Historical-priority risk is not equivalent to a known covering theorem.
+
+Self-review: passed. Independent audit: not yet performed.
