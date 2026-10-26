@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exit-side chain follows exactly from the rational gambler-ruin Dirichlet problem with m visited sites. When the drift log-odds is theta, the near-unbiased mismatch per stage is at most e*theta through m<=1/theta. In the remaining tail, unfavored-side arrivals have summable probability; binary alternation bounds both kinds of switches. This proves an absolute L1 error below 7 for all n,p, without extrapolating finite tests. At symmetry all switch indicators are independent Bernoulli(1/(m+1)). The triangular-array Lindeberg theorem and an L1-to-probability estimate give the CLT, with harmonic means and variances. At fixed nonzero drift summability proves almost-sure finite alternations under one infinite-chain coupling. Exact rational full-step simulations and independent Dirichlet elimination passed 2435 checks, with raw-step unresolved probability explicitly bounded by 1e-12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Idnani–Salem arXiv:2610.15115v1 pp.6-10: exact m-dependent two-state transition chain and last-vertex distribution; the new coupling crucially uses those exact probabilities.",
+        "Wergen–Majumdar–Schehr 2012 arXiv:1204.5039 studies temporal upper-record statistics rather than an alternating two-frontier exploration count."
+      ],
+      "reasoning": "A full transition kernel determines a distribution in principle, but the prior theorem does not give a uniform error comparison across drifting triangular arrays or a Gaussian phase diagram. The proposed quantitative asymptotic is not a verbatim special case of a prior CLT or a direct parameter substitution. No broader theorem proving the same coupling was identified.",
+      "searches": [
+        "biased nearest-neighbor random walk cycle number of frontier side switches among new discovered vertices CLT log minimum length inverse drift",
+        "last coverage probabilities random walks cycles Idnani Salem 2610.15115 frontier alternation statistic",
+        "random walk coverage interval left right expansion change side Bernoulli Stirling cycle permutations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15115v1 (primary, 2026-10-10)",
+      "arXiv:1204.5039v1 (2012)",
+      "arXiv:2605.29185 (2026-05-27)",
+      "Public semantic research records returned in current searches (record-kill Stirling, binary run statistics, graph-indexed range stability): summary-level only; not treated as full-text exclusions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.15115v1 eq. (4.1) concerns probabilities conditional on endpoint and left/right discovery counts, rather than switching-count asymptotics.",
+        "Full prior chain does imply the finite switch-count distribution can be computed by a transition product; that computational coverage is acknowledged.",
+        "The new statement is an absolute error bound independent of cycle size and bias, proved by an early/late split plus a one-direction transition bound."
+      ],
+      "reasoning": "Finite Markov reduction is covered. New claim is the all-parameter quantitative coupling and the sharp logarithmic effective-length Gaussian universality, which does not follow solely by identifying the Markov chain or writing its matrix product. Residual risk is that prior sources under alternating-record terminology contain this additional reduction.",
+      "searches": [
+        "site:arxiv.org/abs/2610.15115 last coverage interval expansion two state Markov chain gambler ruin",
+        "records drift biased random walks minimum maximum switching sides frontier",
+        "site:arxiv.org/html/1204.5039 record count random walk upper record times"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.15115v1 Theorems 3.3, 4.1 model discovery direction but its target observable is the last-covered vertex; full source inspected.",
+        "arXiv:1204.5039v1 Sections III and V count upper records at ordinary times; no discovery-side switching variable.",
+        "arXiv:2605.29185 discussion of Gaussian walk upper records and longest increasing subsequences, not alternation count on cyclic coverage."
+      ],
+      "reasoning": "Equivalent formulations examined included maximum/minimum record-side alternations of an unwrapped nearest-neighbor walk, run-count statistics of the discovery-side sequence, and two-state exit chains. No inspected result makes the claimed all-drift bounded L1 comparison or its effective-size CLT; no title-only absence is treated as proof of novelty.",
+      "searches": [
+        "number of switches of the record maximum and minimum for simple symmetric random walk on the integers, Stirling cycle distribution, independent Bernoulli indicators, range exploration",
+        "random walk number of alternations between record maxima and record minima logarithmically gaussian",
+        "switches record maximum record minimum random walk number alternating",
+        "last coverage probabilities random walks cycles Idnani Salem 2610.15115 frontier alternation statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published record-kill Stirling law concerns Pareto record counts of bivariate observations, not cyclic walk discovery-frontier switches.",
+        "The exact symmetric generating function is algebraically derived from new directional indicator independence, not read off an existing table."
+      ],
+      "reasoning": "The familiar independent Bernoulli permutation-cycle law is credited as classical analogy; no exact published table was found for the frontier-switch count or for the uniform drift comparison. The proof itself supplies exact finite n distributions.",
+      "searches": [
+        "Stirling law for complete bivariate record kills number of record minima maxima alternations",
+        "range expansion Stirling random walk record sides",
+        "number of direction reversals discoveries random walk covers cycle switch left right expansions Stirling Bernoulli"
+      ]
+    },
+    "rationale": "The 2026 cycle last-coverage paper provides the discovery-chain transition matrices, which are explicitly treated as prior inputs, but does not analyze the total number of changes between frontiers, state the exact unbiased switch-count generating function, or establish uniform-in-bias L1 coupling to an independent Bernoulli sum and the resulting all-triangular-array critical drift crossover. Standard record-count literature counts time-indexed upper records, not frontier switching indexed by successive discoveries. No equivalent statement was located in current public scientific searches or accessible claim summaries. This is a qualified priority assessment; the predecessor transitions mathematically enable the new proof but do not themselves constitute the uniform coupling theorem.",
+    "residual_risks": [
+      "The transition matrices in Idnani–Salem determine the frontier-switch law implicitly; novelty attaches to the quantitative uniform coupling and derived singular drift-scale CLT, not to the matrix itself.",
+      "An earlier result about alternating upper and lower record frontiers may exist under different terminology; no claim of exhaustive historical coverage.",
+      "Recordary/semantic retrieval and search absence alone are not proofs of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TRANSITIONS_COVERED; NEW_SWITCH_COUPLING_NOT_STATED",
+        "evidence": "Eq. (4.1) provides two-side discovery distribution, Theorem 4.1 provides geometric marginal for final covered vertex; no switch-count CLT or uniform independent-Bernoulli comparison in investigated text.",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.15115",
+        "material_read": "Abstract, Sections 2-4 including Theorems 3.3 and 4.1 and transition matrices, Section 4.3, Sections 5-6; PDF pages 7 and 10 also visually inspected",
+        "method": "Full PDF text sections and two page screenshots",
+        "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+        "trigger": "Exact same discovery-side process and explicit transition kernel"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE",
+        "evidence": "The count concerns upper time-records of multiple independent walks; no switches between opposite spatial frontiers.",
+        "identifier_or_url": "https://arxiv.org/html/1204.5039v1",
+        "material_read": "Abstract, record definition and upper-record formulas in Sections III-V, related discussion and conclusion",
+        "method": "Accessible full HTML with targeted section reading",
+        "title": "Record Statistics for Multiple Random Walks",
+        "trigger": "Potential record-statistics equivalent formulation"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_AND_OBSERVABLE",
+        "evidence": "Gaussian increment LIS and upper time records; no discovery-frontier alternating count or uniform Bernoulli coupling.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.29185",
+        "material_read": "Abstract, Introduction, Background II.3 on record definition, Section III model and discussion of drift scale",
+        "method": "Accessible arXiv full HTML text",
+        "title": "Records, drift, and the longest increasing subsequence of biased Gaussian random walks",
+        "trigger": "Possible drift-induced crossover in random-walk record statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aee1b007-2a12-4de6-a705-176de6efbf7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The alternation count measures repeated changes in the leading exploration boundary, a natural trajectory statistic distinct from cover time and the last-covered site. The absolute drift-uniform L1 comparison gives a nonasymptotic transfer device, identifies effective frontier length min(n,1/|log odds|), and proves the Gaussian logarithmic crossover from symmetric walks to the fixed-bias finite-switch regime. Its power-law drift phase diagram holds for a full continuum of bias-decay rates. Exact Bernoulli symmetry is structurally unexpected but is not used alone to justify value.",
+    "status": "PASS"
+  }
+}
