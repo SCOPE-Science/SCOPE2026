@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The argument counts every acyclic edge subset by processing one right vertex at a time and keeping the partition of the three left vertices. The allowed transition classification is exhaustive. Single-edge and paired-edge counts are computed by handling marked columns first, and the three covariance numerators factor into manifestly negative polynomials. Union-find exhaustive enumeration for \(2\le n\le6\) verifies all five counts; polynomial coefficient checks and 1,999 additional integer-parameter checks corroborate the identities. The analytic proof alone establishes arbitrary \(n\).
+
+**Originality — PASS, provisional.** The conjecture and small-graph checks of Grimmett–Winkler do not provide the \(n\)-uniform formulas. Semple–Welsh and Erickson prove results for graph families formed from \(K_4\) blocks and series-parallel networks, respectively, whereas \(K_{3,n}\) is 3-connected and non-series-parallel for \(n\ge3\). The modern general overview does not assert a complete-bipartite three-terminal theorem. Statement-level searches of related records and published sources yielded no stronger result that implies this infinite-family classification. Risks remain from unlocated older graph-specific identities and possible matroidal reformulations; searches are not proof of priority.
+
+**Value — PASS.** The uniform-forest edge-negative-correlation conjecture remains nontrivial outside the series-parallel and small-graph regimes. This is an infinite 3-connected non-series-parallel family with all three edge-pair symmetries proved strictly negative, not merely a finite enumeration or a marginal statistic. The exact orbit formulas distinguish local shared-neighbor anticorrelation, which has a nonzero limit, from nonlocal anticorrelation decaying quadratically. The result is not the general conjecture and does not assert the full negative-association property.
+
+Closest literature: Grimmett and Winkler (2003/2004), Semple and Welsh (2005/2008), Erickson (2010/2012), and Altar Çiçeksiz and Ravichandran (2026). Unresolved priority risk: other treatments of forest Tutte polynomials of complete bipartite graphs or matroid independence measures might implicitly derive these correlations. No independent audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
