@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For n>=2, first ignition at center gives a canonical coloring; at a leaf it forces the center in round two and permits exactly one further leaf ignition before remaining leaves spread in round three. This is both necessary and sufficient for exactly one optional reversed leaf. The special n=1 case is separate. Counting center colors and reversed leaves yields the generating polynomial and exact plurality; explicit Hamming minimization over k opposing target leaves yields covering radius and, using [1, Proposition 2.9], worst-signing plurality. The included checker independently enumerates all signings through n=7, checking reachable sets, weight distribution, plurality, covering radius and worst signings; finite checks corroborate rather than prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full scientific text of [1], Sections 2, 3 and 5, read and compared: general graph definitions, signed-path theorems and an explicit open direction for signed trees.",
+        "Bonato [2] treats ordinary burning-time invariants, not signed two-colour final configurations."
+      ],
+      "reasoning": "[1] provides a stronger domain for its definitions and switching identity, but not a stronger exact value theorem whose corollary covers all signed stars. Ordinary burning time and a two-player game cannot imply the stated colour-count distribution.",
+      "searches": [
+        "\"Burning Signed Graphs\" \"star graphs\" \"plurality\"",
+        "\"signed burning\" \"star\" \"plurality\"",
+        "two-colour signed burning reachable colourings stars induced connected graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.02506 (full accessible mathematical text, originally submitted 2026-10-01)",
+      "doi:10.55016/ojs/cdm.v16i1.71194 (journal abstract, ordinary-burning comparator)",
+      "arxiv:2409.11328 (abstract, two-player comparator)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, Proposition 2.9/Remark 2.10] converts a fixed reachable code into switching-plurality data, but leaves that code unspecified for stars.",
+        "[1, Theorems 3.1–3.3] concern paths, whose internal vertices have degree at most two; star centers have unbounded degree."
+      ],
+      "reasoning": "Even when one imports the exact source identities, deriving the present codeword list requires the additional star-specific ordering analysis; the full enumerator is not a rephrased statement of the general covering-radius identity. Signed path results do not dominate an arbitrarily high-degree branching family.",
+      "searches": [
+        "\"signed burning\" \"star\" \"plurality\"",
+        "\"reachable colourings\" \"star\" \"signed graph burning\"",
+        "\"Burning Signed Graphs\" \"star graphs\" \"plurality\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fallat et al. [1], Definition 2.1 and Remark 2.10: final colourings form a binary code; no explicit signed-star codeword classification in the full available paper",
+        "[1, Section 3] analyzes signed paths, not the branching star family."
+      ],
+      "reasoning": "Equivalent targets include an exact reachable-colouring code, a final-yellow-count enumerator, a signed-star plurality number for each sign pattern, or its switching-class covering radius. The general coding formulation in [1] does not determine these numbers without classifying reachable words; the required additional dynamic first-ignition argument is provided here.",
+      "searches": [
+        "signed graph burning plurality number signed star arbitrary signatures exact formula",
+        "Fallat Gupta Khodamoradi Zilles signed burning plurality stars complete reachable colorings",
+        "covering radius reachable burning colouring code signed star K1,n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific record search returned closest entries on total burning number two, signed domination of stars, and weak rainbow saturation of stars, all different parameters.",
+        "The primary article [1] has no signed-star numerical table or exact signed-star formula in its accessible full text."
+      ],
+      "reasoning": "Queries covered star, signed-star, two-colour burning, reachable configurations, plurality and covering radius; no matching table or equivalent formula was identified. The search result is evidence of checked scope, not a universal nonexistence certificate.",
+      "searches": [
+        "signed graph burning complete bipartite K1n exact plurality",
+        "one leaf ignition signed star colour propagation two colors final configurations",
+        "\"plurality number\" \"signed star\" burning"
+      ]
+    },
+    "rationale": "The recent founding work [1] supplies signed burning, binary-code representation, and the general switching/covering-radius identity, and develops signed-path estimates, but does not evaluate signed-star final-coloring profiles or covering radii. The claim is the new exact reachable-set classification for every star signing and its consequences; no generic identity or ordinary-burning fact is claimed as new. The accessible previous scientific comparisons include the available section-by-section text and theorem statements of [1] (with some displayed formulas omitted by the extractor), rather than only a search-result snippet. Related published-search records concern different burning/coloring parameters. Priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "An unindexed independent formula under alternative terminology could exist.",
+      "The related ordinary-burning and two-player sources were consulted at the definition/abstract level, not asserted to be exhaustively ruled out by full-document analysis.",
+      "The public HTML text extraction omitted some displayed mathematical formulas; the crucial topic and hypothesis comparisons were supported by the surrounding statements, but missing formulas have not been independently recovered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model, switching and paths; does not supply a signed-star reachable set, star weight polynomial or radius computation",
+        "evidence": [
+          "Definition 2.1: synchronous spread precedes ignition and ties remain unburned",
+          "Proposition 2.9 and Remark 2.10: general code-distance correspondence",
+          "Section 3: exact/bounded signed-path plurality",
+          "Section 5: signed-tree class results identified as future direction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.02506",
+        "material_read": "Accessible HTML text throughout Sections 1–5, including definition, theorem hypotheses and conclusions, proofs adjacent to the relevant statements, and references; some standalone displayed equations were omitted in text extraction and were not relied upon for noncoverage.",
+        "method": "Direct section-by-section comparison of definitions, hypotheses, theorem conclusions and deductions",
+        "title": "Burning Signed Graphs",
+        "trigger": "Definition and closest possibly dominating primary theorem"
+      },
+      {
+        "assessment": "Ordinary burning duration is a different object from signed two-colour final reachability",
+        "evidence": [
+          "Survey abstract describes rounds to burn an unsigned graph rather than distribution of signs among burned vertices"
+        ],
+        "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v16i1.71194",
+        "material_read": "Public journal abstract and bibliographic summary only",
+        "method": "Check abstracted definitions and parameter description; no full-text noncoverage conclusion asserted",
+        "title": "A survey of graph burning",
+        "trigger": "Potential earlier meaning of burning-number classification on stars"
+      },
+      {
+        "assessment": "Alternating two-player objective differs from one-player signed graph burning",
+        "evidence": [
+          "Abstract describes Burner and Staller as two opposing players optimizing time to burn all vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.11328",
+        "material_read": "Abstract and bibliographic definition of the two-player game",
+        "method": "Compare dynamic control and optimized invariant; no full-text noncoverage conclusion asserted",
+        "title": "Burning game",
+        "trigger": "Potential terminological confusion with competing fires"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97e5bc53-aa08-44c4-92b7-a6029f3ece5f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent founding source [1, Section 5] specifically motivates exact signed-tree plurality and code covering radii. Stars form a natural, arbitrarily branching infinite family; the theorem classifies the entire reachable-colouring code and all weight coefficients, computes all signing-dependent pluralities, and gives a sharp switching-class covering radius. The one-reversal reachable structure is a reusable branching-point lemma and not an arbitrary fixed-size computational slice. The star restriction is explicit and no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
