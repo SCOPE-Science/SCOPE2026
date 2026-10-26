@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For stationary binary latent Markov process, covariance at lag h is pi(1-pi)lambda^h; independent noisy emissions multiply cross-season covariance by (d_i-f)(d_j-f). Equality of normalized adjacent covariances yields a unique f since c01-c12 = pi(1-pi)(d1-f)lambda(d0-d2) != 0. Exact ratios then recover lambda, pi, d_t, gamma and epsilon, with direct substitution proving the feasibility converse. When outer rates coincide, f can vary on an open interval while all six moments remain fixed; when lambda=0, full observations factor. Full hidden/observed eight-state rational enumeration reproduces exact inversion in twelve interior cases, and a separate distinct-model boundary certificate passes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Culpepper (2025), DOI 10.1017/psy.2025.10024: open full text includes three-period identifiability with additional repeated-emission hypotheses.",
+        "Cole (2019), DOI 10.1007/s40300-019-00156-3: global framework for HMM identifiability and model redundancy."
+      ],
+      "reasoning": "General HMM identifiability and latent-class results can cover full observed joint laws with extra model assumptions, but a stronger full-law theorem cannot be treated as a proof of identifiability using only means and pair covariances, particularly because the extra 3-way moment is discarded. The specific unknown common false-positive baseline and unequal outer-period true-positive rates are analyzed directly; no inspected general theorem supplies that formula and its boundary.",
+      "searches": [
+        "heterogeneous hidden Markov model three occasions identifiability varying emission matrices common false positives",
+        "nonparametric hidden Markov identifiability three observations finite latent states varying emissions",
+        "identifying two-state hidden Markov model from only pairwise moments three observations heterogeneous emissions"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+        "material_read": "Journal abstract, keywords, bibliographic record, cited-references list; publisher and government abstract pages. Publisher/USGS primary full article inaccessible.",
+        "title": "Generalized site occupancy models allowing for false positive and false negative errors"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1890/12-1540.1",
+        "material_read": "Publisher full HTML including introduction, model, applications and conclusions.",
+        "title": "Markov models for community dynamics allowing for observation error"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1007/s40300-019-00156-3",
+        "material_read": "Full 15-page open-access PDF text, including binary examples, parameter-redundancy discussion, and bibliography.",
+        "title": "Parameter redundancy and identifiability in hidden Markov models"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1017/psy.2025.10024",
+        "material_read": "Open full article HTML, theorem hypotheses and identifiability discussion.",
+        "title": "Designing Learning Intervention Studies: Identifiability of Heterogeneous Hidden Markov Models"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Royle and Link (2006): foundational false-positive/false-negative occupancy mixture, published abstract inspected; full text inaccessible.",
+        "Fukaya and Royle (2013): full HTML read, Markov community error model and no-repeat survey setting but different observation-error parametrization.",
+        "Cole (2019): full open PDF text read; homogeneous misclassification HMM results.",
+        "Liu and Culpepper (2025): full text read, heterogeneous HMM sufficient criteria and repeated emission conditions."
+      ],
+      "reasoning": "The earlier zero-false-positive three-season covariance inverse fixes f=0 by assumption and cannot infer an unknown f: multiplying each covariance by unknown emission contrasts introduces a confounding degree of freedom. A general false-positive class can be nonidentified when outer detection rates coincide; this does not refute or subsume the newly isolated d_0 != d_2 identifiable regime. The claimed contribution is the exact moment inverse and sharp necessary boundary, not foundational occupancy/HMM model theory.",
+      "searches": [
+        "occupancy hidden markov model false positive constant false alarm different detection probabilities across 3 occasions identifiability moment formulas",
+        "three consecutive observations Markov occupancy model false positive identifiability unequal detection rates first second moments covariance",
+        "three waves panel latent Markov binary misclassification constant false positive identification covariances",
+        "dynamic occupancy three seasonal detection false positives covariance explicit identification",
+        "Royle Link 2006 false positive occupancy; MacKenzie dynamic occupancy 2003; Fukaya Royle 2013; Cole 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cole (2019), DOI 10.1007/s40300-019-00156-3: full open text develops parameter-redundancy methods and homogeneous-emission binary HMM examples.",
+        "Fukaya and Royle (2013), DOI 10.1890/12-1540.1: full publisher HTML develops mislocation-error Markov community model and one-visit special case."
+      ],
+      "reasoning": "State-space relabeling is fixed by the explicit d_t>f constraints. The normalized consecutive covariances identify the common additive misclassification baseline f only when the outer emission probabilities differ; the remaining covariance ratios identify occupancy prevalence and memory. Inspected binary HMM treatments do not provide an equivalent explicit six-moment inversion with this sharp necessary design contrast. Results for whole three-wave laws do not automatically establish a six-moment inversion.",
+      "searches": [
+        "occupancy hidden markov model false positive constant false alarm different detection probabilities across 3 occasions identifiability moment formulas",
+        "three consecutive observations Markov occupancy model false positive identifiability unequal detection rates first second moments covariance",
+        "three waves panel latent Markov binary misclassification constant false positive identification covariances",
+        "identifying two-state hidden Markov model from only pairwise moments three observations heterogeneous emissions",
+        "two-state Markov panel with one-sided common misclassification probability three heterogeneous binary emissions covariance inversion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Royle and Link (2006), DOI 10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2: accessible published abstract describes false-positive occupancy as a two-component mixture with estimation, rather than an exact three-wave moment table.",
+        "Fukaya and Royle (2013), DOI 10.1890/12-1540.1: accessible primary full HTML contains no displayed six-moment inverse of the stated model."
+      ],
+      "reasoning": "Searches found no published exact-table entry prescribing the same six statistics, global unique rational inverse, outer-emission inequality, and counterfamilies; nonappearance alone is not proof of noncoverage. The plausible 2006 full text was not accessible through the attempted sources and therefore remains an explicitly flagged risk.",
+      "searches": [
+        "three-visit dynamic occupancy identifiability false positive same false alarm coefficient",
+        "occupancy hidden markov model false positive constant false alarm different detection probabilities across 3 occasions identifiability moment formulas",
+        "false positive occupancy identifiability varying survey detection probabilities longitudinal Markov moment based",
+        "two-state binary hidden Markov moments identifiability equal first third emissions false positive"
+      ]
+    },
+    "rationale": "Best-knowledge original sharp design boundary and explicit six-moment inverse for a stationary dynamic ecological occupancy model with unknown common positive false-positive probability and seasonally varying true-positive detection, conditional on differing outer rates. Published same-object approaches treat occupancy mixture estimation, variable-state mislocation errors, homogeneous binary HMMs, or general full-law identifiability; none of their inspected statements supplies this moment-level inverse. Inaccessible primary full text and terminology overlap remain acknowledged originality risks.",
+    "residual_risks": [
+      "Royle and Link (2006) primary full text inaccessible; only abstract and citation context inspected.",
+      "An equivalent specialized covariance inverse could be formulated in binary longitudinal misclassification, latent Markov panel, or multi-view mixture literature under other terms.",
+      "A stronger full-joint HMM identifiability result would not necessarily imply the six-moment formula; exact implication requires independent bibliographic investigation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes false-positive occupancy mixture and estimator motivation but insufficient material to assert full-text noncoverage.",
+        "evidence": [
+          "https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282006%2987%5B835%3AGSOMAF%5D2.0.CO%3B2",
+          "https://pubs.usgs.gov/publication/5224638"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+        "material_read": "Journal abstract, keywords, bibliographic record, cited-references list; publisher and government abstract pages. Publisher/USGS primary full article inaccessible.",
+        "method": "Read publisher bibliographic and abstract text; attempted government PDF route, inaccessible (HTTP 403).",
+        "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+        "trigger": "Foundational same observation-error pair f,d; possible direct coverage."
+      },
+      {
+        "assessment": "Dynamic multistate mislocation-error model and hierarchical inference; no exact formula recovering a common false-positive probability and three varying true-positive probabilities from six pairwise moments.",
+        "evidence": [
+          "https://esajournals.onlinelibrary.wiley.com/doi/10.1890/12-1540.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/12-1540.1",
+        "material_read": "Publisher full HTML including introduction, model, applications and conclusions.",
+        "method": "Read accessible primary full-text HTML by section for observation-error model and one-survey special case.",
+        "title": "Markov models for community dynamics allowing for observation error",
+        "trigger": "Same single-visit Markov ecological observation problem."
+      },
+      {
+        "assessment": "Homogeneous-observation binary HMM identifiability examples and general methodology, but not the derived variable-detection six-moment inverse.",
+        "evidence": [
+          "https://kar.kent.ac.uk/75204/",
+          "https://doi.org/10.1007/s40300-019-00156-3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40300-019-00156-3",
+        "material_read": "Full 15-page open-access PDF text, including binary examples, parameter-redundancy discussion, and bibliography.",
+        "method": "Read the available open-text PDF and relevant exact model examples; attempted PDF screenshot which returned an internal-access error.",
+        "title": "Parameter redundancy and identifiability in hidden Markov models",
+        "trigger": "Closest general HMM identifiability and binary error model."
+      },
+      {
+        "assessment": "Broad sufficient conditions for heterogeneous HMM full-law identification do not imply exact recovery from first and pairwise second moments under unequal first and last emission rates.",
+        "evidence": [
+          "https://doi.org/10.1017/psy.2025.10024"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/psy.2025.10024",
+        "material_read": "Open full article HTML, theorem hypotheses and identifiability discussion.",
+        "method": "Read theory and conditions for three-period full-law identification and compare specific required repeated-emission hypotheses.",
+        "title": "Designing Learning Intervention Studies: Identifiability of Heterogeneous Hidden Markov Models",
+        "trigger": "Recent broad theory allowing varying emissions; potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0eacad9-db44-4faf-a183-06e188427013",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses the practical ecological uncertainty created by nonzero false detections without within-season repeat visits. Supplies an exact sharp observation-design criterion that breaks the common false-alarm/occupancy ambiguity, a constructive parameter inverse, feasible-moment test, and a boundary continuum showing why unchanged outer detection effort is insufficient at the level of first and second moments. The result is mathematically more than a routine substitution of f=0: that simplification removes an unknown confounded rate, so a new rank condition and proof are necessary. It is not a claim about efficient finite-sample estimation or general ecological forecast skill.",
+    "status": "PASS"
+  }
+}
