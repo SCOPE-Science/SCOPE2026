@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The full proof establishes the Laguerre-coefficient identity for logarithms of correlated circular Gaussians, an exact all-radius Bessel series for nested zero-count covariance, a uniform bounded-offset Bessel expansion with summable error terms, and uniqueness of the kernel's one sign change through a monotone tilted-geometric bound. The comparison between mixed radial differences of the Jensen-logarithm covariance and the separate count-covariance formula checks the nonstandard differentiation identity. The 29 standalone numerical assertions passed; these finite checks corroborate but do not prove the asymptotic and uniqueness statements.
+
+**Originality — PASS, with a limited historical-priority risk.** The focal 2019 Gaussian Taylor-series fluctuation paper gives a one-circle variance limit, not an explicit two-circle signed fixed-radial-gap crossover. The fixed-curve argument-increment covariance result works in a different (macroscopically separated or shared-fixed-curve) scaling regime. Earlier bulk zero-pair correlations give general two-point input, but their statement does not itself identify the bounded physical gap polylogarithmic covariance formula or its unique sign-change location. The new statement may be implicitly derivable from classical correlation formulas, which is acknowledged as residual priority uncertainty rather than treated as a novelty guarantee.
+
+**Value — PASS.** Nested zero counts need not correlate positively. The formula supplies their entire universal microscopic covariance profile, an exact nontrivial one-crossing classification, and a numerically identified critical physical gap. The sign reversal resolves a geometrically natural structural question not answered by the established one-circle variance coefficient alone.
+
+**Closest literature and limitations.** Kiro and Nishry (arXiv:1911.13051), Buckley and Sodin (arXiv:1608.05590), and Forrester and Honner (arXiv:cond-mat/9812388) are the primary comparisons; general pair-correlation formulas remain the principal potential implicit-coverage risk. The proof is limited to the planar Gaussian entire function, concentric disks, and bounded offset scaling; it does not determine the sign for finite radii exactly at the limiting threshold.
+
+Self-review: passed. Independent audit: not yet performed.
