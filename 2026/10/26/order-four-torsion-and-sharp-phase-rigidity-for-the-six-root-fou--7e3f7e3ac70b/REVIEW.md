@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Normalized-character orthogonality reduces the fourth power to 36 coefficient-pair convolutions. The order-four fiber merging is determined explicitly. Both displayed deficits are exact polynomial identities whose summands have individually proved nonnegativity. Equality criteria and the 32 projective lines follow without extrapolating from finite tests. The independent checker program is a reproducibility aid only. The proof excludes order three deliberately.
+
+**Originality — PASS, best knowledge.** Targeted published-result comparisons and complete relevant primary texts were inspected. The closest triangular six-point result concerns a different support and unimodular minimization; six-point anisotropic-sphere phase rigidity has a different ambient group and does not determine order-four torsion. General Fourier duality and two-dimensional complementary-pair constructions do not imply the specific fourth-moment constant and isolated optimizers. The stable order-at-least-five comparison overlaps known additive-relation arguments; only the fourth-order exceptional sharp classification and its stability identity are advanced as original. Residual priority risk: obscure small finite-group norm tables and implicit general extremal theorems.
+
+**Value — PASS.** This is the complete exceptional order in a natural rank-two root Fourier packet, not an arbitrary subpacket: it identifies a sharp torsion-driven jump in a fundamental Fourier moment, supplies a global stability identity, and proves that its equality space changes from a positive-dimensional phase torus to exactly 32 complex lines. The exact count and deficit give reproducible finite harmonic-analysis benchmarks with interpretable additive geometry.
+
+Self-review: passed. Independent audit: not yet performed.
