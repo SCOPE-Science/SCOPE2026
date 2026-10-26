@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every degree >=3 and modulus 2^k the binomial lift proves a permutation. The exact two-step displacement formula gives valuations 2 and 3 on odd units depending on degree parity, while positive valuation s gives initial valuation 1+ds. The Taylor doubling lemma is valid because relevant iterate derivatives are 1 modulo 4, proving every subsequent exact valuation and the full period formulas. Finite shell cardinalities give cycle counts and invariance gives transitivity at every quotient depth. The extracted standalone checker independently traversed all 311258 residues across 247 (d,k) cases; this is supplemental evidence, not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fan-Liao arXiv:1010.5583, Theorems A/C and §6 classify 2-adic quadratic polynomials and describe general lift machinery.",
+        "Anashin arXiv:0710.1418, Theorem 4.4 and Example 4.16 show general measure preservation and f(x)=x+2x² bijectivity.",
+        "Rivest doi:10.1006/ffta.2000.0282, Theorem 1 characterizes 2-power permutation polynomials."
+      ],
+      "reasoning": "General decomposition and lifting frameworks apply in principle, and the quadratic specialization is explicitly known; therefore the claimed new range starts at degree three. The published general theorems do not state the precise all-degree shell component multiplicity or odd-degree parity split, which here need exact orbit-displacement calculations. Residual possibility of an equivalent specialized theorem is acknowledged.",
+      "searches": [
+        "web: cycle structure permutation polynomial x + 2 x^2 modulo 2^n cycles",
+        "web: orbit lengths polynomial x + 2 a x^m modulo powers of two cycles",
+        "web: p-adic dynamics monomial perturbations identity x+p x^m minimal decomposition",
+        "arXiv:1010.5583 pp.1-16, quadratic classification and cycle lifting",
+        "arXiv:0710.1418 pp.14,21, general measure preservation"
+      ]
+    },
+    "checked_sources": [
+      "Rivest (2001) doi:10.1006/ffta.2000.0282 author-hosted full PDF",
+      "Anashin (2007) arXiv:0710.1418 full PDF relevant sections",
+      "Fan and Liao (2010/2011) arXiv:1010.5583 full PDF relevant sections",
+      "published-finding corpus semantic searches for exact polynomial, orbit-length, degree-parity aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rivest, Theorem 1: a coefficient parity test for permutation status, strictly weaker than periods/components.",
+        "Anashin, Example 4.16: x+2x² is bijective; no displayed higher-degree cycle formula.",
+        "Fan-Liao, abstract and Theorems A,C: decomposition in general; Section 6 specializes full explicit classification to quadratics."
+      ],
+      "reasoning": "Existing permutation and generic lifting results provide tools, not the explicit all-depth all-degree count. Known quadratic results are excluded and not represented as new. This does not establish exclusivity against unindexed results.",
+      "searches": [
+        "https://people.csail.mit.edu/rivest/pubs/Riv01c.pdf pp.1-4",
+        "https://arxiv.org/pdf/0710.1418 pp.14,21-22",
+        "https://arxiv.org/pdf/1010.5583 pp.1-3,6,16-24",
+        "web: \"x + 2x^d\" p-adic dynamics minimal decomposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rivest 2001 doi:10.1006/ffta.2000.0282, pp.287-292, proves bijectivity only.",
+        "Anashin arXiv:0710.1418, p.21 gives the concrete quadratic permutation example, without all-degree orbit census.",
+        "published-finding corpus query returned nonmatching 2-adic and permutation-polynomial findings, including Collision rigidity and exact enumeration for coprime-index permutation binomials (published published-finding corpus record)."
+      ],
+      "reasoning": "Aliases include dyadic polynomial permutations, 2-adic monomial perturbations of the identity, local cycle lifting, odometer minimal components and valuation-shell orbit lengths. No searched claim has the same map and all-depth degree-dependent complete period formula.",
+      "searches": [
+        "published-finding corpus: Exact cycle decomposition of the permutation polynomial f(x)=x+2x^d modulo 2^k, valuation shells and parity of d, full-length cycle on odd residues",
+        "published-finding corpus: Orbit length of polynomial x + 2x^m on p-adic integers powers of two including periodic point counts and cycle lifting",
+        "web: \"x+2x^n\" \"2-adic\" cycles",
+        "web: cycle structure f(x)=x+2x^k mod 2^n 2-adic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS searches surfaced unrelated sequences A202081, A065166, A246117 and A111951, not a table for this particular polynomial family.",
+        "The closest published-finding corpus hits included Cyclotomic Hensel roots form an exact 2-adic prime-support isometry (published published-finding corpus record) and Exact component and fibre-rank law for the three-block period-doubling lift (published published-finding corpus record), both different objects and maps."
+      ],
+      "reasoning": "No exact table of the claimed orbit length or component profile was identified by these actual searches; this is limited search evidence, not a proof of first discovery.",
+      "searches": [
+        "web: site:oeis.org \"x+2*x^2\" permutation period",
+        "web: site:oeis.org \"x + 2*x^n\" cycles",
+        "web: site:oeis.org \"permutation x+2x^2\" cycles",
+        "published-finding corpus: 2-adic polynomial permutation dynamics: minimal clopen components and exact residue cycle lengths of x + 2 x^d for every degree d and modulus 2^k, odd/even parity split"
+      ]
+    },
+    "rationale": "Full primary paper readings isolate known permutation characterization, known quadratic example and general minimal-decomposition machinery, but none of the inspected statements gives the explicit parity-separated all-degree (d>=3) orbit spectrum or the 2^((d-1)s) minimal-ball multiplicities. Actual published-finding corpus, OEIS and web alias searches yielded no exact claim. Priority remains conditional on inaccessible or unindexed equivalent literature.",
+    "residual_risks": [
+      "General 2-adic cycle-lifting theory can derive related formulas after specialization; a more explicit unlocated statement remains a priority risk.",
+      "Search indexes may miss alternative terminology or pre-2001 treatment of monomial shears.",
+      "The degree-two specialization was already covered by general quadratic dynamics and is not included as a new result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves bijectivity, not orbit decomposition or 2-adic minimal components.",
+        "evidence": [
+          "Published online 2001-02-12 (first page).",
+          "Theorem 1 on page 289 tests coefficient parity and proves bijectivity."
+        ],
+        "identifier_or_url": "https://people.csail.mit.edu/rivest/pubs/Riv01c.pdf",
+        "material_read": "Complete six-page full text, including proof of Theorem 1 and its examples; specifically pp.287-290.",
+        "method": "Author-hosted lawful open full-text PDF, text and pages.",
+        "title": "Permutation Polynomials Modulo 2^w",
+        "trigger": "original characterization contains exactly x+2x^d as a permutation specialization"
+      },
+      {
+        "assessment": "Generic measure-preservation and transitivity criteria, with quadratic example only; no inspected all-degree shell census.",
+        "evidence": [
+          "Theorem 4.4 and Example 4.8 on page 14.",
+          "Example 4.16(2), page 21, lists x+2x² as a permutation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.1418",
+        "material_read": "Abstract, introduction and sections 4.2-4.4, including pages 14 and 21-22 and the polynomial permutation example.",
+        "method": "Open-access arXiv full PDF, searched text and inspected rendered pages.",
+        "title": "Non-Archimedean Ergodic Theory and Pseudorandom Generators",
+        "trigger": "polynomial x+2x² is directly discussed; generic ergodicity theory could dominate"
+      },
+      {
+        "assessment": "Subsumes quadratic degree and supplies general lifting language; no displayed explicit higher-degree family decomposition found in material read.",
+        "evidence": [
+          "Intro Theorems A/C and Theorem E, PDF pp.1-3.",
+          "Section 2, Lemma 2.3; Section 6, all quadratic polynomial classifications."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1010.5583",
+        "material_read": "Abstract, introduction, Theorems A/C/E, section 2 cycle-lifting lemma, and section 6 quadratic classifications; PDF page images for pages 1 and 6 were inspected.",
+        "method": "Open-access arXiv full PDF, search and direct page inspection.",
+        "title": "On Minimal Decomposition of p-Adic Polynomial Dynamical Systems",
+        "trigger": "directly studies minimal components of p-adic polynomials and classifies quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76e9463c-1866-4593-a81c-68efa3f9001f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The polynomial x+2x^d is the simplest integral monomial shear beyond the linear identity that is a permutation modulo every power of two. The theorem classifies every finite orbit and every infinite 2-adic minimal component for an entire nonquadratic degree family: one/two odd components with a sharp parity boundary and exactly 2^((d-1)s) components in shell s. These are exact dynamics relevant to finite-ring permutation polynomials and modular iteration, substantially beyond a finite table or a permutation check.",
+    "status": "PASS"
+  }
+}
