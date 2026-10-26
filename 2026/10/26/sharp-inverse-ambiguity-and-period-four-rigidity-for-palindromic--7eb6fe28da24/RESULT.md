@@ -1,0 +1,34 @@
+# Sharp inverse ambiguity and period-four rigidity for palindromic duplications
+
+## Finding
+Let \(\Sigma\) be an alphabet of size \(q\ge2\). For every integer \(k\ge3\) with \(4\nmid k\) and every \(n\ge k\), the largest number of distinct length-\(n\) parents of one length-\(n+k\) received word after one palindromic duplication of length \(k\) equals
+\[
+\max_{y\in\Sigma^{n+k}}|P_k(y)|=\left\lceil\frac{n-k+1}{2}\right\rceil.
+\]
+When \(m=n-k+1\) is odd and \(m\ge3\), there are **exactly** \(q(q-1)\) maximizing received words. They are precisely the length-\(n+k\) prefixes of \((aabb)^\omega\) when \(k\) is odd and \((abba)^\omega\) when \(k\equiv2\pmod4\), for ordered pairs of distinct letters \(a,b\in\Sigma\). Furthermore, for \(k\ge4\) with \(4\mid k\) and \(n=k+2\), the maximum equals one; thus the modulus-four restriction marks a genuine first-ambiguity boundary.
+
+## Assumptions and scope
+A palindromic duplication takes \(x=uvw\), with \(|v|=k\), to \(uvv^{R}w\), where \(v^{R}\) is the reversal of \(v\). Exactly one duplication is performed, and parents are counted as distinct *words*, not operation histories. For \(y=(y_0,\ldots,y_{n+k-1})\), potential inverse positions are \(i=0,\ldots,n-k\). Such a position is valid precisely when its \(2k\)-symbol factor \(y_i\cdots y_{i+2k-1}\) is a palindrome. Its corresponding parent retains the first \(k\) symbols of that factor and removes the final \(k\) symbols; denote this word by \(p_i(y)\). Thus \(P_k(y)=\{p_i(y):i\text{ valid}\}\).
+
+## Proof
+**A collision lemma.** If the factors of length \(2k\) at adjacent starts \(i\) and \(i+1\) are both palindromes, the overlapping reflection identities force their entire union of \(2k+1\) symbols to be constant. Indeed, composing the two adjacent reflections and the central equality propagates the equality across this union. Deleting either repeated length-\(k\) half therefore yields the same parent. Every consecutive run of valid starts produces one parent. Among \(m=n-k+1\) possible starts, the number of nonempty runs of valid starts is at most \(\lceil m/2\rceil\), which proves the upper bound for every \(k\ge1\).
+
+**A periodic construction.** Assume \(k\ge3\) and \(4\nmid k\). Fix \(a\ne b\). Let \(y\) be the length-\(n+k\) prefix of \((aabb)^\omega\) for odd \(k\), or \((abba)^\omega\) for \(k\equiv2\pmod4\). Each length-\(2k\) factor beginning at an even index is palindromic, while none beginning at an odd index is. Hence there are exactly \(\lceil m/2\rceil\) valid inverse positions, all even. For any two such positions \(i<j\), their separation is at least two. In the two possible parents, at the retained coordinates \(t=i+k\) and \(t=i+k+1\), the earlier deletion reads \(y_{t+k}\) while the later deletion reads \(y_t\); both coordinates are within the parents because \(j\ge i+2\). In the given period-four word and with \(4\nmid k\), at least one of these two adjacent coordinates satisfies \(y_t\ne y_{t+k}\). Thus the parents are pairwise distinct, attaining the bound.
+
+**Rigidity when the number of starts is odd.** Write \(m=2r-1\) with \(r\ge2\). Equality in the run-count bound forces the valid-start indicator to be exactly \(1010\cdots01\); in particular every even index is valid. Two length-\(2k\) palindrome factors at starts \(i\) and \(i+2\) imply period four on their union, because composition of their two reflection maps is translation by four. Since \(k\ge3\), these unions overlap and cover the entire received word, so \(y\) is period four. Reflection symmetry of the factor beginning at zero forces its four-symbol period to be \(aabb\) when \(k\) is odd and \(abba\) when \(k\) is even. If \(a=b\), every deletion gives the same parent, contrary to \(r\ge2\). Thus \(a\ne b\), and the periodic construction above proves that all \(q(q-1)\) possibilities, and no others, maximize.
+
+**Sharp boundary at multiples of four.** Let \(4\mid k\) and \(n=k+2\). There are three potential starts \(0,1,2\). Adjacent valid starts give the same parent by the collision lemma. If starts zero and two are both valid, their palindrome reflections force period four on the entire length-\(2k+2\) received word. Deleting \(k\) symbols at either start then gives the same parent, since \(k\) is a multiple of that period. Therefore there is never more than one distinct parent. A received word containing one legal palindrome attains one.
+
+## Verification
+The standalone `verify.py` enumerates every binary received word in specified short ranges, tests ternary and quaternary boundary instances, and computes inverse parents independently through explicit forward reconstruction. It checks the exact maximum and the complete odd-\(m\) maximizer set for tested instances. It also verifies the periodic constructions for all eligible \(k\le80\) and several source lengths up to \(n=k+70\). The analytic proof, not these finite checks, establishes the infinite claims.
+
+## Relationship to prior work
+Lenz, Wachter-Zeh and Yaakobi (2017), Appendix A, Lemma 15, bound a general palindromic-deletion sphere by the number of runs of valid palindrome starts; they also give an exact length-two description. That lemma already supplies the qualitative collision/run upper-bound mechanism and is **not** presented as new here. Their paper does not give the present uniform sharp formula for \(k\ge3\), the all-alphabet period-four extremizer classification, or the modulus-four onset obstruction. The previously established exact length-two inverse-list extremal problem has the analogous \(abba\) pattern and is also not claimed as new. Zabokritskiy (2026), Section 6, Lemma 6.1, gives the weaker count \(n-k+1\) of possible one-error inverse starts; its sharp two-error forward-sphere results concern even duplication lengths. Sun and Ge (2026) treat coding constructions rather than this exact inverse-parent extremum.
+
+## Limitations
+The theorem does not provide a complete inverse-list formula for arbitrary received words. It does not classify all even-\(m\) maximizers. For duplication lengths divisible by four it proves only the first-ambiguity obstruction at \(n=k+2\), not the full maximum at larger lengths. Although the listed primary papers and indexed results were compared, an unindexed equivalent argument remains a novelty risk. The verification program checks finite ranges, not the full infinite theorem.
+
+## References
+1. A. Lenz, A. Wachter-Zeh, E. Yaakobi, *Duplication-Correcting Codes*, arXiv:1712.09345 (2017), Appendix A, Lemmas 14–15 and Appendix B. https://arxiv.org/html/1712.09345v1
+2. A. L. Zabokritskiy, *Coding for Multiple Reverse-Complement and Palindromic Duplications*, arXiv:2609.00779 (first public 2026-09-01), Sections 5–6. https://arxiv.org/abs/2609.00779
+3. Y. Sun, G. Ge, *On the Palindromic/Reverse-Complement Duplication Correcting Codes*, arXiv:2602.01151 (2026). https://arxiv.org/abs/2602.01151

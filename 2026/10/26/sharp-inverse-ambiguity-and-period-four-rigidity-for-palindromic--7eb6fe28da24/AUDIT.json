@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The inverse-window/forward-channel equivalence is immediate by reversing the insertion. Adjacent palindrome windows produce identical parents; counting start components proves the upper bound. The period-four witnesses have valid starts at exactly even indices, with pairwise different parents whenever 4 does not divide k. Equality for an odd number of starts forces all even positions and hence period four, yielding exactly q(q-1) words. For k divisible by four and n=k+2, adjacent and distance-two starts cannot yield distinct parents. Finite exhaustive checks and a separate witness evaluator corroborate the proof, without replacing it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.00779 Theorem 5.1 concerns forward exact-two descendants at even k; Section 6 is a coarser bound on inverse parent counts.",
+        "2017 Appendix A upper bound does not prove sharpness for non-two lengths."
+      ],
+      "reasoning": "Forward descendant estimates and error-correcting-code existence results do not imply the claimed exact reverse-list maximum and complete odd-count extremizer classification.",
+      "searches": [
+        "\"palindromic duplication inverse ball list size odd length k=3 all alphabets\"",
+        "arxiv:2609.00779 Sections 5-6",
+        "arxiv:1712.09345 Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1712.09345",
+      "arxiv:2609.00779",
+      "arxiv:2602.01151",
+      "Indexed published mathematical record searches on palindromic inverse list / duplication parent-count aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 generic bound yields at most ceil((n-k+1)/2) under adjacent-start collisions, but does not ensure any nonconstant witness attains it.",
+        "The 2026 bound n-k+1 is weaker; its forward two-error geometry has different direction and parameters.",
+        "The previously published k=2 maximum and extremizer pattern is a special case not newly claimed."
+      ],
+      "reasoning": "The sharp infinite family k>=3 and its unique periodic maximizers require proving achievability and equality rigidity, while the k divisible by four boundary demonstrates that the generic bound is not always sharp.",
+      "searches": [
+        "arxiv:1712.09345 Lemma 15",
+        "arxiv:2609.00779 Lemma 6.1",
+        "\"exact worst case number of distinct parents for one length three palindromic duplication\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1712.09345 Lemma 15 bounds by runs of valid palindrome starts and Lemma 14 gives k=2 exact counts.",
+        "arXiv:2609.00779 Lemma 6.1 gives only n-k+1 possible inverse windows."
+      ],
+      "reasoning": "The run upper bound and length-two case are prior art, but not a sharp all-k>=3 nonmultiples-of-four extremal law with q(q-1) period-four rigidity and a mod-four obstruction.",
+      "searches": [
+        "\"palindromic deletion sphere length three exact maximum\"",
+        "\"reverse-copy duplication length 3 parent list multiplicity maximal word rigidity\"",
+        "arxiv:1712.09345 Appendix A Lemmas 14-15 and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed record exact length-two inverse degree has formula at k=2 but not k>=3.",
+        "No located primary table states the uniform k>=3 mod-four formula."
+      ],
+      "reasoning": "The new law is not a numerical extension of a known table; it uses an all-length proof and a modular obstruction. A negative index query alone does not establish absolute novelty.",
+      "searches": [
+        "\"palindromic deletion sphere length three exact maximum floor((n-1)/2) unique periodic aabb\"",
+        "\"inverse parent 3 palindrome six block aabb odd n sharp q(q-1) maximizers\"",
+        "arxiv:1712.09345 Appendix A"
+      ]
+    },
+    "rationale": "Known 2017 work includes the generic run upper bound and an exact k=2 calculation; these are explicitly excluded. The new k>=3 sharp formulas, all-alphabet odd-count rigidity, and modulus-four onset obstruction were not implied or stated by the inspected works; the 2026 motivating paper supplies only a coarser inverse-list bound. Residual risk is an unindexed equivalent result.",
+    "residual_risks": [
+      "An unindexed publication may already derive this sharp family.",
+      "Known length-two inverse-list optimum must not be counted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known run upper bound and k=2 exact case; no all-k>=3 sharp modulus-four family or odd-count rigidity statement.",
+        "evidence": [
+          "Appendix A, Lemma 15 (zero-column run upper bound), Lemma 14 (binary length-two), Appendix B (equivalent deletion positions)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1712.09345v1",
+        "material_read": "Sections 1–4; Appendix A including Lemmas 13–15; Appendix B inverse equivalence conditions",
+        "method": "Inspected complete accessible primary HTML and directly compared Lemmas 14-15 and Appendix B with each theorem clause.",
+        "title": "Duplication-Correcting Codes",
+        "trigger": "General palindromic deletion spheres and coincidence of inverse operations"
+      },
+      {
+        "assessment": "One-error inverse bound at most n-k+1, and maximum two-error forward spheres only at even k; no target exact inverse theorem.",
+        "evidence": [
+          "Section 6 Lemma 6.1; Section 5 Theorem 5.1; first-public arXiv date 2026-09-01."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+        "material_read": "Introduction and results; Section 2 model; Sections 5–7, especially Lemma 6.1",
+        "method": "Inspected full accessible primary HTML text; compared error direction, duplication length, count, and quantifiers.",
+        "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+        "trigger": "Recent source and possible domination by two-error sphere and inverse-list results"
+      },
+      {
+        "assessment": "Explicit codes, GV bounds and length-one reverse-complement constructions; no matching inverse-parent saturation.",
+        "evidence": [
+          "Paper abstract, introductory comparison and construction sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.01151",
+        "material_read": "Accessible primary paper introduction, constructions and length-specific results",
+        "method": "Read accessible full-text primary representation and compared domains and theorems.",
+        "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+        "trigger": "Possible broader exact inverse-parent claim under equivalent coding terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7eb6fe28-da24-4607-919e-c095c68ab571",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Worst-case reverse-list degree is an intrinsic decoding ambiguity for palindromic duplication. The theorem determines it for infinitely many duplication lengths, classifies every maximizing received word for odd start-count over arbitrary alphabets, and exhibits a genuine modulo-four threshold failure in an otherwise matching generic upper bound. These facts refine the geometry relevant to coding bounds and are not an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
