@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The distance formula and the four Johnson association-scheme eigenvalue rows give exactly three nonconstant spectral multipliers. A simple cubic inequality keeps the first multiplier negative; the second is manifestly negative; monotonicity gives the sole crossing of the third. The centered Gram rank is obtained from sector multiplicities. For the ordinary distance-exponential kernel, exact polynomial factorization gives the full positive-semidefinite scale set and both singular ranks. The included standalone exact-arithmetic checker reconstructs the association-scheme projectors and verifies the spectral and distance formulas. Remaining scientific limitation: the checker does not itself prove the transcendental monotonicity inequalities, which are established in the mathematical proof.
+
+## Originality — PASS (bounded literature comparison)
+The nearest substantial source is Aalipour et al., arXiv:1509.01196, Section 3.2: their existing Kneser distance and Eberlein spectral formulas are used, not claimed as new. Their stated distance spectrum concerns the unpowered metric and does not give the sharp exponent, embedding collapse or positive distance-exponential cutoff. Sánchez, arXiv:1108.0451, supplies general negative-type testing and treats complete bipartite graphs, not this object. Tanaka, arXiv:2208.11002, treats the fully positive semidefinite parameter property and does not state the exact cutoff here. Related searchable finite-homogeneous-space claims on different graphs do not imply these \(O_4\)-specific parameters. Residual risk: the calculation might occur as an unpublished, unindexed, or unnamed corollary of the known Johnson-scheme calculus.
+
+## Mathematical value — PASS
+The first odd graph beyond the Petersen graph, \(O_4\), is a canonical distance-transitive graph with three distinct positive distances. The exact negative-type exponent identifies a strict obstruction already below exponent one; the critical singularity removes an entire \(14\)-dimensional harmonic sector, and a separate exactly solvable distance-exponential cutoff has a \(14\)-dimensional rank loss. This provides concrete information about graph covariance models and metric embeddings that is not fixed by the established ordinary distance spectrum alone. Scope is one natural graph, not a general family theorem, and an individual-bandwidth classification for all supercritical powers is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
