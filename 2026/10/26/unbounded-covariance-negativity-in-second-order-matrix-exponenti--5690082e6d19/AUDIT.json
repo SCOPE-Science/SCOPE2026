@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact method equations specialize to K1_ij=f(d_i) and K2_ij=f(d_i)+(d_i-d_j)g(d_i). The exact Q(1) is the Gram matrix of e^{-at}, e^{-bt}; it is positive definite for a≠b. The METD1 symmetric determinant equals -(f(a)-f(b))²/4<0. Dividing the METD2 symmetric part by a and letting a→∞ yields [[0,-g(b)/2],[-g(b)/2,0]], so eigenvalue continuity gives the exact sharp negative slope. Positivity of g(b) follows from its integral. For a=10,b=1 a rational envelope proves negative determinant; 55 standard-library assertions check formulas and examples without standing in for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.15703, Sections 2 and 3, constructs congruence-form integrating-factor SSP stages that preserve positivity; its stated preservation does not concern METD2.",
+        "arxiv:1803.10473, Sections 1-3, develops low-rank Lie--Trotter/projector splitting, not the source left-multiplied φ and finite commutator formula.",
+        "arxiv:1907.12971, Section 2 Lemma 1 (equations (10)–(14)), applies the full Sylvester operator S(X)=AX+XD. For constant forcing its h φ₁(hS)(Q) is the exact two-sided covariance integral, not the left-multiplied approximate METD formula.",
+        "The general fact that the exact Lyapunov flow preserves positive semidefiniteness is used as a comparator, not claimed as new."
+      ],
+      "reasoning": "The stronger-looking prior positivity theorem is for a distinct two-sided integrating-factor method and therefore cannot dominate a quantitative non-preservation theorem about METD2. A general barrier for some direct Runge--Kutta schemes cited in the 2026 paper need not imply the precise METD2 negative-eigenvalue slope, since METD is not that class. No checked source contains a parameter-domination result that subsumes the present exact rate. The 2019 full-Sylvester exponential formula provides the exact positive two-sided comparator, but does not imply the numerical METD2 commutator-truncation eigenvalue asymptotic.",
+      "searches": [
+        "web: differential Lyapunov equations positivity preserving exponential integration low rank Lyapunov matrix differential equation integrator positivity preservation 2019 2024",
+        "web: positivity preserving exponential method differential Lyapunov equation matrix ODE PSD covariance 2023",
+        "web: \"Convergence of a Low-Rank Lie-Trotter Splitting for Stiff Matrix Differential Equations\" arxiv",
+        "web: \"Exponential integrators for large-scale stiff Riccati differential equations\" arxiv",
+        "published-finding corpus: positive semidefinite preserving differential Lyapunov exponential integrator strong stability preserving 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2406.13761",
+      "https://arxiv.org/abs/1803.10473",
+      "https://arxiv.org/abs/2606.15703",
+      "https://arxiv.org/abs/1907.12971"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source arxiv:2406.13761 eqs. (7),(9), Section 2.4, and Appendix A.3 give algorithm formulas and their derivation. Their Lyapunov test in Section 6.1 reports observed global accuracy orders.",
+        "arxiv:2606.15703, Section 3, proves positivity of two-sided integrating-factor SSP formulas, which mathematically implies nothing about the distinct left-weighted METD2 map.",
+        "arxiv:1803.10473, Sections 1-3, splits stiff congruence evolution from a low-rank projected nonlinear flow; no implication to METD2 commutator-induced unbounded negativity.",
+        "arxiv:1907.12971, Section 2, Lemma 1, derives exact h φ₁(hS)(Σ) with S(X)=AX+XA; this integral preserves the covariance cone and differs from the source METD2 map."
+      ],
+      "reasoning": "Knowing the METD equations permits deriving this theorem but does not make their convergence results logically imply its exact eigenvalue law. Conversely the 2026 positivity-preserving construction proves a property of different methods and cannot imply METD2 violates positivity at every specified scale. The new implication is explicitly reconstructed and yields a nonzero asymptotic coefficient g(b)/2. The exact Sylvester-operator formula in Li (2019) is stronger in structure preservation for constant forcing but is a different update, so neither its theorem nor its stated error analysis entails the METD2 divergence coefficient.",
+      "searches": [
+        "web: \"matrix exponential time differencing\" \"covariance\" \"negative eigenvalues\"",
+        "web: commutator truncated exponential integrators Lyapunov covariance positive definiteness numerical",
+        "web: 2023 2024 positivity preserving high order exponential integrators graph Markov chains splitting error numerical analysis",
+        "published-finding corpus: exponential integrator two-sided Sylvester Lyapunov positivity rank-one forcing commutator truncation two by two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source METD equations (7), (9), and Section 2.4 in arxiv:2406.13761 are the identical algorithmic formulas, specialized directly here.",
+        "Closest published-finding corpus thematic result 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 concerns Lanczos exponential action, not Lyapunov METD.",
+        "The primary source studies order consistency for METD and numerical Lyapunov examples, not the stated rank-one forcing negative eigenvalue law."
+      ],
+      "reasoning": "The equivalent formulation is failure of Loewner-cone preservation even after symmetrization of a commutator-truncated matrix ETD update. The only algorithm with precisely these terms in checked material is the defining Shkeir--Grafke source; its convergence-order results do not compare eigenvalues to the covariance cone. Other exponential approximations retrieved differ in update map.",
+      "searches": [
+        "published-finding corpus: METD1 METD2 METD2RK Shkeir Grafke exponential time differencing matrix-valued differential Lyapunov non-symmetric output",
+        "published-finding corpus: negative eigenvalues of symmetrized covariance from exponential time differencing matrix Lyapunov commutator corrections",
+        "web: \"METD2\" \"positivity\" covariance lyapunov",
+        "web: \"matrix exponential time differencing\" \"covariance\" \"negative eigenvalues\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest previously recorded claim 3b462c0c-decb-4697-8bc7-54aa7b018265 concerns projected exponential Euler and low-rank Lyapunov forcing with a different map.",
+        "published-finding corpus closest generic data includes 2026/9/19/SCOPE-complete-line-angular-collapse-sylvester-covariance-metrics--821fc9209308 (covariance geometry), not the numerical method.",
+        "published-finding corpus nearest method-related hit is 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 (Lanczos positivity)."
+      ],
+      "reasoning": "Previous accessible records include matrix-exponential and stochastic covariance topics but no recoverable statement about METD1/METD2/METD2RK Lyapunov updates or linear-in-stiffness symmetrized covariance negativity. Source-specific published-finding corpus searches show no matching exact theorem/table. This is limited overlap evidence, not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: Shkeir Grafke METD2 differential Lyapunov rank one forcing indefinite covariance positive semidefinite 2024",
+        "published-finding corpus: METD1 METD2 METD2RK Shkeir Grafke exponential time differencing matrix-valued differential Lyapunov non-symmetric output",
+        "Previous mathematical record, opaque result identifier 3b462c0c-decb-4697-8bc7-54aa7b018265 (projected exponential Euler low-rank Lyapunov forcing)"
+      ]
+    },
+    "rationale": "Relevant published-finding corpus source/parameter/alias searches, accessible preceding mathematical claims, and primary full-text inspection found no published statement with the specified METD update and unbounded negative symmetrized eigenvalue law. The 2018 Lie--Trotter splitting and 2026 IF-SSPRK positivity theorem have different method formulas, so their results do not imply the new exact asymptotic. Search incompleteness and potentially equivalent unpublished work remain risks.",
+    "residual_risks": [
+      "No finite search proves absolute priority; a specialized positivity or commutator-truncation result may be equivalent.",
+      "The main source first appeared in 2024 and its fully inspected accessible formula is in the 2026 revision; the revision date is not substituted for the earliest source date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_QUANTITATIVE_CLAIM",
+        "evidence": "Equations (7),(9), Section 2.4 have left-sided φ-functions and a commutator; Sections 6.1 and Appendix A.3 analyze errors/derivations but supply no explicit rank-one symmetrized eigenvalue asymptotic.",
+        "identifier_or_url": "arxiv:2406.13761; https://arxiv.org/pdf/2406.13761",
+        "material_read": "PDF Sections 2.1-2.4, 3, 6.1 and Appendix A.3, with equation (7), equation (9), and the 2.4 update inspected.",
+        "method": "Primary PDF text and visual page 6 inspection.",
+        "title": "Exponential time differencing for matrix-valued dynamical systems",
+        "trigger": "The exact algorithms METD1/METD2/METD2RK and direct Lyapunov example originate here."
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_NOT_COVERING",
+        "evidence": "The split flow is Φ_A ∘ Φ_G, using exact stiff congruence integration and projected nonstiff dynamics; the METD commutator truncation is not used.",
+        "identifier_or_url": "arxiv:1803.10473; https://arxiv.org/abs/1803.10473",
+        "material_read": "Accessible full-text Sections 1-3, including differential Lyapunov setup and the Lie--Trotter operator splitting formulas.",
+        "method": "Primary arXiv rendered article full text, Sections 1-3.",
+        "title": "Convergence of a low-rank Lie--Trotter splitting for stiff matrix differential equations",
+        "trigger": "Potentially broader stiff Lyapunov integrator stability results."
+      },
+      {
+        "assessment": "DIFFERENT_METHOD_POSITIVITY_THEOREM_NOT_COVERING",
+        "evidence": "Integrating-factor stage maps are two-sided congruences and convex sums preserving SPSD, distinct from left-weighted φ(L+R) plus [Σ,R] in METD2; no assertion of the METD2 negative eigenvalue coefficient.",
+        "identifier_or_url": "arxiv:2606.15703; https://arxiv.org/abs/2606.15703",
+        "material_read": "Accessible full-text Introduction, Sections 2 and 3 including formulas (5),(6), Theorem 3.2 and its proof.",
+        "method": "Primary arXiv rendered full text.",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Explicitly titled positivity preservation for the same Lyapunov object and potentially strong covering theorem."
+      },
+      {
+        "assessment": "EXACT_SYLVESTER_OPERATOR_DIFFERENT_SCHEME_NOT_COVERING",
+        "evidence": "The forcing propagator is h φ₁(hS)Σ, S(X)=AX+XA, and is exactly the two-sided Gram integral under constant forcing; the source does not analyze the METD2 left-multiplied φ plus a single [Σ,A] correction or its sharp negative eigenvalue slope.",
+        "identifier_or_url": "arxiv:1907.12971; https://arxiv.org/pdf/1907.12971",
+        "material_read": "Full-paper PDF Sections 1-2 including equation (7), Lemma 1 equations (10)–(17), and the Section 4 low-rank quadrature implementation around equations (34)–(38); PDF pages 1 and 3 visually inspected.",
+        "method": "Primary arXiv PDF text and visual page inspection.",
+        "title": "Exponential integrators for large-scale stiff matrix Riccati differential equations",
+        "trigger": "Earlier exponential numerical method directly handles symmetric differential Riccati/Lyapunov systems and might imply a broader structure-preservation statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5690082e-6d19-4ce9-b1cc-e479de367ee5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantified linear divergence of a negative eigenvalue with stiffness while the physical covariance is bounded and strictly positive is a consequential structure-preservation failure, not merely an observation of nonsymmetry. It shows post-step symmetrization cannot make the published second-order METD covariance step safe and motivates congruence/positive quadrature design. The exact rate is useful for detecting stiffness sensitivity.",
+    "status": "PASS"
+  }
+}
