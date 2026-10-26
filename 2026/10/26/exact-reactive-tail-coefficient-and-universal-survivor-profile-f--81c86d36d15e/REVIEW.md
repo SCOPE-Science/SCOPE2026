@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The nonnegative Robin mild evolution, boundary flux balance, and local-time Feynman–Kac representation establish the premises and strict infinite-horizon survival. The mean-zero Neumann heat kernel has an integrable temporal envelope and exponential memory cutoff. Dominated convergence after splitting the boundary convolution at half time yields the uniform exact-order spatial expansion; evaluation of the cosine Green sums and the mass-loss identity determine the sharp reaction density and integrated survival tail. No finite computation is used as an infinite-time proof. Nine numerical finite-volume time points confirm the direction and magnitude of the formula within expected discretization error.
+
+## Originality — PASS (with priority risks)
+Grebenkov–Ye arXiv:2610.23017v1, Sec. III.3, eq. (43), already provides the algebraic exponent and explicitly identifies the prefactor as unknown; Sec. III.4 establishes positive residual survival. Those are not new. The present result resolves the amplitude in terms of the true residual survivor mass and supplies an explicit, asymmetric two-wall normalized spatial profile. The full relevant text of this paper was examined, and equivalence with Robin radiation and local-time killing was compared. Published similarity-search matches for stationary Robin graph eigenvalues, local-time boundary dynamics and generic operator positivity do not imply this exact time-dependent asymptotic claim. Earlier broader heat-transfer and lattice reaction texts were not fully available and could contain implicit coverage. The prefactor is **not** computed independently of \(S_\infty\); any stronger reading would be incorrect.
+
+## Value — PASS
+The precise survivor mass controls the physical density of late reaction events; a prefactor in terms of that mass is a measurable design relationship absent from the source's adiabatic estimate. The universal first spatial correction resolves how unequal reactive endpoints deplete near-wall survival density, providing an additional observable beyond the reaction-time tail. This is a motivated structural asymptotic for a canonical reaction-diffusion model, not a finite lookup or arbitrary benchmark.
+
+## Closest literature and limitations
+Grebenkov and Ye (2026) full public HTML: time-dependent reaction theory and power-law index, without this exact amplitude or spatial profile. Ré and Budde (2000): a related but different elapsed-since-arrival rate; full text inaccessible. Chen et al. (2010): general time-dependent heat-transfer Robin formulation; full text inaccessible, so implicit-priority uncertainty remains. Colantoni (2026): Markovian switching, not deterministic power-law passivation. Kay and Giuggioli (2023): fractional subdiffusive boundary process. The theorem assumes one-dimensional constant diffusivity and an integrable power-law hazard, and the residual survival probability remains generally non-elementary. Numerical verification is finite and does not establish priority or substitute for proof.
+
+Self-review: passed. Independent audit: not yet performed.
