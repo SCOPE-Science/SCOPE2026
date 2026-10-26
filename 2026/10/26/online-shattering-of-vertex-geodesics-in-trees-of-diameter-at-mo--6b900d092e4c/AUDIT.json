@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For each vertex type, every initial membership query has a conditional path class of rank at most 3; if the diameter-four center has degree two, a branch of rank at most 2. This proves the universal upper bounds by the exact version-space recurrence. Lower diameter witnesses and the six-vertex branching witness have independently replayed complete binary certificates. The general proof, rather than finite extrapolation, supplies all-order claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al., PMLR 132 (2021), Proposition 3 gives a general asymptotic closure inequality in terms of constituent dimensions; the paper treats Boolean aggregation, not center-degree classification.",
+        "Abraham et al. bound VC dimension of unique geodesic hypergraphs by two."
+      ],
+      "reasoning": "The published generic closure inequalities and static VC bound are not stronger versions of the exact 0–4 diameter-layer Littlestone formula; no parameter specialization or immediate corollary yields the 3-versus-4 transition. A stronger unlocated specialized theorem remains possible.",
+      "searches": [
+        "online learnability shortest path hypergraph Littlestone tree graph paths",
+        "Littlestone dimension path hypergraphs subtrees trees online learning membership query 2021",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions arxiv submission date Ghazi"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.03668v1 (July 7, 2020), generic closure bounds",
+      "Ghazi et al., PMLR 132 (2021), inspected PDF",
+      "Abraham et al., unique-shortest-path VC dimension, inspected PDF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior finite-interval formulation concerns a path-graph ground tree, where there is no center branching.",
+        "The descendant-cone family uses one rooted subtree per vertex, rather than all paths between two arbitrary vertices.",
+        "Abraham et al. Theorem 2 proves static VC dimension at most two; Ghazi et al. give generic closure bounds."
+      ],
+      "reasoning": "The new classification is not a special case of chain interval or rooted-descendant-cone classifications. The six-vertex rank-four witness has center degree three and is not an interval concept class; a static VC upper bound of two does not force its adaptive rank of four.",
+      "searches": [
+        "exact Littlestone dimension interval concepts on finite linear chains, consecutive intervals, gap partition recurrence online shattering",
+        "rooted-tree descendant-cone Littlestone one-bit height bound and sharp examples",
+        "tree geodesic path family VC dimension two shortest paths graph online mistake bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abraham et al., VC-Dimension and Shortest Path Algorithms, Theorem 2 (unique-shortest-path vertex-set system).",
+        "Ghazi et al., arXiv:2007.03668v1 (July 7, 2020), definition of complete mistake-tree shattering."
+      ],
+      "reasoning": "Geodesic vertex paths in a tree are exactly the unique-shortest-path hyperedges, and adaptive shattering is also known as Littlestone/thicket dimension. The inspected Abraham theorem gives a static VC upper bound, not the exact adaptive dimensions or center-degree dichotomy.",
+      "searches": [
+        "Littlestone dimension geodesic tree",
+        "thicket dimension simple paths trees stable set systems vertex geodesic",
+        "Littlestone shortest paths trees classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reproducible finite table includes 128 canonical diameter-four branch-multiset trees on 5–12 vertices.",
+        "The targeted indexed searches returned related tree-geometry records, not a matching rank table."
+      ],
+      "reasoning": "No inspected exact table or database value covers this classification. The computation is not itself an originality certificate; priority remains subject to further human literature review.",
+      "searches": [
+        "sharp Littlestone dimension vertex-set geodesics finite trees of diameter four, equal to 3 if degree of unique center is two and 4 if degree at least three; VC dimension two",
+        "concept class all simple paths in diameter-four trees, online mistake bound 4 and first branching transition from three to four",
+        "Littlestone dimension diameter paths tree online"
+      ]
+    },
+    "rationale": "Published-source and indexed-record comparisons found no equivalent or dominating diameter-at-most-four tree-geodesic Littlestone classification; inspected nearby papers concern VC bounds or generic closure bounds. The precise distinction is center degree at diameter four. Priority uncertainty explicitly remains.",
+    "residual_risks": [
+      "The inspected papers and indexed search are not exhaustive: an older graph-path online-learning result might imply the exact formula.",
+      "The static unique-shortest-path VC result is already known and is not presented as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2 proves VC dimension at most two for unique shortest paths; not an adaptive shattering or exact diameter classification.",
+        "evidence": [
+          "Page 3, Theorem 2 and its proof on unique-shortest-path systems; no Littlestone match in extracted PDF text."
+        ],
+        "identifier_or_url": "https://renatowerneck.wordpress.com/wp-content/uploads/2016/06/adfgw11-vc-dimension.pdf",
+        "material_read": "Page 3 (PDF index 2) Section 3, Theorem 2, surrounding Sections 2–3 and document text search for Littlestone.",
+        "method": "Read full theorem and argument with page visual inspection; searched extracted PDF text for Littlestone.",
+        "title": "VC-Dimension and Shortest Path Algorithms",
+        "trigger": "Identical underlying unique-shortest-path vertex-set systems and potential stronger coverage."
+      },
+      {
+        "assessment": "Generic Boolean aggregation bounds and tree shattering definitions do not provide exact path-geodesic ranks or branching transition.",
+        "evidence": [
+          "PMLR PDF page 3 Definition 1 and Proposition 3; pages 1–2 introduction and scope."
+        ],
+        "identifier_or_url": "arXiv:2007.03668v1; https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "PDF pages 1–4 (indices 0–3), including the introduction, Definition 1 and Proposition 3; document-wide text search for path and tree.",
+        "method": "Read theorem formulations and stated scope; visually inspected PDF page 3; searched text.",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Primary dated source for online-learning dimension; possible general closure theorem implying the claimed bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b900d09-2e4c-4fbe-8b6b-471544a96aa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This provides a complete sharp structural classification for all trees with diameter at most four, determines the first center-branching-dependent online mistake bound despite uniformly VC dimension two, and gives a six-vertex minimal transition witness. The exact one-bit jump is independent of unbounded branch sizes, so the invariant is a natural structural boundary rather than a one-off sample.",
+    "status": "PASS"
+  }
+}
