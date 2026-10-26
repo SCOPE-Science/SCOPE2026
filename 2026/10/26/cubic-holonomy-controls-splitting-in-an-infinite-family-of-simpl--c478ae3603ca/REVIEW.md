@@ -1,0 +1,13 @@
+## Correctness (PASS)
+The full determinant is \((-1)^n-P\), computed from two surviving permutation terms. Perfection gives monomial automorphisms. The directed graph forces rotation-only support permutations; direct coefficient comparison gives the cubic diagonal kernel, and the explicit lift satisfies \(\phi^n=\delta_P\). This determines the abstract group and splitting criterion for all stated fields and indices. The standalone modular checker independently verifies the algebra identities, determinants and complete finite small-case enumerations. Computations are supporting checks rather than an infinite proof.
+
+## Originality (PASS, with specified residual risk)
+The source's Proposition 21 already proves nonsplitting for a six-dimensional example; this instance \(n=3\), \(P\ne1\), is explicitly excluded from claims of novelty. The additional theorem classifies *every* length and all cubic coefficient choices in a natural strongly connected graph family, identifies the all-weights-one split cases, and proves the exact boundary \(P=1\) or \(3\nmid n\). The source poses its broad extension-splitting problem as Question 33 rather than stating this family-wide answer. Elduque–Labra's general sequence and their smaller examples, the automorphism survey of Sriwongsa–Zou, and previously indexed single oriented-cycle results were compared by implication, not just title. Residual risk: the criterion may be implicitly derivable from more general earlier extension theory; none of the materially inspected sources explicitly covers the full doubled-cycle classification.
+
+## Value (PASS)
+The source explicitly motivates understanding which automorphism extensions of perfect evolution algebras split. The construction gives infinite families of *simple* examples in unbounded dimension and a sharp coefficient/length criterion, and shows that the identical directed graph can support distinct extension classes and nonisomorphic automorphism groups when \(n\) is an odd multiple of three. This is a structural classification and boundary phenomenon, not a single numerical computation or a routine special case.
+
+## Closest literature and limitations
+[1] Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1, Proposition 21 (known \(n=3\) nonsplit construction), Question 33 (extension splitting remains a general problem); [2] Elduque–Labra, arXiv:1902.02191, general extension and earlier field-dependent nonsplitting; [3] Sriwongsa–Zou, arXiv:2202.01333, automorphism-group constructions. Results are only for \(c_i\in\mu_3(K)\) and \(\operatorname{char}K\notin\{2,3\}\), and concern \(K\)-point groups rather than group schemes. Independent audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
