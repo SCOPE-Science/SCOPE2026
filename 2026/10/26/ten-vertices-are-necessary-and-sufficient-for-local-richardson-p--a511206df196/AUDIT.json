@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The scalar Richardson stability function has coefficients 1, -1, 1/2, 0, -3/8 through order four. At graph distances 1 and 2 the first offdiagonal terms are positive; at distance 3 the leading coefficient is -(3/8)(L^4)uv. Every four-edge walk and three-edge path appears in the exact neighbor-set identity derived in RESULT.md. Deleting all but one bridge raises that coefficient, and each remaining vertex contributes at most max(0,ab-2). Evaluating the complete possible neighbor-set sizes proves (L^4)uv<=-1 through order 9 and <=4 through order 10. The ten-vertex witness has diameter 3 and (L^4)uv=4, hence a negative leading term. The nine-vertex bound is attained. The standalone exact verifier checks both witnesses, four exact resolvent signs, and 2499 independently generated graph-pair formula comparisons. Finite tests are explicitly not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lawson--Morris 1977, Sections 1-3, https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+        "Public scalar threshold and logarithmic refinement radius, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ],
+      "reasoning": "Older results cover the formula and scalar decay, while the public recent study covers scalar refinement-factor thresholds. Neither gives a stronger general graph bound implying positivity for every graph on at most nine vertices or a size-ten witness; the graph theorem does not contradict their scalar conclusions. Prior related graph examples only certify existence at order thirteen and do not imply minimality at ten.",
+      "searches": [
+        "Richardson extrapolation ten vertices first graph obstruction signed fourth Laplacian distance-three",
+        "Richardson extrapolation standard two level graph distance three 13 vertex witness",
+        "Richardson backward Euler positivity monotonicity unweighted graph diameter three local"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+      "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+      "https://doi.org/10.1137/080732833",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+      "published-finding corpus semantic queries: two-level Richardson backward Euler graph Laplacian local entrywise positivity diameter three first ten vertex counterexample",
+      "published-finding corpus semantic queries: fourth Laplacian power sign at distance three 9 vertices 10 vertices graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lawson--Morris full historical report pp. 7-10 and sampled numerical pages, https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+        "Constantinescu--Sandu full report Section 2, https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+        "Public scalar theorem text, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "Prior related 13-vertex unweighted graph example identified in accessible research history; no size lower bound in that claim."
+      ],
+      "reasoning": "The scalar negative-amplification tail of Lawson--Morris is an eigenmode statement, not negative entry of T(h) for arbitrarily small h. The 13-vertex witness proves an upper bound of 13 for the minimum size but does not prove the lower bound 10 or the sharper ten-vertex witness. The full new statement is not a parameter substitution or a corollary of the inspected prior statements.",
+      "searches": [
+        "two-level Richardson backward Euler graph Laplacian local entrywise positivity diameter three first ten vertex counterexample",
+        "Richardson extrapolation standard two level graph distance three 13 vertex witness",
+        "Lawson Morris first order extrapolation matrix positivity graph Laplacian",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1 RESULT.md full claim"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lawson--Morris CS-77-20, equations (2.1)-(2.6), https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+        "Constantinescu--Sandu TR-08-13, Section 2, https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf"
+      ],
+      "reasoning": "The standard two-level backward-Euler extrapolate and its scalar stability function are prior constructions. Entrywise positivity of a graph-function matrix, however, is a stronger and different requirement. The present exact minimum graph order requires a new fourth-Laplacian walk-count bound that scalar stability conditions do not imply.",
+      "searches": [
+        "two-level Richardson backward Euler graph Laplacian local entrywise positivity diameter three first ten vertex counterexample",
+        "fourth Laplacian power sign at distance three 9 vertices 10 vertices graph",
+        "Lawson Morris 1977 extrapolation fully implicit second order scalar amplification; 1977 report equations (2.1)-(2.6)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked published-finding corpus search matched https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1 as a scalar study; no indexed result in the reviewed returned hits stated the 10-vertex sharp graph cutoff.",
+        "Standalone analytic size-9 and size-10 tables in RESULT.md, reproduced by verify.py."
+      ],
+      "reasoning": "The upper-bound table is derived from a one-bridge optimization, not a recomputation of any located published graph table. Semantic searches produced scalar Richardson and unrelated graph-order results. Absence from a search index is evidence of nonoverlap with inspected hits, not proof of novelty.",
+      "searches": [
+        "two-level Richardson backward Euler graph Laplacian local entrywise positivity diameter three first ten vertex counterexample",
+        "Richardson extrapolation ten vertices first graph obstruction signed fourth Laplacian distance-three",
+        "fourth Laplacian power sign at distance three 9 vertices 10 vertices graph",
+        "Richardson extrapolation standard two level graph distance three 13 vertex witness",
+        "Richardson extrapolation matrix graph distance three walk count four positivity ten vertex smallest witness"
+      ]
+    },
+    "rationale": "The exact minimum graph size and the sharp fourth-Laplacian inequality are not the original backward-Euler extrapolation formula or its known scalar positivity radius. Lawson--Morris 1977 equations (2.1)-(2.6) and page 9 exhibit the same method and known scalar sign issue; Constantinescu--Sandu 2008 Section 2 develops general extrapolation stability, not a graph order threshold. A published scalar Richardson positivity investigation gives scalar thresholds, but the exact 9/10 graph size separation and coefficient bound require new graph combinatorics. The accessible related mathematical history includes a 13-vertex diameter-three obstruction but not its minimality; the new theorem determines the sharp 10-vertex minimum. General novelty cannot be certified by searches alone.",
+    "residual_risks": [
+      "A specialized pre-2008 graph-specific analysis, not represented in the inspected published-finding corpus queries or the selected relevant primary sections, may establish an equivalent graph-order theorem.",
+      "The 1977 report is a 28-page scan; substantial selected sections were inspected but not all individual pages. Its scalar negative-amplification threshold is expressly acknowledged as known.",
+      "The first_public_date identifies the earliest day-resolved focal preprint (2008-07-18); the older 1977 precursor is dated only by month in its report title page and is bibliographically treated as earlier background rather than assigned an invented day.",
+      "The classification is for unweighted undirected graphs only; weighted or directed analogues are outside the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains exact extrapolation construction and negative scalar tail, but inspected material does not give a graph-order threshold or fourth-Laplacian distance-three bound.",
+        "evidence": [
+          "July 1977 technical report CS-77-20, Section 2 and equation (2.6).",
+          "Printed page 9 explicitly says the scalar amplification becomes negative for z>2(1+sqrt(2))."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+        "material_read": "Scanned report title, introduction, fully implicit Section 2 including equations (2.1)-(2.6), scalar amplification discussion on printed page 9, selected Section 3 and numerical pages; not all 28 scanned pages.",
+        "method": "Open access PDF, visually inspected page images including report pages 1,3,5,7,9,12,16,19,22,24.",
+        "title": "The Extrapolation of First Order Methods for Parabolic Partial Differential Equations I",
+        "trigger": "Original report explicitly studies the same two-level fully implicit Richardson extrapolation and scalar amplification."
+      },
+      {
+        "assessment": "General extrapolation construction and linear stability, no size-nine positivity protection or size-ten graph example in material inspected.",
+        "evidence": [
+          "TR-08-13 title page states July 18, 2008.",
+          "Section 2, equation (2.3a), is the first-order extrapolation recurrence."
+        ],
+        "identifier_or_url": "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+        "material_read": "Title date page July 18, 2008, abstract, Sections 1-2 including Aitken--Neville equation (2.3a) and the Euler base methods, relevant stability discussion and internal searches.",
+        "method": "Full lawful institutional-author OA PDF opened, parsed relevant sections and visually inspected page 3.",
+        "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+        "trigger": "Day-dated original technical report for the extrapolation tableau and order/stability analysis."
+      },
+      {
+        "assessment": "Establishes exact scalar positivity horizon by refinement and logarithmic dependence, not matrix-entry graph-size minimum.",
+        "evidence": [
+          "The result explicitly restricts its positivity claim to scalar decay.",
+          "No graph-distance-three or finite graph order threshold statement in the full RESULT.md."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "material_read": "Entire RESULT.md proof, verification, scope and references, retrieved from the public repository.",
+        "method": "Public repository read-only full file retrieval.",
+        "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+        "trigger": "Closest ranked public mathematical result sharing the same two-level extrapolation stability function."
+      },
+      {
+        "assessment": "Reinforces general order/stability background, not an independent full-document noncoverage determination.",
+        "evidence": [
+          "Publisher abstract discusses high-order methods and linear stability, not graph entrywise signs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/080732833",
+        "material_read": "Bibliographic abstract and summary; full relevant methodology inspected in the lawful earlier open technical report.",
+        "method": "Publisher public abstract and report cross-reference.",
+        "title": "Extrapolated Implicit-Explicit Time Stepping",
+        "trigger": "Published version of the exact 2008 focal technical report."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a511206d-f196-4c89-afaa-8004dfb313f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum size of a graph exhibiting immediate violation of positivity is a natural obstruction invariant for a high-order heat integrator. The result supplies an exact safe finite-size cutoff, a sharp universal distance-three fourth-Laplacian inequality, and extremal graphs on both sides; it is not merely a smaller witness or a numerical census. This can guide testing of higher-order resolvent combinations on modest networks. The claim is deliberately local and unit-weight only.",
+    "status": "PASS"
+  }
+}
