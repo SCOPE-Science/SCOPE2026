@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The two-sublattice adjacency map is exactly the block operator with Laurent symbols 1+X+Y and 1+X^{-1}+Y^{-1}. Frobenius splitting over F4 yields seven invertible frequency factors and two bad ones. At each bad factor the nonzero Jacobian establishes independent parameters p and q in F4[p,q]/(p^k,q^k). Explicit ranks of powers of [[0,p],[q,0]] are 2(k-t)^2 at even stages and 2(k-t-1)(k-t) at odd stages; two bad factors yield the stated ranks and four blocks of each odd Jordan size. Fitting decomposition gives every exponent in the transient census and last-step fraction. C++17 checker independently verified ranks through 2k for k=1,2,4,8 and exhausted all 262144 labelled k=1 states; computations corroborate rather than substitute for the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bulitko (2008) proves abstract finite-group convolution and isomorphism properties, including a reversible-element criterion.",
+        "Hasegawa et al. (2006) treat complex tight-binding eigenvalues, not the characteristic-two Frobenius thickening."
+      ],
+      "reasoning": "General convolution or matrix-power techniques make the question approachable but do not by themselves state the specific four copies of each odd Jordan length and the exact configurations-at-depth formula. No searched stronger all-honeycomb characteristic-two theorem was located.",
+      "searches": [
+        "linear cellular automaton hexagonal lattice 1+x+y GF2 dynamics recurrence nilpotent",
+        "arxiv:0812.0111 additive finite-group automata",
+        "graph adjacency matrix over GF2 honeycomb toroidal nullity"
+      ]
+    },
+    "checked_sources": [
+      "Hasegawa, Konno, Nakano and Kohmoto, Zero modes of tight binding electrons on the honeycomb lattice (2006), arxiv:cond-mat/0604433.",
+      "Bulitko, Isomorphisms of Additive Cellular Automata on Finite Groups (2008), arxiv:0812.0111.",
+      "Gajardo and Goles, Universal cellular automaton over a hexagonal tiling with 3 states (2001), DOI 10.1142/S0218196701000486.",
+      "Kirby, Mallion and Pollak, Toroidal polyhexes (1993), DOI 10.1039/FT9938901945.",
+      "Structure and reversibility of 2D hexagonal cellular automata (2011), DOI 10.1016/j.camwa.2011.09.066."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier honeycomb Bloch calculation locates the ordinary-field zeros at the two corners; the new proof passes to nonreduced characteristic-two local algebras with exponents equal to powers of two.",
+        "Earlier square and triangular torus XOR claims use four- and six-neighbor single-layer operators instead of a three-neighbor bipartite block operator."
+      ],
+      "reasoning": "The two ordinary Fourier zeros identify potential singular support, but cannot imply the nilpotence order 2k-1 or the odd-Jordan multiplicities without the characteristic-two local-coordinate argument. Prior lattice transients do not imply the result by graph inclusion or degree specialization.",
+      "searches": [
+        "zero modes of tight binding electrons on honeycomb lattice arxiv cond-mat/0604433",
+        "previous square and triangular torus XOR recurrence claims e9657a80 and c87d04a8",
+        "zero-mode two-sublattice 1+x+y characteristic two honeycomb exact nilpotent rank sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hasegawa et al. give the complex honeycomb two-sublattice Bloch zeros; the indexed 2011 theorem is ternary, null-boundary hexagon-cell reversibility.",
+        "No exact match for the binary toroidal transient/Jordan statements was identified in the reviewed search results."
+      ],
+      "reasoning": "Complex Dirac zeros and a characteristic-three null-boundary reversibility criterion are not equivalent to the characteristic-two Jordan decomposition of a periodic cubic honeycomb graph. The former has no transient count, the latter a different state field and local neighbourhood.",
+      "searches": [
+        "hexagonal honeycomb graph finite torus 2 sublattices XOR neighbor sum period attractor 3 times powers of 2",
+        "finite-field honeycomb torus adjacency XOR Jordan blocks of odd sizes 1 3 5 2k-1 four copies",
+        "arxiv:cond-mat/0604433; DOI 10.1016/j.camwa.2011.09.066"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kirby et al. (1993) advertise ordinary adjacency spectra for toroidal polyhexes, not a characteristic-two adjacency-power rank table in the accessible abstract.",
+        "A nearby published finite binary parity census concerns distance-two Boolean cubes, a different graph family."
+      ],
+      "reasoning": "A real or complex eigen-spectrum does not determine Jordan blocks after reduction modulo two. No exact finite-field toroidal-polyhex rank table or claim with these dimensions was found. The 1993 full text was inaccessible and is explicitly retained as a risk, not declared absent.",
+      "searches": [
+        "toroidal polyhex adjacency spectrum eigenvalues 1993 Kirby Mallion Pollak",
+        "binary nearest-neighbor graph cellular automaton on toroidal polyhex 3*2^a exact image rank 14k^2 15/16",
+        "published result record f288ef2fe8b4 (distance-two binary-cube parity)"
+      ]
+    },
+    "rationale": "Primary-source comparison covered the two-sublattice honeycomb tight-binding symbol and its two complex zero modes, general finite-group additive automata, and hexagonal cellular-automaton rule-matrix studies. The new claim is an explicit characteristic-two Jordan decomposition and complete sharp transient census for every toroidal size 3 times a power of two. Neither the inspected results nor searched published records state or imply that filtration. The 1993 toroidal-polyhex source could not be inspected beyond its abstract, and unindexed duplication remains possible.",
+    "residual_risks": [
+      "Kirby–Mallion–Pollak (1993) toroidal polyhex full text was inaccessible: an unseen characteristic-two remark is possible despite different advertised scope.",
+      "Gajardo–Goles (2001) vertex-honeycomb universal rule was compared through its abstract only, not the complete article.",
+      "Exact equivalent pre-existing results in unindexed literature, different parametrizations or computational tables cannot be excluded by bounded searching."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The two honeycomb momentum zeros and adjacency symbol are antecedents. The paper studies a complex quantum tight-binding spectrum, not powers of adjacency over characteristic two, the nilpotent Jordan filtration or any transient census.",
+        "evidence": [
+          "arxiv:cond-mat/0604433, sections around equations (1)-(7) and (20)-(23); isotropic honeycomb zeros at Brillouin-zone corners."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0604433",
+        "material_read": "Complete arXiv HTML article, including introduction, two-sublattice Hamiltonian, momentum-space diagonalization, zero-mode calculation and conclusion.",
+        "method": "Read full indexed primary arXiv article and compare field, boundary, eigenvalue and time-iteration statements.",
+        "title": "Zero modes of tight binding electrons on the honeycomb lattice",
+        "trigger": "Exactly the two-sublattice cubic honeycomb nearest-neighbor adjacency symbol, with two zero-mode frequencies."
+      },
+      {
+        "assessment": "Its group-convolution framework motivates finite toroidal algebra but neither specifies the two-sublattice honeycomb symbol nor supplies the characteristic-two local Jordan multiplicity and exact filtration.",
+        "evidence": [
+          "arxiv:0812.0111, introduction, section 2 recursion, Lemma 1, Corollary 1, Lemma 3; MSC 37B15."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.0111",
+        "material_read": "Primary arXiv HTML, introduction and the definitions/convolution lemmas in sections 2-3; scope and conclusions of the isomorphism classification.",
+        "method": "Compare group-indexed additive-rule conjugacy statements against fixed honeycomb adjacency-power ranks and transient strata.",
+        "title": "Isomorphisms of Additive Cellular Automata on Finite Groups",
+        "trigger": "Finite-group convolution representation could subsume the dynamics through a two-component alphabet."
+      },
+      {
+        "assessment": "Analyzed system uses ternary-state hexagonal cells under null boundary conditions, with a reversibility classification; not the binary three-neighbor vertex-honeycomb torus or a Jordan/transient census.",
+        "evidence": [
+          "Computers & Mathematics with Applications 62 (2011), 4161-4169; primary indexed sections 1,3,4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.camwa.2011.09.066",
+        "material_read": "Search-indexed primary full-text extracts covering introduction, rule-matrix setup, null-boundary definition, Section 3 reversibility theorems and conclusion; direct-page access failed.",
+        "method": "Compared the stated model field and boundary conditions and the theorem claims.",
+        "title": "Structure and reversibility of 2D hexagonal cellular automata",
+        "trigger": "Very close title and algebraic rule-matrix/rank analysis on a hexagonal arrangement."
+      },
+      {
+        "assessment": "The inspected abstract gives a nonlinear three-state universal rule, not an equivalent binary additive rule. Without the body no whole-document absence claim is made.",
+        "evidence": [
+          "Gajardo and Goles, International Journal of Algebra and Computation 11 (2001), 335-354; bibliographic abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0218196701000486",
+        "material_read": "Publisher/author-institution bibliographic abstract only; full body not obtained.",
+        "method": "Compared stated three-state universal isotropic local transition rule against binary XOR and documented access limit.",
+        "title": "Universal cellular automaton over a hexagonal tiling with 3 states",
+        "trigger": "Same three-neighbor vertex-honeycomb lattice, so a strong geometric match."
+      },
+      {
+        "assessment": "Ordinary graph spectra over the reals do not in general determine characteristic-two Jordan chains, so the inspected abstract does not imply the claimed transient count. The uninspected body remains a plausible historical source.",
+        "evidence": [
+          "Kirby, Mallion and Pollak, Journal of the Chemical Society, Faraday Transactions 89 (1993), 1945-1953; abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1039/FT9938901945",
+        "material_read": "Journal primary abstract and bibliographic details only; public full text inaccessible; institution-mediated retrieval not available.",
+        "method": "Compared abstract claims about ordinary adjacency spectra, spanning trees and Kekulé counts with characteristic-two iterated adjacency ranks; treated unseen body as residual risk.",
+        "title": "Toroidal polyhexes",
+        "trigger": "Same toroidally embedded honeycomb graphs and a stated general adjacency eigen-spectrum method."
+      },
+      {
+        "assessment": "Square toroidal rule has four neighbours per vertex on one lattice layer; triangular toroidal rule has six. Neither statement covers a cubic bipartite two-sublattice honeycomb torus or its four-fold odd Jordan block ladder.",
+        "evidence": [
+          "Distinct square-grid and triangular-grid adjacency XOR claims with item IDs listed above."
+        ],
+        "identifier_or_url": "e9657a80-f1ca-496c-83b9-ba8b9c90b7bb; c87d04a8-9c4e-43ea-8dfa-5ed6fb41061a",
+        "material_read": "Recoverable mathematical claim statements and IDs only.",
+        "method": "Compared graph vertices, degree, local polynomial symbols, nilpotent blocks and quantified count claims.",
+        "title": "Related XOR dynamics on square and triangular toroidal grids",
+        "trigger": "Closest accessible earlier exact periodic/recurrent classifications for two-dimensional parity update rules."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86220c55-033f-4145-beac-01cf655710a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The chosen family is forced naturally by the two order-three singular honeycomb Fourier points and the characteristic-two Frobenius thickening. An explicit odd-Jordan ladder for a two-sublattice graph, an unbounded sharp maximum transient 2k-1, an exact all-depth state count and a k-independent 15/16 maximal-depth fraction are structural invariants of a natural connected cubic torus family, not an arbitrary finite parameter slice or routine table entry.",
+    "status": "PASS"
+  }
+}
