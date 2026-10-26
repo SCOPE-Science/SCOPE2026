@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The primary 2026 manuscript explicitly gives a 3-type positive zero-diagonal Markov spine. Its conditional-exclusion kernel satisfies exact detailed balance with pi_i=q_i(1-q_i)/(1-sum q_j^2). The established finite-state empirical-pair LDP has rate J(Q,nu)=sum Q_ij log[Q_ij/(nu_i P_ij)] on balanced flows. Balanced zero-diagonal flows exist exactly for nu_i<=1/2. Time reversal preserves J by detailed balance and strict convexity forces a symmetric minimizer. On 3 vertices symmetry fixes Q_ij=(nu_i+nu_j-nu_k)/2, proving uniqueness and explicit rate including boundaries. Strict uniqueness and the joint LDP yield conditional flow concentration at interior compositions. The result is analytical; the standalone finite code passes 13,502 checks and is only supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Monthus (2021), arXiv:2101.09045v3 equations (46)–(49), (51), fully available HTML Sec III",
+        "Daures (2025/2026), arXiv:2507.11166v2, general discrete-state Markov LDP overview"
+      ],
+      "reasoning": "The general theorem dominates the existence of an LDP and implies an unevaluated infimum over balanced flows. It does not supply the model-specific feasible triangle nor the unique symmetric minimizer and universal conditioned kernel, which require the three-state zero-diagonal and reversibility identities proved here. No originality is claimed for the general theorem itself.",
+      "searches": [
+        "web: empirical pair measures discrete-time finite Markov chains relative entropy flow level 2.5 formula",
+        "web: large deviations empirical measures three-state Markov chain no self transitions explicit rate function reversible Markov chain 3 states",
+        "web: Markov chain empirical flow large deviation rate sum Qij log Qij/(mu_i Pij) level 2.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.20896v1",
+      "https://arxiv.org/html/2101.09045v3",
+      "https://arxiv.org/html/2507.11166v2",
+      "https://doi.org/10.2307/3212665 (abstract only)",
+      "https://doi.org/10.1214/aoms/1177705137 (metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blancas–Fittipaldi–Hernandez-Torres arXiv:2610.20896v1 Remark 2.2, Remark 6.1, Sec 6.2: only P and spine identification, no occupancy deviations.",
+        "Monthus arXiv:2101.09045v3 Sec III.4: J(Q,nu) general, with no 3-type elimination.",
+        "Hsia (1976) abstract: different occupation-time distribution setting, ambiguous direct implication."
+      ],
+      "reasoning": "The motivating paper does not directly imply the quantitative occupation cost. Monthus general formula plus the *additional* explicit constrained minimizer lemma proved here implies the result, as acknowledged; no stronger published evaluated statement was identified. Hsia is unresolved rather than claimed not covering in full.",
+      "searches": [
+        "web: spine mother dependent multitype branching q-process arxiv 2610.20896 occupancy empirical large deviations",
+        "web: exact large deviation rate function empirical measure 3 vertex triangle reversible discrete time markov",
+        "published-finding corpus: Markov mutation spine mother-dependent neutral mutations arbitrary biased destination excludes parent type asymptotic variance empirical allele occupation central limit theorem explicit covariance Poisson equation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.20896v1 Remarks 2.2 and 6.1 (same kernel but no LDP)",
+        "arXiv:2101.09045v3 Sec III.4 (uncontracted Markov pair-flow entropy)",
+        "W.S. Hsia, J. Appl. Probab. 13 (1976) 57–64 (abstract of three-state occupation-time density)"
+      ],
+      "reasoning": "A finite-state Markov empirical-pair LDP is equivalent to a constrained relative-entropy minimization; the explicit elimination of its circulation parameter is not stated in the inspected relevant sections. A three-state sojourn-time density is a plausible alternate route to occupancy asymptotics but its abstract does not give an equivalent rate or conditioned empirical transition law; full comparison remains a residual risk.",
+      "searches": [
+        "published-finding corpus: three state no immediate repeat empirical frequencies large deviations rate function stationary reversible no-diagonal Markov chain fixed composition universal conditional dynamics",
+        "published-finding corpus: explicit ternary proper coloring occupation rate function Markov types triangle no repeated symbols stationary edge flow large deviations",
+        "web: \"three-state\" \"large deviation\" \"empirical measure\" \"no self\" Markov chain",
+        "web: \"3-state\" \"occupation\" \"rate function\" Markov chain reversible"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus title/summary identified in returned results for exact 3-allele rate and kernel.",
+        "W.S. Hsia (1976), DOI 10.2307/3212665 bibliographic abstract is close but no full text read.",
+        "I.J. Good (1961), DOI 10.1214/aoms/1177705137 bibliography confirms a broad Markov frequency-count result."
+      ],
+      "reasoning": "No specifically tabulated three-allele mutation-spine rate or rare-event transition law was located. Older exact frequency-count and occupation-time literature is a known risk, and absence of a search hit is not asserted to prove uniqueness.",
+      "searches": [
+        "published-finding corpus: mother dependent branching mutation three allele spine conditioned rare composition empirical rate function minimizer",
+        "published-finding corpus: zero-diagonal transition matrix P_ij=q_j/(1-q_i) empirical occupation fluctuations CLT asymptotic covariance negative autocorrelation complete graph weighted walk",
+        "web: three letter words adjacent letters distinct fixed frequencies asymptotic enumeration entropy",
+        "web: \"joint probability density function\" \"occupation time\" \"three-state\" Hsia pdf"
+      ]
+    },
+    "rationale": "Blancas–Fittipaldi–Hernandez-Torres (arXiv:2610.20896v1) identifies the mutation family and spine but gives no occupation LDP. Monthus (arXiv:2101.09045v3) gives a general level-2.5 flow variational formula, which covers the raw Markov LDP but not the explicitly solved three-allele contraction and q-independent conditioned transition law. Original contribution is confined to the sharp feasibility triangle, unique zero-circulation optimizer, closed cost, and resulting bias cancellation. Relevant published-finding corpus records and primary literature were queried. Hsia (1976) is a close predecessor based on an abstract only and is a residual literature risk.",
+    "residual_risks": [
+      "Hsia 1976 full occupation-time result not accessible: an explicit discrete-time or limiting asymptotic comparison remains unverified.",
+      "Good 1961 exact Markov frequency-count formulas could encode the rate via a longer asymptotic derivation.",
+      "The generic finite-state Markov empirical pair-flow theorem mathematically implies a variational expression; novelty/value are claimed only for proving the exact nontrivial three-state entropy minimizer, universality and sharp domain, not for the general LDP.",
+      "Unindexed special ternary no-repeat coloring literature could contain an equivalent closed-form cost."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines common-draw no-repeat P and Markov spine, but inspected areas do not formulate occupation-rate LDP or conditioned-transition universality.",
+        "evidence": [
+          "Remark 2.2 P_ij=q_j/(1-q_i)",
+          "Remark 6.1 P is spine-type Markov kernel",
+          "primary MSC 60J80"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20896v1",
+        "material_read": "Remark 2.2, Remarks 6.1, Sec 6 spine decomposition and Sec 6.2, source abstract, MSC and references",
+        "method": "arxiv public HTML primary text",
+        "title": "The Q-process for the general mother-dependent multitype branching process",
+        "trigger": "primary motivating source and exact kernel/spine overlap"
+      },
+      {
+        "assessment": "Supplies full general discrete-time Markov empirical pair-flow LDP. Neither a three-letter no-repeat simplex contraction nor q-independent rare transition kernel is evaluated.",
+        "evidence": [
+          "equation (48) level 2.5 KL flow rate",
+          "Section IV concerns a disordered ring, not common-draw mutation chains"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.09045v3",
+        "material_read": "Section III.1–III.5, especially equations (37), (40), (46)–(49), (51), model examples",
+        "method": "arxiv full HTML text, relevant substantive sections",
+        "title": "Inference of Markov models from trajectories via Large Deviations at Level 2.5",
+        "trigger": "strongest general published broad-coverage result"
+      },
+      {
+        "assessment": "General level-2/level-3 LDP statement; no directly covering explicit ternary rate identified in inspected material. Not asserted to exclude every theorem in its 2,423 lines.",
+        "evidence": [
+          "arXiv abstract finite/countable Markov LDP, no irreducibility requirement",
+          "no match for phrase three-state in page text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.11166v2",
+        "material_read": "full-text table of contents and publication abstract; specific no-repeat three-state phrase search",
+        "method": "arxiv public HTML review and search",
+        "title": "Large deviations for possibly reducible Markov chains on discrete state spaces",
+        "trigger": "potentially dominating general theorem"
+      },
+      {
+        "assessment": "Important unresolved risk. A discrete-time no-repeat long-run rate and conditioned flow is not shown by available abstract, but full document could contain implications.",
+        "evidence": [
+          "J. Appl. Probab. 13 (1976) 57–64, W.S. Hsia",
+          "abstract studies three-state zero-diagonal occupation-time distribution"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3212665",
+        "material_read": "Cambridge/JSTOR bibliographic entry and full abstract only; full document inaccessible (full text inaccessible)",
+        "method": "public abstract and unsuccessful lawful full-text retrieval",
+        "title": "The joint probability density function of the occupation time of a three-state problem",
+        "trigger": "highly plausible historical exact three-state occupation source"
+      },
+      {
+        "assessment": "Classical frequency-count methods may imply specialized asymptotics after calculation; not counted as fully compared.",
+        "evidence": [
+          "I.J. Good, Ann. Math. Stat. 32 (1961) 41–48"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177705137",
+        "material_read": "journal bibliography/metadata and cited references; not full text",
+        "method": "JSTOR record and metadata discovery",
+        "title": "The Frequency Count of a Markov Chain and the Transition to Continuous Time",
+        "trigger": "early exact finite Markov occupation count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a90ff985-42db-41f6-9b81-a40e9c6b0d08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new 2026 mutation-spine model naturally asks for atypical long-run allele profiles. The exact closed rate on the sharply constrained triangle and the unique q-independent conditional rare-transition law distinguish impossible, exponentially expensive and typical compositions and describe their most likely microscopic origin. The result is a motivated complete three-type classification; finite computations are not used as value justification.",
+    "status": "PASS"
+  }
+}

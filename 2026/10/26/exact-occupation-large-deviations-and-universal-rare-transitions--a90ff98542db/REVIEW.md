@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The finite Markov empirical-pair LDP is identified with the standard KL-flow rate. Detailed balance holds exactly for the positive, three-allele conditional-exclusion kernel; strict convexity forces the optimal balanced flow to be symmetric. On three vertices the flow is then uniquely determined by the marginals. The resulting entropy rate, sharp feasible triangle, stationary zero, and conditional Gibbs concentration follow. The continuous extension to boundary compositions is supported by the explicit \(x\log x\) representation. A standalone seeded finite check confirms identities, but is not treated as proof of the asymptotic LDP.
+
+**Originality — PASS, with residual risk.** The motivating paper supplies the mutation matrix and Markov spine but neither the explicit rate surface nor the bias-independent rare-transition optimizer. Monthus supplies a general empirical-flow rate, not its fully evaluated three-type contraction; this result proves the additional unique minimizer and feasible-support lemma. Searches for no-repeat three-state occupation rates and published-finding corpus comparisons did not identify an equivalent exact rate with universal conditioned transitions. Good (1961) and Hsia (1976) are historically relevant; the latter's full text was inaccessible and remains a priority risk. A general LDP does imply a variational version of the result, and this generality is explicitly credited rather than claimed as novel.
+
+**Value — PASS.** The exactly solved three-allele family is a natural special case of a newly analyzed conditioned branching mutation spine. It establishes a complete probability-cost surface, a sharp geometric impossibility region, and the non-obvious universality that conditioning on rare allele proportions erases the baseline allele bias from the preferred transition kernel. These identify genuinely testable rare-lineage paths rather than a mere normalizing-constant calculation.
+
+The results do not determine finite-sample frequencies or the entire branching population's composition. A close older three-state occupation distribution is not fully excluded.
+
+Self-review: passed. Independent audit: not yet performed.
