@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Every odd triple square sum is 3 modulo 4; a triple containing 2 has half-sum 3 modulo 4. A 3-mod-4 prime factor cannot occur inside the triple, by nonresiduosity of -1 modulo that prime. This excludes arbitrary exponent vectors at support 3. Coprimality handles support 2; parity handles odd support 4; the two factorized examples exactly attain bounds 4 and 5. A standard-library verifier independently checks 3654 triples, all n through 300000 and the witnesses; the proof, not the enumeration, establishes infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Koninck–Luca Theorem 1 supplies infinitely many examples with sufficiently large prime support but no minimal support statement.",
+        "MathPages squarefree conclusion is a restriction and does not cover arbitrary exponents; 46206 itself is nonsquarefree and divisible by beta_2.",
+        "The JIS paper concerns equality to full/partial sums, not divisibility by the full sum."
+      ],
+      "reasoning": "None of the inspected stronger-looking results implies the universal three-prime-support exclusion across all positive exponents. Squarefree nonexistence and existential infinitely many solutions do not jointly establish the exact threshold.",
+      "searches": [
+        "sum of squares of distinct prime factors dividing integer n omega n 3 impossible including arbitrary prime exponents",
+        "prime-power exponents cannot allow three distinct prime divisors for sums of prime squares",
+        "doi:10.1016/j.jnt.2007.01.010; JIS Article 07.1.6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.jnt.2007.01.010",
+      "JIS 10 (2007), Article 07.1.6",
+      "https://oeis.org/A190882",
+      "https://www.mathpages.com/home/kmath126.htm"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For all odd triples, the square sum is 3 modulo 4; with prime 2, half the sum is 3 modulo 4.",
+        "An external 3-mod-4 prime divisor exists in either case, excluding every exponent vector.",
+        "The inspected paper proves existence, the database gives a weaker necessity, and MathPages rules out only products of distinct primes."
+      ],
+      "reasoning": "Statement-wise implication comparisons show the proposed prime-outside-triple lemma is a strict strengthening of the known squarefree triple exclusion; with the known 4- and 5-support witnesses it yields the new precise even/odd minima. No inspected primary result subsumes that all-exponent assertion.",
+      "searches": [
+        "sharp minimum number distinct prime divisors integers n divisible by beta_2(n) sum of squares of distinct prime divisors: four for even, five for odd; exclude all three-prime-support powers using 4-mod prime obstruction",
+        "sum of squares of distinct prime factors dividing integer n omega n 3 impossible including arbitrary prime exponents",
+        "Gauss sum of two squares residue 3 mod 4 witness for sums of three distinct prime squares",
+        "doi:10.1016/j.jnt.2007.01.010; OEIS A190882; MathPages kmath126"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The term beta_2 is used by De Koninck–Luca for the same sum of distinct prime squares.",
+        "MathPages studies products of distinct primes rather than positive powers of a fixed prime support.",
+        "OEIS A190882 only records omega>=3."
+      ],
+      "reasoning": "Changing to beta_2 notation, exact divisibility by full distinct-prime-square sum, or excluding prime powers gives the same target claim. The exact 3-support all-exponent obstruction and sharp parity-specific 4/5 bounds are not stated in inspected equivalent presentations.",
+      "searches": [
+        "sharp minimum number distinct prime divisors integers n divisible by beta_2(n) sum of squares of distinct prime divisors: four for even, five for odd; exclude all three-prime-support powers using 4-mod prime obstruction",
+        "OEIS A190882 integers divisible by sum of squares of distinct prime divisors",
+        "MathPages Product Divisible By Sum of Squares; OEIS A190882"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A190882 lists both 46206 and 72105 and explains 46206 quotient 2.",
+        "Its comment explicitly claims only omega>=3.",
+        "MathPages independently lists 3*5*11*19*23 as a squarefree five-support example."
+      ],
+      "reasoning": "Numerical witnesses are not claimed as original, and listing them cannot establish that no 3-prime-support integer of arbitrary exponents qualifies. The proved sharp minimal support theorem goes beyond the table.",
+      "searches": [
+        "parity lower bound omega n odd 5 for n divisible by sum of squares distinct prime factors OEIS A190882",
+        "OEIS A190882 integers divisible by sum of squares of distinct prime divisors",
+        "OEIS A190882 complete entry"
+      ]
+    },
+    "rationale": "The referenced full-text prime-power divisibility paper proves existence but not exact minimal support; OEIS A190882 explicitly gives only omega>=3; MathPages proves the related squarefree-only lower bound. The present universal external-prime obstruction for every three-prime exponent pattern implies a strict strengthening and exact even/odd thresholds. Targeted published-finding corpus queries retrieved related functions, none covering this claim; unindexed priority risk persists.",
+    "residual_risks": [
+      "Elementary 3-mod-4 obstruction may appear elsewhere in older unpublished or unindexed literature.",
+      "Some historical research material was unavailable to check in full; accessible records were checked for claims, not treated as universal uniqueness evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 proves existence for simultaneous powers; numerical section lists examples, without an exact minimum distinct-prime support for beta_2-divisibility. It does not imply the universal three-support exclusion.",
+        "evidence": [
+          "https://www.jeanmariedekoninck.mat.ulaval.ca/fileadmin/Documents/Publications/2008_integers_divisible_by_sums_of_powers_of_their_prime_factors.pdf",
+          "Section 1 and Theorem 1, Section 6 numerical data; first public online 2007-03-23"
+        ],
+        "identifier_or_url": "doi:10.1016/j.jnt.2007.01.010",
+        "material_read": "Full seven-page author-hosted PDF, Sections 1–6 including numerical data, Theorems 1–2 and bibliography",
+        "method": "Read complete extracted PDF text and inspected first-page image",
+        "title": "Integers divisible by sums of powers of their prime factors",
+        "trigger": "Exact definition of beta_j divisibility and potential prior minimal prime-support bound"
+      },
+      {
+        "assessment": "Studies equality of n to full or selected prime-power sums, including structural lemmas for square powers; does not establish divisibility beta_2(n)|n impossibility on every 3-prime support.",
+        "evidence": [
+          "https://www.jeanmariedekoninck.mat.ulaval.ca/fileadmin/Documents/Publications/2007_partial_sums_of_powers_of_prime_factors.pdf",
+          "Sections 1–3, page 9 publication date"
+        ],
+        "identifier_or_url": "JIS 10 (2007), Article 07.1.6",
+        "material_read": "Full nine-page author-hosted PDF, statements/proofs/tables and references",
+        "method": "Read all extracted PDF pages and inspected first-page image",
+        "title": "Partial Sums of Powers of Prime Factors",
+        "trigger": "Same prime-power sum family and potential stronger previous claim"
+      },
+      {
+        "assessment": "States omega(n)>=3 and lists 46206,72105; does not state sharper omega>=4, odd omega>=5 or prove outsider-prime theorem. Numerical examples are acknowledged as previously known.",
+        "evidence": [
+          "https://oeis.org/A190882",
+          "Comment on support>=3 and example for 46206"
+        ],
+        "identifier_or_url": "https://oeis.org/A190882",
+        "material_read": "Whole live OEIS entry including comments, sample values and attribution",
+        "method": "Read webpage all accessible lines",
+        "title": "OEIS A190882",
+        "trigger": "Exact table for beta_2(n)|n and candidate sharp examples"
+      },
+      {
+        "assessment": "Excludes squarefree products of at most four distinct primes; unrestricted repeated-prime exponents are not treated. Its squarefree 3-prime statement is a special case; the complete three-support statement for arbitrary exponents is not a corollary.",
+        "evidence": [
+          "https://www.mathpages.com/home/kmath126.htm",
+          "Proposition at start specifies product of distinct primes, and five-prime example [3,5,11,19,23]"
+        ],
+        "identifier_or_url": "https://www.mathpages.com/home/kmath126.htm",
+        "material_read": "Entire available text through the five-prime example and proof for products of 1–4 distinct primes",
+        "method": "Read webpage all 149 lines, compare quantifiers and exponents",
+        "title": "Product Divisible By Sum of Squares",
+        "trigger": "Plausible same-theorem coverage for three and four primes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afb540f7-1975-466f-b11b-7aacfa0fd5b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural sequence A190882 asks which non-prime-powers are divisible by their prime-square sum and reports only an omega>=3 bound. The argument gives the exact uniform lower-bound cutoffs 4 overall and 5 among odd integers, including all exponent patterns, and explains the obstruction with an intrinsic new-prime lemma. This is a motivated sharp structural boundary, not a small numerical increment.",
+    "status": "PASS"
+  }
+}
