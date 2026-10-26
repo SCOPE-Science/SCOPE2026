@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof uses an exact reduction to the hub spin and leaf count, explicit generator identities, stationary compactness, and a uniquely determined hierarchy of all polynomial moments. Every boundary and rate convention is specified. The limiting scaled beta law and conditional hub probabilities reproduce the unique stationary moment hierarchy. Finite-state linear solves independently check the finite correlations and sample higher moments. These computations are corroboration, not proof of convergence.
+
+**Originality — PASS (qualified).** The particularly close Cox–Peres–Steif star study already writes the reduced chain at the special noise normalization but proves a mixing-time theorem, not the displayed stationary beta limit or general-rate exact pair correlations. Carro–Toral–San Miguel analyze degree heterogeneity through annealed network approximations. Pymar–Rivera discuss general stationary-density fluctuations and identify the star as outside one Gaussian criterion; their displayed results address other graph families and a different density observable. Complete-graph beta-binomial stationary laws do not imply the fixed-noise star limit. A broad unlocated exact invariant-law theorem for state-dependent switching or an unpublished direct star calculation remains a priority risk; the searches establish best-knowledge noncoverage, not formal uniqueness.
+
+**Mathematical value — PASS.** A star has a hub whose influence persists as the number of leaves diverges. The theorem resolves the entire non-Gaussian collective stationary law, quantifies the persistent variance at every fixed positive noise rate, and gives an interpretable hub-conditioned profile. It separates the singular-hub regime from self-averaging homogeneous-network intuition, beyond a routine finite-state calculation.
+
+**Scope and limitations.** Only symmetric copying rates with one hub, fixed positive spontaneous flip noise, and stationary laws are treated. No mixing-rate or nonstar claim is made. The beta representation is a derived macroscopic asymptotic, not an assumption of independent leaves.
+
+Self-review: passed. Independent audit: not yet performed.
