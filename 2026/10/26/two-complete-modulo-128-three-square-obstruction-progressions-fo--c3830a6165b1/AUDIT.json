@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Formal factorization, Thue–Morse mod-8 functional identity, exact complete polynomial certificates for residue 36 and 62 modulo 128, coefficient-extraction proof, finite exclusion for other residues, and Legendre three-square theorem; independent verifier execution confirmed all polynomial identities. Limits explicitly stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gawron–Miska–Ulas, Theorem 5.4, exact valuation progressions with residues distinct from 36 and 62; general rational extraction formula in §4",
+        "Sobolewski–Ulas, Problem 7.2, general m case explicitly posed"
+      ],
+      "reasoning": "The abstract generating-function extraction can compute many congruences in principle but does not state or directly certify the specific modulus-128 residue or its three-square consequence. Published valuations alone do not fix the normalized odd part modulo 8. Neither a dominating full m=2 three-square classification nor equivalent progression was found.",
+      "searches": [
+        "Colored binary partitions b_2(n) congruent 7 times 16 mod 128, arithmetic progressions, Legendre three squares obstruction",
+        "Web: Gawron Miska Ulas Theorem 5.4 b_2 progression valuations",
+        "Web: 2023 colored binary partitions three squares m=2"
+      ]
+    },
+    "checked_sources": [
+      "Gawron, Miska, Ulas, arXiv:1703.01955; open publisher HTML, §4 and §5",
+      "Sobolewski, Ulas, arXiv:2211.16622; open publisher HTML, Problem 7.2",
+      "OEIS A363770, one-colour exception sequence",
+      "Mathematical-record searches on both precise progressions, general m=2 sum-three-square classes, and equivalent generating-series congruences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 Theorem 5.4 lists b_2 valuation 4 for residue 4 and 30 mod 32, etc., without the present 112 mod 128 identity",
+        "2022/2023 Problem 7.2 solicits a general characterization, and author results treat odd m=2^k-1"
+      ],
+      "reasoning": "The exact new claim fixes both valuation 4 and odd part 7 mod 8 for two entire progressions, ruling out three-square representations. Prior theory provides techniques and valuations but does not supply those two all-index residue identities without the present finite polynomial certificate. Residual risk: unrecorded explicit computations from the general extraction formula.",
+      "searches": [
+        "Sobolewski Ulas problem 7.2 m=2 three square representations colored binary partitions positive density exceptions explicit residue classes",
+        "Web: arxiv 1703.01955 colored binary partitions Theorem 5.4",
+        "Web: arxiv 2211.16622 Problem 7.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1703.01955 general extracted residue generating functions",
+        "arXiv:2211.16622 Problem 7.2 general m-colored three-square values"
+      ],
+      "reasoning": "The claim is equivalent to two residue-subseries identities 112/(1-z) modulo 128, or to full support of three-square obstructions on the progressions. No exact equivalent was identified in these sources or searches.",
+      "searches": [
+        "Two-colored binary partition coefficients b_2(128n+36) and b_2(128n+62) congruent 112 modulo 128 for all n; infinite non-three-square progressions",
+        "Web: \"b_2(128n+36)\" partitions",
+        "Web: \"128n+62\" \"binary partitions\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A363770 concerns one-colour binary partitions, not b_2",
+        "Gawron–Miska–Ulas Theorem 5.4 lists residue classes of valuations and not these modulo-128 residues"
+      ],
+      "reasoning": "No exact b_2(128n+36) or b_2(128n+62) congruence table was identified. An ordinary table of small values would not establish the all-index result; the checker instead supplies full polynomial identities.",
+      "searches": [
+        "Web: OEIS A363770 binary partitions three squares",
+        "Web: \"two-colored binary partitions\" \"three squares\"",
+        "Web: \"112\" \"128\" \"binary partitions\" \"squares\""
+      ]
+    },
+    "rationale": "The two explicit modulus-128 congruences and their three-square implications are not stated in the inspected 2017 rational extraction and valuation theorem or the 2022/23 three-square paper; three targeted mathematical-record queries and targeted primary literature/web/OEIS comparisons did not find coverage. This is a best-knowledge rather than priority certification.",
+    "residual_risks": [
+      "Broad pre-existing rational extraction technique may imply the result as an unstated computation; publication priority is not certified.",
+      "Not every possible later publication or unindexed computation could be excluded.",
+      "Full exceptional-set density and membership for m=2 remain unknown."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING; supplies general machinery and valuations but not claimed all-index residues or three-square obstruction",
+        "evidence": [
+          "Theorem 5.4 at article §5 lists b_2 valuation progressions distinct from 36,62 at modulus128",
+          "§4 formula H_{i,k,m} gives computational framework, not the asserted residue identity"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00605-017-1041-2",
+        "material_read": "Open HTML introduction, §4 rational extraction, Theorems 4.10, 4.13, 4.14, and §5 including Theorem 5.4 and surrounding discussion",
+        "method": "Section-by-section comparison of formulas, parameters, residue lists, and implications",
+        "title": "Arithmetic properties of coefficients of power series expansion of the Thue–Morse product",
+        "trigger": "Direct primary source on b_2, rational extraction, and valuation progressions"
+      },
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING m=2 progression case",
+        "evidence": [
+          "Introduction focuses on m=2^k-1",
+          "Problem 7.2 asks to characterize S_m for general m",
+          "§7 remarks on bounded-valuation arithmetic progressions for m=2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-023-01966-8",
+        "material_read": "Open HTML abstract, introduction, §2, §3 and §5 key formulas, and §7 Problem 7.2 and subsequent discussion",
+        "method": "Inspect statements and coverage by colour parameter, plus the explicitly stated open problem",
+        "title": "Values of binary partition function represented by a sum of three squares",
+        "trigger": "Primary directly motivating problem on m-colour partition values and three squares"
+      },
+      {
+        "assessment": "NOT_COVERING due to m=1 rather than m=2",
+        "evidence": [
+          "A363770 defined using ordinary binary partitions b_1"
+        ],
+        "identifier_or_url": "https://oeis.org/A363770",
+        "material_read": "Public description, formula, references, and initial terms",
+        "method": "Compare one-colour definition and parameters against two-colour b_2",
+        "title": "OEIS A363770",
+        "trigger": "Database/table search for three-square exceptions of binary partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3830a61-65b1-4597-bf6b-67ec71163c53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact mod-128 progression classification for b_2=112, constructive positive-density lower bound 1/64 on non-three-square partition values, directly motivated by a published open general-colour characterization question. It is not a finite numerical extrapolation or mere parameter renaming; it requires exact coefficient identities beyond known valuation progressions.",
+    "status": "PASS"
+  }
+}
