@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Schur/Jury inequalities are reconstructed from exact companion matrices; their discriminants and root orders prove every endpoint. Determinant enforces the optimal spectral-radius floor. The rational P, Q, K certificate is checked exactly, and positive definiteness plus the tower rule proves the mean-square divergence from every nonzero deterministic state. Finite tests are explicitly nonexhaustive for the all-parameter claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Three-block alternating minimization published-finding corpus record 2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "Loopless-SVRG published-finding corpus record 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+        "Qiu and Milzarek, arXiv:2404.18452, Algorithm 1 (per-inner-component heavy ball) and constant-step convergence discussion; first posted 2024-04-29."
+      ],
+      "reasoning": "Three-block cyclic exact minimization and Loopless SVRG have different transition maps; available broader RR momentum complexity results require controlled stepsizes and do not establish that stable individually frozen orders can have explosive reshuffled mean squares.",
+      "searches": [
+        "Reshuffling versus fixed order stochastic momentum method on strongly convex interpolating quadratic: multiplicative switching mean-square growth despite stable product in both orders",
+        "Two-step periodically switched heavy ball on scalar strongly convex quadratics, alternating curvature, re-entrant stability momentum parameter threshold and large learning rates",
+        "2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.18452 full relevant sections",
+      "arxiv:2302.12444 full relevant setup",
+      "PMLR:v202:chen23b full relevant setup",
+      "PMLR:v139:tran21b abstract only",
+      "published-finding corpus semantic records 2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3, 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834, 2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74, 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b, 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qiu and Milzarek, arXiv:2404.18452, Algorithm 1 (per-inner-component heavy ball) and constant-step convergence discussion; first posted 2024-04-29.",
+        "Wu, Yun, Sra, arXiv:2302.12444, batch-normalized SGD comparison between single shuffle and reshuffling; lacks per-component momentum.",
+        "Chen and Bruna, PMLR 202 (2023), two-step gradient dynamics for a nonconvex single objective, not switched heavy ball.",
+        "Gauss-Seidel ordering record 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ],
+      "reasoning": "The exact result simultaneously includes two disjoint stability bands and a positive-definite second-moment growth certificate for identical updates in both orders; the inspected works neither specify this two-component heavy-ball product nor supply inequalities from which its uniform every-state second-moment lower bound follows.",
+      "searches": [
+        "Random reshuffling with Polyak heavy ball momentum two unequal scalar quadratic losses two per epoch sharp disconnected stable learning rate regions Jury Schur stability trace determinant",
+        "Reshuffling versus fixed order stochastic momentum method on strongly convex interpolating quadratic: multiplicative switching mean-square growth despite stable product in both orders",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "arxiv:2302.12444",
+        "PMLR:v202:chen23b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Qiu and Milzarek, arXiv:2404.18452, Algorithm 1 (per-inner-component heavy ball) and constant-step convergence discussion; first posted 2024-04-29.",
+        "Wu, Yun, Sra, arXiv:2302.12444, batch-normalized SGD comparison between single shuffle and reshuffling; lacks per-component momentum."
+      ],
+      "reasoning": "Translated the two updates into period-two companion matrices, Schur stability, and random matrix-product second moments; the motivating paper uses the algorithm without these exact period-two conclusions, and the batch-normalized RR separation has a different update.",
+      "searches": [
+        "Random reshuffling with Polyak heavy ball momentum two unequal scalar quadratic losses two per epoch sharp disconnected stable learning rate regions Jury Schur stability trace determinant",
+        "Shuffle-once heavy-ball two quadratic components each frozen permutation stable with spectral radius one half but independently reshuffled epochs have mean-square divergence; exact 2 by 2 matrix example",
+        "Reshuffling versus fixed order stochastic momentum method on strongly convex interpolating quadratic: multiplicative switching mean-square growth despite stable product in both orders",
+        "arxiv:2404.18452"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gradient-clipped heavy-ball record 2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74",
+        "Aggregated Momentum record 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668"
+      ],
+      "reasoning": "Searches for rational companion product and the sharp band/phase parameters revealed no exact tabulation of the two-by-two witness; hits study clipped or multi-buffer rather than fresh permutation products. Search absence alone is not novelty proof.",
+      "searches": [
+        "Shuffle-once heavy-ball two quadratic components each frozen permutation stable with spectral radius one half but independently reshuffled epochs have mean-square divergence; exact 2 by 2 matrix example",
+        "Reentrant learning rate disconnected stable windows in cyclic heavy-ball for alternating 1 and 10 quadratic curvatures, momentum one half",
+        "2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74",
+        "2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668"
+      ]
+    },
+    "rationale": "Under direct statement-and-implication comparison, the source algorithm paper establishes general RR momentum theory but the inspected material does not assert the exact cyclic two-quadratic Schur/optimal-band classification and frozen-versus-independently-reshuffled mean-square separation. published-finding corpus comparisons show no direct covering match. Older switched-linear-system formulations remain a priority risk.",
+    "residual_risks": [
+      "Classical literature on stability of periodic-coefficient second-order recurrences may formulate and imply the same Schur interval classification.",
+      "The stochastic switching-matrix/random-product community may already have a stable-factors but exploding mean-square counterexample of this precise structure.",
+      "SMG full text was not examined; although algorithm differs, related comparison theorems cannot be categorically excluded.",
+      "No independent scientific priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets the algorithm and proves complexity under controlled learning rates; the inspected material gives no exact two-component frozen-order Schur phase or rational second-moment separation",
+        "evidence": [
+          "Qiu and Milzarek, arXiv:2404.18452, Algorithm 1 (per-inner-component heavy ball) and constant-step convergence discussion; first posted 2024-04-29.",
+          "Primary manuscript Algorithm 1 page 4; corollary and discussion on page 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.18452",
+        "material_read": "Full accessible manuscript: title/introduction and Algorithm 1, pp. 1–4; constant-step analyses near Corollary 4.2 and nearby assumptions on pp. 5–7",
+        "method": "Read arXiv full-text PDF (including page images for central methods and setup), not merely abstract",
+        "title": "Random Reshuffling with Momentum: Complexity Bounds and Last-iterate Convergence (earlier Random Reshuffling with Momentum for Nonconvex Problems)",
+        "trigger": "Exactly the same per-component heavy-ball RR algorithm; decisive direct covering risk"
+      },
+      {
+        "assessment": "Uses batch normalization in a momentum-free algorithm, with different recurrence and stability implications; cannot directly subsume the heavy-ball witness",
+        "evidence": [
+          "Wu, Yun, Sra, arXiv:2302.12444, batch-normalized SGD comparison between single shuffle and reshuffling; lacks per-component momentum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.12444",
+        "material_read": "Accessible full PDF introduction and mathematical setup pp. 1–3",
+        "method": "Read original PDF text and first-page image",
+        "title": "On the Training Instability of Shuffling SGD with Batch Normalization",
+        "trigger": "A documented single-shuffle/reshuffling stability separation of a potentially stronger kind"
+      },
+      {
+        "assessment": "Studies nonconvex single-objective gradient dynamics, no independent two-component momentum reshuffling",
+        "evidence": [
+          "Chen and Bruna, PMLR 202 (2023), two-step gradient dynamics for a nonconvex single objective, not switched heavy ball."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/chen23b.html",
+        "material_read": "Relevant primary PDF introduction and gradient-update setup pp. 1–2",
+        "method": "Read lawful PMLR original PDF text and page image",
+        "title": "Beyond the Edge of Stability via Two-step Gradient Updates",
+        "trigger": "Possible older period-two and large-step stability results"
+      },
+      {
+        "assessment": "Different update family from componentwise heavy ball; residual risk of related results acknowledged",
+        "evidence": [
+          "Tran, Nguyen, Tran-Dinh (2021), distinct shuffling gradient based momentum algorithm (abstract only)"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/tran21b.html",
+        "material_read": "Bibliographic entry and accessible abstract only",
+        "method": "Primary source abstract; full-paper claim comparison not asserted",
+        "title": "SMG: A Shuffling Gradient-Based Method with Momentum",
+        "trigger": "Earlier momentum-shuffling method might dominate this algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a70c48cc-9a3a-405e-a7c3-cb911d8a9409",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stable frozen permutation is a meaningful baseline in random-reshuffling optimization, and its failure to guarantee mean-square safety under fresh random permutations is important and sharply quantified here by a universal all-initial-state rational witness. The exact disconnected rate regions explain a genuine parameter-selection issue distinct from simple single-curvature textbook tuning. Not a claim about general nonlinear convergence.",
+    "status": "PASS"
+  }
+}
