@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The update rule is explicit: at most two incorrect disjointness guesses discover previously missing target elements, each creating at most one false candidate; at most two later false-positive intersections can remove those false candidates. A depth-five shattered tree contradicts this four-error learner. Root-branch cardinalities 0,1,3,6 exclude excessive depths for n=3..6. Independently replayed standard-library verifier validates all 30 leaf paths in complete depth-1/2/3/4 trees on n=4/5/6/7; embedding the n=7 tree extends the lower bound to every larger n. No finite experiment is used for the infinite upper bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler-Benediktsson-Macpherson arxiv:2007.16042 Theorem 3.6: VCdim of Johnson adjacency at most four; no sequential Littlestone theorem in inspected sections or full-text search.",
+        "Guingona-Kolesnikov-Nierwinski-Soucy arxiv:2109.04805 Theorem 3.10: zero-set classes of linearly independent functions have Littlestone dimension d-1.",
+        "Filmus-Hanneke-Mehalel-Moran arxiv:2302.13849 Theorem 2.1 describes the general relationship of Littlestone dimension to optimal deterministic realizable mistakes."
+      ],
+      "reasoning": "A bound for nonadaptive VC on Johnson graphs does not upper-bound adaptive Littlestone dimension for Kneser adjacency. The zero-set theorem requires a specific function-space family not identified with this pair-disjointness class. The general online minimax theorem gives mistake count *after* Littlestone dimension is known; it does not calculate this parameter.",
+      "searches": [
+        "Littlestone dimension neighborhoods Kneser graphs k-uniform set intersection disjointness online learning",
+        "Littlestone dimension neighborhoods Kneser graphs k-uniform set intersection disjointness online learning",
+        "\"mistake bound\" \"2-sparse\" \"4\" \"disjunction\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.16042",
+      "https://arxiv.org/abs/2109.04805",
+      "https://arxiv.org/abs/2302.13849",
+      "Research-index queries: exact Littlestone dimension Kneser graph KG(n,2) open neighborhood disjointness n>=7 four mistake bound, online learning class of size-two disjunctions queried on weight-two inputs exact four mistakes, complement of triangular graph Johnson J(n,2) Littlestone dimension disjointness online learning, Littlestone dimension neighborhoods Kneser graphs k-uniform set intersection disjointness online learning",
+      "Web searches for \"Littlestone dimension\" \"Kneser graph\" \"2\", \"thicket dimension\" Kneser graphs, \"Littlestone dimension\" \"2-sparse\" \"4\", \"mistake bound\" \"2-sparse\" \"4\" \"disjunction\", \"Littlestone\" \"pairs\" \"disjoint\""
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2007.16042 studies J(m,k) neighborhood VC dimension and density; at k=2 J adjacency has one-element overlap.",
+        "arxiv:2109.04805 Theorem 3.10 covers zero sets of linear combinations, with no Kneser application stated.",
+        "arxiv:2302.13849 Theorem 2.1 establishes the abstract optimal-mistake interpretation."
+      ],
+      "reasoning": "None of the stated theorems implies the exact piecewise rank-two Kneser Littlestone values without an additional class-specific argument. The witness trees plus the four-error update algorithm provide the missing implications; a stronger unidentified theorem on sparse two-disjunctions could subsume them and is the principal remaining priority risk.",
+      "searches": [
+        "exact Littlestone dimension Kneser graph KG(n,2) open neighborhood disjointness n>=7 four mistake bound",
+        "online learning class of size-two disjunctions queried on weight-two inputs exact four mistakes",
+        "\"Littlestone dimension\" \"Kneser graph\" \"2\"",
+        "\"Littlestone\" \"pairs\" \"disjoint\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pair-disjointness hypotheses are the complements of pair-intersection predicates; uniform sparse monotone two-disjunctions restricted to pair inputs express the same class.",
+        "arxiv:2007.16042 Section 2 defines Johnson adjacency as intersection of size one, not disjointness.",
+        "Closest public research-index entry: 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec (homology, not Littlestone dimension)."
+      ],
+      "reasoning": "The proof explicitly handles the disjointness/intersection duality. Queries for Kneser, thicket, sparse 2-disjunction and complement-of-triangular-graph aliases returned no theorem computing the sharp dimension \\(\\min\\{4,n-3\\}\\) or the first saturation order. An equivalent formulation in the unindexed sparse-learning literature remains possible.",
+      "searches": [
+        "exact Littlestone dimension Kneser graph KG(n,2) open neighborhood disjointness n>=7 four mistake bound",
+        "online learning class of size-two disjunctions queried on weight-two inputs exact four mistakes",
+        "complement of triangular graph Johnson J(n,2) Littlestone dimension disjointness online learning",
+        "\"Littlestone dimension\" \"Kneser graph\" \"2\"",
+        "\"thicket dimension\" Kneser graphs",
+        "\"Littlestone dimension\" \"2-sparse\" \"4\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched result supplied a table for the pair-disjointness Littlestone dimension.",
+        "Available research-index entries concern triangular-graph neighborhood homology or other graph parameters, not this online-learning invariant."
+      ],
+      "reasoning": "The finite n=4..7 witnesses and the all-n proof were compared with the returned topical results. No directly covering database entry was found; search incompleteness is acknowledged rather than used as proof of uniqueness.",
+      "searches": [
+        "\"Littlestone dimension\" \"Kneser graph\" \"2\"",
+        "\"Littlestone dimension\" \"2-sparse\" \"4\"",
+        "exact Littlestone dimension Kneser graph KG(n,2) open neighborhood disjointness n>=7 four mistake bound",
+        "complement of triangular graph Johnson J(n,2) Littlestone dimension disjointness online learning"
+      ]
+    },
+    "rationale": "The graph-specific all-order piecewise exact Littlestone formula and the rank-two depth-four certificate are not supplied by the most relevant inspected primary texts. The 2020 Johnson/Hamming article treats nonadaptive VC invariants and a different adjacency; the 2021 zero-set article treats linear-combination zero sets; the 2023 online-learning article explains optimal mistake bounds in terms of Littlestone dimension but does not compute this family. Targeted web and research index searches did not locate an implication covering the exact values. Residual risk remains for an unindexed equivalent sparse-disjunction theorem; novelty cannot be proved by failed searches.",
+    "residual_risks": [
+      "A literature result under the aliases pair-disjointness, thicket dimension, or sparse disjunctions restricted to two-hot inputs may already imply the formula but remain unindexed.",
+      "Graph-learning literature outside the inspected primary sources may contain an equivalent exact threshold, even if no title or abstract matched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different adjacency and different dimension; statements do not subsume the adaptive Kneser formula.",
+        "evidence": [
+          "arxiv:2007.16042 lines defining J(m,k) adjacency as k-1 intersection; Theorem 3.6 VCdim <=4; neither Kneser nor Littlestone found in PDF text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract and introduction, Johnson definitions and adjacency, selected common-neighbor lemmas and Theorem 3.6, and selected VC-density and Hamming passages; full-text Kneser/Littlestone searches.",
+        "method": "Opened parsed full-text PDF and page screenshots; searched for Kneser and Littlestone.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Closest finite-graph neighborhood learning invariant; adjacency potentially complementary to rank-two Kneser."
+      },
+      {
+        "assessment": "Linear-combination zero sets rather than pair-disjointness neighborhoods; no covering class-specific corollary identified.",
+        "evidence": [
+          "arxiv:2109.04805 Theorem 3.10, page 9: zero sets of linearly independent functions have VCdim and Ldim d-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+        "material_read": "Introduction pages 1-2; Theorem 3.10 and proof page 9, subsequent density discussion; full-text Kneser, graph and uniform search.",
+        "method": "Opened parsed full-text PDF, screenshot page 2, inspected Theorem 3.10 and searched names.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "The most relevant mathematical logic paper calculating Littlestone dimensions."
+      },
+      {
+        "assessment": "Provides general deterministic mistake interpretation but no family-specific Kneser evaluation.",
+        "evidence": [
+          "arxiv:2302.13849 Theorem 2.1 (page 4) identifies Littlestone dimension with optimal deterministic realizable mistakes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13849",
+        "material_read": "Introduction and main theorems at pages 1-4, especially definition and Theorem 2.1; full-text keyword search Kneser and intersection.",
+        "method": "Opened parsed full-text PDF; screenshot page 4; inspected relevant theorem and document searches.",
+        "title": "Optimal Prediction Using Expert Advice and Randomized Littlestone Dimension",
+        "trigger": "Exact online mistake interpretation and possibility of an existing general minimax classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7dfb3448-d6f9-4392-b765-9ebc38791d95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact online learnability of the canonical disjointness relation on pairs has a nontrivial stability threshold: optimal deterministic realizable mistakes grow 0,1,2,3,4 then remain four irrespective of ground-set size. The proof supplies both a simple uniform learner and an exact adaptive adversarial tree, giving a sharp algorithm-vs-adversary characterization. At n=7 four-level adaptive shattering occurs despite exhaustive failure of four-point nonadaptive VC shattering, illustrating why the sequential invariant contains information not captured by the conventional graph-neighborhood VC calculation. This is an exact natural finite-structure learning invariant, not an arbitrary enumerated slice.",
+    "status": "PASS"
+  }
+}
