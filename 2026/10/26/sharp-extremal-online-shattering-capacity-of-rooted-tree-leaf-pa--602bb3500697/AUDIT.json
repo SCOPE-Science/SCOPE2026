@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For finite rooted trees, all subtree leaf-query sets are laminar. A query vertex cannot occur twice in a full shattered tree: repetition along a path is constant, and laminarity makes it constant on one side of the least common ancestor for incomparable uses. The \\(2^{d-1}-1\\) query nodes above the last level are distinct nonroot nonleaf tree vertices; adding the root gives \\(I\\ge2^{d-1}\\), and distinct leaf hypotheses require \\(L\\ge2^d\\). Two-copy grafting constructs T_d with exact equality and a complete depth-d shattered tree; adding root leaves and subdividing edges reaches all I,L. Exhaustive exact game enumeration through twelve vertices and explicit complete certificates through depth five verified the constructions. The single-vertex/one-leaf boundary has dimension zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Walker Theorems 1.3 and 1.17 concern counts and embedding ranks of leaf subsets in uniform binary trees; Section 1.1 derives general Sauer-type shatter-function inequalities. Chase–Freitag–Reyzin derive expected query learning and compression results for general classes, not tree-vertex extremizers. Ghazi et al. establish aggregation closure bounds."
+      ],
+      "reasoning": "The information bound from L distinct hypotheses yields only \\(L\\ge2^d\\); generic closure/compression theorems do not imply the additional sharp \\(I\\ge2^{d-1}\\). Walker has related words leaf/tree/dimension but a different definition, and its fixed ambient full binary tree is not the arbitrary vertex-minimization problem.",
+      "searches": [
+        "Tree Dimension and the Sauer-Shelah Dichotomy arxiv:2203.12211 full text (Sections 1-2)",
+        "Applications of Littlestone dimension to query learning and to compression arxiv:2310.04812 full text (Sections 1-4)",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions arxiv:2007.03668",
+        "Littlestone and VC-dimension of families of zero sets arxiv:2109.04805"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.12211 (full HTML)",
+      "arxiv:2310.04812 (full HTML)",
+      "arxiv:2007.03668 (abstract/theorem-level)",
+      "arxiv:2108.05569 (abstract)",
+      "published-record semantic searches of leaf-path/laminar/theorem aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Walker derives shatter-function bounds from embedded binary branch patterns but not minimum vertex budgets for adaptive membership queries. Chase et al. focus on expected equivalence-query complexity and stable compressions. An earlier descendant-cone claim uses every vertex as a hypothesis and measures height; restricting its domain and transposing incidence does not preserve Littlestone dimension, e.g. a rooted chain has one leaf-path concept but many descendant-cone concepts."
+      ],
+      "reasoning": "None of the actual inspected statements implies both \\(M(I,L)=\\min\\{\\lfloor\\log_2 L\\rfloor,1+\\lfloor\\log_2 I\\rfloor\\}\\) and minimal order \\(3\\cdot2^{d-1}\\). The non-repetition lemma supplies the additional nonleaf bound; no implication through prior duality is assumed.",
+      "searches": [
+        "Walker arxiv:2203.12211 Sections 1.1–1.2 exact theorems",
+        "Chase–Freitag–Reyzin arxiv:2310.04812 Sections 1–4",
+        "Malliaris–Moran arxiv:2108.05569 stable classes and Littlestone dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tree membership queries are laminar descendant-leaf sets; the exact tested equivalence is dual to root-to-leaf path membership by leaf-indexed hypotheses. No reported source gives the extremal law for number of tree vertices. Walker arXiv:2203.12211 defines a tree embedding parameter rather than the same online range class."
+      ],
+      "reasoning": "The matching search target is not just Littlestone dimension in a rooted tree, but the maximum depth as a function of L leaves and I nonleaves with vertex-query incidence. Binary branch embedding and rooted descendant-cone dimensions cannot be substituted without an implication theorem, and exhibit different behavior on combs and paths.",
+      "searches": [
+        "Littlestone dimension root-to-leaf paths minimum vertices binary mistake tree laminar set systems (web search)",
+        "Littlestone dimension laminar tree paths shattering (web search)",
+        "thicket dimension branches laminar families (web search)",
+        "Littlestone dimension leaf-path incidence rooted trees online shattering (published-record semantic search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed table or classification was found recording the minimum rooted-tree order \\(3\\cdot2^{d-1}\\) for every d or the full \\(M(I,L)\\) formula. Computations in the verification file are freshly derived, not imported from a known table."
+      ],
+      "reasoning": "Only actual source hits were examined; database search failure is weak evidence and cannot establish uniqueness. The claim is supported by its proof, while publication priority remains conditional.",
+      "searches": [
+        "VC dimension one Littlestone rooted trees leaf paths (web search)",
+        "Littlestone dimension laminar minimum size (web search)",
+        "sharp lower bound number of vertices rooted tree whose root-to-leaf path concepts shatter adaptive binary tree (published-record semantic search)",
+        "Littlestone dimension root leaf path tree dual laminar online learning paper (web search)"
+      ]
+    },
+    "rationale": "Specific all-depth bivariate extremal law for dual leaf-path concepts. Walkers 2022 binary-leaf tree dimension embeds a tree into a branch poset; it is not the adaptive membership-query dimension for all rooted trees and does not imply the sharp leaf/nonleaf count. General online dimension, closure and query learning papers are broader in subject but lack this shape-resource bound in their examined material. Related historical descendant-cone work uses the opposite incidence orientation and all vertices as hypotheses, so its height bounds do not cover the minimal size or bicriteria formula. No equivalent or dominating result was found in actual semantic and primary searches. Priority beyond those sources is a residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible specialized literature on laminar query systems may contain an equivalent sharp minimum-size theorem.",
+      "General closure results were compared at statement/abstract level, not every nontrivial corollary in the complete paper.",
+      "Only accessible historical records were compared; missing prior material cannot establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering: rooted path concept adaptive queries and sharp I,L extremal law are not its tree-embedding/shatter-function quantities",
+        "evidence": "Definitions 1.1, 1.2, 1.9; Theorems 1.3, 1.17; Corollary 1.10; arXiv v2 May 21 2022",
+        "identifier_or_url": "https://arxiv.org/html/2203.12211v2",
+        "material_read": "Complete HTML body: definitions of embedded tree dimension, Sections 1.1 and 1.2, higher-arity extensions and references",
+        "method": "Read HTML primary full text, compared definitions and exact Theorems 1.3, 1.17 and Corollary 1.10",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "Closest leaf/tree/shattering title and plausible stronger tree-bound result"
+      },
+      {
+        "assessment": "Not covering this exact extremal; expected equivalence-query and compression bounds do not count rooted-tree nonleaf query vertices",
+        "evidence": "ArXiv:2310.04812 introduction and Sections 2–4; original public October 7 2023",
+        "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+        "material_read": "ArXiv full-text HTML sections 1–4 including random counterexamples, query rank and compression",
+        "method": "Read the text, located its definition of query learning and identified scope of theorems",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "Closest query-learning results that might imply a size bound"
+      },
+      {
+        "assessment": "Scope-mismatched general closure bounds; this limited inspection is not used to certify all body details absent",
+        "evidence": "ArXiv July 7 2020 posting, PMLR 132 abstract and description",
+        "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+        "material_read": "ArXiv abstract and PMLR 2021 theorem-level descriptions, not a complete article read",
+        "method": "Compared stated general-closure problem with the minimum-resource leaf-path object",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "General aggregation/closure theorem might dominate specialized class bounds"
+      },
+      {
+        "assessment": "Conceptual background on stable classes and excellent sets; no whole-paper noncoverage claim is inferred from abstract",
+        "evidence": "ArXiv August 12 2021 submission and abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+        "material_read": "ArXiv abstract and source metadata, not full article",
+        "method": "Checked paper subject and claims against leaf-path vertex-resource extremization",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Foundational stability/Littlestone counterpart to VC-one examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "602bb350-0697-44b4-bd8f-1f31308435b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact bivariate maximum resolves a natural hierarchical learning capacity as a function of both hypothesis count (leaves) and available adaptive membership-query structure (nonleaf vertices), not an arbitrary finite slice. It gives a sharp all-depth smallest witness \\(3\\cdot2^{d-1}\\) and exact order-n maximum while every such class has VC dimension at most one. The extra I bound is a structural laminar limitation absent from the trivial \\(2^d\\) hypothesis bound; it applies to any size and admits explicit optimal constructions.",
+    "status": "PASS"
+  }
+}
