@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The 81-entry seed in certificate.json produces exactly 27 proper vertices and 81 distinct rainbow 4-cycles under independently reconstructed graph adjacency. Matching-count parity forbids 6 colours on every six-regular odd-order triple torus. The coordinatewise mod-3 graph covering preserves local properness and maps all 4-cycles to seed 4-cycles, proving the entire stated infinite family. The bundled standard-library verifier was run and reproduced its recorded output.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gyárfás–Sárközy 2023 Theorem 1.7 covers products of odd cycles whose lengths are all divisible by seven, not triples whose lengths are three times odd numbers in general.",
+        "Jiang–Li 2026 Theorem 1.4 classifies TWO-factor tori; Section 7 explicitly states the general odd-product statement as a conjecture.",
+        "Jiang–Li Lemma 2.4 is a true general repetition result, which provides the lift here once a new seven-colour seed has been supplied."
+      ],
+      "reasoning": "Neither the seven-divisibility theorem nor a two-factor classification covers the ternary three-cube. The published repetition lemma covers only the lifting STEP, not the existence of the required base certificate.",
+      "searches": [
+        "B-coloring q_B graph proper edge coloring every 4-cycle rainbow hypercube Q_d cartesian grids torus exact",
+        "For all positive odd a,b,c, q_B(C_{3a} square C_{3b} square C_{3c})=7 via 3-periodic edge coloring with rainbow squares",
+        "2026 Jiang Li conjecture q_B for Cartesian product of three odd cycles: explicit 7-color B-coloring and graph cover pullback"
+      ]
+    },
+    "checked_sources": [
+      "Gyárfás–Sárközy (2023), DOI:10.1007/s00373-023-02697-x, Theorems 1.6–1.8 and proofs",
+      "Jiang–Li (2026), arXiv:2608.21774v1, Theorem 1.4, Lemma 2.4, Section 7 and Appendix A",
+      "Published result “Exact B-coloring number of cactus graphs” (2026-10-04), checked for class inclusion",
+      "Published result concerning threshold Hamming graph H(3,3,2) (2026-09-15), checked for graph equivalence",
+      "Public authors’ computational code README, no specific matching output identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gyárfás–Sárközy Theorem 1.8 supplies \\(7\\le q_B(C_3^3)\\le8\\), not equality.",
+        "Jiang–Li Corollary 3.6 and Conjecture 7.1 supply the lower bound and an upper bound eight in dimension three, with equality predicted, not established.",
+        "Jiang–Li Lemma 2.4: a k-colour B-colouring on any base product extends to cycle-factor multiples; with no prior seven-colour ternary seed it does not imply this claim."
+      ],
+      "reasoning": "The assertion \\(q_B=7\\) is neither a stated result nor an immediate corollary of the identified earlier bounds: the missing mathematical ingredient is an actual seven-colour seed. The new 81-entry certificate supplies it. The ensuing general periodic propagation agrees with a known lemma and is not counted as independently original.",
+      "searches": [
+        "Exact B-coloring number q_B(C_3 square C_3 square C_3)=7, seven colors for ternary Hamming cube 27 vertices 81 edges rainbow every 4-cycle",
+        "2026 Jiang Li conjecture q_B for Cartesian product of three odd cycles: explicit 7-color B-coloring and graph cover pullback"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 Gyárfás–Sárközy Theorem 1.8 examines the same graph as a product of three triangles.",
+        "2026 Jiang–Li Section 7 uses the equivalent term odd three-dimensional discrete torus.",
+        "A published record titled “Exact classical number, quantum bounds, extremal structure, and covariant no-go for threshold Hamming graph H(3,3,2)” concerns a DIFFERENT graph with adjacency at Hamming distance at least two."
+      ],
+      "reasoning": "The ternary Hamming graph in this claim has adjacency at distance exactly one and requires edge colouring with rainbow squares. It is equivalent to the Cartesian third power of a triangle and the three-dimensional toroidal rook graph. Matching the number of vertices or the number seven to an unrelated vertex-chromatic invariant gives no implication. Primary Theorem 1.8 left precisely seven versus eight.",
+      "searches": [
+        "B-coloring q_B(C3 box C3 box C3) seven colors Hamming graph H(3,3) Cartesian product of three triangles",
+        "rainbow C4 proper edge coloring 3-dimensional ternary Hamming graph H(3,3) 7 2026",
+        "equivalent seven color edge coloring ternary three dimensional torus Hamming graph proper rainbow C4 27 vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record: “Exact B-coloring number of cactus graphs” (2026-10-04), with graph-class hypothesis cactus; the ternary three-torus is not a cactus.",
+        "Closest other record: “Exact classical number, quantum bounds, extremal structure, and covariant no-go for threshold Hamming graph H(3,3,2)” (2026-09-15), concerning a distinct graph and invariant.",
+        "The complete 2026 Jiang–Li article reports the odd three-dimensional instance only within general bounds/conjecture; its appendix tables concern two-dimensional odd torus seams."
+      ],
+      "reasoning": "Semantic searches using B-colouring, ternary-cube, rainbow four-cycle, discrete-torus, and periodic-lift aliases returned no exact seven-colour table for the same edge-colouring problem. This absence is not alone proof of priority; the decisive comparisons are the full-text theorems.",
+      "searches": [
+        "Exact B-coloring number q_B(C_3 square C_3 square C_3)=7, seven colors for ternary Hamming cube 27 vertices 81 edges rainbow every 4-cycle",
+        "For all positive odd a,b,c, q_B(C_{3a} square C_{3b} square C_{3c})=7 via 3-periodic edge coloring with rainbow squares",
+        "equivalent seven color edge coloring ternary three dimensional torus Hamming graph proper rainbow C4 27 vertices"
+      ]
+    },
+    "rationale": "Full primary 2023 article bounds the seed graph at 7..8. Full 2026 v1 paper retains the odd triple exact case under a higher-dimensional conjecture, and its existing repetition lemma alone cannot create the missing 7-colour seed. The exact certificate and its consequent odd three-multiple family are not implied by these statements. Targeted published mathematical-record searches found no equivalent. Independent priority is still unverified.",
+    "residual_risks": [
+      "Independent bibliographic priority has not been established against every possible unpublished or differently indexed seven-colour table.",
+      "The general covering/repetition lemma is known; originality depends entirely on the new seed certificate and exact previously unresolved case, not on repeating colours alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.8 gives exactly \\(7\\le q_B(C_3^3)\\le8\\). Theorem 1.7 handles cycle lengths divisible by seven, and does not establish the claim.",
+        "evidence": [
+          "2023 article Theorems 1.7–1.8 and proof section for Theorem 1.8."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-023-02697-x",
+        "material_read": "Full open-access HTML: introduction, Theorems 1.6, 1.7, 1.8, their proofs, and the named small-dimensional constructions.",
+        "method": "Full article HTML text inspection, comparing graph and bound hypotheses, not snippets alone.",
+        "title": "Proper Edge Colorings of Cartesian Products with Rainbow C4-s",
+        "trigger": "Direct precursor with explicit ternary product bounds"
+      },
+      {
+        "assessment": "Theorem 1.4 settles two-dimensional tori, Section 7 Conjecture 7.1 retains all-odd higher-dimensional equality as open, Lemma 2.4 supports the lift but gives no seven-colour ternary seed.",
+        "evidence": [
+          "arXiv:2608.21774v1, pp. 2–5 and 14–16, especially Lemma 2.4 and Conjecture 7.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.21774",
+        "material_read": "Open-access 18-page v1 PDF accessed and materially read in the relevant sections: Introduction and Theorems 1.3–1.7, Lemma 2.4 and its proof, Sections 3, 5, and 7, and Appendix A. Not every unrelated paragraph was read line by line; original page images were inspected for title, Lemma 2.4, and Conjecture 7.1.",
+        "method": "Targeted primary full-text PDF inspection with original page-image cross-checks and theorem-by-theorem implication comparison.",
+        "title": "B-coloring of grid graphs",
+        "trigger": "Closest new 2026 primary work, same graph product setting, explicit odd-torus conjecture"
+      },
+      {
+        "assessment": "Generic SAT capability does not imply that a published seven-colour certificate is supplied or that exact value is stated for the ternary three-cube.",
+        "evidence": [
+          "README usage, method, and scope sections."
+        ],
+        "identifier_or_url": "https://github.com/Zysishuiyears/Graph-Theory-B-coloring-of-Cartesian-products",
+        "material_read": "Project public README describing satisfiability modelling, generic cycle/path-product input, generated witness representation, and limitations. No claimed specific 27-vertex optimum was shown in the inspected README.",
+        "method": "Public README inspection; code executables and any generated run archives were not treated as inspected results.",
+        "title": "B-coloring of grid graphs — associated computational code README",
+        "trigger": "Possible published table or independent recorded solved instances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90f337b2-3925-42f3-a5ec-7e5c882abeb2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact seven-colour result closes the documented 7-vs-8 gap for the smallest ternary three-torus, a natural 27-vertex graph. The explicit certificate, combined with existing covering theory, yields infinitely many previously unresolved three-dimensional odd-torus instances of Jiang–Li Conjecture 7.1. This is a motivated exact invariant and mathematical construction, not an arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
