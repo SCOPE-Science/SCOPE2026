@@ -1,0 +1,15 @@
+# Review: sharp planar oscillation ceiling for a Matérn-\(3/2\) radial covariance
+
+## Correctness — PASS
+The theorem is exactly about the continuous stationary isotropic covariance on the Euclidean plane for positive damping and nonnegative cosine frequency. The radial Fourier–Bessel transform is an elementary Laplace transform followed by differentiation. The origin frequency equals \(2\pi(3-6\lambda^2-\lambda^4)/(1+\lambda^2)^3\), providing the necessary boundary. The complex square-root substitution reduces the transform at all frequencies to a degree-six polynomial whose seven exact Bernstein coefficients are nonnegative up to the claimed boundary. The last coefficient vanishes only at the endpoint; every nonzero Fourier radius still has positive density. Bochner's theorem and exponential-polynomial uniqueness yield the global and strict finite-site statements. CHECK.py reproduces the symbolic identities and 25 integral values. No finite sample is used to prove the infinite-frequency claim.
+
+## Originality — PASS under bounded comparison
+The nearest known variant in three Euclidean dimensions admits \(\omega/a\le 1/\sqrt5\), while the earlier unweighted damped-cosine family lacks the factor \(1+ar\). Neither yields the sharp planar interval: restriction of the three-dimensional kernel provides only a strict subinterval. The examined Matérn source, Gneiting (arXiv:1111.7077, pp.3–4 and §2), supplies the standard envelope, not this oscillatory classification. The open full text of Hu et al. (arXiv:1307.1384, §3.1, eq.19) constructs oscillatory fields with a reciprocal quartic frequency spectrum, not the transform of this product. Mathematical-results index queries on the exact profile, related parametrizations and aliases did not surface a covering theorem. A search failure is not a uniqueness proof. An older original damped-cosine source (Zastavnyi 1993) was not examined in full; unindexed equivalent calculations remain possible.
+
+## Mathematical value — PASS
+The question is motivated by smooth planar spatial covariance with damped oscillations: multiplying two radial factors that are individually natural on lines need not preserve positive definiteness on the plane. The result identifies an exact, nontrivial admissible parameter interval, including the equality case, a complete failure obstruction just outside it, and a directly checkable polynomial certificate rather than only a sufficient numerical test. The sharp planar boundary strictly exceeds the known three-dimensional interval and fills a natural dimensional gap. The fact is not a routine consequence of the earlier dimension-three threshold or the undressed damped cosine criterion.
+
+## Limits and closest comparisons
+Full scholarly exhaustiveness is not claimed. In particular, an unindexed equivalent of this exact planar formula and the unexamined complete 1993 damped-cosine paper remain originality risks. This is a self-review only, without independent validation.
+
+Self-review: passed. Independent audit: not yet performed.

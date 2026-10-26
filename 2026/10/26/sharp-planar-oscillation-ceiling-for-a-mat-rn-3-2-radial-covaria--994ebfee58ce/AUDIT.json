@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The exact Fourier-Bessel transform, obtained by differentiating the Laplace-Bessel transform for Re z>0, has at radial frequency zero the numerator 3-6t-t² over (1+t)^3. Thus t>2sqrt(3)-3 is excluded. For all t≤2sqrt(3)-3, every radial frequency is controlled by a six-degree polynomial in u=tan(phi)/sqrt(t). A validated exact seven-coefficient Bernstein basis expansion has nonnegative coefficients, with only the last possibly vanishing at the threshold and only at u=1 (zero frequency). Positive density on all nonzero radii gives strict positive definiteness for all distinct finite sites. CHECK.py verifies algebra and numerical cross-checks but the analytic Bernstein argument supplies the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A related three-dimensional theorem has critical omega/a=1/sqrt5; restriction to the plane yields only sufficient 0≤omega/a≤1/sqrt5.",
+        "The older damped-cosine family exp(-ar)cos(omega r) omits the nonconstant linear Matérn multiplier.",
+        "Gneiting arxiv:1111.7077 §2 reviews generic positive-definite radial models but has no theorem bounding this two-parameter planar product."
+      ],
+      "reasoning": "The larger-dimensional condition does not dominate the proved planar cutoff. Unweighted oscillatory and nonoscillatory smooth Matérn profiles have different Fourier transforms and do not imply this exact statement.",
+      "searches": [
+        "R2 oscillatory Matern kernel polynomial exponential cos spectral positivity phase boundary compared R3 threshold 1/sqrt5",
+        "trigonometric modulation (1+alpha r)e^-alpha r cos(beta r) radial positive type signed covariance, Hankel transform Bernstein certificate",
+        "arxiv:1111.7077 section 2",
+        "Gneiting Guttorp 2010 handbook p26 damped cosine"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.7077 (full PDF, selected relevant sections)",
+      "arxiv:1307.1384 (full HTML, §§2–3 and displayed spectra)",
+      "Gneiting and Guttorp (2010), Handbook of Spatial Statistics, accessible chapter extract",
+      "Published mathematical-results index, actual exact-profile and alias searches",
+      "Accessible prior comparison of matched 3D modulation and undressed radial cosine"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical nonoscillatory Matérn positive definiteness is already known; multiplication by radial cos(omega r) is not a general positive-definiteness-preserving operation in R².",
+        "A previously recorded R³ classification with omega/a≤1/sqrt5 is weaker than the sharp planar boundary in the allowable-frequency sense.",
+        "Hu et al. construct an alternative positive spectrum and do not assert equality with the present kernel."
+      ],
+      "reasoning": "The precise implication would require proving positivity of this Fourier-Bessel transform on the extra interval 1/sqrt5<omega/a≤sqrt(2sqrt3-3). No inspected prior source includes that inference, and the new Bernstein certificate supplies it.",
+      "searches": [
+        "arxiv:1111.7077 §2 and Tables 1–2",
+        "arxiv:1307.1384 §3.1, equations (18)–(20)",
+        "Sharp planar R2 Fourier-Bessel positive definiteness of Matérn 3/2 envelope (1+ar) exp(-ar) cos(omega r), critical omega/a sqrt(2 sqrt 3 - 3), spectral zero at origin",
+        "R2 oscillatory Matern kernel polynomial exponential cos spectral positivity phase boundary compared R3 threshold 1/sqrt5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact candidate is (1+ar)exp(-ar)cos(omega r) on R²; its radial Fourier transform is a real part of inverse complex powers of order 3/2 and 5/2.",
+        "arxiv:1307.1384 §3.1 equation (19) gives a reciprocal quartic in the frequency norm, rather than these fractional-power terms.",
+        "arxiv:1111.7077 §2 presents Euclidean radial positive-definiteness and the unmodulated Matérn family."
+      ],
+      "reasoning": "Checked both cosine modulation and oscillatory Gaussian-field parametrization rather than matching titles. The inspected SPDE spectrum is not the same spectral density for this product; no alias or limiting parameter was found that recovers the precise sharp threshold.",
+      "searches": [
+        "Sharp planar R2 Fourier-Bessel positive definiteness of Matérn 3/2 envelope (1+ar) exp(-ar) cos(omega r), critical omega/a sqrt(2 sqrt 3 - 3), spectral zero at origin",
+        "R2 oscillatory Matern kernel polynomial exponential cos spectral positivity phase boundary compared R3 threshold 1/sqrt5",
+        "positive definite oscillating Matern cosine planar radial Fourier-Bessel spectral density",
+        "arxiv:1307.1384 §3.1 equation (19)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-results index returned nearby Fourier-bipyramid zero-set and unrelated radial spectral records, not an exact record for the planar Matérn-cosine product.",
+        "The inspected references contain no table of the claimed sharp planar threshold."
+      ],
+      "reasoning": "No directly matching parameter table or database value was found in the searches performed. Nonappearance alone does not establish novelty; the implication comparisons above are the relevant evidence.",
+      "searches": [
+        "Sharp planar R2 Fourier-Bessel positive definiteness of Matérn 3/2 envelope (1+ar) exp(-ar) cos(omega r), critical omega/a sqrt(2 sqrt 3 - 3), spectral zero at origin",
+        "R2 oscillatory Matern kernel polynomial exponential cos spectral positivity phase boundary compared R3 threshold 1/sqrt5",
+        "trigonometric modulation (1+alpha r)e^-alpha r cos(beta r) radial positive type signed covariance, Hankel transform Bernstein certificate",
+        "\"2 sqrt(3) - 3\" \"positive definite\" kernel cosine"
+      ]
+    },
+    "rationale": "The Euclidean dimension-three Matérn-cosine restriction bound omega/a≤1/sqrt(5) is strictly more restrictive and cannot imply the planar value sqrt(2sqrt(3)-3). Published unweighted damped-cosine bounds concern a different radial function, and Gneiting (2011) does not classify cosine-modulated Matérn kernels. Hu et al. (2013) construct oscillating Gaussian random fields from a different reciprocal-quartic spectral family. Searches of the published-results index and mathematical literature showed no statement or stronger result implying this planar threshold, but this is not an exhaustive originality certificate.",
+    "residual_risks": [
+      "The full text of Zastavnyi (1993) on radial damped cosine was not available for inspection; the inspected coverage was through a 2010 chapter extract.",
+      "An unindexed or inaccessible equivalent formula for the exact two-dimensional Matérn-cosine product could exist.",
+      "Source-inspection coverage was targeted to relevant claims; it is not a complete review of all related papers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected Euclidean material gives general Schoenberg/Bochner background and standard Matérn validity, not a sharp cosine-modulated planar product interval.",
+        "evidence": [
+          "§2 p.4 defines radial Euclidean class Φ_d and its Bessel integral characterization.",
+          "Table 1 p.3 contains nonoscillatory Matérn on spheres."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+        "material_read": "Full-text PDF pp.3–4, including Table 1, the beginning and core definitions of §2; searches for Matérn, cosine and oscillatory terminology across the 24-page text.",
+        "method": "Open full PDF, inspect rendered pages and text and compare Euclidean versus spherical radial kernels.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Primary background on isotropic and Matérn kernels; possible stronger spherical/Euclidean positivity classifications."
+      },
+      {
+        "assessment": "Equation (19) gives a reciprocal quartic spectral density generated by a complex SPDE; unlike this product kernel, it does not contain the fractional spectral powers and does not classify its planar frequency threshold.",
+        "evidence": [
+          "§3.1 equation (19): R(k)=[(2π)^d(κ^4+2 cos(πω)κ²||k||²+||k||⁴)]^{-1}.",
+          "§3.2 concerns coupled noise/SPDE models, not the Matérn-times-radial-cosine profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1307.1384v1",
+        "material_read": "Article introduction, §§2.1, 3.1–3.3 and especially formulas (18)–(20), (23), plus article-wide checks of cosine and Matérn terminology.",
+        "method": "Read open full-text preprint HTML and compare the explicit displayed spectral families and their normalization with the claimed Fourier-Bessel transform.",
+        "title": "Multivariate Gaussian Random Fields with Oscillating Covariance Functions using Systems of Stochastic Partial Differential Equations",
+        "trigger": "Highly relevant oscillating Matérn-model full text suggested by literature search."
+      },
+      {
+        "assessment": "The referenced damped cosine has no (1+ar) factor; an exact noncoverage assertion about the entire chapter is not made.",
+        "evidence": [
+          "The excerpt discusses exp(-tau*r/theta)cos(r/theta) with parameter restrictions and cites earlier Zastavnyi work."
+        ],
+        "identifier_or_url": "Handbook of Spatial Statistics (2010), Gneiting and Guttorp, §2.7 p.26",
+        "material_read": "Relevant accessible excerpt of the 2010 handbook chapter (p.26); complete source not available.",
+        "method": "Read available chapter extract and compare the radial profile with the candidate.",
+        "title": "Continuous Parameter Stochastic Process Theory",
+        "trigger": "Related published criterion for the undressed damped cosine."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "994ebfee-58ce-4bd2-9058-81c12eff0ac6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives the exact planar oscillation interval of a natural smoothness-3/2 Matérn covariance profile combined with radial oscillation. The sharp threshold cannot be inferred from 1D or 3D bounds: the new admissible planar range beyond the 3D restriction is nontrivial. Its Bernstein certificate gives a structural all-frequency positivity mechanism and the origin-frequency obstruction supplies sharp failure. Applications to valid/invalid spatial covariance parameterization and strict interpolation make the exact fact useful.",
+    "status": "PASS"
+  }
+}
