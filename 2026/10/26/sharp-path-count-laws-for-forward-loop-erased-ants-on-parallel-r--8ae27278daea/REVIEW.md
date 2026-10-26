@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact next-route probability is derived by excursions with per-route gambler's-ruin success chance \(1/\ell_i\), and independently corroborated by exact weighted spanning-tree enumeration. The count process is exactly a multiple-Yule embedded birth chain; its exponential martingale limits and a dominating shortest-route growth rate yield all claimed joint almost-sure scales. The gamma moment cutoff follows from an integrable/divergent power at the origin. The checker returned 262 exact finite checks, which are not substituted for proof.
+
+**Originality — PASS (qualified).** The publicly available full text of Armfield–Mailler [1] states an all-graph result at distance two and identifies larger distances as unresolved. Kious–Mailler–Schapira [2] have a stronger *first-order* geodesic/convergence theorem on series-parallel graphs for another erasure convention, so geodesic selection by itself is not new. The precise joint random amplitudes for all parallel-route lengths, their exact exponents, and their moment spectrum are the differential claim; no directly covering result was identified in the inspected papers or targeted mathematical-record searches. Existing general Yule/fitness-urn theory and uninspected thesis content remain realistic priority risks.
+
+**Value — PASS.** The model's motivating higher-distance gap is answered on an infinite natural graph class, with exact path-by-path growth scales distinguishing routes of different lengths and a nondegenerate random law for the competition among shortest routes. The sharp moments describe when average or higher-order fluctuation summaries are finite; these features are not provided by first-order geodesic selection alone.
+
+**Scope and limitations.** The result assumes only internally disjoint routes, all lengths at least three, initial unit weights, and chronological forward erasure. It does not cover graph cross-links or establish the unrestricted-graph conjecture. The doctoral thesis was accessible only at abstract level. General urn principles are known, so independent priority review remains appropriate.
+
+Self-review: passed. Independent audit: not yet performed.
