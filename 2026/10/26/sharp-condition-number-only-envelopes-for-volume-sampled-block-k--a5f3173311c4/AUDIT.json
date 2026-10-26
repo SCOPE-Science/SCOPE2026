@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The determinant perturbation identity proves p_i=λ_i e_{k-1}(λ_{-i})/e_k(λ); pairwise subtraction proves spectral order. For fixed extreme λ_1=1, λ_N=κ, Newton log-concavity makes µ decrease and χ increase in each intermediate eigenvalue, locating all four unique nondegenerate endpoints. Explicit positive diagonal matrices and least-eigenvalue error vectors attain the limits. One-step Euclidean error decomposition and an exact linear threshold inequality establish the block-budget corollary. Exact-arithmetic verification passed 153,536 assertions on 5,704 spectra; independent rotated-matrix projector reconstruction passed 972 assertions with <3e-15 Frobenius disagreement. Finite checks are supporting, not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper has an exact expectation for all spectra and block sizes, but its spectral equalization illustrations use selected spectra.",
+        "The 2025 convergence result uses a spectral-tail guarantee rather than a condition-number-only tight envelope.",
+        "The 2019/2020 result controls relative coordinate-descent approximations using a tail ratio R_lambda."
+      ],
+      "reasoning": "A general exact formula for the expected projector supplies the quantities to optimize but is not a stronger optimization inequality or extremal-profile theorem. The older tail-rate bounds cover different comparison statements. The present proof independently establishes the missing sharp envelopes.",
+      "searches": [
+        "volume sampling expected projection condition number eigenvalue ratio sharp kappa block cardinality eigenvalue extremes",
+        "Entezari Banerjee Kalantari 2026 volume sampling spectral equalization universal condition-number envelope",
+        "Rodomanov Kropotov 2016 volume sampling eigenvalues elementary symmetric spectrum tight condition number exact extremizers",
+        "arXiv:2503.13941 Theorem 3.1",
+        "arXiv:1904.04587 Lemma 3.8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.12346, Sections 1-6 (accessible full-text rendering)",
+      "arXiv:2503.13941, main theorem and full accessible HTML",
+      "arXiv:1904.04587, relevant PDF sections and proof",
+      "Published semantic record 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f (different Jacobi selection)",
+      "Published semantic record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (different delayed Gauss–Seidel)",
+      "Published semantic record 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (different adaptive pivoting)",
+      "Relevant published studies of randomized Jacobi and alternative pivoting methods (different sampling models)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Expected eigenvalues p_i=λ_i e_{k-1}(λ_{-i})/e_k(λ) are explicitly established before this finding.",
+        "The present bounds are exact rational functions of N, k, and κ, attained on one-small versus one-large spectra."
+      ],
+      "reasoning": "Known exact expected-projector formulas imply each individual spectrum after substitution; the universal optimization and equality conditions require proving monotonicity of two elementary-symmetric ratios and handling all boundary cases. Existing general formulas do not settle that extremum by mere parameter substitution. Conversely the new envelopes cannot reconstruct all individual-spectrum eigenvalues, so it is not a renaming of the known formula.",
+      "searches": [
+        "volume sampling block Kaczmarz sharp condition number only rate k over k plus N minus k times condition number",
+        "volume-sampled block Kaczmarz expected orthogonal projector smallest eigenvalue elementary symmetric polynomials of Gram eigenvalues condition-number reduction",
+        "volume sampling expected projection condition number eigenvalue ratio sharp kappa block cardinality eigenvalue extremes",
+        "arXiv:2610.12346 Theorem 1",
+        "arXiv:2503.13941 Theorem 3.1",
+        "arXiv:1904.04587 Lemma 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.12346: exact spectral polynomial for each Gram spectrum.",
+        "arXiv:1904.04587: related principal-minor inverse identity and spectral-tail comparison."
+      ],
+      "reasoning": "The fixed-spectrum formula is equivalent to the starting point p_i, not to a proved sharp κ-constrained extremal optimization. The new statement universally quantifies over all spectra with prescribed endpoints and characterizes every optimizer. No inspected source asserts that universal optimization as a theorem.",
+      "searches": [
+        "volume sampling block Kaczmarz sharp condition number only rate k over k plus N minus k times condition number",
+        "volume-sampled block Kaczmarz expected orthogonal projector smallest eigenvalue elementary symmetric polynomials of Gram eigenvalues condition-number reduction",
+        "arXiv:2610.12346 Section 3 spectral equalization",
+        "arXiv:1904.04587 Lemma 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper plots N=8 transformed values for three illustrative spectral families, not universal exact extremal tables.",
+        "No retrieved database/result listed the four rational sharp envelopes with two opposing one-outlier spectra."
+      ],
+      "reasoning": "This is a continuum minimax theorem for arbitrary positive Gram spectra, not a particular table entry or a recomputation of source numerical examples. No exact tabulation was identified.",
+      "searches": [
+        "volume sampling block Kaczmarz sharp condition number only rate k over k plus N minus k times condition number",
+        "determinantal projector one-small-eigenvalue extremizer worst-case Gram condition number block sample",
+        "randomized alternating projections optimal block size target contraction one outlier spectrum",
+        "arXiv:2610.12346 Figure 1 spectral plots"
+      ]
+    },
+    "rationale": "The expected projector polynomial is prior art, not claimed new. The complete, jointly attained sharp dimension/block/κ-only envelopes and exact minimax contraction/budget inversion were not found in highly relevant inspected original sources. Published formulas determine any given spectrum but do not themselves assert or establish the extremizers or universal sharp optimization; Newton-ratio monotonicity and the two one-outlier reductions are proved here. An equivalent sharp extremization elsewhere remains a residual historical-priority risk.",
+    "residual_risks": [
+      "The source exact projector polynomial might have been sharp-optimized in older determinantal sampling or Newton-inequality literature not identified by available semantic searches.",
+      "The result concerns a universal worst-case one-step projection guarantee, not implementable time-to-solution or adaptive multistep rate.",
+      "Older or unindexed mathematical sources might contain an equivalent sharp extremal theorem; independent priority review is recommended."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives exact spectrum for each fixed eigenvalue list; does not state the sharp global fixed-condition-number min/max envelopes, paired extremizers, or minimax block-budget threshold. Known identity explicitly credited.",
+        "evidence": [
+          "arXiv:2610.12346, Sections 3.1-3.2 and 4; exact spectral transformation and illustrative plots, not fixed-κ extremization."
+        ],
+        "identifier_or_url": "arXiv:2610.12346; https://arxiv.org/abs/2610.12346",
+        "material_read": "Full accessible text, including results, proof of expected-projector eigenvalue polynomial, spectral equalization, numerical sections, and conclusions.",
+        "method": "Read accessible full-text HTML rendering and compare stated theorems and quantitative spectral criteria.",
+        "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+        "trigger": "Same projector, sampling law, and eigenvalue transformation; potentially dominating original result."
+      },
+      {
+        "assessment": "Gives a convergence rate in terms of smallest eigenvalue divided by a tail sum and an algorithmic analysis. It does not supply the sharp κ-only envelope for exact projector contraction and its attainable two extreme spectral profiles.",
+        "evidence": [
+          "arXiv:2503.13941, Theorem 3.1 and rate comparison Eq. (10)."
+        ],
+        "identifier_or_url": "arXiv:2503.13941; https://arxiv.org/html/2503.13941",
+        "material_read": "Full accessible arXiv HTML, main theorem and rate comparisons, implementation and proof sections.",
+        "method": "Read theorem statements, rate denominator and spectral-tail comparison; checked block k and normalization.",
+        "title": "Randomized block Kaczmarz with volume sampling: Momentum acceleration and efficient implementation",
+        "trigger": "Earlier exact same volume-sampled block Kaczmarz algorithm with convergence bounds."
+      },
+      {
+        "assessment": "Supplies a related elementary-symmetric inverse formula and spectral-tail relative factor. Those statements do not provide the claimed sharp global κ-only expected-projector envelopes.",
+        "evidence": [
+          "arXiv:1904.04587, Lemma 3.3, Lemma 3.8, Sections 3.1-3.4."
+        ],
+        "identifier_or_url": "arXiv:1904.04587; https://arxiv.org/pdf/1904.04587",
+        "material_read": "Introduction, preliminaries, Lemmas 3.2-3.8, proof of Lemma 3.3 in Section 3.4, convergence-rate results; inspected source PDF and relevant page images.",
+        "method": "Read PDF text and visual pages, compare matrix identity and R_λ tail-sum bound.",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "General determinant minor identity and earlier volume-sampled spectral convergence control."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5f31733-11c4-4ddb-94dc-b00b7e5bb4ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Only the condition number is often available before committing to expensive determinantal blocks. The sharp one-step mean-square reduction certificate and necessary-and-sufficient block budget quantify a genuine algorithmic design trade-off, while the full χ range explains how strongly volume sampling can equalize spectra. The two different extremal multiplicity-one Gram profiles reveal distinct obstacles for contraction and transformed spectral conditioning. This is a motivated all-dimensional extremal classification, not a small isolated parameter improvement or computational lookup.",
+    "status": "PASS"
+  }
+}
