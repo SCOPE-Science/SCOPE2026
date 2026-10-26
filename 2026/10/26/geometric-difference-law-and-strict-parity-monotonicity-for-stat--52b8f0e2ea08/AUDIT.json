@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "From the normalized two-index Gnedin--Olshanski marginal, both q-binomial substitutions are justified in q<|z|<1/q by geometric absolute domination. The resulting characteristic product equals the bilateral pgf of the difference of two a.s.-finite iid sums of independent geometric variables; equality of Laurent coefficients gives equality in distribution. Its value at z=-1 is a product of strictly positive factors with absolutely summable logarithms; termwise logarithmic differentiation on compact parameter intervals yields a strictly negative series, proving both monotonicities. A stand-alone standard-library exact-source-series versus product diagnostic passes 30 numerical assertions with explicit truncation bounds. This is an analytic infinite proof, not an extrapolation from tests.",
+    "residual_risks": [
+      "The diagnostic uses finite-precision Decimal arithmetic; infinite assertions rely entirely on the displayed analytic proof."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bufetov--Chen, arXiv:2402.09892v2, abstract and Theorem 1.1 (pp.1--2), concern a nonergodic linear combination of ergodic Mallows measures and provide displacement laws for that mixture.",
+        "Gnedin--Olshanski, Theorem 5.1, covers the one-point ergodic law at a more detailed coefficient level, but gives no characteristic-function product or strict parity monotonicity in the inspected section."
+      ],
+      "reasoning": "The later product measure has a different law, and product formulas for the mixture do not by themselves settle the fixed ergodic parity constants. The earlier coefficient formula is a genuine broader antecedent and is openly acknowledged in RESULT.md, rather than claimed to be unrelated.",
+      "searches": [
+        "Mallows Product Measure arxiv 2402.09892 two sided stationary displacements",
+        "\"Gnedin\" \"Olshanski\" \"difference of\" \"geometric\" displacement",
+        "\"Mallows\" \"parity\" \"Gnedin\" \"Olshanski\" product"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.11610v1, Theorem 1.6 and Section 10; full accessible text",
+      "arxiv:1103.1498v1, Theorem 5.1 and Section 5; primary PDF material",
+      "arxiv:2402.09892v2, abstract, introduction and principal formulas",
+      "published-finding corpus semantic queries listed in originality comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] provides the exact double series and standard basic q-hypergeometric rewritings.",
+        "[2] directly defines c_o/c_e and explicitly leaves both inequality and monotonicity open.",
+        "[3] changes the probability measure to a mixture."
+      ],
+      "reasoning": "The new geometric-difference law and product formula are derived from [1], not independent new probability input. Their strict parity positivity and global monotonicity require an additional product evaluation and derivative-sign proof not stated in [1], and [2] makes that missing consequence mathematically explicit. This is the exact novelty being assessed, not a claim to discover the displacement distribution.",
+      "searches": [
+        "arxiv:1103.1498v1 Theorem 5.1 equation 19 q binomial transform",
+        "arxiv:2201.11610v1 Theorem 1.6 Section 10 c_o c_e",
+        "arxiv:2402.09892v2 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 5.1 of Gnedin--Olshanski, arXiv:1103.1498v1, p.17, equation (19), explicitly computes the two-index displacement distribution, not the bilateral product or independent-geometric difference representation.",
+        "He--Müller--Verstraaten, arXiv:2201.11610v1, Section 10, calls the parity inequality and monotonicity unresolved, despite using the Gnedin--Olshanski law."
+      ],
+      "reasoning": "The exact one-point distribution is mathematically stronger data than a parity evaluation, but it is expressed as a two-index q-series. Applying the nontrivial q-binomial transform twice identifies a product and proves signs and strict monotonicity, a consequence explicitly left open in the 2022 work. A previously known transform could coincide, which remains a priority risk.",
+      "searches": [
+        "Mallows two-sided infinite displacement probability generating function product geometric difference",
+        "Cycles in Mallows random permutations c_o c_e parity monotonicity open problem 2022",
+        "Gnedin Olshanski Theorem 5.1 Mallows displacement parity c_o",
+        "\"Mallows\" \"displacement\" \"q-Pochhammer\" \"characteristic function\" infinite",
+        "\"Cycles in Mallows random permutations\" monotonicity c_o c_e result conjecture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 describes uniform-permutation cycle/inversion covariance, not Mallows displacement; other high ranked results similarly lack the stated product."
+      ],
+      "reasoning": "No exact match was observed in the accessible claim records or published-finding corpus rankings. Search and partition coverage cannot certify global uniqueness; inspection of substantive predecessors is therefore also reported.",
+      "searches": [
+        "Mallows two-sided infinite displacement probability generating function product geometric difference",
+        "Cycles in Mallows random permutations c_o c_e parity monotonicity open problem 2022"
+      ]
+    },
+    "rationale": "The motivating 2022 paper explicitly states the global c_o>1/2>c_e inequality and separate strict monotonicity as unproved. Its cited 2011 predecessor supplies a full two-index displacement distribution, but inspection of its Section 5 finds neither the q-binomial bilateral product evaluation, iid geometric-difference law, nor derivative-sign proof. The 2024 Mallows Product Measure treats a different nonergodic model. Actual published-finding corpus and own-claim checks show no equivalent in the accessible results. Originality is assessed as the nontrivial exact evaluation and completion of explicit questions, not as the initial distribution formula.",
+    "residual_risks": [
+      "This product is a q-binomial consequence of Gnedin--Olshanski (2011); older specialist references may have explicitly written an equivalent bilateral transform, despite 2022 authors leaving its parity consequence open.",
+      "Inspection of 2024 Mallows Product Measure was restricted to the directly relevant statement and introduction, not every appendix.",
+      "No global historical-priority or independent audit is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The precise parity strict inequality and individual strict monotonicities are explicitly open; their mathematical content exactly matches consequences of the new infinite product.",
+        "evidence": [
+          "Article Section 10: paragraph beginning “There might well be some low-hanging fruit,” followed by the parity inequality and monotonicity requests.",
+          "Theorem 1.6 identifies c_o and c_e as even and odd one-site displacement probabilities for inverse parameter q."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.11610",
+        "material_read": "Theorem 1.6 statements, definitions of c_o and c_e, limiting behavior, proofs in Section 8 pertaining to parity, and entire Section 10 suggestions.",
+        "method": "Read legally accessible full article text on Wiley and arXiv HTML, with specific theorem and Section 10 comparisons.",
+        "title": "Cycles in Mallows random permutations",
+        "trigger": "Theorem 1.6 parity constants and Section 10 open questions are the motivating gap."
+      },
+      {
+        "assessment": "Exactly supplies the two-index marginal series; neither the bilateral product nor the geometric-difference representation or parameter-monotonic parity result is stated in this inspected section. Its logical implication via q-binomial is explicitly disclosed.",
+        "evidence": [
+          "Theorem 5.1 equation (19) gives (1-q)(q;q)_infty Σ_{r-s=d} q^{rs+r+s}/((q;q)_r(q;q)_s).",
+          "Remark 5.2 discusses exponential tails, not parity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1103.1498",
+        "material_read": "Section 5 pp.17--20: Theorem 5.1, equation (19), both proofs, equations (21)--(23), and Remark 5.2; introductory and earlier geometric construction context.",
+        "method": "Read source PDF text, visually inspected PDF pp.17--18, and compared formula implications algebraically.",
+        "title": "The two-sided infinite extension of the Mallows model for random permutations",
+        "trigger": "Provides the distribution that could subsume the entire claim."
+      },
+      {
+        "assessment": "Results are for a non-ergodic mixture of ergodic Mallows measures, not the fixed balanced ergodic law or its parity constants; not an exact-cover statement.",
+        "evidence": [
+          "Page 1 explicitly defines M^p_alpha as linear combinations of ergodic M_c; page 2 Theorem 1.1 applies to M^p_alpha."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.09892",
+        "material_read": "Abstract and complete Introduction through Section 2 opening, pp.1--3, including Theorems 1.1--1.3 and distinction of ergodic and mixed measures.",
+        "method": "Read PDF extracted text and visually inspected first two pages; compared the measures and theorem quantifiers.",
+        "title": "Mallows Product Measure",
+        "trigger": "Highly relevant 2024 product formulas for neighboring displacements, plausible stronger literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52b8f0e2-ea08-484c-bbb9-19510919d8bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a new natural representation of a stationary permutation displacement as the difference of iid sums of independent geometric variables, together with its full bilateral pgf. It establishes the exact previously conjectured sign c_o(Q)>1/2>c_e(Q) and proves both strict parameter-monotonicities for all Q>1, simultaneously resolving two explicit 2022 open problems rather than an arbitrary normalization exercise. It also reproduces both parameter-boundary limits and isolates the useful exact parity gap.",
+    "status": "PASS"
+  }
+}
