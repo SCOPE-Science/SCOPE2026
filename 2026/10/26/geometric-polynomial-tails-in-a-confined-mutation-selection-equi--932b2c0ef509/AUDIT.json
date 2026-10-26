@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "The exact convolution identity is verified coefficientwise. The eigenvector equation gives w_{i+1}+w_{i-1}=(theta+theta^{-1}-epsilon_i)w_i with epsilon_i=(1-theta)^2/(theta varrho mu_i). Since alpha>1, epsilon is summable. The backward Volterra construction gives a decaying solution asymptotic to theta^i; reduction of order gives an independent theta^{-i} branch, which is incompatible with w=P phi in ell_1. Therefore phi_i=w_i/(varrho mu_i) has the stated positive-tail asymptotic. Symmetry and simplicity give the negative-tail asymptotic. The omitted-mass and exponential-moment conclusions follow from geometric comparison.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollett (2026), arXiv:2609.02086v1, Theorem 7 and Proposition 3 establish the confining equilibrium and convergence of finite-section spectral radii; the discussion states that detailed eigenvector analysis and normalized eigenvector convergence are not pursued.",
+        "Damanik–Simon (2006) abstract/metadata identify general asymptotic theory for Jacobi recurrences as relevant background; the full text was not inspected in this run."
+      ],
+      "reasoning": "The recent model paper does not provide a stronger tail theorem. General recurrence theory can supply the asymptotic-integration step, but the explicit population-model transformation, polynomial mortality factor, omitted-mass asymptotic, and exponential-moment boundary are not stated in the inspected model paper. Residual risk: the application may be implicit in older recurrence literature.",
+      "searches": [
+        "infinite trait mutation selection equilibrium eigenvector asymptotic decay mortality growth",
+        "Damanik and Simon, Jost functions and Jost solutions for Jacobi matrices II: Decay and analyticity, DOI 10.1155/IMRN/2006/19396"
+      ]
+    },
+    "checked_sources": [
+      "Pollett (2026), arXiv:2609.02086v1, https://arxiv.org/abs/2609.02086",
+      "Damanik and Simon (2006), DOI 10.1155/IMRN/2006/19396, abstract/metadata only",
+      "published-finding corpus semantic search queries recorded in prior_checks.resultary_queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pollett's Theorem 7 yields a unique positive equilibrium eigenvector in the confining regime; Proposition 3 gives spectral-radius convergence for finite sections but not an eigenvector tail.",
+        "The recurrence identity reduces the model eigenvector to a second-order recurrence with summable coefficient perturbation when alpha>1."
+      ],
+      "reasoning": "The claim adds a model-specific asymptotic φ_{±n}~Kθ^n n^{-alpha}, the exact omitted-mass scale, and the boundary of exponential-moment finiteness. The generic recurrence lemma is standard; the new scientific content is its explicit translation to this equilibrium. This is a narrow application, not an absolute-priority claim.",
+      "searches": [
+        "discrete Laplace mutation kernel polynomial confining mortality principal eigenvector tail asymptotics",
+        "infinite trait mutation selection equilibrium eigenvector asymptotic decay mortality growth",
+        "mutation selection balance trait distribution exponential moment threshold mortality polynomial growth",
+        "Pollett, arXiv:2609.02086v1, sections 2, 5, 6; Damanik–Simon 2006, DOI 10.1155/IMRN/2006/19396"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned the unrelated mutation-chemostat threshold record 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd; no returned record stated the discrete-Laplace eigenvector tail."
+      ],
+      "reasoning": "The theorem is an asymptotic statement about the principal eigenvector of D^{-1}P for the exact discrete-Laplace convolution kernel. The closest semantic result concerns a different operator and a spectral threshold, not eigenvector decay. Semantic non-retrieval is not proof of novelty; classical recurrence theory remains a risk.",
+      "searches": [
+        "discrete Laplace mutation kernel polynomial confining mortality principal eigenvector tail asymptotics",
+        "infinite trait mutation selection equilibrium eigenvector asymptotic decay mortality growth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned published-finding corpus records were unrelated results on mutation-selection thresholds, endpoint tails, and probability asymptotics; no exact table or database entry matched this model-specific tail."
+      ],
+      "reasoning": "No exact database/table is known to classify this eigenvector tail. published-finding corpus was queried for the source family, kernel, mortality growth, and moment boundary; the absence of a match is only supporting evidence, not a novelty proof.",
+      "searches": [
+        "mutation selection balance trait distribution exponential moment threshold mortality polynomial growth"
+      ]
+    },
+    "rationale": "The accessible recent primary source establishes the equilibrium threshold and finite-section spectral-radius convergence but explicitly leaves eigenvector-tail analysis aside. Three actual published-finding corpus semantic queries found no matching statement. The exact population-model tail and omitted-mass formula are not stated in the inspected source. Classical Jacobi asymptotics are a genuine residual risk; the claim is a model-specific application rather than a new general recurrence theorem.",
+    "residual_risks": [
+      "A classical summable-perturbation theorem for Jacobi recurrences may make the asymptotic a direct corollary; full-text comparison with Damanik–Simon was not completed.",
+      "The claim concerns omitted mass of the infinite equilibrium and does not prove a convergence rate for normalized finite-section eigenvectors.",
+      "Independent audit and independent validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves existence/uniqueness under confinement and spectral-radius convergence, but does not derive the principal eigenvector tail or omitted-mass asymptotic; it explicitly leaves detailed eigenvector analysis aside.",
+        "evidence": "arXiv:2609.02086v1, sections 2, 5, and 6; first public date 2026-09-02; primary MSC 92D25.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.02086v1",
+        "material_read": "Full HTML text; especially model definition, Theorem 7, Proposition 3, and discussion sections 5–6.",
+        "method": "Compared the exact objects, operator, equilibrium statement, and truncation conclusions against the proposed tail asymptotic.",
+        "title": "Mutation–selection balance on an infinite trait space: confinement, drift and equilibrium",
+        "trigger": "Primary source motivating the infinite-trait equilibrium and finite-section truncation question."
+      },
+      {
+        "assessment": "Potentially relevant background for the summable-perturbation lemma; it does not establish from the material read that the model-specific tail and cutoff-mass formula are covered.",
+        "evidence": "Caltech repository record for Damanik and Simon (2006), DOI 10.1155/IMRN/2006/19396.",
+        "identifier_or_url": "https://doi.org/10.1155/IMRN/2006/19396",
+        "material_read": "Abstract and repository metadata only; full text not inspected.",
+        "method": "Used only to identify the relevant general spectral-theory risk, not as evidence that the population-model claim is covered.",
+        "title": "Jost functions and Jost solutions for Jacobi matrices, II. Decay and analyticity",
+        "trigger": "General asymptotic theory for second-order recurrences with decaying coefficient perturbations may imply the recurrence part of the result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "932b2c0e-f509-4f68-bdf0-22f146f87ab1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The asymptotic supplies a precise, parameter-dependent rate for the equilibrium mass discarded by a finite symmetric trait cutoff, directly addressing a practical issue in finite-section approximations of infinite-trait mutation-selection models. The critical exponential-moment boundary is an additional exact distributional consequence. The claim avoids asserting a finite-section eigenvector error bound or a downstream stability theorem.",
+    "status": "PASS"
+  }
+}
